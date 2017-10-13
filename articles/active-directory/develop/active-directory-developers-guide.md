@@ -1,5 +1,5 @@
 ---
-title: aaaAzure Active Directory voor ontwikkelaars | Microsoft Docs
+title: Azure Active Directory voor ontwikkelaars | Microsoft Docs
 description: Dit artikel geeft een overzicht van het aanmelden bij werk- en schoolaccounts van Microsoft met Azure Active Directory.
 services: active-directory
 author: dstrockis
@@ -14,22 +14,22 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4dbbea6c1e0b8a70c0c36ddd1caec5658130a003
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory voor ontwikkelaars
-Azure Active Directory is een cloud identity-service waarmee ontwikkelaars toosecurely Meld u aan elke gebruiker met een account voor werk of school ondersteund door Microsoft.  Hallo documentatie Hier ziet u hoe tooadd Azure AD tooyour toepassing met behulp van de branche standaard verificatieprotocollen, OAuth & OpenID Connect ondersteunen.
+Azure Active Directory is een identiteitsservice in de cloud waarmee ontwikkelaars ervoor kunnen zorgen dat elke gebruiker met een werk- of schoolaccount ondersteund door Microsoft zich veilig kan aanmelden.  In deze documentatie wordt beschreven hoe u Azure AD-ondersteuning aan uw toepassing kunt toevoegen met de standaardverificatieprotocollen OAuth en OpenID Connect.
 
 | | |
 | --- | --- |
-|[Basisprincipes van Auth](active-directory-authentication-scenarios.md) | Een inleiding tooauthentication met Azure AD |
-|[Soorten toepassingen](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Een overzicht van Hallo verificatie scenario's ondersteund door Azure AD |                                
+|[Basisprincipes van Auth](active-directory-authentication-scenarios.md) | Een inleiding tot verificatie met Azure AD |
+|[Soorten toepassingen](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Een overzicht van de verificatiescenario's die worden ondersteund door Azure AD |                                
                                                                               
 ## <a name="get-started"></a>Aan de slag
-Deze instellingen begeleide helpt u stapsgewijs door het gebruik van onze verificatie-bibliotheken toosign in Azure Active Directory-gebruikers.
+In deze stapsgewijze installaties leert u hoe u onze verificatiebibliotheken kunt gebruiken om Azure Active Directory-gebruikers aan te melden.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -40,13 +40,13 @@ Deze instellingen begeleide helpt u stapsgewijs door het gebruik van onze verifi
 | <center>![Service naar service](./media/active-directory-developers-guide/Service_App.png)<br />Service naar service</center> | [Overzicht](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[Referenties voor OAuth 2.0-client](active-directory-protocols-oauth-service-to-service.md) |  |
 
 ## <a name="guides"></a>Handleidingen
-Deze artikelen laten u weten hoe tooperform algemene taken met Azure Active Directory.
+In deze artikelen wordt beschreven hoe u algemene taken kunt uitvoeren met Azure Active Directory.
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
-|[Appregistratie](active-directory-integrating-applications.md)           | Hoe tooregister een app in Azure AD |
-|[Apps met meerdere tenants](active-directory-devhowto-multi-tenant-overview.md)    | Hoe toosign in een Microsoft-werkaccount |
-|[OAuth en OpenID Connect](active-directory-protocols-openid-connect-code.md)| Hoe toosign in gebruikers en de aanroep van web-API's met behulp van onze protocollen moderne verificatiescenario |
+|[Appregistratie](active-directory-integrating-applications.md)           | Een app registreren in Azure AD |
+|[Apps met meerdere tenants](active-directory-devhowto-multi-tenant-overview.md)    | Aanmelden bij een Microsoft-werkaccount |
+|[OAuth en OpenID Connect](active-directory-protocols-openid-connect-code.md)| Gebruikers aanmelden en web-API's aanroepen via onze moderne auth-protocollen |
 |[Meer handleidingen...](active-directory-developers-guide-index.md#guides)        |     |
 
 ## <a name="reference"></a>Naslaginformatie
@@ -54,13 +54,13 @@ Deze artikelen bieden gedetailleerde informatie over de API's, protocolberichten
 
 |                                                                                   | |
 | ----------------------------------------------------------------------------------| --- |
-| [Verificatiebibliotheken (ADAL)](active-directory-authentication-libraries.md)   | Een overzicht van Hallo bibliotheken & SDK's die worden geleverd door Azure AD |
+| [Verificatiebibliotheken (ADAL)](active-directory-authentication-libraries.md)   | Een overzicht van de bibliotheken en SDK's die worden geleverd door Azure AD |
 | [Codevoorbeelden](active-directory-code-samples.md)                                  | Een lijst met alle Azure AD-codevoorbeelden |
 | [Woordenlijst](active-directory-dev-glossary.md)                                      | Termen en definities van woorden die in deze documenten worden gebruikt |
 | [Meer referentiemateriaal...](active-directory-developers-guide-index.md#reference)|     |
 
 ## <a name="help--support"></a>Help en ondersteuning
-Dit zijn Hallo beste locaties tooget helpen met het ontwikkelen op Azure Active Directory.
+Dit zijn de aanbevolen plaatsen voor hulp bij het ontwikkelen met Azure Active Directory.
 
 |  |  
 |---|
@@ -71,4 +71,4 @@ Dit zijn Hallo beste locaties tooget helpen met het ontwikkelen op Azure Active 
 <br />
 
 > [!NOTE]
-> Als u toosign in Microsoft persoonlijke accounts nodig hebt, kunt u met behulp van Hallo tooconsider [Azure AD v2.0-eindpunt](active-directory-appmodel-v2-overview.md).  Hello Azure AD v2.0-eindpunt is Hallo vereniging van Microsoft persoonlijke accounts & Microsoft-werkaccount (van Azure AD) in een één-verificatiesysteem.
+> Als u persoonlijke Microsoft-accounts wilt aanmelden, kunt u overwegen het [Azure AD v2.0-eindpunt](active-directory-appmodel-v2-overview.md) te gebruiken.  Het Azure AD v2.0-eindpunt combineert persoonlijke Microsoft-accounts en Microsoft-werkaccounts (vanuit Azure AD) in één verificatiesysteem.

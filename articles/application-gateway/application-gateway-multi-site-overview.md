@@ -1,6 +1,6 @@
 ---
-title: aaaHosting meerdere sites op Azure Application Gateway | Microsoft Docs
-description: Deze pagina bevat een overzicht van Hallo Application Gateway-ondersteuning voor meerdere locaties.
+title: Meerdere sites op Azure Application Gateway hosten| Microsoft Docs
+description: Op deze pagina wordt de ondersteuning voor meerdere sites in Application Gateway beschreven.
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 4ab6faa97f1891d7525affdaa36463681bf99e9f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 645f68d836babf11f32fc391e6dacc9430f0070c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Meerdere sites in Application Gateway hosten
 
-Kunt u meerdere hosting-site tooconfigure meer dan één webtoepassing op Hallo hetzelfde exemplaar van de gateway. Deze functie kunt u een efficiëntere topologie voor uw implementaties tooconfigure door too20 websites tooone toepassingsgateway toe te voegen. Elke website kan worden omgeleid tooits eigenaar van de back-endpool. In de Hallo voorbeeld te volgen, bedient toepassingsgateway verkeer voor contoso.com en fabrikam.com van twee back-end servergroepen ContosoServerPool en FabrikamServerPool genoemd.
+Door meerdere sites te hosten, kunt u meer dan één webtoepassing configureren op dezelfde instantie van de toepassingsgateway. Met deze functie kunt u een efficiëntere topologie voor uw implementaties configureren door maximaal 20 websites toe te voegen aan één toepassingsgateway. Elke website kan worden omgeleid naar een eigen back-endpool. In het volgende voorbeeld verzorgt de toepassingsgateway het verkeer voor contoso.com en fabrikam.com van twee back-endservepools, ContosoServerPool en FabrikamServerPool genaamd.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
 > [!IMPORTANT]
-> Regels worden verwerkt in Hallo volgorde waarin die ze worden weergegeven in de portal Hallo. Het wordt sterk aanbevolen tooconfigure listeners multi-site eerste voorafgaande tooconfiguring een basic-listener.  Dit zorgt ervoor dat verkeer opgehaald terugkeren gerouteerde toohello eindigen. Als een basislistener als eerste wordt weergegeven en overeenkomt met een inkomende aanvraag, wordt deze door die listener verwerkt.
+> Regels worden verwerkt in de volgorde die wordt weergegeven in de portal. Het is raadzaam om eerst listeners voor meerdere locaties te configureren voordat u een basislistener configureert.  Dit zorgt ervoor dat verkeer naar de juiste back-end wordt geleid. Als een basislistener als eerste wordt weergegeven en overeenkomt met een inkomende aanvraag, wordt deze door die listener verwerkt.
 
-Aanvragen voor http://contoso.com gerouteerde tooContosoServerPool en http://fabrikam.com gerouteerde tooFabrikamServerPool zijn.
+Aanvragen voor http://contoso.com worden naar ContosoServerPool gerouteerd en aanvragen voor http://fabrikam.com naar FabrikamServerPool.
 
-Op dezelfde manier Hallo twee subdomeinen Hallo dezelfde bovenliggende domein kan worden gehost op dezelfde gateway toepassingsimplementatie. Voorbeelden van subdomeinen die worden gehost op één toepassingsgateway-implementatie, zijn http://blog.contoso.com en http://app.contoso.com.
+Op dezelfde manier kunnen twee subdomeinen van hetzelfde bovenliggende domein worden gehost op dezelfde gateway-implementatie. Voorbeelden van subdomeinen die worden gehost op één toepassingsgateway-implementatie, zijn http://blog.contoso.com en http://app.contoso.com.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Hostheaders en Servernaamindicatie (SNI)
 
-Er zijn drie algemene methoden voor het inschakelen van meerdere site hosten op Hallo van dezelfde infrastructuur.
+Er zijn drie algemene mechanismen om het hosten van meerdere sites in te schakelen op dezelfde infrastructuur.
 
 1. Het is mogelijk meerdere webtoepassingen te hosten, elk op een uniek IP-adres.
-2. Gebruik hostnaam toohost meerdere webtoepassingen op Hallo hetzelfde IP-adres.
-3. Gebruik verschillende poorten toohost meerdere webtoepassingen op Hallo hetzelfde IP-adres.
+2. Gebruik de hostnaam voor het hosten van meerdere webtoepassingen op hetzelfde IP-adres.
+3. Gebruik verschillende poorten voor het hosten van meerdere webtoepassingen op hetzelfde IP-adres.
 
-Op dit ogenblik krijgt een toepassingsgateway één openbaar IP-adres waarop deze luistert naar verkeer. Daarom wordt de ondersteuning van meerdere toepassingen, elk met een eigen IP-adres, momenteel niet ondersteund. Toepassingsgateway ondersteunt die als host fungeert voor meerdere toepassingen elke luistert op verschillende poorten, maar in dit scenario zou moeten Hallo toepassingen tooaccept verkeer op niet-standaardpoorten en is vaak niet een gewenste configuratie. Application Gateway is afhankelijk van HTTP 1.1 host headers toohost meer dan één website op Hallo hetzelfde openbare IP-adres en poort. Hallo sites die worden gehost in toepassingsgateway kunnen ook ondersteuning voor SSL-offload met de Server de naam van vermelding (SNI) TLS-extensie. Dit scenario betekent dat Hallo client browser en back-end-webfarm HTTP/1.1 en TLS-extensie, zoals gedefinieerd in RFC 6066 moet ondersteunen.
+Op dit ogenblik krijgt een toepassingsgateway één openbaar IP-adres waarop deze luistert naar verkeer. Daarom wordt de ondersteuning van meerdere toepassingen, elk met een eigen IP-adres, momenteel niet ondersteund. Application Gateway ondersteunt het hosten van meerdere toepassingen die elk luisteren op verschillende poorten. Dit scenario zou echter vereisen dat de toepassingen verkeer accepteren op niet-standaardpoorten en dat is vaak geen gewenste configuratie. Application Gateway maakt gebruik van HTTP 1.1-hostheaders voor het hosten van meer dan één website op hetzelfde openbare IP-adres en dezelfde poort. De sites die op de toepassingsgateway worden gehost, kunnen ook SSL-offload ondersteunen met de Servernaamindicatie (SNI) met TLS-extensie. Dit scenario houdt in dat de clientbrowser en back-end-webfarm de HTTP/1.1- en TLS-extensie moeten ondersteunen zoals gedefinieerd in RFC 6066.
 
 ## <a name="listener-configuration-element"></a>Configuratie-element Listener
 
-Bestaande HTTPListener configuratie-element is verbeterd toosupport host en de server de naam van vermelding elementen, die wordt gebruikt door de gateway tooroute verkeer tooappropriate back-end van toepassingen. Hallo is volgende codevoorbeeld Hallo codefragment HttpListeners-element van de sjabloon.
+Configuratie-element HTTPListener is verbeterd voor het ondersteunen van indicatie-elementen van de hostnaam en servernaam die worden gebruikt door de toepassingsgateway om verkeer naar de back-endpool te routeren. Het volgende codevoorbeeld is het fragment van het HttpListeners-element van het sjabloonbestand.
 
 ```json
 "httpListeners": [
@@ -83,11 +83,11 @@ Bestaande HTTPListener configuratie-element is verbeterd toosupport host en de s
 ],
 ```
 
-U kunt ook bezoeken [Resource Manager-sjabloon met gebruik van meerdere hosting-site](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) voor een implementatie end tooend op basis van een sjabloon.
+U kunt ook [Resource Manager-sjabloon met het hosten van meerdere sites](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) bezoeken voor een end-to-end implementatie op basis van sjablonen.
 
 ## <a name="routing-rule"></a>Routeringsregel
 
-Er is geen wijziging in de regel voor het doorsturen van Hallo vereist. Hallo routeringsregel 'Basic' moet blijven toobe gekozen tootie Hallo geschikte site listener toohello overeenkomende back-end-adresgroep.
+Er is geen wijziging vereist in de routeringsregel. De routeringsregel Basic moet nog steeds worden gekozen om de geschikte site-listener te binden aan de overeenkomende back-end-adresgroep.
 
 ```json
 "requestRoutingRules": [
@@ -128,5 +128,5 @@ Er is geen wijziging in de regel voor het doorsturen van Hallo vereist. Hallo ro
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat u hebt leren over het hosten van meerdere site gaat te[een toepassingsgateway met meerdere hosting-site maken](application-gateway-create-multisite-azureresourcemanager-powershell.md) toocreate een toepassingsgateway met mogelijkheid toosupport meer dan één webtoepassing.
+Nadat u meer hebt geleerd over het hosten van meerdere sites, gaat u naar [Een toepassingsgateway maken met het hosten van meerdere sites](application-gateway-create-multisite-azureresourcemanager-powershell.md) om een toepassingsgateway te maken met de mogelijkheid om meer dan één webtoepassing te ondersteunen.
 

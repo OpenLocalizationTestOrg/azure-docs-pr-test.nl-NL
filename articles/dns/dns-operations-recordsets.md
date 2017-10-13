@@ -1,5 +1,5 @@
 ---
-title: aaaManage DNS registreert in Azure DNS met Azure PowerShell | Microsoft Docs
+title: DNS-records in Azure DNS met Azure PowerShell beheren | Microsoft Docs
 description: Het beheren van DNS-recordsets en records op Azure DNS bij het hosten van uw Azure DNS-domein. Alle PowerShell-opdrachten voor bewerkingen op recordsets en records.
 services: dns
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
-ms.openlocfilehash: bfdf116e174d06db0514abdc0ec3f4fc4ee0a079
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2962e30e5d9c60b8e786e2ba79647cabfc5925cd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>DNS-records en recordsets in Azure DNS met Azure PowerShell beheren
 
@@ -28,13 +28,13 @@ ms.lasthandoff: 10/06/2017
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-Dit artikel laat zien hoe toomanage DNS registreert voor uw DNS-zone met behulp van Azure PowerShell. DNS-records kunnen ook worden beheerd met behulp van de platformoverschrijdende Hallo [Azure CLI](dns-operations-recordsets-cli.md) of Hallo [Azure-portal](dns-operations-recordsets-portal.md).
+In dit artikel laat zien hoe DNS-records voor de DNS-zone beheren met behulp van Azure PowerShell. DNS-records kunnen ook worden beheerd met behulp van de platformoverschrijdende [Azure CLI](dns-operations-recordsets-cli.md) of de [Azure-portal](dns-operations-recordsets-portal.md).
 
-Hallo-voorbeelden in dit artikel wordt ervan uitgegaan dat u al hebt [Azure PowerShell aangemeld, geïnstalleerd en wordt gemaakt van een DNS-zone](dns-operations-dnszones.md).
+De voorbeelden in dit artikel wordt ervan uitgegaan dat u al hebt [Azure PowerShell aangemeld, geïnstalleerd en wordt gemaakt van een DNS-zone](dns-operations-dnszones.md).
 
 ## <a name="introduction"></a>Inleiding
 
-Voordat u DNS-records in Azure DNS maakt, moet u eerst de toounderstand hoe organiseert van DNS-records in DNS-recordsets in Azure DNS.
+Voordat u DNS-records in DNS Azure maakt, leest u eerst hoe Azure DNS DNS-records organiseert in DNS-recordsets.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
@@ -43,27 +43,27 @@ Zie [DNS-zones en -records](dns-zones-records.md) voor meer informatie over DNS-
 
 ## <a name="create-a-new-dns-record"></a>Maak een nieuwe DNS-record
 
-Als uw nieuwe record Hallo dezelfde naam geven en typt u als een bestaande record heeft, moet u deze te[toe te voegen de bestaande recordset toohello](#add-a-record-to-an-existing-record-set). Als uw nieuwe record een andere naam en type tooall bestaande records heeft, moet u een nieuwe recordset toocreate. 
+Als uw nieuwe record dezelfde naam en hetzelfde type als een bestaande record heeft, moet u [toe te voegen aan de bestaande recordset](#add-a-record-to-an-existing-record-set). Als uw nieuwe record een andere naam en type alle bestaande records heeft, moet u een nieuwe recordset maken. 
 
 ### <a name="create-a-records-in-a-new-record-set"></a>"A" records in een nieuwe recordset maken
 
-U recordsets maakt met behulp van Hallo `New-AzureRmDnsRecordSet` cmdlet. Bij het maken van een recordset moet u de naam van de recordset toospecify hello, Hallo zone, Hallo tijd toolive (TTL), het recordtype Hallo en Hallo records toobe gemaakt.
+U kunt recordsets maken met behulp van de cmdlet `New-AzureRmDnsRecordSet`. Wanneer u een recordset, moet u aangeven dat de record naam, de zone, de tijd ingesteld op live (TTL), het recordtype en de records die moeten worden gemaakt.
 
-Hallo-parameters voor het toevoegen van records tooa recordset is afhankelijk van Hallo type Hallo Recordset. Bijvoorbeeld, wanneer u een recordset van het type "A", moet u toospecify Hallo IP-adres met de parameter Hallo `-IPv4Address`. Andere parameters worden gebruikt voor andere typen records. Zie [voorbeelden van recordtypen aanvullende](#additional-record-type-examples) voor meer informatie.
+De parameters voor het toevoegen van records aan een recordset variëren afhankelijk van het type recordset. Bijvoorbeeld, wanneer u een recordset van het type "A", moet u het IP-adres met de parameter opgeven `-IPv4Address`. Andere parameters worden gebruikt voor andere typen records. Zie [voorbeelden van recordtypen aanvullende](#additional-record-type-examples) voor meer informatie.
 
-Hallo wordt volgende voorbeeld een recordset met Hallo relatieve naam 'www' Hallo 'contoso.com' van DNS-Zone. Hallo volledig gekwalificeerde naam van de recordset Hallo is 'www.contoso.com'. Hallo recordtype is "A" en Hallo TTL 3600 seconden is. Hallo-Recordset bevat één record, met IP-adres '1.2.3.4'.
+Het volgende voorbeeld maakt een recordset met de relatieve naam 'www' in de DNS-Zone 'contoso.com'. De volledig gekwalificeerde naam van de recordset is 'www.contoso.com'. Het recordtype is "A" en de TTL 3600 seconden. De recordset bevat één record, met IP-adres '1.2.3.4'.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-toocreate een recordset op Hallo 'top' van een zone (in dit geval 'contoso.com'), gebruik de naam van Hallo Recordset ' @' (zonder aanhalingstekens):
+Maken van een recordset in de apex van een zone (in dit geval 'contoso.com'), gebruikt u de naam van de recordset ' @' (zonder aanhalingstekens):
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-Als u een recordset met meer dan één record toocreate nodig, maakt eerst een lokale matrix en Hallo records toevoegen en Hallo matrix te geven`New-AzureRmDnsRecordSet` als volgt:
+Als u een recordset met meer dan één record maken wilt, maakt eerst een lokale matrix en de records toevoegen en de matrix te geven `New-AzureRmDnsRecordSet` als volgt:
 
 ```powershell
 $aRecords = @()
@@ -72,13 +72,13 @@ $aRecords += New-AzureRmDnsRecordConfig -IPv4Address "2.3.4.5"
 New-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName MyResourceGroup -Ttl 3600 -RecordType A -DnsRecords $aRecords
 ```
 
-[Metagegevens van de recordset](dns-zones-records.md#tags-and-metadata) mag gebruikte tooassociate toepassingsspecifieke gegevens met elke recordset als sleutel-waardeparen. Hallo volgende voorbeeld laat zien hoe toocreate een recordset met twee metagegevensvermeldingen ' afdeling Financiën =' en ' omgeving productie ='.
+[Metagegevens van de recordset](dns-zones-records.md#tags-and-metadata) kan worden gebruikt om toepassingsspecifieke gegevens koppelen aan elke recordset als sleutel-waardeparen. Het volgende voorbeeld ziet u hoe u een recordset met twee metagegevensvermeldingen maken ' afdeling Financiën =' en ' omgeving productie ='.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") -Metadata @{ dept="finance"; environment="production" } 
 ```
 
-Azure DNS ondersteunt ook 'empty' recordsets die als een tijdelijke aanduiding voor tooreserve een DNS-naam optreden kunnen voor het maken van DNS-records. Lege recordsets zijn zichtbaar in hello Azure DNS besturingselement vlak, maar worden weergegeven op Hallo Azure DNS-naamservers. Hallo volgende voorbeeld wordt een lege recordset gemaakt:
+Azure DNS ondersteunt ook 'empty' recordsets als een tijdelijke aanduiding voor een DNS-naam reserveren fungeren kunnen voordat u DNS-records maakt. Lege recordsets zijn zichtbaar in het vlak van Azure DNS-beheer, maar worden weergegeven op de Azure DNS-naamservers. Het volgende voorbeeld wordt een lege recordset gemaakt:
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords @()
@@ -86,11 +86,11 @@ New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -Resou
 
 ## <a name="create-records-of-other-types"></a>Records van andere typen maken
 
-Hebben gezien in detail hoe toocreate "A" registreert, Hallo volgen voorbeelden kunt u zien hoe toocreate records van andere typen die worden ondersteund door Azure DNS registreren.
+Hebben gezien in detail "A" records maken, de volgende voorbeelden laten zien hoe andere recordtypen ondersteund door Azure DNS-records maken.
 
-In elk geval laten we zien hoe een record toocreate instelt met een enkel record. Hallo eerdere voorbeelden voor "A" records kunnen worden aangepast toocreate recordsets van andere typen met meerdere records met metagegevens, of lege record toocreate ingesteld.
+In elk geval laten we zien hoe u een recordset met één record maken. De eerdere voorbeelden voor "A" records kunnen worden aangepast voor het maken van recordsets van andere typen met meerdere records met metagegevens, of leeg recordsets maken.
 
-We geven geen een toocreate bijvoorbeeld een recordset SOA-sinds SOA's zijn gemaakt en verwijderd met elke DNS-zone en kan niet worden gemaakt of afzonderlijk worden verwijderd. Echter, [Hallo SOA kan worden gewijzigd, zoals wordt weergegeven in het voorbeeld van een hoger](#to-modify-an-SOA-record).
+We geven geen bevoegdheden als een voorbeeld voor het maken van een recordset SOA sinds SOA's zijn gemaakt en verwijderd met elke DNS-zone en kan niet worden gemaakt of afzonderlijk worden verwijderd. Echter, [de SOA kan worden gewijzigd, zoals wordt weergegeven in het voorbeeld van een hoger](#to-modify-an-SOA-record).
 
 ### <a name="create-an-aaaa-record-set-with-a-single-record"></a>Een AAAA-recordset met één record maken
 
@@ -101,7 +101,7 @@ New-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName "contoso.co
 ### <a name="create-a-cname-record-set-with-a-single-record"></a>Een CNAME-recordset met één record maken
 
 > [!NOTE]
-> Hallo DNS-standaarden staan niet toe dat CNAME-records in het toppunt van Hallo van een zone (`-Name '@'`), noch staan ze recordsets met meer dan één record.
+> De DNS-standaarden staan niet toe dat CNAME-records in de apex van een zone (`-Name '@'`), noch staan ze recordsets met meer dan één record.
 > 
 > Zie voor meer informatie [CNAME-records](dns-zones-records.md#cname-records).
 
@@ -112,7 +112,7 @@ New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>Een MX-recordset met één record maken
 
-In dit voorbeeld gebruiken we Hallo recordnaam ' @' toocreate een MX-record in het toppunt Hallo zone (in dit geval 'contoso.com').
+In dit voorbeeld gebruiken we de naam van de recordset ' @' een MX-record maken in het toppunt van de zone (in dit geval 'contoso.com').
 
 
 ```powershell
@@ -127,7 +127,7 @@ New-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName "contoso.com" -
 
 ### <a name="create-a-ptr-record-set-with-a-single-record"></a>Een PTR-recordset met één record maken
 
-In dit geval ' Mijn-arpa-zone.com' vertegenwoordigt Hallo ARPA zone voor reverse lookup voor uw IP-adresbereik. Elke PTR-recordset in deze zone komt overeen tooan IP-adres binnen deze IP-adresbereik. Hallo recordnaam "10" is de laatste octet Hallo van Hallo IP-adres binnen deze IP-bereik dat wordt vertegenwoordigd door deze record.
+In dit geval ' Mijn-arpa-zone.com' zone voor reverse lookup ARPA waarmee uw IP-bereik vertegenwoordigt. Elke PTR-recordset die is ingesteld in deze zone komt overeen met een IP-adres in dit IP-bereik. De recordnaam "10" is het laatste octet van het IP-adres binnen deze IP-bereik dat wordt vertegenwoordigd door deze record.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "myservice.contoso.com") 
@@ -135,7 +135,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Een SRV-recordset met één record maken
 
-Bij het maken van een [SRV-Recordset](dns-zones-records.md#srv-records), geef Hallo  *\_service* en  *\_protocol* in Hallo-of RecordsetNaam. Er is geen tooinclude moet ' @' in hello RecordsetNaam wanneer een SRV-record maken in het toppunt zone Hallo ingesteld.
+Bij het maken van een [SRV-Recordset](dns-zones-records.md#srv-records), geef de  *\_service* en  *\_protocol* in de naam van de recordset. Er is niet nodig om ' @' in de recordnaam bij het maken van een SRV-record in het toppunt van de zone.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 
@@ -144,7 +144,7 @@ New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com
 
 ### <a name="create-a-txt-record-set-with-a-single-record"></a>Een TXT-recordset met één record maken
 
-Hallo volgende voorbeeld ziet u hoe een TXT-toocreate opnemen. Zie voor meer informatie over de maximale tekenreekslengte hello wordt ondersteund in de TXT-records [TXT-records](dns-zones-records.md#txt-records).
+Het volgende voorbeeld laat zien hoe een TXT-record te maken. Zie voor meer informatie over de maximale tekenreekslengte ondersteund in de TXT-records [TXT-records](dns-zones-records.md#txt-records).
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Value "This is a TXT record") 
@@ -153,17 +153,17 @@ New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName "contoso.com"
 
 ## <a name="get-a-record-set"></a>Een recordset ophalen
 
-Gebruik een bestaande recordset tooretrieve `Get-AzureRmDnsRecordSet`. Deze cmdlet retourneert een lokaal object met Hallo-recordset in Azure DNS.
+Gebruik voor het ophalen van een bestaande recordset `Get-AzureRmDnsRecordSet`. Deze cmdlet retourneert een lokaal object met de recordset in Azure DNS.
 
-Net als bij `New-AzureRmDnsRecordSet`, krijgt de naam van de Hallo recordset moet een *relatieve* naam, wat betekent dat het Hallo-zonenaam moet uitsluiten. U moet ook toospecify Hallo recordtype en Hallo-recordset met Hallo-zone.
+Net als bij `New-AzureRmDnsRecordSet`, de naam van de recordset gegeven moet een *relatieve* naam, wat betekent dat de naam van de zone moet worden uitgesloten. U moet ook opgeven het recordtype en de zone met de record ingesteld.
 
-Hallo ziet volgende voorbeeld u hoe tooretrieve een record instellen. In dit voorbeeld Hallo zone is opgegeven met behulp van Hallo `-ZoneName` en `-ResourceGroupName` parameters.
+Het volgende voorbeeld laat zien hoe een recordset ophalen. In dit voorbeeld wordt de zone wordt opgegeven met de `-ZoneName` en `-ResourceGroupName` parameters.
 
 ```powershell
 $rs = Get-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
-U kunt ook u kunt ook opgeven met behulp van een zone-object dat is doorgegeven met Hallo Hallo-zone `-Zone` parameter.
+U kunt eventueel ook opgeven de zone met behulp van een zone-object dat is doorgegeven met behulp van de `-Zone` parameter.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
@@ -172,116 +172,116 @@ $rs = Get-AzureRmDnsRecordSet -Name "www" -RecordType A -Zone $zone
 
 ## <a name="list-record-sets"></a>Lijst met recordsets
 
-U kunt ook `Get-AzureRmDnsZone` toolist recordsets in een zone door Hallo weg te laten `-Name` en/of `-RecordType` parameters.
+U kunt ook `Get-AzureRmDnsZone` aan de lijst met recordsets in een zone, zonder de `-Name` en/of `-RecordType` parameters.
 
-Hallo retourneert volgende voorbeeld alle recordsets in Hallo zone:
+Het volgende voorbeeld retourneert alle recordsets in de zone:
 
 ```powershell
 $recordsets = Get-AzureRmDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
-Hallo volgende voorbeeld ziet u hoe-alle recordsets van een bepaald type kunnen worden opgehaald door te geven Hallo recordtype terwijl weglaten Hallo record naam instellen:
+Het volgende voorbeeld ziet u hoe-alle recordsets van een bepaald type kan worden opgehaald door het recordtype geven terwijl naam als de record wordt weggelaten instellen:
 
 ```powershell
 $recordsets = Get-AzureRmDnsRecordSet -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
-alle recordsets met een opgegeven naam tooretrieve over recordtypen, moet u tooretrieve alle recordsets en vervolgens filter Hallo resultaten:
+Voor het ophalen van alle recordsets met een opgegeven naam over recordtypen, moet u alle recordsets ophalen en vervolgens de resultaten te filteren:
 
 ```powershell
 $recordsets = Get-AzureRmDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | where {$_.Name.Equals("www")}
 ```
 
-In alle Hallo bovenstaande voorbeelden Hallo zone worden opgegeven met behulp van Hallo `-ZoneName` en `-ResourceGroupName`parameters (zoals weergegeven), of door te geven van een zone-object:
+In de bovenstaande voorbeelden de zone kan worden opgegeven via de `-ZoneName` en `-ResourceGroupName`parameters (zoals weergegeven), of door te geven van een zone-object:
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
 $recordsets = Get-AzureRmDnsRecordSet -Zone $zone
 ```
 
-## <a name="add-a-record-tooan-existing-record-set"></a>Een record tooan bestaande recordset toevoegen
+## <a name="add-a-record-to-an-existing-record-set"></a>Een record aan een bestaande recordset toevoegen
 
-een bestaande record record tooan tooadd instellen, voert u Hallo drie stappen te volgen:
+Als een record toevoegen aan een bestaande recordset, volgt u de volgende drie stappen:
 
-1. De bestaande recordset Hallo ophalen
+1. De bestaande recordset ophalen
 
     ```powershell
     $rs = Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
     ```
 
-2. Hallo nieuwe records toohello lokale recordset toevoegen. Dit is een offline-bewerking.
+2. De nieuwe record toevoegen aan de lokale Recordset. Dit is een offline-bewerking.
 
     ```powershell
     Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
     ```
 
-3. Hallo wijziging back toohello Azure DNS-service worden doorgevoerd. 
+3. De wijziging doorvoeren terug naar de Azure DNS-service. 
 
     ```powershell
     Set-AzureRmDnsRecordSet -RecordSet $rs
     ```
 
-Met behulp van `Set-AzureRmDnsRecordSet` *vervangt* Hallo bestaande recordset in Azure DNS (en alle records die deze bevat) met opgegeven Hallo-Recordset. [ETag controles](dns-zones-records.md#etags) worden gebruikt tooensure gelijktijdige wijzigingen worden niet overschreven. U kunt optioneel Hallo `-Overwrite` overschakelen toosuppress deze controles.
+Met behulp van `Set-AzureRmDnsRecordSet` *vervangt* de bestaande recordset in Azure DNS (en alle records die deze bevat) met de opgegeven recordset. [ETag controles](dns-zones-records.md#etags) worden gebruikt om ervoor te zorgen gelijktijdige wijzigingen worden niet overschreven. U kunt de optionele `-Overwrite` overschakelen naar het onderdrukken van deze controles.
 
-Deze reeks bewerkingen kan ook worden *doorgesluisd*, wat betekent dat u Hallo Recordset object Hallo pipe gebruiken in plaats van deze doorgegeven als parameter doorgeven:
+Deze reeks bewerkingen kan ook worden *doorgesluisd*, wat betekent dat u het object Recordset met behulp van de pipe in plaats van deze doorgegeven als parameter doorgeven:
 
 ```powershell
 Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Hallo voorbeelden bovenstaande van hoe tooadd een "A" bestaande record tooan-record van het type "A" instellen. Een vergelijkbare reeks bewerkingen is gebruikte tooadd recordsets toorecord van andere typen, vervangen door Hallo `-Ipv4Address` parameter van `Add-AzureRmDnsRecordConfig` met andere parameters specifieke tooeach-recordtype. Hallo parameters voor elk recordtype zijn Hallo dezelfde als voor Hallo `New-AzureRmDnsRecordConfig` cmdlet, zoals wordt weergegeven in [voorbeelden van recordtypen aanvullende](#additional-record-type-examples) hierboven.
+De bovenstaande voorbeelden laten zien hoe een 'A'-record toevoegen aan een bestaande recordset van het type "A". Een vergelijkbare reeks bewerkingen wordt gebruikt voor het toevoegen van records aan de recordsets van andere typen, vervangen door de `-Ipv4Address` parameter van `Add-AzureRmDnsRecordConfig` met andere parameters die specifiek zijn voor elk recordtype. De parameters voor elk recordtype zijn hetzelfde als voor de `New-AzureRmDnsRecordConfig` cmdlet, zoals wordt weergegeven in [voorbeelden van recordtypen aanvullende](#additional-record-type-examples) hierboven.
 
-Recordsets van het type 'CNAME-' of 'SOA' mag niet meer dan een record bevatten. Deze beperking voortvloeit uit Hallo DNS-standaarden. Het is niet een beperking van Azure DNS.
+Recordsets van het type 'CNAME-' of 'SOA' mag niet meer dan een record bevatten. Deze beperking voortvloeit uit de DNS-standaarden. Het is niet een beperking van Azure DNS.
 
 ## <a name="remove-a-record-from-an-existing-record-set"></a>Een record verwijderen uit een bestaande recordset
 
-Hallo proces tooremove een record van een recordset is vergelijkbaar toohello proces tooadd een record tooan bestaande recordset:
+Een record verwijderen uit een recordset van het proces is vergelijkbaar met het proces voor het toevoegen van een record aan een bestaande recordset:
 
-1. De bestaande recordset Hallo ophalen
+1. De bestaande recordset ophalen
 
     ```powershell
     $rs = Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
     ```
 
-2. Hallo-record verwijderen uit het Hallo lokale Recordset-object. Dit is een offline-bewerking. Hallo-record die wordt verwijderd moet een exacte overeenkomst aan een bestaande record binnen alle parameters.
+2. De record verwijderen uit het lokale Recordset-object. Dit is een offline-bewerking. De record die wordt verwijderd moet een exacte overeenkomst aan een bestaande record binnen alle parameters.
 
     ```powershell
     Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
     ```
 
-3. Hallo wijziging back toohello Azure DNS-service worden doorgevoerd. Gebruik Hallo optionele `-Overwrite` overschakelen toosuppress [Etag controleert](dns-zones-records.md#etags) voor gelijktijdige wijzigingen.
+3. De wijziging doorvoeren terug naar de Azure DNS-service. Gebruik het optionele `-Overwrite` switch moet worden onderdrukt [Etag controleert](dns-zones-records.md#etags) voor gelijktijdige wijzigingen.
 
     ```powershell
     Set-AzureRmDnsRecordSet -RecordSet $Rs
     ```
 
-Met behulp van Hallo hierboven sequence tooremove Hallo laatste record van een recordset Hallo recordset niet verwijderen, in plaats daarvan het verlaten van een lege recordset. een recordset volledig, tooremove Zie [verwijderen van een recordset](#delete-a-record-set).
+De laatste record verwijderen uit een recordset met behulp van de bovenstaande reeks de recordset niet verwijderen, in plaats daarvan het verlaten van een lege recordset. Verwijdert u een recordset volledig [verwijderen van een recordset](#delete-a-record-set).
 
-Op dezelfde manier Recordset tooadding records tooa, Hallo reeks operations tooremove een recordset kan ook worden doorgesluisd:
+Naar de records aan een recordset toe te voegen, kan de volgorde van bewerkingen voor het verwijderen van een recordset op dezelfde manier ook worden doorgesluisd:
 
 ```powershell
 Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Verschillende recordtypen worden ondersteund door het doorgeven van het juiste type-specifieke parameters hello te`Remove-AzureRmDnsRecordSet`. Hallo parameters voor elk recordtype zijn Hallo dezelfde als voor Hallo `New-AzureRmDnsRecordConfig` cmdlet, zoals wordt weergegeven in [voorbeelden van recordtypen aanvullende](#additional-record-type-examples) hierboven.
+Verschillende recordtypen worden ondersteund door de juiste parameters typespecifieke voor `Remove-AzureRmDnsRecordSet`. De parameters voor elk recordtype zijn hetzelfde als voor de `New-AzureRmDnsRecordConfig` cmdlet, zoals wordt weergegeven in [voorbeelden van recordtypen aanvullende](#additional-record-type-examples) hierboven.
 
 
 ## <a name="modify-an-existing-record-set"></a>Een bestaande recordset wijzigen
 
-Hallo-stappen voor het wijzigen van een bestaande recordset zijn vergelijkbaar toohello stappen bij het toevoegen of verwijderen van records uit een Recordset:
+De stappen voor het wijzigen van een bestaande recordset zijn vergelijkbaar met de stappen waarmee u bij het toevoegen of verwijderen van records uit een Recordset:
 
-1. Ophalen van de bestaande record Hallo ingesteld met behulp van `Get-AzureRmDnsRecordSet`.
-2. Hallo lokale Recordset object door te wijzigen:
+1. Ophalen van de bestaande record ingesteld met behulp van `Get-AzureRmDnsRecordSet`.
+2. Wijzig het lokale Recordset-object door:
     * Het toevoegen of verwijderen van records
-    * Hallo-parameters van bestaande records wijzigen
-    * Het wijzigen van de record Hallo ingesteld metagegevens en toolive TTL (time)
-3. Uw wijzigingen met behulp van Hallo `Set-AzureRmDnsRecordSet` cmdlet. Dit *vervangt* Hallo bestaande recordset in Azure DNS met Hallo-recordset is opgegeven.
+    * De parameters van bestaande records wijzigen
+    * Het wijzigen van de record metagegevens en de tijd ingesteld op live (TTL)
+3. Uw wijzigingen met behulp van de `Set-AzureRmDnsRecordSet` cmdlet. Dit *vervangt* de bestaande recordset in Azure DNS met de opgegeven recordset.
 
-Wanneer u `Set-AzureRmDnsRecordSet`, [Etag controleert](dns-zones-records.md#etags) worden gebruikt tooensure gelijktijdige wijzigingen worden niet overschreven. U kunt optioneel Hallo `-Overwrite` overschakelen toosuppress deze controles.
+Wanneer u `Set-AzureRmDnsRecordSet`, [Etag controleert](dns-zones-records.md#etags) worden gebruikt om ervoor te zorgen gelijktijdige wijzigingen worden niet overschreven. U kunt de optionele `-Overwrite` overschakelen naar het onderdrukken van deze controles.
 
-### <a name="tooupdate-a-record-in-an-existing-record-set"></a>een record in een bestaande record tooupdate instellen
+### <a name="to-update-a-record-in-an-existing-record-set"></a>Een record in een bestaande recordset bij te werken
 
-In dit voorbeeld wijzigen we Hallo IP-adres van een bestaande "A" record:
+In dit voorbeeld wijzigen we het IP-adres van een bestaande "A" record:
 
 ```powershell
 $rs = Get-AzureRmDnsRecordSet -name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
@@ -289,11 +289,11 @@ $rs.Records[0].Ipv4Address = "9.8.7.6"
 Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
-### <a name="toomodify-an-soa-record"></a>toomodify SOA-record
+### <a name="to-modify-an-soa-record"></a>Een SOA-record wijzigen
 
-U kunt toevoegen of verwijderen van records uit Hallo automatisch gemaakt SOA-record is ingesteld in het toppunt Hallo zone (`-Name "@"`, inclusief de aanhalingstekens). Echter kunt u een van de parameters Hallo binnen Hallo SOA-record (met uitzondering van de "Host") en de TTL van de recordset Hallo.
+U kunt toevoegen of verwijderen van records uit de automatisch gemaakte SOA-record is ingesteld in het toppunt van de zone (`-Name "@"`, inclusief de aanhalingstekens). Echter, kunt u een van de parameters binnen de SOA-record (met uitzondering van de "Host") en de TTL-waarde van de recordset.
 
-Hallo volgende voorbeeld wordt getoond hoe toochange hello *e* eigenschap Hallo SOA-record:
+Het volgende voorbeeld ziet u het wijzigen van de *e* eigenschap van de SOA-record:
 
 ```powershell
 $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType SOA -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
@@ -301,15 +301,15 @@ $rs.Records[0].Email = "admin.contoso.com"
 Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
-### <a name="toomodify-ns-records-at-hello-zone-apex"></a>toomodify NS-records in het toppunt Hallo zone
+### <a name="to-modify-ns-records-at-the-zone-apex"></a>NS-records in het toppunt van de zone wijzigen
 
-Hallo NS-recordset in het toppunt Hallo zone wordt automatisch gemaakt met elke DNS-zone. Het bevat Hallo-namen van hello Azure DNS-naam servers toegewezen toohello zone.
+De NS-recordset in het toppunt van de zone wordt automatisch gemaakt met elke DNS-zone. Het bevat de namen van de Azure DNS-naamservers toegewezen aan de zone.
 
-U kunt de naam van de aanvullende servers toothis NS-recordset, toosupport CO domeinen met meer dan één DNS-provider host toevoegen. U kunt ook wijzigen Hallo TTL en metagegevens voor deze recordset. U kan echter verwijderen of wijzigen Hallo vooraf ingestelde Azure DNS-naamservers.
+U kunt extra naam ingesteld van servers aan deze NS-record, ter ondersteuning van collega hosting domeinen met meer dan één DNS-provider toevoegen. U kunt ook de TTL-waarde en de metagegevens voor deze recordset wijzigen. U kan echter verwijderen of wijzigen van de vooraf ingestelde Azure DNS-naamservers.
 
-Houd er rekening mee dat dit alleen toohello NS recordset in het toppunt zone Hallo geldt. Andere NS recordsets in de zone (als gebruikte toodelegate onderliggende zones) kunnen worden gewijzigd zonder beperking.
+Houd er rekening mee dat dit alleen voor de NS-recordset in het toppunt van de zone geldt. Andere NS-recordsets in de zone (zoals gebruikt voor het delegeren van onderliggende zones) kunnen worden gewijzigd zonder beperking.
 
-Hallo volgende voorbeeld ziet u hoe tooadd een extra naam server toohello NS-record instellen in het toppunt Hallo zone:
+Het volgende voorbeeld ziet u hoe een extra naamserver aan de NS-recordset in het toppunt van de zone toevoegen:
 
 ```powershell
 $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
@@ -317,14 +317,14 @@ Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname ns1.myotherdnsprovider.com
 Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
-### <a name="toomodify-record-set-metadata"></a>metagegevens van de recordset toomodify
+### <a name="to-modify-record-set-metadata"></a>Recordset metagegevens wijzigen
 
-[Metagegevens van de recordset](dns-zones-records.md#tags-and-metadata) mag gebruikte tooassociate toepassingsspecifieke gegevens met elke recordset als sleutel-waardeparen.
+[Metagegevens van de recordset](dns-zones-records.md#tags-and-metadata) kan worden gebruikt om toepassingsspecifieke gegevens koppelen aan elke recordset als sleutel-waardeparen.
 
-Hallo ziet volgende voorbeeld u hoe toomodify Hallo metagegevens van een bestaande record instellen:
+Het volgende voorbeeld ziet u hoe de metagegevens van een bestaande recordset wijzigen:
 
 ```powershell
-# Get hello record set
+# Get the record set
 $rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 
 # Add 'dept=finance' name-value pair
@@ -340,34 +340,34 @@ Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ## <a name="delete-a-record-set"></a>Een recordset verwijderen
 
-Recordsets kunnen worden verwijderd met behulp van Hallo `Remove-AzureRmDnsRecordSet` cmdlet. Een recordset te verwijderen, verwijdert tevens alle records in de recordset Hallo.
+Recordsets kunnen worden verwijderd met behulp van de `Remove-AzureRmDnsRecordSet` cmdlet. Een recordset te verwijderen, verwijdert tevens alle records in de recordset.
 
 > [!NOTE]
-> U kunt geen Hallo SOA- en NS-recordsets in het toppunt Hallo zone verwijderen (`-Name '@'`).  Deze wordt automatisch door Azure DNS gemaakt wanneer Hallo zone is gemaakt en worden automatisch verwijderd wanneer Hallo zone wordt verwijderd.
+> U kunt de SOA niet verwijderen en NS-record wordt ingesteld in het toppunt van de zone (`-Name '@'`).  Deze wordt automatisch door Azure DNS gemaakt wanneer de zone is gemaakt en worden automatisch verwijderd wanneer de zone wordt verwijderd.
 
-Hallo ziet volgende voorbeeld u hoe toodelete een record instellen. In dit voorbeeld worden Hallo Recordset naam, type recordset zonenaam en resourcegroep elk expliciet opgegeven.
+Het volgende voorbeeld laat zien hoe een recordset te verwijderen. In dit voorbeeld wordt worden de naam van de recordset, type recordset, zonenaam en resourcegroep elk expliciet opgegeven.
 
 ```powershell
 Remove-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
-U kunt ook Hallo recordset kan worden opgegeven met de naam en type en Hallo zone opgegeven met behulp van een object:
+De recordset kan ook worden opgegeven door de naam en type en de zone die is opgegeven met behulp van een object:
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
 Remove-AzureRmDnsRecordSet -Name "www" -RecordType A -Zone $zone
 ```
 
-Als een derde optie Hallo-Recordset zelf, worden opgegeven met behulp van een Recordset-object:
+Een derde optie, kan de recordset zelf worden opgegeven met behulp van een Recordset-object:
 
 ```powershell
 $rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 Remove-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
-Wanneer u Hallo Recordset toobe verwijderd opgeeft met behulp van een object Recordset [Etag controleert](dns-zones-records.md#etags) worden gebruikt tooensure gelijktijdige wijzigingen worden niet verwijderd. U kunt optioneel Hallo `-Overwrite` overschakelen toosuppress deze controles.
+Wanneer u de recordset moet worden verwijderd met behulp van een object Recordset opgeeft [Etag controleert](dns-zones-records.md#etags) worden gebruikt om ervoor te zorgen gelijktijdige wijzigingen worden niet verwijderd. U kunt de optionele `-Overwrite` overschakelen naar het onderdrukken van deze controles.
 
-Hallo Recordset object kan ook worden doorgesluisd in plaats van dat wordt doorgegeven als parameter:
+De Recordset-object kan ook worden doorgesluisd in plaats van dat wordt doorgegeven als parameter:
 
 ```powershell
 Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | Remove-AzureRmDnsRecordSet
@@ -375,11 +375,11 @@ Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -Resourc
 
 ## <a name="confirmation-prompts"></a>Bevestiging vragen
 
-Hallo `New-AzureRmDnsRecordSet`, `Set-AzureRmDnsRecordSet`, en `Remove-AzureRmDnsRecordSet` cmdlets alle bevestiging vragen ondersteunen.
+De `New-AzureRmDnsRecordSet`, `Set-AzureRmDnsRecordSet`, en `Remove-AzureRmDnsRecordSet` cmdlets alle bevestiging vragen ondersteunen.
 
-Elke cmdlet vraagt om bevestiging als hello `$ConfirmPreference` PowerShell voorkeursvariabele een waarde heeft van `Medium` of lager. Sinds de standaardwaarde Hallo voor `$ConfirmPreference` is `High`, deze vragen zijn niet opgegeven voor het met de standaardinstellingen voor PowerShell Hallo.
+Elke cmdlet vraagt om bevestiging als de `$ConfirmPreference` PowerShell voorkeursvariabele een waarde heeft van `Medium` of lager. Sinds de standaardwaarde voor `$ConfirmPreference` is `High`, deze vragen zijn niet opgegeven voor het met de standaardinstellingen voor PowerShell.
 
-U kunt de huidige Hallo overschrijven `$ConfirmPreference` instelling met de Hallo `-Confirm` parameter. Als u opgeeft `-Confirm` of `-Confirm:$True` , Hallo cmdlet vraagt u om bevestiging voordat deze wordt uitgevoerd. Als u opgeeft `-Confirm:$False` , Hallo cmdlet wordt u niet gevraagd om bevestiging. 
+U kunt de huidige overschrijven `$ConfirmPreference` instellen met de `-Confirm` parameter. Als u opgeeft `-Confirm` of `-Confirm:$True` , vraagt de cmdlet u om bevestiging voordat deze wordt uitgevoerd. Als u opgeeft `-Confirm:$False` , de cmdlet wordt u niet gevraagd om bevestiging. 
 
 Voor meer informatie over `-Confirm` en `$ConfirmPreference`, Zie [over Voorkeursvariabelen](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
 
@@ -387,6 +387,6 @@ Voor meer informatie over `-Confirm` en `$ConfirmPreference`, Zie [over Voorkeur
 
 Meer informatie over [zones en -records in Azure DNS](dns-zones-records.md).
 <br>
-Meer informatie over hoe te[beveiligen van uw zones en records](dns-protect-zones-recordsets.md) bij gebruik van Azure DNS.
+Meer informatie over hoe [beveiligen van uw zones en records](dns-protect-zones-recordsets.md) bij gebruik van Azure DNS.
 <br>
-Bekijk Hallo [Azure DNS PowerShell-naslagdocumentatie](/powershell/module/azurerm.dns).
+Controleer de [Azure DNS PowerShell-naslagdocumentatie](/powershell/module/azurerm.dns).

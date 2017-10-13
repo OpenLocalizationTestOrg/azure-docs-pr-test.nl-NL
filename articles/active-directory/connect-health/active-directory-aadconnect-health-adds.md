@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect Health met AD DS aaaUsing | Microsoft Docs
-description: Dit is hello Azure AD Connect Health-pagina waarop wordt besproken hoe toomonitor AD DS.
+title: Azure AD Connect Health gebruiken met AD DS | Microsoft Docs
+description: Dit is de Azure AD Connect Health-pagina waarop wordt besproken hoe AD DS kunt controleren.
 services: active-directory
 documentationcenter: 
 author: arluca
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e2fb6be65407d02c214dcab385b85d6cb54f48de
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 9e5b45d71b978c383932409f0037a4f6f32d0cb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Azure AD Connect Health gebruiken met AD DS
-Hallo volgende documentatie is specifiek toomonitoring Active Directory Domain Services met Azure AD Connect Health. Hallo ondersteunde versies van AD DS zijn: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016.
+De volgende documentatie is specifiek voor het controleren van Active Directory Domain Services met Azure AD Connect Health. De ondersteunde versies van AD DS zijn: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016.
 
 Zie [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md) (Engelstalig) voor meer informatie over het controleren van AD FS met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md) voor informatie over het controleren van AD Connect (Sync) met Azure AD Connect Health.
 
 ![Azure AD Connect Health voor AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-ad-ds"></a>Waarschuwingen voor Azure AD Connect Health voor AD DS
-Hallo in de sectie waarschuwingen in Azure AD Connect Health voor AD DS, geeft u een lijst van actieve en opgeloste waarschuwingen, gerelateerde tooyour-domeincontrollers. Selecteren van een waarschuwing actief of opgelost, wordt een nieuwe blade geopend met meer informatie, samen met de stappen voor het oplossen, en koppelingen toosupporting documentatie. Elk type waarschuwing kan een of meer instanties die overeenkomen met tooeach van domeincontrollers Hallo beïnvloed door deze bepaalde waarschuwing hebben. U kunt dubbelklikken op een geïnfecteerde domain controller tooopen een extra blade met meer informatie over deze waarschuwing exemplaar aan de onderkant van de Hallo van waarschuwing blade hello.
+De sectie waarschuwingen in Azure AD Connect Health voor AD DS biedt u een lijst met actieve en opgeloste waarschuwingen die betrekking hebben op uw domeincontrollers. Bij het selecteren van een actieve of opgeloste waarschuwing wordt een nieuwe blade geopend met aanvullende informatie, samen met stappen om het probleem op te lossen en koppelingen naar ondersteunende documentatie. Elk type waarschuwing kan een of meer exemplaren hebben die overeenstemmen met elk van de domeincontrollers die betrekking hebben op die waarschuwing. Onderaan de waarschuwingsblade kunt u dubbelklikken op een betrokken domeincontroller om een nieuwe blade te openen met aanvullende informatie over het waarschuwingsexemplaar.
 
-In deze blade kunt u e-mailmeldingen voor waarschuwingen inschakelen en Hallo tijdsbereik in de weergave te wijzigen. Hallo tijdsbereik uitbreidt, kunt u toosee voorafgaande opgeloste waarschuwingen.
+Op deze blade kunt u e-mailmeldingen inschakelen voor waarschuwingen en het tijdsbereik in de weergave wijzigen. Als u het tijdsbereik vergroot, kunt u eerdere waarschuwingen die zijn opgelost weergeven.
 
 ![Azure AD Connect-synchronisatiefout](./media/active-directory-aadconnect-health/aadconnect-health-adds-alerts.png)
 
 ## <a name="domain-controllers-dashboard"></a>Dashboard voor domeincontrollers
-Dit dashboard biedt een topologische weergave van uw omgeving, samen met belangrijke operationele statistieken en de status van elk van de bewaakte domeincontrollers. Hallo weergegeven metrische gegevens helpen tooquickly identificeren, de domeincontrollers die mogelijk verder onderzoek. Alleen een subset van kolommen hello wordt standaard weergegeven. U vindt echter Hallo volledige set van beschikbare kolommen door te dubbelklikken op Hallo kolommen opdracht. Hallo-kolommen die u meest belangrijk vindt Hiermee schakelt u dit dashboard in één en eenvoudig plaatsen tooview Hallo status van uw AD DS-omgeving selecteren.
+Dit dashboard biedt een topologische weergave van uw omgeving, samen met belangrijke operationele statistieken en de status van elk van de bewaakte domeincontrollers. De aangeboden metrische gegevens helpen om snel alle domeincontrollers die mogelijk verder onderzocht moeten worden te identificeren. Standaard wordt alleen een subset van de kolommen weergegeven. U kunt echter de gehele set met beschikbare kolommen vinden door te dubbelklikken op de opdracht voor kolommen. Door de voor u meest interessante kolommen te selecteren wordt dit dashboard een handige plek om de status van uw AD DS-omgeving te bekijken.
 
 ![Domeincontrollers](./media/active-directory-aadconnect-health/aadconnect-health-adds-domainsandsites-dashboard.png)
 
--Domeincontrollers kunnen worden gegroepeerd op hun respectieve domein of de locatie, die helpen te begrijpen Hallo omgeving topologie. Ten slotte, als u dubbelklikt op Hallo blade header, Hallo dashboard maximaliseert de tooutilize Hallo beschikbaar scherm-vastgoed. Deze grote weergave is handig als u meerdere kolommen weergeeft.
+Domeincontrollers kunnen worden gegroepeerd op hun respectievelijke domein of de site, wat nuttig is voor het begrijpen van de topologie van de omgeving. Als u ten slotte dubbelklikt u op de bladekop, wordt het dashboard gemaximaliseerd om de beschikbare schermruimte te gebruiken. Deze grote weergave is handig als u meerdere kolommen weergeeft.
 
 ## <a name="replication-status-dashboard"></a>Dashboard voor replicatiestatus
-Dit dashboard geeft een overzicht van Hallo replicatie status en replicatie-topologie van uw bewaakte domeincontrollers. Hallo-status van de meest recente replicatiepoging Hallo wordt weergegeven, samen met de nuttige documentatie voor elke fout die is gevonden. U kunt dubbelklikken op een domeincontroller met een fout optreedt, tooopen een nieuwe blade met informatie, zoals: over Hallo fout, aanbevolen stappen, details en koppelingen tootroubleshooting documentatie.
+Dit dashboard geeft een overzicht van de replicatiestatus en -topologie van uw bewaakte domeincontrollers. De status van de meest recente replicatiepoging wordt weergegeven, samen met nuttige documentatie voor elke fout die is gevonden. U kunt dubbelklikken op een domeincontroller met een fout om een nieuwe blade te openen met informatie, zoals details over de fout, aanbevolen stappen om het probleem te verhelpen en koppelingen naar documentatie over het oplossen van problemen.
 
 ![Replicatiestatus](./media/active-directory-aadconnect-health/aadconnect-health-adds-replication.png)
 
 ## <a name="monitoring"></a>Bewaking
-Deze functie biedt een grafische trends van verschillende prestatiemeteritems die continu worden verzameld van elk van de domeincontrollers Hallo bewaakt. Prestaties van een domeincontroller kunnen eenvoudig worden vergeleken met andere bewaakte domeincontrollers in uw forest. Bovendien ziet u verschillende prestatiemeters naast elkaar, dit is nuttig bij probleemoplossing in uw omgeving.
+Deze functie biedt grafische trends van verschillende prestatiemeters, die voortdurend worden verzameld van elke bewaakte domeincontroller. Prestaties van een domeincontroller kunnen eenvoudig worden vergeleken met andere bewaakte domeincontrollers in uw forest. Bovendien ziet u verschillende prestatiemeters naast elkaar, dit is nuttig bij probleemoplossing in uw omgeving.
 
 ![Bewaking](./media/active-directory-aadconnect-health/aadconnect-health-adds-monitoring.png)
 
-Standaard hebben we voorgeselecteerd, vier prestatiemeteritems; u kunt anderen echter opnemen door te klikken op Hallo filteropdracht en selecteren of uitschakel gewenste prestatiemeteritems. U kunt bovendien een prestaties teller grafiek tooopen een nieuwe blade, waaronder gegevenspunten voor elk van de domeincontrollers bewaakt Hallo dubbelklikken.
+Standaard hebben we vier prestatiemeters vooraf geselecteerd; u kunt echter andere meters opnemen door op de filteropdracht te klikken en de gewenste meters te (de)selecteren. Als u klikt op de grafiek van een prestatiemeter, wordt een nieuwe blade geopend. Deze bevat de gegevenspunten voor elke bewaakte domeincontroller.
 
 ## <a name="related-links"></a>Verwante koppelingen
 * [Azure AD Connect Health (Engelstalig)](active-directory-aadconnect-health.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure multi-factor Authentication-Server is gestart aaaGetting | Microsoft Docs
-description: Dit is hello Azure multi-factor authentication-pagina waarop wordt beschreven hoe tooget de slag met Azure MFA-Server.
+title: Aan de slag met de Azure Multi-Factor Authentication-server | Microsoft Docs
+description: Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met de Azure MFA-server aan de slag kunt gaan.
 services: multi-factor-authentication
 keywords: verificatieserver, app-activeringspagina voor azure multi factor authentication, downloaden bij verificatieserver
 documentationcenter: 
@@ -12,27 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.date: 08/30/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.openlocfilehash: 92a6a586eb96375e92a9455ad64e67221001db81
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: df847c370817c0702163b5e22c35c7e4f1d3cfee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="getting-started-with-hello-azure-multi-factor-authentication-server"></a>Aan de slag met hello Azure multi-factor Authentication-Server
+# <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Aan de slag met de Azure Multi-Factor Authentication-server
 
 <center>![MFA on-premises](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Nu dat we hebben vastgesteld toouse lokale multi-factor Authentication-Server, gaan we aan de slag. Deze pagina bevat een nieuwe installatie van het Hallo-server en instellen met de lokale Active Directory. Als u al Hallo MFA server zijn geïnstalleerd en tooupgrade zoekt, Zie [toohello Upgrade meest recente Azure multi-factor Authentication-Server](multi-factor-authentication-server-upgrade.md). Als u naar informatie zoekt over het installeren van de webservice NET hello, Zie [Deploying hello Azure multi-factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md).
+Nu u hebt vastgesteld dat on-premises Multi-Factor Authentication-server moet worden gebruikt, gaat u aan de slag. Op deze pagina vindt u informatie over een nieuwe installatie van de server en leert u deze in te stellen met on-premises Active Directory. Als u de MFA-server hebt geïnstalleerd en op zoek bent naar een upgrade, raadpleegt u [Upgraden naar de meest recente Azure Multi-Factor Authentication-server](multi-factor-authentication-server-upgrade.md). Zie [De webservice voor de mobiele app van de Azure Multi-Factor Authentication-server implementeren](multi-factor-authentication-get-started-server-webservice.md) voor meer informatie over het installeren van de webservice.
 
 ## <a name="plan-your-deployment"></a>Uw implementatie plannen
 
-Voordat u hello Azure multi-factor Authentication-Server hebt gedownload, moet u bedenken wat uw laden en de vereisten voor hoge beschikbaarheid zijn. Gebruik deze informatie toodecide hoe en waar toodeploy.
+Voordat u de Multi-Factor Authentication-server downloadt, moet u bedenken wat uw laadvereisten en de vereisten voor hoge beschikbaarheid zijn. Gebruik deze informatie om te bepalen hoe en waar u wilt implementeren.
 
-Een goede richtlijn voor Hallo en de hoeveelheid geheugen die u nodig het aantal gebruikers Hallo is u regelmatig een tooauthenticate verwacht.
+Een goede richtlijn voor de hoeveelheid geheugen die u nodig hebt, is het aantal gebruikers dat u regelmatig verwacht te verifiëren.
 
 | Gebruikers | RAM |
 | ----- | --- |
@@ -42,38 +42,38 @@ Een goede richtlijn voor Hallo en de hoeveelheid geheugen die u nodig het aantal
 | 100.000-200.001 | 16 GB |
 | 200.001+ | 32 GB |
 
-U tooset meerdere servers nodig voor hoge beschikbaarheid of taakverdeling? Er zijn een aantal manieren tooset van deze configuratie met Azure MFA-Server. Wanneer u uw eerste Azure MFA-Server installeert, wordt het Hallo-master. Extra servers worden onderliggende en gebruikers- en configuratie automatisch synchroniseren met Hallo master. Vervolgens kunt u een primaire server configureren en Hallo rest fungeren als back-up, of u kunt een taakverdeling tussen alle Hallo servers instellen.
+Moet u meerdere servers voor hoge beschikbaarheid of taakverdeling instellen? Er zijn een aantal manieren voor het instellen van deze configuratie met Azure MFA-server. Wanneer u uw eerste Azure MFA-server installeert, wordt die uw master. Extra servers worden ondergeschikt en synchroniseren automatisch gebruikers en configuratie met de master. Vervolgens kunt u één primaire server configureren en de rest als back-up laten fungeren, of u kunt een taakverdeling tussen alle servers instellen.
 
-Wanneer een model Azure MFA-Server offline gaat, wordt Hallo ondergeschikte servers kunnen nog steeds verzoeken proces in twee stappen. Echter, u kunt geen toevoegen nieuwe gebruikers en bestaande gebruikers kunnen pas worden bijgewerkt hun instellingen Hallo master weer online is of een ondergeschikte promotie.
+Wanneer een master Azure MFA-server offline gaat, kunnen de ondergeschikte servers nog steeds autorisatieverzoeken in twee stappen verwerken. U kunt echter geen nieuwe gebruikers toevoegen en bestaande gebruikers kunnen hun instellingen pas bijwerken als de master weer online is of een ondergeschikte server wordt gepromoveerd.
 
 ### <a name="prepare-your-environment"></a>Uw omgeving voorbereiden
 
-Zorg ervoor dat Hallo-server die u voor Azure multi-factor Authentication gebruikt aan Hallo volgens de vereisten voldoet:
+Zorg ervoor dat de server die u voor Azure Multi-Factor Authentication gebruikt, voldoet aan de volgende vereisten:
 
 | Vereisten voor Azure Multi-Factor Authentication-server | Beschrijving |
 |:--- |:--- |
 | Hardware |<li>200 MB aan vasteschijfruimte</li><li>Voor x32 of x64 geschikte processor</li><li>1 GB of meer RAM-geheugen</li> |
-| Software |<li>WindowsServer 2008 of hoger als Hallo host een serverbesturingssysteem is</li><li>Windows 7 of hoger als Hallo host een clientbesturingssysteem is</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 of hoger als installeert Hallo gebruiker portal of web service SDK</li> |
+| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, alle edities</li><li>Windows 8, alle edities</li><li>Windows 7, alle edities</li><li>Windows Vista, alle edities, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 of een recentere versie als de installatie wordt uitgevoerd vanuit de gebruikersportal of de webservice-SDK</li> |
 
 ### <a name="azure-mfa-server-components"></a>Onderdelen van Azure MFA-server
 
 Er zijn drie webonderdelen die gezamenlijk de Azure MFA-server vormen:
 
-* Web Service SDK - Hiermee schakelt u communicatie met andere onderdelen Hallo en op Hallo Azure MFA-toepassingsserver is geïnstalleerd
-* Gebruikersportal - IIS-website die u kunt gebruikers tooenroll in Azure multi-factor Authentication (MFA) en hun accounts kunnen onderhouden.
-* Mobiele Web-App Service - kunnen met behulp van een mobiele app, zoals Hallo Microsoft Authenticator-app voor verificatie in twee stappen.
+* Webservice-SDK: maakt communicatie met de andere onderdelen mogelijk en wordt geïnstalleerd op de Azure MFA-toepassingsserver.
+* Gebruikersportal: een IIS-website waar gebruikers zich kunnen registreren bij Azure Multi-Factor Authentication (MFA) en hun account kunnen beheren.
+* Webservice voor mobiele apps: maakt het mogelijk om een mobiele app, zoals de Microsoft Authenticator-app, te gebruiken voor verificatie in twee stappen.
 
-Alle drie onderdelen kunnen worden geïnstalleerd op Hallo dezelfde server als Hallo-server verbonden met internet is. Als splitsen Hallo onderdelen, Hallo Web Service SDK is geïnstalleerd op Hallo Azure MFA-toepassingsserver en Hallo Gebruikersportal en de webservice voor mobiele App zijn geïnstalleerd op een internetgerichte server.
+Alle drie de onderdelen kunnen worden geïnstalleerd op dezelfde server als deze server internetgericht is. Als de onderdelen worden opgesplitst, wordt de webservice-SDK geïnstalleerd op de Azure MFA-toepassingsserver, en de gebruikersportal en de webservice voor mobiele apps op een internetgerichte server.
 
 ### <a name="azure-multi-factor-authentication-server-firewall-requirements"></a>Firewallvereisten voor Azure Multi-Factor Authentication-server
 
-Elke MFA-server moet kunnen toocommunicate op poort 443 uitgaand toohello adressen te volgen:
+Elke MFA-server moet kunnen communiceren op poort 443, uitgaand naar de volgende adressen:
 
 * https://pfd.phonefactor.net
 * https://pfd2.phonefactor.net
 * https://css.phonefactor.net
 
-Als firewalls voor uitgaand verkeer op poort 443 worden beperkt, opent u de volgende IP-adresbereiken Hallo:
+Als firewalls voor uitgaand verkeer op poort 443 worden beperkt, moeten de volgende IP-adresbereiken worden geopend:
 
 | IP-subnet | Netmasker | IP-bereik |
 |:---: |:---: |:---: |
@@ -81,7 +81,7 @@ Als firewalls voor uitgaand verkeer op poort 443 worden beperkt, opent u de volg
 | 134.170.165.0/25 |255.255.255.128 |134.170.165.1 – 134.170.165.126 |
 | 70.37.154.128/25 |255.255.255.128 |70.37.154.129 – 70.37.154.254 |
 
-Als u Hallo Gebeurtenisbevestiging functie niet gebruikt en uw gebruikers tooverify mobiele apps van apparaten in het bedrijfsnetwerk Hallo niet gebruikt, hoeft u alleen Hallo bereiken te volgen:
+Als u de functie Gebeurtenisbevestiging niet gebruikt en gebruikers geen mobiele apps gebruiken om in het bedrijfsnetwerk te verifiëren vanaf apparaten, hebt u alleen de volgende bereiken nodig:
 
 | IP-subnet | Netmasker | IP-bereik |
 |:---: |:---: |:---: |
@@ -89,10 +89,10 @@ Als u Hallo Gebeurtenisbevestiging functie niet gebruikt en uw gebruikers toover
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-hello-azure-multi-factor-authentication-server"></a>Hello Azure multi-factor Authentication-Server downloaden
+## <a name="download-the-azure-multi-factor-authentication-server"></a>De Azure Multi-Factor Authentication-server downloaden
 
-1. Meld u aan toohello [Azure-portal](https://portal.azure.com) als beheerder.
-2. Selecteer aan de linkerkant Hallo **Active Directory**
+1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer aan de linkerkant **Active Directory**.
 3. Klik op **Gebruikers en groepen**.
 4. Klik op **Alle gebruikers**.
 5. Klik op **Multi-Factor Authentication**.
@@ -100,69 +100,69 @@ Als u Hallo Gebeurtenisbevestiging functie niet gebruikt en uw gebruikers toover
 
    ![Pagina met service-instellingen](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 
-6. Klik op Hallo services instellingenpagina onderaan Hallo welkomstscherm op **Ga toohello portal**. Er wordt een nieuwe pagina geopend.
+6. Klik onderaan op de pagina met service-instellingen op **Naar de portal**. Er wordt een nieuwe pagina geopend.
 7. Klik op **Downloads**.
-8. Klik op Hallo **downloaden** koppelen en Hallo installatieprogramma opslaan.
+8. Klik op de koppeling **Downloaden** en sla het installatieprogramma op.
 
    ![MFA-server downloaden](./media/multi-factor-authentication-get-started-server/download4.png)
 
-9. Houd deze pagina open als tooit na actieve Hallo-installatieprogramma wordt verwezen.
+9. Houd deze pagina open want er wordt naar verwezen na het uitvoeren van het installatieprogramma.
 
-## <a name="install-and-configure-hello-azure-multi-factor-authentication-server"></a>Installeer en configureer hello Azure multi-factor Authentication-Server
+## <a name="install-and-configure-the-azure-multi-factor-authentication-server"></a>De Azure Multi-Factor Authentication-server installeren en configureren
 
-U kunt nu dat u hebt gedownload Hallo-server installeren en configureren. Zorg ervoor dat die u wilt installeren op Hallo-server voldoet aan de vereisten in Hallo sectie plannen.
+Nu u de server hebt gedownload, kunt u deze installeren en configureren. Zorg ervoor dat de server waarop u deze installeert aan de vereisten in de planningssectie voldoet.
 
-1. Dubbelklik op Hallo uitvoerbare.
-2. Scherm installatiemap selecteren hello, Controleer op Hallo map juist is en klik op **volgende**.
-3. Zodra het Hallo-installatie is voltooid, klikt u op **voltooien**.  Hallo-configuratiewizard wordt gestart.
-4. Controleer op Hallo configuration wizard welkomstscherm **overslaan met behulp van verificatie-configuratiewizard Hallo** en klik op **volgende**.  Hallo-wizard wordt gesloten en Hallo-server wordt gestart.
+1. Dubbelklik op het uitvoerbare bestand.
+2. Zorg ervoor dat in het scherm Installatiemap selecteren de map juist is en klik op **Volgende**.
+3. Nadat de installatie is voltooid, klikt u op **Voltooien**.  De configuratiewizard wordt gestart.
+4. Schakel in het welkomstscherm van de configuratiewizard het selectievakje **De wizard Verificatieconfiguratie overslaan** en klik op **Volgende**.  De wizard wordt gesloten en de server wordt gestart.
 
    ![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 
-5. Terug op de pagina Hallo die we gedownload Hallo-server uit, klikt u op Hallo **Activeringsreferenties** knop. Kopieer deze informatie naar hello Azure MFA-Server in de vakken Hallo opgegeven en klikt u op **activeren**.
+5. Klik op de pagina waarvan we de server hebben gedownload op de knop **Activeringsreferenties genereren**. Kopieer deze informatie naar de Azure MFA-server in de desbetreffende vakken en klik op **Activeren**.
 
 ## <a name="send-users-an-email"></a>E-mail verzenden naar gebruikers
 
-implementatie van tooease, MFA-Server toocommunicate met uw gebruikers toestaan. MFA-Server kan een e-tooinform verzenden ze dat ze zijn geregistreerd voor verificatie in twee stappen.
+U kunt de implementatie vereenvoudigen door de MFA-server toestemming te geven om te communiceren met uw gebruikers. U kunt vanaf de MFA-server een e-mail laten versturen om de gebruikers te informeren dat ze zijn ingeschreven voor verificatie in twee stappen.
 
-Hallo e-mail die u verzendt moet worden bepaald door de configuratie van uw gebruikers voor verificatie in twee stappen. Bijvoorbeeld, als u de telefoonnummers kunnen tooimport uit de directory van het bedrijf Hallo, Hallo e-mail moet bevatten Hallo standaard telefoonnummers zodat gebruikers welke tooexpect weten. Als u telefoonnummers niet importeert, of uw gebruikers gaan toouse Hallo mobiele app, verzendt een e-mail waarin wordt verwezen ze toocomplete hun Accountregistratie. Omvatten een hyperlink toohello Azure multi-factor Authentication-Gebruikersportal in Hallo e-mailbericht.
+U moet uw e-mail aanpassen aan de manier waarop u de gebruikers hebt geconfigureerd voor verificatie in twee stappen. Als u bijvoorbeeld de telefoonnummers vanuit het bedrijfsadresboek importeert, moeten in de e-mail de standaardtelefoonnummers staan. Gebruikers weten dan wat ze kunnen verwachten. Als u de telefoonnummers niet importeert of als uw gebruikers de mobiele app gaan gebruiken, stuurt u hun een e-mail met het verzoek om de accountinschrijving te voltooien. Voeg in de e-mail een hyperlink toe naar de portal voor Multi-Factor Authentication via Azure Portal.
 
-Hallo-inhoud van e-mail Hallo is ook afhankelijk van Hallo verificatiemethode van die is ingesteld voor de gebruiker hello (telefoonoproep, SMS of mobiele app).  Bijvoorbeeld, als de gebruiker Hallo vereist toouse een PINCODE bij de verificatie, Hallo e wordt uitgelegd welke PINCODE initieel is ingesteld op.  Gebruikers zijn vereiste toochange hun PINCODE tijdens de eerste verificatie.
+De inhoud van het e-mailbericht is ook afhankelijk van de verificatiemethode die voor de gebruiker is ingesteld (telefoonoproep, sms of mobiele app).  Als de gebruiker bijvoorbeeld bij de verificatie een pincode moet opgeven, staat in het e-mailbericht welke pincode initieel is ingesteld.  Gebruikers moeten hun pincode wijzigen bij de eerste verificatie.
 
 ### <a name="configure-email-and-email-templates"></a>E-mailberichten en e-mailsjablonen configureren
 
-Klik op Hallo e-mailpictogram links tooset Hallo Hallo-instellingen opgeven voor het verzenden van deze e-mailberichten. Deze pagina is waarin u Hallo SMTP-informatie van uw e-mail-server en verzend e-mailadres kunt invoeren door te controleren Hallo **verzenden e-mails toousers** selectievakje.
+Klik op het e-mailpictogram links om de instellingen voor het verzenden van deze e-mailberichten te bepalen. Op deze pagina kunt u de SMTP-gegevens van uw e-mailserver invoeren en e-mails verzenden door het selectievakje bij **E-mails versturen naar gebruikers** in te schakelen.
 
 ![E-mailconfiguratie van MFA-server](./media/multi-factor-authentication-get-started-server/email1.png)
 
-Op tabblad Hallo inhoud van E-mail ziet u Hallo e-mailsjablonen die zijn beschikbaar toochoose uit. Afhankelijk van hoe u de verificatie van gebruikers tooperform in twee stappen hebt geconfigureerd, kiest u Hallo-sjabloon die het beste past bij.
+Op het tabblad E-mailinhoud ziet u alle beschikbare e-mailsjablonen waaruit u kunt kiezen. Afhankelijk van hoe u uw gebruikers hebt geconfigureerd voor het uitvoeren van verificatie in twee stappen, kiest u de sjabloon die voor u het meest geschikt is.
 
 ![E-mailsjablonen voor MFA-server](./media/multi-factor-authentication-get-started-server/email2.png)
 
 ## <a name="import-users-from-active-directory"></a>Gebruikers uit Active Directory importeren
 
-Nu die Hallo-server is geïnstalleerd. wilt u tooadd gebruikers. U kunt toocreate ze handmatig gebruikers importeren uit Active Directory of automatische synchronisatie met Active Directory configureren.
+De server is nu geïnstalleerd en dus kunt u gebruikers gaan toevoegen. U kunt handmatig gebruikers maken, importeren uit Active Directory of automatische synchronisatie met Active Directory configureren.
 
 ### <a name="manual-import-from-active-directory"></a>Handmatig importeren uit Active Directory
 
-1. Selecteer in hello Azure MFA-Server op Hallo links **gebruikers**.
-2. Selecteer onderaan Hallo **importeren uit Active Directory**.
-3. Nu kunt u ofwel zoeken naar afzonderlijke gebruikers of zoeken Hallo AD-directory voor organisatie-eenheden met gebruikers.  In dit geval opgeven we Hallo gebruikers organisatie-eenheid.
-4. Markeer alle Hallo gebruikers op Hallo rechts en klik op **importeren**.  Normaal verschijnt dan een pop-upvenster met de melding dat het importeren is gelukt.  Venster sluiten Hallo-importeren.
+1. Selecteer links in de Azure MFA-server de optie **Gebruikers**.
+2. Selecteer onderaan **Importeren uit Active Directory**.
+3. Nu kunt u zoeken naar afzonderlijke gebruikers of in de AD-directory zoeken naar organisatie-eenheden met gebruikers.  In dit geval geeft u de organisatie-eenheid met gebruikers op.
+4. Markeer rechts alle gebruikers en klik op **Importeren**.  Normaal verschijnt dan een pop-upvenster met de melding dat het importeren is gelukt.  Sluit het importvenster.
 
    ![Gebruikers importeren op MFA-server](./media/multi-factor-authentication-get-started-server/import2.png)
 
 ### <a name="automated-synchronization-with-active-directory"></a>Automatische synchronisatie met Active Directory
 
-1. Selecteer in hello Azure MFA-Server op Hallo links **Adreslijstintegratie**.
-2. Navigeer toohello **synchronisatie** tabblad.
-3. Kies onderin Hallo **toevoegen**
-4. In Hallo **synchronisatie-Item toevoegen** dat verschijnt kiezen Hallo domein, organisatie-eenheid **of** beveiligingsgroep, instellingen, standaardinstellingen voor methode en taal standaardinstellingen voor de synchronisatie van de taak en klik op **Toevoegen**.
-5. Selectievakje Hallo **synchronisatie met Active Directory inschakelen** en kies een **synchronisatie-interval** tussen een minuut en 24 uur.
+1. Selecteer links op de Azure MFA-server de optie **Adreslijstintegratie**.
+2. Navigeer naar het tabblad **Synchronisatie**.
+3. Kies onderaan **Toevoegen**.
+4. Kies in het groepsvak **Synchronisatie-item toevoegen** dat wordt weergegeven het domein, de organisatie-eenheid **of** beveiligingsgroep, instellingen, standaardinstellingen voor methode en standaardinstellingen voor taal voor deze synchronisatietaak en klik ten slotte op **Toevoegen**.
+5. Schakel het selectievakje **Synchronisatie met Active Directory inschakelen** in en kies een **synchronisatie-interval** tussen één minuut en 24 uur.
 
-## <a name="how-hello-azure-multi-factor-authentication-server-handles-user-data"></a>Hoe hello Azure multi-factor Authentication-Server omgaat met gebruikersgegevens
+## <a name="how-the-azure-multi-factor-authentication-server-handles-user-data"></a>Hoe de Azure Multi-Factor Authentication-server omgaat met gebruikersgegevens
 
-Wanneer u Hallo multi-factor Authentication (MFA) Server on-premises, gebruikt, worden de gegevens van een gebruiker wordt opgeslagen in Hallo lokale servers. Er wordt geen permanente gebruikersgegevens opgeslagen in Hallo cloud. Wanneer de gebruiker Hallo een verificatie in twee stappen uitvoert, verzendt Hallo MFA-Server gegevens toohello Azure MFA cloud service tooperform Hallo verificatie. Wanneer deze verificatieaanvragen toohello cloudservice verzonden worden, worden hello volgende velden verzonden in Hallo-aanvraag en logbestanden zodat ze beschikbaar in de verificatie-/ gebruiksrapporten van de klant Hallo zijn. Aantal Hallo velden zijn optioneel, zodat ze kunnen worden ingeschakeld of uitgeschakeld in Hallo multi-factor Authentication-Server. Hallo-communicatie van Hallo MFA-Server toohello MFA-cloudservice maakt gebruik van SSL/TLS via poort 443 uitgaand. Deze velden zijn:
+Wanneer u de Multi-Factor Authentication (MFA)-server on-premises gebruikt, worden de gegevens van een gebruiker opgeslagen op de on-premises servers. In de cloud worden geen permanente gebruikersgegevens opgeslagen. Wanneer de gebruiker een verificatie in twee stappen uitvoert, verzendt de MFA-server gegevens naar de Azure MFA-cloudservice om de verificatie uit te voeren. Wanneer deze verificatieaanvragen naar de cloudservice worden verzonden, worden de volgende velden in de aanvraag en logbestanden verzonden, zodat ze beschikbaar zijn in de verificatie-/gebruiksrapporten van de klant. Sommige velden zijn optioneel. Ze kunnen bijgevolg in de Multi-Factor Authentication-server worden in- of uitgeschakeld. De communicatie tussen de MFA-server en de MFA-cloudservice maakt gebruik van SSL/TLS via poort 443 (uitgaand). Deze velden zijn:
 
 * Unieke id - gebruikersnaam of interne MFA-server-id
 * Voor- en achternaam (optioneel)
@@ -175,28 +175,28 @@ Wanneer u Hallo multi-factor Authentication (MFA) Server on-premises, gebruikt, 
 * IP van MFA-server
 * Client-IP – indien beschikbaar
 
-Bovendien toohello bovenstaande velden, Hallo verificatie resultaat (geslaagd/geweigerd) en de reden voor eventuele weigeringen is ook opgeslagen met Hallo verificatiegegevens en beschikbaar via de verificatie-/ gebruiksrapporten Hallo.
+Naast de bovenstaande velden worden ook het verificatieresultaat (geslaagd/geweigerd) en de reden voor eventuele weigeringen opgeslagen met de verificatiegegevens en beschikbaar gesteld in de verificatie-/gebruiksrapporten.
 
 ## <a name="back-up-and-restore-azure-mfa-server"></a>Back-ups maken van Azure MFA-server en deze terugzetten
 
-Om ervoor te zorgen dat er een goede back-up is een belangrijke stap tootake met elk systeem.
+Het is voor elk systeem belangrijk dat er altijd een goede back-up beschikbaar is.
 
-tooback van Azure MFA-Server, zorg ervoor dat er een kopie van Hallo **C:\Program Files\Multi-Factor Authentication Server\Data** map inclusief Hallo **PhoneFactor.pfdata** bestand. 
+Als u een back-up wilt maken van de Azure MFA-server, zorg er dan voor dat u een kopie hebt van de map **C:\Program Files\Multi-Factor Authentication Server\Data**, inclusief het bestand **PhoneFactor.pfdata**. 
 
-In geval een terugzetten is vereist, volledige Hallo volgende stappen uit:
+Als u de back-up moet terugzetten, voert u de volgende stappen uit:
 
 1. Installeer de Azure MFA-server op een nieuwe server.
-2. Activeren Hallo van nieuwe Azure MFA-Server.
-3. Stop Hallo **MultiFactorAuth** service.
-4. Hallo overschrijven **PhoneFactor.pfdata** Hello een back-up kopiëren.
-5. Hallo Start **MultiFactorAuth** service.
+2. Activeer de nieuwe Azure MFA-server.
+3. Stop de service **MultiFactorAuth**.
+4. Overschrijf het bestand **PhoneFactor.pfdata** met de kopie in de back-up.
+5. Start de service **MultiFactorAuth**.
 
-Hallo nieuwe server is nu actief en werkend met Hallo oorspronkelijke gegevens back-up-configuratie en de gebruiker.
+De nieuwe server is nu actief en wordt uitgevoerd met de oorspronkelijke configuratie en gebruikersgegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Installeren en configureren van Hallo [Gebruikersportal](multi-factor-authentication-get-started-portal.md) voor selfservice van gebruiker.
-- Installeren en configureren met Azure MFA-Server Hallo [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [RADIUS-verificatie](multi-factor-authentication-get-started-server-radius.md), of [LDAP-verificatie](multi-factor-authentication-get-started-server-ldap.md).
+- De [Gebruikersportal](multi-factor-authentication-get-started-portal.md) instellen en configureren voor selfservice door gebruikers.
+- De Azure MFA-server installeren en configureren met [Active Directory Federation-service](multi-factor-authentication-get-started-adfs.md), [RADIUS-verificatie](multi-factor-authentication-get-started-server-radius.md) of [LDAP-authenticatie](multi-factor-authentication-get-started-server-ldap.md).
 - [Externe bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS](multi-factor-authentication-get-started-server-rdg.md) instellen en configureren.
-- [Hello Azure multi-factor Authentication Server Mobile App Web Service implementeren](multi-factor-authentication-get-started-server-webservice.md).
+- [Implementatie van de webservice voor mobiele apps van de Azure Multi-Factor Authentication-server](multi-factor-authentication-get-started-server-webservice.md).
 - [Geavanceerde scenario's met Azure Multi-Factor Authentication en VPN's van derden](multi-factor-authentication-advanced-vpn-configurations.md).

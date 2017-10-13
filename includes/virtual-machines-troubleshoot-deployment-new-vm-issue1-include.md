@@ -1,5 +1,5 @@
 ## <a name="issue-custom-image-provisioning-errors"></a>Probleem: Aangepaste installatiekopie; fouten bij het inrichten
-Inrichting fouten zich voordoen als u uploaden of vastleggen van een algemene VM-installatiekopie als een gespecialiseerde VM-installatiekopie of vice versa. Hallo voormalige, wordt een time-outfout inrichting en Hallo laatstgenoemde een inrichting fout veroorzaakt. toodeploy uw aangepaste installatiekopie zonder fouten, moet u ervoor zorgen dat Hallo type Hallo afbeelding niet gedurende Hallo vastleggen verandert.
+Inrichting fouten zich voordoen als u uploaden of vastleggen van een algemene VM-installatiekopie als een gespecialiseerde VM-installatiekopie of vice versa. De voormalige, wordt een time-outfout inrichting en de laatste veroorzaakt een storing van de inrichting. Voor het implementeren van uw aangepaste installatiekopie zonder fouten, moet u ervoor zorgen dat het type van de afbeelding niet tijdens het vastleggen wijzigt.
 
-Hallo volgende tabel bevat Hallo mogelijke combinaties van algemene en gespecialiseerde installatiekopieën, Hallo fouttype u tegenkomt en wat u moet toodo toofix Hallo fouten.
+De volgende tabel bevat de mogelijke combinaties van algemene en gespecialiseerde installatiekopieën, het fouttype dat u tegenkomt en wat u moet doen om de fouten te herstellen.
 

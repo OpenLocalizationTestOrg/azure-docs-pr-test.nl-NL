@@ -1,6 +1,6 @@
 ---
-title: aaaHow tooconfigure een toepassing toepassingsproxy | Microsoft Docs
-description: Meer informatie over hoe toocreate een configureren van een toepassing toepassingsproxy in een paar eenvoudige stappen
+title: Het configureren van een toepassing toepassingsproxy | Microsoft Docs
+description: Informatie over het maken van een configureren een toepassingsproxy-toepassing in een paar eenvoudige stappen
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,61 +13,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: c64019098fc124e4fe10b8288830bcd2b7239d3d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c8f98536048a85ebb3f061d840457130579196d9
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-tooconfigure-an-application-proxy-application"></a>Hoe een toepassing toepassingsproxy tooconfigure
+# <a name="how-to-configure-an-application-proxy-application"></a>Het configureren van een toepassing toepassingsproxy
 
-In dit artikel kunt u toounderstand hoe een toepassing toepassingsproxy in Azure AD-tooexpose tooconfigure uw lokale toepassingen toohello cloud.
+In dit artikel helpt u bij het begrijpen van het configureren van een toepassing toepassingsproxy in Azure AD om uw on-premises toepassingen naar de cloud weer te geven.
 
 ## <a name="recommended-documents"></a>Aanbevolen documenten 
 
-toolearn over Hallo initiële configuraties en het maken van een toepassing toepassingsproxy via Hallo-beheerportal, volg Hallo [toepassingen publiceren met Azure AD-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
+Voor meer informatie over de eerste configuraties en het maken van een toepassing toepassingsproxy via de beheerportal, volgt u de [toepassingen publiceren met Azure AD-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
 
-Zie voor meer informatie over het configureren van Connectors [toepassingsproxy inschakelen in Azure-portal Hallo](active-directory-application-proxy-enable.md).
+Zie voor meer informatie over het configureren van Connectors [toepassingsproxy inschakelen in de Azure portal](active-directory-application-proxy-enable.md).
 
 Zie voor meer informatie over het uploaden van certificaten en gebruiken van aangepaste domeinen [werken met aangepaste domeinen in Azure AD-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains).
 
-## <a name="create-hello-applicationsetting-hello-urls"></a>Hallo toepassingsinstelling/Hallo-URL's maken
+## <a name="create-the-applicationsetting-the-urls"></a>De URL's voor de toepassingsinstelling maken
 
-Als u volgt Hallo stappen voor het Hallo [toepassingen publiceren met Azure AD-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) documentatie en weet Hallo foutdetails voor informatie en suggesties voor het ophalen van een fout bij het maken van de toepassing hello, Zie toofix Hallo-toepassing. De meeste foutberichten bevatten een voorgestelde oplossing. veelvoorkomende fouten tooavoid, controleert u of:
+Als u volgt de stappen in de [toepassingen publiceren met Azure AD-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) documentatie en zijn voor het ophalen van een fout bij het maken van de toepassing, Zie de foutdetails voor informatie en suggesties voor het oplossen van de toepassing. De meeste foutberichten bevatten een voorgestelde oplossing. Controleer of algemene fouten te voorkomen:
 
--   U bent een beheerder met de machtiging toocreate een toepassingsproxy-toepassing
+-   U bent een beheerder met een machtiging voor het maken van een toepassing toepassingsproxy
 
--   Interne URL Hallo is uniek.
+-   De interne URL is uniek.
 
--   de externe URL Hallo is uniek.
+-   De externe URL is uniek.
 
--   Hallo URL's starten met http of https en eindigen met een "/"
+-   De URL's met http of https beginnen en eindigen met een "/"
 
--   Hallo-URL moet een domeinnaam, geen IP-adres
+-   De URL moet een domeinnaam, geen IP-adres
 
-Fout bij het Hallo-bericht moet worden weergegeven in de rechterbovenhoek Hallo wanneer u de toepassing hello maakt. U kunt ook Hallo melding pictogram toosee Hallo foutberichten selecteren.
+Het foutbericht moet worden weergegeven in de rechterbovenhoek bij het maken van de toepassing. U kunt ook het meldingspictogram voor de foutberichten selecteren.
 
    ![Prompt voor melding](./media/application-proxy-config-how-to/error-message.png)
 
 ## <a name="configure-connectorsconnector-groups"></a>Connectors/connector groepen configureren
 
-Als u problemen bij het configureren van uw toepassing vanwege een waarschuwing over Hallo connectors en connector groepen ondervindt, raadpleegt u instructies over het inschakelen van toepassingsproxy voor meer informatie over het toodownload connectors. Als u meer informatie over connectors toolearn wilt, raadpleegt u Hallo [connectors documentatie](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors).
+Als u problemen bij het configureren van uw toepassing vanwege een waarschuwing over connectors en connector groepen ondervindt, raadpleegt u de instructies op de toepassingsproxy inschakelen voor meer informatie over het downloaden van connectors. Als u weten over connectors wilt, raadpleegt u de [connectors documentatie](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors).
 
-Als uw connectors niet actief zijn, betekent dit dat ze niet kan tooreach Hallo service zijn. Dit is vaak omdat niet alle vereiste Hallo poorten geopend zijn. een lijst met vereiste poorten toosee Zie Hallo vereisten sectie Hallo documentatie toepassingsproxy inschakelen.
+Als uw connectors niet actief zijn, betekent dit dat ze niet bereiken van de service zijn. Dit is vaak omdat niet de vereiste poorten geopend zijn. Een lijst met vereiste poorten, Zie de sectie vereisten van de documentatie van de toepassingsproxy inschakelen.
 
 ## <a name="upload-certificates-for-custom-domains"></a>Certificaten voor aangepaste domeinen uploaden
 
-Aangepaste domeinen toestaan toospecify Hallo domein van de externe URL's. toouse aangepaste domeinen, moet u tooupload Hallo certificaat voor dat domein. Zie voor meer informatie over het gebruik van aangepaste domeinen en certificaten [werken met aangepaste domeinen in Azure AD-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains). 
+Aangepaste domeinen kunnen u het domein van de externe URL's opgeven. Voor het gebruik van aangepaste domeinen, moet u het certificaat voor dat domein uploaden. Zie voor meer informatie over het gebruik van aangepaste domeinen en certificaten [werken met aangepaste domeinen in Azure AD-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains). 
 
-Als er problemen zijn uw certificaat uploaden, zoekt u Hallo foutberichten in de portal Hallo voor meer informatie over Hallo probleem is met Hallo certificaat. Algemene problemen met de certificaten zijn onder andere:
+Als er problemen zijn uw certificaat uploaden, zoekt u de foutberichten in de portal voor meer informatie over het probleem met het certificaat. Algemene problemen met de certificaten zijn onder andere:
 
 -   Verlopen certificaat
 
 -   Certificaat is zelfondertekend
 
--   Certificaat ontbreekt Hallo persoonlijke sleutel
+-   Certificaat ontbreekt voor de persoonlijke sleutel
 
-Hallo-berichtweergave van fouten in Hallo rechterbovenhoek als u tooupload Hallo certificaat probeert. U kunt ook Hallo melding pictogram toosee Hallo foutberichten selecteren.
+Het foutbericht wordt weergegeven in de rechterbovenhoek als u probeert om het certificaat te uploaden. U kunt ook het meldingspictogram voor de foutberichten selecteren.
 
    ![Prompt voor melding](./media/application-proxy-config-how-to/error-message2.png)
 

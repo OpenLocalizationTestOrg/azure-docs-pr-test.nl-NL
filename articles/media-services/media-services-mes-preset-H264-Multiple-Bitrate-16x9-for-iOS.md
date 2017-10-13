@@ -1,6 +1,6 @@
 ---
-title: aaaH264 Multiple Bitrate 16 x 9 voor iOS | Microsoft Docs
-description: Hallo onderwerp een overzicht van Hallo ** standaardinstelling H264 Multiple Bitrate 16 x 9 voor iOS ** taak definitie.
+title: Geselecteerde instelling H264 Multiple Bitrate 16 x 9 voor iOS | Microsoft Docs
+description: Het onderwerp een overzicht van de ** standaardinstelling H264 Multiple Bitrate 16 x 9 voor iOS ** taak definitie.
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: bfdddc7023ca1d3622f92a9343844b7335feaa51
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9b938a5396e9f29fc9f2222056b84fbf13179dff
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="h264-multiple-bitrate-16x9-for-ios"></a>Geselecteerde instelling H264 Multiple Bitrate 16 x 9 voor iOS
-`Media Encoder Standard`definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering. Kunt u ofwel een `preset name` toospecify naar welke indeling u tooencode wilt dat uw mediabestand. U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering. U zou vervolgens Hallo aangepaste vooraf ingestelde toohello encoder doorgeven. Voorinstelling voor Hallo lijst met alle Hallo namen die worden ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering. Kunt u ofwel een `preset name` om op te geven naar welke indeling u wilt uw mediabestand coderen. U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering. U zou geeft u het aangepaste vooraf ingesteld op de encoder. Voor een overzicht van de vooraf ingestelde namen ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- In dit onderwerp leest Hallo `H264 Multiple Bitrate 16x9 for iOS` vooraf in XML en JSON-indeling.  
+ In dit onderwerp leest de `H264 Multiple Bitrate 16x9 for iOS` vooraf in XML en JSON-indeling.  
   
- Deze definitie wordt een set 8 GOP uitgelijnde MP4-bestanden, variërend van 8500 kbps too200 kbps en stereogeluid AAC geproduceerd. Voor gedetailleerde informatie over het profiel bitrate, snelheid, enz. dit wordt vooraf ingestelde, onderzoekt Hallo XML- of JSON zoals hieronder gedefinieerd. Zie voor uitleg van welke elk element in deze standaardinstellingen middelen en Hallo geldige waarden voor elk element Hallo [Media Encoder Standard schema](media-services-mes-schema.md) onderwerp.  
+ Deze definitie wordt een set 8 GOP uitgelijnde MP4-bestanden, variërend van 8500 kbps tot 200 kbps en stereogeluid AAC geproduceerd. Voor gedetailleerde informatie over profiel bitrate, snelheid, enz. dit wordt vooraf ingesteld, controleert u de XML- of JSON zoals hieronder gedefinieerd. Zie voor uitleg van welke elk element in deze standaardinstellingen middelen en de geldige waarden voor elk element in de [Media Encoder Standard schema](media-services-mes-schema.md) onderwerp.  
   
 > [!NOTE]
->  Bij het wijzigen van Hallo `Width` en `Height` waarden in lagen en zorg ervoor dat Hallo hoogte-breedteverhouding consistent blijven. Bijvoorbeeld: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360. U moet een combinatie van hoogte-breedteverhouding niet zoals gebruiken: 1280 x 720, 720 x 480, 640 x 360.  
+>  Bij het wijzigen van de `Width` en `Height` waarden in lagen en zorg ervoor dat de hoogte-breedteverhouding consistent blijft. Bijvoorbeeld: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360. U moet een combinatie van hoogte-breedteverhouding niet zoals gebruiken: 1280 x 720, 720 x 480, 640 x 360.  
   
  XML  
   

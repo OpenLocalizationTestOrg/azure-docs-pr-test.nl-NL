@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect Health with AD FS aaaUsing | Microsoft Docs
-description: Dit is hello Azure AD Connect Health pagina hoe toomonitor uw on-premises AD FS-infrastructuur.
+title: Azure AD Connect Health gebruiken met AD FS | Microsoft Docs
+description: Op deze Azure AD Connect Health-pagina vindt u informatie over het bewaken van uw on-premises AD FS-infrastructuur.
 services: active-directory
 documentationcenter: 
 author: karavar
@@ -15,107 +15,107 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cd26e8762be65e09d22e1f113e5165c4f131715
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7946f11d209e6341caa3a11e946fb1596e758277
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS bewaken met Azure AD Connect Health
-Hallo volgende documentatie is specifiek toomonitoring uw AD FS-infrastructuur met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md) (Engelstalig) voor informatie over het bewaken van Azure AD Connect (synchronisatie) met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
+De volgende documentatie is specifiek voor het bewaken van uw Azure AD FS-infrastructuur met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md) (Engelstalig) voor informatie over het bewaken van Azure AD Connect (synchronisatie) met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
 
 ## <a name="alerts-for-ad-fs"></a>Waarschuwingen voor AD FS
-Hallo sectie Azure waarschuwingen AD Connect Health biedt Hallo van lijst met actieve waarschuwingen. Elke waarschuwing omvat relevante informatie, stappen voor het oplossen en koppelingen toorelated documentatie.
+In de sectie Waarschuwingen van Azure AD Connect Health vindt u een lijst met actieve waarschuwingen. Elke waarschuwing omvat relevante informatie, stappen voor het oplossen van het probleem en koppelingen naar gerelateerde documentatie.
 
-U kunt dubbelklikken op een waarschuwing, tooopen actief of opgelost een nieuwe blade met aanvullende informatie, stappen u kunt ondernemen tooresolve Hallo waarschuwing en koppelingen toorelevant documentatie. U kunt ook historische gegevens weergeven voor waarschuwingen die in de afgelopen Hallo zijn opgelost.
+U kunt dubbelklikken op een actieve of opgeloste waarschuwing om een nieuwe blade te openen met aanvullende informatie, stappen die u kunt nemen om de waarschuwing op te lossen en koppelingen naar relevante documentatie. U kunt ook u historische gegevens bekijken voor waarschuwingen die in het verleden zijn opgelost.
 
 ![Portal voor Azure AD Connect Health](./media/active-directory-aadconnect-health/alert2.png)
 
 ## <a name="usage-analytics-for-ad-fs"></a>Gebruiksanalyses voor AD FS
-Azure AD Connect Health gebruiksanalyse analyseert het verificatieverkeer Hallo van uw federatieservers. U kunt dubbelklikken op Hallo het vakje voor gebruiksanalyses, tooopen Hallo blade met gebruiksanalyses, waarin u verschillende metrische gegevens en groeperingen kunt zien.
+Gebruiksanalyse Azure AD Connect Health analyseert het verificatieverkeer van uw federatieve servers. U kunt dubbelklikken op het vakje voor gebruiksanalyses om een blade met gebruiksanalyses te openen waarin u bepaalde gegevens en groeperingen kunt zien.
 
 > [!NOTE]
-> toouse gebruiksanalyses met AD FS, moet u controleren of AD FS-controle is ingeschakeld. Ga voor meer informatie naar [Controles voor AD FS inschakelen](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
+> Om Gebruiksanalyses met AD FS te gebruiken, moet u AD FS-controle hebben ingeschakeld. Ga voor meer informatie naar [Controles voor AD FS inschakelen](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
 >
 >
 
 ![Portal voor Azure AD Connect Health](./media/active-directory-aadconnect-health/report1.png)
 
-tooselect aanvullende gegevens, een tijdsbereik of toochange Hallo groepering opgeven, met de rechtermuisknop op Hallo grafiek met gebruiksanalyses en selecteer grafiek bewerken. U kunt vervolgens Hallo tijdsperiode opgeven, selecteer een andere waarde en Hallo groepering wijzigen. U kunt Hallo distributie van Hallo verificatieverkeer op basis van verschillende "gegevens" weergeven en alle gegevens met behulp van relevante 'groeperen op'-parameters die zijn beschreven in de volgende sectie Hallo groeperen:
+Om aanvullende gegevens te selecteren geeft u een tijdsperiode op, of klikt u met de rechtermuisknop op de grafiek met gebruiksanalyses en selecteert u Grafiek bewerken om de groepering te wijzigen. Vervolgens kunt u de tijdsperiode opgeven, andere gegevens selecteren en de groepering wijzigen. U kunt de distributie van het verificatieverkeer op basis van verschillende metrische gegevens weergeven en alle gegevens groeperen met behulp van de relevante 'groeperen op'-parameters die in het volgende gedeelte worden beschreven:
 
 **Metriek: totaal aantal verzoeken**: het totale aantal verzoeken dat door AD FS-servers is verwerkt.
 
-|Groeperen op | Wat het betekent als Hallo groepering en waarom is het nuttig? |
+|Groeperen op | Wat houdt de groepering in en waarom heeft dit zin? |
 | --- | --- |
-| Alle | Hallo-telling van het totale aantal aanvragen dat is verwerkt door alle AD FS-servers bevat.|
-| Toepassing | Groepen Hallo totaal aantal aanvragen op basis van de relying party Hallo gericht. Deze groepering is nuttig toounderstand welke toepassing welk percentage van totale Hallo-verkeer ontvangt. |
-|  Server |Groepen Hallo totaal aantal aanvragen op basis van Hallo-server die Hallo aanvraag verwerkt. Deze groepering is nuttig toounderstand Hallo verdeling van het totale Hallo-verkeer.
-| Werkplek koppelen |Groepen Hallo totaal aantal aanvragen op basis van of ze afkomstig zijn van apparaten die toegevoegd aan de werkplek zijn (bekend). Deze groepering is nuttig toounderstand als uw resources worden geopend met behulp van apparaten die onbekende toohello-infrastructuur voor identiteiten zijn. |
-|  Verificatiemethode | Groepen Hallo totaal aantal aanvragen op basis van Hallo verificatiemethode wordt gebruikt voor verificatie. Deze groepering is nuttig toounderstand Hallo gemeenschappelijke verificatiemethode die wordt gebruikt voor verificatie. Hieronder volgen de mogelijke verificatiemethoden Hallo <ol> <li>Geïntegreerde Windows-verificatie (Windows)</li> <li>Op formulieren gebaseerde verificatie (formulieren)</li> <li>Optie voor eenmalige aanmelding (SSO)</li> <li>Op X509-certificaat gebaseerde verificatie (certificaat)</li> <br>Als federatieservers Hallo Hallo-aanvraag met een SSO-Cookie ontvangt, wordt die aanvraag geteld als eenmalige aanmelding (eenmalige aanmelding). In dergelijke gevallen Hallo cookie is geldig, Hallo gebruiker niet tooprovide referenties gevraagd als naadloze toegang toohello toepassing opgehaald. Dit gedrag is gebruikelijk dat als u meerdere relying party's beveiligd door Hallo federatieservers hebt. |
-| Netwerklocatie | Groepen Hallo totaal aantal aanvragen op basis van de netwerklocatie Hallo van Hallo-gebruiker. Dit kan intranet of extranet zijn. Deze groepering is nuttig tooknow welk percentage van het Hallo-verkeer afkomstig is van Hallo intranet versus extranet. |
+| Alle | Geeft het berekende totale aantal verzoeken weer dat door alle AD FS-servers is verwerkt.|
+| Toepassing | Hiermee worden alle verzoeken gegroepeerd op basis van de beoogde Relying Party. Dankzij deze groep krijgt u meer inzicht in de percentages van al het verkeer die worden verwerkt per toepassing. |
+|  Server |Hiermee worden alle verzoeken gegroepeerd op basis van de server die het verzoek heeft verwerkt. Met deze groepering kunt u zien hoe de belasting van al het verkeer is verdeeld.
+| Werkplek koppelen |Hiermee worden alle verzoeken gegroepeerd op verzoeken die worden verzonden door apparaten die aan de werkplek gekoppeld (bekend) zijn of niet. Deze groepering is nuttig wanneer uw resources worden geopend met behulp van apparaten die niet bekend zijn in uw infrastructuur voor identiteiten. |
+|  Verificatiemethode | Hiermee worden alle verzoeken gegroepeerd op basis van de gebruikte verificatiemethode. Deze groepering biedt meer inzicht in de veelgebruikte verificatiemethoden. Hier volgen enkele mogelijke verificatiemethoden <ol> <li>Geïntegreerde Windows-verificatie (Windows)</li> <li>Op formulieren gebaseerde verificatie (formulieren)</li> <li>Optie voor eenmalige aanmelding (SSO)</li> <li>Op X509-certificaat gebaseerde verificatie (certificaat)</li> <br>Als een federatieve service het verzoek ontvangt met een SSO-cookie, wordt dit verzoek beschouwd als een eenmalige aanmelding (SSO). In zo’n geval, wanneer het cookie geldig is, wordt de gebruiker niet gevraagd om inloggegevens en krijgt deze naadloos toegang tot de toepassing. Dit gebeurt vaak wanneer u meerdere Relying Party’s hebt die worden beschermd door de federatieve servers. |
+| Netwerklocatie | Hiermee worden alle verzoeken gegroepeerd op basis van de netwerklocatie van de gebruiker. Dit kan intranet of extranet zijn. Met deze groepering kunt u zien welk percentage van het verkeer van het intranet komt, en welk percentage van het extranet. |
 
 
-**Metrische: Totale mislukt aanvraag** -Hallo totaal aantal mislukte aanvragen verwerkt door Hallo federation-service. (Deze gegevens zijn alleen beschikbaar op AD FS voor Windows Server 2012 R2)
+**Metriek: totaal aantal mislukte verzoeken**: het totale aantal mislukte verzoeken dat door de federatieve service is verwerkt. (Deze gegevens zijn alleen beschikbaar op AD FS voor Windows Server 2012 R2)
 
-|Groeperen op | Wat het betekent als Hallo groepering en waarom is het nuttig? |
+|Groeperen op | Wat houdt de groepering in en waarom heeft dit zin? |
 | --- | --- |
-| Fouttype | Toont het aantal fouten op basis van vooraf gedefinieerde fouttypen Hallo. Deze groepering is nuttig toounderstand Hallo veelvoorkomende fouttypen. <ul><li>Onjuiste gebruikersnaam of wachtwoord: fouten vanwege tooincorrect gebruikersnaam of wachtwoord.</li> <li>"Extranet Lockout": fouten vanwege toohello aanvragen ontvangen van een gebruiker die is uitgesloten van extranet </li><li> 'Wachtwoord verlopen': fouten vanwege toousers aangemeld met een verlopen wachtwoord.</li><li>"Account uitgeschakeld": fouten vanwege toousers logboekregistratie met een uitgeschakeld account.</li><li>"Apparaatverificatie": fouten vanwege toousers mislukken tooauthenticate met behulp van Apparaatverificatie.</li><li>"Verificatie met gebruikerscertificaat": fouten vanwege tooauthenticate toousers mislukt vanwege een ongeldig certificaat.</li><li>"MFA": fouten vanwege toouser mislukken tooauthenticate met multi-factor Authentication.</li><li>"Andere referentie": "Autorisatie uitgifte": fouten vanwege tooauthorization fouten.</li><li>"Overdracht uitgifte": fouten vanwege fouten bij het tooissuance delegeren.</li><li>"Acceptatie token": fouten vanwege tooADFS weigeren Hallo-token van een derde partij ID-Provider.</li><li>"Protocol": mislukt vanwege tooprotocol fouten.</li><li>'Onbekend': algemene melding. Andere fouten die niet in het Hallo passen gedefinieerde categorieën.</li> |
-| Server | Groepen Hallo fouten op basis van Hallo-server. Deze groepering is nuttig toounderstand Hallo fouten zijn verdeeld over servers. Een ongelijke verdeling kan wijzen op een server die in slechte staat is. |
-| Netwerklocatie | Groepen Hallo fouten op basis van netwerklocatie op Hallo van Hallo verzoeken (intranet VS. extranet). Deze groepering is nuttig toounderstand Hallo type aanvragen die zijn mislukt. |
-|  Toepassing | Groepen Hallo fouten op basis van Hallo gericht-applicatie (relying party). Deze groepering is nuttig toounderstand welke doeltoepassing de meeste aantal fouten. |
+| Fouttype | Hiermee wordt het aantal fouten op basis van vooraf gedefinieerde fouttypen weergegeven. Deze groepering is nuttig om meer inzicht te verkrijgen in de veelvoorkomende fouttypen. <ul><li>Onjuiste gebruikersnaam of wachtwoord: fouten als gevolg van onjuiste gebruikersnaam of wachtwoord.</li> <li>"Extranet Lockout": fouten omdat het verzoek werd ontvangen van een gebruiker die is uitgesloten van extranet </li><li> 'Wachtwoord verlopen': mislukt omdat de gebruiker zich heeft aangemeld met een verlopen wachtwoord.</li><li>"Account uitgeschakeld": mislukt omdat gebruikers zich aanmelden met een uitgeschakeld account.</li><li>"Apparaatverificatie": mislukt omdat gebruikers niet kunnen worden geverifieerd met behulp van Apparaatverificatie.</li><li>"Verificatie met gebruikerscertificaat": mislukt omdat gebruikers niet kunnen worden geverifieerd vanwege een ongeldig certificaat.</li><li>"MFA": mislukt omdat de gebruiker niet kan worden geverifieerd met behulp van Multi-Factor Authentication.</li><li>"Andere referentie": "Autorisatie uitgifte": mislukt vanwege autorisatiefouten.</li><li>"Overgedragen uitgifte": mislukt wegens fouten bij het delegeren van de uitgifte.</li><li>"Acceptatie token": mislukt omdat ADFS het token van een externe id-provider weigert.</li><li>"Protocol": mislukt wegens protocolfouten.</li><li>'Onbekend': algemene melding. Andere fouten die niet in de gedefinieerde categorieën vallen.</li> |
+| Server | Hiermee worden fouten gegroepeerd op basis van de server. Dit is handig om te begrijpen hoe de fouten zijn verdeeld over de servers. Een ongelijke verdeling kan wijzen op een server die in slechte staat is. |
+| Netwerklocatie | Hiermee worden fouten gegroepeerd op basis van de netwerklocatie van de verzoeken (intranet vs. extranet). Zo kunt u beter zien wat voor type verzoeken het vaakst mislukt. |
+|  Toepassing | Hiermee worden fouten gegroepeerd op basis van de beoogde applicatie (Relying Party). Dit is handig om te begrijpen bij welke doeltoepassing de meeste fouten voorkomen. |
 
 **Metriek: gebruikersaantal**: het gemiddelde aantal unieke gebruikers die actief verifiëren met AD FS
 
-|Groeperen op | Wat het betekent als Hallo groepering en waarom is het nuttig? |
+|Groeperen op | Wat houdt de groepering in en waarom heeft dit zin? |
 | --- | --- |
-|Alle |Met deze metriek wordt een telling van gemiddelde aantal gebruikers met Hallo federation-service in de geselecteerde tijdvak Hallo. Hallo gebruikers zijn niet gegroepeerd. <br>Hallo gemiddelde is afhankelijk van Hallo geselecteerde tijdsperiode. |
-| Toepassing |Groepen Hallo gemiddelde aantal gebruikers op basis van Hallo gericht toepassing (relying party). Deze groepering is nuttig toounderstand hoeveel gebruikers gebruikmaken van elke toepassing. |
+|Alle |Hiermee ziet u het gemiddelde aantal gebruikers die gebruikmaken van de federatieve service in het geselecteerde tijdvak. De gebruikers zijn niet gegroepeerd. <br>Het gemiddelde is afhankelijk van de geselecteerde tijdsperiode. |
+| Toepassing |Hiermee wordt het gemiddelde gebruikersaantal gegroepeerd op basis van de beoogde applicatie (Relying Party). Zo kunt u zien hoeveel gebruikers gebruikmaken van elke toepassing. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>Prestatiebewaking voor AD FS
-Prestatiebewaking voor Azure AD Connect Health biedt bewakingsinformatie over de gegevens. Als u Hallo bewaking inschakelt, wordt een nieuwe blade geopend met gedetailleerde informatie over Hallo metrische gegevens.
+Prestatiebewaking voor Azure AD Connect Health biedt bewakingsinformatie over de gegevens. Door het vakje Bewaking te selecteren, wordt een blade geopend met gedetailleerde informatie over de gegevens.
 
 ![Portal voor Azure AD Connect Health](./media/active-directory-aadconnect-health/perf1.png)
 
-Als u de filteroptie Hallo Hallo boven aan het Hallo-blade selecteert, kunt u filteren op server toosee metrische gegevens van een afzonderlijke server. toochange metriek, met de rechtermuisknop op de bewaking van de grafiek onder bewaking blade Hallo Hallo en selecteer grafiek bewerken (of selecteer Hallo grafiek bewerken knop). U kunt aanvullende gegevens selecteren uit de vervolgkeuzelijst Hallo en geef een tijdsbereik voor het weergeven van prestatiegegevens Hallo Hallo nieuwe blade die wordt geopend.
+Door de filteroptie boven aan de blade te selecteren, kunt u filteren op server om de gegevens van een individuele server te bekijken. Als u de gegevens wilt bewerken, klikt u op de bewakingsgrafiek onder de bewakingsblade en selecteert u vervolgens Grafiek bewerken (of klikt u op de knop Grafiek bewerken). In de nieuwe blade die wordt geopend, kunt u nu aanvullende gegevens selecteren uit het vervolgkeuzemenu en een tijdsperiode opgeven om de prestatiegegevens te bekijken.
 
 ## <a name="reports-for-ad-fs"></a>Rapporten voor AD FS
 Azure AD Connect Health biedt rapporten over de activiteit en prestaties van AD FS. Dankzij deze rapporten krijgen beheerders meer inzicht in de activiteiten op de AD FS-servers.
 
 ### <a name="top-50-users-with-failed-usernamepassword-logins"></a>Top 50 van gebruikers met mislukte aanmeldingen vanwege een verkeerde gebruikersnaam of verkeerd wachtwoord
-Een van de Hallo veelvoorkomende redenen voor een mislukt verificatieverzoek op een AD FS-server is een verzoek met ongeldige referenties, dat wil zeggen, een onjuiste gebruikersnaam of wachtwoord. Meestal gebeurt toousers vanwege toocomplex wachtwoorden, vergeten wachtwoorden of typfouten.
+Een veelvoorkomende reden voor een mislukt verificatieverzoek op een AD FS-server is een verzoek met ongeldige referenties, dat wil zeggen, een onjuiste gebruikersnaam of wachtwoord. Dit gebeurt meestal vanwege complexe wachtwoorden, vergeten wachtwoorden of typfouten.
 
-Maar er zijn andere redenen die kunnen leiden tot een onverwacht aantal aanvragen dat wordt verwerkt door uw AD FS-servers, zoals: een toepassing die caches gebruikersreferenties en Hallo referenties verlopen of een kwaadwillende gebruiker toosign die bij een account met een reeks bekende wachtwoorden. De volgende twee voorbeelden zijn geldige redenen die tooa piek in aanvragen kunnen leiden.
+Maar er zijn andere redenen die kunnen leiden tot een onverwacht aantal aanvragen die worden verwerkt door uw AD FS-servers, zoals een toepassing die gebruikersreferenties in een cache plaatst en de referenties verlopen of wanneer een kwaadwillende gebruiker zich probeert aan te melden bij een account met een reeks bekende wachtwoorden. De volgende twee voorbeelden zijn geldige oorzaken die tot een piek in aanvragen kunnen leiden.
 
-Azure AD Connect Health voor AD FS biedt een rapport over top 50 van gebruikers met mislukte inlogpogingen vanwege tooinvalid gebruikersnaam of wachtwoord. Dit rapport wordt bereikt door het verwerken van Hallo controlegebeurtenissen die worden gegenereerd door alle Hallo AD FS-servers in het Hallo-farms
+Azure AD Connect Health voor AD FS biedt een rapport over top 50 van gebruikers met mislukte inlogpogingen vanwege een ongeldige gebruikersnaam of wachtwoord. Dit rapport komt tot stand door het verwerken van de controlegebeurtenissen die worden gegenereerd door de AD FS-servers in de farms
 
 ![Portal voor Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
-In dit rapport hebt u eenvoudig toegang toohello stukjes informatie te volgen:
+Met dit rapport hebt u een eenvoudig overzicht van de volgende informatie:
 
-* Totaal aantal mislukte verzoeken met een onjuiste gebruikersnaam en wachtwoord in Hallo afgelopen 30 dagen
+* Totaal aantal mislukte verzoeken met een onjuiste gebruikersnaam en wachtwoord in de afgelopen 30 dagen
 * Gemiddeld aantal gebruikers per dag die zich proberen aan te melden met een onjuiste gebruikersnaam en wachtwoord.
 
-Op dit deel te klikken, gaat u toohello hoofdrapport-blade waarmee de vindt u meer informatie. Deze blade bevat een grafiek met trends informatie toohelp tot stand brengen van een basislijn over aanvragen met een onjuiste gebruikersnaam of wachtwoord. Daarnaast biedt het Hallo-lijst van de bovenste 50 gebruikers met het aantal mislukte pogingen Hallo.
+Door hier te klikken gaat u naar de blade met het hoofdrapport waar u meer informatie kunt vinden. Deze blade bevat een grafiek met trendinformatie waarmee u een basis kunt vastleggen voor aanvragen met een verkeerde gebruikersnaam of een verkeerd wachtwoord. Daarnaast biedt deze blade een lijst met de 50 belangrijkste gebruikers met het aantal mislukte pogingen.
 
-Hallo grafiek biedt Hallo volgende informatie:
+Deze grafiek bevat de volgende informatie:
 
-* Hallo totaal aantal mislukte aanmeldingen vanwege tooa onjuiste gebruikersnaam en wachtwoord per dag.
-* Hallo totale aantal unieke gebruikers met aanmeldingen per dag mislukte.
+* Het totale aantal mislukte aanmeldingen vanwege een ongeldige gebruikersnaam en wachtwoord per dag.
+* Het totale aantal unieke gebruikers met mislukte aanmeldingen per dag.
 * Client IP-adres van de laatste aanvraag
 
 ![Portal voor Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report3a.png)
 
-Hallo rapport biedt Hallo volgende informatie:
+Dit rapport bevat de volgende informatie:
 
 | Rapportitem | Beschrijving |
 | --- | --- |
-| Gebruikers-ID |Toont Hallo gebruikers-ID die is gebruikt. Deze waarde is wat Hallo gebruiker hebt getypt, wat in sommige gevallen is Hallo onjuiste gebruikers-ID wordt gebruikt. |
-| Mislukte pogingen |Toont hello totaal aantal mislukte pogingen voor die specifieke gebruikers-ID. Hallo-tabel is gesorteerd Hello meest aantal mislukte pogingen in aflopende volgorde. |
-| Laatste fout |Hallo tijdstempel ziet wanneer Hallo laatste fout is opgetreden. |
-| IP laatste fout |Hallo Client-IP-adres van de meest recente onjuiste aanvraag Hallo bevat. |
+| Gebruikers-ID |De gebruikers-ID die is gebruikt. Deze waarde is wat de gebruiker heeft getypt, wat in sommige gevallen de verkeerder gebruikers-id is. |
+| Mislukte pogingen |Geeft het totale aantal mislukte pogingen voor die specifieke gebruikers-ID weer. De tabel is gesorteerd in aflopende volgorde, met het hoogste aantal mislukte pogingen bovenaan. |
+| Laatste fout |Dit is het tijdstip waarop de laatste fout zich heeft voorgedaan. |
+| IP laatste fout |Toont het client-IP-adres uit de laatste ongeldige aanvraag. |
 
 > [!NOTE]
-> Dit rapport wordt automatisch bijgewerkt nadat elke twee uur Hello nieuwe informatie verzameld binnen die tijd. Als gevolg hiervan kunnen inlogpogingen van Hallo laatste twee uur niet worden opgenomen in Hallo rapport.
+> Dit rapport wordt elke twee uur automatisch bijgewerkt met de nieuwe informatie die in die tijd is verzameld. Als gevolg hiervan kunnen inlogpogingen van de laatste twee uur niet worden opgenomen in het rapport.
 >
 >
 

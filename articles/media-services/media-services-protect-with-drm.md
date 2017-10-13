@@ -1,6 +1,6 @@
 ---
-title: aaaUsing PlayReady en/of Widevine dynamic common encryption | Microsoft Docs
-description: Microsoft Azure Media Services kunt u toodeliver MPEG DASH, Smooth Streaming- en Http-Live-Streaming (HLS) streams beveiligd met Microsoft PlayReady DRM. Ook kunt u toodelivery DASH versleuteld met Widevine DRM. Dit onderwerp leest hoe toodynamically versleutelen met PlayReady en Widevine DRM.
+title: PlayReady en/of Widevine Dynamic Common Encryption gebruiken | Microsoft Docs
+description: U kunt met Microsoft Azure Media Services MPEG-DASH-, Smooth Streaming- en HTTP-Live-Streaming (HLS)-streams leveren die zijn beveiligd met Microsoft PlayReady DRM. Bovendien kunt u hiermee DASH-streams leveren die zijn versleuteld met Widevine DRM. Dit onderwerp bevat informatie over het dynamisch versleutelen met PlayReady en Widevine DRM.
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 0475e6ec80dcf39eb4e5c4ad4d17f821502951bd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6cfb7b558b8dce511d517e69c022765feae245fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>PlayReady en/of Widevine Dynamic Common Encryption gebruiken
 
@@ -29,128 +29,128 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Microsoft Azure Media Services kunt u toodeliver MPEG DASH, Smooth Streaming en beveiligd met HTTP-Live-Streaming (HLS)-streams [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). Ook kunt u DASH-streams toodeliver versleuteld met Widevine DRM-licenties. Zowel PlayReady als Widevine zijn versleuteld volgens de specificatie Common Encryption (ISO/IEC 23001-7 CENC) Hallo. U kunt [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (te beginnen met Hallo versie 3.5.1) of REST-API tooconfigure uw AssetDeliveryConfiguration toouse Widevine.
+U kunt met Microsoft Azure Media Services MPEG-DASH-, Smooth Streaming- en HLS-streams (HTTP-Live-Streaming) leveren die zijn beveiligd met [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). Ook kunt u hiermee versleutelde DASH-streams leveren met Widevine DRM-licenties. Zowel PlayReady als Widevine zijn versleuteld volgens de specificatie Common Encryption (ISO/IEC 23001-7 CENC). U kunt [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (vanaf versie 3.5.1) of REST API gebruiken om AssetDeliveryConfiguration voor het gebruik van Widevine te configureren.
 
-Media Services voorziet in een service voor het leveren van PlayReady- en Widevine DRM-licenties. Media Services biedt ook API's waarmee u Hallo rechten configureren en beperkingen voor Hallo PlayReady of Widevine DRM runtime tooenforce wanneer een gebruiker gewenste afspeelt beveiligde inhoud. Wanneer een gebruiker DRM beveiligde inhoud aanvraagt, wordt de Hallo spelertoepassing een licentie aangevraagd bij Hallo AMS-licentieservice. Hallo AMS-licentieservice verstrekt een licentie toohello player als dit is toegestaan. Een PlayReady of Widevine-licentie bevat Hallo ontsleutelingssleutel die kan worden gebruikt door Hallo client player toodecrypt en stream Hallo-inhoud.
+Media Services voorziet in een service voor het leveren van PlayReady- en Widevine DRM-licenties. Media Services biedt ook API's waarmee u de rechten en beperkingen kunt configureren die tijdens de uitvoering van PlayReady of Widevine DRM moeten worden afgedwongen wanneer een gebruiker beveiligde inhoud afspeelt. Wanneer een gebruiker door DRM beveiligde inhoud aanvraagt, wordt met de spelertoepassing een licentie aangevraagd bij de AMS-licentieservice. De AMS-licentieservice verstrekt een licentie aan de speler als dit is toegestaan. Een PlayReady- of Widevine-licentie bevat de ontsleutelingssleutel die kan worden gebruikt door de clientspeler om de inhoud te ontsleutelen en te streamen.
 
-U kunt ook Hallo AMS-partners toohelp u leveren met Widevine-licenties te volgen: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Zie integratie met [Axinom](media-services-axinom-integration.md) en [castLabs](media-services-castlabs-integration.md) voor meer informatie.
+U kunt ook de volgende AMS-partners gebruiken om Widevine-licenties te leveren: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) en [castLabs](http://castlabs.com/company/partners/azure/). Zie integratie met [Axinom](media-services-axinom-integration.md) en [castLabs](media-services-castlabs-integration.md) voor meer informatie.
 
-Media Services ondersteunt meerdere manieren om gebruikers te autoriseren die sleutels aanvragen. Hallo autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: openen of tokenbeperking beperking. Hallo token beleid voor de beperkte vergezeld van een token dat is uitgegeven door een Secure Token Service (STS). Media Services ondersteunt tokens in Hallo [Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) -indeling (SWT) en [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT)-indeling. Zie voor meer informatie verificatiebeleid configureren Hallo de inhoudssleutel.
+Media Services ondersteunt meerdere manieren om gebruikers te autoriseren die sleutels aanvragen. Het autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: beperking voor openen of tokenbeperking. Het beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door Secure Token Service (STS). Media Services ondersteunt tokens in de indelingen [Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) en [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Zie Het autorisatiebeleid voor inhoudssleutels configureren voor meer informatie.
 
-tootake profiteren van dynamische versleuteling hoeft u toohave een asset die een set multi-bitrate MP4-bestanden of multi-bitrate Smooth Streaming-bronbestanden bevat. U moet ook tooconfigure Hallo leveringsbeleid voor Hallo asset (Zie verderop in dit onderwerp). Vervolgens, op basis van opgegeven in de streaming-URL Hallo Hallo-indeling, Hallo On-Demand Streaming server zorgt ervoor dat Hallo-stream wordt geleverd in Hallo protocol dat u hebt gekozen. Hierdoor hoeft u alleen toostore en betalen voor Hallo-bestanden in een één opslagindeling en Media Services bouwt en levert de juiste HTTP-antwoord Hallo op basis van elke aanvraag van een client.
+Als u dynamische versleuteling wilt gebruiken, moet u een asset hebben die een set multi-bitrate MP4-bestanden of multi-bitrate Smooth Streaming-bronbestanden bevat. Ook moet u het leveringsbeleid voor de asset configureren (dit wordt verderop in dit onderwerp beschreven). Vervolgens zorgt de server voor streaming on demand er op basis van de indeling die is opgegeven in de streaming-URL voor dat de stream wordt geleverd in het protocol dat u hebt gekozen. Hierdoor hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. Media Services bouwt en levert het juiste HTTP-antwoord op basis van de aanvragen van een client.
 
-In dit onderwerp is nuttig toodevelopers die werken aan toepassingen die media die zijn beveiligd met meerdere DRM's, zoals PlayReady en Widevine leveren. Hallo onderwerp leest u hoe tooconfigure PlayReady-licentieservice levering met een autorisatiebeleid Hallo zodat alleen geautoriseerde clients PlayReady of Widevine-licenties kunnen ontvangen. U ziet ook hoe toouse dynamische versleuteling met PlayReady of Widevine DRM via DASH.
+Dit onderwerp is nuttig voor ontwikkelaars die werken aan toepassingen die media leveren die worden beveiligd met meerdere DRM's, zoals PlayReady en Widevine. In het onderwerp wordt beschreven hoe u de PlayReady-service voor het leveren van licenties zo met een autorisatiebeleid configureert dat alleen geautoriseerde clients PlayReady- of Widevine-licenties kunnen ontvangen. Ook wordt uitgelegd hoe u dynamische versleuteling met PlayReady of Widevine DRM via DASH gebruikt.
 
 >[!NOTE]
->Wanneer uw AMS-account wordt gemaakt een **standaard** tooyour account streaming-eindpunt is toegevoegd in Hallo **gestopt** status. uw inhoud en los het voordeel van dynamische pakketten en dynamische versleuteling streaming toostart Hallo streaming-eindpunt van waaruit u wilt toostream inhoud heeft toobe in Hallo **met** status. 
+>Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
 
 ## <a name="download-sample"></a>Voorbeeld downloaden
-U kunt downloaden Hallo voorbeeld beschreven in dit artikel [hier](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
+U kunt [hier](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) het voorbeeld downloaden dat in dit artikel wordt beschreven.
 
 ## <a name="configuring-dynamic-common-encryption-and-drm-license-delivery-services"></a>Dynamic Common Encryption en DRM-services voor het leveren van licenties configureren
 
-Hallo hieronder vindt u algemene stappen zou u tooperform moet bij het beveiligen van uw assets met PlayReady met Hallo Media Services-licentieservice levering en dynamische versleuteling.
+Hieronder volgen enkele algemene stappen die u moet uitvoeren wanneer u uw assets beveiligt met PlayReady met de Media Services-service voor het leveren van licenties en dynamische versleuteling.
 
-1. Maak een asset en upload bestanden in Hallo asset.
-2. Hallo asset met Hallo bestand toohello adaptive bitrate die MP4-set coderen.
-3. Maak een inhoudssleutel en deze koppelen aan Hallo gecodeerde asset. Hallo inhoudssleutel bevat in Media Services de versleutelingssleutel van Hallo actief.
-4. Hallo de inhoudssleutel verificatiebeleid configureren. Hallo autorisatiebeleid voor inhoudssleutels moet worden geconfigureerd door u en door de client Hallo Hallo inhoud sleutel toobe geleverde toohello client zodat wordt voldaan.
+1. Maak een asset en upload bestanden in de asset.
+2. Codeer de asset met het bestand naar de Adaptive Bitrate MP4-set.
+3. Maak een inhoudssleutel en koppel deze aan de gecodeerde asset. De inhoudssleutel bevat in Media Services de versleutelingssleutel van de asset.
+4. Configureer het autorisatiebeleid voor de inhoudssleutel. U moet het autorisatiebeleid voor de inhoudssleutel hebben geconfigureerd en de client moet aan dit beleid voldoen om de inhoudssleutel aan de client te kunnen leveren.
 
-    Wanneer u Hallo autorisatiebeleid voor inhoudssleutels maakt, hebt u toospecify Hallo volgende nodig: leveringsmethode (PlayReady of Widevine), beperkingen (openen of token) en informatie specifieke toohello type sleutellevering waarmee wordt gedefinieerd hoe Hallo-sleutel wordt geleverd toohello client ([PlayReady](media-services-playready-license-template-overview.md) of [Widevine](media-services-widevine-license-template-overview.md) licentiesjabloon).
+    Wanneer u het autorisatiebeleid voor inhoudssleutels maakt, moet u het volgende opgeven: leveringsmethode (PlayReady of Widevine), beperkingen (openen of token) en gegevens die specifiek zijn voor het type sleutellevering waarmee wordt gedefinieerd hoe de sleutel aan de client wordt geleverd ([PlayReady](media-services-playready-license-template-overview.md)- of [Widevine](media-services-widevine-license-template-overview.md)-licentiesjabloon).
 
-5. Configureer het leveringsbeleid Hallo voor een asset. Hallo levering-beleidsconfiguratie omvat: leveringsprotocol (bijvoorbeeld MPEG DASH, HLS, Smooth Streaming of alle), Hallo type dynamische versleuteling (bijvoorbeeld Common Encryption), PlayReady of Widevine-URL voor het verkrijgen van licentie.
+5. Configureer het leveringsbeleid voor een asset. De configuratie van een leveringsbeleid omvat: leveringsprotocol (bijvoorbeeld MPEG DASH, HLS, Smooth Streaming of alle), het type dynamische versleuteling (bijvoorbeeld Common Encryption) en de URL voor het verkrijgen van een PlayReady- of Widevine-licentie.
 
-    U kunt verschillende beleid tooeach protocol toepassen op Hallo dezelfde asset. U kunt bijvoorbeeld PlayReady-versleuteling tooSmooth/DASH en AES Envelope tooHLS toepassen. Alle protocollen die niet zijn gedefinieerd in een leveringsbeleid (bijvoorbeeld, u toevoegen één beleid waarmee alleen HLS als protocol Hallo) van streaming wordt geblokkeerd. Hallo uitzondering toothis is als u geen leveringsbeleid voor Assets helemaal gedefinieerd. Vervolgens zijn alle protocollen toegestaan in Hallo wissen.
+    U kunt voor dezelfde asset een ander beleid voor elk protocol toepassen. U kunt bijvoorbeeld PlayReady-versleuteling toepassen op Smooth/DASH en AES Envelope op HLS. Alle protocollen die niet zijn gedefinieerd in een leveringsbeleid (u voegt bijvoorbeeld één beleid toe waarmee alleen HLS als protocol wordt opgegeven), worden voor streaming geblokkeerd. De uitzondering hierop is als u helemaal geen leveringsbeleid voor assets hebt gedefinieerd. In dat geval is streaming voor alle protocollen toegestaan.
 
-6. Maak een OnDemand-locator in volgorde tooget een streaming-URL.
+6. Maak een OnDemand-locator om een streaming-URL op te halen.
 
-U ziet een voorbeeld van een volledige .NET achter Hallo Hallo onderwerp.
+Aan het einde van het onderwerp vindt u een volledig .NET-voorbeeld.
 
-Hallo volgende afbeelding ziet u Hallo werkstroom die hierboven worden beschreven. Hallo-token wordt hier gebruikt voor verificatie.
+De volgende afbeelding geeft een illustratie van de hierboven beschreven werkstroom. Hier wordt het token gebruikt voor verificatie.
 
 ![Beveiligen met PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
-Hallo rest van dit onderwerp bevat gedetailleerde uitleg, codevoorbeelden en koppelingen tootopics waarin u kunt hoe tooachieve Hallo zien hierboven beschreven taken.
+De rest van dit onderwerp bevat gedetailleerde uitleg, codevoorbeelden en koppelingen naar onderwerpen waarin u ziet hoe u de hierboven beschreven taken kunt uitvoeren.
 
 ## <a name="current-limitations"></a>Huidige beperkingen
-Als u toevoegen of bijwerken van een leveringsbeleid voor Assets, moet u verwijderen die zijn gekoppeld Hallo locator (indien aanwezig) en een nieuwe locator maken.
+Als u een leveringsbeleid voor assets toevoegt of bijwerkt, moet u de gekoppelde locator (indien aanwezig) verwijderen en een nieuwe locator maken.
 
 Momenteel kunnen bij het versleutelen met Widevine via Azure Media Services niet meerdere inhoudssleutels worden ondersteund.
 
-## <a name="create-an-asset-and-upload-files-into-hello-asset"></a>Maak een asset en upload bestanden in Hallo asset
-In de volgorde toomanage, coderen en streamen video's, moet u eerst uw inhoud uploaden naar Microsoft Azure Media Services. Na het uploaden, wordt uw inhoud veilig opgeslagen in Hallo cloud voor verdere verwerking en streaming.
+## <a name="create-an-asset-and-upload-files-into-the-asset"></a>Een asset maken en bestanden in de asset uploaden
+Als u uw video's wilt beheren, coderen en streamen, moet u eerst uw inhoud uploaden naar Microsoft Azure Media Services. Uw inhoud wordt na het uploaden veilig opgeslagen in de cloud voor verdere verwerking en streaming.
 
 Zie [Upload Files into a Media Services account](media-services-dotnet-upload-files.md) (Bestanden uploaden naar een Media Services-account) voor gedetailleerde informatie.
 
-## <a name="encode-hello-asset-containing-hello-file-toohello-adaptive-bitrate-mp4-set"></a>Hallo asset met Hallo bestand toohello adaptive bitrate die MP4-set coderen
-Bij dynamische versleuteling hoeft u toocreate een asset die een set multi-bitrate MP4-bestanden of multi-bitrate Smooth Streaming-bronbestanden bevat. Vervolgens, op basis van de opgegeven indeling in het manifest Hallo Hallo en fragment aanvraag, Hallo On-Demand Streaming server zorgt ervoor dat u Hallo stream ontvangt in Hallo protocol dat u hebt gekozen. Hierdoor hoeft u alleen toostore en betalen voor Hallo-bestanden in één opslagindeling en Media Services-service bouwt en levert de juiste reactie Hallo op basis van aanvragen van een client. Zie voor meer informatie, Hallo [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md) onderwerp.
+## <a name="encode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a>De asset met het bestand naar de Adaptive Bitrate MP4-set coderen
+Bij dynamische versleuteling hoeft u alleen maar een asset te maken die een set multi-bitrate MP4-bestanden of multi-bitrate Smooth Streaming-bronbestanden bevat. Vervolgens zorgt de server voor streaming on demand er op basis van de indeling die is opgegeven in het manifest en de fragmentaaanvraag voor dat u de stream ontvangt in het protocol dat u hebt gekozen. Hierdoor hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. De Media Services-service bouwt en levert de juiste reactie op basis van aanvragen van een client. Zie het onderwerp [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md) (Overzicht van dynamische pakketten) voor meer informatie.
 
-Voor instructies over het tooencode, Zie [hoe tooencode een asset met Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
+Zie [How to encode an asset using Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) (Een asset coderen met Media Encoder Standard) voor instructies voor het coderen.
 
-## <a id="create_contentkey"></a>Maak een inhoudssleutel en deze koppelen aan Hallo gecodeerde asset
-In Media Services bevat inhoudssleutel Hallo Hallo-sleutel die u een asset tooencrypt wilt met.
+## <a id="create_contentkey"></a>Een inhoudssleutel maken en deze koppelen aan de gecodeerde asset
+In Media Services bevat de inhoudssleutel de sleutel waarmee u een asset wilt coderen.
 
 Zie [Create content key](media-services-dotnet-create-contentkey.md) (Inhoudssleutel maken) voor gedetailleerde informatie.
 
-## <a id="configure_key_auth_policy"></a>Autorisatiebeleid Hallo de inhoudssleutel configureren
-Media Services ondersteunt meerdere manieren om gebruikers te verifiëren die sleutels aanvragen. Hallo autorisatiebeleid voor inhoudssleutels moet worden geconfigureerd door u en voldaan door Hallo-client (speler) om Hallo sleutel toobe toohello client geleverd. Hallo autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: openen of tokenbeperking beperking.
+## <a id="configure_key_auth_policy"></a>Het autorisatiebeleid voor de inhoudssleutel configureren
+Media Services ondersteunt meerdere manieren om gebruikers te verifiëren die sleutels aanvragen. U moet het autorisatiebeleid voor inhoudssleutels hebben geconfigureerd en de client (speler) moet aan dit beleid voldoen om de sleutel aan de client te kunnen leveren. Het autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: beperking voor openen of tokenbeperking.
 
 Zie [Autorisatiebeleid voor inhoudssleutels configureren](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption) voor gedetailleerde informatie.
 
 ## <a id="configure_asset_delivery_policy"></a>Leveringsbeleid voor assets configureren
-Configureer Hallo leveringsbeleid voor uw asset. Een aantal zaken die Hallo asset configuratie van een leveringsbeleid omvat:
+Configureer het leveringsbeleid voor uw asset. De configuratie van het leveringsbeleid voor assets omvat onder andere het volgende:
 
-* Hallo DRM URL voor het verkrijgen van licentie.
-* Hallo asset leveringsprotocol (bijvoorbeeld MPEG DASH, HLS, Smooth Streaming of alle).
-* Hallo type dynamische versleuteling (in dit geval Common Encryption).
+* De URL voor het ophalen van DRM-licenties.
+* Het protocol voor het leveren van assets (bijvoorbeeld MPEG DASH, HLS, Smooth Streaming of alle).
+* Het type dynamische versleuteling (in dit geval Common Encryption).
 
 Zie [Leveringsbeleid voor assets configureren](media-services-rest-configure-asset-delivery-policy.md) voor gedetailleerde informatie.
 
-## <a id="create_locator"></a>Maak een OnDemand-streaminglocator in volgorde tooget een streaming-URL
-U moet tooprovide uw gebruiker Hello streaming-URL voor Smooth, DASH of HLS.
+## <a id="create_locator"></a>Een OnDemand-streaminglocator maken om een streaming-URL op te halen
+U moet de gebruiker voorzien van de streaming-URL voor Smooth, DASH of HLS.
 
 > [!NOTE]
 > Als u het leveringsbeleid voor uw asset toevoegt of bijwerkt, moet u een bestaande locator (indien aanwezig) verwijderen en een nieuwe locator maken.
 >
 >
 
-Voor instructies over hoe toopublish een asset en bouwen van een streaming-URL, Zie [bouwen van een streaming-URL](media-services-deliver-streaming-content.md).
+Zie [Build a streaming URL](media-services-deliver-streaming-content.md) (Een streaming-URL bouwen) voor instructies over het publiceren van een asset en bouwen van een streaming-URL.
 
 ## <a name="get-a-test-token"></a>Een test-token ophalen
-Een test-token ophalen op basis van de tokenbeperking Hallo die werd gebruikt voor het sleutelautorisatiebeleid Hallo.
+Haal op basis van de tokenbeperking een test-token op die is gebruikt voor het sleutelautorisatiebeleid.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
         TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-    // Generate a test token based on hello data in hello given TokenRestrictionTemplate.
-    //hello GenerateTestToken method returns hello token without hello word “Bearer” in front
-    //so you have tooadd it in front of hello token string.
+    // Generate a test token based on the data in the given TokenRestrictionTemplate.
+    //The GenerateTestToken method returns the token without the word “Bearer” in front
+    //so you have to add it in front of the token string.
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
-    Console.WriteLine("hello authorization token is:\nBearer {0}", testToken);
+    Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
 
-U kunt Hallo [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) tootest uw stream.
+U kunt [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) gebruiken om uw stream te testen.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
-1. Uw ontwikkelomgeving instellen en vullen Hallo app.config-bestand met de verbindingsinformatie, zoals beschreven in [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md). 
-2. Hallo elementen te volgen toevoegen**appSettings** gedefinieerd in het bestand app.config:
+1. Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
+2. Voeg de volgende elementen toe aan **appSettings** dat in het bestand app.config is gedefinieerd:
 
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
 
 ## <a name="example"></a>Voorbeeld
 
-Hallo volgende voorbeeld demonstreert de functionaliteit die is geïntroduceerd in Azure Media Services SDK voor .net-versie 3.5.2 (met name Hallo mogelijkheid toodefine een Widevine licentiëren sjabloon en een Widevine-licentie aangevraagd bij Azure Media Services).
+Het volgende voorbeeld bevat informatie over de functionaliteit die werd geïntroduceerd in Azure Media Services SDK voor .Net versie 3.5.2 (met name de mogelijkheid om een sjabloon voor Widevine-licenties te definiëren en een Widevine-licentie bij Azure Media Services aan te vragen).
 
-Hallo-code in uw Program.cs-bestand met de Hallo-code die wordt weergegeven in deze sectie worden overschreven.
+Overschrijf de code in uw Program.cs-bestand met de code die wordt weergegeven in deze sectie.
 
 >[!NOTE]
->Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). Hallo moet u dezelfde beleids-ID als u altijd dezelfde Hallo dagen / toegangsmachtigingen, bijvoorbeeld een beleid voor locators die beoogde tooremain aanwezig gedurende een lange periode (niet-upload policies zijn). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
+>Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
 
-Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden zich bevinden.
+Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen waar uw invoerbestanden zich bevinden.
 
     using System;
     using System.Collections.Generic;
@@ -168,7 +168,7 @@ Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden
     {
         class Program
         {
-        // Read values from hello App.config file.
+        // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -205,7 +205,7 @@ Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden
             Console.WriteLine("Encoded asset: {0}", encodedAsset.Id);
 
             IContentKey key = CreateCommonTypeContentKey(encodedAsset);
-            Console.WriteLine("Created key {0} for hello asset {1} ", key.Id, encodedAsset.Id);
+            Console.WriteLine("Created key {0} for the asset {1} ", key.Id, encodedAsset.Id);
             Console.WriteLine("PlayReady License Key delivery URL: {0}", key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense));
             Console.WriteLine();
 
@@ -228,17 +228,17 @@ Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden
             TokenRestrictionTemplate tokenTemplate =
                 TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-            // Generate a test token based on hello hello data in hello given TokenRestrictionTemplate.
-            // Note, you need toopass hello key id Guid because we specified
-            // TokenClaim.ContentKeyIdentifierClaim in during hello creation of TokenRestrictionTemplate.
+            // Generate a test token based on the the data in the given TokenRestrictionTemplate.
+            // Note, you need to pass the key id Guid because we specified
+            // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
             Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
             string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
                                         DateTime.UtcNow.AddDays(365));
-            Console.WriteLine("hello authorization token is:\nBearer {0}", testToken);
+            Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
             Console.WriteLine();
             }
 
-            // You can use hello http://amsplayer.azurewebsites.net/azuremediaplayer.html player tootest streams.
+            // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
             // Note that DASH works on IE 11 (via PlayReady), Edge (via PlayReady), Chrome (via Widevine).
 
             string url = GetStreamingOriginLocator(encodedAsset);
@@ -274,7 +274,7 @@ Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden
         {
             var encodingPreset = "Adaptive Streaming";
 
-            IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} too{1}",
+            IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
                         inputAsset.Name,
                         encodingPreset));
 
@@ -308,7 +308,7 @@ Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden
                         "ContentKey",
                         ContentKeyType.CommonEncryption);
 
-            // Associate hello key with hello asset.
+            // Associate the key with the asset.
             asset.ContentKeys.Add(key);
 
             return key;
@@ -353,7 +353,7 @@ Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden
 
             contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
             contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
-            // Associate hello content key authorization policy with hello content key.
+            // Associate the content key authorization policy with the content key.
             contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
             contentKey = contentKey.UpdateAsync().Result;
         }
@@ -395,7 +395,7 @@ Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden
             contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
             contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
 
-            // Associate hello content key authorization policy with hello content key
+            // Associate the content key authorization policy with the content key
             contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
             contentKey = contentKey.UpdateAsync().Result;
 
@@ -417,41 +417,41 @@ Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden
 
         static private string ConfigurePlayReadyLicenseTemplate()
         {
-            // hello following code configures PlayReady License Template using .NET classes
-            // and returns hello XML string.
+            // The following code configures PlayReady License Template using .NET classes
+            // and returns the XML string.
 
-            //hello PlayReadyLicenseResponseTemplate class represents hello template for hello response sent back toohello end user.
-            //It contains a field for a custom data string between hello license server and hello application
+            //The PlayReadyLicenseResponseTemplate class represents the template for the response sent back to the end user.
+            //It contains a field for a custom data string between the license server and the application
             //(may be useful for custom app logic) as well as a list of one or more license templates.
             PlayReadyLicenseResponseTemplate responseTemplate = new PlayReadyLicenseResponseTemplate();
 
-            // hello PlayReadyLicenseTemplate class represents a license template for creating PlayReady licenses
-            // toobe returned toohello end users.
-            //It contains hello data on hello content key in hello license and any rights or restrictions toobe
-            //enforced by hello PlayReady DRM runtime when using hello content key.
+            // The PlayReadyLicenseTemplate class represents a license template for creating PlayReady licenses
+            // to be returned to the end users.
+            //It contains the data on the content key in the license and any rights or restrictions to be
+            //enforced by the PlayReady DRM runtime when using the content key.
             PlayReadyLicenseTemplate licenseTemplate = new PlayReadyLicenseTemplate();
-            //Configure whether hello license is persistent (saved in persistent storage on hello client)
-            //or non-persistent (only held in memory while hello player is using hello license).  
+            //Configure whether the license is persistent (saved in persistent storage on the client)
+            //or non-persistent (only held in memory while the player is using the license).  
             licenseTemplate.LicenseType = PlayReadyLicenseType.Nonpersistent;
 
-            // AllowTestDevices controls whether test devices can use hello license or not.  
-            // If true, hello MinimumSecurityLevel property of hello license
-            // is set too150.  If false (hello default), hello MinimumSecurityLevel property of hello license is set too2000.
+            // AllowTestDevices controls whether test devices can use the license or not.  
+            // If true, the MinimumSecurityLevel property of the license
+            // is set to 150.  If false (the default), the MinimumSecurityLevel property of the license is set to 2000.
             licenseTemplate.AllowTestDevices = true;
 
-            // You can also configure hello Play Right in hello PlayReady license by using hello PlayReadyPlayRight class.
-            // It grants hello user hello ability tooplayback hello content subject toohello zero or more restrictions
-            // configured in hello license and on hello PlayRight itself (for playback specific policy).
-            // Much of hello policy on hello PlayRight has toodo with output restrictions
-            // which control hello types of outputs that hello content can be played over and
+            // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class.
+            // It grants the user the ability to playback the content subject to the zero or more restrictions
+            // configured in the license and on the PlayRight itself (for playback specific policy).
+            // Much of the policy on the PlayRight has to do with output restrictions
+            // which control the types of outputs that the content can be played over and
             // any restrictions that must be put in place when using a given output.
-            // For example, if hello DigitalVideoOnlyContentRestriction is enabled,
-            //then hello DRM runtime will only allow hello video toobe displayed over digital outputs
-            //(analog video outputs won’t be allowed toopass hello content).
+            // For example, if the DigitalVideoOnlyContentRestriction is enabled,
+            //then the DRM runtime will only allow the video to be displayed over digital outputs
+            //(analog video outputs won’t be allowed to pass the content).
 
-            //IMPORTANT: These types of restrictions can be very powerful but can also affect hello consumer experience.
-            // If hello output protections are configured too restrictive,
-            // hello content might be unplayable on some clients. For more information, see hello PlayReady Compliance Rules document.
+            //IMPORTANT: These types of restrictions can be very powerful but can also affect the consumer experience.
+            // If the output protections are configured too restrictive,
+            // the content might be unplayable on some clients. For more information, see the PlayReady Compliance Rules document.
 
             // For example:
             //licenseTemplate.PlayRight.AgcAndColorStripeRestriction = new AgcAndColorStripeRestriction(1);
@@ -489,15 +489,15 @@ Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden
 
         static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
         {
-            // Get hello PlayReady license service URL.
+            // Get the PlayReady license service URL.
             Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
 
-            // GetKeyDeliveryUrl for Widevine attaches hello KID toohello URL.
+            // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
             // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
-            // hello WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption
-            // tooappend /? KID =< keyId > toohello end of hello url when creating hello manifest.
+            // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption
+            // to append /? KID =< keyId > to the end of the url when creating the manifest.
             // As a result Widevine license acquisition URL will have KID appended twice,
-            // so we need tooremove hello KID that in hello URL when we call GetKeyDeliveryUrl.
+            // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
 
             Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
             UriBuilder uriBuilder = new UriBuilder(widevineUrl);
@@ -512,7 +512,7 @@ Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden
 
             };
 
-            // In this case we only specify Dash streaming protocol in hello delivery policy,
+            // In this case we only specify Dash streaming protocol in the delivery policy,
             // All other protocols will be blocked from streaming.
             var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
                 "AssetDeliveryPolicy",
@@ -521,21 +521,21 @@ Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden
             assetDeliveryPolicyConfiguration);
 
 
-            // Add AssetDelivery Policy toohello asset
+            // Add AssetDelivery Policy to the asset
             asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
         }
 
         /// <summary>
-        /// Gets hello streaming origin locator.
+        /// Gets the streaming origin locator.
         /// </summary>
         /// <param name="assets"></param>
         /// <returns></returns>
         static public string GetStreamingOriginLocator(IAsset asset)
         {
 
-            // Get a reference toohello streaming manifest file from hello  
-            // collection of files in hello asset.
+            // Get a reference to the streaming manifest file from the  
+            // collection of files in the asset.
 
             var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                          EndsWith(".ism")).
@@ -546,12 +546,12 @@ Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden
             TimeSpan.FromDays(30),
             AccessPermissions.Read);
 
-            // Create a locator toohello streaming content on an origin.
+            // Create a locator to the streaming content on an origin.
             ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
             policy,
             DateTime.UtcNow.AddMinutes(-5));
 
-            // Create a URL toohello manifest file.
+            // Create a URL to the manifest file.
             return originLocator.Path + assetFile.Name;
         }
 

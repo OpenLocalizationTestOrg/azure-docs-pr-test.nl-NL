@@ -1,6 +1,6 @@
 ---
-title: aaaPolicies in Azure API Management | Microsoft Docs
-description: Ontdek hoe toocreate, bewerken en configureren van beleid in API Management.
+title: Beleid in Azure API Management | Microsoft Docs
+description: Informatie over het maken, bewerken en configureren van beleid in API Management.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 9ab0f884a655004cb10c05085034df1795f512e6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7c1f235343074ec11c635097f2b094a10f3fe781
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="policies-in-azure-api-management"></a>Beleid in Azure API Management
-In Azure API Management zijn-beleidsregels een krachtige functie Hallo-systeem dat Hallo publisher toochange Hallo gedrag Hallo API via configuratie toestaan. Beleidsregels zijn een verzameling instructies die sequentieel worden uitgevoerd op Hallo aanvraag of antwoord van een API. Populaire instructies omvatten Indelingsconversie van XML-tooJSON en snelheidsbeperking toorestrict Hallo hoeveelheid inkomende aanroepen van een ontwikkelaar aanroepen. Veel meer beleidsregels zijn out of box Hallo beschikbaar.
+In Azure API Management zijn-beleidsregels een krachtige mogelijkheid van het systeem waarmee de uitgever het gedrag van de API via configuratie wijzigen. Beleidsregels zijn een verzameling instructies die sequentieel worden uitgevoerd op de aanvraag of antwoord van een API. Populaire instructies omvatten Indelingsconversie van XML in JSON en snelheidsbeperking als u wilt beperken, de hoeveelheid inkomende aanroepen van een ontwikkelaar aanroepen. Veel meer beleidsregels zijn gebruiksklaar beschikbaar.
 
-Zie Hallo [beleidsverwijzing] [ Policy Reference] voor een volledige lijst met beleidsverklaringen en de bijbehorende instellingen.
+Zie de [beleidsverwijzing] [ Policy Reference] voor een volledige lijst met beleidsverklaringen en de bijbehorende instellingen.
 
-Beleidsregels worden toegepast binnen bevindt zich tussen Hallo API consumer en Hallo managed API Hallo-gateway. Hallo gateway ontvangt alle aanvragen en stuurt ze ongewijzigd meestal door toohello onderliggende API. Een beleid kunt echter wijzigingen tooboth Hallo binnenkomende aanvraag en het uitgaande antwoord toepassen.
+Beleidsregels worden toegepast binnen de gateway die de consument API en de beheerde API tussen. De gateway ontvangt van alle aanvragen en meestal doorsturen ervan naar de onderliggende API ongewijzigd. Een beleid kan echter wijzigingen toepassen op zowel de binnenkomende aanvraag en het uitgaande antwoord.
 
-Beleidsexpressies kunnen worden gebruikt als kenmerkwaarden of tekstwaarden in API Management-beleidsregels hello, tenzij Hallo beleid iets anders aangeeft. Sommige beleidsregels zoals Hallo [transportbesturing] [ Control flow] en [variabele instellen] [ Set variable] beleid is gebaseerd op beleidsexpressies. Zie voor meer informatie [Geavanceerde beleidsregels] [ Advanced policies] en [beleidsexpressies][Policy expressions].
+Beleidsexpressies kunnen worden gebruikt als kenmerkwaarden of tekstwaarden in API Management-beleidsregels, tenzij het beleid iets anders aangeeft. Sommige beleidsregels, zoals de [transportbesturing] [ Control flow] en [variabele instellen] [ Set variable] beleid is gebaseerd op beleidsexpressies. Zie voor meer informatie [Geavanceerde beleidsregels] [ Advanced policies] en [beleidsexpressies][Policy expressions].
 
-## <a name="scopes"></a>Hoe tooconfigure beleid
-Beleid kan worden geconfigureerd globaal of Hallo bereik van een [Product][Product], [API] [ API] of [bewerking] [Operation]. tooconfigure een beleid, gaat u toohello beleid editor in de publicatieportal Hallo.
+## <a name="scopes"></a>Beleid configureren
+Beleid kan worden geconfigureerd globaal of in het bereik van een [Product][Product], [API] [ API] of [bewerking][Operation]. Een beleid wilt configureren, gaat u naar de beleid-editor in de publicatieportal.
 
 ![Menu beleid][policies-menu]
 
-Hallo beleidsregels editor bestaat uit drie gedeelten: Hallo bereik (boven), Hallo beleid beleidsdefinitie waarbij beleid (links) worden bewerkt en Hallo instructies lijst (rechts):
+De editor beleid bestaat uit drie gedeelten: het beleidsbereik (boven), de beleidsdefinitie waarbij beleid (links) worden bewerkt en de instructies lijst (rechts):
 
 ![Beleid-editor][policies-editor]
 
-toobegin een beleid die moet u eerst Hallo bereik welke Hallo beleid moet toepassen selecteren te configureren. In de schermafbeelding hieronder Hallo Hallo **Starter** product is geselecteerd. Houd er rekening mee dat Hallo vierkante symbool volgende toohello beleidsnaam geeft aan dat een beleid al op dit niveau toegepast is.
+U moet het bereik waarvoor het beleid moet toepassen selecteren om te beginnen met een beleid te configureren. In de onderstaande schermafbeelding de **Starter** product is geselecteerd. Houd er rekening mee dat het vierkante symbool naast de naam van het beleid geeft een beleid is al toegepast op dit niveau.
 
 ![Bereik][policies-scope]
 
-Omdat er al een beleid is toegepast, wordt in Hallo definitie weergave Hallo configuratie weergegeven.
+Omdat er al een beleid is toegepast, wordt de configuratie wordt weergegeven in de weergave van de definitie.
 
 ![Configureren][policies-configure]
 
-Hallo-beleid wordt weergegeven in de alleen-lezen in eerste instantie. Klik in volgorde tooedit Hallo definitie op Hallo **beleid configureren** in te grijpen.
+Het beleid wordt weergegeven in de alleen-lezen in eerste instantie. Om te bewerken van het definitie klikt u op de **beleid configureren** in te grijpen.
 
 ![Bewerken][policies-edit]
 
-Hallo beleidsdefinitie is een eenvoudige XML-document dat wordt een reeks binnenkomend en uitgaand instructies beschreven. Hallo XML kan rechtstreeks in Hallo definitievenster worden bewerkt. Een lijst van de instructies wordt verstrekt toohello rechts en instructies van toepassing toohello huidige bereik zijn ingeschakeld en geselecteerd. zoals blijkt uit Hallo **limiet aanroepen snelheid** instructie in de bovenstaande Hallo.
+De beleidsdefinitie is een eenvoudige XML-document dat wordt een reeks binnenkomend en uitgaand instructies beschreven. Het XML-bestand kan worden bewerkt rechtstreeks in het definitievenster. Een lijst van de instructies vindt u aan de rechterkant en instructies van toepassing op het huidige bereik zijn ingeschakeld en geselecteerd. zoals blijkt uit de **limiet aanroepen snelheid** -instructie in de bovenstaande schermafbeelding.
 
-Te klikken op een ingeschakelde instructie toevoegt juiste XML op Hallo-locatie van de cursor in de weergave typedefinitie Hallo HALLO hallo. 
+Te klikken op een instructie ingeschakeld, wordt de juiste XML op de locatie van de cursor in de weergave definitie toevoegen. 
 
 > [!NOTE]
-> Als het Hallo-beleid dat u wilt dat tooadd niet is ingeschakeld, zorg ervoor dat u in de juiste bereik Hallo voor dat beleid. Elke instructie beleid is ontworpen voor gebruik in bepaalde scopes en beleid-secties. tooreview hello beleid secties en bereiken voor een beleid controleren Hallo **gebruik** sectie voor dat beleid in Hallo [beleidsverwijzing][Policy Reference].
+> Als het beleid dat u wilt toevoegen is niet ingeschakeld, zorg ervoor dat u in het juiste bereik voor dat beleid. Elke instructie beleid is ontworpen voor gebruik in bepaalde scopes en beleid-secties. Als u wilt controleren in de secties van beleid en de bereiken voor een beleid, Controleer de **gebruik** sectie voor dat beleid in de [beleidsverwijzing][Policy Reference].
 > 
 > 
 
-Een volledige lijst met beleidsverklaringen en hun instellingen zijn beschikbaar in Hallo [beleidsverwijzing][Policy Reference].
+Een volledige lijst met beleidsverklaringen en hun instellingen zijn beschikbaar in de [beleidsverwijzing][Policy Reference].
 
-Bijvoorbeeld, tooadd een nieuwe instructie toorestrict binnenkomende aanvragen toospecified IP-adressen, plaatst u Hallo cursor net binnen Hallo inhoud Hallo `inbound` XML-element en klik op Hallo **beperken aanroeper IP-adressen** instructie.
+Bijvoorbeeld, als u wilt toevoegen van een nieuwe statusverklaring om te beperken van binnenkomende aanvragen tot het opgegeven IP-adressen, plaats de cursor net binnen de inhoud van de `inbound` XML-element en klik op de **beperken aanroeper IP-adressen** instructie.
 
 ![Beleid voor softwarebeperking][policies-restrict]
 
-Hiermee voegt u toe een XML-fragment toohello `inbound` element dat richtlijnen biedt voor hoe tooconfigure Hallo instructie.
+Hiermee voegt u toe een XML-fragment naar de `inbound` element dat biedt richtlijnen voor het configureren van de instructie.
 
 ```xml
 <ip-filter action="allow | forbid">
@@ -74,7 +74,7 @@ Hiermee voegt u toe een XML-fragment toohello `inbound` element dat richtlijnen 
 </ip-filter>
 ```
 
-toolimit binnenkomende aanvragen en accepteert alleen die uit een IP-adres van 1.2.3.4 Hallo XML als volgt wijzigen:
+Beperken van binnenkomende aanvragen en accepteert alleen die uit een IP-adres van 1.2.3.4 het XML-bestand als volgt wijzigen:
 
 ```xml
 <ip-filter action="allow">
@@ -84,43 +84,43 @@ toolimit binnenkomende aanvragen en accepteert alleen die uit een IP-adres van 1
 
 ![Opslaan][policies-save]
 
-Als u klaar Hallo-instructies voor het Hallo-beleid configureren, klikt u op **opslaan** en Hallo wijzigingen wordt onmiddellijk doorgegeven toohello API Management gateway.
+Als u klaar voor het configureren van de instructies voor het beleid, klikt u op **opslaan** en de wijzigingen wordt doorgegeven aan de API Management-gateway van onmiddellijk.
 
 ## <a name="sections"></a>Understanding beleidsconfiguratie
-Een beleid is een reeks instructies die worden uitgevoerd om een antwoord en aanvragen. Hallo-configuratie op de juiste wijze is onderverdeeld in `inbound`, `backend`, `outbound`, en `on-error` gedeelten in Hallo na configuratie wordt weergegeven.
+Een beleid is een reeks instructies die worden uitgevoerd om een antwoord en aanvragen. De configuratie op de juiste wijze is onderverdeeld in `inbound`, `backend`, `outbound`, en `on-error` zoals weergegeven in de configuratie van de volgende secties.
 
 ```xml
 <policies>
   <inbound>
-    <!-- statements toobe applied toohello request go here -->
+    <!-- statements to be applied to the request go here -->
   </inbound>
   <backend>
-    <!-- statements toobe applied before hello request is forwarded too
-         hello backend service go here -->
+    <!-- statements to be applied before the request is forwarded to 
+         the backend service go here -->
   </backend>
   <outbound>
-    <!-- statements toobe applied toohello response go here -->
+    <!-- statements to be applied to the response go here -->
   </outbound>
   <on-error>
-    <!-- statements toobe applied if there is an error condition go here -->
+    <!-- statements to be applied if there is an error condition go here -->
   </on-error>
 </policies> 
 ```
 
-Als er een fout opgetreden tijdens het verwerken van een aanvraag hello, alle overige stappen in Hallo `inbound`, `backend`, of `outbound` secties worden overgeslagen en uitvoering aan de slag gaat toohello instructies in Hallo `on-error` sectie. Door het plaatsen van beleidsverklaringen in Hallo `on-error` sectie kunt u Hallo fout bekijken met behulp van Hallo `context.LastError` eigenschap, controleren en aanpassen van Hallo fout antwoord aan de hand van Hallo `set-body` beleid, en configureren van wat er gebeurt als een fout optreedt. Er zijn foutcodes voor ingebouwde stappen en voor fouten die tijdens het Hallo-verwerking van beleid voor instructies optreden. Zie voor meer informatie [foutafhandeling in API Management-beleidsregels](https://msdn.microsoft.com/library/azure/mt629506.aspx).
+Als er een fout opgetreden tijdens het verwerken van een aanvraag, alle overige stappen in de `inbound`, `backend`, of `outbound` secties worden overgeslagen en uitvoering gaat u naar de instructies in de `on-error` sectie. Door het plaatsen van beleidsverklaringen in de `on-error` sectie kunt u de fout bekijken met behulp van de `context.LastError` eigenschap, controleren en aanpassen van de fout antwoord via de `set-body` -beleid, en configureer wat er gebeurt als een fout optreedt. Er zijn foutcodes voor ingebouwde stappen en voor fouten die tijdens de verwerking van beleid voor instructies optreden. Zie voor meer informatie [foutafhandeling in API Management-beleidsregels](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-Omdat het beleid kunnen worden opgegeven op verschillende niveaus (globale, product, api en bewerking) biedt Hallo-configuratie een manier voor u toospecify Hallo volgorde waarin instructies Hallo beleid definition met het beleid ten opzichte van toohello bovenliggende uitvoeren. 
+Aangezien beleidsregels kunnen worden opgegeven op verschillende niveaus (globale, product, api en bewerking) biedt de configuratie een manier om de volgorde waarin de beleidsdefinitie-instructies met betrekking tot het beleid van de bovenliggende uitvoeren opgeven. 
 
-Beleid scopes worden in Hallo volgorde geëvalueerd.
+Beleid scopes worden geëvalueerd in de volgende volgorde.
 
 1. Globaal bereik
 2. Product-bereik
 3. API-bereik
 4. Bewerkingsbereik
 
-Hallo instructies in deze worden beoordeeld volgens toohello plaatsing van Hallo `base` element, indien aanwezig. Globaal beleid heeft geen bovenliggende beleid en het gebruik van Hallo `<base>` -element in het heeft geen effect.
+De instructies in deze worden geëvalueerd op basis van de plaatsing van de `base` element, indien aanwezig. Globaal beleid heeft geen bovenliggend element beleid en het gebruik van de `<base>` -element in het heeft geen effect.
 
-Bijvoorbeeld, als u een beleid op Hallo globale niveau en een beleid dat is geconfigureerd voor een API hebt, klikt u vervolgens wanneer die bepaalde API wordt gebruikt beide beleidsregels gelden. API Management kunt u deterministische ordening van gecombineerde beleidsverklaringen via Hallo base-element. 
+Bijvoorbeeld, als u een beleid op het globale niveau en een beleid dat is geconfigureerd voor een API hebt, klikt u vervolgens wanneer die bepaalde API wordt gebruikt beide beleidsregels gelden. API Management kunt u deterministische ordening van gecombineerde beleidsverklaringen via het base-element. 
 
 ```xml
 <policies>
@@ -132,9 +132,9 @@ Bijvoorbeeld, als u een beleid op Hallo globale niveau en een beleid dat is geco
 </policies>
 ```
 
-Hallo in Hallo voorbeeld beleidsdefinitie hierboven, `cross-domain` instructie zou worden uitgevoerd voordat een hogere beleid die op zijn beurt worden gevolgd door Hallo `find-and-replace` beleid. 
+In het bovenstaande voorbeeld beleidsdefinitie de `cross-domain` instructie zou worden uitgevoerd voordat een hogere beleid die op zijn beurt worden gevolgd door de `find-and-replace` beleid. 
 
-toosee Hallo-beleid in het huidige bereik Hallo in de beleidseditor hello, klikt u op **herberekenen effectief beleid voor de geselecteerde scope**.
+Klik op een overzicht van het beleid in het huidige bereik in de beleidseditor **herberekenen effectief beleid voor de geselecteerde scope**.
 
 ## <a name="next-steps"></a>Volgende stappen
 Bekijk na video op beleidsexpressies.

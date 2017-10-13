@@ -1,6 +1,6 @@
 ---
-title: aaaMulti hoofddatabase architecturen met Azure Cosmos DB | Microsoft Docs
-description: Meer informatie over hoe toodesign toepassingsarchitecturen met lokale leest en schrijft over meerdere geografische regio's met Azure Cosmos DB.
+title: Meerdere hoofddatabase architecturen met Azure Cosmos DB | Microsoft Docs
+description: Meer informatie over het ontwerpen van toepassingsarchitecturen met lokale lees- en schrijfbewerkingen over meerdere geografische regio's met Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -15,43 +15,43 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3269c8405afe16f75db69b42e576fe76e00a8e16
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cf1482ae7b1070023703f5dbe861d151f5d64fd8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Meerdere master gerepliceerd globaal database architecturen met Azure Cosmos-DB
-Azure Cosmos DB ondersteunt klare [globale replicatie](distribute-data-globally.md), waarmee u toodistribute gegevensgebieden toomultiple met lage latentie toegang overal in Hallo werkbelasting. Dit model wordt meestal gebruikt voor publisher/consumer werkbelastingen wanneer er een schrijver in één geografische regio en globaal gedistribueerde lezers in andere regio (lezen). 
+Azure Cosmos DB ondersteunt klare [globale replicatie](distribute-data-globally.md), waarmee u gegevens naar meerdere regio's met lage latentie toegang overal in de werklast verdelen. Dit model wordt meestal gebruikt voor publisher/consumer werkbelastingen wanneer er een schrijver in één geografische regio en globaal gedistribueerde lezers in andere regio (lezen). 
 
-U kunt ook Azure Cosmos DB globale replicatie ondersteuning toobuild toepassingen waarin schrijvers en lezers worden globaal gedistribueerd. Dit document bevat een patroon waarmee lokale schrijf- en lokale leestoegang voor gedistribueerde schrijvers met behulp van Azure DB die Cosmos bereiken.
+U kunt ook Azure Cosmos DB globale Replicatieondersteuning gebruiken om toepassingen waarin schrijvers en lezers worden globaal gedistribueerd te bouwen. Dit document bevat een patroon waarmee lokale schrijf- en lokale leestoegang voor gedistribueerde schrijvers met behulp van Azure DB die Cosmos bereiken.
 
 ## <a id="ExampleScenario"></a>Publicatie - een voorbeeldscenario
-Bekijk een werkelijk scenario toodescribe hoe u globaal gedistribueerde meerdere-region/meerdere-pre-master lezen schrijven patronen kunt gebruiken met Azure Cosmos DB. U kunt een content publishing platform gebouwd op Azure Cosmos DB. Hier volgen enkele vereisten waaraan dit platform voor consumenten en uitgevers voor een goede gebruikerservaring moet voldoen.
+We bekijken een werkelijk scenario te beschrijven hoe u globaal gedistribueerde meerdere-region/meerdere-pre-master lezen schrijven patronen kunt gebruiken met Azure Cosmos DB. U kunt een content publishing platform gebouwd op Azure Cosmos DB. Hier volgen enkele vereisten waaraan dit platform voor consumenten en uitgevers voor een goede gebruikerservaring moet voldoen.
 
-* Zowel auteurs en abonnees verdeeld over Hallo wereld 
-* Auteurs moeten (schrijven) artikelen tootheir lokale (dichtst) regio publiceren
-* Auteurs hebben lezers/abonnees van hun artikelen die zijn verdeeld over de hele wereld Hallo. 
+* Zowel auteurs en abonnees verdeeld over de hele wereld 
+* Auteurs moeten (schrijven) artikelen publiceren naar de lokale regio (dichtst)
+* Auteurs hebben lezers/abonnees van hun artikelen die zijn verdeeld over de hele wereld. 
 * Abonnees moeten een melding krijgen wanneer nieuwe artikelen worden gepubliceerd.
-* Abonnees moet kunnen tooread artikelen van hun lokale regio. Ze moeten ook worden kunnen tooadd beoordelingen toothese artikelen. 
-* Iedereen inclusief Hallo auteur Hallo artikelen moet kunnen weergeven, dat alle gekoppelde tooarticles beoordelingen van een lokale regio Hallo. 
+* Abonnees moet leesrechten artikelen hun lokale regio. Ze moeten ook worden kunnen beoordelingen toevoegen aan deze artikelen. 
+* Iedereen met inbegrip van de auteur van de artikelen moet kunnen weergeven, alle beoordelingen zijn verbonden met artikelen vanaf een lokale regio. 
 
-Ervan uitgaande dat miljoenen consumenten en uitgevers miljarden artikelen, snel hebben we tooconfront Hallo problemen van de schaal samen met plaats van toegang te garanderen. Net als bij de meeste schaalbaarheidsproblemen, ligt Hallo oplossing in de strategie voor een goede partitionering. Vervolgens laten we kijken hoe toomodel artikelen, controleren en meldingen als documenten, Azure DB die Cosmos-accounts configureren en implementeren van een gegevenstoegangslaag. 
+Miljoenen consumenten en uitgevers miljarden artikelen, ervan uitgaande dat we hebben snel pakt u de problemen van de schaal samen met garanderen plaats van toegang. Net als bij de meeste schaalbaarheidsproblemen, ligt de oplossing in de strategie voor een goede partitionering. Daarna bekijken we het model artikelen, controleren en meldingen als documenten, Azure DB die Cosmos-accounts configureren en implementeren van een gegevenstoegangslaag. 
 
-Als u meer informatie over partitioneren en partitiesleutels toolearn, Zie [partitionerings- en schalen in Azure Cosmos DB](partition-data.md).
+Als u weten over partitioneren en partitiesleutels wilt, Zie [partitionerings- en schalen in Azure Cosmos DB](partition-data.md).
 
 ## <a id="ModelingNotifications"></a>Modellering meldingen
-Meldingen zijn gegevens feeds tooa specifieke gebruiker. Hallo toegangspatronen voor meldingen documenten zijn daarom altijd in de context Hallo van één gebruiker. U zou bijvoorbeeld 'posten een tooa meldingsgebruiker' of 'alle meldingen voor een bepaalde gebruiker ophalen'. Beste keuze van de partitiesleutel voor dit type zou worden dus Hallo `UserId`.
+Meldingen zijn gegevensfeeds specifiek voor een gebruiker. Daarom zijn de toegangspatronen voor meldingen documenten altijd in de context van één gebruiker. U zou bijvoorbeeld 'een melding naar een gebruiker boeken' of 'alle meldingen voor een bepaalde gebruiker ophalen'. Ja, de beste keuze van de partitiesleutel voor dit type zou worden `UserId`.
 
     class Notification 
     { 
         // Unique ID for Notification. 
         public string Id { get; set; }
 
-        // hello user Id for which notification is addressed to. 
+        // The user Id for which notification is addressed to. 
         public string UserId { get; set; }
 
-        // hello partition Key for hello resource. 
+        // The partition Key for the resource. 
         public string PartitionKey 
         { 
             get 
@@ -63,12 +63,12 @@ Meldingen zijn gegevens feeds tooa specifieke gebruiker. Hallo toegangspatronen 
         // Subscription for which this notification is raised. 
         public string SubscriptionFilter { get; set; }
 
-        // Subject of hello notification. 
+        // Subject of the notification. 
         public string ArticleId { get; set; } 
     }
 
 ## <a id="ModelingSubscriptions"></a>Modellering abonnementen
-Abonnementen kunnen worden gemaakt voor de verschillende criteria zoals een specifieke categorie artikelen interessegebied of een bepaalde uitgever. Daarom Hallo `SubscriptionFilter` een goede keuze voor de partitiesleutel is.
+Abonnementen kunnen worden gemaakt voor de verschillende criteria zoals een specifieke categorie artikelen interessegebied of een bepaalde uitgever. Daarom de `SubscriptionFilter` een goede keuze voor de partitiesleutel is.
 
     class Subscriptions 
     { 
@@ -91,7 +91,7 @@ Abonnementen kunnen worden gemaakt voor de verschillende criteria zoals een spec
     }
 
 ## <a id="ModelingArticles"></a>Vormgeven aan artikelen
-Zodra een artikel wordt geïdentificeerd door meldingen, de volgende query's doorgaans zijn gebaseerd op Hallo `Article.Id`. Kiezen `Article.Id` als partitie biedt Hallo sleutel dus Hallo best distributiepunten voor het opslaan van de artikelen in een verzameling Azure Cosmos DB. 
+Zodra een artikel wordt geïdentificeerd door meldingen, de volgende query's doorgaans zijn gebaseerd op de `Article.Id`. Kiezen `Article.Id` als partitie biedt de sleutel dus het beste distributiepunt voor het opslaan van de artikelen in een verzameling Azure Cosmos DB. 
 
     class Article 
     { 
@@ -106,30 +106,30 @@ Zodra een artikel wordt geïdentificeerd door meldingen, de volgende query's doo
             } 
         }
         
-        // Author of hello article
+        // Author of the article
         public string Author { get; set; }
 
-        // Category/genre of hello article
+        // Category/genre of the article
         public string Category { get; set; }
 
-        // Tags associated with hello article
+        // Tags associated with the article
         public string[] Tags { get; set; }
 
-        // Title of hello article
+        // Title of the article
         public string Title { get; set; }
         
         //... 
     }
 
 ## <a id="ModelingReviews"></a>Modellering beoordelingen
-Beoordelingen zijn voornamelijk zoals artikelen, geschreven en gelezen in Hallo context van het artikel. Kiezen `ArticleId` een partitie sleutel biedt aanbevolen distributie en efficiënte toegang van revisies die zijn gekoppeld aan het artikel. 
+Beoordelingen zijn voornamelijk zoals artikelen, geschreven en gelezen in de context van het artikel. Kiezen `ArticleId` een partitie sleutel biedt aanbevolen distributie en efficiënte toegang van revisies die zijn gekoppeld aan het artikel. 
 
     class Review 
     { 
         // Unique ID for Review 
         public string Id { get; set; }
 
-        // Article Id of hello review 
+        // Article Id of the review 
         public string ArticleId { get; set; }
 
         public string PartitionKey 
@@ -148,7 +148,7 @@ Beoordelingen zijn voornamelijk zoals artikelen, geschreven en gelezen in Hallo 
     }
 
 ## <a id="DataAccessMethods"></a>Methoden voor gegevenstoegang laag
-Nu we kijken naar de belangrijkste gegevens Hallo toegangsmethoden moeten we tooimplement. Hier volgt de lijst Hallo van methoden die Hallo `ContentPublishDatabase` moet:
+Nu we kijken naar de belangrijkste gegevens toegangsmethoden we moet implementeren. Hier volgt een lijst met methoden die de `ContentPublishDatabase` moet:
 
     class ContentPublishDatabase 
     { 
@@ -164,18 +164,18 @@ Nu we kijken naar de belangrijkste gegevens Hallo toegangsmethoden moeten we too
     }
 
 ## <a id="Architecture"></a>Configuratie van Azure DB Cosmos-account
-lokale tooguarantee leest en schrijft, we gegevens niet alleen op partitiesleutel moet partitioneren, maar ook op basis van de geografische toegangspatroon Hallo in regio's. Hallo model afhankelijk is van een account Azure Cosmos DB database geo-replicatie voor elke regio. Bijvoorbeeld, met twee gebieden is hier een instelling voor schrijfacties voor meerdere landen/regio:
+Als u wilt garanderen lokale leest en schrijft, we moet partitie-alleen gegevens niet op partitie sleutel, maar ook op basis van het toegangspatroon geografische in regio's. Het model afhankelijk is van een account Azure Cosmos DB database geo-replicatie voor elke regio. Bijvoorbeeld, met twee gebieden is hier een instelling voor schrijfacties voor meerdere landen/regio:
 
 | Accountnaam | Regio schrijven | Lees de regio |
 | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
 
-Hallo volgende diagram ziet u hoe lees- en schrijfbewerkingen worden uitgevoerd in een typische toepassing met deze instellingen:
+Het volgende diagram toont hoe lees- en schrijfbewerkingen worden uitgevoerd in een typische toepassing met deze instellingen:
 
 ![Azure meerdere masters Cosmos-DB-architectuur](./media/multi-region-writers/multi-master.png)
 
-Hier volgt een codefragment met hoe tooinitialize clients in een DAL uitgevoerd in de Hallo Hallo `West US` regio.
+Hier volgt een codefragment met het initialiseren van de clients in een DAL uitgevoerd in de `West US` regio.
     
     ConnectionPolicy writeClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
     writeClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
@@ -195,7 +195,7 @@ Hier volgt een codefragment met hoe tooinitialize clients in een DAL uitgevoerd 
         readRegionAuthKey,
         readClientPolicy);
 
-Met de Hallo voorafgaand aan installatie, kan Hallo gegevenstoegangslaag doorsturen alle schrijfbewerkingen toohello lokale account op basis van waarop deze wordt geïmplementeerd. Leesbewerkingen worden uitgevoerd door bij het lezen van beide accounts tooget Hallo globale weergave van gegevens. Deze methode kan worden uitgebreid tooas veel regio's waar nodig. Dit is bijvoorbeeld een installatie met drie geografische regio's:
+Met de voorgaande setup kan de gegevenstoegangslaag doorsturen alle schrijfbewerkingen naar het lokale account op basis van waarop deze wordt geïmplementeerd. Leesbewerkingen worden uitgevoerd door bij het lezen van beide accounts voor de globale weergave van gegevens. Deze methode kan worden uitgebreid met zoveel regio's waar nodig. Dit is bijvoorbeeld een installatie met drie geografische regio's:
 
 | Accountnaam | Regio schrijven | Regio 1 lezen | Regio 2 lezen |
 | --- | --- | --- | --- |
@@ -204,12 +204,12 @@ Met de Hallo voorafgaand aan installatie, kan Hallo gegevenstoegangslaag doorstu
 | `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
 
 ## <a id="DataAccessImplementation"></a>Data access-laag implementatie
-Nu we bekijken Hallo-implementatie van Hallo gegevenstoegangslaag (DAL) voor een toepassing met twee beschrijfbare regio's. Hallo DAL moet implementeren Hallo stappen te volgen:
+Nu we bekijken de uitvoering van de gegevenstoegangslaag (DAL) voor een toepassing met twee beschrijfbare regio's. De DAL moet implementeren de volgende stappen uit:
 
 * Maken van meerdere exemplaren van `DocumentClient` voor elke account. Met twee regio's, elk DAL-exemplaar heeft een `writeClient` en één `readClient`. 
-* Hallo-eindpunten voor op basis van regio van de toepassing hello Hallo geïmplementeerd, configureert `writeclient` en `readClient`. Bijvoorbeeld Hallo DAL geïmplementeerd `West US` gebruikt `contentpubdatabase-usa.documents.azure.com` voor het uitvoeren van schrijfbewerkingen. Hallo DAL geïmplementeerd in `NorthEurope` gebruikt `contentpubdatabase-europ.documents.azure.com` voor schrijfbewerkingen.
+* Op basis van de geïmplementeerde regio van de toepassing, configureren van de eindpunten voor `writeclient` en `readClient`. Bijvoorbeeld, de DAL worden geïmplementeerd in `West US` gebruikt `contentpubdatabase-usa.documents.azure.com` voor het uitvoeren van schrijfbewerkingen. De DAL geïmplementeerd in `NorthEurope` gebruikt `contentpubdatabase-europ.documents.azure.com` voor schrijfbewerkingen.
 
-Met de Hallo voorafgaand aan installatie, kunnen toegangsmethoden Hallo-gegevens worden geïmplementeerd. Schrijven operations doorsturen Hallo schrijven toohello overeenkomt `writeClient`.
+Met de voorgaande setup kunnen de data access-methoden worden geïmplementeerd. Schrijven operations doorsturen van het schrijven naar de bijbehorende `writeClient`.
 
     public async Task CreateSubscriptionAsync(string userId, string category)
     {
@@ -231,7 +231,7 @@ Met de Hallo voorafgaand aan installatie, kunnen toegangsmethoden Hallo-gegevens
         });
     }
 
-Voor het lezen van meldingen en beoordelingen, kunt u moet lezen van zowel de regio's en de resultaten union Hallo zoals weergegeven in het volgende codefragment Hallo:
+Voor het lezen van meldingen en beoordelingen, moet u lezen van zowel regio's en union de resultaten zoals weergegeven in het volgende fragment:
 
     public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId)
     {
@@ -318,6 +318,6 @@ In dit artikel wordt beschreven hoe u globaal gedistribueerde meerdere landen/re
 * Meer informatie over hoe Azure Cosmos DB ondersteunt [globale distributie](distribute-data-globally.md)
 * Meer informatie over [automatische en handmatige failover in Azure Cosmos-DB](regional-failover.md)
 * Meer informatie over [globale consistentie met Azure Cosmos-DB](consistency-levels.md)
-* Ontwikkelen met meerdere regio's met behulp van Hallo [Azure DB Cosmos - DocumentDB-API](tutorial-global-distribution-documentdb.md)
-* Ontwikkelen met meerdere regio's met behulp van Hallo [Azure DB Cosmos - MongoDB-API](tutorial-global-distribution-MongoDB.md)
-* Ontwikkelen met meerdere regio's met behulp van Hallo [Azure DB Cosmos - tabel-API](tutorial-global-distribution-table.md)
+* Ontwikkelen met meerdere regio's met behulp van de [Azure DB Cosmos - DocumentDB-API](tutorial-global-distribution-documentdb.md)
+* Ontwikkelen met meerdere regio's met behulp van de [Azure DB Cosmos - MongoDB-API](tutorial-global-distribution-MongoDB.md)
+* Ontwikkelen met meerdere regio's met behulp van de [Azure DB Cosmos - tabel-API](tutorial-global-distribution-table.md)

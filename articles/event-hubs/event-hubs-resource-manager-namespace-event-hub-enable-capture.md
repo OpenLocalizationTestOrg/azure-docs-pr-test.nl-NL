@@ -1,5 +1,5 @@
 ---
-title: een Azure Event Hubs-naamruimte en schakel vastleggen met behulp van een sjabloon aaaCreate | Microsoft Docs
+title: Een Azure Event Hubs-naamruimte maken en Capture met behulp van een sjabloon inschakelen | Microsoft Docs
 description: Een Azure Event Hubs-naamruimte met een gebeurtenishub maken en Capture inschakelen met behulp van een Azure Resource Manager-sjabloon
 services: event-hubs
 documentationcenter: .net
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/28/2017
 ms.author: sethm
-ms.openlocfilehash: a43b4e8d690ae825047e8a9d609bfda89cf2a06f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 089a60ebccabac99771cd06ca8fbf0ea1fb2f1a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Een Event Hubs-naamruimte met een gebeurtenishub maken en Capture inschakelen met behulp van een Azure Resource Manager-sjabloon
 
-Dit artikel laat zien hoe toouse een Azure Resource Manager-sjabloon die wordt gemaakt een naamruimte Event Hubs met een event hub-instantie en schakelt Hallo [vastleggen functie](event-hubs-capture-overview.md) voor Hallo event hub. Hallo artikel wordt beschreven hoe toodefine welke resources zijn geïmplementeerd en hoe toodefine parameters die zijn opgegeven wanneer het Hallo-implementatie wordt uitgevoerd. U kunt deze sjabloon voor uw eigen implementaties gebruiken of aanpassen toomeet uw vereisten.
+In dit artikel wordt beschreven hoe u een Azure Resource Manager-sjabloon gebruikt om een Event Hubs-naamruimte te maken met één exemplaar van de gebeurtenishub en de [functie Capture](event-hubs-capture-overview.md) op de gebeurtenishub in te schakelen. In het artikel wordt beschreven hoe u kunt aangeven welke resources worden geïmplementeerd en hoe u de parameters definieert die bij de uitvoering van de implementatie zijn opgegeven. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
 
-Dit artikel laat zien hoe toospecify dat gebeurtenissen worden vastgelegd in Azure Storage-Blobs of een Azure Data Lake Store is gebaseerd op Hallo bestemming die u kiest.
+Ook wordt uitgelegd hoe u kunt opgeven dat gebeurtenissen worden vastgelegd in Azure Storage-blobs of in een Azure Data Lake Store, op basis van de bestemming die u kiest.
 
 Zie [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates] voor meer informatie over het maken van sjablonen.
 
 Zie [Naming Conventions][Azure Resources naming conventions] (Naamgevingsconventies) voor meer informatie over de patronen en procedures voor naamgevingsconventies van Azure Resources.
 
-Hallo voltooid sjablonen, klikt u op Hallo GitHub-koppelingen te volgen:
+Voor de volledige-sjablonen klikt u op de volgende GitHub-koppelingen:
 
-- [Event hub en schakel vastleggen tooStorage sjabloon][Event Hub and enable Capture tooStorage template] 
-- [Event hub en schakel vastleggen tooAzure Data Lake Store-sjabloon][Event Hub and enable Capture tooAzure Data Lake Store template]
+- [Event hub and enable Capture to Storage template][Event Hub and enable Capture to Storage template] 
+- [Event hub and enable Capture to Azure Data Lake Store template][Event Hub and enable Capture to Azure Data Lake Store template]
 
 > [!NOTE]
-> toocheck voor de meest recente sjablonen hello, gaat u naar Hallo [Azure-Snelstartsjablonen] [ Azure Quickstart Templates] galerie en zoek naar Event Hubs.
+> Om te controleren op de meest recente sjablonen, gaat u naar de galerie [Azure-snelstartsjablonen][Azure Quickstart Templates] en zoekt u naar Event Hubs.
 > 
 > 
 
@@ -44,51 +44,51 @@ Hallo voltooid sjablonen, klikt u op Hallo GitHub-koppelingen te volgen:
 
 Met deze sjabloon implementeert u een Event Hubs-naamruimte met een gebeurtenishub en schakelt u tevens [Event Hubs Cinapture](event-hubs-capture-overview.md) in.
 
-[Event Hubs](event-hubs-what-is-event-hubs.md) is een service die wordt gebruikt tooprovide gebeurtenissen en telemetriegegevens inkomend tooAzure op grote schaal met weinig latentie en hoge betrouwbaarheid. Event Hubs vastleggen schakelt u tooautomatically leveren Hallo streaming-gegevens in Event Hubs tooAzure Blob storage of Azure Data Lake Store binnen een opgegeven periode of het interval van de grootte van uw keuze.
+[Event Hubs](event-hubs-what-is-event-hubs.md) is een verwerkingsservice van gebeurtenissen, die wordt gebruikt om zeer grote hoeveelheden gebeurtenissen en telemetriegegevens verzamelt in Azure met een lage latentie en hoge betrouwbaarheid. Met Event Hubs Capture kunt u automatisch de gegevensstroom in uw gebeurtenishubs bezorgen in een Azure Blob-opslagaccount of Azure Data Lake Store van uw keuze, binnen een opgegeven periode of grootte van uw keuze.
 
-Klik op Hallo knop tooenable Event Hubs vastleggen in Azure Storage te volgen:
+Klik op de volgende knop om Event Hubs Capture in te schakelen in Azure Storage:
 
-[![TooAzure implementeren](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
+[![Implementeren in Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
-Klik op Hallo knop tooenable Event Hubs vastleggen in Azure Data Lake Store te volgen:
+Klik op de volgende knop om Event Hubs Capture in te schakelen in Azure Data Lake Store:
 
-[![TooAzure implementeren](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
+[![Implementeren in Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parameters
 
-Met Azure Resource Manager u parameters definiëren voor waarden gewenste toospecify wanneer Hallo sjabloon wordt geïmplementeerd. Hallo-sjabloon bevat een sectie met de naam `Parameters` die alle Hallo parameterwaarden bevat. U moet een parameter voor de waarden die variëren op basis van Hallo-project die u implementeert of op basis van Hallo-omgeving die u om te implementeert definiëren. Definieer parameters niet voor waarden die altijd blijven Hallo dezelfde. De waarde van elke parameter wordt gebruikt in Hallo sjabloon toodefine Hallo resources die zijn geïmplementeerd.
+Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die alle parameterwaarden bevat. U moet een parameter definiëren voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving waarin u gaat implementeren. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd.
 
-Hallo sjabloon definieert Hallo parameters te volgen.
+De sjabloon definieert de volgende parameters.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
-Hallo-naam van Hallo [Event Hubs naamruimte](event-hubs-create.md) toocreate.
+De naam van de [Event Hubs-naamruimte](event-hubs-create.md) die wordt gemaakt.
 
 ```json
 "eventHubNamespaceName":{  
      "type":"string",
      "metadata":{  
-         "description":"Name of hello EventHub namespace"
+         "description":"Name of the EventHub namespace"
       }
 }
 ```
 
 ### <a name="eventhubname"></a>eventHubName
 
-naam van Hallo event hub is gemaakt in Hallo Hallo [Event Hubs naamruimte](event-hubs-create.md).
+De naam van de gebeurtenishub die in de [Event Hubs-naamruimte](event-hubs-create.md) wordt gemaakt.
 
 ```json
 "eventHubName":{  
     "type":"string",
     "metadata":{  
-        "description":"Name of hello event hub"
+        "description":"Name of the event hub"
     }
 }
 ```
 
 ### <a name="messageretentionindays"></a>messageRetentionInDays
 
-Hallo aantal dagen tooretain Hallo-berichten in Hallo event hub. 
+Het aantal dagen dat u de berichten in de gebeurtenishub wilt bewaren. 
 
 ```json
 "messageRetentionInDays":{
@@ -97,14 +97,14 @@ Hallo aantal dagen tooretain Hallo-berichten in Hallo event hub.
     "minValue":"1",
     "maxValue":"7",
     "metadata":{
-       "description":"How long tooretain hello data in event hub"
+       "description":"How long to retain the data in event hub"
      }
  }
 ```
 
 ### <a name="partitioncount"></a>partitionCount
 
-Hallo aantal partities toocreate in Hallo event hub.
+Het aantal partities dat in de gebeurtenishub wordt gemaakt.
 
 ```json
 "partitionCount":{
@@ -120,7 +120,7 @@ Hallo aantal partities toocreate in Hallo event hub.
 
 ### <a name="captureenabled"></a>captureEnabled
 
-Schakel vastleggen op Hallo event hub.
+Capture inschakelen op de gebeurtenishub.
 
 ```json
 "captureEnabled":{
@@ -130,13 +130,13 @@ Schakel vastleggen op Hallo event hub.
     "false",
     "true"],
     "metadata":{
-        "description":"Enable or disable hello Capture for your event hub"
+        "description":"Enable or disable the Capture for your event hub"
     }
  }
 ```
 ### <a name="captureencodingformat"></a>captureEncodingFormat
 
-Hallo-coderingsindeling u tooserialize Hallo gebeurtenisgegevens opgeven.
+De coderingsindeling die u opgeeft voor het serialiseren van de gebeurtenisgegevens.
 
 ```json
 "captureEncodingFormat":{
@@ -145,14 +145,14 @@ Hallo-coderingsindeling u tooserialize Hallo gebeurtenisgegevens opgeven.
     "allowedValues":[
     "Avro"],
     "metadata":{
-        "description":"hello encoding format in which Capture serializes hello EventData"
+        "description":"The encoding format in which Capture serializes the EventData"
     }
 }
 ```
 
 ### <a name="capturetime"></a>captureTime
 
-Hallo tijdsinterval waarin Event Hubs vastleggen begint het vastleggen van Hallo gegevens.
+Het tijdsinterval waarin Event Hubs Capture begint met het vastleggen van de gegevens.
 
 ```json
 "captureTime":{
@@ -161,13 +161,13 @@ Hallo tijdsinterval waarin Event Hubs vastleggen begint het vastleggen van Hallo
     "minValue":60,
     "maxValue":900,
     "metadata":{
-         "description":"hello time window in seconds for hello capture"
+         "description":"the time window in seconds for the capture"
     }
 }
 ```
 
 ### <a name="capturesize"></a>captureSize
-Hallo grootte interval waarop vastleggen begint het vastleggen van Hallo gegevens.
+De grootte waarbij Capture begint met het vastleggen van de gegevens.
 
 ```json
 "captureSize":{
@@ -176,14 +176,14 @@ Hallo grootte interval waarop vastleggen begint het vastleggen van Hallo gegeven
     "minValue":10485760,
     "maxValue":524288000,
     "metadata":{
-        "description":"hello size window in bytes for capture"
+        "description":"The size window in bytes for capture"
     }
 }
 ```
 
 ###<a name="capturenameformat"></a>captureNameFormat
 
-Hallo-naamnotatie gebruikt door het vastleggen van Event Hubs toowrite hello Avro bestanden. De indeling voor Capture moet de velden `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}` en `{Second}` bevatten. Deze velden kunnen in willekeurige volgorde worden gerangschikt, met of zonder scheidingstekens.
+De naamindeling die door Event Hubs Capture wordt gebruikt om de Avro-bestanden weg te schrijven. De indeling voor Capture moet de velden `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}` en `{Second}` bevatten. Deze velden kunnen in willekeurige volgorde worden gerangschikt, met of zonder scheidingstekens.
  
 ```json
 "captureNameFormat": {
@@ -193,56 +193,56 @@ Hallo-naamnotatie gebruikt door het vastleggen van Event Hubs toowrite hello Avr
         "description": "A Capture Name Format must contain {Namespace}, {EventHub}, {PartitionId}, {Year}, {Month}, {Day}, {Hour}, {Minute} and {Second} fields. These can be arranged in any order with or without delimeters. E.g.  Prod_{EventHub}/{Namespace}\\{PartitionId}_{Year}_{Month}/{Day}/{Hour}/{Minute}/{Second}"
       }
     }
-  }
+  
 ```
 
 ### <a name="apiversion"></a>apiVersion
 
-Hallo API-versie van Hallo-sjabloon.
+De API-versie van de sjabloon.
 
 ```json
  "apiVersion":{  
     "type":"string",
-    "defaultValue":"2015-08-01",
+    "defaultValue":"2017-04-01",
     "metadata":{  
-        "description":"ApiVersion used by hello template"
+        "description":"ApiVersion used by the template"
     }
  }
 ```
 
-Gebruik Hallo parameters te volgen als u Azure Storage als de bestemming.
+Gebruik de volgende parameters als u Azure Storage als de bestemming kiest.
 
 ### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
 
-Vastleggen vereist een Azure Storage-account resource-ID tooenable tooyour vastleggen gewenst Storage-account.
+Capture vereist een resource-id van het Azure Storage-account om te kunnen vastleggen naar uw gewenste opslagaccount.
 
 ```json
  "destinationStorageAccountResourceId":{
     "type":"string",
     "metadata":{
-        "description":"Your existing Storage account resource ID where you want hello blobs be captured"
+        "description":"Your existing Storage account resource ID where you want the blobs be captured"
     }
  }
 ```
 
 ### <a name="blobcontainername"></a>blobContainerName
 
-Hallo blob-container in welke toocapture de gebeurtenisgegevens.
+De blob-container waarin uw gebeurtenisgegevens worden vastgelegd.
 
 ```json
  "blobContainerName":{
     "type":"string",
     "metadata":{
-        "description":"Your existing storage container in which you want hello blobs captured"
+        "description":"Your existing storage container in which you want the blobs captured"
     }
 }
 ```
 
-Gebruik Hallo parameters te volgen als u Azure Data Lake Store als de bestemming. U moet machtigingen instellen op uw Data Lake Store-pad, waarin u wilt dat tooCapture Hallo gebeurtenis. tooset machtigingen, Zie [in dit artikel](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
+Gebruik de volgende parameters als u Azure Data Lake Store als de bestemming kiest. U moet machtigingen instellen voor het Data Lake Store-pad waarin u de gebeurtenis wilt vastleggen. Zie [dit artikel](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account) voor het instellen van machtigingen.
 
 ###<a name="subscriptionid"></a>subscriptionId
 
-Abonnement-ID voor Hallo Event Hubs-naamruimte en de Azure Data Lake Store. Beide deze resources moeten onder Hallo dezelfde abonnements-ID.
+De abonnements-id voor de Event Hubs-naamruimte en Azure Data Lake Store. Deze twee resources moeten onder dezelfde abonnements-id vallen.
 
 ```json
 "subscriptionId": {
@@ -255,7 +255,7 @@ Abonnement-ID voor Hallo Event Hubs-naamruimte en de Azure Data Lake Store. Beid
 
 ###<a name="datalakeaccountname"></a>dataLakeAccountName
 
-naam van de Hello Azure Data Lake Store voor Hallo gebeurtenissen vastgelegd.
+De Azure Data Lake Store-naam voor de vastgelegde gebeurtenissen.
 
 ```json
 "dataLakeAccountName": {
@@ -268,7 +268,7 @@ naam van de Hello Azure Data Lake Store voor Hallo gebeurtenissen vastgelegd.
 
 ###<a name="datalakefolderpath"></a>dataLakeFolderPath
 
-Hallo pad naar de doelmap voor Hallo gebeurtenissen vastgelegd.
+Het pad naar de doelmap voor de vastgelegde gebeurtenissen. Dit is de map in uw Data Lake Store waarnaar gebeurtenissen worden verzonden vanuit Capture. Voor het instellen van machtigingen voor deze map raadpleegt u het artikel [Azure Data Lake Store gebruiken voor het vastleggen van gegevens uit Event Hubs](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture)
 
 ```json
 "dataLakeFolderPath": {
@@ -279,9 +279,9 @@ Hallo pad naar de doelmap voor Hallo gebeurtenissen vastgelegd.
 }
 ```
 
-## <a name="resources-toodeploy-for-azure-storage-as-destination-toocaptured-events"></a>Toodeploy resources voor Azure Storage als bestemming toocaptured gebeurtenissen
+## <a name="resources-to-deploy-for-azure-storage-as-destination-to-captured-events"></a>Resources om te implementeren met Azure Storage als doel voor vastgelegde gebeurtenissen
 
-Hiermee maakt u een naamruimte van het type **EventHubs**, met een event hub en schakelt vastleggen tooAzure Blob Storage.
+Hiermee maakt u een naamruimte van het type **EventHubs** met één gebeurtenishub, en wordt ook Capture ingeschakeld voor gebruik met Azure Blob Storage.
 
 ```json
 "resources":[  
@@ -294,48 +294,60 @@ Hiermee maakt u een naamruimte van het type **EventHubs**, met een event hub en 
             "name":"Standard",
             "tier":"Standard"
          },
-         "resources":[  
-            {  
-               "apiVersion":"[variables('ehVersion')]",
-               "name":"[parameters('eventHubName')]",
-               "type":"EventHubs",
-               "dependsOn":[  
-                  "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
-               ],
-               "properties":{  
-                  "path":"[parameters('eventHubName')]",
-                  "MessageRetentionInDays":"[parameters('messageRetentionInDays')]",
-                  "PartitionCount":"[parameters('partitionCount')]",
-                  "CaptureDescription":{
-                        "enabled":"[parameters('captureEnabled')]",
-                        "encoding":"[parameters('captureEncodingFormat')]",
-                        "intervalInSeconds":"[parameters('captureTime')]",
-                        "sizeLimitInBytes":"[parameters('captureSize')]",
-                        "destination":{
-                            "name":"EventHubCapture.AzureBlockBlob",
-                            "properties":{
-                                "StorageAccountResourceId":"[parameters('destinationStorageAccountResourceId')]",
-                                "BlobContainer":"[parameters('blobContainerName')]"
-                            }
-                        } 
-                  }
-
-               }
-
+         "resources": [
+    {
+      "apiVersion": "2017-04-01",
+      "name": "[parameters('eventHubNamespaceName')]",
+      "type": "Microsoft.EventHub/Namespaces",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {
+        "isAutoInflateEnabled": "true",
+        "maximumThroughputUnits": "7"
+      },
+      "resources": [
+        {
+          "apiVersion": "2017-04-01",
+          "name": "[parameters('eventHubName')]",
+          "type": "EventHubs",
+          "dependsOn": [
+            "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
+          ],
+          "properties": {
+            "messageRetentionInDays": "[parameters('messageRetentionInDays')]",
+            "partitionCount": "[parameters('partitionCount')]",
+            "captureDescription": {
+              "enabled": "true",
+              "encoding": "[parameters('captureEncodingFormat')]",
+              "intervalInSeconds": "[parameters('captureTime')]",
+              "sizeLimitInBytes": "[parameters('captureSize')]",
+              "destination": {
+                "name": "EventHubArchive.AzureBlockBlob",
+                "properties": {
+                  "storageAccountResourceId": "[parameters('destinationStorageAccountResourceId')]",
+                  "blobContainer": "[parameters('blobContainerName')]",
+                  "archiveNameFormat": "[parameters('captureNameFormat')]"
+                }
+              }
             }
-         ]
-      }
-   ]
+          }
+
+        }
+      ]
+    }
+  ]
 ```
 
-## <a name="resources-toodeploy-for-azure-data-lake-store-as-destination"></a>Toodeploy resources voor Azure Data Lake Store als bestemming
+## <a name="resources-to-deploy-for-azure-data-lake-store-as-destination"></a>Resources om te implementeren met Azure Data Lake Store als doel
 
-Hiermee maakt u een naamruimte van het type **EventHubs**, met een event hub en schakelt vastleggen tooAzure Data Lake Store.
+Hiermee maakt u een naamruimte van het type **EventHubs** met één gebeurtenishub, en wordt ook Capture ingeschakeld voor gebruik met Azure Data Lake Store.
 
 ```json
  "resources": [
         {
-            "apiVersion": "2015-08-01",
+            "apiVersion": "2017-04-01",
             "name": "[parameters('namespaceName')]",
             "type": "Microsoft.EventHub/Namespaces",
             "location": "[variables('location')]",
@@ -345,7 +357,7 @@ Hiermee maakt u een naamruimte van het type **EventHubs**, met een event hub en 
             },
             "resources": [
                 {
-                    "apiVersion": "2015-08-01",
+                    "apiVersion": "2017-04-01",
                     "name": "[parameters('eventHubName')]",
                     "type": "EventHubs",
                     "dependsOn": [
@@ -353,18 +365,18 @@ Hiermee maakt u een naamruimte van het type **EventHubs**, met een event hub en 
                     ],
                     "properties": {
                         "path": "[parameters('eventHubName')]",
-                        "ArchiveDescription": {
+                        "captureDescription": {
                             "enabled": "true",
                             "encoding": "[parameters('archiveEncodingFormat')]",
-                            "intervalInSeconds": "[parameters('archiveTime')]",
-                            "sizeLimitInBytes": "[parameters('archiveSize')]",
+                            "intervalInSeconds": "[parameters('captureTime')]",
+                            "sizeLimitInBytes": "[parameters('captureSize')]",
                             "destination": {
                                 "name": "EventHubArchive.AzureDataLake",
                                 "properties": {
                                     "DataLakeSubscriptionId": "[parameters('subscriptionId')]",
                                     "DataLakeAccountName": "[parameters('dataLakeAccountName')]",
                                     "DataLakeFolderPath": "[parameters('dataLakeFolderPath')]",
-                                    "ArchiveNameFormat": "[parameters('archiveNameFormat')]"
+                                    "ArchiveNameFormat": "[parameters('captureNameFormat')]"
                                 }
                             }
                         }
@@ -375,19 +387,19 @@ Hiermee maakt u een naamruimte van het type **EventHubs**, met een event hub en 
     ]
 ```
 
-## <a name="commands-toorun-deployment"></a>Opdrachten toorun implementatie
+## <a name="commands-to-run-deployment"></a>Opdrachten om implementatie uit te voeren
 
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
 
-Uw sjabloon tooenable Event Hubs vastleggen implementeren in Azure Storage:
+Een sjabloon implementeren om Event Hubs Capture in te schakelen in Azure Storage:
  
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
 ```
 
-Uw sjabloon tooenable Event Hubs vastleggen implementeren in Azure Data Lake Store:
+Een sjabloon implementeren om Event Hubs Capture in te schakelen in Azure Data Lake Store:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json
@@ -413,9 +425,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt ook configureren Event Hubs vastleggen via Hallo [Azure-portal](https://portal.azure.com). Zie voor meer informatie [Azure-portal met behulp van inschakelen van Event Hubs vastleggen Hallo](event-hubs-capture-enable-through-portal.md).
+U kunt Event Hubs Capture ook configureren via de [Azure-portal](https://portal.azure.com). Zie voor meer informatie [Event Hubs Capture inschakelen met behulp van de Azure-portal](event-hubs-capture-enable-through-portal.md).
 
-U meer informatie over Event Hubs via Hallo koppelingen te volgen:
+U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
 
 * [Event Hubs-overzicht](event-hubs-what-is-event-hubs.md)
 * [Een Event Hub maken](event-hubs-create.md)
@@ -424,5 +436,5 @@ U meer informatie over Event Hubs via Hallo koppelingen te volgen:
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Azure Resources naming conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
-[Event hub and enable Capture tooStorage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
-[Event hub and enable Capture tooAzure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls
+[Event hub and enable Capture to Storage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
+[Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls

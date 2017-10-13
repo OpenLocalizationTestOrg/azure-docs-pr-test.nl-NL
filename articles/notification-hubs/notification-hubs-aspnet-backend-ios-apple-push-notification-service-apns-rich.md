@@ -1,6 +1,6 @@
 ---
-title: Notification Hubs Rich Push aaaAzure
-description: Meer informatie over hoe toosend rich push-meldingen tooan iOS-app van Azure. Codevoorbeelden geschreven in Objective-C en C#.
+title: Azure Notification Hubs Rich Push
+description: Informatie over het uitgebreide pushmeldingen verzendt naar een iOS-app van Azure. Codevoorbeelden geschreven in Objective-C en C#.
 documentationcenter: ios
 services: notification-hubs
 author: ysxu
@@ -14,15 +14,15 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 5432d8bf47777371bea3521a0c0176ade75fbd9a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 394efdc2dfaff0666bc23d8a448b0a00d414da99
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs Rich Push
 ## <a name="overview"></a>Overzicht
-In volgorde tooengage gebruikers met instant uitgebreide inhoud eventueel een toepassing toopush afgezien van tekst zonder opmaak. Deze meldingen promoveren gebruikersinteracties en aanwezig inhoud zoals URL's, geluiden en afbeeldingen/coupons. Deze zelfstudie bouwt voort op Hallo [gebruikers waarschuwen](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) onderwerp en ziet u hoe toosend pushmeldingen die gebruikmaken van nettoladingen (bijvoorbeeld afbeelding).
+Om gebruikers met instant uitgebreide inhoud, wilt een toepassing pushen naast tekst zonder opmaak. Deze meldingen promoveren gebruikersinteracties en aanwezig inhoud zoals URL's, geluiden en afbeeldingen/coupons. Deze zelfstudie bouwt voort op de [gebruikers waarschuwen](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) onderwerp en het verzenden van pushmeldingen die gebruikmaken van nettoladingen (bijvoorbeeld installatiekopie) wordt weergegeven.
 
 Deze zelfstudie is compatibel met iOS 7 en 8.
 
@@ -30,28 +30,28 @@ Deze zelfstudie is compatibel met iOS 7 en 8.
 
 Op hoog niveau:
 
-1. Hallo back-end app:
-   * Winkels Hallo uitgebreide nettolading (in dit geval installatiekopie) in Hallo back-end-database/lokale opslag
-   * ID van dit uitgebreide melding toohello apparaat verzendt
-2. De App op Hallo apparaat:
-   * Contactpersonen Hallo back-end Hallo uitgebreide nettolading met Hallo-ID ontvangen aanvragen
-   * Meldingen voor gebruikers verzendt op Hallo apparaat bij het ophalen van gegevens is voltooid en toont Hallo nettolading zodra gebruikers tikken op meer toolearn
+1. De app back-end:
+   * De nettolading van de uitgebreide opgeslagen (in dit geval installatiekopie) in de back-end-database/lokale opslag
+   * ID van deze uitgebreide melding verzendt naar het apparaat
+2. De App op het apparaat:
+   * Neemt contact op met de back-end aanvragen van de uitgebreide nettolading met de ID die wordt ontvangen
+   * Meldingen voor gebruikers verzendt op het apparaat bij het ophalen van gegevens is voltooid en toont de nettolading van de zodra gebruikers Tik voor meer informatie
 
 ## <a name="webapi-project"></a>WebAPI-Project
-1. Open in Visual Studio Hallo **AppBackend** project dat u hebt gemaakt in Hallo [gebruikers waarschuwen](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) zelfstudie.
-2. Verkrijgen van een installatiekopie die u wilt toonotify gebruikers met, en plaats deze in een **img** map in uw projectmap.
-3. Klik op **alle bestanden weergeven** Hallo in Solution Explorer en te met de rechtermuisknop op de map Hallo**opnemen In Project**.
-4. Hallo-afbeelding is geselecteerd en ook de actie bouwen in het venster Eigenschappen wijzigen**ingesloten bron**.
+1. Open in Visual Studio de **AppBackend** project dat u hebt gemaakt in de [gebruikers waarschuwen](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) zelfstudie.
+2. Verkrijgen van een installatiekopie die u wilt melden gebruikers met en plaatsen een **img** map in uw projectmap.
+3. Klik op **alle bestanden weergeven** in Solution Explorer met de rechtermuisknop op de map **opnemen In Project**.
+4. Met de afbeelding is geselecteerd en de actie bouwen in het venster Eigenschappen te wijzigen **ingesloten bron**.
    
     ![][IOS2]
-5. In **Notifications.cs**, voeg de volgende Hallo met de instructie:
+5. In **Notifications.cs**, Voeg het volgende toe met de instructie:
    
         using System.Reflection;
-6. Update Hallo hele **meldingen** klasse Hello code te volgen. Niet zeker tooreplace Hallo tijdelijke aanduidingen door uw notification hub-referenties en de bestandsnaam van de installatiekopie.
+6. Bijwerken van de gehele **meldingen** klasse met de volgende code. Zorg ervoor dat de tijdelijke aanduidingen vervangt door uw notification hub-referenties en de bestandsnaam van de installatiekopie.
    
         public class Notification {
             public int Id { get; set; }
-            // Initial notification message toodisplay toousers
+            // Initial notification message to display to users
             public string Message { get; set; }
             // Type of rich payload (developer-defined)
             public string RichType { get; set; }
@@ -67,7 +67,7 @@ Op hoog niveau:
             public NotificationHubClient Hub { get; set; }
    
             private Notifications() {
-                // Placeholders: replace with hello connection string (with full access) for your notification hub and hello hub name from hello Azure Classics Portal
+                // Placeholders: replace with the connection string (with full access) for your notification hub and the hub name from the Azure Classics Portal
                 Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}",  "{hub name}");
             }
    
@@ -93,10 +93,10 @@ Op hoog niveau:
         }
    
    > [!NOTE]
-   > (optioneel) Raadpleeg te[hoe tooembed en toegang tot resources met behulp van Visual C#](http://support.microsoft.com/kb/319292) voor meer informatie over het tooadd en projectresources ophalen.
+   > (optioneel) Raadpleeg [het insluiten van en toegang krijgen tot bronnen met behulp van Visual C#](http://support.microsoft.com/kb/319292) voor meer informatie over het toevoegen en projectresources verkrijgen.
    > 
    > 
-7. In **NotificationsController.cs**, definiëren **NotificationsController** Hello codefragmenten te volgen. Hiermee verzendt een initiële melding voor de achtergrond uitgebreide id toodevice te kunnen aan de clientzijde voor het ophalen van afbeelding:
+7. In **NotificationsController.cs**, definiëren **NotificationsController** met de volgende codefragmenten. Hiermee verzendt een initiële melding voor de achtergrond uitgebreide id naar apparaat te kunnen aan de clientzijde voor het ophalen van afbeelding:
    
         // Return http response with image binary
         public HttpResponseMessage Get(int id) {
@@ -110,9 +110,9 @@ Op hoog niveau:
             return result;
         }
    
-        // Create rich notification and send initial silent notification (containing id) tooclient
+        // Create rich notification and send initial silent notification (containing id) to client
         public async Task<HttpResponseMessage> Post() {
-            // Replace hello placeholder with image file name
+            // Replace the placeholder with image file name
             var richNotificationInTheBackend = Notifications.Instance.CreateNotification("Check this image out!", "img",  "{logo.png}");
    
             var usernameTag = "username:" + HttpContext.Current.User.Identity.Name;
@@ -120,41 +120,41 @@ Op hoog niveau:
             // Silent notification with content available
             var aboutUser = "{\"aps\": {\"content-available\": 1, \"sound\":\"\"}, \"richId\": \"" + richNotificationInTheBackend.Id.ToString() + "\",  \"richMessage\": \"" + richNotificationInTheBackend.Message + "\", \"richType\": \"" + richNotificationInTheBackend.RichType + "\"}";
    
-            // Send notification tooapns
+            // Send notification to apns
             await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(aboutUser, usernameTag);
    
             return Request.CreateResponse(HttpStatusCode.OK);
         }
-8. Nu we deze app tooan Azure-Website in volgorde toomake opnieuw implementeren deze toegankelijk is vanaf alle apparaten. Met de rechtermuisknop op Hallo **AppBackend** project en selecteer **publiceren**.
-9. Selecteer de Azure-Website als uw doel publiceren. Meld u aan met uw Azure-account en selecteer een bestaande of nieuwe Website en noteer Hallo **doel-URL** eigenschap in Hallo **verbinding** tabblad. Toothis URL als wordt verwezen uw *back-end-eindpunt* verderop in deze zelfstudie. Klik op **Publish**.
+8. Er wordt nu opnieuw deze app wordt een Azure-Website zodat deze toegankelijk is vanaf alle apparaten implementeren. Klik met de rechtermuisknop op het project **AppBackend** en selecteer **Publiceren**.
+9. Selecteer de Azure-Website als uw doel publiceren. Meld u aan met uw Azure-account en selecteer een bestaande of nieuwe Website en noteer de **doel-URL** eigenschap in de **verbinding** tabblad. Naar deze URL wordt verderop in deze zelfstudie verwezen als uw *back-endeindpunt*. Klik op **Publish**.
 
-## <a name="modify-hello-ios-project"></a>Hallo iOS-project wijzigen
-Nu dat u hebt uw app back-end toosend alleen Hallo gewijzigd *id* van een melding die id van uw iOS-app toohandle gewijzigd en ophalen van uitgebreide het Hallo-bericht van uw back-end.
+## <a name="modify-the-ios-project"></a>Wijzigen van het iOS-project
+Nu dat u hebt uw app back-end verzendt gewijzigd alleen de *id* van een melding, wijzigt u uw iOS-app voor het verwerken van die id en het uitgebreide bericht ophalen vanuit uw back-end.
 
-1. Open uw iOS-project en inschakelen van externe meldingen door te gaan tooyour belangrijkste doel app in Hallo **doelen** sectie.
-2. Klik op **mogelijkheden**, schakelt u **Achtergrondmodi**, en controleer Hallo **Remote Notifications** selectievakje.
+1. Open uw iOS-project en externe meldingen inschakelen door te gaan naar het doel van uw belangrijkste app in de **doelen** sectie.
+2. Klik op **mogelijkheden**, schakelt u **Achtergrondmodi**, en controleer de **Remote Notifications** selectievakje.
    
     ![][IOS3]
-3. Ga te**Main.storyboard**, en zorg ervoor dat u hebt een View-Controller (zoals tooas start weergavebesturing in deze zelfstudie) van [gebruiker inlichten](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) zelfstudie.
-4. Voeg een **navigatie Controller** tooyour storyboard en besturingselement en sleep tooHome weergavebesturing toomake het Hallo **hoofdmap weergave** van navigatie. Zorg ervoor dat Hallo **initiële View-Controller Is** in kenmerken inspector is geselecteerd voor alleen Hallo navigatie-Controller.
-5. Voeg een **weergavebesturing** toostoryboard en voeg een **Afbeeldingsweergave**. Dit is Hallo pagina gebruikers zien wanneer ze toolearn meer door te klikken op Hallo notifiication kiezen. Een storyboard ziet er als volgt:
+3. Ga naar **Main.storyboard**, en zorg ervoor dat u hebt een View-Controller (zoals als Start weergavebesturing in deze zelfstudie) van [gebruiker inlichten](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) zelfstudie.
+4. Toevoegen een **navigatie Controller** tot uw storyboard en besturingselement en sleep naar Start weergavebesturing zodat deze de **hoofdmap weergave** van navigatie. Zorg ervoor dat de **initiële View-Controller Is** in kenmerken inspector voor alleen de navigatie-Controller wordt geselecteerd.
+5. Voeg een **weergavebesturing** voor storyboard en toevoegen van een **Afbeeldingsweergave**. Dit is de pagina die gebruikers zien wanneer ze kiezen voor meer informatie door te klikken op de notifiication. Een storyboard ziet er als volgt:
    
     ![][IOS4]
-6. Klik op Hallo **start weergavebesturing** storyboard en zorg ervoor dat zij heeft **homeViewController** als de **aangepaste klasse** en **Storyboard ID**onder Hallo identiteit inspector.
-7. Dezelfde hello voor weergavebesturing installatiekopie als **imageViewController**.
-8. Vervolgens maakt u een nieuwe weergavebesturing klasse met de titel **imageViewController** toohandle Hallo gebruikersinterface die u zojuist hebt gemaakt.
-9. In **imageViewController.h**, Hallo na toohello-controller interface declaraties toevoegen. Zorg ervoor dat toocontrol en sleep van Hallo storyboard installatiekopie weergave toothese eigenschappen toolink Hallo twee:
+6. Klik op de **start weergavebesturing** storyboard en zorg ervoor dat zij heeft **homeViewController** als de **aangepaste klasse** en **Storyboard ID**onder de identiteit inspector.
+7. Doe hetzelfde voor weergavebesturing installatiekopie als **imageViewController**.
+8. Vervolgens maakt u een nieuwe weergavebesturing klasse met de titel **imageViewController** voor het afhandelen van de gebruikersinterface die u zojuist hebt gemaakt.
+9. In **imageViewController.h**, Voeg het volgende toe aan de controller interface-declaraties. Zorg ervoor dat besturingselement en sleep vanuit de weergave van de installatiekopie storyboard naar deze eigenschappen om te koppelen van de twee:
    
         @property (weak, nonatomic) IBOutlet UIImageView *myImage;
         @property (strong) UIImage* imagePayload;
-10. In **imageViewController.m**, Hallo volgende toevoegen aan Hallo einde van **viewDidload**:
+10. In **imageViewController.m**, Voeg het volgende toe aan het einde van **viewDidload**:
     
-        // Display hello UI Image in UI Image View
+        // Display the UI Image in UI Image View
         [self.myImage setImage:self.imagePayload];
-11. In **AppDelegate.m**, importeren Hallo installatiekopie-domeincontroller die u hebt gemaakt:
+11. In **AppDelegate.m**, importeert u de installatiekopie-domeincontroller die u hebt gemaakt:
     
         #import "imageViewController.h"
-12. Een sectie interface Hello declaratie volgende toevoegen:
+12. Een sectie interface met de volgende declaratie toevoegen:
     
         @interface AppDelegate ()
     
@@ -165,7 +165,7 @@ Nu dat u hebt uw app back-end toosend alleen Hallo gewijzigd *id* van een meldin
         // Obtain content from backend with notification id
         - (void)retrieveRichImageWithId:(int)richId completion: (void(^)(NSError*)) completion;
     
-        // Redirect tooImage View Controller after notification interaction
+        // Redirect to Image View Controller after notification interaction
         - (void)redirectToImageViewWithImage: (UIImage *)img;
     
         @end
@@ -211,14 +211,14 @@ Nu dat u hebt uw app back-end toosend alleen Hallo gewijzigd *id* van een meldin
 
         return YES;
 
-1. Subsitute in Hallo na implementatie voor **toepassing: didRegisterForRemoteNotificationsWithDeviceToken** tootake Hallo storyboard UI in account verandert:
+1. Subsitute in de volgende implementatie voor **toepassing: didRegisterForRemoteNotificationsWithDeviceToken** naar het storyboard UI wordt gewijzigd in aanmerking nemen:
    
-       // Access navigation controller which is at hello root of window
+       // Access navigation controller which is at the root of window
        UINavigationController *nc = (UINavigationController *)self.window.rootViewController;
        // Get home view controller from stack on navigation controller
        homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
        hvc.deviceToken = deviceToken;
-2. Vervolgens voegt u Hallo volgende methoden te**AppDelegate.m** tooretrieve Hallo van de installatiekopie van uw eindpunt en een lokale melding verzenden wanneer ophalen is voltooid. Zorg ervoor dat toosubstitute Hallo-tijdelijke aanduiding `{backend endpoint}` met uw back-end-eindpunt:
+2. Vervolgens voegt u de volgende methoden om **AppDelegate.m** ophalen van de installatiekopie van uw eindpunt en een lokale melding verzendt wanneer ophalen voltooid is. Vervang de tijdelijke aanduiding door `{backend endpoint}` met uw back-end-eindpunt:
    
        NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
    
@@ -245,7 +245,7 @@ Nu dat u hebt uw app back-end toosend alleen Hallo gewijzigd *id* van een meldin
    
                NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
                if (!error && httpResponse.statusCode == 200) {
-                   // From NSData tooUIImage
+                   // From NSData to UIImage
                    self.imagePayload = [UIImage imageWithData:data];
    
                    completion(nil);
@@ -275,7 +275,7 @@ Nu dat u hebt uw app back-end toosend alleen Hallo gewijzigd *id* van een meldin
                        // Send local notification
                        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
    
-                       // "5" is arbitrary here toogive you enough time tooquit out of hello app and receive push notifications
+                       // "5" is arbitrary here to give you enough time to quit out of the app and receive push notifications
                        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
                        localNotification.userInfo = self.userInfo;
                        localNotification.alertBody = [self.userInfo objectForKey:@"richMessage"];
@@ -295,17 +295,17 @@ Nu dat u hebt uw app back-end toosend alleen Hallo gewijzigd *id* van een meldin
                    }
                }];
            }
-           // Add "else if" here toohandle more types of rich content such as url, sound files, etc.
+           // Add "else if" here to handle more types of rich content such as url, sound files, etc.
        }
-3. Hallo lokale melding hierboven verwerkt door het openen van Hallo installatiekopie weergavebesturing in **AppDelegate.m** Hello volgende methoden:
+3. De lokale melding hierboven verwerkt door het openen van de installatiekopie weergavebesturing in **AppDelegate.m** met de volgende methoden:
    
-       // Helper: redirect users tooimage view controller
+       // Helper: redirect users to image view controller
        - (void)redirectToImageViewWithImage: (UIImage *)img {
            UINavigationController *navigationController = (UINavigationController*) self.window.rootViewController;
            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                                     bundle: nil];
            imageViewController *imgViewController = [mainStoryboard instantiateViewControllerWithIdentifier: @"imageViewController"];
-           // Pass data/image tooimage view controller
+           // Pass data/image to image view controller
            imgViewController.imagePayload = img;
    
            // Redirect
@@ -333,7 +333,7 @@ Nu dat u hebt uw app back-end toosend alleen Hallo gewijzigd *id* van een meldin
            {
                [self redirectToImageViewWithImage:self.imagePayload];
            }
-           // Add "else if" here toohandle more buttons
+           // Add "else if" here to handle more buttons
        }
    
        // Handle notification setting actions in iOS8
@@ -345,11 +345,11 @@ Nu dat u hebt uw app back-end toosend alleen Hallo gewijzigd *id* van een meldin
            completionHandler();
        }
 
-## <a name="run-hello-application"></a>Hallo toepassing uitvoeren
-1. Uitvoeren in XCode Hallo-app op een fysiek iOS-apparaat (push meldingen niet in de simulator Hallo werken).
-2. Voer een gebruikersnaam en wachtwoord Hallo dezelfde waarde voor verificatie en klikt u op in Hallo iOS-app UI **aanmelden**.
-3. Klik op **push verzenden** en ziet u een waarschuwing in-app. Als u op klikt **meer**, kunt u zich gebracht toohello-installatiekopie die u hebt gekozen tooinclude in uw back-end voor de app.
-4. U kunt ook klikken op **push verzenden** en druk onmiddellijk op Hallo thuis-knop van uw apparaat. Het over enkele ogenblikken ontvangt u een push-melding. Als u erop tik of klik op meer, moet u aan tooyour app en Hallo uitgebreide installatiekopie inhoud gebracht.
+## <a name="run-the-application"></a>De toepassing uitvoeren
+1. Voer de app op een fysiek iOS-apparaat (push notifications niet in de simulator werkt) in XCode.
+2. Voer een gebruikersnaam en wachtwoord van dezelfde waarde voor verificatie en klik in de iOS-app UI **aanmelden**.
+3. Klik op **push verzenden** en ziet u een waarschuwing in-app. Als u op klikt **meer**, u naar de installatiekopie die u wilt opnemen in uw back-end voor de app wordt geopend.
+4. U kunt ook klikken op **push verzenden** en druk onmiddellijk op de knop Start van uw apparaat. Het over enkele ogenblikken ontvangt u een push-melding. Als u erop tik of klik op meer, wordt u in uw app en de inhoud van de uitgebreide gebracht.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-1.png
 [IOS2]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png

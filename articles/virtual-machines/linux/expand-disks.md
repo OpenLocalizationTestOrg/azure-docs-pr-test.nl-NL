@@ -1,6 +1,6 @@
 ---
-title: aaaExpand virtuele harde schijven op een Linux VM in Azure | Microsoft Docs
-description: Meer informatie over hoe tooexpand virtuele harde schijven op een Linux-VM met Azure CLI 2.0 Hallo
+title: Vouw de virtuele harde schijven op een Linux VM in Azure | Microsoft Docs
+description: Meer informatie over het uitbreiden van de virtuele harde schijven op een Linux-VM met de Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/21/2017
 ms.author: iainfou
-ms.openlocfilehash: 7c09a682cb4322c027e57667640e8f1f8e6612f2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b82cc0473c003da767ee230ab485c69b233977d1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-tooexpand-virtual-hard-disks-on-a-linux-vm-with-hello-azure-cli"></a>Hoe tooexpand virtuele harde schijven op een Linux-VM met Azure CLI Hallo
-Hallo standaardgrootte virtuele harde schijf voor Hallo besturingssysteem (OS) is doorgaans 30 GB op een Linux virtuele machine (VM) in Azure. U kunt [gegevensschijven toevoegen](add-disk.md) tooprovide voor extra opslagruimte, maar u kunt ook desgewenst voor tooexpand een bestaande gegevensschijf. Dit artikel wordt uitgelegd hoe tooexpand schijven voor een Linux-VM met hello Azure CLI 2.0 beheerd. U kunt ook de besturingssysteemschijf Hallo zonder begeleiding Hello uitvouwen [Azure CLI 1.0](expand-disks-nodejs.md).
+# <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Het uitbreiden van de virtuele harde schijven op een Linux-VM met de Azure CLI
+Grootte van de virtuele harde schijf voor het besturingssysteem (OS) is doorgaans 30 GB op een Linux virtuele machine (VM) in Azure. U kunt [gegevensschijven toevoegen](add-disk.md) te voorzien in extra opslagruimte, maar u kunnen ook desgewenst een bestaande gegevensschijf wilt uitbreiden. Dit artikel wordt uitgelegd hoe u beheerde schijven voor een Linux-VM met de Azure CLI 2.0 uitbreiden. U kunt ook uitbreiden met de niet-beheerde OS-schijf met de [Azure CLI 1.0](expand-disks-nodejs.md).
 
 > [!WARNING]
 > Zorg er altijd dat u maakt u een back-up van uw gegevens voordat u de schijf uitvoert de grootte van bewerkingen. Zie voor meer informatie [Back-up van Linux virtuele machines in Azure](tutorial-backup-vms.md).
 
 ## <a name="expand-disk"></a>Schijf uitbreiden
-Zorg ervoor dat er Hallo nieuwste [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in Azure-account met behulp van tooan [az aanmelding](/cli/azure/#login).
+Zorg ervoor dat u de meest recente hebt [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#login).
 
 In dit artikel is een bestaande virtuele machine in Azure met ten minste één schijf met gegevens die zijn gekoppeld en voorbereid vereist. Als u nog geen een virtuele machine die u kunt gebruiken, raadpleegt u [maken en voorbereiden van een virtuele machine met gegevensschijven](tutorial-manage-disks.md#create-and-attach-disks).
 
-In Hallo vervangen volgende voorbeelden parameternamen voorbeeld door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup* en *myVM*.
+In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup* en *myVM*.
 
-1. Bewerkingen op virtuele harde schijven kunnen niet worden uitgevoerd met Hallo VM uitgevoerd. Toewijzing van uw virtuele machine met [az vm ongedaan](/cli/azure/vm#deallocate). Hallo volgende voorbeeld deallocates Hallo VM met de naam *myVM* in Hallo resourcegroep met de naam *myResourceGroup*:
+1. Bewerkingen op virtuele harde schijven kunnen niet worden uitgevoerd met de virtuele machine uitgevoerd. Toewijzing van uw virtuele machine met [az vm ongedaan](/cli/azure/vm#deallocate). Het volgende voorbeeld de virtuele machine met de naam deallocates *myVM* in de resourcegroep met de naam *myResourceGroup*:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
     > [!NOTE]
-    > `az vm stop`Geeft de rekenresources Hallo niet vrij. toorelease rekenresources, gebruikt u `az vm deallocate`. Hallo VM moet ongedaan tooexpand Hallo virtuele hardeschijf.
+    > `az vm stop`Geeft de rekenresources niet vrij. Gebruik om rekenresources release `az vm deallocate`. De virtuele machine moet ongedaan als u de virtuele harde schijf wilt uitbreiden.
 
-2. Een lijst met beheerde schijven weergeven in een resourcegroep met [az Schijflijst](/cli/azure/disk#list). Hallo volgende voorbeeld wordt een lijst met beheerde schijven in Hallo resourcegroep met de naam *myResourceGroup*:
+2. Een lijst met beheerde schijven weergeven in een resourcegroep met [az Schijflijst](/cli/azure/disk#list). Het volgende voorbeeld wordt een lijst met beheerde schijven in de resourcegroep met de naam *myResourceGroup*:
 
     ```azurecli
     az disk list \
@@ -51,7 +51,7 @@ In Hallo vervangen volgende voorbeelden parameternamen voorbeeld door uw eigen w
         --output table
     ```
 
-    Vouw de benodigde schijfruimte Hallo met [az schijf update](/cli/azure/disk#update). Hallo volgende voorbeeld wordt uitgebreid beheerde Hallo-schijf met de naam *myDataDisk* toobe *200*Gb in grootte:
+    Vouw de benodigde schijfruimte met [az schijf update](/cli/azure/disk#update). Het volgende voorbeeld wordt de beheerde schijf met de naam *myDataDisk* worden *200*Gb in grootte:
 
     ```azurecli
     az disk update \
@@ -61,40 +61,40 @@ In Hallo vervangen volgende voorbeelden parameternamen voorbeeld door uw eigen w
     ```
 
     > [!NOTE]
-    > Wanneer u een beheerde schijf wilt uitbreiden, is bijgewerkt Hallo grootte toegewezen toohello dichtstbijzijnde beheerde schijfgrootte. Zie voor een tabel van Hallo beheerde schijfgrootten beschikbaar en lagen [beheerd schijven overzicht van Azure - prijzen en facturering](../windows/managed-disks-overview.md#pricing-and-billing).
+    > Wanneer u een beheerde schijf uitbreidt, worden de bijgewerkte grootte is toegewezen aan de dichtstbijzijnde beheerde schijfgrootte. Zie voor een tabel van de beschikbare beheerde schijfgrootten en lagen [beheerd schijven overzicht van Azure - prijzen en facturering](../windows/managed-disks-overview.md#pricing-and-billing).
 
-3. Start de virtuele machine met [az vm start](/cli/azure/vm#start). Hallo volgende voorbeeld wordt gestart met de naam VM Hallo *myVM* in Hallo resourcegroep met de naam *myResourceGroup*:
+3. Start de virtuele machine met [az vm start](/cli/azure/vm#start). Het volgende voorbeeld wordt de virtuele machine met de naam *myVM* in de resourcegroep met de naam *myResourceGroup*:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. SSH tooyour VM met de juiste referenties Hallo. U kunt verkrijgen Hallo openbare IP-adres van uw virtuele machine met [az vm weergeven](/cli/azure/vm#show):
+4. SSH met uw virtuele machine met de juiste referenties. U kunt het openbare IP-adres van uw virtuele machine met verkrijgen [az vm weergeven](/cli/azure/vm#show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-5. Hallo toouse schijf uitgebreid, moet u tooexpand Hallo onderliggende partitie en het bestandssysteem.
+5. Voor het gebruik van de uitgevouwen schijf, moet u de onderliggende partitie en bestandssysteem uitvouwen.
 
-    a. Als al is gekoppeld, ontkoppelt Hallo schijf:
+    a. Als al is gekoppeld, ontkoppelt u de schijf:
 
     ```bash
     sudo umount /dev/sdc1
     ```
 
-    b. Gebruik `parted` tooview informatie schijf en het formaat Hallo-partitie:
+    b. Gebruik `parted` schijfgegevens wilt bekijken en grootte van de partitie:
 
     ```bash
     sudo parted /dev/sdc
     ```
 
-    Informatie weergeven over Hallo bestaande partitie-indeling met `print`. Hallo uitvoer is vergelijkbaar toohello volgende voorbeeld ziet u de onderliggende schijf Hallo is 215Gb groot:
+    Informatie weergeven over de bestaande partitie-indeling met `print`. De uitvoer is vergelijkbaar met het volgende voorbeeld, waarin dat de onderliggende schijf 215Gb groot is:
 
     ```bash
     GNU Parted 3.2
     Using /dev/sdc1
-    Welcome tooGNU Parted! Type 'help' tooview a list of commands.
+    Welcome to GNU Parted! Type 'help' to view a list of commands.
     (parted) print
     Model: Unknown Msft Virtual Disk (scsi)
     Disk /dev/sdc1: 215GB
@@ -106,7 +106,7 @@ In Hallo vervangen volgende voorbeelden parameternamen voorbeeld door uw eigen w
         1      0.00B  107GB  107GB  ext4
     ```
 
-    c. Vouw Hallo-partitie met `resizepart`. Voer Hallo partitienummer, *1*, en een grootte voor de nieuwe partitie Hallo:
+    c. Vouw de partitie met `resizepart`. Voer het partitienummer *1*, en een grootte voor de nieuwe partitie:
 
     ```bash
     (parted) resizepart
@@ -114,27 +114,27 @@ In Hallo vervangen volgende voorbeelden parameternamen voorbeeld door uw eigen w
     End?  [107GB]? 215GB
     ```
 
-    d. tooexit, invoeren`quit`
+    d. Voer om af te sluiten`quit`
 
-5. Controleren met Hallo partitie is gewijzigd, Hallo partitie consistentie met `e2fsck`:
+5. Bij de partitie is gewijzigd, Controleer de consistentie van de partitie met `e2fsck`:
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-6. Nu vergroten of verkleinen Hallo bestandssysteem met `resize2fs`:
+6. Nu het formaat van het bestandssysteem met `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-7. Koppelpunt Hallo partitie toohello gewenste locatie, zoals `/datadrive`:
+7. Koppelen van de partitie naar de gewenste locatie, zoals `/datadrive`:
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-8. tooverify hello OS-schijf is gewijzigd, gebruikt u `df -h`. Hallo volgende voorbeelduitvoer toont Hallo gegevensstation, */dev/sdc1*, is nu 200 GB:
+8. Gebruiken om te controleren of de grootte van de besturingssysteemschijf is gewijzigd, `df -h`. De volgende voorbeelduitvoer wordt weergegeven voor het gegevensstation */dev/sdc1*, is nu 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
@@ -142,4 +142,4 @@ In Hallo vervangen volgende voorbeelden parameternamen voorbeeld door uw eigen w
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u extra opslagruimte, moet u ook [gegevens schijven tooa Linux VM toevoegen](add-disk.md). Zie voor meer informatie over schijfversleuteling [versleutelen schijven op een Linux-VM met behulp van Azure CLI Hallo](encrypt-disks.md).
+Als u extra opslagruimte, moet u ook [gegevensschijven toevoegen aan een Linux-VM](add-disk.md). Zie voor meer informatie over schijfversleuteling [schijven op een Linux-VM met de Azure CLI versleutelen](encrypt-disks.md).

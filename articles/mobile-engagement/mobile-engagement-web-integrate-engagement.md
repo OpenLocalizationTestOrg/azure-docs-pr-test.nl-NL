@@ -1,6 +1,6 @@
 ---
-title: aaaAzure Mobile Engagement Web SDK-integratie | Microsoft Docs
-description: meest recente updates en procedures voor het Azure Mobile Engagement Web SDK Hallo Hallo
+title: Azure Mobile Engagement Web SDK-integratie | Microsoft Docs
+description: De nieuwste updates en procedures voor het Azure Mobile Engagement Web SDK
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
-ms.openlocfilehash: 99613b68b615bec4ddcfcc8e4e0133ce9d887bad
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>Azure Mobile Engagement integreren in een webtoepassing
 > [!div class="op_single_selector"]
@@ -29,21 +29,21 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Hallo procedures in dit artikel wordt beschreven Hallo eenvoudigste manier tooactivate Hallo analytics en bewaking van functies in Azure Mobile Engagement in uw webtoepassing.
+De procedures in dit artikel beschrijven de eenvoudigste manier om het activeren van de analyses en bewaking functies in Azure Mobile Engagement in uw webtoepassing.
 
-Ga als volgt Hallo stappen tooactivate Hallo logboek rapporten die vereist toocompute zijn alle statistische gegevens over gebruikers, sessies, activiteiten, crashes en technicals. Voor statistieken van afhankelijk zijn van toepassing, zoals gebeurtenissen, fouten en taken, moet u handmatig log-rapporten activeren met behulp van hello Azure Mobile Engagement-API. Informatie voor meer informatie over [hoe toouse Hallo Mobile Engagement API tags in een webtoepassing geavanceerde](mobile-engagement-web-use-engagement-api.md).
+Volg de stappen voor het activeren van de logboek-rapporten die nodig zijn voor alle statistische gegevens over gebruikers, sessies, activiteiten, crashes en technicals berekenen. Voor statistieken van afhankelijk zijn van toepassing, zoals gebeurtenissen, fouten en taken, moet u handmatig log-rapporten activeren met behulp van de API van Azure Mobile Engagement. Informatie voor meer informatie over [hoe u de geavanceerde Mobile Engagement API tags in een webtoepassing](mobile-engagement-web-use-engagement-api.md).
 
 ## <a name="introduction"></a>Inleiding
-[Hello Azure Mobile Engagement Web SDK downloaden](http://aka.ms/P7b453).
-Hallo Mobile Engagement Web SDK wordt geleverd als een enkel JavaScript-bestand, azure-engagement.js, die u hebt tooinclude op elke pagina van de toepassing van uw site of webtoepassing.
+[Download het Azure Mobile Engagement Web SDK](http://aka.ms/P7b453).
+De Mobile Engagement Web SDK wordt geleverd als een JavaScript-bestand van één azure-engagement.js, die u wilt opnemen in elke pagina van de toepassing van uw site of webtoepassing.
 
 > [!IMPORTANT]
-> Voordat u dit script uitvoert, moet u een script uitvoeren of code codefragment tooconfigure Mobile Engagement te schrijven voor uw toepassing.
+> Voordat u dit script uitvoert, moet u een script of codefragment die u schrijft voor het configureren van Mobile Engagement voor uw toepassing uitvoeren.
 > 
 > 
 
 ## <a name="browser-compatibility"></a>Browsercompatibiliteit
-Hallo Mobile Engagement Web SDK maakt gebruik van systeemeigen JSON coderen en decoderen bovendien toocross domein AJAX-aanvragen (relying op Hallo W3C CORS-specificatie). Is compatibel met de volgende browsers Hallo:
+De Mobile Engagement Web SDK maakt gebruik van systeemeigen JSON coderen en decoderen, naast de AJAX-aanvragen tussen domeinen (afhankelijk van de specificatie W3C CORS). Is compatibel met de volgende browsers:
 
 * Microsoft Edge 12 +
 * Internet Explorer 10 +
@@ -53,7 +53,7 @@ Hallo Mobile Engagement Web SDK maakt gebruik van systeemeigen JSON coderen en d
 * Opera 12 +
 
 ## <a name="configure-mobile-engagement"></a>Configureren van Mobile Engagement
-Een script schrijven dat wordt gemaakt van een globale `azureEngagement` JavaScript-object, zoals in het volgende voorbeeld Hallo. Omdat de site meerdere pagina's hebben mogelijk, in dit voorbeeld wordt ervan uitgegaan dat dit script wordt opgenomen in elke pagina. In dit voorbeeld Hallo JavaScript-object met de naam `azure-engagement-conf.js`.
+Een script schrijven dat wordt gemaakt van een globale `azureEngagement` JavaScript-object, zoals in het volgende voorbeeld. Omdat de site meerdere pagina's hebben mogelijk, in dit voorbeeld wordt ervan uitgegaan dat dit script wordt opgenomen in elke pagina. In dit voorbeeld wordt de JavaScript-object met de naam `azure-engagement-conf.js`.
 
     window.azureEngagement = {
       connectionString: 'Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}',
@@ -61,7 +61,7 @@ Een script schrijven dat wordt gemaakt van een globale `azureEngagement` JavaScr
       appVersionCode: 1
     };
 
-Hallo `connectionString` waarde wordt weergegeven in uw toepassing hello Azure-portal.
+De `connectionString` waarde voor uw toepassing wordt weergegeven in de Azure-portal.
 
 > [!NOTE]
 > `appVersionName`en `appVersionCode` zijn optioneel. We raden echter aan dat u ze configureren zodat analytics versie-informatie kan verwerken.
@@ -69,7 +69,7 @@ Hallo `connectionString` waarde wordt weergegeven in uw toepassing hello Azure-p
 > 
 
 ## <a name="include-mobile-engagement-scripts-in-your-pages"></a>Mobile Engagement scripts opnemen in uw pagina 's
-Mobile Engagement scripts tooyour pagina's op een van de volgende manieren Hallo toevoegen:
+Mobile Engagement-scripts toevoegen aan uw pagina's in een van de volgende manieren:
 
     <head>
       ...
@@ -88,9 +88,9 @@ Of dit:
     </body>
 
 ## <a name="alias"></a>Alias
-Nadat Hallo Mobile Engagement Web SDK-script is geladen, het maken van Hallo **engagement** alias tooaccess Hallo SDK-API's. U kunt deze alias toodefine Hallo SDK-configuratie niet gebruiken. Deze alias wordt gebruikt als een verwijzing in deze documentatie.
+Nadat het script Mobile Engagement Web SDK is geladen, maakt de **engagement** alias voor toegang tot de SDK-API's. U kunt deze alias niet gebruiken voor het definiëren van de configuratie van de SDK. Deze alias wordt gebruikt als een verwijzing in deze documentatie.
 
-Houd er rekening mee dat als Hallo standaardalias met een andere globale variabele van uw pagina conflicteert, u het in Hallo configuratie als volgt desgewenst kunt voordat u Hallo Mobile Engagement Web SDK laden:
+Houd er rekening mee dat als de standaardalias met een andere globale variabele van uw pagina conflicteert, u het in de configuratie als volgt desgewenst kunt voordat het laden van de Mobile Engagement Web SDK:
 
     window.azureEngagement = {
       connectionString: 'Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}',
@@ -105,9 +105,9 @@ Basic rapportage in Mobile Engagement bevat informatie over de statistieken van 
 ### <a name="session-tracking"></a>Sessie bijhouden
 Een sessie Mobile Engagement is onderverdeeld in een volgorde van activiteiten, elk aangeduid met een naam.
 
-In een klassieke website raden wij u aan een andere activiteit te declareren op elke pagina van uw site. Voor een website of webtoepassing toepassing in welke Hallo huidige pagina nooit verandert, kunt u tootrack Hallo activiteiten op kleinere schaal, zoals binnen Hallo pagina.
+In een klassieke website raden wij u aan een andere activiteit te declareren op elke pagina van uw site. Voor een website of webtoepassing toepassing waarin de huidige pagina nooit verandert, kunt u de activiteiten bijhouden op kleinere schaal, zoals op de pagina.
 
-Ofwel manier, toostart of wijzig Hallo huidige gebruikersactiviteit aanroep Hallo `engagement.agent.startActivity` functie. Bijvoorbeeld:
+In beide gevallen aanroepen om te starten of het wijzigen van de huidige gebruikersactiviteit, de `engagement.agent.startActivity` functie. Bijvoorbeeld:
 
     <body onload="yourOnload()">
 
@@ -118,28 +118,28 @@ Ofwel manier, toostart of wijzig Hallo huidige gebruikersactiviteit aanroep Hall
       engagement.agent.startActivity('welcome');
     };
 
-Hallo Mobile Engagement-server beëindigd automatisch een geopende sessie binnen drie minuten nadat de pagina van de toepassing hello is gesloten.
+De Mobile Engagement-server wordt automatisch een geopende sessie binnen drie minuten nadat de pagina van de toepassing wordt gesloten beëindigd.
 
-U kunt ook u kunt een sessie beëindigen handmatig door het aanroepen van `engagement.agent.endActivity`. Hiermee stelt u Hallo huidige gebruiker activiteit too'Idle.'  Hallo-sessie 10 seconden later worden beëindigd tenzij een nieuwe aanroep te`engagement.agent.startActivity` Hallo sessie hervatten.
+U kunt ook u kunt een sessie beëindigen handmatig door het aanroepen van `engagement.agent.endActivity`. Hiermee stelt u de huidige gebruikersactiviteit 'Inactief'.  De sessie beëindigd 10 seconden later tenzij een nieuwe aanroep `engagement.agent.startActivity` hervatten van de sessie.
 
-U kunt Hallo 10 seconden vertraging in Hallo globale engagement-object als volgt configureren:
+U kunt de vertraging van 10 seconden in het object globale engagement als volgt configureren:
 
     engagement.sessionTimeout = 2000; // 2 seconds
     // or
-    engagement.sessionTimeout = 0; // end hello session as soon as endActivity is called
+    engagement.sessionTimeout = 0; // end the session as soon as endActivity is called
 
 > [!NOTE]
-> U kunt geen gebruiken `engagement.agent.endActivity` in Hallo `onunload` retouraanroep omdat u niet AJAX-aanroepen in deze fase.
+> U kunt geen gebruiken `engagement.agent.endActivity` in de `onunload` retouraanroep omdat u niet AJAX-aanroepen in deze fase.
 > 
 > 
 
 ## <a name="advanced-reporting"></a>Geavanceerde rapportage
-Als u wilt dat tooreport toepassingsspecifieke gebeurtenissen, fouten en taken, moet u eventueel toouse Hallo Mobile Engagement-API. U toegang tot Mobile Engagement API Hallo via Hallo `engagement.agent` object.
+Als u rapporteren van specifieke gebeurtenissen, fouten en taken wilt, moet u eventueel de Mobile Engagement-API gebruiken. U toegang tot de API van de Mobile Engagement via de `engagement.agent` object.
 
-U kunt toegang tot alle Hallo geavanceerde mogelijkheden in Mobile Engagement in Hallo Mobile Engagement-API. Hallo API wordt beschreven in artikel Hallo [hoe toouse Hallo Mobile Engagement API tags in een webtoepassing geavanceerde](mobile-engagement-web-use-engagement-api.md).
+U kunt toegang tot alle van de geavanceerde functies in Mobile Engagement in de Mobile Engagement-API. De API wordt beschreven in het artikel [hoe u de geavanceerde Mobile Engagement API tags in een webtoepassing](mobile-engagement-web-use-engagement-api.md).
 
-## <a name="customize-hello-urls-used-for-ajax-calls"></a>Hallo-URL's gebruikt voor AJAX-aanroepen aanpassen
-U kunt URL's aanpassen die gebruikmaakt van Mobile Engagement Web SDK Hallo. Bijvoorbeeld: tooredefine Hallo logboek URL (Hallo SDK eindpunt voor logboekregistratie), kunt u Hallo configuratie overschrijven als volgt uit:
+## <a name="customize-the-urls-used-for-ajax-calls"></a>De URL's gebruikt voor AJAX-aanroepen aanpassen
+U kunt URL's die gebruikmaakt van de Mobile Engagement Web SDK aanpassen. Bijvoorbeeld, als u wilt definiëren de logboek-URL (het SDK-eindpunt voor logboekregistratie), kunt u de configuratie als volgt vervangen:
 
     window.azureEngagement = {
       ...
@@ -151,7 +151,7 @@ U kunt URL's aanpassen die gebruikmaakt van Mobile Engagement Web SDK Hallo. Bij
       }
     };
 
-Als de functies van uw URL als een tekenreeks die begint resultaat met `/`, `//`, `http://`, of `https://`, Hallo standaardschema wordt niet gebruikt. Standaard Hallo `https://` schema wordt gebruikt voor deze URL's. Als u toocustomize Hallo standaardschema wilt, overschrijven Hallo-configuratie, als volgt:
+Als de functies van uw URL als een tekenreeks die begint resultaat met `/`, `//`, `http://`, of `https://`, het standaardschema wordt niet gebruikt. Standaard de `https://` schema wordt gebruikt voor deze URL's. Als u aanpassen van het standaardschema wilt, overschrijven de configuratie, als volgt:
 
     window.azureEngagement = {
       ...

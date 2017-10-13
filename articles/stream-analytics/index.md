@@ -1,8 +1,8 @@
 ---
-title: aaaAzure Stream Analytics-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toorun IoT analyses in Hallo cloud met de verwerking van gebeurtenissen volledig beheerd. Analyseer gegevens van toepassingen, sensoren, apparaten en meer in realtime.
+title: Documentatie voor Azure Stream Analytics - zelfstudies, API-verwijzing | Microsoft Docs
+description: Leer hoe u IoT-analyses uitvoert in de cloud met volledig beheerde gebeurtenisverwerking. Analyseer gegevens van toepassingen, sensoren, apparaten en meer in realtime.
 services: stream-analytics
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/23/2017
 ms.author: carolz
-ms.openlocfilehash: 4015137b0f39f86ada69d92e77e72b77b799d2d6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: dc8aa21d89ce575d29d3a9c08909eb5617d7b8a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-documentation"></a>Documentatie voor Stream Analytics
 
-Informatie over de manier waarop cloudservices van toorun Internet der dingen (IoT) analyses in Hallo met Stream Analytics, een volledig beheerde engine voor de verwerking van gebeurtenissen. Zelfstudies en andere documentatie die laten zien hoe u tooanalyze gegevens in real-time van toepassingen, sensoren, apparaten, sociale media en meer. 
+Leer hoe u IoT-analyses (Internet of Things) kunt uitvoeren in de cloud met Stream Analytics, een volledig beheerde engine voor gebeurtenisverwerking. Zelfstudies en andere documentatie laten zien hoe u in realtime gegevens van toepassingen, sensoren, apparaten, sociale media en meer kunt analyseren. 
 
 <ul class="panelContent cardsFTitle">
      <li>

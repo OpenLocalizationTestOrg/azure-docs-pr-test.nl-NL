@@ -3,9 +3,13 @@
 # Aan de slag
 ## [Uw eerste API beheren](api-management-get-started.md)
 ## [Uw API beschermen met frequentielimieten](api-management-howto-product-with-rules.md)
-## [Voeg in het cachegeheugen tooimprove prestaties](api-management-howto-cache.md)
+## [Cache toevoegen voor betere prestaties](api-management-howto-cache.md)
 ## [Veelgestelde vragen](api-management-faq.md)
 # Procedures
+## Een APIM-service instellen
+### [Een APIM-instantie maken](get-started-create-service-instance.md)
+### [Upgraden en schaal aanpassen](upgrade-and-scale.md)
+### [Een aangepast domein configureren](configure-custom-domain.md)
 ## API's ontwikkelen
 ### [Een API-product toevoegen en publiceren](api-management-howto-add-products.md)
 ### [Bewerkingen toevoegen](api-management-howto-add-operations.md)
@@ -13,8 +17,8 @@
 ### [Een API-definitie importeren](api-management-howto-import-api.md)
 ## Uw back-end beveiligen
 ### [Back-end van web-API beveiligen met AAD](api-management-howto-protect-backend-with-aad.md)
-### [Tooa virtueel netwerk verbinden](api-management-using-with-vnet.md)
-### [Verbinding maken met tooan intern virtueel netwerk](api-management-using-with-internal-vnet.md)
+### [Verbinding maken met een virtueel netwerk](api-management-using-with-vnet.md)
+### [Verbinding maken met een intern virtueel netwerk](api-management-using-with-internal-vnet.md)
 ### [Application Gateway in een interne VNET integreren](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Gezamenlijke verificatie via certificaat](api-management-howto-mutual-certificates.md)
 ## Beleidsregels configureren
@@ -26,7 +30,7 @@
 ### [Overzicht beleid](api-management-howto-policies.md)
 ### [Geheimen beheren met behulp van eigenschappen](api-management-howto-properties.md)
 ### [API's beveiligen met clientverificatie via certificaat](api-management-howto-mutual-certificates-for-clients.md)
-## Hallo-ontwikkelaar aanpassen
+## De ontwikkelaarservaring aanpassen
 ### [Pagina-inhoud en -indeling wijzigen](api-management-modify-content-layout.md)
 ### [Stijl van pagina-elementen aanpassen](api-management-customize-styles.md)
 ### [Systeempagina's aanpassen met behulp van sjablonen](api-management-developer-portal-templates.md)
@@ -37,10 +41,10 @@
 ### [OAuth-ondersteuning in de console inschakelen](api-management-howto-oauth2.md)
 ## Beheren tijdens productie
 ### [Groepen beheren](api-management-howto-create-groups.md)
-### [Implementeer toomultiple Azure regio's](api-management-howto-deploy-multi-region.md)
-### [Meld u gebeurtenissen tooAzure Event Hubs](api-management-howto-log-event-hubs.md)
+### [Implementeren naar meerdere Azure-regio's](api-management-howto-deploy-multi-region.md)
+### [Gebeurtenissen registreren bij Azure Event Hubs](api-management-howto-log-event-hubs.md)
 ### [DR instellen met back-up/herstellen](api-management-howto-disaster-recovery-backup-restore.md)
-### [Traceringsaanroepen Hello API Inspector](api-management-howto-api-inspector.md)
+### [Oproepen traceren met API Inspector](api-management-howto-api-inspector.md)
 ### [Gebruikersaccounts beheren](api-management-howto-create-or-invite-developers.md)
 ### [Beheren met automatisering](automation-manage-api-management.md)
 ### [Configureren met behulp van Git](api-management-configuration-repository-git.md)
@@ -51,7 +55,7 @@
 #### [Snel starten](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Naslaginformatie
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (oorspronkelijk)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Beleidsregels](api-management-policies.md)
@@ -81,14 +85,14 @@
 ## [API Management - werkt goed met andere Azure-services](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
 ## [API Management-invoegtoepassing voor SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
-## [Verbinding maken met Event Hubs tooAPI Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
+## [Event Hubs koppelen aan API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [SOAP WCF-services gebruiken via HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
-## [RBAC-achtige toegang met behulp van Hallo REST-API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
+## [Toegang bieden die lijkt op RBAC met behulp van de REST-API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=api-management)
-## [PostMan toocall API Management-API's instellen](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
+## [PostMan instellen voor het aanroepen van API Management-API's](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
 ## [Technisch document: API Management in de cloud](http://j.mp/ms-apim-whitepaper)

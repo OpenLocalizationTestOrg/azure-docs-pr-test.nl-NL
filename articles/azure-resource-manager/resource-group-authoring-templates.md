@@ -1,6 +1,6 @@
 ---
-title: Resource Manager aaaAzure sjabloonstructuur en syntaxis | Microsoft Docs
-description: Hierin wordt beschreven Hallo structuur en eigenschappen van Azure Resource Manager-sjablonen met behulp van declaratieve JSON-syntaxis.
+title: Structuur van Azure Resource Manager-sjabloon en syntaxis | Microsoft Docs
+description: Beschrijft de structuur en eigenschappen van Azure Resource Manager-sjablonen met behulp van declaratieve JSON-syntaxis.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: b0709852f8777c91cc1704d6bca16257a017d515
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: dc9b64062d7f68c83aa090eec96744819a5ca423
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="understand-hello-structure-and-syntax-of-azure-resource-manager-templates"></a>Begrijpen Hallo structuur en syntaxis van Azure Resource Manager-sjablonen
-Dit onderwerp beschrijft Hallo-structuur van een Azure Resource Manager-sjabloon. Deze geeft Hallo verschillende secties van de eigenschappen van een sjabloon en Hallo die beschikbaar zijn in deze secties. Hallo sjabloon bestaat uit JSON en uitdrukkingen die u kunt tooconstruct waarden voor uw implementatie te gebruiken. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [maken van uw eerste Azure Resource Manager-sjabloon](resource-manager-create-first-template.md).
+# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Overzicht van de structuur en de syntaxis van Azure Resource Manager-sjablonen
+Dit onderwerp beschrijft de structuur van een Azure Resource Manager-sjabloon. Dit geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [maken van uw eerste Azure Resource Manager-sjabloon](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Sjabloon
-In de meest eenvoudige structuur bevat een sjabloon Hallo volgende elementen:
+In de meest eenvoudige structuur bevat een sjabloon voor de volgende elementen:
 
 ```json
 {
@@ -39,14 +39,14 @@ In de meest eenvoudige structuur bevat een sjabloon Hallo volgende elementen:
 
 | Elementnaam | Vereist | Beschrijving |
 |:--- |:--- |:--- |
-| $schema |Ja |Locatie van Hallo JSON-schema-bestand dat Hallo-versie van de sjabloontaal Hallo beschrijft. Hallo-URL die wordt weergegeven in het voorgaande voorbeeld hello gebruiken. |
-| contentVersion |Ja |Versie van de sjabloon hello (zoals 1.0.0.0). U kunt een waarde opgeven voor dit element. Bij het implementeren van resources met behulp van Hallo-sjabloon gebruikt deze waarde kan zijn gebruikte toomake ervoor dat de juiste sjabloon hello wordt gebruikt. |
-| parameters |Nee |Waarden die zijn opgegeven voor de implementatie is uitgevoerd toocustomize resources implementeren. |
-| variabelen |Nee |De waarden die worden gebruikt als JSON-fragmenten in Hallo sjabloon toosimplify sjabloontaalexpressies. |
+| $schema |Ja |Locatie van het JSON-schema-bestand dat de versie van de taal van de sjabloon beschrijft. Gebruik de URL die wordt weergegeven in het voorgaande voorbeeld. |
+| contentVersion |Ja |De versie van de sjabloon (zoals 1.0.0.0). U kunt een waarde opgeven voor dit element. Bij het implementeren van resources met behulp van de sjabloon, kan deze waarde kan worden gebruikt om ervoor te zorgen dat de juiste sjabloon wordt gebruikt. |
+| Parameters |Nee |De waarden die beschikbaar zijn wanneer de implementatie wordt uitgevoerd voor het aanpassen van de resource-implementatie. |
+| variabelen |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor sjabloontaalexpressies vereenvoudigen. |
 | Resources |Ja |Brontypen die worden geïmplementeerd of bijgewerkt in een resourcegroep. |
 | uitvoer |Nee |De waarden die na de implementatie worden geretourneerd. |
 
-Elk element bevat eigenschappen die u kunt instellen. Hallo volgende voorbeeld bevat de volledige syntaxis Hallo voor een sjabloon:
+Elk element bevat eigenschappen die u kunt instellen. Het volgende voorbeeld bevat de volledige syntaxis van een sjabloon:
 
 ```json
 {
@@ -62,7 +62,7 @@ Elk element bevat eigenschappen die u kunt instellen. Hallo volgende voorbeeld b
             "minLength": <minimum-length-for-string-or-array>,
             "maxLength": <maximum-length-for-string-or-array-parameters>,
             "metadata": {
-                "description": "<description-of-hello parameter>" 
+                "description": "<description-of-the parameter>" 
             }
         }
     },
@@ -117,14 +117,14 @@ Elk element bevat eigenschappen die u kunt instellen. Hallo volgende voorbeeld b
 }
 ```
 
-We onderzoeken Hallo secties van de sjabloon Hallo in meer detail verderop in dit onderwerp.
+We onderzoeken in de secties van de sjabloon in meer detail verderop in dit onderwerp.
 
 ## <a name="expressions-and-functions"></a>Expressies en functies
-Hallo basic syntaxis van de sjabloon Hallo is JSON. Expressies en functies echter uitbreiden Hallo JSON-waarden zijn beschikbaar in de sjabloon Hallo.  Expressies zijn geschreven in letterlijke JSON-tekenreeks waarvan de eerste en laatste tekens zijn Hallo haken: `[` en `]`respectievelijk. Hallo-waarde van Hallo expressie wordt geëvalueerd wanneer Hallo sjabloon wordt geïmplementeerd. Hoewel geschreven als een letterlijke tekenreeks, zijn Hallo resultaat van de evaluatie van Hallo expressie van een ander JSON-type, zoals een matrix of een geheel getal, afhankelijk van de werkelijke Hallo-expressie.  een letterlijke tekenreeks beginnen met een haakje toohave `[`, maar dit wordt geïnterpreteerd als een expressie niet, voegt u een extra haakje toostart Hallo tekenreeks met `[[`.
+De syntaxis van de basis van de sjabloon is JSON. Expressies en functies echter uitbreiden de JSON-waarden die beschikbaar zijn in de sjabloon.  Expressies zijn geschreven in JSON-letterlijke waarvan de eerste en laatste tekens zijn de vierkante haken: `[` en `]`respectievelijk. De waarde van de expressie wordt geëvalueerd wanneer de sjabloon wordt geïmplementeerd. Hoewel geschreven als een letterlijke tekenreeks, zijn het resultaat van evaluatie van de expressie van een ander JSON-type, zoals een matrix of een geheel getal, afhankelijk van de werkelijke expressie.  Een letterlijke tekenreeks beginnen met een haakje hebben `[`, maar dit wordt geïnterpreteerd als een expressie niet, Voeg een extra haakje voor het starten van de tekenreeks met `[[`.
 
-Normaal gesproken gebruikt u expressies met functies tooperform bewerkingen voor het configureren van Hallo-implementatie. Net zoals in JavaScript-functieaanroepen die zijn opgemaakt als `functionName(arg1,arg2,arg3)`. U verwijzen naar eigenschappen met behulp van Hallo punt en [index] operators.
+Normaal gesproken u expressies gebruiken met functies bewerkingen voor het configureren van de implementatie uit te voeren. Net zoals in JavaScript-functieaanroepen die zijn opgemaakt als `functionName(arg1,arg2,arg3)`. U verwijzen naar eigenschappen met behulp van de punt en [index] operators.
 
-Hallo volgende voorbeeld ziet u hoe toouse diverse functies tijdens het construeren van waarden:
+Het volgende voorbeeld ziet u hoe u verschillende functies gebruikt bij het maken van de waarden:
 
 ```json
 "variables": {
@@ -134,12 +134,12 @@ Hallo volgende voorbeeld ziet u hoe toouse diverse functies tijdens het construe
 }
 ```
 
-Zie voor een volledige lijst met sjabloonfuncties Hallo [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md). 
+Zie voor een volledige lijst van sjabloonfuncties [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>Parameters
-In Hallo gedeelte parameters van Hallo sjabloon kunt u opgeven welke waarden u invoeren kunt bij het implementeren van Hallo resources. De parameterwaarden van deze kunnen u toocustomize Hallo implementatie door het verstrekken van waarden die zijn aangepast voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). U hebt geen tooprovide parameters in de sjabloon, maar zonder parameters uw sjabloon altijd Hallo zou implementeren dezelfde resources met dezelfde namen, locaties en eigenschappen Hallo.
+U opgeven welke waarden u invoeren kunt bij het implementeren van de resources in het gedeelte parameters van de sjabloon. De parameterwaarden van deze kunnen u de implementatie aanpassen door het verstrekken van waarden die zijn aangepast voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). U hoeft niet te bieden parameters in de sjabloon, maar zonder parameters uw sjabloon altijd dezelfde resources met dezelfde namen, locaties en eigenschappen zou implementeren.
 
-U kunt parameters definiëren Hello structuur te volgen:
+U definieert parameters met de volgende structuur:
 
 ```json
 "parameters": {
@@ -152,7 +152,7 @@ U kunt parameters definiëren Hello structuur te volgen:
         "minLength": <minimum-length-for-string-or-array>,
         "maxLength": <maximum-length-for-string-or-array-parameters>,
         "metadata": {
-            "description": "<description-of-hello parameter>" 
+            "description": "<description-of-the parameter>" 
         }
     }
 }
@@ -160,17 +160,17 @@ U kunt parameters definiëren Hello structuur te volgen:
 
 | Elementnaam | Vereist | Beschrijving |
 |:--- |:--- |:--- |
-| parameterName |Ja |Naam van Hallo-parameter. Moet een geldige JavaScript-id. |
-| type |Ja |Type Hallo parameterwaarde. Zie Hallo lijst met toegestane typen na deze tabel. |
-| Standaardwaarde |Nee |De standaardwaarde voor parameter hello, als geen waarde is opgegeven voor parameter Hallo. |
-| allowedValues |Nee |Matrix van toegestane waarden voor Hallo parameter toomake ervoor dat de juiste waarde Hallo worden verstrekt. |
-| MinValue |Nee |Hallo minimale waarde voor de parameters van het type int, deze waarde is liggen. |
-| MaxValue |Nee |Hallo maximale waarde voor de parameters van het type int, deze waarde is liggen. |
-| minLength |Nee |minimumlengte voor string, secureString en array typeparameters Hello, deze waarde is liggen. |
-| maxLength |Nee |Hallo maximale lengte voor string, secureString en array typeparameters, deze waarde is liggen. |
-| description |Nee |Beschrijving van Hallo-parameter die wordt weergegeven toousers via Hallo-portal. |
+| parameterName |Ja |De naam van de parameter. Moet een geldige JavaScript-id. |
+| type |Ja |Type van de waarde van parameter. Zie de lijst met toegestane typen na deze tabel. |
+| Standaardwaarde |Nee |De standaardwaarde voor de parameter als u geen waarde is opgegeven voor de parameter. |
+| allowedValues |Nee |Matrix van toegestane waarden voor de parameter om ervoor te zorgen dat de juiste waarde is opgegeven. |
+| MinValue |Nee |De minimumwaarde voor de parameters van het type int, deze waarde is liggen. |
+| MaxValue |Nee |De maximale waarde voor de parameters van het type int, deze waarde is liggen. |
+| minLength |Nee |De minimale lengte voor string, secureString en array typeparameters deze waarde is liggen. |
+| maxLength |Nee |De maximale lengte voor string, secureString en array typeparameters deze waarde is liggen. |
+| Beschrijving |Nee |Beschrijving van de parameter die wordt weergegeven voor gebruikers via de portal. |
 
-Hallo toegestane typen en waarden zijn:
+De toegestane typen en waarden zijn:
 
 * **tekenreeks**
 * **secureString**
@@ -180,19 +180,19 @@ Hallo toegestane typen en waarden zijn:
 * **secureObject**
 * **matrix**
 
-een parameter opgegeven als een optioneel, toospecify bieden een defaultValue (kunnen geen lege tekenreeks zijn). 
+Als u een parameter als een optionele, bieden een defaultValue (kunnen geen lege tekenreeks zijn). 
 
-Als u een parameternaam in de sjabloon die overeenkomt met een parameter in Hallo opdracht toodeploy Hallo sjabloon opgeeft, is het mogelijke verwarring over Hallo-waarden die u opgeeft. Resource Manager lost deze verwarring door toe te voegen Hallo postfix **FromTemplate** toohello sjabloonparameter. Bijvoorbeeld, als u een parameter genaamd opnemen **ResourceGroupName** in uw sjabloon een conflict met de Hallo **ResourceGroupName** parameter in Hallo [ Nieuwe AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Tijdens de implementatie, u bent na vragen aan gebruiker tooprovide een waarde voor **ResourceGroupNameFromTemplate**. In het algemeen voorkomt u deze verwarring door te geven geen parameters met Hallo dezelfde naam als parameters die worden gebruikt voor implementatiebewerkingen.
+Als u een parameternaam in de sjabloon die overeenkomt met een parameter in de opdracht om de sjabloon te implementeren opgeeft, is het mogelijke verwarring over de waarden die u opgeeft. Resource Manager wordt deze verwarring opgelost doordat de postfix **FromTemplate** voor de sjabloonparameter. Bijvoorbeeld, als u een parameter genaamd opnemen **ResourceGroupName** in uw sjabloon een conflict met de **ResourceGroupName** parameter in de [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Tijdens de implementatie, moet u een waarde opgeven voor **ResourceGroupNameFromTemplate**. In het algemeen moet u deze verwarring niet door de naam geen parameters met dezelfde naam als parameters die worden gebruikt voor implementatiebewerkingen.
 
 > [!NOTE]
-> Alle wachtwoorden, sleutels en andere geheime informatie moeten hello gebruiken **secureString** type. Als u gevoelige gegevens in een JSON-object doorgeven, gebruikt u Hallo **secureObject** type. Sjabloonparameters met secureString of secureObject typen kunnen niet worden gelezen na de implementatie van de resource. 
+> Alle wachtwoorden, sleutels en andere geheime informatie moeten gebruiken de **secureString** type. Als u gevoelige gegevens in een JSON-object doorgeven, gebruikt u de **secureObject** type. Sjabloonparameters met secureString of secureObject typen kunnen niet worden gelezen na de implementatie van de resource. 
 > 
-> Hallo ziet volgende vermelding in de geschiedenis van de implementatie Hallo u bijvoorbeeld Hallo-waarde voor een tekenreeks en object, maar niet voor secureString en secureObject.
+> De volgende vermelding in de implementatiegeschiedenis van de ziet u bijvoorbeeld de waarde voor een tekenreeks en object maar niet voor secureString en secureObject.
 >
 > ![waarden van de implementatie weergeven](./media/resource-group-authoring-templates/show-parameters.png)  
 >
 
-Hallo volgende voorbeeld wordt getoond hoe toodefine parameters:
+Het volgende voorbeeld ziet u hoe parameters definiëren:
 
 ```json
 "parameters": {
@@ -230,12 +230,12 @@ Hallo volgende voorbeeld wordt getoond hoe toodefine parameters:
 }
 ```
 
-Zie voor hoe tooinput Hallo parameter tijdens de implementatie waarden, [Implementeer een toepassing met Azure Resource Manager-sjabloon](resource-group-template-deploy.md). 
+Voor het invoeren van de parameterwaarden die tijdens de implementatie, Zie [Implementeer een toepassing met Azure Resource Manager-sjabloon](resource-group-template-deploy.md). 
 
 ## <a name="variables"></a>Variabelen
-In de sectie met sjabloonvariabelen hello, kunt u waarden die kunnen worden gebruikt in uw sjabloon opstellen. U hoeft geen toodefine variabelen, maar ze vaak uw sjabloon vereenvoudigen doordat complexe expressies.
+In het gedeelte variabelen kunt u waarden die kunnen worden gebruikt in uw sjabloon opstellen. U hoeft geen variabelen definiëren, maar ze vaak uw sjabloon vereenvoudigen doordat complexe expressies.
 
-U kunt variabelen definiëren Hello structuur te volgen:
+U definieert variabelen met de volgende structuur:
 
 ```json
 "variables": {
@@ -246,7 +246,7 @@ U kunt variabelen definiëren Hello structuur te volgen:
 }
 ```
 
-Hallo volgende voorbeeld wordt getoond hoe toodefine een variabele die is samengesteld uit twee parameterwaarden:
+Het volgende voorbeeld ziet u hoe een variabele die is samengesteld uit twee parameterwaarden definiëren:
 
 ```json
 "variables": {
@@ -254,7 +254,7 @@ Hallo volgende voorbeeld wordt getoond hoe toodefine een variabele die is sameng
 }
 ```
 
-Hallo volgende voorbeeld ziet u een variabele die is complex type JSON en variabelen die zijn samengesteld uit andere variabelen:
+Het volgende voorbeeld ziet u een variabele die is complex type JSON en variabelen die zijn samengesteld uit andere variabelen:
 
 ```json
 "parameters": {
@@ -284,9 +284,9 @@ Hallo volgende voorbeeld ziet u een variabele die is complex type JSON en variab
 ```
 
 ## <a name="resources"></a>Resources
-In de sectie bronnen Hallo definieert u Hallo-resources die worden geïmplementeerd of bijgewerkt. Deze sectie ophalen ingewikkeld omdat u moet begrijpen Hallo typt u implementeert tooprovide Hallo juiste waarden. Hallo resource-specifieke Zie voor waarden (apiVersion, type en eigenschappen) moet u tooset [resources in Azure Resource Manager-sjablonen definiëren](/azure/templates/). 
+In de bronnensectie definieert u de resources die worden geïmplementeerd of bijgewerkt. Deze sectie kunt krijgen ingewikkeld omdat de typen die u implementeert de juiste waarden opgeven dat u begrijpt. Zie voor de resource-specifieke waarden (apiVersion, type en eigenschappen) die u nodig hebt om in te stellen [resources in Azure Resource Manager-sjablonen definiëren](/azure/templates/). 
 
-U kunt resources definiëren Hello structuur te volgen:
+U definieert resources met de volgende structuur:
 
 ```json
 "resources": [
@@ -329,19 +329,19 @@ U kunt resources definiëren Hello structuur te volgen:
 
 | Elementnaam | Vereist | Beschrijving |
 |:--- |:--- |:--- |
-| Voorwaarde | Nee | Booleaanse waarde die aangeeft of Hallo resource wordt geïmplementeerd. |
-| apiVersion |Ja |Versie van Hallo REST-API toouse voor het maken van Hallo resource. |
-| type |Ja |Type Hallo resource. Deze waarde is een combinatie van Hallo-naamruimte van het Hallo-resourceprovider en Hallo resourcetype (zoals **Microsoft.Storage/storageAccounts**). |
-| naam |Ja |Naam van het Hallo-resource. Hallo-naam moet voldoen aan URI onderdeel beperkingen gedefinieerd in RFC3986. Bovendien Azure-services die beschikbaar Hallo resource naam toooutside partijen Hallo naam toomake u dit niet is een poging toospoof valideren een andere identiteit. |
-| location |Varieert |Ondersteunde geografische locaties Hallo opgegeven resource. U kunt kiezen uit de beschikbare locaties Hallo, maar doorgaans het zin toopick maakt een sluiten tooyour gebruikers. Meestal ook is het zinvol tooplace resources die met elkaar in Hallo dezelfde communiceren regio. De meeste brontypen die een locatie vereist, maar sommige typen (zoals een roltoewijzing) hoeven niet een locatie. Zie [Resourcelocatie instellen in Azure Resource Manager-sjablonen](resource-manager-template-location.md). |
-| tags |Nee |Labels die gekoppeld aan het Hallo-resource zijn. Zie [resources in Azure Resource Manager-sjablonen taggen](resource-manager-template-tags.md). |
-| Opmerkingen |Nee |De notities voor resources in uw sjabloon Hallo documenteren |
-| Kopiëren |Nee |Als meer dan één exemplaar is vereist, Hallo aantal resources toocreate. Hallo-standaardmodus is parallelle. Seriële mode opgeven wanneer u niet wilt dat alle of resources toodeploy op Hallo Hallo hetzelfde moment. Zie voor meer informatie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md). |
-| dependsOn |Nee |Resources die moeten worden geïmplementeerd voordat u deze bron wordt geïmplementeerd. Resource Manager Hallo afhankelijkheden tussen resources geëvalueerd en worden ze geïmplementeerd in de juiste volgorde Hallo. Wanneer u resources zijn niet afhankelijk van elkaar, worden ze geïmplementeerd parallel. Hallo-waarden zijn een door komma's gescheiden lijst van een resource namen of unieke id's voor een resource. Alleen de lijst van resources die zijn geïmplementeerd in deze sjabloon. Bronnen die niet in deze sjabloon zijn gedefinieerd, moeten al bestaan. Vermijd toe te voegen onnodige afhankelijkheden als ze kunnen uw implementatie vertragen en circulaire afhankelijkheden maken. Zie voor instructies over de afhankelijkheden van de instelling [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md). |
-| properties |Nee |Resource-specifieke configuratie-instellingen. Hallo-waarden voor Hallo eigenschappen Hallo dezelfde zijn als u voorzien in de aanvraagtekst Hallo Hallo REST-API (PUT-methode) toocreate Hallo bewerkingsresource Hallo-waarden. U kunt een kopie matrix toocreate ook meerdere exemplaren van een eigenschap opgeven. Zie voor meer informatie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md). |
-| Resources |Nee |Onderliggende resources die afhankelijk zijn van Hallo bron wordt gedefinieerd. Geef alleen brontypen die worden toegestaan door het Hallo-schema van Hallo bovenliggende resource. Hallo volledig gekwalificeerde type Hallo onderliggende resource bevat Hallo bovenliggende brontype, zoals **Microsoft.Web/sites/extensions**. Afhankelijkheid van Hallo bovenliggende resource niet geïmpliceerd. U moet deze afhankelijkheid expliciet definiëren. |
+| Voorwaarde | Nee | Booleaanse waarde die aangeeft of de resource is geïmplementeerd. |
+| apiVersion |Ja |De versie van de REST-API gebruiken voor het maken van de resource. |
+| type |Ja |Type van de resource. Deze waarde is een combinatie van de naamruimte van de resourceprovider en het resourcetype (zoals **Microsoft.Storage/storageAccounts**). |
+| naam |Ja |De naam van de resource. De naam moet URI onderdeel beperkingen gedefinieerd in RFC3986 volgen. Bovendien Azure-services die beschikbaar om te valideren buiten partijen de naam om te controleren of deze de naam van de resource is niet een poging tot een andere identiteit vervalsen. |
+| location |Varieert |Ondersteunde geografische locaties van de opgegeven bron. U kunt een van de beschikbare locaties selecteren, maar meestal is het verstandig om te selecteren die dicht bij uw gebruikers. Meestal is het ook handig om resources die in dezelfde regio met elkaar communiceren. De meeste brontypen die een locatie vereist, maar sommige typen (zoals een roltoewijzing) hoeven niet een locatie. Zie [Resourcelocatie instellen in Azure Resource Manager-sjablonen](resource-manager-template-location.md). |
+| tags |Nee |Labels die gekoppeld aan de resource zijn. Zie [resources in Azure Resource Manager-sjablonen taggen](resource-manager-template-tags.md). |
+| Opmerkingen |Nee |De notities voor de resources in uw sjabloon documenteren |
+| Kopiëren |Nee |Als meer dan één exemplaar is vereist, het aantal resources om te maken. Er is de standaardmodus voor parallelle. Seriële modus wanneer u niet dat alle wilt of de resources te implementeren op hetzelfde moment opgeven. Zie voor meer informatie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md). |
+| dependsOn |Nee |Resources die moeten worden geïmplementeerd voordat u deze bron wordt geïmplementeerd. Resource Manager evalueert de afhankelijkheden tussen resources en ze worden geïmplementeerd in de juiste volgorde. Wanneer u resources zijn niet afhankelijk van elkaar, worden ze geïmplementeerd parallel. De waarde kan een door komma's gescheiden lijst van een resource zijn namen of unieke id's voor een resource. Alleen de lijst van resources die zijn geïmplementeerd in deze sjabloon. Bronnen die niet in deze sjabloon zijn gedefinieerd, moeten al bestaan. Vermijd toe te voegen onnodige afhankelijkheden als ze kunnen uw implementatie vertragen en circulaire afhankelijkheden maken. Zie voor instructies over de afhankelijkheden van de instelling [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md). |
+| properties |Nee |Resource-specifieke configuratie-instellingen. De waarden voor de eigenschappen zijn hetzelfde als de waarden die u in de aanvraagtekst voor de REST-API-bewerking (PUT-methode opgeeft) om de resource te maken. U kunt ook een matrix kopiëren voor het maken van meerdere exemplaren van een eigenschap opgeven. Zie voor meer informatie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md). |
+| Resources |Nee |Onderliggende resources die afhankelijk zijn van de bron wordt gedefinieerd. Geef alleen brontypen die worden toegestaan door het schema van de bovenliggende resource. Het volledig gekwalificeerde type van de onderliggende resource bevat het type van de bovenliggende resource, zoals **Microsoft.Web/sites/extensions**. Afhankelijkheid van de bovenliggende resource niet geïmpliceerd. U moet deze afhankelijkheid expliciet definiëren. |
 
-Hallo resources sectie bevat een matrix van Hallo resources toodeploy. U kunt ook een matrix van onderliggende resources binnen elke resource definiëren. Het gedeelte van uw resources kan daarom een structuur zoals hebben:
+De sectie resources bevat een matrix van de resources te implementeren. U kunt ook een matrix van onderliggende resources binnen elke resource definiëren. Het gedeelte van uw resources kan daarom een structuur zoals hebben:
 
 ```json
 "resources": [
@@ -367,7 +367,7 @@ Hallo resources sectie bevat een matrix van Hallo resources toodeploy. U kunt oo
 
 Zie voor meer informatie over het definiëren van de onderliggende resources [naam en type voor onderliggende resource in het Resource Manager-sjabloon instellen](resource-manager-template-child-resource.md).
 
-Hallo **voorwaarde** element geeft aan of Hallo resource wordt geïmplementeerd. Hallo-waarde voor dit element wordt omgezet tootrue of ONWAAR. Bijvoorbeeld: toospecify of een nieuw opslagaccount wordt geïmplementeerd, gebruiken:
+De **voorwaarde** element geeft aan of de resource is geïmplementeerd. De waarde voor dit element wordt omgezet in true of false. Bijvoorbeeld: als u wilt opgeven of een nieuw opslagaccount wordt geïmplementeerd, gebruiken:
 
 ```json
 {
@@ -386,7 +386,7 @@ Hallo **voorwaarde** element geeft aan of Hallo resource wordt geïmplementeerd.
 
 Zie voor een voorbeeld van het gebruik van een nieuwe of bestaande resourcegroep [nieuwe of bestaande voorwaarde sjabloon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
 
-toospecify of een virtuele machine wordt geïmplementeerd met een wachtwoord of SSH-sleutel, definieert twee versies van Hallo virtuele machine in de sjabloon en het gebruik **voorwaarde** toodifferentiate gebruik. Een parameter die welke scenario toodeploy aangeeft doorgeven.
+Als u wilt opgeven of een virtuele machine wordt geïmplementeerd met een wachtwoord of SSH-sleutel, definieert u twee versies van de virtuele machine in de sjabloon en het gebruik **voorwaarde** te onderscheiden van informatie over het gebruik. Hiermee geeft u een parameter die welke scenario aangeeft te implementeren.
 
 ```json
 {
@@ -429,12 +429,12 @@ toospecify of een virtuele machine wordt geïmplementeerd met een wachtwoord of 
 }
 ``` 
 
-Zie voor een voorbeeld van het gebruik van een wachtwoord of SSH-sleutel toodeploy virtuele machine [gebruikersnaam of SSH voorwaarde sjabloon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+Zie voor een voorbeeld van het gebruik van een wachtwoord of SSH-sleutel voor het implementeren van virtuele machine [gebruikersnaam of SSH voorwaarde sjabloon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
 
 ## <a name="outputs"></a>uitvoer
-In sectie Hallo uitvoer geeft u de waarden die worden geretourneerd van de implementatie. Bijvoorbeeld, u kan Hallo URI tooaccess geïmplementeerde resource geretourneerd.
+In de sectie uitvoer geeft u de waarden die worden geretourneerd van de implementatie. U kan bijvoorbeeld de URI voor toegang tot een geïmplementeerde resource geretourneerd.
 
-Hallo toont volgende voorbeeld Hallo-structuur van de definitie van een uitvoer:
+Het volgende voorbeeld ziet u de structuur van de definitie van een uitvoer:
 
 ```json
 "outputs": {
@@ -447,11 +447,11 @@ Hallo toont volgende voorbeeld Hallo-structuur van de definitie van een uitvoer:
 
 | Elementnaam | Vereist | Beschrijving |
 |:--- |:--- |:--- |
-| outputName |Ja |Naam van de uitvoerwaarde Hallo. Moet een geldige JavaScript-id. |
-| type |Ja |Type van de uitvoerwaarde Hallo. Uitvoerwaarden ondersteuning Hallo dezelfde als sjabloon invoerparameters typen. |
+| outputName |Ja |De naam van de uitvoerwaarde. Moet een geldige JavaScript-id. |
+| type |Ja |Type van de uitvoerwaarde. Uitvoerwaarden ondersteuning voor dezelfde typen als sjabloon invoerparameters. |
 | waarde |Ja |De sjabloontaalexpressie dat wordt geëvalueerd en geretourneerd als de waarde voor uitvoer. |
 
-Hallo volgende voorbeeld ziet u een waarde die wordt geretourneerd in Hallo uitvoer sectie.
+Het volgende voorbeeld ziet een waarde die wordt geretourneerd in de sectie uitvoer.
 
 ```json
 "outputs": {
@@ -466,7 +466,7 @@ Zie voor meer informatie over het werken met uitvoer [delen status in Azure Reso
 
 ## <a name="template-limits"></a>Limieten voor sjabloon
 
-Hallo-limiet van uw sjabloon too1 MB en elke parameter too64 KB-bestand. Hallo 1 MB limiet geldt toohello eindstatus van Hallo sjabloon nadat deze is uitgebreid met iteratieve resourcedefinities en waarden voor parameters en variabelen. 
+Beperkt de omvang van uw sjabloon 1 MB en elk parameterbestand 64 kB. De limiet van 1 MB geldt voor de definitieve status van de sjabloon nadat deze is uitgebreid met iteratieve resourcedefinities en waarden voor parameters en variabelen. 
 
 Ook bent u beperkt tot:
 
@@ -476,10 +476,10 @@ Ook bent u beperkt tot:
 * 64 uitvoerwaarden
 * 24.576 tekens in een sjabloonexpressie
 
-U kunt sommige limieten sjabloon met een geneste sjabloon overschrijdt. Zie voor meer informatie [gekoppelde sjablonen gebruiken bij het implementeren van Azure-resources](resource-group-linked-templates.md). tooreduce hello nummer van de parameters en variabelen en uitvoer, kunt u verschillende waarden combineren in een object. Zie voor meer informatie [objecten als parameters](resource-manager-objects-as-parameters.md).
+U kunt sommige limieten sjabloon met een geneste sjabloon overschrijdt. Zie voor meer informatie [gekoppelde sjablonen gebruiken bij het implementeren van Azure-resources](resource-group-linked-templates.md). Als u het aantal parameters en variabelen en uitvoer, kunt u verschillende waarden combineren in een object. Zie voor meer informatie [objecten als parameters](resource-manager-objects-as-parameters.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* tooview voltooid sjablonen voor verschillende soorten oplossingen, Zie Hallo [Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates/).
-* Zie voor meer informatie over het Hallo-functies die u van binnen een sjabloon gebruiken kunt [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
-* toocombine meerdere sjablonen tijdens de implementatie, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
-* Mogelijk moet u toouse resources die zijn opgeslagen in een andere resourcegroep. Dit scenario is gebruikelijk dat wanneer u werkt met opslagaccounts of virtuele netwerken die worden gedeeld door meerdere resourcegroepen. Zie voor meer informatie, Hallo [resourceId functie](resource-group-template-functions-resource.md#resourceid).
+* Zie de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor volledige sjablonen voor verschillende soorten oplossingen.
+* Zie voor meer informatie over de functies die u van binnen een sjabloon gebruiken kunt [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
+* Als u wilt combineren meerdere sjablonen tijdens de implementatie, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
+* Wellicht moet u bronnen gebruiken die zijn opgeslagen in een andere resourcegroep. Dit scenario is gebruikelijk dat wanneer u werkt met opslagaccounts of virtuele netwerken die worden gedeeld door meerdere resourcegroepen. Zie voor meer informatie de [resourceId functie](resource-group-template-functions-resource.md#resourceid).

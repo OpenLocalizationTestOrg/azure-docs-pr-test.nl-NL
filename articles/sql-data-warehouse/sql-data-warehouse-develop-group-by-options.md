@@ -1,5 +1,5 @@
 ---
-title: aaaGroup door de opties in SQL Data Warehouse | Microsoft Docs
+title: Groeperen op opties in SQL Data Warehouse | Microsoft Docs
 description: Tips voor het implementeren van de groep door de opties in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: cc443c2af4e3ef2babd74d78aa6fb57bb3c1c7ea
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Groeperen op opties in SQL Data Warehouse
-Hallo [GROUP BY] [ GROUP BY] component wordt gebruikt tooaggregate tooa samenvatting gegevensset van rijen. Er wordt ook een aantal opties die de functionaliteit die nodig toobe gewerkt rond als ze niet rechtstreeks worden ondersteund door Azure SQL Data Warehouse uitbreiden.
+De [GROUP BY] [ GROUP BY] component wordt gebruikt voor een overzicht set rijen van cumulatieve gegevens. Er wordt ook een aantal opties die de functionaliteit die moet worden besteed uitbreiden rond als ze niet rechtstreeks worden ondersteund door Azure SQL Data Warehouse.
 
 Deze opties zijn
 
@@ -31,9 +31,9 @@ Deze opties zijn
 * GROUP BY met kubus
 
 ## <a name="rollup-and-grouping-sets-options"></a>Rollup en grouping sets-opties
-Hallo eenvoudigste optie hier is toouse `UNION ALL` in plaats daarvan tooperform Hallo updatepakket in plaats van vertrouwen op Hallo expliciete syntaxis. Hallo-resultaat is exact dezelfde Hallo
+De eenvoudigste optie hier is het gebruik `UNION ALL` in plaats daarvan de rollup uitvoeren in plaats van te vertrouwen op de expliciete syntaxis. Het resultaat is precies hetzelfde
 
-Hieronder volgt een voorbeeld van een groep door Hallo-instructie `ROLLUP` optie:
+Hieronder volgt een voorbeeld van een groep met behulp van de instructie de `ROLLUP` optie:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -48,13 +48,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Met behulp van UPDATEPAKKET hebben we Hallo na aggregaties aangevraagd:
+Met behulp van UPDATEPAKKET hebben we de volgende aggregaties aangevraagd:
 
 * Land en regio
 * Land
 * Eindtotaal
 
-tooreplace dit moet u toouse `UNION ALL`; Hallo aggregaties vereist het expliciet opgeven tooreturn Hallo dezelfde resultaten:
+Dit u wilt gebruiken vervangen `UNION ALL`; aggregaties vereist expliciet om dezelfde resultaten weer te geven:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -81,14 +81,14 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-Voor GROUPING SETS we toodo hoeft vast Hallo dezelfde principal, maar alleen UNION ALL secties voor Hallo aggregatie niveaus maken willen we toosee
+Voor GROUPING SETS alle we moeten doen is dezelfde principal vast maar UNION ALL secties voor de aggregatie niveaus die we wilt zien alleen maken
 
 ## <a name="cube-options"></a>Kubusopties voor de
-Het is mogelijk toocreate een groep met WITH CUBE met Hallo UNION ALL benadering. Hallo-probleem is Hallo code kan al gauw omslachtig en onhandig. toomitigate dit kunt u deze meer geavanceerde benadering.
+Het is mogelijk een groep door met de kubus maken met de UNION ALL benadering. Het probleem is de code kan al gauw omslachtig en onhandig. Als oplossing hiervoor kunt u deze meer geavanceerde benadering.
 
-We gebruiken Hallo in bovenstaand voorbeeld.
+We gaan gebruiken in het bovenstaande voorbeeld.
 
-de eerste stap Hallo is toodefine Hallo kubus, die alle Hallo niveaus van aggregatie willen we toocreate definieert. Het is belangrijk tootake Opmerking Hallo CROSS JOIN van Hallo twee afgeleide tabellen. Hiermee wordt alle Hallo niveaus gegenereerd voor ons. Hallo rest Hallo code is echt er voor opmaak.
+De eerste stap is voor het definiëren van de 'kubus' waarin alle niveaus van aggregatie die we willen maken. Het is belangrijk te nemen van de CROSS JOIN van de twee afgeleide tabellen. Hiermee wordt alle niveaus gegenereerd voor ons. De rest van de code is echt er voor opmaak.
 
 ```sql
 CREATE TABLE #Cube
@@ -119,11 +119,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Hallo-resultaten van Hallo CTAS ziet u hieronder:
+Hieronder ziet u de resultaten van de CTAS:
 
 ![][1]
 
-Hallo tweede stap is het resultaat is een doel tabel toostore tussentijds toospecify:
+De tweede stap is om op te geven van een doeltabel voor het opslaan van tijdelijke resultaten:
 
 ```sql
 DECLARE
@@ -146,7 +146,7 @@ WITH
 ;
 ```
 
-de derde stap Hallo is tooloop over onze kubus van kolommen Hallo aggregatie uitvoeren. Hallo-query wordt eenmaal uitvoeren voor elke rij in de tijdelijke tabel Hallo #Cube en Hallo resultaten op te slaan in de tijdelijke tabel Hallo #Results
+De derde stap is het doorlopen van onze kubus van kolommen uitvoeren van de aggregatie. De query wordt eenmaal uitvoeren voor elke rij in de tijdelijke tabel #Cube en de resultaten op te slaan in de tijdelijke tabel #Results
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -170,7 +170,7 @@ BEGIN
 END
 ```
 
-Ten slotte kunt we Hallo resultaten terugkeren door gewoon lezen van de tijdelijke tabel Hallo #Results
+Ten slotte kunt we de resultaten terugkeren door gewoon lezen van de tijdelijke tabel #Results
 
 ```sql
 SELECT *
@@ -179,7 +179,7 @@ ORDER BY 1,2,3
 ;
 ```
 
-Hallo-code in de secties splitsen en het genereren van een samenvoegartikel constructie Hallo wordt code beheerd en meer bruikbaar.
+De code wordt door de code in de secties splitsen en het genereren van een samenvoegartikel constructie beter beheerbaar en bruikbaar.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer tips voor ontwikkeling, [overzicht voor ontwikkelaars][development overview].

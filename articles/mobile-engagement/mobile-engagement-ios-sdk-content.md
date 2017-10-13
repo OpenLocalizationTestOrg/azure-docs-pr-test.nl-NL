@@ -1,5 +1,5 @@
 ---
-title: aaaAzure Mobile Engagement iOS SDK-inhoud
+title: Azure Mobile Engagement iOS SDK-inhoud
 description: Meest recente updates en procedures voor iOS SDK voor Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,19 +14,19 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9f735226b98431cf0a68d0cbe8f9112f4c8df019
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bdc96cd47ece6054184d167192ebec4cd4bd081c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sdk-content"></a>SDK-inhoud
-Dit document bevat en inhoud van Hallo SDK archief Hallo beschrijft.
+Dit document bevat en beschrijft de inhoud van de SDK-archief.
 
 ## <a name="engagement-sdk"></a>Engagement SDK
 `EngagementSDK`
 
-> Hallo core Engagement SDK die kopteksten, bibliotheek en een extra klasse die is opgegeven als een bron code tooenable-of uitschakelen IDFA-verzameling.
+> De core met Engagement SDK-headers, bibliotheek en een extra klasse die is opgegeven als een broncode naar IDFA-verzameling in-of uitschakelen.
 > 
 > 
 
@@ -46,7 +46,7 @@ Dit document bevat en inhoud van Hallo SDK archief Hallo beschrijft.
 
 `src`map
 
-> Engagement weergave domeincontrollers en het bereiken van de SDK-broncode (voor gevorderde gebruikers willen tooadapt Engagement klassen tootheir behoeften).
+> Engagement weergave controllers en -bereiken van de SDK-broncode (voor Hoofdgebruikers die willen Engagement klassen en hun behoeften passen).
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met HireVue | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en HireVue.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en HireVue.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: f890633ee4f13919c32a43d7b6cf30f2270ef6a1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 682d88d3010f5781948a9adde0e1351471608a5e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Zelfstudie: Azure Active Directory-integratie met HireVue
 
-In deze zelfstudie leert u hoe toointegrate HireVue met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe HireVue integreren met Azure Active Directory (Azure AD).
 
-HireVue integreren met Azure AD biedt Hallo volgende voordelen:
+HireVue integreren met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD die tooHireVue toegang heeft
-- U kunt uw gebruikers tooautomatically get aangemelde tooHireVue (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren
+- U kunt beheren in Azure AD die toegang tot HireVue heeft
+- U kunt uw gebruikers automatisch ophalen aangemeld bij HireVue (Single Sign-On) met hun Azure AD-accounts inschakelen
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure AD-integratie met HireVue tooconfigure, moet u Hallo volgende items:
+Voor het configureren van Azure AD-integratie met HireVue, moet u de volgende items:
 
 - Een Azure AD-abonnement
 - Een HireVue eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Het toevoegen van HireVue van Hallo-galerie
+1. HireVue uit de galerie toevoegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-hirevue-from-hello-gallery"></a>Het toevoegen van HireVue van Hallo-galerie
-tooconfigure hello integratie van HireVue in Azure AD, moet u tooadd HireVue uit Hallo galerie tooyour lijst met beheerde SaaS-apps.
+## <a name="adding-hirevue-from-the-gallery"></a>HireVue uit de galerie toevoegen
+Voor het configureren van de integratie van HireVue in Azure AD, moet u HireVue uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-**tooadd HireVue via Hallo gallery uitvoeren Hallo stappen te volgen:**
+**Als u wilt toevoegen HireVue uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak Hallo **HireVue**.
+4. Typ in het zoekvak **HireVue**.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-hirevue-tutorial/tutorial_hirevue_search.png)
 
-5. Selecteer in het deelvenster resultaten hello, **HireVue**, en klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
+5. Selecteer in het deelvenster resultaten **HireVue**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-hirevue-tutorial/tutorial_hirevue_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie configureert en test eenmalige aanmelding Azure AD met HireVue op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in HireVue is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker Hallo in HireVue toobe tot stand gebracht.
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in HireVue is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in HireVue tot stand worden gebracht.
 
-Wijs in HireVue, Hallo-waarde van Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** tooestablish Hallo koppeling relatie.
+Wijs in HireVue, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-tooconfigure en eenmalige aanmelding Azure AD-test met HireVue, moet u toocomplete Hallo bouwstenen te volgen:
+Om te configureren en testen van Azure AD eenmalige aanmelding met HireVue, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker HireVue](#creating-a-hirevue-test-user)**  -toohave een equivalent van Britta Simon in HireVue die is gekoppeld toohello Azure AD-weergave van de gebruiker.
-4. **[Toewijzen hello Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  -tooverify Hallo of configuratie werkt.
+1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maken van een testgebruiker HireVue](#creating-a-hirevue-test-user)**  - HireVue die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding in uw toepassing HireVue configureren.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing HireVue configureren.
 
-**Azure AD tooconfigure eenmalige aanmelding met HireVue, Voer Hallo stappen te volgen:**
+**Voor het configureren van Azure AD eenmalige aanmelding met HireVue, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op Hallo Hallo **HireVue** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **HireVue** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-hirevue-tutorial/tutorial_hirevue_samlbase.png)
 
-3. Op Hallo **HireVue domein en de URL's** sectie, voert u Hallo stappen te volgen:
+3. Op de **HireVue domein en de URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-hirevue-tutorial/tutorial_hirevue_url.png)
 
-    a. In Hallo **aanmeldings-URL** textbox, typ een URL met Hallo patroon volgen:
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:
 
     | Omgeving | URL |
     |-------------|---|
     | Productie | `https://<companyname>.hirevue.com` |
     | Fasering    | `https://<companyname>.stghv.com` |
     
-    b. In Hallo **id** textbox, typ een URL als:
+    b. In de **id** textbox, typ een URL als:
     
     | Omgeving | URN |
     |-------------|-----|
@@ -125,9 +125,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
     | Fasering    | `urn:federation:hirevue.com:saml:sp:staging`|
     
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Bijwerken van deze waarden Hello werkelijke aanmeldings-URL en -id. Neem contact op met [HireVue Client ondersteuningsteam](mailto:samlsupport@hirevue.com) tooget deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [HireVue Client ondersteuningsteam](mailto:samlsupport@hirevue.com) ophalen van deze waarden. 
  
-4. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het Hallo-certificaatbestand op uw computer.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-hirevue-tutorial/tutorial_hirevue_certificate.png) 
 
@@ -135,68 +135,68 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-hirevue-tutorial/tutorial_general_400.png)
 
-6. Op Hallo **HireVue configuratie** sectie, klikt u op **configureren HireVue** tooopen **eenmalige aanmelding configureren** venster. Kopiëren Hallo **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van Hallo **Naslaggids punt.**
+6. Op de **HireVue configuratie** sectie, klikt u op **configureren HireVue** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-hirevue-tutorial/tutorial_hirevue_configure.png) 
 
-7. tooconfigure eenmalige aanmelding op **HireVue** zijde, moet u toosend Hallo gedownload **Certificate(Base64)** en **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** te[HireVue ondersteuningsteam](mailto:samlsupport@hirevue.com). Ze deze instelling toohave Hallo SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+7. Eenmalige aanmelding configureren op **HireVue** zijde, moet u de gedownloade verzenden **Certificate(Base64)** en **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** naar [HireVue ondersteuningsteam](mailto:samlsupport@hirevue.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
 ![Azure AD-gebruiker maken][100]
 
-**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
+**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo **Azure-portal**, op Hallo navigatiedeelvenster links, klikt u op **Azure Active Directory** pictogram.
+1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-hirevue-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen** en klik op **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
     
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-hirevue-tutorial/create_aaduser_02.png) 
 
-3. Hallo tooopen **gebruiker** dialoogvenster, klikt u op **toevoegen** op Hallo Hallo dialoogvenster bovenaan.
+3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-hirevue-tutorial/create_aaduser_03.png) 
 
-4. Op Hallo **gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:
+4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-hirevue-tutorial/create_aaduser_04.png) 
 
-    a. In Hallo **naam** textbox type **BrittaSimon**.
+    a. In de **naam** textbox type **BrittaSimon**.
 
-    b. In Hallo **gebruikersnaam** textbox type Hallo **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
 
-    c. Selecteer **wachtwoord weergeven** en schrijf Hallo-waarde van Hallo **wachtwoord**.
+    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
  
 ### <a name="creating-a-hirevue-test-user"></a>Een testgebruiker HireVue maken
 
-In deze sectie kunt u een gebruiker Britta Simon aangeroepen in HireVue maken. Neem contact op met [HireVue ondersteuningsteam](mailto:samlsupport@hirevue.com) tooadd Hallo gebruikers in Hallo HireVue platform.
+In deze sectie kunt u een gebruiker Britta Simon aangeroepen in HireVue maken. Neem contact op met [HireVue ondersteuningsteam](mailto:samlsupport@hirevue.com) de gebruikers van het platform HireVue toevoegen.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
 
-In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen tooHireVue toegang verleent.
+In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan HireVue.
 
 ![Gebruiker toewijzen][200] 
 
-**tooassign Britta Simon tooHireVue, Voer Hallo stappen te volgen:**
+**Britta Simon om aan te wijzen HireVue, moet u de volgende stappen uitvoeren:**
 
-1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met de toepassingen van Hallo **HireVue**.
+2. Selecteer in de lijst met toepassingen **HireVue**.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-hirevue-tutorial/tutorial_hirevue_app.png) 
 
-3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
@@ -204,7 +204,7 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -212,13 +212,13 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
     
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van Hallo Toegangsvenster testen.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Als u op Hallo HireVue tegel in Hallo Toegangsvenster, krijgt u automatisch aangemelde tooyour HireVue toepassing.
+Als u op de tegel HireVue in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing HireVue.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

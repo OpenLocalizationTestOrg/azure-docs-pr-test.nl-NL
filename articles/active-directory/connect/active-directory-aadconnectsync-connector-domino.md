@@ -1,6 +1,6 @@
 ---
-title: aaaLotus Domino-Connector | Microsoft Docs
-description: Dit artikel wordt beschreven hoe tooconfigure Microsofts Lotus Domino-Connector.
+title: Lotus Domino-Connector | Microsoft Docs
+description: In dit artikel wordt beschreven hoe Microsoft Lotus Domino-Connector configureren.
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: affef1fec91eb39f7e91ec274fdd1b3a9c4a32fe
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 328e2039bbaa8988dc35b46712fd0de6f8bcbee8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Technische naslaginformatie voor Lotus Domino-Connector
-Dit artikel wordt beschreven hello Lotus Domino-Connector. Hallo-artikel geldt toohello producten te volgen:
+In dit artikel beschrijft de Lotus Domino-Connector. Het artikel is van toepassing op de volgende producten:
 
 * Microsoft Identity Manager 2016 (MIM2016)
 * Forefront Identity Manager 2010 R2 (FIM2010R2)
   * Hotfix 4.1.3671.0 moet gebruiken of later [KB3092178](https://support.microsoft.com/kb/3092178).
 
-Voor MIM2016 en FIM2010R2 Hallo Connector is beschikbaar als een download van Hallo [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
+Voor MIM2016 en FIM2010R2, de Connector is gedownload van de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
-## <a name="overview-of-hello-lotus-domino-connector"></a>Overzicht van hello Lotus Domino-Connector
-Hello Lotus Domino-Connector kunt u het Hallo-synchronisatieservice toointegrate met IBM Lotus Domino-server.
+## <a name="overview-of-the-lotus-domino-connector"></a>Overzicht van de Lotus Domino-Connector
+De Lotus Domino-Connector kunt u de synchronization service integreren met IBM Lotus Domino-server.
 
-Hallo volgende kenmerken worden vanuit een perspectief op hoog niveau wordt ondersteund door Hallo huidige release van Hallo-connector:
+Vanuit een perspectief op hoog niveau, worden de volgende functies worden ondersteund door de huidige release van de connector:
 
 | Functie | Ondersteuning |
 | --- | --- |
@@ -41,31 +41,31 @@ Hallo volgende kenmerken worden vanuit een perspectief op hoog niveau wordt onde
 | Bewerkingen |<li>Volledige en Delta-Import</li><li>Exporteren</li><li>Ingesteld en het wachtwoord op http-wachtwoord wijzigen</li> |
 | Schema |<li>Persoon (gebruiker Roaming, neem contact op met (personen met geen enkel certificaat))</li><li>Groep</li><li>Resource (Resource, kamer, Online vergadering)</li><li>Database-e-mail in</li><li>Dynamische detectie van kenmerken voor ondersteunde objecten</li> |
 
-hello Lotus Notes client toocommunicate Hello Lotus Domino-connector gebruikt met Lotus Domino-Server. Als gevolg van deze afhankelijkheid moet een ondersteunde Lotus Notes-Client op Hallo synchronisatieserver worden geïnstalleerd. Hallo-communicatie tussen Hallo client en server Hallo wordt geïmplementeerd via hello Lotus Notes .NET Interop (Interop.domino.dll)-interface. Deze interface vergemakkelijkt de communicatie tussen Hallo Microsoft.NET platform en Lotus Notes client hello en biedt ondersteuning voor toegang tot tooLotus Domino documenten en weergaven. Voor de delta-import is het ook mogelijk dat die systeemeigen Hallo C++-interface (afhankelijk van de methode voor Hallo geselecteerd delta-import) wordt gebruikt.
+Lotus Notes-client de Lotus Domino-connector gebruikt om te communiceren met Lotus Domino-Server. Als gevolg van deze afhankelijkheid moet een ondersteunde Lotus Notes-Client worden geïnstalleerd op de server voor de synchronisatie. De communicatie tussen de client en de server wordt geïmplementeerd via de interface Lotus Notes .NET Interop (Interop.domino.dll). Deze interface vergemakkelijkt de communicatie tussen de Microsoft.NET-platform en Lotus Notes-client en biedt ondersteuning voor toegang voor Lotus Domino-documenten en weergaven. Voor de delta-import is het ook mogelijk dat de native C++-interface (afhankelijk van de methode van de geselecteerde delta-import) wordt gebruikt.
 
 ### <a name="prerequisites"></a>Vereisten
-Zorg voordat u Hallo Connector gebruikt, hebt u Hallo vereisten op Hallo synchronisatieserver te volgen:
+Voordat u de Connector gebruikt, zorg er dan voor dat u de volgende vereisten hebben op de server voor de synchronisatie:
 
 * Microsoft.NET 4.5.2 of hoger
-* Hello Lotus Notes-client moet worden geïnstalleerd op uw server voor de synchronisatie
-* Hello Lotus Domino-Connector vereist Hallo standaard Lotus Domino LDAP-schema-database (schema.nsf) toobe aanwezig is op Hallo Domino-adreslijstserver. Als dit niet aanwezig is, kunt u deze installeren door uitgevoerd of Hallo LDAP-service op Hallo Domino-server opnieuw te starten.
+* Lotus Notes-client moet worden geïnstalleerd op uw server voor de synchronisatie
+* De Lotus Domino-Connector vereist de standaard Lotus Domino LDAP-schema-database (schema.nsf) aanwezig zijn op de server Domino-Directory. Als dit niet aanwezig is, kunt u deze installeren door uitgevoerd of opnieuw starten van de LDAP-service op de Domino-server.
 
 ### <a name="connected-data-source-permissions"></a>Verbonden gegevensbron machtigingen
-tooperform van Hallo taken in Lotus Domino-connector ondersteund, moet u lid zijn van de volgende groepen:
+Als u wilt een van de ondersteunde bewerkingen uitvoeren in Lotus Domino-connector, moet u lid zijn van de volgende groepen:
 
 * Beheerders met volledige toegang
 * Beheerders
 * Databasebeheerders
 
-Hallo bevat volgende tabel Hallo machtigingen die vereist voor elke bewerking zijn:
+De volgende tabel bevat de machtigingen die vereist voor elke bewerking zijn:
 
 | Bewerking | Toegangsrechten |
 | --- | --- |
-| Importeren |<li>Openbare documenten lezen</li><li> Volledige toegang beheerder (wanneer u lid van de groep administrators volledige toegang bent, automatisch hebt Hallo effectieve toegang tooin ACL.)</li> |
-| Exporteren en het wachtwoord instellen |Effectieve toegang: <li>Documenten maken</li><li>Documenten verwijderen</li><li>Openbare documenten lezen</li><li>Openbare documenten schrijven</li><li>Repliceren of een kopie van documenten</li>Voor bewerkingen exporteren moet u ook Hallo rollen te volgen: <li>CreateResource</li><li>GroupCreator</li><li>GroupModifier</li><li>UserCreator</li><li>UserModifier</li> |
+| Importeren |<li>Openbare documenten lezen</li><li> Volledige toegang beheerder (wanneer u lid van de groep administrators volledige toegang bent, automatisch hebt u de effectieve toegang tot in de ACL.)</li> |
+| Exporteren en het wachtwoord instellen |Effectieve toegang: <li>Documenten maken</li><li>Documenten verwijderen</li><li>Openbare documenten lezen</li><li>Openbare documenten schrijven</li><li>Repliceren of een kopie van documenten</li>Voor bewerkingen exporteren moet u ook de volgende rollen: <li>CreateResource</li><li>GroupCreator</li><li>GroupModifier</li><li>UserCreator</li><li>UserModifier</li> |
 
 ### <a name="direct-operations-and-adminp"></a>Directe bewerkingen en AdminP
-Bewerkingen gaat u rechtstreeks toohello Domino directory of via Hallo AdminP niet verwerken. Hello volgende tabellen worden alle ondersteunde objecten, operations en, indien van toepassing, Hallo implementatie methode gekoppeld:
+Bewerkingen gaat ofwel u rechtstreeks naar de map Domino of door het proces AdminP. De volgende tabellen lijst ondersteund objecten, bewerkingen en, indien van toepassing, de bijbehorende implementatie-methode:
 
 **Primaire adresboek**
 
@@ -85,217 +85,217 @@ Bewerkingen gaat u rechtstreeks toohello Domino directory of via Hallo AdminP ni
 | MailInDB |Directe |Directe |Directe |
 | Resource |N.v.t. |N.v.t. |N.v.t. |
 
-Wanneer een resource is gemaakt, wordt een Notes-document gemaakt. Wanneer een resource wordt verwijderd, wordt op dezelfde manier hello Lotus Notes-document verwijderd.
+Wanneer een resource is gemaakt, wordt een Notes-document gemaakt. Wanneer een resource wordt verwijderd, wordt ook het document opmerkingen verwijderd.
 
 ### <a name="ports-and-protocols"></a>Poorten en protocollen
-IBM Lotus Notes-client en Domino-servers communiceren met opmerkingen Remote Procedure Call (NRPC) waar NRPC TCP/IP moet gebruiken. Hallo standaardpoortnummer 1352 is, maar kan worden gewijzigd door Hallo Domino-beheerder.
+IBM Lotus Notes-client en Domino-servers communiceren met opmerkingen Remote Procedure Call (NRPC) waar NRPC TCP/IP moet gebruiken. Het standaardpoortnummer is 1352, maar kan worden gewijzigd door de beheerder Domino.
 
 ### <a name="not-supported"></a>Niet ondersteund
-Hallo volgende bewerkingen worden niet ondersteund door de huidige release Hallo van hello Lotus Domino-connector:
+De volgende bewerkingen worden niet ondersteund door de huidige release van de Lotus Domino-connector:
 
 * Postvak verplaatsen tussen servers.
 
 ## <a name="create-a-new-connector"></a>Een nieuwe Connector maken
 ### <a name="client-software-installation-and-configuration"></a>De installatie van clientsoftware en configuratie
-Lotus Notes moeten worden geïnstalleerd op de server Hallo **voordat** Hallo-Connector is geïnstalleerd.
+Lotus Notes moeten worden geïnstalleerd op de server **voordat** de Connector is geïnstalleerd.
 
-Wanneer u installeert, moet u een **installatie voor één gebruiker**. Standaard Hallo **Multi-User installeren** werkt niet.  
+Wanneer u installeert, moet u een **installatie voor één gebruiker**. De standaardwaarde **Multi-User installeren** werkt niet.  
 ![Notes1](./media/active-directory-aadconnectsync-connector-domino/notes1.png)
 
-Installeren op de pagina onderdelen Hallo alleen hello Lotus Notes functies vereist en **één clientaanmelding**. Eenmalige aanmelding is vereist voor Hallo connector toobe kunnen toolog op toohello Domino-server.  
+Op de pagina onderdelen installeren alleen de vereiste onderdelen Lotus Notes en **één clientaanmelding**. Eenmalige aanmelding is vereist voor de connector kunnen aanmelden bij de Domino-server.  
 ![Notes2](./media/active-directory-aadconnectsync-connector-domino/notes2.png)
 
-**Opmerking:** Start Lotus Notes wanneer dezelfde server als Hallo account aan een gebruiker die zich bevindt op Hallo u gebruiken als Hallo van connector-serviceaccount. Zorg ervoor dat tooclose hello Lotus Notes-client ook op Hallo-server. Kan niet worden uitgevoerd op Hallo probeert dezelfde tijd Hallo Connector tooconnect toohello Domino-server.
+**Opmerking:** Start Lotus Notes eenmaal aan een gebruiker die zich op dezelfde server als het account dat u als de connector gebruiken-serviceaccount. Controleer ook of de Lotus Notes-client op de server sluit. Deze kan niet worden uitgevoerd op hetzelfde moment die de Connector probeert verbinding maken met de Domino-server.
 
 ### <a name="create-connector"></a>Connector maken
-een connector voor Lotus Domino tooCreate in **Synchronization Service** Selecteer **beheeragent** en **maken**. Selecteer Hallo **Lotus Domino (Microsoft)** Connector.  
+Maken van een Lotus Domino-connector in **synchronisatieservice** Selecteer **beheeragent** en **maken**. Selecteer de **Lotus Domino (Microsoft)** Connector.  
 ![CreateConnector](./media/active-directory-aadconnectsync-connector-domino/createconnector.png)
 
-Als uw versie van de synchronisatieservice Hallo mogelijkheid tooconfigure biedt **architectuur**, zorg ervoor dat de connector Hallo tooits standaard waarde toorun is ingesteld in **proces**.
+Als uw versie van de synchronisatieservice de mogelijkheid biedt voor het configureren van **architectuur**, zorg ervoor dat de connector op de standaardwaarde is ingesteld op uitvoeren in **proces**.
 
 ### <a name="connectivity"></a>Connectiviteit
-Op pagina Verbindingsmogelijkheden hello, moet u hello Lotus Domino-servernaam opgeeft en Hallo-aanmeldingsreferenties opgeven.  
+Op de pagina Verbindingsmogelijkheden moet u de Lotus Domino-server opgeven en voer de referenties voor de aanmelding.  
 ![Connectiviteit](./media/active-directory-aadconnectsync-connector-domino/connectivity.png)
 
-Hallo Domino servereigenschap ondersteunt twee indelingen voor het Hallo-servernaam:
+De eigenschap Domino-Server ondersteunt twee verschillende indelingen voor naam van de server:
 
 * Servernaam
 * ServerName/DirectoryName
 
-Hallo **ServerName/DirectoryName** is de gewenste indeling Hallo voor dit kenmerk omdat deze sneller een antwoord biedt als Hallo connector contactpersonen Hallo Domino-Server.
+De **ServerName/DirectoryName** indeling is de gewenste indeling voor dit kenmerk omdat u sneller een antwoord biedt, wanneer de Domino-Server contact legt met de connector.
 
-Hallo opgegeven UserID bestand wordt opgeslagen in de configuratiedatabase Hallo van Hallo-synchronisatieservice.
+De opgegeven gebruikers-id-bestand wordt opgeslagen in de configuratiedatabase van de synchronisatieservice.
 
 Voor **Delta-Import** hebt u deze opties:
 
-* **Geen**. Hallo Connector wordt niet een delta-invoer.
-* **Toevoegen/bijwerken**. Hallo-Connector heeft delta-import toevoegen en bijwerken van bewerkingen. Om te verwijderen, een **volledige Import** bewerking is vereist. Hallo .net interop maakt gebruik van deze bewerking.
-* **Toevoegen, bijwerken, verwijderen**. Hallo-Connector heeft delta-import toevoegen, bijwerken en verwijderen van bewerkingen. Deze bewerking maakt gebruik van de native C++-interfaces Hallo.
+* **Geen**. De Connector wordt niet een delta-invoer.
+* **Toevoegen/bijwerken**. De Connector heeft delta-import toevoegen en bijwerken van bewerkingen. Om te verwijderen, een **volledige Import** bewerking is vereist. Deze bewerking maakt gebruik van de .net-interop.
+* **Toevoegen, bijwerken, verwijderen**. De Connector heeft delta-import toevoegen, bijwerken en verwijderen van bewerkingen. Deze bewerking maakt gebruik van de native C++-interfaces.
 
-In **schemaopties** er Hallo volgende opties:
+In **schemaopties** hebt u de volgende opties:
 
-* **Standaard Schema**. Hallo Connector detecteert Hallo-schema van Hallo Domino-server. Dit is de standaardoptie Hallo.
-* **DSML Schema**. Alleen gebruikt als Hallo Domino-server wordt Hallo-schema niet beschikbaar. Vervolgens kunt u een bestand DSML met Hallo schema maken en importeer dit in plaats daarvan. Zie voor meer informatie over DSML [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
+* **Standaard Schema**. De Connector detecteert het schema van de Domino-server. Dit is de standaardoptie.
+* **DSML Schema**. Alleen gebruikt als de server Domino wordt het schema niet beschikbaar. U kunt vervolgens een DSML-bestand maken met het schema en importeer dit in plaats daarvan. Zie voor meer informatie over DSML [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
 
-Wanneer u op Volgende klikt, worden Hallo gebruikersnaam en wachtwoord configuratieparameters gecontroleerd.
+Als u op Volgende klikt, wordt de configuratieparameters gebruikersnaam en wachtwoord zijn geverifieerd.
 
 ### <a name="global-parameters"></a>Globale Parameters
-Op Hallo globale Parameters pagina configureert Hallo tijdzone en Hallo importeren en exporteren van de optie bij bewerking.  
+Op de pagina Algemene Parameters configureren van de tijdzone en het importeren en exporteren van de optie bij bewerking.  
 ![Globale Parameters](./media/active-directory-aadconnectsync-connector-domino/globalparameters.png)
 
-Hallo **Domino servertijdzone** parameter definieert Hallo-locatie van uw Domino-Server.
+De **Domino servertijdzone** parameter definieert de locatie van uw Domino-Server.
 
-Deze configuratieoptie is vereist toosupport **delta-import** operations omdat hij Hiermee Hallo-synchronisatieservice wijzigingen tussen de laatste twee invoer Hallo bepalen.
+Deze configuratieoptie is vereist voor ondersteuning **delta-import** operations omdat hij Hiermee de synchronisatieservice wijzigingen tussen de laatste twee invoer bepalen.
 
 >[!Note]
-Vanaf maart 2017 update Hallo globale parameters welkomstscherm omvat Hallo optie toodelete Hallo van de gebruiker van e-maildatabase bij het verwijderen van de gebruiker Hallo.
+Starten van het scherm globale parameters in de update van maart 2017 biedt de mogelijkheid van de gebruiker e-mail database verwijderen bij het verwijderen van de gebruiker.
 
 ![Verwijderen van het postvak van gebruiker](./media/active-directory-aadconnectsync-connector-domino/AdminP.png)
 
 #### <a name="import-settings-method"></a>Instellingen importeren, methode
-Hallo **volledige Import uitvoeren door** volgende opties:
+De **volledige Import uitvoeren door** volgende opties:
 
 * Search
 * Weergave (aanbevolen)
 
-**Search** is met behulp van indexeren in Domino, maar er is gebruikelijk dat Hallo indexen niet in realtime bijgewerkt worden en Hallo-gegevens geretourneerd vanaf de Hallo-server niet altijd correct is. Voor een systeem met veel wijzigingen deze optie meestal niet goed werkt en false worden verwijderd in sommige situaties biedt. Echter, **search** sneller dan **weergave**.
+**Search** is met behulp van indexeren in Domino, maar er is gebruikelijk dat de indexen niet in realtime bijgewerkt worden en de gegevens die wordt geretourneerd vanaf de server niet altijd correct is. Voor een systeem met veel wijzigingen deze optie meestal niet goed werkt en false worden verwijderd in sommige situaties biedt. Echter, **search** sneller dan **weergave**.
 
-**Weergave** wordt Hallo aanbevolen optie omdat de juiste status Hallo van gegevens biedt. Er is iets langer dan zoeken.
+**Weergave** optie wordt aanbevolen omdat hiermee de juiste status van gegevens. Er is iets langer dan zoeken.
 
 #### <a name="creation-of-virtual-contact-objects"></a>Maken van virtuele contact op met objecten
-Hallo **maken van een \_object contactpersonen** volgende opties:
+De **maken van een \_object contactpersonen** volgende opties:
 
 * Geen
 * Niet-verwijzingsvariant waarden
 * Naslaggids voor niet waarden
 
-In Domino bevatten verwijzingskenmerken veel verschillende indelingen tooreference andere objecten. toobe kunnen toorepresent verschillende variaties, Hallo Connector implementeert \_contact op met objecten, ook wel bekend als **virtuele contactpersonen** (VC). Deze objecten zijn gemaakt, zodat u ze kunnen deelnemen aan tooexisting MV-objecten of geprojecteerd als nieuwe objecten. Op deze manier kunnen kenmerk verwijzingen worden bewaard.
+In Domino bevatten verwijzingskenmerken veel verschillende bestandsindelingen om te verwijzen naar andere objecten. Kunnen andere variaties, de implements Connector \_contact op met objecten, ook wel bekend als **virtuele contactpersonen** (VC). Deze objecten zijn gemaakt, zodat ze aan bestaande MV-objecten toevoegen kunnen of geprojecteerd als nieuwe objecten. Op deze manier kunnen kenmerk verwijzingen worden bewaard.
 
-Door deze instelling inschakelt en als het Hallo-inhoud van een verwijzingskenmerk is niet een DN-indeling een \_Contact-object is gemaakt. Een Lidkenmerk van een groep kan bijvoorbeeld de SMTP-adressen bevatten. Het is ook mogelijk toohave korte naam en andere kenmerken in verwijzingskenmerken. Selecteer voor dit scenario **niet referentiewaarden**. Deze configuratie is de meest voorkomende instelling Hallo voor Domino-implementaties.
+Door deze instelling inschakelt en als de inhoud van een verwijzingskenmerk niet DN-indeling een \_Contact-object is gemaakt. Een Lidkenmerk van een groep kan bijvoorbeeld de SMTP-adressen bevatten. Het is ook mogelijk dat de korte naam en andere kenmerken in verwijzingskenmerken aanwezig. Selecteer voor dit scenario **niet referentiewaarden**. Deze configuratie is de meest voorkomende instelling voor Domino-implementaties.
 
-Wanneer Lotus Domino geconfigureerde toohave afzonderlijke adresboeken met verschillende DN-namen die hetzelfde object Hallo, maakt u de mogelijke tooalso \_Neem contact op met de objecten voor alle verwijzing waarden die zijn gevonden in een adresboek. Selecteer voor dit scenario Hallo **referentie- en Non-referentiewaarden** optie.
+Wanneer Lotus Domino is geconfigureerd om afzonderlijke adresboeken met verschillende DN-namen die hetzelfde object vertegenwoordigt, is het mogelijk te maken ook \_Neem contact op met de objecten voor alle verwijzing waarden die zijn gevonden in een adresboek. Selecteer voor dit scenario wordt de **referentie- en Non-referentiewaarden** optie.
 
-Als er meerdere waarden in Hallo kenmerk **FullName** in Domino, vervolgens wilt u er ook tooenable Hallo aanmaken van virtuele contactpersonen dus verwijzingen omgezet worden kunnen. Dit kenmerk kan bijvoorbeeld meerdere waarden hebben na een huwelijk of echtscheiding. Schakel dit selectievakje in Hallo **inschakelen... Volledige naam heeft meerdere waarden** voor dit scenario.
+Als er meerdere waarden in het kenmerk **FullName** Domino, vervolgens u ook wilt inschakelen, het maken van virtuele contactpersonen zodat verwijzingen omgezet worden kunnen. Dit kenmerk kan bijvoorbeeld meerdere waarden hebben na een huwelijk of echtscheiding. Schakel het selectievakje **inschakelen... Volledige naam heeft meerdere waarden** voor dit scenario.
 
-Door op de juiste kenmerken hello, Hallo \_Neem contact op met objecten zou worden gekoppelde toohello MV-object.
+Door op de juiste kenmerken de \_Neem contact op met objecten zou worden toegevoegd aan het MV-object.
 
-Deze objecten hebben VC =\_contactpersoon tootheir DN-naam toegevoegd.
+Deze objecten hebben VC =\_contactpersoon toegevoegd aan hun DN-naam.
 
 #### <a name="import-settings-conflict-object"></a>Instellingen importeren, object in conflict
 **Conflict-Object uitsluiten**
 
-In een grote Domino-implementatie is het mogelijk dat meerdere objecten dezelfde DN vanwege tooreplication problemen hebben Hallo. In dergelijke gevallen ziet Hallo connector twee objecten met verschillende UniversalIDs maar dezelfde DN-naam. Dit conflict zou leiden tot een tijdelijk object wordt gemaakt in Hallo connectorgebied overgebracht. Hallo Connector kunt negeren Hallo-objecten die zijn geselecteerd in Domino als slachtoffer van replicatie. Hallo-aanbeveling is tookeep dit selectievakje ingeschakeld.
+In een grote Domino-implementatie is het mogelijk dat meerdere objecten de dezelfde DN vanwege problemen met replicatie hebben. In dergelijke gevallen ziet de connector twee objecten met verschillende UniversalIDs maar dezelfde DN-naam. Dit conflict zou leiden tot een tijdelijk object wordt gemaakt in het connectorgebied overgebracht. De Connector kunt de objecten die zijn geselecteerd in Domino als slachtoffer replicatie negeren. De aanbeveling is dit selectievakje geselecteerd houden.
 
 #### <a name="export-settings"></a>Instellingen exporteren
-Als hello optie **AdminP gebruiken voor het bijwerken van verwijzingen** niet is geselecteerd, dan is het exporteren van de referentie-kenmerken, zoals lid, een directe aanroep en gebruikt geen Hallo AdminP proces. Gebruik deze optie alleen als AdminP niet geconfigureerd toomaintain referentiële integriteit is.
+Als de optie **AdminP gebruiken voor het bijwerken van verwijzingen** niet is geselecteerd, en vervolgens de uitvoer van de referentie-kenmerken, zoals lid, is een directe aanroep en gebruikt het proces AdminP niet. Gebruik deze optie alleen als AdminP is niet geconfigureerd referentiële integriteit te handhaven.
 
 #### <a name="routing-information"></a>Informatie over routering
-In Domino is het mogelijk dat een verwijzingskenmerk routinggegevens ingesloten als een achtervoegsel toohello DN-naam heeft. Bijvoorbeeld, Hallo lid een kenmerk in een groep kan bevatten **CN =example/organization@ABC**. Hallo achtervoegsel @ABC Hallo routinggegevens is. Hallo route-informatie wordt gebruikt door Domino toosend e-mailberichten toohello juiste Domino systeem, wat erop kan een systeem in een andere organisatie. In Hallo routeringsgegevens veld, kunt u routering Hallo-achtervoegsels gebruikt binnen de organisatie Hallo binnen het bereik van Hallo Connector. Als een van deze waarden in een verwijzingskenmerk als achtervoegsel wordt gevonden, wordt de routinggegevens Hallo van Hallo verwijzing verwijderd. Als Hallo routering achtervoegsel op referentiewaarde overeenkomende tooone van deze waarden wordt opgegeven, niet kan worden een \_Contact-object is gemaakt. Deze \_Neem contact op met objecten zijn gemaakt met **RO = @<RoutingSuffix>**  ingevoegd in Hallo DN-naam. Voor deze \_Contact-objecten Hallo na kenmerken ook zijn toegevoegd tooallow lid worden van het juiste object tooa indien nodig: \_routingName, \_contactpersoon, \_displayName, en UniversalID.
+In Domino is het mogelijk dat een verwijzingskenmerk routinggegevens ingesloten als achtervoegsel aan de DN-naam heeft. Bijvoorbeeld, het Lidkenmerk in een groep kan bevatten **CN =example/organization@ABC**. Het achtervoegsel @ABC de routinggegevens is. De routinggegevens wordt gebruikt door Domino e-mailberichten verzenden naar de juiste Domino-systeem, die een systeem in een andere organisatie kan worden. U kunt de routering achtervoegsels gebruikt binnen de organisatie in het bereik van de Connector opgeven in het veld gegevens routering. Als een van deze waarden in een verwijzingskenmerk als achtervoegsel wordt gevonden, wordt de routinggegevens van de verwijzing verwijderd. Als het achtervoegsel voor de routering op de waarde van een verwijzing komt niet met een van deze waarden wordt opgegeven overeen, een \_Contact-object is gemaakt. Deze \_Neem contact op met objecten zijn gemaakt met **RO = @<RoutingSuffix>**  ingevoegd in de DN-naam. Voor deze \_Neem contact op met objecten met de volgende kenmerken worden ook toegevoegd aan het toestaan dat u toevoegt aan een echte object indien nodig: \_routingName, \_contactpersoon, \_displayName, en UniversalID.
 
 #### <a name="additional-address-books"></a>Extra adresboeken
-Als u nog geen **telefoonboek** geïnstalleerd, waarmee u Hallo-naam van de secundaire adresboeken en vervolgens kunt u deze adresboeken handmatig invoeren.
+Als u nog geen **telefoonboek** geïnstalleerd, waarmee u de naam van de secundaire adresboeken en vervolgens kunt u deze adresboeken handmatig invoeren.
 
 #### <a name="multivalued-transformation"></a>Met meerdere waarden transformatie
-Er zijn veel kenmerken in Lotus Domino met meerdere waarden. Hallo bijbehorende metaverse-kenmerken worden doorgaans één waarden. Hallo importeren en de bewerking exportoptie Hallo configureert, kunnen Hallo connector toohelp met Hallo vereist vertaling van Hallo van invloed op een kenmerken.
+Er zijn veel kenmerken in Lotus Domino met meerdere waarden. De bijbehorende metaverse-kenmerken zijn doorgaans één waarden. Het importeren en de bewerking exportoptie configureert, moet u de connector om te helpen bij de vereiste omzetting van de betrokken kenmerken inschakelen.
 
 **Exporteren**  
-de bewerking exportoptie Hallo ondersteunt twee modi:
+De bewerking exportoptie ondersteunt twee modi:
 
 * Item toevoegen
 * Item vervangen
 
-**Item vervangen** – wanneer u deze optie, altijd Hallo-connector verwijderen Hallo huidige waarden van Hallo-kenmerk in Domino selecteert en vervang ze door Hallo opgegeven waarden. Hallo opgegeven mag waarden één waarde of meerdere waarden.
+**Item vervangen** – wanneer u deze optie selecteert, de connector altijd de huidige waarden van het kenmerk in Domino verwijderen en ze vervangen door de opgegeven waarden. De opgegeven waarden mag één waarde of meerdere waarden.
 
-Voorbeeld: Hallo assistent kenmerk van een persoon-object heeft Hallo volgende waarden:
+Voorbeeld: Het kenmerk assistent van een persoon-object heeft de volgende waarden:
 
 * CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
 * CN = John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
-Als een nieuwe assistent met de naam **David Alexander** is toegewezen toothis persoon object, Hallo resultaat is:
+Als een nieuwe assistent met de naam **David Alexander** is toegewezen aan dit object persoon het resultaat is:
 
 * CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
 
-**Item toevoegen** – wanneer u deze optie selecteert, Hallo connector behoudt Hallo bestaande waarden op Hallo-kenmerk in Domino en insert nieuwe waarden bovenaan Hallo Hallo gegevenslijst.
+**Item toevoegen** – wanneer u deze optie selecteert, de connector behoudt de bestaande waarden van het kenmerk in Domino en insert nieuwe waarden boven aan de gegevenslijst.
 
-Voorbeeld: Hallo assistent kenmerk van een persoon-object heeft Hallo volgende waarden:
+Voorbeeld: Het kenmerk assistent van een persoon-object heeft de volgende waarden:
 
 * CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
 * CN = John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
-Als een nieuwe assistent met de naam **David Alexander** is toegewezen toothis persoon object, Hallo resultaat is:
+Als een nieuwe assistent met de naam **David Alexander** is toegewezen aan dit object persoon het resultaat is:
 
 * CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
 * CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
 * CN = John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 **Importeren**  
-Hallo importeren bewerking optie ondersteunt twee modi:
+De optie importeren bewerking ondersteunt twee modi:
 
 * Standaard
-* Met meerdere waarden tooSingle waarde
+* Enkele waarde met meerdere waarden
 
-**Standaard** – wanneer u Hallo standaardoptie selecteert, alle waarden van alle Hallo kenmerken worden geïmporteerd.
+**Standaard** – wanneer u de standaardoptie alle waarden van alle kenmerken worden geïmporteerd.
 
-**Met meerdere waarden tooSingle waarde** – wanneer u deze optie selecteert, een kenmerk met meerdere waarden wordt omgezet in een kenmerk met één waarde. Als meer dan één waarde bestaat, wordt de waarde Hallo bovenaan hello (deze waarde is meestal ook Hallo recente) gebruikt.
+**Enkele waarde met meerdere waarden** – wanneer u deze optie selecteert, een kenmerk met meerdere waarden wordt omgezet in een kenmerk met één waarde. Als meer dan één waarde bestaat, wordt de waarde in de rechterbovenhoek (deze waarde is meestal ook de meest recente) gebruikt.
 
-Voorbeeld: Hallo assistent kenmerk van een persoon-object heeft Hallo volgende waarden:
+Voorbeeld: Het kenmerk assistent van een persoon-object heeft de volgende waarden:
 
 * CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
 * CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
 * CN = John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
-Hallo meest recente update toothis kenmerk is **David Alexander**. Omdat Hallo optie importeren-bewerking is tooMultivalued tooSingle waarde ingesteld, worden alleen connector geïmporteerd **David Alexander** naar Hallo connectorgebied overgebracht.
+De meest recente update aan dit kenmerk is **David Alexander**. Omdat de optie importeren opnieuw is ingesteld op Multivalued enkele waarde, connector alleen geïmporteerd **David Alexander** naar het connectorgebied overgebracht.
 
-Hallo logica tooconvert met meerdere waarden kenmerken in kenmerken met één waarde is niet van toepassing toohello groep Lidkenmerk en toohello persoon fullname kenmerk.
+De logica voor kenmerken met meerdere waarden converteren naar kenmerken met één waarde is niet van toepassing voor het kenmerk group lid en het kenmerk van de volledige naam persoon.
 
-Het ook mogelijk tooconfigure regels importeren en exporteren transformatie voor kenmerken met meerdere waarden per kenmerk, als een algemene uitzondering toohello-regel. tooconfigure deze optie, voer [objecttype]. [attributename] in Hallo **importeren kenmerk uitsluitingslijst** en **exporteren kenmerk uitsluitingslijst** tekstvakken. Bijvoorbeeld, wordt alle waarden, alleen de eerste waarde Hallo voor Hallo-assistent geïmporteerd als u Person.Assistant invoert en Hallo globale vlag tooimport is ingesteld.
+Het is ook mogelijk om te importeren configureren en transformatie van regels voor kenmerken met meerdere waarden per kenmerk exporteren als een uitzondering op de algemene regel. Voer voor het configureren van deze optie [objecttype]. [attributename] in de **importeren kenmerk uitsluitingslijst** en **exporteren kenmerk uitsluitingslijst** tekstvakken. Als u Person.Assistant invoeren en de globale vlag is ingesteld voor het importeren van alle waarden, is bijvoorbeeld alleen de eerste waarde van de assistent geïmporteerd.
 
 #### <a name="certifiers"></a>Certifiers
-Hallo-connector worden alle organisatie/organisatie-eenheden weergegeven. toobe kunnen tooexport objecten toohello primaire adresboek persoon, een certifier met het wachtwoord is vereist.
+Alle organisatie/organisatie-eenheden worden weergegeven door de connector. Als u persoon om objecten te exporteren naar de primaire adresboek, is een certifier met het wachtwoord vereist.
 
-Als alle certifiers Hallo hetzelfde wachtwoord hello **wachtwoord voor alle Certifers** kan worden gebruikt. Vervolgens kunt u hier Hallo wachtwoord invoeren en alleen Hallo certifier bestand opgeven.
+Als alle certifiers hetzelfde wachtwoord hebben, de **wachtwoord voor alle Certifers** kan worden gebruikt. Vervolgens kunt u hier het wachtwoord invoert en alleen het bestand certifier opgeven.
 
-Als u alleen importeert, hebt nog u geen toospecify eventuele certifiers.
+Als u alleen importeert, vervolgens u beschikt niet over een certifiers opgeven.
 
 ### <a name="configure-provisioning-hierarchy"></a>Hiërarchie inrichten configureren
-Wanneer u hello Lotus Domino-connector configureert, moet u deze pagina dialoogvenster overslaan. Hello Lotus Domino-connector ondersteunt geen hiërarchie inrichten.  
+Wanneer u de Lotus Domino-connector configureert, moet u deze pagina dialoogvenster overslaan. De connector voor Lotus Domino ondersteunt geen hiërarchie inrichten.  
 ![Hiërarchie inrichten](./media/active-directory-aadconnectsync-connector-domino/provisioninghierarchy.png)
 
 ### <a name="configure-partitions-and-hierarchies"></a>Partities en hiërarchieën configureren
-Wanneer u partities en hiërarchieën configureren, moet u de primaire adresboek Hallo aangeroepen NAB=names.nsf selecteren. Bovendien toohello primaire adresboek, kunt u secundaire adresboeken indien ze bestaan.  
+Wanneer u partities en hiërarchieën configureren, moet u de primaire adresboek NAB=names.nsf aangeroepen. U kunt naast het primaire adresboek secundaire adresboeken selecteren als deze bestaan.  
 ![Partities](./media/active-directory-aadconnectsync-connector-domino/partitions.png)
 
 ### <a name="select-attributes"></a>Kenmerken selecteren
-Wanneer u de kenmerken configureert, moet u alle kenmerken die worden voorafgegaan door  **\_MMS\_**. Deze kenmerken zijn vereist wanneer u nieuwe objecten tooLotus Domino inrichten
+Wanneer u de kenmerken configureert, moet u alle kenmerken die worden voorafgegaan door  **\_MMS\_**. Deze kenmerken zijn vereist wanneer u nieuwe objecten voor Lotus Domino inrichten
 
 ![Kenmerken](./media/active-directory-aadconnectsync-connector-domino/attributes.png)
 
 ## <a name="object-lifecycle-management"></a>Object levenscyclusbeheer
-Deze sectie biedt een overzicht van de verschillende objecten Hallo in Domino.
+Deze sectie biedt een overzicht van de verschillende objecten in Domino.
 
 ### <a name="person-objects"></a>Objecten van de persoon
-Hallo persoon object stelt gebruikers in de organisatie en organisatie-eenheden. Toohello standaardkenmerken, Hallo Domino beheerder kunnen bovendien aangepaste kenmerken tooa persoon object toevoegen. Ten minste moet een object persoon alle verplichte kenmerken bevatten. Zie voor een volledige lijst van verplichte kenmerken [Lotus Notes-eigenschappen](#lotus-notes-properties). tooregister een persoon-object, Hallo volgende vereisten moet worden voldaan:
+Het object persoon vertegenwoordigt gebruikers in de organisatie en organisatie-eenheden. Naast de standaardkenmerken, kunt de beheerder Domino aangepaste kenmerken toevoegen aan een persoon-object. Ten minste moet een object persoon alle verplichte kenmerken bevatten. Zie voor een volledige lijst van verplichte kenmerken [Lotus Notes-eigenschappen](#lotus-notes-properties). Voor het registreren van een persoon-object, moeten de volgende vereisten worden voldaan:
 
-* Hallo-adresboek (names.nsf) moet zijn gedefinieerd en deze moet de primaire adresboek Hallo.
-* U moet beschikken over Hallo O/organisatie-eenheid certifier-Id en het Hallo wachtwoord tooregister een bepaalde gebruiker Hallo organisatie / organisatie-eenheid.
-* U moet een specifieke set met Lotus Notes eigenschappen voor een persoon-object instellen. Deze eigenschappen worden gebruikt voor het inrichten van Hallo persoon object. Zie voor meer informatie, Hallo sectie [Lotus Notes-eigenschappen](#lotus-notes-properties) verderop in dit document.
-* Hallo eerste HTTP-wachtwoord voor een persoon is een kenmerk en een set tijdens het inrichten.
-* Hallo persoon object moet een Hallo na drie ondersteunde typen:
+* Het adresboek (names.nsf) moet zijn gedefinieerd en deze moet de primaire adresboek.
+* U moet de certifier O/organisatie-eenheid Id en het wachtwoord voor het registreren van een bepaalde gebruiker in de organisatie hebben / organisatie-eenheid.
+* U moet een specifieke set met Lotus Notes eigenschappen voor een persoon-object instellen. Deze eigenschappen worden gebruikt voor het inrichten van het object persoon. Zie voor meer informatie de sectie [Lotus Notes-eigenschappen](#lotus-notes-properties) verderop in dit document.
+* De eerste HTTP-wachtwoord voor een persoon is een kenmerk en een set tijdens het inrichten.
+* Het object persoon moet een van de volgende drie ondersteunde typen:
   1. Normaal-gebruiker met een e-mail en een gebruiker-id-bestand
   2. Zwervende gebruiker (een normale gebruiker waarin alle zwervende databasebestanden)
   3. Contactpersonen (gebruiker met geen id-bestand)
 
-Personen (met uitzondering van contactpersonen) kunnen verder worden gegroepeerd in ons gebruikers en internationale gebruikers, zoals gedefinieerd door de waarde van Hallo Hallo \_MMS\_IDRegType-eigenschap. Deze mensen tooaccess van de opmerkingen bij de Client hello Lotus Domino-servers gebruiken, hebben een opmerkingen-Id en een persoon-document. Als ze met opmerkingen bij de e-mail, vervolgens hebben ze ook een e-mailbestand. Hallo-gebruiker moet geregistreerde toobecome actief zijn. Zie voor meer informatie:
+Personen (met uitzondering van contactpersonen) kunnen verder worden gegroepeerd in ons gebruikers en internationale gebruikers, zoals gedefinieerd door de waarde van de \_MMS\_IDRegType-eigenschap. Deze mensen gebruik de opmerkingen bij de Client toegang tot Lotus Domino-servers hebben een opmerkingen-Id en een persoon-document. Als ze met opmerkingen bij de e-mail, vervolgens hebben ze ook een e-mailbestand. De gebruiker moet worden geregistreerd voor actief. Zie voor meer informatie:
 
 * [Opmerkingen bij de gebruikers instellen](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_SETTING_UP_NOTES_USERS.html)
 * [Gebruikersregistratie](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_REGISTERING_USERS.html)
 * [Het beheren van gebruikers](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_MANAGING_USERS_5151.html)
 * [Naam van gebruikers](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_RENAMING_A_USER_AUTOMATICALLY.html)
 
-Alle deze bewerkingen worden uitgevoerd in Lotus Domino en vervolgens geïmporteerd in het Hallo-synchronisatieservice.
+Alle deze bewerkingen worden uitgevoerd in Lotus Domino en vervolgens geïmporteerd in de synchronisatieservice.
 
 ### <a name="resources-and-rooms"></a>Ruimten en resources
-Een bron is een ander type van een database in Lotus Domino. Resources kunnen worden vergaderruimten met verschillende soorten apparatuur, zoals projectors. Er zijn subtypen van bronnen die worden ondersteund door de connector voor Lotus Domino die zijn gedefinieerd door Hallo brontype kenmerk:
+Een bron is een ander type van een database in Lotus Domino. Resources kunnen worden vergaderruimten met verschillende soorten apparatuur, zoals projectors. Er zijn subtypen van resources die worden ondersteund door de connector voor Lotus Domino die zijn gedefinieerd door het kenmerk brontype:
 
 | Het type Resource | Kenmerk van het Type resource |
 | --- | --- |
@@ -303,38 +303,38 @@ Een bron is een ander type van een database in Lotus Domino. Resources kunnen wo
 | Resource (Other) |2 |
 | Online vergaderingen |3 |
 
-Hallo volgende is vereist voor Hallo Resource object type toowork:
+Het volgende is vereist voor het type Resource-object om te werken:
 
-* Reservering resourcedatabase moet al bestaan in Hallo verbonden Domino-server
-* Hallo-site is al gedefinieerd voor Hallo Resource
+* Reservering resourcedatabase moet al bestaan in de verbonden Domino-server
+* De site is al gedefinieerd voor de Resource
 
-Hallo reservering van de Resource-database bevat drie typen documenten:
+De reservering van de Resource-database bevat drie typen documenten:
 
 * Profiel van uw site
 * Resource
 * Reservering
 
-Zie voor meer informatie over het instellen van de database van de Resource-reservering [Hallo Resource reserveringen serverdatabase instellen](https://www-01.ibm.com/support/knowledgecenter/SSKTMJ_8.0.1/com.ibm.help.domino.admin.doc/DOC/H_SETTING_UP_THE_RESOURCE_RESERVATIONS_DATABASE.html).
+Zie voor meer informatie over het instellen van de database van de Resource-reservering [instellen van de database van de Resource-reserveringen](https://www-01.ibm.com/support/knowledgecenter/SSKTMJ_8.0.1/com.ibm.help.domino.admin.doc/DOC/H_SETTING_UP_THE_RESOURCE_RESERVATIONS_DATABASE.html).
 
 **Maken, bijwerken, en Resources verwijderen**  
-Hallo worden Create, Update en Delete-bewerkingen uitgevoerd door hello Lotus Domino-connector in Hallo reservering van de Resource-database. Resources worden gemaakt als documenten in Names.nsf (dat wil zeggen, Hallo primaire adresboek). Zie voor meer informatie over het bewerken en verwijderen van Resources [bewerken en verwijderen van de Resource-documenten](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_EDITING_AND_DELETING_RESOURCE_DOCUMENTS.html).
+De Create, Update en Delete-bewerkingen worden uitgevoerd door de connector voor Lotus Domino in de database van de Resource-reservering. Resources worden gemaakt als documenten in Names.nsf (dat wil zeggen, de primaire adresboek). Zie voor meer informatie over het bewerken en verwijderen van Resources [bewerken en verwijderen van de Resource-documenten](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_EDITING_AND_DELETING_RESOURCE_DOCUMENTS.html).
 
 **Importeren en exporteren van de bewerking voor bronnen**  
-Hallo Resources kan worden geïmporteerd tooand geëxporteerd uit de synchronisatieservice hello, zoals een ander objecttype. Selecteer Hallo objecttype als Resource tijdens de configuratie. Voor de exportbewerking is geslaagd, moet u de details voor resourcetype, conferentie Database en de naam van de Site hebben.
+De bronnen worden geïmporteerd en geëxporteerd uit de synchronisatieservice, zoals een ander objecttype. Selecteer het objecttype als Resource tijdens de configuratie. Voor de exportbewerking is geslaagd, moet u de details voor resourcetype, conferentie Database en de naam van de Site hebben.
 
 ### <a name="mail-in-databases"></a>E-mail In Databases
-Een Database Mail-In is een database die is ontworpen tooreceive e-mails. Het is een Lotus Domino-postvak is niet gekoppeld aan een specifieke Lotus Domino-gebruikersaccount (dat wil zeggen, het heeft geen eigen bestand ID en wachtwoord). Een e-mail in database heeft een unieke gebruikers-id ('korte naam') die zijn gekoppeld aan het bestand en een eigen e-mailadres.
+Een Database Mail-In is een database die is ontworpen voor het ontvangen van e-mailberichten. Het is een Lotus Domino-postvak is niet gekoppeld aan een specifieke Lotus Domino-gebruikersaccount (dat wil zeggen, het heeft geen eigen bestand ID en wachtwoord). Een e-mail in database heeft een unieke gebruikers-id ('korte naam') die zijn gekoppeld aan het bestand en een eigen e-mailadres.
 
-Als er is een nodig voor een afzonderlijke Postvak met een eigen e-mailadres dat kan worden gedeeld met andere gebruikers (bijvoorbeeld group@contoso.com), een database mail in wordt gemaakt. Hallo toegang toothis postvak wordt geregeld via de lijst met ACL (Access Control), die Hallo-namen van Hallo opmerkingen bij de gebruikers die zijn toegestaan tooopen Hallo postvak bevat.
+Als er is een nodig voor een afzonderlijke Postvak met een eigen e-mailadres dat kan worden gedeeld met andere gebruikers (bijvoorbeeld group@contoso.com), een database mail in wordt gemaakt. De toegang tot dit postvak wordt geregeld via de lijst met ACL (Access Control), waarin de namen van de opmerkingen bij de gebruikers die zijn toegestaan om het postvak te openen.
 
-Zie voor een lijst van kenmerken vereist Hallo Hallo sectie [verplichte kenmerken](#mandatory-attributes) verderop in dit artikel.
+Zie de sectie die is aangeroepen voor een lijst met de vereiste kenmerken, [verplichte kenmerken](#mandatory-attributes) verderop in dit artikel.
 
-Wanneer een database ontworpen tooreceive een e-mailbericht is, wordt een e-Mail In Database-document gemaakt in Lotus Domino. Dit document moet bestaan in de Directory Domino van elke server die een kopie van het Hallo-database opgeslagen. Zie voor een gedetailleerde beschrijving over het maken van een e-mail in databasedocument [maken van een e-Mail In Database-document](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_CREATING_A_MAILIN_DATABASE_DOCUMENT_FOR_A_NEW_DATABASE_OVERVIEW.html).
+Wanneer een database is ontworpen om een e-mail te ontvangen, wordt een e-Mail In Database-document gemaakt in Lotus Domino. Dit document moet bestaan in de Directory Domino van elke server die een kopie van de database opgeslagen. Zie voor een gedetailleerde beschrijving over het maken van een e-mail in databasedocument [maken van een e-Mail In Database-document](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_CREATING_A_MAILIN_DATABASE_DOCUMENT_FOR_A_NEW_DATABASE_OVERVIEW.html).
 
-Voordat u een e-Mail In Database maakt, moet al Hallo-database bestaan (moet zijn gemaakt door de beheerder Lotus) op Hallo Domino-server.
+Voordat u een e-Mail In Database maakt, moet de database al bestaan (moet zijn gemaakt door de beheerder Lotus) op de Domino-server.
 
 ### <a name="group-management"></a>Beheer van groepen
-U kunt een gedetailleerd overzicht van hello Lotus Domino groepsbeheer krijgen van Hallo resources te volgen:
+U kunt een gedetailleerd overzicht van het beheer van de groep Lotus Domino krijgen van de volgende bronnen:
 
 * [Met behulp van groepen](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_USING_GROUPS_OVER.html)
 * [Maken van een groep](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_CREATING_AND_MODIFYING_GROUPS_STEPS_MIDTOPIC_55038956829238418.html)
@@ -348,59 +348,59 @@ Er zijn twee typen van wachtwoorden voor een geregistreerde Lotus Domino-gebruik
 1. Wachtwoord van gebruiker (opgeslagen in User.id-bestand)
 2. Internet / HTTP-wachtwoord
 
-Hello Lotus Domino-connector ondersteunt alleen bewerkingen met HTTP-wachtwoord.
+De connector voor Lotus Domino ondersteunt alleen bewerkingen met HTTP-wachtwoord.
 
-Wachtwoordbeheer tooperform, moet u wachtwoordbeheer voor Hallo-connector in Hallo Management Agent Designer inschakelen. Selecteer tooenable-wachtwoordbeheer **inschakelen wachtwoordbeheer** op Hallo **uitbreidingen configureren** dialoogvenster pagina.  
+Als u wilt uitvoeren wachtwoordbeheer, moet u wachtwoordbeheer voor de connector in de ontwerpfunctie voor Management Agent inschakelen. Als u wachtwoordbeheer selecteert **inschakelen wachtwoordbeheer** op de **uitbreidingen configureren** dialoogvenster pagina.  
 ![Extensies configureren](./media/active-directory-aadconnectsync-connector-domino/configureextensions.png)
 
-Hello Lotus Domino-connector ondersteuning voor volgende bewerkingen worden uitgevoerd op internetwachtwoord:
+De connector Lotus Domino ondersteuning bewerkingen op internetwachtwoord te volgen:
 
-* Instellen van het wachtwoord:-Wachtwoord instellen wordt een nieuw wachtwoord voor de HTTP-Internet op Hallo-gebruiker in Domino. Standaard is ook Hallo account ontgrendeld. Hallo ontgrendelen vlag wordt weergegeven op de WMI-interface Hallo Hallo synchronisatie-Engine.
-* Wachtwoord wijzigen: In dit scenario wordt een gebruiker wellicht toochange Hallo wachtwoord of na vragen aan gebruiker toochange wachtwoord is na een opgegeven periode. Voor deze bewerking tootake plaats, zowel (Hallo oude en nieuwe wachtwoord Hallo) zijn verplicht. Nadat u gewijzigd, wordt in Lotus Domino Hallo nieuw wachtwoord bijgewerkt.
+* Instellen van het wachtwoord:-Wachtwoord instellen Hiermee stelt u een nieuw wachtwoord voor de HTTP-Internet op de gebruiker in Domino. Standaard is ook het account ontgrendeld. De vlag unlock wordt weergegeven op de WMI-interface van de synchronisatie-Engine.
+* Wachtwoord wijzigen: In dit scenario wordt een gebruiker mogelijk wilt wijzigen van het wachtwoord of is gevraagd wachtwoord te wijzigen na een opgegeven periode. Voor deze bewerking te plaatsen, zowel (de oude en het nieuwe wachtwoord) zijn verplicht. Nadat u gewijzigd, wordt het nieuwe wachtwoord in Lotus Domino bijgewerkt.
 
 Zie voor meer informatie:
 
-* [Met behulp van Hallo Internet accountvergrendeling](http://www.ibm.com/developerworks/lotus/library/domino8-lockout/)
+* [Met behulp van Internet accountvergrendeling](http://www.ibm.com/developerworks/lotus/library/domino8-lockout/)
 * [Wachtwoorden voor het beheer van Internet](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_NOTES_AND_INTERNET_PASSWORD_SYNCHRONIZATION_7570_OVER.html)
 
 ## <a name="reference-information"></a>Referentie-informatie
-Deze sectie vindt u zoals beschrijvingen van kenmerken en kenmerk vereisten voor hello Lotus Domino-connector.
+Deze sectie vindt u zoals beschrijvingen van kenmerken en vereisten voor de connector voor Lotus Domino kenmerk.
 
 ### <a name="lotus-notes-properties"></a>Lotus Notes-eigenschappen
-Wanneer u persoon objecten tooyour Lotus Domino directory inricht, moeten uw objecten een specifieke set eigenschappen hebben met specifieke waarden ingevuld. Deze waarden zijn alleen vereist voor bewerkingen maakt.
+Wanneer u objecten van de persoon aan uw directory Lotus Domino inricht, moeten uw objecten een specifieke set eigenschappen hebben met specifieke waarden ingevuld. Deze waarden zijn alleen vereist voor bewerkingen maakt.
 
-Hallo volgende tabel worden deze eigenschappen en bevat een beschrijving van deze.
+De volgende tabel geeft een lijst van deze eigenschappen en bevat een beschrijving van deze.
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| \_MMS_AltFullName |Hallo alternatieve volledige naam van gebruiker. |
-| \_MMS_AltFullNameLanguage |Hallo taal toobe gebruikt voor het opgeven van Hallo alternatieve volledige naam van gebruiker. |
-| \_MMS_CertDaysToExpire |aantal dagen vanaf Hallo vandaag voordat het certificaat van Hallo Hallo verloopt. Als niet wordt opgegeven, is Hallo standaarddatum twee jaar Hallo na de huidige datum. |
-| \_MMS_Certifier |De eigenschap die Hallo de naam van de organisatie-hiërarchie van Hallo certifier bevat. Bijvoorbeeld: OU = OrganizationUnit, O = Org, C = land. |
-| \_MMS_IDPath |Als de eigenschap Hallo leeg is, wordt geen gebruiker identificatie-bestand lokaal gemaakt op Hallo synchronisatieserver. Als het Hallo-eigenschap bevat een bestandsnaam, wordt een gebruikers-id-bestand gemaakt in Hallo madata map. Hallo-eigenschap kan ook een volledig pad bevatten. |
-| \_MMS_IDRegType |Personen kunnen worden geclassificeerd als contactpersonen, ons en internationale gebruikers. Hallo bevat volgende tabel Hallo mogelijke waarden: <li>0 - Neem contact op met</li><li>1 - VS-gebruiker</li><li>2 - internationale gebruikers</li> |
-| \_MMS_IDStoreType |Vereiste eigenschap voor de Verenigde Staten en internationale gebruikers. Hallo-eigenschap bevat een integerwaarde die aangeeft of Hallo gebruikers-id wordt opgeslagen als een bijlage in Hallo notities adresboek of in e-mailbestand van Hallo persoon. Als Hallo gebruikers-ID-bestand een bijlage van Hallo adresboek is, het eventueel kan worden gemaakt als een bestand met \_MMS_IDPath. <li>Lege - opslag-ID-bestand in de kluis-ID, geen identificatiebestand (gebruikt voor contactpersonen).</li><li> 1 - bijlage in Hallo notities adresboek. Hallo \_MMS_Password-eigenschap moet worden ingesteld voor gebruikers-id-bestanden die bijlagen</li><li>2 - ID in van de persoon mailbestand opslaan. Hallo \_MMS_UseAdminP toofalse toolet Hallo mail moet worden ingesteld tijdens Hallo persoon registratie bestand worden gemaakt. Hallo \_MMS_Password-eigenschap moet worden ingesteld voor identificatie van gebruikersbestanden.</li> |
-| \_MMS_MailQuotaSizeLimit |Hallo aantal megabytes die zijn toegestaan voor Hallo e-databasebestand. |
-| \_MMS_MailQuotaWarningThreshold |Hallo aantal megabytes die zijn toegestaan voor Hallo e-databasebestand voordat er een waarschuwing weergegeven. |
-| \_MMS_MailTemplateName |Hallo e-sjabloonbestand dat gebruikte toocreate Hallo gebruiker e-bestand. Als een sjabloon wordt opgegeven, wordt met behulp van de opgegeven sjabloon Hallo Hallo mail-bestand gemaakt. Als er geen sjabloon is opgegeven, is Hallo standaardsjabloonbestand gebruikte toocreate Hallo-bestand. |
-| \_MMS_OU |Optionele eigenschap Hallo OE-naam onder Hallo certifier is. Deze eigenschap mag niet leeg zijn voor contactpersonen. |
-| \_MMS_Password |Vereiste eigenschap voor gebruikers. Hallo-eigenschap bevat Hallo wachtwoord voor Hallo identificatie-bestand van Hallo-object. |
-| \_MMS_UseAdminP |De eigenschap moet set tootrue als e-mailbestand Hallo moet worden gemaakt door Hallo AdminP proces op Hallo Domino-server (exportproces asynchrone toohello). Als de eigenschap toofalse is ingesteld, is Hallo e-mailbestand gemaakt met Hallo Domino gebruiker (synchrone in Hallo exportproces). |
+| \_MMS_AltFullName |De alternatieve volledige naam van gebruiker. |
+| \_MMS_AltFullNameLanguage |De taal die moet worden gebruikt voor het opgeven van de alternatieve volledige naam van gebruiker. |
+| \_MMS_CertDaysToExpire |Het aantal dagen vanaf de huidige datum voordat het certificaat verloopt. Als niet wordt opgegeven, wordt de standaard twee jaar na de huidige datum. |
+| \_MMS_Certifier |Eigenschap met de naam van de organisatie-hiërarchie van de certifier. Bijvoorbeeld: OU = OrganizationUnit, O = Org, C = land. |
+| \_MMS_IDPath |Als de eigenschap leeg is, wordt er geen gebruiker identificatie-bestand lokaal op de synchronisatieserver gemaakt. Als de eigenschap een bestandsnaam bevat, wordt een gebruikers-ID-bestand gemaakt in de map madata. De eigenschap kan ook een volledig pad bevatten. |
+| \_MMS_IDRegType |Personen kunnen worden geclassificeerd als contactpersonen, ons en internationale gebruikers. De volgende tabel bevat de mogelijke waarden: <li>0 - Neem contact op met</li><li>1 - VS-gebruiker</li><li>2 - internationale gebruikers</li> |
+| \_MMS_IDStoreType |Vereiste eigenschap voor de Verenigde Staten en internationale gebruikers. De eigenschap bevat een geheel getal-waarde die aangeeft of de gebruikers-id wordt opgeslagen als een bijlage in het adresboek opmerkingen of in e-mailbestand van de persoon. Als de gebruikers-ID-bestand een bijlage in het adresboek is, het eventueel kan worden gemaakt als een bestand met \_MMS_IDPath. <li>Lege - opslag-ID-bestand in de kluis-ID, geen identificatiebestand (gebruikt voor contactpersonen).</li><li> 1 - bijlage in het adresboek opmerkingen. De \_MMS_Password-eigenschap moet worden ingesteld voor gebruikers-id-bestanden die bijlagen</li><li>2 - ID in van de persoon mailbestand opslaan. De \_MMS_UseAdminP moet worden ingesteld op onwaar om het e-mailbestand worden gemaakt tijdens de registratie van de persoon. De \_MMS_Password-eigenschap moet worden ingesteld voor identificatie van gebruikersbestanden.</li> |
+| \_MMS_MailQuotaSizeLimit |Het aantal megabytes die zijn toegestaan voor de database van e-bestand. |
+| \_MMS_MailQuotaWarningThreshold |Het aantal megabytes die zijn toegestaan voor de e-bestand-database voordat er een waarschuwing weergegeven. |
+| \_MMS_MailTemplateName |Het bestand van de e-sjabloon die wordt gebruikt voor het maken van de gebruiker e-mail-bestand. Als een sjabloon wordt opgegeven, wordt het e-mailbestand gemaakt met de opgegeven sjabloon. Als er geen sjabloon is opgegeven, wordt het standaardsjabloonbestand gebruikt het bestand te maken. |
+| \_MMS_OU |Optionele eigenschap met de naam van de organisatie-eenheid onder de certifier. Deze eigenschap mag niet leeg zijn voor contactpersonen. |
+| \_MMS_Password |Vereiste eigenschap voor gebruikers. De eigenschap bevat het wachtwoord voor de identificatiebestand van het object. |
+| \_MMS_UseAdminP |De eigenschap moet worden ingesteld op true als het e-mailbestand moet worden gemaakt door het proces AdminP op de server Domino (asynchrone naar het exportproces start). Als de eigenschap is ingesteld op false, is het e-mailbestand gemaakt met de gebruiker Domino (synchrone tijdens het exportproces). |
 
-Voor een gebruiker met een identificatiebestand gekoppeld Hallo \_MMS_Password-eigenschap moet een waarde bevatten. Voor toegang tot e-mail via hello Lotus Notes client bevatten Hallo MailServer en MailFile eigenschappen van een gebruiker een waarde.
+Voor een gebruiker met een bijbehorende identificatiebestand, de \_MMS_Password-eigenschap moet een waarde bevatten. Voor toegang tot e-mail via de Lotus Notes-client, moeten de MailServer en MailFile eigenschappen van een gebruiker een waarde bevatten.
 
-tooaccess via een webbrowser, e-mailberichten Hallo volgende eigenschappen moet waarden bevatten:
+Voor toegang tot e-mail via een webbrowser, moeten de volgende eigenschappen waarden bevatten:
 
-* MailFile - vereiste eigenschap met pad Hallo op hello Lotus Domino-server waar Hallo mail-bestand wordt opgeslagen.
-* MailServer - vereiste eigenschap met de naam Hallo van hello Lotus Domino-server. Deze waarde is Hallo naam toouse tijdens het maken van hello Lotus e-mailbestand op Hallo Domino-server.
-* HTTPPassword - optionele eigenschap die Hallo Web access wachtwoord voor Hallo-object bevat.
+* MailFile - vereiste eigenschap met het pad op de Lotus Domino-server waarop het e-mailbestand is opgeslagen.
+* MailServer - vereiste eigenschap met de naam van de Lotus Domino-server. Deze waarde is de naam moet worden gebruikt wanneer u het e-mailbestand Lotus op de server Domino gemaakt.
+* HTTPPassword - optionele eigenschap die het Web toegang wachtwoord voor het object bevat.
 
-tooaccess Hallo Domino-Server zonder de mail-toepassing, Hallo HTTPPassword-eigenschap moet een waarde bevatten. Hallo MailFile eigenschap en Hallo MailServer-eigenschap kan niet leeg zijn.
+Voor toegang tot de Server Domino zonder mail-toepassing, moet de eigenschap HTTPPassword een waarde bevatten. De eigenschap MailFile en de eigenschap MailServer kunnen niet leeg zijn.
 
-Met \_MMS_ IDStoreType (store-id in e-mailbestand), 2 = Hallo MailSystem-eigenschap van NotesRegistrationclass tooREG_MAILSYSTEM_INOTES (3) is ingesteld.
+Met \_MMS_ IDStoreType = 2 (store-id in e-mailbestand), de eigenschap MailSystem van NotesRegistrationclass is ingesteld op REG_MAILSYSTEM_INOTES (3).
 
 ### <a name="mandatory-attributes"></a>Verplichte kenmerken
-Hello Lotus Domino-connector ondersteunt hoofdzakelijk de volgende typen objecten (documenttypen):
+De connector voor Lotus Domino ondersteunt hoofdzakelijk de volgende typen objecten (documenttypen):
 
 * Groep
 * Database-e-mail In
@@ -408,7 +408,7 @@ Hello Lotus Domino-connector ondersteunt hoofdzakelijk de volgende typen objecte
 * Neem contact op met (iemand die geen certifier)
 * Resource
 
-Deze sectie vindt Hallo kenmerken die verplicht voor elk ondersteund object tooexport tooa Domino-server zijn.
+Deze sectie vindt de kenmerken die zijn verplicht voor elk ondersteund object om te exporteren naar een Domino-server.
 
 | Objecttype | Verplichte kenmerken |
 | --- | --- |
@@ -420,77 +420,77 @@ Deze sectie vindt Hallo kenmerken die verplicht voor elk ondersteund object tooe
 
 ## <a name="common-issues-and-questions"></a>Veelvoorkomende problemen en vragen
 ### <a name="schema-detection-does-not-work"></a>Schema-detectie werkt niet
-toobe kunnen toodetect Hallo-schema, is het nodig dat Hallo schema.nsf-bestand aanwezig is op Hallo Domino-server. Dit bestand wordt alleen weergegeven als LDAP is geïnstalleerd op Hallo-server. Als het Hallo-schema niet is gedetecteerd, controleert u of Hallo volgende:
+Als u het schema te detecteren, is het nodig dat het bestand schema.nsf op de server Domino aanwezig is. Dit bestand wordt alleen weergegeven als LDAP is geïnstalleerd op de server. Als het schema niet gedetecteerd is, Controleer het volgende:
 
-* Hallo bestand schema.nsf is aanwezig op de hoofdmap Hallo Hallo Domino-Server
-* Hallo gebruiker heeft machtigingen toosee hello schema.nsf bestand.
-* Automatisch opnieuw opgestart van Hallo LDAP-server. Open **Lotus Domino Console** en gebruik **vertellen LDAP ReloadSchema** opdracht tooreload Hallo schema.
+* Het bestand schema.nsf is aanwezig op de hoofdmap van de Server Domino
+* De gebruiker is gemachtigd om te zien van het bestand schema.nsf.
+* Forceert een herstart van de LDAP-server. Open **Lotus Domino Console** en gebruik **vertellen LDAP ReloadSchema** opdracht het schema opnieuw laden.
 
 ### <a name="not-all-secondary-address-books-are-visible"></a>Niet alle secundaire adresboeken zijn zichtbaar.
-Hallo Domino-Connector is afhankelijk van de functie Hallo **telefoonboek** toobe kunnen toofind Hallo secundaire adresboeken. Als de secundaire adresboeken Hallo ontbreken, controleert u of als [telefoonboek](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_DIRECTORY_ASSISTANCE.html) is ingeschakeld en geconfigureerd op Hallo Domino-Server.
+De Domino-Connector is afhankelijk van de functie **telefoonboek** kunnen vinden van de secundaire adresboeken. Als de secundaire adresboeken ontbreken, controleert u of als [telefoonboek](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_DIRECTORY_ASSISTANCE.html) is ingeschakeld en geconfigureerd op de Domino-Server.
 
 ### <a name="custom-attributes-in-domino"></a>Aangepaste kenmerken in Domino
-Er zijn verschillende manieren in Domino tooextend Hallo schema zodat deze wordt weergegeven als een aangepast kenmerk worden gebruikt door Hallo Connector.
+Er zijn verschillende manieren in Domino het schema uitbreiden zodat deze wordt weergegeven als een aangepast kenmerk worden gebruikt door de Connector.
 
 **Methode 1: Lotus Domino-schema uitbreiden**
 
-1. Maak een kopie van sjabloon van de Directory Domino {PUBNAMES. NTF} door [deze stappen](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (u moet geen Hallo IBM Lotus Domino standaarddirectory sjabloon aanpassen):
-2. Sjabloon van een kopie van Domino directory Open Hallo {CONTOSO. De sjabloon NTF} die is gemaakt in de ontwerpfunctie Domino en als volgt te werk:
+1. Maak een kopie van sjabloon van de Directory Domino {PUBNAMES. NTF} door [deze stappen](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (u moet niet de standaardmap voor IBM Lotus Domino sjabloon aanpassen):
+2. Open de kopie van Domino directory sjabloon {CONTOSO. De sjabloon NTF} die is gemaakt in de ontwerpfunctie Domino en als volgt te werk:
    * Klik op gedeelde elementen en vouw subformulieren
-   * Dubbelklik op ${ObjectName} InheritableSchema subformulier (waarbij {ObjectName} Hallo naam is van Hallo standaard structurele objectklasse, bijvoorbeeld: persoon).
-   * Geef een naam Hallo kenmerk gewenste tooadd in schema {MyPersonAtrribute} en bijbehorende toothat-kenmerk. Maken van een veld met Selecteer Hallo **maken** Menu en selecteer vervolgens **veld** in het menu van.
-   * In Hallo instellen toegevoegd veld eigenschappen ervan door het Type, stijl, grootte, lettertype en andere gerelateerde parameters voor veld van het venster Eigenschappen te selecteren.
-   * Houd Hallo kenmerk standaardwaarde is dezelfde als Hallo-naam opgegeven voor dit kenmerk (bijvoorbeeld als de kenmerknaam van het MyPersonAttribute is, de standaardwaarde Hallo Hello aanhouden dezelfde naam).
-   * Hallo ${ObjectName} InheritableSchema subformulier opslaan met bijgewerkte waarden.
-3. Vervang Hallo Domino Directory sjabloon {PUBNAMES. NTF} met Hallo nieuwe aangepaste sjabloon {CONTOSO. NTF} door [deze stappen](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
-4. Domino Admin sluit en open Domino Console toorestart Hallo LDAP-service en tooReload Hallo LDAP Schema:
-   * Invoegen in de Console Domino Hallo opdracht onder **Domino opdracht** tekst ingediend toorestart Hallo LDAP-service - [starten taak LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
-   * tooreload LDAP schema gebruiken vertellen LDAP-command - LDAP-ReloadSchema vertellen
-5. Open Domino Admin en selecteer personen en groepen tabblad toosee toegevoegd kenmerk wordt weergegeven in domino persoon toevoegen.
+   * Dubbelklik op ${ObjectName} InheritableSchema subformulier (waar is {ObjectName} de naam van de standaard structurele object-klasse, bijvoorbeeld: persoon).
+   * De naam van het kenmerk dat u wilt toevoegen in het schema {MyPersonAtrribute} en de bijbehorende aan dit kenmerk. Selecteer een veld maken de **maken** Menu en selecteer vervolgens **veld** in het menu van.
+   * In het veld toegevoegd eigenschappen ervan te instellen door het Type, stijl, grootte, lettertype en andere gerelateerde parameters voor veld van het venster Eigenschappen te selecteren.
+   * De standaardwaarde is dezelfde als de naam opgegeven voor dit kenmerk kenmerk houden (bijvoorbeeld: als kenmerknaam MyPersonAttribute, houd de standaardwaarde met dezelfde naam).
+   * Sla het ${ObjectName} InheritableSchema subformulier met de bijgewerkte waarden.
+3. Vervang de Domino Directory sjabloon {PUBNAMES. NTF} met de nieuwe aangepaste sjabloon {CONTOSO. NTF} door [deze stappen](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
+4. Domino Admin sluit en open Domino-Console de LDAP-service opnieuw starten en het LDAP-Schema opnieuw laden:
+   * Invoegen in Domino-Console, de opdracht onder **Domino opdracht** tekst ingediend om opnieuw te starten van de LDAP-service - [starten taak LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
+   * Om opnieuw te laden LDAP schema gebruiken vertellen LDAP-command - LDAP-ReloadSchema vertellen
+5. Open Domino Admin en selecteer tabblad voor personen en groepen zien toegevoegde kenmerk wordt weergegeven in domino persoon toevoegen.
 6. Open Schema.nsf van **bestanden** tabblad en Zie toegevoegde kenmerk wordt weergegeven in de klasse dominoPerson LDAP-object.
 
-**Methode 2: Een auxClass met het aangepaste kenmerk maken en koppelen aan de klasse object Hallo**
+**Methode 2: Een auxClass met het aangepaste kenmerk maken en koppelen aan de object-klasse**
 
-1. Maak een kopie van sjabloon van de Directory Domino {PUBNAMES. NTF} door [deze stappen](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (nooit Hallo IBM Lotus Domino standaarddirectory sjabloon aanpassen):
-2. Sjabloon van een kopie van Domino directory Open Hallo {CONTOSO. De sjabloon NTF} die is gemaakt in de ontwerpfunctie Domino.
-3. Selecteer in het linkerdeelvenster Hallo Code gedeeld en subformulieren.
+1. Maak een kopie van sjabloon van de Directory Domino {PUBNAMES. NTF} door [deze stappen](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (nooit de standaardmap voor IBM Lotus Domino sjabloon aanpassen):
+2. Open de kopie van Domino directory sjabloon {CONTOSO. De sjabloon NTF} die is gemaakt in de ontwerpfunctie Domino.
+3. Selecteer in het linkerdeelvenster Code gedeeld en subformulieren.
 4. Klik op nieuwe subformulier
-5. Hallo na toospecify Hallo eigenschappen voor de nieuwe subformulier Hallo:
-   * Met de nieuwe subformulier Hallo open, kies de ontwerp - subformulier eigenschappen
-   * Volgende toohello Name-eigenschap, voer een naam voor Hallo reserve objectklasse--bijvoorbeeld TestSubform.
-   * De eigenschap Options Hallo houden 'Opnemen in subformulier Insert... dialoogvenster' geselecteerd
-   * Hef de selectie Hallo opties voor de eigenschap "Render worden verzonden via de HTML-code in de notities."
-   * Laat de eigenschap Hallo andere eigenschappen Hallo dezelfde en sluit Hallo subformulier dialoogvenster.
-   * Opslaan en sluiten van de nieuwe subformulier Hallo.
-6. Hallo na een veld toodefine Hallo reserve objectklasse tooadd:
-   * Open Hallo subformulier die u hebt gemaakt.
+5. Doe het volgende als u wilt de eigenschappen voor het nieuwe subformulier opgeven:
+   * Met het nieuwe subformulier open, ontwerp - subformulier eigenschappen kiezen
+   * Voer een naam voor de ondersteunende objectklasse--bijvoorbeeld TestSubform naast de eigenschap Name.
+   * Behouden van de eigenschap Options 'Opnemen in subformulier Insert... dialoogvenster' geselecteerd
+   * Schakel de opties voor eigenschap 'Render pass through-HTML-code in de notities. "
+   * Laat de overige eigenschappen dezelfde en sluit het dialoogvenster subformulier.
+   * Opslaan en sluiten van het nieuwe subformulier.
+6. Doe het volgende als u wilt toevoegen om te definiëren van de klasse reserve object:
+   * Open het subformulier die u hebt gemaakt.
    * Kies maken - veld.
-   * Volgende tooName op Hallo basisbeginselen tabblad van Hallo veld in het dialoogvenster geeft u een naam, bijvoorbeeld: {MyPersonTestAttribute}.
-   * In veld Hallo toegevoegd, moet u de eigenschappen instellen door het selecteren van het Type, stijl, grootte, lettertype en bijbehorende eigenschappen.
-   * Houd Hallo kenmerk standaardwaarde is dezelfde als Hallo-naam opgegeven voor dit kenmerk (bijvoorbeeld als de kenmerknaam van het MyPersonTestAttribute is, de standaardwaarde Hallo Hello aanhouden dezelfde naam).
-   * Hallo subformulier worden opgeslagen met de bijgewerkte waarden en Hallo te volgen:
-     * Selecteer in het linkerdeelvenster Hallo Code gedeeld en vervolgens subformulieren
-     * Selecteer nieuw subformulier hello, en kies ontwerp - ontwerpeigenschappen.
-     * Klik op de derde tabblad Hallo van Hallo links en selecteer **doorgegeven deze verbieden van ontwerpwijziging**.
-7. Open ${ObjectName} ExtensibleSchema subformulier ({ObjectName} is de naam Hallo van Hallo standaard structurele object-klasse, bijvoorbeeld – persoon).
-8. Resource invoegen, selecteer Hallo subformulier (die u hebt gemaakt, bijvoorbeeld – TestSubform) en Hallo ${ObjectName} ExtensibleSchema subformulier opslaan.
-9. Vervang Hallo Domino Directory sjabloon {PUBNAMES. NTF} met Hallo nieuwe aangepaste sjabloon {CONTOSO. NTF} door [deze stappen](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
-10. Domino Admin sluit en open Domino Console toorestart Hallo LDAP-service en tooReload Hallo LDAP Schema:
-    * Invoegen in de Console Domino Hallo opdracht onder **Domino opdracht** tekst ingediend toorestart Hallo LDAP-service - [starten taak LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
-    * tooreload LDAP schema vertellen LDAP-opdracht gebruiken **vertellen LDAP ReloadSchema**.
-11. Open Domino Admin en selecteer personen en groepen tabblad toosee toegevoegd kenmerk wordt weergegeven in domino persoon toevoegen (onder andere tab).
+   * Naast de naam op het tabblad basisbeginselen van het dialoogvenster veld, geeft u een naam, bijvoorbeeld: {MyPersonTestAttribute}.
+   * In het veld is toegevoegd, stelt u de eigenschappen in selecteren van het Type, stijl, grootte, lettertype en bijbehorende eigenschappen.
+   * De standaardwaarde is dezelfde als de naam opgegeven voor dit kenmerk kenmerk houden (bijvoorbeeld: als kenmerknaam MyPersonTestAttribute, houd de standaardwaarde met dezelfde naam).
+   * Het subformulier worden opgeslagen met de bijgewerkte waarden en het volgende doen:
+     * Selecteer in het linkerdeelvenster Code gedeeld en vervolgens subformulieren
+     * Selecteer het nieuwe subformulier en kies ontwerp - ontwerpeigenschappen.
+     * Klik op het tabblad derde vanaf de linkerkant en selecteer **doorgegeven deze verbieden van ontwerpwijziging**.
+7. Open ${ObjectName} ExtensibleSchema subformulier ({ObjectName} is waar de naam van de standaard structurele objectklasse, bijvoorbeeld – persoon).
+8. Resource invoegen, selecteert u het subformulier (die u hebt gemaakt, bijvoorbeeld – TestSubform) en sla het ${ObjectName} ExtensibleSchema subformulier.
+9. Vervang de Domino Directory sjabloon {PUBNAMES. NTF} met de nieuwe aangepaste sjabloon {CONTOSO. NTF} door [deze stappen](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
+10. Domino Admin sluit en open Domino-Console de LDAP-service opnieuw starten en het LDAP-Schema opnieuw laden:
+    * Invoegen in Domino-Console, de opdracht onder **Domino opdracht** tekst ingediend om opnieuw te starten van de LDAP-service - [starten taak LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
+    * Opnieuw laden LDAP schema vertellen LDAP-opdracht gebruiken **vertellen LDAP ReloadSchema**.
+11. Open Domino-beheerder en selecteer personen en groepen tabblad om te zien toegevoegde kenmerk wordt weergegeven in domino persoon toevoegen (onder andere tab).
 12. Open Schema.nsf van **bestanden** tabblad en Zie toegevoegde kenmerk wordt weergegeven onder TestSubform LDAP reserve objectklasse.
 
-**Methode 3: Hallo aangepast kenmerk toohello ExtensibleObject klasse toevoegen**
+**Methode 3: Het aangepaste kenmerk toevoegen aan de klasse ExtensibleObject**
 
-1. Open {Schema.nsf}-bestand geplaatst in de hoofdmap Hallo
-2. Selecteer LDAP-objectklassen in Hallo linkermenu onder **alle Schema-documenten** en klik op **toevoegen objectklasse** knop:
-3. Geef LDAP-naam in de vorm van de Hallo van {zzzExtensibleSchema} (waarbij zzz Hallo-naam van Hallo standaard structurele object-klasse, bijvoorbeeld persoon is). Bijvoorbeeld, bieden tooextend Hallo schema voor de klasse object persoon, LDAP-naam {PersonExtensibleSchema}.
-4. Klassenaam van het bovenliggende Object waarvoor u tooextend Hallo schema wilt bieden. Bijvoorbeeld, bieden tooextend Hallo schema voor de objectklasse persoon klassenaam van bovenliggend Object {dominoPerson}:
-5. Geef een geldige OID bijbehorende toohello objectklasse.
-6. Selecteer uitgebreide/aangepaste kenmerken bij verplichte of optionele kenmerktypen velden volgens Hallo vereiste:
-7. Nadat het toevoegen van vereiste kenmerken toohello ExtensibleObjectClass, klikt u op **opslaan en sluiten**.
+1. Open {Schema.nsf}-bestand geplaatst in de hoofdmap
+2. Selecteer LDAP-objectklassen in het menu links onder **alle Schema-documenten** en klik op **toevoegen objectklasse** knop:
+3. Geef LDAP-naam in de vorm van {zzzExtensibleSchema} (waarbij zzz de naam van de standaard structurele objectklasse, bijvoorbeeld persoon is). Bijvoorbeeld, als u wilt het schema uitbreidt voor persoon objectklasse, LDAP-naam {PersonExtensibleSchema} opgeven.
+4. Geef de klassenaam van het bovenliggende Object waarvoor u wilt het schema uitbreiden. Bijvoorbeeld, als u wilt het schema voor de objectklasse persoon uitbreidt, bieden klassenaam van bovenliggend Object {dominoPerson}:
+5. Geef een geldige OID die overeenkomt met de object-klasse.
+6. Selecteer uitgebreide/aangepaste kenmerken bij verplichte of optionele kenmerktypen velden aan de hand van de vereiste:
+7. Nadat de vereiste kenmerken aan de ExtensibleObjectClass toevoegt, klikt u op **opslaan en sluiten**.
 8. Een ExtensibleObjectClass wordt gemaakt voor de objectklasse respectieve standaard met uitgebreide kenmerken.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-* Zie voor informatie over hoe logboekregistratie tooenable tootroubleshoot connector Hallo Hallo [hoe tooEnable ETW-tracering voor Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+* Zie voor meer informatie over het inschakelen van logboekregistratie voor het oplossen van de connector de [hoe ETW-tracering inschakelen voor Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).

@@ -1,6 +1,6 @@
 ---
-title: aaaAzure gebruikersinterface van de Mobile Engagement - Dashboard
-description: Meer informatie over hoe tooview en diagrammen van gegevens over uw toepassing met behulp van Azure Mobile Engagement beheren
+title: Azure Mobile Engagement-gebruikersinterface - Dashboard
+description: Meer informatie over het weergeven en beheren van grafieken van gegevens over uw toepassing met behulp van Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d834c01cb748a962d50006398b75b381fa6d8cef
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooview-and-manage-charts-of-data-about-your-application"></a>Hoe tooview en diagrammen van gegevens over uw toepassing te beheren
-Hallo gedeelte Dashboard van de gebruikersinterface kan klanten toocreate aangepast Hallo grafieken toomaximize hun tijd doordat Hallo exacte gegevens die hij of zij wil in plaats van zoekt in Hallo analytics sectie. Een dashboard bevat Hallo trends van uw toepassing en het Hallo actieve gebruiker telt voor Hallo verschillende versies van uw toepassing gedurende een bepaalde periode (uur/dag/week/maand/aangepast). Hallo trends weergegeven zijn gebaseerd op Hallo van afgelopen 7 dagen.
+# <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Het weergeven en beheren van grafieken van gegevens over uw toepassing
+Het gedeelte Dashboard van de gebruikersinterface kan klanten aangepaste grafieken om te maximaliseren van hun tijd door op te geven van de exacte gegevens die ze willen in plaats van zoekt in de sectie analytics maken. Een dashboard toont de trends in uw toepassing en de actieve gebruiker statistieken voor de verschillende versies van uw toepassing gedurende een bepaalde periode (uur/dag/week/maand/aangepast). De trends weergegeven zijn gebaseerd op de laatste 7 dagen.
 
 ### <a name="see-also"></a>Zie ook
 * [Troubleshooting Guide - analyses][Link 21]
 
 ## <a name="dashboard"></a>Dashboard
-* U kunt grafieken tooan lege dashboard toevoegen door te kiezen actie Hallo 'verzenden toodashboard' hello tandwielpictogram menu van een willekeurig diagram in Hallo Analytics sectie Hallo UI dat u toosee op een dashboard wilt.
+* U kunt grafieken toevoegen aan een lege dashboard door de actie "Naar dashboard verzenden" te kiezen in het menu versnelling van een grafiek in de sectie Analytics van de gebruikersinterface die u zou willen zien in een dashboard.
 
 ## <a name="-add-a-dashboard"></a>+ (Een Dashboard toevoegen)
-* U kunt gebruiken Hallo ' + ' menu-item toocreate een nieuw dashboard waarmee wordt aangegeven op Hallo lintmenu lint.
+* De menuopdracht '+' lint kunt u een nieuw dashboard dat wordt weergegeven in het lintmenu maken.
 
 ## <a name="gear-menu"></a>Versnelling Menu
-* U kunt Hallo tandwielpictogram menu van een dashboard tooDelete, wijzig de naam, delen of schema (e-ontvangst) van het dashboard. Kunt u Hallo planning optie toodefine Hallo planning waarmee u tooreceive wilt dat uw aangepaste dashboard via e-mail. Het dagelijks, wekelijks of maandelijks worden gemaakt, kunt u tooreceive plannen. U kunt Hallo tijdstip hello, en Hallo dag Hallo week, of wanneer u tooreceive Hallo e wilt Hallo-maand. Uw e-mailadres en de tijdzone zijn gebaseerd op Hallo-instellingen die u hebt geconfigureerd in Hallo Mijn Account sectie Hallo gebruikersinterface.
+* U kunt het menu versnelling van een dashboard te verwijderen, wijzigen, Share, gebruiken of schema (e-ontvangst) van het dashboard. U kunt de schema-optie gebruiken voor het definiëren van de planning waarmee u wilt ontvangen van uw aangepaste dashboard via e-mail. U kunt plannen voor het ontvangen van het dagelijkse, wekelijkse of maandelijkse. U kunt de tijd van de dag en de dag van de week of dag van de maand wanneer u wilt ontvangen van het e-mailbericht. Uw e-mailadres en de tijdzone zijn gebaseerd op de instellingen die u hebt geconfigureerd in het gedeelte Mijn Account van de gebruikersinterface.
   
   ![dashboard1][34]
 

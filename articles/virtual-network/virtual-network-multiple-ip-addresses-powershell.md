@@ -1,6 +1,6 @@
 ---
-title: aaaMultiple IP-adressen voor virtuele machines in Azure - PowerShell | Microsoft Docs
-description: Meer informatie over hoe tooassign meerdere IP-adressen tooa virtuele machine met behulp van PowerShell | Resource Manager.
+title: Meerdere IP-adressen voor virtuele machines in Azure - PowerShell | Microsoft Docs
+description: Meer informatie over meerdere IP-adressen toewijzen aan een virtuele machine met behulp van PowerShell | Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: df54c4386ce13521e660a3e7208c8c1ab1459bc2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 29f64aeefc2a7deb1f84d759c2323347536b9c27
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="assign-multiple-ip-addresses-toovirtual-machines-using-powershell"></a>Meerdere IP-adressen toewijzen toovirtual machines met behulp van PowerShell
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Meerdere IP-adressen toewijzen aan virtuele machines met behulp van PowerShell
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Dit artikel wordt uitgelegd hoe toocreate een virtuele machine (VM) via hello Azure Resource Manager deployment model met behulp van PowerShell. Meerdere IP-adressen kunnen niet worden toegewezen als tooresources via de klassieke implementatiemodel Hallo is gemaakt. meer informatie over Azure-implementatiemodellen, Hallo lezen toolearn [begrijpen implementatiemodellen](../resource-manager-deployment-model.md) artikel.
+Dit artikel wordt uitgelegd hoe u een virtuele machine (VM) maken via het Azure Resource Manager-implementatiemodel met behulp van PowerShell. Meerdere IP-adressen kunnen niet worden toegewezen aan resources die zijn gemaakt met behulp van het klassieke implementatiemodel. Lees voor meer informatie over Azure-implementatiemodellen de [begrijpen implementatiemodellen](../resource-manager-deployment-model.md) artikel.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Een virtuele machine maken met meerdere IP-adressen
 
-Hallo in de volgende procedure wordt uitgelegd hoe toocreate een voorbeeld van de virtuele machine met meerdere IP-adressen, zoals beschreven in Hallo scenario. Variabele waarden zoals vereist voor uw implementatie te wijzigen.
+Welke stappen volgen wordt uitgelegd hoe een voorbeeld van de virtuele machine maken met meerdere IP-adressen, zoals beschreven in het scenario. Variabele waarden zoals vereist voor uw implementatie te wijzigen.
 
-1. Open een PowerShell-opdrachtprompt en volledige Hallo resterende stappen in deze sectie binnen één PowerShell-sessie. Als u nog niet PowerShell geïnstalleerd en geconfigureerd, voltooid Hallo stappen voor het Hallo [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview) artikel.
-2. Tooyour aanmeldingsaccount Hello `login-azurermaccount` opdracht.
+1. Open een PowerShell-opdrachtprompt en voer de overige stappen in deze sectie binnen één PowerShell-sessie. Als u nog niet PowerShell geïnstalleerd en geconfigureerd, voer de stappen in de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel.
+2. Meld u aan bij uw account met de `login-azurermaccount` opdracht.
 3. Vervang *myResourceGroup* en *westus* met een naam en locatie van uw keuze. Maak een resourcegroep. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
     ```powershell
@@ -46,7 +46,7 @@ Hallo in de volgende procedure wordt uitgelegd hoe toocreate een voorbeeld van d
     -Location $Location
     ```
 
-4. Maken van een virtueel netwerk (VNet) en het subnet in Hallo dezelfde locatie als Hallo resourcegroep:
+4. Maak een virtueel netwerk (VNet) en het subnet in dezelfde locatie als de resourcegroep:
 
     ```powershell
     
@@ -63,11 +63,11 @@ Hallo in de volgende procedure wordt uitgelegd hoe toocreate een voorbeeld van d
     -AddressPrefix 10.0.0.0/16 `
     -Subnet $subnetConfig
 
-    # Get hello subnet object
+    # Get the subnet object
     $Subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $SubnetConfig.Name -VirtualNetwork $VNet
     ```
 
-5. Een netwerkbeveiligingsgroep (NSG) en een regel maken. Hallo NSG Hallo VM beveiligt met regels voor binnenkomend en uitgaand. In dit geval is er een binnenkomende regel gemaakt voor poort 3389, waarmee binnenkomende verbindingen met een extern bureaublad worden toegestaan.
+5. Een netwerkbeveiligingsgroep (NSG) en een regel maken. Het NSG beveiligt de virtuele machine met regels voor binnenkomend en uitgaand. In dit geval is er een binnenkomende regel gemaakt voor poort 3389, waarmee binnenkomende verbindingen met een extern bureaublad worden toegestaan.
 
     ```powershell
     
@@ -91,9 +91,9 @@ Hallo in de volgende procedure wordt uitgelegd hoe toocreate een voorbeeld van d
     -SecurityRules $NSGRule
     ```
 
-6. Definieer Hallo primaire IP-configuratie voor Hallo NIC. Wijziging 10.0.0.4 tooa geldig adres in Hallo subnet die u hebt gemaakt, als u hebt eerder gedefinieerde Hallo-waarde gebruikt. Voordat u een statisch IP-adres toewijst, wordt het aanbevolen dat u eerst bevestigen dat dit nog niet in gebruik. Voer de opdracht Hallo `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Als het Hallo-adres beschikbaar is, Hallo retourneert uitvoer *True*. Als niet beschikbaar is, retourneert-uitvoervenster het Hallo *False* en een lijst met adressen die beschikbaar zijn. 
+6. Definieer de primaire IP-configuratie voor de NIC. 10.0.0.4 wijzigen naar een geldig adres in het subnet dat u hebt gemaakt, als u de eerder gedefinieerde waarde hebt gebruikt. Voordat u een statisch IP-adres toewijst, wordt het aanbevolen dat u eerst bevestigen dat dit nog niet in gebruik. Voer de opdracht `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. De uitvoer geretourneerd als het adres beschikbaar is, *True*. De uitvoer geretourneerd als deze niet beschikbaar is, *False* en een lijst met adressen die beschikbaar zijn. 
 
-    In het Hallo-opdrachten, na **< vervangen-met-uw unieke-naam > vervangt door Hallo unieke DNS-naam toouse.** Hallo-naam moet uniek zijn in alle openbare IP-adressen binnen een Azure-regio. Dit is een optionele parameter. Het kan worden verwijderd als u wilt dat alleen tooconnect toohello VM via Hallo openbaar IP-adres.
+    In de volgende opdrachten **< vervangen-met-uw unieke-naam > vervangt door de unieke DNS-naam te gebruiken.** De naam moet uniek zijn in alle openbare IP-adressen binnen een Azure-regio. Dit is een optionele parameter. Het kan worden verwijderd als u alleen verbinding wilt maken met de virtuele machine met behulp van het openbare IP-adres.
 
     ```powershell
     
@@ -105,7 +105,7 @@ Hallo in de volgende procedure wordt uitgelegd hoe toocreate een voorbeeld van d
     -DomainNameLabel <replace-with-your-unique-name> `
     -AllocationMethod Static
         
-    #Create an IP configuration with a static private IP address and assign hello public IP ddress tooit
+    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
     $IpConfigName1 = "IPConfig-1"
     $IpConfig1     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName1 `
@@ -115,12 +115,12 @@ Hallo in de volgende procedure wordt uitgelegd hoe toocreate een voorbeeld van d
     -Primary
     ```
 
-    Wanneer u meerdere IP-configuraties tooa NIC toewijst, één configuratie moet worden toegewezen als Hallo *-primaire*.
+    Wanneer u meerdere IP-configuraties aan een NIC toewijst, één configuratie moet worden toegewezen als de *-primaire*.
 
     > [!NOTE]
-    > Openbare IP-adressen hebben een nominaal kosten. meer over IP-prijzen toolearn lezen Hallo [IP-adres prijzen](https://azure.microsoft.com/pricing/details/ip-addresses) pagina. Er is een limiet toohello aantal openbare IP-adressen die kunnen worden gebruikt in een abonnement. meer informatie over het Hallo-limieten, Hallo lezen toolearn [Azure beperkt](../azure-subscription-service-limits.md#networking-limits) artikel.
+    > Openbare IP-adressen hebben een nominaal kosten. Lees meer informatie over prijzen voor IP-adres, de [IP-adres prijzen](https://azure.microsoft.com/pricing/details/ip-addresses) pagina. Er is een limiet aan het aantal openbare IP-adressen die kunnen worden gebruikt in een abonnement. Lees voor meer informatie over de limieten het artikel [Azure-limieten](../azure-subscription-service-limits.md#networking-limits).
 
-7. Hallo secundaire IP-configuraties definiëren voor Hallo NIC. U kunt toevoegen of verwijderen van configuraties indien nodig. Elk IP-adresconfiguratie moet een particulier IP-adres toegewezen. Elke configuratie kan desgewenst een openbaar IP-adres toegewezen hebben.
+7. Definieer de secundaire IP-configuraties voor de NIC. U kunt toevoegen of verwijderen van configuraties indien nodig. Elk IP-adresconfiguratie moet een particulier IP-adres toegewezen. Elke configuratie kan desgewenst een openbaar IP-adres toegewezen hebben.
 
     ```powershell
     
@@ -131,7 +131,7 @@ Hallo in de volgende procedure wordt uitgelegd hoe toocreate een voorbeeld van d
     -Location $Location `
     -AllocationMethod Static
         
-    #Create an IP configuration with a static private IP address and assign hello public IP ddress tooit
+    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
     $IpConfigName2 = "IPConfig-2"
     $IpConfig2     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName2 `
@@ -146,7 +146,7 @@ Hallo in de volgende procedure wordt uitgelegd hoe toocreate een voorbeeld van d
     -PrivateIpAddress 10.0.0.6
     ```
 
-8. Hallo NIC maken en koppelen van Hallo drie IP-configuraties tooit:
+8. De NIC maken en koppelen van de drie IP-configuraties:
 
     ```powershell
     
@@ -159,13 +159,13 @@ Hallo in de volgende procedure wordt uitgelegd hoe toocreate een voorbeeld van d
     ```
 
     >[!NOTE]
-    >Hoewel alle configuraties zijn tooone NIC in dit artikel worden toegewezen, kunt u meerdere IP-configuraties tooevery NIC die is gekoppeld toohello VM kunt toewijzen. hoe een virtuele machine met meerdere NIC's, toocreate Lees toolearn hello [een virtuele machine maken met meerdere NIC's](virtual-network-deploy-multinic-arm-ps.md) artikel.
+    >Hoewel alle configuraties zijn toegewezen aan één NIC in dit artikel, kunt u meerdere IP-configuraties kunt toewijzen aan elke NIC die is gekoppeld aan de virtuele machine. Lees voor meer informatie over het maken van een virtuele machine met meerdere NIC's, de [een virtuele machine maken met meerdere NIC's](virtual-network-deploy-multinic-arm-ps.md) artikel.
 
-9. Hallo VM maken door te voeren van Hallo volgende opdrachten:
+9. De virtuele machine maken door te voeren van de volgende opdrachten:
 
     ```powershell
     
-    # Define a credential object. When you run these commands, you're prompted tooenter a sername and password for hello VM you're reating.
+    # Define a credential object. When you run these commands, you're prompted to enter a sername and password for the VM you're reating.
     $cred = Get-Credential
     
     # Create a virtual machine configuration
@@ -183,21 +183,21 @@ Hallo in de volgende procedure wordt uitgelegd hoe toocreate een voorbeeld van d
     Add-AzureRmVMNetworkInterface `
     -Id $NIC.Id
     
-    # Create hello VM
+    # Create the VM
     New-AzureRmVM `
     -ResourceGroupName $RgName `
     -Location $Location `
     -VM $VmConfig
     ```
 
-10. Toevoegen Hallo privé-IP-adressen toohello VM besturingssysteem via Hallo stappen voor het besturingssysteem in Hallo [toevoegen IP-adressen tooa VM besturingssysteem](#os-config) sectie van dit artikel. Voeg geen Hallo openbare IP-adressen toohello besturingssysteem.
+10. De particuliere IP-adressen toevoegen aan het besturingssysteem van de virtuele machine via de stappen voor het besturingssysteem in de [toevoegen IP-adressen naar een VM-besturingssysteem](#os-config) sectie van dit artikel. Het openbare IP-adressen niet aan het besturingssysteem toevoegen.
 
-## <a name="add"></a>IP-adressen tooa VM toevoegen
+## <a name="add"></a>IP-adressen toevoegen aan een virtuele machine
 
-U kunt persoonlijke en openbare IP-adressen tooa NIC toevoegen via Hallo stappen volgen. Hallo voorbeelden in de volgende secties Hallo wordt ervan uitgegaan dat er al een virtuele machine met Hallo drie IP-configuraties beschreven in Hallo [scenario](#Scenario) in dit artikel, maar het is niet vereist dat u doen.
+U kunt persoonlijke en openbare IP-adressen toevoegen aan een NIC via de stappen volgen. De voorbeelden in de volgende secties wordt ervan uitgegaan dat er al een virtuele machine met de drie IP-configuraties beschreven in de [scenario](#Scenario) in dit artikel, maar het is niet vereist dat u doen.
 
-1. Open een PowerShell-opdrachtprompt en volledige Hallo resterende stappen in deze sectie binnen één PowerShell-sessie. Als u nog niet PowerShell geïnstalleerd en geconfigureerd, voltooid Hallo stappen voor het Hallo [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview) artikel.
-2. Hallo "waarden" Hallo achter $Variables toohello naam Hallo NIC u tooadd IP-adres tooand Hallo resource groep en locatie Hallo die NIC bestaat in wilt wijzigen:
+1. Open een PowerShell-opdrachtprompt en voer de overige stappen in deze sectie binnen één PowerShell-sessie. Als u nog niet PowerShell geïnstalleerd en geconfigureerd, voer de stappen in de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel.
+2. "Waarden" van de volgende $Variables wijzigen in de naam van de NIC die u wilt toevoegen, IP-adres en de resourcegroep en locatie van die de NIC bestaat in:
 
     ```powershell
     $NicName  = "MyNIC"
@@ -205,38 +205,38 @@ U kunt persoonlijke en openbare IP-adressen tooa NIC toevoegen via Hallo stappen
     $Location = "westus"
     ```
 
-    Als u niet Hallo-naam van de NIC die u wilt dat toochange hello weet, Voer Hallo opdrachten te volgen en Hallo waarden van de vorige variabelen Hallo wijzigen:
+    Als u de naam van de NIC die u wilt wijzigen, voert de volgende opdrachten niet weet, klikt u vervolgens de waarden van de vorige variabelen te wijzigen:
 
     ```powershell
     Get-AzureRmNetworkInterface | Format-Table Name, ResourceGroupName, Location
     ```
-3. Maak een variabele en stel deze toohello NIC bestaande door Hallo volgende opdracht te typen:
+3. Maken van een variabele en stel deze in op de bestaande NIC door de volgende opdracht te typen:
 
     ```powershell
     $MyNIC = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $RgName
     ```
-4. Wijzig in Hallo opdrachten te volgen, *MyVNet* en *MySubnet* toohello namen van Hallo VNet en subnet Hallo NIC is verbonden met. Voer Hallo opdrachten tooretrieve hello VNet en subnet objecten Hallo die NIC is verbonden met:
+4. Wijzig in de volgende opdrachten *MyVNet* en *MySubnet* tot de namen van de VNet en de NIC is verbonden met subnet. Voer de opdrachten voor het ophalen van de VNet en subnet objecten die de NIC is verbonden met:
 
     ```powershell
     $MyVNet = Get-AzureRMVirtualnetwork -Name MyVNet -ResourceGroupName $RgName
     $Subnet = $MyVnet.Subnets | Where-Object { $_.Name -eq "MySubnet" }
     ```
-    Als u Hallo VNet of subnet naam Hallo die NIC is verbonden met niet weet, voert u Hallo volgende opdracht:
+    Als u de naam van het VNet of subnet die de NIC is verbonden met niet weet, voert u de volgende opdracht:
     ```powershell
     $MyNIC.IpConfigurations
     ```
-    Zoeken in de uitvoer van Hallo tekst vergelijkbare toohello voorbeelduitvoer te volgen:
+    In de uitvoer is vergelijkbaar met de volgende voorbeelduitvoer tekst zoeken:
     
     ```
     "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNet/subnets/MySubnet"
     ```
-    In deze uitvoer *MyVnet* hello VNet is en *MySubnet* Hallo subnet Hallo NIC is verbonden met is.
+    In deze uitvoer *MyVnet* is het VNet en *MySubnet* is het de NIC is verbonden met subnet.
 
-5. Voer Hallo stappen in een Hallo uit te voeren, op basis van uw vereisten:
+5. Volg de stappen in een van de volgende secties, op basis van uw vereisten:
 
     **Een persoonlijke IP-adres toevoegen**
 
-    een persoonlijke IP-adres tooa NIC tooadd, moet u een IP-configuratie maken. Hallo volgende opdracht maakt u een configuratie met een statisch IP-adres 10.0.0.7. Wanneer u een statisch IP-adres opgeeft, moet dit een ongebruikt adres voor het Hallo-subnet. Het raadzaam dat u eerst testen Hallo adres tooensure deze beschikbaar is door te voeren Hallo `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` opdracht. Als Hallo IP-adres beschikbaar is, Hallo retourneert uitvoer *True*. Als niet beschikbaar is, retourneert-uitvoervenster het Hallo *False*, en een lijst met adressen die beschikbaar zijn.
+    Als u wilt een particulier IP-adres toevoegen aan een NIC, moet u een IP-configuratie. De volgende opdracht maakt een configuratie met een statisch IP-adres 10.0.0.7. Wanneer u een statisch IP-adres opgeeft, moet dit een ongebruikt adres voor het subnet. Het raadzaam dat u eerst het adres om te controleren of deze beschikbaar is door te voeren test de `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` opdracht. De uitvoer geretourneerd als het IP-adres beschikbaar is, *True*. De uitvoer geretourneerd als deze niet beschikbaar is, *False*, en een lijst met adressen die beschikbaar zijn.
 
     ```powershell
     Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
@@ -244,19 +244,19 @@ U kunt persoonlijke en openbare IP-adressen tooa NIC toevoegen via Hallo stappen
     ```
     Configuraties die u nodig hebt, gebruik van unieke namen en privé IP-adressen (voor configuraties met statische IP-adressen) maken.
 
-    Hallo persoonlijke IP-adres toohello VM besturingssysteem toevoegen via Hallo stappen voor het besturingssysteem in Hallo [toevoegen IP-adressen tooa VM besturingssysteem](#os-config) sectie van dit artikel.
+    De privé IP-adres toevoegen aan het besturingssysteem van de virtuele machine via de stappen voor het besturingssysteem in de [toevoegen IP-adressen naar een VM-besturingssysteem](#os-config) sectie van dit artikel.
 
     **Een openbaar IP-adres toevoegen**
 
-    Een openbaar IP-adres wordt toegevoegd door een openbare IP-adres resource tooeither koppelen van een nieuwe IP-configuratie of een bestaande IP-configuratie. Stappen Hallo in een van Hallo secties die volgen, die u nodig hebt.
+    Een openbaar IP-adres wordt toegevoegd door het koppelen van een resource met openbare IP-adres aan een nieuwe IP-configuratie of een bestaande IP-configuratie. Voer de stappen in een van de secties die volgen, die u nodig hebt.
 
     > [!NOTE]
-    > Openbare IP-adressen hebben een nominaal kosten. meer over IP-prijzen toolearn lezen Hallo [IP-adres prijzen](https://azure.microsoft.com/pricing/details/ip-addresses) pagina. Er is een limiet toohello aantal openbare IP-adressen die kunnen worden gebruikt in een abonnement. meer informatie over het Hallo-limieten, Hallo lezen toolearn [Azure beperkt](../azure-subscription-service-limits.md#networking-limits) artikel.
+    > Openbare IP-adressen hebben een nominaal kosten. Lees meer informatie over prijzen voor IP-adres, de [IP-adres prijzen](https://azure.microsoft.com/pricing/details/ip-addresses) pagina. Er is een limiet aan het aantal openbare IP-adressen die kunnen worden gebruikt in een abonnement. Lees voor meer informatie over de limieten het artikel [Azure-limieten](../azure-subscription-service-limits.md#networking-limits).
     >
 
-    - **Hallo openbare IP-resource tooa nieuwe IP-adresconfiguratie koppelen**
+    - **Koppel het openbare IP-adres resource naar een nieuwe IP-configuratie**
     
-        Als u een openbaar IP-adres in een nieuw IP-configuratie toevoegt, moet u ook een privé IP-adres toevoegen, omdat alle IP-configuraties moeten een particulier IP-adres hebben. U kunt een bestaande resource voor openbare IP-adres toevoegen of u een nieuwe maken. toocreate een nieuw wachtwoord invoeren Hallo volgende opdracht:
+        Als u een openbaar IP-adres in een nieuw IP-configuratie toevoegt, moet u ook een privé IP-adres toevoegen, omdat alle IP-configuraties moeten een particulier IP-adres hebben. U kunt een bestaande resource voor openbare IP-adres toevoegen of u een nieuwe maken. Voer de volgende opdracht om een nieuwe maken:
     
         ```powershell
         $myPublicIp3 = New-AzureRmPublicIpAddress `
@@ -266,7 +266,7 @@ U kunt persoonlijke en openbare IP-adressen tooa NIC toevoegen via Hallo stappen
         -AllocationMethod Static
         ```
 
-        toocreate een nieuwe IP-configuratie met een statisch privé IP-adres en het Hallo gekoppeld *myPublicIp3* openbare IP-adres adres resource, Voer Hallo volgende opdracht:
+        Een nieuwe IP-configuratie maken met een statisch privé IP-adres en de bijbehorende *myPublicIp3* openbaar IP adres resource, voer de volgende opdracht:
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `
@@ -277,15 +277,15 @@ U kunt persoonlijke en openbare IP-adressen tooa NIC toevoegen via Hallo stappen
         -PublicIpAddress $myPublicIp3
         ```
 
-    - **Hallo openbare IP-resource tooan bestaande IP-adresconfiguratie koppelen**
+    - **Koppel het openbare IP-adres resource aan een bestaande IP-configuratie**
 
-        Een openbare IP-adres resource kan alleen worden gekoppeld tooan IP-configuratie die nog geen die zijn gekoppeld. U kunt bepalen of een IP-configuratie een gekoppeld openbare IP-adres heeft door te voeren Hallo volgende opdracht:
+        Een openbare IP-adres resource kan alleen worden gekoppeld aan een IP-configuratie die nog geen die zijn gekoppeld. U kunt bepalen of een IP-configuratie een gekoppeld openbare IP-adres heeft met de volgende opdracht:
 
         ```powershell
         $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
         ```
 
-        U ziet het vergelijkbare toohello volgende uitvoer:
+        U ziet de uitvoer ziet er als volgt:
 
         ```     
         Name       PrivateIpAddress PublicIpAddress                                           Primary
@@ -295,7 +295,7 @@ U kunt persoonlijke en openbare IP-adressen tooa NIC toevoegen via Hallo stappen
         IpConfig-3 10.0.0.6                                                                     False
         ```
 
-        Sinds Hallo **PublicIpAddress** kolom voor *IpConfig 3* is leeg, geen openbare IP-adres-resource is momenteel gekoppeld tooit. U kunt een bestaand openbaar IP-adres resource tooIpConfig-3 toevoegen, of Voer Hallo opdracht toocreate een volgende:
+        Aangezien de **PublicIpAddress** kolom voor *IpConfig 3* is leeg, geen openbare IP-adres-resource is momenteel gekoppeld. U kunt een bestaande resource voor openbare IP-adres toevoegen aan IpConfig 3 of Voer de volgende opdracht een te maken:
 
         ```powershell
         $MyPublicIp3 = New-AzureRmPublicIpAddress `
@@ -304,7 +304,7 @@ U kunt persoonlijke en openbare IP-adressen tooa NIC toevoegen via Hallo stappen
         -Location $Location -AllocationMethod Static
         ```
 
-        Voer Hallo opdracht resource toohello bestaande IP-configuratie met de naam van tooassociate Hallo openbare IP-adressen te volgen *IpConfig 3*:
+        Voer de volgende opdracht om te koppelen van het openbare IP-adres resource aan de bestaande IP-configuratie met de naam *IpConfig 3*:
     
         ```powershell
         Set-AzureRmNetworkInterfaceIpConfig `
@@ -314,17 +314,17 @@ U kunt persoonlijke en openbare IP-adressen tooa NIC toevoegen via Hallo stappen
         -PublicIpAddress $myPublicIp3
         ```
 
-6. Hallo NIC met het nieuwe IP-configuratie Hallo instellen door te voeren van Hallo volgende opdracht:
+6. Stel de NIC met de nieuwe IP-configuratie met de volgende opdracht:
 
     ```powershell
     Set-AzureRmNetworkInterface -NetworkInterface $MyNIC
     ```
 
-7. Hallo privé IP-adressen weergeven en Hallo openbare IP-adres resources toegewezen toohello NIC door te voeren Hallo de volgende opdracht:
+7. Bekijk de privé IP-adressen en openbare IP-adres resources toegewezen aan de NIC met de volgende opdracht:
 
     ```powershell   
     $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
     ```
-8. Hallo persoonlijke IP-adres toohello VM besturingssysteem toevoegen via Hallo stappen voor het besturingssysteem in Hallo [toevoegen IP-adressen tooa VM besturingssysteem](#os-config) sectie van dit artikel. Voeg geen Hallo openbare IP-adres toohello besturingssysteem.
+8. De privé IP-adres toevoegen aan het besturingssysteem van de virtuele machine via de stappen voor het besturingssysteem in de [toevoegen IP-adressen naar een VM-besturingssysteem](#os-config) sectie van dit artikel. Het openbare IP-adres niet aan het besturingssysteem toevoegen.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

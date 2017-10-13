@@ -1,6 +1,6 @@
 ---
-title: Overzicht van CDN aaaAzure | Microsoft Docs
-description: Meer informatie over welke hello Azure inhoud Delivery Network (CDN) is en hoe toouse het toodeliver hoge bandbreedte inhoud door het in cache opslaan van blobs en statische inhoud.
+title: Overzicht van Azure CDN | Microsoft Docs
+description: Meer informatie over Azure Content Delivery Network (CDN) en hoe u inhoud met een hoge bandbreedte via CDN kunt leveren door blobs en statische inhoud in de cache op te slaan.
 services: cdn
 documentationcenter: 
 author: smcevoy
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
-ms.openlocfilehash: e0230a6e107969b845985f2f4d357bf93cd40d42
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="overview-of-hello-azure-content-delivery-network-cdn"></a>Overzicht van hello Azure Content Delivery Network (CDN)
+# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Overzicht van Azure Content Delivery Network (CDN)
 > [!NOTE]
-> Dit document wordt beschreven welke hello Azure Content Delivery Network (CDN) is, hoe het werkt en Hallo functies van elk Azure CDN-product.  Als u wilt dat deze gegevens tooskip en rechte tooa zelfstudie over het gaat toocreate een CDN-eindpunt Zie [met behulp van Azure CDN](cdn-create-new-endpoint.md).  Als u een lijst met huidige locaties van CDN-knooppunten toosee wilt, Zie [Azure CDN POP-locaties](cdn-pop-locations.md).
+> In dit document wordt uitgelegd wat Azure Content Delivery Network (CDN) is, hoe het werkt en wat de functies van elk Azure CDN-product zijn.  Zie [Azure CDN gebruiken](cdn-create-new-endpoint.md) als u deze informatie wilt overslaan om rechtstreeks naar een zelfstudie over het maken van een CDN-eindpunt te aan.  Zie [Azure CDN POP-locaties](cdn-pop-locations.md) als u een lijst met de huidige CDN-knooppuntlocaties wilt weergeven.
 > 
 > 
 
-Hello Azure inhoud Delivery Network (CDN) slaat op strategisch geplaatste locaties tooprovide maximale doorvoer voor het leveren van inhoud toousers een statische webinhoud.  Hallo CDN biedt ontwikkelaars een globale oplossing voor het leveren van inhoud met hoge bandbreedte door Hallo inhoud op fysieke knooppunten over Hallo wereld cache te plaatsen. 
+Azure Content Delivery Network (CDN) slaat op strategisch geplaatste locaties statische webinhoud in de cache om een maximale doorvoer voor de levering van inhoud te waarborgen.  Het CDN biedt ontwikkelaars een globale oplossing voor de levering van inhoud met een hoge bandbreedte door de inhoud op fysieke knooppunten over de hele wereld op te slaan in de cache. 
 
-voordelen van het gebruik van CDN toocache website-assets Hallo Hallo zijn:
+Enkele voordelen van het gebruik van de CDN om website-assets op te slaan in de cache:
 
-* Betere prestaties en gebruikerservaring voor eindgebruikers, vooral wanneer tooload inhoud met behulp van toepassingen waarbij meerdere retouren zijn vereist.
-* Grote schaal toobetter verwerken korte hoge belasting, zoals starten gebeurtenis aan Hallo begin van een product.
-* Door de gebruikersaanvragen te distribueren en de inhoud van de randservers, is minder verkeer toohello oorsprong verzonden.
+* Betere prestaties en gebruikerservaring voor eindgebruikers wanneer er toepassingen worden gebruikt waarbij meerdere retouren zijn vereist om inhoud te laden.
+* Grote schaalbaarheid zodat een korte hoge belasting, bijvoorbeeld wanneer een product wordt gestart, beter kan worden verwerkt.
+* Door de gebruikersaanvragen te distribueren en de inhoud uit te voeren vanaf randservers wordt er minder verkeer naar de oorsprong verzonden.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 ![Overzicht van CDN](./media/cdn-overview/cdn-overview.png)
 
-1. Een gebruiker (Els) gebruikt een URL met een speciale domeinnaam, zoals `<endpointname>.azureedge.net`, om een bestand (ook wel een asset genoemd) aan te vragen.  DNS routeert Hallo aanvraag toohello best presterende Point-of-Presence (POP) locatie.  Meestal is dit Hallo POP dat Zie geografisch gezien het dichtst toohello gebruiker.
-2. Als Hallo randservers in Hallo POP nog geen Hallo-bestand in het cachegeheugen, aanvragen Hallo edge-server Hallo bestand vanuit de oorsprong Hallo.  Hallo oorsprong kan Azure-Web-App, Azure Cloud Service, Azure Storage-account of een openbaar toegankelijke webserver zijn.
-3. Hallo oorsprong retourneert Hallo bestand toohello randserver, inclusief optionele HTTP-headers met een beschrijving van het bestand Hallo Time-to-Live (TTL).
-4. Hallo edge-server in de cache opgeslagen Hallo-bestand en retourneert Hallo bestand toohello oorspronkelijke aanvrager (Alice).  Hallo-bestand blijft in de cache op de edge-server Hallo totdat Hallo TTL verloopt.  Als het Hallo-oorsprong geen TTL heeft opgegeven, is Hallo standaard-TTL zeven dagen.
-5. Extra gebruikers kunnen vervolgens aanvraag Hallo hetzelfde bestand diezelfde URL gebruiken, en kan ook worden gerichte toothat hetzelfde POP.
-6. Als Hallo TTL voor Hallo bestand nog niet is verlopen, retourneert Hallo edge-server Hallo-bestand uit Hallo-cache.  Dit resulteert in een snellere, responsievere gebruikerservaring.
+1. Een gebruiker (Els) gebruikt een URL met een speciale domeinnaam, zoals `<endpointname>.azureedge.net`, om een bestand (ook wel een asset genoemd) aan te vragen.  De aanvraag wordt door DNS naar de best presterende POP-locatie (Point-of-Presence) gerouteerd.  Doorgaans is dit het POP dat zie geografisch gezien het dichtst bij de gebruiker bevindt.
+2. Als het bestand niet beschikbaar is in het cachegeheugen van de randservers in het POP, vraagt de randserver het bestand aan bij de oorsprong.  De oorsprong kan Azure-web-app, Azure Cloud-service, Azure Storage-account of een openbaar toegankelijke webserver zijn.
+3. De oorsprong retourneert het bestand naar de randserver, inclusief optionele HTTP-headers met een beschrijving van de TTL (Time-to-Live) van het bestand.
+4. De randserver neemt het bestand op in de cache en retourneert het bestand naar de oorspronkelijke aanvrager (Alice).  Het bestand blijft in cache op de randserver totdat de TTL verloopt.  Als de oorsprong geen TTL heeft opgegeven, is de standaard-TTL zeven dagen.
+5. Extra gebruikers kunnen dan diezelfde URL gebruiken om hetzelfde bestand aan te vragen en worden mogelijk ook omgeleid naar hetzelfde POP.
+6. Als de TTL voor het bestand niet is verlopen, retourneert de randserver het bestand uit de cache.  Dit resulteert in een snellere, responsievere gebruikerservaring.
 
 ## <a name="azure-cdn-features"></a>Functies van Azure CDN
-Er zijn drie Azure CDN-producten: **Azure CDN Standard van Akamai**, **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon**.  Hallo bevat volgende tabel Hallo-functies die beschikbaar zijn voor elk product.
+Er zijn drie Azure CDN-producten: **Azure CDN Standard van Akamai**, **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon**.  De volgende tabel bevat de functies die beschikbaar zijn voor elk product.
 
 |  | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |
@@ -74,7 +74,7 @@ Er zijn drie Azure CDN-producten: **Azure CDN Standard van Akamai**, **Azure CDN
 | [Realtime statistieken](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Realtime waarschuwingen](cdn-real-time-alerts.md) | | |**&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Gebruiksgemak__ |
-| Eenvoudige integratie met Azure-services, zoals [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md) en [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Eenvoudige integratie met Azure-services, zoals [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md) en [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Beheer via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) of [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Aanpasbare, op regels gebaseerde engine voor contentlevering](cdn-rules-engine.md) | | |**&#x2713;** |
 | Instellingen voor cache/koptekst (met behulp van [regels-engine](cdn-rules-engine.md)) | | |**&#x2713;** |
@@ -85,18 +85,18 @@ Er zijn drie Azure CDN-producten: **Azure CDN Standard van Akamai**, **Azure CDN
 
 
 > [!TIP]
-> Is er een functie die u wilt dat toosee in Azure CDN?  [Geef ons feedback](https://feedback.azure.com/forums/169397-cdn). 
+> Is er een functie die u graag zou willen zien in Azure CDN?  [Geef ons feedback](https://feedback.azure.com/forums/169397-cdn). 
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-tooget gestart met CDN, Zie [met behulp van Azure CDN](cdn-create-new-endpoint.md).
+Zie [Azure CDN gebruiken](cdn-create-new-endpoint.md) om aan de slag te gaan met CDN.
 
-Als u een bestaande CDN-klant bent, kunt u nu uw CDN-eindpunten via Hallo beheren [Microsoft Azure-portal](https://portal.azure.com) of met [PowerShell](cdn-manage-powershell.md).
+Als u een bestaande CDN-klant bent, kunt u uw CDN-eindpunten nu beheren via [Microsoft Azure Portal](https://portal.azure.com) of met [PowerShell](cdn-manage-powershell.md).
 
-toosee CDN in actie Hallo, bekijk Hallo [video van onze Build 2016-sessie](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+Bekijk de [video van de Build 2016-sessie](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/) om CDN in actie te zien.
 
-Meer informatie over hoe Azure CDN tooautomate met [.NET](cdn-app-dev-net.md) of [Node.js](cdn-app-dev-node.md).
+Meer informatie over hoe u Azure CDN kunt automatiseren met [.NET](cdn-app-dev-net.md) of [Node.js](cdn-app-dev-node.md).
 
 Zie [Prijzen van CDN](https://azure.microsoft.com/pricing/details/cdn/) voor informatie over de prijzen.
 

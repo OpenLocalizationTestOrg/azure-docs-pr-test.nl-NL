@@ -1,6 +1,6 @@
 ---
-title: aaaCortana oplossingssjabloon Intelligence architectuur voor het voorspellen van de vraag van energie | Microsoft Docs
-description: Architectuur van Microsoft Cortana Intelligence oplossingssjabloon dat helpt bij het verzoek voor een bedrijf, energie-hulpprogramma forecast Hallo.
+title: Cortana Intelligence oplossingssjabloon architectuur voor het voorspellen van de vraag van energie | Microsoft Docs
+description: Architectuur van de Microsoft Cortana Intelligence oplossingssjabloon waarmee forecast aanvraag voor een bedrijf, energie-hulpprogramma.
 keywords: oplossingsverbetering; cortana-analytics; energie prognose
 services: cortana-analytics
 documentationcenter: 
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2015
 ms.author: garye
-ms.openlocfilehash: c56fa5abac6240eb9bb9396205a1b882de77d610
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 87a27dbe9042973dcfa7e9a5a438773d1bbab4d3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="cortana-intelligence-solution-template-architecture-for-demand-forecasting-of-energy"></a>Cortana Intelligence oplossingssjabloon architectuur voor het voorspellen van de vraag van energie
-Hallo diagram hieronder biedt een overzicht van de architectuur van Hallo [Cortana Intelligence oplossingssjabloon voor het voorspellen van de vraag van energie](cortana-analytics-playbook-demand-forecasting-energy.md).
+Het diagram hieronder biedt een overzicht van de architectuur van de [Cortana Intelligence oplossingssjabloon voor het voorspellen van de vraag van energie](cortana-analytics-playbook-demand-forecasting-energy.md).
 
-U kunt een volledige versie van Hallo overzichtsdiagram hier downloaden: [Architectuurdiagram: oplossingssjabloon voor het voorspellen van de vraag van energie](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-energy-forecasting.png).
+U kunt een volledige versie van het overzichtsdiagram hier downloaden: [Architectuurdiagram: oplossingssjabloon voor het voorspellen van de vraag van energie](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-energy-forecasting.png).
 
 ![Architectuurdiagram van de sjabloon voor Microsoft Cortana Intelligence-oplossing voor het voorspellen van de vraag van energie][image]
 

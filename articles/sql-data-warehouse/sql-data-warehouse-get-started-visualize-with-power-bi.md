@@ -1,5 +1,5 @@
 ---
-title: aaaVisualize SQL Data Warehouse-gegevens met Power BI | Microsoft Azure
+title: SQL Data Warehouse-gegevens visualiseren met Power BI | Microsoft Azure
 description: SQL Data Warehouse-gegevens visualiseren met Power BI
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.openlocfilehash: 0425cf5abe7bc001b2a41df4d09bf5f2e42527e0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a41393730143b14e91318a61858d989fff3786c1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="visualize-data-with-power-bi"></a>Gegevens visualiseren met Power BI
 > [!div class="op_single_selector"]
@@ -31,66 +31,66 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Deze zelfstudie leert u hoe toouse Power BI tooconnect tooSQL Data Warehouse en enkele eenvoudige visualisaties maakt.
+In deze zelfstudie leert u hoe u Power BI gebruikt om verbinding te maken met SQL Data Warehouse en hoe u enkele eenvoudige visualisaties maakt.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
 > 
 > 
 
 ## <a name="prerequisites"></a>Vereisten
-toostep voor deze zelfstudie hebt u nodig:
+Voor deze zelfstudie hebt u het volgende nodig:
 
-* Een SQL Data Warehouse worden vooraf geladen met de database AdventureWorksDW Hallo. tooprovision deze, Zie [maken van een SQL Data Warehouse] [ Create a SQL Data Warehouse] en kies tooload Hallo voorbeeldgegevens. Als u wel een datawarehouse hebt maar nog geen voorbeeldgegevens, kunt u [voorbeeldgegevens handmatig laden][load sample data manually].
+* Een SQL Data Warehouse die vooraf is geladen met de AdventureWorksDW-dataware. Zie voor het inrichten hiervan [Een SQL Data Warehouse maken][Create a SQL Data Warehouse] en kies ervoor om de voorbeeldgegevens te laden. Als u wel een datawarehouse hebt maar nog geen voorbeeldgegevens, kunt u [voorbeeldgegevens handmatig laden][load sample data manually].
 
-## <a name="1-connect-tooyour-database"></a>1. Verbinding maken met database tooyour
-tooopen Power BI en verbinding maken met de database AdventureWorksDW tooyour:
+## <a name="1-connect-to-your-database"></a>1. Verbinding maken met uw database
+Ga als volgt te werk om Power BI te openen en verbinding te maken met de database AdventureWorksDW:
 
-1. Meld u aan bij Hallo [Azure-portal][Azure portal].
+1. Meld u aan bij [Azure Portal][Azure portal].
 2. Klik op **SQL-databases** en kies de SQL Data Warehouse-database AdventureWorks.
    
     ![De database zoeken][1]
-3. Klik op 'Openen in Power BI' Hallo-knop.
+3. Klik op de knop Openen in Power BI.
    
     ![Power BI-knop][2]
-4. U ziet nu Hallo verbindingspagina voor SQL Data Warehouse om het webadres van uw database weer te geven. Klik op volgende.
+4. Nu ziet u de verbindingspagina voor SQL Data Warehouse met het webadres van uw database. Klik op volgende.
    
     ![Verbinding met Power BI][3]
-5. Voer uw Azure SQL server-gebruikersnaam en wachtwoord en kunt u zich volledig verbonden tooyour SQL Data Warehouse-database.
+5. Voer de gebruikersnaam en het wachtwoord van uw Azure SQL server in, waarna u volledig wordt verbonden met uw SQL Data Warehouse-database.
    
     ![Aanmelden bij Power BI][4]
-6. Nadat u bent aangemeld bij Power BI, klikt u op Hallo AdventureWorksDW gegevensset op Hallo links blade. Hiermee opent u het Hallo-database.
+6. Wanneer u bent aangemeld bij Power BI, klikt u in de linkerblade op de gegevensset AdventureWorksDW. De database wordt geopend.
    
     ![AdventureWorksDW wordt geopend in Power BI][5]
 
 ## <a name="2-create-a-report"></a>2. Een rapport maken
-U bent nu klaar toouse Power BI tooanalyze uw voorbeeldgegevens van AdventureWorksDW. tooperform hello analyse, AdventureWorksDW heeft een weergave die aggregatesales wordt genoemd. Deze weergave bevat een aantal Hallo belangrijkste metrische gegevens voor het analyseren van Hallo verkoop van Hallo bedrijf.
+Nu kunt u Power BI gebruiken om de voorbeeldgegevens uit AdventureWorksDW te analyseren. Voor de analyse heeft AdventureWorksDW een weergave die AggregateSales wordt genoemd. Deze weergave bevat enkele van de belangrijkste metrische gegevens om de verkoopcijfers van het bedrijf te analyseren.
 
-1. toocreate een toewijzing van omzet volgens toopostal-code in deelvenster Hallo rechterdeelvenster met velden, klikt u op Hallo AggregateSales weergave tooexpand deze. Klik op Hallo PostalCode en SalesAmount kolommen tooselect ze.
+1. Als u een kaart wilt maken van de totale verkoop op postcode, klikt u in het rechterdeelvenster met velden op de weergave AggregateSales om deze uit te vouwen. Klik op de kolommen PostalCode en SalesAmount om deze te selecteren.
    
     ![AggregateSales selecteren in Power BI][6]
    
     De gegevens, die in Power BI automatisch worden herkend als geografische gegevens, worden in een kaart geplaatst.
    
     ![Power BI-kaart][7]
-2. In deze stap maakt u een staafdiagram waarin de totale verkoop per klantinkomen wordt weergegeven. toocreate deze Ga toohello uitgevouwen weergave AggregateSales. Klik op Hallo SalesAmount veld. Hallo Customer Income veld toohello links Sleep en zet het neer in as.
+2. In deze stap maakt u een staafdiagram waarin de totale verkoop per klantinkomen wordt weergegeven. Daarvoor gaat u naar de uitgevouwen weergave AggregateSales. Klik in het veld SalesAmount. Sleep het veld Customer Income naar links en zet het neer in As.
    
     ![As selecteren in Power BI][8]
    
-    We verplaatst Hallo staafdiagram via Hallo links.
+    We hebben het staafdiagram over het linkerdiagram geplaatst.
    
     ![Power BI-staafdiagram][9]
-3. Met deze stap maakt u een lijndiagram waarin de omzet per datum wordt weergegeven. toocreate deze Ga toohello uitgevouwen weergave AggregateSales. Klik op SalesAmount en OrderDate. Klik in Hallo visualisaties kolom Hallo lijndiagram pictogram; Dit is het eerste pictogram Hallo in Hallo tweede regel onder visualisaties.
+3. Met deze stap maakt u een lijndiagram waarin de omzet per datum wordt weergegeven. Daarvoor gaat u naar de uitgevouwen weergave AggregateSales. Klik op SalesAmount en OrderDate. Klik in de kolom Visualisaties op het pictogram Lijndiagram. Dit is het eerste pictogram in de tweede regel onder Visualisaties.
    
     ![Lijndiagram selecteren in Power BI][10]
    
-    U hebt nu een rapport met drie verschillende visualisaties van Hallo-gegevens.
+    U hebt nu een rapport met drie verschillende visualisaties van de gegevens.
    
     ![Power BI-lijndiagram][11]
 
 U kunt de voortgang op elk moment opslaan door op **Bestand** te klikken en **Opslaan** te selecteren.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu we hebt u enige tijd toowarm maximaal verleend met voorbeeldgegevens hello, gaat u naar hoe te[ontwikkelen][develop], [laden][load], of [ migreren][migrate]. Of bekijk Hallo [website van Power BI][Power BI website].
+U hebt wat kunnen oefenen met behulp van de voorbeeldgegevens en gaat nu leren hoe u kunt [ontwikkelen][develop], [laden][load] of [migreren][migrate]. U kunt natuurlijk ook een kijkje nemen op de [website van Power BI][Power BI website].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -111,7 +111,7 @@ Nu we hebt u enige tijd toowarm maximaal verleend met voorbeeldgegevens hello, g
 [develop]: sql-data-warehouse-overview-develop.md
 [load]: sql-data-warehouse-overview-load.md
 [load sample data manually]: sql-data-warehouse-load-sample-databases.md
-[connecting tooSQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->

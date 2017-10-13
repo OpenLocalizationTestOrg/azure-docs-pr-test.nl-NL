@@ -1,11 +1,11 @@
-U kunt controleren of de verbinding is voltooid met behulp van 'Get-AzureRmVirtualNetworkGatewayConnection' hello cmdlet met of zonder '-Debug'. 
+U kunt met de cmdlet 'Get-AzureRmVirtualNetworkGatewayConnection', met of zonder -Debug, verifiëren of de verbinding is geslaagd. 
 
-1. Gebruik Hallo cmdlet-voorbeeld te volgen, Hallo waarden toomatch configureren zelf. Als u wordt gevraagd, selecteert u "A" in de volgorde toorun 'All'. In voorbeeld Hallo '-naam ' toohello-naam van Hallo-verbinding die u wilt dat tootest verwijst.
+1. Gebruik het volgende cmdlet-voorbeeld om de waarden aan te passen aan uw eigen waarden. Selecteer A als dit wordt gevraagd om alles uit te voeren. In het voorbeeld verwijst "-Name" naar de naam van de verbinding die u wilt testen.
 
   ```powershell
   Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
   ```
-2. Nadat het Hallo-cmdlet is voltooid, kunt u Hallo waarden weergeven. In Hallo voorbeeld hieronder toont verbindingsstatus Hallo zoals 'Verbonden' en u inkomende en uitgaande bytes zien kunt.
+2. Bekijk de waarden nadat de cmdlet is voltooid. In het onderstaande voorbeeld wordt de verbindingsstatus weergegeven als Verbonden en ziet u inkomende en uitgaande bytes.
    
   ```
   "connectionStatus": "Connected",

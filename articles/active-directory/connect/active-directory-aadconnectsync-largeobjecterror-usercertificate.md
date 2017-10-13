@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect-synchronisatie: LargeObject afhandeling van fouten als gevolg van userCertificate-kenmerk | Microsoft Docs'
-description: In dit onderwerp biedt herstelstappen aan Hallo voor LargeObject fouten worden veroorzaakt door userCertificate-kenmerk.
+description: Dit onderwerp bevat de herstelstappen voor LargeObject fouten worden veroorzaakt door userCertificate-kenmerk.
 services: active-directory
 documentationcenter: 
 author: cychua
@@ -14,77 +14,77 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: e547fb5f601b92f6f5154de9997651b1f28c51b4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2a5418ff61e07793fceca5a8207c1c5aa18847b4
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synchronisatie: LargeObject afhandeling van fouten als gevolg van userCertificate-kenmerk
 
-Azure AD dwingt een maximumlimiet van **15** waarden op Hallo van het certificaat **userCertificate** kenmerk. Als Azure AD Connect een object met meer dan 15 waarden tooAzure AD exporteert, Azure AD geeft een **LargeObject** fout opgetreden bij het bericht:
+Azure AD dwingt een maximumlimiet van **15** waarden van het certificaat op de **userCertificate** kenmerk. Als een object met meer dan 15 waarden Azure AD Connect geëxporteerd naar Azure AD, Azure AD geeft een **LargeObject** fout opgetreden bij het bericht:
 
->*'Hallo ingerichte object is te groot. Trim Hallo aantal kenmerkwaarden voor dit object. Hallo bewerking uit te voeren in Hallo volgende synchronisatiecyclus..."*
+>*'Het ingerichte object is te groot. Verklein het aantal kenmerkwaarden voor dit object. De bewerking uit te voeren in de volgende synchronisatiecyclus..."*
 
-Hallo LargeObject fout kan worden veroorzaakt door een andere AD-kenmerken. tooconfirm inderdaad wordt veroorzaakt door Hallo userCertificate kenmerk, moet u tooverify tegen Hallo object zich in de on-premises AD dat of in Hallo [Synchronization Service Manager Metaverse zoeken](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch).
+De fout LargeObject kan worden veroorzaakt door andere AD-kenmerken. Om te bevestigen inderdaad wordt veroorzaakt door het kenmerk userCertificate, moet u controleren of op basis van het object zich in de on-premises AD dat of in de [Synchronization Service Manager Metaverse zoeken](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch).
 
-tooobtain hello lijst van objecten in uw tenant met LargeObject fouten, een van de volgende methoden hello gebruiken:
+Gebruik een van de volgende methoden om de lijst met objecten in uw tenant met LargeObject fouten:
 
- * Als uw tenant wordt ingeschakeld voor Azure AD Connect Health voor synchroniseren, raadpleegt u toohello [synchronisatie foutenrapport](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync#object-level-synchronization-error-report-preview) opgegeven.
+ * Als uw tenant wordt ingeschakeld voor Azure AD Connect Health voor synchroniseren, raadpleegt u de [synchronisatie foutenrapport](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync#object-level-synchronization-error-report-preview) opgegeven.
  
- * Hallo e-mailmelding voor directory-synchronisatiefouten dat wordt verzonden aan einde van elke synchronisatiecyclus Hallo heeft Hallo lijst met objecten met fouten LargeObject. 
- * Hallo [Synchronization Service Manager Operations tabblad](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) Hallo lijst met objecten met fouten LargeObject wordt weergegeven als u klikt op Hallo nieuwste tooAzure AD exportbewerking.
+ * De e-mailmelding voor directory-synchronisatiefouten dat wordt verzonden aan het einde van elke synchronisatiecyclus heeft de lijst met objecten met fouten LargeObject. 
+ * De [Synchronization Service Manager Operations tabblad](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) geeft een lijst met objecten met fouten LargeObject als u de meest recente exporteren naar Azure AD-bewerking op.
  
 ## <a name="mitigation-options"></a>Risicobeperking opties
-Tot Hallo LargeObject fout is opgelost, wordt met andere kenmerk wijzigingen toohello hetzelfde object kan niet worden tooAzure AD geëxporteerd. tooresolve hello fout, kunt u overwegen Hallo volgende opties:
+Totdat de LargeObject-fout is opgelost, kan de wijzigingen van andere kenmerken met hetzelfde object kunnen niet worden geëxporteerd naar Azure AD. Los de fout, kunt u rekening houden met de volgende opties:
 
- * Azure AD Connect toobuild 1.1.524.0 upgraden of na. In Azure AD Connect bouwen 1.1.524.0, Hallo out-of-box-synchronisatieregels zijn bijgewerkt toonot export kenmerken userCertificate en userSMIMECertificate als Hallo kenmerken hebben meer dan 15 waarden. Voor meer informatie over het tooupgrade Azure AD Connect verwijzen tooarticle [Azure AD Connect: upgraden van een vorige versie-toohello recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+ * Upgrade van Azure AD Connect 1.1.524.0 bouwen of na. In Azure AD Connect bouwen 1.1.524.0, de out-of-box-synchronisatie regels zijn bijgewerkt, zodat de kenmerken userCertificate en userSMIMECertificate niet exporteren als meer dan 15 waarden van de kenmerken hebben. Raadpleeg voor meer informatie over het bijwerken van Azure AD Connect artikel [Azure AD Connect: upgraden van een eerdere versie naar de meest recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
- * Implementeer een **uitgaande synchronisatieregel** in Azure AD Connect die exporteert een **null-waarde in plaats van de werkelijke waarden Hallo voor objecten met meer dan 15 certificaat waarden**. Deze optie is geschikt als u geen een Hallo certificaat waarden toobe geëxporteerd tooAzure AD naar objecten met meer dan 15 waarden vereist. Voor meer informatie over het tooimplement deze synchronisatie regel, Raadpleeg de sectie toonext [Implementing sync regel toolimit exporteren van het kenmerk userCertificate](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
+ * Implementeer een **uitgaande synchronisatieregel** in Azure AD Connect die exporteert een **null-waarde in plaats van de werkelijke waarden voor objecten met meer dan 15 certificaat waarden**. Deze optie is geschikt als u een van de waarden van het certificaat worden geëxporteerd naar Azure AD voor objecten met meer dan 15 waarden niet nodig hebt. Raadpleeg voor meer informatie over het implementeren van deze synchronisatieregel volgende sectie [synchronisatieregel implementeren om te exporteren van het kenmerk userCertificate beperken](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
- * Verminder het aantal waarden in het certificaat op Hallo Hallo on-premises AD-object (15 of minder) door het verwijderen van de waarden die niet langer in gebruik door uw organisatie. Dit is geschikt als Hallo kenmerk gegevensophoping wordt veroorzaakt door verlopen of niet-gebruikte certificaten. U kunt Hallo [PowerShell-script beschikbaar hier](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) toohelp vinden, back-up maken en verwijderen van verlopen certificaten in uw on-premises AD. Voordat u Hallo certificaten verwijdert, wordt het aanbevolen om te controleren met Hallo infrastructuur van openbare sleutels beheerders in uw organisatie.
+ * Verminder het aantal waarden in het certificaat op de on-premises AD-object (15 of minder) door het verwijderen van de waarden die niet langer in gebruik door uw organisatie. Dit is geschikt als het kenmerk gegevensophoping wordt veroorzaakt door verlopen of niet-gebruikte certificaten. U kunt de [PowerShell-script beschikbaar hier](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) om te zoeken, back-up maken en verwijderen van verlopen certificaten in uw on-premises AD. Voordat u de certificaten verwijdert, wordt het aanbevolen om te controleren met de infrastructuur van openbare sleutels beheerders in uw organisatie.
 
- * Configureren van Azure AD Connect tooexclude hello userCertificate kenmerk niet kan worden geëxporteerd tooAzure AD. In het algemeen raadzaam niet deze optie aangezien Hallo-kenmerk kan worden gebruikt door de Microsoft Online Services tooenable specifieke scenario's. In het bijzonder:
-    * Hallo userCertificate kenmerk van het gebruikersobject hello wordt gebruikt door de Exchange Online en Outlook-clients voor bericht ondertekening en versleuteling. toolearn meer informatie over deze functie verwijzen tooarticle [S/MIME voor bericht ondertekening en versleuteling](https://technet.microsoft.com/library/dn626158(v=exchg.150).aspx).
+ * Azure AD Connect als u wilt uitsluiten van het kenmerk userCertificate wordt geëxporteerd naar Azure AD configureren. In het algemeen raadzaam niet deze optie omdat het kenmerk kan worden gebruikt door de Microsoft Online Services specifieke scenario's te maken. In het bijzonder:
+    * Het kenmerk userCertificate van het gebruikersobject wordt gebruikt door Exchange Online en Outlook-clients voor bericht ondertekening en versleuteling. Raadpleeg voor meer informatie over deze functie, artikel [S/MIME voor bericht ondertekening en versleuteling](https://technet.microsoft.com/library/dn626158(v=exchg.150).aspx).
 
-    * Hallo userCertificate kenmerk op Hallo-computerobject wordt gebruikt door Azure AD tooallow Windows 10 lokale domeinapparaten tooconnect tooAzure AD. Raadpleeg tooarticle toolearn meer informatie over deze functie [domeinapparaten tooAzure AD Connect voor Windows 10 optreedt](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy).
+    * Het kenmerk userCertificate van het computerobject wordt gebruikt door Azure AD Windows 10 lokale domein om apparaten te laten verbinding maken met Azure AD. Raadpleeg voor meer informatie over deze functie, artikel [domein apparaten verbinden met Azure AD voor Windows 10 optreedt](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy).
 
-## <a name="implementing-sync-rule-toolimit-export-of-usercertificate-attribute"></a>Synchronisatie regel toolimit exporteren van het kenmerk userCertificate implementeren
-tooresolve hello LargeObject fout wordt veroorzaakt door Hallo userCertificate kenmerk, kunt u een synchronisatieregel voor uitgaande implementeren in Azure AD Connect die exporteert een **null-waarde in plaats van de werkelijke waarden Hallo voor objecten met meer dan 15 certificaat waarden**. Deze sectie beschrijft Hallo stappen vereist tooimplement hello synchronisatieregel voor **gebruiker** objecten. Hallo stappen kunnen worden aangepast voor **Contact** en **Computer** objecten.
+## <a name="implementing-sync-rule-to-limit-export-of-usercertificate-attribute"></a>Implementatie van synchronisatieregel voor het exporteren van het kenmerk userCertificate beperken
+U kunt de LargeObject fout wordt veroorzaakt door het kenmerk userCertificate oplossen, kunt u een synchronisatieregel voor uitgaande implementeren in Azure AD Connect die worden geëxporteerd een **null-waarde in plaats van de werkelijke waarden voor objecten met meer dan 15 certificaat waarden**. Deze sectie beschrijft de stappen die nodig zijn voor het implementeren van de synchronisatieregel voor **gebruiker** objecten. De stappen kunnen worden aangepast voor **Contact** en **Computer** objecten.
 
 > [!IMPORTANT]
-> Exporteren van null-waarde Hiermee verwijdert u het certificaat waarden eerder is geëxporteerd tooAzure AD.
+> Exporteren van null-waarde, verwijdert het certificaat waarden eerder is geëxporteerd naar Azure AD.
 
-Hallo stappen kunnen worden samengevat als:
+De stappen kunnen worden samengevat als:
 
 1. Schakel de sync scheduler en controleer of dat er vindt geen synchronisatie uitgevoerd.
-3. Hallo bestaande uitgaande synchronisatieregel voor userCertificate-kenmerk niet vinden.
-4. Uitgaande synchronisatieregel Hallo vereist maken.
-5. Controleer of nieuwe synchronisatieregel Hallo op een bestaand object met LargeObject fout.
-6. Toepassing hello nieuwe synchronisatie regel tooremaining objecten met LargeObject fout.
-7. Controleer of er zijn geen onverwachte wijzigingen toobe geëxporteerd tooAzure AD wachten.
-8. Hallo wijzigingen tooAzure AD exporteren.
+3. De bestaande synchronisatieregel voor uitgaande voor userCertificate-kenmerk niet vinden.
+4. Maak de synchronisatieregel voor uitgaande vereist.
+5. Controleer of de nieuwe synchronisatieregel op een bestaand object met LargeObject fout.
+6. De nieuwe synchronisatieregel van toepassing op de resterende objecten met LargeObject fout.
+7. Controleer of er zijn geen onverwachte wijzigingen die nog moeten worden geëxporteerd naar Azure AD.
+8. De wijzigingen wilt exporteren naar Azure AD.
 9. Sync scheduler opnieuw in te schakelen.
 
 ### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Step 1. Schakel de sync scheduler uit en controleer of dat er vindt geen synchronisatie uitgevoerd
-Zorg ervoor dat er geen synchronisatie plaats terwijl u in het midden bent van de implementatie van een nieuwe synchronisatie Hallo regel tooavoid onbedoelde wijzigingen worden tooAzure AD geëxporteerd. toodisable hello ingebouwde sync scheduler:
-1. Start PowerShell-sessie op Hallo Azure AD Connect-server.
+Zorg ervoor dat er geen synchronisatie plaats terwijl u bent in het midden van de implementatie van een nieuwe synchronisatieregel om onbedoelde wijzigingen wordt geëxporteerd naar Azure AD te voorkomen. De ingebouwde sync scheduler uitschakelen:
+1. Start PowerShell-sessie op de Azure AD Connect-server.
 
 2. Geplande synchronisatie uitschakelen door de cmdlet uit te voeren:`Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 > [!Note]
-> Hallo zijn voorgaande stappen alleen van toepassing toonewer versies (1.1.xxx.x) van Azure AD Connect met ingebouwde scheduler Hallo. Als u gebruikmaakt van oudere versies (1.0.xxx.x) van Azure AD Connect die gebruikmaakt van Windows Taakplanner of u uw eigen aangepaste scheduler (niet-algemene) tootrigger periodieke synchronisatie gebruikt, moet u toodisable ze dienovereenkomstig.
+> De voorgaande stappen zijn alleen van toepassing op nieuwere versies (1.1.xxx.x) van Azure AD Connect met de ingebouwde scheduler. Als u gebruikmaakt van oudere versies (1.0.xxx.x) van Azure AD Connect die gebruikmaakt van Windows Taakplanner of u uw eigen aangepaste scheduler (niet-algemene) gebruikt voor het activeren van periodieke synchronisatie, moet u deze dienovereenkomstig uitschakelen.
 
-3. Hallo Start **Synchronization Service Manager** door te gaan tooSTART → Synchronization-Service.
+3. Start de **Synchronization Service Manager** gaat u naar START → Synchronization Service.
 
-4. Ga toohello **Operations** tabblad en er is geen bewerking met de status bevestigen *'wordt uitgevoerd.'*
+4. Ga naar de **Operations** tabblad en er is geen bewerking met de status bevestigen *'wordt uitgevoerd.'*
 
-### <a name="step-2-find-hello-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Stap 2. Hallo bestaande uitgaande synchronisatieregel voor het kenmerk userCertificate vinden
-Er moet een bestaande synchronisatieregel is ingeschakeld en geconfigureerd tooexport userCertificate kenmerk voor de gebruiker objecten tooAzure AD. Zoek deze synchronisatie regel toofind uit de **voorrang** en **bereik filter** configuratie:
+### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Stap 2. De bestaande synchronisatieregel voor uitgaande vinden voor het kenmerk userCertificate
+Er moet een bestaande regel voor synchroniseren die is ingeschakeld en geconfigureerd voor het kenmerk voor gebruikersobjecten userCertificate exporteren naar Azure AD. Zoek deze synchronisatieregel om erachter te komen de **voorrang** en **bereik filter** configuratie:
 
-1. Hallo Start **synchronisatie regeleditor** door te gaan tooSTART → synchronisatie Editor regels.
+1. Start de **synchronisatie regeleditor** door naar START → synchronisatie regeleditor te gaan.
 
-2. Hallo search filters te configureren met Hallo volgende waarden:
+2. De search-filters te configureren met de volgende waarden:
 
     | Kenmerk | Waarde |
     | --- | --- |
@@ -94,88 +94,88 @@ Er moet een bestaande synchronisatieregel is ingeschakeld en geconfigureerd tooe
     | Connector-objecttype |**gebruiker** |
     | MV-kenmerk |**userCertificate** |
 
-3. Als u OOB (out of box) synchronisatie regels tooAzure AD connector tooexport userCertficiate kenmerk voor gebruikersobjecten gebruikt, ontvangt u Hallo *'Out tooAAD – gebruiker ExchangeOnline'* regel.
-4. Noteer Hallo **voorrang** waarde van deze synchronisatieregel.
-5. Selecteer Hallo synchronisatieregel en klik op **bewerken**.
-6. In Hallo *'Gereserveerde bevestiging regel bewerken'* pop-upvenster, klikt u op **Nee**. (U hoeft niet, we zullen toomake elke regel wijzigen toothis sync).
-7. Selecteer in het welkomstscherm bewerken, Hallo **Scoping filter** tabblad.
-8. Noteer Hallo filterconfiguratie bereik. Als u Hallo OOB-synchronisatieregel gebruikt, moet exact er **één filter bereikgroep met twee componenten**, waaronder:
+3. Als u OOB-synchronisatie (out of box) regels voor Azure AD-connector gebruikt voor het kenmerk userCertficiate voor gebruikersobjecten exporteren, ontvangt u de *'Uit naar AAD – gebruiker ExchangeOnline'* regel.
+4. Noteer de **voorrang** waarde van deze synchronisatieregel.
+5. Selecteer de synchronisatieregel en klik op **bewerken**.
+6. In de *'Gereserveerde bevestiging regel bewerken'* pop-upvenster, klikt u op **Nee**. (U hoeft niet, niet gaan we een wijziging aanbrengt in deze synchronisatieregel).
+7. Selecteer in het scherm bewerken de **Scoping filter** tabblad.
+8. Noteer de scope filterconfiguratie. Als u de synchronisatie OOB regel gebruikt, moet exact er **één filter bereikgroep met twee componenten**, waaronder:
 
     | Kenmerk | Operator | Waarde |
     | --- | --- | --- |
     | Bronobjecttype | GELIJK ZIJN AAN | Gebruiker |
     | cloudMastered | NOTEQUAL | True |
 
-### <a name="step-3-create-hello-outbound-sync-rule-required"></a>Stap 3. Uitgaande synchronisatieregel Hallo vereist maken
-Hallo nieuwe synchronisatieregel voor moet hebben Hallo dezelfde **bereik filter** en **hogere prioriteit** dan Hallo bestaande synchronisatieregel. Dit zorgt ervoor dat Hallo nieuwe synchronisatieregel van toepassing is toohello dezelfde objecten als de bestaande synchronisatieregel hello en overschrijvingen Hallo bestaande sync-regel voor Hallo userCertificate kenmerk set. toocreate hello synchronisatieregel:
-1. In Hallo regeleditor synchronisatie, klikt u op Hallo **nieuwe regel toevoegen** knop.
-2. Onder Hallo **tabblad Beschrijving**, bieden Hallo volgende configuratie:
+### <a name="step-3-create-the-outbound-sync-rule-required"></a>Stap 3. De synchronisatieregel voor uitgaande vereist maken
+De nieuwe synchronisatieregel moet hebben dezelfde **bereik filter** en **hogere prioriteit** dan de bestaande synchronisatieregel. Dit zorgt ervoor dat de nieuwe synchronisatieregel van toepassing op dezelfde set objecten als de bestaande synchronisatieregel en de bestaande synchronisatieregel voor het kenmerk userCertificate overschrijft. De synchronisatieregel maken:
+1. Klik met de regeleditor synchronisatie op de **nieuwe regel toevoegen** knop.
+2. Onder de **tabblad Beschrijving**, bieden de volgende configuratie:
 
     | Kenmerk | Waarde | Details |
     | --- | --- | --- |
-    | Naam | *Geef een naam* | Bijvoorbeeld *'Out tooAAD – aangepaste onderdrukking voor userCertificate'* |
+    | Naam | *Geef een naam* | Bijvoorbeeld *'Uit voor AAD – aangepaste onderdrukking voor userCertificate'* |
     | Beschrijving | *Geef een beschrijving* | Bijvoorbeeld *"Als userCertificate-kenmerk meer dan 15 waarden heeft, exporteren NULL."* |
-    | Verbonden systeem | *Selecteer hello Azure AD-Connector* |
+    | Verbonden systeem | *Selecteer de Azure AD-Connector* |
     | Verbonden systeem objecttype | **gebruiker** | |
     | Metaverse-objecttype | **persoon** | |
     | Koppelingstype | **Koppelen** | |
-    | Prioriteit | *Kies een getal tussen 1 en 99 liggen* | Hallo getal, gekozen mogen niet worden gebruikt door een bestaande synchronisatieregel en heeft een lagere waarde (en dus hogere prioriteit) dan Hallo bestaande synchronisatieregel. |
+    | Prioriteit | *Kies een getal tussen 1 en 99 liggen* | Het aantal gekozen mogen niet worden gebruikt door een bestaande synchronisatieregel en heeft een lagere waarde (en dus hogere prioriteit) dan de bestaande synchronisatieregel. |
 
-3. Ga toohello **Scoping filter** tabblad en gebruik van dezelfde scope Hallo bestaande sync filterregel Hallo implementeren.
-4. Overslaan Hallo **Join regels** tabblad.
-5. Ga toohello **transformaties** tabblad tooadd een nieuw transformatie met volgende configuratie:
+3. Ga naar de **Scoping filter** tabblad en hetzelfde bereik filter van de bestaande synchronisatieregel gebruikmaakt te implementeren.
+4. Overslaan de **Join regels** tabblad.
+5. Ga naar de **transformaties** tabblad toevoegen van een nieuwe transformatie met volgende configuratie:
 
     | Kenmerk | Waarde |
     | --- | --- |
     | Stroomtype |**Expressie** |
     | Doelkenmerk |**userCertificate** |
-    | Kenmerk van de gegevensbron |*Gebruik Hallo expressie na*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
+    | Kenmerk van de gegevensbron |*Gebruik de volgende expressie*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
-6. Klik op Hallo **toevoegen** knop toocreate hello synchronisatieregel.
+6. Klik op de **toevoegen** knop om de synchronisatieregel te maken.
 
-### <a name="step-4-verify-hello-new-sync-rule-on-an-existing-object-with-largeobject-error"></a>Stap 4. Controleer of nieuwe synchronisatieregel Hallo op een bestaand object met LargeObject fout
-Dit is tooverify die synchronisatie Hallo regel gemaakt correct werkt op een bestaande AD-object met LargeObject fout voordat u deze toe te tooother objecten passen:
-1. Ga toohello **Operations** tabblad in Hallo Synchronization Service Manager.
-2. Hallo meest recente tooAzure AD exportbewerking selecteren en klik op een van Hallo-objecten met fouten LargeObject.
-3.  Connector ruimte objecteigenschappen pop-welkomstscherm, klik op Hallo **Preview** knop.
-4. Selecteer in de Preview pop-welkomstscherm, **volledige synchronisatie** en klik op **doorvoeren Preview**.
-5. Sluit welkomstscherm Preview en Connector ruimte objecteigenschappen welkomstscherm.
-6. Ga toohello **Connectors** tabblad in Hallo Synchronization Service Manager.
-7. Met de rechtermuisknop op Hallo **Azure AD** Connector en selecteer **uitvoeren...**
-8. Selecteer in het pop-upmenu Hallo Connector uitvoeren, **exporteren** stap en klik op **OK**.
-9. Wacht tot Export tooAzure AD toocomplete en er is geen meer LargeObject-fout voor dit specifieke object bevestigen.
+### <a name="step-4-verify-the-new-sync-rule-on-an-existing-object-with-largeobject-error"></a>Stap 4. Controleer of de nieuwe synchronisatieregel op een bestaand object met LargeObject fout
+Dit is om te controleren of de synchronisatieregel gemaakt correct op een bestaande AD-object met LargeObject fout werkt voordat u deze toe te op andere objecten passen:
+1. Ga naar de **Operations** tabblad Synchronization Service Manager.
+2. Selecteer de meest recente exporteren naar Azure AD-bewerking en klik op een van de objecten met fouten LargeObject.
+3.  Klik in het pop-scherm objecteigenschappen van Connector ruimte op de **Preview** knop.
+4. Selecteer in het pop-scherm Preview **volledige synchronisatie** en klik op **doorvoeren Preview**.
+5. Sluit het afdrukvoorbeeld en het scherm objecteigenschappen Connector-ruimte.
+6. Ga naar de **Connectors** tabblad Synchronization Service Manager.
+7. Met de rechtermuisknop op de **Azure AD** Connector en selecteer **uitvoeren...**
+8. Selecteer in de pop-up Connector uitvoeren **exporteren** stap en klik op **OK**.
+9. Wacht u totdat de Export naar Azure AD voltooid en er is geen meer LargeObject-fout voor dit specifieke object bevestigen.
 
-### <a name="step-5-apply-hello-new-sync-rule-tooremaining-objects-with-largeobject-error"></a>Stap 5. Hallo nieuwe synchronisatie regel tooremaining objecten met LargeObject fout toepassen
-Wanneer de synchronisatieregel Hallo is toegevoegd, moet u toorun de stap van een volledige synchronisatie op Hallo AD-Connector:
-1. Ga toohello **Connectors** tabblad in Hallo Synchronization Service Manager.
-2. Met de rechtermuisknop op Hallo **AD** Connector en selecteer **uitvoeren...**
-3. Selecteer in het pop-upmenu Hallo Connector uitvoeren, **volledige synchronisatie** stap en klik op **OK**.
-4. Wachten op Hallo volledige synchronisatie stap toocomplete.
-5. Herhaal Hallo bovenstaande stappen voor Hallo resterende AD Connectors hebt u meer dan één AD-Connectors. Meerdere connectors zijn doorgaans vereist als er meerdere on-premises adreslijsten.
+### <a name="step-5-apply-the-new-sync-rule-to-remaining-objects-with-largeobject-error"></a>Stap 5. De nieuwe synchronisatieregel van toepassing op de resterende objecten met LargeObject fout
+Wanneer de synchronisatieregel is toegevoegd, moet u de stap van een volledige synchronisatie uitvoeren voor de AD-Connector:
+1. Ga naar de **Connectors** tabblad Synchronization Service Manager.
+2. Met de rechtermuisknop op de **AD** Connector en selecteer **uitvoeren...**
+3. Selecteer in de pop-up Connector uitvoeren **volledige synchronisatie** stap en klik op **OK**.
+4. Wacht tot de volledige synchronisatie stap te voltooien.
+5. Herhaal de bovenstaande stappen voor de resterende AD-Connectors hebt u meer dan één AD-Connectors. Meerdere connectors zijn doorgaans vereist als er meerdere on-premises adreslijsten.
 
-### <a name="step-6-verify-there-are-no-unexpected-changes-waiting-toobe-exported-tooazure-ad"></a>Stap 6. Controleer of er zijn geen onverwachte wijzigingen toobe geëxporteerd tooAzure AD wachten
-1. Ga toohello **Connectors** tabblad in Hallo Synchronization Service Manager.
-2. Met de rechtermuisknop op Hallo **Azure AD** Connector en selecteer **Connectorgebied zoeken**.
-3. In het pop-upmenu Hallo Connectorgebied zoeken:
-    1. Bereik te instellen**in behandeling exporteren**.
+### <a name="step-6-verify-there-are-no-unexpected-changes-waiting-to-be-exported-to-azure-ad"></a>Stap 6. Controleer of er zijn geen onverwachte wijzigingen die nog moeten worden geëxporteerd naar Azure AD
+1. Ga naar de **Connectors** tabblad Synchronization Service Manager.
+2. Met de rechtermuisknop op de **Azure AD** Connector en selecteer **Connectorgebied zoeken**.
+3. In de pop-up Connectorgebied zoeken:
+    1. Bereik instelt op **in behandeling zijnde uitvoer**.
     2. Controleer alle 3 selectievakjes, met inbegrip van **toevoegen**, **wijzigen** en **verwijderen**.
-    3. Klik op **Search** knop tooreturn alle objecten met wijzigingen die nog toobe geëxporteerd tooAzure AD.
-    4. Controleer of dat er zijn geen onverwachte wijzigingen. tooexamine hello wijzigingen voor een bepaald object, dubbelklik op Hallo-object.
+    3. Klik op **Search** om terug te keren alle objecten met wijzigingen die nog moeten worden geëxporteerd naar Azure AD.
+    4. Controleer of dat er zijn geen onverwachte wijzigingen. Als u wilt onderzoeken de wijzigingen voor een bepaald object, dubbelklik op het object.
 
-### <a name="step-7-export-hello-changes-tooazure-ad"></a>Stap 7. Hallo wijzigingen tooAzure AD exporteren
-tooexport hello wijzigingen tooAzure AD:
-1. Ga toohello **Connectors** tabblad in Hallo Synchronization Service Manager.
-2. Met de rechtermuisknop op Hallo **Azure AD** Connector en selecteer **uitvoeren...**
-4. Selecteer in het pop-upmenu Hallo Connector uitvoeren, **exporteren** stap en klik op **OK**.
-5. Wacht tot Export tooAzure AD toocomplete en er zijn geen fouten meer LargeObject zijn bevestigen.
+### <a name="step-7-export-the-changes-to-azure-ad"></a>Stap 7. De wijzigingen wilt exporteren naar Azure AD
+De wijzigingen naar Azure AD exporteren:
+1. Ga naar de **Connectors** tabblad Synchronization Service Manager.
+2. Met de rechtermuisknop op de **Azure AD** Connector en selecteer **uitvoeren...**
+4. Selecteer in de pop-up Connector uitvoeren **exporteren** stap en klik op **OK**.
+5. Wacht u totdat de Export naar Azure AD voltooid en er zijn geen fouten meer LargeObject zijn bevestigen.
 
 ### <a name="step-8-re-enable-sync-scheduler"></a>Stap 8. Sync scheduler opnieuw inschakelen
-Nu dat Hallo probleem is opgelost, schakelt u Hallo ingebouwde sync scheduler:
+Nu dat het probleem is opgelost, schakelt u de ingebouwde sync scheduler:
 1. Start PowerShell-sessie.
 2. Geplande synchronisatie opnieuw inschakelen door de cmdlet uit te voeren:`Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 > [!Note]
-> Hallo zijn voorgaande stappen alleen van toepassing toonewer versies (1.1.xxx.x) van Azure AD Connect met ingebouwde scheduler Hallo. Als u gebruikmaakt van oudere versies (1.0.xxx.x) van Azure AD Connect die gebruikmaakt van Windows Taakplanner of u uw eigen aangepaste scheduler (niet-algemene) tootrigger periodieke synchronisatie gebruikt, moet u toodisable ze dienovereenkomstig.
+> De voorgaande stappen zijn alleen van toepassing op nieuwere versies (1.1.xxx.x) van Azure AD Connect met de ingebouwde scheduler. Als u gebruikmaakt van oudere versies (1.0.xxx.x) van Azure AD Connect die gebruikmaakt van Windows Taakplanner of u uw eigen aangepaste scheduler (niet-algemene) gebruikt voor het activeren van periodieke synchronisatie, moet u deze dienovereenkomstig uitschakelen.
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory](active-directory-aadconnect.md).

@@ -1,7 +1,7 @@
 ---
 title: Apps, machtigingen en toestemming in Azure Active Directory | Microsoft Docs
-description: "Azure AD Connect integreert uw on-premises directory's met Azure Active Directory. Hiermee kunt u een algemene identiteit voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD tooprovide."
-keywords: active directory inleiding tooAzure AD, apps, wat is Azure AD Connect installeren
+description: "Azure AD Connect integreert uw on-premises adreslijsten met Azure Active Directory. Hiermee kunt u een algemene identiteit bieden voor Office 365-, Azure- en SaaS-toepassingen die zijn geïntegreerd met Azure AD."
+keywords: inleiding tot Azure AD, apps, wat is Azure AD Connect, Active Directory installeren
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -17,96 +17,96 @@ ms.date: 07/31/2017
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: af0c2669199736fdb41e85876a7e3a7064e80770
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Apps, machtigingen en toestemming in Azure Active Directory
-U kunt toepassingen tooyour directory toevoegen in Azure Active Directory.  Hallo-toepassingen kunnen variëren afhankelijk van de toepassing hello type.  tooview toepassingen in de klassieke portal hello, selecteer een map en kies de toepassingen.
+In Azure Active Directory kunt u toepassingen toevoegen aan uw directory.  De toepassingen kunnen variëren afhankelijk van het type toepassing.  Als u toepassingen in de klassieke portal wilt bekijken, selecteert u een directory en kiest u toepassingen.
 
 ![](media/active-directory-apps-permissions-consent/apps1.png)
 
 > [!IMPORTANT]
-> Microsoft raadt aan dat u Azure AD beheren met Hallo [Azure AD-beheercentrum](https://aad.portal.azure.com) in Hallo hello Azure-portal in plaats van de klassieke Azure-portal waarnaar wordt verwezen in dit artikel.
+> Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure Portal in plaats van de klassieke Azure portal waarnaar in dit artikel wordt verwezen.
 
 ## <a name="types-of-apps"></a>App-typen
 
 1. **Apps met één tenant** </br>
-    - **Apps voor één tenant** -vaak tooas line-of-business (LOB)-apps. Dit is Hallo geval waar iemand binnen uw organisatie ontwikkelt van hun eigen app en wilt dat gebruikers in Hallo organisatie toobe kunnen toosign in toohello-app.
+    - **Apps met één tenant** - Ook vaak Line-of-Business-apps (LOB) genoemd. Dit is het geval wanneer iemand binnen uw organisatie een eigen app ontwikkelt en wilt dat gebruikers in de organisatie zich kunnen aanmelden bij de app.
     ![](media/active-directory-apps-permissions-consent/apps2.png)
-    - **Toepassingsproxy van apps** : wanneer u een on-premises toepassing met Azure AD-toepassingsproxy, weer een één-tenant-app in uw tenant (in aanvulling toohello App Proxy-service) is geregistreerd. Deze app vertegenwoordigt uw on-premises toepassing voor alle cloudinteracties (bijvoorbeeld verificatie). (App Proxy vereist Azure AD Basic of hoger.)
+    - **App Proxy-apps** - Wanneer u een on-premises toepassing gebruikt met Azure AD App Proxy wordt een app met één tenant geregistreerd in uw tenant (naast de App Proxy-service). Deze app vertegenwoordigt uw on-premises toepassing voor alle cloudinteracties (bijvoorbeeld verificatie). (App Proxy vereist Azure AD Basic of hoger.)
 
 
 2. **Apps met meerdere tenants**
-    - **Multitenant-apps die anderen met instemmen kunnen** - vergelijkbare te 'single-tenant-apps die uw organisatie ontwikkelt'. de belangrijkste verschil hello (naast het Hallo-logica in Hallo app zelf) is de gebruikers van andere tenants kunnen ook toestemming geven tooand toohello app aanmelden.</br>
+    - **Apps met meerdere tenants waar anderen toestemming voor kunnen geven** - Vergelijkbaar met 'apps met één tenant die uw organisatie ontwikkelt'. Het belangrijkste verschil (naast de logica in de app zelf) is dat gebruikers van andere tenants kunnen ook toestemming kunnen geven voor de app en zich erbij kunnen aanmelden.</br>
     ![](media/active-directory-apps-permissions-consent/apps4.png)
-    - **Apps met meerdere tenants die anderen ontwikkelen en waar Contoso toestemming voor kan geven**. (Kort gezegd ook 'toegestane apps'.) Dit is Hallo spiegelen zijde van 'multitenant apps in die uw organisatie ontwikkelt'. Wanneer een andere organisatie een multitenant-app ontwikkelt, kunnen gebruikers van uw organisatie toohello app toestemming en tooit aanmelden.
-    - **Apps van Microsoft** - Apps die Microsoft-services vertegenwoordigen. Toestemming wordt aangedreven door Hallo feit dat u zich aanmeldt voor Hallo-service. Er is het soms speciale UX en logica voor bepaalde Microsoft-apps die vaak wordt gebruikt bij het opstellen van beleid rond toegang toohello app.</br>
+    - **Apps met meerdere tenants die anderen ontwikkelen en waar Contoso toestemming voor kan geven**. (Kort gezegd ook 'toegestane apps'.) Dit is het tegenovergestelde van 'apps met meerdere tenants die uw organisatie ontwikkelt'. Wanneer een andere organisatie een app met meerdere tenants ontwikkelt, kunnen de gebruikers in uw organisatie er toestemming voor geven en zich erbij aanmelden.
+    - **Apps van Microsoft** - Apps die Microsoft-services vertegenwoordigen. U geeft toestemming wanneer u zich registreert voor de service. Er is soms sprake van speciale UX en logica voor apps van Microsoft. Vaak wordt hier gebruik van gemaakt voor het definiëren van beleid voor toegang tot de app.</br>
     ![](media/active-directory-apps-permissions-consent/apps3.png)
-    - **Vooraf geïntegreerde apps** -Apps die beschikbaar zijn in Azure AD App-galerie, die u kunt toevoegen Hallo tooyour directory tooprovide één eenmalige aanmelding (en in sommige gevallen, inrichting) toopopular SaaS-apps.
-    - **Azure AD met eenmalige aanmelding** - 'Echte' eenmalige aanmelding voor apps die met Azure AD kunnen worden geïntegreerd via een ondersteund aanmeldingsprotocol zoals SAML 2.0 of OpenID Connect. Hallo wizard leidt u door het instelt.
-    - **Eenmalige aanmelding wachtwoord**: Azure AD Hallo gebruikersreferenties voor Hallo app veilig opgeslagen en Hallo referenties zijn 'geïnjecteerd' in hello aanmelden formulier door Hallo Browseruitbreiding van de toegang tot Apps van Azure AD. Dit heet ook wel 'password vaulting'.
+    - **Vooraf geïntegreerde apps** - Apps die beschikbaar zijn in de Azure AD App Gallery en die u aan uw directory kunt toevoegen voor eenmalige-aanmeldingsfunctionaliteit voor (en in sommige gevallen voor inrichting van) populaire SaaS-apps.
+    - **Azure AD met eenmalige aanmelding** - 'Echte' eenmalige aanmelding voor apps die met Azure AD kunnen worden geïntegreerd via een ondersteund aanmeldingsprotocol zoals SAML 2.0 of OpenID Connect. De wizard begeleidt u bij het instellen.
+    - **Wachtwoord voor eenmalige aanmelding**: Azure AD bewaart de referenties van de gebruiker voor de app op een veilige manier. De referenties worden door de Azure AD App Access-browserextensie in het aanmeldingsformulier geplaatst. Dit heet ook wel 'password vaulting'.
 
 ## <a name="permissions"></a>Machtigingen
 
-Wanneer een app is geregistreerd, wordt Hallo gebruiker uitvoeren Hallo app-registratie (dat wil zeggen, Hallo developer) definieert welke machtigingen Hallo-app moet toegang tot en welke bronnen. (Hallo resources zijn, zelf, gedefinieerd als andere apps). Bijvoorbeeld zou iemand een e-mail reader-app bouwen vermeld dat de app Hallo 'Postvakken toegang als de gebruiker is aangemeld Hallo' toestemming in Hallo 'Office 365 Exchange Online' resource vereist:
+Wanneer een app wordt geregistreerd, definieert de gebruiker die de app registreert (de ontwikkelaar) tot welke machtigingen en resources de app toegang nodig heeft. (De resources worden gedefinieerd als andere apps.) Iemand die bijvoorbeeld een e-mail-app bouwt, verklaart dat de app toegang nodig heeft tot de postvakken van de aangemelde gebruiker ('Postvakken van de aangemelde gebruiker openen'). Dit is een machtiging die beschikbaar is via de resource Office 365 Exchange Online:
     
 ![](media/active-directory-apps-permissions-consent/apps6.png)
 
-Om een app (Hallo client) toorequest een bepaalde machtiging vanuit een andere app (Hallo resource) definieert Hallo ontwikkelaar van Hallo resource app Hallo machtigingen die aanwezig zijn. In ons voorbeeld Microsoft hello eigenaar van de 'Office 365 Exchange Online' hello resource app, gedefinieerd hebben een machtiging met de naam "Postvakken toegang als de gebruiker is aangemeld Hallo".
+Om het mogelijk te maken dat één app (de client) een bepaalde machtiging kan aanvragen bij een andere app (de resource), moet de ontwikkelaar van de resource-app de bestaande machtigingen definiëren. In ons voorbeeld heeft Microsoft, de eigenaar van de resource-app Office 365 Exchange Online, een machtiging met de naam 'Postvakken van de aangemelde gebruiker openen' gedefinieerd.
 
-Bij het definiëren van machtigingen moet Hallo app-ontwikkelaar definiëren als Hallo-machtiging kunt wil of als hiervoor toestemming van de beheerder. Hierdoor kunnen ontwikkelaars tooallow gebruikers tooconsent op hun eigen tooapps alleen machtigingen voor lage gevoeligheid aangevraagd, maar tooconsent toomore gevoelige beheerdersmachtigingen nodig. Bijvoorbeeld, Hallo 'Azure Active Directory' resource app, is gedefinieerd, zodat gebruikers kunnen toestemming van tooapps, vraagt beperkte machtigingen voor alleen-lezen.  Er is echter toestemming van een beheerder nodig voor volledige lees- en schrijftoegang.
+Bij het definiëren van machtigingen moet de app-ontwikkelaar opgeven of er toestemming voor de machtigingen kan worden gegeven en of een beheerder er toestemming voor moet geven. Op die manier kunnen ontwikkelaars gebruikers in staat stellen om zelf toestemming te geven voor apps die machtigingen met een lage gevoeligheid aanvragen. Beheerders moeten in dit geval wel nog toestemming geven voor machtigingen met een hogere gevoeligheid. De Azure Active Directory-resource-app is bijvoorbeeld zodanig ingesteld dat gebruikers toestemming kunnen geven voor het aanvragen van beperkte, alleen-lezen machtigingen.  Er is echter toestemming van een beheerder nodig voor volledige lees- en schrijftoegang.
 
-Omdat systeemeigen clients niet worden geverifieerd, kan een app die is gedefinieerd als systeemeigen client-app alleen overgedragen machtigingen aanvragen. Dit betekent dat er altijd een daadwerkelijke gebruiker betrokken moet zijn bij het ophalen van een token. Web-apps en web-API's (vertrouwelijke clients) moeten altijd worden geverifieerd door Azure AD bij het ophalen van een toegangstoken. Dit betekent dat ze hebben ook Hallo mogelijkheid app alleen-lezen machtigingen om te vragen. Als bijvoorbeeld een back-end-service moet tooauthenticate tooanother back-end-service. Toepassingen waarvoor machtigingen die zich beperken tot de app worden aangevraagd, moeten altijd worden goedgekeurd door een beheerder.
+Omdat systeemeigen clients niet worden geverifieerd, kan een app die is gedefinieerd als systeemeigen client-app alleen overgedragen machtigingen aanvragen. Dit betekent dat er altijd een daadwerkelijke gebruiker betrokken moet zijn bij het ophalen van een token. Web-apps en web-API's (vertrouwelijke clients) moeten altijd worden geverifieerd door Azure AD bij het ophalen van een toegangstoken. Dit betekent dat ze ook machtigingen die zich beperken tot apps kunnen aanvragen. Dat is bijvoorbeeld nodig als een back-endservice moet worden geverifieerd door een andere back-endservice. Toepassingen waarvoor machtigingen die zich beperken tot de app worden aangevraagd, moeten altijd worden goedgekeurd door een beheerder.
 
 Samenvatting:
 
 
 
-- Hallo-machtigingen die nodig zijn voor andere apps (bronnen) wordt aangegeven door een app (client).
-- Een app (resource) wordt aangegeven welke machtigingen zijn blootgestelde tooother apps (clients).
+- In een app (client) is vastgelegd welke machtigingen nodig zijn voor andere apps (resources).
+- In een app (resource) is vastgelegd welke machtigingen beschikbaar zijn voor andere apps (clients).
 - Een machtiging kan zich beperken tot één app of kan overgedragen zijn.
 - Een overgedragen machtiging kan worden gemarkeerd als 'gebruikerstoestemming toegestaan' of 'beheerderstoestemming vereist'.
-- Een app kan functioneren als een client (door op te geven dat het moet machtigingen tooa resource), als een bron (door op te geven welke machtigingen worden getoond), of als beide.
+- Een app kan functioneren als een client (door op te geven dat machtigingen voor een resource nodig zijn), als een resource (door op te geven welke machtigingen beschikbaar zijn) of als beide.
 
 ## <a name="controls"></a>Besturingselementen
 
-Hallo Hieronder volgt een lijst met besturingselementen voor verschillende admin Hallo beschikbaar voor alle dit gedrag. Hallo beheerder besturingselementen kunnen worden geopend in de klassieke portal Hallo van configureren onder Hallo-directory.
+Hier volgt een lijst van de verschillende besturingselementen voor beheerders die beschikbaar zijn voor deze zaken. De besturingselementen voor beheerders kunnen worden geopend in de klassieke portal. Ga daarvoor naar Configureren in de map.
 
 ![](media/active-directory-apps-permissions-consent/apps7.png)
 
-In hello Azure portal onder **beheren**, **gebruikersinstellingen**.
+In Azure Portal gaat u onder **Beheren** naar **Gebruikersinstellingen**.
 
 ![](media/active-directory-apps-permissions-consent/apps11.png)
 
 
 
-- U kunt bepalen of gebruikers toestemming van tooapps geven kunnen:
+- U bepaalt of gebruikers toestemming kunnen geven voor apps:
 
-Selecteer in de klassieke portal Hallo **gebruikers toepassingen machtigingen tooaccess kunnen geven hun gegevens.**
-![](media/active-directory-apps-permissions-consent/apps8.png)
+Selecteer in de klassieke portal de optie **Users may give applications permissions to access their data.**
+![](media/active-directory-apps-permissions-consent/apps8.png) (Gebruikers mogen toepassingen machtigingen verlenen voor toegang tot hun gegevens.)
 
-Selecteer in de Azure-portal hello, **gebruikers apps tooaccess kunnen toestaan hun gegevens**.
+In Azure Portal selecteert u de optie **Gebruikers kunnen apps toegang tot de gegevens verlenen**.
 ![](media/active-directory-apps-permissions-consent/apps12.png)
 
 
 
-- Kunt u bepalen of gebruikers hun eigen LOB-apps voor één tenant kunnen registreren: In de klassieke portal Selecteer Hallo **gebruikers geïntegreerde toepassingen kunnen toevoegen.**
-![](media/active-directory-apps-permissions-consent/apps9.png)
+- U bepaalt of gebruikers hun eigen LOB-apps met één tenant mogen registreren. In de klassieke portal selecteert u **Users may add integrated applications.**
+![](media/active-directory-apps-permissions-consent/apps9.png) (Gebruikers mogen geïntegreerde toepassingen toevoegen.)
 
-Selecteer in de Azure-portal hello, **gebruikers apps tooaccess kunnen toestaan hun gegevens**.
+In Azure Portal selecteert u de optie **Gebruikers kunnen apps toegang tot de gegevens verlenen**.
 ![](media/active-directory-apps-permissions-consent/apps13.png)
 
 >[!NOTE]
->Zelfs als u gebruikers tooregister één tenant LOB-apps toestaat, zijn er beperkingen met toowhat kunnen worden geregistreerd.  
+>Zelfs als u gebruikers toestaat om LOB-apps met één tenant te registreren, gelden er beperkingen voor wat er mag worden geregistreerd.  
 >Dit geldt bijvoorbeeld voor ontwikkelaars die geen directorybeheerder zijn.
 >
 >- Gebruikers mogen van een app met één tenant geen app met meerdere tenants maken.
->- Bij het registreren van LOB-apps voor één tenant kunnen geen gebruikers app alleen-lezen machtigingen tooother apps vragen.
->- Bij het registreren van LOB-apps voor één tenant kunnen geen gebruikers gedelegeerde machtigingen tooother apps vragen als deze machtigingen admin toestemming vereist.
->- Gebruikers maken geen wijzigingen tooapps dat ze geen eigenaren van zijn.
+>- Bij het registreren van LOB-apps met één tenant mogen gebruikers geen machtigingen voor andere apps aanvragen.
+>- Bij het registreren van LOB-apps met één tenant mogen gebruikers geen overgedragen machtigingen voor andere apps aanvragen als er toestemming van een beheerder voor nodig is.
+>- Gebruikers mogen geen wijzigingen aanbrengen aan apps waar ze geen eigenaar van zijn.
 
 
 
@@ -114,24 +114,24 @@ Selecteer in de Azure-portal hello, **gebruikers apps tooaccess kunnen toestaan 
 
 
 
-- U bepaalt onder welke omstandigheden toepassingen kunnen worden geopend (voorwaardelijke toegang). Let erop dat dit geldt voor zowel client-app toohello en toohello resource app. Ja, dat u een beleid voor voorwaardelijke toegang met de tekst dat die Hallo 'Office 365 Exchange Online' app alleen toegankelijk vanaf computers die voldoen aan het beleid.  Dit beleid wordt ook starten wanneer een gebruiker probeert een client-app die Online machtigingen tooExchange vraagt toouse.
+- U bepaalt onder welke omstandigheden toepassingen kunnen worden geopend (voorwaardelijke toegang). Dit geldt zowel voor de client-app als de resource-app. U stelt dus beleid voor voorwaardelijke toegang in waarmee u verklaart dat de app Office 365 Exchange Online alleen kan worden geopend vanaf apparaten die aan de voorwaarden voldoen.  Dit beleid wordt ook gehandhaafd wanneer een gebruiker probeert een client-app te gebruiken die machtigingen voor Exchange Online aanvraagt.
 
 
 
-- U hebt zichtbaarheid waarop apps zijn instemming tooand welke worden gebruikt.
+- U hebt inzicht in welke apps zijn goedgekeurd en in welke apps worden gebruikt.
 
-1.  Wanneer een gebruiker hiermee akkoord tooan app gaat, wordt een ServicePrincipal-object gemaakt in Hallo-tenant. Maken van het ServicePrincipal is opgenomen in het Hallo-controlerapport.
-2.  Gebruiker aanmelden activiteitsrapporten laat u weten welke app Hallo-gebruiker zich aanmeldt. 
+1.  Wanneer een gebruiker toestemming heeft voor een app, wordt er een ServicePrincipal-object gemaakt in de tenant. In het controlerapport staat ook dat het ServicePrincipal-object is gemaakt.
+2.  De gebruikersrapporten over aanmeldingsactiviteit staat bij welke apps de gebruiker zich aanmeldt. 
 
 ## <a name="example"></a>Voorbeeld
 
-Een voorbeeld: u gaat nu Hallo 'FabrikamMail voor Office 365' app, die u opgevallen dat gebruikers in uw tenant zich aanmeldt. FabrikamMail is een e-mail-app voor gebruik op Android-apparaten, gepubliceerd door Fabrikam, Inc. Hiermee worden onderverdeeld in Hallo ' multitenant apps andere ontwikkelen, Contoso met instemmen kunt '.
+Als voorbeeld wordt de FabrikamMail for Office 365-app gebruikt. U hebt gemerkt dat gebruikers in uw tenant zich daarbij aanmelden. FabrikamMail is een e-mail-app voor gebruik op Android-apparaten, gepubliceerd door Fabrikam, Inc. Deze app valt in de categorie 'Apps met meerdere tenants die anderen ontwikkelen en waar Contoso toestemming voor kan geven'.
 
-Als gebruikers tooconsent mogen, krijgen ze een toestemming vragen Hallo eerste keer dat ze zich aanmeldt:![](media/active-directory-apps-permissions-consent/apps14.png)
+Als gebruikers toestemming mogen geven, krijgen ze bij de eerste keer aanmelden een toestemmingsprompt te zien: ![](media/active-directory-apps-permissions-consent/apps14.png)
 
-'Toegang tot uw postvakken' is hello gebruikersgerichte toestemming tekenreeks voor Hallo 'Postvakken toegang als de gebruiker is aangemeld Hallo' machtiging door 'Office 365 Exchange Online' (dat wil zeggen, Exchange) beschikbaar gesteld.
+'Uw postvakken openen' is de goedkeuringstekenreeks die aan de gebruiker wordt weergegeven voor de machtiging 'Postvakken van de aangemelde gebruiker openen' van Office 365 Exchange Online, Exchange in het kort.
 
-Hallo-machtigingen kunt u zien door het opzoeken van Hallo ServicePrincipal object voor Exchange (Hallo resource), dat is toegevoegd wanneer u zich registreerde voor Office 365. U kunt zien van Hallo ServicePrincipal-object van een 'exemplaar' Hallo-App in uw tenant, die wordt gebruikt voor het vastleggen van verschillende opties en configuraties.  U kunt dit zien met behulp van Hallo `Get-AzureADServicePrincipal` in PowerShell.
+U kunt de machtigingen bekijken door het ServicePrincipal-object voor Exchange (de resource) te zoeken dat is toegevoegd toen u zich registreerde voor Office 365. U kunt het ServicePrincipal-object zien als een exemplaar van de app in uw tenant dat wordt gebruikt voor het vastleggen van verschillende opties en configuraties.  U kunt het bekijken met behulp van de `Get-AzureADServicePrincipal` in PowerShell.
 
     PS C:\> Get-AzureADServicePrincipal -ObjectId 383f7b97-6754-4d3d-9474-3908ebcba1c6 | fl *
     
@@ -151,12 +151,12 @@ Hallo-machtigingen kunt u zien door het opzoeken van Hallo ServicePrincipal obje
     LogoutUrl                 : 
     Oauth2Permissions         : {...
                                 , class OAuth2Permission {
-                                  AdminConsentDescription : Allows hello app toohave hello same access toomailboxes as hello signed-in user via Exchange Web Services.
-                                  AdminConsentDisplayName : Access mailboxes as hello signed-in user via Exchange Web Services
+                                  AdminConsentDescription : Allows the app to have the same access to mailboxes as the signed-in user via Exchange Web Services.
+                                  AdminConsentDisplayName : Access mailboxes as the signed-in user via Exchange Web Services
                                   Id                      : 3b5f3d61-589b-4a3c-a359-5dd4b5ee5bd5
                                   IsEnabled               : True
                                   Type                    : User
-                                  UserConsentDescription  : Allows hello app full access tooyour mailboxes on your behalf.
+                                  UserConsentDescription  : Allows the app full access to your mailboxes on your behalf.
                                   UserConsentDisplayName  : Access your mailboxes
                                   Value                   : full_access_as_user
                                 },
@@ -169,7 +169,7 @@ Hallo-machtigingen kunt u zien door het opzoeken van Hallo ServicePrincipal obje
                                 00000002-0000-0ff1-ce00-000000000000/*.outlook.com...}
     Tags                      : {}
 
-Toestemming wordt gestart wanneer 'Accepteren' Hallo-gebruiker. Eerst wordt een ServicePrincipal-object voor 'FabrikamMail voor Office 365' gemaakt in Hallo-tenant. Hallo ServicePrincipal ziet er ongeveer als volgt uit:
+Er wordt toestemming gegeven wanneer de gebruiker op Accepteren klikt. Eerst wordt er in de tenant een ServicePrincipal-object gemaakt voor FabrikamMail for Office 365. De ServicePrincipal ziet er ongeveer als volgt uit:
 
     PS C:\> Get-AzureADServicePrincipal -SearchString "FabrikamMail for Office 365" | fl *
     
@@ -195,14 +195,14 @@ Toestemming wordt gestart wanneer 'Accepteren' Hallo-gebruiker. Eerst wordt een 
     ServicePrincipalNames     : {aba7c072-2267-4031-8960-e7a2db6e0590}
     Tags                      : {WindowsAzureActiveDirectoryIntegratedApp}
 
-Tooan app ermee akkoord dat een Oauth2PermissionGrant koppeling maakt tussen Hallo volgende:
+Als u toestemming geeft voor een app, wordt er een Oauth2PermissionGrant-koppeling gemaakt tussen deze zaken:
   
-- Hallo-gebruikersobject
-- Hallo van client-apps ServicePrincipalName (SPN)
-- Hallo resource apps ServicePrincipalName (SPN)
-- machtigingen in Hallo resource-app.  
+- het gebruikersobject
+- de ServicePrincipalName (SPN) van de client-app
+- de ServicePrincipalName (SPN) van de resource-app
+- machtigingen in de resource-app.  
 
-In geval van FabrikamMail Hallo ziet deze er ongeveer als volgt:
+In het geval van FabrikamMail, ziet dit er ongeveer als volgt uit:
 
     PS C:\> Get-AzureADUserOAuth2PermissionGrant -ObjectId ddiggle@aadpremiumlab.onmicrosoft.com | fl *
     
@@ -215,7 +215,7 @@ In geval van FabrikamMail Hallo ziet deze er ongeveer als volgt:
     Scope       : full_access_as_user
     StartTime   : 01/01/0001 12:00:00 AM
 
-(**ClientId** FabrikamMail van service principal-object-id (hello die u zojuist hebt gemaakt) **PrincipalId** Hallo gebruiker de object-ID (Hallo gebruiker die heeft ingestemd), is **ResourceId**is van de Exchange-service principal-object-ID, een bereik is Hallo toestemming in Exchange is wil).
+(**ClientId** is de service-principal object-id van FabrikamMail (de id die zojuist is gemaakt), **PrincipalId** is de gebruikersobject-id (van de gebruiker die toestemming heeft gegeven), **ResourceId** is de service-principal object-id van Exchange en het bereik is de machtiging in Exchange waar toestemming voor is gegeven).
 
-Als gebruikers zijn niet toegestaan voor tooconsent, zien ze een scherm weergegeven dat dat de machtiging aangeeft is vereist.
+Als gebruikers geen toestemming mogen geven, krijgen ze een scherm te zien waarin staat dat machtiging is vereist.
 

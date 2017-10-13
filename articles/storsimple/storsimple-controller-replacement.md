@@ -1,6 +1,6 @@
 ---
-title: een StorSimple-apparaat controller aaaReplace | Microsoft Docs
-description: Legt uit hoe tooremove en Vervang een of beide controller modules op uw StorSimple-apparaat.
+title: Vervangen van een StorSimple-apparaat controller | Microsoft Docs
+description: Legt uit hoe verwijdert en vervangt u een of beide controller modules op uw StorSimple-apparaat.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,79 +14,79 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ebf5c5830120857f69909113e3a111f4dda30e57
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5dd5ffc7c08fcc9263b91ca5ac86de5163f91657
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Vervangen van een module van de domeincontroller op uw StorSimple-apparaat
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie wordt uitgelegd hoe tooremove en Vervang een of beide controller modules in een StorSimple-apparaat. Het Hallo onderliggende logica voor scenario's Hallo enkele en dubbele domeincontroller vervanging wordt ook beschreven.
+Deze zelfstudie wordt uitgelegd hoe verwijdert en vervangt u een of beide controller modules in een StorSimple-apparaat. Dit wordt ook de onderliggende logica voor de domeincontroller enkele en dubbele vervanging scenario's beschreven.
 
 > [!NOTE]
-> Eerdere tooperforming vervanger van de domeincontroller, wordt aangeraden dat u altijd de controller toohello meest recente firmwareversie bijwerken.
+> Voordat u een vervangende domeincontroller uitvoert, wordt u aangeraden de firmware van de domeincontroller altijd bij te werken naar de nieuwste versie.
 > 
-> tooprevent beschadigen tooyour StorSimple-apparaat, niet Hallo controller verwijdert totdat Hallo LED's worden weergegeven als een van de volgende Hallo:
+> Om te voorkomen dat schade toebrengen aan uw StorSimple-apparaat, niet verwijdert de controller totdat de LED's worden weergegeven als een van de volgende:
 > 
 > * Alle lichten zijn uitgeschakeld.
 > * LED 3, ![pictogram groen vinkje](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png), en ![rode x pictogram](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) knippert, en LED 0 en 7 LED zijn **ON**.
 > 
 > 
 
-Hallo volgende tabel ziet u scenario's ondersteund Hallo controller vervanging.
+De volgende tabel bevat de ondersteunde controller vervanging scenario's.
 
 | Aanvraag | Vervanging scenario | Toepasselijke procedure |
 |:--- |:--- |:--- |
-| 1 |Één domeincontroller is een mislukte status, hello andere controller in orde is en actief is. |[Vervanging van de domeincontroller enkele](#replace-a-single-controller), waarin wordt beschreven Hallo [logica achter een vervangende één domeincontroller](#single-controller-replacement-logic), evenals Hallo [vervanging stappen](#single-controller-replacement-steps). |
-| 2 |Beide domeincontrollers Hallo niet hebben doorstaan en moeten worden vervangen. Hallo chassis, schijven en schijfbehuizing zijn in orde. |[Dubbele domeincontroller vervanging](#replace-both-controllers), waarin wordt beschreven Hallo [logica achter een dubbele domeincontroller vervangende](#dual-controller-replacement-logic), evenals Hallo [vervanging stappen](#dual-controller-replacement-steps). |
-| 3 |Domeincontrollers van Hallo hetzelfde apparaat of van verschillende apparaten worden omgewisseld. Hallo chassis, schijven en schijfbehuizingen zijn in orde. |Een waarschuwingsbericht van sleuf verschil wordt weergegeven. |
-| 4 |Een controller ontbreekt en Hallo andere controller mislukt. |[Dubbele domeincontroller vervanging](#replace-both-controllers), waarin wordt beschreven Hallo [logica achter een dubbele domeincontroller vervangende](#dual-controller-replacement-logic), evenals Hallo [vervanging stappen](#dual-controller-replacement-steps). |
-| 5 |Een of beide domeincontrollers zijn mislukt. U geen toegang tot Hallo apparaat via de seriële console Hallo of Windows PowerShell op afstand. |[Neem contact op met Microsoft Support](storsimple-contact-microsoft-support.md) voor een handmatige controller vervangingsprocedure. |
-| 6 |Hallo-domeincontrollers hebben een verschillende buildversie die veroorzaakt worden kan:<ul><li>Domeincontrollers hebben een ander software-versie.</li><li>Domeincontrollers hebben een verschillende firmwareversie.</li></ul> |Hallo controller softwareversies verschillend zijn, Hallo vervanging logica detecteert die als updates Hallo softwareversie op Hallo vervangende domeincontroller.<br><br>Als Hallo controller firmware-versies verschillend zijn en oude firmwareversie Hallo **niet** automatisch kan worden uitgebreid, een waarschuwing wordt weergegeven in de klassieke Azure-portal Hallo. U moet controleren op updates en Hallo firmware-updates installeert.</br></br>Als Hallo controller firmware-versies verschillend zijn en oude firmwareversie Hallo kan automatisch worden uitgebreid, Hallo controller vervanging logica detecteert DPM dit en nadat Hallo domeincontroller is gestart, Hallo firmware wordt automatisch bijgewerkt. |
+| 1 |Één domeincontroller is een mislukte status, de andere controller is in orde en actief is. |[Vervanging van de domeincontroller enkele](#replace-a-single-controller), waarin wordt beschreven de [logica achter een vervangende één domeincontroller](#single-controller-replacement-logic), evenals de [vervanging stappen](#single-controller-replacement-steps). |
+| 2 |Beide domeincontrollers niet hebben doorstaan en moeten worden vervangen. De chassis, schijven en schijfbehuizing zijn in orde. |[Dubbele domeincontroller vervanging](#replace-both-controllers), waarin wordt beschreven de [logica achter een dubbele domeincontroller vervangende](#dual-controller-replacement-logic), evenals de [vervanging stappen](#dual-controller-replacement-steps). |
+| 3 |Domeincontrollers van hetzelfde apparaat of van verschillende apparaten worden omgewisseld. De chassis, schijven en schijfbehuizingen zijn in orde. |Een waarschuwingsbericht van sleuf verschil wordt weergegeven. |
+| 4 |Er ontbreekt een domeincontroller en de andere controller mislukt. |[Dubbele domeincontroller vervanging](#replace-both-controllers), waarin wordt beschreven de [logica achter een dubbele domeincontroller vervangende](#dual-controller-replacement-logic), evenals de [vervanging stappen](#dual-controller-replacement-steps). |
+| 5 |Een of beide domeincontrollers zijn mislukt. U geen toegang tot het apparaat via de seriële console of Windows PowerShell op afstand. |[Neem contact op met Microsoft Support](storsimple-contact-microsoft-support.md) voor een handmatige controller vervangingsprocedure. |
+| 6 |De controllers hebben een verschillende buildversie die veroorzaakt worden kan:<ul><li>Domeincontrollers hebben een ander software-versie.</li><li>Domeincontrollers hebben een verschillende firmwareversie.</li></ul> |Als de domeincontroller softwareversies verschillen, wordt de logica vervanging detecteert die en de versie van de software op de controller vervangen updates.<br><br>Als de domeincontroller firmware-versies verschillend zijn en de oude firmwareversie is **niet** automatisch kan worden uitgebreid, een waarschuwing wordt weergegeven in de klassieke Azure portal. U moet controleren op updates en installeert de firmware-updates.</br></br>Als de domeincontroller firmware-versies verschillend zijn en de oude firmwareversie van de kan automatisch worden uitgebreid, de logica van de vervangende domeincontroller detecteert DPM dit en nadat de domeincontroller is gestart, de firmware wordt automatisch bijgewerkt. |
 
-Tooremove een module van de domeincontroller moet u als deze is mislukt. Een of beide Hallo controller modules kunnen mislukken, hetgeen kan leiden tot een enkele controller vervanging van of dubbele domeincontroller vervanging. Zie voor vervanging procedures en Hallo logica achter deze Hallo volgende:
+U moet een controllermodule verwijderen als deze is mislukt. Een of beide de controller modules kunnen mislukken, hetgeen kan leiden tot een enkele controller vervanging van of dubbele domeincontroller vervanging. Vervanging procedures en de logica achter ze, Zie de volgende:
 
 * [Eén controller vervangen](#replace-a-single-controller)
 * [Vervang beide domeincontrollers](#replace-both-controllers)
 * [Verwijderen van een domeincontroller](#remove-a-controller)
 * [Invoegen van een domeincontroller](#insert-a-controller)
-* [De actieve controller Hallo op uw apparaat identificeren](#identify-the-active-controller-on-your-device)
+* [De actieve controller op uw apparaat identificeren](#identify-the-active-controller-on-your-device)
 
 > [!IMPORTANT]
-> Voordat verwijderen en een domeincontroller vervangen Lees Hallo veiligheidsinformatie in [StorSimple onderdeel Hardwarevervanging](storsimple-hardware-component-replacement.md).
+> Voordat verwijderen en het vervangen van een domeincontroller, lees de veiligheidsinformatie in [StorSimple onderdeel Hardwarevervanging](storsimple-hardware-component-replacement.md).
 > 
 > 
 
 ## <a name="replace-a-single-controller"></a>Vervangen van één controller
-Wanneer een van twee Hallo-controllers op Hallo Microsoft Azure StorSimple-apparaat is mislukt, is defect of ontbreekt, moet u tooreplace één controller. 
+Wanneer een van de twee controllers op het Microsoft Azure StorSimple-apparaat is mislukt, is defect of ontbreekt, moet u één controller vervangen. 
 
 ### <a name="single-controller-replacement-logic"></a>Logica van één domeincontroller-vervanging
-In een vervanging van één domeincontroller, moet u eerst Hallo mislukte controller verwijderen. (Hallo resterende domeincontrollers in Hallo-apparaat is Hallo actieve controller.) Wanneer u Hallo vervangende domeincontroller invoegt, hello volgende acties uitgevoerd:
+In een vervanging van één domeincontroller, moet u eerst de mislukte controller verwijderen. (De resterende domeincontrollers in het apparaat is de actieve controller.) Wanneer u de vervangende domeincontroller invoegt, wordt de volgende acties uitgevoerd:
 
-1. Hallo vervangende domeincontroller begint onmiddellijk communiceren met de Hallo StorSimple-apparaat.
-2. Een momentopname van Hallo virtuele harde-schijf (VHD) voor de actieve controller Hallo is gekopieerd op Hallo vervangende domeincontroller.
-3. Hallo momentopname wordt gewijzigd zodat wanneer Hallo vervangende domeincontroller wordt gestart vanaf deze VHD, deze wordt herkend als een stand-by-controller.
-4. Wanneer Hallo wijzigingen voltooid zijn, wordt als de stand-by-controller Hallo Hallo vervangende domeincontroller gestart.
-5. Wanneer beide Hallo-domeincontrollers worden uitgevoerd, wordt Hallo cluster online gezet.
+1. De vervangende domeincontroller begint onmiddellijk communiceren met het StorSimple-apparaat.
+2. Een momentopname van de virtuele harde schijf (VHD) voor de actieve controller is gekopieerd op de controller vervanging.
+3. De momentopname wordt gewijzigd zodat wanneer de vervangende domeincontroller wordt gestart vanaf deze VHD, deze wordt herkend als een stand-by-controller.
+4. Wanneer de wijzigingen voltooid zijn, wordt de vervangende domeincontroller wordt gestart als de stand-by-controller.
+5. Wanneer beide domeincontrollers worden uitgevoerd, wordt het cluster online komt.
 
 ### <a name="single-controller-replacement-steps"></a>Stappen voor één domeincontroller-vervanging
-Hallo volgende stappen uit als een Hallo domeincontrollers in uw Microsoft Azure StorSimple-apparaat niet kan worden voltooid. (hello andere controller moet actief en wordt uitgevoerd. Als beide domeincontrollers mislukt of er problemen optreden, gaat u verder te[dubbele domeincontroller vervanging stappen](#dual-controller-replacement-steps).)
+De volgende stappen uitvoeren als een van de domeincontrollers in uw Microsoft Azure StorSimple-apparaat is mislukt. (De andere controller moet actief en wordt uitgevoerd. Als beide domeincontrollers mislukt of er problemen optreden, gaat u naar [dubbele domeincontroller vervanging stappen](#dual-controller-replacement-steps).)
 
 > [!NOTE]
-> Het kan 30 – 45 minuten duren voordat Hallo controller toorestart en volledig herstellen vanuit Hallo één domeincontroller vervangingsprocedure. de totale tijd Hallo voor volledige procedure hello, inclusief Hallo-kabels koppelen is ongeveer twee uur.
+> Het kan 30 – 45 minuten duren voordat de domeincontroller opnieuw opstarten en volledig herstellen vanuit de procedure van één domeincontroller vervanging. De totale tijd voor de gehele procedure, is met inbegrip van de kabels verbonden ongeveer twee uur.
 > 
 > 
 
-#### <a name="tooremove-a-single-failed-controller-module"></a>een module één mislukte controller tooremove
-1. Ga in de klassieke Azure-portal hello, toohello StorSimple Manager-service, klikt u op Hallo **apparaten** tabblad en klik vervolgens op Hallo-naam van Hallo-apparaat dat u wilt dat toomonitor.
-2. Ga te**onderhoud > hardwarestatus**. Hallo moet van Controller 0 of 1 van de domeincontroller de status rood, wat aangeeft dat een fout.
+#### <a name="to-remove-a-single-failed-controller-module"></a>Een enkele mislukte controller-module verwijderen
+1. Klik in de Azure classic portal, gaat u naar de StorSimple Manager-service op de **apparaten** tabblad en klik vervolgens op de naam van het apparaat dat u wilt bewaken.
+2. Ga naar **onderhoud > hardwarestatus**. De status van Controller 0 of 1 van de domeincontroller moet rood, wat aangeeft dat een fout.
    
    > [!NOTE]
-   > Hallo mislukte domeincontroller in een vervanging van één domeincontroller is altijd een stand-by-controller.
+   > De mislukte controller in een vervanging van één domeincontroller is altijd een stand-by-controller.
    > 
    > 
-3. Afbeelding 1 en Hallo na tabel toolocate Hallo schijfcontroller module gebruiken.  
+3. Afbeelding 1 en de volgende tabel gebruiken om te vinden van de mislukte controllermodule.  
    
     ![Backplane apparaat primaire behuizing modules](./media/storsimple-controller-replacement/IC740994.png)
    
@@ -98,143 +98,143 @@ Hallo volgende stappen uit als een Hallo domeincontrollers in uw Microsoft Azure
    | 2 |PCM 1 |
    | 3 |Controller 0 |
    | 4 |Controller 1 |
-4. Op Hallo-controller is mislukt, verwijdert u alle verbonden Hallo netwerkkabels uit Hallo gegevenspoorten. Als u een 8600 model gebruikt, moet u ook Hallo die SAS-kabels die verbinding maken met Hallo controller toohello EBOD controller verwijderen.
-5. Volg de stappen Hallo in [verwijderen van een domeincontroller](#remove-a-controller) tooremove Hallo domeincontroller is mislukt. 
-6. Installatie Hallo factory vervanging in dezelfde sleuf vanaf welke mislukte controller Hallo Hallo is verwijderd. Dit activeert Hallo één domeincontroller vervanging logica. Zie voor meer informatie [één domeincontroller vervanging logica](#single-controller-replacement-logic).
-7. Opnieuw verbinden Hallo kabels terwijl Hallo één domeincontroller vervanging logica op de achtergrond hello verloopt. Zorg tooconnect die alle Hallo kabels Hallo exact dezelfde manier als ze zijn verbonden voordat de vervangende Hallo duren.
-8. Nadat het Hallo-domeincontroller opnieuw is opgestart, controleert u Hallo **Controller status** en Hallo **Cluster status** in hello Azure classic portal tooverify die domeincontroller Hallo back tooa status in orde is en is in standby-modus .
+4. Verwijderen de verbonden netwerkkabels vanaf de gegevenspoorten op de domeincontroller is mislukt. Als u een 8600 model gebruikt, moet u ook de SAS-kabels die verbinding maken met de domeincontroller de domeincontroller EBOD verwijderen.
+5. Volg de stappen in [verwijderen van een domeincontroller](#remove-a-controller) verwijderen van de domeincontroller is mislukt. 
+6. Installeer de factory-vervanging in dezelfde sleuf van waaruit de mislukte controller is verwijderd. Dit activeert de logica van één domeincontroller vervanging. Zie voor meer informatie [één domeincontroller vervanging logica](#single-controller-replacement-logic).
+7. Terwijl de logica van één domeincontroller vervanging op de achtergrond verloopt, sluit u de kabels. Verbinding maken van de kabels los precies dezelfde manier dat ze zijn verbonden voordat de vervangende zorgt.
+8. Nadat de domeincontroller opnieuw is opgestart, controleert u de **Controller status** en de **Cluster status** in de klassieke Azure portal om te controleren of de controller terug naar de status in orde is en zich in standby-modus.
 
 > [!NOTE]
-> Als u een apparaat via de seriële console Hallo Hallo controleert, ziet u mogelijk meerdere opnieuw wordt opgestart tijdens het Hallo-controller wordt hersteld vanuit Hallo vervangingsprocedure. Wanneer Hallo seriële consolemenu wordt weergegeven, weet u dat Hallo vervanging voltooid is. Als u Hallo menu niet wordt weergegeven binnen twee uur na het Hallo-controller vervanging wordt gestart, neemt u [contact op met Microsoft Support](storsimple-contact-microsoft-support.md).
+> Als u het apparaat via de seriële console bewaakt, ziet u mogelijk meerdere opnieuw wordt opgestart tijdens het herstellen van de domeincontroller van de vervangingsprocedure. Wanneer de seriële console-menu wordt weergegeven, weet u dat de vervanging voltooid is. Als u het menu binnen twee uur na het starten van de vervangende domeincontroller niet wordt weergegeven, neemt u [contact op met Microsoft Support](storsimple-contact-microsoft-support.md).
 >
-> Vanaf Update 4, kunt u ook gebruiken Hallo cmdlet `Get-HCSControllerReplacementStatus` in Windows PowerShell-interface Hallo Hallo toomonitor Hallo van de status van van proces voor het Hallo-controller vervangen.
+> Vanaf Update 4, kunt u ook gebruiken de cmdlet `Get-HCSControllerReplacementStatus` in de Windows PowerShell-interface van het apparaat voor het bewaken van de status van het proces van de vervangende domeincontroller.
 > 
 
 ## <a name="replace-both-controllers"></a>Vervang beide domeincontrollers
-Wanneer beide domeincontrollers op Hallo Microsoft Azure StorSimple-apparaat is mislukt, zijn defect of ontbreekt, moet u tooreplace beide domeincontrollers. 
+Wanneer beide domeincontrollers op het Microsoft Azure StorSimple-apparaat is mislukt, zijn defect of ontbreekt, moet u beide domeincontrollers te vervangen. 
 
 ### <a name="dual-controller-replacement-logic"></a>Dubbele domeincontroller vervanging logica
-In een vervanging dubbele domeincontroller verwijdert u beide mislukte domeincontrollers en voeg vervolgens vervangingen. Wanneer twee vervanging-controllers Hallo worden ingevoegd, hello volgende acties uitgevoerd:
+In een vervanging dubbele domeincontroller verwijdert u beide mislukte domeincontrollers en voeg vervolgens vervangingen. Als de twee vervanging controllers wordt geplaatst, wordt de volgende acties uitgevoerd:
 
-1. Hallo vervangende domeincontroller in sleuf 0 controleert Hallo volgende:
+1. De vervangende domeincontroller in sleuf 0 controleert het volgende:
    
-   1. Is het huidige versies van het Hallo-firmware en software gebruikt?
-   2. Er is een onderdeel van de cluster Hallo?
-   3. Hallo peer domeincontroller actief is en is het geclusterd?
+   1. Is het huidige versies van de firmware en software gebruikt?
+   2. Er is een onderdeel van het cluster?
+   3. De peer-controller actief is en is het geclusterd?
       
-      Als geen van deze voorwaarden voldaan wordt, Hallo controller gezocht Hallo nieuwste dagelijkse back-up (zich in Hallo **nonDOMstorage** op station S). meest recente momentopname Hallo Hallo VHD Hallo controller opgehaald uit Hallo back-up.
-2. Hallo-controller in sleuf 0 gebruikt Hallo momentopname tooimage zelf.
-3. Ondertussen Hallo controller in sleuf 1 wacht voor controller 0 toocomplete Hallo imaging en begin.
-4. Nadat de controller 0 wordt gestart, detecteert de controller 1 Hallo-cluster gemaakt door de netwerkcontroller 0, die Hallo één domeincontroller vervanging logica wordt geactiveerd. Zie voor meer informatie [één domeincontroller vervanging logica](#single-controller-replacement-logic).
-5. Daarna beide domeincontrollers wordt uitgevoerd en Hallo cluster online komen.
+      Als geen van deze voorwaarden voldaan wordt, de domeincontroller zoekt naar de meest recente dagelijkse back-up (zich in de **nonDOMstorage** op station S). De meest recente momentopname van de VHD de controller opgehaald uit de back-up.
+2. De controller in sleuf 0 wordt de momentopname van de installatiekopie zelf.
+3. Ondertussen, wacht de controller in sleuf 1 voor controller 0 voltooien van de installatiekopie en starten.
+4. Nadat de controller 0 wordt gestart, detecteert de controller 1 het cluster gemaakt door de netwerkcontroller 0, die de logica van één domeincontroller vervanging activeert. Zie voor meer informatie [één domeincontroller vervanging logica](#single-controller-replacement-logic).
+5. Daarna beide domeincontrollers wordt uitgevoerd en het cluster online komen.
 
 > [!IMPORTANT]
-> Na een vervangende dubbele domeincontroller nadat Hallo StorSimple-apparaat is geconfigureerd, is het essentieel dat u rekening houden met een handmatige back-up van het Hallo-apparaat. Dagelijkse apparaat configuratie back-ups worden niet geactiveerd totdat na 24 uur zijn verstreken. Werken met [Microsoft Support](storsimple-contact-microsoft-support.md) toomake een handmatige back-up van uw apparaat.
+> Na een vervangende dubbele domeincontroller nadat het StorSimple-apparaat is geconfigureerd, is het essentieel dat u rekening houden met een handmatige back-up van het apparaat. Dagelijkse apparaat configuratie back-ups worden niet geactiveerd totdat na 24 uur zijn verstreken. Werken met [Microsoft Support](storsimple-contact-microsoft-support.md) waarmee een handmatige back-up van uw apparaat.
 > 
 > 
 
 ### <a name="dual-controller-replacement-steps"></a>Dubbele domeincontroller vervanging stappen
-Deze werkstroom is vereist wanneer beide Hallo domeincontrollers in uw Microsoft Azure StorSimple-apparaat is mislukt. Dit kan gebeuren in een datacenter waarin Hallo koeling systeem werkt niet, en als gevolg hiervan beide domeincontrollers Hallo binnen een korte periode mislukken. Afhankelijk van of Hallo StorSimple-apparaat in- of uitgeschakeld, of u gebruikmaakt van een 8600 of een 8100-model, een andere reeks stappen is vereist.
+Deze werkstroom is vereist wanneer beide van de domeincontrollers in uw Microsoft Azure StorSimple-apparaat is mislukt. Dit kan gebeuren in een datacenter waarin de koeling systeem werkt niet, en als gevolg hiervan beide domeincontrollers binnen een korte periode mislukken. Afhankelijk van of in- of uitschakelen op het StorSimple-apparaat is ingeschakeld en of u gebruikmaakt van een 8600 of een 8100-model, is een andere set stappen vereist.
 
 > [!IMPORTANT]
-> Het kan Hallo controller toorestart 45 minuten too1 uur duren en volledig herstellen vanuit een dubbele domeincontroller vervangingsprocedure. Hallo totale tijd voor de volledige procedure hello, inclusief Hallo-kabels koppelen is ongeveer 2,5 uur.
+> Het kan tot 1 uur voor de controller te starten en volledig herstellen vanuit een dubbele domeincontroller vervangingsprocedure 45 minuten duren. De totale tijd voor de gehele procedure, is met inbegrip van de kabels koppelen ongeveer 2,5 uur.
 > 
 > 
 
-#### <a name="tooreplace-both-controller-modules"></a>tooreplace beide controller-modules
-1. Als Hallo-apparaat is uitgeschakeld, wordt deze stap overslaan en doorgaan toohello volgende stap. Als het Hallo-apparaat is ingeschakeld, Hallo apparaat uitschakelen.
+#### <a name="to-replace-both-controller-modules"></a>Beide modules controller vervangen
+1. Als het apparaat is uitgeschakeld, wordt deze stap overslaan en doorgaan met de volgende stap. Als het apparaat is ingeschakeld, schakelt u het apparaat uit.
    
-   1. Als u van een 8600 model gebruikmaakt, Hallo primaire behuizing eerste uitschakelen en vervolgens uitschakelen Hallo EBOD behuizing.
-   2. Wacht totdat het Hallo-apparaat volledig is afgesloten. Alle Hallo LED's in Hallo achterzijde Hallo apparaat worden uitgeschakeld.
-2. Verwijder alle Hallo netwerkkabels die verbonden toohello gegevenspoorten zijn. Als u een 8600 model gebruikt, moet u ook Hallo die SAS-kabels die verbinding maken met Hallo primaire behuizing toohello EBOD behuizing verwijderen.
-3. Beide domeincontrollers uit Hallo StorSimple-apparaat verwijderen. Zie voor meer informatie [verwijderen van een domeincontroller](#remove-a-controller).
-4. Plaatst u eerst Hallo factory vervanging voor Controller 0 en Controller 1 plaats. Zie voor meer informatie [invoegen van een domeincontroller](#insert-a-controller). Dit activeert Hallo dubbele domeincontroller vervanging logica. Zie voor meer informatie [dubbele domeincontroller vervanging logica](#dual-controller-replacement-logic).
-5. Tijdens het Hallo-controller vervanging logica verloopt op de achtergrond hello, maak opnieuw verbinding Hallo kabels. Zorg tooconnect die alle Hallo kabels Hallo exact dezelfde manier als ze zijn verbonden voordat de vervangende Hallo duren. Uw apparaat sectie voor gedetailleerde instructies voor het model in Hallo kabel Hallo [uw StorSimple 8100-apparaat installeert](storsimple-8100-hardware-installation.md) of [uw StorSimple 8600-apparaat installeert](storsimple-8600-hardware-installation.md).
-6. Hallo StorSimple-apparaat inschakelen. Als u een 8600-model:
+   1. Als u van een 8600-model gebruikmaakt, de primaire behuizing eerste uitschakelen en schakelt u de behuizing EBOD vervolgens.
+   2. Wacht totdat het apparaat volledig is afgesloten. Alle LED's aan de achterzijde van het apparaat worden uitgeschakeld.
+2. Verwijder de netwerkkabels die zijn verbonden met de gegevenspoorten. Als u een 8600 model gebruikt, moet u ook de SAS-kabels die verbinding maken met de primaire behuizing de behuizing EBOD verwijderen.
+3. Beide domeincontrollers van het StorSimple-apparaat verwijderen. Zie voor meer informatie [verwijderen van een domeincontroller](#remove-a-controller).
+4. Plaatst u eerst de factory vervanging voor Controller 0 en Controller 1 plaats. Zie voor meer informatie [invoegen van een domeincontroller](#insert-a-controller). Dit activeert de logica van de vervangende dubbele domeincontroller. Zie voor meer informatie [dubbele domeincontroller vervanging logica](#dual-controller-replacement-logic).
+5. Terwijl de logica van de vervangende domeincontroller op de achtergrond verloopt, sluit u de kabels. Verbinding maken van de kabels los precies dezelfde manier dat ze zijn verbonden voordat de vervangende zorgt. Raadpleeg de gedetailleerde instructies voor het model in de kabel uw apparaat-sectie van [uw StorSimple 8100-apparaat installeert](storsimple-8100-hardware-installation.md) of [uw StorSimple 8600-apparaat installeert](storsimple-8600-hardware-installation.md).
+6. Schakel op het StorSimple-apparaat. Als u een 8600-model:
    
-   1. Zorg ervoor dat Hallo EBOD behuizing eerste is ingeschakeld.
-   2. Wacht totdat het Hallo EBOD behuizing wordt uitgevoerd.
-   3. Hallo primaire behuizing inschakelen.
-   4. Nadat de eerste domeincontroller Hallo opnieuw is opgestart en in een foutloze toestand bevindt, wordt er Hallo systeem uitgevoerd.
+   1. Zorg ervoor dat de behuizing EBOD eerste is ingeschakeld.
+   2. Wacht totdat de behuizing EBOD wordt uitgevoerd.
+   3. Schakel op de primaire behuizing.
+   4. Nadat de eerste domeincontroller opnieuw is opgestart en in een foutloze toestand bevindt, wordt het systeem worden uitgevoerd.
       
       > [!NOTE]
-      > Als u een apparaat via de seriële console Hallo Hallo controleert, ziet u mogelijk meerdere opnieuw wordt opgestart tijdens het Hallo-controller wordt hersteld vanuit Hallo vervangingsprocedure. Wanneer Hallo seriële consolemenu wordt weergegeven, weet u dat Hallo vervanging voltooid is. Als u Hallo menu niet wordt weergegeven binnen 2,5 uur na het Hallo-controller vervanging wordt gestart, neemt u [contact op met Microsoft Support](storsimple-contact-microsoft-support.md).
+      > Als u het apparaat via de seriële console bewaakt, ziet u mogelijk meerdere opnieuw wordt opgestart tijdens het herstellen van de domeincontroller van de vervangingsprocedure. Wanneer de seriële console-menu wordt weergegeven, weet u dat de vervanging voltooid is. Als u het menu binnen 2,5 uur na het starten van de vervangende domeincontroller niet wordt weergegeven, neemt u [contact op met Microsoft Support](storsimple-contact-microsoft-support.md).
       > 
       > 
 
 ## <a name="remove-a-controller"></a>Verwijderen van een domeincontroller
-Hallo te volgen procedure tooremove een defecte controllermodule van uw StorSimple-apparaat gebruiken.
+Gebruik de volgende procedure een defecte controllermodule verwijderen uit uw StorSimple-apparaat.
 
 > [!NOTE]
-> Hallo volgende illustraties worden voor controller 0. Voor 1-controller, zou deze worden omgekeerd.
+> De volgende illustraties worden voor controller 0. Voor 1-controller, zou deze worden omgekeerd.
 > 
 > 
 
-#### <a name="tooremove-a-controller-module"></a>een controllermodule tooremove
-1. Hallo module vergrendeling tussen uw miniatuur en wijsvinger te vatten.
-2. De miniatuur en wijsvinger samen toorelease Hallo controller vergrendeling voorzichtig verondersteld.
+#### <a name="to-remove-a-controller-module"></a>Een controllermodule verwijderen
+1. De module vergrendeling tussen uw miniatuur en wijsvinger te vatten.
+2. Voorzichtig verondersteld uw miniatuur en wijsvinger samen voor vrijgave van de vergrendeling van de domeincontroller.
    
     ![Controller vergrendeling vrijgeven](./media/storsimple-controller-replacement/IC741047.png)
    
     **Afbeelding 2** vrijgeven controller vergrendeling
-3. Hallo vergrendeling als een domeincontroller ingang tooslide Hallo buiten Hallo chassis gebruiken.
+3. De vergrendeling als een ingang naar de domeincontroller buiten het chassis dia gebruiken.
    
     ![Verschuivend domeincontroller buiten het chassis](./media/storsimple-controller-replacement/IC741048.png)
    
-    **Afbeelding 3** schuifregelaar Hallo domeincontroller buiten het Hallo-chassis
+    **Afbeelding 3** Verschuivend van de domeincontroller buiten het chassis
 
 ## <a name="insert-a-controller"></a>Invoegen van een domeincontroller
-Hallo procedure tooinstall een controllermodule factory opgegeven te volgen nadat u een defecte module verwijderd van uw StorSimple-apparaat gebruiken.
+Gebruik de volgende procedure voor het installeren van een module factory opgegeven domeincontroller nadat u een defecte module verwijderd van uw StorSimple-apparaat.
 
-#### <a name="tooinstall-a-controller-module"></a>een controllermodule tooinstall
-1. Controleer toosee als er toohello schade interface connectors. Installeer geen Hallo module als een van de Hallo connector pincodes zijn beschadigd of verbogen.
-2. Schuif in Hallo chassis Hallo controllermodule tijdens het Hallo-vergrendeling volledig is vrijgegeven. 
+#### <a name="to-install-a-controller-module"></a>Een module van de domeincontroller te installeren
+1. Controleer of er een beschadiging van de interface-connectors is. Installeer de module niet als een van de connector pincodes zijn beschadigd of verbogen.
+2. Schuif de module domeincontroller in het chassis terwijl de vergrendeling is volledig vrijgegeven. 
    
     ![Controller Verschuivend in chassis](./media/storsimple-controller-replacement/IC741053.png)
    
-    **Afbeelding 4** schuifregelaar controller in Hallo-chassis
-3. Hallo-controller-module ingevoegd, beginnen Hallo vergrendeling tijdens de bewerking wordt voortgezet toopush Hallo controllermodule in Hallo chassis sluiten. Hallo vergrendeling wordt tooguide Hallo controller implemetatie benaderen.
+    **Afbeelding 4** schuifregelaar domeincontroller in het chassis
+3. Met de domeincontroller-module ingevoegd, gaan de vergrendeling sluiten terwijl u de module domeincontroller in het chassis push. De vergrendeling wordt uitgevoerd om te leiden van de domeincontroller naar de juiste plaats.
    
     ![Controller vergrendeling sluiten](./media/storsimple-controller-replacement/IC741054.png)
    
-    **Afbeelding 5** Hallo controller vergrendeling sluiten
-4. U kunt wanneer Hallo vergrendeling op de plaats waar uitlijnen klaar bent. Hallo **OK** LED worden nu op.  
+    **Afbeelding 5** sluiten van de domeincontroller-vergrendeling
+4. Wanneer de vergrendeling op de plaats waar uitlijnen voltooid. De **OK** LED worden nu op.  
    
    > [!NOTE]
-   > Too5 minuten voor Hallo controller en Hallo LED tooactivate kan duren.
+   > Het kan maximaal 5 minuten duren voordat de controller en de LED activeren.
    > 
    > 
-5. tooverify die Hallo vervanging is geslaagd, klikt u in Azure classic portal, ga te Hallo**apparaten** > **onderhoud** > **hardwarestatus**, en zorg ervoor dat zowel controller 0 en controller 1 zijn in orde (status groen is).
+5. Om te bevestigen dat de vervanging geslaagd, in de klassieke Azure portal is, gaat u naar **apparaten** > **onderhoud** > **hardwarestatus**, en Zorg ervoor dat zowel controller 0 en controller 1 in orde (status groen is).
 
-## <a name="identify-hello-active-controller-on-your-device"></a>De actieve controller Hallo op uw apparaat identificeren
-Er zijn velerlei situaties, zoals eerst apparaat registratie of controller vervanging waarvoor u toolocate Hallo actieve controller op een StorSimple-apparaat. de actieve controller Hallo verwerkt alle Hallo firmware en netwerken schijfbewerkingen. U kunt een van de volgende methoden tooidentify Hallo actieve controller Hallo gebruiken:
+## <a name="identify-the-active-controller-on-your-device"></a>De actieve controller op uw apparaat identificeren
+Er zijn velerlei situaties, zoals eerst apparaat registratie of controller vervangen, moet u de actieve controller op een StorSimple-apparaat niet vinden. De actieve controller verwerkt alle de firmware en netwerken schijfbewerkingen. U kunt een van de volgende methoden gebruiken voor het identificeren van de actieve controller:
 
-* [Hello Azure classic portal tooidentify Hallo actieve controller gebruiken](#use-the-azure-classic-portal-to-identify-the-active-controller)
-* [Gebruik Windows PowerShell voor StorSimple tooidentify Hallo actieve controller](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
-* [Hallo fysiek apparaat tooidentify Hallo actieve controller controleren](#check-the-physical-device-to-identify-the-active-controller)
+* [Gebruik de klassieke Azure portal om te identificeren van de actieve controller](#use-the-azure-classic-portal-to-identify-the-active-controller)
+* [Windows PowerShell voor StorSimple gebruiken voor het identificeren van de actieve controller](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
+* [Controleer het fysieke apparaat te identificeren van de actieve controller](#check-the-physical-device-to-identify-the-active-controller)
 
 Elk van deze procedures is nu beschreven.
 
-### <a name="use-hello-azure-classic-portal-tooidentify-hello-active-controller"></a>Hello Azure classic portal tooidentify Hallo actieve controller gebruiken
-In klassieke Azure-portal Hallo, te navigeren**apparaten** > **onderhoud**, en schuif toohello **domeincontrollers** sectie. Hier kunt u controleren welke domeincontroller actief is.
+### <a name="use-the-azure-classic-portal-to-identify-the-active-controller"></a>Gebruik de klassieke Azure portal om te identificeren van de actieve controller
+Navigeer in de klassieke Azure portal naar **apparaten** > **onderhoud**, en schuif naar de **domeincontrollers** sectie. Hier kunt u controleren welke domeincontroller actief is.
 
 ![Identificeren van de actieve controller in de klassieke Azure-portal](./media/storsimple-controller-replacement/IC752072.png)
 
-**Afbeelding 6** Azure classic portal weergeeft Hallo actieve controller
+**Afbeelding 6** klassieke Azure-portal met de actieve controller
 
-### <a name="use-windows-powershell-for-storsimple-tooidentify-hello-active-controller"></a>Gebruik Windows PowerShell voor StorSimple tooidentify Hallo actieve controller
-Wanneer u uw apparaat via de seriële console hello, is geen vaandelbericht opgenomen. banner het Hallo-bericht bevat basisinformatie over het apparaatgegevens zoals Hallo model, de naam, de versie van de geïnstalleerde software en de status van Hallo controller die krijgt u toegang tot. Hallo volgende afbeelding toont een voorbeeld van een bannerbericht:
+### <a name="use-windows-powershell-for-storsimple-to-identify-the-active-controller"></a>Windows PowerShell voor StorSimple gebruiken voor het identificeren van de actieve controller
+Wanneer u uw apparaat via de seriële console opent, wordt een bannerbericht wordt weergegeven. Het bericht banner bevat basisinformatie over het apparaatgegevens zoals het model, de naam, de versie van de geïnstalleerde software en de status van de domeincontroller die u wilt openen. De volgende afbeelding toont een voorbeeld van een bannerbericht:
 
 ![Seriële bannerbericht aangegeven](./media/storsimple-controller-replacement/IC741098.png)
 
 **Afbeelding 7** Banner bericht tonen controller 0 als actief
 
-U kunt Hallo banner bericht toodetermine of Hallo controller zijn toois actief of passief is verbonden.
+U kunt het bannerbericht aangegeven gebruiken om te bepalen of de domeincontroller die u met verbonden bent een actieve of passieve.
 
-### <a name="check-hello-physical-device-tooidentify-hello-active-controller"></a>Hallo fysiek apparaat tooidentify Hallo actieve controller controleren
-tooidentify hello actieve controller op uw apparaat Zoek Hallo blauw LED poortbereiken Hallo DATA 5 op Hallo achterzijde Hallo primaire behuizing.
+### <a name="check-the-physical-device-to-identify-the-active-controller"></a>Controleer het fysieke apparaat te identificeren van de actieve controller
+Voor het identificeren van de actieve controller op uw apparaat, zoek de blauwe geleid boven de 5-poort op de achterkant van de primaire behuizing.
 
-Als deze LED knippert, hello domeincontroller actief is en hello andere controller is in standby-modus. Hallo diagram na gebruik en tabel als hulpmiddel.
+Als deze LED knippert, de domeincontroller actief is en de andere controller in standby-modus is. Gebruik de volgende diagram en de volgende tabel als hulpmiddel.
 
 ![Apparaat primaire behuizing backplane met dataports](./media/storsimple-controller-replacement/IC741055.png)
 

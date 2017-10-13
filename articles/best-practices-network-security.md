@@ -1,6 +1,6 @@
 ---
-title: aanbevolen beveiligingsprocedures aaaAzure netwerk | Microsoft Docs
-description: Meer informatie over dat sommige van de belangrijkste functies die beschikbaar zijn in Azure toohelp Hallo beveiligde netwerkomgevingen maken
+title: Aanbevolen beveiligingsprocedures voor Azure-netwerk | Microsoft Docs
+description: Meer informatie over sommige van de belangrijkste functies die beschikbaar zijn in Azure voor het maken van beveiligde netwerkomgevingen
 services: virtual-network
 documentationcenter: na
 author: tracsman
@@ -14,302 +14,302 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: b851b2862428a8bd5e7525c85584fc1c14ffcabe
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Microsoft cloud services en netwerk-beveiliging
-Microsoft cloud-services leveren hyperschaal services en -infrastructuur, bedrijfsniveau mogelijkheden en veel keuzes voor hybride verbindingen. Klanten kunnen tooaccess deze services via Internet Hallo of met Azure ExpressRoute, waarmee u verbinding met het particuliere netwerk kiezen. Hallo Microsoft Azure-platform kan klanten tooseamlessly Hallo cloud kunnen hun infrastructuur uitbreiden en meerdere lagen architecturen bouwen. Bovendien kunt derden uitgebreide mogelijkheden inschakelen door het aanbieden van beveiligingsservices en virtuele apparaten. In dit artikel biedt een overzicht van beveiliging en architectuur problemen die klanten rekening houden moeten bij het gebruik van Microsoft-cloudservices is toegankelijk via ExpressRoute. Het omvat tevens veiliger services in Azure virtuele netwerken maken.
+Microsoft cloud-services leveren hyperschaal services en -infrastructuur, bedrijfsniveau mogelijkheden en veel keuzes voor hybride verbindingen. Klanten kunnen kiezen voor toegang tot deze services via Internet of met Azure ExpressRoute, waarmee u verbinding met het particuliere netwerk. Het Microsoft Azure-platform kan klanten probleemloos hun infrastructuur in de cloud uitbreiden en bouwen van meerdere lagen architecturen. Bovendien kunt derden uitgebreide mogelijkheden inschakelen door het aanbieden van beveiligingsservices en virtuele apparaten. In dit artikel biedt een overzicht van beveiliging en architectuur problemen die klanten rekening houden moeten bij het gebruik van Microsoft-cloudservices is toegankelijk via ExpressRoute. Het omvat tevens veiliger services in Azure virtuele netwerken maken.
 
 ## <a name="fast-start"></a>Snel starten
-Hallo volgende logica grafiek kunt u tooa specifiek voorbeeld Hallo directe veel beveiligingstechnieken beschikbaar met hello Azure-platform. Vinden voor snelle naslag Hallo voorbeeld die het beste past bij uw aanvraag. Uitgebreide uitleg blijven lezen via Hallo papier.
+De volgende logica-grafiek kunt sturen u een voorbeeld van een specifieke van veel beveiligingstechnieken beschikbaar met de Azure-platform. Voor snelle naslag vinden in het voorbeeld dat het beste past bij uw aanvraag. Uitgebreide uitleg blijven lezen via het papier.
 [![0]][0]
 
-[Voorbeeld 1: Een perimeternetwerk (ook wel DMZ, gedemilitariseerde zone of gescreend subnet) bouwen toohelp beveiligen toepassingen met netwerkbeveiligingsgroepen (nsg's).](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
-[Voorbeeld 2: Een perimeternetwerk bouwen netwerk toohelp toepassingen met een firewall en nsg's beveiligen.](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
-[Voorbeeld 3: Een perimeternetwerk bouwen netwerk toohelp netwerken met een firewall, de gebruiker gedefinieerde route (UDR) en het NSG beschermen.](#example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
+[Voorbeeld 1: Een perimeternetwerk (ook wel DMZ, gedemilitariseerde zone of gescreend subnet) ter bescherming van toepassingen met netwerkbeveiligingsgroepen (nsg's) maken.](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
+[Voorbeeld 2: Bouw een perimeternetwerk ter bescherming van toepassingen met een firewall en nsg's.](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
+[Voorbeeld 3: Een perimeternetwerk ter bescherming van netwerken met een firewall, de gebruiker gedefinieerde route (UDR) en het NSG bouwen.](#example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
 [Voorbeeld 4: Voeg een hybride verbinding met een site-naar-site, een virtueel apparaat virtueel particulier netwerk (VPN).](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>
 [Voorbeeld 5: Een hybride verbinding met een site-naar-site Azure VPN-gateway wordt toegevoegd.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-vpn-gateway)</br>
 [Voorbeeld 6: Een hybride verbinding met ExpressRoute toevoegen.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
-Voorbeelden voor het toevoegen van de verbindingen tussen virtuele netwerken, hoge beschikbaarheid en service-koppeling wordt toegevoegd toothis document via Hallo komende maanden.
+Voorbeelden voor het toevoegen van de verbindingen tussen virtuele netwerken, hoge beschikbaarheid en service-koppeling wordt toegevoegd aan dit document via de komende maanden.
 
 ## <a name="microsoft-compliance-and-infrastructure-protection"></a>Microsoft-naleving en infrastructuur beveiliging
-toohelp organisaties nationaal, regionaal, voldoen en branchespecifieke vereisten van bestuur Hallo verzamelen en gebruiken van personen gegevens, biedt Microsoft meer dan 40 certificeringen en verklaringen. Hallo meest uitgebreide instellen van een cloud serviceprovider.
+Waarmee organisaties kunnen voldoen aan de nationaal, regionaal en branchespecifieke vereisten voor het verzamelen en gebruiken van personen gegevens, biedt Microsoft meer dan 40 certificeringen en verklaringen. De meest uitgebreide set van een cloud serviceprovider.
 
-Zie voor meer informatie, informatie over de compatibiliteit van Hallo op Hallo [Microsoft Trust Center][TrustCenter].
+Zie de informatie over de compatibiliteit op voor meer informatie de [Microsoft Trust Center][TrustCenter].
 
-Microsoft heeft een uitgebreide benadering tooprotect infrastructuur die nodig is toorun hyperschaal globale cloudservices. Microsoft-cloudinfrastructuur omvat hardware, software, netwerken, en administratieve en medewerkers, Daarnaast toohello fysieke datacenters.
+Microsoft heeft een uitgebreide benadering van cloudinfrastructuur die nodig zijn voor het uitvoeren van de globale services hyperschaal beveiligen. Microsoft-cloudinfrastructuur omvat hardware, software, netwerken, en administratieve en medewerkers, naast de fysieke-datacenters.
 
 ![2]
 
-Deze aanpak geeft u een veiliger basis voor klanten toodeploy hun Hallo Microsoft cloud-services. de volgende stap Hallo is bedoeld voor klanten toodesign en maak een architectuur beveiliging tooprotect deze services.
+Deze aanpak biedt een veiliger basis voor klanten om hun services in de cloud van Microsoft te implementeren. De volgende stap is voor klanten ontwerpen en maken van een beveiligingsarchitectuur ter bescherming van deze services.
 
 ## <a name="traditional-security-architectures-and-perimeter-networks"></a>Traditionele beveiliging architecturen en perimeternetwerken
-Hoewel Microsoft sterk investeert in het beveiligen van de cloudinfrastructuur hello, moeten klanten ook beveiligen hun cloud-services en -resourcegroepen. Een meerlaagse benadering toosecurity biedt de beste verdediging Hallo. De beveiligingszone van een perimeter-netwerk beveiligt interne netwerkbronnen vanaf een niet-vertrouwd netwerk. Een perimeternetwerk verwijst toohello randen of het delen van Hallo netwerk tussen Hallo Internet en Hallo beveiligd enterprise IT-infrastructuur.
+Hoewel Microsoft sterk investeert in de cloudinfrastructuur beveiligen, moeten klanten ook beveiligen hun cloud-services en -resourcegroepen. Een benadering van meerlaagse beveiliging biedt de beste verdediging. De beveiligingszone van een perimeter-netwerk beveiligt interne netwerkbronnen vanaf een niet-vertrouwd netwerk. Een perimeternetwerk verwijst naar de randen of het delen van het netwerk tussen het Internet en de beveiligde enterprise IT-infrastructuur.
 
-In typische bedrijfsnetwerken wordt Hallo-basisinfrastructuur sterk verbeterd op Hallo-verbindingen met meerdere lagen beveiligingsapparaten. Hallo grens van elke laag bestaat uit de apparaten en beleid afdwingingspunten. Elke laag kan een combinatie van Hallo beveiliging netwerkapparaten volgende bevatten: firewalls, voorkomen van Denial of Service (DoS), inbraakdetectie of beveiliging systemen (id's / IP-Adressen) en VPN-apparaten. Afdwingen van beleid kan Hallo vorm van firewall-beleid, toegangsbeheerlijsten (ACL's) of specifieke routering krijgen. de eerste regel Hallo verdediging in Hallo netwerk rechtstreeks accepteren van binnenkomende verkeer van Hallo Internet, is een combinatie van deze mechanismen tooblock aanvallen en schadelijk verkeer terwijl verdere legitieme aanvragen in Hallo netwerk. Dit verkeer routeert rechtstreeks tooresources in het perimeternetwerk Hallo. Deze resource kan vervolgens "praten" tooresources dieper in Hallo netwerk, doorvoer Hallo volgende grens voor validatie van de eerste. Hallo buitenste laag wordt Hallo perimeternetwerk genoemd, omdat dit deel van het netwerk Hallo blootgestelde toohello Internet, meestal met een vorm van beveiliging aan beide zijden. Hallo toont volgende afbeelding een voorbeeld van een perimeternetwerk één subnet in een bedrijfsnetwerk met twee beveiligingsgrenzen.
+In typische ondernemingsnetwerken, wordt de basisinfrastructuur sterk verbeterd op zowel met meerdere lagen beveiligingsapparaten. De grens van elke laag bestaat uit de apparaten en beleid afdwingingspunten. Elke laag kan een combinatie van de volgende beveiliging netwerkapparaten bevatten: firewalls, voorkomen van Denial of Service (DoS), inbraakdetectie of beveiliging systemen (id's / IP-Adressen) en VPN-apparaten. Afdwingen van beleid kan duren voordat de vorm van de firewall-beleid, toegangsbeheerlijsten (ACL's) of specifieke routering. De eerste regel verdediging in het netwerk, rechtstreeks accepteren van binnenkomend verkeer vanaf Internet, is een combinatie van deze mechanismen voor blok aanvallen en schadelijk verkeer terwijl verdere legitieme aanvragen in het netwerk. Dit verkeer stuurt rechtstreeks naar de resources in het perimeternetwerk. Resource kan vervolgens "praten" bronnen dieper in het netwerk, door de volgende grens voor validatie van de eerste. De buitenste laag wordt het perimeternetwerk genoemd, omdat dit deel van het netwerk wordt blootgesteld aan Internet, meestal met een vorm van beveiliging aan beide zijden. De volgende afbeelding toont een voorbeeld van een perimeternetwerk één subnet in een bedrijfsnetwerk met twee beveiligingsgrenzen.
 
 ![3]
 
-Er zijn veel architecturen gebruikt tooimplement een perimeternetwerk. Deze architecturen kunnen variëren van een eenvoudige load balancer tooa meerdere subnetten perimeternetwerk met uiteenlopende mechanismen op elke grens tooblock verkeer en Hallo diepere lagen van het bedrijfsnetwerk Hallo beveiligen. Hoe Hallo perimeternetwerk wordt gemaakt, is afhankelijk van de specifieke behoeften Hallo van Hallo-organisatie en de algehele risicotolerantie.
+Er zijn vele architecturen die worden gebruikt voor het implementeren van een perimeternetwerk. Deze architecturen kunnen variëren van een eenvoudige load balancer met een perimeternetwerk met meerdere subnetten met verschillende mechanismen op elke grens aan verkeer blokkeren en Beveilig de diepere lagen van het bedrijfsnetwerk. Hoe het perimeternetwerk wordt gemaakt, is afhankelijk van de specifieke vereisten van de organisatie en de algehele risicotolerantie.
 
-Zoals klanten hun werkbelastingen toopublic clouds verplaatsen, is het essentieel toosupport vergelijkbare mogelijkheden voor perimeter netwerkarchitectuur in Azure toomeet naleving en de beveiligingsvereisten. Dit document bevat richtlijnen over hoe klanten een beveiligde netwerkomgeving in Azure kunnen samenstellen. Het is gericht op een perimeternetwerk hello, maar bevat ook een uitgebreide bespreking van veel aspecten van netwerkbeveiliging. Hallo vragen te volgen in deze discussie kennis:
+Terwijl klanten hun werkbelasting naar openbare clouds, is het essentieel dat u vergelijkbare functies ondersteunen voor perimeter netwerkarchitectuur in Azure om te voldoen aan het nalevings- en beveiligingsvereisten. Dit document bevat richtlijnen over hoe klanten een beveiligde netwerkomgeving in Azure kunnen samenstellen. Het is gericht op het perimeternetwerk, maar bevat ook een uitgebreide bespreking van veel aspecten van netwerkbeveiliging. Deze discussie in kennis van de volgende vragen:
 
 * Hoe kunt u een perimeternetwerk in Azure gemaakt?
-* Wat zijn enkele hello Azure-functies beschikbaar toobuild Hallo perimeternetwerk bevinden?
+* Wat zijn enkele van de Azure-functies beschikbaar zijn voor het perimeternetwerk bouwen?
 * Hoe kunnen back-end-werkbelastingen beveiligd?
-* Hoe weet Internet communicatie beheerd toohello werkbelastingen in Azure?
-* Hoe Hallo on-premises netwerken worden beschermd tegen implementaties in Azure?
+* Hoe worden internetcommunicatie bepaald aan de werkbelastingen in Azure?
+* Hoe de on-premises netwerken worden beschermd tegen implementaties in Azure?
 * Wanneer moeten systeemeigen Azure beveiligingsfuncties worden gebruikt in plaats van de apparaten van derden of services?
 
-Hallo volgende diagram toont de verschillende beveiligingslagen aan te brengen die Azure toocustomers biedt. Deze lagen zijn zowel systeemeigen in hello Azure-platform zelf en de klant gedefinieerde functies:
+Het volgende diagram toont de verschillende beveiligingslagen aan te brengen die Azure klanten biedt. Deze lagen zijn zowel systeemeigen in de Azure-platform zelf en de klant gedefinieerde functies:
 
 ![4]
 
-Binnenkomend van Hallo Internet, Azure DDoS tegen grootschalige aanvallen op Azure beschermt. de volgende laag Hallo is door de klant gedefinieerde openbare IP-adressen (eindpunten) die zijn gebruikt toodetermine welk verkeer Hallo cloud service toohello virtueel netwerk kunt doorgeven. Systeemeigen Azure virtuele netwerkisolatie garandeert volledige isolatie van alle andere netwerken en dat alleen via paden van de gebruiker die is geconfigureerd en methoden verkeersstromen. Deze paden en methoden zijn de volgende laag hello, waar nsg's, UDR en virtuele netwerkapparaten gebruikte toocreate beveiliging grenzen tooprotect Hallo implementaties van toepassingen in Hallo beveiligd netwerk kunnen worden.
+Binnenkomend verkeer vanaf Internet, Azure DDoS tegen grootschalige aanvallen op Azure beschermt. De volgende beveiligingslaag is door de klant gedefinieerde openbare IP-adressen (eindpunten) die worden gebruikt om te bepalen welk verkeer via de cloudservice kunt doorgeven aan het virtuele netwerk. Systeemeigen Azure virtuele netwerkisolatie garandeert volledige isolatie van alle andere netwerken en dat alleen via paden van de gebruiker die is geconfigureerd en methoden verkeersstromen. Deze paden en methoden zijn de volgende laag, waar de nsg's, UDR en virtuele netwerkapparaten kunnen worden gebruikt beveiligingsgrenzen ter bescherming van de implementaties van toepassingen in het beveiligde netwerk maken.
 
-de volgende sectie Hallo biedt een overzicht van virtuele netwerken in Azure. Deze virtuele netwerken worden gemaakt door klanten en wat hun geïmplementeerde werkbelastingen zijn verbonden met zijn. Virtuele netwerken zijn Hallo op basis van alle functies van het netwerk beveiliging Hallo tooestablish vereist een perimeternetwerk netwerk tooprotect implementaties van de klant in Azure.
+De volgende sectie biedt een overzicht van virtuele netwerken in Azure. Deze virtuele netwerken worden gemaakt door klanten en wat hun geïmplementeerde werkbelastingen zijn verbonden met zijn. Virtuele netwerken zijn het uitgangspunt voor alle netwerkbeveiligingsfuncties vereist tot stand brengen van een perimeternetwerk ter bescherming van implementaties van klanten in Azure.
 
 ## <a name="overview-of-azure-virtual-networks"></a>Overzicht van virtuele netwerken in Azure
-Voordat het internetverkeer krijgt toohello virtuele Azure-netwerken, zijn er twee lagen beveiliging inherent toohello Azure-platform:
+Voordat het internetverkeer toegang krijgen tot de virtuele netwerken in Azure, zijn er twee lagen beveiliging inherent aan het Azure-platform:
 
-1.    **DDoS-bescherming**: DDoS-bescherming is een laag met hello Azure fysiek netwerk waarnaar hello Azure-platform zelf tegen grootschalige aanvallen via Internet beschermt. Deze aanvallen meerdere 'bot' knooppunten in een poging toooverwhelm een internetservice gebruiken. Azure heeft een robuuste DDoS-bescherming net voor alle binnenkomende, uitgaande en meerdere Azure-regio connectiviteit. Deze laag DDoS-beveiliging heeft geen gebruiker configureerbare kenmerken en is niet toegankelijk toohello klant. Hallo DDoS beschermingslaag Azure beschermt als een platform van grootschalige aanvallen, ook wordt bewaakt uitgaande gebonden verkeer en meerdere Azure-regio. Met virtuele netwerkapparaten op Hallo VNet, worden extra verificatielagen herstelmogelijkheden geconfigureerd door de klant voor een kleinere schaal aanval die geen beveiliging op netwerkniveau Hallo platform krachtvoertuigen Hallo. Een voorbeeld van een DDoS in actie; Als een internetgericht IP-adres van een grootschalige DDoS-aanval is aangevallen, zou Azure Hallo bronnen Hallo aanvallen te detecteren en wissen Hallo verkeer foutieve voordat deze de bestemming bereikt. In bijna alle gevallen hello aangevallen eindpunt is niet van invloed op een aanval Hallo. Er is geen verkeer is in Hallo zeldzame gevallen heeft invloed op een eindpunt betrokken tooother eindpunten, aangevallen Hallo-eindpunt. Andere klanten en -services ziet geen gevolgen van deze aanval. Het is essentieel toonote die Azure DDoS alleen grootschalige aanvallen zoekt. Het is mogelijk dat uw specifieke service overbelast kan voordat Hallo platform beveiliging op netwerkniveau drempels zijn overschreden. Bijvoorbeeld: een website op een enkele A0 IIS-server kan offline worden gehaald van een DDoS-aanval voordat Azure-platform niveau DDoS-bescherming een bedreiging geregistreerd.
+1.    **DDoS-bescherming**: DDoS-bescherming wordt een laag van het Azure fysieke netwerk dat het Azure-platform zelf tegen aanvallen van grootschalige op het Internet beschermt. Deze aanvallen maken gebruik van meerdere 'bot' knooppunten in een poging een internetservice overbelast. Azure heeft een robuuste DDoS-bescherming net voor alle binnenkomende, uitgaande en meerdere Azure-regio connectiviteit. Deze laag DDoS-beveiliging heeft geen gebruiker configureerbare kenmerken en is niet toegankelijk voor de klant. De laag DDoS-beveiliging beveiligt Azure als een platform van grootschalige aanvallen, ook wordt bewaakt uitgaande gebonden verkeer en meerdere Azure-regio. Met virtuele netwerkapparaten in het VNet, worden extra verificatielagen herstelmogelijkheden geconfigureerd door de klant voor een kleinere schaal aanval die de beveiliging op netwerkniveau platform niet krachtvoertuigen. Een voorbeeld van een DDoS in actie; Als een internetgericht IP-adres van een grootschalige DDoS-aanval is aangevallen, zou Azure de bronnen van deze aanvallen te detecteren en de strijdige verkeer verwijderen voordat deze de bestemming bereikt. In bijna alle gevallen wordt niet het aangevallen eindpunt beïnvloed door de aanval. In het zeldzame gevallen heeft invloed op een eindpunt, wordt geen verkeer naar de andere eindpunten, alleen het aangevallen eindpunt beïnvloed. Andere klanten en -services ziet geen gevolgen van deze aanval. Het is essentieel om te weten dat Azure DDoS alleen grootschalige aanvallen zoekt. Het is mogelijk dat uw specifieke service overbelast kan voordat u de beveiliging op netwerkniveau platform drempelwaarden worden overschreden. Bijvoorbeeld: een website op een enkele A0 IIS-server kan offline worden gehaald van een DDoS-aanval voordat Azure-platform niveau DDoS-bescherming een bedreiging geregistreerd.
 
-2.  **Openbare IP-adressen**: openbare IP-adres (ingeschakeld via de service-eindpunten, openbare IP-adressen, Application Gateway en andere Azure-functies die een openbare IP-adres toohello internet doorgestuurd tooyour resource) adressen cloudservices toestaan of resourcegroepen toohave openbare Internet IP-adressen en poorten die worden weergegeven. Hallo-eindpunt maakt gebruik van NAT (Network Address Translation) tooroute verkeer toohello interne adres en poort op Hallo virtuele Azure-netwerk. Dit pad is Hallo primaire manier voor het externe verkeer toopass in Hallo virtueel netwerk. Hallo openbare IP-adressen zijn configureerbare toodetermine welk verkeer wordt doorgegeven in, en hoe en waar deze wordt omgezet in het virtuele netwerk toohello.
+2.  **Openbare IP-adressen**: openbare IP-adres (ingeschakeld via de service-eindpunten, openbare IP-adressen, Application Gateway en andere Azure-functies die een openbaar IP-adres met het internet doorgestuurd naar de resource) adressen worden gebruikt om cloudservices of bron groepen aanpassen aan het openbare Internet IP-adressen en poorten open zijn. Het eindpunt maakt gebruik van NAT (Network Address Translation) voor het routeren van verkeer naar de interne adres en poort op de virtuele Azure-netwerk. Dit pad is de belangrijkste manier voor het externe verkeer door te geven in het virtuele netwerk. Het openbare IP-adressen kunnen worden geconfigureerd om te bepalen welk verkeer is doorgegeven en hoe en waar deze wordt omgezet naar het virtuele netwerk.
 
-Zodra verkeer Hallo virtueel netwerk bereikt, zijn er veel functies die een rol spelen. Virtuele netwerken in Azure zijn fundering voor klanten tooattach Hallo hun werkbelasting en wanneer de basisprincipes van beveiliging op netwerkniveau wordt toegepast. Er is een particulier netwerk (een virtueel netwerk overlay) in Azure voor klanten met Hallo functies en kenmerken te volgen:
+Zodra verkeer het virtuele netwerk bereikt, zijn er veel functies die een rol spelen. Virtuele netwerken van Azure vormen de basis voor klanten om hun werkbelasting en waarin de basisprincipes van beveiliging op netwerkniveau van toepassing te koppelen. Een particulier netwerk (een virtueel netwerk overlay) is in Azure het voor klanten met de volgende functies en kenmerken:
 
-* **Isolatie van verkeer**: een virtueel netwerk is Hallo verkeer isolatiegrens op Hallo Azure-platform. Virtuele machines (VM's) in één virtueel netwerk kan niet communiceren rechtstreeks tooVMs in een ander virtueel netwerk, zelfs als beide virtuele netwerken worden gemaakt door Hallo dezelfde klant. Isolatie is een kritieke eigenschap die ervoor zorgt dat de klant VM's en communicatie blijft persoonlijke binnen een virtueel netwerk.
+* **Isolatie van verkeer**: een virtueel netwerk is de grens van de isolatie van verkeer op de Azure-platform. Virtuele machines (VM's) in één virtueel netwerk kan niet communiceren rechtstreeks met virtuele machines in een ander virtueel netwerk, zelfs als beide virtuele netwerken worden gemaakt van dezelfde klant. Isolatie is een kritieke eigenschap die ervoor zorgt dat de klant VM's en communicatie blijft persoonlijke binnen een virtueel netwerk.
 
 >[!NOTE]
->Isolatie van verkeer verwijst alleen tootraffic *inkomende* toohello virtueel netwerk. Standaard uitgaand verkeer van Hallo VNet toohello internet is toegestaan, maar kan worden voorkomen door het nsg's desgewenst.
+>Isolatie van verkeer verwijst alleen naar verkeer *inkomende* aan het virtuele netwerk. Standaard uitgaand verkeer van het VNet met het internet is toegestaan, maar kan worden voorkomen door het nsg's desgewenst.
 >
 >
 
-* **Topologie met meerdere niveaus**: virtuele netwerken kunnen klanten topologie met meerdere niveaus toodefine door het toewijzen van subnetten en het toewijzen van afzonderlijke adresruimten voor verschillende elementen of 'laag' van hun werkbelasting. Deze logische groeperingen en topologieën klanten toodefine ander-beleid op basis van het type van de workload Hallo inschakelen en ook bepalen verkeersstromen tussen Hallo lagen.
-* **Cross-premises connectiviteit**: klanten kunnen cross-premises-connectiviteit tussen een virtueel netwerk en meerdere on-premises sites of andere virtuele netwerken maken in Azure. een verbinding tooconstruct, klanten kunnen gebruiken VNet-Peering, Azure VPN-Gateways, virtuele apparaten van derden of ExpressRoute. Azure biedt ondersteuning voor site-naar-site (S2S) VPN-verbindingen met IPsec/IKE standaardprotocollen en ExpressRoute particuliere connectiviteit.
-* **NSG** klanten toocreate regels (ACL's) kunnen op Hallo gewenst niveau van granulatie: network interfaces, afzonderlijke virtuele machines of virtuele subnetten. Klanten kunnen toegang door toestaan of weigeren van communicatie tussen Hallo werkbelastingen binnen een virtueel netwerk, van systemen op klantnetwerken via cross-premises-connectiviteit te controleren of directe communicatie met Internet.
-* **UDR** en **doorsturen via IP** kunnen klanten toodefine Hallo communicatiepaden tussen verschillende lagen binnen een virtueel netwerk. Klanten kunnen een firewall, -id's / IP-Adressen en andere virtuele apparaten implementeren en netwerkverkeer te routeren via deze beveiligingsapparaten voor beveiliging grens wordt afgedwongen, controle en controle.
-* **Virtuele apparaten** in hello Azure Marketplace: beveiligingsapparaten, zoals firewalls, netwerktaakverdelers en id's / IP-Adressen beschikbaar zijn in hello Azure Marketplace en Hallo galerie voor VM-installatiekopie. Klanten kunnen deze apparaten naar hun virtuele netwerken en in het bijzonder op hun beveiligde netwerkomgeving van beveiliging grenzen (inclusief Hallo perimeter subnetten) toocomplete een meerdere lagen implementeren.
+* **Topologie met meerdere niveaus**: virtuele netwerken kunnen klanten topologie met meerdere niveaus door het toewijzen van subnetten en het toewijzen van afzonderlijke adresruimten voor verschillende elementen of 'laag' van hun werkbelasting definiëren. Deze logische groeperingen en topologieën kunnen klanten verschillende toegangsbeleid op basis van de typen werkbelasting definiëren en ook bepalen verkeersstromen tussen de lagen.
+* **Cross-premises connectiviteit**: klanten kunnen cross-premises-connectiviteit tussen een virtueel netwerk en meerdere on-premises sites of andere virtuele netwerken maken in Azure. Kan geen verbinding, kunnen klanten VNet-Peering, Azure VPN-Gateways, virtuele apparaten van derden of ExpressRoute gebruiken. Azure biedt ondersteuning voor site-naar-site (S2S) VPN-verbindingen met IPsec/IKE standaardprotocollen en ExpressRoute particuliere connectiviteit.
+* **NSG** kunnen klanten regels (ACL's) maken op het gewenste niveau van granulatie: network interfaces, afzonderlijke virtuele machines of virtuele subnetten. Klanten kunnen toegang door toestaan of weigeren van communicatie tussen de werkbelastingen binnen een virtueel netwerk, van systemen op klantnetwerken via cross-premises-connectiviteit te controleren of directe communicatie met Internet.
+* **UDR** en **doorsturen via IP** kunnen klanten voor het definiëren van de communicatiepaden voor de tussen de verschillende lagen binnen een virtueel netwerk. Klanten kunnen een firewall, -id's / IP-Adressen en andere virtuele apparaten implementeren en netwerkverkeer te routeren via deze beveiligingsapparaten voor beveiliging grens wordt afgedwongen, controle en controle.
+* **Virtuele apparaten** in Azure Marketplace: beveiligingsapparaten, zoals firewalls, netwerktaakverdelers en id's / IP-Adressen beschikbaar zijn in Azure Marketplace en de VM-installatiekopie-galerie. Klanten kunnen deze apparaten naar hun virtuele netwerken en in het bijzonder op hun beveiligingsgrenzen (inclusief de perimeter netwerksubnetten) implementeren voor het voltooien van een meerdere lagen beveiligde netwerkomgeving.
 
-Met deze functies en mogelijkheden is een voorbeeld van hoe een perimeter-netwerkarchitectuur kan worden samengesteld in Azure Hallo-diagram te volgen:
+Met deze functies en mogelijkheden is een voorbeeld van hoe een perimeter-netwerkarchitectuur kan worden samengesteld in Azure het volgende diagram:
 
 ![5]
 
 ## <a name="perimeter-network-characteristics-and-requirements"></a>Perimeter netwerkkenmerken en vereisten
-perimeternetwerk Hallo is Hallo-front-end van Hallo netwerk, rechtstreeks in aanraking komt communicatie van Hallo Internet. inkomende hello-pakketten moeten stromen Hallo beveiligingsapparaten, zoals firewall Hallo-id's en IP-Adressen, alvorens Hallo back-endservers. Door Hallo beveiligingsapparaten in het perimeternetwerk Hallo voor het afdwingen van beleid, controle en controledoeleinden voordat deze uit het Hallo-netwerk kunnen ook Internet bestemd pakketten van Hallo werkbelastingen stromen. Hallo perimeternetwerk kan bovendien cross-premises VPN-gateways tussen virtuele netwerken van klanten en on-premises netwerken te hosten.
+Het perimeternetwerk is de front-end van het netwerk, rechtstreeks in aanraking komt communicatie via Internet. De binnenkomende pakketten moeten door de beveiligingsapparaten, zoals de firewall, -id's en IP-Adressen, stromen alvorens de back-endservers. Internet-gebonden pakketten van de werkbelastingen die kunnen ook door de beveiligingsapparaten in het perimeternetwerk is bedoeld voor het afdwingen van beleid, controle en controledoeleinden, voordat deze uit het netwerk stromen. Het perimeternetwerk kan bovendien cross-premises VPN-gateways tussen virtuele netwerken van klanten en on-premises netwerken te hosten.
 
 ### <a name="perimeter-network-characteristics"></a>Perimeter-netwerkeigenschappen
-Verwijst naar de vorige afbeelding hello, zijn Hallo kenmerken van een goede perimeternetwerk als volgt:
+Verwijst naar de vorige afbeelding, zijn een deel van de kenmerken van een goede perimeternetwerk als volgt:
 
 * Internetgerichte:
-  * Hallo perimeter netwerksubnet zelf is internetgerichte, rechtstreeks communiceren met de Hallo Internet.
-  * Openbare IP-adressen, VIP's en/of service-eindpunten doorgeven Internet verkeer toohello front-netwerk en apparaten.
-  * Binnenkomend verkeer van Internet beveiligingsapparaten voordat andere bronnen op de front-endnetwerk Hallo passeert Hallo.
-  * Als u uitgaande beveiliging is ingeschakeld, passeert verkeer beveiligingsapparaten, als laatste stap hello, voordat deze toohello Internet.
+  * Het perimeternetwerk netwerksubnet zelf is internetgerichte, rechtstreeks communiceren met Internet.
+  * Openbare IP-adressen, VIP's en/of service-eindpunten die niet aan de front-end-netwerk en apparaten internetverkeer doorgeven.
+  * Binnenkomend verkeer van het Internet passeert beveiligingsapparaten voordat andere bronnen op de front-endnetwerk.
+  * Als u uitgaande beveiliging is ingeschakeld, passeert verkeer beveiligingsapparaten, als de laatste stap voordat het wordt doorgegeven met het Internet.
 * Beveiligd netwerk:
-  * Er is geen directe pad van de basisinfrastructuur voor Hallo Internet toohello.
-  * Kanalen toohello basisinfrastructuur moet passeren via beveiligingsapparaten, zoals het nsg's, firewalls of VPN-apparaten.
-  * Andere apparaten moeten niet via Internet en Hallo basisinfrastructuur overbruggen.
-  * Beveiligingsapparaten op beide internetgerichte Hallo en Hallo beveiligd netwerk geconfronteerd met grenzen van het perimeternetwerk hello (bijvoorbeeld Hallo twee firewall pictogrammen in de vorige afbeelding Hallo) kan in werkelijkheid bestaan uit een enkel virtueel apparaat met gedifferentieerde regels of interfaces voor elke grens. Bijvoorbeeld één fysieke apparaat, logisch van elkaar gescheiden, Hallo belasting voor beide grenzen van het perimeternetwerk Hallo verwerken.
+  * Er is geen directe pad van het Internet naar de basisinfrastructuur.
+  * De basisinfrastructuur kanalen moeten passeren via beveiligingsapparaten, zoals het nsg's, firewalls of VPN-apparaten.
+  * Andere apparaten moeten niet via Internet en de basisinfrastructuur overbruggen.
+  * Van beveiligingsapparaten op Internet gerichte en het beveiligde netwerk geconfronteerd met grenzen van het perimeternetwerk (bijvoorbeeld de twee firewall pictogrammen weergegeven in de vorige afbeelding) is een enkel virtueel apparaat met gedifferentieerde regels of interfaces daadwerkelijk mogelijk voor elke grens. Bijvoorbeeld één fysieke apparaat, logisch van elkaar gescheiden, voor het verwerken van de belasting voor beide grenzen van het perimeternetwerk.
 * Andere algemene procedures en beperkingen:
   * Werkbelastingen moeten essentiële bedrijfsgegevens niet opslaan.
-  * Toegang en updates tooperimeter netwerkconfiguraties en implementaties zijn beperkt tooonly geautoriseerd-beheerders.
+  * Toegang en updates voor perimeter netwerkconfiguraties en implementaties zijn beperkt tot alleen gemachtigde beheerders.
 
 ### <a name="perimeter-network-requirements"></a>Perimeter netwerkvereisten
-tooenable deze kenmerken, volgt u deze richtlijnen op virtueel netwerk vereisten tooimplement een geslaagde perimeternetwerk:
+Volg deze richtlijnen op virtueel netwerkvereisten voor het implementeren van een geslaagde perimeternetwerk zodat deze kenmerken:
 
-* **Subnet-architectuur:** Geef Hallo virtueel netwerk dat is een hele subnet als het perimeternetwerk hello toegewezen, gescheiden van andere subnetten in Hallo dezelfde virtueel netwerk. Deze scheiding zorgt ervoor dat Hallo-verkeer tussen het perimeternetwerk Hallo en andere interne of particuliere subnet lagen stromen via een firewall of een virtueel apparaat-id's / IP-Adressen.  Gebruiker gedefinieerde routes op Hallo grens subnetten zijn vereist tooforward dit verkeer toohello virtueel apparaat.
-* **NSG:** Hallo perimeter netwerksubnet zelf moet open tooallow communicatie met Internet hello, maar dat betekent niet dat klanten moeten de omzeilen nsg's. Volg algemene beveiliging procedures toominimize Hallo netwerk verwerkingsinformatie blootgesteld toohello Internet. Vergrendelen van externe adresbereiken Hallo toegestaan tooaccess Hallo implementaties of Hallo specifieke toepassingsprotocollen en poorten die geopend zijn. Mogelijk zijn er echter omstandigheden waarin een volledige Lockdown niet mogelijk is. Bijvoorbeeld, als klanten een externe website in Azure, perimeternetwerk Hallo Hallo binnenkomende webaanvragen van openbare IP-adressen moet toestaan, maar moet alleen Hallo web application poorten openen: TCP op poort 80 en/of TCP op poort 443.
-* **Routeringstabel:** Hallo perimeter netwerksubnet zelf moet kunnen toocommunicate toohello Internet rechtstreeks, maar mag niet worden tooand rechtstreekse communicatie van de back-end- of on-premises netwerken Hallo zonder tussenkomst van een firewall of beveiligingsapparaat.
-* **Beveiligingsconfiguratie toestel:** tooroute en inspecteren van pakketten tussen het perimeternetwerk Hallo en rest Hallo Hallo beveiligde netwerken, Hallo beveiligingsapparaten, zoals firewall, id's en IP-Adressen apparaten mogelijk multihomed. Ze hebben wellicht afzonderlijke NIC's voor het perimeternetwerk Hallo en Hallo back-end-subnetten. Hallo NIC's in het perimeternetwerk Hallo communiceren rechtstreeks tooand van Hallo Internet, hello bijbehorende nsg's en Hallo perimeter-routeringstabel. Hallo NIC's die verbinding maken met back-end-subnetten toohello beperkte meer nsg's en routeringstabellen van Hallo overeenkomstige back-end-subnetten.
-* **Functie voor beveiliging toestel:** Hallo beveiligingsapparaten meestal geïmplementeerd in het perimeternetwerk Hallo Hallo functionaliteit volgende uitvoeren:
-  * Firewall: Afdwingen firewallregels of beleid voor toegangsbeheer voor inkomende hello-aanvragen.
-  * Detectie en preventie van dreiging: opsporen en schadelijke aanvallen van Hallo Internet te beperken.
+* **Subnet-architectuur:** Geef het virtuele netwerk zodanig dat is een hele subnet als het perimeternetwerk toegewezen wordt gescheiden van andere subnetten in hetzelfde virtuele netwerk. Deze scheiding zorgt ervoor dat het verkeer tussen het perimeternetwerk en andere interne of particuliere subnet lagen stromen via een firewall of een virtueel apparaat-id's / IP-Adressen.  Gebruiker gedefinieerde routes op de grens subnetten zijn vereist voor het doorsturen van verkeer op het virtuele apparaat.
+* **NSG:** het perimeternetwerk netwerksubnet zelf moet open zijn voor de communicatie met Internet, maar dat betekent niet dat klanten moeten de omzeilen nsg's. Volg algemene beveiligingsprocedures voor het netwerk oppervlak blootgesteld aan Internet beperken. Vergrendelen op de externe adresbereiken toegang mogen krijgen tot de implementaties of de specifieke toepassingsprotocollen en poorten die geopend zijn. Mogelijk zijn er echter omstandigheden waarin een volledige Lockdown niet mogelijk is. Bijvoorbeeld, als klanten een externe website in Azure, het perimeternetwerk moet de binnenkomende webaanvragen van openbare IP-adressen toestaan, maar moet alleen de web application poorten openen: TCP op poort 80 en/of TCP op poort 443.
+* **Routeringstabel:** het perimeternetwerk netwerksubnet zelf moet rechtstreeks communiceren met het Internet, maar mag niet worden directe communicatie van en naar de back-end- of on-premises netwerken zonder gebruik te maken via een firewall of beveiliging apparaat.
+* **Beveiligingsconfiguratie toestel:** doorgestuurd en inspecteren van pakketten tussen het perimeternetwerk en de rest van de beveiligde netwerken, de beveiligingsapparaten, zoals firewall, id's en IP-Adressen apparaten mogelijk multihomed. Ze hebben wellicht gescheiden NIC's voor het perimeternetwerk en de back-end-subnetten. De NIC's in het perimeternetwerk communiceren rechtstreeks naar en van het Internet, met de bijbehorende nsg's en de netwerk-routeringstabel perimeternetwerk. De NIC's die verbinding maken met de back-end-subnetten hebben meer beperkte nsg's en routeringstabellen van de bijbehorende back-end-subnetten.
+* **Functie voor beveiliging toestel:** de beveiligingsapparaten meestal geïmplementeerd in het perimeternetwerk voeren de volgende functionaliteit:
+  * Firewall: Afdwingen firewallregels of beleid voor toegangsbeheer voor binnenkomende aanvragen.
+  * Detectie en preventie van dreiging: opsporen en schadelijke aanvallen via Internet te beperken.
   * Controle en logboekregistratie: gedetailleerde logboeken voor controle en analyse onderhouden.
-  * Omgekeerde proxy: toohello overeenkomende back-endservers omleiden Hallo binnenkomende aanvragen. Deze omleiding omvat het toewijzing en het vertalen van de Hallo doeladressen op Hallo front-apparaten, doorgaans firewalls toohello back-end-serveradressen.
-  * Proxy doorsturen: bieden NAT en het uitvoeren van controle-instellingen voor communicatie binnen Hallo virtueel netwerk toohello Internet vanaf gestart.
-  * Router: Doorsturen van binnenkomende en meerdere subnetten verkeer in het virtuele netwerk Hallo.
-  * VPN-apparaat: fungeert als Hallo cross-premises VPN-gateways voor cross-premises VPN-connectiviteit tussen klant on-premises netwerken en virtuele netwerken in Azure.
-  * VPN-server: VPN-clients verbinding maken met virtuele netwerken tooAzure accepteren.
+  * Omgekeerde proxy: de inkomende aanvragen omleiden naar de bijbehorende back-endservers. Deze omleiding omvat het toewijzing en meestal vertalen van de doel-adressen op de front-apparaten, firewalls, naar de back-endserver-adressen.
+  * Proxy doorsturen: bieden NAT en het uitvoeren van controle-instellingen voor communicatie vanaf binnen het virtuele netwerk gestart met het Internet.
+  * Router: Doorsturen van binnenkomende en meerdere subnetten verkeer binnen het virtuele netwerk.
+  * VPN-apparaat: fungeert als de cross-premises VPN-gateways voor cross-premises VPN-connectiviteit tussen klant on-premises netwerken en virtuele netwerken in Azure.
+  * VPN-server: voor het accepteren van VPN-clients verbinding maken met virtuele netwerken in Azure.
 
 > [!TIP]
-> Hallo na twee groepen aparte behouden: Hallo personen gemachtigd tooaccess Hallo perimeter netwerk beveiliging tandwielpictogram en Hallo personen geautoriseerd als beheerders voor ontwikkeling, -implementatie of -bewerkingen. Deze groepen en gescheiden te houden voor een scheiding van taken kunt voorkomen dat één persoon zowel beveiliging van toepassingen en besturingselementen voor de beveiliging.
+> Gescheiden houden van de volgende twee groepen: de personen die toegang hebben tot de perimeter network security versnelling en de personen die gemachtigd als beheerders voor ontwikkeling, -implementatie of -bewerkingen. Deze groepen en gescheiden te houden voor een scheiding van taken kunt voorkomen dat één persoon zowel beveiliging van toepassingen en besturingselementen voor de beveiliging.
 >
 >
 
-### <a name="questions-toobe-asked-when-building-network-boundaries"></a>Vragen toobe gevraagd tijdens het bouwen van de grenzen van netwerken
-In deze sectie tenzij specifiek vermeld, Hallo term "netwerken" verwijst tooprivate Azure virtuele netwerken die zijn gemaakt door de abonnementsbeheerder van een. Hallo term verwijst niet toohello onderliggende fysieke netwerken in Azure.
+### <a name="questions-to-be-asked-when-building-network-boundaries"></a>Vragen om te worden gevraagd tijdens het bouwen van de grenzen van netwerken
+In deze sectie tenzij specifiek vermeld, de term "netwerken" verwijst naar persoonlijke virtuele netwerken in Azure gemaakt door de abonnementsbeheerder van een. De term verwijst niet naar de onderliggende fysieke netwerken in Azure.
 
-Virtuele netwerken in Azure zijn ook vaak gebruikte tooextend traditionele on-premises netwerken. Het is mogelijk tooincorporate site-naar-site of ExpressRoute hybride oplossingen met perimeter netwerkarchitectuur netwerken. Deze hybride-koppeling is een belangrijk aandachtspunt bij het bouwen van beveiligingsgrenzen netwerk.
+Virtuele netwerken in Azure worden ook vaak gebruikt voor het uitbreiden van traditionele on-premises netwerken. Het is mogelijk site-naar-site of ExpressRoute hybride netwerkoplossingen met perimeter netwerkarchitectuur opnemen. Deze hybride-koppeling is een belangrijk aandachtspunt bij het bouwen van beveiligingsgrenzen netwerk.
 
-Hallo zijn volgende drie vragen kritieke tooanswer wanneer u bij het bouwen van een netwerk met een perimeternetwerk en meerdere beveiligingsgrenzen.
+De volgende drie vragen zijn te beantwoorden als u bij het bouwen van een netwerk met een perimeternetwerk en meerdere beveiligingsgrenzen kritieke.
 
 #### <a name="1-how-many-boundaries-are-needed"></a>1) hoeveel grenzen nodig zijn?
-de eerste beslissingspunt Hallo is toodecide hoeveel beveiligingsgrenzen nodig zijn in een bepaald scenario:
+De eerste beslissingspunt is om te bepalen hoeveel beveiligingsgrenzen nodig zijn in een bepaald scenario:
 
-* De grens van een enkele: één op Hallo front-perimeternetwerk, tussen Hallo virtuele netwerk en Internet Hallo.
-* Twee grenzen: een op Internet-zijde van het perimeternetwerk Hallo Hallo en een tussen Hallo perimeter netwerksubnet en Hallo back-end subnetten in Hallo virtuele netwerken in Azure.
-* Drie grenzen: één Hallo Internet-zijde van het perimeternetwerk hello, één tussen het perimeternetwerk Hallo en back-end-subnetten en één tussen Hallo back-end-subnetten en Hallo on-premises netwerk.
-* N grenzen: het nummer van een variabele. Afhankelijk van de beveiligingsvereisten geldt er geen limiet toohello aantal beveiligingsgrenzen die in een bepaalde netwerk kunnen worden toegepast.
+* De grens van een enkele: één op de front-perimeternetwerk, tussen het virtuele netwerk en Internet.
+* Twee grenzen: één met de Internet-zijde van het perimeternetwerk, en een andere tussen het perimeternetwerk netwerksubnet en de back-end-subnetten in de virtuele netwerken in Azure.
+* Drie grenzen: op de Internet-zijde van het perimeternetwerk, één tussen het perimeternetwerk en de back-end-subnetten en één tussen de back-end-subnetten en de on-premises netwerk.
+* N grenzen: het nummer van een variabele. Er is geen limiet aan het aantal beveiligingsgrenzen die in een bepaalde netwerk kunnen worden toegepast, afhankelijk van de beveiligingsvereisten.
 
-Hallo aantal en type grenzen nodig variëren op basis van een bedrijf risico tolerantie en Hallo specifieke scenario wordt geïmplementeerd. Deze beslissing wordt vaak samen met meerdere groepen binnen een organisatie, inclusief vaak een team risico en naleving, een netwerk en platform-team en het ontwikkelteam van een toepassing uitgevoerd. Mensen met kennis van beveiliging, Hallo gegevens die zijn betrokken en Hallo-technologieën worden gebruikt, moet een zeg hebben in deze beslissing tooensure Hallo geschikte beveiligingscontroles houding ten voor elke implementatie.
+Het aantal en type van grenzen hangt nodig gebaseerd op een bedrijf risicotolerantie en het specifieke scenario wordt geïmplementeerd. Deze beslissing wordt vaak samen met meerdere groepen binnen een organisatie, inclusief vaak een team risico en naleving, een netwerk en platform-team en het ontwikkelteam van een toepassing uitgevoerd. Mensen met kennis van beveiliging, de betrokken gegevens en de technologieën die wordt gebruikt, moet een zeg hebben in dit besluit om te controleren of de juiste beveiligingsrechten houding ten voor elke implementatie.
 
 > [!TIP]
-> Hallo kleinste aantal grenzen die voldoen aan de beveiligingsvereisten Hallo voor een bepaalde situatie gebruiken. Met meer grenzen kunnen bewerkingen en het oplossen van problemen moeilijker, evenals Hallo beheer-overhead voor het beheren van Hallo meerdere grens beleidsregels gedurende een bepaalde periode. Onvoldoende grenzen worden echter risico verhogen. Zoeken naar Hallo saldo is essentieel.
+> Gebruik het kleinste aantal grenzen die voldoen aan de beveiligingsvereisten voor een bepaalde situatie. Met meer grenzen bewerkingen en het oplossen van problemen kunnen lastig zijn meer, evenals de overhead voor het beheren van meerdere beleidsregels voor de grens gedurende een bepaalde periode. Onvoldoende grenzen worden echter risico verhogen. Zoeken naar het saldo is essentieel.
 >
 >
 
 ![6]
 
-Hallo toont voorgaande afbeelding een globaal overzicht van een netwerk met drie beveiliging grens. Hallo grenzen zijn tussen Hallo perimeternetwerk en Hallo Internet, hello Azure front-end en back-end particuliere subnetten, en hello Azure back-end-subnet en Hallo on-premises zakelijke netwerk.
+De voorgaande afbeelding toont een globaal overzicht van een netwerk met drie beveiliging grens. De grenzen zijn tussen het perimeternetwerk en Internet, de Azure front-end en back-end particuliere subnetten, en het Azure back-end-subnet en de on-premises zakelijke netwerk.
 
-#### <a name="2-where-are-hello-boundaries-located"></a>2) waar zich Hallo grenzen bevinden?
-Als Hallo aantal grenzen zijn besloten, waar ze is tooimplement volgende beslissingspunt Hallo. Er zijn doorgaans drie opties:
+#### <a name="2-where-are-the-boundaries-located"></a>2) waar zich de grenzen bevinden?
+Als het aantal grenzen zijn besloten, is waar u ze implementeren de volgende beslissingspunt. Er zijn doorgaans drie opties:
 
 * Met behulp van een Internet-gebaseerd tussenliggende-service (bijvoorbeeld een cloud-gebaseerde Web application firewall, dit niet in dit document beschreven wordt)
 * Gebruik systeemeigen functies en/of virtuele netwerkapparaten in Azure
-* Met behulp van fysieke apparaten op Hallo on-premises netwerk
+* Met behulp van fysieke apparaten op de on-premises netwerk
 
-Hallo-opties zijn systeemeigen Azure-functies (bijvoorbeeld Azure Load Balancers) op puur Azure-netwerken, of virtuele netwerkapparaten van Hallo uitgebreide partner ecosysteem van Azure (bijvoorbeeld firewalls Check Point).
+De opties zijn uitsluitend Azure netwerken systeemeigen Azure-functies (bijvoorbeeld Azure Load Balancers) of virtuele netwerkapparatuur van het ecosysteem van de uitgebreide partner van Azure (bijvoorbeeld firewalls Check Point).
 
-Als een grens is vereist tussen Azure en een on-premises netwerk, kunnen Hallo beveiligingsapparaten zich aan beide zijden van Hallo verbinding (of beide zijden). Een beslissing moet dus worden aangebracht op Hallo locatie tooplace beveiliging tandwielpictogram.
+Als een grens is vereist tussen Azure en een on-premises netwerk, kunnen de beveiligingsapparaten zich aan beide zijden van de verbinding (of beide zijden). Een beslissing moet dus worden aangebracht op de locatie beveiliging tandwielpictogram plaatsen.
 
-In de vorige afbeelding hello, de Internet-perimeternetwerk Hallo Hallo front-to-back-end grenzen volledig zijn opgenomen in Azure en moeten systeemeigen Azure-functies of virtuele netwerkapparaten. Van beveiligingsapparaten op Hallo grens tussen Azure (back-end subnet) en Hallo bedrijfsnetwerk kan worden op Hallo Azure aan clientzijde of Hallo lokale aan clientzijde of zelfs een combinatie van apparaten aan beide zijden. Kan er grote voordelen en nadelen tooeither optie die ernstig moet worden beschouwd.
+In de vorige afbeelding de Internet-perimeternetwerk en de front-to-back-end-grenzen volledig zijn opgenomen in Azure, en moeten systeemeigen Azure-functies of netwerk virtuele apparaten. Beveiligingsapparaten op de grens tussen Azure (back-end subnet) en het bedrijfsnetwerk kunnen zijn op de Azure-zijde of de lokale kant of zelfs een combinatie van apparaten aan beide zijden. Kan er aanzienlijke voordelen en nadelen van beide opties die ernstig moeten worden beschouwd.
 
-Bijvoorbeeld, gebruik bestaande fysieke beveiliging versnelling op Hallo on-premises netwerk heeft Hallo voordeel dat er geen nieuwe tandwielpictogram is vereist. Deze moet herconfiguratie. Hallo-nadeel is echter dat alle verkeer van Azure toohello lokale netwerk toobe gezien door Hallo beveiliging tandwielpictogram terugkeren moet. Dus Azure naar Azure-verkeer kan worden belangrijke latentie en invloed hebben op prestaties en gebruikerservaring van toepassing, als back-toohello is afgedwongen op het lokale netwerk voor beveiliging wordt afgedwongen.
+Bijvoorbeeld, heeft met behulp van bestaande fysieke beveiliging versnelling op het lokale netwerk aan clientzijde het voordeel dat er geen nieuwe tandwielpictogram is vereist. Deze moet herconfiguratie. Het nadeel is echter dat alle verkeer van Azure naar de on-premises netwerk terugkeren moet kunnen worden bekeken door de versnelling beveiliging. Dus Azure naar Azure verkeer aanzienlijke latentie veroorzaken en invloed op toepassingsprestaties en gebruikerservaring, als deze is gedwongen terug naar de on-premises netwerk voor de beveiliging wordt afgedwongen.
 
-#### <a name="3-how-are-hello-boundaries-implemented"></a>3) de wijze waarop zijn Hallo grenzen geïmplementeerd?
-Elke beveiligingsgrens wordt waarschijnlijk hebben verschillende vereisten (bijvoorbeeld-id's en firewallregels op Hallo Internet kant van het perimeternetwerk hello, maar alleen ACL's tussen Hallo perimeternetwerk en het subnet van de back-end). Bepalen op welke apparaat (of het aantal apparaten) toouse is afhankelijk van Hallo scenario en beveiligingsvereisten. In de Hallo volgende sectie, besproken voorbeelden 1, 2 en 3 enkele mogelijkheden die kunnen worden gebruikt. Hello Azure systeemeigen netwerkfuncties en beschikbaar zijn in Azure uit ecosysteem voor partners Hallo Hallo-apparaten te controleren, toont Hallo allerlei opties beschikbaar toosolve vrijwel elk scenario.
+#### <a name="3-how-are-the-boundaries-implemented"></a>3) hoe worden de grenzen geïmplementeerd?
+Elke beveiligingsgrens wordt waarschijnlijk hebben verschillende vereisten (bijvoorbeeld-id's en firewallregels voor de Internet-zijde van het perimeternetwerk, maar alleen ACL's tussen het perimeternetwerk en het subnet van de back-end). Bepalen waarop apparaat (of het aantal apparaten) gebruiken afhankelijk van de vereisten voor het scenario en beveiliging. In de volgende sectie bespreken voorbeelden 1, 2 en 3 enkele mogelijkheden die kunnen worden gebruikt. De functies systeemeigen Azure-netwerk en de apparaten die beschikbaar zijn in Azure uit het ecosysteem van de partner te controleren, ziet u de allerlei opties die beschikbaar zijn voor het oplossen van vrijwel elk scenario.
 
-Een ander beslissingspunt voor de implementatie van de sleutel is hoe tooconnect Hallo lokale netwerk met Azure. Moet u hello Azure virtuele gateway of een virtueel netwerkapparaat gebruiken? Deze opties worden in de volgende sectie (voorbeelden 4, 5 en 6) Hallo uitgebreider besproken.
+Een ander beslissingspunt voor de implementatie van de sleutel is hoe u de on-premises netwerk verbindt met Azure. Moet u de virtuele Azure-gateway of een virtueel netwerkapparaat gebruiken? Deze opties worden behandeld in meer detail in de volgende sectie (voorbeelden 4, 5 en 6).
 
-Bovendien het verkeer tussen virtuele netwerken in Azure nodig. Deze scenario's worden toegevoegd in toekomstige Hallo.
+Bovendien het verkeer tussen virtuele netwerken in Azure nodig. Deze scenario's worden in de toekomst toegevoegd.
 
-Zodra u Hallo-antwoorden toohello vorige vragen weet, Hallo [snel starten](#fast-start) sectie kunt achterhalen welke voorbeelden zijn het meest geschikt is voor een bepaald scenario.
+Zodra u de antwoorden op de vorige vragen, weet de [snel starten](#fast-start) sectie kunt achterhalen welke voorbeelden zijn het meest geschikt is voor een bepaald scenario.
 
 ## <a name="examples-building-security-boundaries-with-azure-virtual-networks"></a>Voorbeelden: Beveiligingsgrenzen met virtuele netwerken in Azure bouwen
-### <a name="example-1-build-a-perimeter-network-toohelp-protect-applications-with-nsgs"></a>Voorbeeld 1 Build een perimeternetwerk netwerk toohelp toepassingen met nsg's beveiligen
-[Back-tooFast start](#fast-start) | [gedetailleerde instructies voor dit voorbeeld bouwen][Example1]
+### <a name="example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs"></a>Voorbeeld 1 bouwen in een perimeternetwerk te beschermen toepassingen met nsg 's
+[Terug naar de snel starten](#fast-start) | [gedetailleerde instructies voor dit voorbeeld bouwen][Example1]
 
 [![7]][7]
 
 #### <a name="environment-description"></a>Beschrijving van de omgeving
-In dit voorbeeld zijn er is een abonnement met Hallo resources te volgen:
+In dit voorbeeld is er een abonnement met de volgende resources:
 
 - Één resourcegroep
 - Een virtueel netwerk met twee subnetten: 'FrontEnd' en back-end'
-- Een Netwerkbeveiligingsgroep die toegepaste tooboth subnetten
+- Een Netwerkbeveiligingsgroep dat wordt toegepast op beide subnetten
 - Een Windows-server waarmee een toepassing webserver ('IIS01')
 - Twee Windows-servers die vertegenwoordigen toepassingsservers van back-end ('AppVM01', 'AppVM02')
 - Een Windows-server met een DNS-server ('DNS01')
-- Een openbaar IP-adres die zijn gekoppeld aan de webserver Hallo-toepassing
+- Een openbaar IP-adres die zijn gekoppeld aan de webserver van de toepassing
 
-Zie voor scripts en een Azure Resource Manager-sjabloon Hallo [gedetailleerde instructies voor de build][Example1].
+Zie voor scripts en een Azure Resource Manager-sjabloon de [gedetailleerde instructies voor de build][Example1].
 
 #### <a name="nsg-description"></a>NSG-beschrijving
 In dit voorbeeld is een groep NSG gebouwd en vervolgens met zes regels worden geladen.
 
 > [!TIP]
-> In het algemeen moet u maken uw specifieke regels voor 'Toestaan' eerst, gevolgd door Hallo algemene regels voor ' toestaan'. Hallo prioriteit bepaalt welke regels eerst worden geëvalueerd. Als verkeer tooapply tooa specifieke regel gevonden wordt, wordt er geen verdere regels worden geëvalueerd. NSG-regels kunnen toepassen in een Hallo binnenkomende of uitgaande richting (vanuit het perspectief van de Hallo van Hallo subnet).
+> Over het algemeen moet u uw specifieke regels voor 'Toestaan' eerst, gevolgd door de algemene regels voor "Deny". De opgegeven prioriteit bepaalt welke regels eerst worden geëvalueerd. Als verkeer toepassen op een specifieke regel wordt gevonden, wordt er geen verdere regels worden geëvalueerd. NSG-regels kunnen toepassen in de binnenkomende of uitgaande richting (vanuit het perspectief van het subnet).
 >
 >
 
-Declaratief, worden Hallo volgens de regels voor binnenkomend verkeer gebouwd:
+De volgende regels zijn declaratief, gebouwd voor binnenkomend verkeer:
 
 1. Interne DNS-verkeer (poort 53) is toegestaan.
-2. RDP-verkeer (poort 3389) van Hallo Internet tooany virtuele Machine is toegestaan.
-3. HTTP-verkeer (poort 80) van Hallo tooweb internetserver (IIS01) is toegestaan.
-4. Verkeer (alle poorten) van IIS01 tooAppVM1 is toegestaan.
-5. Verkeer (alle poorten) met Hallo Internet toohello volledige virtuele netwerk (beide subnetten) is geweigerd.
-6. Verkeer (alle poorten) van Hallo front-end-subnet toohello back-end-subnet is geweigerd.
+2. RDP-verkeer (poort 3389) van het Internet aan een virtuele Machine is toegestaan.
+3. HTTP-verkeer (poort 80) van het Internet met webserver (IIS01) is toegestaan.
+4. Alle verkeer (alle poorten) van IIS01 naar AppVM1 is toegestaan.
+5. Al het verkeer (alle poorten) van het Internet naar het volledige virtuele netwerk (beide subnetten) is geweigerd.
+6. Verkeer (alle poorten) van de front-end-subnet met het subnet voor back-end is geweigerd.
 
-Met deze regels gebonden tooeach-subnet als een HTTP-aanvraag was binnenkomend van Hallo Internet toohello webserver beide regels 3 (toestaan) en 5 (weigeren) toepassing zou zijn. Maar omdat regel 3 een hogere prioriteit heeft, alleen zou worden toegepast en regel 5 niet in de play zou komen. Hallo HTTP-aanvraag zou dus toohello webserver toegestaan. Als dat dezelfde verkeer tooreach hello DNS01 server probeert is, regel 5 (weigeren) Hallo eerste tooapply en Hallo verkeer zou niet toegestaan toopass toohello server zou zijn. Regel 6 (weigeren) blokken Hallo front-end-subnet uit praten toohello back-end-subnet (met uitzondering van toegestane verkeer in regels 1 en 4). Deze regelset beschermt Hallo back-endnetwerk als een aanvaller wordt aangetast Hallo webtoepassing op Hallo-front-end. Hallo aanvaller zou hebben beperkte toegang tot toohello back-end 'beveiligde' netwerk (alleen tooresources blootgesteld op Hallo AppVM01 server).
+Met deze regels gekoppeld aan elk subnet als een HTTP-aanvraag inkomende verkeer van Internet naar de webserver, beide regels 3 was (toestaan) en 5 (weigeren) toepassing zou zijn. Maar omdat regel 3 een hogere prioriteit heeft, alleen zou worden toegepast en regel 5 niet in de play zou komen. De HTTP-aanvraag zou dus naar de webserver worden toegestaan. Als dat dezelfde verkeer is probeert de server DNS01 bereiken, regel 5 (weigeren) zijn de eerste om toe te passen en het verkeer niet mogen worden doorgegeven aan de server. Regel 6 (weigeren) blokkeert het front-end-subnet van het praten met het subnet van de back-end (met uitzondering van toegestane verkeer in regels 1 en 4). Deze regelset beschermt de back-endnetwerk als een aanvaller de webtoepassing op de front-end wordt aangetast. De aanvaller zou beperkt toegang tot het 'beveiligde' back-end-netwerk (alleen voor resources weergegeven op de server AppVM01).
 
-Er is een uitgaande standaardregel waarmee verkeer van toohello Internet. Voor dit voorbeeld bent we uitgaand verkeer toestaat en alle regels voor uitgaande verbindingen niet wijzigen. toolock omlaag verkeer in beide richtingen gebruiker gedefinieerde routering is vereist (Zie voorbeeld 3).
+Er is een uitgaande standaardregel waarmee uitgaand verkeer naar Internet. Voor dit voorbeeld bent we uitgaand verkeer toestaat en alle regels voor uitgaande verbindingen niet wijzigen. Als u wilt vergrendelen verkeer in beide richtingen, gebruiker gedefinieerde routering is vereist (Zie voorbeeld 3).
 
 #### <a name="conclusion"></a>Conclusie
-In dit voorbeeld is een relatief eenvoudig en snel manier Hallo back-end subnet uit binnenkomend verkeer isoleren. Zie voor meer informatie, Hallo [gedetailleerde instructies voor de build][Example1]. Deze instructies zijn onder andere:
+In dit voorbeeld is een relatief eenvoudig en snel manier van het subnet van de back-end van binnenkomend verkeer isoleren. Zie voor meer informatie de [gedetailleerde instructies voor de build][Example1]. Deze instructies zijn onder andere:
 
-* Hoe toobuild deze perimeter netwerk met klassieke PowerShell-scripts.
-* Hoe toobuild deze perimeter netwerk met een Azure Resource Manager-sjabloon.
+* Het bouwen van deze perimeternetwerk met klassieke PowerShell-scripts.
+* Het bouwen van deze perimeternetwerk met een Azure Resource Manager-sjabloon.
 * Gedetailleerde beschrijvingen van elke NSG-opdracht.
 * Gedetailleerde verkeer stroom scenario's, die laat zien hoe het verkeer wordt toegestaan of geweigerd in elke laag.
 
 
-### <a name="example-2-build-a-perimeter-network-toohelp-protect-applications-with-a-firewall-and-nsgs"></a>Voorbeeld 2 Build een perimeternetwerk netwerk toohelp toepassingen met een firewall en nsg's beveiligen
-[Back-tooFast start](#fast-start) | [gedetailleerde instructies voor dit voorbeeld bouwen][Example2]
+### <a name="example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs"></a>Voorbeeld 2 een perimeternetwerk te beschermen toepassingen met een firewall en nsg's maken
+[Terug naar de snel starten](#fast-start) | [gedetailleerde instructies voor dit voorbeeld bouwen][Example2]
 
 [![8]][8]
 
 #### <a name="environment-description"></a>Beschrijving van de omgeving
-In dit voorbeeld zijn er is een abonnement met Hallo resources te volgen:
+In dit voorbeeld is er een abonnement met de volgende resources:
 
 * Één resourcegroep
 * Een virtueel netwerk met twee subnetten: 'FrontEnd' en back-end'
-* Een Netwerkbeveiligingsgroep die toegepaste tooboth subnetten
-* Een virtueel netwerkapparaat, in dit geval een firewall, verbonden toohello front-end-subnet
+* Een Netwerkbeveiligingsgroep dat wordt toegepast op beide subnetten
+* Een virtueel netwerkapparaat, in dit geval een firewall, verbonden met het front-end-subnet
 * Een Windows-server waarmee een toepassing webserver ('IIS01')
 * Twee Windows-servers die vertegenwoordigen toepassingsservers van back-end ('AppVM01', 'AppVM02')
 * Een Windows-server met een DNS-server ('DNS01')
 
-Zie voor scripts en een Azure Resource Manager-sjabloon Hallo [gedetailleerde instructies voor de build][Example2].
+Zie voor scripts en een Azure Resource Manager-sjabloon de [gedetailleerde instructies voor de build][Example2].
 
 #### <a name="nsg-description"></a>NSG-beschrijving
 In dit voorbeeld is een groep NSG gebouwd en vervolgens met zes regels worden geladen.
 
 > [!TIP]
-> In het algemeen moet u maken uw specifieke regels voor 'Toestaan' eerst, gevolgd door Hallo algemene regels voor ' toestaan'. Hallo prioriteit bepaalt welke regels eerst worden geëvalueerd. Als verkeer tooapply tooa specifieke regel gevonden wordt, wordt er geen verdere regels worden geëvalueerd. NSG-regels kunnen toepassen in een Hallo binnenkomende of uitgaande richting (vanuit het perspectief van de Hallo van Hallo subnet).
+> Over het algemeen moet u uw specifieke regels voor 'Toestaan' eerst, gevolgd door de algemene regels voor "Deny". De opgegeven prioriteit bepaalt welke regels eerst worden geëvalueerd. Als verkeer toepassen op een specifieke regel wordt gevonden, wordt er geen verdere regels worden geëvalueerd. NSG-regels kunnen toepassen in de binnenkomende of uitgaande richting (vanuit het perspectief van het subnet).
 >
 >
 
-Declaratief, worden Hallo volgens de regels voor binnenkomend verkeer gebouwd:
+De volgende regels zijn declaratief, gebouwd voor binnenkomend verkeer:
 
 1. Interne DNS-verkeer (poort 53) is toegestaan.
-2. RDP-verkeer (poort 3389) van Hallo Internet tooany virtuele Machine is toegestaan.
-3. Een Internet-verkeer (alle poorten) toohello virtueel netwerkapparaat (firewall) is toegestaan.
-4. Verkeer (alle poorten) van IIS01 tooAppVM1 is toegestaan.
-5. Verkeer (alle poorten) met Hallo Internet toohello volledige virtuele netwerk (beide subnetten) is geweigerd.
-6. Verkeer (alle poorten) van Hallo front-end-subnet toohello back-end-subnet is geweigerd.
+2. RDP-verkeer (poort 3389) van het Internet aan een virtuele Machine is toegestaan.
+3. Alle internetverkeer (alle poorten) op het virtuele netwerk-apparaat (firewall) is toegestaan.
+4. Alle verkeer (alle poorten) van IIS01 naar AppVM1 is toegestaan.
+5. Al het verkeer (alle poorten) van het Internet naar het volledige virtuele netwerk (beide subnetten) is geweigerd.
+6. Verkeer (alle poorten) van de front-end-subnet met het subnet voor back-end is geweigerd.
 
-Met deze regels gebonden tooeach-subnet als een HTTP-aanvraag was binnenkomend van Hallo toohello firewall voor Internet-beide regels 3 (toestaan) en 5 (weigeren) toepassing zou zijn. Maar omdat regel 3 een hogere prioriteit heeft, alleen zou worden toegepast en regel 5 niet in de play zou komen. Hallo HTTP-aanvraag zou dus toohello firewall toegestaan. Als dat dezelfde verkeer tooreach hello IIS01 server, probeerde zelfs als het op de front-end-subnet hello, regel 5 (weigeren) toepassing zou zijn, en Hallo verkeer zou mag niet worden toopass toohello server. Regel 6 (weigeren) blokken Hallo front-end-subnet uit praten toohello back-end-subnet (met uitzondering van toegestane verkeer in regels 1 en 4). Deze regelset beschermt Hallo back-endnetwerk als een aanvaller wordt aangetast Hallo webtoepassing op Hallo-front-end. Hallo aanvaller zou hebben beperkte toegang tot toohello back-end 'beveiligde' netwerk (alleen tooresources blootgesteld op Hallo AppVM01 server).
+Met deze regels gekoppeld aan elk subnet als een HTTP-aanvraag inkomende verkeer van Internet aan de firewall, beide regels 3 was (toestaan) en 5 (weigeren) toepassing zou zijn. Maar omdat regel 3 een hogere prioriteit heeft, alleen zou worden toegepast en regel 5 niet in de play zou komen. De HTTP-aanvraag zou dus mag worden de firewall. Als dat dezelfde verkeer is probeert te bereiken van de server IIS01, zelfs als het op de front-end-subnet, regel 5 (weigeren) toepassing zou zijn, en het verkeer zou niet moeten worden doorgegeven aan de server is toegestaan. Regel 6 (weigeren) blokkeert het front-end-subnet van het praten met het subnet van de back-end (met uitzondering van toegestane verkeer in regels 1 en 4). Deze regelset beschermt de back-endnetwerk als een aanvaller de webtoepassing op de front-end wordt aangetast. De aanvaller zou beperkt toegang tot het 'beveiligde' back-end-netwerk (alleen voor resources weergegeven op de server AppVM01).
 
-Er is een uitgaande standaardregel waarmee verkeer van toohello Internet. Voor dit voorbeeld bent we uitgaand verkeer toestaat en alle regels voor uitgaande verbindingen niet wijzigen. toolock omlaag verkeer in beide richtingen gebruiker gedefinieerde routering is vereist (Zie voorbeeld 3).
+Er is een uitgaande standaardregel waarmee uitgaand verkeer naar Internet. Voor dit voorbeeld bent we uitgaand verkeer toestaat en alle regels voor uitgaande verbindingen niet wijzigen. Als u wilt vergrendelen verkeer in beide richtingen, gebruiker gedefinieerde routering is vereist (Zie voorbeeld 3).
 
 #### <a name="firewall-rule-description"></a>De beschrijving van de firewall-regel
-Hallo-firewall voor moet het doorsturen van regels worden gemaakt. Omdat dit voorbeeld alleen routes Internet verkeer in de gebonden toohello firewall en vervolgens toohello webserver, slechts één doorsturen netwerkadresomzetting (NAT) wordt regel vereist.
+Op de firewall moet doorsturen regels worden gemaakt. Omdat hierbij alleen routes internetverkeer in is gebonden aan de firewall en vervolgens naar de webserver slechts één doorsturen netwerkadresomzetting (NAT) wordt regel vereist.
 
-Hallo doorsturen regel accepteert inkomende bronadres dat treffers Hallo firewall probeert tooreach HTTP (poort 80 of 443 voor HTTPS). Deze heeft verzonden buiten de lokale interface van Hallo firewall en toohello webserver met IP-adres van 10.0.1.5 Hallo omgeleid.
+De regel voor doorsturen accepteert alle binnenkomende bronadressen die treffers in de firewall probeert te bereiken HTTP (poort 80 of 443 voor HTTPS). Deze heeft verzonden buiten de firewall lokale interface en omgeleid naar de webserver met het IP-adres van 10.0.1.5.
 
 #### <a name="conclusion"></a>Conclusie
-In dit voorbeeld is een relatief eenvoudige manier van het beveiligen van uw toepassing met een firewall en Hallo back-end subnet uit binnenkomend verkeer isoleren. Zie voor meer informatie, Hallo [gedetailleerde instructies voor de build][Example2]. Deze instructies zijn onder andere:
+In dit voorbeeld is een relatief eenvoudige manier van het beveiligen van uw toepassing met een firewall en het subnet van de back-end van binnenkomend verkeer isoleren. Zie voor meer informatie de [gedetailleerde instructies voor de build][Example2]. Deze instructies zijn onder andere:
 
-* Hoe toobuild deze perimeter netwerk met klassieke PowerShell-scripts.
-* Hoe toobuild in dit voorbeeld met een Azure Resource Manager-sjabloon.
+* Het bouwen van deze perimeternetwerk met klassieke PowerShell-scripts.
+* Het bouwen van dit voorbeeld met een Azure Resource Manager-sjabloon.
 * Gedetailleerde beschrijvingen van elke NSG-opdracht en firewall-regel.
 * Gedetailleerde verkeer stroom scenario's, die laat zien hoe het verkeer wordt toegestaan of geweigerd in elke laag.
 
-### <a name="example-3-build-a-perimeter-network-toohelp-protect-networks-with-a-firewall-and-udr-and-nsg"></a>Voorbeeld 3 Build een perimeternetwerk netwerk toohelp netwerken met een firewall en UDR en NSG beschermen
-[Back-tooFast start](#fast-start) | [gedetailleerde instructies voor dit voorbeeld bouwen][Example3]
+### <a name="example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg"></a>Voorbeeld 3 bouwen in een perimeternetwerk te beschermen netwerken met een firewall en UDR en NSG
+[Terug naar de snel starten](#fast-start) | [gedetailleerde instructies voor dit voorbeeld bouwen][Example3]
 
 [![9]][9]
 
 #### <a name="environment-description"></a>Beschrijving van de omgeving
-In dit voorbeeld zijn er is een abonnement met Hallo resources te volgen:
+In dit voorbeeld is er een abonnement met de volgende resources:
 
 * Één resourcegroep
 * Een virtueel netwerk met drie subnetten: 'SecNet', 'FrontEnd' en back-end'
-* Een virtueel netwerkapparaat, in dit geval een firewall, verbonden toohello SecNet subnet
+* Een virtueel netwerkapparaat, in dit geval een firewall, die is verbonden met het subnet SecNet
 * Een Windows-server waarmee een toepassing webserver ('IIS01')
 * Twee Windows-servers die vertegenwoordigen toepassingsservers van back-end ('AppVM01', 'AppVM02')
 * Een Windows-server met een DNS-server ('DNS01')
 
-Zie voor scripts en een Azure Resource Manager-sjabloon Hallo [gedetailleerde instructies voor de build][Example3].
+Zie voor scripts en een Azure Resource Manager-sjabloon de [gedetailleerde instructies voor de build][Example3].
 
 #### <a name="udr-description"></a>UDR beschrijving
-Standaard worden Hallo na systeemroutes gedefinieerd als:
+Standaard worden de volgende systeemroutes gedefinieerd als:
 
         Effective routes :
          Address Prefix    Next hop type    Next hop IP address Status   Source     
@@ -321,23 +321,23 @@ Standaard worden Hallo na systeemroutes gedefinieerd als:
          {172.16.0.0/12}   Null                                 Active   Default    
          {192.168.0.0/16}  Null                                 Active   Default
 
-Hallo VNETLocal is altijd een of meer gedefinieerde adresvoorvoegsels die gezamenlijk Hallo virtueel netwerk voor het specifieke netwerk (dat wil zeggen, verandert van virtueel netwerk toovirtual netwerk, afhankelijk van hoe elk specifiek virtueel netwerk is gedefinieerd). Hallo resterende systeemroutes zijn statisch en standaard aangegeven in de tabel Hallo.
+De VNETLocal is altijd een of meer gedefinieerde adresvoorvoegsels waaruit het virtuele netwerk voor het specifieke netwerk (dat wil zeggen, verandert van virtueel netwerk met virtueel netwerk, afhankelijk van hoe elk specifiek virtueel netwerk is gedefinieerd). De resterende systeemroutes zijn statisch en standaard aangegeven in de tabel.
 
-In dit voorbeeld zijn twee routeringstabellen gemaakt, één voor Hallo front-end en back-end-subnetten. Elke tabel is geladen met statische routes die geschikt is voor Hallo opgegeven subnet. In dit voorbeeld wordt elke tabel heeft drie routes die alle verkeer (0.0.0.0/0) via de firewall hello (volgende hop = virtueel apparaat IP-adres):
+In dit voorbeeld zijn twee routeringstabellen gemaakt, één voor de front-end en back-end-subnetten. Elke tabel is geladen met statische routes die geschikt is voor het opgegeven subnet. In dit voorbeeld wordt elke tabel heeft drie routes die alle verkeer (0.0.0.0/0) via de firewall (volgende hop = virtueel apparaat IP-adres):
 
-1. Lokaal subnetverkeer met geen volgende Hop gedefinieerd tooallow lokale subnet verkeer toobypass Hallo firewall.
-2. Virtueel netwerkverkeer met een volgende Hop gedefinieerd als een firewall. Deze volgende hops overschrijvingen Hallo standaardregel waarmee lokale virtuele netwerkverkeer tooroute rechtstreeks.
-3. Alle resterende verkeer (0/0) met de volgende Hop gedefinieerd als een firewall Hallo.
+1. Lokaal subnetverkeer met geen volgende Hop gedefinieerd zodat lokaal subnetverkeer voor het overslaan van de firewall.
+2. Virtueel netwerkverkeer met een volgende Hop gedefinieerd als een firewall. Deze volgende hop overschrijft de standaardregel waarmee lokale virtueel netwerkverkeer te routeren rechtstreeks.
+3. Alle resterende verkeer (0/0) met een volgende Hop gedefinieerd als de firewall.
 
 > [!TIP]
-> Hallo lokale subnetvermelding hoeft niet in Hallo UDR einden lokale subnet communicatie.
+> De vermelding van het lokale subnet hoeft niet in de communicatie UDR einden lokale subnet.
 >
-> * In ons voorbeeld is de 10.0.1.0/24 wijzen tooVNETLocal kritieke! Zonder dit mislukken pakket verlaten Hallo Web Server (10.0.1.4) dat is bestemd tooanother lokale server (bijvoorbeeld) 10.0.1.25 als ze worden verzonden toohello NVA. Hallo NVA stuurt het toohello subnet en Hallo subnet wordt deze verzenden toohello NVA in een oneindige lus.
-> * Hallo kans op een routeringslus zijn meestal hoger op apparaten met meerdere NIC's die zijn verbonden tooseparate subnetten, dit is vaak van traditionele, lokale apparaten.
+> * In ons voorbeeld is de 10.0.1.0/24 die verwijst naar VNETLocal kritieke! Zonder dit mislukken pakket verlaten van de webserver (10.0.1.4) dat is bestemd voor een andere lokale server (bijvoorbeeld) 10.0.1.25 als ze worden verzonden naar de NVA. De NVA wordt worden verzonden naar het subnet en het subnet wordt deze opnieuw verzenden naar de NVA in een oneindige lus.
+> * De kans op een routeringslus zijn meestal hoger op apparaten met meerdere NIC's die zijn verbonden met verschillende subnetten, dit is vaak van traditionele, lokale apparaten.
 >
 >
 
-Zodra de routeringstabellen Hallo zijn gemaakt, moeten afhankelijke tootheir subnetten. Hallo front-end-subnet routeringstabel, eenmaal is gemaakt en gekoppeld toohello subnet, eruit als deze uitvoer:
+Zodra de routeringstabellen zijn gemaakt, moeten ze worden gebonden aan hun subnetten. De front-end-subnet routeringstabel eenmaal gemaakt en gekoppeld aan het subnet eruit als deze uitvoer:
 
         Effective routes :
          Address Prefix    Next hop type    Next hop IP address Status   Source     
@@ -347,167 +347,167 @@ Zodra de routeringstabellen Hallo zijn gemaakt, moeten afhankelijke tootheir sub
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
 > [!NOTE]
-> UDR kan nu worden toegepaste toohello gatewaysubnet op welke Hallo ExpressRoute circuit is verbonden.
+> UDR kan nu worden toegepast op het gatewaysubnet waarop het ExpressRoute-circuit is verbonden.
 >
-> Voorbeelden van hoe tooenable uw perimeternetwerk netwerk via ExpressRoute of site-naar-site-netwerk worden weergegeven in de voorbeelden 3 en 4.
+> Voorbeelden voor het inschakelen van uw perimeternetwerk met ExpressRoute of site-naar-site-netwerken worden weergegeven in de voorbeelden 3 en 4.
 >
 >
 
 #### <a name="ip-forwarding-description"></a>Beschrijving doorsturen via IP
-Doorsturen via IP is een functie companion tooUDR. Doorsturen via IP is een instelling op een virtueel apparaat die toestaat dat deze tooreceive verkeer niet specifiek gericht toohello toestel en vervolgens doorsturen die verkeer tooits uiteindelijke bestemming.
+Doorsturen via IP is een functie companion UDR. Doorsturen via IP is een instelling op een virtueel apparaat dat is toegestaan voor het ontvangen verkeer niet specifiek zijn gericht op het toestel en vervolgens doorsturen dat verkeer naar de uiteindelijke bestemming.
 
-Als AppVM01 een aanvraag toohello DNS01-server doet, zou UDR deze toohello-firewall verkeer routeren. Bij het doorsturen via IP is ingeschakeld, is het Hallo-verkeer voor Hallo DNS01 doel (10.0.2.4) geaccepteerd door Hallo toestel (10.0.0.4) en vervolgens doorgestuurd tooits uiteindelijke bestemming (10.0.2.4). Zonder doorsturen via IP op Hallo-firewall is ingeschakeld, zou verkeer niet geaccepteerd door Hallo toestel Hoewel routetabel Hallo Hallo firewall als de volgende hop Hallo is. een virtueel apparaat toouse, kritieke tooremember tooenable IP Forwarding samen met UDR is.
+Bijvoorbeeld, als AppVM01 wordt een aanvraag bij de server DNS01 indient, zou UDR dit verkeer routeren aan de firewall. Met het doorsturen via IP is ingeschakeld, wordt het verkeer voor de bestemming DNS01 (10.0.2.4) geaccepteerd door het toestel (10.0.0.4) en vervolgens doorgestuurd naar de uiteindelijke bestemming (10.0.2.4). Zonder doorsturen via IP ingeschakeld op de firewall, wordt verkeer niet geaccepteerd door het toestel ondanks dat de routetabel de firewall als de volgende hop is. Voor het gebruik van een virtueel apparaat, is het essentieel moet samen met UDR doorsturen via IP inschakelen.
 
 #### <a name="nsg-description"></a>NSG-beschrijving
-In dit voorbeeld is een groep NSG gebouwd en vervolgens geladen met een enkele regel. Deze groep wordt vervolgens gebonden alleen toohello front-end en back-end subnetten (geen hello SecNet). Declaratief wordt Hallo-regel samengesteld:
+In dit voorbeeld is een groep NSG gebouwd en vervolgens geladen met een enkele regel. Deze groep wordt vervolgens uitsluitend gekoppeld aan de front-end en back-end-subnetten (niet de SecNet). Declaratief wordt samengesteld met de volgende regel:
 
-* Verkeer (alle poorten) met Hallo Internet toohello volledige virtuele netwerk (alle subnetten) is geweigerd.
+* Al het verkeer (alle poorten) van het Internet naar het volledige virtuele netwerk (alle subnetten) is geweigerd.
 
-Hoewel het nsg's in dit voorbeeld worden gebruikt, worden de belangrijkste doel is als een laag secundaire beveiliging tegen handmatige onjuiste configuratie. Hallo doel is tooblock al het inkomende verkeer van Hallo Internet tooeither Hallo front-end of back-end-subnetten. Verkeersstroom moet alleen via Hallo SecNet subnet toohello firewall (en vervolgens, indien van toepassing op de front- of back-end subnetten toohello). Bovendien met Hallo UDR regels aanwezig is, zou verkeer om het in Hallo front-end of back-end subnetten omgeleid uit toohello firewall (Bedankt tooUDR). Hallo firewall zou dit verkeer zien als een asymmetrische stroom en uitgaand verkeer hello wilt verwijderen. Er zijn dus drie beveiligingslagen Hallo subnetten beveiligen:
+Hoewel het nsg's in dit voorbeeld worden gebruikt, worden de belangrijkste doel is als een laag secundaire beveiliging tegen handmatige onjuiste configuratie. Het doel is om alle binnenkomend verkeer van Internet naar de front-end- of back-end subnetten blokkeren. Verkeersstroom moet alleen via het subnet SecNet aan de firewall (en vervolgens, indien van toepassing op de front- of back-end subnetten). Plus, aan de regels UDR aanwezig is, verkeer om het in de front-end- of back-end-subnetten zou worden omgeleid uit aan de firewall (dankzij UDR). De firewall verkeer zou zien als een asymmetrische stroom en het uitgaande verkeer wilt verwijderen. Er zijn dus drie lagen van beveiliging voor het beveiligen van de subnetten:
 
 * Er is geen openbare IP-adressen op elke front-end of back-end-NIC's.
-* Nsg's voor het weigeren van verkeer van de Hallo Internet.
-* Hallo firewall weggehaald asymmetrische verkeer.
+* Nsg's voor het weigeren van verkeer van het Internet.
+* De firewall weggehaald asymmetrische verkeer.
 
-Een interessant punt met betrekking tot Hallo NSG in dit voorbeeld is dat deze toodeny Internet verkeer toohello volledige virtuele netwerk, inclusief Hallo beveiliging subnet slechts één regel bevat. Aangezien Hallo die NSG alleen is gebonden toohello front-end en back-end-subnetten, Hallo-regel is niet verwerkt op het verkeer inkomend echter toohello beveiliging subnet. Als gevolg hiervan verkeersstromen toohello beveiliging subnet.
+Een interessant punt met betrekking tot het NSG in dit voorbeeld is dat deze slechts één regel, dat wil zeggen weigeren internetverkeer naar het volledige virtuele netwerk, met inbegrip van het subnet beveiliging bevat. Echter, aangezien het NSG wordt alleen gekoppeld aan de front-end en back-end-subnetten, de regel is niet verwerkt op het verkeer inkomend verkeer naar het subnet van de beveiliging. Als gevolg hiervan verkeersstromen met het subnet voor beveiliging.
 
 #### <a name="firewall-rules"></a>Firewall-regels
-Hallo-firewall voor moet het doorsturen van regels worden gemaakt. Omdat Hallo-firewall geblokkeerd of doorsturen alle binnenkomende, uitgaande en binnen virtueel netwerkverkeer is, worden veel firewallregels vereist. Ook alle binnenkomend verkeer komt binnen via Hallo beveiligingsservice openbaar IP-adres (op verschillende poorten) toobe verwerkt door Hallo firewall. Is een best practice toodiagram Hallo logische stromen voordat u Hallo subnetten instelt en firewallregels, tooavoid later bijwerken. Hallo is volgende afbeelding een logische weergave van de firewallregels Hallo voor dit voorbeeld:
+Op de firewall moet doorsturen regels worden gemaakt. Omdat de firewall geblokkeerd of doorsturen van alle binnenkomende, uitgaande en binnen virtueel netwerkverkeer is, worden veel firewallregels vereist. Alle binnenkomend verkeer treffers ook de beveiligingsservice openbaar IP-adres (op verschillende poorten), moeten worden verwerkt door de firewall. Er is een best practice diagram van de logische stroom voor het instellen van de subnetten te en firewall-regels om te voorkomen dat later bijwerken. De volgende afbeelding is een logische weergave van de firewallregels voor dit voorbeeld:
 
 ![10]
 
 > [!NOTE]
-> Op basis van Hallo die virtueel netwerkapparaat gebruikt, variëren Hallo beheerpoorten. In dit voorbeeld wordt een Barracuda NextGen Firewall naar wordt verwezen, waarbij poorten 22, 801 en 807 wordt gebruikt. Raadpleeg Hallo toestel leverancier documentatie toofind Hallo exacte poorten die worden gebruikt voor het beheer van Hallo-apparaat wordt gebruikt.
+> Op basis van het virtuele netwerk-apparaat gebruikt, variëren de beheerpoorten. In dit voorbeeld wordt een Barracuda NextGen Firewall naar wordt verwezen, waarbij poorten 22, 801 en 807 wordt gebruikt. Raadpleeg de documentatie van de leverancier toestel om te zoeken welke poorten gebruikt voor het beheer van het apparaat wordt gebruikt.
 >
 >
 
 #### <a name="firewall-rules-description"></a>Beschrijving van de firewall-regels
-In Hallo voorgaande logisch diagram, Hallo beveiliging subnet niet weergegeven omdat Hallo firewall Hallo enige resource in dat subnet. Hallo diagram worden weergegeven Hallo firewallregels en hoe ze logisch toestaan of verkeersstromen, niet Hallo werkelijke gerouteerde pad weigeren. Ook Hallo externe poorten geselecteerd voor Hallo RDP-verkeer hoger varieerde poorten (8014 – 8026) zijn en zijn geselecteerde tooloosely zijn afgestemd op Hallo van laatste twee octetten van het lokale IP-adres voor een eenvoudiger leesbaarheid Hallo (bijvoorbeeld 10.0.1.4-adres van de lokale server is gekoppeld met de externe poort 8014). Eventuele niet-conflicterende hoger poorten, kunnen echter worden gebruikt.
+In de voorgaande logisch diagram wordt het subnet van de beveiliging niet weergegeven omdat de firewall de enige resource in dat subnet is. Het diagram worden weergegeven voor de firewall-regels en hoe ze logisch toestaan of verkeersstromen, niet de werkelijke gerouteerde pad weigeren. Ook de externe poorten voor de RDP-verkeer hoger zijn geselecteerd varieerde poorten (8014 – 8026) en los uitgelijnd met de laatste twee octetten van het lokale IP-adres voor de leesbaarheid eenvoudiger zijn geselecteerd (bijvoorbeeld 10.0.1.4-adres van de lokale server is gekoppeld externe poort 8014). Eventuele niet-conflicterende hoger poorten, kunnen echter worden gebruikt.
 
 Bijvoorbeeld moeten we zeven typen regels:
 
 * Externe regels (voor inkomend verkeer):
-  1. Firewallregel management: deze App omleiden regel staat toe dat verkeer toopass toohello beheerpoorten van virtueel netwerkapparaat Hallo.
-  2. RDP-regels (voor elke WindowsServer): beheer van Hallo afzonderlijke servers via RDP deze vier regels (één voor elke server) toestaan. Hallo vier RDP-regels kunnen ook worden samengevoegd tot één regel, afhankelijk van het Hallo-mogelijkheden van Hallo virtueel netwerkapparaat wordt gebruikt.
-  3. Regels voor het netwerkverkeer van toepassing: Er zijn twee van deze regels, Hallo eerst voor de front-webverkeer Hallo en Hallo tweede voor verkeer van de back-end hello (bijvoorbeeld web server toodata laag). Hallo-configuratie van deze regels, is afhankelijk van Hallo netwerkarchitectuur (waar uw servers worden geplaatst) en verkeersstromen (welke richting Hallo-verkeersstromen en welke poorten worden gebruikt).
-     * Hallo eerste regel staat toe Hallo werkelijke verkeer tooreach Hallo toepassing toepassingsserver. Hallo andere regels toestaan voor beveiliging en beheer, zijn toepassing verkeersregels wat kunnen externe gebruikers of services tooaccess Hallo-toepassingen. In dit voorbeeld moet u er één webserver is op poort 80. Een firewallregel voor één toepassing omgeleid dus binnenkomend verkeer toohello extern IP-adres, toohello web servers interne IP-adres. Hallo omgeleid verkeer sessie zou worden omgezet via NAT toohello interne serverfout.
-     * de tweede regel Hallo is Hallo back-end-regel tooallow Hallo server tootalk toohello AppVM01 webserver (maar niet AppVM02) via een willekeurige poort.
+  1. Firewallregel management: deze App omleiden regel staat toe dat verkeer door te geven aan de management-poorten van het virtuele netwerk-apparaat.
+  2. RDP-regels (voor elke WindowsServer): deze vier regels (één voor elke server) toestaan van beheer van de afzonderlijke servers via RDP. De vier regels voor RDP kunnen ook worden samengevoegd tot één regel, afhankelijk van de mogelijkheden van het virtuele netwerk-apparaat wordt gebruikt.
+  3. Regels voor het netwerkverkeer van toepassing: Er zijn twee van deze regels, de eerste voor het verkeer van de front-end-webserver en de tweede voor het back-end-verkeer (bijvoorbeeld webserver gegevenslaag). De configuratie van deze regels is afhankelijk van de netwerkarchitectuur (waar uw servers worden geplaatst), en er verkeer stroomt (welke richting de verkeersstromen en welke poorten worden gebruikt).
+     * De eerste regel kan het verkeer van de toepassing om de toepassingsserver te bereiken. Terwijl de andere regels toestaan voor beveiliging en beheer, zijn toepassing verkeersregels wat toestaan van externe gebruikers of services toegang krijgen tot de toepassingen. In dit voorbeeld moet u er één webserver is op poort 80. Een firewallregel voor één toepassing wordt dus binnenkomend verkeer omgeleid naar het externe IP-adres, het web servers interne IP-adres. De sessie omgeleide verkeer zou via NAT worden vertaald naar de interne server.
+     * De tweede regel wordt de back-end-regel wilt toestaan dat de webserver Neem contact op met de server AppVM01 (maar niet AppVM02) via een willekeurige poort.
 * Interne regels (voor binnen virtueel netwerkverkeer)
-  1. Regel voor uitgaande tooInternet: met deze regel kunnen het verkeer van een netwerk toopass toohello geselecteerd netwerken. Deze regel is meestal een standaardregel al op Hallo firewall, maar in een uitgeschakelde status. Deze regel moet worden ingeschakeld voor dit voorbeeld.
-  2. Een DNS-regel: met deze regel kunnen alleen DNS (poort 53)-verkeer toopass toohello DNS-server. Voor deze omgeving zijn de meeste verkeer van Hallo toohello back-end-front-end is geblokkeerd. Deze regel kunnen specifiek DNS van een lokale subnet.
-  3. Subnet toosubnet regel: met deze regel is tooallow een server op Hallo back-end subnet tooconnect tooany server op Hallo front-end-subnet (maar niet Hallo omgekeerde).
-* Foutveilige regel (voor verkeer dat niet voldoet aan een van de vorige Hallo):
-  1. Alle verkeersregel voor weigeren: deze regel voor weigeren moet altijd de laatste regel hello (in termen van prioriteit) en als zodanig als netwerkverkeer mislukt toomatch van Hallo voorafgaand aan de regels wordt deze verwijderd door deze regel. Deze regel is een standaardregel en meestal in-place en actief. Er zijn geen wijzigingen zijn meestal nodig toothis regel.
+  1. Uitgaand naar Internet regel: met deze regel kunnen het verkeer van een netwerk te geven aan de geselecteerde netwerken. Deze regel is meestal een standaardregel al op de firewall, maar een uitgeschakelde status. Deze regel moet worden ingeschakeld voor dit voorbeeld.
+  2. Een DNS-regel: met deze regel kunnen alleen DNS (poort 53)-verkeer door te geven aan de DNS-server. De meeste verkeer van de front-end naar de back-end is geblokkeerd voor deze omgeving. Deze regel kunnen specifiek DNS van een lokale subnet.
+  3. Subnet naar subnet regel: met deze regel wordt als u een server op het subnet van de back-end verbinding maken met een willekeurige server in het front-end-subnet (maar niet andersom).
+* Foutveilige regel (voor verkeer dat niet voldoet aan een van de vorige):
+  1. Alle verkeersregel voor weigeren: deze regel voor weigeren moet altijd de laatste regel (in termen van prioriteit), en als zodanig als netwerkverkeer niet overeen met een van de voorgaande regels door deze regel wordt geannuleerd. Deze regel is een standaardregel en meestal in-place en actief. Er zijn geen wijzigingen zijn meestal nodig voor deze regel.
 
 > [!TIP]
-> Op Hallo is tweede toepassing verkeer regel toosimplify dit voorbeeld wordt een willekeurige poort toegestaan. In een echte scenario moet de meest specifiek poort en bereiken Hallo gebruikte tooreduce Hallo kwetsbaarheid voor aanvallen van deze regel.
+> Op de tweede verkeersregel van de toepassing om te vereenvoudigen in dit voorbeeld is elke poort toegestaan. In een echte scenario moeten het meest specifiek poort en -adresbereiken worden gebruikt om de kwetsbaarheid van deze regel te beperken.
 >
 >
 
-Zodra de vorige regels Hallo zijn gemaakt, is het belangrijk tooreview Hallo prioriteit van elke regel tooensure-verkeer wordt toegestaan of geweigerd desgewenst. In dit voorbeeld zijn Hallo regels in volgorde van prioriteit.
+Zodra de vorige regels zijn gemaakt, is het belangrijk om te controleren van de prioriteit van elke regel om te controleren of het verkeer wordt toegestaan of geweigerd desgewenst. In dit voorbeeld zijn de regels in volgorde van prioriteit.
 
 #### <a name="conclusion"></a>Conclusie
-In dit voorbeeld is een complexere maar manier van het beveiligen en isoleren Hallo netwerk dan eerdere voorbeelden Hallo voltooien. (Voorbeeld 2 beveiligt alleen de toepassing hello en net isoleert subnetten voorbeeld 1). Dit ontwerp kunt u verkeer in beide richtingen, bewaking en niet alleen Hallo die inkomende toepassingsserver beveiligt, maar wordt afgedwongen beveiligingsbeleid voor alle servers in dit netwerk netwerk. Ook afhankelijk van het Hallo-apparaat gebruikt, kunnen verkeer met volledige controle en het bewustzijn worden bereikt. Zie voor meer informatie, Hallo [gedetailleerde instructies voor de build][Example3]. Deze instructies zijn onder andere:
+In dit voorbeeld is een complexere maar manier van het beveiligen en isoleren van het netwerk dan de eerdere voorbeelden te voltooien. (Voorbeeld 2 beveiligt alleen de toepassing en net isoleert subnetten voorbeeld 1). Dit ontwerp kunt u verkeer in beide richtingen, bewaking en niet alleen de inkomende toepassingsserver beveiligt, maar wordt afgedwongen beveiligingsbeleid voor alle servers in dit netwerk netwerk. Bovendien, afhankelijk van het toestel gebruikt om kunnen verkeer van de volledige controle en het bewustzijn worden bereikt. Zie voor meer informatie de [gedetailleerde instructies voor de build][Example3]. Deze instructies zijn onder andere:
 
-* Hoe toobuild in dit voorbeeld perimeter netwerk met klassieke PowerShell-scripts.
-* Hoe toobuild in dit voorbeeld met een Azure Resource Manager-sjabloon.
+* Het bouwen van dit voorbeeld perimeternetwerk met klassieke PowerShell-scripts.
+* Het bouwen van dit voorbeeld met een Azure Resource Manager-sjabloon.
 * Gedetailleerde beschrijvingen van elke UDR, NSG opdracht en de firewallregel.
 * Gedetailleerde verkeer stroom scenario's, die laat zien hoe het verkeer wordt toegestaan of geweigerd in elke laag.
 
 ### <a name="example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn"></a>Voorbeeld 4 een hybride verbinding met een site-naar-site, een virtueel apparaat VPN toevoegen
-[Back-tooFast start](#fast-start) | Gedetailleerde build instructies beschikbaar binnenkort
+[Terug naar de snel starten](#fast-start) | Gedetailleerde build instructies beschikbaar binnenkort
 
 [![11]][11]
 
 #### <a name="environment-description"></a>Beschrijving van de omgeving
-Hybride netwerken met behulp van een virtueel netwerkapparaat (NVA) kan worden toegevoegd als tooany van Hallo typen perimeternetwerk dat wordt beschreven in de voorbeelden 1, 2 of 3.
+Hybride netwerken met behulp van een virtueel netwerkapparaat (NVA) kan worden toegevoegd aan een van de typen perimeternetwerk dat wordt beschreven in de voorbeelden 1, 2 of 3.
 
-Zoals u in de vorige afbeelding hello, is een VPN-verbinding via Internet (site-naar-site) Hallo gebruikte tooconnect een lokaal netwerk tooan virtuele Azure-netwerk via een NVA.
+Zoals u in de vorige afbeelding, wordt een VPN-verbinding via Internet (site-naar-site) verbinding maken met een on-premises netwerk een Azure-netwerk via een NVA gebruikt.
 
 > [!NOTE]
-> Als u ExpressRoute met hello Azure openbare Peering optie is ingeschakeld gebruikt, kan een statische route moet worden gemaakt. Deze statische route moet routeren toohello NVA VPN-IP-adres van uw zakelijke Internet en niet via Hallo ExpressRoute-verbinding. Hallo NAT vereist op Hallo optie ExpressRoute Azure openbare Peering kunt Hallo VPN-sessie te verbreken.
+> Als u ExpressRoute met de optie openbare Azure-Peering is ingeschakeld gebruikt, kan een statische route moet worden gemaakt. Deze statische route moet doorsturen naar het NVA VPN-IP-adres van uw zakelijke Internet en niet via de ExpressRoute-verbinding. Het NAT-apparaat vereist op de optie ExpressRoute Azure openbare Peering kunt verbreken van de VPN-sessie.
 >
 >
 
-Hallo VPN-netwerk aanwezig is, is NVA Hallo maakt Hallo centrale hub voor alle netwerken en subnetten. Hallo doorsturen firewallregels bepalen welk verkeer stroomt zijn toegestaan, worden omgezet via NAT worden omgeleid of worden verwijderd (zelfs voor verkeersstromen tussen Hallo on-premises netwerk en Azure).
+Nadat de VPN-verbinding gemaakt is, wordt de NVA de centrale hub voor netwerken en -subnetten. De firewallregels voor doorsturen bepalen welke verkeersstromen toegestaan, worden omgezet via NAT, worden omgeleid of worden verwijderd (zelfs voor verkeersstromen tussen de on-premises netwerk en Azure).
 
-Verkeersstromen moeten zorgvuldig worden beschouwd als ze kunnen worden geoptimaliseerd of gedegradeerd door dit ontwerp gaat, afhankelijk van specifieke Hallo gebruiksvoorbeeld.
+Verkeersstromen moeten zorgvuldig worden beschouwd als ze kunnen worden geoptimaliseerd of gedegradeerd door dit ontwerp gaat, afhankelijk van de specifieke gebruiksvoorbeeld.
 
-Gebruik Hallo-omgeving is ingebouwd in voorbeeld 3 en vervolgens toe te voegen een netwerkverbinding voor site-naar-site VPN-hybride produceert Hallo ontwerp te volgen:
+Met behulp van de omgeving die is ingebouwd in voorbeeld 3 en vervolgens toe te voegen een site-naar-site VPN-hybride netwerkverbinding, geeft het ontwerp van de volgende:
 
 [![12]][12]
 
-Hallo lokale router of andere netwerkapparaten die compatibel is met uw NVA voor VPN, zou Hallo VPN-client zijn. Deze fysieke apparaat zou zijn verantwoordelijk voor het initiëren en Hallo VPN-verbinding met uw NVA onderhouden.
+De lokale router of andere netwerkapparaten die compatibel is met uw NVA voor VPN, zou de VPN-client zijn. Deze fysieke apparaat zou zijn verantwoordelijk voor het initiëren en onderhouden van de VPN-verbinding met uw NVA.
 
-Logisch toohello NVA, Hallo netwerk eruit vier afzonderlijke "beveiligingszones" hello regels op Hallo NVA wordt Hallo primaire directeur van verkeer tussen deze zones:
+Logisch naar de NVA ziet het netwerk er vier afzonderlijke "beveiligingszones" aan de regels op de NVA wordt de primaire directeur van verkeer tussen deze zones:
 
 ![13]
 
 #### <a name="conclusion"></a>Conclusie
-Hallo toevoeging van een site-naar-site VPN-hybride netwerk verbinding tooan virtuele Azure-netwerk kunt op een veilige manier Hallo on-premises netwerk uitbreiden naar Azure. Bij het gebruik van een VPN-verbinding verkeer worden versleuteld en routeert via Hallo Internet. Hallo NVA in dit voorbeeld biedt een centrale locatie tooenforce en Hallo beveiligingsbeleid beheren. Zie voor meer informatie, Hallo gedetailleerde instructies (binnenkort uitgebracht) bouwen. Deze instructies zijn onder andere:
+Het toevoegen van een site-naar-site VPN-hybride netwerkverbinding met een Azure-netwerk kunt de on-premises netwerk uitbreiden naar Azure op een veilige manier. Bij het gebruik van een VPN-verbinding verkeer worden versleuteld en gerouteerd via Internet. De NVA in dit voorbeeld biedt een centrale locatie om het beheren van het beveiligingsbeleid af te dwingen. Raadpleeg de gedetailleerde build-instructies (binnenkort uitgebracht) voor meer informatie. Deze instructies zijn onder andere:
 
-* Hoe toobuild in dit voorbeeld perimeter netwerk met PowerShell-scripts.
-* Hoe toobuild in dit voorbeeld met een Azure Resource Manager-sjabloon.
+* Het bouwen van dit voorbeeld perimeternetwerk met PowerShell-scripts.
+* Het bouwen van dit voorbeeld met een Azure Resource Manager-sjabloon.
 * Gedetailleerde verkeer stroom scenario's, die laat zien hoe verkeer via dit ontwerp loopt.
 
 ### <a name="example-5-add-a-hybrid-connection-with-a-site-to-site-azure-vpn-gateway"></a>Voorbeeld 5 een hybride verbinding met een Azure VPN-gateway voor site-naar-site toevoegen
-[Back-tooFast start](#fast-start) | Gedetailleerde build instructies beschikbaar binnenkort
+[Terug naar de snel starten](#fast-start) | Gedetailleerde build instructies beschikbaar binnenkort
 
 [![14]][14]
 
 #### <a name="environment-description"></a>Beschrijving van de omgeving
-Hybride netwerken met behulp van een Azure VPN-gateway kan worden toegevoegd als tooeither type perimeternetwerk dat wordt beschreven in de voorbeelden 1 of 2.
+Hybride netwerken met behulp van een Azure VPN-gateway kan worden toegevoegd aan beide type perimeternetwerk dat wordt beschreven in de voorbeelden 1 of 2.
 
-Zoals u in de voorgaande afbeelding hello, is een VPN-verbinding via Internet (site-naar-site) Hallo gebruikte tooconnect een lokaal netwerk tooan virtuele Azure-netwerk via een Azure VPN-gateway.
+Zoals u in de voorgaande afbeelding, wordt een VPN-verbinding via Internet (site-naar-site) verbinding maken met een on-premises netwerk een Azure-netwerk via een Azure VPN-gateway gebruikt.
 
 > [!NOTE]
-> Als u ExpressRoute met hello Azure openbare Peering optie is ingeschakeld gebruikt, kan een statische route moet worden gemaakt. Deze statische route moet toohello NVA VPN-IP-adres van uw zakelijke Internet en niet via ExpressRoute WAN Hallo routeren. Hallo NAT vereist op Hallo optie ExpressRoute Azure openbare Peering kunt Hallo VPN-sessie te verbreken.
+> Als u ExpressRoute met de optie openbare Azure-Peering is ingeschakeld gebruikt, kan een statische route moet worden gemaakt. Deze statische route moet doorsturen naar het NVA VPN-IP-adres uit uw zakelijke Internet en niet via het WAN ExpressRoute. Het NAT-apparaat vereist op de optie ExpressRoute Azure openbare Peering kunt verbreken van de VPN-sessie.
 >
 >
 
-Hallo volgende afbeelding toont Hallo twee netwerk randen in dit voorbeeld. Op de eerste rand hello, Hallo NVA en nsg's beheren van verkeersstromen voor binnen Azure-netwerken en tussen Azure en Internet Hallo. de tweede rand Hallo is hello Azure VPN-gateway, een afzonderlijke en geïsoleerd netwerk-rand tussen on-premises en Azure is.
+De volgende afbeelding ziet de twee netwerk randen in dit voorbeeld. Op de eerste rand bepalen de NVA en nsg's verkeersstromen voor binnen Azure-netwerken en tussen Azure en het Internet. De tweede rand is de Azure VPN-gateway een afzonderlijke en geïsoleerd netwerk-rand tussen on-premises en Azure is.
 
-Verkeersstromen moeten zorgvuldig worden beschouwd als ze kunnen worden geoptimaliseerd of gedegradeerd door dit ontwerp gaat, afhankelijk van specifieke Hallo gebruiksvoorbeeld.
+Verkeersstromen moeten zorgvuldig worden beschouwd als ze kunnen worden geoptimaliseerd of gedegradeerd door dit ontwerp gaat, afhankelijk van de specifieke gebruiksvoorbeeld.
 
-Gebruik Hallo-omgeving is ingebouwd in voorbeeld 1 en vervolgens toe te voegen een netwerkverbinding voor site-naar-site VPN-hybride produceert Hallo ontwerp te volgen:
+Met behulp van de omgeving die is ingebouwd in voorbeeld 1 en vervolgens toe te voegen een site-naar-site VPN-hybride netwerkverbinding, geeft het ontwerp van de volgende:
 
 [![15]][15]
 
 #### <a name="conclusion"></a>Conclusie
-Hallo toevoeging van een site-naar-site VPN-hybride netwerk verbinding tooan virtuele Azure-netwerk kunt op een veilige manier Hallo on-premises netwerk uitbreiden naar Azure. Met Hallo systeemeigen Azure VPN-gateway, het verkeer is IPSec-versleuteld en via Internet Hallo van routes. Met behulp van hello Azure VPN-gateway kunt ook een lagere kosten-optie (Er is geen aanvullende licenties kosten net als bij de derde partij NVAs) opgeven. Deze optie is meest voordelige in voorbeeld 1, waarbij geen NVA wordt gebruikt. Zie voor meer informatie, Hallo gedetailleerde instructies (binnenkort uitgebracht) bouwen. Deze instructies zijn onder andere:
+Het toevoegen van een site-naar-site VPN-hybride netwerkverbinding met een Azure-netwerk kunt de on-premises netwerk uitbreiden naar Azure op een veilige manier. Met behulp van de systeemeigen Azure VPN-gateway het verkeer is IPSec-versleuteld en gerouteerd via Internet. Met behulp van de Azure VPN-gateway kunt ook een optie voor lagere kosten (Er is geen aanvullende licenties kosten net als bij de derde partij NVAs) opgeven. Deze optie is meest voordelige in voorbeeld 1, waarbij geen NVA wordt gebruikt. Raadpleeg de gedetailleerde build-instructies (binnenkort uitgebracht) voor meer informatie. Deze instructies zijn onder andere:
 
-* Hoe toobuild in dit voorbeeld perimeter netwerk met PowerShell-scripts.
-* Hoe toobuild in dit voorbeeld met een Azure Resource Manager-sjabloon.
+* Het bouwen van dit voorbeeld perimeternetwerk met PowerShell-scripts.
+* Het bouwen van dit voorbeeld met een Azure Resource Manager-sjabloon.
 * Gedetailleerde verkeer stroom scenario's, die laat zien hoe verkeer via dit ontwerp loopt.
 
 ### <a name="example-6-add-a-hybrid-connection-with-expressroute"></a>Voorbeeld 6 een hybride verbinding toevoegen met ExpressRoute
-[Back-tooFast start](#fast-start) | Gedetailleerde build instructies beschikbaar binnenkort
+[Terug naar de snel starten](#fast-start) | Gedetailleerde build instructies beschikbaar binnenkort
 
 [![16]][16]
 
 #### <a name="environment-description"></a>Beschrijving van de omgeving
-Hybride netwerken met behulp van een ExpressRoute persoonlijke peering verbinding kan worden toegevoegd tooeither type perimeternetwerk dat wordt beschreven in de voorbeelden 1 of 2.
+Hybride netwerken met behulp van een ExpressRoute-persoonlijke peering verbinding kan worden toegevoegd aan een type perimeternetwerk dat wordt beschreven in de voorbeelden 1 of 2.
 
-Zoals u in de voorgaande afbeelding hello, biedt privépeering ExpressRoute een rechtstreekse verbinding tussen uw on-premises netwerk en het Hallo virtuele Azure-netwerk. Verkeer passages alleen Hallo serviceprovider-netwerk en Hallo Microsoft Azure-netwerk, nooit door Hallo Internet aan te raken.
+Zoals u in de voorgaande afbeelding, biedt privépeering ExpressRoute een rechtstreekse verbinding tussen uw on-premises netwerk en de virtuele Azure-netwerk. Verkeer transits alleen de serviceprovider-netwerk en het Microsoft Azure-netwerk, nooit door Internet aan te raken.
 
 > [!TIP]
-> Met behulp van ExpressRoute, houdt u zakelijke netwerkverkeer uitschakelen Hallo Internet. Daarnaast kunt u serviceovereenkomsten van uw ExpressRoute-provider. Hello Azure Gateway kunt doorgeven up too10 Gbps met ExpressRoute, terwijl met site-naar-site-VPN's hello Azure Gateway maximale doorvoer 200 Mbps.
+> Met behulp van ExpressRoute, houdt u zakelijke netwerkverkeer uit het Internet. Daarnaast kunt u serviceovereenkomsten van uw ExpressRoute-provider. De Azure-Gateway kunt maximaal 10 Gbps met ExpressRoute kunt doorgeven dat de maximale doorvoer van Azure-Gateway met site-naar-site-VPN's, 200 Mbps.
 >
 >
 
-Zoals u in het volgende diagram hello, met deze optie Hallo heeft omgeving nu twee randen van het netwerk. Hallo NVA en NSG besturingselement verkeersstromen voor binnen Azure-netwerken en tussen Azure en Hallo Internet, terwijl het Hallo-gateway is een afzonderlijke en geïsoleerd netwerk-rand tussen on-premises en Azure.
+Zoals in het volgende diagram kunt zien, met deze optie heeft de omgeving nu twee randen van het netwerk. De NVA en NSG beheren verkeersstromen voor binnen Azure-netwerken en tussen Azure en het Internet, terwijl de gateway een afzonderlijke en geïsoleerd netwerk-rand tussen on-premises en Azure is.
 
-Verkeersstromen moeten zorgvuldig worden beschouwd als ze kunnen worden geoptimaliseerd of gedegradeerd door dit ontwerp gaat, afhankelijk van specifieke Hallo gebruiksvoorbeeld.
+Verkeersstromen moeten zorgvuldig worden beschouwd als ze kunnen worden geoptimaliseerd of gedegradeerd door dit ontwerp gaat, afhankelijk van de specifieke gebruiksvoorbeeld.
 
-Gebruik Hallo-omgeving is ingebouwd in voorbeeld 1 en vervolgens toe te voegen een netwerkverbinding ExpressRoute hybride produceert Hallo ontwerp te volgen:
+Met behulp van de omgeving die is ingebouwd in voorbeeld 1 en vervolgens toe te voegen een ExpressRoute-verbinding voor hybride netwerk, geeft het ontwerp van de volgende:
 
 [![17]][17]
 
 #### <a name="conclusion"></a>Conclusie
-toevoeging van een netwerkverbinding ExpressRoute persoonlijke Peering Hallo kunt Hallo on-premises netwerk uitbreiden naar Azure in een beveiligde, lagere latentie, manier hoger uitvoeren. Hallo met biedt systeemeigen Azure-Gateway, zoals in dit voorbeeld ook een lagere kosten-optie (Er is geen nadere net als bij de derde partij NVAs-licentieverlening). Zie voor meer informatie, Hallo gedetailleerde instructies (binnenkort uitgebracht) bouwen. Deze instructies zijn onder andere:
+Het toevoegen van een netwerkverbinding ExpressRoute persoonlijke Peering kunt de on-premises netwerk uitbreiden naar Azure in een beveiligde, lagere latentie, manier hoger uitvoeren. Met behulp van de systeemeigen Azure-Gateway, zoals in dit voorbeeld biedt ook een optie goedkoper (Er is geen nadere net als bij de derde partij NVAs-licentieverlening). Raadpleeg de gedetailleerde build-instructies (binnenkort uitgebracht) voor meer informatie. Deze instructies zijn onder andere:
 
-* Hoe toobuild in dit voorbeeld perimeter netwerk met PowerShell-scripts.
-* Hoe toobuild in dit voorbeeld met een Azure Resource Manager-sjabloon.
+* Het bouwen van dit voorbeeld perimeternetwerk met PowerShell-scripts.
+* Het bouwen van dit voorbeeld met een Azure Resource Manager-sjabloon.
 * Gedetailleerde verkeer stroom scenario's, die laat zien hoe verkeer via dit ontwerp loopt.
 
 ## <a name="references"></a>Verwijzingen
@@ -519,7 +519,7 @@ toevoeging van een netwerkverbinding ExpressRoute persoonlijke Peering Hallo kun
 * Gebruiker gedefinieerde routering documentatie: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
 * Azure virtuele gateways: [https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway/)
 * Site-naar-Site VPN-verbindingen: [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell](vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-* ExpressRoute-documentatie (ervoor toocheck Hallo 'Aan de slag' en 'How To'-secties worden): [https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
+* ExpressRoute-documentatie (Zorg ervoor dat de secties 'Aan de slag' en "How To" uitchecken): [https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
 
 <!--Image References-->
 [0]: ./media/best-practices-network-security/flowchart.png "Stroomdiagram beveiligingsopties"
@@ -531,7 +531,7 @@ toevoeging van een netwerkverbinding ExpressRoute persoonlijke Peering Hallo kun
 [7]: ./media/best-practices-network-security/example1design.png "Inkomende DMZ met NSG"
 [8]: ./media/best-practices-network-security/example2design.png "Inkomende DMZ met NVA en NSG"
 [9]: ./media/best-practices-network-security/example3design.png "Bidirectionele DMZ met NVA, NSG en UDR"
-[10]: ./media/best-practices-network-security/example3firewalllogical.png "logische weergave van Hallo Firewall-regels"
+[10]: ./media/best-practices-network-security/example3firewalllogical.png "logische weergave van de Firewall-regels"
 [11]: ./media/best-practices-network-security/example3designoptions.png "Perimeternetwerk met NVA hybride netwerk verbonden"
 [12]: ./media/best-practices-network-security/example4designs2s.png "Perimeternetwerk met NVA verbonden via een Site-naar-Site-VPN"
 [13]: ./media/best-practices-network-security/example4networklogical.png "logisch netwerk vanuit NVA perspectief"

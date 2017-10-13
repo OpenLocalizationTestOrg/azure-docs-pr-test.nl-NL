@@ -1,6 +1,6 @@
 ---
-title: Security Center Troubleshooting Guide aaaAzure | Microsoft Docs
-description: Dit document helpt tootroubleshoot problemen in Azure Security Center.
+title: Handleiding voor het oplossen van problemen met Azure Security Center | Microsoft Docs
+description: Dit document helpt bij het oplossen van problemen in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,62 +14,62 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: yurid
-ms.openlocfilehash: 78b3c49eb66fe3a4f80efbba3a47a87b039c07ac
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 0e0a0ce5c0795cec0e47cd5f729099f4762381a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Handleiding voor het oplossen van problemen met Azure Security Center
-Deze gids is bedoeld voor IT-professionals (IT), gegevensbeveiligingsanalisten en cloudbeheerders die willen Azure Security Center gebruikt en moeten dat problemen met betrekking tot tootroubleshoot Security Center.
+Deze handleiding is bedoeld voor IT-specialisten, informatiebeveiligingsanalisten en cloudbeheerders van organisaties die Azure Security Center gebruiken en biedt procedures voor het oplossen van problemen met Azure Security Center.
 
 >[!NOTE] 
->Begin juni 2017 vanaf kan Security Center toocollect en store-gegevens van Microsoft Monitoring Agent Hallo gebruikt. Zie [Azure Security Center-Platform migratie](security-center-platform-migration.md) toolearn meer. Hallo-informatie in dit artikel beschrijft Security Center functionaliteit na de overgang toohello Microsoft Monitoring Agent.
+>Vanaf begin juni 2017 maakt Security Center gebruik van Microsoft Monitoring Agent voor het verzamelen en opslaan van gegevens. Zie [Migratie van Azure Security Center-platform](security-center-platform-migration.md) voor meer informatie. De informatie in dit artikel beschrijft functionaliteit van Security Center na de overstap naar de Microsoft Monitoring Agent.
 >
 
 ## <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
-Deze handleiding wordt uitgelegd hoe tootroubleshoot Security Center gerelateerde problemen. Hallo probleemoplossing in Security Center uitgevoerd en de meeste vindt plaats door eerst te zoeken naar Hallo [controlelogboek](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) records voor Hallo onderdeel is mislukt. Met controlelogboeken kunt u het volgende bepalen:
+In deze handleiding wordt uitgelegd hoe u problemen oplost die betrekking hebben op Security Center. In de meeste gevallen vindt probleemoplossing in Security Center plaats door eerst de records in het [Controlelogboek](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) van het onderdeel met de fout te raadplegen. Met controlelogboeken kunt u het volgende bepalen:
 
 * Welke bewerkingen er hebben plaatsgevonden
-* Wie Hallo-bewerking gestart
-* Wanneer Hallo-bewerking heeft plaatsgevonden
-* Hallo-status van Hallo-bewerking
-* Hallo-waarden van andere eigenschappen die u kunnen helpen onderzoek Hallo-bewerking
+* Wie de bewerking heeft gestart
+* Wanneer de bewerking is uitgevoerd
+* De status van de bewerking
+* De waarden van andere eigenschappen die u kunnen helpen bij het onderzoeken van het probleem
 
-Hallo-controlelogboek bevat alle schrijfbewerkingen (PUT, POST, verwijderen) uitgevoerd op uw resources, maar geen leesbewerkingen (GET bevat).
+In het controlelogboek staan alle schrijfbewerkingen (PUT, POST, DELETE) die op uw resources zijn uitgevoerd, maar er staan geen leesbewerkingen (GET) in.
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
-Security Center gebruikt Hallo Microsoft Monitoring Agent – dit Hallo dezelfde agent die wordt gebruikt door Hallo Operations Management Suite en Log Analytics-service – toocollect beveiligingsgegevens van uw virtuele machines in Azure is. Nadat gegevensverzameling is ingeschakeld en Hallo agent correct is geïnstalleerd in de doelmachine hello, moet Hallo procedure hieronder worden uitgevoerd:
+Security Center maakt gebruik van de Microsoft Monitoring Agent. Dit is dezelfde agent die ook wordt gebruikt door de Operations Management Suite en de Log Analytics-service om beveiligingsgegevens van uw virtuele machines in Azure te verzamelen. Nadat het verzamelen van gegevens is ingeschakeld en de agent juist is geïnstalleerd op de doelcomputer, wordt als het goed is dit proces uitgevoerd:
 
 * HealthService.exe
 
-Als u Hallo services management console (services.msc) opent, ziet u ook Hallo Microsoft Monitoring Agent-service wordt uitgevoerd zoals hieronder wordt weergegeven:
+Als u de console voor servicebeheer (services.msc) opent, ziet u ook dat de service Microsoft Monitoring Agent wordt uitgevoerd, zoals hieronder is weergegeven:
 
 ![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
-welke versie van het Hallo-agent die u hebt, toosee openen **Taakbeheer**, in Hallo **processen** tabblad vinden Hallo **Microsoft Monitoring Agent-Service**, met de rechtermuisknop op het en Klik op **eigenschappen**. In Hallo **Details** tabblad, kijkt u Hallo bestandsversie zoals hieronder wordt weergegeven:
+Als u wilt zien welke versie van de agent u hebt, opent u **Taakbeheer**, zoekt u op het tabblad **Processen** **Microsoft Monitoring Agent-Service**, klikt u er met de rechtermuisknop op en klikt u ten slotte op **Eigenschappen**. Op het tabblad **Details** kunt u de bestandsversie vinden, zoals hieronder wordt weergegeven:
 
 ![File](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
    
 
 ## <a name="microsoft-monitoring-agent-installation-scenarios"></a>Installatiescenario's voor Microsoft Monitoring Agent
-Er zijn twee installatiescenario's die verschillende resultaten opleveren kunnen bij het Hallo Microsoft Monitoring Agent installeren op uw computer. Hallo ondersteund scenario's:
+Er zijn twee installatiescenario's die verschillende resultaten kunnen opleveren bij het installeren van Microsoft Monitoring Agent op uw computer. Dit zijn de ondersteunde scenario's:
 
-* **Agent die automatisch wordt geïnstalleerd door Security Center**: in dit scenario kunt u zich kunt tooview Hallo waarschuwingen in de locaties, Security Center en logboek zoeken. U ontvangt e-mailmeldingen toohello e-mailadres dat is geconfigureerd in het Hallo-beveiligingsbeleid voor Hallo abonnement Hallo resource bij hoort.
+* **Agent automatisch geïnstalleerd door Security Center**: in dit scenario kunt u de waarschuwingen op beide locaties bekijken, in Security Center en door te zoeken in logboeken. U ontvangt e-mailmeldingen op het e-mailadres dat is geconfigureerd in het beveiligingsbeleid voor het abonnement waarvan de resource deel uitmaakt.
 .
-* **De agent handmatig is geïnstalleerd op een virtuele machine zich in Azure**: in dit scenario, als u agents hebt gedownload en geïnstalleerd handmatig voorafgaande tooFebruary 2017, kunt u waarschuwingen van de kunnen tooview Hallo in Hallo Security Center portal alleen als u filteren op Hallo Hallo-werkruimte abonnement behoort. In geval filter op Hallo abonnement Hallo resource van jou is, niet kunnen toosee waarschuwingen. U ontvangt e-mailmeldingen toohello e-mailadres dat is geconfigureerd in het Hallo-beveiligingsbeleid voor Hallo abonnement Hallo werkruimte tot behoort.
+* **Agent handmatig geïnstalleerd op een virtuele machine in Azure**: als u in dit scenario agents gebruikt die u hebt gedownload en handmatig hebt geïnstalleerd vóór februari 2017, kunt u de waarschuwingen alleen bekijken in de portal van Security Center als u filtert op het abonnement waartoe de werkruimte behoort. Als u filtert op het abonnement waartoe de resource behoort, krijgt u geen waarschuwingen te zien. U ontvangt e-mailmeldingen op het e-mailadres dat is geconfigureerd in het beveiligingsbeleid voor het abonnement waarvan de werkruimte deel uitmaakt.
 
 >[!NOTE]
-> tooavoid hello gedrag uitgelegd in Hallo tweede, zorg ervoor dat u de nieuwste versie Hallo van Hallo agent downloaden.
+> U kunt het gedrag uit het tweede scenario voorkomen door de nieuwste versie van de agent te downloaden.
 > 
 
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Problemen oplossen met de netwerkvereisten voor de Monitoring Agent
-Voor agents tooconnect tooand registreren met Security Center, moeten ze toegang toonetwork bronnen, met inbegrip van poortnummers Hallo en domein-URL's hebben.
+Agents kunnen alleen verbinding maken met Security Center en zich daarbij registreren als ze toegang hebben tot netwerkbronnen, inclusief de poortnummers en domein-URL's.
 
-- Proxy-servers moet u tooensure die Hallo juiste proxyserver resources zijn geconfigureerd in instellingen voor de agent. Lees dit artikel voor meer informatie over [hoe toochange proxy-instellingen Hallo](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
-- Voor firewalls die toegang toohello Internet beperken, moet u tooconfigure uw firewall toopermit toegang tooOMS. De agent-instellingen hoeven niet te worden aangepast.
+- Voor proxyservers moet u ervoor zorgen dat de juiste resources voor de proxyserver zijn geconfigureerd in de instellingen voor de agent. Lees dit artikel voor meer informatie over [het wijzigen van de proxy-instellingen](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
+- Als u een firewall gebruikt om de toegang tot internet te beperken, moet u uw firewall zodanig configureren dat toegang tot OMS wordt toegestaan. De agent-instellingen hoeven niet te worden aangepast.
 
-Hallo volgende tabel ziet u bronnen die nodig zijn voor communicatie.
+De volgende tabel bevat de resources die nodig zijn voor communicatie.
 
 | Agentresource | Poorten | HTTPS-controle overslaan |
 |---|---|---|
@@ -78,40 +78,40 @@ Hallo volgende tabel ziet u bronnen die nodig zijn voor communicatie.
 | *.blob.core.windows.net | 443 | Ja |
 | *.azure-automation.net | 443 | Ja |
 
-Als u voorbereiden op problemen met Hallo-agent ondervindt, moet u ervoor dat tooread Hallo artikel [hoe tootroubleshoot Operations Management Suite voorbereiden problemen](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
+Als er problemen zijn tijdens het onboarden van de agent, leest u het artikel [Onboarding-problemen van Operations Management Suite oplossen](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
 
 ## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Oplossen van problemen met niet goed werkende eindpuntbeveiliging
 
-Hallo guest-agent is Hallo bovenliggende proces van alles Hallo [Microsoft Antimalware](../security/azure-security-antimalware.md) extensie heeft. Wanneer Hallo guest agent mislukt mislukt Hallo Microsoft Antimalware die wordt uitgevoerd als een onderliggend proces van Hallo guest-agent ook.  In scenario's zoals die wordt aanbevolen tooverify Hallo de volgende opties:
+De gastagent is het bovenliggende proces van alles wat de [Microsoft Antimalware](../security/azure-security-antimalware.md)-extensie doet. Wanneer het proces van de gastagent mislukt, kan de Microsoft Antimalware die wordt uitgevoerd als onderliggend proces van de gastagent ook mislukken.  In dergelijke scenario's wordt aanbevolen de volgende opties te controleren:
 
-- Als Hallo doel VM een aangepaste installatiekopie is en Hallo maker van Hallo VM nooit guest-agent geïnstalleerd.
-- Als Hallo doel een Linux-VM in plaats van een virtuele machine van Windows hello Windows-versie van Hallo antimalware extensie vervolgens te installeren op een Linux-VM is mislukt. Hallo Linux Gast-agent heeft bepaalde vereisten in termen van de versie van het besturingssysteem en de vereiste pakketten en niet aan deze vereisten wordt voldaan Hallo VM-agent werkt niet als er een. 
-- Als Hallo VM is gemaakt met een oude versie van de gastagent. Als emulator was, moet u zich bewust zijn dat een aantal oude agents kunnen niet automatisch bijwerken zelf toohello nieuwere versie en kan dit probleem toothis leiden. Gebruik altijd Hallo meest recente versie van de gastagent als het maken van uw eigen installatiekopieën.
-- Sommige beheersoftware van derden mogelijk uitschakelen Hallo guest-agent of locaties voor toegang tot toocertain bestand blokkeren. Als u van derden geïnstalleerd op de virtuele machine hebt, zorg er dan voor dat die Hallo-agent op de uitsluitingslijst Hallo is.
-- Bepaalde firewall-instellingen of een Netwerkbeveiligingsgroep (NSG) blokkeren netwerkverkeer tooand van gastagent.
+- Als de doel-VM een aangepaste installatiekopie is en de maker van de VM nooit een gastagent heeft geïnstalleerd.
+- Als het doel een Linux-VM in plaats van een Windows-VM is, mislukt het installeren van de Windows-versie van de anti-malware-extensie op een Linux-VM. De Linux-gastagent heeft specifieke vereisten voor het besturingssysteem en de vereiste pakketten. Als niet aan deze vereisten wordt voldaan, werkt de VM-agent ook niet. 
+- Als de VM is gemaakt met een oudere versie van gastagent. Als dat het geval is, houd er dan rekening mee dat een aantal oude agents niet automatisch kunnen bijwerken naar de nieuwe versie en dat dit tot dit probleem kan leiden. Gebruik altijd de nieuwste versie van gastagent als u uw eigen installatiekopieën maakt.
+- Sommige beheersoftware van derden kan de gastagent uitschakelen of toegang tot bepaalde bestandslocaties blokkeren. Als u beheersoftware van derden op de VM hebt geïnstalleerd, zorgt u ervoor dat de agent op de uitsluitingslijst staat.
+- Bepaalde firewallinstellingen of netwerkbeveiligingsgroepen (NSG) blokkeren mogelijk het netwerkverkeer naar en van de gastagent.
 - Een toegangsbeheerlijst (ACL) blokkeert mogelijk de toegang tot de schijf.
-- Onvoldoende schijfruimte blokkeren Hallo guest-agent niet goed werken. 
+- Onvoldoende schijfruimte kan er voor zorgen dat de gastagent niet goed functioneert. 
 
-Standaard Hallo Microsoft Antimalware-gebruikersinterface is uitgeschakeld, het lezen van [inschakelen van Microsoft Antimalware-gebruikersinterface op VM's na implementatie van Azure Resource Manager](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) voor meer informatie over het tooenable deze als u nodig hebt.
+De gebruikersinterface van Microsoft Antimalware is standaard uitgeschakeld. Zie [Enabling Microsoft Antimalware User Interface on Azure Resource Manager VMs Post Deployment](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) (De Microsoft Antimalware-gebruikersinterface inschakelen op Azure Resource Manager-VM's na implementatie) voor meer informatie over hoe u deze kunt inschakelen.
 
-## <a name="troubleshooting-problems-loading-hello-dashboard"></a>Het oplossen van problemen bij het laden van Hallo-dashboard
+## <a name="troubleshooting-problems-loading-the-dashboard"></a>Problemen oplossen met het laden van het dashboard
 
-Als u bij het laden van Hallo Security Center-dashboard problemen, zorg ervoor dat de gebruiker Hallo registreert Hallo abonnement tooSecurity Center (dat wil zeggen Hallo eerste gebruiker die Security Center geopend met Hallo abonnement) en Hallo-gebruiker die u wilt tooturn op verzamelen van gegevens moet *eigenaar* of *Inzender* op Hallo-abonnement. Vanaf dat moment op ook gebruikers met *lezer* op Hallo abonnement Hallo dashboard/waarschuwingen/aanbeveling, beleid kunt bekijken.
+Als u problemen ondervindt met het laden van het dashboard van Security Center, moet u ervoor zorgen dat de gebruiker die het Security Center-abonnement registreert (de eerste gebruiker die Security Center voor het abonnement opent) en de gebruiker die het verzamelen van gegevens inschakelt, in het abonnement de rol van *Eigenaar* of *Inzender* hebben. Vanaf dat moment kunnen ook gebruikers die in het abonnement de rol van *Lezer* hebben, het dashboard weergeven, en waarschuwingen, aanbevelingen en het beleid bekijken.
 
 ## <a name="contacting-microsoft-support"></a>Contact opnemen met Microsoft-ondersteuning
-Sommige problemen kunnen worden geïdentificeerd met Hallo richtlijnen in dit artikel, anderen u ook vindt beschreven op Hallo Security Center openbare [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). Als u aanvullende hulp nodig hebt om bepaalde problemen op te lossen, kunt u via **Azure Portal** een nieuwe ondersteuningsaanvraag openen. Dit doet u als volgt: 
+Bepaalde problemen kunnen worden geïdentificeerd aan de hand van de richtlijnen in dit artikel. Andere problemen vindt u ook beschreven in het openbare [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) van Security Center. Als u aanvullende hulp nodig hebt om bepaalde problemen op te lossen, kunt u via **Azure Portal** een nieuwe ondersteuningsaanvraag openen. Dit doet u als volgt: 
 
 ![Microsoft-ondersteuning](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
 
 ## <a name="see-also"></a>Zie ook
-In dit document, u leert hoe tooconfigure beveiligingsbeleid in Azure Security Center. toolearn meer informatie over Azure Security Center Hallo ziet:
+In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid configureert in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
-* [Azure Security Center Planning- en Bedieningsgids](security-center-planning-and-operations-guide.md) : meer informatie hoe tooplan en Hallo ontwerpoverwegingen tooadopt Azure Security Center begrijpen.
-* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) : meer informatie over hoe toomonitor Hallo status van uw Azure-resources
-* [Het beheer van is en reageert toosecurity waarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) : meer informatie hoe toomanage en gereageerd had toosecurity waarschuwingen
-* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md) : meer informatie over hoe toomonitor gezondheidsstatus van uw partneroplossingen Hallo.
-* [Veelgestelde vragen over Azure Security Center](security-center-faq.md) : Raadpleeg Veelgestelde vragen over het gebruik van Hallo-service
+* [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) (Gids voor de planning en werking van Azure Security Center): leer de ontwerpoverwegingen kennen en leer hiervoor te plannen voor de overstap naar Azure Security Center.
+* [Security health monitoring in Azure Security Center](security-center-monitoring.md) (Beveiligingsstatus controleren in Azure Security Center): meer informatie over het controleren van de status van uw Azure-resources
+* [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): leer hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren
+* [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
+* [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure
 

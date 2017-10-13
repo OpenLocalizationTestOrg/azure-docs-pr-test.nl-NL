@@ -1,8 +1,8 @@
 ---
-title: aaaAzure DNS-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toomanage de DNS-records met behulp van Azure Domain Name System. Documentatie toont hoe tooset en records voor domeinnamen en DNS-zones beheren.
+title: Documentatie voor Azure DNS - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over hoe u uw DNS-records beheert met Azure Domain Name System. Documentatie laat zien hoe u DNS-zones en -records instelt en beheert voor domeinnamen.
 services: dns
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 64804b1d6cbfefdeab3f9a79bca26848e37e64f3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a138c9ea62ffa599529081cf792bc81663069bf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dns-documentation"></a>Documentatie over DNS
 
-Meer informatie over hoe toomanage de DNS-records met behulp van Azure Domain Name System, een hosting-service. Zelfstudies, API-referenties en andere documentatie die u zien hoe tooset en records voor domeinnamen en DNS-zones beheren.
+Meer informatie over hoe u uw DNS-records beheert met Azure Domain Name System, een hostingservice. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u DNS-zones en -records instelt en beheert voor domeinnamen.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -52,7 +52,7 @@ Meer informatie over hoe toomanage de DNS-records met behulp van Azure Domain Na
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure DNS met hello Azure Portal</h3>
+                        <h3>Aan de slag met Azure DNS en Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ Meer informatie over hoe toomanage de DNS-records met behulp van Azure Domain Na
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure DNS met hello Azure CLI</h3>
+                        <h3>Aan de slag met Azure DNS met behulp van de Azure-CLI</h3>
                     </div>
                 </div>
             </div>

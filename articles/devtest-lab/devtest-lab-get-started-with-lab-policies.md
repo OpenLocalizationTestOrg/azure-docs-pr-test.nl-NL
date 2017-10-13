@@ -1,6 +1,6 @@
 ---
-title: basic labbeleidsregels aaaManage in Azure DevTest Labs | Microsoft Docs
-description: Meer informatie over hoe tooset aantal basic Hallo-beleid (instellingen) voor een testomgeving in DevTest Labs
+title: Beheer van basic lab-beleid in Azure DevTest Labs | Microsoft Docs
+description: Informatie over het aantal basic-beleid (instellingen) voor een testomgeving instellen in DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,78 +14,78 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: tarcher
-ms.openlocfilehash: 792c0d19cfe73964be9c03d3de7751a868fd86e8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Basic beleid beheren voor een testomgeving in Azure DevTest Labs
 
-Azure DevTest Labs kunt u toocontrol kosten en afval in uw labs minimaliseren door het beleid (instellingen) beheren voor elke lab. In dit artikel leert u aan de slag met beleid door te leren hoe tooset twee van de meest kritieke beleidsregels Hallo - beperken Hallo aantal virtuele machines (VM) die kan worden gemaakt of door een afzonderlijke gebruiker en automatisch afsluiten configureren geclaimd. tooview hoe tooset elk beleid lab Zie Hallo artikel [labbeleidsregels definiëren in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
+Azure DevTest Labs kunt u kosten te beheren en afval in uw labs minimaliseren door het beleid (instellingen) voor elke lab beheren. In dit artikel leert u aan de slag met beleid door leren hoe u kunt twee van de meest kritieke beleidsregels instellen - het aantal virtuele machines (VM) die kan worden gemaakt of door een enkele gebruiker geclaimd beperken en automatisch afsluiten te configureren. Om weer te geven hoe elk lab beleid instelt, Zie het artikel [labbeleidsregels definiëren in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
 ## <a name="accessing-a-labs-policies-in-azure-devtest-labs"></a>Toegang tot een lab-beleid in Azure DevTest Labs
-Hallo volgende stappen begeleiden u door het instellen van beleidsregels voor een testomgeving in Azure DevTest Labs:
+De volgende stappen begeleiden u bij het instellen van beleidsregels voor een testomgeving in Azure DevTest Labs:
 
-tooview (en wijzigen) Hallo beleidsregels voor een testomgeving, als volgt te werk:
+Als u wilt weergeven (en wijzigen) op het beleid voor een testomgeving, de volgende stappen uit:
 
-1. Meld u aan toohello [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecteer **meer services**, en selecteer vervolgens **DevTest Labs** uit Hallo-lijst.
+1. Selecteer **Meer services** en selecteer in de lijst vervolgens **DevTest Labs**.
 
-1. Selecteer de gewenste lab Hallo in lijst Hallo van labs.   
+1. Selecteer de gewenste testomgeving uit de lijst van labs.   
 
 1. Selecteer **configuratie en het beleid**.
 
     ![Blade beleidsinstellingen](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
-1. Hallo **configuratie en het beleid** blade bevat een menu met instellingen die u kunt opgeven. Dit artikel behandelt alleen Hallo instellingen voor **virtuele machines per gebruiker** en **automatisch afsluiten**. toolearn over Hallo resterende instellingen, Zie [beheren van alle beleidsregels voor een testomgeving in Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
+1. De **configuratie en het beleid** blade bevat een menu met instellingen die u kunt opgeven. Dit artikel behandelt alleen de instellingen voor **virtuele machines per gebruiker** en **automatisch afsluiten**. Zie voor meer informatie over de overige instellingen, [beheren van alle beleidsregels voor een testomgeving in Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
    
 ## <a name="set-virtual-machines-per-user"></a>Set virtuele machines per gebruiker
-beleid voor Hallo **virtuele machines per gebruiker** kunt u toospecify Hallo maximum aantal VM's die kunnen worden gemaakt door een afzonderlijke gebruiker. Als een gebruiker probeert toocreate of claim een virtuele machine wanneer Hallo gebruikerslimiet is bereikt, wordt een foutbericht dat Hallo die VM kan niet worden gemaakt/geclaimd aangeeft. 
+Het beleid voor **virtuele machines per gebruiker** kunt u het maximum aantal VM's die kunnen worden gemaakt door een afzonderlijke gebruiker opgeven. Als een gebruiker probeert te maken of een virtuele machine wanneer de gebruikerslimiet is bereikt, wordt een foutbericht geeft aan dat de virtuele machine kan niet gemaakt/geclaimd worden. 
 
-1. Op de Hallo lab **configuratie en het beleid** selecteert u **virtuele machines per gebruiker**.
+1. Op de testomgeving **configuratie en het beleid** selecteert u **virtuele machines per gebruiker**.
    
     ![Virtuele machines per gebruiker](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
-1. Selecteer **Ja** toolimit Hallo aantal virtuele machines per gebruiker. Als u niet dat toolimit Hallo aantal virtuele machines per gebruiker wilt, schakelt u **Nee**. Als u selecteert **Ja**, Geef een numerieke waarde die aangeeft Hallo kunt u het maximum aantal VM's die kunnen worden gemaakt of door een gebruiker geclaimd. 
+1. Selecteer **Ja** beperken het aantal virtuele machines per gebruiker. Als u niet beperken het aantal virtuele machines per gebruiker wilt, schakelt u **Nee**. Als u selecteert **Ja**, Geef een numerieke waarde die aangeeft van het maximum aantal VM's die kunnen worden gemaakt of door een gebruiker geclaimd. 
 
-1. Selecteer **Ja** toolimit Hallo aantal virtuele machines met SSD (SSD-schijf). Als u niet dat toolimit Hallo aantal virtuele machines die SSD gebruiken wilt kunt, selecteert u **Nee**. Als u selecteert **Ja**, voer een waarde die aangeeft Hallo kunt u het maximum aantal VM's die kunnen worden gemaakt met SSD. 
+1. Selecteer **Ja** beperken het aantal virtuele machines met SSD (SSD-schijf). Als u niet wilt beperken het aantal virtuele machines die gebruik van SSD **Nee**. Als u selecteert **Ja**, voer een waarde die het maximum aantal VM's die kunnen worden gemaakt met SSD aangeeft. 
 
 1. Selecteer **Opslaan**.
 
 ## <a name="set-auto-shutdown"></a>Stel automatisch afsluiten
-Hallo automatisch afsluiten beleid helpt toominimize lab afval doordat u toospecify Hallo wanneer dit lab VMs afgesloten.
+Het beleid voor automatisch afsluiten helpt te minimaliseren lab verspilling doordat u de tijd die dit lab virtuele machines afsluiten opgeven.
 
-1. Op de Hallo lab **configuratie en het beleid** blade Selecteer **automatisch afsluiten**.
+1. Op de testomgeving **configuratie en het beleid** blade Selecteer **automatisch afsluiten**.
    
     ![Automatisch afsluiten](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
-1. Selecteer **op** tooenable dit beleid en **uit** toodisable deze.
+1. Selecteer **op** waarmee dit beleid en **uit** dat u deze uitschakelt.
 
-1. Als u dit beleid inschakelt, geef Hallo tijd (en tijdzone) tooshut omlaag alle VM's in de huidige lab Hallo.
+1. Als u dit beleid inschakelt, geef de tijd (en tijdzone) de alle VM's in het huidige lab af te sluiten.
 
-1. Geef **Ja** of **Nee** voor Hallo optie toosend een melding 15 minuten voorafgaande toohello automatisch afsluiten tijd opgegeven. Als u opgeeft **Ja**, voer een webhook-URL-eindpunt tooreceive Hallo melding. Zie voor meer informatie over webhooks [maken van een webhook of API-functie voor Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Geef **Ja** of **Nee** voor de optie een melding te verzenden 15 minuten voordat de tijd opgegeven automatisch afsluiten. Als u opgeeft **Ja**, voer een webhook-URL-eindpunt voor het ontvangen van de melding. Zie voor meer informatie over webhooks [maken van een webhook of API-functie voor Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Selecteer **Opslaan**.
 
-    Standaard eenmaal is ingeschakeld, geldt dit beleid tooall virtuele machines in de huidige lab Hallo. Deze instelling van een specifieke virtuele machine, opent u tooremove Hallo van de virtuele machine blade en wijzig de **automatisch afsluiten** instelling 
+    Eenmaal is ingeschakeld, geldt dit beleid voor alle VM's in het huidige lab. Als deze instelling uit een specifieke virtuele machine verwijderen, de VM-blade open en wijzig de **automatisch afsluiten** instelling 
 
 ## <a name="set-auto-start"></a>Set automatisch starten
-Hallo automatisch starten van beleid kunt u toospecify wanneer Hallo virtuele machines in de huidige lab Hallo moet worden gestart.  
+Het beleid voor automatisch starten, kunt u opgeven wanneer de virtuele machines in het huidige lab moeten worden gestart.  
 
-1. Op het Hallo lab **configuratie en het beleid** blade Selecteer **automatisch starten**.
+1. Op de testomgeving **configuratie en het beleid** blade Selecteer **automatisch starten**.
    
     ![Automatisch starten](./media/devtest-lab-set-lab-policy/auto-start.png)
 
-2. Selecteer **op** tooenable dit beleid en **uit** toodisable deze.
+2. Selecteer **op** waarmee dit beleid en **uit** dat u deze uitschakelt.
 
-3. Als u dit beleid inschakelt, geef Hallo geplande begintijd, tijdzone en Hallo dagen van de week van Hallo welke Hallo tijd van toepassing is. 
+3. Als u dit beleid inschakelt, geeft u het geplande begintijdstip, tijdzone en de dagen van de week waarop de tijd van toepassing is. 
 
 4. Selecteer **Opslaan**.
 
-    Eenmaal is ingeschakeld, dit beleid is niet automatisch toegepast tooany virtuele machines in de huidige lab Hallo. tooapply deze instelling tooa specifieke virtuele machine, blade van open Hallo van de virtuele machine en wijzig de **automatisch starten** instelling 
+    Eenmaal is ingeschakeld, wordt dit beleid niet automatisch toegepast op alle virtuele machines in het huidige lab. Als u wilt deze instelling toepast op een specifieke virtuele machine, van de VM-blade open en wijzig de **automatisch starten** instelling 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Labbeleidsregels definiëren in Azure DevTest Labs](devtest-lab-set-lab-policy.md) -informatie over hoe toomodify andere labbeleidsregels 
+- [Labbeleidsregels definiëren in Azure DevTest Labs](devtest-lab-set-lab-policy.md) -informatie over het aanpassen van andere labbeleidsregels 

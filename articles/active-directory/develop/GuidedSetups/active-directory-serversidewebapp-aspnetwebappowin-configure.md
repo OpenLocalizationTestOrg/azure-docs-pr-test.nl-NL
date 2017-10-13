@@ -1,5 +1,5 @@
 ---
-title: aaaAzure AD v2 ASP.NET Web Server aan de slag - Config | Microsoft Docs
+title: Azure AD v2 ASP.NET Web Server aan de slag - Config | Microsoft Docs
 description: Implementeren van Microsoft-aanmeldingspagina op een ASP.NET-oplossing met een traditioneel browser gebaseerde webtoepassing met behulp van standaard OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,29 +15,29 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: e666be4622ad30aaa1e12e49ae56bbe1e129b2a9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0c627802ccfba230dcde2dafffee26cb1c895791
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 ## <a name="create-an-application-express"></a>Maken van een toepassing (snelle)
-Nu u uw toepassing in Hallo tooregister moet *Portal voor registratie van Microsoft-toepassing*:
-1. Registreren van uw toepassing via Hallo [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure)
+Nu gaat u naar het registreren van uw toepassing in de *Portal voor registratie van Microsoft-toepassing*:
+1. Registreren van uw toepassingen via de [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure)
 2.  Voer een naam voor uw toepassing en uw e-mailadres
-3.  Zorg ervoor dat de optie Hallo voor begeleide Setup is ingeschakeld
-4.  Ga als volgt Hallo instructies tooadd een Omleidings-URL tooyour-toepassing
+3.  Zorg ervoor dat de optie voor begeleide Setup is ingeschakeld
+4.  Volg de instructies voor het toevoegen van een Omleidings-URL voor uw toepassing
 
-## <a name="add-your-application-registration-information-tooyour-solution-advanced"></a>Toevoegen van uw toepassing registratie informatie tooyour oplossing (Geavanceerd)
-Nu u uw toepassing in Hallo tooregister moet *Portal voor registratie van Microsoft-toepassing*:
-1. Ga toohello [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app) tooregister een toepassing
+## <a name="add-your-application-registration-information-to-your-solution-advanced"></a>De registratiegegevens van uw toepassing toevoegen aan uw oplossing (Geavanceerd)
+Nu gaat u naar het registreren van uw toepassing in de *Portal voor registratie van Microsoft-toepassing*:
+1. Ga naar de [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app) een toepassing registreren
 2. Voer een naam voor uw toepassing en uw e-mailadres 
-3.  Zorg ervoor dat de optie Hallo voor begeleide Setup is uitgeschakeld
+3.  Zorg ervoor dat de optie voor begeleide Setup is uitgeschakeld
 4.  Klik op `Add Platform`, selecteer vervolgens`Web`
-5.  Ga terug tooVisual Studio, selecteer Hallo-project in Solution Explorer en bekijkt hello eigenschappenvenster (als er geen een venster met eigenschappen, druk op F4)
-6.  SSL ingeschakeld te wijzigen`True`
-7.  Hallo SSL URL kopiëren en toevoegen van deze URL toohello lijst van de omleidings-URL's in de lijst Hallo Registratieportal van de omleidings-URL's:<br/><br/>![Projecteigenschappen](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />
-8.  Voeg de volgende Hallo in `web.config` zich in de hoofdmap Hallo onder sectie Hallo `configuration\appSettings`:
+5.  Ga terug naar Visual Studio en klik in Solution Explorer, selecteert u het project en kijk in het venster Eigenschappen (als er geen een venster met eigenschappen, druk op F4)
+6.  SSL ingeschakeld om te wijzigen`True`
+7.  De SSL-URL kopiëren en deze URL toevoegen aan de lijst van de omleidings-URL's in de lijst van de Portal van de registratie van de omleidings-URL's:<br/><br/>![Projecteigenschappen](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />
+8.  Voeg de volgende in `web.config` zich in de hoofdmap in de sectie `configuration\appSettings`:
 
 ```xml
 <add key="ClientId" value="Enter_the_Application_Id_here" />
@@ -48,10 +48,10 @@ Nu u uw toepassing in Hallo tooregister moet *Portal voor registratie van Micros
 <!-- Workaround for Docs conversion bug -->
 <ol start="9">
 <li>
-Vervang `ClientId` Hello toepassings-Id die u zojuist hebt geregistreerd
+Vervang `ClientId` met de toepassings-Id die u zojuist hebt geregistreerd
 </li>
 <li>
-Vervang `redirectUri` Hello SSL-URL van uw project
+Vervang `redirectUri` met de SSL-URL van uw project
 </li>
 </ol>
 <!-- End Docs -->

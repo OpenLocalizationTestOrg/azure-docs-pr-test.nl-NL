@@ -1,26 +1,26 @@
-## <a name="using-vault-credentials-tooauthenticate-with-hello-azure-backup-service"></a>Met behulp van de kluis referenties tooauthenticate Hello Azure Backup-service
-Hallo lokale server (Windows-client of Windows Server of Data Protection Manager-server) moet toobe geverifieerd met een back-upkluis voordat de back-up tooAzure gegevens kunt maken. Hallo-verificatie wordt bereikt met 'vault referenties'. Hallo-concept van kluisreferenties is vergelijkbaar toohello concept van een 'publicatie-instellingen'-bestand dat wordt gebruikt in Azure PowerShell.
+## <a name="using-vault-credentials-to-authenticate-with-the-azure-backup-service"></a>Met behulp van referenties voor de kluis te verifiëren met de Azure Backup-service
+De on-premises server (Windows-client of Windows Server of Data Protection Manager-server) moet worden geverifieerd met een back-upkluis voordat deze kan back-ups naar Azure. De verificatie wordt bereikt met 'vault referenties'. Het concept van kluisreferenties is vergelijkbaar met het concept van een 'publicatie-instellingen'-bestand dat wordt gebruikt in Azure PowerShell.
 
-### <a name="what-is-hello-vault-credential-file"></a>Wat is het kluisreferentiebestand Hallo?
-Hallo kluisreferentiebestand is een certificaat dat is gegenereerd door Hallo-portal voor elke back-upkluis. Hallo portal geüpload en Hallo openbare sleutel toohello Access Control Service (ACS). persoonlijke sleutel van certificaat Hallo Hallo wordt beschikbaar toohello gebruiker als onderdeel van het Hallo-werkstroom die is opgegeven als invoer in Hallo machine registratiewerkstroom gemaakt. Hiermee wordt geverifieerd Hallo machine toosend back-upgegevens tooan geïdentificeerd kluis in hello Azure Backup-service.
+### <a name="what-is-the-vault-credential-file"></a>Wat is het kluisreferentiebestand?
+Het kluisreferentiebestand is een certificaat dat de portal voor elke back-upkluis genereert. De portal uploadt de openbare sleutel vervolgens naar de Access Control Service (ACS). De persoonlijke sleutel van het certificaat wordt beschikbaar gesteld aan de gebruiker als onderdeel van de werkstroom die is opgegeven als invoer in de werkstroom van de registratie machine. Hiermee verifieert de machine voor het verzenden van back-upgegevens naar een geïdentificeerde kluis in de Azure Backup-service.
 
-Hallo kluisreferentie wordt alleen gebruikt tijdens de registratiewerkstroom Hallo. Het is van de gebruiker Hallo verantwoordelijkheid tooensure die Hallo kluisreferenties bestand niet is geknoeid. Als het kluisreferentiebestand in handen Hallo van een rogue-gebruiker, Hallo kluisreferentiebestand kan worden gebruikt tooregister andere machines bij dezelfde kluis Hallo. Als de back-upgegevens Hallo is versleuteld met een wachtwoordzin die deel uitmaakt van de klant toohello, kan niet u bestaande back-upgegevens geschonden. toomitigate dit te voorkomen, de kluisreferenties tooexpire in 48hrs. U kunt Hallo kluisreferenties van een back-upkluis downloaden vaak – maar alleen Hallo nieuwste kluisreferentiebestand is van toepassing tijdens de registratiewerkstroom Hallo.
+De kluisreferenties worden alleen gebruikt tijdens de registratiewerkstroom. Het is de verantwoordelijkheid van de gebruiker om ervoor te zorgen dat het kluisreferentiebestand niet worden gecompromitteerd. Als het kluisreferentiebestand in handen valt van een rogue-gebruiker, kan het bestand worden gebruikt om andere machines bij dezelfde kluis te registreren. Als de back-upgegevens worden versleuteld met een wachtwoordzin die deel uitmaakt van de klant, kan niet u bestaande back-upgegevens geschonden. Om dit probleem verhelpen, de kluisreferenties verlopen na 48hrs. U kunt de kluisreferenties van een back-upkluis downloaden vaak – maar alleen het meest recente kluisreferentiebestand is van toepassing tijdens de registratiewerkstroom.
 
-### <a name="download-hello-vault-credential-file"></a>Download het kluisreferentiebestand Hallo
-Hallo kluisreferentiebestand is gedownload via een beveiligd kanaal van hello Azure-portal. Hello Azure Backup-service is niet op de hoogte van de persoonlijke sleutel van certificaat Hallo Hallo en Hallo persoonlijke sleutel is niet permanent in het Hallo-portal of Hallo-service. Gebruik hello te volgen stappen toodownload Hallo kluis referentie bestand tooa lokale computer.
+### <a name="download-the-vault-credential-file"></a>Download het kluisreferentiebestand
+Het kluisreferentiebestand is gedownload via een beveiligd kanaal vanuit de Azure-portal. De Azure Backup-service is niet op de hoogte van de persoonlijke sleutel van het certificaat en de persoonlijke sleutel is niet permanent in de portal of de service. Gebruik de volgende stappen voor het downloaden van het kluisreferentiebestand naar een lokale computer.
 
-1. Meld u aan toohello [-beheerportal](https://manage.windowsazure.com/)
-2. Klik op **Recovery Services** in het linkernavigatievenster Hallo en selecteer Hallo back-upkluis die u hebt gemaakt. Klik op Hallo cloud pictogram tooget toohello weergave van de back-upkluis Hallo snel starten.
+1. Aanmelden bij de [-beheerportal](https://manage.windowsazure.com/)
+2. Klik op **Recovery Services** in het navigatiedeelvenster links en selecteer de back-upkluis die u hebt gemaakt. Klik op het pictogram cloud naar de weergave snel starten van de back-upkluis.
    
    ![Snel weergeven](./media/backup-download-credentials/quickview.png)
-3. Klik op de pagina snel starten Hallo **kluisreferenties downloaden**. Hallo portal genereert Hallo kluisreferentiebestand, die beschikbaar is gemaakt voor downloaden.
+3. Klik op de pagina Quick Start op **kluisreferenties downloaden**. De portal genereert het kluisreferentiebestand wordt beschikbaar gesteld voor downloaden.
    
    ![Downloaden](./media/backup-download-credentials/downloadvc.png)
-4. Hallo portal genereert een kluisreferentie met behulp van een combinatie van Hallo kluisnaam en Hallo huidige datum. Klik op **opslaan** toodownload Hallo kluis referenties toohello lokale account van de map downloads of selecteer OpslaanAls een van de Hallo Sla menu toospecify een locatie voor de kluisreferenties Hallo.
+4. De portal genereert een kluisreferentie met een combinatie van de kluisnaam van de en de huidige datum. Klik op **opslaan** de kluisreferenties downloaden naar de map downloads van het lokale account in of selecteer OpslaanAls in het menu opslaan naar een locatie opgeven voor de kluisreferenties.
 
 ### <a name="note"></a>Opmerking
-* Zorg ervoor dat de kluisreferenties hello wordt opgeslagen op een locatie die toegankelijk is vanaf uw computer. Als deze is opgeslagen in een bestand share/SMB, controleert u de toegangsmachtigingen Hallo.
-* Hallo kluisreferentiebestand wordt alleen gebruikt tijdens de registratiewerkstroom Hallo.
-* Hallo kluisreferentiebestand na 48hrs verlopen en kan worden gedownload vanaf het Hallo-portal.
-* Raadpleeg toohello Azure Backup [Veelgestelde vragen over](../articles/backup/backup-azure-backup-faq.md) voor vragen over de Hallo-werkstroom.
+* Zorg ervoor dat de referenties voor de kluis wordt opgeslagen op een locatie die toegankelijk is vanaf uw computer. Als deze is opgeslagen in een bestand share/SMB, controleert de toegangsmachtigingen.
+* Het kluisreferentiebestand wordt alleen gebruikt tijdens de registratiewerkstroom.
+* Het kluisreferentiebestand na 48hrs verlopen en kan worden gedownload vanuit de portal.
+* Raadpleeg de Azure Backup [Veelgestelde vragen over](../articles/backup/backup-azure-backup-faq.md) voor vragen over de werkstroom.
 

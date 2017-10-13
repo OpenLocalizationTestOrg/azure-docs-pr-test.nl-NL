@@ -1,6 +1,6 @@
 ---
-title: 'Voor probleemoplossing: Ontbrekende gegevens in Hallo gedownload Azure Active Directory-activiteitenlogboeken | Microsoft Docs'
-description: Biedt u de gegevens van een oplossing toomissing in gedownloade activiteitenlogboeken van Azure Active Directory.
+title: 'Probleemoplossing: Ontbrekende gegevens in de gedownloade activiteitenlogboeken van Azure Active Directory | Microsoft Docs'
+description: Biedt een oplossing voor ontbrekende gegevens in de gedownloade activiteitenlogboeken van Azure Active Directory.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,30 +15,30 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 027b70e6efc570f81d3c836f50ee52aaa89be71a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3d56f89035da4d1a0074256b165663f81fc2b01e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="i-cant-find-any-data-in-hello-azure-active-directory-activity-logs-i-have-downloaded"></a>Ik kan geen gegevens vinden in hello Azure Active Directory-activiteitenlogboeken die ik heb gedownload
+# <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded"></a>Ik zie geen gegevens in de activiteitenlogboeken van Azure Active Directory die ik heb gedownload
 
 
 ## <a name="symptoms"></a>Symptomen
 
-Ik Hallo activiteitenlogboeken (audit of aanmeldingen) gedownload en alle Hallo records wordt niet weergegeven voor Hallo keer gekozen. Hoe komt dat? 
+Ik heb de activiteitenlogboeken (audit of aanmeldingen) gedownload en ik zie niet alle records voor de tijd die ik heb geselecteerd. Hoe komt dat? 
 
  ![Rapportage](./media/active-directory-reporting-troubleshoot-missing-data-download/01.png)
  
 
 ## <a name="cause"></a>Oorzaak
 
-Wanneer u activiteitenlogboeken in hello Azure-portal hebt gedownload, beperken we Hallo scale too120K records, gesorteerd op basis van de meeste recente. 
+Wanneer u activiteitenlogboeken downloadt in Azure Portal, worden er maximaal 120.000 records opgehaald, gesorteerd op meest recent. 
 
 ## <a name="resolution"></a>Oplossing
 
-U kunt gebruikmaken van [Azure AD rapportage-API's](active-directory-reporting-api-getting-started.md) toofetch tooa miljoen records op elk gewenst moment. De aanbevolen aanpak is toorun een script dat op vaste tijden die Hallo rapportage-API's toofetch aanroept op incrementele wijze gedurende een periode registreert (bijvoorbeeld dagelijks of wekelijks).
+U kunt gebruikmaken van [API's van Azure AD Reporting](active-directory-reporting-api-getting-started.md) om maximaal een miljoen records op te halen. Onze aanbevolen aanpak is om volgens een vast schema een script uit te voeren waarmee de API's van Reporting worden aangeroepen om gedurende een bepaalde periode (bijvoorbeeld dagelijks of wekelijks) alleen de gewijzigde records op te halen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie Hallo [Azure Active Directory-rapportage Veelgestelde vragen over](active-directory-reporting-faq.md).
+Zie [Azure Active Directory reporting FAQ](active-directory-reporting-faq.md) (Veelgestelde vragen over Azure Active Directory-rapportage).
 

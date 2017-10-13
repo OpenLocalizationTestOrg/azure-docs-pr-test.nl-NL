@@ -1,6 +1,6 @@
 ---
-title: aaaManage werkruimten in de Azure-logboekanalyse en Hallo OMS-portal | Microsoft Docs
-description: U kunt de werkruimten in de Azure-logboekanalyse en Hallo OMS-portal met behulp van verschillende beheertaken op gebruikers, accounts, -werkruimten en Azure-accounts beheren.
+title: De werkruimten in Azure Log Analytics beheren | Microsoft Docs
+description: U kunt werkruimten in Azure Log Analytics beheren met behulp van verschillende beheertaken voor gebruikers, accounts, werkruimten en Azure-accounts.
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/06/2017
+ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 570e6c1f13ad28f120ecd65052d00c4ca986ac98
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d9f86ac19044fd13e77d35d6c3dd9964c3852001
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-workspaces"></a>Werkruimten beheren
 
-toomanage toegang tooLog Analytics, dat u gerelateerde tooworkspaces van verschillende beheertaken uitvoeren. Dit artikel vindt aanbevolen toomanage-werkruimten adviezen en procedures. Een werkruimte is in wezen een container waarin gegevens van het account en eenvoudige configuratie-informatie voor Hallo-account. U of andere leden van uw organisatie mogelijk meerdere werkruimten toomanage verschillende sets van gegevens die worden verzameld uit alle of delen van uw IT-infrastructuur gebruiken.
+Voor het beheren van toegang tot Log Analytics, voert u verschillende beheertaken uit voor werkruimten. In dit artikel worden adviezen en aanbevolen procedures beschreven voor het beheren van werkruimten. Een werkruimte is in wezen een container met accountgegevens en eenvoudige configuratiegegevens voor het account. U of andere leden van uw organisatie kunnen meerdere werkruimten gebruiken om verschillende gegevenssets te beheren die worden verzameld uit de gehele of delen van uw IT-infrastructuur.
 
-een werkruimte toocreate, moet u:
+Het volgende is nodig om een werkruimte te maken:
 
 1. U dient een Azure-abonnement te hebben.
 2. U dient een naam voor de werkruimte te kiezen.
-3. Hallo-werkruimte koppelen aan uw abonnement.
+3. U dient de werkruimte aan uw abonnement te koppelen.
 4. U dient een geografische locatie te kiezen.
 
-## <a name="determine-hello-number-of-workspaces-you-need"></a>Hallo aantal werkruimten, u moet bepalen
-Een werkruimte is een Azure-resource en is een container waarin gegevens wordt verzameld, geaggregeerd geanalyseerd en die zijn gepresenteerd in hello Azure-portal.
+## <a name="determine-the-number-of-workspaces-you-need"></a>Vaststellen hoeveel werkruimten u nodig hebt
+Een werkruimte is een Azure-resource die bestaat uit een container waarin gegevens worden verzameld, samengevoegd, geanalyseerd en gepresenteerd in Azure Portal.
 
-U kunt meerdere werkruimten per Azure-abonnement hebben en u toomore toegang kan hebben dan een werkruimte. Minimalisatie van het aantal Hallo aantal werkruimten kunt u tooquery en correleren op Hallo van de meeste gegevens, omdat het niet mogelijk tooquery over meerdere werkruimten. Deze sectie wordt beschreven wanneer het kan ook nuttig toocreate meer dan één werkruimte.
+U kunt per Azure-abonnement beschikken over meerdere werkruimten en toegang hebben tot meer dan één werkruimte. Door het aantal werkruimten te minimaliseren, kunt u voor de meeste gegevens query's uitvoeren en de gegevens aan elkaar relateren, aangezien het niet mogelijk is om query's voor meerdere werkruimten uit te voeren. In deze sectie wordt beschreven wanneer het handig kan zijn om meer dan één werkruimte te maken.
 
 Een werkruimte biedt momenteel het volgende:
 
@@ -43,43 +43,43 @@ Een werkruimte biedt momenteel het volgende:
 * Gegevensisolatie
 * Bereik voor configuratie
 
-Op basis van kenmerken voorgaande Hallo, kunt u toocreate meerdere werkruimten als:
+Op basis van de voorgaande kenmerken kunt u in de volgende gevallen meerdere werkruimten maken:
 
 * U vertegenwoordigt een mondiaal bedrijf en moet de gegevens opslaan in specifieke regio’s ten behoeve van de onafhankelijkheid van de gegevens of om nalevingsredenen.
-* U gebruikt Azure en u wilt dat de uitgaande gegevensoverdracht tooavoid kosten doordat een werkruimte dezelfde regio Hallo zoals hello Azure-resources beheert.
-* U wilt tooallocate kosten toodifferent afdelingen of bedrijfsgroepen op basis van hun gebruik. Bij het maken van een werkruimte voor elke afdeling of bedrijfsgroep wordt uw Azure factuur- en gebruiksgegevens instructie Hallo kosten voor elke werkruimte afzonderlijk.
-* U provider van beheerde services en moet tookeep Hallo log analytics-gegevens voor elke klant die u beheert, geïsoleerd van gegevens van andere klanten.
-* Beheren van meerdere klanten en u wilt dat elke klant / afdeling / business groep toosee hun eigen gegevens, maar niet Hallo-gegevens voor anderen.
+* U gebruikt Azure en wilt kosten voor de overdracht van uitgaande gegevens voorkomen door een werkruimte in dezelfde regio te hebben als de Azure-resource die deze beheert.
+* U wilt kosten toewijzen aan verschillende afdelingen of bedrijfsonderdelen op basis van hun gebruik. Wanneer u voor elke afdeling of bedrijfsgroep een eigen werkruimte maakt, worden op uw factuur- en gebruiksoverzicht van Azure de kosten voor elke werkruimte afzonderlijk weergegeven.
+* U bent aanbieder van beheerde services en moet de Log Analytics-gegevens voor elke klant geïsoleerd van de gegevens van andere klanten bewaren.
+* U beheert meerdere klanten en wilt dat elke klant, afdeling of bedrijfsgroep de eigen gegevens kan bekijken, maar niet de gegevens van anderen.
 
-Wanneer u agents toocollect gegevens gebruikt, kunt u [configureren van elke agent tooreport tooone of meer werkruimten](log-analytics-windows-agents.md).
+Wanneer u agents gebruikt om gegevens te verzamelen, kunt u [elke agent configureren om te rapporteren aan een of meer werkruimten](log-analytics-windows-agents.md).
 
-Als u System Center Operations Manager gebruikt, kan elke beheergroep uit Operations Manager worden verbonden met slechts één werkruimte. U kunt Hallo Microsoft Monitoring Agent installeren op computers die worden beheerd door Operations Manager en Hallo agent rapport tooboth Operations Manager en een andere werkruimte voor logboekanalyse.
+Als u System Center Operations Manager gebruikt, kan elke beheergroep uit Operations Manager worden verbonden met slechts één werkruimte. De Microsoft Monitoring Agent (MMA) op de computer kan echter zo worden geconfigureerd dat zowel aan Operations Manager als een andere Log Analytics-werkruimte wordt gerapporteerd.  
 
 ### <a name="workspace-information"></a>Werkruimtegegevens
 
-U kunt details weergeven over uw werkruimte in hello Azure-portal. U kunt ook details weergeven in Hallo OMS-portal.
+U kunt gegevens van uw werkruimte in Azure Portal bekijken. 
 
-#### <a name="view-workspace-information-in-hello-azure-portal"></a>Werkruimte informatie weergeven in hello Azure-portal
+#### <a name="view-workspace-information-in-the-azure-portal"></a>Werkruimtegegevens weergeven in Azure Portal
 
-1. Als u dit nog niet hebt gedaan, meld u aan toohello [Azure-portal](https://portal.azure.com) met behulp van uw Azure-abonnement.
-2. Op Hallo **Hub** menu, klikt u op **meer services** en typt u in de lijst met resources Hallo **logboekanalyse**. Als u te typen begint, Hallo lijstfilters op basis van uw invoer. Klik op **Log Analytics**.  
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Klik op **Meer services** in de linkerbenedenhoek van Azure Portal.  Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Log Analytics**.  
     ![Azure-hub](./media/log-analytics-manage-access/hub.png)  
-3. Selecteer een werkruimte in Hallo logboekanalyse abonnementen blade.
-4. Hallo werkruimte blade geeft details weer over Hallo werkruimte en koppelingen naar aanvullende informatie.  
+3. Selecteer een werkruimte op de blade Abonnementen in Log Analytics.
+4. De blade van de werkruimte geeft gegevens over de werkruimte en koppelingen voor meer informatie weer.  
     ![details van de werkruimte](./media/log-analytics-manage-access/workspace-details.png)  
 
 
 ## <a name="manage-accounts-and-users"></a>Accounts en gebruikers beheren
-Elke werkruimte kan meerdere accounts die zijn gekoppeld, en elke account (Microsoft-account of organisatie-account) toegang toomultiple werkruimten kan hebben.
+Aan elke werkruimte kunnen meerdere accounts worden gekoppeld en elk account (Microsoft-account of organisatieaccount) kan toegang hebben tot meerdere werkruimten.
 
-Hallo-Microsoft-account of organisatie-account dat Hallo werkruimte maakt, wordt standaard Hallo beheerder van Hallo-werkruimte.
+Standaard wordt het Microsoft-account of organisatieaccount dat wordt gebruikt voor het maken van de werkruimte, de beheerder van de werkruimte.
 
-Er zijn twee modellen van machtigingen waarmee access tooa Log Analytics-werkruimte:
+Er zijn twee machtigingsmodellen die de toegang tot een Log Analytics-werkruimte beheren:
 
 1. Verouderde Log Analytics-gebruikersrollen
 2. [Toegang op basis van rollen in Azure](../active-directory/role-based-access-control-configure.md)
 
-Hallo volgende tabel geeft een overzicht van Hallo toegang kan worden ingesteld met behulp van elk model machtiging:
+In de volgende tabel ziet u de toegang die met elk machtigingsmodel kan worden ingesteld:
 
 |                          | Log Analytics-portal | Azure Portal | API (inclusief PowerShell) |
 |--------------------------|----------------------|--------------|----------------------------|
@@ -87,61 +87,61 @@ Hallo volgende tabel geeft een overzicht van Hallo toegang kan worden ingesteld 
 | Toegang op basis van rollen in Azure  | Ja                  | Ja          | Ja                        |
 
 > [!NOTE]
-> Log Analytics verplaatst toouse Azure op rollen gebaseerde toegang als Hallo machtigingenmodel vervangen Hallo Log Analytics-gebruikersrollen.
+> Log Analytics zal in plaats van Log Analytics-gebruikersrollen toegang op basis van rollen in Azure gaan gebruiken als machtigingsmodel.
 >
 >
 
-Hallo verouderde Log Analytics-gebruikersrollen bepaalt alleen toegang tooactivities uitgevoerd in Hallo [logboekanalyseportal](https://mms.microsoft.com).
+De oude Log Analytics-gebruikersrollen beheren alleen de toegang tot activiteiten die worden uitgevoerd in de [Log Analytics-portal](https://mms.microsoft.com).
 
-Hallo na activiteiten ook Azure machtigingen zijn vereist:
+Voor de volgende activiteiten zijn ook Azure-machtigingen vereist:
 
 | Actie                                                          | Azure-machtigingen nodig | Opmerkingen |
 |-----------------------------------------------------------------|--------------------------|-------|
 | Beheeroplossingen toevoegen en verwijderen                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
-| Hallo prijscategorie wijzigen                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
-| Gegevens weergeven in Hallo *back-up* en *siteherstel* oplossing tegels | Beheerder/medebeheerder | Toegang tot resources geïmplementeerd met het klassieke implementatiemodel Hallo |
-| Maken van een werkruimte in hello Azure-portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+| De prijscategorie wijzigen                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
+| Gegevens weergeven op de tegels *Back-up* en *Site Recovery* | Beheerder/medebeheerder | Heeft toegang tot resources die zijn geïmplementeerd met behulp van het klassieke implementatiemodel |
+| Een werkruimte maken in Azure Portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### <a name="managing-access-toolog-analytics-using-azure-permissions"></a>Het beheren van toegang tot tooLog Analytics met Azure machtigingen
-toogrant toegang toohello werkruimte voor logboekanalyse met behulp van Azure machtigingen Hallo stappen in [rol toewijzingen toomanage toegang tooyour Azure-abonnementresources gebruiken](../active-directory/role-based-access-control-configure.md).
+### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Toegang tot Log Analytics beheren met behulp van Azure-machtigingen
+Volg de stappen in [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](../active-directory/role-based-access-control-configure.md) om toegang te verlenen tot de Log Analytics-werkruimte met behulp van Azure-machtigingen.
 
 Azure heeft twee ingebouwde gebruikersrollen voor Log Analytics:
 - Lezer van Log Analytics
 - Inzender van Log Analytics
 
-Leden van Hallo *Analytics logboekweergave* rol kunt:
+Leden van de rol *Lezer van Log Analytics* kunnen:
 - Alle controlegegevens weergeven en doorzoeken 
-- Controle-instellingen, inclusief Hallo configuratie van Azure diagnostics weergeven op alle Azure-resources weergeven.
+- Controlegegevens weergeven, inclusief de configuratie van Azure Diagnostics voor alle Azure-resources.
 
 | Type    | Machtiging | Beschrijving |
 | ------- | ---------- | ----------- |
-| Actie | `*/read`   | Mogelijkheid tooview alle resources en resourceconfiguratie. Omvat: <br> Status van de VM-extensie <br> Configuratie van Azure Diagnostics voor resources <br> Alle eigenschappen en instellingen van alle resources |
-| Actie | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Mogelijkheid tooperform logboek zoeken v2-query 's |
-| Actie | `Microsoft.OperationalInsights/workspaces/search/action` | Mogelijkheid tooperform logboek zoeken v1-query 's |
-| Actie | `Microsoft.Support/*` | Mogelijkheid tooopen ondersteuningsaanvragen |
-|Geen bewerking | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Voorkomt dat het lezen van de werkruimte sleutel vereist toouse Hallo gegevens verzameling API en tooinstall agents |
+| Bewerking | `*/read`   | De mogelijkheid om alle resources en de resourceconfiguratie weer te geven. Omvat: <br> Status van de VM-extensie <br> Configuratie van Azure Diagnostics voor resources <br> Alle eigenschappen en instellingen van alle resources |
+| Bewerking | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Mogelijkheid om Zoeken in logboeken v2-query's uit te voeren |
+| Bewerking | `Microsoft.OperationalInsights/workspaces/search/action` | Mogelijkheid om Zoeken in logboeken v1-query's uit te voeren |
+| Bewerking | `Microsoft.Support/*` | Mogelijkheid ondersteuningsaanvragen te openen |
+|Geen bewerking | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Zorgt ervoor dat de werkruimtesleutel die is vereist om de gegevensverzameling-API te gebruiken en agents te installeren, niet kan worden gelezen |
 
 
-Leden van Hallo *Log Analytics Inzender* rol kunt:
+Leden van de rol *Inzender van Log Analytics* kunnen:
 - Alle controlegegevens lezen 
 - Automation-accounts maken en configureren
 - Beheeroplossingen toevoegen en verwijderen
 - Opslagaccountsleutels lezen 
 - Verzameling met logboeken uit Azure Storage configureren
 - De controle-instellingen voor Azure-resources bewerken, inclusief
-  - Hallo VM-extensie tooVMs toevoegen
+  - De VM-extensie toevoegen aan virtuele machines
   - Azure Diagnostics configureren op alle Azure-resources
 
 > [!NOTE] 
-> U kunt Hallo mogelijkheid tooadd een virtuele machine extensie tooa virtuele machine toogain volledige controle over een virtuele machine.
+> U kunt de mogelijkheid om een VM-extensie toe te voegen aan een virtuele machine, gebruiken om volledige controle over een virtuele machine te krijgen.
 
 | Machtiging | Beschrijving |
 | ---------- | ----------- |
-| `*/read`     | Mogelijkheid tooview alle resources en resourceconfiguratie. Omvat: <br> Status van de VM-extensie <br> Configuratie van Azure Diagnostics voor resources <br> Alle eigenschappen en instellingen van alle resources |
-| `Microsoft.Automation/automationAccounts/*` | Mogelijkheid toocreate en configureren van Azure Automation-accounts, inclusief het toevoegen en bewerken van runbooks |
-| `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Toevoegen, bijwerken en verwijderen van virtuele machine extensies, met inbegrip van Hallo Microsoft Monitoring Agent-extensie en Hallo OMS-Agent voor Linux-extensie |
-| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Weergave Hallo opslagaccountsleutel. Vereist tooconfigure logboekanalyse tooread logboeken van Azure storage-accounts |
+| `*/read`     | De mogelijkheid om alle resources en de resourceconfiguratie weer te geven. Omvat: <br> Status van de VM-extensie <br> Configuratie van Azure Diagnostics voor resources <br> Alle eigenschappen en instellingen van alle resources |
+| `Microsoft.Automation/automationAccounts/*` | De mogelijkheid om Azure Automation-accounts te maken en te configureren, inclusief het toevoegen en bewerken van runbooks |
+| `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | VM-extensies toevoegen, bijwerken en verwijderen, met inbegrip van de Microsoft Monitoring Agent-extensie en de OMS Agent for Linux-extensie |
+| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Geef de opslagaccountsleutel weer. Vereist om Log Analytics te configureren om logboeken uit Azure-opslagaccounts te lezen |
 | `Microsoft.Insights/alertRules/*` | Waarschuwingsregels toevoegen, bijwerken en verwijderen |
 | `Microsoft.Insights/diagnosticSettings/*` | Diagnostische instellingen bij Azure-resources toevoegen, bijwerken en verwijderen |
 | `Microsoft.OperationalInsights/*` | Configuratie voor Log Analytics-werkruimten toevoegen, bijwerken en verwijderen |
@@ -149,115 +149,115 @@ Leden van Hallo *Log Analytics Inzender* rol kunt:
 | `Microsoft.Resources/deployments/*` | Maak en verwijder implementaties. Vereist voor het toevoegen en verwijderen van oplossingen, werkruimten en Automation-accounts |
 | `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Maak en verwijder implementaties. Vereist voor het toevoegen en verwijderen van oplossingen, werkruimten en Automation-accounts |
 
-tooadd en verwijder gebruikers tooa gebruikersrol, is het nodig toohave `Microsoft.Authorization/*/Delete` en `Microsoft.Authorization/*/Write` machtiging.
+Als u gebruikers wilt toevoegen aan en verwijderen uit een gebruikersrol, moet u beschikken over machtigingen voor `Microsoft.Authorization/*/Delete` en `Microsoft.Authorization/*/Write`.
 
-Het gebruik van deze rollen toogive gebruikerstoegang op verschillende bereiken:
-- Abonnement - toegang tooall werkruimten in Hallo-abonnement
-- Resourcegroep - Access tooall-werkruimte in de resourcegroep Hallo
-- Bron - toegang tooonly Hallo opgegeven werkruimte
+Gebruik deze rollen om gebruikers toegang te geven op verschillende niveaus:
+- Abonnement: toegang tot alle werkruimten in het abonnement
+- Resourcegroep: toegang tot alle werkruimten in de resourcegroep
+- Resource: alleen toegang tot de opgegeven werkruimte
 
-Gebruik [aangepaste rollen](../active-directory/role-based-access-control-custom-roles.md) toocreate rollen met Hallo specifieke machtigingen die nodig zijn.
+Gebruik [aangepaste rollen](../active-directory/role-based-access-control-custom-roles.md) om rollen te maken met de specifieke machtigingen die nodig zijn.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Gebruikersrollen in Azure en in Log Analytics-portal
-Als u op Azure minimaal leesmachtiging voor werkruimte voor logboekanalyse hello, kunt u Hallo Log Analytics-portal openen door te klikken op Hallo **OMS-Portal** wanneer u bekijkt hello Log Analytics-werkruimte van de taak.
+Als u minimaal Azure-leesmachtiging hebt in de Log Analytics-werkruimte, kunt u de OMS-portal openen door op de taak **OMS-portal** te klikken wanneer de Log Analytics-werkruimte wordt weergegeven.
 
-Bij het openen van Hallo-logboekanalyseportal overschakelen toousing Hallo verouderde Log Analytics-gebruikersrollen. Als u geen roltoewijzing in Hallo Log Analytics-portal, Hallo service [controles hello Azure machtigingen die u op Hallo werkruimte hebt](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
-De roltoewijzing in Hallo Log Analytics-portal wordt bepaald met behulp van als volgt:
+Bij het openen van de OMS-portal schakelt u over op het gebruik van de verouderde Log Analytics-gebruikersrollen. Als u niet beschikt over een roltoewijzing in de Log Analytics-portal, [worden de Azure-machtigingen waarover u beschikt, in de werkruimte gecontroleerd](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
+De roltoewijzing in de OMS-portal wordt als volgt bepaald:
 
 | Voorwaarden                                                   | Toegewezen Log Analytics-gebruikersrol | Opmerkingen |
 |--------------------------------------------------------------|----------------------------------|-------|
-| Uw account behoort tooa verouderde Log Analytics-gebruikersrol     | Hallo opgegeven gebruikersrol Log Analytics | |
-| Uw account hoort niet tooa verouderde Log Analytics-gebruikersrol <br> Volledige Azure machtigingen toohello werkruimte (`*` machtiging <sup>1</sup>) | Beheerder ||
-| Uw account hoort niet tooa verouderde Log Analytics-gebruikersrol <br> Volledige Azure machtigingen toohello werkruimte (`*` machtiging <sup>1</sup>) <br> *geen acties* van `Microsoft.Authorization/*/Delete` en `Microsoft.Authorization/*/Write` | Inzender ||
-| Uw account hoort niet tooa verouderde Log Analytics-gebruikersrol <br> Azure-leesmachtiging | Alleen-lezen ||
-| Uw account hoort niet tooa verouderde Log Analytics-gebruikersrol <br> Azure-machtigingen zijn niet begrepen | Alleen-lezen ||
-| Voor door Cloud Solution Provider (CSP) beheerde abonnementen <br> u aangemeld met bent Hallo-account is in hello Azure Active Directory gekoppeld toohello werkruimte | Beheerder | Doorgaans Hallo klant van een CSP |
-| Voor door Cloud Solution Provider (CSP) beheerde abonnementen <br> u aangemeld met bent Hallo-account is niet in hello Azure Active Directory gekoppeld toohello werkruimte | Inzender | Doorgaans Hallo CSP |
+| Uw account behoort tot een verouderde Log Analytics-gebruikersrol     | De opgegeven Log Analytics-gebruikersrol | |
+| Uw account behoort niet tot een verouderde Log Analytics-gebruikersrol <br> Volledige Azure-machtigingen voor de werkruimte (`*` machtiging <sup>1</sup>) | Beheerder ||
+| Uw account behoort niet tot een verouderde Log Analytics-gebruikersrol <br> Volledige Azure-machtigingen voor de werkruimte (`*` machtiging <sup>1</sup>) <br> *geen acties* van `Microsoft.Authorization/*/Delete` en `Microsoft.Authorization/*/Write` | Inzender ||
+| Uw account behoort niet tot een verouderde Log Analytics-gebruikersrol <br> Azure-leesmachtiging | Alleen-lezen ||
+| Uw account behoort niet tot een verouderde Log Analytics-gebruikersrol <br> Azure-machtigingen zijn niet begrepen | Alleen-lezen ||
+| Voor door Cloud Solution Provider (CSP) beheerde abonnementen <br> Het account waarbij u bent aangemeld, bevindt zich in de Azure Active Directory die aan de werkruimte is gekoppeld | Beheerder | Doorgaans de klant van een CSP |
+| Voor door Cloud Solution Provider (CSP) beheerde abonnementen <br> Het account waarbij u bent aangemeld, bevindt zich niet in de Azure Active Directory die aan de werkruimte is gekoppeld | Inzender | Doorgaans de CSP |
 
-<sup>1</sup> te verwijzen[Azure machtigingen](../active-directory/role-based-access-control-custom-roles.md) voor meer informatie over roldefinities. Bij het evalueren van functies, een actie van `*` is niet te worden equivalent`Microsoft.OperationalInsights/workspaces/*`.
+<sup>1</sup> Raadpleeg [Azure-machtigingen](../active-directory/role-based-access-control-custom-roles.md) voor meer informatie over roldefinities. Bij het evalueren van rollen is een actie van `*` niet equivalent aan `Microsoft.OperationalInsights/workspaces/*`.
 
-Sommige tookeep punten in gedachten over hello Azure-portal:
+Een aantal punten met betrekking tot de Azure Portal waarmee u rekening moet houden:
 
-* Wanneer u zich aanmeldt toohello OMS-portal met behulp van http://mms.microsoft.com, ziet u Hallo **Selecteer een werkruimte** lijst. Deze lijst bevat alleen werkruimten waarin u een Log Analytics-gebruikersrol hebt. toosee hello werkruimten die u hebt toegang tot toowith Azure-abonnementen, moet u een tenant toospecify als onderdeel van het Hallo-URL. Bijvoorbeeld `mms.microsoft.com/?tenant=contoso.com`. Hallo tenant-id is vaak het laatste onderdeel van Hallo e-mailadres dat u toosign in.
-* Als u wilt dat toonavigate direct tooa-portal die u hebt toegang tot Azure toousing machtigingen, dan hebt u nodig hebt toospecify Hallo resource als onderdeel van het Hallo-URL. Het is mogelijk tooget deze URL met behulp van PowerShell.
+* Als u zich bij de OMS-portal aanmeldt via http://mms.microsoft.com, wordt de lijst **Een werkruimte selecteren** weergegeven. Deze lijst bevat alleen werkruimten waarin u een Log Analytics-gebruikersrol hebt. Als u de werkruimten wilt zien waartoe u toegang hebt met Azure-abonnementen, moet u een tenant als onderdeel van de URL opgeven. Bijvoorbeeld `mms.microsoft.com/?tenant=contoso.com`. De tenant-id is vaak het laatste deel van het e-mailadres waarmee u zich aanmeldt.
+* Als u rechtstreeks wilt navigeren naar een portal waartoe u toegang hebt via Azure-machtigingen, moet u de resource als onderdeel van de URL opgeven. Het is mogelijk om deze URL op te halen met behulp van PowerShell.
 
   Bijvoorbeeld `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
 
-  Hallo URL ziet eruit als:`https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
+  De URL ziet er als volgt uit: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
-### <a name="managing-users-in-hello-oms-portal"></a>Het beheren van gebruikers in Hallo OMS-portal
-Beheren van gebruikers en groepen op Hallo **gebruikers beheren** tabblad onder Hallo **Accounts** tabblad in Hallo instellingenpagina.   
+### <a name="managing-users-in-the-oms-portal"></a>Gebruikers beheren in de OMS-portal
+U beheert gebruikers en groepen op het tabblad **Gebruikers beheren** onder het tabblad **Accounts** op de pagina Instellingen.   
 
 ![gebruikers beheren](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
 
 
-#### <a name="add-a-user-tooan-existing-workspace"></a>Een bestaande gebruiker tooan-werkruimte toevoegen
-Volgende stappen tooadd een gebruiker of groep tooa werkruimte Hallo gebruiken.
+#### <a name="add-a-user-to-an-existing-workspace"></a>Een gebruiker toevoegen aan een bestaande werkruimte
+Voer de volgende stappen uit om een gebruiker of groep toe te voegen aan een werkruimte.
 
-1. Klik in het Hallo-OMS-portal op Hallo **instellingen** tegel.
-2. Klik op Hallo **Accounts** tabblad en klik vervolgens op Hallo **gebruikers beheren** tabblad.
-3. In Hallo **gebruikers beheren** sectie, kiest u Hallo account type tooadd: **Organisatieaccount**, **Microsoft-Account**, **Microsoft Support**.
+1. Klik in de OMS-portal op de tegel **Instellingen**.
+2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Gebruikers beheren**.
+3. Kies in de sectie **Gebruikers beheren** het accounttype dat u wilt toevoegen: **Organisatieaccount**, **Microsoft-account** of **Microsoft-ondersteuning**.
 
-   * Als u ervoor kiest de Microsoft-Account, typt u Hallo e-mailadres van Hallo-gebruiker is gekoppeld aan Hallo Microsoft-Account.
-   * Als u Organisatieaccount kiest, voer deel van de gebruiker Hallo / van de groep naam of e-mailalias en een lijst met overeenkomende gebruikers en groepen weergegeven in de vervolgkeuzelijst. Selecteer een gebruiker of groep.
-   * Gebruik Microsoft Support toogive een Microsoft Support engineer of andere Microsoft werknemer tijdelijk toegang tooyour werkruimte toohelp op te lossen.
+   * Als u Microsoft-account kiest, typt u het e-mailadres in van de gebruiker die is gekoppeld aan het Microsoft-account.
+   * Als u Organisatieaccount kiest, geeft u een deel van de naam of e-mailalias van de gebruiker/groep op. Er wordt dan een lijst met overeenkomende gebruikers en groepen weergegeven in een vervolgkeuzevak. Selecteer een gebruiker of groep.
+   * Gebruik Microsoft-ondersteuning om een medewerker van Microsoft-ondersteuning of andere medewerker van Microsoft tijdelijk toegang te verlenen tot uw werkruimte om u te helpen bij het oplossen van problemen.
 
      > [!NOTE]
-     > Voor de beste prestaties Hallo Hallo aantal beperken van Active Directory-groepen die zijn gekoppeld aan een enkele OMS account toothree: één voor beheerders, één voor de medewerkers en één voor alleen-lezen. Met behulp van meer groepen mogelijk invloed op prestaties Hallo van logboekanalyse.
+     > Voor optimale prestaties kunt u het aantal Active Directory-groepen dat aan één OMS-account is gekoppeld, het beste tot drie beperken: één voor beheerders, één voor bijdragers en één voor gebruikers met alleen-lezentoegang. Gebruik van meer groepen kan de prestaties van Log Analytics beïnvloeden.
      >
      >
-4. Hallo-type van de gebruiker of groep tooadd kiezen: **beheerder**, **Inzender**, of **ReadOnly gebruiker**.  
+4. Kies het type gebruiker of groep dat u wilt toevoegen: **Beheerder**, **Bijdrager** of **Gebruiker met alleen-lezentoegang**.  
 5. Klik op **Add**.
 
-   Als u een Microsoft-account toevoegt, wordt een uitnodiging toojoin Hallo werkruimte toohello e-mail die u hebt opgegeven verzonden. Nadat de gebruiker Hallo volgt Hallo-instructies in Hallo uitnodiging toojoin OMS, toegankelijk Hallo gebruiker Hallo werkruimte.
-   Als u een organisatie-account toevoegt, Hallo gebruiker toegang tot logboekanalyse onmiddellijk.  
+   Als u een Microsoft-account toevoegt, wordt er een uitnodiging om lid te worden van de werkruimte verzonden naar het e-mailadres dat u hebt opgegeven. Nadat de gebruiker de instructies in de uitnodiging voor OMS heeft gevolgd, heeft de gebruiker toegang tot deze werkruimte.
+   Als u een organisatieaccount toevoegt, heeft de gebruiker onmiddellijk toegang tot Log Analytics.  
 
 #### <a name="edit-an-existing-user-type"></a>Een bestaand gebruikerstype bewerken
-U kunt Hallo Accountrol voor een gebruiker die is gekoppeld aan uw account OMS wijzigen. Hebt u Hallo rol opties te volgen:
+U kunt de accountrol van een gebruiker die aan uw OMS-account is gekoppeld, wijzigen. De volgende rollen zijn beschikbaar:
 
 * *Beheerder*: kan gebruikers beheren, alle waarschuwingen weergeven en er actie voor ondernemen, en servers toevoegen en verwijderen
 * *Bijdrager*: kan alle waarschuwingen weergeven en er actie voor ondernemen, en servers toevoegen en verwijderen
 * *Gebruiker met alleen-lezentoegang*: gebruikers die zijn gemarkeerd als alleen-lezen kunnen het volgende niet:
 
-  1. Oplossingen toevoegen/verwijderen. Hallo Oplossingengalerie is verborgen.
+  1. Oplossingen toevoegen/verwijderen. De oplossingengalerie is verborgen.
   2. Tegels toevoegen/wijzigen/verwijderen in **Mijn dashboard**.
-  3. Weergave Hallo **instellingen** pagina's. Hallo-pagina's zijn verborgen.
-  4. In de zoekweergave van het Hallo, Power BI-configuratie, opgeslagen zoekacties en waarschuwingen zijn taken verborgen.
+  3. De pagina’s met **instellingen** bekijken. De pagina's zijn verborgen.
+  4. In de zoekweergave zijn taken voor Power BI-configuratie, opgeslagen zoekopdrachten en waarschuwingen verborgen.
 
-#### <a name="tooedit-an-account"></a>tooedit een account
-1. Klik in het Hallo-OMS-portal op Hallo **instellingen** tegel.
-2. Klik op Hallo **Accounts** tabblad en klik vervolgens op Hallo **gebruikers beheren** tabblad.
-3. Selecteer de rol Hallo voor Hallo-gebruiker die u toochange wilt.
-4. Klik in het bevestigingsdialoogvenster Hallo op **Ja**.
+#### <a name="to-edit-an-account"></a>Een account bewerken
+1. Klik in de OMS-portal op de tegel **Instellingen**.
+2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Gebruikers beheren**.
+3. Selecteer de rol van de gebruiker die u wilt wijzigen.
+4. Klik in het bevestigingsdialoogvenster op **Ja**.
 
 ### <a name="remove-a-user-from-a-workspace"></a>Een gebruiker uit een werkruimte verwijderen
-Volgende stappen tooremove een gebruiker uit een werkruimte hello gebruiken. Verwijderen Hallo gebruiker Hallo-werkruimte niet gesloten. In plaats daarvan verwijdert deze Hallo koppeling tussen die gebruiker en het Hallo-werkruimte. Als een gebruiker gekoppeld aan meerdere werkruimten is, wel nog steeds die gebruiker aanmelden tooOMS en hun andere werkruimtes zien.
+Voer de volgende stappen uit om een gebruiker te verwijderen uit een werkruimte. Met het verwijderen van de gebruiker wordt de werkruimte niet gesloten. In plaats daarvan wordt de koppeling tussen die gebruiker en de werkruimte verwijderd. Als een gebruiker is gekoppeld aan meerdere werkruimten, kan die gebruiker zich nog wel aanmelden bij OMS en de andere werkruimten zien.
 
-1. Klik in het Hallo-OMS-portal op Hallo **instellingen** tegel.
-2. Klik op Hallo **Accounts** tabblad en klik vervolgens op Hallo **gebruikers beheren** tabblad.
-3. Klik op **verwijderen** volgende toohello gebruikersnaam die u tooremove wilt.
-4. Klik in het bevestigingsdialoogvenster Hallo op **Ja**.
+1. Klik in de OMS-portal op de tegel **Instellingen**.
+2. Klik op het tabblad **Accounts** en vervolgens op het tabblad **Gebruikers beheren**.
+3. Klik op **Verwijderen** naast de naam van de gebruiker die u wilt verwijderen.
+4. Klik in het bevestigingsdialoogvenster op **Ja**.
 
-### <a name="add-a-group-tooan-existing-workspace"></a>Een bestaande groep tooan-werkruimte toevoegen
-1. Volg de stappen 1-4 in Hallo voorafgaand aan de sectie 'een bestaande werkruimte van gebruiker tooan tooadd'.
+### <a name="add-a-group-to-an-existing-workspace"></a>Een groep toevoegen aan een bestaande werkruimte
+1. Volg stap 1-4 in het gedeelte 'Een gebruiker toevoegen aan een bestaande werkruimte' hierboven.
 2. Selecteer onder **Gebruiker/groep kiezen** de optie **Groep**.  
-   ![een bestaande groep tooan-werkruimte toevoegen](./media/log-analytics-manage-access/add-group.png)
-3. Hallo weergegeven naam of e-mailadres invoeren voor de groep Hallo gewenst tooadd.
-4. Selecteer Hallo in Hallo lijst resultaten en klik vervolgens op **toevoegen**.
+   ![een groep toevoegen aan een bestaande werkruimte](./media/log-analytics-manage-access/add-group.png)
+3. Voer de weergavenaam of het e-mailadres in voor de groep die u wilt toevoegen.
+4. Selecteer de groep in de lijst met resultaten en klik op **Toevoegen**.
 
-## <a name="link-an-existing-workspace-tooan-azure-subscription"></a>Koppelen van een bestaande werkruimte tooan Azure-abonnement
-Alle werkruimten die zijn gemaakt na 26 September 2016 moet gekoppelde tooan Azure-abonnement tijdens het maken. Werkruimten die zijn gemaakt vóór deze datum moet gekoppelde tooa werkruimte wanneer u zich aanmeldt. Wanneer u Hallo-werkruimte van hello Azure-portal maakt, of wanneer u uw werkruimte tooan Azure-abonnement koppelen, wordt uw Azure Active Directory als uw organisatie-account gekoppeld.
+## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Een bestaande werkruimte koppelen aan een Azure-abonnement
+Alle werkruimten die zijn gemaakt na 26 september 2016 moeten op het moment van maken zijn gekoppeld aan een Azure-abonnement. Werkruimten die vóór deze datum zijn gemaakt, moeten bij aanmelding worden gekoppeld aan een werkruimte. Wanneer u de werkruimte maakt via Azure Portal of uw werkruimte koppelt aan een Azure-abonnement, wordt uw Azure Active Directory als uw organisatieaccount gekoppeld.
 
-### <a name="toolink-a-workspace-tooan-azure-subscription-in-hello-oms-portal"></a>toolink een werkruimte tooan Azure-abonnement in Hallo OMS-portal
+### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Een werkruimte koppelen aan een Azure-abonnement in de OMS-portal
 
-- Wanneer u zich bij Hallo OMS-portal aanmeldt, bent u na vragen aan gebruiker tooselect een Azure-abonnement. Selecteer Hallo-abonnement dat u wilt dat toolink tooyour werkruimte en klik vervolgens op **koppeling**.  
+- Wanneer u zich aanmeldt bij de OMS-portal, wordt u gevraagd om een Azure-abonnement te selecteren. Selecteer het abonnement dat u aan uw werkruimte wilt koppelen en klik vervolgens op **Koppelen**.  
     ![Azure-abonnement koppelen](./media/log-analytics-manage-access/required-link.png)
 
     > [!IMPORTANT]
-    > een werkruimte toolink, uw Azure-account moet toegang toohello werkruimte die u wilt dat toolink al hebben.  Met andere woorden, Hallo account waarmee u tooaccess hello Azure-portal moet **Hallo dezelfde** als Hallo account waarmee u tooaccess Hallo werkruimte. Als dit niet het geval is, Zie [toevoegen van een bestaande werkruimte van gebruiker tooan](#add-a-user-to-an-existing-workspace).
+    > U kunt een werkruimte alleen koppelen als uw Azure-account al toegang heeft tot deze werkruimte.  Met andere woorden: het account dat u gebruikt voor toegang tot Azure Portal, moet **hetzelfde** zijn als het account dat u gebruikt voor toegang tot de werkruimte. Zie [Een gebruiker toevoegen aan een bestaande werkruimte](#add-a-user-to-an-existing-workspace) als dit niet het geval is.
 
-### <a name="toolink-a-workspace-tooan-azure-subscription-in-hello-azure-portal"></a>toolink een werkruimte tooan Azure-abonnement in hello Azure-portal
-1. Meld u aan bij Hallo [Azure-portal](http://portal.azure.com).
+### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Een werkruimte in de Azure Portal koppelen aan een Azure-abonnement
+1. Meld u aan bij de [Azure Portal](http://portal.azure.com).
 2. Blader naar **Log Analytics** en selecteer dit.
 3. U ziet de lijst met bestaande werkruimten. Klik op **Add**.  
    ![lijst met werkruimten](./media/log-analytics-manage-access/manage-access-link-azure01.png)
@@ -265,125 +265,33 @@ Alle werkruimten die zijn gemaakt na 26 September 2016 moet gekoppelde tooan Azu
    ![bestaande koppelen](./media/log-analytics-manage-access/manage-access-link-azure02.png)
 5. Klik op **Vereiste instellingen configureren**.  
    ![vereiste instellingen configureren](./media/log-analytics-manage-access/manage-access-link-azure03.png)
-6. U ziet het Hallo-lijst van werkruimten die niet zijn gekoppeld nog tooyour Azure-account. Selecteer een werkruimte.  
+6. Hier ziet u de lijst met werkruimten die nog niet zijn gekoppeld aan uw Azure-account. Selecteer een werkruimte.  
    ![werkruimten selecteren](./media/log-analytics-manage-access/manage-access-link-azure04.png)
-7. Indien nodig, kunt u waarden voor de volgende items Hallo wijzigen:
+7. Indien nodig kunt u de waarden van de volgende items wijzigen:
    * Abonnement
    * Resourcegroep
    * Locatie
    * Prijscategorie  
      ![waarden wijzigen](./media/log-analytics-manage-access/manage-access-link-azure05.png)
-8. Klik op **OK**. Hallo-werkruimte is nu gekoppelde tooyour Azure-account.
+8. Klik op **OK**. De werkruimte is nu gekoppeld aan uw Azure-account.
 
 > [!NOTE]
-> Als er geen Hallo werkruimte gewenst toolink vervolgens uw Azure-abonnement heeft geen toegang tot toohello werkruimte dat u met de Hallo OMS-portal gemaakt.  account voor toegang tot toothis toogrant van Hallo OMS-portal, Zie [toevoegen van een bestaande werkruimte van gebruiker tooan](#add-a-user-to-an-existing-workspace).
+> Als u de te koppelen werkruimte niet ziet, heeft uw Azure-abonnement geen toegang tot de werkruimte die u hebt gemaakt met behulp van de OMS-portal.  Zie [Een gebruiker toevoegen aan een bestaande werkruimte](#add-a-user-to-an-existing-workspace) om dit account toegang te verlenen vanuit de OMS-portal.
 >
 >
-
-## <a name="upgrade-a-workspace-tooa-paid-plan"></a>Upgrade van een werkruimte tooa betaald abonnement
-Er zijn drie typen werkruimteabonnementen voor OMS: **Gratis**, **Zelfstandig** en **OMS**.  Als u op Hallo *vrije* plannen, wordt er een limiet van 500 MB aan gegevens per dag verzonden tooLog Analytics.  Als u deze hoeveelheid overschrijdt, moet u toochange uw werkruimte tooa betaald abonnement tooavoid niet verzamelen van gegevens boven deze limiet. U kunt op elk gewenst moment uw type abonnement wijzigen.  Zie [Prijsgegevens](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing) voor meer informatie over de tarieven voor OMS.
-
-### <a name="using-entitlements-from-an-oms-subscription"></a>Rechten van een OMS-abonnement gebruiken
-toouse hello rechten die afkomstig zijn van het aanschaffen van een OMS-E1, OMS E2 OMS of OMS-invoegtoepassing voor System Center, kies Hallo *OMS* plan van logboekanalyse OMS.
-
-Wanneer u een OMS-abonnement koopt, Hallo rechten tooyour Enterprise Agreement toegevoegd. Een Azure-abonnement dat wordt gemaakt onder deze overeenkomst kunt Hallo rechten. Alle werkruimten op deze abonnementen gebruiken Hallo OMS rechten.
-
-tooensure dat informatie over het gebruik van een werkruimte toegepaste tooyour rechten van Hallo OMS-abonnement is, moet u:
-
-1. Uw werkruimte in een Azure-abonnement dat deel uitmaakt van Hallo Enterprise-overeenkomst met Hallo OMS-abonnement maken
-2. Selecteer Hallo *OMS* Hallo werkruimte plannen
-
-> [!NOTE]
-> Als uw werkruimte is gemaakt voordat 26 September 2016 en uw Log Analytics plan prijzen *Premium*, wordt deze werkruimte rechten van Hallo OMS-invoegtoepassing voor System Center. U kunt ook uw rechten door het wijzigen van toohello *OMS* prijscategorie.
->
->
-
-Hallo OMS abonnement rechten zijn niet zichtbaar in hello Azure of OMS-portal. U kunt zien rechten en gebruik in Hallo Enterprise Portal.  
-
-Als u toochange Hallo uw werkruimte is gekoppeld aan Azure-abonnement nodig hebt, kunt u Azure PowerShell Hallo [verplaatsen AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.
-
-### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Azure Commitment gebruiken via een Enterprise-overeenkomst
-Als u niet een OMS-abonnement hebt, betaalt u voor elk onderdeel van OMS afzonderlijk en Hallo gebruik wordt weergegeven op uw Azure-factuur.
-
-Als u Azure maandbedrag op Hallo enterprise-inschrijving toowhich uw Azure-abonnementen worden gekoppeld, informatie over het gebruik van logboekanalyse automatisch wordt afgetrokken van tegen Hallo resterende bedrag doorvoeren.
-
-Als u moet toochange hello Azure-abonnement dat Hallo werkruimte is gekoppeld, kunt u Azure PowerShell Hallo [verplaatsen AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.  
-
-### <a name="change-a-workspace-tooa-paid-pricing-tier-in-hello-azure-portal"></a>Wijzigen van een werkruimte tooa betaald prijscategorie hello Azure-portal
-1. Meld u aan bij Hallo [Azure-portal](http://portal.azure.com).
-2. Blader naar **Log Analytics** en selecteer dit.
-3. U ziet de lijst met bestaande werkruimten. Selecteer een werkruimte.  
-4. Hallo werkruimte blade onder **algemene**, klikt u op **prijscategorie**.  
-5. Selecteer onder **Prijscategorie** een prijscategorie en klik vervolgens op **Selecteren**.  
-    ![abonnement selecteren](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. Wanneer u uw weergave in hello Azure-portal vernieuwt, ziet u **prijscategorie** bijgewerkt voor Hallo laag die u hebt geselecteerd.  
-    ![bijgewerkt abonnement](./media/log-analytics-manage-access/manage-access-change-plan04.png)
-
-> [!NOTE]
-> Als uw werkruimte gekoppelde tooan Automation-account is, voordat u kunt selecteren Hallo *zelfstandige (Per GB)* prijscategorie moet u alle verwijderen **Automation en Control** oplossingen en Hallo Automation ontkoppelen account. Hallo werkruimte blade onder **algemene**, klikt u op **oplossingen** toosee en delete-oplossingen. toounlink hello Automation-account, klikt u op Hallo-naam van Automation-account op Hallo Hallo **prijscategorie** blade.
->
->
-
-### <a name="change-a-workspace-tooa-paid-pricing-tier-in-hello-oms-portal"></a>Wijzigen van een werkruimte tooa betaald prijscategorie Hallo OMS-portal
-
-toochange Hallo prijscategorie Hallo OMS-portal te gebruiken, moet u een Azure-abonnement hebben.
-
-1. Klik in het Hallo-OMS-portal op Hallo **instellingen** tegel.
-2. Klik op Hallo **Accounts** tabblad en klik vervolgens op Hallo **Azure-abonnement & Data-abonnement** tabblad.
-3. Klik op de prijscategorie die u wilt dat toouse Hallo.
-4. Klik op **Opslaan**.  
-   ![abonnement en data-abonnementen](./media/log-analytics-manage-access/subscription-tab.png)
-
-Uw nieuwe data-abonnement wordt in Hallo OMS-portal lint Hallo boven aan de webpagina weergegeven.
-
-![OMS-lint](./media/log-analytics-manage-access/data-plan-changed.png)
-
-
-## <a name="change-how-long-log-analytics-stores-data"></a>Wijzigen hoelang gegevens worden opgeslagen in Log Analytics
-
-Op Hallo gratis prijscategorie, maakt Log Analytics beschikbaar Hallo laatste zeven dagen aan gegevens.
-Log Analytics maakt beschikbaar Hallo afgelopen 30 dagen van gegevens op Hallo standaard prijscategorie.
-Log Analytics maakt beschikbaar Hallo afgelopen 365 dagen van gegevens op Hallo Premium prijscategorie.
-Log Analytics maakt beschikbaar Hallo afgelopen 31 dagen van gegevens op Hallo zelfstandige en OMS Prijscategorieën standaard.
-
-Wanneer u zelfstandige Hallo en OMS Prijscategorieën, kun je up too2 jaar gegevens (730 dagen). Gegevens langer dan de standaardwaarde Hallo van 31 dagen opgeslagen leidt ertoe dat gegevens bewaren kosten met zich mee. Zie [Overschrijdingskosten](https://azure.microsoft.com/pricing/details/log-analytics/) voor meer informatie.
-
-toochange hello lengte van het bewaren van gegevens:
-
-1. Meld u aan bij Hallo [Azure-portal](http://portal.azure.com).
-2. Blader naar **Log Analytics** en selecteer dit.
-3. U ziet de lijst met bestaande werkruimten. Selecteer een werkruimte.  
-4. Hallo werkruimte blade onder **algemene**, klikt u op **bewaren**.  
-5. Hallo schuifregelaar tooincrease of verminder het aantal dagen bewaren Hallo en klik vervolgens op **opslaan**.  
-    ![retentie wijzigen](./media/log-analytics-manage-access/manage-access-change-retention01.png)
 
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Een Azure Active Directory-organisatie wijzigen voor een werkruimte
 
-U kunt de Azure Active Directory-organisatie van een werkruimte wijzigen. Veranderende hello Azure Active Directory-organisatie kunt u tooadd gebruikers en groepen in die map toohello werkruimte.
+U kunt de Azure Active Directory-organisatie van een werkruimte wijzigen. Door de Azure Active Directory-organisatie te wijzigen, kunt u gebruikers en groepen uit die map toevoegen aan de werkruimte.
 
-### <a name="toochange-hello-azure-active-directory-organization-for-a-workspace"></a>toochange hello Azure Active Directory-organisatie voor een werkruimte
+### <a name="to-change-the-azure-active-directory-organization-for-a-workspace"></a>De Azure Active Directory-organisatie wijzigen voor een werkruimte
 
-1. Klik op de instellingenpagina Hallo in Hallo OMS-portal, **Accounts** en klik vervolgens op Hallo **gebruikers beheren** tabblad.  
-2. Hallo informatie bekijken over organisatieaccounts en klik vervolgens op **wijziging organisatie**.  
+1. Klik op de pagina Instellingen in de OMS-portal op **Accounts** en klik vervolgens op het tabblad **Gebruikers beheren**.  
+2. Controleer de informatie over organisatieaccounts en klik vervolgens op **Organisatie wijzigen**.  
     ![organisatie wijzigen](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
-3. Voer Hallo identiteitsgegevens voor Hallo beheerder van uw Azure Active Directory-domein. Hierna ziet u een bevestiging dat uw werkruimte gekoppelde tooyour Azure Active Directory-domein is.  
+3. Voer de identiteitsgegevens in van de beheerder van uw Azure Active Directory-domein. Vervolgens wordt er een bevestiging weergegeven waarin staat dat uw werkruimte is gekoppeld aan uw Azure Active Directory-domein.  
     ![bevestiging van gekoppelde werkruimte](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
-
-## <a name="delete-a-log-analytics-workspace"></a>Een Log Analytics-werkruimte verwijderen
-Wanneer u een werkruimte voor logboekanalyse verwijdert, worden alle gegevens gerelateerd tooyour werkruimte wordt verwijderd uit Hallo OMS-service binnen 30 dagen.
-
-Als u een beheerder bent en er meerdere gebruikers die zijn gekoppeld aan het Hallo-werkruimte zijn, zijn Hallo koppeling tussen die gebruikers en het Hallo-werkruimte is verbroken. Als gebruikers Hallo gekoppeld aan andere werkruimtes zijn, kunnen ze vervolgens blijven OMS gebruiken met die andere werkruimtes. Als ze niet gekoppeld aan andere werkruimtes zijn vervolgens moeten zij toocreate een werkruimte toouse OMS.
-
-### <a name="toodelete-a-workspace"></a>toodelete een werkruimte
-1. Meld u aan bij Hallo [Azure-portal](http://portal.azure.com).
-2. Blader naar **Log Analytics** en selecteer dit.
-3. U ziet de lijst met bestaande werkruimten. Hallo-werkruimte die u toodelete wilt selecteren.
-4. Klik op Hallo werkruimte blade **verwijderen**.  
-    ![verwijderen](./media/log-analytics-manage-access/delete-workspace01.png)
-5. Klik in het dialoogvenster voor bevestiging Hallo verwijderen werkruimte, op **Ja**.
-
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [verbinding maken met Windows-computers tooLog Analytics](log-analytics-windows-agents.md) tooadd agents en gegevens te verzamelen.
-* [Log Analytics-oplossingen van Hallo oplossingen galerie toevoegen](log-analytics-add-solutions.md) tooadd functionaliteit en verzamelen gegevens.
-* [Proxy- en firewall-instellingen configureren in logboekanalyse](log-analytics-proxy-firewall.md) als uw organisatie een proxyserver of firewall gebruikt, zodat de agents kunnen communiceren met de Hallo Log Analytics-service.
+* Zie [Gegevensgebruik begrijpen](log-analytics-usage.md) voor informatie over het analyseren van de hoeveelheid gegevens die door oplossingen worden verzameld en vanaf computers worden verzonden.
+* [Log Analytics-beheeroplossingen uit Azure Marketplace toevoegen](log-analytics-add-solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.

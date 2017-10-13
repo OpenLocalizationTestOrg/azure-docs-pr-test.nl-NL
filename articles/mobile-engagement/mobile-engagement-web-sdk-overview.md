@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Mobile Engagement Web SDK aaaAzure | Microsoft Docs
-description: meest recente updates en procedures voor het Hallo Web SDK voor Azure Mobile Engagement Hallo
+title: Overzicht van Azure Mobile Engagement Web SDK | Microsoft Docs
+description: De nieuwste updates en procedures voor de webservice-SDK voor Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,48 +14,48 @@ ms.devlang: js
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9e60a232b5eb2c41c405041a88e09d7137563513
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 770a83131a3e661771db50b22ce7de25b2d541cf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk"></a>Azure Mobile Engagement Web SDK
-Hier wordt gestart voor alle informatie over het Hallo toointegrate Azure Mobile Engagement in een web-app. Als u toogive wilt deze een try voordat het aan de slag met uw eigen web-app, Zie onze [15 minuten zelfstudie](mobile-engagement-web-app-get-started.md).
+Begin hier als u de details over het integreren van Azure Mobile Engagement in een web-app. Als u wilt u het proberen voordat het aan de slag met uw eigen web-app, raadpleegt u onze [15 minuten zelfstudie](mobile-engagement-web-app-get-started.md).
 
 ## <a name="integration-procedures"></a>Integratie procedures
-1. Meer informatie over [hoe toointegrate Mobile Engagement in uw web-app](mobile-engagement-web-integrate-engagement.md).
-2. Voor implementatie van tag plan, meer [hoe toouse Hallo Mobile Engagement tags API in uw web-app geavanceerde](mobile-engagement-web-use-engagement-api.md).
+1. Meer informatie over [Mobile Engagement integreren in uw web-app](mobile-engagement-web-integrate-engagement.md).
+2. Voor implementatie van tag plan, meer [hoe u de geavanceerde Mobile Engagement tags API in uw web-app](mobile-engagement-web-use-engagement-api.md).
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 ### <a name="202-10182016"></a>2.0.2 (10/18/2016)
 * Vaste crash op persoonlijke bladeren (Safari).
 * Vaste crash browsers met cookies is uitgeschakeld.
 
-Zie voor alle versies Hallo [voltooien releaseopmerkingen](mobile-engagement-web-release-notes.md).
+Raadpleeg voor alle versies, de [voltooien releaseopmerkingen](mobile-engagement-web-release-notes.md).
 
 ## <a name="upgrade-procedures"></a>Upgradeprocedures
-### <a name="upgrade-from-121-too200"></a>Upgrade van 1.2.1 too2.0.0
-Hallo volgende secties wordt beschreven hoe toomigrate een Mobile Engagement Web SDK-integratie van Hallo Capptain service, die worden aangeboden door Capptain SAS, tooan Azure Mobile Engagement-app. Als u migreert vanaf een eerdere versie dan 1.2.1, Raadpleeg Hallo Capptain website toomigrate too1.2.1 eerst en vervolgens toepassen Hallo procedures te volgen.
+### <a name="upgrade-from-121-to-200"></a>Upgrade uitvoeren van 1.2.1 naar 2.0.0
+De volgende secties wordt beschreven hoe een Mobile Engagement Web SDK-integratie migreren vanaf de Capptain-service, die worden aangeboden door Capptain SAS, naar een Azure Mobile Engagement-app. Als u vanaf een versie ouder dan 1.2.1 migreert, neem contact op met de website Capptain om te migreren naar 1.2.1 eerst en pas de volgende procedures.
 
-Deze versie van Hallo Mobile Engagement Web SDK biedt geen ondersteuning voor Samsung Smart TV, Opera TV, webOS of Hallo Reach-functie.
+Deze versie van de Mobile Engagement Web SDK biedt geen ondersteuning voor Samsung Smart TV, Opera TV, webOS of de Reach-functie.
 
 > [!IMPORTANT]
-> Capptain en Azure Mobile Engagement zijn niet dezelfde service Hallo en Hallo procedures te volgen Markeer alleen toomigrate Hallo client-app. Migreren Hallo Mobile Engagement Web SDK in Hallo-app wordt niet uw gegevens migreren vanaf een Capptain tooa Mobile Engagement-server.
+> Capptain en Azure Mobile Engagement zijn niet dezelfde service en de volgende procedures Markeer alleen het migreren van de client-app. Migreren van de Mobile Engagement Web SDK in de app wordt niet uw gegevens migreren vanaf een server Capptain met een Mobile Engagement-server.
 > 
 > 
 
 #### <a name="javascript-files"></a>JavaScript-bestanden
-Vervangen Hallo bestand capptain-sdk.js Hello azure engagement.js bestand, en werk uw invoer script vervolgens dienovereenkomstig.
+Het bestand capptain-sdk.js vervangen door de azure-engagement.js bestand, en werk vervolgens de invoer van uw script dienovereenkomstig.
 
 #### <a name="remove-capptain-reach"></a>Capptain Reach verwijderen
-Deze versie van Hallo Mobile Engagement Web SDK biedt geen ondersteuning voor Hallo Reach-functie. Als u hebt Capptain Reach geïntegreerd in uw toepassing, moet u tooremove deze.
+Deze versie van de Mobile Engagement Web SDK biedt geen ondersteuning voor de Reach-functie. Als u hebt Capptain Reach geïntegreerd in uw toepassing, moet u om deze te verwijderen.
 
-Hallo bereiken CSS importeren uit uw pagina verwijderen en verwijder Hallo gerelateerde CSS-bestand (capptain-reach.css, standaard).
+Het importeren van CSS bereiken verwijderen vanaf de pagina en verwijderen van het gerelateerde CSS-bestand (capptain-reach.css, standaard).
 
-Verwijderen van Hallo Reach-resources te volgen: Hallo Hallo merk-pictogram (standaard capptain-melding-pictogram) en sluiten afbeelding (capptain-close.png, standaard).
+Verwijderen van de volgende Reach-resources: de installatiekopie van het sluiten (capptain-close.png, standaard) en het merk-pictogram (standaard capptain-melding-pictogram).
 
-Verwijder Hallo UI bereiken voor in-app-meldingen. Hallo-standaardindeling ziet er als volgt:
+Verwijder de gebruikersinterface bereiken voor in-app-meldingen. De standaardindeling ziet er als volgt:
 
     <!-- capptain notification -->
     <div id="capptain_notification_area" class="capptain_category_default">
@@ -72,7 +72,7 @@ Verwijder Hallo UI bereiken voor in-app-meldingen. Hallo-standaardindeling ziet 
       </div>
     </div>
 
-Hallo UI bereiken voor tekst- en aankondigingen en polls verwijderen. Hallo-standaardindeling ziet er als volgt:
+Verwijder de gebruikersinterface bereiken voor tekst- en aankondigingen van web- en polls. De standaardindeling ziet er als volgt:
 
     <div id="capptain_overlay" class="capptain_category_default">
       <button id="capptain_overlay_close">x</button>
@@ -85,7 +85,7 @@ Hallo UI bereiken voor tekst- en aankondigingen en polls verwijderen. Hallo-stan
       </div>
     </div>
 
-Hallo verwijderen `reach` object uit uw configuratie, indien aanwezig. Als volgt uitziet:
+Verwijder de `reach` object uit uw configuratie, indien aanwezig. Als volgt uitziet:
 
     window.capptain = {
       [...]
@@ -97,16 +97,16 @@ Hallo verwijderen `reach` object uit uw configuratie, indien aanwezig. Als volgt
 Verwijder eventuele andere Reach-aanpassing, zoals categorieën.
 
 #### <a name="remove-deprecated-apis"></a>Afgeschafte API's verwijderen
-Sommige-API's van Capptain zijn afgeschaft in Hallo Mobile Engagement Web SDK.
+Sommige-API's van Capptain zijn afgeschaft in de Mobile Engagement Web SDK.
 
-Verwijder alle aanroepen toohello API's te volgen: `agent.connect`, `agent.disconnect`, `agent.pause`, en `agent.sendMessageToDevice`.
+Verwijder alle aanroepen naar de volgende API's: `agent.connect`, `agent.disconnect`, `agent.pause`, en `agent.sendMessageToDevice`.
 
-Verwijder een van volgende retouraanroepen uit de configuratie van uw Capptain Hallo: `onConnected`, `onDisconnected`, `onDeviceMessageReceived`, en `onPushMessageReceived`.
+Verwijder een van de volgende callbacks van uw configuratie Capptain: `onConnected`, `onDisconnected`, `onDeviceMessageReceived`, en `onPushMessageReceived`.
 
 #### <a name="configuration"></a>Configuratie
-Mobile Engagement maakt gebruik van een verbinding tekenreeks tooconfigure SDK-id's, bijvoorbeeld Hallo toepassings-id.
+Mobile Engagement gebruikt een verbindingsreeks voor het configureren van de SDK-id's, bijvoorbeeld de toepassings-id.
 
-Hallo toepassings-ID vervangen door de verbindingsreeks. Houd er rekening mee dat globale Hallo-object voor Hallo SDK-configuratie wordt gewijzigd van `capptain` te`azureEngagement`.
+Vervang de toepassings-ID door de verbindingsreeks. Let op het globale object voor de SDK-configuratie wordt gewijzigd van `capptain` naar `azureEngagement`.
 
 Vóór de migratie:
 
@@ -122,12 +122,12 @@ Na de migratie:
       [...]
     };
 
-Hallo-verbindingsreeks voor uw toepassing wordt weergegeven in hello Azure-portal.
+De verbindingsreeks voor uw toepassing wordt weergegeven in de Azure-portal.
 
 #### <a name="javascript-apis"></a>JavaScript-API 's
-Hallo globale JavaScript-object `window.capptain` heeft gekregen `window.azureEngagement`, maar u kunt Hallo `window.engagement` alias voor de API-aanroepen. U kunt deze alias toodefine Hallo SDK-configuratie niet gebruiken.
+Het globale JavaScript-object `window.capptain` heeft gekregen `window.azureEngagement`, maar u kunt de `window.engagement` alias voor de API-aanroepen. U kunt deze alias niet gebruiken voor het definiëren van de configuratie van de SDK.
 
 Bijvoorbeeld: `capptain.deviceId` wordt `engagement.deviceId`, `capptain.agent.startActivity` wordt `engagement.agent.startActivity`, enzovoort.
 
-Als u hebt al een eerdere versie van Azure Mobile Engagement Web SDK Hallo geïntegreerd in uw toepassing, leest u over [procedures upgrade](mobile-engagement-web-upgrade-procedure.md).
+Als u hebt al een eerdere versie van Azure Mobile Engagement Web SDK geïntegreerd in uw toepassing, leest u over [procedures upgrade](mobile-engagement-web-upgrade-procedure.md).
 

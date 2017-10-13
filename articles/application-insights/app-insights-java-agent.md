@@ -1,5 +1,5 @@
 ---
-title: aaaPerformance bewaking van Java-web-apps in Azure Application Insights | Microsoft Docs
+title: Prestatiebewaking voor Java-web-apps in Azure Application Insights | Microsoft Docs
 description: Uitgebreide bewaking van prestaties en gebruik van uw Java-website met Application Insights.
 services: application-insights
 documentationcenter: java
@@ -13,41 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: bwren
-ms.openlocfilehash: bf3983e3b4a16e72bc606b6468a757288d05ebaa
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4e56998382610ad3d7224e6a8de5aee5419ebe43
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Afhankelijkheden, uitzonderingen en uitvoeringstijden in Java-web-apps bewaken
 
 
-Als u hebt [uw Java-web-app met Application Insights geïnstrumenteerd][java], kunt u Hallo Java-Agent tooget beter inzicht, zonder codewijzigingen:
+Als u hebt [uw Java-web-app met Application Insights geïnstrumenteerd][java], kunt u de Java-Agent voor dieper inzicht, zonder codewijzigingen:
 
-* **Afhankelijkheden:** gegevens over aanroepen die uw toepassing tooother onderdelen maakt, waaronder:
+* **Afhankelijkheden:** gegevens over aanroepen waarmee uw toepassing op andere onderdelen, met inbegrip van:
   * **REST-aanroepen** gedaan via HttpClient OkHttp en RestTemplate (bron).
-  * **Redis** aanroepen via Hallo Jedis client. Als Hallo aanroep langer dan per 10 duurt, haalt Hallo agent ook Hallo aanroepargumenten.
-  * **[JDBC aanroepen](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB of Apache Derby DB. aanroepen van 'executeBatch' worden ondersteund. Als Hallo aanroep langer dan per 10 duurt, rapporteert Hallo-agent voor MySQL en PostgreSQL Hallo queryplan.
+  * **Redis** aanroepen via de client-Jedis. Als de oproep langer dan per 10 duurt, haalt de agent ook de van aanroepargumenten.
+  * **[JDBC aanroepen](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB of Apache Derby DB. aanroepen van 'executeBatch' worden ondersteund. Als de oproep langer dan per 10 duurt, rapporteert de agent voor MySQL en PostgreSQL het queryplan.
 * **Uitzonderingen wordt onderschept:** gegevens over uitzonderingen die worden verwerkt door uw code.
-* **Uitvoeringstijd voor methode:** gegevens over Hallo keer dat er vergt tooexecute specifieke methoden.
+* **Uitvoeringstijd voor methode:** gegevens over de tijd die nodig zijn bepaalde methoden uit te voeren.
 
-toouse hello Java-agent, u deze installeren op uw server. Uw web-apps moeten zijn uitgerust met Hallo [Application Insights-SDK voor Java][java]. 
+Voor het gebruik van de Java-agent moet installeren u deze op uw server. Uw web-apps moeten zijn uitgerust met de [Application Insights-SDK voor Java][java]. 
 
-## <a name="install-hello-application-insights-agent-for-java"></a>Hallo Application Insights-agent voor Java installeren
-1. Uitgevoerd uw Java-server op Hallo machine [Hallo-agent downloaden](https://aka.ms/aijavasdk).
-2. Hallo application server opstartscript bewerken en volgende JVM Hallo toevoegen:
+## <a name="install-the-application-insights-agent-for-java"></a>Installeer de Application Insights-agent voor Java
+1. Op de computer waarop u uw server Java [de agent downloaden](https://aka.ms/aijavasdk).
+2. Het opstartscript van application server bewerken en de volgende JVM toevoegen:
    
-    `javaagent:`*volledig pad toohello agent JAR-bestand*
+    `javaagent:`*volledig pad naar het JAR-bestand van agent*
    
     Bijvoorbeeld in Tomcat op een Linux-machine:
    
-    `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path tooagent JAR file>"`
+    `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
 3. Start de toepassingsserver van uw opnieuw.
 
-## <a name="configure-hello-agent"></a>Hallo-agent configureren
-Maak een bestand met de naam `AI-Agent.xml` en plaats deze in Hallo dezelfde map als Hallo agent JAR-bestand.
+## <a name="configure-the-agent"></a>De agent configureren
+Maak een bestand met de naam `AI-Agent.xml` en plaats deze in dezelfde map als de agent JAR-bestand.
 
-Hallo-inhoud van xml-bestand Hallo ingesteld. Hallo na voorbeeld tooinclude bewerken of Hallo-functies die u wilt weglaten.
+Stel de inhoud van het xml-bestand. Het volgende voorbeeld als u wilt opnemen in of uitsluiten van de functies die u wilt bewerken.
 
 ```XML
 
@@ -74,7 +74,7 @@ Hallo-inhoud van xml-bestand Hallo ingesteld. Hallo na voorbeeld tooinclude bewe
                reportExecutionTime="true"
                />
 
-           <!-- Report on hello particular signature
+           <!-- Report on the particular signature
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
               reportExecutionTime="true"
@@ -86,14 +86,14 @@ Hallo-inhoud van xml-bestand Hallo ingesteld. Hallo na voorbeeld tooinclude bewe
 
 ```
 
-U hebt tooenable rapporten uitzondering en timing van de methode voor afzonderlijke methoden.
+U moet rapporten uitzondering en timing van de methode voor afzonderlijke methoden inschakelen.
 
 Standaard `reportExecutionTime` is ingesteld op true en `reportCaughtExceptions` is ingesteld op false.
 
-## <a name="view-hello-data"></a>Hallo-gegevens weergeven
-In Application Insights-resource hello, geaggregeerde externe afhankelijkheid en methode uitvoeringstijden weergegeven [onder Hallo prestaties tegel][metrics].
+## <a name="view-the-data"></a>De gegevens weergeven
+In de Application Insights-resource geaggregeerde externe afhankelijkheid en methode uitvoeringstijden weergegeven [onder de tegel prestaties][metrics].
 
-toosearch voor afzonderlijke exemplaren van afhankelijkheid en uitzondering methode rapporten openen [Search][diagnostic].
+Als u wilt zoeken naar afzonderlijke exemplaren van afhankelijkheid en uitzondering methode rapporten, open [Search][diagnostic].
 
 [Diagnose afhankelijkheidsproblemen - meer](app-insights-asp-net-dependencies.md#diagnosis).
 

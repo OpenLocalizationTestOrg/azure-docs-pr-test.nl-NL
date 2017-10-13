@@ -1,5 +1,5 @@
 ---
-title: aaaSecurity voor Notification Hubs
+title: Beveiliging voor Notification Hubs
 description: Dit onderwerp wordt uitgelegd security voor Azure notification hubs.
 services: notification-hubs
 documentationcenter: .net
@@ -14,35 +14,35 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: f59ad4594c2c0a2e2b22ab0b6d6bad53825a4dc2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7c3283799806135060bb8ca57ea398c93d1106bb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="security"></a>Beveiliging
 ## <a name="overview"></a>Overzicht
-Dit onderwerp beschrijft Hallo beveiligingsmodel van Azure Notification Hubs. Omdat een Service Bus-entiteit Notification Hubs, Hallo zijn geïmplementeerd dezelfde beveiligingsmodel als Service Bus. Zie voor meer informatie, Hallo [verificatie van Service Bus](https://msdn.microsoft.com/library/azure/dn155925.aspx) onderwerpen.
+Dit onderwerp beschrijft het beveiligingsmodel van Azure Notification Hubs. Omdat Notification Hubs een Service Bus-entiteit zijn, implementeren zij het dezelfde beveiligingsmodel als Service Bus. Zie voor meer informatie de [verificatie van Service Bus](https://msdn.microsoft.com/library/azure/dn155925.aspx) onderwerpen.
 
 ## <a name="shared-access-signature-security-sas"></a>Beveiliging van Shared Access Signature (SAS)
-Notification Hubs implementeert een entiteitsniveau beveiligingsschema SAS (Shared Access Signature) genoemd. Dit schema kunt messaging entities toodeclare up too12 autorisatieregels in hun beschrijving verlenen van rechten op die entiteit.
+Notification Hubs implementeert een entiteitsniveau beveiligingsschema SAS (Shared Access Signature) genoemd. Dit schema kunt berichtentiteiten declareren maximaal 12 machtigingsregels in de beschrijving die verlenen van rechten op die entiteit.
 
-Elke regel bevat een naam, de waarde van een sleutel (gedeelde geheim genoemd) en een set rechten, zoals wordt beschreven in de sectie Hallo 'Beveiligingsclaims'. Wanneer u een Notification Hub maakt, twee regels worden automatisch gemaakt: een met rechten voor luisteren (die Hallo van client-app gebruikt) en één met alle rechten (die Hallo app back-end gebruikt).
+Elke regel bevat een naam, de waarde van een sleutel (gedeelde geheim genoemd) en een set rechten, zoals wordt beschreven in de sectie 'Beveiligingsclaims'. Wanneer u een Notification Hub maakt, twee regels worden automatisch gemaakt: één met luisteren rechten (die gebruikmaakt van de client-app) en één met alle rechten (die gebruikmaakt van de back-end voor de app).
 
-Bij het uitvoeren van beheer van de registratie van de client-apps als Hallo informatie verzonden meldingen is geen gevoelige (bijvoorbeeld weer updates), een gemeenschappelijke manier tooaccess een Notification Hub is toogive Hallo-sleutelwaarde van Hallo regel Listen alleen-lezen toegang toohello client-app en toogive Hallo-sleutelwaarde van Hallo regel volledige toegang toohello app back-end.
+Bij het uitvoeren van beheer van de registratie van client-apps, als de gegevens worden verzonden meldingen is geen gevoelige (bijvoorbeeld weer updates), een veelgebruikte manier toegang krijgen tot een Notification Hub is de waarde van de sleutel van de regel Listen alleen toegang geven tot de client-app en de waarde van de sleutel van de regel volledige toegang geven tot de back-end voor de app.
 
-Het is niet raadzaam Windows Store-apps voor client-sleutelwaarde Hallo insluiten. Een manier tooavoid insluiten Hallo sleutelwaarde is toohave Hallo client-app opgehaald van Hallo back-end app bij het opstarten.
+Het is niet raadzaam dat u de sleutelwaarde in client-apps voor Windows Store insluiten. Een manier om te voorkomen dat de sleutelwaarde insluiten is dat de client-app die is opgehaald van de back-end app bij het opstarten.
 
-Het is belangrijk toounderstand die sleutel met luisteren toegang Hallo kunt u een client app tooregister voor elk label. Als uw app registraties toospecific labels toospecific clients (bijvoorbeeld wanneer labels vertegenwoordigen gebruikers-id's) beperken moet, moet uw app back-end Hallo registraties uitvoeren. Zie voor meer informatie registratie Management. Houd er rekening mee dat op deze manier Hallo client-app geen directe toegang tooNotification Hubs.
+Het is belangrijk te weten dat de sleutel met de luister-toegang toestaat dat een client-app te registreren voor een label. Als uw app moet registraties beperken tot specifieke labels op specifieke clients (bijvoorbeeld wanneer labels vertegenwoordigen gebruikers-id's), moet de registraties uitvoeren op uw back-end voor de app. Zie voor meer informatie registratie Management. Houd er rekening mee dat op deze manier kan de client-app niet direct toegang tot Notification Hubs hebben wordt.
 
 ## <a name="security-claims"></a>Beveiligingsclaims
-Vergelijkbare tooother entiteiten, Notification Hub-bewerkingen zijn toegestaan voor drie beveiligingsclaims: luisteren, te verzenden en te beheren.
+Net als bij andere entiteiten, Notification Hub-bewerkingen zijn toegestaan voor drie beveiligingsclaims: luisteren, te verzenden en te beheren.
 
 | Claim | Beschrijving | Bewerkingen die zijn toegestaan |
 | --- | --- | --- |
 | Luisteren |Maken of bij te werken, lezen en verwijderen van één registraties |Registratie maken/bijwerken<br><br>Lezen registratie<br><br>Alle registraties voor een ingang lezen<br><br>Registratie verwijderen |
-| Verzenden |Verzenden van berichten toohello notification hub |Bericht verzenden |
+| Verzenden |Berichten verzenden met de notification hub |Bericht verzenden |
 | Beheren |CRUDs van Notification Hubs (inclusief PNS-referenties en beveiligingssleutels bijwerken) en lezen registraties op basis van tags |Maken, bijwerken, lezen/verwijderen notification hubs<br><br>Registraties door code te lezen |
 
-Notification Hubs accepteren claims verleend door Microsoft Azure Access Control-tokens en handtekening-tokens gegenereerd met gedeelde sleutels rechtstreeks op Hallo Notification Hub is geconfigureerd.
+Notification Hubs accepteren claims verleend door Microsoft Azure Access Control-tokens en handtekening-tokens gegenereerd met gedeelde sleutels rechtstreeks op de Notification Hub is geconfigureerd.
 

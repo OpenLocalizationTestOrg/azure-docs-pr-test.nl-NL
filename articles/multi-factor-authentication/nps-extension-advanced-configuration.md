@@ -1,6 +1,6 @@
 ---
-title: aaaConfigure hello Azure MFA NPS extensie | Microsoft Docs
-description: "Nadat u Hallo NPS uitbreiding hebt geïnstalleerd, moet u deze stappen gebruiken voor geavanceerde configuratie zoals IP-whitelisting en UPN vervanging."
+title: De Azure MFA NPS-uitbreiding configureren | Microsoft Docs
+description: Nadat u de extensie NPS, volg deze stappen voor geavanceerde configuratie zoals IP-whitelisting en UPN vervanging.
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -15,44 +15,44 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: c3aed077b23c95f874861eb00c8e6dca668329c1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ef922668f080b8f02f07c2f9724f5a98171fb754
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
-# <a name="advanced-configuration-options-for-hello-nps-extension-for-multi-factor-authentication"></a>Geavanceerde configuratieopties voor Hallo NPS-extensie voor multi-factor Authentication
+# <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Geavanceerde configuratieopties voor de NPS-extensie voor multi-factor Authentication
 
-Hallo Network Policy Server (NPS)-extensie breidt uw cloud-gebaseerde Azure multi-factor Authentication-functies in uw on-premises infrastructuur. In dit artikel wordt ervan uitgegaan dat u al geïnstalleerd Hallo-extensie hebt en tooknow hoe toocustomize Hallo-extensie voor u moet een goed idee. 
+De extensie Network Policy Server (NPS) breidt uw cloud-gebaseerde Azure multi-factor Authentication-functies in uw on-premises infrastructuur. In dit artikel wordt ervan uitgegaan dat u al de extensie die is geïnstalleerd hebben en wilt weten hoe de extensie aanpassen voor uw behoeften. 
 
 ## <a name="alternate-login-id"></a>Alternatieve aanmeldings-ID
 
-Aangezien Hallo NPS extensie tooboth uw on-premises en cloud verbindt-adreslijsten, kunnen er een probleem waarbij uw lokale UPN-namen (UPN's) Hallo namen in de cloud Hallo niet overeenkomen. toosolve dit probleem op door gebruik alternatieve aanmeldings-id's. 
+Aangezien de NPS-extensie maakt verbinding met uw on-premises en de cloud-adreslijsten, kunnen er een probleem waarbij uw lokale UPN-namen (UPN's) komen niet overeen met de namen in de cloud. U lost dit probleem, alternatieve aanmeldings-id's te gebruiken. 
 
-Binnen Hallo NPS-extensie, kunt u een Active Directory-kenmerk toobe gebruikt in plaats van Hallo UPN voor Azure multi-factor Authentication aanwijzen. Hierdoor kan uw lokale bronnen met verificatie in twee stappen u tooprotect zonder te wijzigen van uw lokale UPN's. 
+Met de extensie NPS, kunt u een Active Directory-kenmerk moet worden gebruikt in plaats van de UPN voor Azure multi-factor Authentication aanwijzen. Hiermee kunt u bij de bescherming van uw lokale bronnen met verificatie in twee stappen zonder het wijzigen van uw lokale UPN's. 
 
-tooconfigure alternatieve aanmeldings-id's, gaat u te`HKLM\SOFTWARE\Microsoft\AzureMfa` en bewerken van de volgende registerwaarden Hallo:
+Alternatieve aanmeldings-id's configureren, gaat u naar `HKLM\SOFTWARE\Microsoft\AzureMfa` en bewerkt u de volgende registerwaarden:
 
 | Naam | Type | Standaardwaarde | Beschrijving |
 | ---- | ---- | ------------- | ----------- |
-| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | Tekenreeks | leeg | Hallo-naam van Active Directory-kenmerk dat u wilt dat toouse in plaats van Hallo UPN aanwijzen. Dit kenmerk wordt gebruikt als Hallo AlternateLoginId kenmerk. Als deze registerwaarde is ingesteld tooa [geldig Active Directory-kenmerk](https://msdn.microsoft.com/library/ms675090.aspx) (voor bijvoorbeeld e-mail of weergavenaam), vervolgens Hallo kenmerkwaarde wordt gebruikt in plaats van de UPN van de gebruiker Hallo voor verificatie. Als deze registerwaarde leeg of niet is is geconfigureerd, klikt u vervolgens AlternateLoginId is uitgeschakeld en de UPN van de gebruiker hello wordt gebruikt voor verificatie. |
-| LDAP_FORCE_GLOBAL_CATALOG | Booleaanse waarde | False | Gebruik deze vlag tooforce Hallo gebruik van globale catalogus voor LDAP-zoekopdrachten bij het opzoeken van AlternateLoginId. Een domeincontroller configureren als een globale catalogus toevoegen Hallo AlternateLoginId kenmerk toohello globale catalogus en schakelt u deze vlag. <br><br> Als LDAP_LOOKUP_FORESTS is geconfigureerd (geen lege) **deze vlag wordt afgedwongen als waar**, ongeacht van Hallo-waarde van de registerinstelling Hallo. In dit geval vereist Hallo NPS-uitbreiding Hallo globale catalogus toobe geconfigureerd met Hallo AlternateLoginId kenmerk voor elke forest. |
-| LDAP_LOOKUP_FORESTS | Tekenreeks | leeg | Geef een puntkomma's gescheiden lijst van forests toosearch. Bijvoorbeeld: *contoso.com;foobar.com*. Als deze registerwaarde is geconfigureerd, zoekt Hallo NPS-extensie alle Hallo forests iteratief in Hallo volgorde waarin ze zijn vermeld en Hallo eerste geslaagde AlternateLoginId waarde retourneert. Als deze registerwaarde niet is geconfigureerd, is het Hallo AlternateLoginId lookup beperkt toohello huidige domein.|
+| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | Tekenreeks | leeg | De naam van Active Directory-kenmerk dat u wilt gebruiken in plaats van de UPN aangegeven. Dit kenmerk wordt gebruikt als het kenmerk AlternateLoginId. Als deze registerwaarde is ingesteld op een [geldig Active Directory-kenmerk](https://msdn.microsoft.com/library/ms675090.aspx) (voor bijvoorbeeld e-mail of weergavenaam), klikt u vervolgens de waarde van het kenmerk wordt gebruikt in plaats van de UPN van de gebruiker voor verificatie. Als deze registerwaarde leeg of niet is is geconfigureerd, klikt u vervolgens AlternateLoginId is uitgeschakeld en de UPN van de gebruiker wordt gebruikt voor verificatie. |
+| LDAP_FORCE_GLOBAL_CATALOG | Booleaanse waarde | False | Deze optie om af te dwingen het gebruik van de globale catalogus voor LDAP-zoekopdrachten bij het opzoeken van AlternateLoginId gebruikt. Een domeincontroller configureren als een globale catalogus, het kenmerk AlternateLoginId toevoegen aan de globale catalogus en vervolgens deze optie inschakelen. <br><br> Als LDAP_LOOKUP_FORESTS is geconfigureerd (geen lege) **deze vlag wordt afgedwongen als waar**, ongeacht de waarde van de registerinstelling. De NPS-extensie is in dit geval wordt de globale catalogus worden geconfigureerd met het kenmerk AlternateLoginId voor elk forest vereist. |
+| LDAP_LOOKUP_FORESTS | Tekenreeks | leeg | Geef een puntkomma's gescheiden lijst van forests om te zoeken. Bijvoorbeeld: *contoso.com;foobar.com*. Als deze registerwaarde is geconfigureerd, zoekt de NPS-extensie alle forests iteratief in de volgorde waarin ze zijn vermeld, en retourneert de eerste geslaagde AlternateLoginId-waarde. Als deze registerwaarde niet is geconfigureerd, wordt de zoekopdracht AlternateLoginId beperkt tot het huidige domein.|
 
-tootroubleshoot problemen met alternatieve aanmeldings-id's, Hallo aanbevolen stappen voor het gebruik [alternatieve aanmeldings-ID fouten](multi-factor-authentication-nps-errors.md#alternate-login-id-errors).
+Voor het oplossen van problemen met alternatieve aanmeldings-id's, kunt u de aanbevolen stappen voor [alternatieve aanmeldings-ID fouten](multi-factor-authentication-nps-errors.md#alternate-login-id-errors).
 
 ## <a name="ip-exceptions"></a>IP-uitzonderingen
 
-Als u toomonitor beschikbaarheid van de server, zoals als netwerktaakverdelers welke servers worden uitgevoerd controleren voor het verzenden van werkbelastingen, moet wilt u niet dat deze controles toobe wordt geblokkeerd door de verificatie-aanvragen. In plaats daarvan een lijst met IP-adressen die u kent worden gebruikt door de service-accounts maken en vereisten van de multi-factor Authentication voor die lijst uitschakelen. 
+Als u bewaken van de beschikbaarheid van de server wilt, zoals als netwerktaakverdelers welke servers worden uitgevoerd controleren voordat u werkbelastingen, verzendt wilt u niet dat deze controles wordt geblokkeerd door de verificatie-aanvragen. In plaats daarvan een lijst met IP-adressen die u kent worden gebruikt door de service-accounts maken en vereisten van de multi-factor Authentication voor die lijst uitschakelen. 
 
-tooconfigure een goedgekeurde IP-adressen te gaan`HKLM\SOFTWARE\Microsoft\AzureMfa` en Hallo registerwaarde volgende configureren: 
+Voor het configureren van een lijst met geaccepteerde IP-adressen, gaat u naar `HKLM\SOFTWARE\Microsoft\AzureMfa` en configureer de volgende registerwaarde: 
 
 | Naam | Type | Standaardwaarde | Beschrijving |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | Tekenreeks | leeg | Geef een puntkomma's gescheiden lijst van IP-adressen. Hallo IP-adressen van computers waar serviceaanvragen afkomstig zijn, zoals Hallo NAS/VPN-server bevatten. IP-adresbereiken zijn subnetten worden niet ondersteund. <br><br> Bijvoorbeeld: *10.0.0.1;10.0.0.2;10.0.0.3*.
+| IP_WHITELIST | Tekenreeks | leeg | Geef een puntkomma's gescheiden lijst van IP-adressen. De IP-adressen van computers waar serviceaanvragen afkomstig, zoals de NAS/VPN-server zijn bevatten. IP-adresbereiken zijn subnetten worden niet ondersteund. <br><br> Bijvoorbeeld: *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-Wanneer een aanvraag afkomstig is van een IP-adres die in goedgekeurde lijst hello voorkomt, wordt verificatie in twee stappen overgeslagen. Hallo goedgekeurde IP-adressen is vergeleken toohello IP-adres dat is opgegeven in Hallo *ratNASIPAddress* kenmerk van Hallo RADIUS-aanvraag. Als een RADIUS-aanvraag wordt geleverd zonder Hallo ratNASIPAddress kenmerk, Hallo waarschuwing na vastgelegd: 'P_WHITE_LIST_WARNING::IP geaccepteerde wordt genegeerd als de bron-IP ontbreekt in de RADIUS-aanvraag in NasIpAddress-kenmerk.'
+Wanneer een aanvraag afkomstig is van een IP-adres die in de lijst met geaccepteerde voorkomt, wordt verificatie in twee stappen overgeslagen. De goedgekeurde IP-adressen wordt vergeleken met het IP-adres dat is opgegeven in de *ratNASIPAddress* kenmerk van de RADIUS-aanvraag. Als een RADIUS-aanvraag wordt geleverd zonder het kenmerk ratNASIPAddress, de volgende waarschuwing wordt vastgelegd: 'P_WHITE_LIST_WARNING::IP geaccepteerde wordt genegeerd als de bron-IP ontbreekt in de RADIUS-aanvraag in NasIpAddress-kenmerk.'
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Foutberichten van Hallo NPS-extensie voor Azure multi-factor Authentication oplossen](multi-factor-authentication-nps-errors.md)
+[Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md) (Foutberichten van de NPS-extensie voor Azure Multi-Factor Authentication oplossen)

@@ -1,133 +1,133 @@
 U kunt virtuele machines in Azure maken met behulp van de Server Explorer in Visual Studio.
 
 ## <a name="create-an-azure-virtual-machine-in-server-explorer"></a>Maken van een virtuele machine van Azure in Server Explorer
-Bij het maken van een virtuele machine in Hallo [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103), u kunt ook een virtuele machine in Azure maken met behulp van opdrachten in Server Explorer. Virtuele machines kunnen worden gebruikt, bijvoorbeeld tooprovide een front end achter een algemene taakverdeling openbaar eindpunt.
+Bij het maken van een virtuele machine in de [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103), u kunt ook een virtuele machine in Azure maken met behulp van opdrachten in Server Explorer. Virtuele machines kan bijvoorbeeld worden gebruikt om een front-end achter een algemene taakverdeling openbaar eindpunt.
 
-### <a name="toocreate-a-new-virtual-machine"></a>toocreate een nieuwe virtuele machine
-1. Open in Server Explorer Hallo **Azure** knooppunt en klik op **virtuele Machines**.
-2. Klik in het contextmenu hello, **virtuele Machine maken**.
+### <a name="to-create-a-new-virtual-machine"></a>Een nieuwe virtuele machine maken
+1. Open in Server Explorer, de **Azure** knooppunt en klik op **virtuele Machines**.
+2. Klik in het contextmenu op **virtuele Machine maken**.
    
-    Hallo **maken van een nieuwe virtuele Machine** wizard wordt weergegeven.
+    De **maken van een nieuwe virtuele Machine** wizard wordt weergegeven.
    
-    ![Hallo opdracht van de virtuele Machine maken](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
-3. Op Hallo **Kies een abonnement** pagina, selecteert u een abonnement toouse bij het maken van Hallo virtuele machine en klik vervolgens op **volgende**.
+    ![De opdracht van de virtuele Machine maken](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
+3. Op de **Kies een abonnement** pagina, selecteer een abonnement moet worden gebruikt bij het maken van de virtuele machine en klik vervolgens op **volgende**.
    
-    Als u niet bent aangemeld tooAzure, klikt u op **aanmelden** toosign in. Selecteer vervolgens uw Azure-abonnement in de vervolgkeuzelijst Hallo als deze nog niet is geselecteerd.
-4. Op Hallo **selecteert u de installatiekopie van een virtuele Machine** pagina, selecteert u een afbeeldingstype in Hallo **afbeeldingstype** dropdown keuzelijst en selecteer vervolgens de installatiekopieën van een virtuele machine in Hallo **installatiekopienaam** keuzelijst met invoervak. Wanneer u bent klaar, klikt u op **volgende**.
+    Als u bent niet aangemeld bij Azure, klikt u op **aanmelden** aan te melden. Selecteer vervolgens uw Azure-abonnement in de vervolgkeuzelijst als deze nog niet is geselecteerd.
+4. Op de **selecteert u de installatiekopie van een virtuele Machine** pagina, selecteert u een type installatiekopie in de **afbeeldingstype** dropdown keuzelijst en selecteer vervolgens de installatiekopieën van een virtuele machine in de **installatiekopienaam** keuzelijst met invoervak . Wanneer u bent klaar, klikt u op **volgende**.
    
     ![Selecteer een pagina van de installatiekopie van virtuele machine](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
    
-    U kunt de volgende afbeeldingstypen Hallo.
+    U kunt de volgende afbeeldingstypen.
    
    * **Installatiekopieën van het openbare** geeft een lijst van virtuele machine installatiekopieën van besturingssystemen en server-software, zoals Windows Server en SQL Server.
-   * **MSDN-installatiekopieën** geeft een lijst van installatiekopieën van virtuele machines van de software beschikbaar tooMSDN abonnees, zoals Visual Studio en Microsoft Dynamics.
+   * **MSDN-installatiekopieën** geeft een lijst van installatiekopieën van virtuele machines van de software beschikbaar voor MSDN-abonnees, zoals Visual Studio en Microsoft Dynamics.
    * **Installatiekopieën van het particuliere** lijsten gespecialiseerde en gegeneraliseerd installatiekopieën van virtuele machines die u hebt gemaakt.
      
-     toolearn over gespecialiseerde en gegeneraliseerde virtuele machines, Zie [VM-installatiekopie](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Zie [hoe tooCapture een tooUse virtuele Windows-computer als een sjabloon](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) voor meer informatie over hoe een virtuele machine naar een sjabloon waarmee u tooquickly kunt maken van nieuwe tooturn vooraf virtuele machines geconfigureerde.
+     Zie voor meer informatie over gespecialiseerde en gegeneraliseerde virtuele machines, [VM-installatiekopie](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Zie [het vastleggen van een virtuele Windows-Machine voor gebruik als een sjabloon](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) voor informatie over het inschakelen van een virtuele machine naar een sjabloon kunt u snel maken van nieuwe vooraf virtuele machines geconfigureerde.
      
-     U kunt klikken op een virtuele machine installatiekopie naam toosee informatie over de installatiekopie van het Hallo aan de rechterkant Hallo van Hallo pagina.
+     U kunt klikken op de naam van een virtuele machine-installatiekopie voor informatie over de installatiekopie aan de rechterkant van de pagina.
      
      > [!NOTE]
-     > U kunt geen virtuele machine installatiekopieën toohello toevoegen **openbare afbeeldingen** of **MSDN-installatiekopieën** geeft een lijst van omdat ze alleen-lezen. Alle virtuele machines die u maakt worden toegevoegd toohello **persoonlijke afbeeldingen** lijst.
+     > U kunt geen toevoegen installatiekopieën van virtuele machine naar de **openbare afbeeldingen** of **MSDN-installatiekopieën** geeft een lijst van omdat ze alleen-lezen. Alle virtuele machines die u maakt worden toegevoegd aan de **persoonlijke afbeeldingen** lijst.
      > 
      > 
      
      Als u een MSDN-abonnee met een abonnement van de Visual Studio-niveau, kunt u een vooraf gemaakte virtuele machine van Azure met Visual Studio, evenals enkele andere afbeeldingen. Zie voor meer informatie [een virtuele Machine maken in Visual Studio door de installatiekopie met behulp van installatiekopieën van Visual Studio 2013-galerie voor MSDN-abonnees](http://visualstudio2013msdngalleryimage.azurewebsites.net) en [MSDN-abonnement](https://www.visualstudio.com/products/msdn-subscriptions-vs). |
-5. Op Hallo **basisinstellingen van de virtuele Machine** pagina, voer de machinenaam van een en voegt u Hallo specificaties voor Hallo virtuele machine, met inbegrip van de grootte van hello, en een gebruikersnaam en wachtwoord. Wanneer u bent klaar, klikt u op **volgende**.
+5. Op de **basisinstellingen van de virtuele Machine** pagina, Geef een computernaam op en voeg vervolgens de specificaties voor de virtuele machine, met inbegrip van de grootte en een gebruikersnaam en wachtwoord. Wanneer u bent klaar, klikt u op **volgende**.
    
-    Gebruikt u de nieuwe naam Hallo en toolog in Hallo-machine met behulp van extern bureaublad, dus is het een goed idee toowrite ze omlaag u in geval wachtwoord vergeet. Nadat u een virtuele machine van Azure in Visual Studio hebt gemaakt, kunt u de grootte en andere instellingen in Hallo [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
-   
-   > [!NOTE]
-   > Als u grotere voor Hallo virtuele machine kiest, kunnen extra kosten toepassen. Zie [prijsinformatie voor virtuele Machines](https://azure.microsoft.com/pricing/details/virtual-machines/) voor meer informatie.
-   > 
-   > 
-6. Virtuele machines die zijn gemaakt in Visual Studio vereisen een cloudservice. Op Hallo **Cloud Service-instellingen** pagina, selecteert u een cloudservice voor Hallo virtuele machine of klik op **< Nieuw >** in de vervolgkeuzelijst Hallo als u een cloud service- of toouse een nieuwe wilt nog niet hebt een. Een opslagaccount is ook vereist, dus kiest u een opslagaccount (of een nieuw opslagaccount maken) in Hallo **opslagaccount** vervolgkeuzelijst. Zie [tooMicrosoft inleiding Azure Storage](../articles/storage/common/storage-introduction.md) voor meer informatie.
-7. Als u wilt toospecify een virtueel netwerk (dit is optioneel), selecteert u deze in Hallo virtueel netwerk en Subnet dropdown keuzelijsten.
-   
-    Virtuele machines die deel uitmaken van een beschikbaarheidsset zijn geïmplementeerde toodifferent domeinen met fouten. Zie [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) voor meer informatie.
-8. Als u wilt dat uw virtuele machine toobelong tooan beschikbaarheidsset (ook optioneel), selecteert u Hallo **opgeven van een beschikbaarheidsset** selectievakje in en kies vervolgens een beschikbaarheidsset in de vervolgkeuzelijst Hallo. Wanneer u bent klaar, kiest u Hallo **volgende** knop.
-   
-    Toevoegen van uw virtuele machine tooan helpt beschikbaarheidsset uw toepassing beschikbaar blijven tijdens netwerkfouten, hardwarefouten lokale schijf en geplande uitvaltijd. U moet toouse hello [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103) toocreate virtuele netwerken, subnetten en beschikbaarheid ingesteld. Zie [beheren Hallo beschikbaarheid van virtuele Machines](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/) voor meer informatie.
-9. Op Hallo **eindpunten** pagina, Hallo openbare eindpunten die u beschikbaar toousers van uw virtuele machine wilt opgeven. Bijvoorbeeld, u kunt ervoor kiezen tooenable HTTP (poort 80) bovendien toohello extern bureaublad en PowerShell-eindpunten die zijn standaard ingeschakeld. tooadd een eindpunt, kiest u een in Hallo **poortnaam** vervolgkeuzelijst in een keuzelijst en kies vervolgens Hallo **toevoegen** knop. tooremove een eindpunt, kies Hallo rode **X** volgende toohello-naam in de lijst met eindpunten Hallo.
-   
-    ![Hallo eindpunten pagina in Hallo virtuele machines wizard.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
-   
-    Hallo-eindpunten die beschikbaar zijn, is afhankelijk van Hallo-cloudservice die u hebt geselecteerd voor uw virtuele machine. Zie [Azure Service-eindpunten](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) voor meer informatie.
+    Gebruikt u de nieuwe naam en het wachtwoord aan te melden bij de computer met behulp van extern bureaublad, dus is het een goed idee om schrijf ze op als u vergeet. Nadat u een virtuele machine van Azure in Visual Studio hebt gemaakt, kunt u de grootte en andere instellingen in de [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
    
    > [!NOTE]
-   > Inschakelen van openbare eindpunten services maakt op de virtuele machine beschikbaar toohello internet. Ervoor tooinstall zijn en goed Hallo eindpunten en services configureren op de virtuele machine, zoals instelling toegangsbeheerlijsten (ACL's) voor eindpunten Hallo. Zie [hoe tooSet Up eindpunten tooa virtuele Machine](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) voor meer informatie.
+   > Als u een groter formaat voor de virtuele machine kiest, kunnen extra kosten toepassen. Zie [prijsinformatie voor virtuele Machines](https://azure.microsoft.com/pricing/details/virtual-machines/) voor meer informatie.
    > 
    > 
-10. Nadat u de instellingen van de virtuele machine configureren Hallo bent klaar, kiest u Hallo **maken** knop toocreate Hallo virtuele machine.
+6. Virtuele machines die zijn gemaakt in Visual Studio vereisen een cloudservice. Op de **Cloud Service-instellingen** pagina, selecteert u een cloudservice voor de virtuele machine of klik op **< Nieuw >** in de vervolgkeuzelijst als u een cloud service of wilt gebruiken, een nieuwe nog geen hebt. Een opslagaccount is ook vereist, dus kiest u een opslagaccount (of een nieuw opslagaccount maken) in de **opslagaccount** vervolgkeuzelijst. Zie [Inleiding tot Microsoft Azure Storage](../articles/storage/common/storage-introduction.md) voor meer informatie.
+7. Als u wilt opgeven van een virtueel netwerk (dit is optioneel), selecteert u deze in de keuzelijsten met vervolgkeuzelijst voor virtueel netwerk en Subnet.
+   
+    Virtuele machines die deel van een beschikbaarheidsset uitmaken zijn geïmplementeerd op verschillende foutdomeinen. Zie [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) voor meer informatie.
+8. Als u wilt dat uw virtuele machine te behoren tot een beschikbaarheidsset (ook optioneel), selecteert u de **opgeven van een beschikbaarheidsset** selectievakje in en kies vervolgens een beschikbaarheidsset in de vervolgkeuzelijst. Als u bent klaar, kiest u de **volgende** knop.
+   
+    De virtuele machine aan een beschikbaarheidsset toe te voegen, kunt u uw toepassing beschikbaar blijven tijdens netwerkfouten, hardwarefouten lokale schijf en geplande uitvaltijd. U moet gebruiken de [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103) voor het maken van virtuele netwerken, subnetten en beschikbaarheid. Zie [de beschikbaarheid van virtuele Machines beheren](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/) voor meer informatie.
+9. Op de **eindpunten** pagina, geeft u de openbare eindpunten die u wilt dat beschikbaar voor gebruikers van uw virtuele machine. U kunt bijvoorbeeld kiezen om het inschakelen van HTTP (poort 80) naast de extern bureaublad en PowerShell-eindpunten zijn standaard ingeschakeld. Als u wilt een eindpunt toevoegen, kiest u een in de **poortnaam** vervolgkeuzelijst in een keuzelijst en kies vervolgens de **toevoegen** knop. Als u wilt verwijderen een eindpunt, kies de rode **X** naast de naam in de lijst met eindpunten.
+   
+    ![De pagina eindpunten in de wizard virtuele machines.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
+   
+    De eindpunten die beschikbaar zijn, is afhankelijk van de cloudservice die u hebt geselecteerd voor uw virtuele machine. Zie [Azure Service-eindpunten](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) voor meer informatie.
+   
+   > [!NOTE]
+   > Inschakelen van openbare eindpunten beschikbaar services op de virtuele machine met het internet. Moet installeren en de eindpunten en services goed geconfigureerd op de virtuele machine, zoals instelling toegangsbeheerlijsten (ACL's) voor de eindpunten. Zie [ingesteld van eindpunten aan een virtuele Machine](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) voor meer informatie.
+   > 
+   > 
+10. Nadat u bent met klaar de virtuele machine-instellingen configureren, kiest u de **maken** om te maken van de virtuele machine.
     
-     Omdat Azure Hallo virtuele machine maakt, Hallo **Azure Activity Log** toont de voortgang van de bewerking voor het maken van virtuele machine Hallo Hallo.
+     Omdat Azure de virtuele machine, maakt de **Azure Activity Log** geeft de voortgang van de bewerking voor het maken van virtuele machine.
     
      ![Virtuele machine-activiteitenlogboek - uitgevoerd.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
     
-     informatie van de virtuele machine die alleen tooview, kies Hallo **virtuele Machines** tabblad in Hallo **Azure Activity Log**.
+     U kunt alleen de gegevens van de virtuele machine bekijken de **virtuele Machines** tabblad de **Azure Activity Log**.
     
      ![Activiteitenlogboek van virtuele machine - voltooid.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
     
-     Als het Hallo-bewerking is voltooid, Hallo nieuwe virtuele machine moet worden weergegeven onder Hallo **virtuele Machines** knooppunt in Server Explorer. U kunt zich aanmelden bij deze door te klikken op Hallo **verbinding maken met behulp van extern bureaublad** snelkoppeling.
+     Als de bewerking voltooid is, wordt de nieuwe virtuele machine weergegeven onder de **virtuele Machines** knooppunt in Server Explorer. U kunt zich aanmelden bij deze door te klikken op de **verbinding maken met behulp van extern bureaublad** snelkoppeling.
     
      ![Virtuele machine wordt weergegeven in Server Explorer.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
 
 ## <a name="manage-your-virtual-machines"></a>Uw virtuele machines beheren
-Op de virtuele machine configuratiepagina Hallo bovendien tooshutting omlaag, verbinding te maken, te vernieuwen en toe te voegen controlepunten toohello geselecteerd virtuele machine, u kunt ook weergeven of wijzigen van instellingen voor Hallo virtuele machine. U kunt:
+U kunt ook weergeven of wijzigen van instellingen voor de virtuele machine op de pagina van de virtuele machine configuratie naast afgesloten, verbinding maken met vernieuwen en controlepunten toevoegen aan de geselecteerde virtuele machine. U kunt:
 
-* De grootte van de virtuele machine Hallo wijzigen.
-* Selecteer Hallo beschikbaarheidsset toouse met Hallo virtuele machine.
+* Wijzig de grootte van de virtuele machine.
+* Selecteer de beschikbaarheid instellen voor gebruik met de virtuele machine.
 * Toevoegen, verwijderen of wijzigen van instellingen voor openbare eindpunten.
 * Toevoegen, verwijderen of extensies van virtuele machine configureren.
-* Informatie weergeven over Hallo-schijven die zijn gekoppeld aan Hallo virtuele machine.
+* Informatie weergeven over de schijven die zijn gekoppeld aan de virtuele machine.
 
 ### <a name="view-or-change-virtual-machine-settings"></a>Instellingen van de virtuele machine weergeven of wijzigen
-1. Kies uw virtuele machine in Hallo in Server Explorer **Azure Virtual Machines** knooppunt.
-2. Kies in het snelmenu hello, **configureren** configuratiepagina voor tooview Hallo virtuele machine.
+1. Kies in Server Explorer uw virtuele machine in de **Azure Virtual Machines** knooppunt.
+2. Kies in het snelmenu **configureren** om de configuratiepagina van de virtuele machine weer te geven.
    
-    ![pagina Hallo virtuele machine van Azure-configuratie](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
-3. Hallo-gegevens virtuele machine weergeven of wijzigen.
+    ![De configuratiepagina van de virtuele machine van Azure](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
+3. Gegevens van de virtuele machine weergeven of wijzigen.
 
-### <a name="save-or-restore-hello-status-of-your-virtual-machine"></a>Opslaan of Hallo status van uw virtuele machine herstellen
-Zoals u uw virtuele machine configureren en software op deze installeren, is het een goed idee tooregularly Sla uw voortgang door het maken van controlepunten voor virtuele machines. Een controlepunt is geen momentopname of een installatiekopie van de huidige status Hallo van uw virtuele machine. Als er iets mis met Hallo virtuele machine gaat, of u tooreconfigure Hallo virtuele machine wilt, kunt u tijd besparen door dat deze wordt hersteld tooa vorige controlepunt staat in plaats van vanaf het begin beginnen.
+### <a name="save-or-restore-the-status-of-your-virtual-machine"></a>Opslaan of de status van de virtuele machine herstellen
+Als u uw virtuele machine configureren en software op deze installeren, is het een goed idee om uw voortgang regelmatig door te maken van controlepunten voor virtuele machines opslaan. Een controlepunt is geen momentopname of een installatiekopie van de huidige status van uw virtuele machine. Als er iets mis met de virtuele machine gaat of als u wilt opnieuw configureren van de virtuele machine, kunt u tijd besparen door dat deze wordt hersteld naar een eerdere status van controlepunt in plaats van vanaf het begin beginnen.
 
-### <a name="toocreate-a-virtual-machine-checkpoint"></a>toocreate controlepunt van virtuele machines
-1. Kies uw virtuele machine in Hallo in Server Explorer **Azure Virtual Machines** knooppunt.
-2. Kies in het snelmenu hello, **configureren** configuratiepagina voor tooview Hallo virtuele machine.
-3. Kies op de configuratiepagina Hallo Hallo **installatiekopie vastleggen** knop.
+### <a name="to-create-a-virtual-machine-checkpoint"></a>Controlepunt van virtuele machines maken
+1. Kies in Server Explorer uw virtuele machine in de **Azure Virtual Machines** knooppunt.
+2. Kies in het snelmenu **configureren** om de configuratiepagina van de virtuele machine weer te geven.
+3. Kies op de configuratiepagina van de **installatiekopie vastleggen** knop.
    
     ![Knop voor configuratie van Azure-pagina vastleggen](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744142.png)
    
-    Hallo **virtuele Machine vastleggen** dialoogvenster wordt weergegeven.
+    De **virtuele Machine vastleggen** dialoogvenster wordt weergegeven.
    
     ![In het dialoogvenster Azure capture-virtuele machine](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744143.png)
 4. Geef een label van de installatiekopie en de beschrijving. Een standaardlabel en een beschrijving zijn opgegeven, maar u kunt deze desgewenst door uw eigen overschrijven.
-5. Als u al hebt Sysprep uitgevoerd op deze virtuele machine, selecteert u Hallo **ik heb Sysprep uitgevoerd op de virtuele machine van Hallo** vak.
+5. Als u al hebt Sysprep uitgevoerd op deze virtuele machine, selecteert u de **ik heb Sysprep uitgevoerd op de virtuele machine** vak.
    
-    Sysprep is een hulpprogramma dat onder andere systemen-specifieke gegevens verwijdert uit Hallo virtuele machine-versie van Windows, waardoor het sjabloon dat anderen kunnen gebruiken. Zie [hoe tooCapture een tooUse virtuele Windows-computer als een sjabloon](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) voor meer informatie. Back-up Hallo VM voordat Sysprep wordt uitgevoerd.
-6. Nadat u klaar bent met het configureren van Hallo vastleggingsinstellingen kiest Hallo **vastleggen** knop toocreate Hallo controlepunt.
+    Sysprep is een hulpprogramma dat onder andere systemen-specifieke gegevens worden verwijderd van de versie van de virtuele machine van Windows, waardoor het sjabloon dat anderen kunnen gebruiken. Zie [het vastleggen van een virtuele Windows-Machine voor gebruik als een sjabloon](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) voor meer informatie. Back-up van de virtuele machine voordat Sysprep wordt uitgevoerd.
+6. Nadat u bent met klaar de capture-instellingen configureren, kiest u de **vastleggen** knop om het controlepunt te maken.
    
-    Omdat Azure Hallo controlepunt maakt, Hallo **Azure Activity Log** toont de voortgang van de bewerking Hallo Hallo.
+    Omdat Azure het controlepunt maakt de **Azure Activity Log** geeft de voortgang van de bewerking.
    
     ![Vastleggen van een controlepunt van virtuele machines](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744144.png)
    
-    Wanneer Hallo controlepunt-bewerking is voltooid, wordt deze weergegeven in Hallo **Azure Activity Log**.
+    Wanneer het controlepunt is voltooid, ziet u in de **Azure Activity Log**.
    
     ![Controlepunt is voltooid](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744145.png)
 
-## <a name="toomanage-virtual-machine-checkpoints"></a>controlepunten voor virtuele machines toomanage
-### <a name="toorestore-a-virtual-machine-tooa-previously-saved-state"></a>een virtuele machine tooa toorestore eerder opgeslagen status
-* Hallo stappen die worden beschreven in [stapsgewijze: uitvoeren Cloud herstelt van Microsoft Azure Virtual Machines met behulp van PowerShell - deel 2](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
+## <a name="to-manage-virtual-machine-checkpoints"></a>Voor het beheren van controlepunten voor virtuele machines
+### <a name="to-restore-a-virtual-machine-to-a-previously-saved-state"></a>Een virtuele machine te herstellen naar een eerder opgeslagen status
+* Volg de stappen die worden beschreven in [stapsgewijze: uitvoeren Cloud herstelt van Microsoft Azure Virtual Machines met behulp van PowerShell - deel 2](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
 
-### <a name="toodelete-a-checkpoint"></a>een controlepunt toodelete
-1. Ga toohello [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
-2. Kies op de virtuele machine configuratiepagina Hallo Hallo **installatiekopieën** tabblad bovenaan Hallo Hallo pagina.
-3. Kies Hallo controlepunt u wilt toodelete en kies vervolgens Hallo **verwijderen** knop Hallo onder Hallo pagina aan.
+### <a name="to-delete-a-checkpoint"></a>Een controlepunt verwijderen
+1. Ga naar de [Azure-beheerportal](http://go.microsoft.com/fwlink/?LinkID=253103).
+2. Kies op de configuratiepagina van de virtuele machine de **installatiekopieën** boven op het tabblad van de pagina.
+3. Kies het controlepunt dat u wilt verwijderen, en kies vervolgens de **verwijderen** knop aan de onderkant van de pagina.
 
 ## <a name="shut-down-your-virtual-machine"></a>De virtuele machine afsluiten
-1. Kies in Server Explorer Hallo virtuele machine die u wilt dat tooshut omlaag in Hallo **Azure Virtual Machines** knooppunt.
-2. In het snelmenu hello, kiest u Hallo **afsluiten** opdracht of kies **configureren** tooview Hallo configuratiepagina van de virtuele machine en kies vervolgens Hallo **afsluiten**knop.
+1. Kies de virtuele machine die u wilt afsluiten in Server Explorer de **Azure Virtual Machines** knooppunt.
+2. In het snelmenu, kiest u de **afsluiten** opdracht of kies **configureren** weergeven van de configuratiepagina van de virtuele machine en kies vervolgens de **afsluiten** knop.
 
 ## <a name="next-steps"></a>Volgende stappen
-toolearn meer informatie over het maken van virtuele machines, Zie [maken van een virtuele Machine waarop Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) en [maken van een virtuele machine waarop Windows wordt uitgevoerd in de Azure preview-portal Hallo](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Zie voor meer informatie over het maken van virtuele machines, [maken van een virtuele Machine waarop Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) en [maken van een virtuele machine waarop Windows wordt uitgevoerd in de Azure preview portal](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

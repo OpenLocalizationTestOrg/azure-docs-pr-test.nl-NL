@@ -1,6 +1,6 @@
 ---
-title: uploaden van aaaUse hello Azure PowerShell tooconfigure bestand | Microsoft Docs
-description: Hoe toouse hello Azure PowerShell-cmdlets tooconfigure uw IoT hub tooenable bestand uploadt van verbonden apparaten. Bevat informatie over het configureren van Hallo bestemming Azure storage-account.
+title: Azure PowerShell gebruiken om te uploaden bestand configureren | Microsoft Docs
+description: Het gebruik van de Azure PowerShell-cmdlets voor het configureren van uw IoT-hub zodat bestand uploadt van verbonden apparaten. Bevat informatie over het configureren van de doel-Azure storage-account.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 9dcdc41693c09cece411921b30c91d7b3db47395
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a72bda794b2da3e044c46249559610d06b1f1843
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Uploaden van bestanden met PowerShell IoT-Hub configureren
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-Hallo toouse [bestand uploaden functionaliteit in IoT-Hub][lnk-upload], moet u eerst een Azure storage-account koppelen met uw IoT-hub. U kunt een bestaand opslagaccount gebruiken of een nieuwe maken.
+Gebruik de [bestand uploaden functionaliteit in IoT-Hub][lnk-upload], moet u eerst een Azure storage-account koppelen met uw IoT-hub. U kunt een bestaand opslagaccount gebruiken of een nieuwe maken.
 
-toocomplete in deze zelfstudie, moet u hello te volgen:
+Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.
 * [Azure PowerShell-cmdlets][lnk-powershell-install].
-* Een Azure-IoT-hub. Als u een IoT-hub hebt, kunt u Hallo [cmdlet New-AzureRmIoTHub] [ lnk-powershell-iothub] toocreate one of gebruik Hallo u portal te[een iothub maken] [ lnk-portal-hub].
-* Een Azure Storage-account. Als u geen Azure storage-account hebt, kunt u Hallo [Azure PowerShell-cmdlets Storage] [ lnk-powershell-storage] toocreate one of gebruik Hallo u portal te[een opslagaccount maken] [ lnk-portal-storage].
+* Een Azure-IoT-hub. Als u een IoT-hub hebt, kunt u de [cmdlet New-AzureRmIoTHub] [ lnk-powershell-iothub] te maken of de portal gebruiken om [een iothub maken][lnk-portal-hub].
+* Een Azure Storage-account. Als u geen Azure storage-account hebt, kunt u de [Azure PowerShell-cmdlets Storage] [ lnk-powershell-storage] te maken of de portal gebruiken om [een opslagaccount maken] [lnk-portal-storage].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Aanmelden en uw Azure-account instellen
 
-Meld u aan tooyour Azure-account en uw abonnement te selecteren.
+Aanmelden bij uw Azure-account en uw abonnement te selecteren.
 
-1. Uitvoeren bij de PowerShell-prompt Hallo Hallo **Login-AzureRmAccount** cmdlet:
+1. Uitvoeren op de PowerShell-prompt de **Login-AzureRmAccount** cmdlet:
 
     ```powershell
     Login-AzureRmAccount
     ```
 
-1. Aanmelden tooAzure verleent u tooall toegang tot Azure-abonnementen die zijn gekoppeld aan uw referenties in Media Player Hallo als u meerdere Azure-abonnementen hebt. Hallo opdracht toolist hello Azure-abonnementen beschikbaar voor u toouse volgende gebruiken:
+1. Als u meerdere Azure-abonnementen hebt, verleent aanmelden bij Azure u toegang tot alle de Azure-abonnementen die zijn gekoppeld aan uw referenties. Gebruik de volgende opdracht voor een lijst met de Azure-abonnementen beschikbaar moet worden gebruikt:
 
     ```powershell
     Get-AzureRMSubscription
     ```
 
-    Gebruik Hallo opdracht tooselect abonnement dat u wilt dat uw IoT-hub-opdrachten toomanage toouse toorun hello te volgen. U kunt Hallo abonnementsnaam of ID van uitvoer van de vorige opdracht Hallo Hallo gebruiken:
+    Gebruik de volgende opdracht om abonnement die u gebruiken wilt voor het uitvoeren van de opdrachten voor het beheren van uw IoT-hub te selecteren. U kunt de naam van abonnement of de ID van de uitvoer van de vorige opdracht gebruiken:
 
     ```powershell
     Select-AzureRMSubscription `
@@ -58,9 +58,9 @@ Meld u aan tooyour Azure-account en uw abonnement te selecteren.
 
 ## <a name="retrieve-your-storage-account-details"></a>De gegevens van uw storage-account ophalen
 
-Hallo volgende stappen wordt ervan uitgegaan dat u uw storage-account met behulp van Hallo gemaakt **Resource Manager** implementatiemodel en niet Hallo **klassieke** implementatiemodel.
+De volgende stappen wordt ervan uitgegaan dat u hebt gemaakt dat uw storage-account met de **Resource Manager** -implementatiemodel, en niet de **klassieke** implementatiemodel.
 
-tooconfigure bestand uploadt van uw apparaten, moet u Hallo-verbindingsreeks voor Azure storage-account. Hallo storage-account moet zich in Hallo hetzelfde abonnement als uw IoT-hub. U moet ook Hallo-naam van een blob-container in Hallo storage-account. Hallo opdracht tooretrieve na uw toegangscodes voor opslag gebruiken:
+Als u wilt configureren bestandsuploads van uw apparaten, moet u de verbindingsreeks voor Azure storage-account. Het opslagaccount moet zich in hetzelfde abonnement als uw IoT-hub. U moet ook de naam van een blob-container in het opslagaccount. Gebruik de volgende opdracht voor het ophalen van uw toegangscodes voor opslag:
 
 ```powershell
 Get-AzureRmStorageAccountKey `
@@ -68,11 +68,11 @@ Get-AzureRmStorageAccountKey `
   -ResourceGroupName {your storage account resource group}
 ```
 
-Maak een notitie van Hallo **key1** sleutelwaarde storage-account. U moet het Hallo stappen te volgen.
+Noteer de **key1** sleutelwaarde storage-account. U moet deze in de volgende stappen.
 
 U kunt een bestaande blobcontainer voor uw bestandsuploads gebruiken of nieuwe maken:
 
-* toolist hello bestaande blob-containers in uw opslagaccount gebruiken Hallo volgende opdrachten:
+* Als de bestaande blobcontainers in uw opslagaccount wilt weergeven, gebruikt u de volgende opdrachten:
 
     ```powershell
     $ctx = New-AzureStorageContext `
@@ -81,7 +81,7 @@ U kunt een bestaande blobcontainer voor uw bestandsuploads gebruiken of nieuwe m
     Get-AzureStorageContainer -Context $ctx
     ```
 
-* toocreate een blob-container in uw opslagaccount, gebruik Hallo volgende opdrachten:
+* Voor het maken van een blob-container in uw opslagaccount, gebruik de volgende opdrachten:
 
     ```powershell
     $ctx = New-AzureStorageContext `
@@ -95,21 +95,21 @@ U kunt een bestaande blobcontainer voor uw bestandsuploads gebruiken of nieuwe m
 
 ## <a name="configure-your-iot-hub"></a>Configureren van uw IoT-hub
 
-U kunt nu uw IoT hub tooenable configureren [bestand uploaden functionaliteit] [ lnk-upload] met behulp van de gegevens van uw opslag.
+U kunt nu uw IoT-hub om in te schakelen configureren [bestand uploaden functionaliteit] [ lnk-upload] met behulp van de gegevens van uw opslag.
 
-Hallo configuratie vereist Hallo volgende waarden:
+De configuratie is vereist voor de volgende waarden:
 
-**Storage-container**: een blobcontainer in Azure storage-account in uw huidige Azure-abonnement tooassociate met uw IoT-hub. Hallo benodigde opslag accountgegevens in de voorgaande sectie Hallo dat u hebt opgehaald. IoT Hub genereert automatisch SAS URI's met schrijven machtigingen toothis blob-container voor apparaten toouse wanneer het uploaden van bestanden.
+**Storage-container**: een blobcontainer in Azure storage-account in uw huidige Azure-abonnement wilt koppelen aan uw IoT-hub. U hebt de accountgegevens voor de benodigde opslag in de vorige sectie hebt opgehaald. IoT Hub genereert automatisch SAS URI's met schrijfmachtigingen in voor deze blob-container voor apparaten voor gebruik bij het uploaden van bestanden.
 
 **Meldingen ontvangen voor de geüploade bestanden**: bestand uploaden meldingen- of uitschakelen.
 
-**SAS TTL**: deze instelling is Hallo time-to-live Hallo SAS URI's toohello apparaat geretourneerd door de IoT Hub. Standaard tooone uur.
+**SAS TTL**: deze instelling wordt de time-to-live van de SAS-URI's die aan het apparaat wordt geretourneerd door de IoT Hub. Standaard ingesteld op één uur.
 
-**Bestand notification instellingen standaard TTL**: Hallo time-to-live van een bestand uploaden melding voordat het is verlopen. Tooone dag standaard ingesteld.
+**Bestand notification instellingen standaard TTL**: de time-to-live van een bestand uploaden melding voordat het is verlopen. Standaard ingesteld op één dag.
 
-**Melding levering van het maximum aantal bestanden**: Hallo aantal keren dat Hallo IoT Hub pogingen toodeliver een melding van bestand uploaden. Too10 standaard ingesteld.
+**Melding levering van het maximum aantal bestanden**: het aantal keren dat de IoT-Hub probeert een bestand uploaden een melding. Standaard ingesteld op 10.
 
-Gebruik Hallo PowerShell cmdlet tooconfigure Hallo-bestand uploaden instellingen op uw IoT-hub te volgen:
+Gebruik de volgende PowerShell-cmdlet voor het configureren van het bestand uploaden instellingen op uw IoT-hub:
 
 ```powershell
 Set-AzureRmIotHub `
@@ -125,19 +125,19 @@ Set-AzureRmIotHub `
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over functies voor het uploaden van bestanden Hallo van IoT Hub [uploaden van bestanden van een apparaat][lnk-upload].
+Zie voor meer informatie over de functies voor het uploaden van bestanden van IoT Hub [uploaden van bestanden van een apparaat][lnk-upload].
 
-Volg deze koppelingen toolearn meer over het beheren van Azure IoT Hub:
+Volg deze koppelingen voor meer informatie over het beheren van Azure IoT Hub:
 
 * [Bulksgewijs IoT-apparaten beheren][lnk-bulk]
 * [IoT Hub metrische gegevens][lnk-metrics]
 * [Bewerkingen controleren][lnk-monitor]
 
-toofurther verkennen Hallo-mogelijkheden van IoT Hub, Zie:
+Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 * [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]
 * [Een apparaat simuleren met IoT rand][lnk-iotedge]
-* [Uw IoT-oplossing van Hallo gemalen beveiligen][lnk-securing]
+* [Beveiligen van uw IoT-oplossing bouwen up][lnk-securing]
 
 [lnk-upload]: iot-hub-devguide-file-upload.md
 

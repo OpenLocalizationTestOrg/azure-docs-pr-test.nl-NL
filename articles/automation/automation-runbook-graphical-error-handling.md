@@ -1,9 +1,9 @@
 ---
-title: aaaError verwerken in Azure Automation grafische runbooks | Microsoft Docs
-description: Dit artikel wordt beschreven hoe tooimplement-fout tijdens het verwerken van logica in Azure Automation grafische runbooks.
+title: Foutafhandeling in grafische Azure Automation-runbooks | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u foutafhandelingslogica kunt implementeren in grafische Azure Automation-runbooks.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 
@@ -14,62 +14,62 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: b9ff01361d2ebd9c0174b074a7a290b1cc2fd1c8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 521b7bd1599ebe4158258e0eb706efae2e5c5b3a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Foutafhandeling in grafische Azure Automation-runbooks
 
-Een sleutel runbook ontwerp principal tooconsider met het identificeren van verschillende problemen waarmee een runbook kunt krijgen. Deze problemen kunnen geslaagde pogingen, verwachte foutstatussen en onverwachte foutvoorwaarden zijn.
+Houd bij het ontwerpen van runbooks rekening met de verschillende problemen die een runbook kan ondervinden. Deze problemen kunnen geslaagde pogingen, verwachte foutstatussen en onverwachte foutvoorwaarden zijn.
 
-Runbooks moeten foutafhandeling bevatten. toovalidate Hallo uitvoer van een activiteit of een fout opgetreden bij de grafische runbooks verwerken, kan u de activiteit van een Windows PowerShell gebruiken, voorwaardelijke logica definiëren op Hallo uitvoer koppeling van de activiteit Hallo of toepassen van een andere methode.          
+Runbooks moeten foutafhandeling bevatten. Als u de uitvoer van een activiteit wilt valideren of een fout wilt verwerken, gebruikt u in het geval van grafische runbooks waarschijnlijk een Windows PowerShell-codeactiviteit, definieert u de voorwaardelijke logica voor de uitvoerkoppeling van de activiteit of past u een andere methode toe.          
 
-Als er een fout niet wordt beëindigd, die wordt uitgevoerd met een runbook-activiteit, wordt elke activiteit die volgt vaak verwerkt ongeacht het Hallo-fout. Hallo-fout is waarschijnlijk toogenerate een uitzondering, maar de volgende activiteit Hallo heeft nog steeds toorun. Dit is Hallo manier dat PowerShell ontworpen toohandle fouten is.    
+Wanneer er tijdens een runbookactiviteit een niet-afsluitfout optreedt, wordt de activiteit die hierop volgt, vaak toch verwerkt, ongeacht de fout. De fout genereert waarschijnlijk een uitzondering, maar de volgende activiteit mag wel worden uitgevoerd. Dit is de manier waarop PowerShell fouten afhandelt.    
 
-Hallo typen PowerShell fouten die zich tijdens de uitvoering voordoen kunnen wordt beëindigd of niet wordt beëindigd. Hallo verschillen tussen wordt beëindigd en niet wordt beëindigd fouten zijn als volgt:
+De typen PowerShell-fouten die zich kunnen voordoen tijdens de uitvoering, zijn afsluitfouten of niet-afsluitfouten. De verschillen tussen afsluitfouten en niet-afsluitfouten zijn als volgt:
 
-* **Fout beëindigd**: een ernstige fout tijdens het uitvoeren van die volledig Hallo opdracht (of het uitvoeren van script) stopt. Voorbeelden zijn onder andere niet-bestaande cmdlets, syntaxisfouten waardoor een cmdlet niet kan worden uitgevoerd of andere fatale fouten.
+* **Afsluitfout**: een ernstige fout tijdens het uitvoeren waardoor de opdracht (of de uitvoering van het script) volledig wordt gestopt. Voorbeelden zijn onder andere niet-bestaande cmdlets, syntaxisfouten waardoor een cmdlet niet kan worden uitgevoerd of andere fatale fouten.
 
-* **Fout niet beëindigd**: een niet-ernstige fout waarmee uitvoering toocontinue ondanks Hallo-fout. Voorbeelden zijn onder andere operationele fouten, zoals niet-gevonden bestanden en machtigingsproblemen.
+* **Niet-afsluitfout**: een niet-ernstige fout waarbij de uitvoering ondanks de fout toch wordt voortgezet. Voorbeelden zijn onder andere operationele fouten, zoals niet-gevonden bestanden en machtigingsproblemen.
 
-Azure Automation-grafische runbooks zijn verbeterd met Hallo mogelijkheid tooinclude foutafhandeling. U kunt nu van uitzonderingen niet-afsluitfouten maken en foutkoppelingen tussen activiteiten maken. Dit proces kan de runbookauteur van een toocatch fouten en gerealiseerde of onverwachte voorwaarden beheren.  
+Grafische Azure Automation-runbooks zijn verbeterd en bieden nu de mogelijkheid om foutafhandeling op te nemen. U kunt nu van uitzonderingen niet-afsluitfouten maken en foutkoppelingen tussen activiteiten maken. Met dit proces kunnen met een runbookauteur fouten worden gedetecteerd en kunnen gerealiseerde of onverwachte voorwaarden worden beheerd.  
 
-## <a name="when-toouse-error-handling"></a>Wanneer de foutafhandeling toouse
+## <a name="when-to-use-error-handling"></a>Wanneer foutafhandeling gebruiken
 
-Wanneer er een kritieke fout of uitzondering genereert activiteit, is het belangrijk tooprevent Hallo volgende activiteit in uw runbook verwerking en toohandle Hallo-fout op de juiste wijze. Dit is met name cruciaal wanneer uw runbooks ondersteuning bieden voor een bedrijfsproces of servicebewerking.
+Telkens wanneer er in een kritieke activiteit een fout of uitzondering optreedt, is het belangrijk om te voorkomen dat de volgende activiteit in het runbook wordt uitgevoerd en de fout naar behoren af te handelen. Dit is met name cruciaal wanneer uw runbooks ondersteuning bieden voor een bedrijfsproces of servicebewerking.
 
-Voor elke activiteit die een fout kunt produceren, toevoegen Hallo runbookauteur de koppeling van een fout die andere activiteiten wijst tooany.  Hallo doelactiviteit kunt van elk type, met inbegrip van code activiteiten, aanroepen van een cmdlet aanroepen van een ander runbook zijn enzovoort.
+Voor elke activiteit die een fout kan veroorzaken, kan de runbookauteur een foutkoppeling toevoegen die verwijst naar een willekeurige andere activiteit.  De doelactiviteit kan van elk type zijn, waaronder codeactiviteit, aanroepen van een cmdlet, aanroepen van een ander runbook, enzovoort.
 
-Bovendien kan doelactiviteit Hallo ook uitgaande koppelingen hebben. Dit kunnen gewone koppelingen zijn of foutkoppelingen. Dit betekent dat Hallo runbookauteur complexe logica voor foutafhandeling zonder tooa sorteren kunt implementeren code van de activiteit. Hallo aanbevolen procedure is een speciale foutafhandeling runbook met algemene functionaliteit toocreate, maar dit is niet verplicht. Foutafhandeling logica in een PowerShell-code-activiteit is het niet alleen optie Hallo.  
+Bovendien kan de doelactiviteit ook uitgaande koppelingen hebben. Dit kunnen gewone koppelingen zijn of foutkoppelingen. Dit betekent dat de runbookauteur complexe foutafhandelingslogica kan implementeren zonder dat een codeactiviteit hoeft te worden opgenomen. De aanbevolen procedure is om een toegewezen runbook voor foutafhandeling te maken met algemene functionaliteit. Dit is echter niet verplicht. Foutafhandelingslogica in een PowerShell-codeactiviteit is niet de enige optie.  
 
-Bijvoorbeeld: overweeg een runbook dat toostart probeert een virtuele machine en een toepassing installeert op deze. Als hello virtuele machine niet correct wordt gestart, worden twee acties uitgevoerd:
+Denk bijvoorbeeld aan een runbook dat probeert een virtuele machine te starten en er een toepassing op te installeren. Als de virtuele machine niet correct wordt gestart, worden er twee acties uitgevoerd:
 
 1. Er wordt een melding over dit probleem verzonden.
 2. Er wordt een ander runbook gestart dat in plaats hiervan automatisch een nieuwe VM inricht.
 
-Een oplossing toohave is een fout-koppeling die verwijst tooan activiteit ingangen stap 1. Bijvoorbeeld, u verbinding kan maken van Hallo **Write-Warning** cmdlet tooan activiteit voor stap 2, zoals Hallo **Start AzureRmAutomationRunbook** cmdlet.
+Een mogelijke oplossing is een foutkoppeling die wijst naar een activiteit om stap één af te handelen. U kunt bijvoorbeeld de **Write-Warning**-cmdlet koppelen aan een activiteit voor stap twee, zoals de**Start-AzureRmAutomationRunbook**-cmdlet.
 
-U kan ook dit gedrag voor gebruik in runbooks met veel generalize door de gegevens van deze twee activiteiten in een afzonderlijk foutbericht verwerking runbook en de volgende Hallo richtlijnen eerder voorgesteld. Voordat u dit runbook foutafhandeling, kan u een aangepast bericht van Hallo-gegevens in de oorspronkelijke runbook Hallo maken en vervolgens doorgeven als een parameter toohello foutafhandeling runbook.
+U kunt dit gedrag ook generaliseren voor gebruik in meerdere runbooks en deze twee activiteiten in afzonderlijke runbooks voor foutafhandeling plaatsen, zoals eerder is voorgesteld. Voordat u dit runbook voor foutafhandeling aanroept, kunt u een aangepast bericht opstellen uit de gegevens van het oorspronkelijke runbook en dit bericht vervolgens als een parameter doorgeven aan het runbook voor foutafhandeling.
 
-## <a name="how-toouse-error-handling"></a>Hoe toouse foutafhandeling
+## <a name="how-to-use-error-handling"></a>Hoe foutafhandeling te gebruiken
 
-Elke activiteit heeft een configuratie-instellingen waarmee van uitzonderingen niet-afsluitfouten worden gemaakt. Deze instelling is standaard uitgeschakeld. Het is raadzaam dat u deze instelling inschakelt op een activiteit waarvoor toohandle fouten.  
+Elke activiteit heeft een configuratie-instellingen waarmee van uitzonderingen niet-afsluitfouten worden gemaakt. Deze instelling is standaard uitgeschakeld. We raden u aan deze instelling in te schakelen voor elke activiteit waarvoor u fouten wilt verwerken.  
 
-Als u deze configuratie inschakelt, worden u zodat zeker zowel wordt beëindigd als niet wordt beëindigd fouten in de Hallo activiteit worden behandeld als fouten niet wordt beëindigd en kunnen worden verwerkt met de koppeling van een fout.  
+Als deze configuratie wordt ingeschakeld, worden zowel afsluitfouten als niet-afsluitfouten in de activiteit verwerkt als niet-afsluitfouten. Deze kunnen vervolgens worden verwerkt met een foutkoppeling.  
 
-Nadat u deze instelling configureert, moet u een activiteit die verantwoordelijk is voor Hallo fout maken. Als een activiteit een fout produceert, vervolgens Hallo uitgaande fout koppelingen worden gevolgd en Hallo reguliere koppelingen zijn niet, zelfs als Hallo activiteit ook reguliere uitvoer produceert.<br><br> ![Voorbeeld van foutkoppeling voor Automation-runbook](media/automation-runbook-graphical-error-handling/error-link-example.png)
+Na het configureren van deze instelling maakt u een activiteit om deze fout af te handelen. Als een activiteit een fout veroorzaakt, worden de uitgaande foutkoppelingen gevolgd en de reguliere koppelingen niet, zelfs als een activiteit ook reguliere uitvoer heeft geproduceerd.<br><br> ![Voorbeeld van foutkoppeling voor Automation-runbook](media/automation-runbook-graphical-error-handling/error-link-example.png)
 
-Een runbook haalt in Hallo voorbeeld te volgen, een variabele die Hallo computernaam van een virtuele machine bevat. Wordt geprobeerd toostart Hallo virtuele machine met de volgende activiteit Hallo.<br><br> ![Voorbeeld van foutafhandeling in Automation-runbook](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
+In het volgende voorbeeld wordt met een runbook een variabele opgehaald die de computernaam bevat van een virtuele machine. Vervolgens wordt geprobeerd de virtuele machine te starten met de volgende activiteit.<br><br> ![Voorbeeld van foutafhandeling in Automation-runbook](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-Hallo **Get-AutomationVariable** activiteit en **Start-AzureRmVm** geconfigureerde tooconvert uitzonderingen tooerrors zijn.  Als er zijn problemen bij het gebruik van Hallo variabele of begin Hallo VM en fouten gegenereerd.<br><br> ![Activiteitsinstellingen voor foutafhandeling in Automation-runbook](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+De activiteiten **Get-AutomationVariable** en **Start AzureRmVm** zijn geconfigureerd om uitzonderingen te converteren naar fouten.  Als zich problemen voordoen bij het ophalen van de variabele of bij het starten van de virtuele machine, worden er fouten gegenereerd.<br><br> ![Activiteitsinstellingen voor foutafhandeling in Automation-runbook](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
-Fout koppelingen stromen van deze activiteiten van één tooa **fout management** activiteit (een code-activiteit). Deze activiteit is geconfigureerd met een eenvoudige PowerShell-expressie die gebruikmaakt van Hallo *Throw* sleutelwoord toostop verwerking, samen met *$Error.Exception.Message* tooget Hallo-bericht met een beschrijving van Hallo huidige uitzondering.<br><br> ![Codevoorbeeld voor foutafhandeling in Automation-runbook](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+Foutkoppelingen stromen van deze activiteiten naar een enkele activiteit voor **Foutbeheer** (een codeactiviteit). Deze activiteit is geconfigureerd met een eenvoudige PowerShell-expressie met behulp van het trefwoord *Throw* om het verwerken te stoppen samen met *$Error.Exception.Message* om het bericht op te halen waarin de huidige uitzondering wordt beschreven.<br><br> ![Codevoorbeeld voor foutafhandeling in Automation-runbook](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie toolearn meer informatie over koppelingen en koppelingstypen in de grafische runbooks [grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow).
+* Zie [Grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow) voor meer informatie over koppelingen en koppelingstypen in grafische runbooks.
 
-* meer over de uitvoering van runbook, hoe toomonitor runbooktaken en andere technische details, Zie toolearn [bijhouden van een runbooktaak](automation-runbook-execution.md).
+* Zie [Runbooktaken bijhouden](automation-runbook-execution.md) voor meer informatie over runbookuitvoering, het bewaken van runbooktaken en andere technische details.

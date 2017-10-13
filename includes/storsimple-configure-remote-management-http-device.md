@@ -1,9 +1,9 @@
 
-#### <a name="tooconfigure-remote-management-on-hello-device"></a>extern beheer van de tooconfigure op Hallo-apparaat
-1. Op uw virtuele apparaat gaat te**apparaten > configureren**.
-2. Schuif omlaag toohello **extern beheer** sectie.
-3. Stel **extern beheer inschakelen** te**Ja**.
-4. U kunt nu tooconnect via HTTP. Hallo standaardwaarde is tooconnect via HTTPS. Verbinding maken via HTTP is alleen acceptabel in vertrouwde netwerken.
-5. Klik op **certificaat voor extern beheer downloaden** toodownload een certificaat voor extern beheer. Geeft u een locatie in welke toosave dit bestand. Dit certificaat moet vervolgens toobe op Hallo-client of hostcomputer machine die u tooconnect toohello virtueel apparaat gebruikt geïnstalleerd.
-6. Klik op **opslaan** Hallo Hallo pagina onderaan in.
+#### <a name="to-configure-remote-management-on-the-device"></a>Extern beheer configureren op het apparaat
+1. Ga op uw virtuele apparaat naar **Apparaten > Configureren**.
+2. Schuif omlaag naar het gedeelte **Extern beheer**.
+3. Stel **Extern beheer inschakelen** in op **Ja**.
+4. U kunt nu verbinding maken via HTTP. De standaardinstelling is verbinding maken via HTTPS. Verbinding maken via HTTP is alleen acceptabel in vertrouwde netwerken.
+5. Klik op **Certificaat voor extern beheer downloaden** om een certificaat voor extern beheer te downloaden. Geef een locatie op waar dit bestand moet worden opgeslagen. Dit certificaat moet vervolgens worden geïnstalleerd op de client of hostcomputer die u gebruikt voor de verbinding met het virtuele apparaat.
+6. Klik op **Opslaan** onder aan de pagina.
 

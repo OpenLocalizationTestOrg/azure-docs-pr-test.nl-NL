@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met CA PPM | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en CA-pagina's per minuut.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en CA-pagina's per minuut.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 571130f3be0529c986aa0d8a08e4172015cd0b40
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4ca9268c26f681fcc96955b6161fe4a119b2dcf4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>Zelfstudie: Azure Active Directory-integratie met CA PPM
 
-In deze zelfstudie leert u hoe toointegrate CA PPM met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe CA PPM integreren met Azure Active Directory (Azure AD).
 
-CA PPM integreren met Azure AD biedt Hallo volgende voordelen:
+CA PPM integreren met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD wie toegang tot tooCA pagina's per minuut heeft
-- U kunt uw gebruikers tooautomatically get aangemelde tooCA PPM (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren
+- U kunt beheren in Azure AD die toegang tot de CA-pagina's per minuut heeft
+- U kunt uw gebruikers automatisch ophalen aangemeld bij CA PPM (Single Sign-On) inschakelen met hun Azure AD-accounts
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure AD-integratie met CA PPM tooconfigure, moet u Hallo volgende items:
+Voor het configureren van Azure AD-integratie met CA PPM, moet u de volgende items:
 
 - Een Azure AD-abonnement
 - Een CA PPM eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Het toevoegen van CA PPM van Hallo-galerie
+1. CA PPM uit de galerie toevoegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-ca-ppm-from-hello-gallery"></a>Het toevoegen van CA PPM van Hallo-galerie
-tooconfigure hello integratie van CA-pagina's per minuut in Azure AD, moet u tooadd CA PPM uit Hallo galerie tooyour lijst met beheerde SaaS-apps.
+## <a name="adding-ca-ppm-from-the-gallery"></a>CA PPM uit de galerie toevoegen
+Voor het configureren van de integratie van CA-pagina's per minuut in Azure AD, moet u CA PPM uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-**tooadd CA PPM via Hallo gallery uitvoeren Hallo stappen te volgen:**
+**Als u wilt toevoegen CA PPM uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak Hallo **CA PPM**.
+4. Typ in het zoekvak **CA PPM**.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_search.png)
 
-5. Selecteer in het deelvenster resultaten hello, **CA PPM**, en klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
+5. Selecteer in het deelvenster resultaten **CA PPM**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie kunt u configureren en testen eenmalige aanmelding Azure AD met CA PPM op basis van een testgebruiker genaamd "Britta Simon."
 
-Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent CA ppm is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker Hallo CA ppm toobe tot stand gebracht.
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent CA ppm is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker CA ppm tot stand worden gebracht.
 
-CA-ppm Hallo waarde Hallo toewijzen **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** tooestablish Hallo koppeling relatie.
+Ppm CA, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-tooconfigure en test eenmalige aanmelding Azure AD met CA PPM, moet u toocomplete Hallo bouwstenen te volgen:
+Om te configureren en testen van Azure AD eenmalige aanmelding met CA PPM, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een CA PPM testgebruiker](#creating-a-ca-ppm-test-user)**  -toohave een equivalent van Britta Simon CA ppm die gekoppelde toohello Azure AD-weergave van de gebruiker.
-4. **[Toewijzen hello Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  -tooverify Hallo of configuratie werkt.
+1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maken van een CA PPM testgebruiker](#creating-a-ca-ppm-test-user)**  - hebben een equivalent van Britta Simon CA ppm die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding configureren in uw CA PPM-toepassing.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw CA PPM-toepassing.
 
-**Voer tooconfigure Azure AD eenmalige aanmelding met CA-PPM Hallo stappen te volgen:**
+**Voor het configureren van Azure AD eenmalige aanmelding met CA PPM, moet u de volgende stappen uitvoeren:**
 
-1. In Azure-portal op Hallo Hallo **CA PPM** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **CA PPM** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_samlbase.png)
 
-3. Op Hallo **CA PPM domein en de URL's** sectie, voert u Hallo stappen te volgen:
+3. Op de **CA PPM domein en de URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_url.png)
 
-    a. In Hallo **id** textbox, typ een URL met Hallo patroon volgen:`https://ca.ondemand.saml.20.post.<companyname>`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://ca.ondemand.saml.20.post.<companyname>`
     
-    b. In Hallo **antwoord-URL** textbox type als:`https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
+    b. In de **antwoord-URL** textbox type als:`https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
 
     > [!NOTE] 
-    > Deze waarde is geen echte. Deze waarde bijwerken Hello werkelijke id. Neem contact op met [CA PPM-ondersteuningsteam](mailto:catechnicalsupport@ca.com) tooget deze waarde.
+    > Deze waarde is geen echte. Deze waarde door de werkelijke ID bijwerken. Neem contact op met [CA PPM-ondersteuningsteam](mailto:catechnicalsupport@ca.com) deze waarde op te halen.
  
-4. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het Hallo-certificaatbestand op uw computer.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_certificate.png) 
 
@@ -125,68 +125,68 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-cappm-tutorial/tutorial_general_400.png)
 
-6. Op Hallo **CA PPM-configuratie** sectie, klikt u op **configureren CA PPM** tooopen **eenmalige aanmelding configureren** venster. Kopiëren Hallo **SAML entiteit-ID** van Hallo **Naslaggids punt.**
+6. Op de **CA PPM-configuratie** sectie, klikt u op **configureren CA PPM** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML entiteit-ID** van de **Naslaggids punt.**
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_configure.png) 
 
-7. tooconfigure eenmalige aanmelding op **CA PPM** zijde, moet u toosend Hallo gedownload **Certificate(Base64)** en **SAML entiteit-ID** te[ondersteuningsteam CA pagina's per minuut ](mailto:catechnicalsupport@ca.com).
+7. Eenmalige aanmelding configureren op **CA PPM** zijde, moet u de gedownloade verzenden **Certificate(Base64)** en **SAML entiteit-ID** naar [CA PPM-ondersteuningsteam](mailto:catechnicalsupport@ca.com).
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
 ![Azure AD-gebruiker maken][100]
 
-**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
+**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo **Azure-portal**, op Hallo navigatiedeelvenster links, klikt u op **Azure Active Directory** pictogram.
+1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cappm-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen** en klik op **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
     
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cappm-tutorial/create_aaduser_02.png) 
 
-3. Hallo tooopen **gebruiker** dialoogvenster, klikt u op **toevoegen** op Hallo Hallo dialoogvenster bovenaan.
+3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cappm-tutorial/create_aaduser_03.png) 
 
-4. Op Hallo **gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:
+4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-cappm-tutorial/create_aaduser_04.png) 
 
-    a. In Hallo **naam** textbox type **BrittaSimon**.
+    a. In de **naam** textbox type **BrittaSimon**.
 
-    b. In Hallo **gebruikersnaam** textbox type Hallo **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
 
-    c. Selecteer **wachtwoord weergeven** en schrijf Hallo-waarde van Hallo **wachtwoord**.
+    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
  
 ### <a name="creating-a-ca-ppm-test-user"></a>Maken van een CA PPM testgebruiker
 
-In deze sectie maakt maken u een gebruiker met de naam van Britta Simon CA ppm. Werken met [CA PPM-ondersteuningsteam](mailto:catechnicalsupport@ca.com) tooadd Hallo gebruikers in Hallo CA PPM-platform.
+In deze sectie maakt maken u een gebruiker met de naam van Britta Simon CA ppm. Werken met [CA PPM-ondersteuningsteam](mailto:catechnicalsupport@ca.com) toevoegen van de gebruikers in het CA-PPM-platform.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
 
-In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen door het verlenen van toegang tooCA pagina's per minuut.
+In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot CA PPM.
 
 ![Gebruiker toewijzen][200] 
 
-**tooassign Britta Simon tooCA PPM, Voer Hallo stappen te volgen:**
+**Als u wilt toewijzen Britta Simon CA ppm, moet u de volgende stappen uitvoeren:**
 
-1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met de toepassingen van Hallo **CA PPM**.
+2. Selecteer in de lijst met toepassingen **CA PPM**.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_app.png) 
 
-3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
@@ -194,7 +194,7 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -202,13 +202,13 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
     
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD SSO-configuratie met behulp van Hallo Toegangsvenster testen.
+In deze sectie kunt u uw Azure AD SSO-configuratie met behulp van het toegangsvenster testen.
 
-Als u op Hallo CA PPM-tegel in Hallo Toegangsvenster, krijgt u automatisch aangemelde tooyour CA PPM-toepassing.
+Als u op de CA PPM-tegel in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw CA PPM-toepassing.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

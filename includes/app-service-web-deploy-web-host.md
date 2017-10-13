@@ -1,5 +1,5 @@
 ### <a name="app-service-plan"></a>App Service-plan
-Hallo-serviceplan voor het hosten van Hallo web-app maakt. U Hallo naam opgeven van Hallo plan via Hallo **hostingPlanName** parameter. Hallo-locatie van Hallo plan is dezelfde locatie worden gebruikt voor de resourcegroep Hallo Hallo. Hallo prijscategorie laag- en werkrollen grootte zijn opgegeven in Hallo **sku** en **workerSize** parameters
+Het service-abonnement voor het hosten van de web-app maakt. U geeft u de naam van het plan via de **hostingPlanName** parameter. De locatie van het plan is gebruikt voor de resourcegroep dezelfde locatie. De prijscategorie laag- en werkrollen grootte zijn opgegeven in de **sku** en **workerSize** parameters
 
     {
       "apiVersion": "2015-08-01",

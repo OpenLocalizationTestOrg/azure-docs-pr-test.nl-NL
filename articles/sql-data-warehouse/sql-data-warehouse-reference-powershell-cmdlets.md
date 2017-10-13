@@ -1,6 +1,6 @@
 ---
-title: aaaPowerShell-cmdlets voor Azure SQL Data Warehouse
-description: Hallo bovenste PowerShell-cmdlets voor Azure SQL Data Warehouse vinden met inbegrip van hoe toopause en hervatten van een database.
+title: PowerShell-cmdlets voor Azure SQL Data Warehouse
+description: De bovenste PowerShell-cmdlets voor Azure SQL Data Warehouse, inclusief het onderbreken en hervatten van een database niet vinden.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -15,23 +15,23 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: 84353b56131cf856e0724d338d7ed186fd2ceeaa
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ce3e11587c2e0cb92923868a4f26d7f59c7ef4ca
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>PowerShell-cmdlets en REST-API's voor SQL Data Warehouse
-Veel SQL Data Warehouse-beheertaken kunnen worden beheerd met behulp van Azure PowerShell-cmdlets of REST-API's.  Hieronder volgen enkele voorbeelden van hoe toouse PowerShell-tooautomate algemene taken in uw SQL Data Warehouse opdrachten.  Zie voor een goede voorbeelden van de REST Hallo artikel [beheren schaalbaarheid met REST][Manage scalability with REST].
+Veel SQL Data Warehouse-beheertaken kunnen worden beheerd met behulp van Azure PowerShell-cmdlets of REST-API's.  Hieronder volgen enkele voorbeelden van het PowerShell-opdrachten gebruiken voor het automatiseren van algemene taken in uw SQL Data Warehouse.  Zie het artikel voor een goede voorbeelden van de REST [beheren schaalbaarheid met REST][Manage scalability with REST].
 
 > [!NOTE]
-> In de volgorde toouse Azure PowerShell gebruiken met SQL Data Warehouse, moet u Azure PowerShell-versie 1.0.3 of hoger.  U kunt uw versie controleren door te voeren **Get-Module - ListAvailable-Name Azure**.  de meest recente versie Hallo kan worden geïnstalleerd vanaf [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Zie voor meer informatie over het installeren van de meest recente versie Hallo [hoe tooinstall en configureren van Azure PowerShell][How tooinstall and configure Azure PowerShell].
+> Om Azure PowerShell gebruiken met SQL Data Warehouse, moet u Azure PowerShell-versie 1.0.3 of hoger.  U kunt uw versie controleren door te voeren **Get-Module - ListAvailable-Name Azure**.  De meest recente versie kan worden geïnstalleerd vanaf [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Zie [Azure PowerShell installeren en configureren][How to install and configure Azure PowerShell] voor meer informatie over het installeren van de meest recente versie.
 > 
 > 
 
 ## <a name="get-started-with-azure-powershell-cmdlets"></a>Aan de slag met Azure PowerShell-cmdlets
 1. Open Windows PowerShell.
-2. Deze toosign opdrachten uitvoeren in Azure Resource Manager toohello bij Hallo PowerShell-prompt en uw abonnement te selecteren.
+2. Voer deze opdrachten aanmelden in de Azure Resource Manager en selecteer uw abonnement op de PowerShell-prompt.
    
     ```PowerShell
     Login-AzureRmAccount
@@ -40,12 +40,12 @@ Veel SQL Data Warehouse-beheertaken kunnen worden beheerd met behulp van Azure P
     ```
 
 ## <a name="pause-sql-data-warehouse-example"></a>Voorbeeld van onderbreken SQL datawarehouse
-Onderbreken van een database met naam 'Database02' gehost op een server met de naam "Server01."  Hallo-server zich in een Azure-resourcegroep met de naam 'ResourceGroup1'.
+Onderbreken van een database met naam 'Database02' gehost op een server met de naam "Server01."  De server zich in een Azure-resourcegroep met de naam 'ResourceGroup1'.
 
 ```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
-Een variatie in dit voorbeeld doorgesluisd Hallo opgehaald object te[Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].  Als gevolg hiervan is Hallo-database onderbroken. de laatste opdracht Hallo toont Hallo resultaten.
+Een variatie in dit voorbeeld doorgesluisd het opgehaalde object [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].  Als gevolg hiervan is de database is onderbroken. De laatste opdracht toont de resultaten.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -54,13 +54,13 @@ $resultDatabase
 ```
 
 ## <a name="start-sql-data-warehouse-example"></a>Start SQL datawarehouse voorbeeld
-Hervatten van een database met naam 'Database02' gehost op een server met de naam "Server01." Hallo server deel uitmaakt van een resourcegroep met de naam 'ResourceGroup1'.
+Hervatten van een database met naam 'Database02' gehost op een server met de naam "Server01." De server deel uitmaakt van een resourcegroep met de naam 'ResourceGroup1'.
 
 ```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-Een variatie in dit voorbeeld haalt een database met naam 'Database02' van een server met de naam 'Server01' die is opgenomen in een resourcegroep met de naam 'ResourceGroup1'. Het object Hallo opgehaald te doorgesluisd[Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase].
+Een variatie in dit voorbeeld haalt een database met naam 'Database02' van een server met de naam 'Server01' die is opgenomen in een resourcegroep met de naam 'ResourceGroup1'. Deze het opgehaalde object doorgesluisd [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase].
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -68,7 +68,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ```
 
 > [!NOTE]
-> Let op: als uw server foo.database.windows.net, "foo" gebruiken zoals Hallo - servernaam in Hallo PowerShell-cmdlets.
+> Let op: als uw server foo.database.windows.net, is "foo" als - servernaam in de PowerShell-cmdlets gebruiken.
 > 
 > 
 
@@ -97,7 +97,7 @@ Zie voor andere taken die kunnen worden geautomatiseerd met PowerShell [Azure SQ
 <!--Image references-->
 
 <!--Article references-->
-[How tooinstall and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Create a SQL Data Warehouse using PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
 [Database restore]: ./sql-data-warehouse-restore-database-powershell.md
 [Manage scalability with REST]: ./sql-data-warehouse-manage-compute-rest-api.md
@@ -112,7 +112,7 @@ Zie voor andere taken die kunnen worden geautomatiseerd met PowerShell [Azure SQ
 [Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
-<!-- It appears that Select-AzureRmSubscription isn't documented, so this points tooSelect-AzureSubscription -->
+<!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
 [Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx

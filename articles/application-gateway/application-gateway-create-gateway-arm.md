@@ -1,9 +1,9 @@
 ---
-title: aaaCreate en beheren van een Azure Application Gateway - PowerShell | Microsoft Docs
-description: Deze pagina vindt u instructies toocreate, configureren, starten en verwijderen van een toepassingsgateway met Azure Resource Manager
+title: Een Azure Application Gateway maken en beheren - PowerShell | Microsoft Docs
+description: Op deze pagina vindt u instructies voor het maken, configureren, openen en verwijderen van een Azure-toepassingsgateway met Azure Resource Manager
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: gwallace
-ms.openlocfilehash: ab98d5f9aa0dc309f8353b7f72591359e1121849
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.author: davidmu
+ms.openlocfilehash: c419e1032476818e430251246022ae14e4355024
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Een toepassingsgateway maken, openen of verwijderen met Azure Resource Manager
 
@@ -28,44 +28,44 @@ ms.lasthandoff: 10/06/2017
 > * [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway is een load balancer in laag 7. Het biedt de failover- en HTTP-aanvragen routeren tussen verschillende servers, ongeacht of deze op Hallo cloud of on-premises. Application Gateway bevat veel ADC-functies (Application Delivery Controller), waaronder HTTP-taakverdeling, op cookies gebaseerde sessieaffiniteit, SSL-offload (Secure Sockets Layer), aangepaste statustests en ondersteuning voor meerdere locaties. toofind een volledige lijst van ondersteunde functies, gaat u naar [Application Gateway overzicht](application-gateway-introduction.md).
+Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application Gateway bevat veel ADC-functies (Application Delivery Controller), waaronder HTTP-taakverdeling, op cookies gebaseerde sessieaffiniteit, SSL-offload (Secure Sockets Layer), aangepaste statustests en ondersteuning voor meerdere locaties. Een volledige lijst met ondersteunde functies vindt u in [Overzicht van Application Gateway](application-gateway-introduction.md).
 
-Dit artikel begeleidt u bij Hallo stappen toocreate, configureren en start een toepassingsgateway verwijderen.
+In dit artikel vindt u meer informatie over de stappen voor het maken, configureren, openen en verwijderen van een toepassingsgateway.
 
 > [!IMPORTANT]
-> Voordat u met Azure-resources werkt, is het belangrijk toounderstand dat Azure momenteel twee implementatiemodellen heeft: Resource Manager en classic. Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-classic-rm.md) zijn voordat u met een Azure-resource gaat werken. U kunt Hallo-documentatie voor verschillende hulpprogramma's bekijken door te klikken op de tabbladen Hallo Hallo boven aan dit artikel. In dit document leest u meer over het maken van een toepassingsgateway met Azure Resource Manager. toouse hello klassieke versie, gaat u te[een klassieke implementatie van een toepassing-gateway maken met behulp van PowerShell](application-gateway-create-gateway.md).
+> Voordat u met Azure-resources gaat werken, is het belangrijk om te weten dat Azure momenteel twee implementatiemodellen heeft: Resource Manager en het klassieke model. Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-classic-rm.md) zijn voordat u met een Azure-resource gaat werken. U kunt de documentatie voor verschillende hulpprogramma's bekijken door op de tabbladen boven aan dit artikel te klikken. In dit document leest u meer over het maken van een toepassingsgateway met Azure Resource Manager. Als u de klassieke versie wilt gebruiken, gaat u naar [Create an application gateway classic deployment by using PowerShell](application-gateway-create-gateway.md) (Een klassieke toepassingsgatewayimplementatie maken met PowerShell).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-1. Hallo meest recente versie van hello Azure PowerShell-cmdlets installeren met behulp van Hallo Web Platform Installer. U kunt downloaden en installeren van de meest recente versie Hallo van Hallo **Windows PowerShell** sectie Hallo [pagina Downloads](https://azure.microsoft.com/downloads/).
-1. Als u een bestaand virtueel netwerk hebt, selecteer een bestaande lege subnet of een subnet maken in uw bestaande virtuele netwerk uitsluitend voor gebruik door Hallo toepassingsgateway. U kunt geen Hallo application gateway tooa ander virtueel netwerk implementeren dan Hallo resources u van plan bent toodeploy achter Hallo toepassingsgateway.
-1. Hallo-servers dat u toouse Hallo toepassingsgateway configureert moeten bestaan of hun eindpunten in het virtuele netwerk hello of een openbaar IP-/ VIP-adres hebben.
+1. Installeer de nieuwste versie van de Azure PowerShell-cmdlets via het webplatforminstallatieprogramma. U kunt de nieuwste versie downloaden en installeren via het gedeelte **Windows PowerShell** op de pagina [Downloads](https://azure.microsoft.com/downloads/).
+1. Als u een bestaand virtueel netwerk hebt, selecteert u een bestaand leeg subnet of maakt u een subnet in uw bestaande virtuele netwerk, uitsluitend voor gebruik door de toepassingsgateway. U kunt de toepassingsgateway niet implementeren op een ander virtueel netwerk dan de resources die u wilt implementeren achter de toepassingsgateway.
+1. De servers die u voor gebruik van de toepassingsgateway configureert, moeten al bestaan in het virtuele netwerk of hier hun eindpunten hebben. Een andere optie is om er een openbaar IP- of VIP-adres aan toe te wijzen.
 
-## <a name="what-is-required-toocreate-an-application-gateway"></a>Wat is vereist toocreate een application gateway?
+## <a name="what-is-required-to-create-an-application-gateway"></a>Wat is er vereist om een toepassingsgateway te maken?
 
-* **Back-end-servergroep:** Hallo lijst met IP-adressen, FQDN's of NIC's van Hallo back-endservers. Als u IP-adressen gebruikt, worden ze moeten ofwel deel uitmaken toohello virtueel netwerksubnet of moeten een openbare IP-/ VIP.
-* **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gebonden tooa servergroep en toegepaste tooall servers binnen de pool Hallo zijn.
-* **front-endpoort:** deze is Hallo openbare poort die in Hallo toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en vervolgens wordt omgeleid tooone van Hallo back-endservers.
-* **Listener:** Hallo listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig), en Hallo SSL-certificaatnaam (als u SSL-offloading configureert).
-* **Regel:** Hallo regel verbindt Hallo listener, Hallo back-end-servergroep en definieert naar welke back-end server groep Hallo verkeer moet gerichte toowhen dit bij een bepaalde listener aankomt.
+* **Back-endserverpool:** de lijst met IP-adressen, FQDN's of NIC's van de back-endservers. Als er IP-adressen worden gebruikt, moeten deze deel uitmaken van het subnet van het virtuele netwerk of moeten dit openbare IP-/VIP-adressen zijn.
+* **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool.
+* **Front-endpoort:** dit is de openbare poort die in de toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-endservers.
+* **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
+* **Regel:** de regel verbindt de listener met de back-endserverpool en definieert naar welke back-endserverpool het verkeer moet worden omgeleid wanneer dit bij een bepaalde listener aankomt.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Een resourcegroep maken voor Resource Manager
 
-Zorg ervoor dat u van Hallo meest recente versie van Azure PowerShell gebruikmaakt. Zie [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Windows PowerShell gebruiken met Resource Manager) voor meer informatie.
+Zorg ervoor dat u de nieuwste versie van Azure PowerShell gebruikt. Zie [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md) (Windows PowerShell gebruiken met Resource Manager) voor meer informatie.
 
-1. Meld u bij tooAzure en voer uw referenties.
+1. Meld u aan bij Azure en voer uw referenties in.
 
   ```powershell
   Login-AzureRmAccount
   ```
 
-2. Controleer de abonnementen Hallo voor Hallo-account.
+2. Controleer de abonnementen voor het account.
 
   ```powershell
   Get-AzureRmSubscription
   ```
 
-3. Kies welke van uw Azure-abonnementen toouse.
+3. Kies welk Azure-abonnement u wilt gebruiken.
 
   ```powershell
   Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -77,84 +77,84 @@ Zorg ervoor dat u van Hallo meest recente versie van Azure PowerShell gebruikmaa
   New-AzureRmResourceGroup -Name ContosoRG -Location "West US"
   ```
 
-Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze locatie wordt gebruikt als Hallo standaardlocatie voor resources in die resourcegroep. Zorg ervoor dat alle opdrachten toocreate maakt gebruik van een toepassingsgateway Hallo dezelfde resourcegroep.
+Azure Resource Manager vereist dat er voor alle resourcegroepen een locatie wordt opgegeven. Deze locatie wordt gebruikt als de standaardlocatie voor resources in die resourcegroep. Zorg ervoor dat bij alle opdrachten voor het maken van een toepassingsgateway dezelfde resourcegroep wordt gebruikt.
 
-In Hallo bovenstaande voorbeeld is er een resourcegroep aangeroepen gemaakt **ContosoRG** en locatie **VS-Oost**.
+In het bovenstaande voorbeeld is er een resourcegroep gemaakt met de naam **ContosoRG** en de locatie **VS - oost**.
 
 > [!NOTE]
-> Als u voor uw toepassingsgateway een aangepaste test tooconfigure nodig hebt, gaat u naar: [met PowerShell een toepassingsgateway maken met aangepaste tests](application-gateway-create-probe-ps.md). Bekijk [Custom probes and health monitoring](application-gateway-probe-overview.md) (Aangepaste tests en statusbewaking) voor meer informatie.
+> Ga naar [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md) (Met PowerShell een toepassingsgateway maken met aangepaste tests) als u voor uw toepassingsgateway een aangepaste test moet configureren. Bekijk [Custom probes and health monitoring](application-gateway-probe-overview.md) (Aangepaste tests en statusbewaking) voor meer informatie.
 
 
-## <a name="create-hello-application-gateway-configuration-objects"></a>Hallo-toepassingsgateway configuratie-objecten maken
+## <a name="create-the-application-gateway-configuration-objects"></a>Het configuratieobject voor de toepassingsgateway maken
 
-Alle configuratie-items moeten worden ingesteld voordat u de toepassingsgateway Hallo maakt. Hallo volgt Hallo configuratie-items maken die nodig zijn voor een toepassingsgatewayresource.
+Alle configuratie-items moeten zijn ingesteld voordat u de toepassingsgateway maakt. Volg de onderstaande stappen om de configuratie-items te maken die nodig zijn voor een toepassingsgatewayresource.
 
 ```powershell
-# Create a subnet and assign hello address space of 10.0.0.0/24
+# Create a subnet and assign the address space of 10.0.0.0/24
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
-# Create a virtual network with hello address space of 10.0.0.0/16 and add hello subnet
+# Create a virtual network with the address space of 10.0.0.0/16 and add the subnet
 $vnet = New-AzureRmVirtualNetwork -Name ContosoVNET -ResourceGroupName ContosoRG -Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-# Retrieve hello newly created subnet
+# Retrieve the newly created subnet
 $subnet=$vnet.Subnets[0]
 
-# Create a public IP address that is used tooconnect toohello application gateway. Application Gateway does not support custom DNS names on public IP addresses.  If a custom name is required for hello public endpoint, a CNAME record should be created toopoint toohello automatically generated DNS name for hello public IP address.
+# Create a public IP address that is used to connect to the application gateway. Application Gateway does not support custom DNS names on public IP addresses.  If a custom name is required for the public endpoint, a CNAME record should be created to point to the automatically generated DNS name for the public IP address.
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -name publicIP01 -location "East US" -AllocationMethod Dynamic
 
-# Create a gateway IP configuration. hello gateway picks up an IP addressfrom hello configured subnet and routes network traffic toohello IP addresses in hello backend IP pool. Keep in mind that each instance takes one IP address.
+# Create a gateway IP configuration. The gateway picks up an IP addressfrom the configured subnet and routes network traffic to the IP addresses in the backend IP pool. Keep in mind that each instance takes one IP address.
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-# Configure a backend pool with hello addresses of your web servers. These backend pool members are all validated toobe healthy by probes, whether they are basic probes or custom probes.  Traffic is then routed toothem when requests come into hello application gateway. Backend pools can be used by multiple rules within hello application gateway, which means one backend pool could be used for multiple web applications that reside on hello same host.
+# Configure a backend pool with the addresses of your web servers. These backend pool members are all validated to be healthy by probes, whether they are basic probes or custom probes.  Traffic is then routed to them when requests come into the application gateway. Backend pools can be used by multiple rules within the application gateway, which means one backend pool could be used for multiple web applications that reside on the same host.
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
 
-# Configure backend http settings toodetermine hello protocol and port that is used when sending traffic toohello backend servers. Cookie-based sessions are also determined by hello backend HTTP settings.  If enabled, cookie-based session affinity sends traffic toohello same backend as previous requests for each packet.
+# Configure backend http settings to determine the protocol and port that is used when sending traffic to the backend servers. Cookie-based sessions are also determined by the backend HTTP settings.  If enabled, cookie-based session affinity sends traffic to the same backend as previous requests for each packet.
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 
-# Configure a frontend port that is used tooconnect toohello application gateway through hello public IP address
+# Configure a frontend port that is used to connect to the application gateway through the public IP address
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
-# Configure hello frontend IP configuration with hello public IP address created earlier.
+# Configure the frontend IP configuration with the public IP address created earlier.
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
-# Configure hello listener.  hello listener is a combination of hello front end IP configuration, protocol, and port and is used tooreceive incoming network traffic. 
+# Configure the listener.  The listener is a combination of the front end IP configuration, protocol, and port and is used to receive incoming network traffic. 
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
-# Configure a basic rule that is used tooroute traffic toohello backend servers. hello backend pool settings, listener, and backend pool created in hello previous steps make up hello rule. Based on hello criteria defined traffic is routed toohello appropriate backend.
+# Configure a basic rule that is used to route traffic to the backend servers. The backend pool settings, listener, and backend pool created in the previous steps make up the rule. Based on the criteria defined traffic is routed to the appropriate backend.
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
-# Configure hello SKU for hello application gateway, this determines hello size and whether or not WAF is used.
+# Configure the SKU for the application gateway, this determines the size and whether or not WAF is used.
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-# Create hello application gateway
+# Create the application gateway
 $appgw = New-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-Als u klaar ophalen met details van DNS- en VIP van de toepassingsgateway Hallo Hallo openbare IP-resource gekoppelde toohello toepassingsgateway.
+Haal als u klaar bent DNS- en VIP-details van de toepassingsgateway op van de openbare IP-resource die aan de toepassingsgateway is gekoppeld.
 
 ```powershell
 Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName ContosoRG
 ```
 
-## <a name="delete-hello-application-gateway"></a>Hallo toepassingsgateway verwijderen
+## <a name="delete-the-application-gateway"></a>De toepassingsgateway verwijderen
 
-Hallo wordt volgende voorbeeld de toepassingsgateway Hallo.
+In het volgende voorbeeld wordt de toepassingsgateway verwijderd.
 
 ```powershell
-# Retrieve hello application gateway
+# Retrieve the application gateway
 $gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG
 
-# Stops hello application gateway
+# Stops the application gateway
 Stop-AzureRmApplicationGateway -ApplicationGateway $gw
 
-# Once hello application gateway is in a stopped state, use hello `Remove-AzureRmApplicationGateway` cmdlet tooremove hello service.
+# Once the application gateway is in a stopped state, use the `Remove-AzureRmApplicationGateway` cmdlet to remove the service.
 Remove-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG -Force
 ```
 
 > [!NOTE]
-> Hallo **-force** switch kan worden gebruikt toosuppress Hallo bevestigingsbericht voor verwijdering.
+> U kunt de switch **-force** gebruiken om het bevestigingsbericht voor de verwijdering niet te laten weergeven.
 
-tooverify die Hallo service is verwijderd, kunt u Hallo `Get-AzureRmApplicationGateway` cmdlet. Deze stap is niet vereist.
+Gebruik de cmdlet `Get-AzureRmApplicationGateway` als u wilt controleren of de service is verwijderd. Deze stap is niet vereist.
 
 ```powershell
 Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG
@@ -162,10 +162,10 @@ Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName Contoso
 
 ## <a name="get-application-gateway-dns-name"></a>DNS-naam van toepassingsgateway verkrijgen
 
-Zodra Hallo gateway is gemaakt, is de volgende stap Hallo tooconfigure Hallo front-end voor communicatie. Wanneer u een openbare IP gebruikt, heeft de toepassingsgateway een dynamisch toegewezen DNS-naam nodig. Dit is niet gebruiksvriendelijk. eindgebruikers tooensure kunt Hallo toepassingsgateway bereikt, een CNAME-record kan gebruikte toopoint toohello openbaar eindpunt van de toepassingsgateway Hallo. toodo deze, details ophalen van de toepassingsgateway Hallo en de bijbehorende IP-en DNS-naam op Hallo PublicIPAddress element gekoppelde toohello application gateway met. Dit kunt u doen met Azure DNS- of andere providers DNS-door een CNAME-record maken die wijst toohello [openbaar IP-adres](../dns/dns-custom-domain.md#public-ip-address). Hallo-gebruik van A-records wordt niet aanbevolen omdat Hallo VIP bij opnieuw opstarten van toepassingsgateway mag wijzigen.
+Wanneer de gateway is gemaakt, gaat u in de volgende stap de front-end voor communicatie configureren. Wanneer u een openbare IP gebruikt, heeft de toepassingsgateway een dynamisch toegewezen DNS-naam nodig. Dit is niet gebruiksvriendelijk. Om ervoor te zorgen dat eindgebruikers de toepassingsgateway kunnen bereiken, kan een CNAME-record worden gebruikt die verwijst naar het openbare eindpunt van de toepassingsgateway. Daartoe haalt u details van de toepassingsgateway en de bijbehorende IP-/ DNS-naam op met het PublicIPAddress-element gekoppeld aan de toepassingsgateway. Dit kunt u doen met Azure DNS of andere DNS-providers door een CNAME-record te maken dat verwijst naar het [openbare IP-adres](../dns/dns-custom-domain.md#public-ip-address). Het gebruik van A-records wordt niet aanbevolen, omdat het VIP kan veranderen wanneer de toepassingsgateway opnieuw wordt gestart.
 
 > [!NOTE]
-> Een IP-adres is toohello toepassingsgateway toegewezen wanneer Hallo-service wordt gestart.
+> Er wordt een IP-adres toegewezen aan de toepassingsgateway wanneer de service wordt gestart.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -Name publicIP01
@@ -195,7 +195,7 @@ DnsSettings              : {
 
 ## <a name="delete-all-resources"></a>Alle resources verwijderen
 
-toodelete alle resources die worden gemaakt in dit artikel wordt voltooid Hallo stap:
+Als u alle resources wilt verwijderen die u in dit artikel hebt gemaakt, voert u de volgende stap uit:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name ContosoRG
@@ -203,9 +203,9 @@ Remove-AzureRmResourceGroup -Name ContosoRG
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt dat tooconfigure SSL-offload, gaat u naar: [een toepassingsgateway voor SSL-offload configureren](application-gateway-ssl.md).
+Ga naar: [Configure an application gateway for SSL offload](application-gateway-ssl.md) (Een toepassingsgateway voor SSL-offload configureren) als u SSL-offload wilt configureren.
 
-Als u wilt dat tooconfigure een toouse application gateway met een interne load balancer, gaat u naar: [een toepassingsgateway maken met een interne load balancer (ILB)](application-gateway-ilb.md).
+Ga naar: [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md) (Een toepassingsgateway met een interne load balancer (ILB) maken) als u een toepassingsgateway wilt configureren voor gebruik met een interne load balancer.
 
 Als u meer informatie wilt over de algemene opties voor taakverdeling, gaat u naar:
 

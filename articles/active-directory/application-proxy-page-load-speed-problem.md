@@ -1,6 +1,6 @@
 ---
-title: aaaAn toepassingsproxy-toepassing duurt te lang tooload | Microsoft Docs
-description: Pagina load prestatieproblemen Hello Azure AD-toepassingsproxy oplossen
+title: Een toepassing toepassingsproxy duurt te lang laden | Microsoft Docs
+description: Pagina load prestatieproblemen met de Azure AD-toepassingsproxy oplossen
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 4c7a51f96840966a1d88933fa4e30f39479d8a5e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ce462c90746e6af0dc201686557121665b82b93d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="an-application-proxy-application-takes-too-long-tooload"></a>Een toepassing toepassingsproxy duurt te lang tooload
+# <a name="an-application-proxy-application-takes-too-long-to-load"></a>Een toepassing toepassingsproxy duurt te lang om te laden
 
-In dit artikel kunt u toounderstand waarom een Azure AD-toepassingsproxy-toepassing duurt een tooload lang en wat u kunt tooresolve doen dit probleem.
+In dit artikel helpt u bij het begrijpen waarom een Azure AD-toepassingsproxy-toepassing kan lang duren om te laden en wat u kunt doen om dit probleem te verhelpen.
 
 ## <a name="overview"></a>Overzicht
-Als uw toepassingen werken, maar u een lange latentie ziet, mogelijk zijn er enkele kleine trucs in uw netwerktopologie die u, tooimprove Hallo snelheid overwegen kunt. Zie voor een evaluatieversie van verschillende topologieën Hallo [netwerk overwegingen document](https://docs.microsoft.com/azure/active-directory/application-proxy-network-topology-considerations).
+Als uw toepassingen werken, maar u een lange latentie ziet, mogelijk zijn er enkele kleine trucs in uw netwerktopologie die u overwegen kunt de snelheid verhogen. Zie voor een evaluatie van verschillende topologieën, de [netwerk overwegingen document](https://docs.microsoft.com/azure/active-directory/application-proxy-network-topology-considerations).
 
-Als deze overwegingen niet helpt, er zijn momenteel hebben helaas momenteel geen verdere aanbevelingen voor prestaties afstemmen. U kunt toosee verbeterde latentie zoals Hallo service voor toepassingsproxy wordt toomore-datacenters die dichter tooyou kunnen worden uitgebreid, rechtstreeks starten. toosee hello volledige lijst met Azure data centers, ziet u Hallo [latentie testpagina](http://www.azurespeed.com/Azure/Latency). 
+Als deze overwegingen niet helpt, er zijn momenteel hebben helaas momenteel geen verdere aanbevelingen voor prestaties afstemmen. Als de service voor toepassingsproxy wordt uitgebreid naar meer datacenters die mogelijk dichter bij u, kunt u gaan Zie verbeterde latentie rechtstreeks. De volledige lijst van Azure-datacenters wilt bekijken, ziet u de [latentie testpagina](http://www.azurespeed.com/Azure/Latency). 
 
-Hallo datacenters met service voor toepassingsproxy Hallo vindt Hello [Connectorhulpprogramma poorten Test](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
+De datacenters met de service voor toepassingsproxy kunnen gevonden met de [Connectorhulpprogramma poorten Test](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>Feedback over toepassingsproxy data center-locaties 
-Mogelijk zijn er Azure-datacenters die toepassingsproxy nog niet zijn maar zou leiden tooa geweldige latentie verbetering voor u. Hallo-datacentrum locatie < aadapfeedback@microsoft.com > zodat we uw feedback tooplan gebruiken kunt als we uitbreiden.
+Mogelijk zijn er Azure-datacenters die toepassingsproxy nog niet zijn maar zou leiden tot een verbetering geweldige latentie voor u. De locatie van het datacentrum < aadapfeedback@microsoft.com > zodat we uw feedback als we vouw plannen kunt gebruiken.
 
-We werken aan enkele aanvullende mogelijkheden Hallo-latentie verbeteren voor tenants die momenteel Zie lang latenties en ervoor tooshare documentatie zodra deze beschikbaar worden.
+We werken aan enkele aanvullende mogelijkheden die de latentie verbeteren voor tenants die momenteel Zie lang latenties en zorg ervoor dat voor het delen van documentatie zodra deze beschikbaar is.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Werken met bestaande lokale proxyservers](application-proxy-working-with-proxy-servers.md)

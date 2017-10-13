@@ -1,6 +1,6 @@
 ---
-title: aaaQuickstart - cluster voor Linux Azure Docker CE | Microsoft Docs
-description: Snel meer toocreate een Docker CE-cluster voor Linux-containers in Azure Container Service met hello Azure CLI.
+title: 'Snelstartgids: Azure Docker CE-cluster voor Linux | Microsoft Docs'
+description: Leer snel hoe u een Docker CE-cluster voor Linux-containers in Azure Container Service maakt met de Azure CLI.
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -17,27 +17,27 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: 6c26c12ed085ec379c3486095a5fa51379afc5a2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 01357ceca1d78c80c901c9fbec08ce85f02fb958
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-docker-ce-cluster"></a>Docker CE-cluster implementeren
 
-Een Docker CE-cluster wordt geïmplementeerd met behulp van hello Azure CLI in deze snel starten. Een container voor meerdere-toepassing die bestaan uit een webfront-end en een Redis-exemplaar wordt vervolgens geïmplementeerd en uitgevoerd op Hallo-cluster. Zodra de voltooid, Hallo-toepassing is toegankelijk via internet Hallo.
+In deze snelstartgids wordt een Docker CE-cluster geïmplementeerd met behulp van de Azure CLI. Vervolgens wordt er een toepassing met meerdere containers die bestaat uit een web-front-end en een Redis-exemplaar, geïmplementeerd en uitgevoerd op het cluster. Zodra de toepassing is voltooid, is deze toegankelijk via internet.
 
 Docker CE in Azure Container Service is in de preview-fase. **Gebruik dit daarom niet voor productieworkloads**.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Als u tooinstall kiest en Hallo CLI lokaal gebruiken, is deze snelstartgids vereist dat u de versie van de Azure CLI Hallo 2.0.4 worden uitgevoerd of hoger. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de Hallo [az groep maken](/cli/azure/group#create) opdracht. Een Azure-resourcegroep is een logische groep waarin Azure-resources worden geïmplementeerd en beheerd.
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). Een Azure-resourcegroep is een logische groep waarin Azure-resources worden geïmplementeerd en beheerd.
 
-Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroup* in Hallo *ukwest* locatie.
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *ukwest*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location ukwest
@@ -60,19 +60,21 @@ Uitvoer:
 
 ## <a name="create-docker-swarm-cluster"></a>Docker Swarm-cluster maken
 
-Een Docker CE-cluster maken in Azure Container Service met Hallo [az acs maken](/cli/azure/acs#create) opdracht. 
+Maak een Dock CE-cluster in Azure Container Service met de opdracht [az acs create](/cli/azure/acs#create). 
 
-Hallo volgende voorbeeld wordt een cluster met de naam *mySwarmCluster* hoofdsleutel met een Linux-knooppunt en drie knooppunten voor Linux-agent.
+In het volgende voorbeeld wordt een cluster gemaakt met de naam *mySwarmCluster* met een Linux-hoofdknooppunt en drie knooppunten van de Linux-agent.
 
 ```azurecli-interactive
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-Na enkele minuten Hallo-opdracht is voltooid en retourneert informatie over de json-indeling over Hallo-cluster.
+In sommige gevallen, zoals met een beperkte proefversie, heeft een Azure-abonnement beperkte toegang tot Azure-resources. Als de implementatie mislukt vanwege beperkte beschikbare kernen, verminder dan het aantal standaardagenten door `--agent-count 1` toe te voegen aan de opdracht [az acs create](/cli/azure/acs#create). 
 
-## <a name="connect-toohello-cluster"></a>Verbinding maken met cluster toohello
+Na enkele minuten is de opdracht voltooid en retourneert deze informatie over het cluster in json-indeling.
 
-In deze snel starten moet u Hallo FQDN-naam van zowel Hallo Docker Swarm hoofd- en Hallo Docker-agent van toepassingen. Hallo na de opdracht tooreturn beide Hallo hoofd- en agent FQDN's worden uitgevoerd.
+## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
+
+In deze snelstartgids hebt u de FQDN nodig van zowel de Docker Swarm-master als de Docker-agentpool. Voer de volgende opdracht uit om FQDN van de master en van de agent te retourneren.
 
 
 ```bash
@@ -87,24 +89,24 @@ Master                                                               Agent
 myswarmcluster-myresourcegroup-d5b9d4mgmt.ukwest.cloudapp.azure.com  myswarmcluster-myresourcegroup-d5b9d4agent.ukwest.cloudapp.azure.com
 ```
 
-Maak een SSH-tunnel toohello Swarm model. Vervang `MasterFQDN` met Hallo FQDN-adres van Hallo Swarm-master.
+Maak een SSH-tunnel naar de Swarm-master. Vervang `MasterFQDN` door het FQDN-adres van de Swarm-master.
 
 ```bash
 ssh -p 2200 -fNL localhost:2374:/var/run/docker.sock azureuser@MasterFQDN
 ```
 
-Set Hallo `DOCKER_HOST` omgevingsvariabele. Hiermee kunt u toorun docker opdrachten tegen Hallo Docker Swarm zonder toospecify Hallo-naam van Hallo host.
+Stel de omgevingsvariabele `DOCKER_HOST` in. Hierdoor kunt u Docker-opdrachten voor de Docker-swarm uitvoeren zonder dat u de hostnaam hoeft op te geven.
 
 ```bash
 export DOCKER_HOST=localhost:2374
 ```
 
-U bent nu klaar toorun Docker-services op Hallo Docker Swarm.
+U bent nu klaar om Docker-services uit te voeren op de Docker-swarm.
 
 
-## <a name="run-hello-application"></a>Hallo-toepassing uitvoeren
+## <a name="run-the-application"></a>De toepassing uitvoeren
 
-Maak een bestand met de naam `azure-vote.yaml` en kopiëren Hallo inhoud in de App.
+Maak een bestand met de naam `azure-vote.yaml` en kopieer de volgende inhoud in het bestand.
 
 
 ```yaml
@@ -123,7 +125,7 @@ services:
         - "80:80"
 ```
 
-Voer Hallo [docker-stack implementeren](https://docs.docker.com/engine/reference/commandline/stack_deploy/) toocreate hello Azure stem service opdracht.
+Voer de opdracht [docker stack deploy](https://docs.docker.com/engine/reference/commandline/stack_deploy/) uit om de Azure Vote-service te maken.
 
 ```bash
 docker stack deploy azure-vote --compose-file azure-vote.yaml
@@ -137,13 +139,13 @@ Creating service azure-vote_azure-vote-back
 Creating service azure-vote_azure-vote-front
 ```
 
-Gebruik Hallo [docker-stack ps](https://docs.docker.com/engine/reference/commandline/stack_ps/) tooreturn Hallo implementatiestatus van de toepassing hello opdracht.
+Gebruik de opdracht [docker stack ps](https://docs.docker.com/engine/reference/commandline/stack_ps/) om de implementatiestatus van de toepassing te retourneren.
 
 ```bash
 docker stack ps azure-vote
 ```
 
-Eenmaal Hallo `CURRENT STATE` van elke service is `Running`, Hallo toepassing gereed is.
+De toepassing is gereed, zodra de `CURRENT STATE` van elke service is: `Running`.
 
 ```bash
 ID                  NAME                            IMAGE                                 NODE                               DESIRED STATE       CURRENT STATE                ERROR               PORTS
@@ -151,30 +153,30 @@ tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:r
 lg99i4hy68r9        azure-vote_azure-vote-back.1    redis:latest                          swarmm-agentpool0-66066781000002   Running             Running about a minute ago
 ```
 
-## <a name="test-hello-application"></a>Hallo toepassing testen
+## <a name="test-the-application"></a>De toepassing testen
 
-Blader toohello FQDN-naam van Hallo Swarm-agent groep tootest uit hello Azure stem toepassing.
+Browse naar de FQDN van de Swarm-agentpool om de Azure Vote-toepassing te testen.
 
-![Afbeelding van tooAzure stem bladeren](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
+![Afbeelding van browsen naar Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Cluster verwijderen
-Wanneer Hallo cluster niet langer nodig is, kunt u Hallo [az groep verwijderen](/cli/azure/group#delete) opdracht tooremove Hallo-resourcegroep, containerservice en alle gerelateerde resources.
+U kunt de opdracht [az group delete](/cli/azure/group#delete) gebruiken om de resourcegroep, de containerservice en alle gerelateerde resources te verwijderen wanneer u het cluster niet meer nodig hebt.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="get-hello-code"></a>Hallo code ophalen
+## <a name="get-the-code"></a>Code ophalen
 
-In deze snel starten is de vooraf gemaakte container installatiekopieën gebruikte toocreate een Docker-service. Hallo gerelateerd toepassingscode, Dockerfile, en opstellen-bestand zijn beschikbaar op GitHub.
+In deze snelstartgids zijn vooraf gemaakte containerinstallatiekopieën gebruikt om een Docker-service te maken. De gerelateerde toepassingscode, Dockerfile en het Opstellen-bestand zijn beschikbaar op GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snel starten een Docker Swarm-cluster wordt geïmplementeerd en een toepassing met meerdere container tooit geïmplementeerd.
+In deze snelstartgids hebt u een Docker Swarm-cluster geïmplementeerd. Vervolgens hebt u een toepassing met meerdere containers op dit cluster geïmplementeerd.
 
-toolearn over de integratie van Docker warme met Visual Studio Team Services, blijven toohello CI/CD met Docker Swarm en VSTS.
+Ga naar CI/CD met Docker Swarm en VSTS voor informatie over het integreren van Docker Swarm met Visual Studio Team Services.
 
 > [!div class="nextstepaction"]
 > [CI/CD met Docker Swarm en VSTS](./container-service-docker-swarm-setup-ci-cd.md)

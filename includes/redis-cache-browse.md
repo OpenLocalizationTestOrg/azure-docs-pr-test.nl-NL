@@ -1,14 +1,14 @@
-Caches kunnen worden geopend in Hallo [Azure-portal](https://portal.azure.com) met Hallo **Bladeren** blade.
+Caches kunnen worden geopend in de [Azure-portal](https://portal.azure.com) met behulp van de blade **Bladeren**.
 
 ![Blade Bladeren in Azure Redis-cache](media/redis-cache-browse/redis-cache-browse.png)
 
-Klik op tooview uw caches **meer services > Redis-Caches**. Als u onlangs tooa Redis-Cache hebt bekeken, kunt u **Redis-Caches** rechtstreeks uit de lijst Hallo zonder te klikken op **meer services**.
+Klik op **Meer services > Redis-caches** om uw caches weer te geven. Als u onlangs naar een Redis-cache hebt gebladerd, kunt u in de lijst direct op **Redis-caches** klikken, zonder eerst op **Meer services** te klikken.
 
-Hallo gewenst cache tooview selecteren en configureren van instellingen voor die cache Hallo.
+Selecteer de gewenste cache om de instellingen voor die cache weer te geven en te configureren.
 
 ![Lijst met caches voor Bladeren in Azure Redis Cache](media/redis-cache-browse/redis-caches.png)
 
-U kunt bekijken en configureren van uw cache van Hallo **Redis-Cache** blade.
+U kunt uw cache weergeven en configureren vanaf de blade **Redis Cache**.
 
 ![Alle instellingen in Redis-cache](media/redis-cache-browse/redis-cache-blade.png)
 

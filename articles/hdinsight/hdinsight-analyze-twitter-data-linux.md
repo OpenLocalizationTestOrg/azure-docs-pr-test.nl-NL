@@ -1,6 +1,6 @@
 ---
-title: aaaAnalyze Twitter-gegevens met Apache Hive - Azure HDInsight | Microsoft Docs
-description: Informatie over hoe toouse gebruik Hive en Hadoop op HDInsight tootransform onbewerkte TWitter-gegevens in een doorzoekbare Hive-tabel.
+title: Twitter gegevens analyseren met Apache Hive - Azure HDInsight | Microsoft Docs
+description: Informatie over het gebruik van gebruik Hive en Hadoop in HDInsight voor het transformeren van onbewerkte gegevens van TWitter in een doorzoekbare Hive-tabel.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,32 +16,32 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 02c4d027c7bbf390ac1c3724c14f8d549ea5195e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b8656123fa9c5158f366872ab050f370080ec18a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Twitter-gegevens met Hive en Hadoop op HDInsight analyseren
 
-Meer informatie over hoe toouse Apache Hive tooprocess Twitter-gegevens. Hallo-resultaat is een lijst met Twitter-gebruikers die verzonden hello meeste tweets die een bepaald woord bevatten.
+Informatie over het gebruik van Apache Hive om gegevens van Twitter te verwerken. Het resultaat is een lijst met Twitter-gebruikers die de meeste tweets met een bepaald woord verzonden.
 
 > [!IMPORTANT]
-> Hallo stappen in dit document zijn getest op HDInsight 3.6.
+> De stappen in dit document zijn getest op HDInsight 3.6.
 >
-> Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-## <a name="get-hello-data"></a>Hallo-gegevens ophalen
+## <a name="get-the-data"></a>De gegevens ophalen
 
-Twitter, kunt u tooretrieve hello [gegevens voor elke tweet](https://dev.twitter.com/docs/platform-objects/tweets) als een document notatie JSON (JavaScript Object) via een REST-API. [OAuth](http://oauth.net) is vereist voor verificatie toohello API.
+Twitter kunt u voor het ophalen van de [gegevens voor elke tweet](https://dev.twitter.com/docs/platform-objects/tweets) als een document notatie JSON (JavaScript Object) via een REST-API. [OAuth](http://oauth.net) is vereist voor verificatie van de API.
 
 ### <a name="create-a-twitter-application"></a>Een Twitter-toepassing maken
 
-1. Vanuit een webbrowser, meld u aan te[https://apps.twitter.com/](https://apps.twitter.com/). Klik op Hallo **nu aanmelden** koppelen als u een Twitter-account niet hebt.
+1. Vanuit een webbrowser, moet u zich aanmelden bij [https://apps.twitter.com/](https://apps.twitter.com/). Klik op de **nu aanmelden** koppelen als u een Twitter-account niet hebt.
 
 2. Klik op **nieuwe App maken**.
 
-3. Voer **naam**, **beschrijving**, **Website**. U kunt een URL voor Hallo gezamenlijk **Website** veld. Hallo volgende tabel ziet u enkele waarden voorbeeld toouse:
+3. Voer **naam**, **beschrijving**, **Website**. U kunt maken van een URL op voor de **Website** veld. De volgende tabel ziet u enkele voorbeeldwaarden te gebruiken:
 
    | Veld | Waarde |
    |:--- |:--- |
@@ -51,24 +51,24 @@ Twitter, kunt u tooretrieve hello [gegevens voor elke tweet](https://dev.twitter
 
 4. Controleer **Ja, ik ga akkoord**, en klik vervolgens op **uw Twitter-toepassing maken**.
 
-5. Klik op Hallo **machtigingen** tabblad Hallo standaardmachtiging **alleen-lezen**.
+5. Klik op de **machtigingen** tabblad. Standaard de machtiging is **alleen-lezen**.
 
-6. Klik op Hallo **sleutels en toegangstokens** tabblad.
+6. Klik op de **sleutels en toegangstokens** tabblad.
 
 7. Klik op **maken van mijn toegangstoken**.
 
-8. Klik op **Test OAuth** in Hallo rechterbovenhoek van Hallo pagina.
+8. Klik op **Test OAuth** in de rechterbovenhoek van de pagina.
 
 9. Noteer **consumentsleutel**, **consumentgeheim**, **toegangstoken**, en **Access token geheim**.
 
 ### <a name="download-tweets"></a>Tweets downloaden
 
-Hallo Python code na 10.000 tweets downloads van Twitter en sla ze tooa-bestand met de naam **tweets.txt**.
+De volgende Python-code downloadt 10.000 tweets van Twitter en sla ze naar een bestand met de naam **tweets.txt**.
 
 > [!NOTE]
-> Hallo stappen worden uitgevoerd op Hallo van HDInsight-cluster, omdat Python al is geïnstalleerd.
+> De volgende stappen worden uitgevoerd op het HDInsight-cluster omdat Python al is geïnstalleerd.
 
-1. Verbinding maken met toohello HDInsight-cluster via SSH:
+1. Maak verbinding met het HDInsight-cluster via SSH:
 
     ```bash
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
@@ -76,7 +76,7 @@ Hallo Python code na 10.000 tweets downloads van Twitter en sla ze tooa-bestand 
 
     Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-3. Gebruik Hallo deze opdrachten tooinstall [Tweepy](http://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2), en andere vereiste pakketten:
+3. Gebruik de volgende opdrachten voor het installeren van [Tweepy](http://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2), en andere vereiste pakketten:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -89,13 +89,13 @@ Hallo Python code na 10.000 tweets downloads van Twitter en sla ze tooa-bestand 
    pip install tweepy progressbar pyOpenSSL requests[security]
    ```
 
-4. Gebruik Hallo volgende opdracht toocreate uit een bestand met de naam **gettweets.py**:
+4. Gebruik de volgende opdracht voor het maken van een bestand met de naam **gettweets.py**:
 
    ```bash
    nano gettweets.py
    ```
 
-5. Gebruik Hallo na de tekst hello inhoud Hallo **gettweets.py** bestand:
+5. Gebruik de volgende tekst als de inhoud van de **gettweets.py** bestand:
 
    ```python
    #!/usr/bin/python
@@ -112,29 +112,29 @@ Hallo Python code na 10.000 tweets downloads van Twitter en sla ze tooa-bestand 
    access_token='Your access token'
    access_token_secret='Your access token secret'
 
-   #hello number of tweets we want tooget
+   #The number of tweets we want to get
    max_tweets=10000
 
-   #Create hello listener class that receives and saves tweets
+   #Create the listener class that receives and saves tweets
    class listener(StreamListener):
-       #On init, set hello counter toozero and create a progress bar
+       #On init, set the counter to zero and create a progress bar
        def __init__(self, api=None):
            self.num_tweets = 0
            self.pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=max_tweets).start()
 
        #When data is received, do this
        def on_data(self, data):
-           #Append hello tweet toohello 'tweets.txt' file
+           #Append the tweet to the 'tweets.txt' file
            with open('tweets.txt', 'a') as tweet_file:
                tweet_file.write(data)
-               #Increment hello number of tweets
+               #Increment the number of tweets
                self.num_tweets += 1
-               #Check toosee if we have hit max_tweets and exit if so
+               #Check to see if we have hit max_tweets and exit if so
                if self.num_tweets >= max_tweets:
                    self.pbar.finish()
                    sys.exit(0)
                else:
-                   #increment hello progress bar
+                   #increment the progress bar
                    self.pbar.update(self.num_tweets)
            return True
 
@@ -142,68 +142,68 @@ Hallo Python code na 10.000 tweets downloads van Twitter en sla ze tooa-bestand 
        def on_error(self, status):
            print status
 
-   #Get hello OAuth token
+   #Get the OAuth token
    auth = OAuthHandler(consumer_key, consumer_secret)
    auth.set_access_token(access_token, access_token_secret)
-   #Use hello listener class for stream processing
+   #Use the listener class for stream processing
    twitterStream = Stream(auth, listener())
    #Filter for these topics
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
     > [!IMPORTANT]
-    > Vervang Hallo tijdelijke aanduiding voor de volgende items met Hallo-informatie van uw toepassing twitter Hallo:
+    > Vervang de tijdelijke aanduiding voor de volgende items met de gegevens van twitter-toepassing:
     >
     > * `consumer_secret`
     > * `consumer_key`
     > * `access_token`
     > * `access_token_secret`
 
-6. Gebruik **Ctrl + X**, klikt u vervolgens **Y** toosave Hallo-bestand.
+6. Gebruik **Ctrl + X**, klikt u vervolgens **Y** het bestand wilt opslaan.
 
-7. Gebruik Hallo opdrachtbestand toorun hello te volgen en tweets downloaden:
+7. Gebruik de volgende opdracht voor het uitvoeren van het bestand en tweets downloaden:
 
     ```bash
     python gettweets.py
     ```
 
-    Er verschijnt een voortgangsindicator. Deze telt too100% als Hallo tweets worden gedownload.
+    Er verschijnt een voortgangsindicator. De functie telt tot wel 100% terwijl de tweets worden gedownload.
 
    > [!NOTE]
-   > Als dit Hallo voortgang balk tooadvance lang duurt, wijzigt u Hallo filter tootrack trends onderwerpen. Wanneer er veel tweets over Hallo onderwerp in het filter, kunt u snel ophalen Hallo 10000 tweets nodig.
+   > Als het duurt lang voordat de voortgangsbalk om door te gaan, moet u het filter om bij te houden van trends onderwerpen wijzigen. Wanneer er veel tweets over het onderwerp in het filter, krijgt u snel de 10000 tweets nodig.
 
-### <a name="upload-hello-data"></a>Hallo gegevens uploaden
+### <a name="upload-the-data"></a>De gegevens uploaden
 
-tooupload hello tooHDInsight gegevensopslag, gebruik Hallo volgende opdrachten:
+Als u wilt de gegevens uploaden naar HDInsight-opslag, gebruikt u de volgende opdrachten:
 
    ```bash
    hdfs dfs -mkdir -p /tutorials/twitter/data
    hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 ```
 
-Hallo-gegevens opslaan deze opdrachten in een locatie die voor alle knooppunten in cluster Hallo toegankelijk.
+Deze opdrachten worden de gegevens opslaan op een locatie die toegankelijk is voor alle knooppunten in het cluster.
 
-## <a name="run-hello-hiveql-job"></a>Hallo HiveQL taak uitvoeren
+## <a name="run-the-hiveql-job"></a>Voer de taak HiveQL
 
-1. Gebruik Hallo opdracht toocreate een bestand met HiveQL-instructies te volgen:
+1. Gebruik de volgende opdracht voor het maken van een bestand met HiveQL-instructies:
 
    ```bash
    nano twitter.hql
    ```
 
-    Gebruik Hallo tekst als Hallo inhoud van Hallo-bestand te volgen:
+    Gebruik de volgende tekst als de inhoud van het bestand:
 
    ```hiveql
    set hive.exec.dynamic.partition = true;
    set hive.exec.dynamic.partition.mode = nonstrict;
    -- Drop table, if it exists
    DROP TABLE tweets_raw;
-   -- Create it, pointing toward hello tweets logged from Twitter
+   -- Create it, pointing toward the tweets logged from Twitter
    CREATE EXTERNAL TABLE tweets_raw (
        json_response STRING
    )
    STORED AS TEXTFILE LOCATION '/tutorials/twitter/data';
-   -- Drop and recreate hello destination table
+   -- Drop and recreate the destination table
    DROP TABLE tweets;
    CREATE TABLE tweets
    (
@@ -238,8 +238,8 @@ Hallo-gegevens opslaan deze opdrachten in een locatie die voor alle knooppunten 
        profile_image_url STRING,
        json_response STRING
    );
-   -- Select tweets from hello imported data, parse hello JSON,
-   -- and insert into hello tweets table
+   -- Select tweets from the imported data, parse the JSON,
+   -- and insert into the tweets table
    FROM tweets_raw
    INSERT OVERWRITE TABLE tweets
    SELECT
@@ -299,16 +299,16 @@ Hallo-gegevens opslaan deze opdrachten in een locatie die voor alle knooppunten 
    WHERE (length(json_response) > 500);
    ```
 
-2. Druk op **Ctrl + X**, drukt u vervolgens op **Y** toosave Hallo-bestand.
-3. Hallo opdracht toorun hello die hiveql in Hallo-bestand aanwezige volgende gebruiken:
+2. Druk op **Ctrl + X**, drukt u vervolgens op **Y** het bestand wilt opslaan.
+3. Gebruik de volgende opdracht om uit te voeren van de HiveQL opgenomen in het bestand:
 
    ```bash
    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
-    Met deze opdracht wordt uitgevoerd Hallo Hallo **twitter.hql** bestand. Zodra het Hallo-query is voltooid, ziet u een `jdbc:hive2//localhost:10001/>` prompt.
+    Met deze opdracht wordt uitgevoerd de de **twitter.hql** bestand. Nadat de query is voltooid, ziet u een `jdbc:hive2//localhost:10001/>` prompt.
 
-4. Gebruik vanaf Hallo beeline prompt Hallo na query tooverify dat de gegevens zijn geïmporteerd:
+4. Gebruik de volgende query om te controleren dat de gegevens zijn geïmporteerd achter de opdrachtprompt beeline:
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
@@ -318,11 +318,11 @@ Hallo-gegevens opslaan deze opdrachten in een locatie die voor alle knooppunten 
        ORDER BY cc DESC LIMIT 10;
    ```
 
-    Deze query retourneert maximaal 10 tweets waarin Hallo woord **Azure** in Hallo berichttekst.
+    Deze query retourneert maximaal 10 tweets met het woord **Azure** in de berichttekst.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe tootransform een niet-gestructureerde JSON-gegevensset naar een gestructureerde Hive-tabel. toolearn meer informatie over Hive in HDInsight, Zie Hallo documenten te volgen:
+U hebt geleerd hoe u een niet-gestructureerde JSON-gegevensset transformeren naar een gestructureerde Hive-tabel. Zie de volgende documenten voor meer informatie over Hive in HDInsight:
 
 * [Aan de slag met HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Vertraging vluchtgegevens met HDInsight analyseren](hdinsight-analyze-flight-delay-data-linux.md)

@@ -1,6 +1,6 @@
 ---
-title: aaaAzure gebruikersinterface van de Mobile Engagement - criterium bereiken
-description: Meer informatie over hoe toouse doelitems criteria toosend push campagnes tooa subset van uw gebruikers met behulp van Azure Mobile Engagement selecteren
+title: Azure Mobile Engagement-gebruikersinterface - Reach criterium
+description: Informatie over het gebruik van criteria gerichte campagnes met pushmeldingen verzenden naar een specifieke subset van uw gebruikers met behulp van Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d956add1b7edc1d49451596019c5a4dec098d724
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 803b44721d0ab1ac7b5a8074e18857fc57adb724
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toouse-targeting-criteria-toosend-push-campaigns-tooa-select-subset-of-your-users"></a>Hoe toouse doelitems criteria toosend push campagnes tooa subset van uw gebruikers selecteren
-Uw doelgroep gericht op specifieke criteria met Hallo 'Nieuw criterium' knop is een van Hallo krachtigste concepten in Azure Mobile Engagement dat helpt die u relevante verzenden pushmeldingen dat klanten Hallo tooinstead van spam iedereen reageert. U kunt uw doelgroep op basis van criteria standaard beperken en simuleren pushes toodetermine hoeveel mensen Hallo melding wilt ontvangen.
+# <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>Het gebruik van criteria gerichte pushcampagnes verzenden naar een specifieke subset van uw gebruikers
+Uw doelgroep gericht op specifieke criteria met de knop "Nieuw criterium" is een van de meest krachtige concepten in Azure Mobile Engagement helpt u relevante verzenden pushmeldingen dat klanten reageren zullen op in plaats van spam iedereen. U kunt uw doelgroep op basis van criteria standaard beperken en simuleren pushes om te bepalen hoeveel mensen de melding wilt ontvangen.
 
 **Zie ook:**
 
 * [Nieuwe Pushcampagne van UI - Reach - documentatie][Link 27]
 
 ## <a name="audience-criteria-can-include"></a>Doelgroep criteria kunnen opnemen:
-* ** Technicals: ** kunt u zich richten op basis van Hallo dezelfde technische informatie die u kunt zien in Hallo Analytics en Monitor secties. **Zie ook:** [UI-documentatie - Analytics][Link 15], [UI-documentatie - Monitor][Link 16]
-* **Locatie:** toepassingen die gebruikmaken van "realtime locatie rapportage" met Geofencing kunnen geografische locatie gebruiken als een criteria tootarget een doelgroep van Hallo GPS-locatie. 'Vertraagde gebied locatie rapportage' aanroep worden ook gebruikt tootarget een doelgroep van Hallo gsm locatie ("realtime locatie rapportage" en 'Vertraagde Locatiemelding' moet worden geactiveerd vanuit Hallo SDK). **Zie ook:** [SDK-documentatie - iOS - integratie][Link 5], [SDK-documentatie - Android - integratie][Link 5]
-* **Reach Feedback:** kunt u uw doelgroep op basis van hun feedback van eerdere reach-meldingen via reach feedback van aankondigingen, Polls en gegevens-Pushes richten. Hiermee kunt u uw doelgroep na twee of drie reach-campagnes dan u hebt eerst kan Hallo toobetter-doel. Kan ook worden gebruikt toofilter uit de gebruikers die al een melding met vergelijkbare inhoud ontvangen door het instellen van een campagne tooNOT toousers die al op een specifieke vorige campagne worden verzonden. U kunt zelfs voorkomen dat gebruikers een bepaalde campagne die nog steeds actief nieuwe Pushes ontvangen die zijn opgenomen. **Zie ook:** [inhoud van de gebruikersinterface Documentation - Reach - Push][Link 29]
+* ** Technicals: ** kunt u zich richten op basis van de dezelfde technische informatie die u in de secties Analytics en Monitor zien kunt. **Zie ook:** [UI-documentatie - Analytics][Link 15], [UI-documentatie - Monitor][Link 16]
+* **Locatie:** toepassingen die gebruikmaken van "realtime locatie rapportage" met Geofencing kunnen geografische locatie gebruiken als een criterium toe te passen van een doelgroep van de GPS-locatie. 'Vertraagde gebied locatie rapportage' aanroep ook worden gebruikt voor het doel van een doelgroep vanaf de locatie van de mobiele telefoon ("realtime locatie rapportage" en 'Vertraagde Locatiemelding' moet worden geactiveerd uit de SDK). **Zie ook:** [SDK-documentatie - iOS - integratie][Link 5], [SDK-documentatie - Android - integratie][Link 5]
+* **Reach Feedback:** kunt u uw doelgroep op basis van hun feedback van eerdere reach-meldingen via reach feedback van aankondigingen, Polls en gegevens-Pushes richten. Hiermee kunt u met betere doel uw doelgroep na twee of drie campagnes bereiken dan mogelijk is de eerste keer. Het kan ook worden gebruikt voor het filteren van gebruikers die al een melding met vergelijkbare inhoud ontvangen door een campagne niet worden verzonden naar gebruikers die een specifieke vorige campagne al ontvangen. U kunt zelfs voorkomen dat gebruikers een bepaalde campagne die nog steeds actief nieuwe Pushes ontvangen die zijn opgenomen. **Zie ook:** [inhoud van de gebruikersinterface Documentation - Reach - Push][Link 29]
 * **Installeren bijhouden:** kunt u gegevens op basis van waar uw gebruikers geïnstalleerd in uw App bijhouden. **Zie ook:** [UI-documentatie - instellingen][Link 20]
-* **Gebruikersprofiel:** u doel op basis van informatie van de standaardgebruiker kunt en u kunt doel op basis van Hallo aangepaste app-gegevens die u hebt gemaakt. Dit omvat gebruikers die u momenteel bent aangemeld en gebruikers die specifieke vragen die u hebt gevraagd deze tooset in Hallo app zelf in plaats van alleen hoe ze hebben gereageerd tooprevious campagnes beantwoord. Al je App-gegevens voor uw app weergegeven op deze lijst gedefinieerd.
+* **Gebruikersprofiel:** u doel op basis van informatie van de standaardgebruiker kunt en u kunt doel op basis van de aangepaste app-gegevens die u hebt gemaakt. Dit omvat gebruikers die u momenteel bent aangemeld en gebruikers die specifieke vragen die u hebt aangegeven dat ze worden ingesteld in de app zelf in plaats van alleen hoe ze hebben gereageerd op vorige campagnes beantwoord. Al je App-gegevens voor uw app weergegeven op deze lijst gedefinieerd.
 * Segmenten: U kunt ook doel op basis van segmenten die u hebt gemaakt op basis van specifieke gebruikersgedrag met meerdere criteria. Alle van de segmenten die zijn gedefinieerd voor uw app weergegeven op deze lijst. **Zie ook:** [UI-documentatie - segmenten][Link 18]
-* **App-Info:** aangepaste App Info labels kan worden gemaakt vanuit 'Instellingen' tootrack gebruikersgedrag. **Zie ook:** [UI-documentatie - instellingen][Link 20]
+* **App-Info:** aangepaste App Info labels kan worden gemaakt vanuit 'Instellingen' voor het bijhouden van gebruikersgedrag. **Zie ook:** [UI-documentatie - instellingen][Link 20]
 
 ## <a name="example"></a>Voorbeeld:
-Als u wilt dat toopush Schaf een aankondiging alleen toohello onderliggende set gebruikers die een app hebt uitgevoerd in te grijpen.
+Als u een aankondiging push alleen naar de submap reeks gebruikers die u hebt een actie aankopen binnen Apps uitgevoerd wilt.
 
-1. Pagina met toepassingsinstellingen tooyour gaat Hallo 'App-info' menu en selecteer optie 'Nieuwe app-info'
+1. Ga naar de instellingenpagina van uw toepassing, selecteert u het menu 'App-info' en 'Nieuwe app-info' selecteren
 2. Registreren van een nieuwe Booleaanse app-info 'inAppPurchase' genoemd
-3. Ervoor dat uw toepassing instellen van de app-gegevens te 'true' wanneer Hallo gebruiker met succes een aankopen binnen Apps uitvoert (met behulp van Hallo sendAppInfo ('inAppPurchase',...) functie)
-4. Als u dit niet toodo van uw toepassing wilt, kunt u dit doen vanuit uw back-end via Hallo apparaat-API)
-5. En, hoeft u alleen toocreate uw aankondiging met een criterium beperken uw doelgroep toousers met 'inAppPurchase' ingesteld te 'true')
+3. Ervoor dat uw toepassing ingesteld op 'true' wanneer de gebruiker met succes een aankopen binnen Apps uitvoert deze app-gegevens (met behulp van de sendAppInfo ('inAppPurchase',...) functie)
+4. Als u niet wilt u dit doet in uw toepassing, kunt u dit doen vanuit uw back-end via de API van het apparaat)
+5. En, hoeft u alleen uw aankondiging maken met een criterium voor het beperken van uw doelgroep naar gebruikers met de 'inAppPurchase' is ingesteld op 'true')
 
 > [!NOTE]
-> Azure Mobile Engagement toogather informatie van de apparaten van gebruikers die gericht is op basis van criteria dan app info tags is vereist voordat Hallo push wordt verzonden en leiden een vertraging optreden tot kan. Configuratie van complexe push opties (zoals het bijwerken van badges) kunnen ook worden vertraagd duwt. Met behulp van een campagne 'één keer' hello Push-API is Hallo absolute snelste push-methode in Azure Mobile Engagement. Gebruik alleen de labels van app-info als push criteria voor een Reach-campagne (zowel van Hallo Reach API of Hallo UI) is Hallo volgende snelste methode omdat app info labels aan de serverzijde Hallo worden opgeslagen. Gebruik van andere doelitems criteria voor een pushcampagne is Hallo meest flexibele maar traagste pushmethode aangezien het Azure Mobile Engagement tooquery Hallo apparaten volgorde toosend Hallo campagne.
+> Azure Mobile Engagement voor het verzamelen van informatie van de apparaten van gebruikers voordat de pushmelding wordt verzonden, en dus kan leiden tot een vertraging die gericht is op basis van criteria dan app info tags is vereist. Configuratie van complexe push opties (zoals het bijwerken van badges) kunnen ook worden vertraagd duwt. Met behulp van een campagne 'één keer' van de Push-API is de absolute snelste pushmethode in Azure Mobile Engagement. Gebruik alleen de labels van app-info als push criteria voor een Reach-campagne (zowel via de Reach API of de gebruikersinterface) is de volgende snelste methode omdat tags van app-gegevens worden opgeslagen op de server. Gebruik van andere doelitems criteria voor een pushcampagne is de meest flexibele maar traagste pushmethode omdat Azure Mobile Engagement query uitvoeren op de apparaten om te verzenden van de campagne.
 
 ![Reach-Criterion1][29] 
 

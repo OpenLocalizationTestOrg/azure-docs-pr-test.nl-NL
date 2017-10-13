@@ -1,8 +1,8 @@
 ---
-title: aaaAzure multi-factor Authentication-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toodeploy multi-factor authentication-server met een bereik van verificatiemethoden die bieden een eenvoudig proces aanmelden. Zelfstudies, een SDK en meer.
+title: Documentatie voor Azure Multi-Factor Authentication - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over de implementatie van Multi-Factor Authentication met een reeks verificatiemethoden die een eenvoudig aanmeldingsproces bieden. Zelfstudies, een SDK en meer.
 services: multi-factor-authentication
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 0ede2ad48a3d4e756aeb0b1f6bc0e07e4e7b1fcc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 25c21170df0ae5ef3dc57943448963059550fa1b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multi-factor-authentication-documentation"></a>Documentatie over Multi-Factor Authentication
 
-Meer informatie over hoe toodeploy en beheren van Azure multi-factor Authentication, een identity-verificatiesysteem in twee stappen. Zelfstudies, een SDK en andere documentatie die u zien hoe toodeliver sterke verificatie met een bereik van verificatiemethoden te gebruiken en tegelijkertijd een eenvoudig proces aanmelden.
+Meer informatie over de implementatie en het beheer van Azure Multi-Factor Authentication, een twee-stappensysteem voor identiteitsverificatie. Zelfstudies, een SDK en andere documentatie laten zien hoe u met een reeks verificatiemethoden sterke verificatie levert en toch een eenvoudig aanmeldingsproces aanbiedt.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Meer informatie over hoe toodeploy en beheren van Azure multi-factor Authenticat
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure multi-factor Authentication in de cloud Hallo</h3>
+                        <h3>Aan de slag met Azure Multi-Factor Authentication in de cloud</h3>
                     </div>
                 </div>
             </div>

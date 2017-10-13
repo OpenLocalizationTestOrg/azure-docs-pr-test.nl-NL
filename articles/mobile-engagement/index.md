@@ -1,8 +1,8 @@
 ---
-title: aaaAzure documentatie in de Mobile Engagement - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe tooget inzicht in het gebruik van mobiele Apps en gebruikers in real-segmentering en hoe tooenable contextbewuste push-meldingen en in-app-berichten.
+title: Documentatie voor Azure Mobile Engagement - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over hoe u inzicht krijgt in het gebruik van mobiele apps en realtime gebruikerssegmentering, en hoe u contextbewuste pushmeldingen en in-app berichten inschakelt.
 services: mobile-engagement
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c9d9dd859914d620b6e3c287bbde1906142f4736
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 5f682ba16b52b9a084505b8212c4b6f043bb94c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mobile-engagement-documentation"></a>Documentatie voor Mobile Engagement
 
-Meer informatie over hoe tooincrease Hallo gebruik, de bewaartermijn en de monetization van mobiele apps met Mobile Engagement. Zelfstudies, SDK's en andere documentatie die u zien hoe tooget inzicht in het app-gebruik en realtime gebruikers en hoe tooenable contextbewuste push-meldingen en in-app-berichten.
+Meer informatie over hoe u met Mobile Engagement het gebruik, de retentie en het verdienmodel van mobiele apps kunt optimaliseren. Zelfstudies, SDK’s en andere documentatie laten zien hoe u inzicht krijgt in het gebruik van apps en realtime gebruikerssegmentering, en hoe u contextbewuste pushmeldingen en in-app berichten inschakelt.
 
 <ul class="panelContent cardsFTitle">
     <li>

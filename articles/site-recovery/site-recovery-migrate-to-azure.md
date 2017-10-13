@@ -1,6 +1,6 @@
 ---
-title: aaaMigrate tooAzure met Site Recovery | Microsoft Docs
-description: In dit artikel biedt een overzicht van migratie virtuele machines en fysieke servers tooAzure met Azure Site Recovery
+title: Migreren naar Azure met Site Recovery | Microsoft Docs
+description: Dit artikel bevat een overzicht van de migratie van VM's en fysieke servers naar Azure met Azure Site Recovery
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,70 +14,70 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-ms.openlocfilehash: 6e65deee337c5371d441812ddb820dc8bc233684
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f4dfe430fba51bd009431ca72279a21be55e3a40
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="migrate-tooazure-with-site-recovery"></a>Migreren van tooAzure met Site Recovery
+# <a name="migrate-to-azure-with-site-recovery"></a>Migreren naar Azure met Site Recovery
 
-Lees dit artikel voor een overzicht van het gebruik van hello Azure Site Recovery-service voor de migratie van virtuele machines en fysieke servers.
+Lees dit artikel voor een overzicht van hoe u de service Azure Site Recovery gebruikt om virtuele machines en fysieke servers te migreren.
 
-Site Recovery is een Azure-service die tooyour-BCDR-strategie door replicatie van fysieke on-premises servers en virtuele machines toohello cloud (Azure) of tooa secundair datacenter organiseren bijdraagt. Wanneer er storingen optreden op uw primaire locatie, schakelt u over toohello secundaire locatie tookeep toepassingen en workloads beschikbaar. U mislukken back tooyour primaire locatie wanneer deze toonormal bewerkingen weer. Meer informatie vindt u in [Wat is Site Recovery?](site-recovery-overview.md) Ook kunt u Site Recovery toomigrate uw bestaande on-premises werkbelastingen tooAzure tooexpedite uw cloud reis en beschikbare Hallo matrix van functies die Azure biedt.
+Site Recovery is een Azure-service die bijdraagt aan uw BCDR-strategie door replicatie van fysieke on-premises servers en virtuele machines in de cloud (Azure) of naar een secundair datacenter te organiseren. Als er uitval optreedt op uw primaire locatie, schakelt u over naar de secundaire locatie om toepassingen en workloads beschikbaar te houden. U schakelt terug naar de primaire locatie wanneer deze weer normaal functioneert. Meer informatie vindt u in [Wat is Site Recovery?](site-recovery-overview.md) U kunt Site Recovery ook gebruiken om uw bestaande on-premises workloads te migreren naar Azure om uw traject naar de cloud te versnellen en gebruik te maken van de reeks functies die Azure biedt.
 
-Voor een snel overzicht van hoe tooperform migratie, raadpleegt u toothis video.
+Raadpleeg deze video voor een snel overzicht van hoe u de migratie kunt uitvoeren.
 >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
 
-Dit artikel wordt beschreven implementatie in Hallo [Azure-portal](https://portal.azure.com). Hallo [klassieke Azure-portal](https://manage.windowsazure.com/) kan worden gebruikt toomaintain bestaande Site Recovery-kluizen, maar u kunt geen nieuwe kluizen maken.
+Dit artikel beschrijft de implementatie in [Azure Portal](https://portal.azure.com). De [klassieke Azure-portal](https://manage.windowsazure.com/) kan worden gebruikt voor het onderhoud van de bestaande Site Recovery-kluizen. U kunt geen nieuwe kluizen maken.
 
-Na de eventuele opmerkingen onder Hallo van dit artikel. Technische vragen op Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+U kunt onder aan dit artikel eventuele opmerkingen plaatsen. Technische vragen kunt u stellen op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="what-do-we-mean-by-migration"></a>Wat wordt precies bedoeld met 'migreren’?
 
-U kunt Site Recovery implementeren voor de replicatie van de lokale virtuele machines en fysieke servers, tooAzure of tooa secundaire site. Replicatie van machines, ze via failover van de primaire site Hallo wanneer er storingen optreden en failback ervan back toohello primaire site wanneer deze wordt hersteld. In aanvulling toothis, kunt u Site Recovery toomigrate virtuele machines en fysieke servers tooAzure, zodat gebruikers er toegang toe hebt als Azure virtuele machines. Migratie moet replicatie en failover van Hallo primaire site tooAzure en een gebaar van de volledige migratie.
+U kunt Site Recovery implementeren voor de replicatie van on-premises virtuele machines en fysieke servers, naar Azure of naar een secundaire site. U repliceert machines, voert een failover uit vanaf de primaire site wanneer er storingen optreden en voert een failback uit naar de primaire site wanneer deze wordt hersteld. Daarnaast kunt u Site Recovery gebruiken om virtuele machines en fysieke servers te migreren naar Azure, zodat gebruikers deze kunnen gebruiken als virtuele Azure-machines. Migratie brengt replicatie en failover van de primaire site naar Azure met zich mee, evenals een volledig migratiebeheer.
 
 ## <a name="what-can-site-recovery-migrate"></a>Wat kan er met Site Recovery worden gemigreerd?
 
 U kunt:
 
-- Migreren van werkbelastingen die worden uitgevoerd op een lokale Hyper-V-machines, virtuele VMware-machines en fysieke servers toorun op Azure Virtual machines. U kunt in dit scenario ook een volledige replicatie en failback uitvoeren.
+- Migreer workloads die worden uitgevoerd op on-premises virtuele Hyper-V-machines, virtuele VMware-machines en fysieke servers, zodat ze worden uitgevoerd op virtuele Azure-machines. U kunt in dit scenario ook een volledige replicatie en failback uitvoeren.
 - [Azure IaaS-VM's](site-recovery-migrate-azure-to-azure.md) migreren tussen Azure-regio's. Momenteel wordt in dit scenario alleen migratie ondersteund, dus geen failback.
-- Migreren [AWS Windows-exemplaren](site-recovery-migrate-aws-to-azure.md) tooAzure IaaS VM's. Momenteel wordt in dit scenario alleen migratie ondersteund, dus geen failback.
+- Migreer [AWS Windows-exemplaren](site-recovery-migrate-aws-to-azure.md) naar Azure IaaS-VM's. Momenteel wordt in dit scenario alleen migratie ondersteund, dus geen failback.
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>Virtuele machines en fysieke servers on-premises migreren
 
-toomigrate lokale Hyper-V-machines, virtuele VMware-machines en fysieke servers, u bijna Hallo dezelfde als bij normale replicatie stappen volgen.
+Als u on-premises virtuele Hyper-V-machines, virtuele VMware-machines en fysieke servers wilt migreren, volgt u bijna dezelfde stappen als bij normale replicatie.
 
 1. Een Recovery Services-kluis instellen
-2. Hallo vereist beheerservers configureren (VMware, VMM, Hyper-V -, afhankelijk van wat u wilt toomigrate), deze toohello kluis toevoegen en replicatie-instellingen opgeven.
-3. Replicatie inschakelen voor Hallo machines u wilt dat toomigrate
-4. Na de initiële migratie Hallo een snelle test failover tooensure dat alles werkt zoals het moet worden uitgevoerd.
+2. Configureer de vereiste beheerservers (VMware, VMM, Hyper-V, afhankelijk van wat u wilt migreren), voeg deze toe aan de kluis en geef replicatie-instellingen op.
+3. Replicatie inschakelen voor de machines die u wilt migreren
+4. Na de eerste migratie voert u een snelle testfailover uit om te verifiëren of alles naar behoren werkt.
 5. Nadat u hebt gecontroleerd of de replicatieomgeving werkt, gebruikt u een geplande of niet-geplande failover, afhankelijk van [wat er wordt ondersteund](site-recovery-failover.md) voor uw scenario. We raden u aan om waar mogelijk een geplande failover te gebruiken.
-6. Voor de migratie, u hebt toocommit een failover of verwijderen. In plaats daarvan het selecteren van Hallo **volledige migratie** optie voor elke computer die u wilt toomigrate.
-     - In **gerepliceerde Items**, met de rechtermuisknop op Hallo VM en klikt u op **volledige migratie**. Klik op **OK** toocomplete. U kunt de voortgang in de eigenschappen van Hallo VM in volgen door de bewaking van Hallo voltooid migratietaak in **Site Recovery-taken**.
-     - Hallo **volledige migratie** actie is van het migratieproces Hallo is voltooid, verwijdert u de replicatie voor Hallo machine en Hiermee stopt u Site Recovery facturering voor Hallo machine.
+6. Voor migratie hoeft u geen failover door te voeren of te verwijderen. In plaats daarvan selecteert u de optie **Volledige migratie** voor elke machine die u wilt migreren.
+     - Klik in **Gerepliceerde items** met de rechtermuisknop op de virtuele machine en klik vervolgens op **Volledige migratie**. Klik op **OK** om te voltooien. U kunt de voortgang in de VM-eigenschappen bijhouden door de volledige migratietaak te volgen in **Site Recovery-taken**.
+     - Met de actie **Volledige migratie** voltooit u het migratieproces, verwijdert u de replicatie voor de machine en zet u de facturering van Site Recovery voor de machine stop.
 
 ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
 ## <a name="migrate-between-azure-regions"></a>Migreren tussen Azure-regio's
 
-Met Site Recovery kunt u virtuele Azure-machines migreren tussen gebieden. In dit scenario wordt alleen migratie ondersteund. Met andere woorden, u kunt repliceren hello Azure VM's en failover tooanother regio, maar het kan geen failback uit voor. In dit scenario dat u een Recovery Services-kluis instelt, een lokale configuratie server toomanage replicatie implementeren, toe te voegen toohello kluis en replicatie-instellingen opgeven. U kunt replicatie inschakelen voor Hallo machines u wilt dat toomigrate en voer een snelle failover testen. U voert een niet-geplande failover Hello **volledige migratie** optie.
+Met Site Recovery kunt u virtuele Azure-machines migreren tussen gebieden. In dit scenario wordt alleen migratie ondersteund. Met andere woorden: u kunt de virtuele Azure-machines repliceren en een failover naar een andere regio uitvoeren, maar u kunt geen failback uitvoeren. In dit scenario stelt u een Recovery Services-kluis in en implementeert u een on-premises configuratieserver om de replicatie te beheren. Daarna voegt u deze toe aan de kluis en geeft u replicatie-instellingen op. U schakelt replicatie in voor de machines die u wilt migreren en voert een snelle testfailover uit. Daarna voert u een niet-geplande failover uit met de optie **Volledige migratie**.
 
-## <a name="migrate-aws-tooazure"></a>AWS tooAzure migreren
+## <a name="migrate-aws-to-azure"></a>AWS migreren naar Azure
 
-U kunt AWS exemplaren tooAzure virtuele machines migreren. In dit scenario wordt alleen migratie ondersteund. Met andere woorden, u kunt repliceren Hallo AWS-exemplaren en tooAzure failover echter niet kunt u een failback uit. AWS-exemplaren worden verwerkt in de Hallo dezelfde manier als de fysieke servers voor migratiedoeleinden. Instellen van een Recovery Services-kluis, een lokale configuratie server toomanage replicatie implementeren, voegt u deze toohello kluis, en geeft replicatie-instellingen. U kunt replicatie inschakelen voor Hallo machines u wilt dat toomigrate en voer een snelle failover testen. U voert een niet-geplande failover Hello **volledige migratie** optie.
+U kunt AWS-exemplaren naar Azure-VM's migreren. In dit scenario wordt alleen migratie ondersteund. Met andere woorden, u kunt de Azure-exemplaren repliceren en een failover naar Azure uitvoeren, maar u kunt geen failback uitvoeren. Voor migratiedoeleinden worden AWS-exemplaren op dezelfde manier afgehandeld als fysieke servers. U stelt een Recovery Services-kluis in en implementeert een on-premises configuratieserver om de replicatie te beheren. Daarna voegt u deze toe aan de kluis en geeft u replicatie-instellingen op. U schakelt replicatie in voor de machines die u wilt migreren en voert een snelle testfailover uit. Daarna voert u een niet-geplande failover uit met de optie **Volledige migratie**.
 
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Virtuele VMware-machines tooAzure migreren](site-recovery-vmware-to-azure.md)
-- [Hyper-V-machines in VMM-clouds tooAzure migreren](site-recovery-vmm-to-azure.md)
-- [Hyper-V-machines migreren zonder VMM tooAzure](site-recovery-hyper-v-site-to-azure.md)
+- [Virtuele VMware-machines migreren naar Azure](site-recovery-vmware-to-azure.md)
+- [Virtuele Hyper-V-machines in VMM-clouds migreren naar Azure](site-recovery-vmm-to-azure.md)
+- [Virtuele Hyper-V-machines zonder VMM migreren naar Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Virtuele Azure-machines migreren tussen Azure-regio's](site-recovery-migrate-azure-to-azure.md)
-- [AWS exemplaren tooAzure migreren](site-recovery-migrate-aws-to-azure.md)
-- [Voorbereiden van de gemigreerde machines tooenable replicatie](site-recovery-azure-to-azure-after-migration.md) tooanother regio voor herstel nodig zijn na noodgevallen.
+- [AWS-exemplaren migreren naar Azure](site-recovery-migrate-aws-to-azure.md)
+- [Gemigreerde machines voorbereiden op het inschakelen van replicatie](site-recovery-azure-to-azure-after-migration.md) naar een andere regio voor herstel na noodgevallen.
 - Beginnen met het beveiligen van uw werkbelastingen door [virtuele machines in Azure te repliceren.](site-recovery-azure-to-azure.md)

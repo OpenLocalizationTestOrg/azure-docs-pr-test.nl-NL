@@ -1,6 +1,6 @@
 ---
-title: aaaHow tooconfigure eenmalige aanmelding tooan toepassingsproxy-toepassing | Microsoft Docs
-description: "Hoe u snel één aanmelding tooyour application proxy toepassing kunt configureren"
+title: Het configureren van eenmalige aanmelding tot een toepassing toepassingsproxy | Microsoft Docs
+description: Het configureren van eenmalige aanmelding voor uw toepassing proxy-toepassing snel
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,37 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e1289203177c77b3a8bcc9058c5c0b8ae50f243e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ccab427857b1439f37f3d9f193e35a4fc2237014
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-tooconfigure-single-sign-on-tooan-application-proxy-application"></a>Hoe tooconfigure eenmalige aanmelding tooan toepassingsproxy-toepassing
+# <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Het configureren van eenmalige aanmelding tot een toepassing toepassingsproxy
 
-Eenmalige aanmelding (SSO) kunt uw tooaccess gebruikers een toepassing zonder verificatie van meerdere keren. Deze kunt Hallo eenmalige toooccur in Hallo cloud, op basis van Azure Active Directory en Hallo service of de Connector tooimpersonate Hallo gebruiker toocomplete eventuele aanvullende verificatiecontroles van Hallo-toepassing.
+Eenmalige aanmelding (SSO) kunt uw gebruikers toegang krijgen tot een toepassing zonder verificatie van meerdere keren. Deze staat het één verificatie om te worden uitgevoerd in de cloud, op basis van Azure Active Directory, en kan de service of de Connector om de gebruiker voor het voltooien van eventuele extra authenticatie uitdagingen van de toepassing te imiteren.
 
-## <a name="how-tooconfigure-single-sign-on"></a>Hoe tooconfigure eenmalige aanmelding
-tooconfigure SSO, eerst voor zorgen dat uw toepassing is geconfigureerd voor verificatie vooraf via Azure Active Directory. toodo deze, ga te**Azure Active Directory**  - &gt; **bedrijfstoepassingen**  - &gt; **alle toepassingen**  - &gt; Uw toepassing  **- &gt; toepassingsproxy**. Op deze pagina ziet u Hallo 'Vooraf-verificatie' veld en zorg ervoor dat te wordt ingesteld 'Azure Active Directory. 
+## <a name="how-to-configure-single-sign-on"></a>Het configureren van eenmalige aanmelding op
+Zorg ervoor dat uw toepassing is geconfigureerd voor verificatie vooraf via Azure Active Directory voor het configureren van eenmalige aanmelding. Hiervoor gaat u naar **Azure Active Directory**  - &gt; **bedrijfstoepassingen**  - &gt; **alle toepassingen**  - &gt; uw toepassing  **- &gt; toepassingsproxy**. Op deze pagina kunt u het veld 'Vooraf-verificatie' Zie en controleer of die is ingesteld op 'Azure Active Directory. 
 
-Zie voor meer informatie over Hallo verificatie vooraf methoden stap 4 van Hallo [app publishing document](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
+Zie voor meer informatie over de methoden voor verificatie vooraf stap 4 van de [app publishing document](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
 
    ![De methode vooraf-verificatie in Azure Portal](./media/application-proxy-config-sso-how-to/app-proxy.png)
 
 ## <a name="configuring-single-sign-on-modes-for-application-proxy-applications"></a>Modi voor eenmalige aanmelding configureren voor Application Proxy toepassingen
-Vervolgens configureert we Hallo specifiek type eenmalige aanmelding. Hallo aanmelding methoden worden geclassificeerd op basis van het type verificatie Hallo back-end-toepassing wordt gebruikt. Toepassingsproxy van toepassingen ondersteunt drie typen van eenmalige aanmelding:
+Vervolgens configureert we het specifieke type van eenmalige aanmelding. De methoden voor eenmalige aanmelding worden geclassificeerd op basis van de back-end-toepassing gebruikmaakt van welk type verificatie. Toepassingsproxy van toepassingen ondersteunt drie typen van eenmalige aanmelding:
 
--   **Op basis van wachtwoorden aanmelding**: op basis van wachtwoorden eenmalige aanmelding kan worden gebruikt voor andere toepassingen die gebruikmaken van de velden gebruikersnaam en wachtwoord toosign op. Configuratiestappen vindt u in onze [wachtwoord SSO configuratiedocumentatie](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#bring-your-own-password-sso-applications).
+-   **Op basis van wachtwoorden aanmelding**: op basis van wachtwoorden eenmalige aanmelding kan worden gebruikt voor andere toepassingen die gebruikmaken van de velden gebruikersnaam en wachtwoord aan te melden. Configuratiestappen vindt u in onze [wachtwoord SSO configuratiedocumentatie](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#bring-your-own-password-sso-applications).
 
--   **Geïntegreerde Windows-verificatie**: voor toepassingen met geïntegreerde Windows-verificatie (IWA), eenmalige aanmelding is ingeschakeld via Kerberos-beperkt delegatie (KCD). Dit wordt Application Proxy Connectors gemachtigd in Active Directory: gebruikers tooimpersonate en toosend en tokens namens hen ontvangen. Meer informatie over het configureren van KCD vindt u in Hallo [eenmalige aanmelding met KCD documentatie](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd).
+-   **Geïntegreerde Windows-verificatie**: voor toepassingen met geïntegreerde Windows-verificatie (IWA), eenmalige aanmelding is ingeschakeld via Kerberos-beperkt delegatie (KCD). Dit wordt Application Proxy Connectors gemachtigd in Active Directory gebruikers, te imiteren en om het verzenden en ontvangen van tokens in hun naam. Meer informatie over het configureren van KCD vindt u in de [eenmalige aanmelding met KCD documentatie](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd).
 
--   **Op basis van een koptekst aanmelding**: Header gebaseerde aanmelding via een verbinding is ingeschakeld en is aanvullende configuratie vereist. Zie voor informatie over Hallo samenwerking en stapsgewijze instructies voor het configureren van eenmalige aanmelding tooan-toepassing die gebruikmaakt van headers voor de verificatie, Hallo [PingAccess voor Azure AD-documentatie](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access).
+-   **Op basis van een koptekst aanmelding**: Header gebaseerde aanmelding via een verbinding is ingeschakeld en is aanvullende configuratie vereist. Zie voor meer informatie over de samenwerking en stapsgewijze instructies voor het configureren van eenmalige aanmelding tot een toepassing die gebruikmaakt van headers voor de verificatie, de [PingAccess voor Azure AD-documentatie](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access).
 
-Elk van deze opties kunt u vinden door te gaan tooyour toepassing in 'Bedrijfstoepassingen' en openen Hallo **Single Sign-On** pagina op Hallo linkermenu. Houd er rekening mee dat als uw toepassing is gemaakt in de oude portal hello, u niet al deze opties ziet mogelijk.
+Elk van deze opties kunt u vinden door te gaan naar de toepassing in 'Bedrijfstoepassingen' en openen van de **Single Sign-On** pagina in het menu links. Houd er rekening mee dat als uw toepassing in de oude portal is gemaakt, u niet al deze opties ziet mogelijk.
 
-Op deze pagina ook ziet u een extra optie voor eenmalige aanmelding: gekoppelde aanmelding. Dit wordt ook ondersteund door de toepassingsproxy. Let echter op deze optie voegt geen eenmalige aanmelding toohello toepassing. Die deze toepassing hello mogelijk al eenmalige aanmelding geïmplementeerd met een andere service zoals Active Directory Federation Services. 
+Op deze pagina ook ziet u een extra optie voor eenmalige aanmelding: gekoppelde aanmelding. Dit wordt ook ondersteund door de toepassingsproxy. Houd er echter rekening mee dat deze optie geen eenmalige aanmelding tot de toepassing voegt. Die de toepassing heeft mogelijk al eenmalige aanmelding geïmplementeerd met een andere service zoals Active Directory Federation Services genoemd. 
 
-Deze optie kunt een beheerder toocreate een koppeling tooan-toepassing die de gebruikers eerst land op bij het openen van de toepassing hello. Bijvoorbeeld als er een toepassing die is geconfigureerd met behulp van Active Directory Federation Services 2.0 tooauthenticate-gebruikers, kan een beheerder Hallo ' gekoppelde aanmelding ' optie toocreate een tooit koppeling gebruiken op Hallo Toegangsvenster.
+Deze optie kunt een beheerder een koppeling maken naar een toepassing die gebruikers eerste land op bij het openen van de toepassing. Bijvoorbeeld, als er een toepassing die is geconfigureerd voor verificatie van gebruikers met behulp van Active Directory Federation Services 2.0, kan een beheerder de optie ' gekoppelde aanmelding ' gebruiken voor het maken van een koppeling in het deelvenster toegang.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Bieden van eenmalige aanmelding tooyour apps met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md)
+[Geef één aanmelding bij uw apps met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md)

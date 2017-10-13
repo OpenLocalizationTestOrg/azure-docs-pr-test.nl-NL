@@ -1,5 +1,5 @@
 ---
-title: aaaCreate Azure Service Bus-naamruimte onderwerpabonnement met Azure Resource Manager-sjabloon | Microsoft Docs
+title: Azure Service Bus-naamruimte onderwerpabonnement met Azure Resource Manager-sjabloon maken | Microsoft Docs
 description: Een Service Bus-naamruimte maken met het onderwerp en een abonnement met Azure Resource Manager-sjabloon
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 9b5f7d8710e598b73c0a7ea3daf8c300f7fa9ecd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8dd48787e7b788d249085b3110484de1a2c1d265
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte maken met het onderwerp en een abonnement met een Azure Resource Manager-sjabloon
 
-Dit artikel laat zien hoe toouse een Azure Resource Manager-sjabloon die wordt gemaakt een Service Bus-naamruimte en een onderwerp en een abonnement binnen deze naamruimte. U leert hoe toodefine welke resources zijn geïmplementeerd en hoe toodefine parameters die zijn opgegeven wanneer het Hallo-implementatie wordt uitgevoerd. U kunt deze sjabloon voor uw eigen implementaties gebruiken of aanpassen toomeet uw vereisten
+Dit artikel laat zien hoe u een Azure Resource Manager-sjabloon die wordt gemaakt van een Service Bus-naamruimte en een onderwerp en een abonnement binnen deze naamruimte. U leert hoe om te definiëren welke bronnen worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen
 
 Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen samenstellen][Authoring Azure Resource Manager templates].
 
-Zie voor de volledige sjabloon hello, Hallo [Service Bus-naamruimte met onderwerp en een abonnement] [ Service Bus namespace with topic and subscription] sjabloon.
+Zie voor de volledige sjabloon, het [Service Bus-naamruimte met onderwerp en een abonnement] [ Service Bus namespace with topic and subscription] sjabloon.
 
 > [!NOTE]
-> Hallo na Azure Resource Manager-sjablonen zijn beschikbaar voor download- en implementatie.
+> De volgende Azure Resource Manager-sjablonen zijn beschikbaar voor download- en implementatie.
 > 
 > * [Een Service Bus-naamruimte maken](service-bus-resource-manager-namespace.md)
 > * [Een Service Bus-naamruimte maken met de wachtrij](service-bus-resource-manager-namespace-queue.md)
 > * [Een Service Bus-naamruimte met een wachtrij en autorisatie regel maken](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Een Service Bus-naamruimte maken met onderwerp, abonnement en regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> toocheck voor de meest recente sjablonen hello, gaat u naar Hallo [Azure-Snelstartsjablonen] [ Azure Quickstart Templates] galerie en zoek naar 'Servicebus'.
+> Om te controleren of de meest recente sjablonen, gaat u naar de [Azure-Snelstartsjablonen] [ Azure Quickstart Templates] galerie en zoek naar 'Servicebus'.
 > 
 > 
 
@@ -46,18 +46,18 @@ Met deze sjabloon implementeert u een Service Bus-naamruimte met onderwerp en ee
 
 [Service Bus-onderwerpen en abonnementen](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) biedt een een-op-veel-vorm van communicatie, in een *publiceren/abonneren* patroon.
 
-toorun implementatie automatisch Hallo, klikt u op de knop volgende Hallo:
+Klik op de volgende knop om de implementatie automatisch uit te voeren:
 
-[![TooAzure implementeren](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-and-subscription%2Fazuredeploy.json)
+[![Implementeren in Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-and-subscription%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parameters
 
-Met Azure Resource Manager u parameters definiëren voor waarden gewenste toospecify wanneer Hallo sjabloon wordt geïmplementeerd. Hallo-sjabloon bevat een sectie met de naam `Parameters` die Hallo parameterwaarden bevat. U moet een parameter voor de waarden die variëren op basis van Hallo-project die u implementeert of op basis van Hallo-omgeving die u om te implementeert definiëren. Definieer parameters niet voor waarden die altijd blijft dezelfde Hallo. De waarde van elke parameter wordt gebruikt in Hallo sjabloon toodefine Hallo resources die zijn geïmplementeerd.
+Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die de parameterwaarden bevat. U moet een parameter voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving die u om te implementeert definiëren. Geen parameters op voor waarden die u altijd hetzelfde gedefinieerd. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd.
 
-Hallo sjabloon definieert Hallo parameters te volgen.
+De sjabloon definieert de volgende parameters.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-Hallo-naam van Hallo Service Bus-naamruimte toocreate.
+De naam van de Service Bus-naamruimte maken.
 
 ```json
 "serviceBusNamespaceName": {
@@ -66,7 +66,7 @@ Hallo-naam van Hallo Service Bus-naamruimte toocreate.
 ```
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
-Hallo-naam van Hallo onderwerp in Hallo Service Bus-naamruimte gemaakt.
+De naam van het onderwerp in de Service Bus-naamruimte gemaakt.
 
 ```json
 "serviceBusTopicName": {
@@ -75,7 +75,7 @@ Hallo-naam van Hallo onderwerp in Hallo Service Bus-naamruimte gemaakt.
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
-Hallo-naam van het Hallo-abonnement in Hallo Service Bus-naamruimte gemaakt.
+De naam van het abonnement in de Service Bus-naamruimte gemaakt.
 
 ```json
 "serviceBusSubscriptionName": {
@@ -84,14 +84,14 @@ Hallo-naam van het Hallo-abonnement in Hallo Service Bus-naamruimte gemaakt.
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-Hallo Service Bus-API-versie van Hallo-sjabloon.
+De Service Bus-API-versie van de sjabloon.
 
 ```json
 "serviceBusApiVersion": {
 "type": "string"
 }
 ```
-## <a name="resources-toodeploy"></a>Resources toodeploy
+## <a name="resources-to-deploy"></a>Resources om te implementeren
 Maakt een standaard Service Bus-naamruimte van het type **Messaging**, met het onderwerp en een abonnement.
 
 ```json
@@ -128,7 +128,7 @@ Maakt een standaard Service Bus-naamruimte van het type **Messaging**, met het o
     }]
 ```
 
-## <a name="commands-toorun-deployment"></a>Opdrachten toorun implementatie
+## <a name="commands-to-run-deployment"></a>Opdrachten om implementatie uit te voeren
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
@@ -144,14 +144,14 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u hebt gemaakt en geïmplementeerd resources met behulp van Azure Resource Manager, kunt u nagaan hoe toomanage deze resources aan de hand van deze artikelen:
+Nu dat u hebt gemaakt en geïmplementeerd met Azure Resource Manager bronnen, meer informatie over deze resources beheren door deze artikelen te bekijken:
 
 * [Servicebus met PowerShell beheren](service-bus-manage-with-ps.md)
-* [Service Bus-resources beheren met Hallo Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Service Bus-resources beheren met de Service Bus-Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
-[Using hello Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Service Bus namespace with topic and subscription]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/

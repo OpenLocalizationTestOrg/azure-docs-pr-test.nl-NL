@@ -1,6 +1,6 @@
 ---
-title: aaaConfiguring inhoudsbeveiliging beleidsregels met behulp van Azure-portal Hallo | Microsoft Docs
-description: In dit artikel laat zien hoe toouse hello Azure portal tooconfigure content protection-beleid. Hallo artikel wordt ook toont hoe tooenable dynamische versleuteling voor de activa.
+title: Configureren van beleidsregels voor beveiliging van inhoud met behulp van de Azure-portal | Microsoft Docs
+description: In dit artikel laat zien hoe de Azure portal gebruiken voor het configureren van beleid voor beveiliging van inhoud. Ook wordt uitgelegd hoe u dynamische versleuteling voor de activa in te schakelen.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,74 +14,74 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 3e7ce6ddaa0e738b5a1e26dafe9eef2df221f039
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 67b3fa9936daebeafb7e87fe3a7b0c7e0105b3b3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="configuring-content-protection-policies-using-hello-azure-portal"></a>Beleidsregels voor beveiliging van inhoud met behulp van hello Azure-portal configureren
+# <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Beleidsregels voor beveiliging van inhoud met behulp van de Azure-portal configureren
 > [!NOTE]
-> toocomplete in deze zelfstudie, moet u een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 > 
 > 
 
 ## <a name="overview"></a>Overzicht
-Microsoft Azure Media Services (AMS) kunt u toosecure uw media Hallo tijd vanaf uw computer via de opslag, verwerking en levering. Media Services kunt u toodeliver uw inhoud versleuteld dynamisch met Advanced Encryption Standard (AES) (met behulp van coderingssleutels 128-bits), common encryption (CENC) met PlayReady en/of Widevine DRM en Apple FairPlay. 
+Microsoft Azure Media Services (AMS) kunt u voor het beveiligen van uw media vanaf het moment dat het verlaten van uw computer via de opslag, verwerking en levering. Media Services kunt u leveren de inhoud versleuteld dynamisch met Advanced Encryption Standard (AES) (met behulp van coderingssleutels 128-bits), common encryption (CENC) met PlayReady en/of Widevine DRM en Apple FairPlay. 
 
-AMS voorziet in een service voor het leveren van DRM-licenties en AES wissen sleutels tooauthorized clients. Hello Azure-portal kunt u toocreate een **sleutel/licentie autorisatiebeleid** voor alle typen versleutelingen.
+AMS voorziet in een service voor het leveren van DRM-licenties en AES-sleutels geautoriseerde clients wissen. De Azure-portal kunt u een maken **sleutel/licentie autorisatiebeleid** voor alle typen versleutelingen.
 
-In dit artikel laat zien hoe tooconfigure inhoud beveiligingsbeleid Hello Azure-portal. Hallo artikel wordt ook toont hoe tooapply dynamische versleuteling tooyour activa.
+In dit artikel laat zien hoe beleid voor beveiliging van inhoud configureren met de Azure-portal. Ook wordt uitgelegd hoe u dynamische versleuteling toepassen op uw assets.
 
 
 > [!NOTE]
-> Als u hello Azure classic portal toocreate protection-beleid gebruikt, Hallo beleid mogelijk niet in Hallo [Azure-portal](https://portal.azure.com/). Alle Hallo oude beleidsregels echter nog steeds aanwezig zijn. U kunt ze controleren met behulp van Azure Media Services .NET SDK of Hallo Hallo [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases) hulpprogramma (toosee Hallo beleidsregels, klik met de rechtermuisknop op Hallo asset -> weergave informatie (F4) -> Klik op inhoud sleutels tabblad -> Klik op het Hallo-sleutel). 
+> Als u de klassieke Azure portal gebruikt voor het maken van beleid voor gegevensbeveiliging, het beleid mogelijk niet in de [Azure-portal](https://portal.azure.com/). Echter alle beleidsregels van de oude, nog bestaan. U kunt deze met Azure Media Services .NET SDK controleren of de [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases) hulpprogramma (overzicht van het beleid met de rechtermuisknop op de asset -> weergave informatie (F4) -> Klik op het tabblad inhoud sleutels -> Klik op de sleutel). 
 > 
-> Als u uw asset werken met beleid voor nieuwe tooencrypt wilt, configureert u deze met hello Azure-portal, klik op Opslaan en dynamische versleuteling toepassen. 
+> Als u versleutelen van uw asset met behulp van nieuwe beleidsregels wilt, configureert u deze met de Azure-portal, klik op Opslaan en dynamische versleuteling toepassen. 
 > 
 > 
 
 ## <a name="start-configuring-content-protection"></a>Beginnen met de configuratie van de beveiliging van inhoud
-toouse hello portal toostart content protection globale tooyour AMS-account configureren Hallo te volgen:
+Als u de portal wilt beginnen met de configuratie van de beveiliging van inhoud, globale op uw AMS-account, het volgende doen:
 
-1. In Hallo [Azure-portal](https://portal.azure.com/), selecteert u uw Azure Media Services-account.
+1. Selecteer uw Azure Media Services-account in [Azure Portal](https://portal.azure.com/).
 2. Selecteer **instellingen** > **Content protection**.
 
 ![Inhoud beschermen](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
 ## <a name="keylicense-authorization-policy"></a>Autorisatiebeleid voor de sleutel/licentie
-AMS ondersteunt meerdere manieren van gebruikers die sleutel of licentie-aanvragen te verifiëren. Hallo autorisatiebeleid voor inhoudssleutels moet worden geconfigureerd door u en voldaan door de client om Hallo sleutel/licentie toobe delived toohello client. Hallo autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: **openen** of **token** beperking.
+AMS ondersteunt meerdere manieren van gebruikers die sleutel of licentie-aanvragen te verifiëren. Het autorisatiebeleid voor inhoudssleutels moet worden geconfigureerd door u en voldaan door de client om de sleutel/licentie worden delived naar de client. Het autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: **openen** of **token** beperking.
 
-Hello Azure-portal kunt u toocreate een **sleutel/licentie autorisatiebeleid** voor alle typen versleutelingen.
+De Azure-portal kunt u een maken **sleutel/licentie autorisatiebeleid** voor alle typen versleutelingen.
 
 ### <a name="open"></a>Open
-Open beperking houdt in dat systeem Hallo Hallo sleutel tooanyone die sleutels aanvragen levert. Deze beperking kan handig zijn voor testdoeleinden. 
+Open beperking betekent dat het systeem de sleutel voor iedereen die een sleutel aanvraag indient levert. Deze beperking kan handig zijn voor testdoeleinden. 
 
 ### <a name="token"></a>Token
-Hallo token beleid voor de beperkte vergezeld van een token dat is uitgegeven door een Secure Token Service (STS). Media Services ondersteunt tokens in Hallo Simple Web Tokens (SWT) en JSON Web Token (JWT)-indeling. Media Services biedt geen Token Services beveiligen. U kunt een aangepaste STS maken of gebruikmaken van Microsoft Azure ACS tooissue tokens. Hallo STS moet geconfigureerde toocreate token van een ondertekend met Hallo opgegeven sleutel- en claims die u hebt opgegeven in de configuratie van Hallo tokenbeperking. Hallo Media Services sleutellevering service Hallo aangevraagd toohello (of licentiegegevens)-client retourneert als Hallo token geldig is en Hallo claims in Hallo token overeenkomen met die zijn geconfigureerd voor hello (of licentiegegevens).
+Het beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door Secure Token Service (STS). Media Services ondersteunt tokens in de indeling Simple Web Tokens (SWT) en JSON Web Token (JWT)-indeling. Media Services biedt geen Token Services beveiligen. U kunt een aangepaste STS maken of gebruikmaken van Microsoft Azure ACS voor het probleem van tokens. De STS moeten worden geconfigureerd voor het maken van een token dat is ondertekend met de opgegeven sleutel- en claims die u hebt opgegeven in de configuratie van de tokenbeperking. De Media Services sleutellevering-service wordt de aangevraagde sleutel (of licentie) naar de client als het token geldig is en de claims in het token overeenkomen met die zijn geconfigureerd voor de sleutel (of licentie) geretourneerd.
 
-U moet bij het configureren van token beperkte beleid Hallo Hallo verificatie van de primaire sleutel, uitgever en doelgroep parameters opgeven. Hallo verificatie van de primaire sleutel bevat Hallo key of Hallo-token is ondertekend met, de uitgever Hallo secure token-service die het Hallo-token uitgeeft. Hallo doelgroep (ook wel bereik genoemd) wordt beschreven Hallo bedoeling van Hallo token of Hallo resource Hallo token gemachtigd voor toegang tot. Hallo Media Services-service voor sleutellevering valideert dat deze waarden in Hallo token Hallo-waarden in de sjabloon Hallo overeenkomen.
+Wanneer beleid voor het configureren van het token worden beperkt, moet u de verificatie van de primaire sleutel, uitgever en doelgroep parameters opgeven. De verificatie van de primaire sleutel bevat de sleutel die het token is ondertekend met, certificaatverlener is de secure token service die de token uitgeeft. De doelgroep (ook wel bereik genoemd) beschrijft de intentie van het token of de resource het token gemachtigd voor toegang tot. De Media Services-service sleutellevering valideert dat deze waarden in het token overeenkomen met de waarden in de sjabloon.
 
 ![Inhoud beschermen](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
 ## <a name="playready-rights-template"></a>PlayReady-rechtensjabloon
-Zie voor gedetailleerde informatie over Hallo PlayReady rechtensjabloon [Media Services PlayReady licentie sjabloon overzicht](media-services-playready-license-template-overview.md).
+Zie voor gedetailleerde informatie over de rechtensjabloon PlayReady [Media Services PlayReady licentie sjabloon overzicht](media-services-playready-license-template-overview.md).
 
 ### <a name="non-persistent"></a>Niet-permanente
-Als u de licentie als niet-permanente configureert, wordt deze alleen bewaard in het geheugen tijdens het Hallo-speler Hallo-licentie gebruikt.  
+Als u de licentie als niet-permanente configureert, wordt deze alleen bewaard in het geheugen terwijl de licentie wordt gebruikt door Windows media player.  
 
 ![Inhoud beschermen](./media/media-services-portal-content-protection/media-services-content-protection003.png)
 
 ### <a name="persistent"></a>Permanente
-Als u Hallo licentie als permanente configureert, wordt deze opgeslagen in de permanente opslag op Hallo-client.
+Als u de licentie als permanente configureert, wordt deze opgeslagen in de permanente opslag op de client.
 
 ![Inhoud beschermen](./media/media-services-portal-content-protection/media-services-content-protection004.png)
 
 ## <a name="widevine-rights-template"></a>Widevine-rechtensjabloon
-Zie voor gedetailleerde informatie over Hallo Widevine rechtensjabloon [Widevine-licentie sjabloon overzicht](media-services-widevine-license-template-overview.md).
+Zie voor gedetailleerde informatie over de rechtensjabloon Widevine [Widevine-licentie sjabloon overzicht](media-services-widevine-license-template-overview.md).
 
 ### <a name="basic"></a>Basic
-Wanneer u selecteert **Basic**, Hallo sjabloon wordt gemaakt met alle standaardwaarden waarden.
+Wanneer u selecteert **Basic**, de sjabloon wordt gemaakt met alle standaardwaarden waarden.
 
 ### <a name="advanced"></a>Geavanceerd
 Zie voor gedetailleerde uitleg over geavanceerde optie Widevine configuraties [dit](media-services-widevine-license-template-overview.md) onderwerp.
@@ -89,15 +89,15 @@ Zie voor gedetailleerde uitleg over geavanceerde optie Widevine configuraties [d
 ![Inhoud beschermen](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## <a name="fairplay-configuration"></a>FairPlay-configuratie
-tooenable FairPlay versleuteling, moet u tooprovide Hallo certificaat-App en toepassing geheime sleutel (vraag) via Hallo FairPlay configuratieoptie. Zie voor gedetailleerde informatie over de vereisten en FairPlay configuratie [dit](media-services-protect-hls-with-fairplay.md) artikel.
+FairPlay om versleuteling te schakelen, moet u het certificaat van de App en de toepassing geheime sleutel (vraag) bieden via de optie FairPlay-configuratie. Zie voor gedetailleerde informatie over de vereisten en FairPlay configuratie [dit](media-services-protect-hls-with-fairplay.md) artikel.
 
 ![Inhoud beschermen](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
-## <a name="apply-dynamic-encryption-tooyour-asset"></a>Dynamische versleuteling tooyour asset toepassen
-tootake profiteren van dynamische versleuteling hoeft u tooencode uw bronbestand in een set adaptive bitrate MP4-bestanden.
+## <a name="apply-dynamic-encryption-to-your-asset"></a>Dynamische versleuteling toepassen op uw asset
+Om te profiteren van dynamische versleuteling, moet u het bronbestand coderen in een set adaptive bitrate MP4-bestanden.
 
-### <a name="select-an-asset-that-you-want-tooencrypt"></a>Selecteer een asset die u tooencrypt wilt
-uw assets selecteert u toosee **instellingen** > **activa**.
+### <a name="select-an-asset-that-you-want-to-encrypt"></a>Selecteer een asset die u wilt versleutelen
+Overzicht van alle uw assets selecteert **instellingen** > **activa**.
 
 ![Inhoud beschermen](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
@@ -110,7 +110,7 @@ AES wissen sleutelcodering wordt ingeschakeld voor alle protocollen voor streami
 ![Inhoud beschermen](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 
 #### <a name="drm"></a>DRM
-Wanneer u Hallo DRM tabblad selecteert, krijgt u verschillende mogelijkheden van het beleid van de beveiliging van inhoud (die u moet nu hebt geconfigureerd) + een reeks protocollen voor streaming.
+Wanneer u het tabblad DRM selecteert, krijgt u verschillende mogelijkheden van het beleid van de beveiliging van inhoud (die u moet nu hebt geconfigureerd) + een reeks protocollen voor streaming.
 
 * **PlayReady en Widevine met MPEG-DASH** -wordt uw MPEG-DASH-stream met PlayReady en Widevine DRM's dynamisch versleutelen.
 * **PlayReady en Widevine met MPEG-DASH + FairPlay met HLS** -wordt dynamisch versleutelen u MPEG-DASH-stroom met PlayReady en Widevine DRM's. Uw HLS-streams met FairPlay zal ook worden versleuteld.
@@ -118,14 +118,14 @@ Wanneer u Hallo DRM tabblad selecteert, krijgt u verschillende mogelijkheden van
 * **Widevine alleen met MPEG-DASH** -wordt dynamisch versleutelen u MPEG-DASH met Widevine DRM.
 * **FairPlay alleen met HLS** -wordt uw HLS-stream met FairPlay dynamisch versleutelen.
 
-tooenable FairPlay versleuteling, moet u tooprovide Hallo certificaat-App en toepassing geheime sleutel (vraag) via Hallo FairPlay configuratieoptie van blade Hallo Content Protection-instellingen.
+FairPlay om versleuteling te schakelen, moet u het certificaat van de App en de toepassing geheime sleutel (vraag) via de optie FairPlay configuratie van de beveiliging van inhoud-instellingenblade opgeven.
 
 ![Inhoud beschermen](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
-Wanneer u Hallo versleutelingsselectie hebt gemaakt, drukt u op **toepassen**.
+Wanneer u de versleutelingsselectie hebt gemaakt, drukt u op **toepassen**.
 
 >[!NOTE] 
->Als u van plan bent tooplay een AES HLS in Safari versleuteld, Zie [deze blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+>Als u van plan bent om af te spelen een AES HLS in Safari versleuteld, Zie [deze blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Volgende stappen
 Media Services-leertrajecten bekijken.

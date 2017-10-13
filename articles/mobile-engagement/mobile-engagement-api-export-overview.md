@@ -1,6 +1,6 @@
 ---
-title: aaaMobile Engagement exporteren-API-overzicht
-description: Meer informatie over Hallo basisbeginselen over het exporteren van de onbewerkte gegevens gegenereerd door de gebruiker apparaten tooleverage in uw eigen hulpprogramma 's
+title: Overzicht van Mobile Engagement Export-API
+description: Leer de basisbeginselen van de onbewerkte gegevens die zijn gegenereerd door de apparaten van uw gebruikers gebruikmaken van deze in uw eigen's exporteren
 services: mobile-engagement
 documentationcenter: mobile
 author: kpiteira
@@ -14,62 +14,62 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
-ms.openlocfilehash: f55be29a29878e74f6a33419f08a5574a07a7478
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="mobile-engagement-export-api-overview"></a>Overzicht van Mobile Engagement Export-API
 ## <a name="introduction"></a>Inleiding
-In dit document leert u Hallo basisbeginselen over het exporteren van de onbewerkte gegevens gegenereerd door de gebruiker apparaten tooleverage in uw eigen hulpmiddelen.
+In dit document leert u de basisbeginselen over het exporteren van de onbewerkte gegevens die zijn gegenereerd door de apparaten van uw gebruikers gebruikmaken van deze in uw eigen hulpmiddelen.
 
 ## <a name="pre-requisites"></a>Vereisten
-Hallo onbewerkte gegevens exporteren van Mobile Engagement vereist:
+De onbewerkte gegevens exporteren van Mobile Engagement vereist:
 
-* API authentication setup toobe kunnen toouse Hallo API's (Zie [verificatie handmatige installatie](mobile-engagement-api-authentication-manual.md)),
-* Hallo REST-API's of hello gebruiken [.net SDK](mobile-engagement-dotnet-sdk-service-api.md),
+* API-verificatie-instellingen kunnen gebruikmaken van de API's (Zie [verificatie handmatige installatie](mobile-engagement-api-authentication-manual.md)),
+* Ofwel de REST-API's gebruiken of de [.net SDK](mobile-engagement-dotnet-sdk-service-api.md),
 * Een Azure Storage-account.
 
 > [!NOTE]
-> Ook wordt geadviseerd de Hallo uitstekende [Microsoft Azure Storage Explorer](http://storageexplorer.com/), ten minste tijdens de ontwikkelingsfase Hallo zoals deze voor interactie met Azure Storage biedt een eenvoudige toouse gebruikersinterface.
+> Ook wordt geadviseerd de uitstekende [Microsoft Azure Storage Explorer](http://storageexplorer.com/), ten minste tijdens de ontwikkelingsfase zoals deze voor interactie met Azure Storage biedt een gebruikersinterface te gebruiken.
 > 
 > 
 
 ## <a name="what-can-be-exported"></a>Wat kunnen worden geëxporteerd?
-Mobile Engagement kunt de gebruikers toocollect veel soorten gegevens, en daarom geschikt heeft verschillende typen export zijn toothese verschillende gegevenstypen.
+Mobile Engagement kunnen de gebruikers veel soorten gegevens verzamelen en daarom heeft verschillende typen van uitvoer die geschikt is voor deze verschillende gegevenstypen.
 Er zijn 2 essentiële typen van uitvoer:
 
-* Momentopname: doorgaans tooexport gegevens die staat voor een status en waarvoor de Mobile Engagement geen hebben een geschiedenis gebruikt. Dit bevat bijvoorbeeld Tags (app-info)-tokens of push campagne feedback. Als gevolg hiervan exporteren deze typen zijn niet gerelateerd tooa datum.
+* Momentopname: gebruikt om gegevens te exporteren vertegenwoordigt die doorgaans een status en waarvoor de Mobile Engagement geen hebben een geschiedenis. Dit bevat bijvoorbeeld Tags (app-info)-tokens of push campagne feedback. Als gevolg hiervan dat deze typen export niet zijn gerelateerd aan een datum.
 * historische: dit type uitvoer wordt gebruikt voor gegevens die zich bijvoorbeeld na verloop van tijd zoals gebeurtenissen of activiteiten.
 
-Hallo in de volgende tabel beschrijft uitgebreid Hallo mogelijke uitvoer:
+De onderstaande tabel worden uitgebreid alle mogelijke exportbestanden beschreven:
 
 | Type exporteren | Gegevenstype | Beschrijving |
 | --- | --- | --- |
 | Momentopname |Push |Exporteren van een van de feedback Push campagnes op basis van per apparaat-id/userid genereert |
-| Momentopname |Label |Genereert een export van Hallo labels (app-info) van tooeach apparaten |
-| Momentopname |Apparaat |Exporteren van een van de meeste Hallo gegevens over apparaten zoals Hallo technicals (model, landinstellingen, tijdzone,...), Hallo labels, gezien eerst genereert... |
-| Momentopname |Token |Uitvoer van alle geldige Hallo-tokens genereert |
-| Historische |Activiteit |Genereert een export van alle Hallo activiteiten voor elk apparaat op een opgegeven periode |
-| Historische |Gebeurtenis |Genereert een export van alle Hallo activiteiten voor elk apparaat op een opgegeven periode |
-| Historische |Job |Genereert een exporteren van alle Hallo-taken voor elk apparaat op een opgegeven periode |
-| Historische |Fout |Genereert een exporteren met alle Hallo fouten voor elk apparaat op een opgegeven periode |
+| Momentopname |Label |Exporteren van een van de labels (app-info) die is gekoppeld aan elk apparaat wordt gegenereerd |
+| Momentopname |Apparaat |Exporteren van een van de meeste gegevens over apparaten zoals de technicals (model, landinstellingen, tijdzone,...), de labels, gezien eerst genereert... |
+| Momentopname |Token |Exporteren van een van de geldige tokens genereert |
+| Historische |Activiteit |Genereert een export van de activiteiten voor elk apparaat op een opgegeven periode |
+| Historische |Gebeurtenis |Genereert een export van de activiteiten voor elk apparaat op een opgegeven periode |
+| Historische |Job |Genereert een exporteren van alle taken voor elk apparaat op een opgegeven periode |
+| Historische |Fout |Genereert een exporteren met alle fouten voor elk apparaat op een opgegeven periode |
 
 ## <a name="how-does-it-work"></a>Hoe werkt het?
-Uitvoer zijn lang actieve taken die kan leiden tot grote gegevensbestanden. Daarom kunnen ze aangeroepen tooreturn onmiddellijk een bestand toodownload niet.
-In de volgorde tooexport gegevens van Mobile Engagement, hebt u toocreate een **taak exporteren** via API waarin u in het algemeen opgeeft:
+Uitvoer zijn lang actieve taken die kan leiden tot grote gegevensbestanden. Daarom moet ze niet aanroepen om terug te keren onmiddellijk een bestand te downloaden.
+Om gegevens uit de Mobile Engagement exporteert, u moet maken van een **taak exporteren** via API waarin u in het algemeen opgeeft:
 
-* Hallo type export (momentopname of historische)
-* Hallo-gegevenstype.
-* Hallo **Azure Storage-Container** (met inbegrip van een geldige SAS met schrijftoegang) waar Hallo resultaat van Hallo exporteren worden geschreven.
+* Het type uitvoer (momentopname of historische)
+* Het gegevenstype
+* De **Azure Storage-Container** (met inbegrip van een geldige SAS met schrijftoegang) waar het resultaat van het exporteren worden geschreven.
 * bijvoorbeeld voorbeeld Container URL-parameter zouden worden https://[StorageAccountName].blob.core.windows.net/[ContainerName]? [SASWritePermissionsToken]  
 
 Hier volgt een voorbeeld van een echte wereld. https://testazmeexport.BLOB.Core.Windows.NET/test1234azme?SV=2015-12-11&SS=b&Srt=SCO&SP=rwdlac&se=2016-12-17T04:59:26Z & st = 2016-12-16T20:59:26Z & spr = https & sig = KRF3aVWjp2NEJDzjlmoplmu0M9HHlLdkBWRPAFmw90Q % 3D
 
-Houd er rekening mee dat het enkele minuten voordat uw taak toobe gestart duren kan en vervolgens kan worden uitgevoerd vanuit een paar seconden voor kleine apps tooseveral uur voor apps met een groot aantal gebruikers- of -activiteit.
+Houd er rekening mee dat het enkele minuten voordat de taak duren kan moet worden gestart en vervolgens kan worden uitgevoerd vanuit een paar seconden voor kleine apps tot enkele uren voor apps met een groot aantal gebruikers- of -activiteit.
 
-Zodra het Hallo-taak is gemaakt, is het mogelijk toocheck de toosee status als het nog steeds uitgevoerd of als deze is voltooid.
+Zodra de taak is gemaakt, is het mogelijk om te controleren van de status ervan weer te geven als deze nog wordt uitgevoerd of als deze is voltooid.
 
-Zodra het Hallo-taak is voltooid, is Hallo resulterende gegevensbestand beschikbaar op Hallo opgegeven storage-container.
+Zodra de taak is voltooid, is het resulterende bestand is beschikbaar op de opgegeven storage-container.
 

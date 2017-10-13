@@ -1,6 +1,6 @@
 ---
-title: aaaAzure Media Services dynamische pakketten overzicht | Microsoft Docs
-description: Hallo onderwerp biedt en overzicht van dynamische pakketten.
+title: Overzicht van Azure Media Services dynamische pakketten | Microsoft Docs
+description: Het onderwerp biedt en overzicht van dynamische pakketten.
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,42 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 970e24eba800e098774172c87f56629430b227a9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2d212599302fced3f60085ab30cdeaefc1ee2e6a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="dynamic-packaging"></a>Dynamische verpakking
 ## <a name="overview"></a>Overzicht
-Microsoft Azure Media Services kunnen worden gebruikt toodeliver veel media bron bestandsindelingen, media streaming-indelingen en beveiliging van inhoud indelingen tooa verschillende technologieën van de client (bijvoorbeeld iOS-, XBOX, Silverlight, Windows 8). Deze clients begrijpen verschillende protocollen, bijvoorbeeld iOS een HTTP Live Streaming (HLS)-V4-indeling heeft en Silverlight en Xbox vereisen Smooth Streaming. Als u een set adaptive bitrate (multi-bitrate) hebt MP4-bestanden (ISO Base Media 14496-12) of een set adaptive bitrate Smooth Streaming-bestanden die u wilt dat tooserve tooclients die MPEG DASH, HLS of Smooth Streaming begrijpen, moet u ook te profiteren van Media Services dynamische pakketten.
+Microsoft Azure Media Services kunnen worden gebruikt voor het leveren van veel bron bestandsindelingen mediastreaming indelingen, en beveiliging van inhoud bestandsindelingen naar verschillende technologieën van de client (bijvoorbeeld iOS-, XBOX, Silverlight, Windows 8). Deze clients begrijpen verschillende protocollen, bijvoorbeeld iOS een HTTP Live Streaming (HLS)-V4-indeling heeft en Silverlight en Xbox vereisen Smooth Streaming. Als u een set adaptive bitrate (multi-bitrate) hebt MP4-bestanden (ISO Base Media 14496-12) of een set adaptive bitrate Smooth Streaming-bestanden die u wilt leveren aan clients die MPEG DASH, HLS of Smooth Streaming begrijpen, moet u ook te profiteren van Media Services dynamische pakketten.
 
-Met dynamische verpakking alles wat die u nodig is toocreate een asset die een set adaptive bitrate MP4-bestanden of adaptive bitrate Smooth Streaming-bestanden bevat. Vervolgens, op basis van de opgegeven indeling in het manifest Hallo Hallo of fragment aanvraag, Hallo On-Demand Streaming server zorgt ervoor dat u Hallo stream ontvangt in Hallo protocol dat u hebt gekozen. Hierdoor hoeft u alleen toostore en betalen voor Hallo-bestanden in één opslagindeling en Media Services-service bouwt en levert de juiste reactie Hallo op basis van aanvragen van een client.
+Dynamische pakketten hoeft u een asset die bestaat uit een set adaptive bitrate MP4-bestanden of adaptive bitrate Smooth Streaming-bestanden te maken. Klik, op basis van de opgegeven indeling de manifest- of fragmentdeel aanvraag, de On-Demand Streaming server zorgt ervoor dat u de stream ontvangt in het protocol dat u hebt gekozen. Hierdoor hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. De Media Services-service bouwt en levert de juiste reactie op basis van aanvragen van een client.
 
-Hallo volgende diagram toont Hallo traditionele codering en werkstroom voor statische pakketten.
+Het volgende diagram ziet u de traditionele codering en de werkstroom voor statische pakketten.
 
 ![Statische codering](./media/media-services-dynamic-packaging-overview/media-services-static-packaging.png)
 
-Hallo toont volgende diagram Hallo dynamische pakketten werkstroom.
+Het volgende diagram toont de werkstroom dynamische pakketten.
 
 ![Dynamische codering](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 
 ## <a name="common-scenario"></a>Gangbare scenario
-1. Upload een invoerbestand (een tussentijds bestand genoemd). Bijvoorbeeld, H.264 MP4 of WMV (Zie voor een lijst met ondersteunde indelingen Hallo [indelingen ondersteund door de Media Encoder Standard Hallo](media-services-media-encoder-standard-formats.md).
-2. Codeer uw tussentijds bestand tooH.264 MP4 adaptive bitrate sets.
-3. Publiceer Hallo asset met Hallo adaptive bitrate MP4-set Hallo On Demand Locator maken.
-4. Hallo streaming-URL's tooaccess bouwen en de inhoud streamen.
+1. Upload een invoerbestand (een tussentijds bestand genoemd). Bijvoorbeeld, H.264 MP4 of WMV (voor een lijst met ondersteunde indelingen raadpleegt [indelingen ondersteund door de Media Encoder Standard](media-services-media-encoder-standard-formats.md).
+2. Codeer uw tussentijds bestand op H.264 MP4 adaptive bitrate sets.
+3. Publiceer de asset met de adaptive bitrate MP4-set door de On-Demand-Locator te maken.
+4. Bouw de streaming-URL's voor toegang tot en de inhoud streamen.
 
 ## <a name="preparing-assets-for-dynamic-streaming"></a>Activa voorbereiden voor dynamische streaming
-tooprepare uw asset voor dynamische streaming-u hebt twee opties:
+Als u wilt uw asset voorbereiden voor het streamen van dynamische hebt u twee opties:
 
 1. [Een master-bestand uploaden](media-services-dotnet-upload-files.md).
-2. [Hallo Media Encoder Standard encoder tooproduce H.264 MP4 adaptive bitrate sets gebruiken](media-services-dotnet-encode-with-media-encoder-standard.md).
+2. [De Media Encoder Standard encoder gebruiken voor het produceren MP4 H.264 adaptive bitrate sets](media-services-dotnet-encode-with-media-encoder-standard.md).
 3. [De inhoud streamen](media-services-deliver-content-overview.md).
 
 ## <a id="unsupported_formats"></a>De opmaak die niet worden ondersteund door dynamische pakketten
-Hallo worden volgende bron indelingen niet ondersteund voor dynamische pakketten.
+De volgende indelingen voor bron worden niet ondersteund voor dynamische pakketten.
 
 * Dolby digitale mp4-bestanden.
 * Dolby digitale smooth bestanden.

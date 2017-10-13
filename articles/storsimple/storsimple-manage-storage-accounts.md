@@ -1,6 +1,6 @@
 ---
-title: aaaManage uw StorSimple-opslagaccount | Microsoft Docs
-description: Legt uit hoe u Hallo StorSimple Manager configureren pagina tooadd, bewerken, verwijderen of draaien Hallo beveiligingssleutels voor een opslagaccount gebruiken kunt.
+title: Beheren van uw StorSimple-opslagaccount | Microsoft Docs
+description: Legt uit hoe u kunt de pagina configureren van de StorSimple Manager kunt toevoegen, bewerken, verwijderen of de beveiligingssleutels voor een opslagaccount draaien.
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/29/2016
 ms.author: v-sharos
-ms.openlocfilehash: 78f408818ee8532dfaac445200048145547c987c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 68b767c9c93f2daff476a21029b9813f347590b5
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="use-hello-storsimple-manager-service-toomanage-your-storage-account"></a>Hallo StorSimple Manager-service toomanage uw storage-account gebruiken
+# <a name="use-the-storsimple-manager-service-to-manage-your-storage-account"></a>De StorSimple Manager-service gebruiken voor het beheren van uw storage-account
 ## <a name="overview"></a>Overzicht
-Hallo **configureren** pagina geeft alle parameters van de Hallo wereldwijde service die kunnen worden gemaakt in Hallo StorSimple Manager-service. Deze parameters zijn toegepaste tooall Hallo apparaten verbonden toohello service, en omvatten:
+De **configureren** pagina geeft alle algemene service-parameters die kunnen worden gemaakt in de StorSimple Manager-service. Deze parameters kunnen worden toegepast op alle apparaten die zijn verbonden met de service en omvatten:
 
 * Opslagaccounts 
 * Bandbreedte-sjablonen 
 * Access control-records 
 
-Deze zelfstudie wordt uitgelegd hoe u kunt Hallo **configureren** pagina tooadd, bewerken of verwijderen storage-accounts of draaien Hallo-beveiligingssleutels voor een opslagaccount.
+Deze zelfstudie wordt uitgelegd hoe u kunt de **configureren** pagina als u wilt toevoegen, bewerken of verwijderen van de storage-accounts of de beveiligingssleutels voor een opslagaccount draaien.
 
  ![Pagina configureren](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)  
 
-Storage-accounts bevatten Hallo-referenties die Hallo apparaat gebruikt tooaccess uw storage-account bij uw serviceprovider voor de cloud. Voor Microsoft Azure storage-accounts zijn referenties zoals Hallo-accountnaam en het Hallo primaire toegangssleutel. 
+Storage-accounts bevatten de referenties die het apparaat gebruikt voor toegang tot uw storage-account bij uw serviceprovider voor de cloud. Voor Microsoft Azure storage-accounts zijn referenties zoals de accountnaam en de primaire toegangssleutel. 
 
-Op Hallo **configureren** pagina alle opslag accounts die zijn gemaakt voor abonnement facturering Hallo worden weergegeven in tabelvorm met Hallo volgende informatie:
+Op de **configureren** pagina alle opslagaccounts die zijn gemaakt voor de facturering abonnement worden weergegeven in tabelvorm met de volgende gegevens:
 
-* **Naam** – Hallo toohello-account van de unieke naam die is toegewezen toen deze werd gemaakt.
-* **SSL ingeschakeld** – of hello SSL is ingeschakeld en apparaat-naar-cloud-communicatie via Hallo beveiligd kanaal.
-* **Gebruikt door** – Hallo aantal volumes Hallo opslagaccount gebruikt.
+* **Naam** – de unieke naam toegewezen aan het account wanneer deze is gemaakt.
+* **SSL ingeschakeld** : of het SSL is ingeschakeld en apparaat-naar-cloud-communicatie is via het beveiligde kanaal.
+* **Gebruikt door** : het aantal volumes met behulp van het opslagaccount.
 
-de meest algemene taken Hallo verwante toostorage accounts die kunnen worden uitgevoerd op Hallo **configureren** pagina:
+De meest algemene taken gerelateerd aan de storage-accounts die kunnen worden uitgevoerd op de **configureren** pagina:
 
 * Een opslagaccount toevoegen 
 * Storage-account bewerken 
@@ -50,21 +50,21 @@ de meest algemene taken Hallo verwante toostorage accounts die kunnen worden uit
 ## <a name="types-of-storage-accounts"></a>Typen opslagaccounts
 Er zijn drie typen opslagaccounts die kunnen worden gebruikt met uw StorSimple-apparaat.
 
-* **Automatisch gegenereerde opslagaccounts** – Hallo naam geeft al aan dit type opslagaccount wordt automatisch gegenereerd als Hallo-service is gemaakt. toolearn meer informatie over hoe dit opslagaccount is gemaakt, Zie [stap 1: een nieuwe service maken](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) in [uw on-premises StorSimple-apparaat implementeren](storsimple-deployment-walkthrough.md). 
-* **Storage-accounts in het serviceabonnement Hallo** – dit hello Azure storage-accounts die gekoppeld aan Hallo zijn zijn hetzelfde abonnement als die van het Hallo-service. toolearn meer informatie over hoe deze opslagaccounts worden gemaakt, Zie [over Azure Storage-Accounts](../storage/common/storage-create-storage-account.md). 
-* **Storage-accounts buiten het serviceabonnement Hallo** : dit hello Azure storage-accounts die niet gekoppeld aan uw service zijn zijn en dat waarschijnlijk al bestond voordat Hallo-service is gemaakt.
+* **Automatisch gegenereerde opslagaccounts** – zoals de naam al aangeeft, dit type opslagaccount wordt automatisch gegenereerd als de service is gemaakt. Zie voor meer informatie over hoe dit opslagaccount is gemaakt, [stap 1: een nieuwe service maken](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) in [uw on-premises StorSimple-apparaat implementeren](storsimple-deployment-walkthrough.md). 
+* **Storage-accounts in het serviceabonnement** : dit zijn de Azure storage-accounts die gekoppeld aan hetzelfde abonnement als die van de service zijn. Zie voor meer informatie over hoe deze storage accounts worden gemaakt, [over Azure Storage-Accounts](../storage/common/storage-create-storage-account.md). 
+* **Storage-accounts buiten het serviceabonnement** : dit zijn de Azure storage-accounts die niet zijn gekoppeld aan uw service en waarschijnlijk bestonden voordat de service is gemaakt.
 
 ## <a name="add-a-storage-account"></a>Een opslagaccount toevoegen
-U kunt een opslagaccount toevoegen door een unieke beschrijvende naam en de referenties die zijn gekoppeld toohello storage-account (met Hallo opgegeven cloud serviceprovider). U hebt ook Hallo optie Hallo secure sockets layer (SSL) modus toocreate een beveiligd kanaal voor netwerkcommunicatie tussen uw apparaat en Hallo cloud inschakelen.
+U kunt een opslagaccount toevoegen door te geven van een unieke, beschrijvende naam en toegang tot de referenties die zijn gekoppeld aan het opslagaccount (met de opgegeven cloud serviceprovider). U hebt ook de optie voor het inschakelen van de secure sockets layer (SSL)-modus voor het maken van een beveiligd kanaal voor netwerkcommunicatie tussen uw apparaat en de cloud.
 
-U kunt meerdere accounts maken voor een bepaalde cloud serviceprovider. Vergeet echter nadat een opslagaccount is gemaakt, kunt u de cloudserviceprovider Hallo niet wijzigen.
+U kunt meerdere accounts maken voor een bepaalde cloud serviceprovider. Vergeet echter nadat een opslagaccount is gemaakt, kunt u de cloudserviceprovider niet wijzigen.
 
-Tijdens het Hallo-storage-account wordt opgeslagen, probeert Hallo service toocommunicate bij uw serviceprovider voor de cloud. Hallo-referenties en Hallo toegang materiaal dat u hebt opgegeven, wordt op dit moment worden geverifieerd. Een opslagaccount wordt alleen gemaakt als Hallo-verificatie is geslaagd. Als het Hallo-verificatie is mislukt, wordt een foutbericht weergegeven worden weergegeven.
+Terwijl het storage-account wordt opgeslagen, wordt de service probeert om te communiceren met uw serviceprovider voor de cloud. De referenties en de toegang tot materiaal dat u hebt opgegeven, wordt op dit moment worden geverifieerd. Een opslagaccount wordt alleen gemaakt als de verificatie is geslaagd. Als de verificatie is mislukt, wordt een foutbericht weergegeven worden weergegeven.
 
-Resource Manager storage-accounts in Azure portal hebt gemaakt, worden ook ondersteund met StorSimple. Hallo Resource Manager storage-accounts niet in Hallo vervolgkeuzelijst voor selectie weergegeven worden wanneer u probeert een volumecontainer toocreate Hallo alleen storage-accounts die zijn gemaakt in de klassieke Azure-portal hello wordt weergegeven. Resource Manager-opslagaccounts moet toobe toegevoegd met Hallo procedure tooadd een opslagaccount die hieronder worden beschreven.
+Resource Manager storage-accounts in Azure portal hebt gemaakt, worden ook ondersteund met StorSimple. De Resource Manager-opslagaccounts wordt niet weergegeven in de vervolgkeuzelijst voor selectie wanneer bij het maken van een volumecontainer, alleen de storage-accounts die zijn gemaakt in de klassieke Azure portal weergegeven. Storage-accounts voor Resource Manager moet worden toegevoegd met de procedure voor het toevoegen van een opslagaccount die hieronder worden beschreven.
 
 > [!NOTE]
-> Hallo-procedure voor het toevoegen van een opslagaccount verschilt op basis van Hallo StorSimple softwareversie die u gebruikt. Worden ervoor toofollow Hallo juiste procedure voor uw StorSimple-versie.
+> De procedure voor het toevoegen van een opslagaccount is op basis van de StorSimple-softwareversie die u gebruikt. Zorg ervoor dat de juiste procedure voor uw StorSimple-versie.
 > 
 > 
 
@@ -73,74 +73,74 @@ Resource Manager storage-accounts in Azure portal hebt gemaakt, worden ook onder
 [!INCLUDE [add-a-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
 ## <a name="edit-a-storage-account"></a>Storage-account bewerken
-U kunt een opslagaccount die wordt gebruikt door een volumecontainer bewerken. Als u een opslagaccount die momenteel in gebruik hebt bewerkt, is hello alleen veld beschikbaar toomodify Hallo-toegangssleutel voor opslagaccount Hallo. U kunt leveren Hallo toegangssleutel voor nieuwe opslag en Hallo bijgewerkt instellingen opslaan.
+U kunt een opslagaccount die wordt gebruikt door een volumecontainer bewerken. Als u een opslagaccount die momenteel in gebruik hebt bewerkt, is het enige veld beschikbaar om te wijzigen in de toegangssleutel voor het opslagaccount. U kunt opgeven van de nieuwe toegangssleutel voor opslag en de bijgewerkte instellingen opslaan.
 
-#### <a name="tooedit-a-storage-account"></a>een opslagaccount tooedit
-1. Hallo-service-startpagina, selecteer uw service, dubbelklik op Hallo servicenaam en klik vervolgens op **configureren**.
+#### <a name="to-edit-a-storage-account"></a>Storage-account bewerken
+1. Selecteer uw service op de pagina service aanvoer, dubbelklikt u op de servicenaam en klik op **configureren**.
 2. Klik op **Storage-Accounts toevoegen/bewerken**.
-3. In Hallo **Storage-Accounts toevoegen/bewerken** in het dialoogvenster:
+3. In de **Storage-Accounts toevoegen/bewerken** in het dialoogvenster:
    
-   1. In de keuzelijst Hallo van **Opslagaccounts**, kiest u een bestaand account dat u toomodify wilt. Dit kan betekenen dat Hallo storage-accounts die automatisch zijn gegenereerd wanneer het Hallo-service is gemaakt.
-   2. Als nodig is, u Hallo wijzigen kunt **SSL-modus inschakelen** selectie.
-   3. U kunt toorotate de toegangssleutels van uw storage-account. Zie [sleutel rotatie van de storage-accounts](#key-rotation-of-storage-accounts) voor meer informatie over hoe tooperform sleutel worden gedraaid.
-   4. Klik op het vinkje Hallo ![vinkje](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png) toosave Hallo instellingen. Hallo-instellingen worden bijgewerkt op Hallo **configureren** pagina. Klik op **opslaan** toosave Hallo nieuwe instellingen worden bijgewerkt.
+   1. In de vervolgkeuzelijst van **Opslagaccounts**, kiest u een bestaand account die u wilt wijzigen. Dit kan betekenen dat de storage-accounts die zijn automatisch worden gegenereerd wanneer de service is gemaakt.
+   2. Indien nodig, kunt u de **SSL-modus inschakelen** selectie.
+   3. U kunt kiezen om te roteren van de toegangssleutels van uw storage-account. Zie [sleutel rotatie van de storage-accounts](#key-rotation-of-storage-accounts) voor meer informatie over het uitvoeren van de sleutel worden gedraaid.
+   4. Klik op het vinkje ![vinkje](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png) de instellingen op te slaan. De instellingen worden bijgewerkt op de **configureren** pagina. Klik op **opslaan** de bijgewerkte instellingen op te slaan.
       
       ![Storage-account bewerken](./media/storsimple-manage-storage-accounts/HCs_AddEditStorageAccount.png)
 
 ## <a name="delete-a-storage-account"></a>Een opslagaccount verwijderen
 > [!IMPORTANT]
-> U kunt een opslagaccount alleen verwijderen als deze niet wordt gebruikt door een volumecontainer. Als een opslagaccount wordt gebruikt door een volumecontainer hello volumecontainer eerst te verwijderen en verwijder vervolgens opslagaccount Hallo die zijn gekoppeld.
+> U kunt een opslagaccount alleen verwijderen als deze niet wordt gebruikt door een volumecontainer. Als een opslagaccount wordt gebruikt door een volumecontainer, verwijdert u eerst de volumecontainer en verwijder vervolgens het bijbehorende opslagaccount.
 > 
 > 
 
-#### <a name="toodelete-a-storage-account"></a>een opslagaccount toodelete
-1. Selecteer op de startpagina van Hallo StorSimple Manager-service, uw service, dubbelklikt u op Hallo servicenaam en klik op **configureren**.
-2. In Hallo in tabelvorm lijst met opslagaccounts, de muisaanwijzer op Hallo-account dat u wenst dat toodelete.
-3. Een verwijderpictogram (**x**) wordt weergegeven in Hallo extreme rechterkolom voor dat opslagaccount. Klik op Hallo **x** pictogram toodelete Hallo referenties.
-4. Wanneer u om bevestiging gevraagd, klikt u op **Ja** toocontinue met Hallo verwijderen. in de lijst in tabelvorm Hallo worden bijgewerkte tooreflect Hallo wijzigingen.
+#### <a name="to-delete-a-storage-account"></a>Een opslagaccount verwijderen
+1. Selecteer uw service op de openingspagina StorSimple Manager-service, dubbelklikt u op de servicenaam en klik op **configureren**.
+2. In de lijst in tabelvorm van storage-accounts, de muisaanwijzer op het account dat u wilt verwijderen.
+3. Een verwijderpictogram (**x**) wordt weergegeven in de extreme rechterkolom voor dat opslagaccount. Klik op de **x** pictogram als de referenties wilt verwijderen.
+4. Wanneer u om bevestiging gevraagd, klikt u op **Ja** om door te gaan met het verwijderen. In de lijst in tabelvorm worden bijgewerkt om de wijzigingen weer te geven.
 
 ## <a name="key-rotation-of-storage-accounts"></a>Sleutel rotatie van de storage-accounts
 Uit veiligheidsoverwegingen is sleutel rotatie vaak een vereiste in datacenters. 
 
 > [!NOTE]
-> Hallo volgende belangrijke informatie en Hallo rotatie rotatieprocedure tooMicrosoft Azure storage-accounts alleen van toepassing. Als u een andere cloud serviceprovider gebruikt, kunt u toegangscodes voor opslag via dashboard van de provider kunt beheren.
+> De volgende informatie voor de sleutel draaien en de rotatieprocedure van toepassing op Microsoft Azure storage-accounts alleen. Als u een andere cloud serviceprovider gebruikt, kunt u toegangscodes voor opslag via dashboard van de provider kunt beheren.
 > 
 > 
 
-Elke Microsoft Azure-abonnement kan een of meer gekoppelde storage-accounts hebben. Hallo toothese toegangsaccounts wordt bepaald door het Hallo-abonnement en toegangstoetsen voor elk opslagaccount. 
+Elke Microsoft Azure-abonnement kan een of meer gekoppelde storage-accounts hebben. De toegang tot deze accounts wordt bepaald door het abonnement en toegangssleutels voor elke storage-account. 
 
-Wanneer u een opslagaccount maakt, genereert Microsoft Azure twee 512-bits opslagtoegangssleutels die worden gebruikt voor verificatie bij Hallo opslagaccount wordt geopend. Met twee toegangssleutels voor opslag, kunt u tooregenerate Hallo sleutels zonder onderbreking tooyour storage-service of toothat-access-service. Hallo sleutel die is momenteel in gebruik is Hallo *primaire* Hallo-sleutel en de back-sleutel is waarnaar wordt verwezen tooas hello *secundaire* sleutel. Een van deze twee sleutels moet worden opgegeven bij uw Microsoft Azure StorSimple-apparaat heeft toegang uw serviceprovider voor cloud-opslag tot.
+Wanneer u een opslagaccount maakt, genereert Microsoft Azure twee 512-bits opslagtoegangssleutels die worden gebruikt voor verificatie wanneer het opslagaccount wordt geopend. Met twee toegangssleutels voor opslag kunt u opnieuw genereren van sleutels met zonder onderbreking van uw opslagservice of toegang tot deze service. De sleutel die momenteel in gebruik is de *primaire* en de back-sleutel wordt aangeduid als de *secundaire* sleutel. Een van deze twee sleutels moet worden opgegeven bij uw Microsoft Azure StorSimple-apparaat heeft toegang uw serviceprovider voor cloud-opslag tot.
 
 ## <a name="what-is-key-rotation"></a>Wat is de belangrijkste wisselen?
-Normaal gesproken gebruik toepassingen alleen een Hallo sleutels tooaccess uw gegevens. Na een bepaalde periode, kunt u uw toepassingen overschakelen via toousing Hallo tweede sleutel hebben. Nadat u uw toepassingen toohello secundaire sleutel zijn overgeschakeld, kunt u buiten gebruik stellen Hallo eerste sleutel en vervolgens een nieuwe sleutel te genereren. Door Hallo twee sleutels op deze manier kan uw toepassingen toegang toohello gegevens zonder enige uitvaltijd.
+Toepassingen gebruiken doorgaans slechts één van de sleutels voor toegang tot uw gegevens. Na een bepaalde periode, kunt u uw toepassingen overschakelen via op het gebruik van de tweede sleutel hebben. Nadat u uw toepassingen op de secundaire sleutel zijn overgeschakeld, kunt u buiten gebruik stellen van de eerste sleutel en vervolgens een nieuwe sleutel te genereren. Door de twee sleutels op deze manier kan uw toepassingen toegang tot de gegevens zonder enige uitvaltijd.
 
-Hallo opslagaccountsleutels zijn altijd in Hallo-service in versleutelde vorm opgeslagen. Deze kunnen echter worden hersteld via Hallo StorSimple Manager-service. Hallo-service krijgt Hallo primaire sleutel en secundaire sleutel voor alle opslagaccounts in hetzelfde abonnement, met inbegrip van accounts die zijn gemaakt in opslagservice hello, evenals Hallo standaard storage-accounts gegenereerd Hallo Hallo wanneer Hallo StorSimple Manager-service service is gemaakt. Hallo StorSimple Manager-service-service wordt altijd deze sleutels ophalen uit Hallo klassieke Azure-portal en deze vervolgens opslaan in een versleutelde manier.
+De opslagaccountsleutels zijn altijd in de service in versleutelde vorm opgeslagen. Deze kunnen echter worden hersteld via de StorSimple Manager-service. De service kan de primaire en secundaire sleutel voor alle opslagaccounts verkrijgen tot hetzelfde abonnement, met inbegrip van accounts die zijn gemaakt in de Storage-service, evenals de opslag standaard accounts die worden gegenereerd wanneer de StorSimple Manager-service voor het eerst werd gemaakt. De StorSimple Manager-service wordt altijd deze sleutels van de klassieke Azure portal ophalen en deze vervolgens opslaan in een versleutelde manier.
 
 ## <a name="rotation-workflow"></a>Werkstroom van de draaihoek
-De beheerder van een Microsoft Azure kunt genereren of Hallo primaire of secundaire sleutel wijzigen door rechtstreeks toegang hebben tot Hallo storage-account (via Hallo Microsoft Azure Storage-service). Hallo StorSimple Manager-service heeft deze wijziging niet automatisch weergegeven.
+Een Microsoft Azure-beheerder kan genereren of wijzigen van de primaire of secundaire sleutel door rechtstreeks toegang hebben tot het opslagaccount (via de Microsoft Azure Storage-service). De StorSimple Manager-service heeft deze wijziging niet automatisch weergegeven.
 
-tooinform hello StorSimple Manager-service van Hallo wijzigen, moet u tooaccess hello StorSimple Manager-service toegang tot het opslagaccount hello en synchroniseert u Hallo primaire of secundaire sleutel (afhankelijk van wat is gewijzigd). Hallo-service vervolgens opgehaald van de meest recente sleutel hello, codeert Hallo-sleutels, en stuurt Hallo sleutel toohello apparaat versleuteld.
+Om te informeren over de StorSimple Manager-service van de wijziging, moet u toegang tot de StorSimple Manager-service toegang tot het opslagaccount, en vervolgens de primaire of secundaire sleutel (afhankelijk van welk is gewijzigd) te synchroniseren. De service vervolgens de meest recente sleutel opgehaald, versleutelt de sleutels en verzendt de versleutelde sleutel naar het apparaat.
 
-#### <a name="toosynchronize-keys-for-storage-accounts-in-hello-same-subscription-as-hello-service-azure-only"></a>toosynchronize sleutels voor opslagaccounts in Hallo hetzelfde abonnement als Hallo-service (alleen Azure)
-1. Op Hallo **Services** pagina, klikt u op Hallo **configureren** tabblad.
+#### <a name="to-synchronize-keys-for-storage-accounts-in-the-same-subscription-as-the-service-azure-only"></a>Synchroniseren van sleutels voor opslagaccounts in hetzelfde abonnement als de service (alleen Azure)
+1. Op de **Services** pagina, klikt u op de **configureren** tabblad.
 2. Klik op **Storage-Accounts toevoegen/bewerken**.
-3. In het dialoogvenster Hallo Hallo te volgen:
+3. In het dialoogvenster het volgende doen:
    
-   1. Hallo storage-account selecteren met Hallo-sleutel die u toosynchronize wilt. Hallo opslagaccountsleutels worden versleuteld wanneer ze worden weergegeven.
-   2. Hallo StorSimple Manager-service moet u tooupdate Hallo sleutel die eerder is gewijzigd in Hallo Microsoft Azure Storage-service. Als de primaire toegangssleutel hello (opnieuw gegenereerd) is gewijzigd, klikt u op **primaire sleutel synchroniseren**. Als de secundaire sleutel Hallo is gewijzigd, klikt u op **secundaire sleutel synchroniseren**.
+   1. Selecteer het opslagaccount met de sleutel die u wilt synchroniseren. De opslagaccountsleutels zijn versleuteld wanneer ze worden weergegeven.
+   2. In de StorSimple Manager-service moet u de sleutel die eerder is gewijzigd in de Microsoft Azure Storage-service wordt bijgewerkt. Als de primaire toegangssleutel is gewijzigd (opnieuw gegenereerd), klikt u op **primaire sleutel synchroniseren**. Als de secundaire sleutel is gewijzigd, klikt u op **secundaire sleutel synchroniseren**.
       
       ![sleutels synchroniseren](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
 
-#### <a name="toosynchronize-keys-for-storage-accounts-outside-of-hello-service-subscription"></a>toosynchronize sleutels voor opslagaccounts buiten Hallo service-abonnement
-1. Op Hallo **Services** pagina, klikt u op Hallo **configureren** tabblad.
+#### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>Sleutels voor opslagaccounts buiten het serviceabonnement synchroniseren
+1. Op de **Services** pagina, klikt u op de **configureren** tabblad.
 2. Klik op **Storage-Accounts toevoegen/bewerken**.
-3. In het dialoogvenster Hallo Hallo te volgen:
+3. In het dialoogvenster het volgende doen:
    
-   1. Hallo storage-account selecteren met Hallo toegangssleutel die u tooupdate wilt.
-   2. U moet tooupdate Hallo toegangssleutel voor opslag in Hallo StorSimple Manager-service. In dit geval kunt u zien Hallo-toegangssleutel voor opslag. Voer de nieuwe sleutel Hallo in Hallo **toegangssleutel voor Opslagaccount**vak y. 
+   1. Selecteer het opslagaccount met de toegangssleutel die u wilt bijwerken.
+   2. U moet de toegangssleutel voor opslag in de StorSimple Manager-service bijwerken. In dit geval ziet u de toegangssleutel voor opslag. Voer de nieuwe sleutel in de **toegangssleutel voor Opslagaccount**vak y. 
    3. Sla uw wijzigingen op. Uw toegangssleutel voor opslagaccount moet nu worden bijgewerkt.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [StorSimple security](storsimple-security.md).
-* Meer informatie over [StorSimple Manager service tooadminister uw StorSimple-apparaat met behulp van Hallo](storsimple-manager-service-administration.md).
+* Meer informatie over [de StorSimple Manager-service gebruiken voor het beheer van uw StorSimple-apparaat](storsimple-manager-service-administration.md).
 

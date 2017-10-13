@@ -1,6 +1,6 @@
 ---
-title: aaaCreate een Universal Windows Platform (UWP) die gebruikmaakt van de Mobile Apps | Microsoft Docs
-description: Volg deze zelfstudie tooget gestart met behulp van back-ends voor mobiele Apps van Azure voor Universal Windows Platform (UWP)-app-ontwikkeling in C#, Visual Basic of JavaScript.
+title: Een Universal Windows Platform-app (UWP) maken die gebruikmaakt van Mobile Apps | Microsoft Docs
+description: Volg deze zelfstudie om aan de slag te gaan met back-ends voor mobiele apps van Azure voor Universal Windows Platform (UWP)-app-ontwikkeling in C#, Visual Basic of JavaScript.
 services: app-service\mobile
 documentationcenter: windows
 author: ggailey777
@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: d0f57bca5a8195b8b0461b8f7a0d8516371d56a8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 5408e032670dda7f149c442e08f52b02abe23f05
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-windows-app"></a>Een Windows-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie laat zien hoe een cloud-gebaseerde back-end tooadd tooa Universal Windows Platform (UWP)-app service. Zie [What are Mobile Apps](app-service-mobile-value-prop.md) (Wat zijn Mobile Apps?) voor meer informatie. Hallo hieronder vindt u er schermafbeeldingen worden gemaakt vanuit de app Hallo voltooid:
+Deze zelfstudie laat zien hoe u een back-endservice toevoegt aan een Universal Windows Platform (UWP)-app in de cloud. Zie [What are Mobile Apps](app-service-mobile-value-prop.md) (Wat zijn Mobile Apps?) voor meer informatie. Hier volgen enkele schermopnamen van een voltooide app:
 
 ![Voltooide bureaublad-app](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png)   
 Uitgevoerd op bureaublad.
@@ -35,47 +35,47 @@ Uitgevoerd op telefoon.
 Het voltooien van deze zelfstudie is een vereiste voor alle andere zelfstudies over Mobile Apps voor UWP-apps.
 
 ## <a name="prerequisites"></a>Vereisten
-toocomplete in deze zelfstudie, moet u hello te volgen:
+Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Een actief Azure-account. Als u geen account hebt, kunt u zich aanmeldt voor een proefversie van Azure en krijg too10 gratis mobiele apps die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+* Een actief Azure-account. Als u geen account hebt, kunt u zich aanmelden voor een proefversie van Azure en maximaal tien gratis mobiele apps krijgen die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 * [Visual Studio Community 2015] of een nieuwere versie.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Een nieuwe back-end voor mobiele apps van Azure maken
-Volg deze stappen toocreate een nieuwe back-end voor mobiele Apps.
+Volg deze stappen voor het maken van een nieuwe back-end voor mobiele apps.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden gebruikt door uw mobiele-clienttoepassingen. Nu gaat u een serverproject voor een eenvoudige 'todo list' downloaden back-end en deze tooAzure publiceren.
+U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden gebruikt door uw mobiele-clienttoepassingen. Nu gaat u een serverproject downloaden voor een eenvoudige back-end voor takenlijsten en deze publiceren naar Azure.
 
-## <a name="configure-hello-server-project"></a>Hallo serverproject configureren
+## <a name="configure-the-server-project"></a>Het serverproject configureren
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-hello-client-project"></a>Hallo client-project downloaden en uitvoeren
-Als u uw back-end voor de mobiele App hebt geconfigureerd, kunt u een nieuwe clientapp maken of wijzigen van een bestaande app tooconnect tooAzure. In deze sectie maakt downloaden u een UWP-app-sjabloonproject dat is backend voor mobiele Apps van aangepaste tooconnect tooyour.
+## <a name="download-and-run-the-client-project"></a>Het clientproject downloaden en uitvoeren
+Zodra u de back-end voor mobiele apps hebt geconfigureerd, kunt u een nieuwe client-app maken of een bestaande app wijzigen om verbinding te maken met Azure. In deze sectie download u een sjabloonproject voor een UWP-app die is aangepast om verbinding te kunnen maken met de back-end voor uw mobiele apps.
 
-1. Terug in Hallo **snel starten** blade voor uw mobiele App back-end, klikt u op **maakt een nieuwe app** > **downloaden**, pak vervolgens Hallo gecomprimeerde projectbestanden tooyour lokale computer.
+1. Op de blade **Snel starten** voor de back-end voor uw mobile app klikt u op **Een nieuwe app maken** > **Downloaden**. Pak de gecomprimeerde projectbestanden uit op de lokale computer.
 
     ![Het project Windows-snelstartgids downloaden](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
-2. (Optioneel) Hallo UWP-app-project toohello toevoegen dezelfde oplossing als Hallo serverproject. Hiermee kunt u gemakkelijker toodebug en test beide app en Hallo back-end in Hallo Hallo dezelfde Visual Studio-oplossing als u ervoor toodo doet kiest. tooadd een UWP-app-project toohello oplossing, moet u Visual Studio 2015 of hoger.
-3. Hallo UWP-app als opstartproject hello, drukt u op Hallo F5 sleutel toodeploy en Voer Hallo-app.
-4. Typ in het Hallo-app zinvolle tekst, zoals *voltooid Hallo zelfstudie*, in Hallo **nieuwe taak invoegen** in het tekstvak en klik vervolgens op **opslaan**.
+2. Optioneel: Voeg het UWP-appproject toe aan dezelfde oplossing als het serverproject. Hierdoor kunt u desgewenst zowel de app als de back-end makkelijker debuggen en testen in dezelfde Visual-Studio-oplossing. Als u een UWP-app-project aan de oplossing wilt toevoegen, dient u Visual Studio 2015 of een nieuwere versie te gebruiken.
+3. Met de UWP-app als opstartproject, drukt u op de F5-toets om de app te implementeren en uit te voeren.
+4. Typ zinvolle tekst in de app, zoals *Voltooi de zelfstudie*, in het tekstvak **Nieuwe taak invoegen** en klik op **Opslaan**.
 
     ![Windows-snelstartgids: bureaublad voltooien](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
-    Hierdoor wordt een POST-aanvraag toohello nieuwe mobiele app back-end die wordt gehost in Azure verzonden.
-5. (Optioneel) Hallo app Stop en start deze opnieuw op een ander apparaat of mobiele emulator.
+    Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure.
+5. Optioneel: Stop de app en start deze opnieuw op een ander apparaat of mobiele emulator.
 
     ![Windows-snelstartgids: telefoon voltooien](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
 
-    U ziet die gegevens opgeslagen van de vorige stap Hallo vanuit Azure geladen nadat Hallo UWP-app is gestart.
+    De gegevens die in de vorige stap zijn opgeslagen, worden vanuit Azure geladen nadat de UWP-app is gestart.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Verificatie tooyour app toevoegen](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-  Meer informatie over hoe tooauthenticate gebruikers van uw app met een id-provider.
-* [Push notifications tooyour app toevoegen](app-service-mobile-windows-store-dotnet-get-started-push.md)  
-  Informatie over hoe tooyour app ondersteuning bieden voor pushmeldingen tooadd en pushmeldingen voor uw mobiele App back-end toouse Azure Notification Hubs toosend configureren.
+* [Verificatie toevoegen aan uw app](app-service-mobile-windows-store-dotnet-get-started-users.md)  
+  Ontdek hoe u gebruikers van uw app verifieert met een id-provider.
+* [Pushmeldingen toevoegen aan uw app](app-service-mobile-windows-store-dotnet-get-started-push.md)  
+  Informatie over het toevoegen van ondersteuning van pushmeldingen aan uw app en het configureren van de backend voor mobiele apps voor gebruik van Azure Notification Hubs voor het verzenden van pushmeldingen.
 * [Offlinesynchronisatie voor uw app inschakelen](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  Meer informatie over hoe tooadd offline ondersteuning bieden voor uw app met een back-end voor de mobiele App. Offlinesynchronisatie kunnen eindgebruikers toointeract met een mobiele app&mdash;weergeven, toevoegen of wijzigen van gegevens&mdash;zelfs wanneer er geen netwerkverbinding.
+  Informatie over het toevoegen van offlineondersteuning aan uw app met een back-end voor mobiele apps. Met offlinesynchronisatie kunnen eindgebruikers interactie aangaan met een mobiele app&mdash;gegevens weergeven, toevoegen of wijzigen&mdash;ook als er geen netwerkverbinding is.
 
 <!-- Anchors. -->
 <!-- Images. -->

@@ -1,6 +1,6 @@
 ---
-title: aaaManage Azure Key Vault met CLI | Microsoft Docs
-description: Gebruik van deze zelfstudie tooautomate algemene taken in de Sleutelkluis via Hallo CLI
+title: Beheren van Azure Sleutelkluis met CLI | Microsoft Docs
+description: Gebruik deze handleiding om algemene taken in de Sleutelkluis automatiseren met behulp van de CLI
 services: key-vault
 documentationcenter: 
 author: BrucePerlerMS
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: bruceper
-ms.openlocfilehash: 9ef506faa67e1f0db5b9e303300d63b135ddd7b9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c2565a742ce4f6ab5f7639a54c4a475f00cbc260
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-key-vault-using-cli"></a>Beheren van de Sleutelkluis met CLI
 
-Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie voor meer informatie, Hallo [pagina prijzen van Sleutelkluis](https://azure.microsoft.com/pricing/details/key-vault/).
+Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
 
 ## <a name="introduction"></a>Inleiding
 
-Gebruik van deze zelfstudie toohelp die u aan de slag met Azure Key Vault toocreate een geharde container (een kluis) in Azure, toostore en beheren van de cryptografische sleutels en geheimen in Azure. Deze begeleidt u bij Hallo proces van het gebruik van Azure platformoverschrijdende opdrachtregelinterface toocreate een kluis die een sleutel of het wachtwoord dat u vervolgens met een Azure-toepassing gebruiken kunt bevat. Deze vervolgens ziet u hoe een toepassing kunt vervolgens sleutel of het wachtwoord.
+Gebruik deze handleiding om aan de slag te gaan met Azure Sleutelkluis en een geharde container (een kluis) in Azure te maken om cryptografiesleutels en geheimen op te slaan in Azure. Dit helpt u bij het proces van het gebruik van Azure-opdrachtregelinterface voor Cross-Platform een kluis met een sleutel of het wachtwoord dat u vervolgens met een Azure-toepassing gebruiken kunt maken. Deze vervolgens ziet u hoe een toepassing kunt vervolgens sleutel of het wachtwoord.
 
-**Geschatte tijd toocomplete:** 20 minuten
+**Geschatte duur:** 20 minuten
 
 > [!NOTE]
-> Deze zelfstudie bevat geen instructies over hoe toowrite hello Azure-toepassing met een van de stappen hello, waaruit blijkt hoe tooauthorize een toouse toepassing een sleutel of geheim in de sleutel Hallo-kluis.
+> Deze zelfstudie bevat geen instructies voor het schrijven van de Azure-toepassing of een van de stappen bevat, die wordt beschreven hoe een toepassing gebruik van een sleutel of geheim in de sleutelkluis toestemming geeft.
 > 
-> U kunt op dit moment is Azure Sleutelkluis in hello Azure-portal configureren. Gebruik in plaats daarvan deze instructies platformoverschrijdende opdrachtregelinterface. Zie voor instructies voor Azure PowerShell [deze equivalente zelfstudie](key-vault-get-started.md).
+> Het is momenteel niet mogelijk om Azure Sleutelkluis in de Azure-portal te configureren. Gebruik in plaats daarvan deze instructies platformoverschrijdende opdrachtregelinterface. Zie voor instructies voor Azure PowerShell [deze equivalente zelfstudie](key-vault-get-started.md).
 > 
 > 
 
@@ -41,17 +41,17 @@ Zie [Wat is Azure Sleutelkluis?](key-vault-whatis.md) voor algemene informatie o
 
 ## <a name="prerequisites"></a>Vereisten
 
-toocomplete in deze zelfstudie hebt u hello te volgen:
+U hebt het volgende nodig om deze zelfstudie te voltooien:
 
-* Een abonnement tooMicrosoft Azure. Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial).
-* Opdrachtregelinterface versie 0.9.1 of hoger. tooinstall Hallo meest recente versie en verbinding maken met tooyour Azure-abonnement, Zie [installeren en configureren van hello Azure platformoverschrijdende opdrachtregelinterface](../cli-install-nodejs.md).
-* Een toepassing die worden zal geconfigureerde toouse Hallo sleutel of het wachtwoord die u in deze zelfstudie maakt. Er is een voorbeeldtoepassing beschikbaar is via Hallo [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). Zie voor instructies Hallo bijbehorende Leesmij-bestand.
+* Een abonnement op Microsoft Azure Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial).
+* Opdrachtregelinterface versie 0.9.1 of hoger. Installeer de nieuwste versie en verbinden om uw Azure-abonnement, Zie [installeren en configureren van de Azure-opdrachtregelinterface voor Cross-Platform](../cli-install-nodejs.md).
+* Een toepassing die wordt geconfigureerd voor het gebruik van de sleutel of het wachtwoord dat u in deze zelfstudie maakt. Er is een voorbeeldtoepassing beschikbaar in het [Microsoft Downloadcentrum](http://www.microsoft.com/download/details.aspx?id=45343). Zie het bijbehorende Leesmij-bestand voor instructies.
 
 ## <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Help-informatie met Azure platformoverschrijdende opdrachtregelinterface
 
-Deze zelfstudie wordt ervan uitgegaan dat u bekend met Hallo-opdrachtregelinterface (Bash, Terminal-opdrachtprompt bent)
+Deze zelfstudie wordt ervan uitgegaan dat u bekend met de opdrachtregelinterface (Bash, Terminal-opdrachtprompt bent)
 
-Hallo--help- of -h parameter is tooview help gebruikt voor specifieke opdrachten. U kunt ook Hallo hello azure help [opdracht] [opties] indeling kan ook worden gebruikt tooreturn dezelfde informatie. Bijvoorbeeld Hallo volgende alle return opdrachten Hallo dezelfde informatie:
+De--help- of -h parameter kan worden gebruikt om help voor specifieke opdrachten weer te geven. U kunt ook de azure-help [opdracht] [opties] indeling kan ook worden gebruikt om de dezelfde informatie te retourneren. Bijvoorbeeld de volgende opdrachten uit alle dezelfde informatie geretourneerd:
 
     azure account set --help
 
@@ -59,50 +59,50 @@ Hallo--help- of -h parameter is tooview help gebruikt voor specifieke opdrachten
 
     azure help account set
 
-Raadpleeg bij twijfel over Hallo parameters nodig is voor een opdracht met behulp van toohelp--help, -h of azure help [opdracht].
+Raadpleeg bij twijfel over de parameters die door een opdracht die nodig zijn om te helpen met behulp van--help, -h of azure help [opdracht].
 
-U kunt ook de volgende zelfstudies tooget bekend met Azure Resource Manager in Azure platformoverschrijdende opdrachtregelinterface Hallo lezen:
+U kunt ook de volgende zelfstudies om vertrouwd te raken met Azure Resource Manager in Azure platformoverschrijdende opdrachtregelinterface lezen:
 
-* [Hoe tooinstall en Azure-opdrachtregelinterface voor Cross-Platform configureren](../cli-install-nodejs.md)
+* [Het installeren en configureren van Azure-opdrachtregelinterface voor Cross-Platform](../cli-install-nodejs.md)
 * [Met behulp van Azure platformoverschrijdende opdrachtregelinterface met Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
 
-## <a name="connect-tooyour-subscriptions"></a>Verbinding maken met tooyour abonnementen
+## <a name="connect-to-your-subscriptions"></a>Verbinding maken met uw abonnementen
 
-toolog aan met een organisatieaccount, gebruik Hallo volgende opdracht:
+Meld u aan met een organisatie-account met de volgende opdracht:
 
     azure login -u username -p password
 
-of als u toolog wilt in interactief typen
+of als u wilt zich aanmelden door interactief typen
 
     azure login
 
 > [!NOTE]
-> Hallo aanmelding methode werkt alleen met organisatie-account. Een organisatie-account is een gebruiker die wordt beheerd door uw organisatie en gedefinieerd in Azure Active Directory-tenant van uw organisatie.
+> De methode aanmelding werkt alleen met organisatie-account. Een organisatie-account is een gebruiker die wordt beheerd door uw organisatie en gedefinieerd in Azure Active Directory-tenant van uw organisatie.
 > 
 > 
 
-Als u nog geen een organisatie-account en een Microsoft-account toolog in tooyour Azure-abonnement gebruikt, kunt u gemakkelijk maken met behulp van één Hallo volgende stappen.
+Als u nog geen een organisatie-account en een Microsoft-account gebruikt zich aanmelden bij uw Azure-abonnement, kunt u gemakkelijk maken met de volgende stappen uit.
 
-1. Aanmelding toohello aanmelding toohello [Azure Management Portal](https://manage.windowsazure.com/), en klik op Active Directory.
-2. Als er geen map bestaat, selecteer uw directory maken en Hallo aangevraagde informatie.
-3. Selecteer uw directory en een nieuwe gebruiker toevoegen. Deze nieuwe gebruiker is een organisatieaccount. Tijdens het maken van de gebruiker Hallo Hallo u hebt opgegeven met een e-mailadres voor Hallo gebruiker en een tijdelijk wachtwoord. Deze gegevens niet opslaan omdat het wordt gebruikt in een andere stap.
-4. Vanuit de portal Hallo instellingen selecteren en selecteer vervolgens de beheerders. Selecteer de optie toevoegen en Hallo nieuwe gebruiker toevoegen als medebeheerder. Hierdoor Hallo organisatieaccount toomanage uw Azure-abonnement.
-5. Ten slotte, meld u af bij hello Azure-portal en vervolgens weer aanmelden met Hallo nieuwe organisatie-account. Als dit Hallo eerste keer aanmelden met dit account, kunt u zich na vragen aan gebruiker toochange Hallo wachtwoord.
+1. Meld u aan bij de aanmelding bij de [Azure Management Portal](https://manage.windowsazure.com/), en klik op Active Directory.
+2. Als er geen map bestaat, selecteer uw directory maken en voer de vereiste gegevens.
+3. Selecteer uw directory en een nieuwe gebruiker toevoegen. Deze nieuwe gebruiker is een organisatieaccount. Tijdens het maken van de gebruiker die u hebt opgegeven met zowel een e-mailadres voor de gebruiker en een tijdelijk wachtwoord. Deze gegevens niet opslaan omdat het wordt gebruikt in een andere stap.
+4. Vanuit de portal, selecteert u instellingen en selecteer vervolgens de beheerders. Selecteer de optie toevoegen en de nieuwe gebruiker toevoegen als medebeheerder. Hierdoor kan de organisatie-account voor het beheren van uw Azure-abonnement.
+5. Ten slotte, meld u af bij de Azure-portal en vervolgens weer aanmelden met de nieuwe organisatie-account. Als dit de eerste keer aangemeld met dit account, wordt u gevraagd het wachtwoord te wijzigen.
 
 Zie voor meer informatie over het gebruik van een organisatie-account met Microsoft Azure [aanmelden voor Microsoft Azure als organisatie](../active-directory/sign-up-organization.md).
 
-Als u meerdere abonnementen hebt en wilt dat een specifieke één toouse toospecify voor Azure Sleutelkluis, typt u Hallo toosee Hallo abonnementen voor uw account te volgen:
+Als u meerdere abonnementen hebt en u een specifiek abonnement voor Azure Sleutelkluis wilt gebruiken, typt u het volgende om de abonnementen voor uw account weer te geven:
 
     azure account list
 
-Vervolgens toospecify Hallo abonnement toouse, type:
+Typ vervolgens het volgende om het abonnement op te geven dat u wilt gebruiken:
 
     azure account set <subscription name>
 
-Zie voor meer informatie over het configureren van Azure platformoverschrijdende opdrachtregelinterface [hoe tooInstall en Azure platformoverschrijdende opdrachtregelinterface configureren](../cli-install-nodejs.md).
+Zie voor meer informatie over het configureren van Azure platformoverschrijdende opdrachtregelinterface [installeren en configureren van Azure platformoverschrijdende Command-Line Interface](../cli-install-nodejs.md).
 
-## <a name="switch-toousing-azure-resource-manager"></a>Switch toousing Azure Resource Manager
-Hallo Sleutelkluis vereist Azure Resource Manager, dus typ Hallo tooswitch tooAzure Resource Manager-modus te volgen:
+## <a name="switch-to-using-azure-resource-manager"></a>Overschakelen op het gebruik van Azure Resource Manager
+Azure Resource Manager vereist dat de Sleutelkluis, dus typ het volgende overschakelen naar modus Azure Resource Manager:
 
     azure config mode arm
 
@@ -111,128 +111,128 @@ Wanneer u Azure Resource Manager gebruikt, worden alle gerelateerde resources ge
 
     azure group create 'ContosoResourceGroup' 'East Asia'
 
-Hallo eerste parameter is de naam van resourcegroep en de tweede parameter Hallo Hallo locatie. Voor de locatie, gebruikt u Hallo opdracht `azure location list` tooidentify hoe toospecify een alternatieve locatie toohello een in dit voorbeeld. Als u meer informatie nodig hebt, typt u:`azure help location`
+De eerste parameter is de naam van resourcegroep en de tweede parameter is de locatie. Gebruik de opdracht voor locatie, `azure location list` om te bepalen hoe een alternatieve locatie op de in dit voorbeeld opgeven. Als u meer informatie nodig hebt, typt u:`azure help location`
 
-## <a name="register-hello-key-vault-resource-provider"></a>De registerbronprovider hello Sleutelkluis
+## <a name="register-the-key-vault-resource-provider"></a>De registerbronprovider is Sleutelkluis
 Zorg ervoor dat Sleutelkluis-resourceprovider is geregistreerd in uw abonnement:
 
 `azure provider register Microsoft.KeyVault`
 
-Dit moet alleen toobe gebeurt eenmaal per abonnement.
+Dit hoeft slechts één keer per abonnement worden uitgevoerd.
 
 ## <a name="create-a-key-vault"></a>Een sleutelkluis maken
 
-Gebruik Hallo `azure keyvault create` opdracht toocreate een sleutelkluis. Dit script heeft drie verplichte parameters: de naam van een resource-groep, een sleutelkluisnaam en Hallo geografische locatie.
+Gebruik de `azure keyvault create` opdracht om een sleutelkluis te maken. Dit script heeft drie verplichte parameters: de naam van een resource-groep, de naam van een sleutelkluis en de geografische locatie.
 
-Bijvoorbeeld, als u Hallo kluisnaam ContosoKeyVault, Hallo Resourcegroepnaam ContosoResourceGroup en Hallo-locatie van Oost-Azië, typt u:
+Bijvoorbeeld, als u de kluisnaam ContosoKeyVault gebruikt, de naam van de resourcegroep van ContosoResourceGroup en de locatie van Oost-Azië, typt u:
 
     azure keyvault create --vault-name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --location 'East Asia'
 
-Hallo-uitvoer van deze opdracht worden de eigenschappen van Hallo sleutelkluis die u zojuist hebt gemaakt. Hallo twee belangrijkste eigenschappen zijn:
+De uitvoer van deze opdracht worden de eigenschappen van de sleutelkluis die u zojuist hebt gemaakt. De twee belangrijkste eigenschappen zijn:
 
-* **Naam**: In Hallo voorbeeld is dit ContosoKeyVault. U gebruikt deze naam voor andere Sleutelkluis-cmdlets.
-* **vaultUri**: In Hallo voorbeeld is dit https://contosokeyvault.vault.azure.net. Toepassingen die via de REST API gebruikmaken van uw kluis, moeten deze URI gebruiken.
+* **Naam**: In het voorbeeld is dit ContosoKeyVault. U gebruikt deze naam voor andere Sleutelkluis-cmdlets.
+* **vaultUri**: In het voorbeeld is dit https://contosokeyvault.vault.azure.net. Toepassingen die via de REST API gebruikmaken van uw kluis, moeten deze URI gebruiken.
 
-Uw Azure-account is nu geautoriseerde tooperform bewerkingen op deze sleutel kluis. Tot dusver is er nog niemand anders gemachtigd.
+Uw Azure-account is nu gemachtigd om alle bewerkingen op deze sleutelkluis uit te voeren. Tot dusver is er nog niemand anders gemachtigd.
 
-## <a name="add-a-key-or-secret-toohello-key-vault"></a>Een sleutel of geheim toohello sleutelkluis toevoegen
+## <a name="add-a-key-or-secret-to-the-key-vault"></a>Een sleutel of geheim toevoegen aan de sleutelkluis
 
-Als u toocreate Azure Sleutelkluis een softwarematig beveiligde sleutel voor u wilt, gebruikt u Hallo `azure key create` opdracht in en typt u de volgende Hallo:
+Als u wilt dat Azure Sleutelkluis een softwarematig beveiligde sleutel voor u te maken, gebruikt u de `azure key create` opdracht in en typt u het volgende:
 
     azure keyvault key create --vault-name 'ContosoKeyVault' --key-name 'ContosoFirstKey' --destination software
 
-Als u een bestaande sleutel in een .pem-bestand opgeslagen als een lokaal bestand in een bestand met de naam die u wilt dat tooupload tooAzure Sleutelkluis softkey.pem hebt, typt u na het tooimport Hallo sleutel uit Hallo Hallo. PEM-bestand, dat Hallo sleutel met software in Hallo Sleutelkluis-service beveiligt kan worden gebruikt:
+Echter, hebt u een bestaande sleutel in een .pem-bestand opgeslagen als een lokaal bestand in een bestand met de naam softkey.pem die u wilt uploaden naar Azure Sleutelkluis, typt u het volgende als u wilt importeren van de sleutel van de. PEM-bestand dat de sleutel met software in de Sleutelkluis-service beveiligt:
 
     azure keyvault key import --vault-name 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
 
-U kunt nu naar Hallo sleutel dat u hebt gemaakt of geüpload tooAzure Sleutelkluis, met behulp van de URI verwijzen. Gebruik **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** tooalways halen van de huidige versie Hallo en gebruik **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/ cgacf4f763ar42ffb0a1gca546aygd87** tooget deze specifieke versie.
+U kunt nu naar de sleutel die u hebt gemaakt of geüpload naar Azure Sleutelkluis, met behulp van de URI verwijzen. Gebruik **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** altijd de huidige versie en gebruik **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/ cgacf4f763ar42ffb0a1gca546aygd87** voor deze specifieke versie.
 
-tooadd een kluis geheime toohello, die een wachtwoord met de naam SQLPassword en die Hallo-waarde van Pa$ $w0rd tooAzure Sleutelkluis, type hello te volgen:
+Als u wilt een geheim toevoegen aan de kluis, die een wachtwoord met de naam SQLPassword en die de waarde van Pa$ $w0rd voor Azure Sleutelkluis, typt u het volgende:
 
     azure keyvault secret set --vault-name 'ContosoKeyVault' --secret-name 'SQLPassword' --value 'Pa$$w0rd'
 
-U kunt nu verwijzen naar dit wachtwoord dat u met behulp van de URI tooAzure Sleutelkluis, toegevoegd. Gebruik **https://ContosoVault.vault.azure.net/secrets/SQLPassword** tooalways halen van de huidige versie Hallo en gebruik **https://ContosoVault.vault.azure.net/secrets/SQLPassword/ 90018dbb96a84117a0d2847ef8e7189d** tooget deze specifieke versie.
+Als u nu naar het wachtwoord wilt verwijzen dat u hebt toegevoegd aan Azure Sleutelkluis, kunt u de URI van het wachtwoord gebruiken. Gebruik **https://ContosoVault.vault.azure.net/secrets/SQLPassword** om altijd de huidige versie op te halen en gebruik **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** om deze specifieke versie op te halen.
 
-We bekijken Hallo sleutel of geheim dat u zojuist hebt gemaakt:
+We bekijken de sleutel of geheim dat u zojuist hebt gemaakt:
 
-* tooview uw sleutel, type:`azure keyvault key list --vault-name 'ContosoKeyVault'`
-* tooview uw geheime, type:`azure keyvault secret list --vault-name 'ContosoKeyVault'`
+* Als u de sleutel wilt weergeven, typt u: `azure keyvault key list --vault-name 'ContosoKeyVault'`
+* Als u het geheim wilt weergeven, typt u: `azure keyvault secret list --vault-name 'ContosoKeyVault'`
 
 ## <a name="register-an-application-with-azure-active-directory"></a>Een toepassing registreren met Azure Active Directory
 
-Deze stap wordt doorgaans uitgevoerd door een ontwikkelaar op een afzonderlijke computer. Er is geen specifieke tooAzure Sleutelkluis maar opgenomen, voor de volledigheid.
+Deze stap wordt doorgaans uitgevoerd door een ontwikkelaar op een afzonderlijke computer. Het is niet specifiek voor Azure Sleutelkluis maar opgenomen, voor de volledigheid.
 
 > [!IMPORTANT]
-> toocomplete hello zelfstudie, uw account, Hallo kluis en Hallo-toepassing die u in deze stap registreren wilt moeten alle liggen Hallo dezelfde Azure-directory.
+> Uw account, de kluis en de toepassing die u in deze stap registreert moet allemaal in dezelfde Azure-directory bevinden om de zelfstudie te kunnen voltooien.
 > 
 > 
 
-Toepassingen die gebruikmaken van een sleutelkluis moeten een token van Azure Active Directory gebruiken om zich te verifiëren. toodo deze, Hallo eigenaar van de toepassing hello moet Hallo-toepassing eerst registreren in Azure Active Directory. De eigenaar van de toepassing hello opgehaald Hallo na registratie Hallo volgende waarden:
+Toepassingen die gebruikmaken van een sleutelkluis moeten een token van Azure Active Directory gebruiken om zich te verifiëren. Hiervoor moet de eigenaar van de toepassing deze eerst registreren bij Azure Active Directory. Aan het eind van het registratieproces ontvangt de eigenaar de volgende waarden:
 
-* Een **toepassings-ID** (ook wel bekend als een Client-ID) en **verificatiesleutel** (ook wel bekend als Hallo gedeelde geheim genoemd). Hallo-toepassing moet aanwezig zijn beide van deze waarden tooAzure Active Directory, tooget een token. Hoe de toepassing hello is dit afhankelijk van de toepassing hello toodo geconfigureerd. Voor Hallo voorbeeldtoepassing voor Sleutelkluis stelt u de eigenaar van de toepassing hello deze waarden in Hallo app.config-bestand.
+* Een **toepassings-ID** (ook wel een client-id genoemd) en een **verificatiesleutel** (ook wel het gedeelde geheim genoemd). De toepassing moet van deze waarden aanbieden aan Azure Active Directory een token ophalen. Hoe de toepassing is geconfigureerd om dit te doen, is afhankelijk van de toepassing. In de voorbeeldtoepassing voor Sleutelkluis configureert de eigenaar van de toepassing deze waarden in het bestand app.config.
 
-tooregister hello toepassing in Azure Active Directory:
+De toepassing registreren in Azure Active Directory:
 
-1. Meld u aan toohello Azure-portal.
-2. Klik aan de linkerkant Hallo op **Active Directory**, en selecteer vervolgens Hallo directory waarin u uw toepassing wilt registreren. <br> <br> 
+1. Meld u aan bij Azure Portal.
+2. Klik aan de linkerkant op **Active Directory** en selecteer vervolgens de directory waarin u de toepassing wilt registreren. <br> <br> 
 
 >[!NOTE] 
-> Hallo moet u dezelfde map waarin zich hello Azure-abonnement waarmee u de sleutelkluis hebt gemaakt. Als u niet welke directory dit weet is, klikt u op **instellingen**, identificeert Hallo-abonnement waarmee u de sleutelkluis hebt gemaakt en Opmerking Hallo-naam van Hallo-map weergegeven in de laatste kolom Hallo.
+> U moet de directory waarin het Azure-abonnement waarmee u de sleutelkluis hebt gemaakt. Als u niet weet welke directory dit is, klikt u op **Instellingen**, identificeert u het abonnement waarmee u de sleutelkluis hebt gemaakt en noteert u de directorynaam die in de laatste kolom wordt weergegeven.
 
-3. Klik op **TOEPASSINGEN**. Als u geen apps tooyour directory zijn toegevoegd, ziet deze pagina alleen Hallo **een App toevoegen** koppeling. Klik op de koppeling Hallo of, u kunt ook klikken op Hallo **toevoegen** op Hallo opdrachtbalk klikken.
-4. In Hallo **toepassing toevoegen** wizard op Hallo **wat wilt u wilt dat toodo?** pagina, klikt u op **mijn organisatie ontwikkelt toepassing toevoegen**.
-5. Op Hallo **Vertel ons over uw toepassing** pagina, Geef een naam voor uw toepassing en selecteer **WEBTOEPASSING en/of WEB-API** (Hallo standaard). Klik op volgende Hallo-pictogram.
-6. Op Hallo **App-eigenschappen** pagina, geeft u Hallo **AANMELDINGS-URL** en **APP ID URI** voor uw webtoepassing. Als uw toepassing deze waarden niet heeft, kunt u voor deze stap zelf iets verzinnen (u kunt voor beide vakken bijvoorbeeld http://test1.contoso.com opgeven). Het maakt niet uit als deze sites bestaan; Wat is het belangrijk is dat die Hallo app ID URI voor elke toepassing verschilt voor elke toepassing in uw directory. Hallo directory gebruikt deze tekenreeks tooidentify uw app.
-7. Klik op Hallo voltooid pictogram toosave uw wijzigingen in de wizard Hallo.
-8. Klik op de pagina snel starten Hallo **configureren**.
-9. Schuif toohello **sleutels** sectie, selecteer Hallo duur en klik vervolgens op **opslaan**. Hallo-pagina wordt vernieuwd en bevat nu een sleutelwaarde. U moet uw toepassing configureren met deze sleutelwaarde en Hallo **CLIENT-ID** waarde. (Instructies voor deze configuratie zijn toepassingsspecifiek.)
-10. Kopieer Hallo client-id-waarde van deze pagina wordt gebruikt in Hallo volgende stap tooset machtigingen voor uw kluis.
+3. Klik op **TOEPASSINGEN**. Als er zijn geen apps aan uw directory zijn toegevoegd, deze pagina alleen wordt weergegeven de **een App toevoegen** koppeling. Klik op de koppeling of u kunt ook klikken op de **toevoegen** op de opdrachtbalk.
+4. In de wizard **TOEPASSING TOEVOEGEN** klikt u op de pagina **What do you want to do?** (Wat wilt u doen?) op **Add an application my organization is developing** (Een toepassing toevoegen die door mijn organisatie wordt ontwikkeld).
+5. Op de **Vertel ons over uw toepassing** pagina, Geef een naam voor uw toepassing en selecteer **WEBTOEPASSING en/of WEB-API** (de standaardinstelling). Klik op het volgende pictogram.
+6. Geef op de pagina **App-eigenschappen** de **AANMELDINGS-URL** en **APP ID URI** (URI VAN DE APP-ID) voor uw webtoepassing op. Als uw toepassing deze waarden niet heeft, kunt u voor deze stap zelf iets verzinnen (u kunt voor beide vakken bijvoorbeeld http://test1.contoso.com opgeven). Het maakt niet uit of deze sites bestaan. Belangrijk is dat voor elke toepassing in uw directory een andere URI van de app-id wordt gebruikt. De directory gebruikt deze tekenreeks om uw app te identificeren.
+7. Klik op het pictogram voltooid Sla uw wijzigingen in de wizard.
+8. Klik op de pagina Quick Start op **configureren**.
+9. Schuif naar de sectie **sleutels**, selecteer de duur en klik vervolgens op **OPSLAAN**. De pagina wordt vernieuwd en bevat nu een sleutelwaarde. U moet nu uw toepassing configureren met deze sleutelwaarde en de waarde **CLIENT-ID**. (Instructies voor deze configuratie zijn toepassingsspecifiek.)
+10. Kopieer de client-id-waarde op deze pagina. Deze waarde gebruikt in de volgende stap om machtigingen voor uw kluis in te stellen.
 
-## <a name="authorize-hello-application-toouse-hello-key-or-secret"></a>Autoriseren hello toepassing toouse Hallo sleutel of geheim
-tooauthorize hello toepassing tooaccess Hallo sleutel of geheim in Hallo kluis, gebruik Hallo `azure keyvault set-policy` opdracht.
+## <a name="authorize-the-application-to-use-the-key-or-secret"></a>De toepassing toestemming geven om de sleutel of het geheim te gebruiken
+Voor het autoriseren van de toepassing toegang krijgen tot de sleutel of geheim in de kluis, gebruikt u de `azure keyvault set-policy` opdracht.
 
-Bijvoorbeeld, als de kluisnaam van uw ContosoKeyVault en Hallo toepassing die u wilt dat tooauthorize client-ID van 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed heeft en u wilt dat tooauthorize Hallo toepassing toodecrypt en meld u met sleutels in uw kluis, voert Hallo te volgen:
+Bijvoorbeeld, als de kluisnaam van uw ContosoKeyVault is en de toepassing die u wilt machtigen client-ID van 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed heeft en u machtigen van de toepassing wilt te ontsleutelen en meld u aan met de sleutels in uw kluis, voert u het volgende:
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '[\"decrypt\",\"sign\"]'
 
 > [!NOTE]
-> Als u op Windows-opdrachtprompt uitvoert, moet u enkele aanhalingstekens vervangen door dubbele aanhalingstekens en ook escape Hallo interne dubbele aanhalingstekens. Bijvoorbeeld: ' [\"ontsleutelen\",\"aanmelding\"] '.
+> Als u op Windows-opdrachtprompt uitvoert, moet u enkele aanhalingstekens vervangen door dubbele aanhalingstekens en ook escape voor de interne dubbele aanhalingstekens. Bijvoorbeeld: ' [\"ontsleutelen\",\"aanmelding\"] '.
 > 
 > 
 
-Als u dat dezelfde toepassing tooread geheimen tooauthorize in uw kluis wilt, voert u Hallo volgende:
+Als u dezelfde toepassing wilt autoriseren voor het lezen van geheimen in uw kluis, voert u de volgende opdracht uit:
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '[\"get\"]'
 
-## <a name="if-you-want-toouse-a-hardware-security-module-hsm"></a>Als u wilt dat toouse een hardware security module (HSM)
-U kunt voor de zekerheid importeren of genereren van sleutels in hardware security modules (HSM's) die Hallo HSM-grens nooit verlaten. Hallo HSM's zijn FIPS 140-2 Level 2-gevalideerde modules. Als deze vereiste niet van toepassing tooyou, kunt u deze sectie overslaan en gaat u te[hello sleutelkluis en de bijbehorende sleutels en geheimen verwijderen](#delete-the-key-vault-and-associated-keys-and-secrets).
+## <a name="if-you-want-to-use-a-hardware-security-module-hsm"></a>Als u een Hardware Security Module (HSM) wilt gebruiken
+Voor de zekerheid kunt u sleutels in HSM's (Hardware Security Module) importeren of genereren die de HSM-grens nooit verlaten. De HSM's zijn FIPS 140-2 Level 2-gevalideerde modules. Als deze vereiste niet van toepassing is op u, kunt u deze sectie overslaan om naar [De sleutelkluis en de bijbehorende sleutels en geheimen verwijderen](#delete-the-key-vault-and-associated-keys-and-secrets) te gaan.
 
-toocreate deze met HSM beveiligde sleutels, moet u een kluis abonnement die ondersteuning biedt voor met HSM beveiligde sleutels hebben.
+U moet een kluis-abonnement dat ondersteuning biedt voor met HSM beveiligde sleutels hebben voor het maken van deze met HSM beveiligde sleutels.
 
-Wanneer u Hallo keyvault maakt, voegt u de parameter 'sku' hello:
+Wanneer u de keyvault maakt, voegt u de parameter 'sku':
 
     azure azure keyvault create --vault-name 'ContosoKeyVaultHSM' --resource-group 'ContosoResourceGroup' --location 'East Asia' --sku 'Premium'
 
-U kunt softwarematige beveiligde sleutels toevoegen (zoals eerder is weergegeven) en de HSM beveiligde sleutels toothis-kluis. toocreate een HSM beschermde sleutel set Hallo bestemming parameter too'HSM':
+U kunt softwarematige beveiligde sleutels (zoals hiervoor) en met HSM beveiligde sleutels toevoegen aan deze kluis. Stel de doel-parameter op 'HSM' voor het maken van een HSM beveiligde sleutel:
 
     azure keyvault key create --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --destination 'HSM'
 
-U kunt volgende opdracht tooimport een sleutel uit een .pem-bestand op uw computer hello gebruiken. Deze opdracht wordt Hallo sleutel geïmporteerd in HSM's in Hallo Sleutelkluis-service:
+U kunt de volgende opdracht gebruiken voor het importeren van een sleutel van een .pem-bestand op uw computer. Met deze opdracht wordt de sleutel geïmporteerd in HSM's in de Sleutelkluis-service:
 
     azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' --password 'PaSSWORD'
 
-de volgende opdracht Hallo importeert u een 'bring your own key' (BYOK)-pakket. Hiermee kunt u uw sleutel in uw lokale HSM genereren en overdragen tooHSMs in Hallo Sleutelkluis-service, zonder Hallo sleutel Hallo HSM-grens verlaat:
+Met de volgende opdracht wordt een BYOK-pakket (Bring Your Own Key) geïmporteerd. Hiermee kunt u de sleutel in uw lokale HSM genereren en overdragen naar HSM's in de Sleutelkluis-service, zonder dat de sleutel de HSM-grens verlaat:
 
     azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --destination 'HSM'
 
-Voor instructies over het gedetailleerde toogenerate dit BYOK-pakket Zie [hoe toouse HSM-Protected sleutels met Azure Sleutelkluis](key-vault-hsm-protected-keys.md).
+Zie voor meer instructies over hoe dit BYOK-pakket te genereren gedetailleerde, [HSM-Protected sleutels gebruiken met Azure Key Vault](key-vault-hsm-protected-keys.md).
 
-## <a name="delete-hello-key-vault-and-associated-keys-and-secrets"></a>Hallo sleutelkluis en de bijbehorende sleutels en geheimen verwijderen
-Als u niet langer Hallo sleutelkluis en sleutel Hallo of het geheim die deze bevat, kunt u Hallo sleutelkluis verwijderen met behulp van de opdracht hello azure keyvault-verwijderen:
+## <a name="delete-the-key-vault-and-associated-keys-and-secrets"></a>De sleutelkluis en de bijbehorende sleutels en geheimen verwijderen
+Als u de sleutelkluis en de sleutel of geheim niet meer nodig hebt, kunt u de sleutelkluis verwijderen met behulp van de opdracht azure keyvault verwijderen:
 
     azure keyvault delete --vault-name 'ContosoKeyVault'
 
-Of u kunt een volledige Azure-resourcegroep, waaronder Hallo sleutelkluis en alle andere resources die u hebt opgenomen in de groep verwijderen:
+U kunt ook een volledige Azure-resourcegroep verwijderen. Deze bevat de sleutelkluis en alle andere resources die u hebt opgenomen in de groep:
 
     azure group delete --name 'ContosoResourceGroup'
 
@@ -244,7 +244,7 @@ Met deze opdracht worden alle sleutels en geselecteerde eigenschappen weergegeve
 
     azure keyvault key list --vault-name 'ContosoKeyVault'
 
-Deze opdracht wordt een volledige lijst met eigenschappen voor de opgegeven sleutel Hallo weergegeven:
+Deze opdracht wordt een volledige lijst met eigenschappen voor de opgegeven sleutel weergegeven:
 
     azure keyvault key show --vault-name 'ContosoKeyVault' --key-name 'ContosoFirstKey'
 
@@ -252,15 +252,15 @@ Met deze opdracht worden alle geheime namen en geselecteerde eigenschappen weerg
 
     azure keyvault secret list --vault-name 'ContosoKeyVault'
 
-Hier volgt een voorbeeld van hoe u een specifieke sleutel tooremove:
+Hier volgt een voorbeeld van hoe u een specifieke sleutel verwijdert:
 
     azure keyvault key delete --vault-name 'ContosoKeyVault' --key-name 'ContosoFirstKey'
 
-Hier volgt een voorbeeld van hoe u een specifiek geheim tooremove:
+Hier volgt een voorbeeld van hoe u een specifiek geheim verwijdert:
 
     azure keyvault secret delete --vault-name 'ContosoKeyVault' --secret-name 'SQLPassword'
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor het programmeren van verwijzingen [Hallo ontwikkelaarshandleiding Azure Key Vault](key-vault-developers-guide.md).
+Zie de [Ontwikkelaarshandleiding voor Azure Key Vault](key-vault-developers-guide.md) voor het programmeren van verwijzingen.
 

@@ -1,6 +1,6 @@
 ---
-title: aaaAzure gebruikersinterface van de Mobile Engagement - startpagina
-description: Meer informatie over hoe toomanage uw bestaande toepassing en met behulp van Azure Mobile Engagement-projecten
+title: Azure Mobile Engagement gebruikersinterface - Start
+description: Informatie over het beheren van uw bestaande toepassing en met behulp van Azure Mobile Engagement-projecten
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 727dad188c5876d09db84634a17e10b280039c49
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toomanage-your-existing-application-and-projects"></a>Hoe toomanage uw bestaande toepassing en -projecten
-Dit artikel wordt beschreven Hallo **Start** pagina Hallo **Mobile Engagement** portal. Gebruik van Hallo **Mobile Engagement** portal toomonitor en beheren van uw mobiele apps. Houd er rekening mee dat toostart met Hallo portal toocreate moet u eerst een **Azure Mobile Engagement** account. 
+# <a name="how-to-manage-your-existing-application-and-projects"></a>Het beheren van uw bestaande toepassing en -projecten
+In dit artikel beschrijft de **Start** pagina van de **Mobile Engagement** portal. U gebruikt de **Mobile Engagement** portal om te controleren en beheren van uw mobiele apps. Opmerking dat aan de slag met de portal moet u eerst maken een **Azure Mobile Engagement** account. 
 
-tooget toohello introductiepagina te gaan, klikt u op **thuis** op Hallo linksboven Hallo pagina. Deze bevat lijst van alle toepassingen die deel van de verzameling gekozen Hallo uitmaken Hallo. Op deze pagina overzicht u net een snel van uw toepassingen.
+Als u naar de startpagina, klikt u op **thuis** op linksboven op de pagina. Bevat de lijst van alle toepassingen die deel van de geselecteerde verzameling uitmaken. Op deze pagina overzicht u net een snel van uw toepassingen.
 
-Hallo-startpagina bevat ook alle projecten die alle toepassingen die op uw account kunnen opnemen. Houd er rekening mee dat iedereen toegang hebt tot startpagina Hallo Hallo gebruikersinterface met een account maakt, maar u toohave toegang tooyour aangepaste toepassingen in toogrant machtiging tooother gebruikers zodat ze nodig **Mijn projecten**.
+De startpagina bevat ook alle projecten die alle toepassingen die op uw account kunnen opnemen. Houd er rekening mee dat iedereen toegang heeft tot de introductiepagina van de gebruikersinterface door het maken van een account, maar u moet machtigingen verlenen aan andere gebruikers zodat ze toegang hebben tot uw aangepaste toepassingen in **Mijn projecten**.
 
-U kunt ook Hallo vergelijkingstabel voor Hallo geselecteerd toepassingen weergeven. Of kies tooview Hallo vergelijkingstabel voor de geselecteerde toepassingen in een project.
+U kunt ook de vergelijkingsgrafiek voor de geselecteerde toepassingen weergeven. Of kies weergave van de vergelijkingsgrafiek voor de geselecteerde toepassingen in een project.
 
 ![Home1][0]
 
 ## <a name="my-applications"></a>Mijn toepassingen
-Hallo snel overzicht van uw toepassingen kunt u welke toepassing die u wilt dat tooselect tooopen tooview Hallo gedetailleerde lint opties. Klik op Hallo-naam van uw toepassing tooreturn toohello laatst bezocht lint locatie in uw toepassing of klikt u op Hallo tandwielpictogram pictogram toogo rechtstreeks toohello de pagina 'Instellingen' van uw toepassing. U kunt zoeken, filteren of sorteren Hallo informatie weergegeven over Hallo toepassingen tabellen. U kunt ook slepen en neerzetten van Hallo headers toochange Hallo kolomvolgorde.
+De beknopt overzicht van uw toepassingen kunt u selecteren welke toepassing die u wilt openen om de gedetailleerde lint opties weer te geven. U kunt op de naam van uw toepassing om terug te keren naar de locatie van de meest recent bezochte lint in uw toepassing of klik op het pictogram tandwielpictogram rechtstreeks naar de pagina 'Instellingen' van uw toepassing. U kunt zoeken, filteren of sorteren van de informatie die wordt weergegeven op de tabellen voor toepassingen. U kunt ook slepen en neerzetten van de kolomkoppen om de volgorde te wijzigen.
 
-Onder andere bevat Hallo overzicht van uw toepassingen:
+Onder andere bevat het overzicht van uw toepassingen:
 
-* **Nieuwe gebruikers trend**: evolutie van nieuwe gebruikers gedurende de afgelopen twee weken Hallo.
-* **Actieve gebruikers**: aantal actieve gebruikers gedurende de afgelopen 30 dagen Hallo.
-* **Actieve gebruikers trend**: evolutie van actieve gebruikers gedurende de afgelopen twee weken Hallo.
-* **Sessies**: een sessie is een gebruik van de toepassing hello door een gebruiker, vanuit Hallo tijd Hallo gebruiker wordt gestart gebruiken, totdat het Hallo-gebruiker niet meer.
-* **Sessie Trends**: evolutie van sessies gedurende Hallo afgelopen twee weken.
+* **Nieuwe gebruikers trend**: evolutie van nieuwe gebruikers gedurende de afgelopen twee weken.
+* **Actieve gebruikers**: aantal actieve gebruikers gedurende de afgelopen 30 dagen.
+* **Actieve gebruikers trend**: evolutie van actieve gebruikers gedurende de afgelopen twee weken.
+* **Sessies**: een sessie is een gebruik van de toepassing uitgevoerd door een gebruiker, vanaf het moment dat de gebruiker wordt gestart gebruik tot het einde.
+* **Sessie Trends**: evolutie van sessies gedurende de afgelopen twee weken.
 
-Wanneer u op een toepassing klikt, kunt u beginnen controleren en beheren van uw apps via Hallo gebruikersinterface. Bijvoorbeeld:    
+Wanneer u op een toepassing klikt, kunt u beginnen controleren en beheren van uw apps via de gebruikersinterface. Bijvoorbeeld:    
 
 * [Realtime-gegevens over uw toepassing bewaken](mobile-engagement-user-interface-monitor.md)
 * [Historische gegevens over uw toepassing analyseren](mobile-engagement-user-interface-analytics.md)
-* [Maken en beheren van de segmenten van gebruikers tooidentify gebruikspatronen](mobile-engagement-user-interface-segments.md)
-* [Bereiken toohello gebruikers van uw toepassing met pushmeldingen](mobile-engagement-user-interface-reach.md)
+* [Gebruikerssegmenten maken en beheren voor het identificeren van gebruikspatronen](mobile-engagement-user-interface-segments.md)
+* [Gebruikers van uw toepassing bereiken met pushmeldingen](mobile-engagement-user-interface-reach.md)
 
 ## <a name="my-projects"></a>Mijn projecten
-U kunt gebruiken projecten toogroup uw toepassingen en geven machtigingen tooother gebruikers tooaccess uw toepassingen. U verlenen machtigingen tooother gebruikers aan de hand van e-mailadres. Hallo **nieuw project** knop kunt u een nieuw project toocreate hiertoe alleen een 'name' en 'beschrijving' van het nieuwe project. Zodra een project is gemaakt, kunt u op Hallo project tooedit Hallo naam en beschrijving van uw product en tooselect alle Hallo-toepassingen die u wilt dat toosee in dit project.
+U kunt projecten gebruiken voor het groeperen van uw toepassingen en machtigingen geven voor andere gebruikers toegang krijgen tot uw toepassingen. U geven machtigingen voor andere gebruikers door op te geven van e-mailadres. De **nieuw project** knop kunt u een nieuw project maken door te voeren alleen een 'name' en 'beschrijving' van het nieuwe project. Zodra een project is gemaakt, kunt u klikken op de naam van het project de naam en beschrijving van uw product bewerken en selecteer de toepassingen die u wilt zien in dit project.
 
 ![Home6][60]
 
 Rollen zijn onder andere:
 
-* **Viewer**: A-Viewer is een gebruiker die u kunt alleen Hallo-toepassingen weergeven die zijn gekoppeld tooa Project. Een Viewer kunt openen analytics en bewaken van gegevens en bekijk Reach-resultaten. Een Viewer kan niet alle wijzigen of toepassingen of gebruikers beheren. Een Viewer niet maken of wijzigen van de status van de Reach-campagne.
+* **Viewer**: A-Viewer is een gebruiker die de toepassingen die zijn gekoppeld aan een Project alleen kunt bekijken. Een Viewer kunt openen analytics en bewaken van gegevens en bekijk Reach-resultaten. Een Viewer kan niet alle wijzigen of toepassingen of gebruikers beheren. Een Viewer niet maken of wijzigen van de status van de Reach-campagne.
 * **Developer**: een ontwikkelaar is een gebruiker kan alles een Viewer kunt doen, evenals toepassingen beheren doen. Een ontwikkelaar kunt inschakelen en uitschakelen van toepassingen, informatie over de toepassingen (zoals distributiepuntpakketten en handtekeningen) wijzigen en Reach-campagnes maken. Een ontwikkelaar kan gebruikers niet beheren.
-* **Beheerder**: een beheerder is een gebruiker kan alles een ontwikkelaar kan doen, evenals beheren van gebruikers doen. Een beheerder gebruikers toojoin een project kunt uitnodigen, gebruikersrollen kunt wijzigen en informatie van het project kunt wijzigen. Machtigingen op gebruikersniveau kunnen ook worden ingesteld in 'instellingen'.
+* **Beheerder**: een beheerder is een gebruiker kan alles een ontwikkelaar kan doen, evenals beheren van gebruikers doen. Een beheerder kan gebruikers uitnodigen om te nemen aan een project, gebruikersrollen kunt wijzigen en informatie van het project kunt wijzigen. Machtigingen op gebruikersniveau kunnen ook worden ingesteld in 'instellingen'.
 
-Klik op een project tooview alle Hallo-toepassingen die deel van dit project uitmaken. Hallo volgende afbeelding toont Hallo vergelijkingstabel voor toepassingen Hallo geselecteerd.
+Klik op een project om de toepassingen die deel van dit project uitmaken weer te geven. De volgende afbeelding toont de vergelijkingsgrafiek voor de geselecteerde toepassingen.
 
 ![Thuis2][3]
 

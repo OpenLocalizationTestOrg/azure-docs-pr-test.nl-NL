@@ -1,6 +1,6 @@
 ---
-title: aaaCollect Azure service-logboeken en metrische gegevens voor Log Analytics | Microsoft Docs
-description: Diagnostische gegevens configureren op Azure-resources toowrite logboeken en metrische gegevens tooLog Analytics.
+title: Azure service-logboeken en metrische gegevens verzamelen voor Log Analytics | Microsoft Docs
+description: Diagnostische gegevens configureren op Azure-resources voor het schrijven van Logboeken en metrische gegevens met logboekanalyse.
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1cede9a94ec83c4e3a95853dc2ec355d8df06d6e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Verzamelen van Logboeken van de Azure-service en metrische gegevens voor gebruik in Log Analytics
 
 Er zijn vier verschillende manieren van het verzamelen van Logboeken en metrische gegevens voor Azure-services:
 
-1. Azure diagnostics directe tooLog Analytics (*Diagnostics* in de volgende tabel Hallo)
-2. Azure diagnostics tooAzure opslag tooLog Analytics (*opslag* in de volgende tabel Hallo)
-3. Connectors voor Azure-services (*Connectors* in de volgende tabel Hallo)
-4. Scripts toocollect en vervolgens postgegevens in logboekanalyse (lege cellen in de volgende tabel Hallo en voor services die niet worden weergegeven)
+1. Azure diagnostics direct met logboekanalyse (*Diagnostics* in de volgende tabel)
+2. Azure diagnostics naar Azure-opslag met logboekanalyse (*opslag* in de volgende tabel)
+3. Connectors voor Azure-services (*Connectors* in de volgende tabel)
+4. Scripts voor het verzamelen en vervolgens postgegevens in logboekanalyse (lege cellen in de volgende tabel en voor services die niet worden weergegeven)
 
 
 | Service                 | Resourcetype                           | Logboeken        | Metrische gegevens     | Oplossing |
@@ -60,22 +60,22 @@ Er zijn vier verschillende manieren van het verzamelen van Logboeken en metrisch
 
 
 > [!NOTE]
-> Voor het bewaken van virtuele machines in Azure (Linux en Windows), wordt aangeraden Hallo installeren [Log Analytics VM-extensie](log-analytics-azure-vm-extension.md). Hallo agent biedt u inzicht verzameld van binnen uw virtuele machines. U kunt ook Hallo-extensie voor de virtuele-machineschaalsets gebruiken.
+> Voor het bewaken van virtuele machines in Azure (Linux en Windows), wordt aangeraden installeren van de [Log Analytics VM-extensie](log-analytics-azure-vm-extension.md). De agent biedt u inzicht verzameld van binnen uw virtuele machines. U kunt ook de uitbreiding voor de virtuele-machineschaalsets gebruiken.
 >
 >
 
-## <a name="azure-diagnostics-direct-toolog-analytics"></a>Azure diagnostics direct tooLog Analytics
-Veel Azure-resources zijn kunnen toowrite diagnostische logboeken en metrische gegevens rechtstreeks tooLog Analytics en dit is de manier Hallo voorkeur Hallo-gegevens voor analyse te verzamelen. Wanneer u Azure diagnostics, gegevens worden geschreven onmiddellijk tooLog Analytics en er is geen noodzaak toofirst schrijven Hallo gegevens toostorage.
+## <a name="azure-diagnostics-direct-to-log-analytics"></a>Azure diagnostics rechtstreeks naar Log Analytics
+Veel Azure-resources kunnen schrijven logboeken met diagnostische gegevens en metrische gegevens rechtstreeks naar het Log Analytics en dit is de beste manier om de gegevens voor analyse te verzamelen. Bij gebruik van Azure diagnostics gegevens onmiddellijk worden geschreven met logboekanalyse en hoeft niet de gegevens eerst naar opslag schrijven.
 
-Azure-resources die ondersteuning bieden voor [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md) hun logboeken en metrische gegevens kunt verzenden rechtstreeks tooLog Analytics.
+Azure-resources die ondersteuning bieden voor [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md) hun logboeken en metrische gegevens rechtstreeks naar het Log Analytics kunt verzenden.
 
-* Raadpleeg te voor details van de beschikbare metrische gegevens Hallo Hallo[ondersteund met een Azure-Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
-* Raadpleeg te voor details van de beschikbare logboeken Hallo Hallo[ondersteund services en het schema voor diagnostische logboeken](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+* Raadpleeg voor de details van de beschikbare metrische gegevens, [ondersteund met een Azure-Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+* Raadpleeg voor de details van de beschikbare logboeken [ondersteund services en het schema voor diagnostische logboeken](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Diagnosefunctie inschakelen met PowerShell
-U moet Hallo November 2016 (v2.3.0) of later release van [Azure PowerShell](/powershell/azure/overview).
+U moet de November 2016 (v2.3.0) of later release van [Azure PowerShell](/powershell/azure/overview).
 
-Hallo volgende PowerShell-voorbeeld wordt getoond hoe toouse [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) tooenable diagnostische gegevens op een netwerkbeveiligingsgroep. Hallo dezelfde methode werkt voor alle ondersteunde resources - ingesteld `$resourceId` toohello bron-id van de gewenste tooenable diagnostische gegevens voor Hallo-bron.
+Het volgende PowerShell-voorbeeld ziet u hoe u [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) om in te schakelen van diagnostische gegevens op een netwerkbeveiligingsgroep. Dezelfde manier werkt voor alle ondersteunde resources - ingesteld `$resourceId` naar de resource-id van de resource die u wilt inschakelen van diagnostische gegevens voor.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -87,7 +87,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
 
 ### <a name="enable-diagnostics-with-resource-manager-templates"></a>Diagnostische gegevens met Resource Manager-sjablonen inschakelen
 
-tooenable diagnostische gegevens van een resource als deze wordt gemaakt en hebben verzonden hello diagnostics tooyour Log Analytics-werkruimte die kunt u een sjabloon vergelijkbare toohello een hieronder. In dit voorbeeld is voor een Automation-account, maar werkt voor alle ondersteunde resourcetypen.
+Voor het inschakelen van diagnostische gegevens van een resource als deze is gemaakt en de diagnostische gegevens naar de werkruimte voor logboekanalyse u verzonden hebben kunnen een sjabloon die lijkt op de onderstaande kunnen gebruiken. In dit voorbeeld is voor een Automation-account, maar werkt voor alle ondersteunde resourcetypen.
 
 ```json
         {
@@ -116,11 +116,11 @@ tooenable diagnostische gegevens van een resource als deze wordt gemaakt en hebb
 
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
-## <a name="azure-diagnostics-toostorage-then-toolog-analytics"></a>Azure diagnostics toostorage vervolgens tooLog Analytics
+## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Azure diagnostics naar opslag vervolgens naar het Log Analytics
 
-Voor het verzamelen van Logboeken van binnen enkele informatiebronnen die mogelijk het is mogelijk toosend Hallo logboeken tooAzure opslag en configureer vervolgens logboekanalyse tooread Hallo logboeken van de opslag.
+Voor het verzamelen van Logboeken van binnen enkele informatiebronnen die mogelijk is het mogelijk om de logboeken verzenden met Azure-opslag en configureer vervolgens Log Analytics om te lezen van de logboeken van de opslag.
 
-Log Analytics kunt deze benadering toocollect diagnostische gegevens naar Azure storage gebruiken voor Hallo resources en logboeken te volgen:
+Log Analytics kunt u deze benadering gebruiken voor het verzamelen van diagnostische gegevens naar Azure storage voor de volgende bronnen en de logboeken:
 
 | Resource | Logboeken |
 | --- | --- |
@@ -129,26 +129,26 @@ Log Analytics kunt deze benadering toocollect diagnostische gegevens naar Azure 
 | Web-rollen <br> Werkrollen |Linux Syslog <br> Windows-gebeurtenis <br> IIS-logboek <br> Windows ETWEvent |
 
 > [!NOTE]
-> U kunt de normale Azure gegevenskosten voor opslag en transacties wanneer u de tooa opslagaccount voor diagnostische gegevens verzendt en wanneer logboekanalyse Hallo gegevens uit uw storage-account leest worden aangerekend.
+> U kunt de normale Azure gegevenskosten voor opslag en transacties wanneer u diagnostische gegevens naar een opslagaccount verzenden en voor wanneer logboekanalyse de gegevens van uw opslagaccount leest worden aangerekend.
 >
 >
 
-Zie [gebruik blob storage voor IIS en tabel opslag voor gebeurtenissen](log-analytics-azure-storage-iis-table.md) toolearn meer informatie over hoe logboekanalyse deze logboeken kan verzamelen.
+Zie [gebruik blob storage voor IIS en tabel opslag voor gebeurtenissen](log-analytics-azure-storage-iis-table.md) voor meer informatie over hoe logboekanalyse deze logboeken kan verzamelen.
 
 ## <a name="connectors-for-azure-services"></a>Connectors voor Azure-services
 
-Er is een connector voor Application Insights, waarmee gegevens verzameld door Application Insights toobe tooLog Analytics verzonden.
+Er is een connector voor Application Insights, waarmee gegevens verzameld door Application Insights wordt verzonden naar logboekanalyse.
 
-Meer informatie over Hallo [Application Insights-connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/).
+Meer informatie over de [Application Insights-connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/).
 
-## <a name="scripts-toocollect-and-post-data-toolog-analytics"></a>Scripts toocollect en post gegevens tooLog Analytics
+## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>Scripts voor het verzamelen en postgegevens met Log Analytics
 
-Voor Azure-services die geen een directe manier toosend logboeken en metrische gegevens tooLog bieden Hallo Analytics kunt u een Azure Automation script toocollect logboek en metrische gegevens. Hallo-script kan vervolgens verzenden Hallo gegevens tooLog Analytics met Hallo [gegevensverzamelaar API](log-analytics-data-collector-api.md)
+Voor Azure-services die geen bieden een directe manier logboeken en metrische gegevens verzenden naar Log Analytics kunt u een Azure Automation-script gebruiken voor het verzamelen van het logboek en metrische gegevens. Het script vervolgens de gegevens kunt verzenden naar het Log Analytics met behulp van de [gegevensverzamelaar API](log-analytics-data-collector-api.md)
 
-Hello Azure sjablonengalerie heeft [voorbeelden van het gebruik van Azure Automation](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) toocollect gegevens van services en dit tooLog Analytics te verzenden.
+De galerie van Azure-sjabloon is [voorbeelden van het gebruik van Azure Automation](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) gegevens te verzamelen van services en te verzenden naar logboekanalyse.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Blob storage gebruiken voor de opslag van IIS en de tabel voor gebeurtenissen](log-analytics-azure-storage-iis-table.md) tooread Hallo logboeken voor Azure-services die schrijven diagnostics tootable opslag of IIS-logboeken geschreven tooblob opslag.
-* [Inschakelen van oplossingen](log-analytics-add-solutions.md) tooprovide inzicht in Hallo-gegevens.
-* [Gebruik zoekquery's](log-analytics-log-searches.md) tooanalyze Hallo gegevens.
+* [Blob storage gebruiken voor de opslag van IIS en de tabel voor gebeurtenissen](log-analytics-azure-storage-iis-table.md) lezen van de logboeken voor voor Azure-services die schrijven diagnostische gegevens naar table storage of de IIS-logboeken geschreven naar de blob storage.
+* [Inschakelen van oplossingen](log-analytics-add-solutions.md) te bieden inzicht in de gegevens.
+* [Gebruik zoekquery's](log-analytics-log-searches.md) om de gegevens te analyseren.

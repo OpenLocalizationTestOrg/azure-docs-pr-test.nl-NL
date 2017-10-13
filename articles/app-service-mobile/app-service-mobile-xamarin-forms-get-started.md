@@ -1,6 +1,6 @@
 ---
-title: aaaGet slag met Mobile Apps met behulp van Xamarin.Forms
-description: Volg deze zelfstudie toostart met Mobile Apps voor Xamarin.Forms-ontwikkeling
+title: Aan de slag met Mobile Apps met behulp van Xamarin.Forms
+description: Volg deze zelfstudie om aan de slag te gaan met Mobile Apps voor Xamarin.Forms-ontwikkeling
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -14,172 +14,172 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: af6b1c1ce4cf91c397552aa3d8ee40728129238c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ee12caaad4095cff6dae3282f747ae804f93db81
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-xamarinforms-app"></a>Een Xamarin.Forms-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie leert u hoe tooadd een back-endservice cloud-gebaseerde tooa mobiele Xamarin.Forms-app met behulp van de functie Mobile Apps van Azure App Service als de back-end Hallo Hallo. U maakt zowel een nieuwe back-end voor Mobile Apps als een eenvoudige Xamarin.Forms-app voor takenlijsten die app-gegevens opslaat in Azure.
+Deze zelfstudie laat zien hoe u een cloudgebaseerde back-endservice toevoegt aan een mobiele Xamarin.Forms-app door de functie Mobile Apps van Azure App Service als de back-end te gebruiken. U maakt zowel een nieuwe back-end voor Mobile Apps als een eenvoudige Xamarin.Forms-app voor takenlijsten die app-gegevens opslaat in Azure.
 
 Het voltooien van deze zelfstudie is een vereiste voor alle andere zelfstudies over Mobile Apps voor Xamarin.Forms.
 
 ## <a name="prerequisites"></a>Vereisten
-toocomplete in deze zelfstudie, moet u hello te volgen:
+Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Een actief Azure-account. Als u geen account hebt, kunt u zich aanmeldt voor een proefversie van Azure en krijg too10 gratis mobiele apps die u ook na de proefperiode kunt blijven gebruiken. Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+* Een actief Azure-account. Als u geen account hebt, kunt u zich aanmelden voor een proefversie van Azure en maximaal tien gratis mobiele apps krijgen die u ook na de proefperiode kunt blijven gebruiken. Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
-* Visual Studio met Xamarin. Zie voor informatie Hallo [ingesteld omhoog en installeer Visual Studio en Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) pagina.
+* Visual Studio met Xamarin. Zie [Setup and install](https://msdn.microsoft.com/library/mt613162.aspx) (Configureren en installeren) voor meer informatie.
 
 * Een Mac met Xcode v7.0 of hoger en waarop Xamarin Studio Community is geïnstalleerd. Zie [Setup and install](https://msdn.microsoft.com/library/mt613162.aspx) (Configureren en installeren) en [Setup, install, and verifications for Mac users](https://msdn.microsoft.com/library/mt488770.aspx) (Instructies voor installatie, configuratie en verificatie voor Mac-gebruikers) (MSDN) voor meer informatie.
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>Een nieuwe back-end voor Mobile Apps maken
 
-weer een nieuwe Mobile Apps beëindigen, toocreate Hallo te volgen:
+Doe het volgende om een nieuwe back-end voor Mobile Apps te maken:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-U hebt nu een back-end voor Mobile Apps ingesteld die uw mobiele clienttoepassingen kunnen gebruiken. Vervolgens maakt u een serverproject downloaden voor een eenvoudige taak lijst back-end en publiceer deze tooAzure.
+U hebt nu een back-end voor Mobile Apps ingesteld die uw mobiele clienttoepassingen kunnen gebruiken. Nu gaat u een serverproject downloaden voor een eenvoudige back-end voor takenlijsten en deze vervolgens publiceren naar Azure.
 
-## <a name="configure-hello-server-project"></a>Hallo serverproject configureren
+## <a name="configure-the-server-project"></a>Het serverproject configureren
 
-tooconfigure hello server project toouse Hallo Node.js- of .NET back-end, Hallo te volgen:
+Doe het volgende om het serverproject te configureren voor het gebruik van de Node.js- of .NET-back-end:
 
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-hello-xamarinforms-solution"></a>Hallo Xamarin.Forms-oplossing downloaden en uitvoeren
+## <a name="download-and-run-the-xamarinforms-solution"></a>De Xamarin.Forms-oplossing downloaden en uitvoeren
 
-U kunt Hallo-oplossing op twee manieren downloaden. Download deze tooa Mac en openen in Xamarin Studio of download deze tooa Windows-computer en openen in Visual Studio met behulp van Mac in een netwerk voor het bouwen van Hallo iOS-app. Zie [Setup and install](https://msdn.microsoft.com/library/mt613162.aspx) (Configureren en installeren) voor meer informatie.
+U kunt de oplossing op twee manieren downloaden. Download de oplossing naar een Mac en open deze in Xamarin Studio of download naar een Windows-computer en open de oplossing in Visual Studio en gebruik een Mac in het netwerk om de iOS-app te bouwen. Zie [Setup and install](https://msdn.microsoft.com/library/mt613162.aspx) (Configureren en installeren) voor meer informatie.
 
-Op een Mac of Windows-computer, Hallo te volgen:
+Ga als volgt te werk op een Mac of Windows-computer:
 
-1. Ga toohello [Azure-portal].
+1. Ga naar de [Azure Portal].
 
-2. Op Hallo **instellingen** blade voor uw mobiele app onder **Mobile**, selecteer **aan de slag** > **Xamarin.Forms**. Selecteer **Een nieuwe app maken** onder **stap 3** en selecteer vervolgens **Downloaden**.
+2. Ga op de blade **Instellingen** voor uw mobiele app naar **Mobiel** en selecteer **Aan de slag** > **Xamarin.Forms**. Selecteer **Een nieuwe app maken** onder **stap 3** en selecteer vervolgens **Downloaden**.
 
-   Deze actie een project gedownload dat een clienttoepassing bevat die is verbonden tooyour mobiele app. Hallo project gecomprimeerde bestand tooyour lokale computer opslaan en maak een notitie van de opslaglocatie.
+   Er wordt nu een project gedownload dat een clienttoepassing bevat die is verbonden met uw mobiele app. Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
 
-3. Pak Hallo-project dat u hebt gedownload en open het in Xamarin Studio (Mac) of Visual Studio (Windows).
+3. Pak het project uit dat u hebt gedownload en open het in Xamarin Studio (Mac) of Visual Studio (Windows).
 
    ![Uitgepakt project in Xamarin Studio][9]
 
    ![Uitgepakt project in Visual Studio][8]
 
-## <a name="optional-run-hello-ios-project"></a>(Optioneel) Hallo iOS-project uitvoeren
-In deze sectie kunt uitvoeren u Hallo Xamarin iOS-project voor iOS-apparaten. Als u niet met iOS-apparaten werkt, kunt u deze sectie overslaan.
+## <a name="optional-run-the-ios-project"></a>(Optioneel) Het iOS-project uitvoeren
+In deze sectie gaat u het Xamarin iOS-project uitvoeren voor iOS-apparaten. Als u niet met iOS-apparaten werkt, kunt u deze sectie overslaan.
 
 #### <a name="in-xamarin-studio"></a>In Xamarin Studio
-1. Met de rechtermuisknop op Hallo iOS-project en selecteer vervolgens **instellen als opstartproject**.
+1. Klik met de rechtermuisknop op het iOS-project en selecteer vervolgens **Set As Startup Project**.
 
-2. Op Hallo **uitvoeren** selecteert u **foutopsporing starten** toobuild Hallo project en Hallo-app in Hallo iPhone-emulator te starten.
+2. Selecteer **Start Debugging** in het menu **Run** om het project te bouwen en de app te starten in de iPhone-emulator.
 
 #### <a name="in-visual-studio"></a>In Visual Studio
-1. Met de rechtermuisknop op Hallo iOS-project en selecteer vervolgens **instellen als opstartproject**.
+1. Klik met de rechtermuisknop op het iOS-project en selecteer vervolgens **Set as StartUp Project**.
 
-2. Op Hallo **bouwen** selecteert u **Configuration Manager**.
+2. Selecteer **Configuration Manager** in het menu **Bouwen**.
 
-3. In Hallo **Configuration Manager** dialoogvenster, selecteer Hallo **bouwen** en **implementeren** selectievakjes volgende toohello iOS-project.
+3. Schakel in het dialoogvenster **Configuration Manager** de selectievakjes **Bouwen** en **Implementeren** in voor het iOS-project.
 
-4. toobuild project Hallo en Hallo-app te starten in Hallo iPhone-emulator, selecteer Hallo **F5** sleutel.
+4. Selecteer de toets **F5** om het project te bouwen en de app te starten in de iPhone-emulator.
 
    > [!NOTE]
-   > Als u problemen ondervindt Hallo-project te bouwen, uitvoeren Hallo NuGet package manager en update toohello meest recente versie van Hallo Xamarin-ondersteuningspakketten. QuickStart-projecten mogelijk traag tooupdate toohello meest recente versies.    
+   > Als u er problemen zijn met het bouwen van het project, voert u NuGet Package Manager uit om bij te werken naar de nieuwste versie van de Xamarin-ondersteuningspakketten. Het is mogelijk dat het even duurt voordat Quick Start-projecten zijn bijgewerkt naar de nieuwste versie.    
    >
    >
 
-5. Typ in het Hallo-app zinvolle tekst, zoals *xamarin leren kennen*, en vervolgens selecteert Hallo plusteken (**+**).
+5. Typ zinvolle tekst in de app, zoals *Xamarin leren kennen*, en selecteer vervolgens het plusteken (**+**).
 
     ![][10]
 
-    Met deze actie verzendt een post-aanvraag toohello die mobiele Apps van nieuwe back-end die wordt gehost in Azure. De gegevens van Hallo-aanvraag is opgenomen in de takentabel Hallo. Items die zijn opgeslagen in de tabel Hallo worden geretourneerd door Hallo Mobile Apps terug beëindigen en Hallo gegevens worden weergegeven in de lijst Hallo.
+    Hierdoor wordt er een POST-aanvraag verzonden naar de nieuwe back-end voor Mobile Apps die wordt gehost in Azure. Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor Mobile Apps en de gegevens worden weergegeven in de lijst.
 
     > [!NOTE]
-    > Hier vindt u Hallo-code die toegang heeft tot uw back-end van Mobile Apps in Hallo TodoItemManager.cs C#-bestand van Hallo portable class library-project van uw oplossing.
+    > U vindt de code die toegang geeft tot de back-end voor Mobile Apps in het bestand TodoItemManager.cs C# van het 'portable class library'-project van uw oplossing.
     >
     >
 
-## <a name="optional-run-hello-android-project"></a>(Optioneel) Hallo Android-project uitvoeren
-In deze sectie kunt u Hallo Xamarin droid-project voor Android uitvoeren. Als u niet met Android-apparaten werkt, kunt u deze sectie overslaan.
+## <a name="optional-run-the-android-project"></a>(Optioneel) Het Android-project uitvoeren
+In deze sectie gaat u het Xamarin Droid-project voor Android uitvoeren. Als u niet met Android-apparaten werkt, kunt u deze sectie overslaan.
 
 #### <a name="in-xamarin-studio"></a>In Xamarin Studio
 
-1. Met de rechtermuisknop op Hallo Android-project en selecteer vervolgens **instellen als opstartproject**.
+1. Klik met de rechtermuisknop op het Android-project en selecteer vervolgens **Set As Startup Project**.
 
-2. toobuild project Hallo en Hallo-app te starten in een Android-emulator op Hallo **uitvoeren** selecteert u **foutopsporing starten**.
+2. Selecteer **Start Debugging** in het menu **Run** om het project te bouwen en de app te starten in een Android-emulator.
 
 #### <a name="in-visual-studio"></a>In Visual Studio
 
-1. Met de rechtermuisknop op het Hallo-project voor Android (Droid) en selecteer vervolgens **instellen als opstartproject**.
+1. Klik met de rechtermuisknop op het Android-project (Droid) en selecteer vervolgens **Instellen als opstartproject**.
 
-2. Op Hallo **bouwen** selecteert u **Configuration Manager**.
+2. Selecteer **Configuration Manager** in het menu **Bouwen**.
 
-3. In Hallo **Configuration Manager** dialoogvenster, selecteer Hallo **bouwen** en **implementeren** selectievakjes volgende toohello Android-project.
+3. Schakel in het dialoogvenster **Configuration Manager** de selectievakjes **Bouwen** en **Implementeren** in voor het Android-project.
 
-4. toobuild project Hallo en Hallo-app te starten in een Android-emulator, selecteer Hallo **F5** sleutel.
+4. Selecteer de toets **F5** om het project te bouwen en de apps te starten in een Android-emulator.
 
    > [!NOTE]
-   > Als u problemen ondervindt Hallo-project te bouwen, uitvoeren Hallo NuGet package manager en update toohello meest recente versie van Hallo Xamarin-ondersteuningspakketten. QuickStart-projecten mogelijk traag tooupdate toohello meest recente versies.    
+   > Als u er problemen zijn met het bouwen van het project, voert u NuGet Package Manager uit om bij te werken naar de nieuwste versie van de Xamarin-ondersteuningspakketten. Het is mogelijk dat het even duurt voordat Quick Start-projecten zijn bijgewerkt naar de nieuwste versie.    
    >
    >
 
-5. Typ in het Hallo-app zinvolle tekst, zoals *xamarin leren kennen*, en vervolgens selecteert Hallo plusteken (**+**).
+5. Typ zinvolle tekst in de app, zoals *Xamarin leren kennen*, en selecteer vervolgens het plusteken (**+**).
 
     ![][11]
     
-    Met deze actie verzendt een post-aanvraag toohello die mobiele Apps van nieuwe back-end die wordt gehost in Azure. De gegevens van Hallo-aanvraag is opgenomen in de takentabel Hallo. Items die zijn opgeslagen in de tabel Hallo worden geretourneerd door Hallo Mobile Apps terug beëindigen en Hallo gegevens worden weergegeven in de lijst Hallo.
+    Hierdoor wordt er een POST-aanvraag verzonden naar de nieuwe back-end voor Mobile Apps die wordt gehost in Azure. Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor Mobile Apps en de gegevens worden weergegeven in de lijst.
     
     > [!NOTE]
-    > Hier vindt u Hallo-code die toegang heeft tot uw back-end van Mobile Apps in Hallo TodoItemManager.cs C#-bestand van Hallo portable class library-project van uw oplossing.
+    > U vindt de code die toegang geeft tot de back-end voor Mobile Apps in het bestand TodoItemManager.cs C# van het 'portable class library'-project van uw oplossing.
     >
     >
 
-## <a name="optional-run-hello-windows-project"></a>(Optioneel) Hallo Windows-project uitvoeren
+## <a name="optional-run-the-windows-project"></a>(Optioneel) Het Windows-project uitvoeren
 
-In deze sectie kunt uitvoeren u Hallo project Xamarin WinApp voor Windows-apparaten. Als u niet met Windows-apparaten werkt, kunt u deze sectie overslaan.
+In deze sectie gaat u het project Xamarin WinApp uitvoeren voor Windows-apparaten. Als u niet met Windows-apparaten werkt, kunt u deze sectie overslaan.
 
 #### <a name="in-visual-studio"></a>In Visual Studio
 
-1. Met de rechtermuisknop op een van de Windows-projecten Hallo en selecteer vervolgens **instellen als opstartproject**.
+1. Klik met de rechtermuisknop op een van de Windows-projecten en selecteer vervolgens **Instellen als opstartproject**.
 
-2. Op Hallo **bouwen** selecteert u **Configuration Manager**.
+2. Selecteer **Configuration Manager** in het menu **Bouwen**.
 
-3. In Hallo **Configuration Manager** dialoogvenster, selecteer Hallo **bouwen** en **implementeren** selectievakjes volgende toohello Windows-project dat u hebt gekozen.
+3. Schakel in het dialoogvenster **Configuration Manager** de selectievakjes **Bouwen** en **Implementeren** in van het Windows-project dat u hebt gekozen.
 
-4. toobuild project Hallo en Hallo-app te starten in een Windows-emulator, selecteer Hallo **F5** sleutel.
+4. Selecteer de toets **F5** om het project te bouwen en de apps te starten in een Windows-emulator.
 
    > [!NOTE]
-   > Als u problemen ondervindt Hallo-project te bouwen, uitvoeren Hallo NuGet package manager en update toohello meest recente versie van Hallo Xamarin-ondersteuningspakketten. QuickStart-projecten mogelijk traag tooupdate toohello meest recente versies.    
+   > Als u er problemen zijn met het bouwen van het project, voert u NuGet Package Manager uit om bij te werken naar de nieuwste versie van de Xamarin-ondersteuningspakketten. Het is mogelijk dat het even duurt voordat Quick Start-projecten zijn bijgewerkt naar de nieuwste versie.    
    >
    >
 
-5. Typ in het Hallo-app zinvolle tekst, zoals *xamarin leren kennen*, en vervolgens selecteert Hallo plusteken (**+**).
+5. Typ zinvolle tekst in de app, zoals *Xamarin leren kennen*, en selecteer vervolgens het plusteken (**+**).
 
-    Met deze actie verzendt een post-aanvraag toohello die mobiele Apps van nieuwe back-end die wordt gehost in Azure. De gegevens van Hallo-aanvraag is opgenomen in de takentabel Hallo. Items die zijn opgeslagen in de tabel Hallo worden geretourneerd door Hallo Mobile Apps terug beëindigen en Hallo gegevens worden weergegeven in de lijst Hallo.
+    Hierdoor wordt er een POST-aanvraag verzonden naar de nieuwe back-end voor Mobile Apps die wordt gehost in Azure. Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor Mobile Apps en de gegevens worden weergegeven in de lijst.
     
     ![][12]
     
     > [!NOTE]
-    > Hier vindt u Hallo-code die toegang heeft tot uw back-end van Mobile Apps in Hallo TodoItemManager.cs C#-bestand van Hallo portable class library-project van uw oplossing.
+    > U vindt de code die toegang geeft tot de back-end voor Mobile Apps in het bestand TodoItemManager.cs C# van het 'portable class library'-project van uw oplossing.
     >
     >
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Verificatie tooyour app toevoegen](app-service-mobile-xamarin-forms-get-started-users.md)  
-  Meer informatie over hoe tooauthenticate gebruikers van uw app met een id-provider.
+* [Verificatie toevoegen aan uw app](app-service-mobile-xamarin-forms-get-started-users.md)  
+  Ontdek hoe u gebruikers van uw app verifieert met een id-provider.
 
-* [Push notifications tooyour app toevoegen](app-service-mobile-xamarin-forms-get-started-push.md)  
-  Informatie over hoe tooadd pushmeldingen tooyour app ondersteunen en uw Mobile Apps back-end toouse Azure Notification Hubs toosend Hallo push-meldingen configureren.
+* [Pushmeldingen toevoegen aan uw app](app-service-mobile-xamarin-forms-get-started-push.md)  
+  Lees hoe u ondersteuning voor pushmeldingen toevoegt aan uw app en de backend voor Mobile Apps configureert voor het gebruik van Azure Notification Hubs voor het verzenden van pushmeldingen.
 
 * [Offlinesynchronisatie voor uw app inschakelen](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
-  Meer informatie over hoe tooadd offlineondersteuning voor uw app met behulp van een mobiele Apps van back-end. Offline synchroniseren zorgt ervoor dat u gegevens van een mobiele app kunt weergeven, toevoegen of wijzigen, zelfs als er geen netwerkverbinding is.
+  Ontdek hoe u offlineondersteuning voor uw app toevoegt met behulp van een back-end voor Mobile Apps. Offline synchroniseren zorgt ervoor dat u gegevens van een mobiele app kunt weergeven, toevoegen of wijzigen, zelfs als er geen netwerkverbinding is.
 
-* [Hallo beheerde client gebruiken voor mobiele Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
-  Meer informatie over hoe toowork Hello beheerd client SDK in uw Xamarin-app.
+* [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
+  Informatie over het werken met SDK voor beheerde clients in uw Xamarin-app.
 
 <!-- Anchors. -->
 [Get started with Mobile Apps back ends]:#getting-started
@@ -199,4 +199,4 @@ In deze sectie kunt uitvoeren u Hallo project Xamarin WinApp voor Windows-appara
 <!-- URLs. -->
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

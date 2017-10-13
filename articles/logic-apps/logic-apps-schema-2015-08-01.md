@@ -1,5 +1,5 @@
 ---
-title: aaaSchema updates augustus-1-2015 preview - Azure Logic Apps | Microsoft Docs
+title: Schema-updates augustus-1-2015 preview - Azure Logic Apps | Microsoft Docs
 description: JSON-definities voor Azure Logic Apps maken met 08-01-preview-schemaversie 2015
 author: stepsic-microsoft-com
 manager: anneta
@@ -15,38 +15,38 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
 ms.author: LADocs; stepsic
-ms.openlocfilehash: 950cd18a27aa1859c4f0b6116de3fb8699d746c4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 35d7a56d5607dcc18a4407c65b92962d3d0dcd1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Schema-updates voor Azure Logic Apps - preview 1 augustus 2015
 
-Deze nieuwe schema en de API-versie voor Azure Logic Apps bevat belangrijke verbeteringen die het maken van logische apps meer betrouwbare en gemakkelijker toouse:
+Deze nieuwe schema en de API-versie voor Azure Logic Apps bevat belangrijke verbeteringen die logische apps betrouwbaarder en eenvoudiger te gebruiken:
 
-*   Hallo **APIApp** actietype is bijgewerkte tooa nieuwe [ **APIConnection** ](#api-connections) action-type.
-*   **Herhaal** wordt gewijzigd te[**Foreach**](#foreach).
-*   Hallo [ **HTTP-Listener** API-App](#http-listener) is niet langer vereist.
+*   De **APIApp** actietype wordt bijgewerkt naar een nieuwe [ **APIConnection** ](#api-connections) action-type.
+*   **Herhaal** is gewijzigd in [ **Foreach**](#foreach).
+*   De [ **HTTP-Listener** API-App](#http-listener) is niet langer vereist.
 *   Het aanroepen van onderliggende werkstromen gebruikt een [nieuwe schema](#child-workflows).
 
 <a name="api-connections"></a>
-## <a name="move-tooapi-connections"></a>TooAPI verbindingen verplaatsen
+## <a name="move-to-api-connections"></a>Verplaatsen naar de API-verbindingen
 
-Hallo grootste wijziging is dat u niet langer toodeploy API-Apps in uw Azure-abonnement zodat u API's kunt gebruiken. Hier volgen Hallo manieren waarop u API's kunt gebruiken:
+De grootste wijziging is dat u niet langer API-Apps implementeren in uw Azure-abonnement moet, zodat u API's kunt gebruiken. Hier volgen de manieren waarop u API's kunt gebruiken:
 
 * Beheerde API 's
 * Uw aangepaste Web-API 's
 
-Elke manier wordt anders verwerkt omdat het beheer en het hosten van modellen verschillend zijn. Een voordeel van dit model is dat u bent niet meer beperkt tooresources die zijn geïmplementeerd in uw Azure-resourcegroep. 
+Elke manier wordt anders verwerkt omdat het beheer en het hosten van modellen verschillend zijn. Een voordeel van dit model is dat u bent niet meer beperkt tot resources die zijn geïmplementeerd in uw Azure-resourcegroep. 
 
 ### <a name="managed-apis"></a>Beheerde API 's
 
 Microsoft beheert sommige API's namens u, zoals Office 365, Salesforce, Twitter en FTP. U kunt sommige beheerde API's als-is, zoals Bing vertalen, terwijl anderen configuratie vereist. Deze configuratie wordt aangeroepen een *verbinding*.
 
-Wanneer u Office 365 gebruikt, moet u bijvoorbeeld een verbinding met uw Office 365-in-token maken. Dit token is veilig opgeslagen en wordt vernieuwd zodat uw logische app kan altijd Hallo Office 365-API aanroepen. Als u tooconnect tooyour SQL- of FTP-server wilt, moet u ook een verbinding met de verbindingsreeks Hallo maken. 
+Wanneer u Office 365 gebruikt, moet u bijvoorbeeld een verbinding met uw Office 365-in-token maken. Dit token is veilig opgeslagen en wordt vernieuwd zodat uw logische app kunt altijd de Office 365-API aanroepen. Als u wilt verbinding maken met uw SQL- of FTP-server, moet u ook een verbinding met de verbindingsreeks maken. 
 
-In deze definitie deze acties worden genoemd `APIConnection`. Hier volgt een voorbeeld van een verbinding die een e-mailbericht voor Office 365 toosend aanroept:
+In deze definitie deze acties worden genoemd `APIConnection`. Hier volgt een voorbeeld van een verbinding die Office 365 voor het verzenden van een e-mailbericht aanroept:
 
 ```
 {
@@ -75,17 +75,17 @@ In deze definitie deze acties worden genoemd `APIConnection`. Hier volgt een voo
 }
 ```
 
-Hallo `host` object is gedeelte van de ingangen die unieke tooAPI verbindingen is en bestaat uit twee delen: `api` en `connection`.
+De `host` object is gedeelte van de ingangen die uniek is voor de API-verbindingen en bestaat uit twee delen: `api` en `connection`.
 
-Hallo `api` heeft Hallo runtime URL van het waar dat beheerd API wordt gehost. U kunt zien alle Hallo beschikbaar beheerde API's door het aanroepen van `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+De `api` heeft de runtime URL van het waar dat beheerd API wordt gehost. U kunt zien alle beschikbare beheerde API's door het aanroepen van `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
 
-Wanneer u een API gebruikt, Hallo API kan of kunnen geen *verbindingsparameters* gedefinieerd. Hallo API niet het geval, geen *verbinding* is vereist. Als Hallo API geval is, moet u een verbinding te maken. Hallo gemaakt verbinding heeft Hallo-naam die u kiest. U vervolgens verwijzen naar de naam Hallo in Hallo `connection` object binnen Hallo `host` object. een verbinding in een resourcegroep of aanroep toocreate:
+Wanneer u een API gebruikt, de API kan of kunnen geen *verbindingsparameters* gedefinieerd. De API niet het geval, geen *verbinding* is vereist. Als de API is, moet u een verbinding te maken. De gemaakte verbinding heeft de naam die u kiest. U vervolgens verwijzen naar de naam in de `connection` object binnen de `host` object. Een verbinding wilt maken in een resourcegroep, aanroepen:
 
 ```
 PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
 ```
 
-Hello instantie te volgen:
+Met de volgende hoofdtekst:
 
 ```
 {
@@ -94,7 +94,7 @@ Hello instantie te volgen:
       "id": "/subscriptions/{subid}/providers/Microsoft.Web/managedApis/azureblob"
     },
     "parameterValues": {
-        "accountName": "{hello name of hello storage account -- hello set of parameters is different for each API}"
+        "accountName": "{The name of the storage account -- the set of parameters is different for each API}"
     }
   },
   "location": "{Logic app's location}"
@@ -104,7 +104,7 @@ Hello instantie te volgen:
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Beheerde API's in een Azure Resource Manager-sjabloon implementeren
 
 U kunt een volledige toepassing in een Azure Resource Manager-sjabloon maken, zolang interactief aanmelden is niet vereist.
-Als aanmelden vereist is, kunt u een alles met hello Azure Resource Manager-sjabloon instellen, maar u hebt nog toovisit Hallo portal tooauthorize Hallo verbindingen. 
+Als aanmelden vereist is, kunt u een alles met Azure Resource Manager-sjabloon instellen, maar u hebt nog wel gaat u naar de portal voor het autoriseren van verbindingen. 
 
 ```
     "resources": [{
@@ -194,13 +194,13 @@ Als aanmelden vereist is, kunt u een alles met hello Azure Resource Manager-sjab
     }]
 ```
 
-U kunt zien in dit voorbeeld dat Hallo verbindingen zijn alleen bronnen die bevinden zich in de resourcegroep. Ze verwijzen naar Hallo beheerde API's beschikbaar tooyou in uw abonnement.
+U kunt zien in dit voorbeeld is dat de verbindingen zijn alleen bronnen die bevinden zich in de resourcegroep. Ze verwijzen naar de beheerde API's die u in uw abonnement.
 
 ### <a name="your-custom-web-apis"></a>Uw aangepaste Web-API 's
 
-Als u uw eigen API's, die niet door Microsoft beheerd zijn, gebruiken ingebouwde Hallo **HTTP** actie toocall ze. Voor een ideaal ervaring, moet u een Swagger-eindpunt weergeven voor uw API. Dit eindpunt Hiermee Hallo Logic App-ontwerper toorender Hallo invoer en uitvoer voor uw API. Zonder Swagger, kan Hallo designer alleen weergeven Hallo in- en uitgangen als ondoorzichtige JSON-objecten.
+Als u uw eigen API's, die niet door Microsoft beheerde gebruiken de ingebouwde **HTTP** actie die moet worden ze aanroept. Voor een ideaal ervaring, moet u een Swagger-eindpunt weergeven voor uw API. Dit eindpunt maakt de Logic App-ontwerper voor het weergeven van de invoer en uitvoer voor uw API. Zonder Swagger, kan de designer alleen weergeven in- en uitgangen als ondoorzichtige JSON-objecten.
 
-Hier volgt een voorbeeld waarin Hallo nieuwe `metadata.apiDefinitionUrl` eigenschap:
+Hier volgt een voorbeeld van de nieuwe `metadata.apiDefinitionUrl` eigenschap:
 
 ```
 {
@@ -219,13 +219,13 @@ Hier volgt een voorbeeld waarin Hallo nieuwe `metadata.apiDefinitionUrl` eigensc
 }
 ```
 
-Als u uw Web-API op Azure App Service host, wordt uw Web-API automatisch weergegeven in de lijst van acties die beschikbaar zijn in de ontwerpfunctie Hallo Hallo. Als dat niet het geval is, hebt u toopaste in Hallo URL rechtstreeks. Hallo Swagger-eindpunt moet niet-geverifieerde toobe kan worden gebruikt in Hallo Logic App-ontwerper, hoewel u Hallo API zichzelf met welke methoden die ondersteuning biedt voor Swagger kunt beveiligen.
+Als u uw Web-API op Azure App Service host, wordt uw Web-API automatisch weergegeven in de lijst met acties die beschikbaar zijn in de ontwerpfunctie. Als dat niet het geval is, hebt u rechtstreeks in de URL plakken. Het Swagger-eindpunt moet worden niet-geverifieerde om te worden gebruikt in de ontwerpfunctie voor Logic App Hoewel u de API zichzelf met welke methoden die ondersteuning biedt voor Swagger kunt beveiligen.
 
 ### <a name="call-deployed-api-apps-with-2015-08-01-preview"></a>Aanroepen van geïmplementeerde API-apps met 2015-08-01-preview
 
-Als u een API-App hebt geïmplementeerd, kunt u app Hallo Hello bellen **HTTP** in te grijpen.
+Als u een API-App hebt geïmplementeerd, kunt u de app met bellen de **HTTP** in te grijpen.
 
-Als u Dropbox toolist bestanden, bijvoorbeeld uw **2014-12-01-preview** versie schemadefinitie wellicht ongeveer als volgt:
+Als u Dropbox weergeven van bestanden, bijvoorbeeld uw **2014-12-01-preview** versie schemadefinitie wellicht ongeveer als volgt:
 
 ```
 {
@@ -266,7 +266,7 @@ Als u Dropbox toolist bestanden, bijvoorbeeld uw **2014-12-01-preview** versie s
 }
 ```
 
-Tijdens het gedeelte van de parameters Hallo Hallo definitie van Logic Apps ongewijzigd blijft, kunt u Hallo equivalente HTTP-actie zoals in dit voorbeeld maken:
+U kunt de equivalente HTTP-actie zoals in dit voorbeeld maken terwijl de parameters-sectie van de definitie van Logic Apps ongewijzigd blijft:
 
 ```
 {
@@ -298,18 +298,18 @@ Stap voor stap één voor één van deze eigenschappen:
 | Eigenschap Action | Beschrijving |
 | --- | --- |
 | `type` |`Http`In plaats van`APIapp` |
-| `metadata.apiDefinitionUrl` |toouse deze actie Hallo Logic App-ontwerper, zijn onder andere Hallo metagegevenseindpunt, is samengesteld uit:`{api app host.gateway}/api/service/apidef/{last segment of hello api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
-| `inputs.uri` |Gemaakt op basis van:`{api app host.gateway}/api/service/invoke/{last segment of hello api app host.id}/{api app operation}?api-version=2015-01-14` |
+| `metadata.apiDefinitionUrl` |Als u wilt gebruiken met deze actie in de ontwerpfunctie voor Logic App, zijn de metagegevenseindpunt is samengesteld uit:`{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
+| `inputs.uri` |Gemaakt op basis van:`{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` |Altijd`POST` |
-| `inputs.body` |Parameters voor identieke toohello API-App |
-| `inputs.authentication` |Identieke toohello API-App-verificatie |
+| `inputs.body` |Identiek aan de API-App-parameters |
+| `inputs.authentication` |Identiek aan de API-App-verificatie |
 
-Deze aanpak moet werken voor alle acties van de API-App. Vergeet echter niet dat deze vorige API-Apps niet langer worden ondersteund. Daarom moet u overstappen tooone Hallo twee andere vorige opties, een beheerde API of die als host fungeert voor uw aangepaste Web-API.
+Deze aanpak moet werken voor alle acties van de API-App. Vergeet echter niet dat deze vorige API-Apps niet langer worden ondersteund. Daarom moet u overstappen op een van de twee andere vorige opties, een beheerde API of die als host fungeert voor uw aangepaste Web-API.
 
 <a name="foreach"></a>
-## <a name="renamed-repeat-tooforeach"></a>Herhaal too'foreach hernoemd '
+## <a name="renamed-repeat-to-foreach"></a>De naam 'Herhaal' gewijzigd in 'foreach'
 
-We ontvangen voor het vorige schemaversie hello, veel feedback van klanten die **herhalen** verwarrend is en niet goed vast te leggen die **herhalen** werd echt een voor elke lus. We hebben als gevolg hiervan hernoemd `repeat` te`foreach`. Bijvoorbeeld zou eerder u schrijven:
+We ontvangen voor de vorige schemaversie veel feedback van klanten die **herhalen** verwarrend is en niet goed vast te leggen die **herhalen** werd echt een voor elke lus. We hebben als gevolg hiervan hernoemd `repeat` naar `foreach`. Bijvoorbeeld zou eerder u schrijven:
 
 ```
 {
@@ -343,11 +343,11 @@ U zou nu schrijven:
 }
 ```
 
-Hallo functie `@repeatItem()` is eerder gebruikte tooreference Hallo het huidige item wordt iteratie. Deze functie is nu te vereenvoudigd`@item()`. 
+De functie `@repeatItem()` eerder werd gebruikt om te verwijzen naar het huidige item wordt iteratie. Deze functie is nu eenvoudiger te `@item()`. 
 
 ### <a name="reference-outputs-from-foreach"></a>Verwijzing naar uitvoer van 'foreach'
 
-Voor vereenvoudiging Hallo levert van `foreach` acties niet zijn ingepakt in een object aangeroepen `repeatItems`. Tijdens het Hallo levert van vorige Hallo `repeat` voorbeeld zijn:
+Voor de uitvoer van vereenvoudiging `foreach` acties niet zijn ingepakt in een object aangeroepen `repeatItems`. Terwijl de uitvoer van de vorige `repeat` voorbeeld zijn:
 
 ```
 {
@@ -387,7 +387,7 @@ Nu zijn deze uitgangen:
 ]
 ```
 
-Voorheen tooget toohello hoofdtekst van Hallo actie bij verwijzingen naar deze uitvoer:
+Voorheen om aan de hoofdtekst van de actie die verwijzen naar deze uitvoer:
 
 ```
 {
@@ -423,19 +423,19 @@ Nu kunt u doen in plaats daarvan:
 }
 ```
 
-Met deze wijzigingen Hallo functies `@repeatItem()`, `@repeatBody()`, en `@repeatOutputs()` worden verwijderd.
+Met deze wijzigingen, de functies `@repeatItem()`, `@repeatBody()`, en `@repeatOutputs()` worden verwijderd.
 
 <a name="http-listener"></a>
 ## <a name="native-http-listener"></a>Native HTTP-listener
 
-Hallo mogelijkheden nu zijn ingebouwd in HTTP-Listener. Daarom moet u niet langer toodeploy een HTTP-Listener API-App. Zie [volledige details voor het Hallo toomake uw logische app eindpunt aanroepbare hier](../logic-apps/logic-apps-http-endpoint.md). 
+De HTTP-Listener-mogelijkheden zijn nu ingebouwd in. Daarom moet u niet meer voor het implementeren van een HTTP-Listener API-App. Zie [de volledige details voor het maken van uw logische app eindpunt aanroepbare hier](../logic-apps/logic-apps-http-endpoint.md). 
 
-Met deze wijzigingen hebben wij Hallo verwijderd `@accessKeys()` functie, die wordt vervangen door Hallo `@listCallbackURL()` functie voor het ophalen van Hallo eindpunt indien nodig. Bovendien moet u ten minste één trigger nu definiëren in uw logische app. Als u wilt dat te`/run` Hallo werkstroom, hebt u een van deze triggers: `manual`, `apiConnectionWebhook`, of `httpWebhook`.
+Met deze wijzigingen verwijderd we de `@accessKeys()` functie, die wordt vervangen door de `@listCallbackURL()` functie voor het ophalen van het eindpunt indien nodig. Bovendien moet u ten minste één trigger nu definiëren in uw logische app. Als u wilt `/run` de werkstroom, hebt u een van deze triggers: `manual`, `apiConnectionWebhook`, of `httpWebhook`.
 
 <a name="child-workflows"></a>
 ## <a name="call-child-workflows"></a>Aanroepen van onderliggende werkstromen
 
-Voorheen vereist voor het aanroepen van onderliggende werkstromen toohello werkstroom, aan de Hallo-toegangstoken en plakken Hallo token in definitie Hallo logic Apps waar u toocall die onderliggende werkstroom gaan. Hallo Logic Apps engine genereert automatisch een SAS tijdens runtime voor Hallo onderliggende werkstroom met het nieuwe schema hello, zodat u niet hebt te geen geheimen in plakken Hallo definitie. Hier volgt een voorbeeld:
+Het aanroepen van onderliggende werkstromen vereist voorheen gaan naar de werkstroom, het toegangstoken ophalen en het token in de definitie van logic Apps waar u aan te roepen die onderliggende werkstroom wilt plakken. Met het nieuwe schema genereert de Logic Apps-engine automatisch een SAS tijdens runtime voor de onderliggende werkstroom zodat u hoeft geen geheimen in de definitie te plakken. Hier volgt een voorbeeld:
 
 ```
 "mynestedwf": {
@@ -461,20 +461,20 @@ Voorheen vereist voor het aanroepen van onderliggende werkstromen toohello werks
 }
 ```
 
-Een tweede verbetering is dat we Hallo onderliggende geeft werkstromen volledige toegang toohello binnenkomende aanvraag. Dit betekent dat u kunt parameters doorgeven in Hallo *query's* sectie en in Hallo *headers* object en die u volledig kunt definiëren Hallo volledige hoofdtekst.
+Een tweede verbetering is dat we zijn de onderliggende werkstromen volledige toegang geven tot de binnenkomende aanvraag. Dit betekent dat u kunt de parameters in doorgeven dat de *query's* sectie en in de *headers* object en die u kunt de volledige hoofdtekst volledig definiëren.
 
-Er zijn ten slotte vereiste wijzigingen toohello onderliggende werkstroom. Terwijl u onderliggende werkstroom eerder rechtstreeks aanroepen kan, moet nu u een trigger-eindpunt in de werkstroom Hallo voor Hallo bovenliggende toocall. In het algemeen, voegt u een trigger die heeft `manual` typt en gebruik vervolgens deze trigger in Hallo bovenliggende definitie. Opmerking Hallo `host` eigenschap specifiek heeft een `triggerName` omdat u altijd waarvan de trigger moet opgeven dat u aanroept.
+Er zijn ten slotte vereist wijzigingen in de onderliggende werkstroom. Terwijl u onderliggende werkstroom eerder rechtstreeks aanroepen kan, moet nu u een trigger-eindpunt in de werkstroom voor de bovenliggende aan te roepen. In het algemeen, voegt u een trigger die heeft `manual` typen en vervolgens deze trigger te gebruiken in de definitie van de bovenliggende. Opmerking de `host` eigenschap specifiek heeft een `triggerName` omdat u altijd waarvan de trigger moet opgeven dat u aanroept.
 
 ## <a name="other-changes"></a>Andere wijzigingen
 
 ### <a name="new-queries-property"></a>Nieuwe 'query'-eigenschap
 
-Alle actietypen ondersteunen nu een nieuwe invoer aangeroepen `queries`. Deze gegevens kan worden gestructureerd object, in plaats van u hoeft tooassemble Hallo tekenreeks handmatig.
+Alle actietypen ondersteunen nu een nieuwe invoer aangeroepen `queries`. Deze gegevens kan worden gestructureerd object, in plaats van u hoeft voor het samenstellen van de tekenreeks met de hand.
 
-### <a name="renamed-parse-function-toojson"></a>'Parse()' functie too'json() hernoemd '
+### <a name="renamed-parse-function-to-json"></a>Nieuwe naam parse() functie 'json()'
 
-We toevoegen meer inhoudstypen snel, zodat we Hallo hernoemd `parse()` te functioneren`json()`.
+We toevoegen meer inhoudstypen snel, zodat we hernoemd de `parse()` functie `json()`.
 
 ## <a name="coming-soon-enterprise-integration-apis"></a>Binnenkort beschikbaar: Enterprise Integration-API's
 
-Er zijn momenteel geen beheerde versies nog van Hallo Enterprise Integration-API's, zoals AS2. Ondertussen kunt u uw bestaande BizTalk-APIs geïmplementeerde via Hallo HTTP-actie. Voor meer informatie Zie ' de reeds geïmplementeerde API-apps gebruiken ' in hello [integratie roadmap](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
+Er zijn momenteel geen beheerde versies nog van de Enterprise Integration-API's, zoals AS2. Ondertussen kunt u uw bestaande BizTalk-APIs geïmplementeerde via de HTTP-actie. Voor meer informatie Zie ' de reeds geïmplementeerde API-apps gebruiken ' in de [integratie roadmap](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

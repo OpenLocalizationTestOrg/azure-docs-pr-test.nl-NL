@@ -1,9 +1,9 @@
 ---
-title: een interne load balancer voor Azure Cloud Services aaaCreate | Microsoft Docs
-description: Meer informatie over hoe toocreate een interne netwerktaakverdeler met PowerShell in het klassieke implementatiemodel Hallo
+title: Een internetgerichte load balancer maken - Azure Cloud Services | Microsoft Docs
+description: Meer informatie over hoe u met PowerShell een interne load balancer maakt in het klassieke implementatiemodel
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: fe7975bca7bec3248626b0ad0fad6823e278ade2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6616c26ede13919b94a098dc38bdd6e2f0fc0b5b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Aan de slag met het maken van een interne load balancer (klassiek) voor cloudservices
 
@@ -28,32 +28,32 @@ ms.lasthandoff: 10/06/2017
 > * [Cloudservices](../load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md).  In dit artikel wordt behandeld met het klassieke implementatiemodel Hallo. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken. Meer informatie over hoe te[u deze stappen uitvoert met behulp van de Resource Manager-model Hallo](load-balancer-get-started-ilb-arm-ps.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md).  Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Lees [meer informatie over het uitvoeren van deze stappen met het Resource Manager-model](load-balancer-get-started-ilb-arm-ps.md).
 
 ## <a name="configure-internal-load-balancer-for-cloud-services"></a>Een interne load balancer configureren voor cloudservices
 
-Een interne load balancer wordt ondersteund voor zowel virtuele machines als cloudservices. Een interne load balancer-eindpunt gemaakt in een cloudservice die buiten een regionaal virtueel netwerk zijn alleen binnen het Hallo-cloudservice toegankelijk.
+Een interne load balancer wordt ondersteund voor zowel virtuele machines als cloudservices. Een eindpunt van een interne load balancer in een cloudservice buiten een regionaal virtueel netwerk is alleen toegankelijk in de cloudservice.
 
-Hallo interne load balancer-configuratie heeft toobe ingesteld tijdens het Hallo maken van de eerste implementatie Hallo in Hallo-cloudservice, zoals weergegeven in Hallo voorbeeld hieronder.
+De interne load balancer moet worden geconfigureerd wanneer de eerste implementatie in de cloudservice wordt gemaakt, zoals u in het voorbeeld hieronder kunt zien.
 
 > [!IMPORTANT]
-> Een vereiste toorun Hallo volgende stappen uit een virtueel netwerk al is gemaakt voor de implementatie van de cloud Hallo toohave is. U moet Hallo virtueel netwerk en het subnet naam toocreate Hallo interne Load Balancing.
+> Om de volgende stappen uit te kunnen voeren, moet er al een virtueel netwerk voor de cloudimplementatie zijn gemaakt. U hebt de naam van het virtuele netwerk en van het subnet nodig om de Interne taakverdeling te kunnen maken.
 
 ### <a name="step-1"></a>Stap 1
 
-Hallo-service-configuratiebestand (.cscfg) voor uw cloudimplementatie in Visual Studio openen en toevoegen van de volgende sectie toocreate Hallo interne Load Balancing onder Hallo laatste Hallo '`</Role>`'-item voor Hallo-netwerkconfiguratie.
+Open het serviceconfiguratiebestand (.cscfg) voor de cloudimplementatie in Visual Studio en voeg de volgende sectie toe om de Interne taakverdeling te maken onder het laatste '`</Role>`'-item van de netwerkconfiguratie.
 
 ```xml
 <NetworkConfiguration>
     <LoadBalancers>
-    <LoadBalancer name="name of hello load balancer">
+    <LoadBalancer name="name of the load balancer">
         <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
     </LoadBalancer>
     </LoadBalancers>
 </NetworkConfiguration>
 ```
 
-Laten we Hallo waarden toevoegen voor Hallo network configuration file tooshow hoe het eruit ziet. In Hallo voorbeeld wordt ervan uitgegaan dat u een VNet 'test_vnet' aangeroepen met een subnet 10.0.0.0/24 test_subnet en een statisch IP-adres 10.0.0.4 gemaakt. Hallo load balancer worden testLB benoemd.
+U gaat nu de waarden voor het netwerkconfiguratiebestand toevoegen om te zien hoe het eruitziet. In het voorbeeld wordt ervan uitgegaan dat u een Vnet test_vnet hebt gemaakt met subnet 10.0.0.0/24 met de naam test_subnet en een statisch IP-adres 10.0.0.4. De load balancer wordt testLB genoemd.
 
 ```xml
 <NetworkConfiguration>
@@ -65,11 +65,11 @@ Laten we Hallo waarden toevoegen voor Hallo network configuration file tooshow h
 </NetworkConfiguration>
 ```
 
-Zie voor meer informatie over Hallo load balancer schema [toevoegen load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx).
+Voor meer informatie over het load balancer-schema raadpleegt u [Add Load Balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx) (Load balancer toevoegen).
 
 ### <a name="step-2"></a>Stap 2
 
-Hallo service definition (.csdef) bestand tooadd eindpunten toohello interne Load Balancing wijzigen. Hallo momenteel een rolinstantie is gemaakt, servicedefinitiebestand Hallo Hallo rol exemplaren toohello interne Load Balancing wordt toegevoegd.
+Wijzig het servicedefinitiebestand (.csdef) om eindpunten aan de Interne taakverdeling toe te voegen. Op het moment dat er een rolinstantie wordt gemaakt, voegt het servicedefinitiebestand de rolinstanties aan de Interne taakverdeling toe.
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -79,7 +79,7 @@ Hallo service definition (.csdef) bestand tooadd eindpunten toohello interne Loa
 </WorkerRole>
 ```
 
-Volgende Hallo dezelfde van Hallo in bovenstaand voorbeeld waarden, gaan we toevoegen Hallo waarden toohello servicedefinitiebestand.
+U gaat nu met dezelfde waarden uit bovenstaand voorbeeld de waarden aan het servicedefinitiebestand toevoegen.
 
 ```xml
 <WorkerRole name="WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
@@ -89,7 +89,7 @@ Volgende Hallo dezelfde van Hallo in bovenstaand voorbeeld waarden, gaan we toev
 </WorkerRole>
 ```
 
-Hallo-netwerkverkeer worden evenredig verdeeld met behulp van Hallo testLB load balancer met behulp van poort 80 voor inkomende aanvragen en verzenden van tooworker rolinstanties ook op poort 80.
+Het netwerkverkeer krijgt een gelijke taakverdeling met load balancer testLB die poort 80 gebruikt voor binnenkomende aanvragen en verzendt naar werkrolinstanties, eveneens op poort 80.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,6 +1,6 @@
 ---
 title: 'Migreren: Datawarehouse migratiehulpprogramma | Microsoft Docs'
-description: TooSQL Data Warehouse migreren.
+description: Migreren naar SQL datawarehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.openlocfilehash: c89909883fb42b0b04dd87a9973e5ee3e30d8f0f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2466e823c448ada4dc7bc5769b1b7f10bbb5dc7d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>Datawarehouse migratiehulpprogramma (Preview)
 > [!div class="op_single_selector"]
@@ -27,37 +27,37 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Hallo-hulpprogramma voor migratie datawarehouse is dat een hulpprogramma ontworpen toomigrate schema en de gegevens uit SQL Server en Azure SQL Database tooAzure SQL Data Warehouse. Tijdens de migratie schema Hallo hulpprogramma automatisch Hallo bijbehorende schema van bron toodestination toegewezen. Nadat het Hallo-schema is gemigreerd, biedt extra Hallo Hallo optie toomove gegevens met automatisch gegenereerde scripts.
+Data Warehouse migratieprogramma is een hulpprogramma waarmee schema en de gegevens van SQL Server en Azure SQL Database naar Azure SQL Data Warehouse migreren. Tijdens de migratie van schema, het hulpprogramma automatisch toegewezen voor het bijbehorende schema van bron naar doel. Nadat het schema is gemigreerd, biedt de hulpprogramma's voor de mogelijkheid om gegevens met een automatisch gegenereerde scripts te verplaatsen.
 
-Bovendien gestroomlijnde tooschema en -gegevensmigratie, dit hulpprogramma biedt u de optie toogenerate compatibiliteitsrapporten geven een overzicht van compatibiliteitsproblemen tussen Hallo doel- en -exemplaren waarvoor geen Hallo migratie.
+Naast de migratie van het schema en de gegevens kunt met dit hulpprogramma u de optie voor het genereren van compatibiliteitsrapporten die geven een overzicht van compatibiliteitsproblemen tussen de doel- en exemplaren waardoor gestroomlijnde migratie.
 
 ## <a name="get-started"></a>Aan de slag
-Als een vereiste voor installatie moet u Hallo BCP opdrachtregelprogramma toorun migratiescripts en Office tooview Hallo compatibiliteitsrapport. Na het starten van Hallo worden uitvoerbaar bestand dat u wordt gedownload van vraag tooaccept standaard gebruiksrechtovereenkomst voordat het Hallo tool wordt geïnstalleerd.
+Als een vereiste voor installatie moet u het opdrachtregelprogramma BCP migratiescripts en Office om weer te geven van het compatibiliteitsrapport uitvoeren. Na het starten van het uitvoerbare bestand dat is gedownload wordt u gevraagd een standaard EULA accepteren voordat u het hulpprogramma wordt geïnstalleerd.
 
-Bovendien toorun Hallo migratie Utiliy, u wordt moet Hallo een volgende machtigingen op Hallo database dat u op zoek bent toomigrate: CREATE DATABASE, ALTER ANY DATABASE of een WEERGAVEDEFINITIE.
+Bovendien voor het uitvoeren van de migratie Utiliy, moet u de volgende machtigingen op de database die u wilt migreren: CREATE DATABASE, ALTER ANY DATABASE of een WEERGAVEDEFINITIE.
 
-### <a name="launching-hello-tool-and-connecting"></a>Hallo hulpprogramma starten en verbinding te maken
-Hallo-hulpprogramma starten door te klikken op het bureaubladpictogram Hallo die wordt weergegeven na installeren. Bij het openen van Hallo hulpprogramma, wordt u gevraagd met een eerste verbindingspagina u de bron- en doel voor Hallo-hulpprogramma voor migratie kunt. Op dit moment ondersteunen we SQL Server en Azure SQL Database als bronnen en SQL Data Warehouse als doel. Nadat u dit hebt u gevraagd tooconnect tooyour bronserver vult servernaam en verifiëren en vervolgens te klikken op 'Connect'.
+### <a name="launching-the-tool-and-connecting"></a>Het hulpprogramma starten en verbinding te maken
+Start het hulpprogramma door te klikken op het bureaubladpictogram die wordt weergegeven na installatie. Bij het openen van het hulpprogramma, wordt u gevraagd een eerste verbinding pagina u de bron- en doel voor het hulpprogramma voor migratie kunt. Op dit moment ondersteunen we SQL Server en Azure SQL Database als bronnen en SQL Data Warehouse als doel. Nadat u dit hebt geselecteerd wordt u gevraagd om te verbinden met de bronserver door de servernaam invullen en verifiëren en klik vervolgens op 'Verbinding'.
 
-Hallo-hulpprogramma wordt een lijst met databases die aanwezig in het Hallo-server waarmee u bent zijn met verbonden weergegeven als de verificatie is gelukt. Hallo migratie kunt u beginnen door een database die u graag toomigrate en vervolgens te klikken op 'Migreren geselecteerd' te selecteren.
+Als de verificatie is gelukt, wordt het hulpprogramma voor een lijst met databases die aanwezig in de server waarmee u bent zijn met verbonden weergegeven. De migratie kunt u beginnen door te selecteren van een database die u wilt migreren en vervolgens te klikken op 'Migreren geselecteerd'.
 
 ## <a name="migration-report"></a>Migratierapport
-Een rapport met overzicht van alle object compatibiliteitsproblemen 'Databasecompatibiliteit controleren' selecteren in Hallo hulpprogramma wordt gegenereerd in Hallo-database die u hebt aangevraagd toomigrate. Een uitgebreidere lijst van een aantal SQL Server-functionaliteit is niet aanwezig in SQL Data Warehouse Hallo vindt u in onze [migratiedocumentatie][migration documentation]. Nadat het Hallo-rapport is gegenereerd kunt u zich kunt toosave en open Hallo-rapport in Excel.
+'Controleer databasecompatibiliteit' selecteren in het hulpprogramma wordt een samenvatting van alle object compatibiliteitsproblemen met de database aangevraagde rapport voor het migreren van gegenereerd. Een uitgebreidere lijst met enkele van de SQL Server-functionaliteit die is niet aanwezig in SQL Data Warehouse vindt u in onze [migratiedocumentatie][migration documentation]. Nadat het rapport is gegenereerd kunt u zich kunt opslaan en het rapport openen in Excel.
 
-Houd er rekening mee dat bij het genereren van Hallo migratie schema, de meeste problemen geïdentificeerd als 'Object' in order tooallow onmiddellijke migratie van die gegevens moeten worden aangepast. Controleer Hallo wijzigingen tooensure u niet wilt dat extra aanpassingen toomake alvorens Hallo schema toe te passen.
+Houd er rekening mee dat bij het genereren van het schema van de migratie, de meeste problemen geïdentificeerd als 'Object' om een directe migratie van die gegevens moet worden aangepast. Controleer de wijzigingen om te controleren of dat u niet wilt dat extra aanpassingen maken voordat u het schema.
 
 ## <a name="migrate-schema"></a>Schema migreren
-Nadat u verbinding maakt, selecteren 'Migreren Schema' wordt een schema migratiescript genereren voor Hallo geselecteerde tabellen. Deze structuur script poorten Hallo van Hallo-tabel incompatibele gegevens typen toomore compatibel formulieren wordt toegewezen, en maakt beveiligingsreferenties en het schema als dit wordt aangegeven door de gebruiker Hallo in Hallo migratie-instellingen. Deze code kan worden uitgevoerd tegen Hallo gericht SQL Data Warehouse-exemplaar, tooa-bestand hebt opgeslagen, tooyour Klembord gekopieerd of zelfs bewerkt in-line alvorens verdere actie te ondernemen.  
+Nadat u verbinding maakt, selecteren 'Migreren Schema' wordt een schema migratiescript genereren voor de geselecteerde tabellen. Deze poorten script de structuur van de tabel, maps incompatibele gegevens typen aan meer compatibele formulieren en beveiligingsreferenties en het schema maakt als dit wordt aangegeven door de gebruiker in het migratie-instellingen. Deze code kan worden uitgevoerd op basis van het exemplaar van SQL Data Warehouse, opgeslagen in een bestand, gekopieerd naar het Klembord of zelfs bewerkt in-line alvorens verdere actie te ondernemen.  
 
-Als opgemerkt, wanneer schema revisie Hallo migratie die Hallo verandert hulpprogramma heeft doorgevoerd in de volgorde tooensure die dat u volledig deze begrijpt.  
+Als opgemerkt, wanneer migreren schema controleren de migratie wordt gewijzigd dat het hulpprogramma heeft gemaakt, om ervoor te zorgen dat dat u volledig deze begrijpt.  
 
 ## <a name="migrate-data"></a>Gegevens migreren
-Door te klikken op Hallo 'Data migreren' optie kunt u BCP-scripts die uw eerste tooflat gegevensbestanden op uw server gaat genereren en vervolgens rechtstreeks in uw SQL Data Warehouse. Het is raadzaam om dit proces voor het verplaatsen van kleine hoeveelheden gegevens, en als nieuwe pogingen zijn niet ingebouwde en kan mislukken als er een verlies van Hallo netwerkverbinding. In volgorde toorun dit, moet u toohave Hallo opdrachtregelprogramma BCP geïnstalleerd en Hallo-schema voor Hallo gegevens, moet al zijn gemaakt.
+Door te klikken op de optie 'gegevens migreren, kunt u BCP-scripts die uw gegevens eerst naar platte bestanden op uw server gaat genereren en vervolgens rechtstreeks in uw SQL Data Warehouse. Het is raadzaam om dit proces voor het verplaatsen van kleine hoeveelheden gegevens, en als nieuwe pogingen zijn niet ingebouwde en kan mislukken als er een verlies van de netwerkverbinding. Als u wilt uitvoeren, moet u het opdrachtregelprogramma BCP geïnstalleerd hebben en het schema voor de gegevens, moet al zijn gemaakt.
 
-Nadat u hebt ingevuld Hallo uitvoerparameters hierboven u gewoon moet tooclick migratie uitvoeren en een set van twee pakketten gegenereerd tooyour opgegeven locatie. Hallo-exportbestand in volgorde tooexport gegevens van de migratiebron voor uw uitvoeren naar platte bestanden en Voer Hallo-bestand importeren in volgorde tooimport uw gegevens in SQL Data Warehouse.
+Nadat u de parameters hierboven hebt ingevuld moet u gewoon op migratie uitvoeren te klikken en een set van twee pakketten worden gegenereerd voor de opgegeven locatie. Het exportbestand uitgevoerd om gegevens uit uw migratiebron exporteren naar platte bestanden en het uitvoeren van het importbestand om te kunnen uw gegevens importeren in SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u sommige gegevens hebt gemigreerd, bekijk hoe te[ontwikkelen][develop].
+Nu dat u sommige gegevens hebt gemigreerd, zoeken over [ontwikkelen][develop].
 
 <!--Image references-->
 

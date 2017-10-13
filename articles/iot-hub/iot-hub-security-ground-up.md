@@ -1,6 +1,6 @@
 ---
-title: uw Azure-IoT-oplossing van Hallo up gemalen aaaSecure | Microsoft Docs
-description: Hoe Hallo toouse ingebouwde beveiligingsfuncties van Microsoft Azure IoT Hub en Suite.
+title: Beveiligen van uw Azure-IoT-oplossing bouwen | Microsoft Docs
+description: Het gebruik van de ingebouwde beveiligingsfuncties van Microsoft Azure IoT Hub en Suite.
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.openlocfilehash: 8009b19cf3cdff0507158513097a0709bbac06e6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6a0ac22e85a85dca9bad06aa2c722523d3086537
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
 ## <a name="see-also"></a>Zie ook
-toolearn meer informatie over het beveiligen van uw IoT-oplossing, Zie:
+Zie voor meer informatie over het beveiligen van uw IoT-oplossing:
 
 * [Aanbevolen beveiligingsprocedures voor IoT][lnk-security-best-practices]
 * [IoT-beveiligingsarchitectuur][lnk-security-architecture]
 * [Beveiligen van uw IoT-omgeving][lnk-security-deployment]
 
-toofurther verkennen Hallo-mogelijkheden van IoT Hub, Zie:
+Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 * [Een apparaat simuleren met Azure IoT rand][lnk-iotedge]
 

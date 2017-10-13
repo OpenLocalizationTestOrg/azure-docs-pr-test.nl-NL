@@ -1,6 +1,6 @@
 ---
-title: aaaAzure AD v2.0 OAuth2.0 op namens-stroom | Microsoft Docs
-description: Dit artikel wordt beschreven hoe toouse HTTP berichten tooimplement service tooservice verificatie met behulp van Hallo OAuth2.0 op namens-stroom.
+title: Azure AD v2.0 OAuth2.0 op namens-stroom | Microsoft Docs
+description: In dit artikel wordt beschreven hoe het gebruik van HTTP-berichten voor het implementeren van services-verificatie met behulp van de OAuth2.0 op namens-stroom.
 services: active-directory
 documentationcenter: 
 author: navyasric
@@ -15,61 +15,61 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 6063869d07c2544000094db8deea7dce19f14f67
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 356083fbaabfcd2ec7581adf319fa22b810df0d3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # Azure Active Directory-v2.0 en OAuth 2.0 On-Behalf-Of stroom
-Hallo OAuth 2.0 On-Behalf-Of stroom fungeert Hallo gebruiksvoorbeeld waar een service of web-API wordt aangeroepen in een toepassing die op zijn beurt toocall moet een andere service of web-API. Hallo idee is toopropagate Hallo gedelegeerde gebruikersidentiteit en machtigingen via Hallo aanvraagketen. Voor Hallo middelste laag service toomake geverifieerde aanvragen toohello downstream-service moet deze toosecure een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker Hallo.
+De OAuth 2.0 On-Behalf-Of stroom fungeert de gebruiksvoorbeeld waar een toepassing wordt aangeroepen met een service of web-API, die op zijn beurt moet aan te roepen op een andere service of web-API. Het idee is het doorgeven van de gedelegeerde gebruikersidentiteit en machtigingen via de aanvraagketen. Voor de middelste laag-service voor geverifieerde aanvragen naar de downstream-service maken, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
 
 > [!NOTE]
-> Hallo v2.0-eindpunt biedt geen ondersteuning voor alle Azure Active Directory-scenario's en onderdelen. toodetermine of Hallo v2.0-eindpunt, moet u meer informatie over [v2.0 beperkingen](active-directory-v2-limitations.md).
+> Het v2.0-eindpunt biedt geen ondersteuning voor alle Azure Active Directory-scenario's en onderdelen. Meer informatie over om te bepalen of het v2.0-eindpunt moet worden gebruikt, [v2.0 beperkingen](active-directory-v2-limitations.md).
 >
 >
 
 ## Protocol-diagram
-Wordt ervan uitgegaan dat Hallo-gebruiker is geverifieerd op een toepassing met Hallo [autorisatiecodetoekenning OAuth 2.0](active-directory-v2-protocols-oauth-code.md). Hallo-toepassing is op dit moment een toegangstoken (token A) met de claims en toestemming tooaccess Hallo middelste laag web API (A-API) van de gebruiker Hallo. Nu moet API A toomake een geverifieerde aanvraag toohello downstream web-API (API-B).
+Wordt ervan uitgegaan dat de gebruiker is geverifieerd op een toepassing met behulp van de [autorisatiecodetoekenning OAuth 2.0](active-directory-v2-protocols-oauth-code.md). De toepassing is op dit moment een toegangstoken (token A) met de claims van de gebruiker en toestemming voor toegang tot de web-API (A-API) voor de middelste laag. API A moet nu een geverifieerde aanvraag om aan te brengen de downstream web-API (API-B).
 
-Hallo stappen volgen Hallo op namens-stroom vormen en aan de hand Hallo van Hallo volgende diagram worden uitgelegd.
+Welke stappen volgen vormen van de On-namens-stroom en met behulp van het volgende diagram worden uitgelegd.
 
 ![OAuth2.0 op namens-stroom](media/active-directory-protocols-oauth-on-behalf-of/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
-1. Hallo-clienttoepassing maakt een aanvraag tooAPI A met Hallo token A.
-2. API-A verifieert toohello Azure AD uitgifte van tokens eindpunt en vraagt een token tooaccess API B.
-3. Hello Azure AD uitgifte van tokens eindpunt API A van referenties met een token valideert en problemen hello toegangstoken voor de API-B (token B).
-4. Hallo token B is ingesteld in Hallo autorisatie-header van Hallo aanvraag tooAPI B.
-5. Gegevens uit beveiligde resource hello wordt geretourneerd door de API B.
+1. De clienttoepassing indient een aanvraag bij API A met het token A.
+2. API-A met het eindpunt van de uitgifte van tokens Azure AD verifieert en vraagt een token voor toegang tot API B.
+3. Het eindpunt van de uitgifte van tokens Azure AD API A van referenties met een token valideert en problemen met het toegangstoken voor de API-B (token B).
+4. Het token B is ingesteld in de autorisatie-header van het verzoek om API B.
+5. Gegevens van de beveiligde bron wordt geretourneerd door de API B.
 
 > [!NOTE]
-> In dit scenario heeft Hallo middelste laag service geen gebruiker interactie tooobtain Hallo van gebruiker toestemming geven tooaccess Hallo downstream-API. Daarom Hallo optie toogrant toegang toohello downstream API wordt weergegeven als onderdeel van het Hallo toestemming stap tijdens de verificatie vooraf.
+> In dit scenario heeft de middelste laag-service geen tussenkomst van de gebruiker om op te halen van de gebruiker toestemming voor toegang tot de downstream-API. De optie om toegang te verlenen aan de downstream-API daarom is tevoren opgenomen als onderdeel van de toestemming stap tijdens de verificatie is.
 >
 
-## Tooservice access token serviceaanvraag
-toorequest een toegangstoken maken voor een HTTP POST toohello tenantspecifieke Azure AD v2.0-eindpunt Hallo parameters te volgen.
+## Token serviceaanvraag access-service
+Om aan te vragen een toegangstoken, moet u een HTTP POST naar de tenant-specifieke Azure AD v2.0-eindpunt met de volgende parameters.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 ```
 
-Er zijn twee gevallen, afhankelijk van of de client-toepassing hello toobe beveiligd door een gedeeld geheim of een certificaat kiest.
+Er zijn twee gevallen, afhankelijk van of de clienttoepassing kiest om te worden beveiligd door een gedeeld geheim of een certificaat.
 
 ### Het eerste aanvraagnummer: aanvraag voor toegang tot token met een gedeeld geheim
-Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service toegang Hallo volgende parameters:
+Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service toegang tot de volgende parameters:
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |Vereist | Hallo type token Hallo-aanvraag. Voor een aanvraag met behulp van een JWT, moet Hallo waarde **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| client_id |Vereist | Hallo toepassing-ID die Hallo [toepassing Registratieportal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tooyour app toegewezen. |
-| client_secret |Vereist | Hallo-toepassingsgeheim die u voor uw app in de Portal voor registratie van toepassing hello gegenereerd. |
-| Verklaring |Vereist | Hallo-waarde van Hallo token dat wordt gebruikt in Hallo-aanvraag. |
-| Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag Hallo. Zie voor meer informatie [scopes](active-directory-v2-scopes.md).|
-| requested_token_use |Vereist | Hiermee geeft u op hoe Hallo-aanvraag moet worden verwerkt. In Hallo op namens-stroom, Hallo-waarde moet **on_behalf_of**. |
+| grant_type |Vereist | Het type van de tokenaanvraag. Voor een aanvraag met behulp van een JWT, moet de waarde **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| client_id |Vereist | De aanvraag-ID die de [Registratieportal toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
+| client_secret |Vereist | Het geheim van de toepassing die u voor uw app in de Portal van de registratie van de toepassing hebt gegenereerd. |
+| Verklaring |Vereist | De waarde van het token dat wordt gebruikt in de aanvraag. |
+| Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Zie voor meer informatie [scopes](active-directory-v2-scopes.md).|
+| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de On-namens-stroom, de waarde moet **on_behalf_of**. |
 
 #### Voorbeeld
-Hallo na HTTP POST-aanvragen een toegangstoken met `user.read` bereik voor Hallo https://graph.microsoft.com web-API.
+De volgende HTTP POST-aanvragen een toegangstoken met `user.read` bereik voor de https://graph.microsoft.com web-API.
 
 ```
 //line breaks for legibility only
@@ -87,22 +87,22 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 ```
 
 ### Tweede geval: aanvraag voor toegang tot token met een certificaat
-Een service-naar-service toegang tokenaanvraag met een certificaat bevat Hallo volgende parameters:
+Een service-naar-service toegang tokenaanvraag met een certificaat bevat de volgende parameters:
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |Vereist | Hallo type token Hallo-aanvraag. Voor een aanvraag met behulp van een JWT, moet Hallo waarde **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| client_id |Vereist | Hallo toepassing-ID die Hallo [toepassing Registratieportal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tooyour app toegewezen. |
-| client_assertion_type |Vereist |Hallo-waarde moet liggen`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Vereist | Een (een JSON Web Token) bewering die u toocreate nodig hebt en ondertekenen met het Hallo-certificaat geregistreerd als de referenties voor uw toepassing.  Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) toolearn hoe tooregister uw certificaat en het Hallo-indeling van Hallo verklaring.|
-| Verklaring |Vereist | Hallo-waarde van Hallo token dat wordt gebruikt in Hallo-aanvraag. |
-| requested_token_use |Vereist | Hiermee geeft u op hoe Hallo-aanvraag moet worden verwerkt. In Hallo op namens-stroom, Hallo-waarde moet **on_behalf_of**. |
-| Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag Hallo. Zie voor meer informatie [scopes](active-directory-v2-scopes.md).|
+| grant_type |Vereist | Het type van de tokenaanvraag. Voor een aanvraag met behulp van een JWT, moet de waarde **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| client_id |Vereist | De aanvraag-ID die de [Registratieportal toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
+| client_assertion_type |Vereist |De waarde moet liggen`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Vereist | Een bewering (een JSON Web Token) die u nodig hebt voor het maken en te ondertekenen met het certificaat u geregistreerd als referenties voor uw toepassing.  Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de bevestiging.|
+| Verklaring |Vereist | De waarde van het token dat wordt gebruikt in de aanvraag. |
+| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de On-namens-stroom, de waarde moet **on_behalf_of**. |
+| Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Zie voor meer informatie [scopes](active-directory-v2-scopes.md).|
 
-Hallo-parameters zijn bijna Hallo dezelfde net als bij Hallo Hallo aanvraag door een gedeeld geheim, behalve dat Hallo client_secret parameter wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
+De parameters zijn bijna hetzelfde is in het geval van de aanvraag door een gedeeld geheim, behalve dat de parameter client_secret wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
 
 #### Voorbeeld
-Hallo na HTTP POST-aanvragen een toegangstoken met `user.read` bereik voor Hallo https://graph.microsoft.com web-API met een certificaat.
+De volgende HTTP POST-aanvragen een toegangstoken met `user.read` bereik voor de web-https://graph.microsoft.com API met een certificaat.
 
 ```
 // line breaks for legibility only
@@ -120,19 +120,19 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read
 ```
 
-## Service tooservice access token antwoord
-Een geslaagde reactie is een antwoord JSON OAuth 2.0 Hello parameters te volgen.
+## Antwoord token service-access-service
+Een geslaagde reactie is een JSON OAuth 2.0-antwoord met de volgende parameters.
 
 | Parameter | Beschrijving |
 | --- | --- |
-| token_type |Hiermee wordt aangegeven Hallo type token waarde. Hallo alleen type dat ondersteunt Azure AD **Bearer**. Zie voor meer informatie over bearer-tokens Hallo [OAuth 2.0 autorisatie Framework: Bearer-Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
-| Bereik |Hallo-bereik van toegang verleend in Hallo-token. |
-| expires_in |Hallo-lengte van tijd Hallo toegangstoken is ongeldig (in seconden). |
-| access_token |Hallo aangevraagde toegangstoken. Hallo service aanroepen kunt dit token tooauthenticate toohello ontvangende service gebruiken. |
-| refresh_token |Hallo-vernieuwingstoken voor Hallo aangevraagd toegangstoken. Hallo aanroepen van de service kunt gebruiken dit token toorequest een andere toegangstoken nadat Hallo huidige toegangstoken is verlopen. |
+| token_type |Geeft de waarde van het type token. Het enige type dat ondersteunt Azure AD is **Bearer**. Zie voor meer informatie over bearer-tokens, de [OAuth 2.0 autorisatie Framework: Bearer-Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| Bereik |Het bereik van toegang verleend in het token. |
+| expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
+| access_token |Het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om de ontvangende service te verifiëren. |
+| refresh_token |Het vernieuwingstoken voor het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om aan te vragen van een andere toegangstoken nadat het huidige toegangstoken is verlopen. |
 
 ### Geslaagd antwoord voorbeeld
-Hallo volgende voorbeeld ziet u een geslaagd antwoord tooa aanvraag voor een toegangstoken voor Hallo https://graph.microsoft.com web-API.
+Het volgende voorbeeld toont een geslaagde reactie op een aanvraag voor een toegangstoken voor de https://graph.microsoft.com web-API.
 
 ```
 {
@@ -146,12 +146,12 @@ Hallo volgende voorbeeld ziet u een geslaagd antwoord tooa aanvraag voor een toe
 ```
 
 ### Fout antwoord voorbeeld
-Reactie op een fout is geretourneerd door Azure AD-tokeneindpunt wanneer u probeert een toegangstoken tooacquire voor downstream Hallo-API als Hallo downstream-API een beleid voor voorwaardelijke toegang zoals multi-factor authentication-server erop is ingesteld heeft. Hallo middelste laag service moet deze fout toohello-clienttoepassing surface zodat de clienttoepassing Hallo Hallo gebruiker interactie toosatisfy Hallo voorwaardelijk toegangsbeleid kunt bieden.
+Reactie op een fout is geretourneerd door Azure AD-tokeneindpunt als bij het verkrijgen van een toegangstoken voor de downstream-API als de downstream-API een beleid voor voorwaardelijke toegang zoals multi-factor authentication-server erop is ingesteld heeft. De service voor de middelste laag moet deze fout aan de clienttoepassing surface, zodat de clienttoepassing de interactie van de gebruiker om te voldoen aan het beleid voor voorwaardelijke toegang kunt bieden.
 
 ```
 {
     "error":"interaction_required",
-    "error_description":"AADSTS50079: Due tooa configuration change made by your administrator, or because you moved tooa new location, you must enroll in multi-factor authentication tooaccess 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
+    "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
     "error_codes":[50079],
     "timestamp":"2017-05-01 22:43:20Z",
     "trace_id":"b72a68c3-0926-4b8e-bc35-3150069c2800",
@@ -160,8 +160,8 @@ Reactie op een fout is geretourneerd door Azure AD-tokeneindpunt wanneer u probe
 }
 ```
 
-## Gebruik Hallo access token tooaccess Hallo beveiligd resource
-Nu Hallo middelste laag service Hallo token verkregen hierboven toomake geverifieerde aanvragen toohello downstream kunt web-API, door de instelling Hallo-token in Hallo `Authorization` header.
+## Gebruik het toegangstoken voor toegang tot de beveiligde bron
+Nu de middelste laag-service kan het token verkregen hierboven geverifieerde aanvragen door het instellen van het token in aanbrengen de downstream web-API, gebruiken de `Authorization` header.
 
 ### Voorbeeld
 ```
@@ -171,6 +171,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 ```
 
 ## Volgende stappen
-Meer informatie over Hallo OAuth 2.0-protocol en een andere manier tooperform service tooservice auth met clientreferenties.
+Meer informatie over het OAuth 2.0-protocol en een andere manier om uit te voeren services auth met clientreferenties.
 * [OAuth 2.0-clientreferenties verlenen in Azure AD v2.0](active-directory-v2-protocols-oauth-client-creds.md)
 * [OAuth 2.0 in Azure AD v2.0](active-directory-v2-protocols-oauth-code.md)

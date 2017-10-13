@@ -1,6 +1,6 @@
 ---
-title: aaaMigrate van Java SDK tooMaven - oude Azure Service Fabric-Java-toepassingen toouse Maven bijwerken | Microsoft Docs
-description: Hallo oudere Java-toepassingen die toouse Hallo Service Fabric Java SDK gebruikt toofetch Service Fabric Java afhankelijkheden van Maven bijwerken. Na het voltooien van deze installatie, zou uw oudere Java-toepassingen kunnen toobuild zijn.
+title: Migratie van Java SDK naar Maven - Oude Azure Service Fabric Java-toepassingen bijwerken voor gebruik van Maven | Microsoft Docs
+description: U moet de oudere Java-toepassingen die de Service Fabric Java SDK gebruikten, bijwerken om Service Fabric Java-afhankelijkheden op te halen van Maven. Als u de stappen in dit artikel hebt uitgevoerd, moeten de oudere Java-toepassingen zonder problemen kunnen worden gebouwd.
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.openlocfilehash: 11b979facd7b3865141a6d3a035a6021dd06ca0c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 2123c5f26d77045bd22af56a844fdbf222930e7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="update-your-previous-java-service-fabric-application-toofetch-java-libraries-from-maven"></a>Uw vorige Java Service Fabric-toepassing toofetch Java-bibliotheken van Maven bijwerken
-Binaire bestanden voor Service Fabric Java onlangs verplaatst Hallo Service Fabric Java SDK tooMaven hosten. Nu kunt u **mavencentral** toofetch Hallo nieuwste Service Fabric-Java-afhankelijkheden. Sjabloon of Eclipse toobe compatibel is met de Hallo gebaseerd Maven build, gebruikt deze snel starten helpt bij het bijwerken van uw bestaande Java-toepassingen die u eerder toobe gemaakt met Service Fabric Java SDK, met behulp van beide Yeoman.
+# <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Bestaande Java Service Fabric-toepassingen bijwerken voor het ophalen van Java-bibliotheken van Maven
+We hebben onlangs de binaire bestanden van Java Service Fabric verplaatst van de Service Fabric Java SDK naar Maven-hosting. U kunt nu **mavencentral** gebruiken om de meest recente Service Fabric Java-afhankelijkheden op te halen. Deze Quick Start helpt u om uw bestaande Java-toepassingen bij te werken, zodat deze compatibel zijn met de op Maven gebaseerde build. Deze toepassingen werden eerder gemaakt voor gebruik met Service Fabric Java SDK, met behulp van een Yeoman-sjabloon of Eclipse.
 
 ## <a name="prerequisites"></a>Vereisten
-1. U moet eerst toouninstall Hallo bestaande Java SDK.
+1. U moet eerst de bestaande Java SDK verwijderen.
 
   ```bash
   sudo dpkg -r servicefabricsdkjava
   ```
-2. Installatie Hallo nieuwste Service Fabric CLI volgende Hallo stappen vermeld [hier](service-fabric-cli.md).
+2. Installeer de meest recente Service Fabric-CLI door [deze stappen](service-fabric-cli.md) te volgen.
 
-3. toobuild en werk op Hallo Service Fabric-Java-toepassingen, moet u tooensure dat u JDK 1.8 hebt en Gradle geïnstalleerd. Als u nog niet is geïnstalleerd, kunt u uitvoeren na tooinstall Hallo JDK 1.8 (openjdk-8-jdk) en Gradle -
+3. U kunt alleen Service Fabric-Java-toepassingen bouwen en hieraan werken als JDK 1.8 en Gradle zijn geïnstalleerd. Als dat nog is gebeurd, voert u de volgende opdrachten uit om JDK 1.8 (openjdk-8-jdk) en Gradle te installeren:
 
  ```bash
  sudo apt-get install openjdk-8-jdk-headless
  sudo apt-get install gradle
  ```
-4. Hallo installeren/verwijderen scripts voor het bijwerken van uw toepassing toouse Hallo nieuwe Service Fabric CLI Hallo stappen uit te voeren die worden vermeld [hier](service-fabric-application-lifecycle-sfctl.md). U kunt aan de slag tooour verwijzen [voorbeelden](https://github.com/Azure-Samples/service-fabric-java-getting-started) ter referentie.
+4. Werk de scripts voor het installeren/verwijderen van uw toepassing bij, zodat ze de nieuwe Service Fabric-CLI gebruiken. Volg hiervoor [deze stappen](service-fabric-application-lifecycle-sfctl.md). U kunt als naslag verwijzen naar onze [voorbeelden](https://github.com/Azure-Samples/service-fabric-java-getting-started) om snel aan de slag te gaan.
 
 >[!TIP]
-> Na het verwijderen van Service Fabric Java SDK Hallo werkt Yeoman niet. Ga als volgt Hallo vereisten vermeld [hier](service-fabric-create-your-first-linux-application-with-java.md) toohave Service Fabric Yeoman Java sjabloon generator van en werken.
+> Na het verwijderen van de Service Fabric Java SDK, werkt Yeoman niet meer. Zorg dat u voldoet aan de vereisten die [hier](service-fabric-create-your-first-linux-application-with-java.md) worden vermeld om de Yeoman-sjabloongenerator van Service Fabric Java werkend te krijgen.
 
 ## <a name="service-fabric-java-libraries-on-maven"></a>Service Fabric-Java-bibliotheken op Maven
-Service Fabric Java-bibliotheken worden gehost in Maven. U kunt op Hallo Hallo afhankelijkheden toevoegen ``pom.xml`` of ``build.gradle`` van uw projecten toouse Service Fabric-Java-bibliotheken van **mavenCentral**.
+Service Fabric Java-bibliotheken worden gehost in Maven. U kunt de afhankelijkheden toevoegen in de ``pom.xml`` of ``build.gradle`` van uw projecten om voortaan de Service Fabric-Java-bibliotheken op **mavenCentral** te gebruiken.
 
 ### <a name="actors"></a>Actoren
 
@@ -90,7 +90,7 @@ Betrouwbare ondersteuning voor stateless services in Service Fabric voor uw toep
 ### <a name="others"></a>Andere
 #### <a name="transport"></a>Transport
 
-Ondersteuning van transportlaag voor Service Fabric Java-toepassing. U hoeft geen tooexplicitly deze afhankelijkheid tooyour betrouwbare Actor of servicetoepassingen, toevoegen, tenzij u programmeren op Hallo transportlaag.
+Ondersteuning van transportlaag voor Service Fabric Java-toepassing. U hoeft deze afhankelijkheid niet expliciet toe te voegen aan uw Reliable Actor- of Service-toepassingen, tenzij u programmeert op de transportlaag.
 
   ```XML
   <dependency>
@@ -111,7 +111,7 @@ Ondersteuning van transportlaag voor Service Fabric Java-toepassing. U hoeft gee
 
 #### <a name="fabric-support"></a>Fabric-ondersteuning
 
-Niveau ondersteuning voor Service Fabric, die wordt gesproken toonative Service Fabric-runtime. U hoeft geen tooexplicitly deze afhankelijkheid tooyour betrouwbare Actor of servicetoepassingen toevoegen. Dit wordt automatisch opgehaald uit de Maven, wanneer u opneemt Hallo andere bovenstaande afhankelijkheden.
+Ondersteuning op systeemniveau voor Service Fabric, dat communiceert met native Service Fabric op het moment van uitvoering. U hoeft deze afhankelijkheid niet expliciet toe te voegen aan uw Reliable Actor- of Service-toepassingen. Dit wordt automatisch opgehaald van Maven wanneer u de andere bovenstaande afhankelijkheden opneemt.
 
   ```XML
   <dependency>
@@ -133,7 +133,7 @@ Niveau ondersteuning voor Service Fabric, die wordt gesproken toonative Service 
 
 ## <a name="migrating-service-fabric-stateless-service"></a>Stateless service in Service Fabric migreren
 
-toobe kunnen toobuild uw bestaande Service Fabric staatloze Java service met behulp van Service Fabric-afhankelijkheden van Maven opgehaald, moet u tooupdate hello ``build.gradle`` bestand in de Hallo Service. Eerder als volgt - toobe zoals gebruikt
+Als u uw bestaande Service Fabric stateless Java-service wilt bouwen met behulp van Service Fabric-afhankelijkheden die zijn opgehaald van Maven, moet u het bestand ``build.gradle`` bijwerken in de service. Eerder zag dit bestand er zo uit:
 ```
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
@@ -166,7 +166,7 @@ task copyDeps <<{
     }
 }
 ```
-Nu toofetch Hallo afhankelijkheden van Maven, Hallo **bijgewerkt** ``build.gradle`` Hallo corresponderende delen zou als volgt - hebben
+Om nu afhankelijkheden op te halen van Maven, moet het **bijgewerkte** bestand ``build.gradle`` de volgende onderdelen bevatten:
 ```
 repositories {
         mavenCentral()
@@ -219,20 +219,20 @@ task copyDeps <<{
     }
 }
 ```
-In het algemeen tooget een idee te geven over het Hallo script bouwen eruitziet voor een Service Fabric staatloze Java-service, raadpleegt u tooany voorbeeld van onze voorbeelden aan de slag. Hier volgt Hallo [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/Services/EchoServer/EchoServer1.0/EchoServerService/build.gradle) voor Hallo EchoServer voorbeeld.
+Over het algemeen kunt u een goed beeld krijgen van een script voor het bouwen van een stateless Service Fabric Java-service door de voorbeelden te raadplegen die we hebben samengesteld om u snel op weg te helpen. Hier vindt u bijvoorbeeld de [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/Services/EchoServer/EchoServer1.0/EchoServerService/build.gradle) voor het voorbeeld met EchoServer.
 
 ## <a name="migrating-service-fabric-actor-service"></a>Actor-service van Service Fabric migreren
 
-toobe kunnen toobuild uw bestaande Service Fabric Actor Java-toepassing met behulp van Service Fabric-afhankelijkheden van Maven opgehaald, moet u tooupdate hello ``build.gradle`` bestand in de interface-pakket hello en in het servicepakket Hallo. Als u een pakket TestClient hebt, moet u dat ook tooupdate. In dat geval voor uw actor ``Myactor``, Hallo volgende Hallo locaties waar u tooupdate - nodig zou zijn
+Als u uw bestaande Service Fabric stateless Actor Java-toepassing wilt bouwen met behulp van Service Fabric-afhankelijkheden die zijn opgehaald van Maven, moet u het bestand ``build.gradle`` bijwerken in het interfacepakket en in het servicepakket. Als u een TestClient-pakket hebt, moet u de wijziging daar ook doorvoeren. In het geval van uw actor ``Myactor`` zijn op de volgende plaatsen aanpassingen nodig:
 ```
 ./Myactor/build.gradle
 ./MyactorInterface/build.gradle
 ./MyactorTestClient/build.gradle
 ```
 
-#### <a name="updating-build-script-for-hello-interface-project"></a>Build script voor Hallo interface project bijwerken
+#### <a name="updating-build-script-for-the-interface-project"></a>Build-script voor het interfaceproject bijwerken
 
-Eerder als volgt - toobe zoals gebruikt
+Eerder zag dit bestand er zo uit:
 ```
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
@@ -240,7 +240,7 @@ dependencies {
 .
 .
 ```
-Nu toofetch Hallo afhankelijkheden van Maven, Hallo **bijgewerkt** ``build.gradle`` Hallo corresponderende delen zou als volgt - hebben
+Om nu afhankelijkheden op te halen van Maven, moet het **bijgewerkte** bestand ``build.gradle`` de volgende onderdelen bevatten:
 ```
 repositories {
     mavenCentral()
@@ -271,9 +271,9 @@ compileJava.dependsOn(explodeDeps)
 .
 ```
 
-#### <a name="updating-build-script-for-hello-actor-project"></a>Build script voor Hallo actor project bijwerken
+#### <a name="updating-build-script-for-the-actor-project"></a>Build-script voor het actorproject bijwerken
 
-Eerder als volgt - toobe zoals gebruikt
+Eerder zag dit bestand er zo uit:
 ```
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
@@ -312,7 +312,7 @@ task copyDeps<< {
     }
 }
 ```
-Nu toofetch Hallo afhankelijkheden van Maven, Hallo **bijgewerkt** ``build.gradle`` Hallo corresponderende delen zou als volgt - hebben
+Om nu afhankelijkheden op te halen van Maven, moet het **bijgewerkte** bestand ``build.gradle`` de volgende onderdelen bevatten:
 ```
 repositories {
     mavenCentral()
@@ -370,9 +370,9 @@ task copyDeps<< {
 }
 ```
 
-#### <a name="updating-build-script-for-hello-test-client-project"></a>Build script voor Hallo client testproject bijwerken
+#### <a name="updating-build-script-for-the-test-client-project"></a>Build-script voor het TestClient-project bijwerken
 
-Wijzigingen die hier zijn vergelijkbaar toohello wijzigingen beschreven in de vorige sectie, dat wil zeggen, Hallo actor-project. Eerder Hallo Gradle toobe script gebruikt, zoals als volgt-
+De wijzigingen hier zijn vergelijkbaar met de wijzigingen uit de vorige sectie, over het actor-project. Eerder werd een Gradle-script gebruikt dat er ongeveer als volgt uitziet:
 ```
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
@@ -412,7 +412,7 @@ task copyDeps<< {
         }
 }
 ```
-Nu toofetch Hallo afhankelijkheden van Maven, Hallo **bijgewerkt** ``build.gradle`` Hallo corresponderende delen zou als volgt - hebben
+Om nu afhankelijkheden op te halen van Maven, moet het **bijgewerkte** bestand ``build.gradle`` de volgende onderdelen bevatten:
 ```
 repositories {
     mavenCentral()
@@ -476,4 +476,4 @@ task copyDeps<< {
 
 * [Uw eerste Service Fabric Java-toepassing in Linux maken en implementeren met behulp van Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Uw eerste Service Fabric Java-toepassing in Linux maken en implementeren met behulp van de Service Fabric-invoegtoepassing voor Eclipse](service-fabric-get-started-eclipse.md)
-* [Interactie met Service Fabric-clusters met Hallo Service Fabric CLI](service-fabric-cli.md)
+* [Werken met Service Fabric-clusters via de Service Fabric-CLI](service-fabric-cli.md)

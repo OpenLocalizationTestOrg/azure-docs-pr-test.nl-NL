@@ -1,9 +1,9 @@
 ---
-title: aaaCreate zelfstandige Azure Automation-Account | Microsoft Docs
-description: Zelfstudie die u helpt bij Hallo maken, testen en voorbeeld van beveiliging principal verificatie in Azure Automation.
+title: Zelfstandig Azure Automation-account maken | Microsoft Docs
+description: Zelfstudie die u helpt bij het maken en testen en bij het voorbeeldgebruik van de verificatie van beveiligingsprincipals in Azure Automation.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
@@ -14,76 +14,79 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 1500d25d9565d4082768933834303a17c5e84234
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Een zelfstandig Azure Automation-account maken
-Dit onderwerp leest u hoe toocreate een Automation-account van hello Azure-portal als u tooevaluate wilt en meer informatie over Azure Automation zonder op te nemen Hallo aanvullende oplossingen of integratie met OMS Log Analytics tooprovide geavanceerde bewaking van runbooktaken.  U kunt deze oplossingen toevoegen of integreren met logboekanalyse op elk punt in toekomstige Hallo.  Hallo Automation-account bent u kunnen tooauthenticate runbooks beheer van resources in Azure Resource Manager of de klassieke Azure-implementatie.
+In dit onderwerp wordt beschreven hoe u een Automation-account kunt maken vanuit Azure Portal, als u Azure Automation wilt evalueren en leren gebruiken, zonder hierbij gebruik te maken van de aanvullende beheeroplossingen of integratie met OMS Log Analytics om geavanceerde bewaking van runbooktaken te bieden.  U kunt deze beheeroplossingen op enig moment in de toekomst toevoegen aan of integreren in Log Analytics.  Met een Automation-account kunt u runbooks verifiëren waarmee resources worden beheerd in Azure Resource Manager of een klassieke Azure-implementatie.
 
-Als u een Automation-account in hello Azure-portal maakt, wordt automatisch gemaakt:
+Wanneer u in Azure Portal een Automation-account maakt, wordt automatisch het volgende gemaakt:
 
-* Run As-account, die een nieuwe service-principal maakt in Azure Active Directory, een certificaat en wijst Hallo Inzender op rollen gebaseerde toegangsbeheer (RBAC), die is gebruikt toomanage Resource Manager-resources met behulp van runbooks.   
-* Klassieke Run As-account door het uploaden van een beheercertificaat dat is gebruikt toomanage klassieke resources met behulp van runbooks.  
+* Uitvoeren als-account; hiermee wordt een nieuwe service-principal in Azure Active Directory gemaakt, een certificaat, en wordt het RBAC (op rollen gebaseerd toegangsbeheer) toegewezen, dat wordt gebruikt om Resource Manager-resources te beheren met runbooks.   
+* Klassiek uitvoeren als-account; door een beheercertificaat te uploaden, dat wordt gebruikt om klassieke resources te beheren met runbooks.  
 
-Dit vereenvoudigt het Hallo-proces voor u en kunt u snel starten gebouw en behoeften van uw automation runbooks toosupport implementeren.  
+Dit maakt het proces voor u eenvoudiger zodat u sneller runbooks kunt maken en implementeren, ter ondersteuning van uw automatiseringsbehoeften.  
 
-## <a name="permissions-required-toocreate-automation-account"></a>Machtigingen vereist toocreate Automation-account
-toocreate of update een Automation-account, hebt u Hallo na specifieke rechten en machtigingen nodig toocomplete in dit onderwerp.   
+## <a name="permissions-required-to-create-automation-account"></a>Machtigingen die zijn vereist om een Automation-account te maken
+Als u een Automation-account wilt maken of bijwerken, moet u de volgende specifieke bevoegdheden en machtigingen hebben om dit onderwerp te voltooien.   
  
-* In de volgorde toocreate een Automation-account, uw AD-gebruikersaccount moet toobe toegevoegde tooa rol met de rol van eigenaar gelijkwaardige toohello machtigingen voor Microsoft.Automation bronnen zoals wordt beschreven in artikel [toegangsbeheer op basis van rollen in Azure Automation ](automation-role-based-access-control.md).  
-* Als Hallo App registraties instellen te is ingesteld**Ja**, kunnen gebruikers niet-beheerders in uw Azure AD-tenant [AD-toepassingen registreren](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Als Hallo app registraties instellen te is ingesteld**Nee**, Hallo gebruiker deze bewerking moet een globale beheerder in Azure AD. 
+* Om een Automation-account te kunnen maken, moet uw AD-gebruikersaccount worden toegevoegd aan een rol die machtigingen heeft die equivalent zijn aan de rol Eigenaar voor Microsoft.Automation-resources. Dit is beschreven in het artikel [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md).  
+* Als de instelling App-registraties is ingesteld op **Ja**, kunnen gebruikers in uw Azure AD-tenant zonder beheerdersrechten [AD-toepassingen registreren](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Als de app-registratie-instelling is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD. 
 
-Als u niet lid zijn van de Active Directory-exemplaar van Hallo abonnement voordat u toohello globale beheerder/SA-administrator-rol van Hallo abonnement worden toegevoegd, kunt u tooActive Directory wordt toegevoegd als gast. In dit geval ontvangt u een "u hebt geen machtigingen toocreate..." Waarschuwing voor Hallo **Automation-Account toevoegen** blade. Gebruikers die zijn toegevoegd toohello globale beheerder/SA-administrator-rol kan worden verwijderd uit Active Directory-exemplaar van het abonnement Hallo eerst en opnieuw wordt toegevoegd toomake ze een volledige gebruiker in Active Directory. tooverify deze situatie van Hallo **Azure Active Directory** deelvenster in Azure portal, selecteer Hallo **gebruikers en groepen**, selecteer **alle gebruikers** en, nadat u Hallo selecteren specifieke gebruiker, schakelt **profiel**. waarde van Hallo Hallo **gebruikerstype** kenmerk onder Hallo gebruikersprofiel moet niet gelijk aan **Gast**.
+Als u geen lid bent van het Active Directory-exemplaar van het abonnement voordat u wordt toegevoegd aan de rol van globale beheerder/medebeheerder van het abonnement, wordt u als gast toegevoegd aan Active Directory. In dat geval wordt de waarschuwing 'U bent niet gemachtigd om…' weergegeven op de blade **Automation-account toevoegen**. Gebruikers die zijn toegevoegd aan de rol van globale beheerder/medebeheerder, kunnen worden verwijderd uit het Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
 
-## <a name="create-a-new-automation-account-from-hello-azure-portal"></a>Een nieuw Automation-Account maken vanuit hello Azure-portal
-In deze sectie uitvoeren Hallo stappen toocreate een Azure Automation-account in hello Azure-portal te volgen.    
+## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Nieuw Automation-account maken vanuit Azure Portal
+In deze sectie voert u de volgende stappen uit om vanuit Azure Portal een nieuw Azure Automation-account te maken.    
 
-1. Meld u aan toohello Azure-portal met een account dat lid is van de rol Abonnementsbeheerders hello en medebeheerder van Hallo-abonnement.
+1. Meld u aan bij Azure Portal met een account dat lid is van de rol Abonnementsbeheerders en dat medebeheerder is van het abonnement.
 2. Klik op **Nieuw**.<br><br> ![De optie Nieuw selecteren in Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
-3. Zoeken naar **Automation** en klik vervolgens in Hallo zoekresultaten Selecteer **Automation en Control***.<br><br> ![Zoek naar en selecteer Automation in Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
-3. Klik in de blade Automation-Accounts Hallo op **toevoegen**.<br><br>![Automation-account toevoegen](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
-   
+3. Zoek naar **Automation** en klik in de zoekresultaten op **Automation en beheer***.<br><br> ![Zoek naar en selecteer Automation in Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
+3. Klik op de blade Automation-accounts op **Toevoegen**.<br><br>![Automation-account toevoegen](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+
+
    > [!NOTE]
-   > Als u de volgende waarschuwing in Hallo Hallo ziet **Automation-Account toevoegen** blade is omdat uw account geen lid is van de rol Abonnementsbeheerders hello en co-beheerder van het Hallo-abonnement is.<br><br>![Waarschuwing bij Automation-account toevoegen](media/automation-create-standalone-account/create-account-without-perms.png)
+   > Als u op de blade **Automation-account toevoegen** de volgende waarschuwing ziet, is uw account geen lid van de rol Abonnementsbeheerders en geen medebeheerder van het abonnement.<br><br>![Waarschuwing bij Automation-account toevoegen](media/automation-create-standalone-account/create-account-without-perms.png)
    > 
    > 
-4. In Hallo **Automation-Account toevoegen** blade in Hallo **naam** vak Typ een naam voor uw nieuwe Automation-account.
-5. Als u meer dan één abonnement hebt, één voor de nieuwe account hello, Geef een nieuwe of bestaande **resourcegroep** en een Azure-datacenter **locatie**.
-6. Controleer Hallo waarde **Ja** is geselecteerd voor Hallo **Azure uitvoeren als-account maken** optie en klik op Hallo **maken** knop.  
+4. Typ op de blade **Automation-account toevoegen** in het vak **Naam** een naam voor uw nieuwe Automation-account.
+5. Als u meer dan één abonnement hebt, geeft u er een op voor het nieuwe account, evenals een nieuwe of bestaande **resourcegroep** en de **locatie** van een Azure-datacenter.
+6. Controleer of de waarde **Ja** is geselecteerd voor de optie **Een Uitvoeren als-account voor Azure maken** en klik op de knop **Maken**.  
    
    > [!NOTE]
-   > Als u kiest toonot Hallo Run As-account maken met de optie Hallo **Nee**, krijgt u een waarschuwing weergegeven op Hallo **Automation-Account toevoegen** blade.  Tijdens het Hallo-account is gemaakt in hello Azure-portal, heeft geen overeenkomstige verificatie-id in de klassieke of Resource Manager abonnement Active Directory en daarom geen tooresources toegang in uw abonnement.  Dit voorkomt dat alle runbooks die naar verwijzen dit account kunnen tooauthenticate en uitvoeren van taken op basis van bronnen in de implementatiemodellen.
+   > Als u de optie **Nee** selecteert omdat u geen Uitvoeren als-account wilt maken, wordt een waarschuwing weergegeven op de blade **Automation-account toevoegen**.  Hoewel het account wordt gemaakt in Azure Portal, heeft het geen overeenkomstige verificatie-id in de adreslijstservice van het klassieke of Resource Manager-abonnement en daardoor ook geen toegang tot resources in uw abonnement.  Hierdoor kunnen alle runbooks die naar dit account verwijzen, geen taken verifiëren en uitvoeren met resources in die implementatiemodellen.
    > 
    > ![Waarschuwing bij Automation-account toevoegen](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)<br>
-   > Wanneer het Hallo-service-principal is niet gemaakt is niet de rol Inzender Hallo toegewezen.
+   > Wanneer de service-principal niet is gemaakt, wordt de rol Inzender niet toegewezen.
    > 
 
-7. Terwijl Azure Hallo Automation-account maakt, kunt u de voortgang Hallo onder bijhouden **meldingen** in Hallo-menu.
+7. Terwijl in Azure het Automation-account wordt gemaakt, kunt u in het menu onder **Meldingen** de voortgang hiervan volgen.
 
 ### <a name="resources-included"></a>Beschikbare resources
-Als Hallo Automation-account is gemaakt, worden automatisch verschillende resources voor u gemaakt.  Hallo volgende tabel geeft een overzicht van resources voor Hallo Run As-account.<br>
+Wanneer het Automation-account is gemaakt, worden er automatisch verschillende resources voor u gemaakt.  In de volgende tabel vindt u een overzicht van de bronnen voor het Uitvoeren als-account.<br>
 
 | Resource | Beschrijving |
 | --- | --- |
-| AzureAutomationTutorial Runbook |Een grafische voorbeeldrunbook dat laat zien hoe met behulp van tooauthenticate Hallo Run As-account en alle Hallo Resource Manager-resources opgehaald. |
-| AzureAutomationTutorialScript Runbook |Een voorbeeldrunbook PowerShell die laat zien hoe met behulp van tooauthenticate Hallo Run As-account en alle Hallo Resource Manager-resources opgehaald. |
-| AzureRunAsCertificate |Certificaatasset automatisch gemaakt tijdens het maken van Automation-account of met behulp van de onderstaande Hallo PowerShell-script voor een bestaande account.  Hiermee kunt u tooauthenticate met Azure zodat u Azure Resource Manager-resources van runbooks beheren kunt.  Dit certificaat is één jaar geldig. |
-| AzureRunAsConnection |Verbindingsasset automatisch gemaakt tijdens het maken van Automation-account of met behulp van de onderstaande Hallo PowerShell-script voor een bestaande account. |
+| AzureAutomationTutorial Runbook |Een voorbeeld van een grafisch runbook dat laat zien hoe u verifieert met behulp van het Uitvoeren als-account en dat alle Resource Managers-resources ophaalt. |
+| AzureAutomationTutorialScript Runbook |Een voorbeeld van een PowerShell-runbook dat laat zien hoe u verifieert met behulp van het Uitvoeren als-account en dat alle Resource Managers-resources ophaalt. |
+| AzureAutomationTutorialPython2-runbook |Een voorbeeld van een Python-runbook dat laat zien hoe u kunt verifiëren met behulp van het Run As-account en vervolgens een lijst weergeeft met resourcegroepen die aanwezig zijn in het opgegeven abonnement. |
+| AzureRunAsCertificate |Certificaatasset dat automatisch tijdens het maken van het Automation-account of met onderstaand PowerShell-script voor een bestaande account wordt gemaakt.  Hiermee kunt u verifiëren met Azure zodat u Azure Resource Manager-resources kunt beheren vanuit runbooks.  Dit certificaat is één jaar geldig. |
+| AzureRunAsConnection |Verbindingsasset dat automatisch tijdens het maken van het Automation-account of met onderstaand PowerShell-script voor een bestaande account wordt gemaakt. |
 
-Hallo volgende tabel geeft een overzicht van resources voor Hallo klassieke Run As-account.<br>
+In de volgende tabel vindt u een overzicht van de bronnen voor het klassieke Uitvoeren als-account.<br>
 
 | Resource | Beschrijving |
 | --- | --- |
-| AzureClassicAutomationTutorial Runbook |Een voorbeeld grafisch runbook, die alle Hallo klassieke VM's in een abonnement met Hallo klassieke Run As-Account (certificaat) ophalen en vervolgens levert Hallo VM-naam en de status. |
-| AzureClassicAutomationTutorial Script Runbook |Een voorbeeld van de PowerShell-runbook dat Hiermee haalt u alle Hallo klassieke VM's in een abonnement met Hallo klassieke Run As-Account (certificaat) en vervolgens levert Hallo VM-naam en de status. |
-| AzureClassicRunAsCertificate |Certificaatasset automatisch gemaakt die gebruikt tooauthenticate met Azure zodat u de klassieke Azure-resources van runbooks beheren kunt.  Dit certificaat is één jaar geldig. |
-| AzureClassicRunAsConnection |Verbindingsasset automatisch gemaakt die gebruikt tooauthenticate met Azure zodat u de klassieke Azure-resources van runbooks beheren kunt. |
+| AzureClassicAutomationTutorial Runbook |Een voorbeeld van een grafisch runbook dat alle klassieke virtuele machines in een abonnement ophaalt met het klassieke Uitvoeren als-account (certificaat) en vervolgens de VM-naam en -status weergeeft. |
+| AzureClassicAutomationTutorial Script Runbook |Een voorbeeld van een PowerShell-runbook dat alle klassieke virtuele machines in een abonnement ophaalt met het klassieke Uitvoeren als-account (certificaat) en vervolgens de VM-naam en -status weergeeft. |
+| AzureClassicRunAsCertificate |Certificaatasset dat automatisch wordt gemaakt en wordt gebruikt voor verificatie met Azure, zodat u klassieke Azure-resources kunt beheren vanuit runbooks.  Dit certificaat is één jaar geldig. |
+| AzureClassicRunAsConnection |Verbindingsasset dat automatisch wordt gemaakt en wordt gebruikt voor verificatie met Azure, zodat u klassieke Azure-resources kunt beheren vanuit runbooks. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie toolearn meer informatie over grafisch ontwerpen [grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md).
-* Zie tooget gestart met PowerShell-runbooks [Mijn eerste PowerShell-runbook](automation-first-runbook-textual-powershell.md).
-* tooget gestart met PowerShell workflow-runbooks, Zie [Mijn eerste PowerShell workflow-runbook](automation-first-runbook-textual.md).
+* Zie voor meer informatie over grafisch ontwerpen [Grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md).
+* Zie [Mijn eerste PowerShell-runbook](automation-first-runbook-textual-powershell.md) om aan de slag te gaan met PowerShell-runbooks.
+* Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks
+* Zie [Mijn eerste Python2-runbook](automation-first-runbook-textual-python2.md) om aan de slag te gaan met Python2-runbooks.

@@ -1,15 +1,26 @@
 ---
+title: Documentatie voor Azure Network Watcher - zelfstudies, API-verwijzing | Microsoft Docs
+description: Informatie over het gebruik van Network Watcher waarmee u de omstandigheden in uw hele netwerk kunt bewaken en onderzoeken.
+services: network-watcher
+author: czeumault
+manager: carolz
 layout: LandingPage
-description: Meer informatie over hoe toouse netwerk-Watcher toomonitor en voorwaarden op een netwerkniveau te onderzoeken.
-ms.openlocfilehash: 6c5fcdb2e5095eaceb759e45ae3d35875a0c3fc7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.assetid: 
+ms.service: network-watcher
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
+ms.openlocfilehash: 897f526801dc94f6f370dfa253f321f7b8f765e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-network-watcher-documentation"></a>Documentatie voor Azure Network Watcher
 
-Meer informatie over hoe toouse netwerk-Watcher, een service waarmee u toomonitor en voorwaarden op niveau van een scenario onderzoeken. Zelfstudies, API-referenties en andere documentatie die laten zien u hoe te beter inzicht in uw Azure-netwerk met hulpprogramma's zoals pakketopname en -topologie.
+Informatie over het gebruik van Network Watcher, een service waarmee u de omstandigheden in uw hele netwerk kunt bewaken en eventuele problemen kunt vaststellen. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u inzicht in uw Azure-netwerk krijgt met hulpprogramma's als pakketopname en topologie.
 
 <ul class="panelContent cardsFTitle">
     <li>

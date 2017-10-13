@@ -1,6 +1,6 @@
 ---
-title: aaaConfigure hello AlwaysOn-beschikbaarheidsgroep op een virtuele machine in Azure met behulp van PowerShell | Microsoft Docs
-description: Deze zelfstudie maakt gebruik van bronnen die zijn gemaakt met het klassieke implementatiemodel Hallo. U kunt PowerShell toocreate een AlwaysOn-beschikbaarheidsgroep gebruikt in Azure.
+title: De AlwaysOn-beschikbaarheidsgroep configureren op een virtuele machine in Azure met behulp van PowerShell | Microsoft Docs
+description: Deze zelfstudie maakt gebruik van bronnen die zijn gemaakt met het klassieke implementatiemodel. PowerShell kunt u een AlwaysOn-beschikbaarheidsgroep maken in Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: d4a27e203b2ff299adebec2b010c03422459b3c3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b99cf767fb931d3f7fe14fcbe7990126244613ed
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="configure-hello-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Hallo-AlwaysOn-beschikbaarheidsgroep configureren op een virtuele machine in Azure met PowerShell
+# <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>De AlwaysOn-beschikbaarheidsgroep configureren op een virtuele machine in Azure met PowerShell
 > [!div class="op_single_selector"]
 > * [Klassieke: UI](../classic/portal-sql-alwayson-availability-groups.md)
 > * [Klassieke: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
@@ -30,37 +30,37 @@ ms.lasthandoff: 10/06/2017
 Voordat u begint, kunt u overwegen of u kunt deze taak in Azure resource manager-model voltooien. U wordt aangeraden Azure resource manager-model voor nieuwe implementaties. Zie [op virtuele machines in Azure SQL Server altijd op beschikbaarheidsgroepen](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> U wordt aangeraden de meeste nieuwe implementaties Hallo Resource Manager-model gebruiken. Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en classic](../../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel wordt behandeld met het klassieke implementatiemodel Hallo.
+> U wordt aangeraden de meeste nieuwe implementaties het Resource Manager-model gebruiken. Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en classic](../../../azure-resource-manager/resource-manager-deployment-model.md). Dit artikel gaat over het gebruik van het klassieke implementatiemodel.
 
-Azure virtuele machines (VM's) kunt database beheerders toolower Hallo kosten van een SQL Server-systeem voor hoge beschikbaarheid. Deze zelfstudie leert u hoe tooimplement een beschikbaarheid van groep met behulp van SQL Server Always On end-to-end binnen een Azure-omgeving. Uw oplossing SQL Server Always On in Azure wordt aan het einde van de Hallo Hallo zelfstudie bestaan uit Hallo volgende elementen:
+Azure virtuele machines (VM's) kunt databasebeheerders verlagen de kosten van een SQL Server-systeem voor hoge beschikbaarheid. Deze zelfstudie laat zien hoe u een beschikbaarheidsgroep implementeert met behulp van SQL Server Always On end-to-end binnen een Azure-omgeving. Uw oplossing SQL Server Always On in Azure wordt aan het einde van de zelfstudie bestaat uit de volgende elementen:
 
 * Een virtueel netwerk met meerdere subnetten, met inbegrip van een front-end- en een back-end-subnet.
 * Een domeincontroller met een Active Directory-domein.
-* Twee SQL Server-VM's die geïmplementeerd toohello back-end-subnet en gekoppelde toohello Active Directory-domein zijn.
-* Drie knooppunten Windows failovercluster met Hallo Knooppuntmeerderheid quorummodel.
+* Twee SQL Server-VM's die zijn geïmplementeerd met het subnet voor back-end en toegevoegd aan het Active Directory-domein.
+* Een drie-knooppunt Windows failover-cluster met Knooppuntmeerderheid quorummodel.
 * Een beschikbaarheidsgroep met twee replica's voor synchrone doorvoer van een beschikbaarheidsdatabase.
 
-Dit scenario is een goede keuze voor de eenvoud op Azure, niet voor de kosteneffectiviteit of andere factoren. Bijvoorbeeld, kunt u met behulp van de domeincontroller Hallo als Hallo bestandssharewitness van quorum in een failovercluster met twee knooppunten Hallo aantal virtuele machines voor een groep twee replica beschikbaarheid toosave minimaliseren op rekenuren in Azure. Deze methode wordt Hallo-aantal VM's met één van Hallo hierboven configuratie verlaagd.
+Dit scenario is een goede keuze voor de eenvoud op Azure, niet voor de kosteneffectiviteit of andere factoren. U kunt bijvoorbeeld het aantal virtuele machines voor een twee-replica van een beschikbaarheidsgroep op te slaan op rekenuren in Azure met behulp van de domeincontroller als de bestandssharewitness in quorum in een failovercluster met twee knooppunten minimaliseren. Deze methode wordt het aantal VM's met één van de bovenstaande configuratie verlaagd.
 
-Deze zelfstudie is bedoeld tooshow u stappen die vereist tooset up Hallo zijn Hallo oplossing hierboven beschreven zonder bespreekt Hallo details van elke stap. Daarom stap in plaats van mits Hallo GUI-configuratiestappen, deze PowerShell-scripts tootake gebruikt u snel tot en met elke. Deze zelfstudie wordt ervan uitgegaan dat de volgende Hallo:
+Deze zelfstudie is bedoeld om u de stappen die nodig zijn voor het instellen van de beschreven oplossing hierboven, zonder de details van elke stap bespreekt weer te geven. Daarom in plaats van het bieden van de GUI-configuratiestappen, gebruikt het PowerShell-scripts waarmee u snel via elke stap. Deze zelfstudie wordt ervan uitgegaan:
 
-* U hebt al een Azure-account met Hallo virtuele machine abonnement.
-* U hebt geïnstalleerd Hallo [Azure PowerShell-cmdlets](/powershell/azure/overview).
+* U hebt al een Azure-account aan het abonnement van de virtuele machine.
+* U hebt geïnstalleerd het [Azure PowerShell-cmdlets](/powershell/azure/overview).
 * U hebt al een goed begrip van AlwaysOn-beschikbaarheidsgroepen voor oplossingen on-premises. Zie voor meer informatie [altijd op beschikbaarheidsgroepen (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
-## <a name="connect-tooyour-azure-subscription-and-create-hello-virtual-network"></a>Verbinding maken met tooyour Azure-abonnement en Hallo virtueel netwerk maken
-1. In een PowerShell-venster op de lokale computer hello Azure-module importeren, Hallo publiceren instellingen bestand tooyour machine downloaden en verbinding maken met de PowerShell-sessie tooyour Azure-abonnement via Hallo gedownload publicatie-instellingen te importeren.
+## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Verbinding maken met uw Azure-abonnement en het virtuele netwerk maken
+1. De Azure-module importeren in een PowerShell-venster op de lokale computer, downloaden van het bestand publicatie-instellingen naar uw computer en uw PowerShell-sessie verbinding met uw Azure-abonnement met het importeren van de gedownloade publicatie-instellingen.
 
         Import-Module "C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Azure\Azure.psd1"
         Get-AzurePublishSettingsFile
         Import-AzurePublishSettingsFile <publishsettingsfilepath>
 
-    Hallo **Get-AzurePublishSettingsFile** opdracht genereert u een beheercertificaat met Azure automatisch en downloadt u tooyour machine. Een browser wordt automatisch geopend en u bent na vragen aan gebruiker tooenter Hallo Microsoft-accountreferenties voor uw Azure-abonnement. Hallo gedownload **.publishsettings** bestand bevat alle Hallo gegevens die u nodig toomanage uw Azure-abonnement. Na het opslaan van deze lokale map tooa importeren met Hallo **importeren AzurePublishSettingsFile** opdracht.
+    De **Get-AzurePublishSettingsFile** opdracht genereert u een beheercertificaat met Azure automatisch en downloadt u deze naar uw computer. Een browser wordt automatisch geopend en u wordt gevraagd de referenties van het Microsoft-account invoeren voor uw Azure-abonnement. De gedownloade **.publishsettings** bestand bevat alle de informatie die u nodig voor het beheren van uw Azure-abonnement. Na het opslaan van dit bestand naar een lokale map importeren met behulp van de **importeren AzurePublishSettingsFile** opdracht.
 
    > [!NOTE]
-   > Hallo .publishsettings-bestand bevat uw referenties (ongecodeerde) die gebruikt tooadminister zijn uw Azure-abonnementen en services. Hallo aanbevolen beveiligingsprocedure voor dit bestand is toostore deze tijdelijk buiten uw adreslijsten bron (bijvoorbeeld in Hallo Libraries\Documents map), en vervolgens verwijdert nadat Hallo importeren is voltooid. Een kwaadwillende gebruiker die u toegang tot toohello .publishsettings-bestand krijgt kunt bewerken, maken en verwijderen van uw Azure-services.
+   > Het .publishsettings-bestand bevat uw referenties (ongecodeerde) die worden gebruikt voor het beheren van uw Azure-abonnementen en services. De aanbevolen beveiligingsprocedures voor dit bestand is tijdelijk buiten uw adreslijsten bron (bijvoorbeeld in de map Libraries\Documents) opslaan en vervolgens te verwijderen nadat het importeren is voltooid. Een kwaadwillende gebruiker die toegang tot de .publishsettings-bestand krijgt kunt bewerken, maken en verwijderen van uw Azure-services.
 
-2. Definieer een reeks variabelen die u toocreate uw cloud IT-infrastructuur gebruiken wilt.
+2. Definieer een reeks variabelen die u gebruiken gaat voor het maken van uw cloud IT-infrastructuur.
 
         $location = "West US"
         $affinityGroupName = "ContosoAG"
@@ -80,12 +80,12 @@ Deze zelfstudie is bedoeld tooshow u stappen die vereist tooset up Hallo zijn Ha
         $vmAdminPassword = "Contoso!000"
         $workingDir = "c:\scripts\"
 
-    Betalen aandacht toohello tooensure die uw opdrachten later slaagt te volgen:
+    Let op het volgende om ervoor te zorgen dat uw opdrachten later slaagt:
 
-   * Variabelen **$storageAccountName** en **$dcServiceName** moeten uniek zijn omdat ze gebruikt tooidentify uw cloud-opslagaccount en cloud-server, respectievelijk op Hallo Internet.
-   * Hallo namen die u voor variabelen opgeeft **$affinityGroupName** en **$virtualNetworkName** zijn geconfigureerd in het configuratiebestand voor Hallo virtueel netwerk die u later gaat gebruiken.
-   * **$sqlImageName** geeft de naam bijgewerkt Hallo van Hallo VM-installatiekopie waarin SQL Server 2012 Service Pack 1 Enterprise Edition.
-   * Ter vereenvoudiging **Contoso! 000** is Hallo hetzelfde wachtwoord dat wordt gebruikt in de hele zelfstudie Hallo.
+   * Variabelen **$storageAccountName** en **$dcServiceName** moeten uniek zijn omdat deze worden gebruikt voor het identificeren van uw cloud-account en cloud opslagserver, respectievelijk op het Internet.
+   * De namen die u voor variabelen opgeeft **$affinityGroupName** en **$virtualNetworkName** zijn geconfigureerd in het configuratiebestand voor virtueel netwerk die u later gaat gebruiken.
+   * **$sqlImageName** geeft de bijgewerkte naam van de VM-installatiekopie waarin SQL Server 2012 Service Pack 1 Enterprise Edition.
+   * Voor het gemak, **Contoso! 000** is het wachtwoord dat wordt gebruikt in de hele zelfstudie.
 
 3. Maak een affiniteitsgroep.
 
@@ -100,7 +100,7 @@ Deze zelfstudie is bedoeld tooshow u stappen die vereist tooset up Hallo zijn Ha
         Set-AzureVNetConfig `
             -ConfigurationPath $networkConfigPath
 
-    Hallo-configuratiebestand bevat Hallo XML-document te volgen. Kort samengevat: Hiermee wordt een virtueel netwerk met de naam **ContosoNET** in Hallo affiniteitsgroep aangeroepen **ContosoAG**. Het Hallo-adresruimte is **10.10.0.0/16** en heeft twee subnetten **10.10.1.0/24** en **10.10.2.0/24**, die zijn Hallo front-subnet en back-subnet, respectievelijk. Hallo front-subnet is waarin u de clienttoepassingen, zoals Microsoft SharePoint kunt plaatsen. Hallo back-subnet is plaats voegt u Hallo SQL Server-VM's. Als u Hallo wijzigt **$affinityGroupName** en **$virtualNetworkName** variabelen eerder, moet u ook wijzigen Hallo namen onderstaande overeenkomt.
+    Het configuratiebestand bevat de volgende XML-document. Kort samengevat: Hiermee wordt een virtueel netwerk met de naam **ContosoNET** in de affiniteitsgroep aangeroepen **ContosoAG**. Dit is de adresruimte **10.10.0.0/16** en heeft twee subnetten **10.10.1.0/24** en **10.10.2.0/24**, die de front-subnet en back-subnet, respectievelijk zijn. De front-subnet is waarin u de clienttoepassingen, zoals Microsoft SharePoint kunt plaatsen. Het back-subnet is plaats voegt u de VM's van SQL Server. Als u wijzigt de **$affinityGroupName** en **$virtualNetworkName** variabelen eerder, moet u ook de desbetreffende namen hieronder wijzigen.
 
         <NetworkConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
@@ -123,7 +123,7 @@ Deze zelfstudie is bedoeld tooshow u stappen die vereist tooset up Hallo zijn Ha
           </VirtualNetworkConfiguration>
         </NetworkConfiguration>
 
-5. Maak een opslagaccount die is gekoppeld aan een affiniteitsgroep Hallo gemaakt en stel dit in als de huidige opslagaccount Hallo in uw abonnement.
+5. Maak een opslagaccount die is gekoppeld aan de affiniteitsgroep gemaakt en stel dit in als het huidige opslagaccount in uw abonnement.
 
         New-AzureStorageAccount `
             -StorageAccountName $storageAccountName `
@@ -133,7 +133,7 @@ Deze zelfstudie is bedoeld tooshow u stappen die vereist tooset up Hallo zijn Ha
             -SubscriptionName (Get-AzureSubscription).SubscriptionName `
             -CurrentStorageAccount $storageAccountName
 
-6. Hallo domeincontrollerserver maken in Hallo nieuwe cloud service- en beschikbaarheid.
+6. Maak de domain controller-server in de nieuwe cloud-service en beschikbaarheid.
 
         New-AzureVMConfig `
             -Name $dcServerName `
@@ -151,14 +151,14 @@ Deze zelfstudie is bedoeld tooshow u stappen die vereist tooset up Hallo zijn Ha
                     –AffinityGroup $affinityGroupName `
                     -VNetName $virtualNetworkName
 
-    Deze opdrachten piped Hallo volgende dingen:
+    Deze piped opdrachten doen het volgende:
 
    * **Nieuwe AzureVMConfig** maakt u een VM-configuratie.
-   * **Voeg AzureProvisioningConfig** biedt Hallo parameters voor de configuratie van een zelfstandige Windows-server.
-   * **Voeg AzureDataDisk** Hallo gegevensschijf die u gebruiken gaat voor het opslaan van Active Directory-gegevens met caching optie set tooNone hello wordt toegevoegd.
-   * **Nieuwe AzureVM** maakt een nieuwe cloudservice en maakt u nieuwe virtuele machine van Azure in een nieuwe cloudservice Hallo Hallo.
+   * **Voeg AzureProvisioningConfig** geeft de configuratieparameters van een zelfstandige Windows-server.
+   * **Voeg AzureDataDisk** voegt de gegevensschijf die u gebruiken gaat voor het opslaan van Active Directory-gegevens met de cache in optie is ingesteld op None.
+   * **Nieuwe AzureVM** maakt een nieuwe cloudservice en maakt u de nieuwe Azure-virtuele machine in de nieuwe cloudservice.
 
-7. Wachten op Hallo nieuwe VM toobe volledig is ingericht en Hallo extern bureaublad bestand tooyour-werkmap downloaden. Omdat hello nieuwe virtuele machine in Azure een tooprovision lang, Hallo `while` lus blijft toopoll Hallo van nieuwe virtuele machine totdat deze klaar voor gebruik.
+7. Wacht tot de nieuwe virtuele machine volledig is ingericht en download het externe bureaublad naar uw werkmap. Omdat de nieuwe virtuele machine in Azure een lange tijd om in te richten duren, de `while` lus blijft voor het pollen van de nieuwe virtuele machine totdat deze klaar voor gebruik.
 
         $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
 
@@ -174,12 +174,12 @@ Deze zelfstudie is bedoeld tooshow u stappen die vereist tooset up Hallo zijn Ha
             -Name $dcServerName `
             -LocalPath "$workingDir$dcServerName.rdp"
 
-Hallo domain controller-server is nu is ingericht. Vervolgens configureert u Hallo Active Directory-domein op deze domeincontrollerserver. Laat Hallo PowerShell-venster geopend op uw lokale computer. U gaat deze gebruiken opnieuw hoger toocreate Hallo twee SQL Server-VM's.
+De domain controller-server is nu is ingericht. Vervolgens configureert u het Active Directory-domein op deze domeincontrollerserver. Laat het PowerShell-venster geopend op uw lokale computer. U gaat deze later opnieuw gebruiken voor het maken van de twee SQL Server-VM's.
 
-## <a name="configure-hello-domain-controller"></a>Hallo-domeincontroller configureren
-1. Verbinding maken met toohello domeincontrollerserver beschadigt door Hallo extern bureaublad-bestand. Gebruik de gebruikersnaam AzureAdmin en het wachtwoord van beheerder Hallo-machine **Contoso! 000**, die u hebt opgegeven tijdens het maken van Hallo van nieuwe virtuele machine.
+## <a name="configure-the-domain-controller"></a>De domeincontroller configureren
+1. Verbinding maken met de domeincontrollerserver beschadigt door de extern bureaublad-bestand. Gebruik de gebruikersnaam AzureAdmin en het wachtwoord van de beheerder van de machine **Contoso! 000**, die u hebt opgegeven toen u de nieuwe virtuele machine hebt gemaakt.
 2. Open een PowerShell-venster in de beheerdersmodus.
-3. Voer de volgende Hallo **DCPROMO. EXE** opdracht tooset up Hallo **corp.contoso.com** domein met de gegevensmappen Hallo op station M.
+3. Voer de volgende **DCPROMO. EXE** opdracht voor het instellen van de **corp.contoso.com** domein met de gegevensmappen op station M.
 
         dcpromo.exe `
             /unattend `
@@ -197,14 +197,14 @@ Hallo domain controller-server is nu is ingericht. Vervolgens configureert u Hal
             /SYSVOLPath:"C:\Windows\SYSVOL" `
             /SafeModeAdminPassword:"Contoso!000"
 
-    Nadat het Hallo-opdracht is voltooid, wordt Hallo VM automatisch opnieuw opgestart.
+    Nadat de opdracht is voltooid, wordt de virtuele machine automatisch opnieuw gestart.
 
-4. Verbinding maken toohello domeincontrollerserver opnieuw beschadigt door Hallo extern bureaublad-bestand. Deze tijd, meld u aan als **CORP\Administrator**.
-5. Open een PowerShell-venster in de beheerdersmodus en Hallo Active Directory PowerShell-module importeren met behulp van Hallo volgende opdracht:
+4. Maakt verbinding met de domain controller-server opnieuw starten van de extern bureaublad-bestand. Deze tijd, meld u aan als **CORP\Administrator**.
+5. Open een PowerShell-venster in de beheerdersmodus en de Active Directory PowerShell-module importeren met behulp van de volgende opdracht:
 
         Import-Module ActiveDirectory
 
-6. Voer Hallo opdrachten tooadd drie gebruikers toohello domein te volgen.
+6. Voer de volgende opdrachten drie gebruikers toevoegen aan het domein.
 
         $pwd = ConvertTo-SecureString "Contoso!000" -AsPlainText -Force
         New-ADUser `
@@ -226,8 +226,8 @@ Hallo domain controller-server is nu is ingericht. Vervolgens configureert u Hal
             -ChangePasswordAtLogon $false `
             -Enabled $true
 
-    **CORP\Install** gebruikte tooconfigure is alles verwante toohello SQL Server-service-exemplaren, Hallo failover-cluster en Hallo-beschikbaarheidsgroep. **CORP\SQLSvc1** en **CORP\SQLSvc2** worden gebruikt als Hallo SQL Server-serviceaccounts voor Hallo twee SQL Server-VM's.
-7. Hallo volgende, voert deze opdrachten toogive **CORP\Install** Hallo machtigingen toocreate computerobjecten in Hallo-domein.
+    **CORP\Install** wordt gebruikt voor het configureren van alles met betrekking tot de service-exemplaren van SQL Server, het failover-cluster en de beschikbaarheidsgroep. **CORP\SQLSvc1** en **CORP\SQLSvc2** worden gebruikt als de SQL Server-serviceaccounts voor de twee SQL Server-VM's.
+7. Voer vervolgens de volgende opdrachten om te geven **CORP\Install** de machtigingen voor het maken van computerobjecten in het domein.
 
         Cd ad:
         $sid = new-object System.Security.Principal.SecurityIdentifier (Get-ADUser "Install").SID
@@ -238,12 +238,12 @@ Hallo domain controller-server is nu is ingericht. Vervolgens configureert u Hal
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    Hallo hierboven opgegeven GUID is Hallo GUID voor objecttype Hallo-computer. Hallo **CORP\Install** account moet Hallo **alle eigenschappen lezen** en **Computerobjecten maken** machtiging toocreate Hallo Active Direct objecten voor Hallo failover cluster. Hallo **alle eigenschappen lezen** machtiging is al toegewezen tooCORP\Install standaard, dus u toogrant hoeft het expliciet. Zie voor meer informatie over de machtigingen die zijn vereist toocreate Hallo failover-cluster, [stapsgewijze handleiding voor Failover-Cluster: Accounts configureren in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
+    De GUID die hierboven is opgegeven, is de GUID voor het objecttype van de computer. De **CORP\Install** account moet de **alle eigenschappen lezen** en **Computerobjecten maken** machtiging voor het maken van de actieve Direct objecten voor de failover-cluster. De **alle eigenschappen lezen** machtiging is al toegewezen aan CORP\Install standaard, dus u hoeft niet expliciet verlenen. Zie voor meer informatie over de machtigingen die nodig zijn voor het failovercluster maakt, [stapsgewijze handleiding voor Failover-Cluster: Accounts configureren in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
 
-    Nu dat u klaar bent met het configureren van Active Directory en gebruikersobjecten hello, hebt u twee SQL Server-virtuele machines maken en toothis domein kan toevoegen.
+    Nu dat u klaar bent met het configureren van Active Directory en de gebruikersobjecten, u maakt twee SQL Server-VM's en voeg ze toe aan dit domein.
 
-## <a name="create-hello-sql-server-vms"></a>Hallo SQL Server-VM's maken
-1. Blijven toouse Hallo PowerShell-venster is geopend op uw lokale computer. Definieer Hallo aanvullende variabelen te volgen:
+## <a name="create-the-sql-server-vms"></a>De VM's van SQL Server maken
+1. Blijven gebruiken van het PowerShell-venster is geopend op uw lokale computer. De volgende aanvullende variabelen definiëren:
 
         $domainName= "corp"
         $FQDN = "corp.contoso.com"
@@ -256,8 +256,8 @@ Hallo domain controller-server is nu is ingericht. Vervolgens configureert u Hal
         $dataDiskSize = 100
         $dnsSettings = New-AzureDns -Name "ContosoBackDNS" -IPAddress "10.10.0.4"
 
-    IP-adres Hallo **10.10.0.4** is doorgaans toegewezen toohello eerste VM die u in Hallo maakt **10.10.0.0/16** subnet van uw virtuele Azure-netwerk. U moet controleren of het Hallo-adres van de domain controller-server door het uitvoeren van **IPCONFIG**.
-2. Voer Hallo doorgesluisd opdrachten toocreate Hallo eerst na VM in het Hallo-failovercluster, met de naam **ContosoQuorum**:
+    Het IP-adres **10.10.0.4** is doorgaans toegewezen aan de eerste virtuele machine die u maakt in de **10.10.0.0/16** subnet van uw virtuele Azure-netwerk. U moet bevestigen dat dit het adres van uw domeincontrollerserver door te voeren **IPCONFIG**.
+2. Voer de volgende opdrachten voor het maken van de eerste virtuele machine in het failovercluster, met de naam doorgesluisd **ContosoQuorum**:
 
         New-AzureVMConfig `
             -Name $quorumServerName `
@@ -283,13 +283,13 @@ Hallo domain controller-server is nu is ingericht. Vervolgens configureert u Hal
                         -VNetName $virtualNetworkName `
                         -DnsSettings $dnsSettings
 
-    Let op Hallo volgende met betrekking tot de bovenstaande Hallo-opdracht:
+    Houd rekening met het volgende met betrekking tot de bovenstaande opdracht:
 
-   * **Nieuwe AzureVMConfig** maakt u een VM-configuratie met de naam van de gewenste beschikbaarheidsset Hallo. Hallo latere virtuele machines wordt gemaakt met Hallo dezelfde beschikbaarheidsset zodat ze bent gekoppeld toohello dezelfde beschikbaarheidsset.
-   * **Voeg AzureProvisioningConfig** joins Hallo VM toohello Active Directory-domein dat u hebt gemaakt.
-   * **Set-AzureSubnet** plaatsen Hallo VM in Hallo back-subnet.
-   * **Nieuwe AzureVM** maakt een nieuwe cloudservice en maakt u nieuwe virtuele machine van Azure in een nieuwe cloudservice Hallo Hallo. Hallo **DnsSettings** parameter die Hallo DNS-server geeft u voor het Hallo-servers in een nieuwe cloudservice Hallo Hallo IP-adres **10.10.0.4**. Dit is Hallo IP-adres van Hallo domeincontrollerserver. Deze parameter is vereist tooenable Hallo nieuwe virtuele machines in Hallo cloud service toojoin toohello Active Directory-domein is. Deze parameter niet opgeeft, moet u handmatig instellen Hallo IPv4-instellingen in uw VM toouse Hallo domain controller-server als het primaire DNS-server Hallo nadat Hallo VM is ingericht en meldt u zich Hallo VM toohello Active Directory-domein.
-3. Voer Hallo na doorgesluisd opdrachten toocreate Hallo SQL Server-VM's met de naam **ContosoSQL1** en **ContosoSQL2**.
+   * **Nieuwe AzureVMConfig** maakt u een VM-configuratie met de naam van de gewenste beschikbaarheidsset. De volgende virtuele machines wordt gemaakt met dezelfde naam van de beschikbaarheid zodat ze zijn gekoppeld aan dezelfde beschikbaarheidsset.
+   * **Voeg AzureProvisioningConfig** lid wordt van de virtuele machine aan Active Directory-domein dat u hebt gemaakt.
+   * **Set-AzureSubnet** plaatst u de virtuele machine in het back-subnet.
+   * **Nieuwe AzureVM** maakt een nieuwe cloudservice en maakt u de nieuwe Azure-virtuele machine in de nieuwe cloudservice. De **DnsSettings** parameter geeft u op dat de DNS-server voor de servers in de nieuwe cloudservice voor het IP-adres heeft **10.10.0.4**. Dit is het IP-adres van de domain controller-server. Deze parameter is vereist voor de nieuwe virtuele machines in de cloudservice om toe te voegen aan het Active Directory-domein is. Deze parameter niet opgeeft, moet u handmatig de IPv4-instellingen instellen in uw VM voor gebruik van de domain controller-server als de primaire DNS-server nadat de virtuele machine is ingericht en vervolgens de virtuele machine toevoegen aan het Active Directory-domein.
+3. Voer de volgende opdrachten voor het maken van de SQL Server-VM's, met de naam doorgesluisd **ContosoSQL1** en **ContosoSQL2**.
 
         # Create ContosoSQL1...
         New-AzureVMConfig `
@@ -347,20 +347,20 @@ Hallo domain controller-server is nu is ingericht. Vervolgens configureert u Hal
                         New-AzureVM `
                             -ServiceName $sqlServiceName
 
-    Let op Hallo volgende met betrekking tot de bovenstaande Hallo-opdrachten:
+    Houd rekening met het volgende met betrekking tot de bovenstaande opdrachten:
 
-   * **Nieuwe AzureVMConfig** gebruikt dezelfde naam van de beschikbaarheidsset als domeincontrollerserver Hallo Hallo en maakt gebruik van SQL Server 2012 Service Pack 1 Enterprise Edition-installatiekopie in de galerie met virtuele machines Hallo Hallo. Hallo operationele systeem tooread-schijfcache alleen (geen schrijfcache) wordt ook ingesteld. U wordt aangeraden Hallo database bestanden tooa afzonderlijke gegevensschijf u koppelen toohello VM, en deze configureren met niet lezen of schrijfcache te migreren. De volgende beste Hallo is echter tooremove schrijfcache op Hallo besturingssysteemschijf omdat u niet verwijderen lezen cachegebruik op schijf Hallo-besturingssysteem.
-   * **Voeg AzureProvisioningConfig** joins Hallo VM toohello Active Directory-domein dat u hebt gemaakt.
-   * **Set-AzureSubnet** plaatsen Hallo VM in Hallo back-subnet.
-   * **Voeg AzureEndpoint** toegang eindpunten toegevoegd zodat clienttoepassingen toegang deze services-exemplaren van SQL Server op Hallo Internet tot. Er zijn verschillende poorten opgegeven tooContosoSQL1 en ContosoSQL2.
-   * **Nieuwe AzureVM** maakt nieuwe SQL Server VM Hallo in Hallo dezelfde cloudservice als ContosoQuorum. U moet Hallo VMs plaatsen in dezelfde cloudservice als u deze wilt toobe in Hallo Hallo dezelfde beschikbaarheidsset.
-4. Wacht voor elke VM toobe volledig is ingericht en voor elke VM toodownload werkmap tooyour extern bureaublad-bestand. Hallo `for` lus Hallo doorlopen met drie nieuwe virtuele machines en voert Hallo-opdrachten binnen het hoogste niveau accolades Hallo voor elk van deze.
+   * **Nieuwe AzureVMConfig** als de domain controller-server dezelfde naam van de beschikbaarheid, en de installatiekopie van het SQL Server 2012 Service Pack 1 Enterprise Edition gebruikt in de galerie met virtuele machine. Ook wordt de besturingssysteemschijf ingesteld op lees-caching alleen (geen schrijfcache). U wordt aangeraden de databasebestanden migreren naar een afzonderlijke schijf die u aan de virtuele machine koppelen en worden geconfigureerd met geen lees- of schrijfcache. Het volgende beste is echter verwijderen schrijfcache op de besturingssysteemschijf omdat de lees-caching op de schijf van het besturingssysteem kan niet worden verwijderd.
+   * **Voeg AzureProvisioningConfig** lid wordt van de virtuele machine aan Active Directory-domein dat u hebt gemaakt.
+   * **Set-AzureSubnet** plaatst u de virtuele machine in het back-subnet.
+   * **Voeg AzureEndpoint** toegang eindpunten toegevoegd zodat clienttoepassingen toegang deze services-exemplaren van SQL Server op het Internet tot. Andere poorten worden besteed aan ContosoSQL1 en ContosoSQL2.
+   * **Nieuwe AzureVM** maakt de nieuwe virtuele machine een SQL-Server in dezelfde cloudservice als ContosoQuorum. Als u wilt dat ze zich in dezelfde beschikbaarheidsset, moet u de virtuele machines in dezelfde cloudservice plaatsen.
+4. Wacht voor elke virtuele machine volledig is ingericht en voor elke virtuele machine de extern bureaublad-bestand te downloaden naar uw werkmap. De `for` lus doorlopen van de drie nieuwe virtuele machines en voert u de opdrachten binnen de site op het hoogste accolades voor elk van deze.
 
         Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
         {
             write-host "Waiting for " $VM.Name "..."
 
-            # Loop until hello VM status is "ReadyRole"
+            # Loop until the VM status is "ReadyRole"
             While ($VM.InstanceStatus -ne "ReadyRole")
             {
                 write-host "  Current Status = " $VM.InstanceStatus
@@ -374,28 +374,28 @@ Hallo domain controller-server is nu is ingericht. Vervolgens configureert u Hal
             Get-AzureRemoteDesktopFile -ServiceName $VM.ServiceName -Name $VM.InstanceName -LocalPath "$workingDir$($VM.InstanceName).rdp"
         }
 
-    Hallo SQL Server-VM's nu zijn ingericht en wordt uitgevoerd, maar ze zijn geïnstalleerd met SQL Server met de standaardopties.
+    De SQL Server-VM's nu zijn ingericht en wordt uitgevoerd, maar ze zijn geïnstalleerd met SQL Server met de standaardopties.
 
-## <a name="initialize-hello-failover-cluster-vms"></a>Hallo failover-cluster virtuele machines te initialiseren
-In deze sectie moet u toomodify Hallo drie servers die u in Hallo failover-cluster en Hallo SQL Server-installatie gebruiken gaat. Specifiek:
+## <a name="initialize-the-failover-cluster-vms"></a>Initialiseren van het failover-cluster virtuele machines
+In deze sectie moet u de drie servers die u in het failovercluster en de installatie van SQL Server gebruiken gaat wijzigen. Specifiek:
 
-* Alle servers: U moet tooinstall hello **Failoverclustering** functie.
-* Alle servers: U moet tooadd **CORP\Install** als Hallo machine **beheerder**.
-* ContosoSQL1 en alleen ContosoSQL2: U moet tooadd **CORP\Install** als een **sysadmin** rol in de standaarddatabase Hallo.
-* ContosoSQL1 en alleen ContosoSQL2: U moet tooadd **NT AUTHORITY\System** als iemand zich aanmeldt met Hallo volgende machtigingen:
+* Alle servers: U moet installeren de **Failoverclustering** functie.
+* Alle servers: U moet toevoegen **CORP\Install** als de machine **beheerder**.
+* ContosoSQL1 en alleen ContosoSQL2: U moet toevoegen **CORP\Install** als een **sysadmin** rol in de standaarddatabase.
+* ContosoSQL1 en alleen ContosoSQL2: U moet toevoegen **NT AUTHORITY\System** als iemand zich aanmeldt met de volgende machtigingen:
 
   * Wijzigen van een beschikbaarheidsgroep
   * Verbinding maken met SQL
   * Status van de server weergeven
-* ContosoSQL1 en ContosoSQL2 alleen: Hallo **TCP** protocol is al ingeschakeld op Hallo van SQL Server-VM. U moet echter nog steeds tooopen Hallo firewall voor externe toegang van SQL Server.
+* ContosoSQL1 en alleen ContosoSQL2: de **TCP** protocol is al ingeschakeld op de virtuele machine van SQL Server. U moet nog steeds de firewall voor externe toegang van SQL Server te openen.
 
-U bent nu klaar toostart. Beginnen met **ContosoQuorum**, volgt u onderstaande Hallo stappen:
+U bent nu klaar om te beginnen. Beginnen met **ContosoQuorum**, voer de volgende stappen uit:
 
-1. Verbinding te maken met**ContosoQuorum** door Hallo extern bureaublad-bestanden. Gebruik Hallo machine beheerder gebruikersnaam **AzureAdmin** en het wachtwoord **Contoso! 000**, die u hebt opgegeven tijdens het maken van virtuele machines Hallo.
-2. Controleer of dat Hallo computers hebt toegevoegd te**corp.contoso.com**.
-3. Wachten op Hallo SQL Server-installatie toofinish actieve Hallo automatische initialisatietaken voordat u doorgaat.
+1. Verbinding maken met **ContosoQuorum** door het starten van de extern bureaublad-bestanden. Gebruik de gebruikersnaam van de beheerder van de machine **AzureAdmin** en het wachtwoord **Contoso! 000**, die u hebt opgegeven tijdens het maken van de virtuele machines.
+2. Controleer of dat de computers met succes hebt toegevoegd aan **corp.contoso.com**.
+3. Wacht tot de SQL Server-installatie te voltooien uitgevoerd van de van de geautomatiseerde initialisatietaken voordat u doorgaat.
 4. Open een PowerShell-venster in de beheerdersmodus.
-5. Hallo Windows Failover Clustering installeren.
+5. Het onderdeel Windows Failover Clustering installeren.
 
         Import-Module ServerManager
         Add-WindowsFeature Failover-Clustering
@@ -406,46 +406,46 @@ U bent nu klaar toostart. Beginnen met **ContosoQuorum**, volgt u onderstaande H
 
         logoff.exe
 
-Vervolgens initialiseren **ContosoSQL1** en **ContosoSQL2**. Volgende stappen uit hello, die identiek voor beide VM's van SQL Server zijn.
+Vervolgens initialiseren **ContosoSQL1** en **ContosoSQL2**. Volg de stappen hieronder, identiek voor beide VM's van SQL Server zijn.
 
-1. Verbinding met het maken van VM's toohello twee SQL Server door Hallo extern bureaublad-bestanden. Gebruik Hallo machine beheerder gebruikersnaam **AzureAdmin** en het wachtwoord **Contoso! 000**, die u hebt opgegeven tijdens het maken van virtuele machines Hallo.
-2. Controleer of dat Hallo computers hebt toegevoegd te**corp.contoso.com**.
-3. Wachten op Hallo SQL Server-installatie toofinish actieve Hallo automatische initialisatietaken voordat u doorgaat.
+1. Verbinding maken met de twee SQL Server-VM's met het starten van de extern bureaublad-bestanden. Gebruik de gebruikersnaam van de beheerder van de machine **AzureAdmin** en het wachtwoord **Contoso! 000**, die u hebt opgegeven tijdens het maken van de virtuele machines.
+2. Controleer of dat de computers met succes hebt toegevoegd aan **corp.contoso.com**.
+3. Wacht tot de SQL Server-installatie te voltooien uitgevoerd van de van de geautomatiseerde initialisatietaken voordat u doorgaat.
 4. Open een PowerShell-venster in de beheerdersmodus.
-5. Hallo Windows Failover Clustering installeren.
+5. Het onderdeel Windows Failover Clustering installeren.
 
         Import-Module ServerManager
         Add-WindowsFeature Failover-Clustering
 6. Voeg **CORP\Install** als een lokale beheerder.
 
         net localgroup administrators "CORP\Install" /Add
-7. Hallo PowerShell-Provider voor SQL Server worden geïmporteerd.
+7. Importeer de PowerShell-Provider van de SQL-Server.
 
         Set-ExecutionPolicy -Execution RemoteSigned -Force
         Import-Module -Name "sqlps" -DisableNameChecking
-8. Voeg **CORP\Install** als Hallo sysadmin-rol voor Hallo standaard SQL Server-exemplaar.
+8. Voeg **CORP\Install** als de rol sysadmin voor het standaardexemplaar van SQL Server.
 
         net localgroup administrators "CORP\Install" /Add
         Invoke-SqlCmd -Query "EXEC sp_addsrvrolemember 'CORP\Install', 'sysadmin'" -ServerInstance "."
-9. Voeg **NT AUTHORITY\System** als iemand zich aanmeldt met Hallo drie machtigingen die hierboven worden beschreven.
+9. Voeg **NT AUTHORITY\System** als iemand zich aanmeldt met de drie machtigingen die hierboven worden beschreven.
 
         Invoke-SqlCmd -Query "CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS" -ServerInstance "."
-        Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP too[NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
-        Invoke-SqlCmd -Query "GRANT CONNECT SQL too[NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
-        Invoke-SqlCmd -Query "GRANT VIEW SERVER STATE too[NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
-10. Hallo firewall voor externe toegang van SQL Server openen.
+        Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
+        Invoke-SqlCmd -Query "GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
+        Invoke-SqlCmd -Query "GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
+10. Open de firewall voor externe toegang van SQL Server.
 
          netsh advfirewall firewall add rule name='SQL Server (TCP-In)' program='C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Binn\sqlservr.exe' dir=in action=allow protocol=TCP
 11. Afmelden bij beide virtuele machines.
 
          logoff.exe
 
-Ten slotte, bent u klaar tooconfigure Hallo-beschikbaarheidsgroep. U Hallo PowerShell-Provider voor SQL Server tooperform werkt met alle Hallo **ContosoSQL1**.
+U kunt ten slotte de beschikbaarheidsgroep configureren. U de SQL Server PowerShell-Provider voor het uitvoeren van al het werk op **ContosoSQL1**.
 
-## <a name="configure-hello-availability-group"></a>Hallo-beschikbaarheidsgroep configureren
-1. Verbinding te maken met**ContosoSQL1** opnieuw door het Hallo-bestanden voor extern bureaublad. In plaats van via Hallo machineaccount aanmeldt, moet u zich aanmelden via **CORP\Install**.
+## <a name="configure-the-availability-group"></a>De beschikbaarheidsgroep configureren
+1. Verbinding maken met **ContosoSQL1** opnieuw door het starten van de extern bureaublad-bestanden. In plaats van met de machineaccount aanmeldt, moet u zich aanmelden via **CORP\Install**.
 2. Open een PowerShell-venster in de beheerdersmodus.
-3. Definieer Hallo variabelen te volgen:
+3. Definieer de volgende variabelen:
 
         $server1 = "ContosoSQL1"
         $server2 = "ContosoSQL2"
@@ -459,11 +459,11 @@ Ten slotte, bent u klaar tooconfigure Hallo-beschikbaarheidsgroep. U Hallo Power
         $backupShare = "\\$server1\backup"
         $quorumShare = "\\$server1\quorum"
         $ag = "AG1"
-4. Hallo PowerShell-Provider voor SQL Server worden geïmporteerd.
+4. Importeer de PowerShell-Provider van de SQL-Server.
 
         Set-ExecutionPolicy RemoteSigned -Force
         Import-Module "sqlps" -DisableNameChecking
-5. Hallo SQL Server-serviceaccount voor ContosoSQL1 tooCORP\SQLSvc1 wijzigen.
+5. De SQL Server-serviceaccount voor ContosoSQL1 om CORP\SQLSvc1 te wijzigen.
 
         $wmi1 = new-object ("Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer") $server1
         $wmi1.services | where {$_.Type -eq 'SqlServer'} | foreach{$_.SetServiceAccount($acct1,$password)}
@@ -472,7 +472,7 @@ Ten slotte, bent u klaar tooconfigure Hallo-beschikbaarheidsgroep. U Hallo Power
         $svc1.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc1.Start();
         $svc1.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-6. Hallo SQL Server-serviceaccount voor ContosoSQL2 tooCORP\SQLSvc2 wijzigen.
+6. De SQL Server-serviceaccount voor ContosoSQL2 om CORP\SQLSvc2 te wijzigen.
 
         $wmi2 = new-object ("Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer") $server2
         $wmi2.services | where {$_.Type -eq 'SqlServer'} | foreach{$_.SetServiceAccount($acct2,$password)}
@@ -481,12 +481,12 @@ Ten slotte, bent u klaar tooconfigure Hallo-beschikbaarheidsgroep. U Hallo Power
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Download **CreateAzureFailoverCluster.ps1** van [failovercluster maken voor AlwaysOn-beschikbaarheidsgroepen in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) toohello lokale werkmap. U gebruikt dit script toohelp maken van een functionele failover-cluster. Netwerk voor belangrijke informatie over hoe Windows Failover Clustering met hello Azure samenwerkt, Zie [hoge beschikbaarheid en herstel na noodgevallen voor SQL Server in Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
-8. Wijzig tooyour werkmap en Hallo failover-cluster maken met een script Hallo gedownload.
+7. Download **CreateAzureFailoverCluster.ps1** van [failovercluster maken voor AlwaysOn-beschikbaarheidsgroepen in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) naar de lokale werkmap. U hebt dit script gebruiken voor het maken van een functionele failover-cluster. Zie voor meer informatie over hoe Windows Failover Clustering met de Azure-netwerk samenwerkt [hoge beschikbaarheid en herstel na noodgevallen voor SQL Server in Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+8. Ga naar uw werkmap en het failovercluster maakt met het gedownloade script.
 
         Set-ExecutionPolicy Unrestricted -Force
         .\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"
-9. Schakel AlwaysOn-beschikbaarheidsgroepen voor Hallo standaard SQL Server-exemplaren op **ContosoSQL1** en **ContosoSQL2**.
+9. Schakel AlwaysOn-beschikbaarheidsgroepen voor de standaard SQL Server-exemplaren op **ContosoSQL1** en **ContosoSQL2**.
 
         Enable-SqlAlwaysOn `
             -Path SQLSERVER:\SQL\$server1\Default `
@@ -498,20 +498,20 @@ Ten slotte, bent u klaar tooconfigure Hallo-beschikbaarheidsgroep. U Hallo Power
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-10. Maak een back-map en machtigingen voor Hallo SQL Server-serviceaccounts. U gebruikt deze beschikbaarheidsdatabase directory tooprepare Hallo op Hallo secundaire replica.
+10. Maak een back-map en machtigingen voor de SQL Server-serviceaccounts. U gebruikt deze map voor het voorbereiden van de beschikbaarheidsdatabase op de secundaire replica.
 
          $backup = "C:\backup"
          New-Item $backup -ItemType directory
          net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
          icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
-11. Een database maakt op **ContosoSQL1** aangeroepen **MyDB1**, Neem zowel een volledige back-up als een logboekback-up en herstel deze op **ContosoSQL2** Hello **WITH NORECOVERY** optie.
+11. Een database maakt op **ContosoSQL1** aangeroepen **MyDB1**, Neem zowel een volledige back-up als een logboekback-up en herstel deze op **ContosoSQL2** met de **WITH NORECOVERY**  optie.
 
          Invoke-SqlCmd -Query "CREATE database $db"
          Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
          Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server1 -BackupAction Log
          Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server2 -NoRecovery
          Restore-SqlDatabase -Database $db -BackupFile "$backupShare\db.log" -ServerInstance $server2 -RestoreAction Log -NoRecovery
-12. Hallo beschikbaarheid groep eindpunten maken op Hallo VM's van SQL Server en de juiste machtigingen Hallo op Hallo-eindpunten.
+12. De beschikbaarheid van de groep eindpunten maken op de SQL Server-VM's en stel de juiste machtigingen op de eindpunten.
 
          $endpoint =
              New-SqlHadrEndpoint MyMirroringEndpoint `
@@ -529,10 +529,10 @@ Ten slotte, bent u klaar tooconfigure Hallo-beschikbaarheidsgroep. U Hallo Power
              -State "Started"
 
          Invoke-SqlCmd -Query "CREATE LOGIN [$acct2] FROM WINDOWS" -ServerInstance $server1
-         Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] too[$acct2]" -ServerInstance $server1
+         Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct2]" -ServerInstance $server1
          Invoke-SqlCmd -Query "CREATE LOGIN [$acct1] FROM WINDOWS" -ServerInstance $server2
-         Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] too[$acct1]" -ServerInstance $server2
-13. Hallo beschikbaarheidsreplica's maken.
+         Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct1]" -ServerInstance $server2
+13. De beschikbaarheid van replica's maken.
 
          $primaryReplica =
              New-SqlAvailabilityReplica `
@@ -550,7 +550,7 @@ Ten slotte, bent u klaar tooconfigure Hallo-beschikbaarheidsgroep. U Hallo Power
              -FailoverMode "Automatic" `
              -Version 11 `
              -AsTemplate
-14. Maak ten slotte Hallo beschikbaarheidsgroep en join Hallo secundaire replica toohello-beschikbaarheidsgroep.
+14. Ten slotte de beschikbaarheidsgroep maken en de secundaire replica toevoegen aan de beschikbaarheidsgroep.
 
          New-SqlAvailabilityGroup `
              -Name $ag `
@@ -565,6 +565,6 @@ Ten slotte, bent u klaar tooconfigure Hallo-beschikbaarheidsgroep. U Hallo Power
              -Database $db
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt nu geïmplementeerd SQL Server Always On door het maken van een beschikbaarheidsgroep in Azure. Zie een listener voor deze beschikbaarheidsgroep tooconfigure [een ILB-listener voor AlwaysOn-beschikbaarheidsgroepen configureren in Azure](../classic/ps-sql-int-listener.md).
+U hebt nu geïmplementeerd SQL Server Always On door het maken van een beschikbaarheidsgroep in Azure. Zie voor het configureren van een listener voor deze beschikbaarheidsgroep [een ILB-listener voor AlwaysOn-beschikbaarheidsgroepen configureren in Azure](../classic/ps-sql-int-listener.md).
 
 Zie voor meer informatie over het gebruik van SQL Server in Azure, [SQL Server op virtuele machines in Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

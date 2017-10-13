@@ -1,6 +1,6 @@
 ---
-title: aaaSynonyms preview-zelfstudie in Azure Search | Microsoft Docs
-description: Hallo synoniemen preview-functie tooan index toevoegen in Azure Search.
+title: Zelfstudie over de synoniemenpreview in Azure Search | Microsoft Docs
+description: Voeg de synoniemenpreviewfunctie toe aan een index in Azure Search.
 services: search
 manager: jhubbard
 documentationcenter: 
@@ -12,33 +12,33 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 03/31/2017
 ms.author: heidist
-ms.openlocfilehash: 055c1cbafb945823a3dc4da0c522db236b1d192c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 014959ed471f796d2184f0f8ff10d15cdc8a2ec6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="synonym-preview-c-tutorial-for-azure-search"></a>Synoniemenzelfstudie (preview, C#) voor Azure Search
 
-Een query uitbreiden synoniemen door overeenkomende op voorwaarden die worden beschouwd als dezelfde toohello invoer term. U kunt bijvoorbeeld 'auto' toomatch documenten met voorwaarden Hallo 'auto' of 'vehicle'.
+Met synoniemen breidt u een query uit door termen te gebruiken die semantisch overeenkomen met de ingevoerde term. Mogelijk wilt u bijvoorbeeld dat met 'auto' ook documenten worden geretourneerd met de termen 'voertuig' of 'cabrio'.
 
-In Azure Search worden synoniemen gedefinieerd in een *synoniementoewijzing* op basis van *toewijzingsregels* waarmee equivalente termen worden gekoppeld. Maken van meerdere synoniem maps, plaatst u deze als een index van de beschikbare tooany servicegebeurtenis resource en vervolgens verwijzen naar welke één toouse op Hallo veldniveau. Op het moment dat de query heeft daarnaast toosearching een Azure Search-index een zoekopdracht in een kaart synoniem als er een is opgegeven voor velden die worden gebruikt in query Hallo.
+In Azure Search worden synoniemen gedefinieerd in een *synoniementoewijzing* op basis van *toewijzingsregels* waarmee equivalente termen worden gekoppeld. U kunt meerdere synoniementoewijzingen maken en deze als algemene serviceresource beschikbaar maken voor alle indexen. Daarna kunt u op veldniveau aangeven welke u wilt gebruiken. Bij het uitvoeren van query's doorzoekt Azure Search niet alleen een index, maar wordt er ook in een synoniementoewijzing gekeken als er een is opgegeven in de velden die voor de query zijn gebruikt.
 
 > [!NOTE]
-> Hallo-synoniemen functie is momenteel in preview en alleen ondersteund Hallo meest recente preview-API en SDK-versies (api-version = 2016-09-01-Preview, SDK versie 4.x-preview). Azure Portal biedt er momenteel geen ondersteuning voor. Preview-API's vallen niet onder een SLA en de previewfuncties kunnen veranderen. Daarom raden we u af om deze in productietoepassingen te gebruiken.
+> De synoniemenfunctie is momenteel beschikbaar als preview en wordt alleen ondersteund in de meest recente preview-API- en SDK-versies (API-versie 2016-09-01-Preview, SDK-versie 4.x-preview). Azure Portal biedt er momenteel geen ondersteuning voor. Preview-API's vallen niet onder een SLA en de previewfuncties kunnen veranderen. Daarom raden we u af om deze in productietoepassingen te gebruiken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Zelfstudie vereisten zijn Hallo volgende:
+Voor de zelfstudie gelden de volgende vereisten:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Search-service](search-create-service-portal.md)
 * [Preview-versie van de .NET-bibliotheek Microsoft.Azure.Search](https://aka.ms/search-sdk-preview)
-* [Hoe toouse Azure zoeken vanuit een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Weten hoe u Azure Search gebruikt via een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Overzicht
 
-Query's voor en na demonstreren Hallo-waarde van synoniemen. In deze zelfstudie gebruikt u een voorbeeldtoepassing die query's uitvoert en resultaten retourneert in een voorbeeldindex. Hallo-voorbeeldtoepassing maakt een kleine index met de naam "hotels" is gevuld met twee documenten. Hallo-toepassing wordt uitgevoerd zoekopdrachten met voorwaarden en die niet in de index hello voorkomen, Hallo synoniemen functie, activeert vervolgens problemen Hallo dezelfde zoekopdrachten opnieuw. Hallo-code hieronder laat zien Hallo algemene stroom.
+Met 'voor en na'-query's wordt de meerwaarde van synoniemen aangetoond. In deze zelfstudie gebruikt u een voorbeeldtoepassing die query's uitvoert en resultaten retourneert in een voorbeeldindex. De voorbeeldtoepassing maakt een kleine index met de naam 'hotels' en vult deze met twee documenten. De toepassing voert zoekquery's uit met termen en zinnen die niet voorkomen in de index. Hierna wordt de synoniemenfunctie ingeschakeld en worden dezelfde zoekopdrachten opnieuw uitgevoerd. In de onderstaande code wordt de algehele stroom gedemonstreerd.
 
 ```csharp
   static void Main(string[] args)
@@ -63,53 +63,53 @@ Query's voor en na demonstreren Hallo-waarde van synoniemen. In deze zelfstudie 
       Console.WriteLine("{0}", "Adding synonyms...\n");
       UploadSynonyms(serviceClient);
       EnableSynonymsInHotelsIndex(serviceClient);
-      Thread.Sleep(10000); // Wait for hello changes toopropagate
+      Thread.Sleep(10000); // Wait for the changes to propagate
 
       RunQueriesWithNonExistentTermsInIndex(indexClientForQueries);
 
-      Console.WriteLine("{0}", "Complete.  Press any key tooend application...\n");
+      Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
 
       Console.ReadKey();
   }
 ```
-Hallo stappen toocreate en Hallo voorbeeld index te vullen worden beschreven [hoe toouse Azure zoeken vanuit een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+De stappen voor het maken en vullen van de voorbeeldindex worden uitgelegd in [Azure Search gebruiken via een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
 ## <a name="before-queries"></a>'Voor'-query's
 
 In `RunQueriesWithNonExistentTermsInIndex` worden er zoekquery's uitgevoerd met 'vijfsterren', 'internet' en 'voordelig EN hotel'.
 ```csharp
-Console.WriteLine("Search hello entire index for hello phrase \"five star\":\n");
+Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
 results = indexClient.Documents.Search<Hotel>("\"five star\"", parameters);
 WriteDocuments(results);
 
-Console.WriteLine("Search hello entire index for hello term 'internet':\n");
+Console.WriteLine("Search the entire index for the term 'internet':\n");
 results = indexClient.Documents.Search<Hotel>("internet", parameters);
 WriteDocuments(results);
 
-Console.WriteLine("Search hello entire index for hello terms 'economy' AND 'hotel':\n");
+Console.WriteLine("Search the entire index for the terms 'economy' AND 'hotel':\n");
 results = indexClient.Documents.Search<Hotel>("economy AND hotel", parameters);
 WriteDocuments(results);
 ```
-Geen van de twee geïndexeerde documenten Hallo Hallo-termen bevatten zodat we Hallo volgende eerst de uitvoer van Hallo `RunQueriesWithNonExistentTermsInIndex`.
+Geen van de twee geïndexeerde documenten bevat deze termen, dus wordt de volgende uitvoer gegenereerd met de eerste `RunQueriesWithNonExistentTermsInIndex`.
 ~~~
-Search hello entire index for hello phrase "five star":
+Search the entire index for the phrase "five star":
 
 no document matched
 
-Search hello entire index for hello term 'internet':
+Search the entire index for the term 'internet':
 
 no document matched
 
-Search hello entire index for hello terms 'economy' AND 'hotel':
+Search the entire index for the terms 'economy' AND 'hotel':
 
 no document matched
 ~~~
 
 ## <a name="enable-synonyms"></a>Synoniemen inschakelen
 
-U kunt synoniemen op basis van twee stappen inschakelen. We eerst definiëren en synoniem regels uploaden en configureer vervolgens velden toouse ze. Hallo-proces wordt beschreven in `UploadSynonyms` en `EnableSynonymsInHotelsIndex`.
+U kunt synoniemen op basis van twee stappen inschakelen. Als eerste definieert en uploadt u synoniemregels en daarna configureert u velden voor het gebruik van synoniemen. Het proces wordt beschreven in `UploadSynonyms` en `EnableSynonymsInHotelsIndex`.
 
-1. Voeg een synoniem kaart tooyour search-service. In `UploadSynonyms`, we vier regels definiëren in onze synoniem kaart 'desc synonymmap' en toohello service uploaden.
+1. Voeg een synoniemtoewijzing toe aan de Search-service. In `UploadSynonyms` worden vier regels gedefinieerd voor de synoniemtoewijzing desc-synonymmap, die vervolgens naar de service worden geüpload.
 ```csharp
     var synonymMap = new SynonymMap()
     {
@@ -123,9 +123,9 @@ U kunt synoniemen op basis van twee stappen inschakelen. We eerst definiëren en
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
 ```
-Een kaart synoniem toohello open-source standaard moet voldoen `solr` indeling. Hallo-indeling wordt uitgelegd in [synoniemen in Azure Search](search-synonyms.md) onder sectie Hallo `Apache Solr synonym format`.
+Een synoniemtoewijzing moet voldoen aan de standaard-open-source-indeling `solr`. De indeling wordt in de sectie `Apache Solr synonym format` uitgelegd in [Synoniemen in Azure Search](search-synonyms.md).
 
-2. De doorzoekbare velden toouse Hallo synoniem kaart in Hallo indexdefinitie configureren. In `EnableSynonymsInHotelsIndex`, we synoniemen op twee velden inschakelen `category` en `tags` door Hallo instelling `synonymMaps` toohello eigenschapsnaam van Hallo zojuist synoniem kaart geüpload.
+2. Configureer doorzoekbare velden voor het gebruik van de synoniemtoewijzing in de indexdefinitie. In `EnableSynonymsInHotelsIndex` worden synoniemen ingeschakeld voor twee velden (`category` en `tags`) door de eigenschap `synonymMaps` in te stellen op de naam van de zojuist geüploade synoniemtoewijzing.
 ```csharp
   Index index = serviceClient.Indexes.Get("hotels");
   index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
@@ -133,37 +133,37 @@ Een kaart synoniem toohello open-source standaard moet voldoen `solr` indeling. 
 
   serviceClient.Indexes.CreateOrUpdate(index);
 ```
-Wanneer u een synoniemtoewijzing toevoegt, is het niet nodig om indexen opnieuw op te bouwen. U kunt een synoniem kaart tooyour service toevoegen en wijzig bestaande velddefinities in een index toouse Hallo nieuwe synoniem kaart. Hallo toevoeging van nieuwe kenmerken heeft geen invloed op de beschikbaarheid van de index. Hallo geldt ook tijdens het uitschakelen van synoniemen voor een veld. U kunt eenvoudig hello instellen `synonymMaps` eigenschap tooan lege lijst.
+Wanneer u een synoniemtoewijzing toevoegt, is het niet nodig om indexen opnieuw op te bouwen. U kunt een synoniemtoewijzing toevoegen aan uw service en daarna de bestaande velddefinities aanpassen in een index om de nieuwe synoniemtoewijzing te gebruiken. Het toevoegen van nieuwe kenmerken heeft geen invloed op de beschikbaarheid van indexen. Ditzelfde is van toepassing op het uitschakelen van synoniemen voor een veld. U kunt eenvoudigweg de eigenschap `synonymMaps` instellen op een lege lijst.
 ```csharp
   index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
 ```
 
 ## <a name="after-queries"></a>'Na'-query's
 
-Nadat het Hallo synoniem kaart wordt geüpload en Hallo index bijgewerkte toouse Hallo synoniem kaart, Hallo tweede `RunQueriesWithNonExistentTermsInIndex` aanroep levert Hallo volgende:
+Wanneer de synoniemtoewijzing is geüpload en de index is bijgewerkt voor gebruik van de synoniemtoewijzing, wordt met de tweede `RunQueriesWithNonExistentTermsInIndex`-aanroep de volgende uitvoer gegenereerd:
 
 ~~~
-Search hello entire index for hello phrase "five star":
+Search the entire index for the phrase "five star":
 
 Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concierge]
 
-Search hello entire index for hello term 'internet':
+Search the entire index for the term 'internet':
 
 Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concierge]
 
-Search hello entire index for hello terms 'economy' AND 'hotel':
+Search the entire index for the terms 'economy' AND 'hotel':
 
 Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
-Hallo eerste query vindt Hallo document van de regel Hallo `five star=>luxury`. Hallo tweede query wordt uitgebreid Hallo zoekactie met `internet,wifi` en Hallo derde met zowel `hotel, motel` en `economy,inexpensive=>budget` bij het zoeken naar documenten Hallo overeenkomt.
+Met de eerste query wordt het document opgehaald uit de regel `five star=>luxury`. Met de tweede query wordt de zoekopdracht uitgebreid met `internet,wifi` en met de derde met zowel `hotel, motel` als `economy,inexpensive=>budget` bij het zoeken naar de overeenkomende documenten.
 
-Volledig toe te voegen synoniemen Hallo zoekervaring wordt gewijzigd. Hallo oorspronkelijke query's kunnen in deze zelfstudie tooreturn betekenisvolle resultaten Hoewel Hallo documenten in onze index relevant zijn. Doordat synoniemen kunt we een index tooinclude voorwaarden gemeenschappelijk zonder wijzigingen toounderlying gegevens in de index Hallo gebruiken uitbreiden.
+Door synoniemen toe te voegen, wordt de zoekervaring volledig veranderd. In deze zelfstudie worden met de oorspronkelijke query's geen bruikbare resultaten geretourneerd, hoewel de documenten in de index wel relevant zijn. Door synoniemen in te schakelen, breidt u de index zodanig uit dat deze ook termen bevat die regelmatig worden gebruikt, zonder dat daarbij wijzigingen worden aangebracht aan de onderliggende gegevens in de index.
 
 ## <a name="sample-application-source-code"></a>Broncode van een voorbeeldtoepassing
-U vindt de volledige broncode Hallo van Hallo-voorbeeldtoepassing die is gebruikt in deze doorloop op [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
+U vindt de volledige broncode van de voorbeeldtoepassing die in deze walkthrough wordt gebruikt, op [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Bekijk [hoe toouse synoniemen in Azure Search](search-synonyms.md)
+* Neem [Synoniemen gebruiken in Azure Search](search-synonyms.md) door.
 * Neem [REST API-documentatie over synoniemen](https://aka.ms/rgm6rq) door.
-* Hallo-verwijzingen voor Hallo Bladeren [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) en [REST-API](https://docs.microsoft.com/rest/api/searchservice/).
+* Neem de referenties voor de [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) en [REST API](https://docs.microsoft.com/rest/api/searchservice/) door.

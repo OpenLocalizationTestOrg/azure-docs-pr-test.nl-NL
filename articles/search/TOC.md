@@ -29,8 +29,8 @@
 
 ## Ontwikkelen
 ### [API-versies](search-api-versions.md)
-### [Hallo SDK bijwerken](search-dotnet-sdk-migration.md)
-### [Upgrade Hallo REST-API](search-api-migration.md)
+### [Upgrade uitvoeren voor de SDK](search-dotnet-sdk-migration.md)
+### [Upgrade uitvoeren voor de REST-API](search-api-migration.md)
 ### [Complexe gegevenstypen modelleren](search-howto-complex-data-types.md)
 ### [Gelijktijdige updates verwerken](search-howto-concurrency.md)
 ### [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=search)
@@ -38,7 +38,7 @@
 ## Beheren
 ### Azure Search beheren
 #### [Azure Portal](search-manage.md)
-#### [PowerShell](search-manage-powershell.md)
+#### Azure [Azure PowerShell](search-manage-powershell.md)
 ### [Gebruik en statistieken controleren](search-monitor-usage.md)
 ### [Analyse zoekverkeer](search-traffic-analytics.md)
 ### [Prestaties en optimalisatie](search-performance-optimization.md)
@@ -50,7 +50,7 @@
 ### [Azure Cosmos DB-indexeerfunctie](search-howto-index-documentdb.md)
 ### [CSV-blobs indexeren](search-howto-index-csv-blobs.md)
 ### [JSON-blobs indexeren](search-howto-index-json-blobs.md)
-### [Configureren van de indexeerfunctie verbindingen tooSQL Server op Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [Indexeerverbindingen met SQL Server configureren op een virtuele Azure-machine](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Veldtoewijzingen in indexeerfuncties](search-indexer-field-mappings.md)
 ##  Search
 ### [Hoe zoeken in de volledige tekst werkt](search-lucene-query-architecture.md)
@@ -59,7 +59,8 @@
 #### [Lucene-querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Voorbeelden van Lucene-querysyntaxis](search-query-lucene-examples.md)
 #### [Filterexpressiesyntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### Aangepast zoeken
+### Analyse in Azure Search
+#### [Overzicht](search-analyzers.md)
 #### [Taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Analysevoorzieningen aanpassen](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Zoekresultaten oproepen](search-pagination-page-layout.md)

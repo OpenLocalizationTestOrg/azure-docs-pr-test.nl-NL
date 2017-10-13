@@ -1,6 +1,6 @@
 ---
-title: aaa "maken van een index (REST-API - Azure Search) | Microsoft Docs'
-description: Een index in code met hello Azure Search HTTP REST-API maken.
+title: Een index maken (REST-API - Azure Search) | Microsoft Docs
+description: Een index in code maken met behulp van de Azure Search HTTP REST-API.
 services: search
 documentationcenter: 
 author: ashmaka
@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.openlocfilehash: 117ab64a9874a443351a8a02a9b959b8f7beb7c1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 9a64d1436471e406b7d9b700257d3dd96b5edcde
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-an-azure-search-index-using-hello-rest-api"></a>Een Azure Search index maken met Hallo REST-API
+# <a name="create-an-azure-search-index-using-the-rest-api"></a>Een index voor Azure Search maken met behulp van de REST-API.
 > [!div class="op_single_selector"]
 >
 > * [Overzicht](search-what-is-an-index.md)
@@ -31,33 +31,33 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-In dit artikel begeleidt u stapsgewijs door het Hallo-proces voor het maken van een Azure Search [index](https://docs.microsoft.com/rest/api/searchservice/Create-Index) met behulp van hello Azure Search REST-API.
+Dit artikel begeleidt u stapsgewijs door het proces van het maken van een [index](https://docs.microsoft.com/rest/api/searchservice/Create-Index) voor Azure Search met behulp van de Azure Search REST-API.
 
 Voordat u de stappen in dit artikel uitvoert en een index maakt, moet u eerst [een Azure Search-service](search-create-service-portal.md) hebben gemaakt.
 
-toocreate een Azure Search-index met behulp van Hallo REST-API, doet u een één HTTP POST-aanvraag tooyour Azure Search-service van URL-eindpunt. De indexdefinitie van de worden opgenomen in de aanvraagtekst Hallo als juist opgemaakte JSON-inhoud.
+Als u een index voor Azure Search met behulp van de REST-API wilt maken, verzendt u één HTTP POST-aanvraag via de URL van het Azure Search-service-eindpunt. De definitie van de index bevindt zich zowel in de aanvraagtekst als de juist-opgemaakte JSON-inhoud.
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>De admin api-sleutel voor de Azure Search-service vaststellen
-Nu dat u een Azure Search-service hebt ingericht, kunt u HTTP-aanvragen op basis van uw service Hallo REST-API met URL-eindpunt uitgeven. *Alle* API-aanvragen Hallo api-sleutel die is gegenereerd voor de zoekservice die u hebt ingericht Hallo moeten bevatten. Met een geldige sleutel stelt vertrouwensrelatie op basis van per aanvraag, tussen Hallo verzenden Hallo toepassingsaanvraag en Hallo-service die afhandelt.
+Nu u een Azure Search-service hebt ingericht, bent u bijna klaar om HTTP-aanvragen te verzenden voor het URL-eindpunt van uw service met de REST-API. *Alle* API-aanvragen moeten de API-sleutel bevatten die is gegenereerd voor de Search-service die u hebt ingericht. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
-1. toofind van uw service api-sleutels u zich bij Hallo aanmelden moet [Azure-portal](https://portal.azure.com/)
-2. Blade Ga tooyour Azure Search service
-3. Klik op Hallo 'Sleutels'-pictogram
+1. Als u de API-sleutels van uw service wilt opzoeken, moet u zich aanmelden bij [Azure Portal](https://portal.azure.com/)
+2. Ga naar de blade van uw Azure Search-service
+3. Klik op het pictogram Sleutels
 
 Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
-* De primaire en secundaire *administratorsleutels* verlenen volledige rechten tooall bewerkingen, inclusief Hallo mogelijkheid toomanage Hallo-service, maken en verwijderen van indexen, Indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u verder kunt toouse Hallo secundaire sleutel als u tooregenerate Hallo primaire sleutel en vice versa besluit.
-* Uw *querysleutels* verlenen tooindexes alleen-lezen toegang en -documenten en zijn doorgaans gedistribueerde tooclient toepassingen die zoekaanvragen.
+* De primaire en secundaire *administratorsleutels* verlenen volledige rechten voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, het maken en verwijderen van indexen, indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u de secundaire sleutel kunt gebruiken als u de primaire sleutel opnieuw aan het genereren bent en vice versa.
+* Uw *querysleutels* geven alleen-lezentoegang tot indexen en documenten. Deze sleutels worden doorgaans verleend aan clienttoepassingen die zoekaanvragen verlenen.
 
-Voor Hallo-toepassing van een index te maken, kunt u ofwel de primaire of secundaire administratorsleutel.
+Als u een index wilt maken, kunt u de primaire of secundaire administratorsleutel gebruiken.
 
 ## <a name="define-your-azure-search-index-using-well-formed-json"></a>Een index voor Azure Search definiëren met een goed-opgemaakte JSON
-De index van een HTTP POST-aanvraag tooyour service wilt maken. Hallo-hoofdtekst van uw HTTP POST-aanvraag bevat een JSON-object dat uw Azure Search-index definieert.
+Als u de index wilt maken, hoeft u maar één HTTP POST-aanvraag bij uw service te doen. De hoofdtekst van uw HTTP POST-aanvraag bevat een JSON-object dat uw Azure Search-index definieert.
 
-1. Hallo eerste eigenschap van dit JSON-object is Hallo-naam van de index.
-2. Hallo tweede eigenschap van dit JSON-object is een JSON-matrix met de naam `fields` die een afzonderlijk JSON-object voor elk veld in uw index bevat. Elk van deze JSON-objecten bevat meerdere naamwaardeparen voor elk Hallo veldkenmerken, zoals "name", "type", enzovoort.
+1. De eerste eigenschap van dit JSON-object is de naam van de index.
+2. De tweede eigenschap van dit JSON-object is een JSON-matrix met de naam `fields`, die een afzonderlijk JSON-object voor elk veld in de index bevat. Elk van deze JSON-objecten bevat meerdere naamwaardeparen voor elk veldkenmerken, zoals naam, type enzovoort.
 
-Het is belangrijk dat u uw zoekopdracht gebruiker ervaring en zakelijke behoeften rekening houden bij het ontwerpen van uw index als elk veld Hallo moet worden toegewezen [juiste kenmerken](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Deze kenmerken bepalen welke zoekfuncties (filteren, facetten, zoekacties volledige tekst sorteren enzovoort) toepassing toowhich velden. Voor elk kenmerk dat u niet opgeeft, worden standaard Hallo tooenable Hallo bijbehorende zoekfunctie tenzij speciaal uitschakelt.
+Als u uw index opzet, is het belangrijk dat u in uw achterhoofd houdt wat de gebruiker en uw bedrijf nodig hebben, aangezien aan elk veld de [relevante kenmerken](https://docs.microsoft.com/rest/api/searchservice/Create-Index) moeten worden toegewezen. Deze kenmerken bepalen welke zoekfuncties (filteren, facetten, zoekacties in volledige tekst sorteren enzovoort) beschikbaar zijn in velden. Als u een eigenschap niet expliciet instelt, worden de bijbehorende zoekfuncties standaard ingeschakeld, tenzij u deze functies specifiek hebt uitgeschakeld.
 
 In ons voorbeeld hebben we onze index hotels genoemd en de velden als volgt ingesteld:
 
@@ -81,30 +81,30 @@ In ons voorbeeld hebben we onze index hotels genoemd en de velden als volgt inge
 }
 ```
 
-We hebt zorgvuldig Hallo indexkenmerken voor elk veld op basis van onze verwachting dat ze worden gebruikt in een toepassing gekozen. Bijvoorbeeld: `hotelId` is een unieke sleutel die mensen zoeken naar hotels waarschijnlijk niet kennen, zodat we een zoekopdracht in volledige tekst voor dat veld door in te stellen uitschakelen `searchable` te`false`, die databaseruimte Hallo index.
+We hebben de waarde van de indexkenmerken zorgvuldig voor elk veld ingesteld op basis van onze verwachting van het gebruik ervan in een toepassing. `hotelId` is bijvoorbeeld een unieke sleutel die mensen die naar een hotel zoeken waarschijnlijk niet kennen. Daarom hebben voor dat veld het zoeken in volledige tekst uitgeschakeld door `searchable` in te stellen op `false`, waardoor ruimte in de index wordt bespaard.
 
-Houd er rekening mee dat precies één veld in de index van het type `Edm.String` moet worden Hallo aangemerkt als Hallo 'key'-veld.
+In een index van het type `Edm.String` moet precies één veld zijn aangewezen als het sleutelveld.
 
-bovenstaande Hallo indexdefinitie maakt gebruik van een taalanalyse voor Hallo `description_fr` veld omdat het beoogde toostore Franse tekst. Zie [onderwerp Hallo Language support](https://docs.microsoft.com/rest/api/searchservice/Language-support) en de bijbehorende Hallo [blogbericht](https://azure.microsoft.com/blog/language-support-in-azure-search/) voor meer informatie over taalanalyse.
+Voor de bovenstaande indexdefinitie wordt gebruikgemaakt van een taalanalyse voor het veld `description_fr`, omdat dit veld is bedoeld voor het opslaan van Franse tekst. Zie het onderwerp [Language support](https://docs.microsoft.com/rest/api/searchservice/Language-support) (Taalondersteuning) en het bijbehorende [blogbericht](https://azure.microsoft.com/blog/language-support-in-azure-search/) voor meer informatie over taalanalyse.
 
-## <a name="issue-hello-http-request"></a>Probleem Hallo HTTP-aanvraag
-1. Door de indexdefinitie van de als aanvraagtekst hello, uitgeven, een eindpunt-URL voor HTTP POST-aanvraag tooyour Azure Search-service. Hallo-URL worden toouse ervoor dat de naam van de service als Hallo-hostnaam en Hallo juiste plaatsen `api-version` als een queryreeksparameter opgeven (Hallo huidige API-versie is `2016-09-01` op Hallo moment van publicatie van dit document).
-2. Geef in de aanvraagheaders Hallo Hallo `Content-Type` als `application/json`. U moet ook tooprovide Beheersleutel van uw service die u in stap I in Hallo vastgesteld `api-key` header.
+## <a name="issue-the-http-request"></a>De HTTP-aanvraag verzenden
+1. U kunt de indexdefinitie gebruiken als aanvraagtekst. Verzend een HTTP POST-aanvraag via de URL van het Azure Search-service-eindpunt. In de URL moet de naam van de service gebruiken en de hostnaam gebruiken. Bovendien moet u de juiste `api-version` als een queryreeksparameter opgeven (op het moment van publicatie van dit document is `2016-09-01` de API-versie).
+2. Gebruik in de aanvraagheaders `Content-Type` voor `application/json`. U moet ook de administratorsleutel van de service opgeven, zoals die is gedefinieerd in Stap I in de `api-key`-header.
 
-U hebt tooprovide uw eigen naam en de api key tooissue Hallo serviceaanvraag hieronder:
+U moet uw eigen servicenaam en API-sleutel opgeven om de onderstaande aanvraag te kunnen doen:
 
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
     api-key: [api-key]
 
 
-Als een aanvraag is gelukt, ziet u de statuscode 201 (Gemaakt). Bezoek voor meer informatie over het maken van een index via REST-API Hallo Hallo [hier API-referentiemateriaal](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Zie [HTTP-statuscodes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes) voor meer informatie over andere HTTP-statuscodes die kunnen worden geretourneerd in geval van storing.
+Als een aanvraag is gelukt, ziet u de statuscode 201 (Gemaakt). Ga [hier](https://docs.microsoft.com/rest/api/searchservice/Create-Index) naar de API-verwijzing voor meer informatie over het maken van een index met de REST-API. Zie [HTTP-statuscodes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes) voor meer informatie over andere HTTP-statuscodes die kunnen worden geretourneerd in geval van storing.
 
-Wanneer u met een toodelete index en wilt dit bent klaar, roept u de aanvraag HTTP DELETE. Dit is bijvoorbeeld hoe we de index "hotels" hello wilt verwijderen:
+Als u klaar bent met een index en deze weer wilt verwijderen, roept u de aanvraag HTTP DELETE aan De index hotels zou bijvoorbeeld als volgt kunnen worden verwijderd:
 
     DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2016-09-01
     api-key: [api-key]
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat een Azure Search-index is gemaakt, kunt u zich gereed te[uw inhoud uploaden naar de index Hallo](search-what-is-data-import.md) zodat u kunt beginnen met het zoeken van gegevens.
+Als u een index voor Azure Search hebt gemaakt, kunt u [de inhoud naar de index uploaden](search-what-is-data-import.md), zodat u kunt beginnen met het zoeken van gegevens.

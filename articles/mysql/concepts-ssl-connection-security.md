@@ -1,6 +1,6 @@
 ---
-title: aaaSSL connectiviteit voor de Azure-Database voor MySQL | Microsoft Docs
-description: Informatie voor het configureren van Azure-Database voor MySQL en de bijbehorende toepassingen tooproperly SSL-verbindingen gebruiken
+title: SSL-verbindingen voor de Azure-Database voor MySQL | Microsoft Docs
+description: Informatie voor het configureren van Azure-Database voor MySQL en de bijbehorende toepassingen juist gebruik van SSL-verbindingen
 services: mysql
 author: JasonMAnderson
 ms.author: janders
@@ -9,23 +9,23 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/10/2017
-ms.openlocfilehash: 6fca7c88fc0f1fd6058d68fcff90fd409abd97a7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4b03b3a2dbfad92cc0cfa84777b38ddff90452cf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="ssl-connectivity-in-azure-database-for-mysql"></a>SSL-verbindingen in Azure voor MySQL-Database
-Azure MySQL-Database ondersteunt verbindingen van uw server tooclient databasetoepassingen met Secure Sockets Layer (SSL). Afdwingen van SSL-verbindingen tussen uw database-server en client-toepassingen beschermt tegen 'man-in Hallo middle'-aanvallen door het versleutelen van de gegevensstroom Hallo tussen Hallo-server en uw toepassing.
+Azure MySQL-Database ondersteunt verbindingen van uw database-server met clienttoepassingen met Secure Sockets Layer (SSL). Afdwingen van SSL-verbindingen tussen uw database-server en client-toepassingen beschermt tegen 'man-in het midden'-aanvallen door het versleutelen van de gegevensstroom tussen de server en uw toepassing.
 
 ## <a name="default-settings"></a>Standaard-instellingen
-Standaard moet Hallo databaseservice geconfigureerde toorequire SSL-verbindingen tijdens het verbinden van tooMySQL.  Het is raadzaam voorkomen Hallo SSL-optie indien mogelijk uitschakelen. 
+Standaard wordt de database-service zo dat SSL-verbindingen vereisen bij het verbinden met MySQL.  Het verdient aanbeveling te voorkomen dat de SSL-optie indien mogelijk uitschakelen. 
 
-Bij het inrichten van een nieuwe Azure-Database voor de MySQL-server via hello Azure-portal en CLI kan afdwinging van SSL-verbindingen is standaard ingeschakeld. 
+Bij het inrichten van een nieuwe Azure-Database voor de MySQL-server via de Azure portal en CLI kan afdwinging van SSL-verbindingen is standaard ingeschakeld. 
 
-Evenzo bevatten verbindingsreeksen die vooraf zijn gedefinieerd in Hallo 'Verbindingsreeksen' instellingen onder uw server in Azure-portal Hallo Hallo vereiste parameters voor algemene talen tooconnect tooyour database-server via SSL. Hallo SSL parameter varieert op basis van Hallo-connector, bijvoorbeeld ' ssl = true ' of ' sslmode = vereisen ' of ' sslmode = vereist ' en andere variaties.
+Verbindingsreeksen die vooraf zijn gedefinieerd in de instellingen 'Verbindingsreeksen' onder uw server in de Azure portal omvatten ook de vereiste parameters voor algemene talen verbinding maken met uw database-server met behulp van SSL. De parameter SSL varieert op basis van de connector, bijvoorbeeld ' ssl = true ' of ' sslmode = vereisen ' of ' sslmode = vereist ' en andere variaties.
 
-hoe SSL tooenable of disable-verbinding bij het ontwikkelen van toepassing, Raadpleeg te toolearn[hoe tooconfigure SSL](howto-configure-ssl.md).
+Voor informatie over het in- of uitschakelen van SSL-verbinding bij het ontwikkelen van toepassing, raadpleegt u [SSL configureren](howto-configure-ssl.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 [Verbindingsbibliotheken voor Azure-Database voor MySQL](concepts-connection-libraries.md)

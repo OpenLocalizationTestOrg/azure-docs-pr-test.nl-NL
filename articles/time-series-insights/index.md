@@ -1,8 +1,8 @@
 ---
-title: aaaAzure Time Series Insights documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toorun IoT analyses in Hallo cloud met de verwerking van gebeurtenissen volledig beheerd. Analyseer gegevens van toepassingen, sensoren, apparaten en meer in realtime.
+title: Documentatie voor Azure Time Series Insights - zelfstudies, API-verwijzing | Microsoft Docs
+description: Leer hoe u IoT-analyses uitvoert in de cloud met volledig beheerde gebeurtenisverwerking. Analyseer gegevens van toepassingen, sensoren, apparaten en meer in realtime.
 services: time-series-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2017
 ms.author: carolz
-ms.openlocfilehash: 2301d20aa2fb685279e2efc657ffcd41571af0c0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ca41dab4f1488c0d172513e61b1960f236c7ebf0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-time-series-insights-documentation"></a>Documentatie voor Azure Time Series Insights 
  
-Meer informatie over hoe tooset Time Series Insights-omgeving verkennen en analyseren van de reeksgegevens van uw IoT-oplossingen of dingen verbonden. Documentatie deelt Hallo vereisten, hoe, API verwijzingen en andere documentatie toohelp u tooget in minuten gestart. 
+Informatie over het instellen van een Time Series Insights-omgeving, en het verkennen en analyseren van TimeSeries-gegevens van uw IoT-oplossingen of verbonden dingen. De documentatie omvat de vereisten, een handleiding, API-naslaginformatie en andere documentatie waarmee u in slechts enkele minuten aan de slag kunt. 
  
 <ul class="panelContent cardsFTitle"> 
     <li> 

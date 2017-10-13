@@ -1,6 +1,6 @@
 ---
-title: aaaAzure oplossingen voor Internet der dingen (IoT Suite) | Microsoft Docs
-description: Een overzicht van IoT op Azure met onder andere een voorbeeldarchitectuur voor de oplossing en hoe deze zich verhoudt tooAzure IoT Suite en Hallo vooraf geconfigureerde oplossingen.
+title: Azure-oplossingen voor het internet der dingen (IoT-suite) | Microsoft Docs
+description: Een overzicht van IoT in Azure, met onder andere een voorbeeldarchitectuur voor een oplossing en hoe deze zich verhoudt tot Azure IoT Suite en vooraf de geconfigureerde oplossingen.
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: e527ca3f7541c84fbd6abc99ee38792468f88644
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 320190488bb4c7b8192421f9dd50a5264f558584
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="azure-iot-suite"></a>Azure IoT Suite
-Hallo Microsoft Azure IoT Suite is een oplossing voor bedrijfsniveau waarmee u tooget snel aan de slag met een reeks uitbreidbare, vooraf geconfigureerde oplossingen. Deze oplossingen hebben betrekking op veelvoorkomende IoT-scenario's, zoals [externe controle][lnk-preconfigured-solutions], [voorspellend onderhoud][lnk-predictive-maintenance] en [verbonden factory][lnk-connected-factory]. Deze oplossingen zijn implementaties van Hallo IoT-oplossingsarchitectuur die worden beschreven in dit artikel.
+De Microsoft Azure IoT Suite is een oplossing op bedrijfsniveau waarmee u snel aan de slag kunt gaan met behulp van een reeks uitbreidbare, vooraf geconfigureerde oplossingen. Deze oplossingen hebben betrekking op veelvoorkomende IoT-scenario's, zoals [externe controle][lnk-preconfigured-solutions], [voorspellend onderhoud][lnk-predictive-maintenance] en [verbonden factory][lnk-connected-factory]. Deze oplossingen zijn implementaties van de IoT-oplossingsarchitectuur zoals beschreven in dit artikel.
 
-Hallo zijn vooraf geconfigureerde oplossingen voltooid, werkt, end-to-end-oplossingen met:
+De vooraf geconfigureerde oplossingen zijn volledige, werkende, end-to-end-oplossingen, inclusief:
 
-- Gesimuleerde apparaten tooget die u gestart.
+- Gesimuleerde apparaten om u te helpen aan de slag te gaan.
 - Vooraf geconfigureerde Azure-services zoals [Azure IoT-Hub][Azure IoT Hub], [Azure Event Hubs][Azure Event Hubs], [Azure Stream Analytics][Azure Stream Analytics], [Azure Machine Learning][Azure Machine Learning] en [Azure Storage][Azure storage].
 - Oplossingsspecifieke beheerconsoles.
 
-Hallo vooraf geconfigureerde oplossingen bevatten beproefde, gereed voor productie-code die u kunt aanpassen en uitbreiden tooimplement uw eigen specifieke IoT-scenario's.
+De vooraf geconfigureerde oplossingen omvatten beproefde code die klaar is voor productie, en die u kunt aanpassen en uitbreiden zodat u uw eigen specifieke IoT-scenario's kunt implementeren.
 
-Hebt u mogelijk ook geïnteresseerd in Hallo [Azure IoT Hub] [ Azure IoT Hub] service die veel van Hallo vooraf geconfigureerde oplossingen gebruiken. [Azure IoT Hub] [ Azure IoT Hub] Hallo veilige en betrouwbare bidirectionele communicatie tussen apparaten en Hallo cloud gebruikt in de architectuur van Hallo vooraf geconfigureerde oplossing biedt.
+Misschien bent u ook geïnteresseerd in de [Azure IoT Hub][Azure IoT Hub]-service die door veel van de vooraf geconfigureerde oplossingen wordt gebruikt. [Azure IoT Hub][Azure IoT Hub] biedt de beveiligde en betrouwbare bidirectionele communicatie tussen apparaten en de cloud die in de vooraf geconfigureerde oplossingsarchitectuur wordt gebruikt.
 
 ## <a name="next-steps"></a>Volgende stappen
-Verken deze resources toocontinue leren over IoT Suite en vooraf geconfigureerde oplossingen Hallo:
+Raadpleeg deze resources om meer te leren over IoT Suite en de vooraf geconfigureerde oplossingen:
 
 * [Wat is Azure IoT Suite?][lnk-whatissuite]
-* [Wat zijn hello Azure IoT Suite vooraf geconfigureerde oplossingen?][lnk-whatarepreconfigured]
+* [Wat zijn de vooraf geconfigureerde Azure IoT Suite-oplossingen?][lnk-whatarepreconfigured]
 
 [lnk-whatissuite]: iot-suite-overview.md
 [lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md

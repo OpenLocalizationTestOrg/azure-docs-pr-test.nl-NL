@@ -1,5 +1,5 @@
 ---
-title: aaaOverview en vergelijking van Azure op vraag media coderingsprogramma's | Microsoft Docs
+title: Overzicht en een vergelijking van Azure op aanvraag media encoders | Microsoft Docs
 description: In dit onderwerp biedt een overzicht en een vergelijking van Azure op aanvraag media coderingsprogramma's.
 services: media-services
 documentationcenter: 
@@ -14,74 +14,74 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-ms.openlocfilehash: 24a3e0a16162b1bebfcde290b6baf2dd8dbfff17
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 538a6ab60168735c2626a93cdeedd8d4999a6efc
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Overzicht en een vergelijking van Azure op aanvraag media coderingsprogramma 's
 ## <a name="encoding-overview"></a>Overzicht van de codering
-Azure Media Services biedt meerdere opties voor het Hallo-codering van media in Hallo cloud.
+Azure Media Services biedt meerdere opties voor de codering van media in de cloud.
 
-Wanneer u begint met Media Services, is het belangrijk toounderstand Hallo verschil tussen codecs en bestandsindelingen.
-Codecs zijn Hallo-software die Hallo compressie/decompressie algoritmen implementeert dat bestandsindelingen zijn containers waarin Hallo gecomprimeerd video.
+Wanneer u begint met Media Services, is het belangrijk om het verschil tussen codecs en bestandsindelingen.
+Codecs zijn de software die u de algoritmen compressie/decompressie implementeert dat bestandsindelingen zijn containers waarin de gecomprimeerde video.
 
-Media Services biedt dynamische pakketten zodat u uw adaptive bitrate MP4- of Smooth Streaming inhoud gecodeerde in de streaming-indelingen die worden ondersteund door Media Services (MPEG DASH, HLS, Smooth Streaming) toodeliver zonder dat u hoeft toore-pakket in een van deze streaming-indelingen.
+Media Services biedt dynamische pakketten zodat u uw adaptive bitrate MP4- of Smooth Streaming gecodeerde inhoud kunt in de streaming-indelingen die worden ondersteund door Media Services (MPEG DASH, HLS, Smooth Streaming) leveren zonder dat u opnieuw verpakken in een van deze streaming-indelingen hoeft.
 
 >[!NOTE]
->Wanneer uw AMS-account wordt gemaakt een **standaard** tooyour account streaming-eindpunt is toegevoegd in Hallo **gestopt** status. uw inhoud en los het voordeel van dynamische pakketten en dynamische versleuteling streaming toostart Hallo streaming-eindpunt van waaruit u wilt toostream inhoud heeft toobe in Hallo **met** status. tootake profiteren van [dynamische pakketten](media-services-dynamic-packaging-overview.md), hebt u toodo Hallo volgende nodig:
+>Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. Om te profiteren van [dynamische pakketten](media-services-dynamic-packaging-overview.md), moet u het volgende doen:
 >
->Bovendien moet u uw bronbestand coderen in een set adaptive bitrate MP4-bestanden of adaptive bitrate Smooth Streaming-bestanden (Hallo coderingsstappen worden verderop in deze zelfstudie uitgelegd).
+>Bovendien moet u uw bronbestand coderen in een set adaptive bitrate MP4-bestanden of adaptive bitrate Smooth Streaming-bestanden (de coderingsstappen worden verderop in deze zelfstudie uitgelegd).
 
-Media Services ondersteunt de volgende Hallo op aanvraag coderingsprogramma's die worden beschreven in dit artikel:
+Media Services ondersteunt de volgende op aanvraag coderingsprogramma's die worden beschreven in dit artikel:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
 * [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Dit artikel bevat een kort overzicht van op verzoek media coderingsprogramma's en koppelingen tooarticles waarmee u meer gedetailleerde informatie bevat. Hallo-onderwerp bevat ook een vergelijking van Hallo coderingsprogramma's.
+Dit artikel bevat een kort overzicht van op verzoek media coderingsprogramma's en koppelingen naar artikelen waarmee u meer gedetailleerde informatie. Het onderwerp bevat ook een vergelijking van het coderingsprogramma's.
 
 >[!NOTE]
->Standaard hebben elke Media Services-account een actieve codering taak tegelijk. Meerdere codering taken gelijktijdig uitgevoerd, één voor elke codering gereserveerde eenheid die u hebt gekocht, kunt u codering eenheden waarmee u toohave reserveren. Zie voor informatie [codering eenheden schalen](media-services-scale-media-processing-overview.md).
+>Standaard hebben elke Media Services-account een actieve codering taak tegelijk. U kunt codering eenheden waarmee u kunt meerdere codering taken gelijktijdig uitgevoerd, één voor elke codering gereserveerde eenheid aankoop reserveren. Zie voor informatie [codering eenheden schalen](media-services-scale-media-processing-overview.md).
 
 ## <a name="media-encoder-standard"></a>Media Encoder Standard
-### <a name="how-toouse"></a>Hoe toouse
-[Hoe tooencode met Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
+### <a name="how-to-use"></a>Gebruiksinstructies
+[Het coderen met Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
 ### <a name="formats"></a>Indelingen
 [Indelingen en codecs](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Standaardinstellingen
-Media Encoder Standard is geconfigureerd met behulp van een Hallo encoder standaardinstellingen beschreven [hier](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard is geconfigureerd met een van de encoder standaardinstellingen beschreven [hier](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Invoer en uitvoer van metagegevens
-Hallo encoders invoer metagegevens wordt beschreven [hier](media-services-input-metadata-schema.md).
+De invoer metagegevens coderingsprogramma's wordt beschreven [hier](media-services-input-metadata-schema.md).
 
-Hallo encoders uitvoer metagegevens wordt beschreven [hier](media-services-output-metadata-schema.md).
+De metagegevens van de uitvoer coderingsprogramma's wordt beschreven [hier](media-services-output-metadata-schema.md).
 
 ### <a name="generate-thumbnails"></a>Genereren van miniaturen
-Zie voor informatie [hoe toogenerate miniaturen met Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).
+Zie voor informatie [het genereren van miniaturen met Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).
 
 ### <a name="trim-videos-clipping"></a>Trim video's (paginaknipsel)
-Zie voor informatie [hoe tootrim video's met Media Encoder Standard](media-services-advanced-encoding-with-mes.md#trim_video).
+Zie voor informatie [hoe video's met Media Encoder Standard trim](media-services-advanced-encoding-with-mes.md#trim_video).
 
 ### <a name="create-overlays"></a>Overlays maken
-Zie voor informatie [hoe toocreate overlays met Media Encoder Standard](media-services-advanced-encoding-with-mes.md#overlay).
+Zie voor informatie [maken met behulp van Media Encoder Standard overlays](media-services-advanced-encoding-with-mes.md#overlay).
 
 ### <a name="see-also"></a>Zie ook
-[Hallo Media Services-blog](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
+[De Media Services-blog](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Media Encoder Premium Workflow
 ### <a name="overview"></a>Overzicht
 [Inleiding tot Premium codering in Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
-### <a name="how-toouse"></a>Hoe toouse
-Werkstroom voor Media Encoder Premium is geconfigureerd met behulp van complexe werkstromen. Werkstroombestanden kan worden gemaakt en bijgewerkt met Hallo [Workflow Designer](media-services-workflow-designer.md) hulpprogramma.
+### <a name="how-to-use"></a>Gebruiksinstructies
+Werkstroom voor Media Encoder Premium is geconfigureerd met behulp van complexe werkstromen. Werkstroombestanden kan worden gemaakt en bijgewerkt met de [Workflow Designer](media-services-workflow-designer.md) hulpprogramma.
 
-[Hoe tooUse Premium codering in Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
+[Het gebruik van Premium codering in Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ### <a name="known-issues"></a>Bekende problemen
-Als uw invoervideo bevat geen ondertiteling, uitvoer Hallo dat Asset bevatten nog steeds een leeg TTML-bestand.
+Als uw invoervideo geen bevat nog ondertiteling, de uitvoer van de Asset bevatten steeds een leeg TTML-bestand.
 
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten

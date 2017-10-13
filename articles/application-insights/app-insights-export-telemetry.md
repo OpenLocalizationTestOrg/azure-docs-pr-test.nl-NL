@@ -1,6 +1,6 @@
 ---
-title: aaaContinuous exporteren van telemetrie in Application Insights | Microsoft Docs
-description: Diagnostische en gebruiksgegevens gegevens toostorage in Microsoft Azure exporteren en dit van daaruit te downloaden.
+title: Continue export van telemetrie in Application Insights | Microsoft Docs
+description: Diagnostische gegevens en gebruiksgegevens exporteren naar opslag in Microsoft Azure en download deze vanaf daar.
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -13,115 +13,115 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: bwren
-ms.openlocfilehash: be9ed7e05922c1c8186df9ca4e642862adaa5fd0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6ac3bda5101593b5ca66b4c9035e2fdac9d1e833
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporteren van telemetrie in Application Insights
-Wilt u tookeep uw telemetrie langer dan de standaard bewaarperiode Hallo? Of op een speciale wijze worden verwerkt? Continue Export is ideaal voor dit. u in de Application Insights-portal Hallo ziet Hallo-gebeurtenissen kunnen worden geëxporteerde toostorage in Microsoft Azure in JSON-indeling. Daar kunt u downloaden van uw gegevens en wat u code schrijven tooprocess moet het.  
+Wilt u uw telemetrie langer dan de standaard bewaarperiode houden? Of op een speciale wijze worden verwerkt? Continue Export is ideaal voor dit. De gebeurtenissen die u in de Application Insights-portal ziet kunnen worden geëxporteerd naar JSON-indeling in Microsoft Azure-opslag. Daar kunt u downloaden van uw gegevens en wat u code schrijven moet verwerken.  
 
 Met behulp van continue Export mogelijk extra kosten in rekening gebracht. Controleer uw [prijzen model](http://azure.microsoft.com/pricing/details/application-insights/).
 
-Voordat u de continue export instelt, zijn er enkele alternatieven kunt u tooconsider:
+Voordat u de continue export instelt, zijn er enkele alternatieven die kunt u overwegen:
 
-* Hallo Export knop Hallo boven aan een blade metrische gegevens of zoeken kunt u tabellen en grafieken tooan Excel-spreadsheet overdragen.
+* De knop exporteren boven aan een blade metrische gegevens of zoeken kunt u transfer tabellen en grafieken met een Excel-werkblad.
 
 * [Analytics](app-insights-analytics.md) biedt een krachtige querytaal voor telemetrie. Het kan ook resultaten exporteren.
-* Als u op zoek bent te[Verken uw gegevens in Power BI](app-insights-export-power-bi.md), kunt u dat doen zonder gebruik van continue Export.
-* Hallo [REST-API toegang tot de gegevens](https://dev.applicationinsights.io/) kunt u programmatisch toegang krijgen tot uw telemetrie.
+* Als u op zoek bent naar [Verken uw gegevens in Power BI](app-insights-export-power-bi.md), kunt u dat doen zonder gebruik van continue Export.
+* De [REST-API toegang tot de gegevens](https://dev.applicationinsights.io/) kunt u programmatisch toegang krijgen tot uw telemetrie.
 
-Nadat uw gegevens toostorage (waar het kunt blijven voor als u wilt) continue Export zijn gekopieerd, is het nog steeds beschikbaar in Application Insights voor Hallo gebruikelijke [bewaarperiode](app-insights-data-retention-privacy.md).
+Nadat de continue Export uw gegevens worden gekopieerd naar opslag (waar het kunt blijven voor als u wilt), is het nog steeds beschikbaar in Application Insights voor de gebruikelijke [bewaarperiode](app-insights-data-retention-privacy.md).
 
 ## <a name="setup"></a>Maken van een continue Export
-1. Open continue Export in Hallo Application Insights-resource voor uw app, en kies **toevoegen**:
+1. Open continue Export in de Application Insights-resource voor uw app en kies **toevoegen**:
 
     ![Schuif naar beneden en klik op de continue Export](./media/app-insights-export-telemetry/01-export.png)
 
-2. Kies Hallo telemetrie gegevenstypen gewenste tooexport.
+2. Kies de telemetrie-gegevenstypen die u wilt exporteren.
 
-3. Maak of Selecteer een [Azure storage-account](../storage/common/storage-introduction.md) waar u toostore Hallo gegevens.
+3. Maak of Selecteer een [Azure storage-account](../storage/common/storage-introduction.md) waar u de gegevens worden opgeslagen.
 
     > [!Warning]
-    > Hallo-opslaglocatie zal worden standaard toohello dezelfde geografische regio als uw Application Insights-resource. Als u in een andere regio opslaat, u mogelijk ook wijzigingskosten overdracht.
+    > Standaard wordt de locatie voor de opslag worden ingesteld op dezelfde geografische regio als uw Application Insights-resource. Als u in een andere regio opslaat, u mogelijk ook wijzigingskosten overdracht.
 
     ![Klik op toevoegen, exporteren bestemming Storage-account en maakt een nieuwe winkel of kies een bestaand archief](./media/app-insights-export-telemetry/02-add.png)
 
-4. Maak of Selecteer een container in Hallo opslag:
+4. Maak of Selecteer een container in de opslag:
 
     ![Klik op de typen gebeurtenissen kiezen](./media/app-insights-export-telemetry/create-container.png)
 
-Als u uw export hebt gemaakt, wordt er gestart gaan. U alleen ophalen gegevens die na het maken van Hallo export aankomt.
+Als u uw export hebt gemaakt, wordt er gestart gaan. U alleen ophalen gegevens waarvoor binnenkomt nadat u de export hebt gemaakt.
 
-Er is een vertraging van ongeveer een uur voordat gegevens worden weergegeven in het Hallo-opslag.
+Kan er een vertraging van ongeveer een uur voordat gegevens worden weergegeven in de opslag zijn.
 
-### <a name="tooedit-continuous-export"></a>continue export tooedit
+### <a name="to-edit-continuous-export"></a>Continue export bewerken
 
-Als u wilt dat toochange Hallo gebeurtenistypen later, net Hallo export bewerken:
+Als u de gebeurtenistypen later wijzigen wilt, bewerkt u gewoon het exporteren:
 
 ![Klik op de typen gebeurtenissen kiezen](./media/app-insights-export-telemetry/05-edit.png)
 
-### <a name="toostop-continuous-export"></a>continue export toostop
+### <a name="to-stop-continuous-export"></a>Continue export stoppen
 
-toostop hello exporteren, klikt u op uitschakelen. Als u opnieuw inschakelen op, kunnen Hallo exporteren wordt opnieuw opgestart met nieuwe gegevens. U won't Hallo gegevens dat is ontvangen in de portal Hallo terwijl export is uitgeschakeld.
+Als u wilt stoppen met het exporteren, klikt u op uitschakelen. Als u opnieuw inschakelen op, kan de export wordt opnieuw opgestart met nieuwe gegevens. U kunt de gegevens die tijdens het exporteren is uitgeschakeld in de portal is aangekomen won't ophalen.
 
-toostop hello exporteren, deze permanent verwijderen. In dat geval verwijdert niet de gegevens van opslag.
+Als u wilt de export permanent stoppen, moet u deze verwijderen. In dat geval verwijdert niet de gegevens van opslag.
 
 ### <a name="cant-add-or-change-an-export"></a>Kan niet toevoegen of wijzigen van een exporteren?
-* de uitvoer tooadd of wijzigen, moet u eigenaar, bijdrager of Application Insights Inzender toegangsrechten. [Meer informatie over functies][roles].
+* Als u wilt toevoegen of wijzigen van de uitvoer, moet u de eigenaar, bijdrager of Application Insights Inzender toegangsrechten. [Meer informatie over functies][roles].
 
 ## <a name="analyze"></a>Welke gebeurtenissen krijgt u?
-Hallo is geëxporteerde gegevens Hallo onbewerkte telemetrie die we van uw toepassing ontvangen, behalve dat we locatiegegevens waarmee de berekening van Hallo client-IP-adres toevoegen.
+De geëxporteerde gegevens is de onbewerkte telemetrie die we van uw toepassing ontvangen, behalve dat we locatiegegevens op die we berekenen van de client-IP-adres toevoegen.
 
-Gegevens die zijn genegeerd door [steekproeven](app-insights-sampling.md) is niet opgenomen in Hallo geëxporteerde gegevens.
+Gegevens die zijn genegeerd door [steekproeven](app-insights-sampling.md) is niet opgenomen in de geëxporteerde gegevens.
 
-Andere berekende waarden zijn niet opgenomen. Bijvoorbeeld: gemiddelde CPU-gebruik niet worden geëxporteerd, maar we Exporteer Hallo onbewerkte telemetrie waaruit Hallo gemiddelde wordt berekend.
+Andere berekende waarden zijn niet opgenomen. Bijvoorbeeld: gemiddelde CPU-gebruik niet worden geëxporteerd, maar we Exporteer de onbewerkte telemetrie van waaruit het gemiddelde wordt berekend.
 
-Hallo gegevens omvatten ook Hallo resultaten van een [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md) die u hebt ingesteld.
+De gegevens omvatten ook de resultaten van een [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md) die u hebt ingesteld.
 
 > [!NOTE]
-> **Een steekproef.** Als uw toepassing grote hoeveelheden gegevens verzendt, wordt Hallo steekproeven functie werkt en wordt alleen een fractie van Hallo gegenereerd telemetrie verzenden. [Meer informatie over steekproeven.](app-insights-sampling.md)
+> **Een steekproef.** Als uw toepassing grote hoeveelheden gegevens verzendt, wordt de functie steekproeven werkt en wordt alleen een fractie van de gegenereerde telemetrie verzenden. [Meer informatie over steekproeven.](app-insights-sampling.md)
 >
 >
 
-## <a name="get"></a>Hallo gegevens controleren
-U kunt inspecteren Hallo opslag rechtstreeks in het Hallo-portal. Klik op **Bladeren**, selecteer uw storage-account en open vervolgens **Containers**.
+## <a name="get"></a>De gegevens controleren
+U kunt de opslag rechtstreeks in de portal inspecteren. Klik op **Bladeren**, selecteer uw storage-account en open vervolgens **Containers**.
 
-tooinspect Azure-opslag in Visual Studio openen **weergave**, **Cloud Explorer**. (Als u deze menuopdracht niet hebt, moet u tooinstall hello Azure SDK: Open Hallo **nieuw Project** dialoogvenster Vouw Visual C# / Cloud en kies **ophalen van Microsoft Azure SDK voor .NET**.)
+Om te controleren op Azure-opslag in Visual Studio, open **weergave**, **Cloud Explorer**. (Als u deze menuopdracht niet hebt, moet u de Azure SDK installeren: Open de **nieuw Project** dialoogvenster Vouw Visual C# / Cloud en kies **ophalen van Microsoft Azure SDK voor .NET**.)
 
-Wanneer u uw bloblarchief opent, ziet u een container met een set van blob-bestanden. Hallo-URI van elk bestand dat is afgeleid van de naam van uw Application Insights-resource, de instrumentatiesleutel, telemetrie-type/datum/tijd. (Hallo resourcenaam is alleen kleine letters bevatten, en de instrumentatiesleutel Hallo streepjes worden weggelaten.)
+Wanneer u uw bloblarchief opent, ziet u een container met een set van blob-bestanden. De URI van elk bestand dat is afgeleid van de naam van uw Application Insights-resource, de instrumentatiesleutel, telemetrie-type/datum/tijd. (De resourcenaam is alleen kleine letters en streepjes bevatten de instrumentatiesleutel wordt weggelaten.)
 
-![Hallo blob-opslag met een geschikt hulpprogramma controleren](./media/app-insights-export-telemetry/04-data.png)
+![Inspecteer de blob-opslag met een geschikt hulpprogramma](./media/app-insights-export-telemetry/04-data.png)
 
-Hallo-datum en tijd UTC zijn en zijn wanneer Hallo telemetrie is gedeponeerd in Hallo store - niet Hallo tijd is gegenereerd. Als u code toodownload Hallo gegevens schrijft, het verplaatsen lineair Hallo-gegevens.
+De datum en tijd UTC zijn en zijn wanneer de telemetrie is in de store - gedeponeerd niet de tijd die is gegenereerd. Dus als u code schrijven om te downloaden van de gegevens, kunt het verplaatsen lineair via de gegevens.
 
-Hier volgt Hallo vorm van Hallo-pad:
+Hier volgt de vorm van het pad:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
 waar
 
-* `blobCreationTimeUtc`tijdstip waarop blob is gemaakt in Hallo interne is staging-opslag
-* `blobDeliveryTimeUtc`Hallo keer is dat wanneer blob gekopieerde toohello export-doelopslag is
+* `blobCreationTimeUtc`tijdstip waarop de blob is gemaakt in het interne is staging-opslag
+* `blobDeliveryTimeUtc`is de tijd wanneer de blob wordt gekopieerd naar het doelopslagaccount exporteren
 
 ## <a name="format"></a>Indeling van gegevens
-* Elke blob is een tekstbestand dat meerdere bevat ' \n'-separated rijen. Het bevat Hallo telemetrie gedurende een periode van ongeveer een halve minuut is verwerkt.
+* Elke blob is een tekstbestand dat meerdere bevat ' \n'-separated rijen. Het bevat de telemetrie die gedurende een periode van ongeveer een halve minuut is verwerkt.
 * Elke rij vertegenwoordigt een gegevenspunt telemetrie zoals een aanvraag of een pagina weergave.
-* Elke rij is een niet-opgemaakte JSON-document. Als u toosit wilt en op het staart, opent u het in Visual Studio en kies bewerken, Geavanceerd indelingsbestand:
+* Elke rij is een niet-opgemaakte JSON-document. Als u wilt plaatsen en staart op het, opent u het in Visual Studio en kiest u bewerken en Geavanceerd indelingsbestand:
 
-![Telemetrie van paginaweergaven Hallo met een geschikt hulpprogramma](./media/app-insights-export-telemetry/06-json.png)
+![De telemetrie met een geschikt hulpprogramma weergeven](./media/app-insights-export-telemetry/06-json.png)
 
-Tijdsduren zijn in ticks, waarbij 10 000 bedraagt ticks = 1ms. Bijvoorbeeld: deze waarden weergeven voor een periode van 1ms toosend een aanvraag van Hallo browser, 3 MS tooreceive en 1.8s tooprocess Hallo pagina in de browser Hallo:
+Tijdsduren zijn in ticks, waarbij 10 000 bedraagt ticks = 1ms. Deze waarden wordt bijvoorbeeld een tijd van 1ms een aanvraag te verzenden vanuit de browser, 3 MS te ontvangen en 1.8s voor het verwerken van de pagina in de browser weergeven:
 
     "sendRequest": {"value": 10000.0},
     "receiveRequest": {"value": 30000.0},
     "clientProcess": {"value": 17970000.0}
 
-[Gedetailleerde gegevens model verwijzing voor Hallo eigenschaptypen en waarden.](app-insights-export-data-model.md)
+[Gedetailleerde gegevens model verwijzing voor de eigenschaptypen en waarden.](app-insights-export-data-model.md)
 
-## <a name="processing-hello-data"></a>Hallo verwerken van gegevens
-Op kleine schaal, kunt u sommige code toopull elkaar uw gegevens te schrijven, lezen in een werkblad, enzovoort. Bijvoorbeeld:
+## <a name="processing-the-data"></a>Verwerken van de gegevens
+Op kleine schaal, kunt u bepaalde code kunt u gegevens uit elkaar, in een werkblad kunnen lezen, enzovoort. Bijvoorbeeld:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -143,56 +143,56 @@ Op kleine schaal, kunt u sommige code toopull elkaar uw gegevens te schrijven, l
 Zie voor een grotere codevoorbeeld [met behulp van een werkrol][exportasa].
 
 ## <a name="delete"></a>Uw oude gegevens verwijderen
-Houd er rekening mee dat u zelf verantwoordelijk bent voor het beheren van uw opslagcapaciteit en het verwijderen van oude gegevens Hallo indien nodig.
+Houd er rekening mee dat u zelf verantwoordelijk bent voor het beheren van uw opslagcapaciteit en het verwijderen van de oude gegevens zo nodig.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Als u uw opslagsleutel opnieuw genereren...
-Als u Hallo sleutel tooyour opslag wijzigt, wordt continue export niet meer. U ziet een melding in uw Azure-account.
+Als u de sleutel naar uw opslag wijzigt, wordt continue export niet meer. U ziet een melding in uw Azure-account.
 
-Hallo continue Export blade openen en bewerken van het exporteren. Hallo exporteren bestemming bewerken, maar stelt u Hallo dezelfde opslag geselecteerd. Klik op OK tooconfirm.
+Open de blade continue Export en uw export bewerken. De bestemming exporteren bewerken, maar stelt u de dezelfde opslag die is geselecteerd. Klik op OK om te bevestigen.
 
-![Bewerken Hallo continue exporteren, openen en sluiten thee exportbestemming.](./media/app-insights-export-telemetry/07-resetstore.png)
+![Bewerk de continue export openen en sluiten thee bestemming voor exporteren.](./media/app-insights-export-telemetry/07-resetstore.png)
 
-Hallo continue export wordt opnieuw opgestart.
+De continue export wordt opnieuw opgestart.
 
 ## <a name="export-samples"></a>Exporteren van voorbeelden
 
-* [Met Stream Analytics tooSQL exporteren][exportasa]
+* [Exporteren naar SQL met Stream Analytics][exportasa]
 * [Stream Analytics voorbeeld 2](app-insights-export-stream-analytics.md)
 
-Overweeg op grotere schaal [HDInsight](https://azure.microsoft.com/services/hdinsight/) -Hadoop-clusters in Hallo cloud. HDInsight biedt een reeks technologieën voor het beheren en analyseren van grote gegevens en u tooprocess gegevens die zijn geëxporteerd uit de Application Insights kan gebruiken.
+Overweeg op grotere schaal [HDInsight](https://azure.microsoft.com/services/hdinsight/) -Hadoop-clusters in de cloud. HDInsight biedt een reeks technologieën voor het beheren en analyseren van grote gegevens en u deze kunt gebruiken om gegevens die zijn geëxporteerd uit de Application Insights te verwerken.
 
 ## <a name="q--a"></a>Vragen en antwoorden
 * *Maar alle gewenste is een eenmalige download van een grafiek.*  
 
-    Ja, kunt u dat doen. Klik boven Hallo van Hallo-blade op **gegevens exporteren**.
+    Ja, kunt u dat doen. Klik boven aan de blade op **gegevens exporteren**.
 * *Ik heb een export ingesteld, maar er zijn geen gegevens in de winkel.*
 
-    Heeft Application Insights ontvangen alle telemetrie van uw app omdat u Hallo export instellen? U ontvangt alleen nieuwe gegevens.
-* *Tooset up exporteren van een geprobeerd, maar is toegang geweigerd*
+    Heeft Application Insights ontvangen alle telemetrie van uw app omdat u de export instellen? U ontvangt alleen nieuwe gegevens.
+* *Geprobeerd een export instellen, maar is toegang geweigerd*
 
-    Als Hallo account eigendom is van uw organisatie, hebt u toobe lid is van Hallo eigenaars of inzenders groepen.
-* *Kan ik rechte toomy eigen lokale store exporteren?*
+    Als het account eigendom is van uw organisatie, moet u lid zijn van de groepen eigenaars of medewerkers.
+* *Kan ik meteen naar mijn eigen winkel lokale exporteren?*
 
     Nee, momenteel. De engine voor het exporteren wordt momenteel alleen ondersteund met Azure storage op dit moment.  
-* *Is er limiet toohello hoeveelheid gegevens die u in Mijn archief plaatsen?*
+* *Is er een limiet voor de hoeveelheid gegevens die u in Mijn archief plaatsen?*
 
-    Nee. We je houden gegevens worden gepusht totdat u Hallo export verwijdert. We stopt als wij Hallo buitenste limieten voor blob-opslag bereikt, maar dat is heel groot. Is tooyou toocontrol hoeveel opslagruimte die u gebruikt.  
-* *Hoeveel blobs moet ik Zie in Hallo storage?*
+    Nee. We je houden gegevens worden gepusht totdat u de export verwijdert. We stopt als we de buitenste limieten voor blob-opslag bereikt, maar dat heel groot is. Het is aan u om te bepalen hoeveel opslagruimte die u gebruikt.  
+* *Hoeveel blobs moet ik Zie in de opslag?*
 
-  * Voor elk gegevenstype u wordt geselecteerde tooexport, een nieuwe blob elke minuut gemaakt (als de gegevens beschikbaar is).
+  * Voor elk gegevenstype dat u hebt geselecteerd om te exporteren, wordt een nieuwe blob elke minuut gemaakt (als de gegevens beschikbaar is).
   * Bovendien voor toepassingen met intensief verkeer moet extra partitie eenheden zijn toegewezen. Elke eenheid maakt een blob in dit geval elke minuut.
-* *Ik Hallo sleutel toomy opslag opnieuw gegenereerd of Hallo-naam van de container Hallo gewijzigd en nu Hallo export niet werkt.*
+* *Ik heb de sleutel wordt opnieuw gegenereerd met mijn opslag of de naam van de container gewijzigd en nu de export niet werkt.*
 
-    Hallo export bewerken blade en open Hallo export bestemming. Laat Hallo dezelfde opslag als voorheen geselecteerd en klik op OK tooconfirm. Exporteren wordt opnieuw opgestart. Als Hallo wijzigen binnen Hallo afgelopen paar dagen was, geen gegevens verloren gaan.
-* *Kan ik Hallo export onderbreken?*
+    De export bewerken en open de blade van de bestemming exporteren. Laat dezelfde opslag als voorheen geselecteerd en klik op OK om te bevestigen. Exporteren wordt opnieuw opgestart. Als de wijziging in de afgelopen paar dagen was, geen gegevens verloren gaan.
+* *Kan ik de export onderbreken?*
 
     Ja. Klik op uitschakelen.
 
 ## <a name="code-samples"></a>Codevoorbeelden
 
 * [Stream Analytics-voorbeeld](app-insights-export-stream-analytics.md)
-* [Met Stream Analytics tooSQL exporteren][exportasa]
-* [Gedetailleerde gegevens model verwijzing voor Hallo eigenschaptypen en waarden.](app-insights-export-data-model.md)
+* [Exporteren naar SQL met Stream Analytics][exportasa]
+* [Gedetailleerde gegevens model verwijzing voor de eigenschaptypen en waarden.](app-insights-export-data-model.md)
 
 <!--Link references-->
 

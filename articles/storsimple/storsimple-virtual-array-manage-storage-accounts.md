@@ -1,6 +1,6 @@
 ---
-title: aaaManage virtuele StorSimple-matrix opslagaccountreferenties | Microsoft Docs
-description: Wordt uitgelegd hoe u Hallo StorSimple Apparaatbeheer configureren pagina tooadd, bewerken, verwijderen of draaien Hallo beveiligingssleutels voor opslagaccountreferenties die zijn gekoppeld aan Hallo virtuele StorSimple-matrix gebruiken kunt.
+title: Beheren van virtuele StorSimple-matrix opslagaccountreferenties | Microsoft Docs
+description: Legt uit hoe u kunt de pagina StorSimple Apparaatbeheer configureren wilt toevoegen, bewerken, verwijderen of de beveiligingssleutels voor opslagaccountreferenties die zijn gekoppeld aan de virtuele StorSimple-matrix draaien.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 22a0341eae0b89020065be4dbfaae77999f8be0d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a4ce2d329d0e1399cffaf886adf2b95e34b9cd7b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="use-storsimple-device-manager-toomanage-storage-account-credentials-for-storsimple-virtual-array"></a>Gebruik StorSimple Apparaatbeheer toomanage opslagaccountreferenties voor virtuele StorSimple-matrix
+# <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Het StorSimple-Apparaatbeheer gebruiken voor het beheren van opslagaccountreferenties voor virtuele StorSimple-matrix
 
 ## <a name="overview"></a>Overzicht
-Hallo **configuratie** sectie van Hallo StorSimple Apparaatbeheer service blade van uw virtuele StorSimple-matrix geeft Hallo wereldwijde serviceparameters die kunnen worden gemaakt in Hallo StorSimple Manager-service. Deze parameters zijn toegepaste tooall Hallo apparaten verbonden toohello service, en omvatten:
+De **configuratie** sectie van de StorSimple-apparaat Manager service-blade van uw virtuele StorSimple-matrix geeft de algemene service-parameters die kunnen worden gemaakt in de StorSimple Manager-service. Deze parameters kunnen worden toegepast op alle apparaten die zijn verbonden met de service en omvatten:
 
 * Opslagaccountreferenties
 * Access control-records
   
   ![Apparaatbeheer servicedashboard](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccts-dashboard.png)  
 
-Deze zelfstudie wordt uitgelegd hoe u kunt toevoegen, bewerken of verwijderen van opslagaccountreferenties voor uw virtuele StorSimple-matrix. Hallo-informatie in deze zelfstudie is alleen van toepassing toohello virtuele StorSimple-matrix. Zie voor informatie over hoe toomanage opslagaccounts in 8000-serie, [gebruik Hallo StorSimple Manager service toomanage uw storage-account](storsimple-manage-storage-accounts.md).
+Deze zelfstudie wordt uitgelegd hoe u kunt toevoegen, bewerken of verwijderen van opslagaccountreferenties voor uw virtuele StorSimple-matrix. De informatie in deze zelfstudie is alleen van toepassing op de virtuele StorSimple-matrix. Zie voor meer informatie over het beheren van de storage-accounts in 8000 serie [de StorSimple Manager-service gebruiken voor het beheren van uw opslagaccount](storsimple-manage-storage-accounts.md).
 
-Storage-account referenties bevatten Hallo-referenties die Hallo apparaat gebruikt tooaccess uw storage-account met uw cloudserviceprovider. Voor Microsoft Azure storage-accounts zijn referenties zoals Hallo-accountnaam en het Hallo primaire toegangssleutel.
+Opslagaccountreferenties bevatten de referenties die het apparaat gebruikt voor toegang tot uw storage-account bij uw serviceprovider voor de cloud. Voor Microsoft Azure storage-accounts zijn referenties zoals de accountnaam en de primaire toegangssleutel.
 
-Op Hallo **opslagaccountreferenties** blade, alle storage-account referenties die zijn gemaakt voor abonnement facturering Hallo worden weergegeven in tabelvorm met Hallo volgende informatie:
+Op de **opslagaccountreferenties** blade, alle opslagaccountreferenties die zijn gemaakt voor de facturering abonnement worden weergegeven in tabelvorm met de volgende gegevens:
 
-* **Naam** – Hallo toohello-account van de unieke naam die is toegewezen toen deze werd gemaakt.
-* **SSL ingeschakeld** – of hello SSL is ingeschakeld en apparaat-naar-cloud-communicatie via Hallo beveiligd kanaal.
+* **Naam** – de unieke naam toegewezen aan het account wanneer deze is gemaakt.
+* **SSL ingeschakeld** : of het SSL is ingeschakeld en apparaat-naar-cloud-communicatie is via het beveiligde kanaal.
   
   ![Configuratiesectie](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccountcredentials-blade.png)
 
-Hallo meest algemene taken gerelateerd toostorage accountreferenties op die kunnen worden uitgevoerd op Hallo **opslagaccountreferenties** blade zijn:
+De meest algemene taken gerelateerd aan de opslagaccountreferenties die kunnen worden uitgevoerd op de **opslagaccountreferenties** blade zijn:
 
 * Een opslagaccountreferentie toevoegen
 * Een referentie storage-account bewerken
@@ -50,67 +50,67 @@ Hallo meest algemene taken gerelateerd toostorage accountreferenties op die kunn
 ## <a name="types-of-storage-account-credentials"></a>Typen opslagaccountreferenties
 Er zijn drie soorten opslagaccountreferenties die kunnen worden gebruikt met uw StorSimple-apparaat.
 
-* **Automatisch gegenereerde opslagaccountreferenties** – Hallo naam geeft al aan dit type van de referentie voor storage-account automatisch wordt gegenereerd wanneer Hallo-service is gemaakt. toolearn meer informatie over hoe deze referentie storage-account is gemaakt, Zie [een nieuwe service maken](storsimple-virtual-array-manage-service.md#create-a-service).
-* **opslagaccountreferenties in Hallo serviceabonnement** – dit hello Azure storage-account zijn de referenties die zijn gekoppeld aan hetzelfde abonnement als die van de service Hallo Hallo. toolearn meer informatie over hoe deze opslagaccountreferenties worden gemaakt, Zie [over Azure Storage-Accounts](../storage/common/storage-create-storage-account.md).
-* **opslagaccountreferenties buiten het serviceabonnement Hallo** : dit hello Azure storage-accountreferenties die niet gekoppeld aan uw service zijn zijn en dat waarschijnlijk al bestond voordat Hallo-service is gemaakt.
+* **Automatisch gegenereerde opslagaccountreferenties** – zoals de naam al aangeeft, dit type van de referentie voor storage-account automatisch wordt gegenereerd wanneer de service is gemaakt. Zie voor meer informatie over hoe deze referentie storage-account is gemaakt, [een nieuwe service maken](storsimple-virtual-array-manage-service.md#create-a-service).
+* **opslagaccountreferenties in het serviceabonnement** : dit zijn de Azure storage-accountreferenties die gekoppeld aan hetzelfde abonnement als die van de service zijn. Zie voor meer informatie over hoe deze storage-accountreferenties zijn gemaakt, [over Azure Storage-Accounts](../storage/common/storage-create-storage-account.md).
+* **opslagaccountreferenties buiten het serviceabonnement** : dit zijn de Azure storage-accountreferenties die niet zijn gekoppeld aan uw service en waarschijnlijk bestonden voordat de service is gemaakt.
 
 ## <a name="add-a-storage-account-credential"></a>Een opslagaccountreferentie toevoegen
-U kunt een account referentie tooyour StorSimple Apparaatbeheer service opslagconfiguratie toevoegen door een unieke beschrijvende naam en de referenties die zijn gekoppeld toohello storage-account. U hebt ook Hallo optie Hallo secure sockets layer (SSL) modus toocreate een beveiligd kanaal voor netwerkcommunicatie tussen uw apparaat en Hallo cloud inschakelen.
+U kunt een referentie storage-account toevoegen aan uw serviceconfiguratie Manager voor StorSimple-apparaat door een unieke, beschrijvende naam en -referenties die zijn gekoppeld aan het storage-account te geven. U hebt ook de optie voor het inschakelen van de secure sockets layer (SSL)-modus voor het maken van een beveiligd kanaal voor netwerkcommunicatie tussen uw apparaat en de cloud.
 
-U kunt meerdere accounts maken voor een bepaalde cloud serviceprovider. Tijdens het Hallo storage-accountreferentie wordt opgeslagen, probeert Hallo service toocommunicate bij uw serviceprovider voor de cloud. Hallo-referenties en Hallo toegang materiaal dat u hebt opgegeven worden op dit moment geverifieerd. Een referentie storage-account wordt alleen gemaakt als Hallo-verificatie is geslaagd. Als het Hallo-verificatie is mislukt, wordt een foutbericht weergegeven weergegeven.
+U kunt meerdere accounts maken voor een bepaalde cloud serviceprovider. Terwijl de storage-accountreferenties wordt opgeslagen, wordt de service probeert om te communiceren met uw serviceprovider voor de cloud. De referenties en de toegang tot materiaal dat u hebt opgegeven worden op dit moment geverifieerd. Een referentie storage-account wordt alleen gemaakt als de verificatie is geslaagd. Als de verificatie is mislukt, wordt een foutbericht weergegeven weergegeven.
 
-Gebruik Hallo procedures tooadd Azure storage-accountreferenties te volgen:
+Gebruik de volgende procedures om toe te voegen aan Azure storage-accountreferenties:
 
-* een storage account referentie tooadd Hallo hetzelfde Azure-abonnement als Hallo Apparaatbeheer service
-* een Azure storage-account-referentie die buiten het abonnement voor Apparaatbeheer Hallo tooadd
+* Toevoegen van een referentie storage-account met de dezelfde Azure-abonnement als de service voor Apparaatbeheer
+* Toevoegen van een Azure storage-account-referentie die buiten het serviceabonnement Apparaatbeheer
 
-#### <a name="tooadd-a-storage-account-credential-that-has-hello-same-azure-subscription-as-hello-device-manager-service"></a>een storage account referentie tooadd Hallo hetzelfde Azure-abonnement als Hallo Apparaatbeheer service
+#### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>Toevoegen van een referentie storage-account met de dezelfde Azure-abonnement als de service voor Apparaatbeheer
 
-1. Ga tooyour Apparaatbeheer, selecteer service en dubbelklik erop. Hiermee opent u Hallo **overzicht** blade.
-2. Selecteer **opslagaccountreferenties** binnen Hallo **configuratie** sectie.
+1. Navigeer naar uw service Apparaatbeheer, selecteert en dubbelklik erop. Hiermee opent u de **overzicht** blade.
+2. Selecteer **opslagaccountreferenties** binnen de **configuratie** sectie.
 3. Klik op **Add**.
-4. In Hallo **een opslagaccount toevoegen** blade Hallo te volgen:
+4. In de **een opslagaccount toevoegen** blade het volgende doen:
    
     1. Voor **abonnement**, selecteer **huidige**.
-    2. Hallo-naam van uw Azure storage-account opgeven.
-    3. Selecteer **inschakelen** toocreate een beveiligd kanaal voor netwerkcommunicatie tussen uw StorSimple-apparaat en het Hallo-cloud. Selecteer **uitschakelen** alleen als u in een privécloud werkt.
-    4. Klik op **Add**. U wordt gewaarschuwd nadat Hallo storage-account is gemaakt.<br></br>
+    2. Geef de naam van uw Azure storage-account.
+    3. Selecteer **inschakelen** voor het maken van een beveiligd kanaal voor netwerkcommunicatie tussen uw StorSimple-apparaat en de cloud. Selecteer **uitschakelen** alleen als u in een privécloud werkt.
+    4. Klik op **Add**. U wordt gewaarschuwd nadat het opslagaccount is gemaakt.<br></br>
    
         ![Een bestaande referentie voor de storage-account toevoegen](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
-#### <a name="tooadd-an-azure-storage-account-credential-that-is-outside-of-hello-device-manager-service-subscription"></a>een Azure storage-account-referentie die buiten het abonnement voor Apparaatbeheer Hallo tooadd
+#### <a name="to-add-an-azure-storage-account-credential-that-is-outside-of-the-device-manager-service-subscription"></a>Toevoegen van een Azure storage-account-referentie die buiten het serviceabonnement Apparaatbeheer
 
-1. Ga tooyour Apparaatbeheer, selecteer service en dubbelklik erop. Hiermee opent u Hallo **overzicht** blade.
-2. Selecteer **opslagaccountreferenties** binnen Hallo **configuratie** sectie. Hiermee worden alle bestaande opslagaccountreferenties hello StorSimple-apparaat Manager-service gekoppeld.
+1. Navigeer naar uw service Apparaatbeheer, selecteert en dubbelklik erop. Hiermee opent u de **overzicht** blade.
+2. Selecteer **opslagaccountreferenties** binnen de **configuratie** sectie. Hiermee worden alle bestaande opslagaccountreferenties die zijn gekoppeld aan de service Manager voor StorSimple-apparaat.
 3. Klik op **Add**.
-4. In Hallo **een opslagaccount toevoegen** blade Hallo te volgen:
+4. In de **een opslagaccount toevoegen** blade het volgende doen:
    
     1. Voor **abonnement**, selecteer **andere**.
    
-    2. Hallo-naam van uw Azure storage-accountreferenties opgeven.
+    2. Geef de naam van uw Azure storage-accountreferenties.
    
-    3. In Hallo **toegangssleutel voor Opslagaccount** tekstvak levering Hallo primaire toegangssleutel voor uw Azure storage-accountreferenties. Dit key tooget toohello Azure Storage-service gaat, selecteer uw storage-referentie voor account en klikt u op **account sleutels beheren**. U kunt nu de primaire toegangssleutel Hallo kopiëren.
+    3. In de **toegangssleutel voor Opslagaccount** tekst vak, de primaire toegangssleutel voor uw Azure storage-accountreferenties opgeven. Als u deze sleutel, gaat u naar de Azure Storage-service, selecteer uw storage-referentie voor account en op **account sleutels beheren**. U kunt nu de primaire toegangssleutel kopiëren.
    
-    4. tooenable SSL, klikt u op Hallo **inschakelen** knop toocreate een beveiligd kanaal voor netwerkcommunicatie tussen uw StorSimple-apparaat Manager-service en Hallo cloud. Klik op Hallo **uitschakelen** knop alleen als u in een privécloud werkt.
+    4. Voor het inschakelen van SSL, klikt u op de **inschakelen** om te maken van een beveiligd kanaal voor netwerkcommunicatie tussen uw StorSimple-apparaat Manager-service en de cloud. Klik op de **uitschakelen** knop alleen als u in een privécloud werkt.
    
-    5. Klik op **Add**. U wordt gewaarschuwd nadat Hallo storage-account-referentie is gemaakt.
+    5. Klik op **Add**. U wordt gewaarschuwd nadat de storage-account-referentie is gemaakt.
 
-5. Hallo nieuw gemaakte storage-accountreferentie wordt weergegeven op de blade van Hallo StorSimple configureren Apparaatbeheer service onder **opslagaccountreferenties**.
+5. De zojuist gemaakte storage-accountreferenties wordt weergegeven op de blade van de service StorSimple configureren Apparaatbeheer onder **opslagaccountreferenties**.
    
-    ![Een referentie storage account buiten Hallo Apparaatbeheer service-abonnement toevoegen](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-outside-storageacct.png)
+    ![Een referentie storage account buiten het Apparaatbeheer serviceabonnement toevoegen](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-outside-storageacct.png)
 
 ## <a name="edit-a-storage-account-credential"></a>Een referentie storage-account bewerken
-U kunt een storage accountreferentie die wordt gebruikt door uw apparaat kunt bewerken. Als u een referentie storage-account is momenteel in gebruik hebt bewerkt, zijn Hallo velden beschikbaar toomodify Hallo toegangssleutel en Hallo SSL-modus voor Hallo storage-accountreferenties. U kunt leveren Hallo toegangssleutel voor nieuwe opslag of wijzigen van Hallo **SSL inschakelen modus** selectie en sla de instellingen Hallo bijgewerkt.
+U kunt een storage accountreferentie die wordt gebruikt door uw apparaat kunt bewerken. Als u een referentie storage-account is momenteel in gebruik hebt bewerkt, zijn de velden beschikbaar om te wijzigen de toegangssleutel en de SSL-modus voor de storage-accountreferenties. U kunt de nieuwe toegangssleutel voor opslag opgeven of wijzigen de **SSL inschakelen modus** selectie en de bijgewerkte instellingen op te slaan.
 
-#### <a name="tooedit-a-storage-account-credential"></a>tooedit een referentie storage-account
-1. Ga tooyour Apparaatbeheer, selecteer service en dubbelklik erop. Hiermee opent u Hallo **overzicht** blade.
-2. Selecteer **opslagaccountreferenties** binnen Hallo **configuratie** sectie. Hiermee worden alle bestaande opslagaccountreferenties hello StorSimple-apparaat Manager-service gekoppeld.
-3. In Hallo in tabelvorm lijst met opslagaccountreferenties, selecteert en dubbelklikt u op dat u wilt dat toomodify Hallo-account.
-4. In de storage-accountreferenties Hallo **eigenschappen** blade Hallo te volgen:
+#### <a name="to-edit-a-storage-account-credential"></a>Een referentie storage-account bewerken
+1. Navigeer naar uw service Apparaatbeheer, selecteert en dubbelklik erop. Hiermee opent u de **overzicht** blade.
+2. Selecteer **opslagaccountreferenties** binnen de **configuratie** sectie. Hiermee worden alle bestaande opslagaccountreferenties die zijn gekoppeld aan de service Manager voor StorSimple-apparaat.
+3. Selecteer in de lijst in tabelvorm van opslagaccountreferenties en dubbelklik op het account dat u wilt wijzigen.
+4. In de storage-accountreferenties **eigenschappen** blade het volgende doen:
    
-   1. Als nodig is, u Hallo wijzigen kunt **SSL inschakelen** Modusselectie.
-   2. U kunt uw referenties toegang tot de opslagaccountsleutels tooregenerate. Zie voor meer informatie [opnieuw genereren van sleutels van opslagaccount hello](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys). Hallo nieuwe referentie opslagaccountsleutel op te geven. Dit is de primaire toegangssleutel Hallo voor een Azure storage-account.
-   3. Klik op **opslaan** bovenaan Hallo Hallo **eigenschappen** blade toosave Hallo instellingen. Hallo-instellingen zijn bijgewerkt op Hallo **opslagaccountreferenties** blade.
+   1. Indien nodig, kunt u de **SSL inschakelen** Modusselectie.
+   2. U kunt uw opslagtoegangssleutels account referentie opnieuw genereren. Zie voor meer informatie [opnieuw genereren van sleutels voor de opslagaccount](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys). De sleutel referentie van nieuwe opslagaccount op te geven. Dit is de primaire toegangssleutel voor een Azure storage-account.
+   3. Klik op **opslaan** boven aan de **eigenschappen** blade de instellingen op te slaan. De instellingen zijn bijgewerkt op de **opslagaccountreferenties** blade.
       
       ![Een referentie storage-account bewerken](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)
 
@@ -120,35 +120,35 @@ U kunt een storage accountreferentie die wordt gebruikt door uw apparaat kunt be
 > 
 > 
 
-#### <a name="toodelete-a-storage-account-credential"></a>toodelete een referentie storage-account
-1. Ga tooyour Apparaatbeheer, selecteer service en dubbelklik erop. Hiermee opent u Hallo **overzicht** blade.
-2. Selecteer **opslagaccountreferenties** binnen Hallo **configuratie** sectie. Hiermee worden alle bestaande opslagaccountreferenties hello StorSimple-apparaat Manager-service gekoppeld.
-3. In Hallo in tabelvorm lijst met opslagaccountreferenties, selecteert en dubbelklikt u op dat u wilt dat toodelete Hallo-account.
-4. In de storage-accountreferenties Hallo **eigenschappen** blade Hallo te volgen:
+#### <a name="to-delete-a-storage-account-credential"></a>Een referentie storage-account verwijderen
+1. Navigeer naar uw service Apparaatbeheer, selecteert en dubbelklik erop. Hiermee opent u de **overzicht** blade.
+2. Selecteer **opslagaccountreferenties** binnen de **configuratie** sectie. Hiermee worden alle bestaande opslagaccountreferenties die zijn gekoppeld aan de service Manager voor StorSimple-apparaat.
+3. Selecteer in de lijst in tabelvorm van opslagaccountreferenties en dubbelklik op het account dat u wilt verwijderen.
+4. In de storage-accountreferenties **eigenschappen** blade het volgende doen:
    
-   1. Klik op **verwijderen** toodelete Hallo referenties.
-   2. Wanneer u om bevestiging gevraagd, klikt u op **Ja** toocontinue met Hallo verwijderen. Hallo in tabelvorm aanbieding is bijgewerkte tooreflect Hallo wijzigingen.
+   1. Klik op **verwijderen** als de referenties wilt verwijderen.
+   2. Wanneer u om bevestiging gevraagd, klikt u op **Ja** om door te gaan met het verwijderen. In de lijst in tabelvorm is bijgewerkt, zodat de wijzigingen.
       
       ![Een referentie storage-account verwijderen](./media/storsimple-virtual-array-manage-storage-accounts/ova-del-storageacct.png)
 
 ## <a name="synchronizing-storage-account-credential-keys"></a>Referentie opslagaccountsleutels synchroniseren
-Uit veiligheidsoverwegingen is sleutel rotatie vaak een vereiste in datacenters. De beheerder van een Microsoft Azure kunt genereren of Hallo primaire of secundaire sleutel wijzigen door rechtstreeks toegang hebben tot Hallo storage-accountreferentie (via Hallo Microsoft Azure Storage-service). Hallo StorSimple-apparaat Manager-service heeft deze wijziging niet automatisch weergegeven.
+Uit veiligheidsoverwegingen is sleutel rotatie vaak een vereiste in datacenters. Een Microsoft Azure-beheerder kan genereren of wijzigen van de primaire of secundaire sleutel door rechtstreeks toegang hebben tot de storage-accountreferenties (via de Microsoft Azure Storage-service). De StorSimple-apparaat Manager-service heeft deze wijziging niet automatisch weergegeven.
 
-tooinform Hallo Apparaatbeheer StorSimple-service van het Hallo wijzigen, moet u tooaccess Hallo Apparaatbeheer StorSimple-service, toegang tot Hallo opslag referentie-account en vervolgens synchroniseren Hallo primaire of secundaire sleutel (afhankelijk van wat is gewijzigd). Hallo-service vervolgens opgehaald van de meest recente sleutel hello, codeert Hallo-sleutels, en stuurt Hallo sleutel toohello apparaat versleuteld.
+Om te informeren over de service Manager voor StorSimple-apparaat van de wijziging, moet u toegang tot de service Manager voor StorSimple-apparaat toegang tot de storage-accountreferenties en synchroniseert u de primaire of secundaire sleutel (afhankelijk van welk is gewijzigd). De service vervolgens de meest recente sleutel opgehaald, versleutelt de sleutels en verzendt de versleutelde sleutel naar het apparaat.
 
-#### <a name="toosynchronize-keys-for-storage-account-credentials-in-hello-same-subscription-as-hello-service-azure-only"></a>toosynchronize sleutels voor opslagaccountreferenties in Hallo hetzelfde abonnement als Hallo-service (alleen Azure)
-1. Selecteer uw service op Hallo service landingspagina blade, dubbelklikt u op Hallo servicenaam en klik vervolgens in Hallo **configuratie** sectie, klikt u op **opslagaccountreferenties**.
-2. Op Hallo **opslagaccountreferenties** blade in Hallo lijst met opslagaccountreferenties, selecteer Hallo storage accountreferentie waarvan sleutels die u wilt toosynchronize.
-3. In Hallo **eigenschappen** blade voor Hallo geselecteerd storage-accountreferenties, Hallo te volgen:
+#### <a name="to-synchronize-keys-for-storage-account-credentials-in-the-same-subscription-as-the-service-azure-only"></a>Synchroniseren van sleutels voor opslagaccountreferenties in hetzelfde abonnement als de service (alleen Azure)
+1. Selecteer uw service op de blade van de landingspagina service, dubbelklikt u op de servicenaam en klik vervolgens in de **configuratie** sectie, klikt u op **opslagaccountreferenties**.
+2. Op de **opslagaccountreferenties** blade in de lijst met opslagaccountreferenties, selecteer het storage-account referenties waarvan sleutels die u wilt synchroniseren.
+3. In de **eigenschappen** blade voor de referentie van de account geselecteerde opslag het volgende doen:
    
     1. Klik op **meer**, en klik vervolgens op **Sync toegangssleutel**.
    
-    2. Wanneer u om bevestiging gevraagd, klikt u op **synchronisatiesleutel** toocomplete Hallo synchronisatie.
+    2. Wanneer u om bevestiging gevraagd, klikt u op **synchronisatiesleutel** om de synchronisatie te voltooien.
     
-4. Hallo StorSimple-apparaat Manager-service moet u tooupdate Hallo sleutel die eerder is gewijzigd in Hallo Microsoft Azure Storage-service. In Hallo **synchroniseren opslagaccountsleutel** blade als de primaire toegangssleutel Hallo is gewijzigd (opnieuw gegenereerd), klikt u op de primaire en klik vervolgens op **synchronisatiesleutel**. Als de secundaire sleutel Hallo is gewijzigd, klikt u op **secundaire**, en klik vervolgens op **synchronisatiesleutel**.
+4. In de service Manager voor StorSimple-apparaat moet u de sleutel die eerder is gewijzigd in de Microsoft Azure Storage-service wordt bijgewerkt. In de **synchroniseren opslagaccountsleutel** blade als de primaire toegangssleutel is gewijzigd (opnieuw gegenereerd), klikt u op de primaire en klik vervolgens op **synchronisatiesleutel**. Als de secundaire sleutel is gewijzigd, klikt u op **secundaire**, en klik vervolgens op **synchronisatiesleutel**.
    
     ![Toegangssleutel voor synchronisatie](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-acess-key.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over hoe te[beheren van uw virtuele StorSimple-matrix](storsimple-ova-web-ui-admin.md).
+* Meer informatie over hoe [beheren van uw virtuele StorSimple-matrix](storsimple-ova-web-ui-admin.md).
 

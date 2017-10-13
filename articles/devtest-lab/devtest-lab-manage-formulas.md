@@ -1,6 +1,6 @@
 ---
-title: aaaManage formules in Azure DevTest Labs toocreate VMs | Microsoft Docs
-description: Meer informatie over hoe Azure DevTest Labs formules voor tooupdate en verwijderen
+title: Beheer formules in Azure DevTest Labs virtuele machines maken | Microsoft Docs
+description: Meer informatie over het bijwerken en verwijderen van Azure DevTest Labs formules
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -15,119 +15,119 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 855debe46f3b70cc45ea5d55869663b64e225124
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bfdab5def50158f9b764bbb1e50c2624cc6d5fb3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs formules beheren
 
 [!INCLUDE [devtest-lab-formula-definition](../../includes/devtest-lab-formula-definition.md)]
 
-Dit artikel wordt beschreven hoe toocreate een formule van een base (aangepaste installatiekopie, Marketplace-installatiekopie of een andere formule) of een bestaande virtuele machine. In dit artikel helpt u ook bij het beheren van bestaande formules.
+In dit artikel laat zien hoe een formule te maken van een base (aangepaste installatiekopie, Marketplace-installatiekopie of een andere formule) of een bestaande virtuele machine. In dit artikel helpt u ook bij het beheren van bestaande formules.
 
 ## <a name="create-a-formula"></a>Maak een formule
-Iedereen met DevTest Labs *gebruikers* machtigingen kunnen toocreate virtuele machines met een formule als basis is. Er zijn twee manieren toocreate formules: 
+Iedereen met DevTest Labs *gebruikers* machtigingen kunnen maken van virtuele machines met een formule als basis is. Er zijn twee manieren om formules te maken: 
 
-* Gebruik van een basis - als u alle Hallo kenmerken van Hallo formule toodefine wilt.
-* Van een bestaande lab VM - gebruiken als u wilt dat toocreate een formule op basis van Hallo-instellingen van een bestaande virtuele machine.
+* Gebruik van een basis - als u wilt de eigenschappen van de formule definiëren.
+* Van een bestaande lab VM - Gebruik deze optie wanneer u wilt maken van een formule op basis van de instellingen van een bestaande virtuele machine.
 
 Zie voor meer informatie over het toevoegen van gebruikers en machtigingen [eigenaars en gebruikers toevoegen in Azure DevTest Labs](./devtest-lab-add-devtest-user.md).
 
 ### <a name="create-a-formula-from-a-base"></a>Maak een formule van een basis
-Hallo stappen volgen helpt u bij het Hallo-proces voor het maken van een formule van een aangepaste installatiekopie, Marketplace-installatiekopie of een andere formule.
+De volgende stappen begeleiden u bij het proces van het maken van een formule van een aangepaste installatiekopie, Marketplace-installatiekopie of een andere formule.
 
-1. Meld u aan toohello [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-2. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit Hallo-lijst.
+2. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
 
-3. Selecteer de gewenste lab Hallo in lijst Hallo van labs.  
+3. Selecteer de gewenste testomgeving uit de lijst van labs.  
 
-4. Selecteer op Hallo van labblade, **formules (herbruikbare bases)**.
+4. Selecteer op de labblade **formules (herbruikbare bases)**.
    
     ![Menu formule](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
-5. Op Hallo **formules** blade Selecteer **+ toevoegen**.
+5. Op de **formules** blade Selecteer **+ toevoegen**.
    
     ![Een formule toevoegen](./media/devtest-lab-create-formulas/add-formula.png)
 
-6. Op Hallo **kiezen een base** blade Selecteer Hallo base (aangepaste installatiekopie, Marketplace-installatiekopie of formule) waaruit de toocreate Hallo formule.
+6. Op de **kiezen een base** blade, selecteer de base (aangepaste installatiekopie, Marketplace-installatiekopie of formule) van waaruit u wilt maken van de formule.
    
     ![Base lijst](./media/devtest-lab-create-formulas/base-list.png)
 
-7. Op Hallo **formule maken** blade Hallo volgende waarden opgeven:
+7. Op de **formule maken** blade, geef de volgende waarden:
    
-    * **Formulenaam** -Voer een naam voor de formule. Deze waarde wordt weergegeven in de lijst Hallo met basisinstallatiekopieën bij het maken van een virtuele machine. Hallo-naam wordt al gevalideerd als u deze typen, en als dat niet geldig, er wordt gemeld Hallo-vereisten voor een geldige naam.
-    * **Beschrijving** -Voer een duidelijke beschrijving voor de formule. Deze waarde is beschikbaar in het contextmenu van de formule Hallo bij het maken van een virtuele machine.
+    * **Formulenaam** -Voer een naam voor de formule. Deze waarde wordt weergegeven in de lijst met basisinstallatiekopieën wanneer u een virtuele machine maken. De naam wordt al gevalideerd als u deze typen, en als dat niet geldig, een bericht geeft aan de vereisten voor een geldige naam.
+    * **Beschrijving** -Voer een duidelijke beschrijving voor de formule. Deze waarde is beschikbaar in het contextmenu van de formule bij het maken van een virtuele machine.
     * **Gebruikersnaam** -Voer een gebruikersnaam die wordt verleend administrator-bevoegdheden.
-    * **Wachtwoord** : Geef - of Selecteer in de vervolgkeuzelijst Hallo - u op een waarde die is gekoppeld aan het Hallo-geheim (wachtwoord) wilt u toouse voor Hallo opgegeven gebruiker. Zie voor meer informatie over Hallo geheimen [Azure DevTest Labs: persoonlijke archief van de geheime](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
-    * **Virtuele machine schijftype** – Geef de harde schijf (harde schijf) of SSD (solid-state drive) tooindicate welke opslagschijf type is toegestaan voor Hallo virtuele machines zijn ingericht met behulp van deze basisinstallatiekopie.
-    * ** Virtuele machine grootte ** - Selecteer een van de vooraf gedefinieerde Hallo-items die Hallo processorcores, RAM-geheugen en grootte van de vaste schijf Hallo van Hallo VM toocreate opgeven. 
-    * **Artefacten** -Selecteer tooopen hello **artefacten toevoegen** blade die u selecteert en Hallo artefacten die u tooadd toohello basisinstallatiekopie wilt configureren. Zie voor meer informatie over artefacten [beheren VM artefacten in Azure DevTest Labs](./devtest-lab-add-vm-with-artifacts.md).
-    * **Geavanceerde instellingen** -Selecteer tooopen hello **Geavanceerd** blade waar u Hallo volgende instellingen configureren:
-        * **Virtueel netwerk** -Hallo gewenst virtueel netwerk opgeven.
-        * **Subnet** -Hallo gewenst subnet opgeven.    
-        * **IP-adresconfiguratie** -opgeven of u wilt dat Hallo Public, Private of gedeelde IP-adressen. Zie voor meer informatie over gedeelde IP-adressen [Understand gedeelde IP-adressen in Azure DevTest Labs](./devtest-lab-shared-ip.md).
-        * **Zorg dat deze machine claimable** -maken van een machine 'claimable' betekent dat deze wordt niet worden toegewezen eigendom op Hallo moment gemaakt. In plaats daarvan lab kunnen gebruikers zich kunnen tootake eigendom ("claim") Hallo machine in Hallo labblade.     
-    * **Afbeelding** -dit veld bevat de naam van Hallo basisinstallatiekopie u hebt geselecteerd op de vorige blade Hallo. 
+    * **Wachtwoord** : Geef - op of Selecteer in de vervolgkeuzelijst - een waarde die is gekoppeld aan het geheim (wachtwoord) dat u wilt gebruiken voor de opgegeven gebruiker. Zie voor meer informatie over de geheimen [Azure DevTest Labs: persoonlijke archief van de geheime](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
+    * **Virtuele machine schijftype** – Geef de harde schijf (harde schijf) of SSD (solid-state drive) om aan te geven welk type opslagschijf is toegestaan voor de virtuele machines ingericht met behulp van deze basisinstallatiekopie.
+    * ** Virtuele machine grootte ** - Selecteer een van de vooraf gedefinieerde items die de processor-cores, RAM-geheugen en de grootte van de vaste schijf van de virtuele machine maken opgeven. 
+    * **Artefacten** - wilt openen de **artefacten toevoegen** blade, waarin u gegevens kunt selecteren en configureren van de artefacten die u wilt toevoegen aan de basisinstallatiekopie. Zie voor meer informatie over artefacten [beheren VM artefacten in Azure DevTest Labs](./devtest-lab-add-vm-with-artifacts.md).
+    * **Geavanceerde instellingen** - wilt openen de **Geavanceerd** blade waar u de volgende instellingen configureren:
+        * **Virtueel netwerk** -Geef de gewenste virtuele netwerk.
+        * **Subnet** -Geef de gewenste subnet.    
+        * **IP-adresconfiguratie** -opgeven of u wilt dat de Public, Private of gedeelde IP-adressen. Zie voor meer informatie over gedeelde IP-adressen [Understand gedeelde IP-adressen in Azure DevTest Labs](./devtest-lab-shared-ip.md).
+        * **Zorg dat deze machine claimable** -maken van een machine 'claimable' betekent dat deze wordt niet worden toegewezen eigendom op het moment van maken. In plaats daarvan zich lab gebruikers eigenaar ("claim") de machine zich in het lab-blade.     
+    * **Afbeelding** -dit veld bevat de naam van de basisinstallatiekopie die u hebt geselecteerd op de vorige blade. 
      
        ![Formule maken](./media/devtest-lab-create-formulas/create-formula.png)
 
-8. Selecteer **maken** toocreate Hallo formule.
+8. Selecteer **maken** om de formule te maken.
 
-9. Wanneer het Hallo-formule is gemaakt, wordt weergegeven in de lijst Hallo op Hallo **formules** blade.
+9. Wanneer de formule is gemaakt, wordt weergegeven in de lijst op de **formules** blade.
 
 ### <a name="create-a-formula-from-a-vm"></a>Maak een formule van een virtuele machine
-Hallo volgende stappen begeleiden u bij Hallo-proces voor het maken van een formule op basis van een bestaande virtuele machine. 
+De volgende stappen begeleiden u bij het proces van het maken van een formule op basis van een bestaande VM. 
 
 > [!NOTE]
-> toocreate een formule van een virtuele machine, Hallo VM moet zijn gemaakt na 30 maart 2016. 
+> Als u wilt een formule van een virtuele machine maakt, moet de virtuele machine zijn gemaakt na 30 maart 2016. 
 > 
 > 
 
-1. Meld u aan toohello [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit Hallo-lijst.
-3. Selecteer de gewenste lab Hallo in lijst Hallo van labs.  
-4. Op de Hallo lab **overzicht** blade Selecteer Hallo VM van waaruit u wilt dat toocreate Hallo formule.
+1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+2. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
+3. Selecteer de gewenste testomgeving uit de lijst van labs.  
+4. Op de testomgeving **overzicht** blade, selecteert u de virtuele machine van waaruit u wilt maken van de formule.
    
     ![Virtuele machines Labs](./media/devtest-lab-create-formulas/my-vms.png)
-5. Selecteer op de blade Hallo van de virtuele machine **formule (op basis van herbruikbare) maken**.
+5. Selecteer op de VM-blade **formule (op basis van herbruikbare) maken**.
    
     ![Formule maken](./media/devtest-lab-create-formulas/create-formula-menu.png)
-6. Op Hallo **formule maken** blade, voer een **naam** en **beschrijving** voor uw nieuwe formule.
+6. Op de **formule maken** blade, voer een **naam** en **beschrijving** voor uw nieuwe formule.
    
     ![Formule blade maken](./media/devtest-lab-create-formulas/create-formula-blade.png)
-7. Selecteer **OK** toocreate Hallo formule.
+7. Selecteer **OK** om de formule te maken.
 
 ## <a name="modify-a-formula"></a>Een formule wijzigen
-een formule toomodify als volgt te werk:
+Volg deze stappen voor het wijzigen van een formule:
 
-1. Meld u aan toohello [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit Hallo-lijst.
-3. Selecteer de gewenste lab Hallo in lijst Hallo van labs.  
-4. Selecteer op Hallo van labblade, **formules (herbruikbare bases)**.
+1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+2. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
+3. Selecteer de gewenste testomgeving uit de lijst van labs.  
+4. Selecteer op de labblade **formules (herbruikbare bases)**.
    
     ![Menu formule](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
-5. Op Hallo **Lab formules** blade, selecteer Hallo-formule die u wenst dat toomodify.
-6. Op Hallo **formule bijwerken** blade Hallo gewenst bewerkingen en selecteer **Update**.
+5. Op de **Lab formules** blade, selecteer de formule die u wilt wijzigen.
+6. Op de **formule bijwerken** blade Breng de gewenste wijzigingen en selecteer **Update**.
 
 ## <a name="delete-a-formula"></a>Verwijderen van een formule
-een formule toodelete als volgt te werk:
+Volg deze stappen voor het verwijderen van een formule:
 
-1. Meld u aan toohello [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit Hallo-lijst.
-3. Selecteer de gewenste lab Hallo in lijst Hallo van labs.  
-4. Op Hallo lab **instellingen** blade Selecteer **formules**.
+1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+2. Selecteer **meer Services**, en selecteer vervolgens **DevTest Labs** uit de lijst.
+3. Selecteer de gewenste testomgeving uit de lijst van labs.  
+4. Op de testomgeving **instellingen** blade Selecteer **formules**.
    
     ![Menu formule](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
-5. Op Hallo **Lab formules** blade, selecteer Hallo weglatingsteken toohello rechts van de formule Hallo gewenste toodelete.
+5. Op de **Lab formules** blade, selecteer het weglatingsteken rechts van de formule die u wilt verwijderen.
    
     ![Menu formule](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
-6. Selecteer in het contextmenu van de formule hello, **verwijderen**.
+6. Selecteer in het contextmenu van de formule, **verwijderen**.
    
     ![Formule contextmenu](./media/devtest-lab-manage-formulas/formula-delete-context-menu.png)
-7. Selecteer **Ja** toohello verwijdering bevestigen.
+7. Selecteer **Ja** naar het bevestigingsvenster verwijderen.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -135,5 +135,5 @@ een formule toodelete als volgt te werk:
 * [Aangepaste installatiekopieën of formules?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u een formule voor gebruik gemaakt hebt bij het maken van een virtuele machine, Hallo volgende stap is te[toevoegen van een VM tooyour lab](devtest-lab-add-vm-with-artifacts.md).
+Nadat u een formule voor gebruik gemaakt hebt bij het maken van een virtuele machine, de volgende stap is het [een virtuele machine toevoegen aan uw testomgeving](devtest-lab-add-vm-with-artifacts.md).
 

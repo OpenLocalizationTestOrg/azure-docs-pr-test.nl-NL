@@ -1,5 +1,5 @@
 ---
-title: aaaRun taken onder gebruikersaccounts in Azure Batch | Microsoft Docs
+title: Uitvoeren van taken onder gebruikersaccounts in Azure Batch | Microsoft Docs
 description: Gebruikersaccounts voor het uitvoeren van taken in Azure Batch configureren
 services: batch
 author: tamram
@@ -14,85 +14,85 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
-ms.openlocfilehash: 13d7d76451d89a3cca090c4ef24ed0ed781bbf09
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d408c0565c0ed81fc97cc2b3976a4fc233e31302
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Taken onder gebruikersaccounts in Batch uitvoeren
 
-Een taak in Azure Batch wordt altijd uitgevoerd onder een gebruikersaccount. Taken worden standaard uitgevoerd onder standaardgebruikersaccounts zonder beheerdersrechten. Deze standaardinstellingen voor het account van gebruiker zijn meestal voldoende. Voor bepaalde scenario's is het echter handig toobe kunnen tooconfigure Hallo gebruikersaccount waaronder u een taak toorun. Dit artikel wordt beschreven Hallo typen gebruikersaccounts en hoe u ze kunt configureren voor uw scenario.
+Een taak in Azure Batch wordt altijd uitgevoerd onder een gebruikersaccount. Taken worden standaard uitgevoerd onder standaardgebruikersaccounts zonder beheerdersrechten. Deze standaardinstellingen voor het account van gebruiker zijn meestal voldoende. Voor bepaalde scenario's is het echter handig om te kunnen configureren van het gebruikersaccount waaronder u wilt dat een taak wordt uitgevoerd. Dit artikel wordt beschreven welke typen gebruikersaccounts en hoe u ze kunt configureren voor uw scenario.
 
 ## <a name="types-of-user-accounts"></a>Typen gebruikersaccounts
 
 Azure Batch biedt twee soorten gebruikersaccounts voor het uitvoeren van taken:
 
-- **Automatische gebruikersaccounts.** Automatische-gebruikersaccounts zijn ingebouwde gebruikersaccounts die automatisch worden gemaakt door Hallo Batch-service. Taken worden standaard uitgevoerd onder een auto-gebruikersaccount. Hallo automatisch gebruiker specificatie voor een taak tooindicate onder welke auto-user account een taak moet worden uitgevoerd, kunt u configureren. Hallo automatisch gebruiker specificatie kunt u toospecify Hallo uitbreiding van bevoegdheden niveau en het bereik van Hallo auto-gebruikersaccount dat Hallo-taak wordt uitgevoerd. 
+- **Automatische gebruikersaccounts.** Automatische-gebruikersaccounts zijn ingebouwde gebruikersaccounts die automatisch worden gemaakt door de Batch-service. Taken worden standaard uitgevoerd onder een auto-gebruikersaccount. U kunt de specificatie automatisch gebruiker voor een taak om aan te geven onder welke automatisch gebruikersaccount een taak moet worden uitgevoerd. De specificatie auto-gebruiker kunt u opgeven van het niveau van de uitbreiding van bevoegdheden en het bereik van de automatische-gebruikersaccount op dat de taak wordt uitgevoerd. 
 
-- **Een benoemde gebruikersaccount.** U kunt een of meer benoemde gebruikersaccounts voor een pool opgeven wanneer u Hallo groep maakt. Elk gebruikersaccount wordt gemaakt op elk knooppunt van het Hallo-groep. Bovendien toohello accountnaam, u Hallo het wachtwoord voor gebruikersaccount, uitbreiding van bevoegdheden opgeven niveau en, voor Linux-opslaggroepen, persoonlijke Hallo SSH-sleutel. Wanneer u een taak toevoegt, kunt u Hallo gebruikersaccount waaronder de taak die moet worden uitgevoerd met de naam opgeven.
+- **Een benoemde gebruikersaccount.** U kunt een of meer benoemde gebruikersaccounts voor een pool opgeven wanneer u de groep maakt. Elk gebruikersaccount wordt gemaakt op elk knooppunt van de groep. Naast de accountnaam Geef wachtwoord voor het gebruikersaccount, uitbreiding van bevoegdheden niveau en, voor Linux-toepassingen, de persoonlijke SSH-sleutel. Wanneer u een taak toevoegt, kunt u de benoemde gebruikersaccount waaronder de taak die moet worden uitgevoerd.
 
 > [!IMPORTANT] 
-> Hallo Batch-serviceversie 2017-01-01.4.0 bevat een belangrijke wijziging die is vereist dat u uw code toocall die versie bijwerken. Als u de code migreren van een oudere versie van Batch, houd er rekening mee dat Hallo **runElevated** eigenschap wordt niet meer ondersteund in Hallo REST-API of Batch clientbibliotheken. Gebruik Hallo nieuwe **userIdentity** eigenschap van een taak toospecify uitbreiding van bevoegdheden niveau. Zie de sectie Hallo [bijwerken van uw code toohello nieuwste Batch-clientbibliotheek](#update-your-code-to-the-latest-batch-client-library) voor snelle richtlijnen voor het bijwerken van uw Batch-code als u van een Hallo clientbibliotheken gebruikmaakt.
+> Versie van de Batch-service 2017-01-01.4.0 introduceert een belangrijke wijziging die is vereist dat u uw code om aan te roepen die versie bijwerken. Als u de code migreren van een oudere versie van Batch, houd er rekening mee dat de **runElevated** eigenschap wordt niet meer ondersteund in de REST-API of Batch-clientbibliotheken. Gebruik het nieuwe **userIdentity** eigenschap van een taak om uitbreiding van bevoegdheden op te geven. Zie de sectie [werk uw code naar de meest recente Batch-clientbibliotheek](#update-your-code-to-the-latest-batch-client-library) voor snelle richtlijnen voor het bijwerken van uw Batch-code als u een van de clientbibliotheken.
 >
 >
 
 > [!NOTE] 
-> Hallo-gebruikersaccounts die in dit artikel wordt besproken ondersteunen geen Remote Desktop Protocol (RDP) of Secure Shell (SSH), uit veiligheidsoverwegingen. 
+> De gebruikersaccounts die in dit artikel wordt besproken ondersteunen geen Remote Desktop Protocol (RDP) of Secure Shell (SSH), uit veiligheidsoverwegingen. 
 >
-> tooconnect tooa knooppunt actief Hallo Linux Virtuele-machineconfiguratie via SSH, Zie [gebruik extern bureaublad-tooa Linux VM in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). tooconnect toonodes waarop Windows wordt uitgevoerd via RDP, Zie [verbinding maken met Windows Server-VM tooa](../virtual-machines/windows/connect-logon.md).<br /><br />
-> tooconnect tooa actieve Hallo cloud service knooppuntconfiguratie via RDP, Zie [extern bureaublad inschakelen voor een rol in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+> Zie voor verbinding met een knooppunt met de configuratie van de Linux-virtuele machine via SSH, [extern bureaublad gebruiken voor een Linux-VM in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Zie voor verbinding met knooppunten waarop Windows wordt uitgevoerd via RDP, [verbinding maken met een Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Zie voor verbinding met een knooppunt met de configuratie van de cloud-service via RDP, [extern bureaublad inschakelen voor een rol in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 >
 >
 
-## <a name="user-account-access-toofiles-and-directories"></a>Gebruiker account toegang toofiles en mappen
+## <a name="user-account-access-to-files-and-directories"></a>Gebruikersaccount toegang tot bestanden en mappen
 
-Zowel een auto-gebruikersaccount en een benoemde gebruikersaccount hebben lezen/schrijven toegang toohello van taak-werkmap, gedeelde map en meerdere exemplaren taken directory. Beide typen accounts hebben leestoegang toohello opstart- en voorbereiding mappen.
+Zowel een auto-gebruikersaccount en een benoemde gebruikersaccount hebben lezen/schrijven toegang tot de werkmap, gedeelde map en meerdere exemplaren taken directory van de taak. Beide typen accounts beschikken over leestoegang tot de opstart- en voorbereiding-mappen.
 
-Als een taak wordt uitgevoerd onder Hallo hetzelfde account dat is gebruikt voor het uitvoeren van een begintaak, Hallo taak heeft lees-/ schrijftoegang toohello beginmap taak. Op dezelfde manier als een taak wordt uitgevoerd onder Hallo hetzelfde account dat is gebruikt voor het uitvoeren van een jobvoorbereidingstaak, Hallo taak heeft lees-/ schrijftoegang toohello taak voorbereiding taakmap. Als een taak wordt uitgevoerd onder een ander account dan Hallo begintaak of jobvoorbereidingstaak, heeft de taak Hallo alleen leestoegang toohello respectieve directory.
+Als een taak wordt uitgevoerd onder hetzelfde account dat is gebruikt voor het uitvoeren van een taak gestart, heeft de taak lees-/ schrijftoegang tot de map van de taak is gestart. Op dezelfde manier als een taak wordt uitgevoerd onder hetzelfde account dat is gebruikt voor het uitvoeren van een jobvoorbereidingstaak, de taak lezen-schrijven toegang heeft tot de taakmap taak voorbereiding. Als een taak wordt uitgevoerd onder een ander account dan de begintaak of jobvoorbereidingstaak, heeft de taak alleen leestoegang tot de betreffende map.
 
 Zie voor meer informatie over de toegang tot bestanden en mappen uit een taak [ontwikkelen grootschalige parallelle compute-oplossingen met Batch](batch-api-basics.md#files-and-directories).
 
 ## <a name="elevated-access-for-tasks"></a>Toegang met verhoogde bevoegdheid voor taken 
 
-Hallo-gebruikersaccount van uitbreiding van bevoegdheden niveau geeft aan of een taak wordt uitgevoerd met verhoogde toegang. Zowel een auto-gebruikersaccount en een benoemde gebruikersaccount kunnen uitvoeren met verhoogde toegang. Hallo twee opties voor het niveau van de uitbreiding van bevoegdheden zijn:
+Het gebruikersaccount uitbreiding van bevoegdheden niveau geeft aan of een taak wordt uitgevoerd met verhoogde toegang. Zowel een auto-gebruikersaccount en een benoemde gebruikersaccount kunnen uitvoeren met verhoogde toegang. De twee opties voor uitbreiding van bevoegdheden niveau zijn:
 
-- **NonAdmin:** Hallo-taak wordt uitgevoerd als standaardgebruiker zonder verhoogde toegang. Hallo standaardniveau uitbreiding van bevoegdheden voor een Batch-gebruikersaccount is altijd **NonAdmin**.
-- **Admin:** Hallo-taak wordt uitgevoerd als een gebruiker met toegang met verhoogde bevoegdheid en werkt met volledige Administrator-machtigingen. 
+- **NonAdmin:** de taak wordt uitgevoerd als standaardgebruiker zonder verhoogde toegang. Het standaardniveau voor uitbreiding van bevoegdheden voor een Batch-gebruikersaccount is altijd **NonAdmin**.
+- **Admin:** de taak wordt uitgevoerd als een gebruiker met toegang met verhoogde bevoegdheid en werkt met volledige Administrator-machtigingen. 
 
 ## <a name="auto-user-accounts"></a>Automatische gebruikersaccounts
 
-Standaard uitvoeren taken in Batch onder een auto-gebruikersaccount als standaardgebruiker zonder verhoogde toegang tot en met bereik van de taak. Wanneer Hallo automatisch gebruiker specificatie is geconfigureerd voor het bereik van de taak, maakt Hallo Batch-service een automatische-account voor alleen die taak.
+Standaard uitvoeren taken in Batch onder een auto-gebruikersaccount als standaardgebruiker zonder verhoogde toegang tot en met bereik van de taak. Wanneer de gebruiker automatisch-specificatie voor taak scope is geconfigureerd, maakt de Batch-service een automatische-account voor alleen die taak.
 
-Hallo alternatieve tootask bereik is bereik van de groep van toepassingen. Wanneer Hallo automatisch gebruiker specificatie voor een taak voor het bereik van de groep van toepassingen is geconfigureerd, is Hallo-taak wordt uitgevoerd onder een auto-gebruikersaccount op dat beschikbaar tooany taak in de groep Hallo. Zie voor meer informatie over het bereik van de groep Hallo gedeelte [een taak uitvoeren zoals auto-gebruiker met een bereik van de groep Hallo](#run-a-task-as-the-autouser-with-pool-scope).   
+Het alternatief voor het bereik van de taak is bereik van de groep. Wanneer de gebruiker automatisch-specificatie voor een taak voor het bereik van de groep van toepassingen is geconfigureerd, wordt de taak wordt uitgevoerd onder een auto-gebruikersaccount op dat beschikbaar is voor elke taak in de groep. Zie het gedeelte voor meer informatie over toepassingen bereik [een taak uitvoeren als de automatische-gebruiker met een bereik van de groep](#run-a-task-as-the-autouser-with-pool-scope).   
 
-Hallo standaardbereik verschilt op Windows- en Linux-knooppunten:
+Het standaardbereik verschilt op Windows- en Linux-knooppunten:
 
 - Op Windows-knooppunten taken standaard uitgevoerd onder het bereik van de taak.
 - Linux-knooppunten kan altijd worden uitgevoerd onder het bereik van de groep van toepassingen.
 
-Er zijn vier mogelijke configuraties voor Hallo automatisch gebruiker specificatie die tooa unieke auto-gebruikersaccount overeenkomen:
+Er zijn vier mogelijke configuraties voor de gebruiker automatisch-specificatie die met een gebruikersaccount van de unieke automatisch overeenkomen:
 
-- Niet-beheerder toegang met taak-bereik (Hallo standaard automatisch gebruiker specificatie)
+- Niet-beheerder toegang met taak-bereik (standaard automatisch gebruiker specificatie)
 - Beheerderstoegang (verhoogd) met een bereik van de taak
 - Niet-beheerder toegang met een bereik van de groep van toepassingen
 - Beheerderstoegang met een bereik van de groep van toepassingen
 
 > [!IMPORTANT] 
-> Taken die worden uitgevoerd onder het bereik van de taak hoeft geen feitelijke toegang tooother taken op een knooppunt. Echter, een kwaadwillende gebruiker met toegang toohello account kan deze beperking omzeilen door het indienen van een taak die wordt uitgevoerd met administrator-bevoegdheden en heeft toegang tot andere mappen taak. Een kwaadwillende gebruiker kan ook gebruiken voor RDP of SSH tooconnect tooa knooppunt. Het is belangrijk tooprotect toegang tooyour Batch-account sleutels tooprevent dergelijk scenario. Als u vermoedt dat uw account is geknoeid, worden tooregenerate ervoor dat uw sleutels.
+> Taken die worden uitgevoerd onder het bereik van de taak bent niet gemachtigd feitelijke aan andere taken op een knooppunt. Echter, een kwaadwillende gebruiker met toegang tot het account kan deze beperking omzeilen door het indienen van een taak die wordt uitgevoerd met administrator-bevoegdheden en heeft toegang tot andere mappen taak. Een kwaadwillende gebruiker kan verbinding maken met een knooppunt ook RDP of SSH kunt gebruiken. Het is belangrijk om te beveiligen van toegang tot de sleutels van uw Batch-account om te voorkomen dat dergelijke scenario. Als u vermoedt dat uw account is geknoeid, zorg er dan voor dat uw sleutels genereren.
 >
 >
 
 ### <a name="run-a-task-as-an-auto-user-with-elevated-access"></a>Een taak uitvoeren als een auto-gebruiker met uitgebreide toegang
 
-Hallo automatisch gebruiker specificatie voor de administrator-bevoegdheden kunt u configureren wanneer u een taak met verhoogde toegang toorun nodig. Een begintaak moet mogelijk toegang met verhoogde bevoegdheid tooinstall software op Hallo-knooppunt.
+Als u een taak uitvoeren met verhoogde toegang nodig hebt, kunt u de gebruiker automatisch-specificatie voor de administrator-bevoegdheden configureren. Een begintaak moet mogelijk de toegang met verhoogde bevoegdheid om software te installeren op het knooppunt.
 
 > [!NOTE] 
-> In het algemeen is het beste toouse met verhoogde bevoegdheden voor toegang alleen indien nodig. Aanbevolen Hallo minimale bevoegdheden nodig tooachieve Hallo gewenste resultaat verlenen. Bijvoorbeeld, als een begintaak software voor de huidige gebruiker hello, in plaats van voor alle gebruikers installeert, hebt u mogelijk kunnen tooavoid tootasks verhoogde toegang verlenen. U kunt Hallo automatisch gebruiker specificatie voor de scope en niet-beheerders toegang groep voor alle taken die toorun onder dezelfde, inclusief de begintaak Hallo account Hallo moet configureren. 
+> In het algemeen is het beste verhoogde toegang alleen indien nodig gebruiken. Aanbevolen de minimale bevoegdheden die nodig zijn voor het bereiken van het gewenste resultaat verlenen. Bijvoorbeeld, als een begintaak software voor de huidige gebruiker, in plaats van voor alle gebruikers installeert wellicht kunt u voorkomen met verhoogde bevoegdheden geen toegang verlenen tot taken. U kunt de specificatie automatisch gebruiker voor de scope en niet-beheerders toegang groep voor alle taken die moeten worden uitgevoerd onder hetzelfde account, met inbegrip van de begintaak configureren. 
 >
 >
 
-Hallo volgende codefragmenten laten zien hoe tooconfigure automatisch gebruiker specificatie Hallo. Voorbeelden van Hallo Hallo uitbreiding van bevoegdheden niveau te instellen`Admin` en bereik te Hallo`Task`. Bereik van de taak is de standaardinstelling hello, maar dat is opgenomen Hallo verjaardagen van voorbeeld.
+De volgende codefragmenten laten zien hoe de specificatie van de gebruiker automatisch configureren. De voorbeelden ingesteld de uitbreiding van bevoegdheden op `Admin` en de scope `Task`. Bereik van de taak is de standaardinstelling, maar is hier opgenomen om het voorbeeld te houden.
 
 #### <a name="batch-net"></a>Batch .NET
 
@@ -126,22 +126,22 @@ batch_client.task.add(job_id=jobid, task=task)
 
 ### <a name="run-a-task-as-an-auto-user-with-pool-scope"></a>Een taak uitvoeren als een auto-gebruiker met een bereik van de groep van toepassingen
 
-Wanneer een knooppunt is ingericht, twee hele groep automatisch-gebruikersaccounts zijn gemaakt op elk knooppunt in de pool hello, één met verhoogde toegang en één zonder verhoogde toegang. Hallo auto-van gebruiker bereik toopool bereik voor een bepaalde taak instellen, voert Hallo taak onder een van deze twee hele pool automatisch-gebruikersaccounts. 
+Wanneer een knooppunt is ingericht, twee hele groep automatisch-gebruikersaccounts zijn gemaakt op elk knooppunt in de groep, één met verhoogde toegang en één zonder verhoogde toegang. Het bereik van de automatische-gebruiker aan groep-bereik voor een bepaalde taak instellen, voert de taak onder een van deze twee hele pool automatisch-gebruikersaccounts. 
 
-Wanneer u een bereik van de groep van toepassingen voor Hallo automatisch-gebruiker opgeeft, alle taken die worden uitgevoerd met beheerdersbevoegdheden worden uitgevoerd onder Hallo dezelfde groep wide auto-gebruikersaccount. Taken die worden uitgevoerd zonder beheerdersrechten uitgevoerd op deze manier ook onder één groep wide auto-gebruikersaccount. 
+Wanneer u toepassingen bereik voor de automatische-gebruiker, alle taken die worden uitgevoerd met beheerdersbevoegdheden uitgevoerd onder dezelfde groep wide auto-gebruikersaccount opgeven. Taken die worden uitgevoerd zonder beheerdersrechten uitgevoerd op deze manier ook onder één groep wide auto-gebruikersaccount. 
 
 > [!NOTE] 
-> Hallo twee hele pool automatisch-gebruikersaccounts zijn afzonderlijke accounts. Taken die worden uitgevoerd onder Hallo hele groep Administrator-account kunnen geen gegevens delen met taken die worden uitgevoerd onder het Hallo-standaardaccount, en vice versa. 
+> De twee toepassingen wide auto-gebruikersaccounts zijn afzonderlijke accounts. Taken die worden uitgevoerd onder de hele groep Administrator-account kunnen geen gegevens delen met taken die worden uitgevoerd onder de standaard-account en vice versa. 
 >
 >
 
-Hallo voordeel toorunning onder dezelfde automatisch gebruikersaccount is dat taken kunnen tooshare gegevens met andere taken uitgevoerd op Hallo Hallo hetzelfde knooppunt.
+Het voordeel in wordt uitgevoerd onder dezelfde auto-gebruikersaccount is dat taken kunnen geen gegevens delen met andere taken op hetzelfde knooppunt uitvoert.
 
-Delen van geheimen tussen taken is een scenario waarin actieve taken onder een van twee Hallo hele pool automatisch-gebruikersaccounts handig is. Stel bijvoorbeeld dat een begintaak moet tooprovision een geheim op Hallo-knooppunt dat andere taken kunnen gebruiken. U kunt Hallo Windows Data Protection API (DPAPI), maar het administrator-bevoegdheden vereist. U kunt in plaats daarvan Hallo geheim op gebruikersniveau Hallo beveiligen. Taken die worden uitgevoerd onder dezelfde gebruikersaccount toegang heeft tot Hallo Hallo geheim zonder verhoogde toegang.
+Delen van geheimen tussen taken is een scenario waarin actieve taken onder een van de twee toepassingen wide auto-gebruikersaccounts handig is. Stel bijvoorbeeld dat een begintaak moet voor het inrichten van een geheim naar het knooppunt dat andere taken kunnen gebruiken. U kunt Windows Data Protection API (DPAPI), maar het administrator-bevoegdheden vereist. In plaats daarvan kunt u het geheim op gebruikersniveau beveiligen. Taken die worden uitgevoerd onder dezelfde gebruikersaccount hebben toegang tot het geheim zonder verhoogde toegang.
 
-Een ander scenario waar u mogelijk wilt toorun taken onder een automatische-gebruikersaccount met een bereik van de groep van toepassingen is een Message Passing Interface (MPI)-bestand delen. Een MPI-bestandsshare is nuttig wanneer Hallo knooppunten in Hallo MPI taak nodig toowork op Hallo dezelfde bestandsgegevens. Hallo hoofdknooppunt maakt een bestandsshare die Hallo onderliggende knooppunten toegang hebben tot als ze worden uitgevoerd onder Hallo hetzelfde auto-gebruikersaccount. 
+Een ander scenario waar u mogelijk wilt uitvoeren van taken onder een gebruikersaccount op de automatische met bereik van de groep van toepassingen is een bestandsshare Message Passing Interface (MPI). Een MPI-bestandsshare is handig wanneer de knooppunten in de MPI-taak moeten werken op dezelfde bestandsgegevens. Het hoofdknooppunt maakt een bestandsshare die de onderliggende knooppunten toegang hebben tot als ze worden uitgevoerd onder dezelfde auto-gebruikersaccount. 
 
-Hallo volgende codefragment stelt Hallo auto-van gebruiker bereik toopool bereik voor een taak in Batch .NET. Hallo uitbreiding van bevoegdheden niveau wordt weggelaten, zodat het Hallo-taak wordt uitgevoerd onder Hallo standaard hele pool automatisch-gebruikersaccount.
+Het volgende codefragment stelt de automatische-gebruiker scope aan groep-bereik voor een taak in Batch .NET. Het niveau van de uitbreiding van bevoegdheden wordt weggelaten, zodat de taak wordt uitgevoerd onder de hele groep automatisch-standaardgebruikersaccount.
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserScope.Pool));
@@ -149,19 +149,19 @@ task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserSc
 
 ## <a name="named-user-accounts"></a>Benoemde gebruikersaccounts
 
-Wanneer u een groep maakt, kunt u met de naam gebruikersaccounts definiëren. Een benoemde gebruikersaccount heeft een naam en het wachtwoord dat u opgeeft. U kunt Hallo uitbreiding van bevoegdheden niveau voor een gebruikersaccount met de naam opgeven. U kunt ook een persoonlijke SSH-sleutel voor Linux-knooppunten opgeven.
+Wanneer u een groep maakt, kunt u met de naam gebruikersaccounts definiëren. Een benoemde gebruikersaccount heeft een naam en het wachtwoord dat u opgeeft. U kunt het niveau van de uitbreiding van bevoegdheden voor een benoemde gebruikersaccount opgeven. U kunt ook een persoonlijke SSH-sleutel voor Linux-knooppunten opgeven.
 
-Een gebruikersaccount met de naam bestaat op alle knooppunten in de groep Hallo en beschikbare tooall taken actief is op die knooppunten. U kunt een willekeurig aantal benoemde gebruikers voor een groep definiëren. Wanneer u een taak of taak verzameling toevoegt, kunt u opgeven dat Hallo-taak wordt uitgevoerd onder een van de gebruikersaccounts die zijn gedefinieerd op Hallo van toepassingen met de naam Hallo.
+Een gebruikersaccount met de naam bestaat op alle knooppunten in de groep en is beschikbaar voor alle taken die worden uitgevoerd op die knooppunten. U kunt een willekeurig aantal benoemde gebruikers voor een groep definiëren. Wanneer u een taak of taak verzameling toevoegt, kunt u opgeven dat de taak wordt uitgevoerd onder een van de benoemde gebruikersaccounts die zijn gedefinieerd in de groep.
 
-Een gebruikersaccount met de naam is handig als u wilt dat toorun alle taken in een job onder Hallo hetzelfde gebruikersaccount, maar ze te isoleren van taken die worden uitgevoerd in andere taken op Hallo hetzelfde moment. U kunt bijvoorbeeld een benoemde gebruiker voor elke taak maken en uitvoeren van taken onder een gebruikersaccount met de naam van elke taak. Vervolgens kunt elke taak een geheim delen met een eigen taken, maar niet met taken die in andere taken worden uitgevoerd.
+Een gebruikersaccount met de naam is handig als u wilt alle taken uitvoeren in een taak onder hetzelfde gebruikersaccount, maar ze van taken die in andere taken worden uitgevoerd op hetzelfde moment te isoleren. U kunt bijvoorbeeld een benoemde gebruiker voor elke taak maken en uitvoeren van taken onder een gebruikersaccount met de naam van elke taak. Vervolgens kunt elke taak een geheim delen met een eigen taken, maar niet met taken die in andere taken worden uitgevoerd.
 
-U kunt ook een benoemde gebruiker account toorun een taak die op externe bronnen zoals bestandsshares worden machtigingen ingesteld. Met een benoemde gebruikersaccount Hallo gebruikersidentiteiten te beheren en kan die gebruiker identiteit tooset machtigingen gebruiken.  
+U kunt ook een gebruikersaccount met de naam voor het uitvoeren van een taak die op externe bronnen zoals bestandsshares worden machtigingen ingesteld. Met een benoemde gebruikersaccount bepalen van de gebruikers-id en de identiteit van die gebruiker machtigingen instellen kunt gebruiken.  
 
-Benoemde gebruikersaccounts inschakelen wachtwoordloze SSH tussen Linux-knooppunten. U kunt een gebruikersaccount met de naam met Linux-knooppunten die taken met meerdere instanties toorun moeten gebruiken. Elk knooppunt in de pool Hallo kan taken onder een gebruikersaccount dat is gedefinieerd voor de hele groep Hallo uitvoeren. Zie voor meer informatie over taken met meerdere instanties [gebruik van meerdere\-exemplaar taken toorun MPI-toepassingen](batch-mpi.md).
+Benoemde gebruikersaccounts inschakelen wachtwoordloze SSH tussen Linux-knooppunten. U kunt een benoemde gebruikersaccount gebruiken met Linux-knooppunten die moeten worden uitgevoerd van taken met meerdere instanties. Elk knooppunt in de pool kan taken onder een gebruikersaccount dat is gedefinieerd voor de hele groep uitvoeren. Zie voor meer informatie over taken met meerdere instanties [gebruik van meerdere\-taken MPI-toepassingen uit te voeren van exemplaar van](batch-mpi.md).
 
 ### <a name="create-named-user-accounts"></a>Benoemde gebruikersaccounts maken
 
-toocreate gebruikersaccounts in een Batch met de naam een verzameling van gebruiker accounts toohello groep toevoegen. Hallo volgende codefragmenten laten zien hoe toocreate gebruikersaccounts in .NET, Java en Python genoemd. Deze fragmenten tonen hoe code toocreate zowel admin en niet-beheerders accounts op een groep met de naam. Hallo voorbeelden van toepassingen met behulp van Hallo cloud service-configuratie maken, maar u gebruiken Hallo dezelfde bij het maken van een Windows of Linux-toepassingen met behulp van de configuratie van de virtuele machine Hallo benaderen.
+Voor benoemde gebruikersaccounts in Batch maakt, moet u een verzameling van gebruikersaccounts toevoegen aan de groep. De volgende codefragmenten laten zien hoe gebruikersaccounts te maken met de naam in .NET, Java en Python. Deze codefragmenten laten zien hoe admin en niet-beheerders accounts op een groep met de naam maken. De voorbeelden van toepassingen met behulp van de configuratie van de cloud-service maken, maar u dezelfde manier gebruiken bij het maken van een Windows- of Linux-toepassingen met behulp van de configuratie van de virtuele machine.
 
 #### <a name="batch-net-example-windows"></a>Batch .NET-voorbeeld (Windows)
 
@@ -169,7 +169,7 @@ toocreate gebruikersaccounts in een Batch met de naam een verzameling van gebrui
 CloudPool pool = null;
 Console.WriteLine("Creating pool [{0}]...", poolId);
 
-// Create a pool using hello cloud service configuration.
+// Create a pool using the cloud service configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: 3,                                                         
@@ -183,7 +183,7 @@ pool.UserAccounts = new List<UserAccount>
     new UserAccount("nonAdminUser", "123xyz", ElevationLevel.NonAdmin),
 };
 
-// Commit hello pool.
+// Commit the pool.
 await pool.CommitAsync();
 ```
 
@@ -196,13 +196,13 @@ CloudPool pool = null;
 List<NodeAgentSku> nodeAgentSkus =
     batchClient.PoolOperations.ListNodeAgentSkus().ToList();
 
-// Define a delegate specifying properties of hello VM image toouse.
+// Define a delegate specifying properties of the VM image to use.
 Func<ImageReference, bool> isUbuntu1404 = imageRef =>
     imageRef.Publisher == "Canonical" &&
     imageRef.Offer == "UbuntuServer" &&
     imageRef.Sku.Contains("14.04");
 
-// Obtain hello first node agent SKU in hello collection that matches
+// Obtain the first node agent SKU in the collection that matches
 // Ubuntu Server 14.04. 
 NodeAgentSku ubuntuAgentSku = nodeAgentSkus.First(sku =>
     sku.VerifiedImageReferences.Any(isUbuntu1404));
@@ -211,13 +211,13 @@ NodeAgentSku ubuntuAgentSku = nodeAgentSkus.First(sku =>
 ImageReference imageReference =
     ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu1404);
 
-// Create hello virtual machine configuration toouse toocreate hello pool.
+// Create the virtual machine configuration to use to create the pool.
 VirtualMachineConfiguration virtualMachineConfiguration =
     new VirtualMachineConfiguration(imageReference, ubuntuAgentSku.Id);
 
 Console.WriteLine("Creating pool [{0}]...", poolId);
 
-// Create hello unbound pool.
+// Create the unbound pool.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: 3,                                             
@@ -247,7 +247,7 @@ pool.UserAccounts = new List<UserAccount>
             )),
 };
 
-// Commit hello pool.
+// Commit the pool.
 await pool.CommitAsync();
 ```
 
@@ -293,18 +293,18 @@ batch_client.pool.add(pool)
 
 ### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Een taak onder een gebruikersaccount met de naam uitvoeren met verhoogde toegang
 
-een taak als verhoogde gebruiker set Hallo taak van toorun **UserIdentity** eigenschap tooa met een gebruikersaccount dat is gemaakt met de naam ervan **ElevationLevel** eigenschappenset te`Admin`.
+Als een taak wordt uitgevoerd als een gebruiker met verhoogde bevoegdheid, instellen van de taak **UserIdentity** eigenschap aan een benoemde gebruikersaccount dat is gemaakt met de **ElevationLevel** eigenschap ingesteld op `Admin`.
 
-Dit codefragment specificeert dat die Hallo-taak moet worden uitgevoerd onder een gebruikersaccount met de naam. Dit account benoemde gebruiker is gedefinieerd op Hallo van toepassingen wanneer Hallo-groep is gemaakt. In dit geval is Hallo gebruikersaccount met de naam gemaakt met de beheerdersmachtigingen:
+Dit codefragment geeft aan dat de taak wordt uitgevoerd onder een gebruikersaccount met de naam. Dit account benoemde gebruiker is gedefinieerd in de groep wanneer de groep is gemaakt. In dit geval is de benoemde gebruiker-account gemaakt met de beheerdersmachtigingen:
 
 ```csharp
 CloudTask task = new CloudTask("1", "cmd.exe /c echo 1");
 task.UserIdentity = new UserIdentity(AdminUserAccountName);
 ```
 
-## <a name="update-your-code-toohello-latest-batch-client-library"></a>Werk uw code toohello nieuwste Batch-clientbibliotheek
+## <a name="update-your-code-to-the-latest-batch-client-library"></a>Werk uw code naar de meest recente Batch-clientbibliotheek
 
-Hallo Batch-serviceversie 2017-01-01.4.0 introduceert een belangrijke wijziging, vervangen Hallo **runElevated** eigenschap beschikbaar in eerdere versies Hello **userIdentity** eigenschap. Hallo tabellen na bieden een eenvoudige toewijzing die u kan gebruiken tooupdate uw code uit eerdere versies van Hallo clientbibliotheken.
+Versie van de Batch-service 2017-01-01.4.0 introduceert een belangrijke wijziging, vervangt de **runElevated** eigenschap beschikbaar in eerdere versies met de **userIdentity** eigenschap. De volgende tabellen bevatten een eenvoudige toewijzing die u gebruiken kunt om bij te werken van uw code uit eerdere versies van de clientbibliotheken.
 
 ### <a name="batch-net"></a>Batch .NET
 
@@ -335,4 +335,4 @@ Hallo Batch-serviceversie 2017-01-01.4.0 introduceert een belangrijke wijziging,
 
 ### <a name="batch-forum"></a>Batch-Forum
 
-Hallo [Azure Batch-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch) is uitermate toodiscuss Batch plaats en vragen over Hallo-service op MSDN. Kop op via voor nuttige vastgemaakt berichten, en stel uw vragen wanneer deze zich voordoen tijdens het bouwen van uw Batch-oplossingen.
+De [Azure Batch-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch) is een goede plaats om te bespreken Batch en vragen over de service op MSDN. Kop op via voor nuttige vastgemaakt berichten, en stel uw vragen wanneer deze zich voordoen tijdens het bouwen van uw Batch-oplossingen.

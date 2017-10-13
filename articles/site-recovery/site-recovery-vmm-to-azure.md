@@ -1,6 +1,6 @@
 ---
-title: aaaReplicate Hyper-V-machines in VMM-clouds tooAzure | Microsoft Docs
-description: Indelen van replicatie, failovers en herstel van Hyper-V-machines in System Center VMM-clouds tooAzure beheerd
+title: Virtuele Hyper-V-machines in VMM-clouds repliceren naar Azure | Microsoft Docs
+description: Replicatie, failovers en herstel van virtuele Hyper-V-machines in System Center VMM-clouds naar Azure beheren
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.openlocfilehash: 84182fe4b63862ac7643208a22f236a7515a25a6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 958b61f5de732a882e0a2682b8dd4e18504a6ae7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-tooazure-using-site-recovery-in-hello-azure-portal"></a>Hyper-V virtuele machines in VMM-clouds tooAzure met Site Recovery in hello Azure-portal repliceren
+# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Virtuele Hyper-V-machines in VMM-clouds repliceren naar Azure met Site Recovery in Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [Klassieke Azure Portal](site-recovery-vmm-to-azure-classic.md)
@@ -28,27 +28,27 @@ ms.lasthandoff: 10/06/2017
 > * [PowerShell klassiek](site-recovery-deploy-with-powershell.md)
 
 
-Dit artikel wordt beschreven hoe tooreplicate lokale Hyper-V virtuele machines die worden beheerd in System Center VMM-clouds tooAzure, met behulp van Hallo [Azure Site Recovery](site-recovery-overview.md) service in hello Azure-portal.
+In dit artikel wordt beschreven hoe u met behulp van [Azure Site Recovery](site-recovery-overview.md) in Azure Portal on-premises virtuele Hyper-V-machines die in System Center Virtual Machine Manager-clouds (VMM) worden beheerd, naar Azure kunt repliceren.
 
-Lees dit artikel en eventuele opmerkingen posten Hallo onderin of op Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Na het lezen van dit artikel kunt u onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen of vragen plaatsen.
 
-Meer informatie als u wilt toomigrate machines tooAzure (zonder failback), [in dit artikel](site-recovery-migrate-to-azure.md).
+In [dit artikel](site-recovery-migrate-to-azure.md) vindt u meer informatie over het migreren van machines naar Azure (zonder failback).
 
 
 ## <a name="deployment-steps"></a>Implementatiestappen
 
-Volgt Hallo artikel toocomplete implementatie:
+Volg de stappen in het artikel om deze implementatiestappen te voltooien:
 
 
-1. [Meer informatie](site-recovery-components.md) over Hallo-architectuur voor deze implementatie. Lees ook [meer informatie](site-recovery-hyper-v-azure-architecture.md) over de werking van Hyper-V-replicatie in Site Recovery.
+1. [Meer informatie](site-recovery-components.md) over de architectuur voor deze implementatie. Lees ook [meer informatie](site-recovery-hyper-v-azure-architecture.md) over de werking van Hyper-V-replicatie in Site Recovery.
 2. Controleer de vereisten en beperkingen.
 3. Stel Azure-netwerk- en opslagaccounts in.
-4. Bereid Hallo lokale VMM-server en Hyper-V-hosts.
-5. Maak een Recovery Services-kluis. Hallo-kluis bevat configuratie-instellingen en stuurt replicatie.
-6. Geef de broninstellingen op. Hallo VMM-server geregistreerd in kluis Hallo. Hello Azure Site Recovery Provider installeren op Hallo VMM server-installatie Hallo Microsoft Recovery Services agent op Hyper-V-hosts.
+4. Bereid de on-premises VMM-server en Hyper-V-hosts voor.
+5. Maak een Recovery Services-kluis. De kluis bevat configuratie-instellingen en met de kluis wordt de replicatie ingedeeld.
+6. Geef de broninstellingen op. Registreer de VMM-server in de kluis. Installeer de Azure Site Recovery Provider op de VMM-server. Installeer de Microsoft Recovery Services-agent op Hyper-V-hosts.
 7. Stel de doel- en replicatie-instellingen in.
-8. Replicatie inschakelen voor Hallo virtuele machines.
-9. Een test failover toomake, controleren of dat alles werkt zoals verwacht worden uitgevoerd.
+8. Schakel replicatie voor de VM's in.
+9. Voer een testfailover uit om te controleren of alles goed werkt.
 
 
 
@@ -58,217 +58,217 @@ Volgt Hallo artikel toocomplete implementatie:
 **Vereiste voor ondersteuning** | **Details**
 --- | ---
 **Azure** | Meer informatie over [Azure-vereisten](site-recovery-prereq.md#azure-requirements).
-**On-premises servers** | [Meer informatie](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-in-vmm-clouds-to-azure) over de vereisten voor Hallo lokale VMM-server en Hyper-V-hosts.
-**On-premises Hyper-V-VM's** | Virtuele machines die u wilt dat tooreplicate moet worden uitgevoerd een [ondersteund besturingssysteem](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), en voldoet aan de [vereisten voor Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-**Azure-URL's** | Hallo VMM-beheerserver moet toegang tot toothese URL's:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> Als u IP-adressen gebaseerde firewallregels, moet u dat ze tooAzure communicatie toestaan.<br/></br> Hallo toestaan [Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/confirmation.aspx?id=41653), en Hallo HTTPS (443)-poort.<br/></br> IP-adresbereiken voor hello Azure-regio van uw abonnement en voor VS-West (gebruikt voor toegangsbeheer en identiteitsbeheer) toestaan.
+**On-premises servers** | [Meer informatie](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-in-vmm-clouds-to-azure) over de vereisten voor de on-premises VMM-server en Hyper-V-hosts.
+**On-premises Hyper-V-VM's** | VM's die u wilt repliceren, moeten worden uitgevoerd op een [ondersteund besturingssysteem](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) en voldoen aan de [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+**Azure-URL's** | De VMM-server moet toegang hebben tot deze URL's:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> Als u op IP-adressen gebaseerde firewallregels gebruikt, controleert u of de regels communicatie met Azure toestaan.<br/></br> Sta de [IP-adresbereiken voor Azure Datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653) en de HTTPS-poort (443) toe.<br/></br> Sta de IP-adresbereiken voor de Azure-regio van uw abonnement en voor de regio VS - west toe (deze worden gebruikt voor toegangs- en identiteitsbeheer).
 
 
 ## <a name="prepare-for-deployment"></a>Implementatie voorbereiden
-tooprepare voor implementatie, moet u:
+U moet het volgende doen om de implementatie voor te bereiden:
 
 1. [Een Azure-netwerk instellen](#set-up-an-azure-network) waarin de virtuele Azure-machines worden opgeslagen na de failover.
 2. [Een Azure-opslagaccount instellen](#set-up-an-azure-storage-account) voor gerepliceerde gegevens.
-3. [Hallo VMM-server voorbereiden](#prepare-the-vmm-server) voor implementatie van Site Recovery.
+3. [De VMM-server voorbereiden](#prepare-the-vmm-server) op de implementatie van Site Recovery.
 4. Voorbereiden op netwerktoewijzing. Stel netwerken zodanig in dat u tijdens de implementatie van Site Recovery netwerktoewijzing kunt configureren.
 
 ### <a name="set-up-an-azure-network"></a>Een Azure-netwerk instellen
-U moet een Azure-netwerk toowhich virtuele Azure-machines die zijn gemaakt nadat de failover verbinding maakt.
+U hebt een Azure-netwerk nodig waarmee de virtuele Azure-machines die na een failover worden gemaakt, kunnen worden verbonden.
 
-* Hallo-netwerk moet zich in Hallo dezelfde regio bevinden als Hallo Recovery Services-kluis.
-* Afhankelijk van het resourcemodel Hallo gewenste toouse voor failover is uitgevoerd op Azure VM's, u hebt ingesteld hello Azure-netwerk in [modus Resource Manager](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) of [klassieke modus](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
-* U doet er verstandig aan een netwerk in te stellen voordat u begint. Als u dat niet doet, moet u toodo tijdens de implementatie van Site Recovery.
-Azure-netwerken die worden gebruikt door Site Recovery kunnen niet worden [verplaatst](../azure-resource-manager/resource-group-move-resources.md) binnen Hallo hetzelfde, of tussen verschillende abonnementen.
+* Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
+* Afhankelijk van het resourcemodel dat u wilt gebruiken voor virtuele Azure-machines waarvoor een failover is uitgevoerd, moet u het Azure-netwerk instellen in de [Resource Manager-modus](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) of de [klassieke modus](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+* U doet er verstandig aan een netwerk in te stellen voordat u begint. Anders moet u dit doen tijdens de implementatie van Site Recovery.
+Azure-netwerken die worden gebruikt door Site Recovery, kunnen niet worden [verplaatst](../azure-resource-manager/resource-group-move-resources.md) binnen hetzelfde abonnement of naar andere abonnementen.
 
 ### <a name="set-up-an-azure-storage-account"></a>Een Azure-opslagaccount instellen
-* U hebt een standaard/premium toohold gegevens gerepliceerd tooAzure Azure storage-account nodig. [Premium-opslag](../storage/common/storage-premium-storage.md) wordt gebruikt voor virtuele machines die een consistent hoge i/o-prestaties en lage latentie toohost i/o-intensieve werkbelastingen nodig. Als u wilt dat toouse een premium account toostore gerepliceerde gegevens, moet u ook een standard-opslag account toostore replicatielogboeken dat vastleggen lopende tooon-premises gegevens is gewijzigd. Hallo-account moet zich in Hallo dezelfde regio bevinden als Hallo Recovery Services-kluis.
-* Afhankelijk van het resourcemodel Hallo gewenste toouse voor failover is uitgevoerd op Azure Virtual machines, instellen van een account in [modus Resource Manager](../storage/common/storage-create-storage-account.md) of [klassieke modus](../storage/common/storage-create-storage-account.md).
-* U doet er verstandig aan een account in te stellen voordat u begint. Als u dat niet doet, moet u toodo tijdens de implementatie van Site Recovery.
-- Houd er rekening mee dat de storage-accounts die worden gebruikt door Site Recovery kunnen niet worden [verplaatst](../azure-resource-manager/resource-group-move-resources.md) binnen Hallo hetzelfde, of tussen verschillende abonnementen.
+* U hebt een Standard-/Premium-account voor Azure Storage nodig voor het opslaan van gegevens die zijn gerepliceerd naar Azure. [Premium Storage](../storage/common/storage-premium-storage.md) wordt gebruikt voor virtuele machines die consistent hoge I/O-prestaties en lage latentie nodig hebben om intensieve I/O-werkbelastingen te hosten. Als u een Premium-account wilt gebruiken om gerepliceerde gegevens op te slaan, hebt u ook een Standard-opslagaccount nodig om replicatielogboeken op te slaan waarin de doorlopende wijzigingen in uw on-premises gegevens worden vastgelegd. Het account moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
+* Afhankelijk van het resourcemodel dat u wilt gebruiken voor virtuele Azure-machines waarvoor een failover is uitgevoerd, moet u een account instellen in de [Resource Manager-modus](../storage/common/storage-create-storage-account.md) of de [klassieke modus](../storage/common/storage-create-storage-account.md).
+* U doet er verstandig aan een account in te stellen voordat u begint. Anders moet u dit doen tijdens de implementatie van Site Recovery.
+- Let op: opslagaccounts die worden gebruikt met Site Recovery, kunnen niet worden [verplaatst](../azure-resource-manager/resource-group-move-resources.md) binnen hetzelfde abonnement of naar andere abonnementen.
 
-### <a name="prepare-hello-vmm-server"></a>Hallo VMM-server voorbereiden
-* Ervoor zorgen dat Hallo VMM-server voldoet aan de Hallo [vereisten](#prerequisites).
-* Tijdens de implementatie van Site Recovery kunt u opgeven dat alle clouds op een VMM-server beschikbaar zijn in hello Azure-portal moet. Als u wilt dat alleen bepaalde clouds tooappear in Hallo-portal, kunt u die instelling in de cloud in VMM-beheerconsole Hallo Hallo inschakelen.
+### <a name="prepare-the-vmm-server"></a>De VMM-server voorbereiden
+* Zorg ervoor dat de VMM-server voldoet aan de [vereisten](#prerequisites).
+* Tijdens de implementatie van Site Recovery kunt u opgeven dat alle clouds op een VMM-server beschikbaar moeten zijn in Azure Portal. Als u wilt dat alleen bepaalde clouds in de portal worden weergegeven, kunt u die instelling in de cloud inschakelen via de VMM-beheerconsole.
 
 ### <a name="prepare-for-network-mapping"></a>Voorbereiden op netwerktoewijzing
-Tijdens de implementatie van Site Recovery moet u netwerktoewijzing instellen. Koppelingen van Netwerktoewijzingen tussen bron VMM VM-netwerken en gericht op Azure-netwerken tooenable hello te volgen:
+Tijdens de implementatie van Site Recovery moet u netwerktoewijzing instellen. Bij netwerktoewijzing worden VMM-bronnetwerken met virtuele machines toegewezen aan doelnetwerken in Azure om het volgende mogelijk te maken:
 
-* Machines met failover op Hallo hetzelfde netwerk kan verbinding maken met andere tooeach, zelfs als ze failover niet Hallo dezelfde manier of Hallo hetzelfde herstelplan wordt uitgevoerd.
-* Als een netwerkgateway is ingesteld op Hallo Azure-doelnetwerk, kunnen virtuele Azure-machines verbinding tooon-premises virtuele machines maken.
-* tooset up netwerktoewijzing, dit is wat u nodig hebt:
+* Machines waarvoor een failover naar hetzelfde netwerk wordt uitgevoerd, kunnen met elkaar worden verbonden, zelfs als de failover niet op dezelfde manier of volgens hetzelfde herstelplan wordt uitgevoerd.
+* Als er in het doelnetwerk in Azure een netwerkgateway is ingesteld, kunnen virtuele Azure-machines worden verbonden met on-premises virtuele machines.
+* Dit hebt u nodig voor het instellen van netwerktoewijzing:
 
-  * Zorg ervoor dat virtuele machines op Hallo bron Hyper-V-hostserver verbonden tooa VMM VM-netwerk. Dit netwerk moet gekoppelde tooa logisch netwerk dat is gekoppeld aan Hallo cloud.
+  * Zorg ervoor dat de virtuele machines op de Hyper-V-bronhostserver zijn verbonden met een VMM-netwerk met virtuele machines. Dit netwerk moet zijn gekoppeld aan een logisch netwerk dat is verbonden met de cloud.
   * Een Azure-netwerk zoals [hierboven](#set-up-an-azure-network) wordt beschreven
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
-1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **Nieuw** > **Bewaking en beheer** > **Backup en Site Recovery (OMS)**.
 
     ![Nieuwe kluis](./media/site-recovery-vmm-to-azure/new-vault3.png)
-3. In **naam**, Geef een beschrijvende naam tooidentify Hallo-kluis. Als u meer dan één abonnement hebt, selecteert u een van uw abonnementen.
-4. [Maak een resourcegroep](../azure-resource-manager/resource-group-template-deploy-portal.md) of selecteer een bestaande resourcegroep. Geef een Azure-regio op. Machines worden gerepliceerd toothis regio. toocheck ondersteunde regio's Zie geografische beschikbaarheid in [prijsinformatie voor Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
-5. Als u wilt dat tooquickly toegang Hallo kluis van Hallo Dashboard, klikt u op **pincode toodashboard** > **kluis maken**.
+3. Geef in **Naam** een beschrijvende naam op om de kluis mee aan te duiden. Als u meer dan één abonnement hebt, selecteert u een van uw abonnementen.
+4. [Maak een resourcegroep](../azure-resource-manager/resource-group-template-deploy-portal.md) of selecteer een bestaande resourcegroep. Geef een Azure-regio op. Machines worden naar deze regio gerepliceerd. Zie Geografische beschikbaarheid in [Prijsinformatie voor Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) om na te gaan welke regio's er worden ondersteund
+5. Als u de kluis snel wilt openen via het dashboard, klikt u op **Vastmaken aan dashboard** > **Kluis maken**.
 
     ![Nieuwe kluis](./media/site-recovery-vmm-to-azure/new-vault.png)
 
-Hallo nieuwe kluis wordt weergegeven op Hallo **Dashboard** > **alle resources**, en op Hallo belangrijkste **Recovery Services-kluizen** blade.
+De nieuwe kluis wordt weergegeven op het **Dashboard** > **Alle resources** en op de hoofdblade **Recovery Services-kluizen**.
 
 
-## <a name="select-hello-protection-goal"></a>Hallo beveiligingsdoel selecteren
+## <a name="select-the-protection-goal"></a>Het beveiligingsdoel selecteren
 
-Selecteer wat u tooreplicate, en waar u tooreplicate aan.
+Selecteer wat u wilt repliceren en waarnaar u wilt repliceren.
 
-1. In **Recovery Services-kluizen**, selecteer Hallo kluis.
+1. Selecteer de kluis in **Recovery Services-kluizen**.
 2. Klik in **Aan de slag** op **Site Recovery** > **Infrastructuur voorbereiden** > **Beveiligingsdoel**.
 
     ![Doelstellingen kiezen](./media/site-recovery-vmm-to-azure/choose-goals.png)
-3. In **beveiligingsdoel** Selecteer **tooAzure**, en selecteer **Ja, met Hyper-V**. Selecteer **Ja** tooconfirm u VMM toomanage Hyper-V-hosts en Hallo herstelsite. Klik vervolgens op **OK**.
+3. Selecteer in **Beveiligingsdoel** de optie **Naar Azure**. Selecteer vervolgens **Ja, met Hyper-V**. Selecteer **Ja** om te bevestigen dat u VMM gebruikt voor het beheren van Hyper-V-hosts en de herstelsite. Klik vervolgens op **OK**.
 
-## <a name="set-up-hello-source-environment"></a>Hallo bronomgeving instellen
+## <a name="set-up-the-source-environment"></a>De bronomgeving instellen
 
-Hello Azure Site Recovery Provider installeren op Hallo VMM-server en Hallo-server in Hallo kluis registreren. Installeer hello Azure Recovery Services agent op Hyper-V-hosts.
+Installeer de Azure Site Recovery-provider op de VMM-server en registreer de server in de kluis. Installeer de Azure Recovery Services-agent op de Hyper-V-hosts.
 
 1. Klik op **Infrastructuur voorbereiden** > **Bron**.
 
     ![Bron instellen](./media/site-recovery-vmm-to-azure/set-source1.png)
 
-2. In **bron voorbereiden**, klikt u op **+ VMM** tooadd een VMM-server.
+2. Klik in **Bron voorbereiden** op **+ VMM** om een VMM-server toe te voegen.
 
     ![Bron instellen](./media/site-recovery-vmm-to-azure/set-source2.png)
 
-3. In **Server toevoegen**, controleert u of **System Center VMM-server** wordt weergegeven in **servertype** en die Hallo VMM-server voldoet aan Hallo [vereisten en -URL vereisten voor](#prerequisites).
-4. Download hello Azure Site Recovery Provider-installatiebestand.
-5. Download de registratiesleutel Hallo. U hebt deze nodig wanneer u de installatie uitvoert. Hallo-sleutel is vijf dagen na het genereren ervan geldig.
+3. Controleer in **Server toevoegen** of **System Center VMM-server** wordt weergegeven in **Servertype** en of de VMM-server voldoet aan de [vereisten en URL-vereisten](#prerequisites).
+4. Download het installatieprogramma voor de Azure Site Recovery-provider.
+5. Download de registratiesleutel. U hebt deze nodig wanneer u de installatie uitvoert. De sleutel blijft vijf dagen na het genereren ervan geldig.
 
     ![Bron instellen](./media/site-recovery-vmm-to-azure/set-source3.png)
 
 
-## <a name="install-hello-provider-on-hello-vmm-server"></a>Hallo Provider installeren op Hallo VMM-server
+## <a name="install-the-provider-on-the-vmm-server"></a>De provider installeren op de VMM-server
 
-1. Hallo Provider-installatiebestand op Hallo VMM-server wordt uitgevoerd.
+1. Voer het providerinstallatiebestand uit op de VMM-server.
 2. In **Microsoft Update** kunt u updates inschakelen, zodat de providerupdates volgens uw Microsoft Update-beleid worden geïnstalleerd.
-3. In **installatie**, accepteer of wijzig Hallo Provider standaardlocatie voor installatie en klik op **installeren**.
+3. Accepteer of wijzig in **Installatie** de standaardinstallatielocatie van de provider en klik op **Installeren**.
 
     ![Installatielocatie](./media/site-recovery-vmm-to-azure/provider2.png)
-4. Wanneer de installatie is voltooid, klikt u op **registreren** tooregister Hallo VMM-server in Hallo kluis.
-5. In Hallo **Kluisinstellingen** pagina, klikt u op **Bladeren** kluissleutelbestand hello tooselect. Hello Azure Site Recovery-abonnement en de kluisnaam Hallo opgeven.
+4. Wanneer de installatie is voltooid, klikt u op **Registreren** om de VMM-server in de kluis te registreren.
+5. Klik op de pagina **Kluisinstellingen** op **Bladeren** om het kluissleutelbestand te selecteren. Geef het Azure Site Recovery-abonnement en de kluisnaam op.
 
     ![Serverregistratie](./media/site-recovery-vmm-to-azure/provider10.PNG)
-6. In **internetverbinding**, hoe Hallo Provider die wordt uitgevoerd op Hallo VMM-server de tooSite herstel verbinding maken via internet Hallo opgeven.
+6. Geef in **Internetverbinding** op hoe de provider die op de VMM-server wordt uitgevoerd, via internet verbinding moet maken met Site Recovery.
 
-   * Als u rechtstreeks Hallo Provider tooconnect wilt, schakelt **tooAzure siteherstel zonder een proxy rechtstreeks verbinding gemaakt**.
-   * Als uw bestaande proxy verificatie vereist, of u een aangepaste proxy toouse wilt, schakelt u **verbinding maken met Site Recovery via een proxyserver tooAzure**.
-   * Als u een aangepaste proxy gebruikt, geef Hallo-adres, poort en referenties.
-   * Als u een proxy gebruikt, u moet hebben al toegestaan Hallo URL's die worden beschreven [vereisten](#on-premises-prerequisites).
-   * Als u een aangepaste proxy gebruikt, een VMM RunAs-account (DRAProxyAccount) wordt automatisch gemaakt met Hallo opgegeven proxyreferenties. Hallo-proxyserver zodanig configureren dat dit account kan worden geverifieerd. Hallo VMM RunAs-Accountinstellingen kunnen worden gewijzigd in Hallo VMM-console. In **instellingen**, vouw **beveiliging** > **Run As-Accounts**, en wijzig vervolgens Hallo wachtwoord voor DRAProxyAccount. U moet toorestart Hallo VMM-service zodat deze instelling wordt van kracht.
+   * Als u wilt dat de provider rechtstreeks verbinding maakt, selecteert u **Rechtstreeks verbinding maken met Azure Site Recovery zonder proxyserver**.
+   * Als voor uw bestaande proxy verificatie is vereist of als u een aangepaste proxy wilt gebruiken, selecteert u **Verbinding maken met Azure Site Recovery met een proxyserver**.
+   * Als u een aangepaste proxy gebruikt, moet u het adres, de poort en referenties opgeven.
+   * Als u een proxy gebruikt, hebt u, als het goed is, de URL’s die worden beschreven in [Vereisten](#on-premises-prerequisites), al toegestaan.
+   * Als u een aangepaste proxy gebruikt, wordt er automatisch een VMM RunAs-account (DRAProxyAccount) gemaakt met de opgegeven proxyreferenties. Configureer de proxyserver zodanig dat dit account kan worden geverifieerd. De VMM RunAs-accountinstellingen kunnen worden gewijzigd in de VMM-console. Open **Instellingen**, vouw **Beveiliging** > **Run As-accounts** uit en wijzig vervolgens het wachtwoord voor DRAProxyAccount. U moet de VMM-service opnieuw starten om de instelling door te voeren.
 
      ![internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
-7. Accepteer of wijzig de locatie Hallo van een SSL-certificaat dat automatisch gegenereerd voor gegevensversleuteling. Dit certificaat wordt gebruikt als u gegevensversleuteling voor een cloud die wordt beveiligd door Azure in hello Azure Site Recovery-portal inschakelt. Bewaar dit certificaat op een veilige plaats. Wanneer u een failover-tooAzure uitvoert moet u deze toodecrypt, als gegevensversleuteling is ingeschakeld.
+7. Accepteer of wijzig de locatie van het SSL-certificaat dat automatisch is gegenereerd voor gegevensversleuteling. Dit certificaat wordt gebruikt als u gegevensversleuteling inschakelt voor een cloud die door Azure wordt beveiligd in de Azure Site Recovery-portal. Bewaar dit certificaat op een veilige plaats. Als gegevensversleuteling is ingeschakeld, moet u de gegevens eerst ontsleutelen wanneer u een failover naar Azure uitvoert.
 
     > [!NOTE]
-    > Het verdient aanbeveling toouse Hallo mogelijkheid van stationsversleuteling geleverd door Azure voor het versleutelen van gegevens in rust in plaats van met de optie Hallo gegevens versleuteling geleverd door Azure Site Recovery. mogelijkheid van stationsversleuteling Hallo verstrekt door Azure kan worden ingeschakeld voor een opslag >-account in en helpt leveren betere prestaties als Hallo codering/decodering wordt verwerkt door de Azure-opslag.
+    > Het is raadzaam de versleutelingsfunctie die wordt geleverd door Azure te gebruiken voor het versleutelen van data-at-rest in plaats van de gegevensversleutelingsoptie die door Azure Site Recovery wordt geboden. De versleutelingsfunctie die wordt verstrekt door Azure kan worden ingeschakeld voor een opslagaccount en zorgt voor betere prestaties omdat de versleuteling/ontsleuteling wordt verwerkt door Azure Storage.
     > [Meer informatie over de Storage-versleutelingsservice van Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
     
-8. In **servernaam**, Geef een beschrijvende naam tooidentify Hallo VMM-server in Hallo kluis. Geef in een clusterconfiguratie Hallo VMM-clusterrolnaam op.
-9. Schakel **cloudmetagegevens synchroniseren**, als u wilt dat toosynchronize metagegevens voor alle clouds op Hallo VMM-server op Hallo kluis. Deze actie hoeft alleen toohappen eenmaal op elke server. Als u niet toosynchronize alle clouds wilt, kunt u laat u deze instelling uitgeschakeld en synchroniseert u elke cloud afzonderlijk in de eigenschappen van de cloud Hallo in Hallo VMM-console. Klik op **registreren** toocomplete Hallo proces.
+8. Geef in **Servernaam** een beschrijvende naam op om de VMM-server in de kluis te identificeren. Geef in een clusterconfiguratie de VMM-clusterrolnaam op.
+9. Geef in **Cloudmetagegevens synchroniseren** aan of u metagegevens wilt synchroniseren voor alle clouds op de VMM-server met de kluis. Deze actie hoeft op elke server slechts één keer te worden uitgevoerd. Als u niet alle clouds wilt synchroniseren, laat u deze instelling uitgeschakeld en synchroniseert u elke cloud afzonderlijk in de cloudeigenschappen in de VMM-console. Klik op **Registreren** om het proces te voltooien.
 
     ![Serverregistratie](./media/site-recovery-vmm-to-azure/provider16.PNG)
-10. De registratie begint. Nadat de registratie is voltooid, Hallo-server wordt weergegeven in **Site Recovery-infrastructuur** > **VMM-Servers**.
+10. De registratie begint. Na voltooiing van de registratie wordt de server weergegeven in **Site Recovery-infrastructuur** > **VMM-servers**.
 
 
-## <a name="install-hello-azure-recovery-services-agent-on-hyper-v-hosts"></a>Hello Azure Recovery Services-agent installeren op Hyper-V-hosts
+## <a name="install-the-azure-recovery-services-agent-on-hyper-v-hosts"></a>De Azure Recovery Services-agent installeren op Hyper-V-hosts
 
-1. Nadat u Hallo Provider hebt ingesteld, moet u toodownload Hallo-installatiebestand voor hello Azure Recovery Services agent. Voer setup uit op elke Hyper-V-server in Hallo VMM-cloud.
+1. Nadat u de provider hebt ingesteld, moet u het installatiebestand voor de Azure Recovery Services-agent downloaden. Voer de installatie uit op elke Hyper-V-server in de VMM-cloud.
 
     ![Hyper-V-sites](./media/site-recovery-vmm-to-azure/hyperv-agent1.png)
 2. Klik in **Controle van vereisten** op **Volgende**. Ontbrekende vereiste onderdelen worden automatisch geïnstalleerd.
 
     ![Vereisten voor de Recovery Services-agent](./media/site-recovery-vmm-to-azure/hyperv-agent2.png)
-3. In **installatie-instellingen**Accepteer of wijzig de installatielocatie Hallo en Hallo cachelocatie. U kunt Hallo-cache configureren op een station met ten minste 5 GB aan opslagruimte maar we raden een cachestation met 600 GB of meer aan vrije ruimte. Klik vervolgens op **Installeren**.
-4. Nadat de installatie is voltooid, klikt u op **sluiten** toofinish.
+3. Accepteer of wijzig onder **Installatie-instellingen** de installatielocatie en de cachelocatie. U kunt de cache configureren op een station met ten minste 5 GB aan opslagruimte, maar wij raden u aan een cachestation te gebruiken met 600 GB of meer aan vrije ruimte. Klik vervolgens op **Installeren**.
+4. Nadat de installatie is voltooid, klikt u op **Sluiten**.
 
     ![MARS-agent registreren](./media/site-recovery-vmm-to-azure/hyperv-agent3.png)
 
 ### <a name="command-line-installation"></a>Installatie vanaf de opdrachtregel
-U kunt Hallo Microsoft Azure Recovery Services Agent installeren vanaf de opdrachtregel met behulp van de volgende opdracht Hallo:
+U kunt de Microsoft Azure Recovery Services-agent installeren vanaf de opdrachtregel met de volgende opdracht:
 
      marsagentinstaller.exe /q /nu
 
-### <a name="set-up-internet-proxy-access-toosite-recovery-from-hyper-v-hosts"></a>Internet proxy toegang tooSite herstel van Hyper-V-hosts instellen
+### <a name="set-up-internet-proxy-access-to-site-recovery-from-hyper-v-hosts"></a>Internetproxytoegang tot Site Recovery vanaf Hyper-V-hosts instellen
 
-Hallo Recovery Services agent waarop Hyper-V-hosts moet internet toegang tooAzure voor VM-replicatie. Als u toegang hebt tot Hallo internet via een proxy instellen als volgt:
+Als de Recovery Services-agent wordt uitgevoerd op Hyper-V-hosts, moet Azure via internet toegankelijk zijn voor het repliceren van virtuele machines. Als u internet gebruikt via een proxy, doet u het volgende:
 
-1. Open Hallo Microsoft Azure Backup MMC-module op Hallo Hyper-V-host. Een snelkoppeling naar Microsoft Azure Backup is standaard beschikbaar zijn op Hallo bureaublad of in C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
-2. Klik in het Hallo-module op **eigenschappen wijzigen**.
-3. Op Hallo **proxyconfiguratie** tabblad, proxyservergegevens opgeven.
+1. Open de Microsoft Azure Backup MMC-module op de Hyper-V-host. Standaard is er een snelkoppeling naar Microsoft Azure Backup beschikbaar op het bureaublad of in C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
+2. Klik in de module op **Eigenschappen wijzigen**.
+3. Geef op het tabblad **Proxyconfiguratie** de proxyservergegevens op.
 
     ![MARS-agent registreren](./media/site-recovery-vmm-to-azure/mars-proxy.png)
-4. Controleer die agent Hallo Hallo URL's die worden beschreven in Hallo kan bereiken [vereisten](#on-premises-prerequisites).
+4. Zorg ervoor dat de agent de URL's kan bereiken die worden beschreven in [vereisten](#on-premises-prerequisites).
 
-## <a name="set-up-hello-target-environment"></a>Hallo doelomgeving instellen
-Geef hello Azure storage-account toobe gebruikt voor replicatie en hello Azure-netwerk toowhich virtuele Azure-machines na failover verbinding maakt.
+## <a name="set-up-the-target-environment"></a>De doelomgeving instellen
+Geef op welk Azure-opslagaccount moet worden gebruikt voor replicatie en met welk Azure-netwerk de virtuele Azure-machines verbinding moeten maken na het uitvoeren van een failover.
 
-1. Klik op **infrastructuur voorbereiden** > **doel**en selecteer Hallo abonnement Hallo resourcegroep waar u toocreate Hallo failover van virtuele machines. Hallo-implementatiemodel dat u toouse in Azure (klassiek of de resource management) voor Hallo failover van virtuele machines wilt kiezen.
+1. Klik op **Infrastructuur voorbereiden** > **Doel**, en selecteer het abonnement en de resourcegroep waarin u de failover-VM's wilt maken. Kies het implementatiemodel dat u wilt gebruiken in Azure (klassiek of resourcebeheer) voor de failover-VM's.
 
-    ![Storage](./media/site-recovery-vmm-to-azure/enablerep3.png)
+    ![Opslag](./media/site-recovery-vmm-to-azure/enablerep3.png)
 
 2. Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -netwerken hebt.
 
     ![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
 
-3. Als u een opslagaccount dat nog niet hebt gemaakt, en toocreate een gewenste met Resource Manager, klikt u op **+ opslagaccount** toodo dat inline.  Op Hallo **storage-account maken** blade een naam, type, abonnement en locatie opgeven. Hallo-account moet zich op Hallo dezelfde locatie als Hallo Recovery Services-kluis.
+3. Als u nog geen opslagaccount hebt gemaakt en u er een wilt maken met Resource Manager, klikt u op **+Opslagaccount** om dat inline te doen.  Geef op de blade **Opslagaccount maken** een accountnaam, het type, het abonnement en de locatie op. Het account moet zich op dezelfde locatie bevinden als de Recovery Services-kluis.
 
    ![Storage](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
 
 
-   * Als u een opslagaccount met behulp van het klassieke model Hallo toocreate wilt, doet u dat in hello Azure-portal. [Meer informatie](../storage/common/storage-create-storage-account.md)
-   * Als u een premium storage-account voor gerepliceerde gegevens, instellen van een extra standard-opslagaccount, toostore replicatielogboeken die de doorlopende wijzigingen tooon-premises gegevens vastleggen.
-5. Als u een Azure-netwerk dat nog niet hebt gemaakt, en toocreate een gewenste met Resource Manager, klikt u op **+ netwerk** toodo dat inline. Op Hallo **virtueel netwerk maken** blade een netwerknaam, adresbereik subnetgegevens, abonnement en locatie opgeven. Hallo-netwerk moet zich in Hallo dezelfde locatie als Hallo Recovery Services-kluis.
+   * Als u een opslagaccount wilt maken op basis van het klassieke model, doet u dat in Azure Portal. [Meer informatie](../storage/common/storage-create-storage-account.md)
+   * Als u een Premium-opslagaccount gebruikt voor gerepliceerde gegevens, moet u een extra Standard-opslagaccount instellen om de replicatielogboeken op te slaan waarin de doorlopende wijzigingen aan uw on-premises gegevens worden vastgelegd.
+5. Als u nog geen Azure-netwerk hebt gemaakt en u er een wilt maken met Resource Manager, klikt u op **+Netwerk** om dat inline te doen. Geef op de blade **Virtueel netwerk maken** een netwerknaam, het adresbereik, de subnetgegevens, het abonnement en de locatie op. Het netwerk moet zich op dezelfde locatie bevinden als de Recovery Services-kluis.
 
    ![Netwerk](./media/site-recovery-vmm-to-azure/gs-createnetwork.png)
 
-   Als u een netwerk met het klassieke model Hallo toocreate wilt, doet u dat in hello Azure-portal. [Meer informatie](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+   Als u een netwerk wilt maken op basis van het klassieke model, doet u dat in Azure Portal. [Meer informatie](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 ### <a name="configure-network-mapping"></a>Netwerktoewijzing configureren
 
 * [Lees](#prepare-for-network-mapping) een kort overzicht van wat netwerktoewijzing inhoudt.
-* Verifieer dat de virtuele machines op Hallo VMM-server verbonden tooa VM-netwerk zijn en dat u ten minste één virtuele Azure-netwerk hebt gemaakt. Meerdere VM-netwerken kunnen worden toegewezen tooa één Azure-netwerk.
+* Controleer of de virtuele machines op de VMM-server verbonden zijn met een netwerk met virtuele machines en of u ten minste één virtueel Azure-netwerk hebt gemaakt. Aan één Azure-netwerk kunnen meerdere netwerken met virtuele machines worden toegewezen.
 
 Configureer het toewijzen als volgt:
 
-1. In **Site Recovery-infrastructuur** > **Netwerktoewijzingen** > **netwerktoewijzing**, klikt u op Hallo **+ netwerktoewijzing**  pictogram.
+1. Klik in **Site Recovery-infrastructuur** > **Netwerktoewijzingen** > **Netwerktoewijzing** op het pictogram **+Netwerktoewijzing**.
 
     ![Netwerktoewijzing](./media/site-recovery-vmm-to-azure/network-mapping1.png)
-2. In **netwerktoewijzing toevoegen**, selecteer Hallo bron-VMM-server, en **Azure** als Hallo doel.
-3. Controleer of u Hallo-abonnement en Hallo implementatiemodel na een failover.
-4. In **Bronnetwerk**, selecteer Hallo bron on-premises VM-netwerk gewenste toomap uit die zijn gekoppeld aan de VMM-server Hallo Hallo-lijst.
-5. In **doelnetwerk**, selecteer hello Azure-netwerk in welke replica virtuele Azure-machines geplaatst worden moeten nadat ze zijn gemaakt. Klik vervolgens op **OK**.
+2. Selecteer in **Netwerktoewijzing toevoegen** de bron-VMM-server en selecteer **Azure** als doel.
+3. Controleer na het uitvoeren van een failover het abonnement en het implementatiemodel.
+4. Selecteer in **Bronnetwerk** in de lijst die is gekoppeld aan de VMM-server, het on-premises bronnetwerk met virtuele machines dat u wilt toewijzen.
+5. Selecteer in **Doelnetwerk** het Azure-netwerk waarin de replica’s (virtuele Azure-machines) moeten worden geplaatst nadat ze zijn gemaakt. Klik vervolgens op **OK**.
 
     ![Netwerktoewijzing](./media/site-recovery-vmm-to-azure/network-mapping2.png)
 
 Dit is wat er gebeurt wanneer er netwerktoewijzing wordt uitgevoerd:
 
-* Bestaande virtuele machines op Hallo bron VM-netwerk zijn verbonden toohello doelnetwerk bij toewijzing begint. Nieuwe virtuele machines verbonden toohello bron VM-netwerk zijn verbonden toohello toegewezen Azure-netwerk wanneer er replicatie plaatsvindt.
-* Als u een bestaande netwerktoewijzing wijzigt, gerepliceerde virtuele machines verbinding maken met behulp van de nieuwe instellingen Hallo.
-* Als Hallo doelnetwerk meerdere subnetten heeft en een van deze subnetten Hallo heeft dezelfde naam als het subnet waarop Hallo bron virtuele machine zich bevindt en vervolgens Hallo replica virtuele machine verbindt toothat Doelsubnet na een failover.
-* Als er geen Doelsubnet met een overeenkomende naam, verbindt Hallo virtuele machine toohello eerste subnet in het Hallo-netwerk.
+* Bestaande virtuele machines in het VM-bronnetwerk zijn verbonden met het netwerk wanneer de toewijzing begint. Nieuwe virtuele machines die zijn verbonden met het bron-VM-netwerk, worden verbonden met het toegewezen Azure-netwerk wanneer replicatie plaatsvindt.
+* Als u een bestaande netwerktoewijzing wijzigt, worden gerepliceerde virtuele machines verbonden op basis van de nieuwe instellingen.
+* Als het doelnetwerk meerdere subnetten bevat en een van deze subnetten dezelfde naam heeft als het subnet waarin de virtuele bronmachine zich bevindt, wordt de gerepliceerde virtuele machine na een failover verbonden met dat doelsubnet.
+* Als er geen doelsubnet met een overeenkomende naam bestaat, wordt de virtuele machine verbonden met het eerste subnet in het netwerk.
 
 ## <a name="configure-replication-settings"></a>Replicatie-instellingen configureren
-1. toocreate een nieuw replicatiebeleid, klikt u op **infrastructuur voorbereiden** > **replicatie-instellingen** > **+ maken en koppelen**.
+1. Als u nieuw replicatiebeleid wilt maken, klikt u op **Infrastructuur voorbereiden** > **Replicatie-instellingen** > **+Maken en koppelen**.
 
     ![Netwerk](./media/site-recovery-vmm-to-azure/gs-replication.png)
 2. Geef in **Beleid maken en koppelen** een beleidsnaam op.
-3. In **Kopieerfrequentie**, geef aan hoe vaak u tooreplicate deltagegevens na de initiële replicatie van hello (elke 30 seconden, 5 of 15 minuten).
+3. Geef in **Kopieerfrequentie** op hoe vaak u na de eerste replicatie de verschillen wilt repliceren (elke 30 seconden of elke 5 of 15 minuten).
 
     > [!NOTE]
-    >  Een 30 tweede frequentie wordt niet ondersteund bij het repliceren van toopremium opslag. Hallo-beperking wordt bepaald door Hallo aantal momentopnamen per blob (100) wordt ondersteund door de premium-opslag. [Meer informatie](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)
+    >  Een frequentie van 30 seconden wordt niet ondersteund bij het repliceren naar Premium Storage. De beperking wordt bepaald door het aantal momentopnamen per blob (100) dat wordt ondersteund door Premium Storage. [Meer informatie](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)
 
-4. In **herstel bewaarperiode**, in uren opgeven hoe lang de retentieperiode Hallo wordt worden voor elk herstelpunt. Beveiligde machines kunnen worden hersteld tooany punt in een venster.
-5. Geef in **Frequentie van de app-consistente momentopname** op hoe vaak (elke 1-12 uur) er herstelpunten moeten worden gemaakt met toepassingsconsistente momentopnamen. Hyper-V gebruikt twee soorten momentopnamen: standaardmomentopnamen waarmee een incrementele momentopname van Hallo volledige virtuele machine en een toepassingsconsistente momentopnamen waarmee een momentopname van een punt in tijd van de toepassingsgegevens Hallo in Hallo virtuele machine. Toepassingsconsistente momentopnamen gebruiken Volume Shadow Copy Service (VSS) tooensure die toepassingen zich in een consistente status wanneer Hallo momentopname wordt gemaakt. Houd er rekening mee dat als u toepassingsconsistente momentopnamen inschakelt, het invloed is op Hallo prestaties van toepassingen die worden uitgevoerd op virtuele machines die bron. Zorg ervoor dat Hallo-waarde lager dan Hallo aantal aanvullende herstelpunten dat u configureert.
-6. In **begintijd initiële replicatie**, geven wanneer toostart Hallo initiële replicatie. Hallo replicatie vindt plaats via uw internetbandbreedte zodat tooschedule kunt u deze buiten de drukste tijden.
-7. In **versleutelen van gegevens die zijn opgeslagen in Azure**, opgeven of tooencrypt op rest-gegevens in Azure storage. Klik vervolgens op **OK**.
+4. Geef in **Bewaarperiode van het herstelpunt** op hoeveel uur elk herstelpunt moet worden bewaard. Beveiligde machines kunnen te allen tijde worden hersteld naar een willekeurig punt (binnen een bepaald tijdsvenster).
+5. Geef in **Frequentie van de app-consistente momentopname** op hoe vaak (elke 1-12 uur) er herstelpunten moeten worden gemaakt met toepassingsconsistente momentopnamen. Hyper-V maakt gebruik van twee soorten momentopnamen: standaardmomentopnamen waarmee steeds incrementele momentopnamen van de volledige virtuele machine worden gemaakt, en toepassingsconsistente momentopnamen waarmee een tijdsgebonden momentopname wordt gemaakt van de toepassingsgegevens in de virtuele machine. Toepassingsconsistente momentopnamen gebruiken Volume Shadow Copy Service (VSS) om ervoor te zorgen dat toepassingen een consistente status hebben wanneer er een momentopname wordt gemaakt. Als u toepassingsconsistente momentopnamen inschakelt, is dit van invloed op de prestaties van de toepassingen die via de virtuele bronmachines worden uitgevoerd. Zorg ervoor dat de waarde die u instelt, kleiner is dan het aantal aanvullende herstelpunten dat u configureert.
+6. Geef in **Begintijd initiële replicatie** aan wanneer de initiële replicatie moet worden gestart. De replicatie maakt gebruik van uw internetbandbreedte. Daarom is het een goed idee om de replicatie buiten de drukste tijden in te plannen.
+7. Geef in **Gegevens versleutelen die zijn opgeslagen in Azure** op of u at-rest-gegevens in de Azure-opslag wilt versleutelen. Klik vervolgens op **OK**.
 
     ![Beleid voor replicatie](./media/site-recovery-vmm-to-azure/gs-replication2.png)
-8. Wanneer u een nieuw beleid maakt is deze automatisch gekoppeld aan Hallo VMM-cloud. Klik op **OK**. U kunt aanvullende VMM-clouds (en Hallo virtuele machines erin) koppelen aan dit replicatiebeleid in **replicatie** > beleidsnaam > **VMM-Cloud koppelen**.
+8. Wanneer u nieuw beleid maakt, wordt dit automatisch gekoppeld aan de VMM-cloud. Klik op **OK**. U kunt aanvullende VMM-clouds (en de virtuele machines hierin) koppelen aan dit replicatiebeleid. Dit doet u via **Replicatie** > beleidsnaam > **VMM-cloud koppelen**.
 
     ![Beleid voor replicatie](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
@@ -276,13 +276,13 @@ Dit is wat er gebeurt wanneer er netwerktoewijzing wordt uitgevoerd:
 
 Nu u de basisinfrastructuur hebt ingesteld, kunt u gaan nadenken over de capaciteitsplanning en nagaan of u aanvullende resources nodig hebt.
 
-Site Recovery biedt een capaciteit planner toohelp u de juiste resources Hallo toewijzen voor uw bronomgeving, onderdelen van Site Recovery, netwerken en opslag. In de snelle modus voor schattingen op basis van een gemiddelde aantal virtuele machines, schijven en opslag, of in de gedetailleerde modus waarin ingevoerde cijfers op Hallo werkbelasting niveau, kunt u Hallo planner uitvoeren. Voordat u begint:
+Site Recovery bevat een Capacity Planner waarmee u de juiste resources kunt toewijzen aan uw bronomgeving, de Site Recovery-onderdelen, het netwerk en de opslag. U kunt de planner in de snelle modus uitvoeren voor schattingen op basis van het gemiddelde aantal virtuele machines, schijven en opslag. U kunt ook de gedetailleerde modus gebruiken. Hierbij voert u gegevens op workloadniveau in. Voordat u begint:
 
 * Informatie verzamelen over uw replicatieomgeving, waaronder informatie over de virtuele machines, het aantal schijven per virtuele machine en de opslag per schijf.
-* Schatting Hallo dagelijkse (verloop) wijzigingssnelheid hebt u voor gerepliceerde gegevens. U kunt Hallo [Capaciteitsplanner voor Hyper-V Replica](https://www.microsoft.com/download/details.aspx?id=39057) toohelp u dit doen.
+* Een schatting maken van de dagelijkse wijzigingssnelheid (verloop) voor gerepliceerde gegevens. U kunt hiervoor de [Capacity Planner voor Hyper-V Replica](https://www.microsoft.com/download/details.aspx?id=39057) gebruiken.
 
-1. Klik op **downloaden**, toodownload hulpprogramma Hallo en vervolgens uit te voeren. [Hallo-artikel lezen](site-recovery-capacity-planner.md) die wordt meegestuurd met Hallo-hulpprogramma.
-2. Wanneer u bent klaar, selecteert u **Ja** in **hebben uitgevoerd Hallo Capacity Planner**?
+1. Klik op **Downloaden** om dit hulpprogramma te downloaden. Voer het vervolgens uit. [Lees het artikel](site-recovery-capacity-planner.md) dat samen met het hulpprogramma wordt gedownload.
+2. Wanneer u klaar bent, selecteert u **Ja** in **Hebt u de Capacity Planner uitgevoerd**?
 
    ![Capaciteitsplanning](./media/site-recovery-vmm-to-azure/gs-capacity-planning.png)
 
@@ -293,168 +293,168 @@ Site Recovery biedt een capaciteit planner toohelp u de juiste resources Hallo t
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
-Voordat u begint, zorg ervoor dat uw Azure gebruikersaccount Hallo vereist [machtigingen](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) tooenable replicatie van een nieuwe virtuele machine tooAzure.
+Voordat u begint, controleert u of uw Azure-gebruikersaccount de vereiste [machtigingen](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) heeft om replicatie van een nieuwe virtuele machine naar Azure in te schakelen.
 
 Schakel nu als volgt replicatie in:
 
-1. Klik op **Stap 2: toepassing repliceren** > **Bron**. Nadat u replicatie voor Hallo eerst hebt ingeschakeld, klikt u op **+ repliceren** in Hallo kluis tooenable replicatie voor aanvullende machines.
+1. Klik op **Stap 2: toepassing repliceren** > **Bron**. Wanneer u replicatie voor het eerst inschakelt, klikt u in de kluis op **+Repliceren** om replicatie in te schakelen voor aanvullende machines.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication1.png)
-2. In Hallo **bron** blade, selecteer Hallo VMM-server en Hallo cloud in welke Hallo Hyper-V-hosts zich bevinden. Klik vervolgens op **OK**.
+2. Selecteer op de blade **Bron** de VMM-server en de cloud waarin de Hyper-V-hosts zich bevinden. Klik vervolgens op **OK**.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication-source.png)
-3. In **doel**, selecteert u Hallo-abonnement na een failover-implementatiemodel, en Hallo storage-account wordt gebruikt voor gerepliceerde gegevens.
+3. Selecteer in **Doel** het abonnement, het implementatiemodel voor gebruik na een failover, en het opslagaccount dat u voor gerepliceerde gegevens gebruikt.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
-4. Selecteer Hallo gewenste toouse storage-account. Als u wilt dat toouse een ander opslagaccount dan die u hebt, kunt u [maken van een](#set-up-an-azure-storage-account). Als u een premium storage-account voor gerepliceerde gegevens gebruikt, moet u tooselect een extra standard-opslag account toostore replicatielogboeken die de doorlopende wijzigingen tooon-premises data.toocreate een opslagaccount met behulp van de Resource Manager-model Hallo vastleggen Klik op **nieuw**. Als u een opslagaccount met behulp van het klassieke model Hallo toocreate wilt, dat doen [in hello Azure-portal](../storage/common/storage-create-storage-account.md). Klik vervolgens op **OK**.
-5. Selecteer hello Azure-netwerk en subnet toowhich Azure Virtual machines wordt verbinding gemaakt, wanneer ze zijn gemaakt na een failover. Selecteer **nu configureren voor geselecteerde machines**, tooapply Hallo instelling tooall machines in het netwerk u selecteert voor beveiliging. Selecteer **later configureren**, tooselect hello Azure-netwerk per computer. Als u wilt dat toouse een ander netwerk van de referenties die u hebt, kunt u [maken van een](#set-up-an-azure-network). een netwerk met toocreate Hallo klikt u op Resource Manager-model **nieuw**. Als u een netwerk met het klassieke model Hallo toocreate wilt, dat doen [in hello Azure-portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selecteer indien van toepassing een subnet. Klik vervolgens op **OK**.
-6. In **virtuele Machines** > **virtuele machines selecteren**en klik op elke machine die u wilt dat tooreplicate selecteren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Klik vervolgens op **OK**.
+4. Selecteer het opslagaccount dat u wilt gebruiken. Als u een ander opslagaccount wilt gebruiken dan de accounts die u al hebt, kunt u er [een maken](#set-up-an-azure-storage-account). Als u een Premium-opslagaccount gebruikt voor gerepliceerde gegevens, moet u een extra Standard-opslagaccount selecteren om de replicatielogboeken op te slaan waarin de doorlopende wijzigingen in uw on-premises gegevens worden vastgelegd. Als u een opslagaccount wilt maken op basis van het Resource Manager-model, klikt u op **Nieuw**. Als u een opslagaccount wilt maken op basis van het klassieke model, doet u dat [in Azure Portal](../storage/common/storage-create-storage-account.md). Klik vervolgens op **OK**.
+5. Selecteer het Azure-netwerk en -subnet waarmee virtuele Azure-machines verbinding maken wanneer ze na een failover worden gemaakt. Selecteer **Nu configureren voor geselecteerde machines** om de netwerkinstelling toe te passen op alle machines die u voor beveiliging selecteert. Selecteer **Later configureren** om per machine een Azure-netwerk te selecteren. Als u een ander netwerk wilt gebruiken dan de netwerken die u al hebt, kunt u er [een maken](#set-up-an-azure-network). Als u een opslagaccount wilt maken op basis van het Resource Manager-model, klikt u op **Nieuw**. Als u een netwerk wilt maken op basis van het klassieke model, doet u dat [in Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selecteer indien van toepassing een subnet. Klik vervolgens op **OK**.
+6. Selecteer in **Virtuele machines** > **Virtuele machines selecteren** alle machines die u wilt repliceren. U kunt alleen machines selecteren waarvoor replicatie kan worden ingeschakeld. Klik vervolgens op **OK**.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication5.png)
 
-7. In **eigenschappen** > **eigenschappen configureren**Hallo-besturingssysteem voor virtuele machines Hallo geselecteerd en selecteer Hallo besturingssysteemschijf.
+7. Selecteer in **Eigenschappen** > **Eigenschappen configureren** het besturingssysteem voor de geselecteerde virtuele machines, evenals de schijf met het besturingssysteem.
 
-    - Controleer of deze Hallo Azure VM-naam (doelnaam) voldoet aan [vereisten van de virtuele machine van Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).   
-    - Standaard worden alle Hallo schijven Hallo VM geselecteerd voor replicatie, maar u kunt schijven tooexclude wissen ze.
+    - Controleer of de naam van de Azure-VM (doelnaam) voldoet aan de [vereisten voor virtuele Azure-machines](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).   
+    - Standaard worden alle schijven van de virtuele machine geselecteerd voor replicatie, maar u kunt schijven wissen als u deze wilt uitsluiten.
 
-        - U kunt tooexclude schijven tooreduce replicatie bandbreedte. Bijvoorbeeld, wilt u mogelijk niet tooreplicate schijven met tijdelijke gegevens of gegevens die is vernieuwd telkens wanneer een computer of apps (zoals pagefile.sys of Microsoft SQL Server tempdb) opnieuw wordt opgestart. U kunt Hallo schijf uitsluiten van replicatie door geïnstalleerd Hallo-schijf.
+        - Mogelijk wilt u schijven uitsluiten om de bandbreedte voor de replicatie te beperken. Misschien wilt u bijvoorbeeld schijven met tijdelijke gegevens of gegevens die telkens worden vernieuwd wanneer een machine of app opnieuw wordt gestart (zoals pagefile.sys of Microsoft SQL Server tempdb), van de replicatie uitsluiten. U kunt de schijf van replicatie uitsluiten door de selectie van de schijf op te heffen.
         - Alleen standaardschijven kunnen worden uitgesloten. U kunt geen besturingssysteemschijven uitsluiten.
-        - We raden u aan geen dynamische schijven uit te sluiten. Met Site Recovery kan niet worden vastgesteld of een virtuele harde schijf in een gast-VM een basisschijf of een dynamische schijf is. Als u alle schijven van de afhankelijke dynamisch volume niet worden uitgesloten, worden Hallo beveiligde dynamische schijf wordt weergegeven als een niet-werkende schijf wanneer hello VM failover wordt uitgevoerd en Hallo gegevens op de schijf niet toegankelijk.
-        - Nadat de replicatie is ingeschakeld, kunt u geen schijven meer toevoegen of verwijderen voor replicatie. Als u wilt dat tooadd of uitsluiten van een schijf, moet u toodisable beveiliging voor Hallo VM nodig en vervolgens opnieuw inschakelen.
-        - Voor schijven die u handmatig hebt gemaakt in Azure, wordt geen failback uitgevoerd. Als u meer dan drie schijven mislukken en twee rechtstreeks in Azure VM maken, wordt bijvoorbeeld alleen Hallo drie schijven die zijn failover mislukt door Azure tooHyper-V. U kunt geen schijven die handmatig zijn gemaakt in de failback of in de omgekeerde replicatie van Hyper-V tooAzure opnemen.
-        - Als u een schijf die nodig is voor een toepassing toooperate uitsluit, na failover tooAzure moet u toocreate handmatig in Azure, zodat die Hallo gerepliceerd toepassing uit te voeren. U kunt ook kan u integreren met Azure automation een herstelplan, toocreate Hallo schijf tijdens de failover van Hallo-machine.
+        - We raden u aan geen dynamische schijven uit te sluiten. Met Site Recovery kan niet worden vastgesteld of een virtuele harde schijf in een gast-VM een basisschijf of een dynamische schijf is. Als niet alle afhankelijke, dynamische volumeschijven worden uitgesloten, wordt de beveiligde dynamische schijf weergegeven als een niet-werkende schijf wanneer een VM-failover optreedt. De gegevens op de schijf zijn dan niet toegankelijk.
+        - Nadat de replicatie is ingeschakeld, kunt u geen schijven meer toevoegen of verwijderen voor replicatie. Als u een schijf wilt toevoegen of uitsluiten, moet u de beveiliging voor de virtuele machine uitschakelen en vervolgens weer inschakelen.
+        - Voor schijven die u handmatig hebt gemaakt in Azure, wordt geen failback uitgevoerd. Als u bijvoorbeeld een failover hebt uitgevoerd voor drie schijven en u er twee rechtstreeks op de virtuele Azure-machine maakt, wordt slechts voor de drie schijven waarvoor een failover is uitgevoerd, een failback uitgevoerd van Azure naar Hyper-V. U kunt schijven die handmatig zijn gemaakt niet opnemen in de failback of in de omgekeerde replicatie van Hyper-V naar Azure.
+        - Als u een schijf uitsluit die nodig is voor de werking van een toepassing, moet u deze na een failover naar Azure handmatig maken in Azure, zodat de gerepliceerde toepassing kan worden uitgevoerd. U kunt Azure Automation ook integreren in een herstelplan om de schijf tijdens failover van de machine te maken.
 
-    Klik op **OK** toosave wijzigingen. Later kunt u eventueel extra eigenschappen instellen.
+    Klik op **OK** om de wijzigingen op te slaan. Later kunt u eventueel extra eigenschappen instellen.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
-8. In **replicatie-instellingen** > **replicatie-instellingen configureren**, Hallo replicatiebeleid u tooapply voor Hallo virtuele machines beveiligde wilt selecteren. Klik vervolgens op **OK**. U kunt het replicatiebeleid Hallo in wijzigen **replicatiebeleid** > beleidsnaam > **instellingen bewerken**. De wijzigingen die u toepast, worden zowel gebruikt voor machines die al worden gerepliceerd, als voor nieuwe machines.
+8. Selecteer in **Replicatie-instellingen** > **Replicatie-instellingen configureren** het replicatiebeleid dat u op de beveiligde virtuele machines wilt toepassen. Klik vervolgens op **OK**. U kunt het replicatiebeleid wijzigen via **Replicatiebeleid** > beleidsnaam > **Instellingen bewerken**. De wijzigingen die u toepast, worden zowel gebruikt voor machines die al worden gerepliceerd, als voor nieuwe machines.
 
    ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/enable-replication7.png)
 
-U kunt de voortgang van Hallo volgen **beveiliging inschakelen** taak **taken** > **Site Recovery-taken**. Na het Hallo **beveiliging voltooien** taak wordt uitgevoerd, Hallo machine is gereed voor failover.
+U kunt de voortgang van de taak **Beveiliging inschakelen** volgen via **Taken** > **Site Recovery-taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
 
 ### <a name="view-and-manage-vm-properties"></a>Eigenschappen van virtuele machines weergeven en beheren
 
-Het is raadzaam om de eigenschappen van de bronmachine Hallo Hallo te controleren. Houd er rekening mee dat hello Azure VM-naam moet voldoen aan [vereisten van de virtuele machine van Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Het is raadzaam om de eigenschappen van de bronmachine te controleren. Houd er rekening mee dat de naam van de virtuele Azure-machine moet voldoen aan de [vereisten voor virtuele machines van Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-1. In **beveiligde Items**, klikt u op **gerepliceerde Items**, en selecteer Hallo machine toosee de details ervan.
+1. Klik in **Beveiligde items** op **Gerepliceerde items** en selecteer een machine om de details ervan te bekijken.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/vm-essentials.png)
-2. In **eigenschappen**, vindt u replicatie en failover-informatie voor Hallo VM.
+2. In **Eigenschappen** kunt u de replicatie- en failoverinformatie van de virtuele machine weergeven.
 
     ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. In **berekening en netwerk** > **eigenschappen berekenen**, kunt u de naam en doel van de grootte van virtuele machine van Azure Hallo opgeven. Hallo naam toocomply met wijzigen [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) als u wilt. U kunt ook bekijken en wijzigen van de informatie over het doelnetwerk hello, subnet en Hallo IP-adres dat toegewezen toohello Azure VM.
+3. In **Berekening en netwerk** > **Eigenschappen berekenen** kunt u de naam van de virtuele Azure-machine opgeven, evenals de doelgrootte. Wijzig indien nodig de naam om te voldoen aan de [Azure-vereisten](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). U kunt ook informatie bekijken en bewerken over het doelnetwerk, het subnet en het IP-adres dat aan de virtuele Azure-machine wordt toegewezen.
 Opmerking:
 
-   * U kunt IP-adres van Hallo doel instellen. Als u een adres niet opgeeft, wordt Hallo failover machine DHCP gebruikt. Als u een adres dat is niet beschikbaar bij een failover instelt, mislukt Hallo failover. Hallo hetzelfde IP-adres van doel kan worden gebruikt voor een testfailover als Hallo adres in het testfailovernetwerk Hallo beschikbaar is.
-   * Hallo aantal netwerkadapters wordt bepaald door Hallo-grootte die u voor Hallo doel-virtuele machine, als volgt opgeeft:
+   * U kunt het doel-IP-adres instellen. Als u geen adres opgeeft, maakt de machine waarvoor een failover is uitgevoerd, gebruik van DHCP. Als u een adres instelt dat tijdens het uitvoeren van de failover niet beschikbaar is, mislukt de failover. Hetzelfde doel-IP-adres kan worden gebruikt voor een testfailover als het adres beschikbaar is in het testfailovernetwerk.
+   * Het aantal netwerkadapters wordt bepaald door de grootte die u voor de virtuele doelmachine opgeeft. Dat werkt als volgt:
 
-     * Als het aantal netwerkadapters op de bronmachine Hallo Hallo kleiner dan of gelijk aantal adapters toohello toegestaan voor de doelgrootte machine Hallo vervolgens Hallo doel hetzelfde aantal adapters als bron Hallo Hallo.
-     * Als het aantal adapters voor de virtuele bronmachine Hallo Hallo overschrijdt Hallo getal is toegestaan voor de doelgrootte Hallo vervolgens maximaal Hallo doel wordt gebruikt.
-     * Bijvoorbeeld als een bronmachine twee netwerkadapters heeft en de grootte van Hallo doelmachine vier ondersteunt, Hallo doelmachine twee adapters hebben. Als Hallo-bronmachine twee adapters heeft, maar hello ondersteunde doelgrootte slechts één ondersteunt, hebben Hallo doelmachine slechts één adapter.     
-     * Als Hallo VM meerdere netwerkadapters heeft, worden deze allemaal verbonden toohello hetzelfde netwerk.
+     * Als het aantal netwerkadapters op de bronmachine kleiner is dan of gelijk is aan het aantal adapters dat is toegestaan voor de grootte van de doelmachine, heeft het doel hetzelfde aantal adapters als de bron.
+     * Als het aantal adapters op de virtuele bronmachine groter is dan voor de doelgrootte is toegestaan, wordt het maximum voor de doelgrootte gebruikt.
+     * Als de bronmachine bijvoorbeeld twee netwerkadapters heeft en de grootte van de doelmachine vier netwerkadapters ondersteunt, heeft de doelmachine twee adapters. Als de bronmachine twee adapters heeft, maar de grootte van de doelmachine slechts één adapter ondersteunt, heeft de doelmachine één adapter.     
+     * Als de virtuele machine meerdere netwerkadapters heeft, worden deze allemaal verbonden met hetzelfde netwerk.
 
      ![Replicatie inschakelen](./media/site-recovery-vmm-to-azure/test-failover4.png)
 
-4. In **schijven** ziet u Hallo-besturingssysteem en gegevensschijven op Hallo VM die wordt gerepliceerd.
+4. In **Schijven** ziet u het besturingssysteem en de gegevensschijven van de virtuele machine die wordt gerepliceerd.
 
 #### <a name="managed-disks"></a>Managed Disks
 
-In **berekening en netwerk** > **eigenschappen berekenen**, u kunt instellen "Beheerde schijven gebruiken" te 'Ja' voor Hallo VM als u tooattach beheerde schijven tooyour machine op migratie tooAzure wilt. Beheerde schijven vereenvoudigt Schijfbeheer voor Azure IaaS VM's met Hallo storage-accounts die zijn gekoppeld aan het VM-schijven Hallo beheren. [Meer informatie over beheerde schijven](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview).
+In **Berekening en netwerk** > **Eigenschappen berekenen** kunt u de instelling Beheerde schijven gebruiken instellen op Ja voor de virtuele machine als u beheerde schijven aan uw machine wilt koppelen voor migratie naar Azure. Met beheerde schijven vereenvoudigt u schijfbeheer voor Azure IaaS-VM's door de opslagaccounts te beheren die aan de VM-schijven zijn gekoppeld. [Meer informatie over beheerde schijven](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview).
 
-   - Beheerde schijven zijn gemaakt en gekoppelde toohello virtuele machine alleen op een failover-tooAzure. Over het inschakelen van beveiliging, blijven gegevens uit de lokale machines tooreplicate toostorage accounts.
-   Beheerde schijven kunnen alleen voor virtuele machines die zijn geïmplementeerd met behulp van Hallo Resource manager-implementatiemodel worden gemaakt.  
-
-  > [!NOTE]
-  > Failback vanuit Azure tooon lokale Hyper-V-omgeving is momenteel niet ondersteund voor computers met beheerde-schijven. "Beheerde schijven gebruiken" te 'Ja' alleen ingesteld als u van plan toomigrate deze machine in Azure bent.
-
-   - Als u "Beheerde schijven gebruiken" te 'Ja', is alleen beschikbaarheidssets in de resourcegroep Hallo met "Beheerde schijven gebruiken" set te 'Ja' beschikbaar voor selectie. Dit is omdat de virtuele machines met beheerde schijven kan alleen deel uitmaken van beschikbaarheidssets met 'Gebruik beheerd schijven' eigenschappenset te 'Ja'. Zorg ervoor dat u beschikbaarheidssets met 'Gebruik beheerd schijven' eigenschap is ingesteld op basis van uw schijven opzet toouse beheerd op failover maken.  Op dezelfde manier als u "Beheerde schijven gebruiken" te 'Nee', is alleen in beschikbaarheidssets voor de resourcegroep Hallo met "Beheerde schijven gebruiken" eigenschappenset te 'Nee' beschikbaar voor selectie. [Meer informatie over beheerde schijven en beschikbaarheidssets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+   - Beheerde schijven worden alleen gemaakt en aan de virtuele machine gekoppeld bij een failover naar Azure. Wanneer de beveiliging wordt ingeschakeld, worden gegevens van de on-premises machines continu gerepliceerd naar de opslagaccounts.
+   Beheerde schijven kunnen alleen worden gemaakt voor virtuele machines die zijn geïmplementeerd met het implementatiemodel van Resource Manager.  
 
   > [!NOTE]
-  > Als het Hallo-opslagaccount gebruikt voor replicatie is versleuteld met versleuteling van de opslagruimte op elk gewenst moment in de tijd, mislukt het maken van beheerde schijven tijdens failover. U kunt instellen "Beheerde schijven gebruiken" te 'Nee' en probeer de failover of schakel de beveiliging voor Hallo virtuele machine en Beveilig de tooa storage-account die geen versleuteling van de opslagruimte-service is ingeschakeld op elk punt in tijd.
+  > Failback vanuit Azure naar een on-premises Hyper-V-omgeving wordt momenteel niet ondersteund voor machines met beheerde-schijven. Stel Beheerde schijven gebruiken alleen in op Ja als u deze machine wilt migreren naar Azure.
+
+   - Als u Beheerde schijven gebruiken instelt op Ja, zijn alleen beschikbaarheidssets in de resourcegroep waarbij Beheerde schijven gebruiken is ingesteld op Ja, beschikbaar voor selectie. Virtuele machines met beheerde schijven kunnen namelijk alleen deel uitmaken van beschikbaarheidssets waarvoor de eigenschap Beheerde schijven gebruiken is ingesteld op Ja. Zorg ervoor dat u beschikbaarheidssets maakt waarbij de eigenschap Beheerde schijven gebruiken is ingesteld op basis van uw gebruik van beheerde schijven voor failover.  Als u Beheerde schijven gebruiken instelt op Nee, zijn alleen beschikbaarheidssets in de resourcegroep waarbij de eigenschap Beheerde schijven gebruiken is ingesteld op Nee, beschikbaar voor selectie. [Meer informatie over beheerde schijven en beschikbaarheidssets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+
+  > [!NOTE]
+  > Als het opslagaccount dat is gebruikt voor replicatie, ooit is versleuteld met Versleuteling voor opslagservice, mislukt het maken van beheerde schijven tijdens failover. U kunt Beheerde schijven gebruiken instellen op Nee en de failover opnieuw uitvoeren of de beveiliging voor de virtuele machine uitschakelen en deze beveiligen via een opslagaccount waarvoor Versleuteling voor opslagservice niet eerder is ingeschakeld.
   > [Meer informatie over Versleuteling voor opslagservice en beheerde schijven](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
 
-## <a name="test-hello-deployment"></a>Hallo-implementatie testen
+## <a name="test-the-deployment"></a>De implementatie testen
 
-tootest hello implementatie kunt u een testfailover voor één virtuele machine of een herstelplan dat een of meer virtuele machines bevat uitvoeren.
+Als u de implementatie wilt testen, kunt u een testfailover uitvoeren voor één virtuele machine, maar ook een herstelplan uitvoeren dat een of meer virtuele machines bevat.
 
 ### <a name="before-you-start"></a>Voordat u begint
 
- - Als u wilt dat tooconnect tooAzure virtuele machines met RDP na een failover meer informatie over [tooconnect voorbereiden](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
- - toofully test u toocopy van Active Directory en DNS moet in uw testomgeving. [Meer informatie](site-recovery-active-directory.md#test-failover-considerations).
+ - Zie [verbinding voorbereiden](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) als u na een failover met RDP verbinding wilt maken met Azure VM's.
+ - Als u een volledige test wilt uitvoeren, moet u Active Directory en DNS naar uw testomgeving kopiëren. [Meer informatie](site-recovery-active-directory.md#test-failover-considerations).
 
 ### <a name="run-a-test-failover"></a>Een testfailover uitvoeren
 
-1. toofail via één VM in **gerepliceerde Items**, klikt u op Hallo VM > **+ Testfailover**.
-2. plan toofail via een herstelbewerking **herstelplannen**, klik met de rechtermuisknop Hallo plan > **Testfailover**. een herstelplan toocreate [Volg deze instructies](site-recovery-create-recovery-plans.md).
-3. In **Testfailover**, selecteer hello Azure-netwerk toowhich virtuele Azure-machines verbinding maken wanneer failover plaatsvindt.
-4. Klik op **OK** toobegin Hallo failover. U kunt de voortgang volgen door te klikken op Hallo VM tooopen eigenschappen of op Hallo **Testfailover** taak **Site Recovery-taken**.
-5. Nadat de failover Hallo is voltooid, dient u zich kunt toosee Hallo replica machine van Azure in hello Azure-portal weergegeven > **virtuele Machines**. U moet ervoor zorgen dat Hallo VM is Hallo juiste grootte heeft, dat het juiste toohello-netwerk is verbonden en wordt uitgevoerd.
-6. Als u voorbereid op verbindingen na een failover, moet u kunnen tooconnect toohello Azure VM.
-7. Wanneer u bent klaar, klikt u op op **testfailover opschonen** op Hallo herstelplan. In **notities** opnemen en eventuele opmerkingen die zijn gekoppeld aan de testfailover Hallo opslaan. Hiermee verwijdert u Hallo virtuele machines die zijn gemaakt tijdens de testfailover.
+1. Als u een failover wilt uitvoeren voor één virtuele machine, gaat u naar **Gerepliceerde items**. Klik vervolgens op de virtuele machine > **+Testfailover**.
+2. Als u een failover wilt uitvoeren op basis van een herstelplan, klikt u in **Herstelplannen** met de rechtermuisknop op het plan > **Testfailover**. Volg [deze instructies](site-recovery-create-recovery-plans.md) om een herstelplan te maken.
+3. Selecteer in **Failover testen** het Azure-netwerk waarmee de virtuele Azure-machines moeten worden verbonden nadat er een failover is uitgevoerd.
+4. Klik op **OK** om te beginnen met de failover. U kunt de voortgang volgen door op de virtuele machine te klikken en de eigenschappen hiervan te openen, of door in **Site Recovery-taken** op de taak **Testfailover** te klikken.
+5. Wanneer de failover is voltooid, moet u de gerepliceerde Azure-machine ook kunnen zien in Azure Portal > **Virtuele machines**. Controleer of de virtuele machine de juiste grootte heeft, of deze is verbonden met het juiste netwerk en of deze actief is.
+6. Als u verbindingen hebt voorbereid na een failover, kunt u verbinding maken met de Azure-VM.
+7. Als u klaar bent, klikt u op **Testfailover opschonen** op het herstelplan. Leg in **Notities** eventuele opmerkingen over de testfailover vast en sla deze op. Hiermee verwijdert u de virtuele machines die tijdens de testfailover zijn gemaakt.
 
-Voor meer informatie lezen Hallo [Test failover tooAzure](site-recovery-test-failover-to-azure.md) artikel.
+Lees het artikel [Testfailover naar Azure](site-recovery-test-failover-to-azure.md) voor meer informatie.
 
-## <a name="monitor-hello-deployment"></a>Monitor Hallo-implementatie
+## <a name="monitor-the-deployment"></a>De implementatie bewaken
 
-Hier ziet u hoe u configuratie-instellingen, en de status voor de implementatie van Site Recovery Hallo kunt bewaken:
+Ga als volgt te werk om de configuratie-instellingen en de status van de Site Recovery-implementatie te bewaken:
 
-1. Klik op Hallo kluis naam tooaccess hello **Essentials** dashboard. Op dit dashboard ziet u een overzicht van de Site Recovery-taken, de replicatiestatus, de herstelplannen, de serverstatus en de gebeurtenissen.  U kunt aanpassen **Essentials** tooshow Hallo tegels en indelingen die vooral handig tooyou, inclusief Hallo status van de andere Site Recovery en Backup-kluizen zijn.
+1. Klik op de kluisnaam om het dashboard **Essentials** te openen. Op dit dashboard ziet u een overzicht van de Site Recovery-taken, de replicatiestatus, de herstelplannen, de serverstatus en de gebeurtenissen.  U kunt **Essentials** zo aanpassen dat de tegels en indelingen worden weergegeven die voor u het belangrijkst zijn. Dit heeft ook betrekking op de status van andere Site Recovery- en Backup-kluizen.
 
     ![Essentials](./media/site-recovery-vmm-to-azure/essentials.png)
-2. In **Health**, kunt u problemen met de voor lokale servers (servers VMM- of configuratieservers) bewaken en Hallo gebeurtenissen die worden gegenereerd door Site Recovery in Hallo afgelopen 24 uur.
-3. In Hallo **gerepliceerde Items**, **herstelplannen**, en **Site Recovery-taken** tegels die u kunt beheren en controleren van replicatie. U kunt inzoomen op taken via **Taken** > **Site Recovery-taken**.
+2. In **Status** kunt u problemen op on-premises servers (VMM- of configuratieservers) bewaken. Bovendien kunt u hier zien welke gebeurtenissen er de afgelopen 24 uur door Site Recovery zijn gemeld.
+3. U kunt replicatie beheren en bewaken via de tegels **Gerepliceerde items**, **Herstelplannen** en **Site Recovery-taken**. U kunt inzoomen op taken via **Taken** > **Site Recovery-taken**.
 
-## <a name="command-line-installation-for-hello-azure-site-recovery-provider"></a>Installatie vanaf de opdrachtregel voor hello Azure Site Recovery Provider
+## <a name="command-line-installation-for-the-azure-site-recovery-provider"></a>Installatie vanaf de opdrachtregel voor de Azure Site Recovery-provider
 
-Hello Azure Site Recovery Provider kan worden geïnstalleerd vanaf de opdrachtregel Hallo. Deze methode kan gebruikte tooinstall Hallo-Provider op Server Core voor Windows Server 2012 R2 zijn.
+De Azure Site Recovery-provider kan worden geïnstalleerd vanaf de opdrachtregel. Deze methode kan worden gebruikt om de provider in Server Core voor Windows Server 2012 R2 te installeren.
 
-1. Hallo-Provider en de registratiesleutel sleutel tooa installatiemap downloaden. Bijvoorbeeld: C:\ASR.
-2. Voer deze opdrachten tooextract Hallo Provider-installatieprogramma vanaf een opdrachtprompt met verhoogde bevoegdheid:
+1. Download het providerinstallatiebestand en de registratiesleutel naar een map. Bijvoorbeeld: C:\ASR.
+2. Pak het providerinstallatieprogramma vanaf een opdrachtprompt met verhoogde bevoegdheden uit met de volgende opdrachten:
 
             C:\Windows\System32> CD C:\ASR
             C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
-3. Voer deze opdracht tooinstall Hallo-onderdelen:
+3. Voer deze opdracht uit om de onderdelen te installeren:
 
             C:\ASR> setupdr.exe /i
-4. Voer vervolgens deze opdrachten, tooregister Hallo server in de kluis Hallo:
+4. Voer vervolgens deze opdrachten uit om de server in de kluis te registreren:
 
         CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-        C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of hello server> /Credentials <path of hello credentials file> /EncryptionEnabled <full file name toosave hello encryption certificate>       
+        C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
 
 Waar:
 
-* **/ Credentials**: verplichte parameter waarmee wordt aangegeven waar Hallo registratiesleutelbestand zich bevindt.  
-* **/ FriendlyName**: verplichte parameter voor de naam Hallo van Hallo Hyper-V-hostserver die wordt weergegeven in hello Azure Site Recovery-portal.
-* * **/ EncryptionEnabled**: een optionele parameter wanneer u Hyper-V-machines in VMM repliceert tooAzure clouds. Geef desgewenst tooencrypt virtuele machines in Azure (versleuteling bij rust). Zorg ervoor dat Hallo naam van het Hallo-bestand heeft een **.pfx** extensie. Versleuteling is standaard uitgeschakeld.
+* **/Credentials**: een verplichte parameter waarmee de locatie wordt opgegeven waarop het registratiesleutelbestand zich bevindt.  
+* **/FriendlyName**: een verplichte parameter voor de naam van de Hyper-V-hostserver die wordt weergegeven in de Azure Site Recovery-portal.
+* * **/EncryptionEnabled**: een optionele parameter voor wanneer u virtuele Hyper-V-machines in VMM-clouds repliceert naar Azure. Geef op of u virtuele machines in Azure wilt versleutelen (versleuteling voor data-at-rest). Controleer of de naam van het bestand de extensie **.pfx** heeft. Versleuteling is standaard uitgeschakeld.
 
     > [!NOTE]
-    > Het verdient aanbeveling toouse Hallo mogelijkheid van stationsversleuteling geleverd door Azure voor het versleutelen van gegevens in rust in plaats van Hallo-versleutelingsoptie (EncryptionEnabled optie) opgegeven door Azure Site Recovery. mogelijkheid van stationsversleuteling Hallo verstrekt door Azure kan worden ingeschakeld voor een opslagaccount en helpt bij het bereiken van betere prestaties zoals Hallo ontsleutelen door Azure wordt uitgevoerd  
+    > Het is raadzaam de versleutelingsfunctie die wordt geleverd door Azure te gebruiken voor het versleutelen van data-at-rest in plaats van de versleutelingsoptie (de optie EncryptionEnabled) die door Azure Site Recovery wordt geboden. De versleutelingsfunctie die wordt verstrekt door Azure kan worden ingeschakeld voor een opslagaccount en zorgt voor betere prestaties omdat de versleuteling/ontsleuteling wordt uitgevoerd door Azure  
     > Storage.
     > [Meer informatie over de Storage-versleutelingsservice in Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
     
-* **/ proxyaddress**: een optionele parameter waarmee het adres van de proxyserver Hallo Hallo.
-* **/ proxyport**: optionele parameter waarmee het Hallo-poort van de proxyserver Hallo.
-* **proxyusername**: optionele parameter waarmee de proxygebruikersnaam hello (als de proxyserver verificatie is vereist).
-* **/ proxypassword**: optionele parameter waarmee Hallo wachtwoord tooauthenticate met de proxyserver (als Hallo proxy verificatie is vereist).
+* **/proxyAddress**: een optionele parameter waarmee het adres van de proxyserver wordt opgegeven.
+* **/proxyport**: een optionele parameter waarmee de poort van de proxyserver wordt opgegeven.
+* **/proxyUsername**: een optionele parameter waarmee de proxygebruikersnaam wordt opgegeven (als er voor de proxyserver verificatie is vereist).
+* **/proxyPassword**: een optionele parameter waarmee het wachtwoord wordt opgegeven voor verificatie bij de proxyserver (als er voor de proxyserver verificatie is vereist).
 
 
 ### <a name="network-bandwidth-considerations"></a>Overwegingen voor netwerkbandbreedte
-U kunt Hallo capaciteit planner hulpprogramma toocalculate Hallo bandbreedte die u nodig hebt voor replicatie (initiële replicatie en deltareplicaties) gebruiken. toocontrol hello hoeveelheid bandbreedte voor replicatie wordt gebruikt, hebt u een aantal opties:
+U kunt het hulpprogramma Capacity Planner gebruiken om de bandbreedte te berekenen die u nodig hebt voor replicatie (initiële replicatie en deltareplicaties). U hebt een aantal opties voor het beheren van de hoeveelheid bandbreedte die voor replicatie wordt gebruikt:
 
-* **Bandbreedte beperken**: Hyper-V-verkeer dat wordt gerepliceerd van de secundaire site tooa verloopt via een specifieke Hyper-V-host. U kunt de bandbreedte op Hallo hostserver beperken.
-* **Bandbreedte aanpassen**: U kunt zelf bepalen hoeveel Hallo-bandbreedte die wordt gebruikt voor replicatie via diverse registersleutels.
+* **Bandbreedte beperken**: Hyper-V-verkeer dat wordt gerepliceerd naar een secundaire site, verloopt via een specifieke Hyper-V-host. U kunt de bandbreedte op de hostserver beperken.
+* **Bandbreedte aanpassen**: u kunt zelf bepalen hoeveel bandbreedte er voor replicatie moet worden gebruikt; dit doet u via diverse registersleutels.
 
 #### <a name="throttle-bandwidth"></a>Bandbreedte beperken
-1. Hallo Microsoft Azure Backup MMC-module openen op Hallo Hyper-V-hostserver. Een snelkoppeling naar Microsoft Azure Backup is standaard beschikbaar zijn op Hallo bureaublad of in C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
-2. Klik in het Hallo-module op **eigenschappen wijzigen**.
-3. Op Hallo **bandbreedtebeperking** tabblad **inschakelen voor gebruik van internetbandbreedte voor back-upbewerkingen**, en Hallo limieten instellen voor werk en niet-werk uren. Geldige bereiken zijn afkomstig van 512 Kbps too102 Mbps per seconde.
+1. Open de Microsoft Azure Backup MMC-module op de Hyper-V-hostserver. Standaard is er een snelkoppeling naar Microsoft Azure Backup beschikbaar op het bureaublad of in C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
+2. Klik in de module op **Eigenschappen wijzigen**.
+3. Selecteer op het tabblad **Beperking** de optie **Internetbandbreedtebeperking inschakelen voor back-upbewerkingen** en stel de limieten in voor werktijden en voor tijden waarop niet wordt gewerkt. Het geldige bereik ligt tussen 512 Kbps en 102 Mbps.
 
     ![Bandbreedte beperken](./media/site-recovery-vmm-to-azure/throttle2.png)
 
-U kunt ook Hallo [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet tooset beperking. Hier volgt een voorbeeld:
+U kunt ook de cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) gebruiken om een beperking in te stellen. Hier volgt een voorbeeld:
 
     $mon = [System.DayOfWeek]::Monday
     $tue = [System.DayOfWeek]::Tuesday
@@ -463,14 +463,14 @@ U kunt ook Hallo [Set-OBMachineSetting](https://technet.microsoft.com/library/hh
 **Set-OBMachineSetting -NoThrottle** geeft aan dat er geen beperking is vereist.
 
 #### <a name="influence-network-bandwidth"></a>Netwerkbandbreedte beïnvloeden
-Hallo **UploadThreadsPerVM** register waarde bepaalt Hallo aantal threads die worden gebruikt voor gegevensoverdracht (initiële replicatie of deltareplicatie) van een schijf. Een hogere waarde verhoogt Hallo netwerkbandbreedte gebruikt voor replicatie. Hallo **DownloadThreadsPerVM** registerwaarde geeft u het aantal threads die worden gebruikt voor gegevensoverdracht tijdens failback Hallo.
+Met de registerwaarde **UploadThreadsPerVM** wordt aangegeven hoeveel threads er moeten worden gebruikt voor gegevensoverdracht (initiële replicatie of deltareplicatie) van een schijf. Hoe hoger de waarde, hoe meer netwerkbandbreedte er voor replicatie wordt gebruikt. Met de registerwaarde **DownloadThreadsPerVM** geeft u aan hoeveel threads er worden gebruikt voor gegevensoverdracht tijdens het uitvoeren van een failback.
 
-1. Hallo-register, navigeert u in te**HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
+1. Navigeer in het register naar **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
 
-   * De waarde van de Hallo wijzigen **UploadThreadsPerVM** (of Hallo sleutel maken als deze niet bestaat) toocontrol threads gebruikt voor schijfreplicatie.
-   * De waarde van de Hallo wijzigen **DownloadThreadsPerVM** (of Hallo sleutel maken als deze niet bestaat) toocontrol threads voor failbackverkeer vanuit Azure gebruikt.
-2. Hallo-standaardwaarde is 4. In een netwerk 'overprovisioning', moeten deze registersleutels van Hallo standaardwaarden worden gewijzigd. Hallo maximum is 32. Verkeer toooptimize Hallo waarde bewaken.
+   * Wijzig de waarde **UploadThreadsPerVM** (of maak de sleutel aan als deze niet bestaat) om aan te geven hoeveel threads er voor schijfreplicatie moeten worden gebruikt.
+   * Wijzig de waarde **DownloadThreadsPerVM** (of maak de sleutel aan als deze niet bestaat) om aan te geven hoeveel threads er voor failbackverkeer vanuit Azure moeten worden gebruikt.
+2. De standaardwaarde is 4. In netwerken met overprovisioning moeten deze registersleutels zodanig worden gewijzigd dat niet de standaardwaarden worden gebruikt. Het maximum is 32. Houd het verkeer in de gaten om de waarde te optimaliseren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat de initiële replicatie is voltooid en u Hallo-implementatie hebt getest, kunt u failovers kunt aanroepen, zoals Hallo noodzaak zich voordoet. [Meer informatie](site-recovery-failover.md) over verschillende soorten failovers en hoe toorun ze.
+Wanneer de initiële replicatie is voltooid en u de implementatie hebt getest, kunt u failovers aanroepen, als dit nodig is. [Meer informatie](site-recovery-failover.md) over verschillende typen failovers en het uitvoeren hiervan.

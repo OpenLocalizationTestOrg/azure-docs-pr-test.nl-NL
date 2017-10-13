@@ -1,6 +1,6 @@
 ---
-title: AD-Service tooService Auth aaaAzure met OAuth2.0 | Microsoft Docs
-description: Dit artikel wordt beschreven hoe toouse HTTP-berichten tooimplement tooservice-verificatie met behulp van Hallo OAuth2.0 grant clientreferentiestroom service.
+title: Azure AD Services Auth met OAuth2.0 | Microsoft Docs
+description: In dit artikel wordt beschreven hoe het gebruik van HTTP-berichten voor het implementeren van services-verificatie met behulp van de OAuth2.0 grant clientreferentiestroom.
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -15,50 +15,50 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f4bfd4ea8a7de1929c7dcf7ad65a156edff74f71
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cc30a54cd56c0cb03a67f86e4552398baa764e58
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# Service tooservice aanroepen met clientreferenties (gedeelde geheim of certificaat)
-Hallo OAuth 2.0-Client referenties Grant stromen is toegestaan voor een webservice (*vertrouwelijke client*) toouse zijn eigen referenties in plaats van het imiteren van een gebruiker, tooauthenticate bij het aanroepen van een andere web-service. In dit scenario is Hallo-client meestal een middelste laag webservice, een daemon-service of de website. Voor een hoger niveau van zekerheid kan Azure AD ook Hallo service toouse het aanroepen van een certificaat (in plaats van een gedeeld geheim) als referentie.
+# Service naar serviceaanroepen met clientreferenties (gedeelde geheim of certificaat)
+De OAuth 2.0-Client referenties Grant stromen is toegestaan voor een webservice (*vertrouwelijke client*) zijn eigen referenties gebruiken in plaats van een gebruiker imiteren om te verifiëren bij het aanroepen van een andere webservice. In dit scenario wordt is de client meestal een middelste laag webservice, een daemon-service of de website. Voor een hoger niveau van zekerheid kan Azure AD ook de aanroepende service moet een certificaat (in plaats van een gedeeld geheim) gebruiken als referentie.
 
 ## Clientreferenties verlenen stroomdiagram
-Hallo volgende diagram wordt uitgelegd hoe de clientreferenties Hallo verlenen stroom werkt in Azure Active Directory (Azure AD).
+Het volgende diagram wordt uitgelegd hoe de stroom werkt in Azure Active Directory (Azure AD) voor het verlenen van referenties van de client.
 
 ![OAuth2.0 Grant Clientreferentiestroom](media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
 
-1. Hallo-clienttoepassing verifieert toohello Azure AD uitgifte van tokens eindpunt en een toegangstoken aanvragen.
-2. Hello Azure AD uitgifte van tokens endpoint problemen Hallo toegangstoken.
-3. Hallo toegangstoken is gebruikte tooauthenticate toohello beveiligde resource.
-4. Gegevens uit beveiligde resource Hallo geretourneerd toohello-webtoepassing.
+1. De clienttoepassing wordt geverifieerd met het eindpunt van de uitgifte van tokens Azure AD en vraagt een toegangstoken.
+2. Het eindpunt van de uitgifte van tokens Azure AD geeft het toegangstoken.
+3. Het toegangstoken is gebruikt voor verificatie met de beveiligde bron.
+4. Gegevens van de beveiligde bron wordt geretourneerd naar de webtoepassing.
 
-## Hallo-Services in Azure AD registreren
-Zowel Hallo service aanroepen en Hallo ontvangst van de service in Azure Active Directory (Azure AD) registreren. Zie voor gedetailleerde instructies [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md).
+## De Services in Azure AD registreren
+Registreer de aanroepende service en de ontvangende service in Azure Active Directory (Azure AD). Zie voor gedetailleerde instructies [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md).
 
 ## Aanvragen van een toegangstoken
-een toegangstoken toorequest gebruiken een HTTP POST toohello tenantspecifieke Azure AD-eindpunt.
+Om aan te vragen een toegangstoken, gebruikt u een HTTP POST naar de tenant-specifieke Azure AD-eindpunt.
 
 ```
 https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
 ## Service-naar-service toegang tokenaanvraag
-Er zijn twee gevallen, afhankelijk van of de client-toepassing hello toobe beveiligd door een gedeeld geheim of een certificaat kiest.
+Er zijn twee gevallen, afhankelijk van of de clienttoepassing kiest om te worden beveiligd door een gedeeld geheim of een certificaat.
 
 ### Het eerste aanvraagnummer: aanvraag voor toegang tot token met een gedeeld geheim
-Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service toegang Hallo volgende parameters:
+Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service toegang tot de volgende parameters:
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |Vereist |Hiermee geeft u op Hallo aangevraagd type verlenen. In een stroom Client referenties Grant Hallo-waarde moet **client_credentials**. |
-| client_id |Vereist |Hiermee geeft u hello Azure AD-client-id Hallo webservice aanroepen. toofind hello aanroepen van de client-ID van de toepassing, in Hallo [Azure-portal](https://portal.azure.com), klikt u op **Active Directory**, directory overschakelen, klikt u op Hallo-toepassing. Hallo client_id is Hallo *toepassings-ID* |
-| client_secret |Vereist |Geef een sleutel die is geregistreerd voor Hallo aanroepen van web service of -daemon-toepassing in Azure AD. toocreate een sleutel in hello Azure-portal, klikt u op **Active Directory**, directory overschakelen, klikt u op de toepassing hello, klik op **instellingen**, klikt u op **sleutels**, en een sleutel toevoegen.|
-| Resource |Vereist |Voer Hallo App ID URI Hallo web-service ontvangen. toofind hello App ID URI, in hello Azure-portal, klikt u op **Active Directory**, directory overschakelen, klikt u op Hallo-servicetoepassing en klik vervolgens op **instellingen** en **eigenschappen** |
+| grant_type |Vereist |Geeft het type voor aangevraagde verlenen. In een stroom Client referenties Grant de waarde moet **client_credentials**. |
+| client_id |Vereist |Hiermee geeft u de Azure AD-client-id van de webservice aanroepen. In client-ID van de aanroepende toepassing, vinden de [Azure-portal](https://portal.azure.com), klikt u op **Active Directory**, directory overschakelen, klikt u op de toepassing. De client_id is de *toepassings-ID* |
+| client_secret |Vereist |Geef een sleutel die is geregistreerd voor de aanroepende web service of -daemon toepassing in Azure AD. Klik op om een sleutel in de Azure portal **Active Directory**, directory overschakelen, klikt u op de toepassing, klikt u op **instellingen**, klikt u op **sleutels**, en een sleutel toevoegen.|
+| Resource |Vereist |Voer de App ID URI van de ontvangende webservice. Klik op de App ID URI, informatie in de Azure portal **Active Directory**, directory overschakelen, klikt u op de servicetoepassing en klik vervolgens op **instellingen** en **eigenschappen** |
 
 #### Voorbeeld
-Hallo volgende HTTP POST-aanvragen een toegangstoken voor Hallo https://service.contoso.com/-webservice. Hallo `client_id` Hallo webservice identificeert die Hallo toegangstoken aanvragen.
+De volgende HTTP POST-aanvragen een toegangstoken voor de webservice https://service.contoso.com/. De `client_id` identificeert de webservice die het toegangstoken aanvragen.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1
@@ -69,20 +69,20 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ```
 
 ### Tweede geval: aanvraag voor toegang tot token met een certificaat
-Een service-naar-service toegang tokenaanvraag met een certificaat bevat Hallo volgende parameters:
+Een service-naar-service toegang tokenaanvraag met een certificaat bevat de volgende parameters:
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |Vereist |Hiermee geeft u op Hallo antwoordtype aangevraagd. In een stroom Client referenties Grant Hallo-waarde moet **client_credentials**. |
-| client_id |Vereist |Hiermee geeft u hello Azure AD-client-id Hallo webservice aanroepen. toofind hello aanroepen van de client-ID van de toepassing, in Hallo [Azure-portal](https://portal.azure.com), klikt u op **Active Directory**, directory overschakelen, klikt u op Hallo-toepassing. Hallo client_id is Hallo *toepassings-ID* |
-| client_assertion_type |Vereist |Hallo-waarde moet liggen`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Vereist | Een (een JSON Web Token) bewering die u toocreate nodig hebt en ondertekenen met het Hallo-certificaat geregistreerd als de referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) toolearn hoe tooregister uw certificaat en het Hallo-indeling van Hallo verklaring.|
-| Resource | Vereist |Voer Hallo App ID URI Hallo web-service ontvangen. toofind hello App ID URI, in hello Azure-portal, klikt u op **Active Directory**, klikt u op Hallo directory, klikt u op Hallo-toepassing en klik vervolgens op **configureren**. |
+| grant_type |Vereist |Hiermee geeft u het aangevraagde antwoordtype. In een stroom Client referenties Grant de waarde moet **client_credentials**. |
+| client_id |Vereist |Hiermee geeft u de Azure AD-client-id van de webservice aanroepen. In client-ID van de aanroepende toepassing, vinden de [Azure-portal](https://portal.azure.com), klikt u op **Active Directory**, directory overschakelen, klikt u op de toepassing. De client_id is de *toepassings-ID* |
+| client_assertion_type |Vereist |De waarde moet liggen`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Vereist | Een bewering (een JSON Web Token) die u nodig hebt voor het maken en te ondertekenen met het certificaat u geregistreerd als referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de bevestiging.|
+| Resource | Vereist |Voer de App ID URI van de ontvangende webservice. Klik op de App ID URI, informatie in de Azure portal **Active Directory**, klikt u op de map, klik op de toepassing en klik vervolgens op **configureren**. |
 
-Hallo-parameters zijn bijna Hallo dezelfde net als bij Hallo Hallo aanvraag door een gedeeld geheim, behalve dat Hallo client_secret parameter wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
+De parameters zijn bijna hetzelfde is in het geval van de aanvraag door een gedeeld geheim, behalve dat de parameter client_secret wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
 
 #### Voorbeeld
-Hallo na HTTP POST-aanvragen een toegangstoken voor Hallo https://service.contoso.com/ webservice met een certificaat. Hallo `client_id` Hallo webservice identificeert die Hallo toegangstoken aanvragen.
+De volgende HTTP POST-aanvragen een toegangstoken voor de webservice https://service.contoso.com/ met een certificaat. De `client_id` identificeert de webservice die het toegangstoken aanvragen.
 
 ```
 POST /<tenant_id>/oauth2/token HTTP/1.1
@@ -94,19 +94,19 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 
 ### Service-naar-Service toegang Token antwoord
 
-Een geslaagde reactie bevat een JSON OAuth 2.0-antwoord Hello volgende parameters:
+Een geslaagde reactie bevat een JSON OAuth 2.0-antwoord met de volgende parameters:
 
 | Parameter | Beschrijving |
 | --- | --- |
-| access_token |Hallo aangevraagde toegangstoken. Hallo webservice aanroepen kunt dit token tooauthenticate toohello web-service ontvangen. |
-| token_type |Hiermee wordt aangegeven Hallo type token waarde. Hallo alleen type dat ondersteunt Azure AD **Bearer**. Zie voor meer informatie over bearer-tokens Hallo [OAuth 2.0 autorisatie Framework: Bearer-Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
-| expires_in |Hoe lang Hallo toegangstoken is ongeldig (in seconden). |
-| expires_on |Hallo tijd wanneer Hallo toegangstoken is verlopen. Hallo datum wordt weergegeven als het aantal seconden Hallo vanaf 1970-01-01T0:0:0Z UTC tot verlooptijd Hallo. Deze waarde is gebruikte toodetermine Hallo levensduur van tokens in de cache. |
-| not_before |Hallo-tijd van welke Hallo toegangstoken gebruikt wordt. Hallo datum wordt weergegeven als het aantal seconden Hallo vanaf 1970-01-01T0:0:0Z UTC totdat de tijd van geldigheid voor Hallo-token.|
-| Resource |Hallo App ID URI Hallo web-service ontvangen. |
+| access_token |Het aangevraagde toegangstoken. De webservice aanroepen kunt dit token voor verificatie aan de ontvangende webservice gebruiken. |
+| token_type |Geeft de waarde van het type token. Het enige type dat ondersteunt Azure AD is **Bearer**. Zie voor meer informatie over bearer-tokens, de [OAuth 2.0 autorisatie Framework: Bearer-Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
+| expires_on |De tijd wanneer het toegangstoken is verlopen. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache. |
+| not_before |Het tijdstip van waaruit het toegangstoken gebruikt wordt. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de tijd van geldigheid voor het token.|
+| Resource |De App ID URI van de ontvangende webservice. |
 
 #### Voorbeeld van antwoord
-Hallo volgende voorbeeld ziet u een geslaagd antwoord tooa aanvraag voor een access token tooa-webservice.
+Het volgende voorbeeld toont een geslaagde reactie op een aanvraag voor een toegangstoken bij een webservice.
 
 ```
 {
@@ -120,4 +120,4 @@ Hallo volgende voorbeeld ziet u een geslaagd antwoord tooa aanvraag voor een acc
 
 ## Zie ook
 * [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md)
-* [Voorbeeld in C# van Hallo service tooservice aanroep met een gedeeld geheim](https://github.com/Azure-Samples/active-directory-dotnet-daemon) en [voorbeeld in C# van Hallo service tooservice aanroep met een certificaat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
+* [Voorbeeld in C# van de aanroep van de service-service met een gedeeld geheim](https://github.com/Azure-Samples/active-directory-dotnet-daemon) en [voorbeeld in C# van de aanroep van de service-service met een certificaat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

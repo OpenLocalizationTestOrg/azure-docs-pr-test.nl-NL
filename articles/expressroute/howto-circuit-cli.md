@@ -1,6 +1,6 @@
 ---
 title: 'Maken en wijzigen van een Azure ExpressRoute-circuit: CLI | Microsoft Docs'
-description: Dit artikel wordt beschreven hoe toocreate, inrichten, controleren, bijwerken, verwijderen en een ExpressRoute-circuit met CLI inrichting ervan ongedaan maakt.
+description: In dit artikel wordt beschreven hoe maken, richten, controleren, bijwerken, verwijderen en een ExpressRoute-circuit met CLI inrichting ervan ongedaan.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: 396e325658a59afadb209bb525cbb59ac775ae6b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1a1c9a96b772868e2c832e9ff57874038c0db2d4
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Maken en een ExpressRoute-circuit met CLI wijzigen
 
 
-Dit artikel wordt beschreven hoe een Azure ExpressRoute-circuit met behulp van toocreate Hallo opdrachtregelinterface (CLI). Dit artikel ziet u ook hoe toocheck Hallo status, bijwerken, of verwijderen en een circuit inrichting ervan ongedaan maakt. Als u een andere methode toowork met ExpressRoute-circuits toouse wilt, kunt u Hallo artikel van Hallo volgende lijst:
+In dit artikel wordt beschreven hoe een Azure ExpressRoute-circuit maken via de opdrachtregelinterface (CLI). Dit artikel ziet u ook het controleren van de status, update of delete en inrichting ervan ongedaan maakt een circuit. Als u wilt een andere methode gebruiken om te werken met ExpressRoute-circuits, kunt u het artikel uit de volgende lijst:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
@@ -36,40 +36,40 @@ Dit artikel wordt beschreven hoe een Azure ExpressRoute-circuit met behulp van t
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-* Installeer de nieuwste versie van de Hallo van Hallo CLI-opdrachten (2.0 of hoger) voordat u begint. Zie voor meer informatie over het installeren van de CLI-opdrachten Hallo [2.0 voor Azure CLI installeren](/cli/azure/install-azure-cli) en [aan de slag met Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
-* Bekijk Hallo [vereisten](expressroute-prerequisites.md) en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
+* Installeer eerst de meest recente versie van de CLI-opdrachten (2.0 of hoger). Zie [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli) en [Aan de slag met Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) voor meer informatie over het installeren van de CLI-opdrachten.
+* Controleer de [vereisten](expressroute-prerequisites.md) en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Maken en een ExpressRoute-circuit inrichten
 
-### <a name="1-sign-in-tooyour-azure-account-and-select-your-subscription"></a>1. Meld u aan tooyour Azure-account en uw abonnement te selecteren
+### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Aanmelden bij uw Azure-account en uw abonnement te selecteren
 
-toobegin uw configuratie, aanmelden tooyour Azure-account. Gebruik Hallo volgen voorbeelden toohelp die u verbinding kunt maken:
+Om te beginnen met uw configuratie, moet u zich aanmelden bij uw Azure-account. Met de volgende voorbeelden kunt u verbinding kunt maken:
 
 ```azurecli
 az login
 ```
 
-Controleer de abonnementen Hallo voor Hallo-account.
+Controleer de abonnementen voor het account.
 
 ```azurecli
 az account list
 ```
 
-Hallo-abonnement waarvoor u een ExpressRoute-circuit toocreate wilt selecteren.
+Selecteer het abonnement waarvoor u wilt maken van een ExpressRoute-circuit.
 
 ```azurecli
 az account set --subscription "<subscription ID>"
 ```
 
-### <a name="2-get-hello-list-of-supported-providers-locations-and-bandwidths"></a>2. Hallo-lijst met ondersteunde providers, locaties en bandbreedten
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. De lijst met ondersteunde providers, locaties en bandbreedten ophalen
 
-Voordat u een ExpressRoute-circuit maken, moet u Hallo lijst met ondersteunde connectiviteitsproviders, locaties en bandbreedte-opties. CLI-opdracht 'az netwerk express route lijst-service-providers' Hello retourneert deze informatie, die u in latere stappen:
+Voordat u een ExpressRoute-circuit maken, moet u de lijst met ondersteunde connectiviteitsproviders, locaties en bandbreedte-opties. De CLI-opdracht 'az netwerk express route lijst-service-providers' retourneert deze informatie, die u in latere stappen:
 
 ```azurecli
 az network express-route list-service-providers
 ```
 
-Hallo-antwoord is vergelijkbaar toohello voorbeeld te volgen:
+Het antwoord is vergelijkbaar met het volgende voorbeeld:
 
 ```azurecli
 [
@@ -122,52 +122,52 @@ Hallo-antwoord is vergelijkbaar toohello voorbeeld te volgen:
   },
 ```
 
-Controleer Hallo antwoord toosee als uw connectiviteitsprovider wordt weergegeven. Maak een notitie van Hallo informatie die u bij het maken van een circuit dient te volgen:
+Controleer het antwoord om te zien als uw connectiviteitsprovider wordt vermeld. Noteer de volgende informatie, u moet bij het maken van een circuit:
 
 * Naam
 * PeeringLocations
 * BandwidthsOffered
 
-U bent nu klaar toocreate een ExpressRoute-circuit.
+U kunt nu gereed voor het maken van een ExpressRoute-circuit.
 
 ### <a name="3-create-an-expressroute-circuit"></a>3. Een ExpressRoute-circuit maken
 
 > [!IMPORTANT]
-> Uw ExpressRoute-circuit wordt gefactureerd vanaf Hallo moment dat die de sleutel van een service wordt verleend. Deze bewerking niet uitvoeren wanneer de connectiviteitsprovider Hallo gereed tooprovision Hallo circuit.
+> Uw ExpressRoute-circuit wordt gefactureerd vanaf het moment dat de sleutel van een service wordt verleend. Deze bewerking niet uitvoeren wanneer de connectiviteitsprovider gereed is voor het inrichten van het circuit.
 > 
 > 
 
-Als u nog een resourcegroep hebt, moet u een maken voordat u uw ExpressRoute-circuit maken. U kunt een resourcegroep maken door het uitvoeren van de volgende opdracht Hallo:
+Als u nog een resourcegroep hebt, moet u een maken voordat u uw ExpressRoute-circuit maken. U kunt een resourcegroep maken met de volgende opdracht:
 
 ```azurecli
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
-Hallo volgende voorbeeld ziet u hoe toocreate een 200 Mbps-ExpressRoute-circuit via Equinix in Silicon Valley. Als u een andere provider en andere instellingen gebruikt, vervangt u die informatie door wanneer u uw aanvraag. 
+Het volgende voorbeeld ziet hoe u een 200-Mbps ExpressRoute-circuit via Equinix in Silicon Valley maakt. Als u een andere provider en andere instellingen gebruikt, vervangt u die informatie door wanneer u uw aanvraag. 
 
-Zorg ervoor dat u de juiste SKU-laag Hallo en SKU-serie opgeeft:
+Zorg ervoor dat u de juiste SKU-laag en de SKU-serie opgeven:
 
-* SKU-laag bepaalt of een standaard ExpressRoute of een premium-invoegtoepassing voor ExpressRoute is ingeschakeld. U kunt 'Standaard' tooget Hallo standaard SKU- of Premium voor Hallo premium-invoegtoepassing opgeven.
-* SKU-serie, bepaalt Hallo facturering. U kunt 'Metereddata' voor een datalimiet plannings- en 'Unlimiteddata' opgeven voor een onbeperkte gegevens-plan. U kunt facturering type van het 'Metereddata 'too'Unlimiteddata', maar type niet wijzigen Hallo van 'Unlimiteddata' too'Metereddata' Hallo wijzigen.
+* SKU-laag bepaalt of een standaard ExpressRoute of een premium-invoegtoepassing voor ExpressRoute is ingeschakeld. U kunt 'Standaard' voor de SKU-standard of Premium voor de premium-invoegtoepassing opgeven.
+* SKU-serie, bepaalt de facturering. U kunt 'Metereddata' voor een datalimiet plannings- en 'Unlimiteddata' opgeven voor een onbeperkte gegevens-plan. U kunt ook het facturering type 'Metereddata'-'Unlimiteddata' wijzigen, maar u het type 'Unlimiteddata'-'Metereddata' niet wijzigen.
 
 
-Uw ExpressRoute-circuit wordt gefactureerd vanaf Hallo moment dat die de sleutel van een service wordt verleend. Hallo volgende voorbeeld wordt een aanvraag voor een nieuwe servicesleutel:
+Uw ExpressRoute-circuit wordt gefactureerd vanaf het moment dat de sleutel van een service wordt verleend. Het volgende voorbeeld wordt een aanvraag voor een nieuwe servicesleutel:
 
 ```azurecli
 az network express-route create --bandwidth 200 -n MyCircuit --peering-location "Silicon Valley" -g ExpressRouteResourceGroup --provider "Equinix" -l "West US" --sku-family MeteredData --sku-tier Standard
 ```
 
-Hallo-antwoord bevat de servicesleutel Hallo.
+Het antwoord bevat de sleutel van de service.
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Lijst van alle ExpressRoute-circuits
 
-een lijst met alle Hallo ExpressRoute-circuits die u hebt gemaakt, tooget Hallo 'az express route lijst met netwerken' opdracht uitvoeren. Met deze opdracht kunt u deze informatie op elk gewenst moment ophalen. toolist alle circuits zorg Hallo aanroepen zonder parameters.
+Als u een lijst met alle ExpressRoute-circuits die u hebt gemaakt, voert u de opdracht 'az express route lijst met netwerken'. Met deze opdracht kunt u deze informatie op elk gewenst moment ophalen. Als alle circuits wilt weergeven, voer de aanroep zonder parameters.
 
 ```azurecli
 az network express-route list
 ```
 
-De sleutel van uw service wordt vermeld in Hallo *ServiceKey* antwoord Hallo veld.
+De sleutel van uw service wordt vermeld in de *ServiceKey* veld van het antwoord.
 
 ```azurecli
 "allowClassicOperations": false,
@@ -198,46 +198,46 @@ De sleutel van uw service wordt vermeld in Hallo *ServiceKey* antwoord Hallo vel
 "type": "Microsoft.Network/expressRouteCircuits]
 ```
 
-U kunt gedetailleerde beschrijvingen van alle Hallo parameters ophalen door actieve Hallo-opdracht met Hallo '-h' parameter.
+Krijgt u gedetailleerde beschrijvingen van alle parameters door het uitvoeren van de opdracht met behulp van de '-h' parameter.
 
 ```azurecli
 az network express-route list -h
 ```
 
-### <a name="5-send-hello-service-key-tooyour-connectivity-provider-for-provisioning"></a>5. Sleutel tooyour Hallo-connectiviteit serviceprovider voor het inrichten van verzenden
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. De servicesleutel verzenden naar uw connectiviteitsprovider voor inrichting
 
-'ServiceProviderProvisioningState' bevat informatie over de huidige status van de Hallo van inrichting Hallo serviceprovider zijde. Hallo status biedt Hallo status op Hallo Microsoft aan clientzijde. Zie voor meer informatie, Hallo [werkstromen artikel](expressroute-workflows.md#expressroute-circuit-provisioning-states).
+'ServiceProviderProvisioningState' bevat informatie over de huidige status van inrichting aan de kant van de serviceprovider. De status van de biedt status van de aan de kant van Microsoft. Zie voor meer informatie de [werkstromen artikel](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
-Bij het maken van nieuwe ExpressRoute-circuit heeft Hallo circuit Hallo status te volgen:
+Wanneer u een nieuwe ExpressRoute-circuit maakt, wordt het circuit in de volgende status is:
 
 ```azurecli
 "serviceProviderProvisioningState": "NotProvisioned"
 "circuitProvisioningState": "Enabled"
 ```
 
-Hallo circuit wijzigingen toohello status wanneer Hallo connectiviteitsprovider in Hallo-proces voor het inschakelen van deze voor u te volgen:
+Het circuit wordt gewijzigd in de volgende status wanneer de connectiviteitsprovider wordt deze voor u inschakelen:
 
 ```azurecli
 "serviceProviderProvisioningState": "Provisioning"
 "circuitProvisioningState": "Enabled"
 ```
 
-Voor u toobe kunnen toouse een ExpressRoute-circuit, moet het Hallo status volgende zijn:
+Voordat u kunt een ExpressRoute-circuit gebruiken, moet deze de status van de volgende zijn:
 
 ```azurecli
 "serviceProviderProvisioningState": "Provisioned"
 "circuitProvisioningState": "Enabled
 ```
 
-### <a name="6-periodically-check-hello-status-and-hello-state-of-hello-circuit-key"></a>6. Hallo-status en Hallo-status van de Hallo circuit sleutel regelmatig te controleren
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Controleer regelmatig de status en de status van de sleutel van het circuit
 
-Controle op Hallo status en status van Hallo circuit sleutel hello, laat u weten wanneer uw provider uw circuit is ingeschakeld. Nadat het Hallo-circuit is geconfigureerd, is 'ServiceProviderProvisioningState' wordt weergegeven als 'Ingericht', zoals wordt weergegeven in het volgende voorbeeld Hallo:
+Controleren of de status en de status van de sleutel van het circuit, laat u weten wanneer uw provider uw circuit is ingeschakeld. Nadat het circuit is geconfigureerd, is 'ServiceProviderProvisioningState' wordt weergegeven als 'Ingericht', zoals wordt weergegeven in het volgende voorbeeld:
 
 ```azurecli
 az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
 ```
 
-Hallo-antwoord is vergelijkbaar toohello voorbeeld te volgen:
+Het antwoord is vergelijkbaar met het volgende voorbeeld:
 
 ```azurecli
 "allowClassicOperations": false,
@@ -270,96 +270,96 @@ Hallo-antwoord is vergelijkbaar toohello voorbeeld te volgen:
 
 ### <a name="7-create-your-routing-configuration"></a>7. Maken van uw configuratie van de routering
 
-Zie voor stapsgewijze instructies Hallo [ExpressRoute-circuit routeringsconfiguratie](howto-routing-cli.md) toocreate artikel en circuit peerings wijzigen.
+Zie voor stapsgewijze instructies de [ExpressRoute-circuit routeringsconfiguratie](howto-routing-cli.md) artikel maken en wijzigen van circuit peerings.
 
 > [!IMPORTANT]
-> Deze instructies zijn alleen van toepassing toocircuits die zijn gemaakt met serviceproviders die services op laag 2-connectiviteit aanbieden. Als u een serviceprovider die beheerde laag-3-services (meestal een IP VPN, zoals MPLS), uw connectiviteitsprovider configureert en beheert routering voor u.
+> Deze instructies zijn alleen van toepassing op circuits die zijn gemaakt met serviceproviders die services op laag 2-connectiviteit aanbieden. Als u een serviceprovider die beheerde laag-3-services (meestal een IP VPN, zoals MPLS), uw connectiviteitsprovider configureert en beheert routering voor u.
 > 
 > 
 
-### <a name="8-link-a-virtual-network-tooan-expressroute-circuit"></a>8. Koppelen van een virtueel netwerk tooan ExpressRoute-circuit
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Een virtueel netwerk koppelen aan een ExpressRoute-circuit
 
-Koppel vervolgens een virtueel netwerk tooyour ExpressRoute-circuit. Gebruik Hallo [tooExpressRoute circuits koppelt virtuele netwerken](howto-linkvnet-cli.md) artikel.
+Vervolgens moet u een virtueel netwerk koppelen aan uw ExpressRoute-circuit. Gebruik de [virtuele netwerken koppelen aan ExpressRoute-circuits](howto-linkvnet-cli.md) artikel.
 
 ## <a name="modify"></a>Wijzigen van een ExpressRoute-circuit
 
-U kunt bepaalde eigenschappen van een ExpressRoute-circuit wijzigen zonder enige impact op connectiviteit. Kunt u de volgende wijzigingen zonder uitvaltijd Hallo maken:
+U kunt bepaalde eigenschappen van een ExpressRoute-circuit wijzigen zonder enige impact op connectiviteit. U kunt de volgende wijzigingen zonder uitvaltijd aanbrengen:
 
 * U kunt in- of uitschakelen van een ExpressRoute premium-invoegtoepassing voor ExpressRoute-circuit.
-* U kunt de bandbreedte Hallo van uw ExpressRoute-circuit vergroten mits er capaciteit beschikbaar is op Hallo-poort. Echter, Hallo bandbreedte van een circuit downgraden wordt niet ondersteund. 
-* U kunt Hallo softwarelicentiecontrole plan wijzigen van gegevens Datalimiet tooUnlimited gegevens. Het wijzigen van echter Hallo softwarelicentiecontrole plan van onbeperkt tooMetered die gegevens worden niet ondersteund.
+* U kunt de bandbreedte van uw ExpressRoute-circuit vergroten, mits er capaciteit beschikbaar is op de poort. Echter, de bandbreedte van een circuit downgraden wordt niet ondersteund. 
+* U kunt het plan softwarelicentiecontrole uit Datalimiet gegevens wijzigen in onbeperkte gegevens. Echter, het softwarelicentiecontrole plan wijzigen van onbeperkt in Datalimiet gegevens wordt niet ondersteund.
 * U kunt inschakelen en uitschakelen *klassieke bewerkingen toestaan*.
 
-Zie voor meer informatie over limieten en beperkingen Hallo [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
+Zie voor meer informatie over limieten en beperkingen de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
 
-### <a name="tooenable-hello-expressroute-premium-add-on"></a>tooenable hello ExpressRoute premium-invoegtoepassing
+### <a name="to-enable-the-expressroute-premium-add-on"></a>De invoegtoepassing ExpressRoute premium inschakelen
 
-U kunt Hallo ExpressRoute premium-invoegtoepassing voor uw bestaande circuit inschakelen met behulp van de volgende opdracht Hallo:
+U kunt de invoegtoepassing ExpressRoute premium inschakelen voor uw bestaande circuit met de volgende opdracht:
 
 ```azurecli
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Premium
 ```
 
-Hallo-circuit heeft nu Hallo ExpressRoute premium-invoegtoepassing voor functies die worden ingeschakeld. We beginnen facturering voor Hallo premium-invoegtoepassing mogelijkheid zodra Hallo-opdracht met succes is uitgevoerd.
+Het circuit heeft nu de ExpressRoute premium-invoegtoepassing voor functies ingeschakeld. We beginnen facturering voor de premium-invoegtoepassing mogelijkheid zodra de opdracht met succes is uitgevoerd.
 
-### <a name="toodisable-hello-expressroute-premium-add-on"></a>toodisable hello ExpressRoute premium-invoegtoepassing
+### <a name="to-disable-the-expressroute-premium-add-on"></a>De invoegtoepassing ExpressRoute premium uitschakelen
 
 > [!IMPORTANT]
-> Deze bewerking kan mislukken als u resources die groter zijn dan wat voor Hallo standaard circuit is toegestaan.
+> Deze bewerking kan mislukken als u resources die groter zijn dan wat voor het standaard circuit is toegestaan.
 > 
 > 
 
-Begrijpen voordat Hallo ExpressRoute premium-invoegtoepassing is uitgeschakeld, Hallo volgende criteria:
+Voordat u de invoegtoepassing ExpressRoute premium uitschakelt, inzicht in de volgende criteria:
 
-* Voordat u van premium toostandard downgraden, moet u ervoor zorgen dat er minder dan 10 virtuele netwerken gekoppelde toohello circuit. Als u meer dan 10 hebt, uw aanvraag bijwerken mislukt en er kosten in rekening brengen volgens de premietarieven voor.
+* Voordat u van premium op standaard downgraden, moet u ervoor zorgen dat er minder dan 10 virtuele netwerken die zijn gekoppeld aan het circuit. Als u meer dan 10 hebt, uw aanvraag bijwerken mislukt en er kosten in rekening brengen volgens de premietarieven voor.
 * U moet alle virtuele netwerken in andere geopolitieke regio's ontkoppelen. Als u niet alle virtuele netwerken ontkoppelt, mislukt de updateaanvraag en we u volgens de premietarieven voor rekening.
-* De routetabel moet minder dan 4000 routes voor persoonlijke peering. Als uw tabel route groter dan 4000 routes is, zakt Hallo BGP-sessie. Hallo sessie won't totdat het aantal geadverteerde voorvoegsels Hallo lager dan 4000 is worden ingeschakeld.
+* De routetabel moet minder dan 4000 routes voor persoonlijke peering. Als uw tabel route groter dan 4000 routes is, wordt de BGP-sessie verwijderd. De sessie won't totdat het aantal geadverteerde voorvoegsels lager dan 4000 is worden ingeschakeld.
 
-U kunt Hallo-invoegtoepassing voor ExpressRoute premium voor een bestaand circuit Hallo uitschakelen met behulp van Hallo voorbeeld te volgen:
+U kunt de invoegtoepassing ExpressRoute premium voor een bestaand circuit uitschakelen met behulp van het volgende voorbeeld:
 
 ```azurecli
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Standard
 ```
 
-### <a name="tooupdate-hello-expressroute-circuit-bandwidth"></a>bandbreedte tooupdate hello ExpressRoute-circuit
+### <a name="to-update-the-expressroute-circuit-bandwidth"></a>Bijwerken van de bandbreedte van het ExpressRoute-circuit
 
-Controleer voor Hallo ondersteund bandbreedte-opties voor uw provider, Hallo [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md). U kunt de grootte die groter zijn dan de grootte van uw bestaande circuit Hallo verzamelen.
+Raadpleeg voor de ondersteunde bandbreedte-opties voor uw provider de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md). U kunt de grootte die groter zijn dan de grootte van uw bestaande circuit verzamelen.
 
 > [!IMPORTANT]
-> Als er onvoldoende capaciteit op de bestaande poort hello, mogelijk hebt u toorecreate hello ExpressRoute-circuit. U kunt Hallo circuit niet upgraden als er geen extra capaciteit beschikbaar is op die locatie.
+> Als er onvoldoende capaciteit op de bestaande poort, moet u wellicht opnieuw maken van het ExpressRoute-circuit. U kunt het circuit niet upgraden als er geen extra capaciteit beschikbaar is op die locatie.
 >
-> U kunt Hallo bandbreedte van een ExpressRoute-circuit zonder onderbreking niet reduceren. Bandbreedte downgraden vereist u toodeprovision hello ExpressRoute-circuit en vervolgens opnieuw inrichten van nieuwe ExpressRoute-circuit.
+> U kunt de bandbreedte van een ExpressRoute-circuit zonder onderbreking niet reduceren. Downgraden bandbreedte, moet u het ExpressRoute-circuit inrichting ervan ongedaan en vervolgens opnieuw inrichten van nieuwe ExpressRoute-circuit.
 >
 
-Nadat u hebt besloten Hallo grootte die u nodig hebt, uw circuit Hallo opdracht tooresize volgende gebruiken:
+Nadat u de grootte die u nodig hebt, gebruik de volgende opdracht om het formaat van uw circuit te bepalen:
 
 ```azurecli
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --bandwidth 1000
 ```
 
-Uw circuit wordt aangepast Hallo Microsoft zijde. Vervolgens maakt u moet contact opnemen met uw connectiviteit provider tooupdate-configuraties van hun kant toomatch deze wijziging. Nadat u deze melding, beginnen wij u facturering voor Hallo bijgewerkt bandbreedte optie.
+Uw circuit wordt aangepast om aan de kant van Microsoft. U kunt vervolgens moet contact op met uw connectiviteitsprovider om bij te werken-configuraties van hun kant overeenkomen met deze wijziging. Nadat u deze melding, beginnen wij u voor de optie bijgewerkte bandbreedte facturering.
 
-### <a name="toomove-hello-sku-from-metered-toounlimited"></a>toomove hello SKU van gecontroleerde toounlimited
+### <a name="to-move-the-sku-from-metered-to-unlimited"></a>Als u wilt verplaatsen van de SKU van datalimiet op onbeperkt
 
-U kunt Hallo SKU van een ExpressRoute-circuit wijzigen met behulp van Hallo voorbeeld te volgen:
+U kunt de SKU van een ExpressRoute-circuit wijzigen met behulp van het volgende voorbeeld:
 
 ```azurecli
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-family UnlimitedData
 ```
 
-### <a name="toocontrol-access-toohello-classic-and-resource-manager-environments"></a>toocontrol toegang toohello klassieke en Resource Manager-omgevingen
+### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>Toegang tot het klassieke en het Resource Manager-omgevingen
 
-Lees de instructies Hallo in [verplaatsen ExpressRoute-circuits vanuit Hallo klassieke toohello Resource Manager-implementatiemodel](expressroute-howto-move-arm.md).
+Lees de instructies in [verplaatsen ExpressRoute-circuits van het klassieke naar het Resource Manager-implementatiemodel](expressroute-howto-move-arm.md).
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Opheffen van inrichting en een ExpressRoute-circuit verwijderen
 
-toodeprovision en een ExpressRoute-circuit verwijderen Zorg er dan voor dat u begrijpt Hallo volgende criteria:
+Voor inrichting ervan ongedaan maakt en een ExpressRoute-circuit verwijderen, moet dat u weten dat de volgende criteria:
 
-* U moet alle virtuele netwerken vanuit Hallo ExpressRoute-circuit ontkoppelen. Als deze bewerking is mislukt, controleert u toosee als er geen virtuele netwerken zijn gekoppeld toohello circuit.
-* Als Hallo ExpressRoute-circuit serviceprovider Inrichtingsstatus **inrichten** of **ingericht**, moet u werken met uw serviceprovider toodeprovision Hallo circuit op hun kant. We gaan tooreserve resources en kosten in rekening brengen totdat Hallo serviceprovider inrichting Hallo circuit is voltooid en een melding van ons.
-* U kunt Hallo circuit verwijderen als serviceprovider Hallo heeft gemaakt Hallo circuit. Wanneer een circuit is gemaakt, Hallo serviceprovider Inrichtingsstatus te ingesteld**niet ingericht**. Hierdoor wordt voorkomen dat facturering voor Hallo circuit.
+* U moet alle virtuele netwerken van het ExpressRoute-circuit ontkoppelen. Als deze bewerking is mislukt, controleert u of er geen virtuele netwerken zijn gekoppeld aan het circuit.
+* Als de ExpressRoute-circuit serviceprovider Inrichtingsstatus **inrichten** of **ingericht**, moet u werken met uw serviceprovider voor inrichting ervan ongedaan maakt het circuit op hun kant. We blijven resources reserveren en u in rekening brengen totdat de serviceprovider is voltooid opheffen van inrichting het circuit en waarschuwt ons.
+* Als de provider heeft het circuit deprovisioned, kunt u het circuit verwijderen. Wanneer een circuit is gemaakt, de serviceprovider Inrichtingsstatus is ingesteld op **niet ingericht**. Hierdoor wordt voorkomen dat facturering voor het circuit.
 
-U kunt uw ExpressRoute-circuit verwijderen door het uitvoeren van de volgende opdracht Hallo:
+U kunt uw ExpressRoute-circuit verwijderen door de volgende opdracht uit te voeren:
 
 ```azurecli
 az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
@@ -367,7 +367,7 @@ az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat u het circuit hebt gemaakt, zorg dat u Hallo volgende taken:
+Nadat u het circuit hebt gemaakt, zorg er dan voor dat u de volgende taken uitvoeren:
 
 * [Maken en aanpassen van routering voor ExpressRoute-circuit](howto-routing-cli.md)
-* [Koppelen van uw virtuele netwerk tooyour ExpressRoute-circuit](howto-linkvnet-cli.md)
+* [Het virtuele netwerk koppelen aan uw ExpressRoute-circuit](howto-linkvnet-cli.md)

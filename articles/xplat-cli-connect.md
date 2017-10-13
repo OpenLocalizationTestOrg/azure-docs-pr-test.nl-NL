@@ -1,6 +1,6 @@
 ---
-title: aaaLog in tooAzure van Hallo CLI | Microsoft Docs
-description: Azure-abonnement tooyour vanaf hello Azure-opdrachtregelinterface (Azure CLI) verbinding te maken voor Mac, Linux en Windows
+title: Meld u aan bij Azure met CLI | Microsoft Docs
+description: Verbinding maken met uw Azure-abonnement met de Azure-opdrachtregelinterface (Azure CLI) voor Mac, Linux en Windows
 editor: tysonn
 manager: timlt
 documentationcenter: 
@@ -16,38 +16,38 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
-ms.openlocfilehash: 42682c00c8dea78b2c624e640379716d1d4d7a2d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="log-in-tooazure-from-hello-azure-cli"></a>Meld u bij tooAzure van hello Azure CLI
-Hello Azure CLI is een set van open-source, platformoverschrijdende opdrachten voor het werken met Azure-resources. Dit artikel wordt beschreven Hallo verschillende manieren tooprovide Azure-account referenties tooconnect hello Azure CLI tooyour Azure-abonnement:
+# <a name="log-in-to-azure-from-the-azure-cli"></a>Meld u aan bij Azure met Azure CLI
+De Azure CLI is een set van open-source, platformoverschrijdende opdrachten voor het werken met Azure-resources. Dit artikel worden de verschillende manieren waarop u de referenties van uw Azure-account voor de Azure CLI verbinding met uw Azure-abonnement op te geven:
 
-* Voer Hallo `azure login` CLI opdracht tooauthenticate via Azure Active Directory. Deze methode biedt u toegang tot de opdrachten tooCLI in beide [opdracht modi](#cli-command-modes). Wanneer u de opdracht Hallo zonder extra opties uitvoert `azure login` vraagt u toocontinue interactief aanmelden via een webportal. Voor extra `azure login` opdracht Opties, Zie Hallo scenario's in dit artikel of type `azure login --help`.
-* Als u moet alleen toouse Azure Service Management modus CLI-opdrachten (niet aanbevolen voor de meeste nieuwe implementaties), kunt u downloaden en installeren van een bestand met instellingen publiceren op uw computer.
+* Voer de `azure login` CLI-opdracht om te verifiëren via Azure Active Directory. Deze methode biedt u toegang tot de CLI-opdrachten in beide [opdracht modi](#cli-command-modes). Wanneer u de opdracht zonder extra opties uitvoert `azure login` vraagt u om door te gaan interactief aanmelden via een webportal. Voor extra `azure login` opdracht Opties, raadpleegt u de scenario's in dit artikel of type `azure login --help`.
+* Als u alleen wilt gebruiken van Azure Service Management modus CLI-opdrachten (niet aanbevolen voor de meeste nieuwe implementaties), kunt u downloaden en installeren van een bestand met instellingen publiceren op uw computer.
 
-Als u nog niet Hallo CLI hebt geïnstalleerd, raadpleegt u [installeren hello Azure CLI](cli-install-nodejs.md). Als u geen Azure-abonnement hebt, kunt u binnen een paar minuten een [gratis account](http://azure.microsoft.com/free/) maken.
+Als u nog niet de CLI hebt geïnstalleerd, raadpleegt u [Azure CLI installeren](cli-install-nodejs.md). Als u geen Azure-abonnement hebt, kunt u binnen een paar minuten een [gratis account](http://azure.microsoft.com/free/) maken.
 
 Zie voor achtergrondinformatie over andere account-id's en Azure-abonnementen [hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="scenario-1-azure-login-with-interactive-login"></a>Scenario 1: azure-aanmelding met interactieve aanmelding
-Met bepaalde accounts Hallo CLI, moet u toorun `azure login` en ga vervolgens door Hallo aanmelding met een webbrowser via een webportal, een proces genaamd *interactieve aanmelding*. Een veelvoorkomende reden is wanneer u een account voor werk of school hebt (ook wel een *organisatieaccount*) die toorequire multifactor-verificatie is ingesteld. Ook interactieve aanmelding met je Microsoft-account gebruiken als u wilt dat de opdrachten in de modus Resource Manager toouse.
+Met bepaalde accounts, moet u om uit te voeren met de CLI `azure login` en ga vervolgens door de aanmelding met een webbrowser via een webportal, een proces genaamd *interactieve aanmelding*. Een veelvoorkomende reden is wanneer u een account voor werk of school hebt (ook wel een *organisatieaccount*) die is ingesteld om meervoudige verificatie te vereisen. Ook interactieve aanmelding met je Microsoft-account gebruiken als u wilt gebruiken van opdrachten in de modus Resource Manager.
 
-Interactieve aanmelding is eenvoudig: type `azure login` --zonder opties--zoals weergegeven in Hallo voorbeeld te volgen:
+Interactieve aanmelding is eenvoudig: type `azure login` --zonder opties--zoals weergegeven in het volgende voorbeeld:
 
 ```
 azure login
 ```                                                                                             
 
-Hallo-uitvoer wordt weergegeven dat lijkt op Hallo volgende:
+De uitvoer ziet er ongeveer als volgt:
 
 ```         
 info:    Executing command login
-info:    toosign in, use a web browser tooopen hello page http://aka.ms/devicelogin. Enter hello code XXXXXXXXX tooauthenticate.
+info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate.
 ```
-Hallo-code die worden aangeboden tooyou in de opdrachtuitvoer Hallo kopiëren en open een browser toohttp://aka.ms/devicelogin of een andere pagina als opgegeven. (U kunt een browser op Hallo openen dezelfde computer of op een andere computer of apparaat.) Hallo-code invoeren, en vervolgens u na vragen aan gebruiker tooenter Hallo gebruikersnaam en wachtwoord voor de identiteit van de Hallo gewenste toouse. Wanneer dit proces is voltooid, geeft opdrachtshell Hallo Hallo aanmelding is voltooid. Dit kan als volgt uitzien:
+Kopieer de code die u in de opdrachtuitvoer aangeboden en open een browser naar http://aka.ms/devicelogin of andere pagina als u opgeeft. (U kunt een browser op dezelfde computer of op een andere computer of apparaat kunt openen.) Voer de code en wordt u gevraagd de gebruikersnaam en wachtwoord invoeren voor de identiteit die u wilt gebruiken. Wanneer dit proces is voltooid, geeft de opdrachtshell van de aanmelding is voltooid. Dit kan als volgt uitzien:
 
     info:    Added subscription Visual Studio Ultimate with MSDN
     info:    Added subscription Azure Free Trial
@@ -56,75 +56,75 @@ Hallo-code die worden aangeboden tooyou in de opdrachtuitvoer Hallo kopiëren en
     info:    login command OK
 
 > [!NOTE]
-> Met interactieve aanmelding, worden verificatie en autorisatie uitgevoerd met Azure Active Directory. Als u de identiteit van een Microsoft-account gebruikt, heeft uw Azure Active Directory-standaarddomein toegang tot Hallo-aanmelding. (Als u zich aangemeld voor een gratis Azure-account, Azure Active Directory automatisch gemaakt een standaarddomein voor uw account.)
+> Met interactieve aanmelding, worden verificatie en autorisatie uitgevoerd met Azure Active Directory. Als u de identiteit van een Microsoft-account gebruikt, heeft uw Azure Active Directory-standaarddomein toegang tot het aanmeldingsproces. (Als u zich aangemeld voor een gratis Azure-account, Azure Active Directory automatisch gemaakt een standaarddomein voor uw account.)
 >
 >
 
 ## <a name="scenario-2-azure-login-with-a-username-and-password"></a>Scenario 2: azure-aanmelding met een gebruikersnaam en wachtwoord
-Gebruik Hallo `azure login` opdracht met Hallo gebruikersnaam (`-u`) parameter tooauthenticate wanneer u wilt dat toouse een werk- of schoolaccount die geen multifactor-verificatie vereist. U wordt gevraagd op de opdrachtregel Hallo Hallo wachtwoord (of u kunt eventueel Hallo wachtwoord doorgeven als een extra parameter Hallo `azure login` opdracht). Hallo volgende voorbeeld wordt doorgegeven Hallo gebruikersnaam van een organisatie-account:
+Gebruik de `azure login` opdracht met de gebruikersnaam (`-u`) parameter om te verifiëren wanneer u wilt gebruiken een werk- of schoolaccount die multifactor-verificatie niet vereist. U wordt gevraagd op de opdrachtregel voor het wachtwoord (of u kunt desgewenst het wachtwoord doorgeven als een extra parameter van de `azure login` opdracht). Het volgende voorbeeld wordt de gebruikersnaam van een organisatieaccount doorgegeven:
 
     azure login -u myUserName@contoso.onmicrosoft.com
 
-U bent vervolgens tooenter gevraagd uw wachtwoord:
+U wordt gevraagd uw wachtwoord in te voeren:
 
     info:    Executing command login
     Password: *********
 
-Hallo-aanmelding wordt voltooid.
+De aanmelding wordt voltooid.
 
     info:    Added subscription Visual Studio Ultimate with MSDN
     +
     info:    login command OK
 
-Als dit de eerste keer aangemeld met deze referenties is, wordt u gevraagd tooverify dat u toocache geen verificatietoken wenst. Deze vraag vindt ook plaats als u eerder hebt gebruikt Hallo `azure logout` opdracht (beschreven in artikel hello later). toobypass deze prompt voor automatiseringsscenario's uitgevoerd `azure login` Hello `-q` parameter.
+Als dit de eerste keer aangemeld met deze referenties, wordt u gevraagd om te controleren die u wilt geen verificatietoken in de cache. Deze vraag vindt ook plaats als u eerder hebt gebruikt de `azure logout` opdracht (Zie verderop in het artikel). Uitvoeren als u wilt deze prompt voor automatiseringsscenario's omzeilen, `azure login` met de `-q` parameter.
 
 ## <a name="scenario-3-azure-login-with-a-service-principal"></a>Scenario 3: azure-aanmelding met een service-principal
-Als u een service-principal voor een Active Directory-toepassing maakt en service-principal Hallo machtigingen op uw abonnement heeft, kunt u Hallo `azure login` opdracht tooauthenticate Hallo service-principal. Afhankelijk van uw scenario kan u referenties van de service-principal Hallo Hallo opgeven als expliciete parameters Hallo `azure login` opdracht. Bijvoorbeeld: hello volgende opdracht wordt doorgegeven Hallo service principal name en Active Directory-tenant-ID:
+Als u een service-principal voor een Active Directory-toepassing maken en de service-principal machtigingen op uw abonnement heeft, kunt u de `azure login` opdracht voor het verifiëren van de service-principal. Afhankelijk van uw scenario kunt u de referenties van de service-principal opgeven als expliciete parameters van de `azure login` opdracht. De volgende opdracht geeft bijvoorbeeld de service principal name en de Active Directory-tenant-ID:
 
     azure login -u https://www.contoso.org/example --service-principal --tenant myTenantID
 
-U bent na vragen aan gebruiker tooprovide Hallo wachtwoord. U kunt ook Hallo referenties via een CLI script of toepassing code, of gebruik een certificaat tooauthenticate Hallo service-principal niet-interactief voor automatiseringsscenario's. Zie voor meer informatie en voorbeelden [verifiëren van een service-principal met Azure Resource Manager](resource-group-authenticate-service-principal-cli.md).
+U wordt gevraagd het wachtwoord op te geven. U kunt ook de referenties van de via een script of toepassing code voor CLI of een certificaat voor verificatie van de service-principal niet-interactief voor automatiseringsscenario's gebruiken. Zie voor meer informatie en voorbeelden [verifiëren van een service-principal met Azure Resource Manager](resource-group-authenticate-service-principal-cli.md).
 
 ## <a name="scenario-4-use-a-publish-settings-file"></a>Scenario 4: Gebruik een bestand met publicatie-instellingen
-Als u moet alleen toouse hello Azure Service Management modus CLI-opdrachten (bijvoorbeeld toodeploy Azure VM's in het klassieke implementatiemodel Hallo), kunt u verbinding maken met behulp van een bestand met publicatie-instellingen. Deze methode wordt een certificaat geïnstalleerd op uw lokale computer waarmee u beheertaken tooperform voor zolang Hallo-abonnement en het Hallo-certificaat geldig zijn.
+Als u alleen hoeft de Azure Service Management modus CLI-opdrachten (bijvoorbeeld voor het implementeren van virtuele Azure-machines in het klassieke implementatiemodel) gebruiken, kunt u verbinding maken met behulp van een bestand met publicatie-instellingen. Deze methode wordt een certificaat geïnstalleerd op uw lokale computer waarmee u beheertaken voor uitvoeren als het abonnement en het certificaat geldig zijn.
 
-* **Hallo toodownload bestand publicatie-instellingen** Zorg ervoor dat Hallo CLI in Service Management-modus door in te voeren is voor uw account `azure config mode asm`. Voer vervolgens de volgende opdracht Hallo:
+* **Voor het downloaden van het bestand publiceren instellingen** voor uw account, zorg ervoor dat de CLI in Service Management-modus door te typen `azure config mode asm`. Voer de volgende opdracht:
 
         azure account download
 
-Hiermee opent u de standaardbrowser en vraagt u toosign in toohello [klassieke Azure-portal](https://manage.windowsazure.com). Nadat u zich aanmeldt, een `.publishsettings` bestand downloads. Noteer waar dit bestand wordt opgeslagen.
+Hiermee opent u de standaardbrowser en vraagt u zich aanmeldt bij de [klassieke Azure-portal](https://manage.windowsazure.com). Nadat u zich aanmeldt, een `.publishsettings` bestand downloads. Noteer waar dit bestand wordt opgeslagen.
 
 > [!NOTE]
-> Als uw account gekoppeld aan meerdere tenants van Azure Active Directory is, hebt u mogelijk na vragen aan gebruiker tooselect die Active Directory die u wenst toodownload publicatie-instellingen voor het bestand.
+> Als uw account gekoppeld aan meerdere Azure Active Directory-tenants is, kunt u worden gevraagd om te selecteren welke Active Directory die u wilt een publish settings-bestand voor downloaden.
 >
 >
 
-Wanneer met behulp van de downloadpagina Hallo of via de klassieke Azure-portal Hallo wordt Hallo geselecteerde Active Directory Hallo standaardwaarde gebruikt door de klassieke portal Hallo en downloadpagina. Nadat een standaard is ingesteld, ziet u de tekst hello '**Klik hier tooreturn toohello selectiepagina**' hello boven aan het Hallo-downloadpagina. Hallo opgegeven koppeling tooreturn toohello selectiepagina gebruiken.
+Wanneer met behulp van de downloadpagina of via de klassieke Azure portal, wordt de geselecteerde Active Directory de standaardwaarde aan die door de klassieke portal en download de pagina. Zodra een standaard actief is, ziet u de tekst '**Klik hier om terug te keren naar de selectiepagina**' aan de bovenkant van de downloadpagina. Gebruik de onderstaande koppeling om terug te keren naar de selectiepagina.
 
-* **Hallo tooimport bestand publicatie-instellingen**, voert hello volgende opdracht:
+* **Het bestand publiceren-instellingen te importeren**, voer de volgende opdracht:
 
-        azure account import <path tooyour .publishsettings file>
+        azure account import <path to your .publishsettings file>
 
 > [!IMPORTANT]
-> Na het importeren van de publicatie-instellingen, verwijdert u Hallo `.publishsettings` bestand. Het is niet langer vereist voor hello Azure CLI en vormt een beveiligingsrisico, omdat als het gebruikte toogain toegang tooyour abonnement mogelijk.
+> Na het importeren van de publicatie-instellingen, verwijdert u de `.publishsettings` bestand. Het is niet langer vereist voor de Azure CLI en vormt een beveiligingsrisico, omdat omdat deze kan worden gebruikt voor toegang tot uw abonnement.
 >
 >
 
 ## <a name="cli-command-modes"></a>CLI-opdrachtmodi
-Hello Azure CLI biedt twee opdrachtmodi voor het werken met Azure-resources met andere opdrachtsets:
+De Azure CLI biedt twee opdrachtmodi voor het werken met Azure-resources met andere opdrachtsets:
 
-* **Resource Manager-modus** : voor het werken met Azure-resources in Hallo Resource Manager-implementatiemodel. tooset deze modus wordt uitgevoerd `azure config mode arm`.
-* **Service Management-modus** : voor het werken met Azure-resources in het klassieke implementatiemodel Hallo. tooset deze modus wordt uitgevoerd `azure config mode asm`.
+* **Resource Manager-modus** : voor het werken met Azure-resources in het Resource Manager-implementatiemodel. Uitvoeren als u wilt instellen in deze modus, `azure config mode arm`.
+* **Service Management-modus** : voor het werken met Azure-resources in het klassieke implementatiemodel. Uitvoeren als u wilt instellen in deze modus, `azure config mode asm`.
 
-Toen geïnstalleerd, Hallo huidige release van Hallo die CLI bevindt zich in de modus Resource Manager.
+Toen geïnstalleerd, is de huidige release van de CLI in de modus Resource Manager.
 
 > [!NOTE]
-> Hallo Resource Manager en Service Management-modus elkaar wederzijds uit. Dat wil zeggen, resources die zijn gemaakt in de modus voor één kunnen niet worden beheerd vanaf Hallo andere modus.
+> De modus Resource Manager en Service Management-modus elkaar wederzijds uit. Dat wil zeggen, kunnen niet resources die zijn gemaakt in de modus voor één worden beheerd vanaf de andere modus.
 >
 >
 
 ## <a name="multiple-subscriptions"></a>Meerdere abonnementen
-Als u meerdere Azure-abonnementen hebt, verleent toegang tooall abonnementen die zijn gekoppeld aan uw referenties als u tooAzure verbinding te maken. Een abonnement is Hallo standaard geselecteerd en gebruikt door hello Azure CLI bij het uitvoeren van bewerkingen. Vindt u Hallo abonnementen, met inbegrip van de huidige standaardabonnement hello, met behulp van Hallo `azure account list` opdracht. Met deze opdracht retourneert informatie vergelijkbare toohello volgende:
+Als u meerdere Azure-abonnementen hebt, verleent verbinding maken met Azure toegang tot alle abonnementen die zijn gekoppeld aan uw referenties. Een abonnement is geselecteerd als de standaard en gebruikt door de Azure CLI bij het uitvoeren van bewerkingen. U kunt de abonnementen kunt weergeven, met inbegrip van de huidige standaardabonnement, met behulp van de `azure account list` opdracht. Met deze opdracht retourneert informatie ziet er als volgt:
 
     info:    Executing command account list
     data:    Name              Id                                    Current
@@ -132,36 +132,36 @@ Als u meerdere Azure-abonnementen hebt, verleent toegang tooall abonnementen die
     data:    Azure-sub-1       ####################################  true
     data:    Azure-sub-2       ####################################  false
 
-Hallo in Hallo voorafgaand aan de lijst, **huidige** kolom wordt aangegeven Hallo huidige standaardabonnement als Azure-sub-1. toochange hello standaardabonnement, gebruik Hallo `azure account set` opdracht in en geef Hallo-abonnement dat u wenst dat toobe Hallo standaard. Bijvoorbeeld:
+In de bovenstaande lijst de **huidige** kolom wordt aangegeven dat het huidige standaardabonnement als Azure-sub-1. U kunt het standaardabonnement wijzigen met de `azure account set` opdracht en geeft u het abonnement dat u wilt gebruiken als de standaardwaarde. Bijvoorbeeld:
 
     azure account set Azure-sub-2
 
-Hiermee wijzigt u Hallo standaard abonnement tooAzure-sub-2.
+Hiermee wijzigt u het standaardabonnement op Azure-sub-2.
 
 > [!NOTE]
-> Hallo standaardabonnement wijzigen wordt direct van kracht en is een algemene wijziging; nieuwe Azure CLI-opdrachten, of u deze uit uitvoeren Hallo dezelfde opdrachtregelprogramma exemplaar of een ander exemplaar, nieuwe standaardabonnement hello gebruiken.
+> Het wijzigen van het standaardabonnement wordt direct van kracht en is een algemene wijziging; nieuwe Azure CLI-opdrachten gebruiken de nieuwe standaardabonnement of u ze vanaf de opdrachtregel hetzelfde exemplaar of een ander exemplaar uitvoeren.
 >
 >
 
-Als u toouse een niet-standaard-abonnement met hello Azure CLI wilt, maar niet dat toochange Hallo huidige standaard wilt, kunt u Hallo `--subscription` optie voor de opdracht Hallo en geef Hallo Hallo-abonnement dat u wenst dat toouse voor Hallo-bewerking.
+Als u wilt een niet-standaard-abonnement met de Azure CLI gebruiken, maar niet wilt dat de huidige standaardwaarde te wijzigen, kunt u de `--subscription` optie voor de opdracht en geef de naam van het abonnement dat u wilt gebruiken voor de bewerking.
 
-Wanneer u verbonden tooyour Azure-abonnement bent, kunt u beginnen met behulp van hello Azure CLI-opdrachten toowork met Azure-resources.
+Wanneer u met uw Azure-abonnement verbonden bent, kunt u beginnen met de Azure CLI-opdrachten om te werken met Azure-resources.
 
 ## <a name="storage-of-cli-settings"></a>Opslag van CLI-instellingen
-Hiermee wordt aangegeven of u aanmelden met Hallo `azure login` opdracht of het importeren van publicatie-instellingen, uw CLI-profiel en de logboeken worden opgeslagen in een `.azure` directory zich in uw `user` directory. Uw `user` map wordt beveiligd door het besturingssysteem. We raden u echter aan dat u rekening houden met extra stappen tooencrypt uw `user` directory. U kunt dit doen in de volgende manieren Hallo:
+Of u zich aan met de `azure login` opdracht of het importeren van publicatie-instellingen, uw CLI-profiel en de logboeken worden opgeslagen in een `.azure` directory zich in uw `user` directory. Uw `user` map wordt beveiligd door het besturingssysteem. We raden u echter aan dat u extra stappen ondernemen voor het versleutelen van uw `user` directory. U kunt dit op de volgende manieren doen:
 
-* Hallo directory eigenschappen wijzigen van Windows, of gebruik van BitLocker.
-* Schakel op de Mac, FileVault voor Hallo-directory.
-* Op Ubuntu, Hallo versleutelde Home directory functie te gebruiken. Andere Linux-distributies bieden vergelijkbare functies.
+* Van Windows, de mapeigenschappen van de wijzigen of gebruik van BitLocker.
+* Schakel op de Mac, FileVault voor de map.
+* In Ubuntu gebruikt u de functie om de basismap te versleutelen. Andere Linux-distributies bieden vergelijkbare functies.
 
 ## <a name="logging-out"></a>Afmelden
-toolog uit gebruik Hallo volgende opdracht:
+Meld u af met de volgende opdracht:
 
     azure logout -u <username>
 
-Als Hallo abonnementen die zijn gekoppeld aan worden Hallo account alleen met Active Directory, logboekregistratie verwijderingen Hallo abonnement informatie uit het lokale profiel Hallo geverifieerde. Echter, als een bestand met publicatie-instellingen ook voor Hallo abonnementen is geïmporteerd, afmelden alleen verwijderingen Active Directory gegevens uit het lokale profiel Hallo gerelateerde.
+Als de abonnementen die zijn gekoppeld aan het account alleen met Active Directory, verwijderingen afmelden met informatie over het abonnement uit het lokale profiel worden geverifieerd. Echter, als een bestand met publicatie-instellingen ook voor de abonnementen is geïmporteerd, afmelden alleen verwijderingen Active Directory gegevens uit het lokale profiel gerelateerde.
 
 ## <a name="next-steps"></a>Volgende stappen
-* toouse Azure CLI-opdrachten, Zie [Azure CLI-opdrachten in de modus Resource Manager](virtual-machines/azure-cli-arm-commands.md) en [Azure CLI-opdrachten in de modus van de Service Management](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* toolearn meer informatie over hello Azure CLI broncode downloaden, problemen, rapport of bijdragen toohello project, gaat u naar Hallo [GitHub-opslagplaats voor hello Azure CLI](https://github.com/azure/azure-xplat-cli).
-* Als u met hello Azure CLI of Azure problemen, gaat u naar Hallo [Azure-Forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
+* Zie voor het gebruik van Azure CLI-opdrachten [Azure CLI-opdrachten in de modus Resource Manager](virtual-machines/azure-cli-arm-commands.md) en [Azure CLI-opdrachten in de modus van de Service Management](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* Als u meer informatie over de Azure CLI, broncode downloaden, problemen melden, of bijdragen aan het project, gaat u naar de [GitHub-opslagplaats voor de Azure CLI](https://github.com/azure/azure-xplat-cli).
+* Als u met de Azure CLI of Azure problemen, gaat u naar de [Azure-Forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).

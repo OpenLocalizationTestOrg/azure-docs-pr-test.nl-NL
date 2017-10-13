@@ -1,6 +1,6 @@
 ---
-title: overzicht van aaaMedia Services PlayReady licentie-sjabloon
-description: In dit onderwerp geeft een overzicht van de sjabloon van een PlayReady-licentie die tooconfigure PlayReady-licenties gebruikt.
+title: Media Services PlayReady licentie sjabloon overzicht
+description: In dit onderwerp geeft een overzicht van een PlayReady-licentie-sjabloon die wordt gebruikt voor het configureren van PlayReady-licenties.
 author: juliako
 manager: cfowler
 editor: 
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 5a5ba930c56f70038db204681486ebc4308199fa
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: be19f616e36916655390cd05e738e93c08dcdf68
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady licentie sjabloon overzicht
-Azure Media Services biedt nu een service voor het leveren van Microsoft PlayReady-licenties. Wanneer Hallo eindgebruiker player (bijvoorbeeld Silverlight) probeert tooplay uw PlayReady beveiligde inhoud, een aanvraag is verzonden toohello licentie delivery service tooobtain een licentie. Als de licentieservice Hallo Hallo aanvraag goedkeurt, deze Hallo-licentie verzonden toohello client is uitgeeft en kan worden gebruikt toodecrypt en play Hallo opgegeven inhoud.
+Azure Media Services biedt nu een service voor het leveren van Microsoft PlayReady-licenties. Wanneer de eindgebruiker speler (bijvoorbeeld Silverlight), probeert uw PlayReady beveiligde inhoud af te spelen, wordt een aanvraag verzonden naar de service voor het leveren van licenties voor het verkrijgen van een licentie. Als de licentieservice de aanvraag goedkeurt, moet deze de licentie die is verzonden naar de client en kan worden gebruikt om te ontsleutelen en de inhoud van de opgegeven spelen uitgeeft.
 
-Media Services biedt ook API's waarmee u uw PlayReady-licenties te configureren. Licenties bevatten Hallo rechten en beperkingen dat u voor Hallo PlayReady DRM runtime tooenforce wilt wanneer een gebruiker tooplayback probeert beveiligde inhoud.
+Media Services biedt ook API's waarmee u uw PlayReady-licenties te configureren. Licenties bevat rechten en beperkingen die u voor de runtime PlayReady DRM afdwingen wilt wanneer een gebruiker te afspelen beveiligde inhoud probeert.
 Hieronder volgen enkele voorbeelden van PlayReady licentiebeperkingen die u kunt opgeven:
 
-* Hallo DateTime vanaf welke Hallo licentie geldig is.
-* Hallo DateTime-waarde wanneer Hallo-licentie is verlopen. 
-* Voor Hallo licentie toobe opgeslagen in de permanente opslag op Hallo-client. Permanente licenties zijn gewoonlijk gebruikte tooallow offline afspelen van Hallo-inhoud.
-* Hallo minimale beveiligingsniveau dat een speler moet tooplay uw inhoud hebben. 
-* Hallo uitvoer beveiligingsniveau voor Hallo uitvoer besturingselementen voor audio\video inhoud. 
-* Zie voor meer informatie, Hallo uitvoer besturingselementen sectie (3.5) in Hallo [Compliantieregels PlayReady](https://www.microsoft.com/playready/licensing/compliance/) document.
+* De datum/tijd van waaruit de licentie geldig is.
+* De DateTime-waarde wanneer de licentie is verlopen. 
+* Voor de licentie op de client worden opgeslagen in de permanente opslag. Permanente licenties worden meestal gebruikt voor het toestaan van offline afspelen van de inhoud.
+* Het minimale beveiligingsniveau dat een speler hebben moet tot uw inhoud afspelen. 
+* Het beveiligingsniveau voor de uitvoer van de uitvoer-besturingselementen voor audio\video inhoud. 
+* Zie voor meer informatie de sectie uitvoer-besturingselementen (3.5) in de [Compliantieregels PlayReady](https://www.microsoft.com/playready/licensing/compliance/) document.
 
 > [!NOTE]
-> U kunt op dit moment alleen Hallo PlayRight van Hallo PlayReady-licenties (dit recht is vereist) configureren. Hallo PlayRight geeft Hallo client Hallo mogelijkheid tooplayback Hallo inhoud. Hallo PlayRight kunt ook specifieke tooplayback beperkingen configureren. Zie voor meer informatie [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
+> Op dit moment kunt u alleen de PlayRight van de PlayReady-licenties (dit recht is vereist) configureren. De PlayRight geeft de client de mogelijkheid voor het afspelen van de inhoud. De PlayRight kunt ook beperkingen die specifiek zijn voor het afspelen te configureren. Zie voor meer informatie [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
 > 
 > 
 
-tooconfigure PlayReady-licenties met Media Services, moet u Hallo Media Services PlayReady-licentiesjabloon configureren. Hallo-sjabloon is gedefinieerd in XML.
+PlayReady-licenties met Media Services configureren, moet u de Media Services PlayReady-licentiesjabloon configureren. De sjabloon is gedefinieerd in XML.
 
-Hallo ziet volgende voorbeeld Hallo eenvoudigste (en meest voorkomende) sjabloon waarmee een streaming standaardlicentie worden geconfigureerd. Met deze licentie uw clients kunt tooplayback zou worden uw PlayReady beveiligde inhoud.
+Het volgende voorbeeld ziet de sjabloon eenvoudigste (en meest voorkomende) die een streaming standaardlicentie configureert. Met deze licentie uw clients zou kunnen afspelen uw PlayReady beveiligde inhoud.
 
     <?xml version="1.0" encoding="utf-8"?>
     <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
@@ -53,30 +53,30 @@ Hallo ziet volgende voorbeeld Hallo eenvoudigste (en meest voorkomende) sjabloon
       </LicenseTemplates>
     </PlayReadyLicenseResponseTemplate>
 
-Hallo-XML voldoet toohello PlayReady licentie sjabloon XML-schema is gedefinieerd in Hallo PlayReady-licentiesjabloon XML-schema-sectie.
+Het XML-bestand voldoet aan de PlayReady licentie sjabloon XML-schema gedefinieerd in de sjabloon van PlayReady licentie sectie XML-schema.
 
-Media Services kunt u ook een set van .NET-klassen die gebruikt tooserialized en gedeserialiseerde tooand van Hallo XML worden kan gedefinieerd. Zie voor een beschrijving van de belangrijkste klassen [Media Services .NET-klassen](media-services-playready-license-template-overview.md#classes). die zijn gebruikt tooconfigure licentie sjablonen.
+Media Services definieert ook een set van .NET-klassen die kunnen worden gebruikt voor geserialiseerd en gedeserialiseerd naar en van het XML-bestand. Zie voor een beschrijving van de belangrijkste klassen [Media Services .NET-klassen](media-services-playready-license-template-overview.md#classes). die worden gebruikt voor het configureren van de licentie-sjablonen.
 
-Zie voor een voorbeeld van end-to-end die gebruikmaakt van .NET-tooconfigure Hallo PlayReady-licentiesjabloon klassen, [met behulp van dynamische PlayReady-versleuteling en de Service voor het leveren van licenties](media-services-protect-with-drm.md).
+Zie voor een voorbeeld van end-to-end die gebruikmaakt van .NET-klassen voor het configureren van de sjabloon PlayReady-licenties [met behulp van dynamische PlayReady-versleuteling en de Service voor het leveren van licenties](media-services-protect-with-drm.md).
 
-## <a id="classes"></a>Media Services .NET-klassen die gebruikt tooconfigure licentie sjablonen zijn
-Hallo hieronder vindt u hoofdklassen .NET voor Hallo gebruikte tooconfigure Media Services PlayReady licentie sjablonen zijn. Deze klassen worden toegewezen toohello-typen gedefinieerd in [PlayReady licentie sjabloon XML-schema](media-services-playready-license-template-overview.md#schema).
+## <a id="classes"></a>Media Services .NET-klassen die worden gebruikt voor het licentie-sjablonen configureren
+Hier volgen dat de belangrijkste .NET-klassen worden gebruikt voor het configureren van Media Services PlayReady licentie sjablonen. Deze klassen worden toegewezen aan de typen gedefinieerd in [PlayReady licentie sjabloon XML-schema](media-services-playready-license-template-overview.md#schema).
 
-Hallo [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) klasse is gebruikte tooserialize en tooand van Hallo Media Services-licentiesjabloon XML te deserialiseren.
+De [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) klasse wordt gebruikt voor het serialiseren en deserialiseren van en naar de Media Services-licentiesjabloon XML.
 
 ### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx) -deze klasse vertegenwoordigt het Hallo-sjabloon voor het Hallo-antwoord verzonden back toohello eindgebruiker. Het bevat een veld voor een tekenreeks met aangepaste gegevens tussen de licentieserver Hallo en Hallo-toepassing (mogelijk handig voor aangepaste app logica), evenals een lijst met een of meer licentie-sjablonen.
+[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx) -deze klasse vertegenwoordigt de sjabloon voor het antwoord terug naar de eindgebruiker wordt verzonden. Het bevat een veld voor een tekenreeks met aangepaste gegevens tussen de licentieserver en de toepassing (mogelijk handig voor aangepaste app logica), evenals een lijst met een of meer licentie-sjablonen.
 
-Dit is Hallo 'top niveau' klasse in Hallo Sjabloonhiërarchie. Wat betekent dat Hallo antwoord sjabloon een lijst met sjablonen licentie bevat en Hallo licentie sjablonen bevatten (direct of indirect) alle andere klassen die gezamenlijk Hallo sjabloon gegevens toobe geserialiseerd Hallo.
+Dit is de klasse 'hoofdniveau' in de Sjabloonhiërarchie. Wat betekent dat de sjabloon antwoord een lijst met sjablonen licentie bevat en de licentie-sjablonen bevatten (direct of indirect) alle klassen waaruit de sjabloongegevens moet worden geserialiseerd.
 
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
-[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) -Hallo klasse vertegenwoordigt een licentiesjabloon voor het maken van PlayReady-licenties toobe toohello eindgebruikers geretourneerd. Het Hallo-gegevens op Hallo inhoudssleutel in Hallo-licentie bevat en eventuele toobe rechten of beperkingen afgedwongen door Hallo PlayReady DRM runtime bij gebruik van Hallo inhoudssleutel.
+[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) -de klasse vertegenwoordigt een licentiesjabloon voor het maken van PlayReady-licenties moet worden geretourneerd voor de eindgebruikers. De gegevens op de inhoudssleutel in de licentie en rechten of beperkingen moeten worden afgedwongen door de runtime PlayReady DRM bij gebruik van de inhoudssleutel bevat.
 
 ### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) -deze klasse vertegenwoordigt Hallo PlayRight van een PlayReady-licentie. Hallo gebruiker Hallo mogelijkheid tooplayback kent het Hallo inhoud onderwerp toohello nul of meer beperkingen in Hallo-licentie en op Hallo PlayRight zelf (voor een specifiek beleid afspelen) geconfigureerd. Veel van Hallo-beleid op Hallo PlayRight heeft toodo met uitvoer beperkingen die Hallo soorten uitvoer die Hallo inhoud kan worden afgespeeld via beheren en de beperkingen die in plaats moeten worden geplaatst bij gebruik van een bepaalde uitvoer. Bijvoorbeeld, als Hallo DigitalVideoOnlyContentRestriction is ingeschakeld, klikt u vervolgens Hallo worden DRM runtime mag alleen Hallo video toobe weergegeven via digitale uitvoer (analoge video-uitgangen niet mag toopass Hallo inhoud).
+[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) -deze klasse vertegenwoordigt de PlayRight van een PlayReady-licentie. Deze geeft de gebruiker de mogelijkheid voor het afspelen van de inhoud onderworpen aan de nul of meer beperkingen die zijn geconfigureerd in de licentievoorwaarden en klik op de PlayRight zelf (voor een specifiek beleid afspelen). Veel van de beleidsregels op de PlayRight heeft te maken met uitvoer beperkingen die de soorten uitvoer die de inhoud kan worden afgespeeld via beheren en de beperkingen die in plaats moeten worden geplaatst bij gebruik van een bepaalde uitvoer. Bijvoorbeeld als de DigitalVideoOnlyContentRestriction is ingeschakeld, klikt u vervolgens de runtime DRM alleen, krijgt de video moet worden weergegeven via digitale uitvoer (analoge video-uitgangen niet mag doorgeven van de inhoud).
 
 > [!IMPORTANT]
-> Typen beperkingen kunnen zeer krachtig maar kunnen ook van invloed op Hallo consumer ervaring. Als Hallo uitvoer beveiligingen te beperkend zijn geconfigureerd, is het mogelijk dat Hallo inhoud afgespeeld op sommige clients. Zie voor meer informatie, Hallo [Compliantieregels PlayReady](https://www.microsoft.com/playready/licensing/compliance/) document.
+> Typen beperkingen kunnen zeer krachtig maar kunnen ook van invloed op de ervaring van de consumer. Als de uitvoer goed te beperkend zijn geconfigureerd, is het mogelijk dat de inhoud op sommige clients afgespeeld. Zie voor meer informatie de [Compliantieregels PlayReady](https://www.microsoft.com/playready/licensing/compliance/) document.
 > 
 > 
 

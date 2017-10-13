@@ -1,6 +1,6 @@
 ---
-title: aaaHow toouse Azure Service Bus-onderwerpen met behulp van Python | Microsoft Docs
-description: Meer informatie over hoe toouse Azure Service Bus-onderwerpen en abonnementen van Python.
+title: Azure Service Bus-onderwerpen gebruiken met Python | Microsoft Docs
+description: Informatie over het gebruik van Azure Service Bus-onderwerpen en abonnementen van Python.
 services: service-bus-messaging
 documentationcenter: python
 author: sethmanheim
@@ -14,31 +14,31 @@ ms.devlang: python
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 1171cbe8061bb3d73e2ce92ecc0cf45afae37054
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 15269f9728e9dc45e6436e53b1859f76d4a7a0c9
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-toouse-service-bus-topics-and-subscriptions-with-python"></a>Hoe toouse Service Bus-onderwerpen en abonnementen, met Python
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Service Bus-onderwerpen en abonnementen gebruiken met Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Dit artikel wordt beschreven hoe toouse Service Bus-onderwerpen en abonnementen. Hallo-voorbeelden zijn geschreven in Python en gebruiken van Hallo [Azure Python SDK-pakket][Azure Python package]. Hallo scenario's worden behandeld: **maken van onderwerpen en abonnementen**, **maken van abonnementsfilters**, **verzenden van berichten tooa onderwerp**, **ontvangen berichten van een abonnement**, en **verwijderen van onderwerpen en abonnementen**. Zie voor meer informatie over onderwerpen en abonnementen Hallo [Vervolgstappen](#next-steps) sectie.
+In dit artikel wordt beschreven hoe u Service Bus-onderwerpen en -abonnementen gebruikt. De voorbeelden zijn geschreven in Python en gebruik de [Azure Python SDK-pakket][Azure Python package]. De scenario's worden behandeld: **maken van onderwerpen en abonnementen**, **maken van abonnementsfilters**, **verzenden van berichten naar een onderwerp**, **ontvangen van berichten van een abonnement**, en **verwijderen van onderwerpen en abonnementen**. Zie voor meer informatie over onderwerpen en abonnementen, de [Vervolgstappen](#next-steps) sectie.
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 > [!NOTE] 
-> Als u tooinstall Python of Hallo nodig [Azure Python-pakket][Azure Python package], Zie Hallo [Python installatiehandleiding](../python-how-to-install.md).
+> Als u nodig hebt om Python te installeren of de [Azure Python-pakket][Azure Python package], Zie de [Python installatiehandleiding](../python-how-to-install.md).
 
 ## <a name="create-a-topic"></a>Een onderwerp maken
-Hallo **ServiceBusService** object kunt u toowork met onderwerpen. Voeg de volgende Hallo bij Hallo bovenkant van een Python-bestand waarin u wenst dat tooprogrammatically access Service Bus:
+De **ServiceBusService** object kunt u werken met onderwerpen. Voeg de volgende boven aan elk Python-bestand waarin u wilt programmatisch toegang biedt tot de Service Bus:
 
 ```python
 from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
-Hallo volgende code maakt een **ServiceBusService** object. Vervang `mynamespace`, `sharedaccesskeyname`, en `sharedaccesskey` met uw werkelijke naamruimte Shared Access Signature (SAS) sleutelwaarde naam en een sleutel.
+De volgende code maakt een **ServiceBusService** object. Vervang `mynamespace`, `sharedaccesskeyname`, en `sharedaccesskey` met uw werkelijke naamruimte Shared Access Signature (SAS) sleutelwaarde naam en een sleutel.
 
 ```python
 bus_service = ServiceBusService(
@@ -47,13 +47,13 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-U kunt ophalen Hallo waarden voor Hallo SAS-sleutelnaam en de waarde Hallo [Azure-portal][Azure portal].
+U kunt verkrijgen van de waarden voor de naam van de SAS-sleutel en waarde van de [Azure-portal][Azure portal].
 
 ```python
 bus_service.create_topic('mytopic')
 ```
 
-Hallo `create_topic` methode biedt ook ondersteuning voor extra opties waarmee u toooverride standaardinstellingen onderwerp zoals bericht tijd onderwerp toolive of de maximale grootte. Hallo volgende voorbeeld wordt Hallo onderwerp maximale grootte too5 GB en een tijd toolive (TTL)-waarde van 1 minuut:
+De `create_topic` methode biedt ook ondersteuning voor extra opties waarmee u kunt de standaardinstellingen voor onderwerp zoals bericht of grootte van het maximum aantal onderwerp negeren. Het volgende voorbeeld wordt de grootte van het maximum aantal onderwerp 5 GB, en een tijdstip voor live (TTL)-waarde van 1 minuut:
 
 ```python
 topic_options = Topic()
@@ -64,33 +64,33 @@ bus_service.create_topic('mytopic', topic_options)
 ```
 
 ## <a name="create-subscriptions"></a>Abonnementen maken
-Abonnementen tootopics tevens zijn gemaakt met de Hallo **ServiceBusService** object. Abonnementen kunnen worden genoemd en een optioneel filter waarmee Hallo verzameling berichten dat de virtuele wachtrij van het abonnement toohello wordt beperkt.
+Abonnementen op onderwerpen ook worden gemaakt met de **ServiceBusService** object. Abonnementen kunnen worden genoemd en een optioneel filter waarmee de verzameling berichten in de virtuele wachtrij van het abonnement wordt beperkt.
 
 > [!NOTE]
-> Abonnementen worden permanent en tooexist zal worden voortgezet totdat beide ze of hello onderwerp toowhich ze bent geabonneerd, worden verwijderd.
+> Abonnementen worden permanent en blijft bestaan totdat ze, of het onderwerp waarop ze zijn aangemeld, worden verwijderd.
 > 
 > 
 
-### <a name="create-a-subscription-with-hello-default-matchall-filter"></a>Een abonnement maken met de Hallo standaardfilter (MatchAll)
-Hallo **MatchAll** filter is Hallo standaardfilter dat wordt gebruikt als geen filter is opgegeven als een nieuw abonnement wordt gemaakt. Wanneer Hallo **MatchAll** filter wordt gebruikt, worden alle berichten gepubliceerde toohello onderwerp in virtuele wachtrij van Hallo abonnement geplaatst. Hallo volgende voorbeeld maakt u een abonnement met de naam `AllMessages` en gebruikt standaard Hallo **MatchAll** filter.
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Een abonnement maken met het standaardfilter (MatchAll)
+Het **MatchAll**-filter is het standaardfilter dat wordt gebruikt als er bij het maken van een nieuw abonnement geen filter is opgegeven. Wanneer de **MatchAll** filter wordt gebruikt, worden alle berichten die zijn gepubliceerd naar het onderwerp in de virtuele wachtrij van het abonnement geplaatst. Het volgende voorbeeld wordt een abonnement genaamd `AllMessages` en gebruikt de standaardinstallatielocatie **MatchAll** filter.
 
 ```python
 bus_service.create_subscription('mytopic', 'AllMessages')
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Abonnementen met filters maken
-U kunt ook filters waarmee u welke berichten verzonden tooa onderwerp weergegeven binnen een bepaald onderwerpabonnement toospecify definiëren.
+Ook kunt u filters waarmee u kunt opgeven welke berichten die worden verzonden naar een onderwerp weergegeven binnen een bepaald onderwerpabonnement.
 
-Hallo meest flexibele type filter dat wordt ondersteund door abonnementen is een **SqlFilter**, waarmee een subset van SQL92 wordt geïmplementeerd implementeert. SQL-filters worden uitgevoerd op Hallo eigenschappen van Hallo-berichten die gepubliceerd toohello onderwerp zijn. Zie voor meer informatie over Hallo expressies die kunnen worden gebruikt met een SQL-filter Hallo [SqlFilter.SqlExpression] [ SqlFilter.SqlExpression] syntaxis.
+Het meest flexibele type filter dat wordt ondersteund door abonnementen is een **SqlFilter**, waarmee een subset van SQL92 wordt geïmplementeerd implementeert. SQL-filters worden uitgevoerd voor de eigenschappen van de berichten die worden gepubliceerd naar het onderwerp. Zie de [SqlFilter.SqlExpression][SqlFilter.SqlExpression]-syntaxis voor meer informatie over de expressies die kunnen worden gebruikt met een SQL-filter.
 
-U kunt filters tooa abonnement kunt toevoegen met behulp van Hallo **maken\_regel** methode Hallo **ServiceBusService** object. Deze methode kunt u tooadd nieuwe filters tooan bestaande abonnement.
+U kunt filters toevoegen aan een abonnement met behulp van de **maken\_regel** methode van de **ServiceBusService** object. Deze methode kunt u nieuwe filters toevoegen aan een bestaand abonnement.
 
 > [!NOTE]
-> Omdat het standaardfilter hello wordt automatisch toegepast tooall nieuwe abonnementen, moet u eerst het standaardfilter Hallo of Hallo verwijderen **MatchAll** overschrijft alle andere filters die u kunt opgeven. U kunt de standaardregel Hallo verwijderen via Hallo `delete_rule` methode Hallo **ServiceBusService** object.
+> Omdat het standaardfilter automatisch op alle nieuwe abonnementen toegepast wordt, moet u eerst het standaardfilter verwijderen of de **MatchAll** overschrijft alle andere filters die u kunt opgeven. U kunt de standaardregel verwijderen met behulp van de `delete_rule` methode van de **ServiceBusService** object.
 > 
 > 
 
-Hallo volgende voorbeeld maakt u een abonnement met de naam `HighMessages` met een **SqlFilter** die alleen berichten selecteert die een aangepaste `messagenumber` eigenschap groter is dan 3:
+Het volgende voorbeeld wordt een abonnement genaamd `HighMessages` met een **SqlFilter** die alleen berichten selecteert die een aangepaste `messagenumber` eigenschap groter is dan 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'HighMessages')
@@ -103,7 +103,7 @@ bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 ```
 
-Op deze manier hello volgende voorbeeld maakt u een abonnement met de naam `LowMessages` met een **SqlFilter** die alleen berichten selecteert die een `messagenumber` eigenschap kleiner dan of gelijk too3:
+Op deze manier in het volgende voorbeeld wordt een abonnement genaamd `LowMessages` met een **SqlFilter** die alleen berichten selecteert die een `messagenumber` eigenschap kleiner dan of gelijk aan 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'LowMessages')
@@ -116,12 +116,12 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-Nu wanneer een bericht verzonden te`mytopic` wordt het tooreceivers geabonneerd toohello altijd bezorgd **AllMessages** onderwerpabonnement en selectief bezorgd tooreceivers geabonneerd toohello **HighMessages**  en **LowMessages** onderwerpabonnementen (afhankelijk van de inhoud van Hallo-bericht).
+Nu wanneer een bericht verzonden naar `mytopic` wordt het altijd bezorgd bij ontvangers die zijn geabonneerd op de **AllMessages** onderwerpabonnement en selectief bezorgd bij ontvangers die zijn geabonneerd op de **HighMessages** en **LowMessages** onderwerpabonnementen (afhankelijk van de inhoud van het bericht).
 
-## <a name="send-messages-tooa-topic"></a>Verzenden van berichten tooa onderwerp
-een bericht tooa Service Bus-onderwerp toosend, uw toepassing moet gebruiken Hallo `send_topic_message` methode Hallo **ServiceBusService** object.
+## <a name="send-messages-to-a-topic"></a>Berichten verzenden naar een onderwerp
+Als u wilt een bericht verzendt naar een Service Bus-onderwerp, de toepassing moet gebruiken de `send_topic_message` methode van de **ServiceBusService** object.
 
-Hallo volgende voorbeeld toont hoe vijf toosend test berichten te`mytopic`. Houd er rekening mee dat Hallo `messagenumber` eigenschapswaarde van elk bericht varieert op Hallo herhaling van Hallo lus (deze bepaalt welke abonnementen ontvangen):
+Het volgende voorbeeld toont hoe vijf testberichten naar verzendt `mytopic`. Houd er rekening mee dat de `messagenumber` eigenschapswaarde van elk bericht varieert op de herhaling van de lus (deze bepaalt welke abonnementen ontvangen):
 
 ```python
 for i in range(5):
@@ -129,21 +129,21 @@ for i in range(5):
     bus_service.send_topic_message('mytopic', msg)
 ```
 
-Service Bus-onderwerpen ondersteunen een maximale berichtgrootte van 256 KB in Hallo [standaardcategorie](service-bus-premium-messaging.md) en 1 MB in Hallo [Premium-laag](service-bus-premium-messaging.md). Hallo-kop, die standaard Hallo- en aangepaste toepassingseigenschappen bevat, kan een maximale grootte van 64 KB hebben. Er is geen limiet voor het aantal berichten in een onderwerp hello, maar er is een limiet voor de totale grootte van berichten in een onderwerp Hallo Hallo. De grootte van het onderwerp wordt gedefinieerd tijdens het maken, met een bovengrens van 5 GB. Zie voor meer informatie over quota [Service Bus-quota][Service Bus quotas].
+Service Bus-onderwerpen ondersteunen een maximale grootte van 256 kB in de [Standard-laag](service-bus-premium-messaging.md) en 1 MB in de [Premium-laag](service-bus-premium-messaging.md). De koptekst, die de standaard- en aangepaste toepassingseigenschappen bevat, kan maximaal 64 kB groot zijn. Er is geen limiet voor het aantal berichten in een onderwerp, maar er is een limiet voor de totale grootte van de berichten in een onderwerp. De grootte van het onderwerp wordt gedefinieerd tijdens het maken, met een bovengrens van 5 GB. Zie voor meer informatie over quota [Service Bus-quota][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Berichten ontvangen van een abonnement
-Berichten worden ontvangen van een abonnement met Hallo `receive_subscription_message` methode op Hallo **ServiceBusService** object:
+Berichten worden ontvangen van een abonnement met de `receive_subscription_message` methode op de **ServiceBusService** object:
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
-Berichten worden verwijderd uit het Hallo-abonnement als ze worden gelezen wanneer de parameter Hallo `peek_lock` te is ingesteld**False**. U kunt lezen (peek) en het Hallo-bericht zonder het te verwijderen uit de wachtrij Hallo door instelling Hallo parameter vergrendelen `peek_lock` te**True**.
+Berichten van het abonnement verwijderd als ze worden gelezen wanneer de parameter `peek_lock` is ingesteld op **False**. U kunt lezen (peek) en het bericht zonder het te verwijderen uit de wachtrij door de parameter vergrendelen `peek_lock` naar **True**.
 
-Hallo gedrag van lezen en Hallo-bericht is verwijderd als onderdeel van Hallo ontvangstbewerking is Hallo eenvoudigste model en werkt het beste voor scenario's waarin een toepassing kan tolereren niet verwerken van een bericht in de gebeurtenis Hallo van een fout. toounderstand dit, Neem bijvoorbeeld een scenario in welke problemen van de consument Hallo Hallo aanvraag ontvangen en vervolgens vastloopt voordat het wordt verwerkt. Omdat Service Bus heeft gemarkeerd als verbruikt, vervolgens wanneer Hallo toepassing opnieuw wordt opgestart en verbruik van berichten opnieuw begint het Hallo-bericht, ontbreekt het Hallo-bericht dat was voorafgaande toohello crash verbruikt.
+Het gedrag van lezen van en het bericht is verwijderd als onderdeel van de bewerking receive is het eenvoudigste model en werkt het beste voor scenario's waarin een toepassing kan tolereren niet verwerken van een bericht bij een storing. Neem bijvoorbeeld een scenario waarin de consument de ontvangstaanvraag uitgeeft en het systeem vervolgens vastloopt voordat de aanvraag wordt verwerkt. Omdat Service Bus het bericht als verbruikt heeft gemarkeerd, klikt u vervolgens wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint, ontbreekt het bericht dat voor het vastlopen is verbruikt.
 
-Als hello `peek_lock` parameter is ingesteld, te**True**, Hallo ontvangen, wordt een bewerking met twee fasen, waardoor het mogelijk toosupport toepassingen die geen ontbrekende berichten kunnen tolereren. Wanneer Service Bus een aanvraag ontvangt, zoeken naar het volgende bericht toobe Hallo verbruikt, wordt vergrendeld tooprevent andere consumenten het ontvangen en retourneert vervolgens toohello toepassing. Nadat de toepassing hello klaar is met verwerking van het Hallo-bericht (of veilig heeft opgeslagen voor toekomstige verwerking), is de tweede fase Hallo Hallo voltooid proces ontvangen door het aanroepen van `delete` methode op Hallo **bericht** object. Hallo `delete` methode markeert het Hallo-bericht als verbruikt en wordt deze verwijderd uit het Hallo-abonnement.
+Als de `peek_lock` parameter is ingesteld op **True**, wordt het ontvangen, wordt een bewerking met twee fasen, waardoor er mogelijk worden ondersteuning voor toepassingen die geen ontbrekende berichten kunnen tolereren. Als Service Bus een aanvraag ontvangt, wordt het volgende te verbruiken bericht gevonden, wordt het bericht vergrendeld om te voorkomen dat andere consumenten het ontvangen en wordt het bericht vervolgens naar de toepassing geretourneerd. Nadat de toepassing klaar is met verwerking van het bericht (of veilig heeft opgeslagen voor toekomstige verwerking), is de tweede fase van het ontvangstproces voltooid door het aanroepen van `delete` methode op de **bericht** object. De `delete` methode markeert het bericht als verbruikt en wordt deze verwijderd uit het abonnement.
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
@@ -152,28 +152,28 @@ print(msg.body)
 msg.delete()
 ```
 
-## <a name="how-toohandle-application-crashes-and-unreadable-messages"></a>Hoe toohandle toepassing is vastgelopen en onleesbare berichten
-Service Bus biedt functionaliteit toohelp die u netjes te herstellen bij fouten in uw toepassing of problemen bij het verwerken van een bericht. Als een ontvangende toepassing niet kan tooprocess hello bericht voor een bepaalde reden en vervolgens kan worden aangeroepen Hallo `unlock` methode op Hallo **bericht** object. Hierdoor wordt ervoor zorgen dat Service Bus toounlock Hallo-bericht binnen Hallo-abonnement en beschikbaar toobe opnieuw ontvangen, ofwel Hallo door dezelfde toepassing of door een andere consumerende toepassing verbruikt.
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Het vastlopen van de toepassing en onleesbare berichten afhandelen
+Service Bus biedt functionaliteit om netjes te herstellen bij fouten in uw toepassing of problemen bij het verwerken van een bericht. Als een ontvangende toepassing kan niet worden verwerkt het bericht om een bepaalde reden, dan kan worden aangeroepen de `unlock` methode op de **bericht** object. Dit zorgt ervoor dat Service Bus het bericht in het abonnement ontgrendelt en beschikbaar zijn om opnieuw te ontvangen, ofwel door dezelfde consumerende toepassing of door een andere consumerende toepassing.
 
-Daarnaast is er een time-out gekoppeld aan een bericht in het Hallo-abonnement is vergrendeld en als de toepassing hello tooprocess Hallo-bericht voordat mislukt Hallo vergrendelingstime-out verloopt (bijvoorbeeld als Hallo toepassing vastloopt), en vervolgens de Service Bus Hiermee ontgrendelt u het Hallo-bericht automatisch en wordt het beschikbaar toobe opnieuw ontvangen.
+Er is ook een time-out gekoppeld aan een bericht in het abonnement is vergrendeld en als de toepassing niet kan verwerken van het bericht voordat de time-out van de vergrendeling verloopt (bijvoorbeeld als de toepassing vastloopt), en vervolgens de Service Bus het bericht automatisch ontgrendelt en wordt het beschikbaar worden om opnieuw te ontvangen.
 
-In Hallo gebeurtenis die toepassing hello vastgelopen na het verwerken van het Hallo-bericht, maar voordat u Hallo `delete` methode wordt aangeroepen, is het Hallo-bericht altijd opnieuw bezorgd toohello toepassing opnieuw wordt gestart. Dit wordt vaak genoemd *tenminste eenmaal verwerken*, dat wil zeggen elk bericht ten minste één keer wordt verwerkt maar in bepaalde situaties Hallo hetzelfde bericht opnieuw kan worden bezorgd. Als Hallo scenario kan geen dubbele verwerking tolereren, moeten toepassingsontwikkelaars levering van aanvullende logica tootheir toepassing toohandle dubbele berichten toevoegen. Dit wordt vaak bereikt met behulp van Hallo **MessageId** eigenschap van Hallo-bericht dat gelijk bij meerdere bezorgingspogingen blijft.
+In het geval dat de toepassing is vastgelopen na het verwerken van het bericht, maar voordat de `delete` methode wordt aangeroepen en vervolgens het bericht opnieuw bezorgd bij de toepassing opnieuw wordt gestart. Dit wordt vaak genoemd *tenminste eenmaal verwerken*, dat wil zeggen elk bericht ten minste één keer wordt verwerkt maar in sommige situaties hetzelfde bericht opnieuw kan worden bezorgd. Als in het scenario dubbele verwerking niet wordt getolereerd, dan moeten toepassingsontwikkelaars extra logica toevoegen aan de toepassing om dubbele berichtbezorging af te handelen. Dit wordt vaak bereikt met behulp van de **MessageId** eigenschap van het bericht dat gelijk bij meerdere bezorgingspogingen blijft.
 
 ## <a name="delete-topics-and-subscriptions"></a>Onderwerpen en abonnementen verwijderen
-Onderwerpen en abonnementen worden permanent en expliciet moet worden verwijderd via Hallo [Azure-portal] [ Azure portal] of via een programma. Hallo volgende voorbeeld laat zien hoe toodelete Hallo onderwerp met de naam `mytopic`:
+Onderwerpen en abonnementen worden permanent en expliciet moet worden verwijderd via de [Azure-portal] [ Azure portal] of via een programma. Het volgende voorbeeld laat zien hoe u het onderwerp met de naam `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')
 ```
 
-Als u een onderwerp verwijdert, verwijdert tevens abonnementen die zijn geregistreerd bij Hallo onderwerp. Abonnementen kunnen ook afzonderlijk worden verwijderd. Hallo volgende code toont hoe toodelete een abonnement met de naam `HighMessages` van Hallo `mytopic` onderwerp:
+Als een onderwerp wordt verwijderd, worden ook alle abonnementen verwijderd die zijn geregistreerd bij het onderwerp. Abonnementen kunnen ook afzonderlijk worden verwijderd. De volgende code laat zien hoe u een abonnement met de naam `HighMessages` van de `mytopic` onderwerp:
 
 ```python
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u de basisprincipes van Service Bus-onderwerpen Hallo hebt geleerd, volgt u deze koppelingen toolearn meer.
+Nu u de basisprincipes van Service Bus-onderwerpen hebt geleerd, volgt u deze koppelingen voor meer informatie.
 
 * Zie [wachtrijen, onderwerpen en abonnementen][Queues, topics, and subscriptions].
 * Referentiemateriaal [SqlFilter.SqlExpression][SqlFilter.SqlExpression].

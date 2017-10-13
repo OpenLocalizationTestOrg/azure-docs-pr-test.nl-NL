@@ -1,5 +1,5 @@
 ---
-title: aaaAzure virtueel netwerk peering | Microsoft Docs
+title: Peering in virtuele netwerken van Azure | Microsoft Docs
 description: Meer informatie over peering in virtuele netwerken in Azure.
 services: virtual-network
 documentationcenter: na
@@ -12,80 +12,125 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
-ms.author: narayan
-ms.openlocfilehash: 46a14b416a7d4389f79a3cd7c55e388b5d312577
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.date: 09/25/2017
+ms.author: narayan;anavin
+ms.openlocfilehash: 082cd8a6cf50f76c89fe5995047396c734f83034
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
-Virtueel netwerk peering kunt u tooconnect twee virtuele netwerken in dezelfde regio via Hallo hello Azure-backbone-netwerk. Als peer is ingesteld, wordt Hallo twee virtuele netwerken weergegeven als een voor connectiviteit doeleinden. Hallo twee virtuele netwerken nog steeds als afzonderlijke resources worden beheerd, maar de virtuele machines in Hallo brengen virtuele netwerken kunnen met elkaar communiceren rechtstreeks met behulp van privé IP-adressen.
 
-Hallo-verkeer tussen virtuele machines in Hallo brengen virtuele netwerken doorgestuurd via de Azure-infrastructuur, dezelfde manier als verkeer wordt gerouteerd tussen virtuele machines in Hallo Hallo hetzelfde virtuele netwerk. Enkele voordelen van het gebruik van virtueel netwerk peering Hallo:
+[Het Azure Virtual Network (VNet)](virtual-networks-overview.md) is uw eigen privénetwerkruimte in Azure waarmee u Azure-resources veilig met elkaar kunt verbinden.
 
+Dankzij Virtual Network-peering kunt u naadloos virtuele netwerken naadloos met elkaar verbinden. Nadat de virtuele netwerken zijn gekoppeld via peering, worden ze voor verbindingsdoeleinden als één netwerk weergegeven. De virtuele machines in de gekoppelde virtuele netwerken kunnen rechtstreeks met elkaar communiceren.
+Het verkeer tussen virtuele machines in de gekoppelde virtuele netwerken wordt doorgestuurd via de Microsoft-backbone-infrastructuur, vergelijkbaar met de manier waarop verkeer tussen virtuele machines in hetzelfde virtuele netwerk alleen wordt gerouteerd via *privé*-IP-adressen.
+
+>[!IMPORTANT]
+> U kunt virtuele netwerken in verschillende Azure-regio's koppelen. Deze functie is momenteel beschikbaar als preview-product. U kunt [uw abonnement voor de preview registreren](virtual-network-create-peering.md). Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar.
+>
+
+Enkele voordelen van peering van virtuele netwerken zijn:
+
+* Het verkeer dat via gekoppelde virtuele netwerken loopt, is volledig privé. Het loopt via het Microsoft-backbonenetwerk en niet via het openbare internet of via gateways.
 * Een verbinding met lage latentie en hoge bandbreedte tussen resources in verschillende virtuele netwerken.
-* Hallo mogelijkheid toouse bronnen zoals netwerkapparaten en VPN-gateways als onderweg punten in een peered virtueel netwerk.
-* Hallo mogelijkheid toopeer twee virtuele netwerken die zijn gemaakt via Azure Resource Manager-implementatiemodel Hallo of toopeer één virtueel netwerk zijn gemaakt via Resource Manager tooa virtueel netwerk via de klassieke implementatiemodel Hallo is gemaakt. Lees Hallo [begrijpen Azure-implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel toolearn meer over Hallo verschillen tussen de twee hello Azure-implementatiemodellen.
+* De mogelijkheid om resources uit het ene virtuele netwerk te gebruiken in een ander virtueel netwerk als ze de peering eenmaal tot stand is gebracht.
+* Als u virtuele netwerken koppelt, kunt u gegevens overzetten tussen Azure-abonnementen, implementatiemodellen en Azure-regio's (preview).
+* De mogelijkheid om virtuele netwerken die zijn gemaakt via Azure Resource Manager te koppelen of om één virtueel netwerk dat is gemaakt via Resource Manager te koppelen aan een virtueel netwerk dat is gemaakt via het klassieke implementatiemodel. Lees het artikel [Azure-implementatiemodellen begrijpen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over de verschillen tussen de twee Azure-implementatiemodellen.
 
 ## <a name="requirements-constraints"></a>Vereisten en beperkingen
 
-* Hallo virtuele netwerken brengen moeten aanwezig zijn in Hallo dezelfde Azure-regio. U kunt virtuele netwerken in verschillende Azure-regio's verbinden met een [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
-* Hallo moet virtuele netwerken brengen niet-overlappende IP-adresruimten.
-* Adresruimten kunnen niet worden toegevoegd aan of verwijderd uit een virtueel netwerk wanneer een virtueel netwerk is gekoppeld aan een ander virtueel netwerk.
-* Peering in virtuele netwerken vindt plaats tussen twee virtuele netwerken. Er is geen afgeleide transitieve relatie tussen peerings. Bijvoorbeeld, als virtualNetworkA virtualNetworkB is gekoppeld en virtualNetworkB virtualNetworkC is gekoppeld, virtualNetworkA is *niet* toovirtualNetworkC peer is ingesteld.
-* U kunt virtuele netwerken die bestaan uit twee verschillende abonnementen, als lang een bevoegde gebruiker peer (Zie [specifieke machtigingen](create-peering-different-deployment-models-subscriptions.md#permissions)) van beide abonnementen toestaat Hallo peering en Hallo-abonnementen worden gekoppeld toohello dezelfde Azure Active Directory-tenant. U kunt een [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) tooconnect virtuele netwerken in abonnementen die zijn gekoppeld toodifferent Active Directory-tenants.
-* Virtuele netwerken kunnen peer worden ingesteld als beide via Hallo Resource Manager-implementatiemodel zijn gemaakt of als één virtueel netwerk is gemaakt via Hallo Resource Manager-implementatiemodel en Hallo andere is gemaakt via de klassieke implementatiemodel Hallo. Twee virtuele netwerken die zijn gemaakt via de klassieke implementatiemodel Hallo kunnen brengen tooeach, andere, echter niet. U kunt een [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) tooconnect twee virtuele netwerken via de klassieke implementatiemodel Hallo is gemaakt.
-* Hoewel het Hallo-communicatie tussen virtuele machines in virtuele netwerken brengen heeft geen beperkingen extra bandbreedte, is er een maximale netwerkbandbreedte, afhankelijk van de grootte van de virtuele machine Hallo die nog steeds van toepassing is. meer informatie over maximale netwerkbandbreedte voor andere virtuele machine-groottes lezen Hallo toolearn [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikelen de grootte van virtuele machine.
-* Door Azure verschafte interne DNS-naamomzetting voor virtuele machines werkt niet in gekoppelde virtuele netwerken. Virtuele machines hebben interne DNS-namen die omgezet alleen binnen Hallo lokale virtuele netwerk zijn. U kunt wel virtuele netwerken van virtuele machines verbonden toopeered als DNS-servers voor een virtueel netwerk configureren. Voor meer informatie lezen Hallo [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) artikel.
+* Peering van virtuele netwerken in dezelfde regio's is algemeen beschikbaar. Peering van virtuele netwerken in verschillende regio's is momenteel als preview beschikbaar in de regio's VS - west-centraal, Canada centraal en VS West 2. U kunt [uw abonnement voor de preview registreren](virtual-network-create-peering.md).
+    > [!WARNING]
+    > Peerings van virtuele netwerken die in dit scenario worden gemaakt, hebben mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid als scenario's waarbij een versie met algemene beschikbaarheid wordt gebruikt. Sommige functies van gekoppelde virtuele netwerken zijn mogelijk beperkt of zijn niet beschikbaar in alle Azure-regio's. Controleer de pagina [Azure Virtual Network-updates](https://azure.microsoft.com/updates/?product=virtual-network) voor de meest recente meldingen over de beschikbaarheid en de status van deze functie.
 
-![Eenvoudige peering van virtuele netwerken](./media/virtual-networks-peering-overview/figure01.png)
+* De gekoppelde virtuele netwerken moeten niet-overlappende IP-adresruimten hebben.
+* Adresruimten kunnen niet worden toegevoegd aan of verwijderd uit een virtueel netwerk wanneer een virtueel netwerk is gekoppeld aan een ander virtueel netwerk.
+* Peering in virtuele netwerken vindt plaats tussen twee virtuele netwerken. Er is geen afgeleide transitieve relatie tussen peerings. Als virtualNetworkA bijvoorbeeld is gekoppeld aan virtualNetworkB en virtualNetworkB is gekoppeld aan virtualNetworkC, is virtualNetwork A *niet* gekoppeld aan virtualNetworkC.
+* U kunt virtuele netwerken koppelen die zich in twee verschillende abonnementen bevinden, mits een bevoegde gebruiker (zie [specifieke machtigingen](create-peering-different-deployment-models-subscriptions.md#permissions)) van beide abonnementen de peering toestaat en de abonnementen zijn gekoppeld aan dezelfde Azure Active Directory-tenant. U kunt een [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) gebruiken om virtuele netwerken te verbinden in abonnementen die zijn gekoppeld aan verschillende Active Directory-tenants.
+* Virtuele netwerken kunnen worden gekoppeld als beide zijn gemaakt via het Resource Manager-implementatiemodel of als het ene virtuele netwerk is gemaakt via het Resource Manager-implementatiemodel en het andere via het klassieke implementatiemodel. Virtuele netwerken die zijn gemaakt via het klassieke implementatiemodel kunnen echter niet aan elkaar worden gekoppeld. U kunt een [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) gebruiken om twee virtuele netwerken te verbinden die zijn gemaakt via het klassieke implementatiemodel.
+* Hoewel de communicatie tussen virtuele machines in gekoppelde virtuele netwerken geen extra bandbreedtebeperkingen heeft, geldt er nog steeds een bandbreedtelimiet op basis van de grootte van de virtuele machine. Lees de artikelen over de grootte van virtuele machines voor [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over de maximale netwerkbandbreedte voor verschillende groottes van virtuele machines.
+
+     ![Eenvoudige peering van virtuele netwerken](./media/virtual-networks-peering-overview/figure03.png)
 
 ## <a name="connectivity"></a>Connectiviteit
-Na twee virtuele netwerken brengen, resources in een virtueel netwerk kunnen rechtstreeks verbinding maken met resources in het virtuele netwerk Hallo peer is ingesteld. Hallo twee virtuele netwerken hebben volledige IP-niveau connectiviteit.
 
-Hallo netwerklatentie voor een round trip tussen twee virtuele machines in virtuele netwerken brengen is Hallo dezelfde als voor een round trip binnen één virtueel netwerk. Hallo netwerkdoorvoer is gebaseerd op Hallo-bandbreedte die toegestaan voor Hallo virtuele machine, evenredig tooits grootte. Er is niet meer beperkingen gelden voor bandbreedte binnen het Hallo-peering.
+Nadat virtuele netwerken aan elkaar zijn gekoppeld, kunnen resources in beide virtuele netwerken rechtstreeks verbinding maken met resources in het gekoppelde virtuele netwerk.
 
-Hallo-verkeer tussen virtuele machines in virtuele netwerken brengen doorgestuurd rechtstreeks via hello Azure back-end-infrastructuur, niet via een gateway.
+De netwerklatentie tussen virtuele machines in gekoppelde virtuele netwerken in dezelfde regio is gelijk aan die binnen één virtueel netwerk. De netwerkdoorvoer is gebaseerd op de bandbreedte die is toegestaan voor de virtuele machine, evenredig aan de grootte. Er gelden verder geen extra beperkingen voor bandbreedte binnen de peering.
 
-Virtueel netwerk van virtuele machines verbonden tooa hebben toegang tot Hallo interne taakverdeling eindpunten in het virtuele netwerk Hallo peer is ingesteld. Netwerkbeveiligingsgroepen kunnen worden toegepast in een virtueel netwerk tooblock toegang tooother virtuele netwerken of subnetten, indien gewenst.
+Het verkeer tussen virtuele machines in gekoppelde virtuele netwerken wordt rechtstreeks doorgestuurd via de Microsoft-backbone-infrastructuur, niet via een gateway of via het openbare internet.
 
-Bij het configureren van virtueel netwerk peering, kunt u openen of sluiten Hallo-netwerkbeveiligingsgroepen tussen Hallo virtuele netwerken. Als u volledige connectiviteit tussen brengen virtuele netwerken (dit is de standaardoptie Hallo) opent, kunt u network security groepen toospecific subnetten of virtuele machines tooblock toepassen of specifieke toegang weigeren. Hallo toolearn informatie over netwerkbeveiligingsgroepen, lezen [netwerk beveiligingsgroepen overzicht](virtual-networks-nsg.md) artikel.
+Virtuele machines in een virtueel netwerk hebben toegang tot de interne load balancer in het gekoppelde virtuele netwerk in dezelfde regio. Ondersteuning voor een interne load balancer strekt zich niet uit tot wereldwijd gekoppelde virtuele netwerken als preview-product. In de algemeen beschikbare versie van wereldwijde peering van virtuele netwerken zal een interne load balancer worden ondersteund.
+
+Netwerkbeveiligingsgroepen kunnen worden toegepast in beide virtuele netwerken om de toegang tot andere virtuele netwerken of subnetten desgewenst te blokkeren.
+Bij het configureren van peering in virtuele netwerken kunt u de netwerkbeveiligingsgroepen tussen de virtuele netwerken openen of sluiten. Als u volledige connectiviteit tussen gekoppelde virtuele netwerken openzet (dit is de standaardoptie), kunt u netwerkbeveiligingsgroepen toepassen op specifieke subnetten of virtuele machines om specifieke toegang te blokkeren of te weigeren. Lees voor meer informatie over netwerkbeveiligingsgroepen het artikel [Overzicht van netwerkbeveiligingsgroepen](virtual-networks-nsg.md).
 
 ## <a name="service-chaining"></a>Servicechaining
-U kunt configureren gebruiker gedefinieerde routes die punt toovirtual-machines in virtuele netwerken brengen Hallo 'volgende hop' IP-adres tooenable service-koppeling. Service-koppeling kunt u toodirect verkeer van een virtueel netwerk tooa virtueel apparaat in een peered virtueel netwerk via de gebruiker gedefinieerde routes.
 
-U kunt ook effectief opbouwen type hub en spoke-omgevingen, waar Hallo hub onderdelen van de infrastructuur zoals een virtueel netwerkapparaat kan hosten. Alle Hallo spoke virtuele netwerken kunnen vervolgens peer met Hallo hub virtueel netwerk. Door virtuele netwerkapparaten die worden uitgevoerd in het virtuele netwerk van Hallo hub kan verkeer stromen. Kortom, kan virtuele netwerk peering Hallo volgende hop IP-adres op Hallo gebruiker gedefinieerde route toobe Hallo IP-adres van een virtuele machine in het virtuele netwerk Hallo peer is ingesteld. meer informatie over de gebruiker gedefinieerde routes, Hallo lezen toolearn [overzicht van de gebruiker gedefinieerde routes](virtual-networks-udr-overview.md) artikel.
+U kunt door gebruikers gedefinieerde routes configureren die naar virtuele machines in gekoppelde virtuele netwerken verwijzen als het 'volgende hop'-IP-adres om servicechaining in te schakelen. Met servicechaining kunt u verkeer van een virtueel netwerk naar een virtueel apparaat in een gekoppeld virtueel netwerk leiden, door middel van door gebruikers gedefinieerde routes.
+
+U kunt ook effectief hub en spoke-achtige omgevingen bouwen waarin de hub infrastructuuronderdelen kan hosten, zoals een virtueel netwerkapparaat. Alle virtuele spoke-netwerken kunnen vervolgens worden gekoppeld aan het virtuele hub-netwerk. Door virtuele netwerkapparaten die worden uitgevoerd in het virtuele hub-netwerk kan verkeer stromen. Kort gezegd, met peering in virtuele netwerken kan het 'volgende hop'-IP-adres op de door de gebruiker gedefinieerde route het IP-adres zijn van een virtuele machine in het gekoppelde virtuele netwerk. Lees het artikel [user-defined routes overview](virtual-networks-udr-overview.md) (Door de gebruiker gedefinieerde routes) voor meer informatie over door de gebruiker gedefinieerde routes. Meer informatie over het maken van een [hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateways en on-premises connectiviteit
-Elk virtueel netwerk, ongeacht of u deze kunt met een ander virtueel netwerk brengen kunt nog steeds een eigen gateway en deze tooconnect tooan on-premises netwerk gebruiken. U kunt ook configureren [verbindingen virtueel netwerk-naar-virtueel netwerk](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) met behulp van gateways, ondanks dat de virtuele netwerken Hallo brengen.
 
-Wanneer beide opties voor interconnectiviteit virtueel netwerk zijn geconfigureerd, Hallo-verkeer tussen virtuele netwerken van Hallo loopt via de peeringconfiguratie Hallo (dat wil zeggen, via hello Azure-backbone).
+Elk virtueel netwerk, ongeacht of het gekoppeld is aan een ander virtueel netwerk, kan nog steeds een eigen gateway hebben en gebruiken om te verbinden met een on-premises netwerk. U kunt ook [virtueel-netwerk-naar-virtueel-netwerk-verbindingen](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) configureren door gateways te gebruiken, ook al zijn de virtuele netwerken gekoppeld.
 
-Wanneer virtuele netwerken brengen, kunt u ook Hallo gateway configureren in het virtuele netwerk Hallo peer is ingesteld als een doorvoer punt tooan on-premises netwerk. Hallo virtueel netwerk dat van een externe gateway gebruikmaakt kan niet in dit geval een eigen gateway hebben. Een virtueel netwerk kan slechts één gateway hebben. Hallo-gateway kan een lokale of externe gateway zijn (in Hallo brengen virtueel netwerk), zoals wordt weergegeven in de volgende afbeelding Hallo:
+Wanneer beide opties voor interconnectiviteit tussen virtuele netwerken zijn geconfigureerd, loopt het verkeer tussen de virtuele netwerken via de peering-configuratie (dat wil zeggen, via de Azure-backbone).
 
-![Doorvoer VNet-peering](./media/virtual-networks-peering-overview/figure02.png)
+Wanneer virtuele netwerken zijn gekoppeld in dezelfde regio, kunt u ook de gateway in het gekoppelde virtuele netwerk configureren als een doorvoerpunt naar een on-premises netwerk. Het virtuele netwerk dat gebruikmaakt van een externe gateway kan in dit geval niet een eigen gateway hebben. Een virtueel netwerk kan slechts één gateway hebben. De gateway kan een lokale of een externe gateway zijn (in het gekoppelde virtuele netwerk), zoals wordt weergegeven op de volgende afbeelding:
 
-Gateway-doorvoer wordt niet ondersteund in Hallo peering relatie tussen virtuele netwerken die zijn gemaakt via verschillende implementatiemodellen. Beide virtuele netwerken in de peering Hallo-relatie moeten zijn gemaakt via Resource Manager voor een gateway onderweg toowork.
+![doorvoer bij peering van virtuele netwerken](./media/virtual-networks-peering-overview/figure04.png)
 
-Wanneer Hallo virtuele netwerken die een enkele Azure ExpressRoute-verbinding delen brengen, Hallo-verkeer tussen hen Hallo peering relatie doorloopt (dat wil zeggen, via hello Azure-backbone-netwerk). U kunt nog steeds lokale gateways in elk virtueel netwerk tooconnect toohello lokale circuit. U kunt ook een gedeelde gateway gebruiken en de doorvoer voor on-premises connectiviteit configureren.
+Gatewaydoorvoer wordt niet ondersteund in de peeringrelatie tussen virtuele netwerken die zijn gemaakt via verschillende implementatiemodellen of in verschillende regio's. Beide virtuele netwerken in de peeringrelatie moeten zijn gemaakt via Resource Manager en moeten zich in dezelfde regio bevinden om ervoor te zorgen dat de doorvoer via een gateway werkt. Wereldwijd gekoppelde virtuele netwerken ondersteunen momenteel geen gatewaydoorvoer.
 
-## <a name="provisioning"></a>Inrichten
-Virtueel netwerk-peering is een bevoegde bewerking. Er is een afzonderlijke functie onder Hallo VirtualNetworks naamruimte. Een gebruiker kan worden toegewezen aan de specifieke rechten tooauthorize peering. Een gebruiker met lees-/ schrijftoegang toohello virtueel netwerk overgenomen automatisch deze rechten.
+Wanneer virtuele netwerken die één Azure ExpressRoute-verbinding delen, worden gekoppeld, gaat het verkeer tussen de twee netwerken via de peering-relatie (dat wil zeggen, via het backbone-netwerk van Azure). U kunt nog steeds in elk virtueel netwerk lokale gateways gebruiken om verbinding te maken met het on-premises circuit. U kunt ook een gedeelde gateway gebruiken en de doorvoer voor on-premises connectiviteit configureren.
 
-Een gebruiker die ofwel een beheerder is of een bevoorrechte gebruiker van de peering mogelijkheid Hallo kan initiëren voor een peering-bewerking op een ander virtueel netwerk. Als er een overeenkomende aanvraag voor peering op de andere kant Hallo en als andere vereisten wordt voldaan, Hallo peer wordt ingesteld.
+## <a name="permissions"></a>Machtigingen
+
+Virtueel netwerk-peering is een bevoegde bewerking. Het is een afzonderlijke functie onder de VirtualNetworks-naamruimte. Een gebruiker kan specifieke rechten krijgen voor het machtigen van peering. Een gebruiker met lees-/schrijftoegang tot het virtuele netwerk krijgt automatisch deze rechten.
+
+Een gebruiker die ofwel een beheerder is of een bevoegde gebruiker van de peering-mogelijkheid kan een peering-bewerking op een ander virtueel netwerk initiëren. Het minimaal vereiste machtigingsniveau is Inzender voor netwerken. Als er een overeenkomende aanvraag voor peering van de andere kant komt en aan andere vereisten wordt voldaan, wordt de peering tot stand gebracht.
+
+Als u bijvoorbeeld de virtuele netwerken genaamd mijnvirtueel netwerkA en mijnvirtueel netwerkB koppelt, moet aan uw account de volgende minimale rol of machtiging voor elk virtueel netwerk worden toegewezen:
+
+|Virtueel netwerk|Implementatiemodel|Rol|Machtigingen|
+|---|---|---|---|
+|mijnvirtueel netwerkA|Resource Manager|[Inzender voor netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |Klassiek|[Inzender voor klassieke netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N.v.t.|
+|mijnvirtueel netwerkB|Resource Manager|[Inzender voor netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+||Klassiek|[Inzender voor klassieke netwerken](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+
+## <a name="monitor"></a>Bewaken
+
+Wanneer u twee virtuele netwerken koppelt die zijn gemaakt via Resource Manager, moet voor elk virtueel netwerk een peering worden geconfigureerd.
+U kunt de status van de peeringverbinding controleren. De peeringstatus kan het volgende zijn:
+
+* **Gestart**: wanneer u de peering naar het tweede virtuele netwerk vanuit het eerste virtuele netwerk maakt, is de peeringstatus Gestart.
+
+* **Verbonden**: wanneer u de peering vanuit het tweede virtuele netwerk naar het eerste virtuele netwerk maakt, is de peeringstatus Verbonden. Als u de peeringstatus voor het eerste virtuele netwerk bekijkt, ziet u dat de status ervan is gewijzigd van Gestart in Verbonden. De peering is pas gelukt als de peeringstatus van beide virtueel netwerk-peerings Verbonden is.
+
+* **Verbinding verbroken**: als een van de peeringkoppelingen wordt verwijderd nadat een verbinding tot stand is gebracht, verandert de peeringstatus in Verbinding verbroken.
+
+## <a name="troubleshoot"></a>Problemen oplossen
+
+U kunt problemen met verkeer dat via de peeringverbinding loopt oplossen door [uw effectieve routes te controleren](virtual-network-routes-troubleshoot-portal.md).
+
+U kunt problemen met de verbinding met een virtuele machine in een gekoppeld virtueel netwerk ook oplossen met behulp van de [connectiviteitscontrole](../network-watcher/network-watcher-connectivity-portal.md) van Network Watcher. De connectiviteitscontrole laat zien hoe verkeer rechtstreeks vanaf de netwerkinterface van de bron-VM wordt doorgestuurd naar de netwerkinterface van de doel-VM.
 
 ## <a name="limits"></a>Limieten
-Er gelden beperkingen op Hallo aantal peerings die zijn toegestaan voor één virtueel netwerk. Raadpleeg voor meer informatie, Hallo [Azure netwerken limieten](../azure-subscription-service-limits.md#networking-limits).
+
+Er zijn limieten voor het aantal peerings dat is toegestaan voor één virtueel netwerk. Het standaardaantal peerings is 50. U kunt het aantal peerings verhogen. Raadpleeg [Limieten voor Azure-netwerken](../azure-subscription-service-limits.md#networking-limits) voor meer informatie.
 
 ## <a name="pricing"></a>Prijzen
-Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verkeer dat gebruikmaakt van een virtueel netwerk-peering. Zie voor meer informatie, Hallo [pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-network).
+
+Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verkeer dat gebruikmaakt van een verbinding voor virtueel netwerk-peering. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/virtual-network) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Voltooi een zelfstudie voor peering in virtuele netwerken. Een virtueel netwerk peering wordt gemaakt tussen virtuele netwerken die zijn gemaakt via Hallo dezelfde of verschillende implementatiemodellen die aanwezig zijn in dezelfde of verschillende abonnementen Hallo. Een zelfstudie voor een van de volgende scenario's Hallo voltooien:
- 
+* Voltooi een zelfstudie voor peering in virtuele netwerken. Peering in virtuele netwerken kan tot stand worden gebracht tussen virtuele netwerken die zijn gemaakt via hetzelfde implementatiemodel of via verschillende implementatiemodellen die tot hetzelfde abonnement of tot verschillende abonnementen behoren. Volg een zelfstudie voor een van de volgende scenario's:
+
     |Azure-implementatiemodel  | Abonnement  |
     |---------|---------|
     |Beide in Resource Manager |[Hetzelfde](virtual-network-create-peering.md)|
@@ -93,5 +138,5 @@ Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verk
     |Eén in Resource Manager, één klassiek     |[Hetzelfde](create-peering-different-deployment-models.md)|
     | |[Verschillend](create-peering-different-deployment-models-subscriptions.md)|
 
-* Meer informatie over hoe toocreate een [hub en spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 
-* Meer informatie over alle [peering instellingen voor virtueel netwerk en hoe toochange ze](virtual-network-manage-peering.md)
+* Meer informatie over het maken van een [hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+* Meer informatie over alle [instellingen van peering in virtuele netwerken en hoe u deze kunt aanpassen](virtual-network-manage-peering.md)

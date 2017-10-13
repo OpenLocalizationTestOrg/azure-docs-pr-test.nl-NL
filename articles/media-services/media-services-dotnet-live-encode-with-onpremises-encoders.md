@@ -1,6 +1,6 @@
 ---
-title: aaaHow tooperform live streamen met lokale coderingsprogramma's die met .NET | Microsoft Docs
-description: Dit onderwerp wordt beschreven hoe toouse .NET tooperform live codering met on-premises coderingsprogramma's.
+title: Live streamen met lokale coderingsprogramma's met .NET | Microsoft Docs
+description: Dit onderwerp leest hoe u met .NET live coderen met on-premises coderingsprogramma's.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,13 +14,13 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 332582c9f925f8b9270929b3fa8140fce010bbf9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3ef6065f5b9e05e0ea5716548699943a2c877bc4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-tooperform-live-streaming-with-on-premises-encoders-using-net"></a>Hoe tooperform live streaming met lokale coderingsprogramma's met .NET
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Live streamen met lokale coderingsprogramma's met .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -28,46 +28,46 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Deze zelfstudie leert u Hallo van het gebruik van hello Azure Media Services .NET SDK toocreate een **kanaal** die is geconfigureerd voor een doorvoerlevering. 
+Deze zelfstudie leert u de stappen voor het gebruik van Azure Media Services .NET SDK voor het maken van een **kanaal** die is geconfigureerd voor een doorvoerlevering. 
 
 ## <a name="prerequisites"></a>Vereisten
-Hallo volgen vereist toocomplete Hallo-zelfstudie:
+Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 
 * Een Azure-account.
-* Een Media Services-account.    een Media Services-account toocreate Zie [hoe tooCreate een Media Services-Account](media-services-portal-create-account.md).
+* Een Media Services-account.    Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 * Instellen van uw Developer-omgeving. Zie voor meer informatie [instellen van uw omgeving](media-services-set-up-computer.md).
 * Een webcam. Bijvoorbeeld [Telestream Wirecast-coderingsprogramma](http://www.telestream.net/wirecast/overview.htm).
 
-Aanbevolen tooreview Hallo artikelen te volgen:
+Aanbevolen om te controleren van de volgende artikelen:
 
 * [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Live streamen met on-premises coderingsprogramma's die multi-bitrate streams maken](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
-Uw ontwikkelomgeving instellen en vullen Hallo app.config-bestand met de verbindingsinformatie, zoals beschreven in [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md). 
+Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="example"></a>Voorbeeld
-Hallo volgende codevoorbeeld ziet u hoe tooachieve Hallo volgende taken:
+De volgende voorbeeldcode laat zien hoe bereiken van de volgende taken:
 
-* Verbinding maken met tooMedia Services
+* Verbinding met Media Services maken
 * Een kanaal maken
-* Hallo kanaal bijwerken
-* Hallo-kanaal invoereindpunt ophalen. Hallo-invoereindpunt moet worden opgegeven als toohello lokale live codering. Hallo live coderingsprogramma converteert signalen van Hallo camera toostreams die invoer toohello-kanaal worden verzonden opnemen () eindpunt.
-* Ophalen van het kanaal Hallo preview-eindpunt
+* Bijwerken van het kanaal
+* Het kanaal invoereindpunt ophalen. Het invoereindpunt wordt opgegeven voor de on-premises live codering. De live codering converteert signalen van de camera naar stromen die worden verzonden naar het kanaal-invoer opnemen () eindpunt.
+* Ophalen van het kanaal preview-eindpunt
 * Maken en een programma te starten
-* Maak een locator nodig tooaccess Hallo programma
+* Maak een locator nodig voor toegang tot het programma
 * Maak en start een StreamingEndpoint
-* Hallo streaming-eindpunt bijwerken
+* Bijwerken van het streaming-eindpunt
 * Resources afsluiten
 
 >[!IMPORTANT]
->Zorg ervoor dat Hallo streaming-eindpunt van waaruit u wilt dat toostream inhoud wordt Hallo **met** status. 
+>Controleer of het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** heeft. 
     
 >[!NOTE]
->Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). Hallo moet u dezelfde beleids-ID als u altijd dezelfde Hallo dagen / toegangsmachtigingen, bijvoorbeeld een beleid voor locators die beoogde tooremain aanwezig gedurende een lange periode (niet-upload policies zijn). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
+>Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
 
-Voor meer informatie over een live coderingsprogramma tooconfigure Zie [Azure Media Services RTMP-ondersteuning en Live coderingsprogramma's](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Zie voor meer informatie over het configureren van een live coderingsprogramma [Azure Media Services RTMP-ondersteuning en Live coderingsprogramma's](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
     using System;
     using System.Collections.Generic;
@@ -86,7 +86,7 @@ Voor meer informatie over een live coderingsprogramma tooconfigure Zie [Azure Me
         private const string AssetlName = "asset001";
         private const string ProgramlName = "program001";
 
-        // Read values from hello App.config file.
+        // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -103,11 +103,11 @@ Voor meer informatie over een live coderingsprogramma tooconfigure Zie [Azure Me
 
             IChannel channel = CreateAndStartChannel();
 
-            // Set hello Live Encoder toopoint toohello channel's input endpoint:
+            // Set the Live Encoder to point to the channel's input endpoint:
             string ingestUrl = channel.Input.Endpoints.FirstOrDefault().Url.ToString();
 
-            // Use hello previewEndpoint toopreview and verify
-            // that hello input from hello encoder is actually reaching hello Channel.
+            // Use the previewEndpoint to preview and verify
+            // that the input from the encoder is actually reaching the Channel.
             string previewEndpoint = channel.Preview.Endpoints.FirstOrDefault().Url.ToString();
 
             IProgram program = CreateAndStartProgram(channel);
@@ -120,7 +120,7 @@ Voor meer informatie over een live coderingsprogramma tooconfigure Zie [Azure Me
 
         public static IChannel CreateAndStartChannel()
         {
-            //If you want toochange hello Smooth fragments tooHLS segment ratio, you would set hello ChannelCreationOptions’s Output property.
+            //If you want to change the Smooth fragments to HLS segment ratio, you would set the ChannelCreationOptions’s Output property.
 
             IChannel channel = _context.Channels.Create(
             new ChannelCreationOptions
@@ -130,7 +130,7 @@ Voor meer informatie over een live coderingsprogramma tooconfigure Zie [Azure Me
             Preview = CreateChannelPreview()
             });
 
-            //Starting and stopping Channels can take some time tooexecute. toodetermine hello state of operations after calling Start or Stop, query hello IChannel.State .
+            //Starting and stopping Channels can take some time to execute. To determine the state of operations after calling Start or Stop, query the IChannel.State .
 
             channel.Start();
 
@@ -150,7 +150,7 @@ Voor meer informatie over een live coderingsprogramma tooconfigure Zie [Azure Me
                     {
                     Name = "TestChannelInput001",
                     // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
-                    // will allow access tooIP addresses.
+                    // will allow access to IP addresses.
                     Address = IPAddress.Parse("0.0.0.0"),
                     SubnetPrefixLength = 0
                     }
@@ -171,7 +171,7 @@ Voor meer informatie over een live coderingsprogramma tooconfigure Zie [Azure Me
                     {
                     Name = "TestChannelPreview001",
                     // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
-                    // will allow access tooIP addresses.
+                    // will allow access to IP addresses.
                     Address = IPAddress.Parse("0.0.0.0"),
                     SubnetPrefixLength = 0
                     }
@@ -213,7 +213,7 @@ Voor meer informatie over een live coderingsprogramma tooconfigure Zie [Azure Me
         {
             IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
 
-            // Create a Program on hello Channel. You can have multiple Programs that overlap or are sequential;
+            // Create a Program on the Channel. You can have multiple Programs that overlap or are sequential;
             // however each Program must have a unique name within your Media Services account.
             IProgram program = channel.Programs.Create(ProgramlName, TimeSpan.FromHours(3), asset.Id);
             program.Start();

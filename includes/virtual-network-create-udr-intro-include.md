@@ -1,6 +1,6 @@
-Hoewel Hallo gebruik van systeemroutes verkeer automatisch voor uw implementatie vereenvoudigt, zijn er ook gevallen waarin u wilt toocontrol Hallo routering van pakketten via een virtueel apparaat. U kunt dus door gebruiker gedefinieerde routes maken opgeeft Hallo volgende hop voor pakketten tooa specifiek subnet toogo tooyour virtueel apparaat in plaats daarvan en inschakelen, IP Hallo doorsturen voor virtuele machine wordt uitgevoerd als Hallo virtueel apparaat.
+Hoewel bij het gebruik van systeemroutes verkeer automatisch wordt gefaciliteerd voor uw implementatie, kunnen er gevallen zijn waarin u pakketten liever wilt routeren via een virtueel apparaat. U kunt hiertoe door de gebruiker gedefinieerde routes maken waarin u de volgende hop voor pakketstromen naar een specifiek subnet opgeeft, zodat de pakketten worden doorgestuurd naar uw virtuele apparaat. Daarvoor schakelt u Doorsturen via IP in voor de virtuele machine die u gebruikt als virtueel apparaat.
 
-Enkele van Hallo gevallen waar de virtuele apparaten kunnen worden gebruikt:
+Enkele van de gevallen waar de virtuele apparaten kunnen worden gebruikt:
 
 * Bewaking van verkeer met een detectiesysteem inbraakdetectie (id's)
 * Verkeer met een firewall beheren

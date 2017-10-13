@@ -1,6 +1,6 @@
 ---
-title: aaaLog ondersteuningsticket voor StorSimple 8000 serie | Microsoft Docs
-description: Meer informatie over hoe toocreate een ondersteuning vragen en een ondersteuningssessie op uw StorSimple-apparaat te starten.
+title: Meld u ondersteuningsticket voor StorSimple 8000 serie | Microsoft Docs
+description: Informatie over het maken van een verzoek om ondersteuning en ondersteuningssessie starten op uw StorSimple-apparaat.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -15,81 +15,81 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: alkohli;anbacker
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e1a3aa3c56e036c782c4fb502c477dc0feaa0ccd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cecc2566b432e897b5eff0c12e66598f0518ed80
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="contact-microsoft-support-for-your-storsimple"></a>Neem contact op met Microsoft ondersteuning voor uw StorSimple
-Als u problemen ondervindt met uw Microsoft Azure StorSimple-oplossing, kunt u een serviceaanvraag voor technische ondersteuning. In een online-sessie met de ondersteuningstechnicus moet u mogelijk ook toostart een ondersteuningssessie op uw StorSimple-apparaat. Dit artikel begeleidt u bij:
+Als u problemen ondervindt met uw Microsoft Azure StorSimple-oplossing, kunt u een serviceaanvraag voor technische ondersteuning. In een online-sessie met de ondersteuningstechnicus moet u mogelijk ook een support-sessie starten op uw StorSimple-apparaat. Dit artikel begeleidt u bij:
 
-* Hoe toocreate een ondersteuning vragen.
-* Hoe Hallo toostart een ondersteuningssessie in Windows PowerShell-interface van uw StorSimple-apparaat.
+* Het maken van een aanvraag voor ondersteuning.
+* Het starten van een ondersteuningssessie in de Windows PowerShell-interface van uw StorSimple-apparaat.
 
-Bekijk Hallo [StorSimple 8000 Series ondersteuning Sla's en informatie](https://msdn.microsoft.com/library/mt433077.aspx) voordat u een ondersteuningsaanvraag maken.
+Controleer de [StorSimple 8000 Series ondersteuning Sla's en informatie](https://msdn.microsoft.com/library/mt433077.aspx) voordat u een ondersteuningsaanvraag maken.
 
 ## <a name="create-a-support-request"></a>Een ondersteuningsaanvraag maken
-Voer Hallo stappen toocreate een verzoek om ondersteuning te volgen:
+Voer de volgende stappen uit om een ondersteuningsaanvraag te maken:
 
-#### <a name="toocreate-a-support-request"></a>toocreate ondersteuning aan te vragen
-1. In Hallo [klassieke Azure-portal](https://manage.windowsazure.com/), in de rechterbovenhoek Hallo op de naam van uw account en klik vervolgens op **contact opnemen met Microsoft ondersteuning**.
+#### <a name="to-create-a-support-request"></a>Om een ondersteuningsaanvraag te maken
+1. In de [klassieke Azure-portal](https://manage.windowsazure.com/), klik op de accountnaam van uw in de rechterbovenhoek en klik vervolgens op **contact opnemen met Microsoft ondersteuning**.
    
     ![Neem contact op met MS ondersteuning via ManagementPortal](./media/storsimple-contact-microsoft-support/Ibiza1.png)
-2. U zult omgeleid toohello nieuwe Azure-portal (portal.azure.com). Klik op Hallo **nieuw ondersteuningsverzoek** tegel.
+2. U wordt omgeleid naar de nieuwe Azure portal (portal.azure.com). Klik op de **nieuw ondersteuningsverzoek** tegel.
    
     ![Neem contact op met MS ondersteuning via de nieuwe portal](./media/storsimple-contact-microsoft-support/Ibiza2.png)
    
-    Aan de rechterkant Hallo van welkomstscherm, Hallo **nieuw ondersteuningsverzoek** deelvenster wordt weergegeven. 
+    Aan de rechterkant van het scherm de **nieuw ondersteuningsverzoek** deelvenster wordt weergegeven. 
    
     ![Nieuw deelvenster voor ondersteuning aanvragen](./media/storsimple-contact-microsoft-support/Ibiza3a.png)
-3. In Hallo **basisbeginselen** dialoogvenster, volledige hello te volgen:                                
+3. In de **basisbeginselen** dialoogvenster Vervolledig de volgende:                                
    
-   1. Van Hallo **probleemtype** vervolgkeuzelijst, selecteer **technische**.
-   2. Selecteer een **abonnement** uit de vervolgkeuzelijst Hallo.
-   3. Van Hallo **Service** vervolgkeuzelijst, selecteer **StorSimple**. 
-   4. Selecteer een **ondersteuningsplan** uit de vervolgkeuzelijst Hallo. U moet een betaald ondersteuning plan tooenable technische ondersteuning.
-4. Klik op **Volgende**. Hallo **probleem** dialoogvenster wordt weergegeven.
+   1. Van de **probleemtype** vervolgkeuzelijst, selecteer **technische**.
+   2. Selecteer een **abonnement** uit de vervolgkeuzelijst.
+   3. Van de **Service** vervolgkeuzelijst, selecteer **StorSimple**. 
+   4. Selecteer een **ondersteuningsplan** uit de vervolgkeuzelijst. U moet een betaald ondersteuningsplan om in te schakelen met technische ondersteuning.
+4. Klik op **Volgende**. De **probleem** dialoogvenster wordt weergegeven.
    
     ![Nieuw deelvenster voor ondersteuning aanvragen](./media/storsimple-contact-microsoft-support/Ibiza5a.png) 
-5. In Hallo **probleem** dialoogvenster, volledige hello te volgen:
+5. In de **probleem** dialoogvenster Vervolledig de volgende:
    
-   1. Selecteer een **ernst** niveau uit de vervolgkeuzelijst Hallo.
-   2. Selecteer een **probleemtype** uit de vervolgkeuzelijst Hallo.
-   3. Selecteer een **categorie** uit de vervolgkeuzelijst Hallo. 
-   4. In Hallo **Details** vak een korte beschrijving van het probleem.
-   5. In Hallo **tijdsbestek** vak, geven Hallo datum, tijd en tijdzone die overeenkomt met de meest recente exemplaar toohello van uw probleem.
-   6. Onder **uploaden bestand**, klikt u op Hallo map pictogram toobrowse tooyour support-pakket.
-   7. Selecteer Hallo **diagnostische gegevens delen** selectievakje.
-6. Klik op **Volgende**. Hallo **contactgegevens** dialoogvenster wordt weergegeven.
+   1. Selecteer een **ernst** niveau uit de vervolgkeuzelijst.
+   2. Selecteer een **probleemtype** uit de vervolgkeuzelijst.
+   3. Selecteer een **categorie** uit de vervolgkeuzelijst. 
+   4. In de **Details** vak een korte beschrijving van het probleem.
+   5. In de **tijdsbestek** vak, geven de datum, tijd en tijdzone die overeenkomt met het meest recente exemplaar van het probleem.
+   6. Onder **uploaden bestand**, klikt u op het pictogram van de map om te bladeren naar het ondersteuningspakket.
+   7. Selecteer de **diagnostische gegevens delen** selectievakje.
+6. Klik op **Volgende**. De **contactgegevens** dialoogvenster wordt weergegeven.
    
     ![Nieuw deelvenster voor ondersteuning aanvragen](./media/storsimple-contact-microsoft-support/Ibiza6a.png) 
 7. Voer uw contactgegevens en selecteer een contactmethode (telefoon of e-mail). 
-8. Selecteer Hallo **contact op met wijzigingen opslaan voor toekomstige ondersteuningsaanvragen** selectievakje.
+8. Selecteer de **contact op met wijzigingen opslaan voor toekomstige ondersteuningsaanvragen** selectievakje.
 9. Klik op **Create**.
 
-Nadat u uw aanvraag hebt verzonden, een ondersteuningstechnicus neemt contact met u zo snel mogelijk tooproceed bij uw aanvraag.
+Nadat u uw aanvraag hebt verzonden, een ondersteuningstechnicus neemt contact met u zo snel mogelijk om door te gaan met uw aanvraag.
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Een support-sessie te starten in Windows PowerShell voor StorSimple
-tootroubleshoot eventuele problemen die u mogelijk ondervindt met Hallo StorSimple-apparaat, moet u tooengage met Hallo Microsoft Support team. Microsoft Support wellicht toouse een ondersteuning sessie toolog op tooyour apparaat. 
+Voor het oplossen van problemen die u met de StorSimple-apparaat ondervindt mogelijk, moet u het Microsoft Support team benaderen. Microsoft Support moet mogelijk gebruik van een ondersteuningssessie aan te melden op uw apparaat. 
 
-Uitvoeren van de volgende Hallo stappen toostart een ondersteuningssessie:
+Voer de volgende stappen uit om een ondersteuningssessie te starten:
 
-#### <a name="toostart-a-support-session"></a>toostart een ondersteuningssessie
-1. Toegang tot Hallo een apparaat via de seriële console Hallo of via een Telnet-sessie vanaf een externe computer. toodo deze, volg de stappen in Hallo [PuTTY gebruiken tooconnect toohello de seriële console apparaat](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
-2. Hallo-sessie die wordt geopend, klikt u op Hallo **Enter** key tooget vanaf de opdrachtprompt.
-3. In het menu van de seriële console hello, optie 1, **aanmelden met volledige toegang**.
-4. Typ bij Hallo prompt Hallo wachtwoord te volgen: 
+#### <a name="to-start-a-support-session"></a>Ondersteuningssessie starten
+1. Toegang tot het apparaat via de seriële console of via een Telnet-sessie vanaf een externe computer. Volg hiervoor de stappen in [PuTTY gebruiken om verbinding maken met de seriële console van het apparaat](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+2. In de sessie die wordt geopend, drukt u op de **Enter** sleutel om op te halen vanaf de opdrachtprompt.
+3. Selecteer in het menu van de seriële console optie 1, **aanmelden met volledige toegang**.
+4. Typ het volgende wachtwoord bij de opdrachtprompt: 
    
     `Password1`
-5. Typ bij Hallo prompt Hallo volgende opdracht:
+5. Typ de volgende opdracht bij de opdrachtprompt:
    
     `Enable-HcsSupportAccess`
-6. Een gecodeerde tekenreeks worden tooyou weergegeven. Kopieer deze tekenreeks in een teksteditor zoals Kladblok.
-7. Bewaar deze tekenreeks en verzend het in een e-mailbericht tooMicrosoft ondersteuning. 
+6. U krijgt een gecodeerde tekenreeks. Kopieer deze tekenreeks in een teksteditor zoals Kladblok.
+7. Bewaar deze tekenreeks en deze in een e-mailbericht verzenden naar Microsoft Support. 
 
 > [!IMPORTANT]
-> U kunt ondersteuning toegang uitschakelen door het uitvoeren van `Disable-HcsSupportAccess`. Hallo StorSimple-apparaat wordt ook toegangspoging toodisable ondersteuning acht uur nadat het Hallo-sessie is gestart. Het is een best practice toochange referenties voor uw StorSimple-apparaat na het initiëren van een ondersteuningssessie voor.
+> U kunt ondersteuning toegang uitschakelen door het uitvoeren van `Disable-HcsSupportAccess`. Het StorSimple-apparaat wordt ook geprobeerd om uit te schakelen ondersteuning toegang tot 8 uur nadat de sessie is gestart. Het is een best practice om te wijzigen van de referenties van uw StorSimple-apparaat na het initiëren van een ondersteuningssessie voor.
 > 
 > 
 

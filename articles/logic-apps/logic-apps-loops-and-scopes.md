@@ -1,6 +1,6 @@
 ---
-title: aaaCreate worden doorlopen en -bereiken of gegevens in werkstromen - Azure Logic Apps debatch | Microsoft Docs
-description: Lussen tooiterate door de gegevens van groep acties bereiken, maken of gegevens toostart debatch meer werkstromen in Azure Logic Apps.
+title: Lussen en -scopes maken of gegevens in werkstromen - Azure Logic Apps debatch | Microsoft Docs
+description: Lussen om te doorlopen gegevens, acties in bereiken,-groepen maken of debatch gegevens om meer werkstromen te starten in Azure Logic Apps.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: e612ec2e83541f028916a07bf12c44e7b1f57ad1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Lussen, bereiken en debatching van logische apps
   
-Logic Apps biedt een aantal manieren toowork met matrices, verzamelingen, batches en lussen binnen een werkstroom.
+Logische Apps biedt een aantal manieren om te werken met matrices, verzamelingen, batches, en binnen een werkstroom een lus.
   
 ## <a name="foreach-loop-and-arrays"></a>ForEach-lus en matrices
   
-Logic Apps kunt u tooloop ten opzichte van een set van gegevens en een actie uitvoert voor elk item.  Dit is mogelijk via Hallo `foreach` in te grijpen.  In de ontwerpfunctie hello, kunt u tooadd een voor elke lus.  Na het Hallo-matrix die u wenst dat tooiterate via selecteren, kunt u beginnen acties toe te voegen.  Momenteel beperkt tooonly één actie per foreach lus, maar deze beperking wordt in Hallo weken binnenkort worden opgeheven.  Binnen de lus Hallo kunt u eenmaal wat er op elke waarde van de matrix Hallo gebeuren moet toospecify beginnen.
+Logic Apps kunt u een set gegevens doorlopen en een actie uitvoert voor elk item.  Dit is mogelijk via de `foreach` in te grijpen.  In de ontwerpfunctie, kunt u opgeven om toe te voegen een voor elke lus.  Na het selecteren van de matrix die u wilt doorlopen, kunt u beginnen acties toe te voegen.  U bent momenteel beperkt tot één actie per foreach lus, maar deze beperking wordt in de komende weken worden opgeheven.  Eenmaal binnen de lus kunt u beginnen om op te geven wat er moet gebeuren op elke waarde van de matrix.
 
 Als weergave code wordt gebruikt, kunt u een voor elke lus zoals hieronder.  Dit is een voorbeeld van een voor elke lus die voor elke e-mailadres dat 'microsoft.com' bevat een e-mailbericht verzendt:
 
@@ -66,11 +66,11 @@ Als weergave code wordt gebruikt, kunt u een voor elke lus zoals hieronder.  Dit
 }
 ```
   
-  Een `foreach` actie matrices van too5, 000 rijen kunt doorlopen.  Elke herhaling wordt parallel uitgevoerd standaard.  
+  Een `foreach` actie kunt sequentieel over matrices maximaal 5000 rijen.  Elke herhaling wordt parallel uitgevoerd standaard.  
 
 ### <a name="sequential-foreach-loops"></a>Sequentiële ForEach lussen
 
-een lus foreach tooexecute opeenvolgend, Hallo tooenable `Sequential` optie bij bewerking moet worden toegevoegd.
+Om in te schakelen van een lus foreach uitvoeren opeenvolgend, de `Sequential` optie bij bewerking moet worden toegevoegd.
 
 ``` json
 "forEach_email": {
@@ -83,9 +83,9 @@ een lus foreach tooexecute opeenvolgend, Hallo tooenable `Sequential` optie bij 
   
 ## <a name="until-loop"></a>Pas de lus
   
-  U kunt een actie of een reeks acties uitvoeren totdat er een voorwaarde wordt voldaan.  Hallo meest voorkomende scenario voor dit is het aanroepen van een eindpunt totdat u antwoord Hallo die u zoekt.  In de ontwerpfunctie hello, kunt u tooadd een tot lus.  Na het toevoegen van acties binnen de lus hello, kunt u Hallo afsluiten voorwaarde instellen, evenals Hallo lus limieten.  Er is een vertraging van 1 minuut tussen de cycli lus.
+  U kunt een actie of een reeks acties uitvoeren totdat er een voorwaarde wordt voldaan.  De meest voorkomende scenario voor dit kan een eindpunt wordt aangeroepen totdat u het antwoord die u zoekt.  In de ontwerpfunctie, kunt u opgeven om toe te voegen een tot lus.  Na het toevoegen van acties binnen de lus, kunt u de voorwaarde voor het afsluiten, evenals de lus instellen limieten.  Er is een vertraging van 1 minuut tussen de cycli lus.
   
-  Als weergave code wordt gebruikt, kunt u een totdat de lus, zoals hieronder.  Dit is een voorbeeld van een aanroep van een HTTP-eindpunt totdat Hallo antwoordtekst Hallo-waarde 'Voltooid heeft'.  De taak voltooid wanneer beide 
+  Als weergave code wordt gebruikt, kunt u een totdat de lus, zoals hieronder.  Dit is een voorbeeld van een aanroep van een HTTP-eindpunt totdat de antwoordtekst de waarde heeft 'Voltooid'.  De taak voltooid wanneer beide 
   
   * HTTP-antwoord heeft de status 'Voltooid'
   * Er is geprobeerd 1 uur
@@ -117,9 +117,9 @@ een lus foreach tooexecute opeenvolgend, Hallo tooenable `Sequential` optie bij 
   
 ## <a name="spliton-and-debatching"></a>SplitOn en debatching
 
-Een trigger wordt soms een matrix van items die u wilt toodebatch en start een werkstroom per artikel.  Kan dit worden bereikt via Hallo `spliton` opdracht.  Als uw swagger trigger is opgegeven voor een nettolading met een matrix is standaard een `spliton` wordt toegevoegd en een reeks per object te starten.  SplitOn kan alleen worden toegevoegd tooa trigger.  Dit kan handmatig worden geconfigureerd of overschreven in de codeweergave definitie.  SplitOn kunt momenteel matrices van too5, 000 items debatch.  U kunt geen een `spliton` en ook implementeren Hallo synchrone antwoord patroon.  Een werkstroom aangeroepen die heeft een `response` actie bovendien te`spliton` wordt asynchroon uitgevoerd en een onmiddellijke verzonden `202 Accepted` antwoord.  
+Een trigger wordt soms een matrix van items die u wilt debatch en starten van een werkstroom per artikel.  Dit kan worden geconfigureerd via de `spliton` opdracht.  Als uw swagger trigger is opgegeven voor een nettolading met een matrix is standaard een `spliton` wordt toegevoegd en een reeks per object te starten.  SplitOn kan alleen worden toegevoegd aan een trigger.  Dit kan handmatig worden geconfigureerd of overschreven in de codeweergave definitie.  Momenteel SplitOn kunt debatch matrices van maximaal 5.000 items.  U kunt geen een `spliton` en ook het patroon synchrone antwoord te implementeren.  Een werkstroom aangeroepen die heeft een `response` actie naast `spliton` wordt asynchroon uitgevoerd en een onmiddellijke verzonden `202 Accepted` antwoord.  
 
-SplitOn kan worden opgegeven in de weergave van de code als Hallo voorbeeld te volgen.  Hiermee ontvangt een matrix van items en debatches op elke rij.
+SplitOn kan worden opgegeven in de weergave van de code als het volgende voorbeeld.  Hiermee ontvangt een matrix van items en debatches op elke rij.
 
 ```
 {
@@ -139,7 +139,7 @@ SplitOn kan worden opgegeven in de weergave van de code als Hallo voorbeeld te v
 
 ## <a name="scopes"></a>Scopes
 
-Het is mogelijk toogroup een reeks acties samen met een bereik.  Dit is vooral handig voor het implementeren van afhandeling van uitzonderingen.  U kunt in de ontwerpfunctie Hallo toevoegen van een nieuwe scope en gaan alle acties daarbinnen toevoegen.  U kunt bereiken definiëren in de codeweergave Hallo volgende:
+Het is mogelijk een reeks acties samen met een scope groeperen.  Dit is vooral handig voor het implementeren van afhandeling van uitzonderingen.  U kunt in de ontwerpfunctie voor toevoegen van een nieuwe scope en gaan alle acties daarbinnen toevoegen.  U kunt bereiken definiëren in de codeweergave als volgt:
 
 
 ```

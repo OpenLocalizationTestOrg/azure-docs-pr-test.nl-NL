@@ -1,8 +1,8 @@
 ---
-title: aaaAzure Batch-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: "Meer informatie over hoe toouse krachtige toepassingen en grootschalige parallelle toorun efficiënt Batch. Zelfstudies, API-verwijzingen en andere documentatie."
+title: Documentatie voor Azure Batch - zelfstudies, API-verwijzing | Microsoft Docs
+description: "Meer informatie over hoe u Batch gebruikt om op efficiënte wijze grootschalige parallelle HPC-toepassingen (High Performance Computing) uit te voeren. Zelfstudies, API-verwijzingen en andere documentatie."
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 25172c7b3462794643d1cba539fcd0d9a6c4c62e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 31e15ecb995f0a5b1164296132db15e8de7e4363
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="batch-documentation"></a>Documentatie over Batch
 
-Meer informatie over hoe Hallo cloud toouse Batch toorun grootschalige parallelle en high-performance computing toepassingen efficiënt in. Zelfstudies, API-referenties en andere documentatie die laten zien u hoe toodefine hello Azure compute resources tooexecute uw toepassingen parallel of op grote schaal zonder handmatig configureren of infrastructuur beheren.
+Meer informatie over hoe u Batch gebruikt om op efficiënte wijze grootschalige parallelle HPC-toepassingen (High Performance Computing) in de cloud uit te voeren. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u de Azure Compute-resources definieert om uw toepassingen parallel of op schaal uit te voeren zonder de infrastructuur handmatig te hoeven configureren of beheren.
 
 <ul class="panelContent cardsFTitle">
     <li>

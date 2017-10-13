@@ -1,6 +1,6 @@
 ---
-title: aaaConfigure LVM op een virtuele machine met Linux | Microsoft Docs
-description: Meer informatie over hoe tooconfigure LVM op Linux in Azure.
+title: LVM configureren op een virtuele machine met Linux | Microsoft Docs
+description: Informatie over het configureren van LVM op Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: szarkos
@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 8daf792d87c6bb3d91a2eddcd01cfab34fd28cff
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7926627aaa3f0da935131f491d927ab5cb4b35c9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>LVM configureren op een virtuele Linux-machine in Azure
-Dit document wordt besproken hoe tooconfigure logische Volume Manager (LVM) in uw virtuele machine van Azure. Wanneer deze is mogelijk tooconfigure LVM op elke schijf die is gekoppeld toohello virtuele machine, standaard de meeste cloud installatiekopieën geen LVM geconfigureerd op Hallo besturingssysteemschijf. Dit is tooprevent problemen met dubbele volume groepen als besturingssysteemschijf ooit is Hallo gekoppeld tooanother VM Hallo dezelfde distributie en het type, dat wil zeggen tijdens een scenario voor herstel. Daarom is het raadzaam alleen toouse LVM op Hallo gegevensschijven.
+Dit document wordt uitgelegd hoe het configureren van logische Volume Manager (LVM) in uw virtuele machine van Azure. Het is mogelijk LVM configureren op elke schijf die is gekoppeld aan de virtuele machine, standaard de meeste cloud afbeeldingen geen LVM geconfigureerd op de schijf met het besturingssysteem. Dit is om problemen te voorkomen met groepen dubbele volume als de besturingssysteemschijf is ooit gekoppeld aan een andere virtuele machine van de dezelfde distributie en het type, dat wil zeggen tijdens een scenario voor herstel. Daarom is het aanbevolen alleen voor LVM gebruiken op de gegevensschijven.
 
 ## <a name="linear-vs-striped-logical-volumes"></a>Lineaire versus striped logische volumes
-LVM mag gebruikte toocombine een aantal fysieke schijven in één opslagvolume. Standaard wordt LVM meestal gemaakt lineaire logische volumes, wat betekent dat fysieke opslag Hallo samengevoegd. In dit geval worden lees-/ schrijfbewerkingen doorgaans alleen verzonden tooa één schijf. We kunnen daarentegen ook striped logische volumes waarop lees- en schrijfbewerkingen gedistribueerde toomultiple schijven die zijn opgenomen in de groep van Hallo-volume (dat wil zeggen vergelijkbare tooRAID0 zijn) maken. Voor betere prestaties is het waarschijnlijk zult u toostripe uw logische volumes zodat lees- en schrijfbewerkingen gebruikmaken van alle schijven in de bijgesloten gegevens.
+LVM kan worden gebruikt om een aantal fysieke schijven samenvoegen tot één opslagvolume. Standaard wordt LVM meestal gemaakt lineaire logische volumes, wat betekent dat de fysieke opslag samengevoegd. In dit geval wordt lees-/ schrijfbewerkingen doorgaans alleen worden verzonden voor één schijf. We kunnen daarentegen ook striped logische volumes waar de lees- en schrijfbewerkingen worden gedistribueerd naar meerdere schijven die zijn opgenomen in de groep volume (dat wil zeggen vergelijkbaar met RAID 0) maken. Voor betere prestaties is het waarschijnlijk wilt u uw logische volumes stripe zodat lees- en schrijfbewerkingen gebruikmaken van alle schijven in de bijgesloten gegevens.
 
-Dit document wordt beschreven hoe toocombine gegevens van verschillende schijven in een groep één volume en maak vervolgens logische striped volumes. Hallo onderstaande stappen zijn enigszins gegeneraliseerde toowork met de meeste distributies. In de meeste gevallen Hallo hulpprogramma's en werkstromen voor het beheren van LVM in Azure zijn niet fundamenteel anders dan andere omgevingen. Gebruikelijke ook Raadpleeg de leverancier van uw Linux voor documentatie en aanbevolen procedures voor het gebruik van LVM met uw bepaalde distributiepunt.
+Dit document wordt beschreven hoe u verschillende gegevensschijven combineren in een groep één volume en maak vervolgens logische striped volumes. De onderstaande stappen zijn enigszins gegeneraliseerd om te werken met de meeste distributies. In de meeste gevallen zijn de hulpprogramma's en werkstromen voor het beheren van LVM in Azure niet fundamenteel anders dan andere omgevingen. Gebruikelijke ook Raadpleeg de leverancier van uw Linux voor documentatie en aanbevolen procedures voor het gebruik van LVM met uw bepaalde distributiepunt.
 
 ## <a name="attaching-data-disks"></a>Gegevensschijven koppelen
-Een zult meestal toostart met twee of meer gegevensschijven zijn leeg bij gebruik van LVM. Op basis van uw i/o-behoeften, kunt u tooattach schijven die zijn opgeslagen in de Standard-opslag met up too500 i/o/ps per schijf of onze Premium-opslag met up too5000 i/o/ps per schijf. In dit artikel wordt niet ingegaan op de details over het tooprovision en koppelt u gegevens schijven tooa virtuele Linux-machine. Zie de Microsoft Azure-artikel Hallo [een schijf koppelen](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor gedetailleerde instructies over hoe tooattach gegevens in een lege schijf tooa virtuele Linux-machine in Azure.
+Een wilt meestal beginnen met twee of meer gegevensschijven zijn leeg bij gebruik van LVM. Op basis van uw i/o-behoeften, kunt u schijven die zijn opgeslagen in de Standard-opslag, met maximaal 500 i/o/ps per schijf of onze Premium-opslag met maximaal 5000 i/o/ps per schijf koppelen. In dit artikel gaat niet informatie over het inrichten en gegevensschijven koppelen aan een virtuele Linux-machine. Zie het artikel van Microsoft Azure [een schijf koppelen](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor gedetailleerde instructies over hoe u een lege gegevensschijf koppelen aan een virtuele Linux-machine in Azure.
 
-## <a name="install-hello-lvm-utilities"></a>Hallo LVM hulpprogramma's installeren
+## <a name="install-the-lvm-utilities"></a>De hulpprogramma's voor LVM installeren
 * **Ubuntu**
 
     ```bash  
@@ -58,16 +58,16 @@ Een zult meestal toostart met twee of meer gegevensschijven zijn leeg bij gebrui
     sudo zypper install lvm2
     ```
 
-    Op SLES11 moet u ook bewerken `/etc/sysconfig/lvm` en stel `LVM_ACTIVATED_ON_DISCOVERED` te 'inschakelen':
+    Op SLES11 moet u ook bewerken `/etc/sysconfig/lvm` en stel `LVM_ACTIVATED_ON_DISCOVERED` naar 'inschakelen':
 
     ```sh   
     LVM_ACTIVATED_ON_DISCOVERED="enable" 
     ```
 
 ## <a name="configure-lvm"></a>LVM configureren
-In deze handleiding wordt ervan uitgegaan hebt u drie gegevensschijven die we verwijzen gekoppeld tooas `/dev/sdc`, `/dev/sdd` en `/dev/sde`. Opmerking deze niet kunnen worden altijd Hallo dezelfde padnamen in uw virtuele machine. U kunt uitvoeren '`sudo fdisk -l`' of een vergelijkbare opdracht toolist uw beschikbare schijven.
+In deze handleiding wordt ervan uitgegaan hebt u drie gegevensschijven die we naar als verwijzen gekoppeld `/dev/sdc`, `/dev/sdd` en `/dev/sde`. Houd er rekening mee dat deze altijd mogelijk niet hetzelfde padnamen in uw virtuele machine. U kunt uitvoeren '`sudo fdisk -l`' of een vergelijkbare opdracht om een lijst van uw beschikbare schijven.
 
-1. Hallo fysieke volumes voorbereiden:
+1. Bereid de fysieke volumes:
 
     ```bash    
     sudo pvcreate /dev/sd[cde]
@@ -76,40 +76,40 @@ In deze handleiding wordt ervan uitgegaan hebt u drie gegevensschijven die we ve
     Physical volume "/dev/sde" successfully created
     ```
 
-2. Een volume-groep maken. In dit voorbeeld we Hallo volume groep bellen `data-vg01`:
+2. Een volume-groep maken. In dit voorbeeld wordt de groep volume belt `data-vg01`:
 
     ```bash    
     sudo vgcreate data-vg01 /dev/sd[cde]
     Volume group "data-vg01" successfully created
     ```
 
-3. Hallo logische of meer volumes maken. Hallo we onderstaande opdracht maakt u één logische volume aangeroepen `data-lv01` toospan Hallo hele volume groeperen, maar het is ook mogelijk toocreate Opmerking meerdere logische volumes in Hallo volume groep.
+3. De logische volumes maken. De onderstaande opdracht we één logische volume aangeroepen maakt `data-lv01` span van de groep van het gehele volume, maar houd er rekening mee dat het is ook mogelijk meerdere logische om volumes te maken in de groep volume.
 
     ```bash   
     sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
     Logical volume "data-lv01" created.
     ```
 
-4. Logische Hallo-volume formatteren
+4. Het logische volume formatteren
 
     ```bash  
     sudo mkfs -t ext4 /dev/data-vg01/data-lv01
     ```
    
    > [!NOTE]
-   > Bij gebruik van SLES11 `-t ext3` in plaats van ext4. SLES11 ondersteunt alleen-lezentoegang tooext4 bestandssystemen.
+   > Bij gebruik van SLES11 `-t ext3` in plaats van ext4. SLES11 ondersteunt alleen alleen-lezen toegang tot ext4 bestandssystemen.
 
-## <a name="add-hello-new-file-system-tooetcfstab"></a>Hallo nieuwe file system te/etc/fstab toevoegen
+## <a name="add-the-new-file-system-to-etcfstab"></a>Het nieuwe bestandssysteem aan /etc/fstab toevoegen
 > [!IMPORTANT]
-> Onjuist bewerken van Hallo `/etc/fstab` bestand kan leiden tot een systeem opgestart. Als u niet zeker, Zie toohello distributie van documentatie voor informatie over hoe tooproperly dit bestand bewerken. Het is ook aanbevolen een back-up van Hallo `/etc/fstab` bestand is gemaakt voordat u kunt bewerken.
+> Onjuist bewerken van de `/etc/fstab` bestand kan leiden tot een systeem opgestart. Als u niet zeker, raadpleeg dan de distributie-documentatie voor informatie over het correct dit bestand te bewerken. Het is ook aanbevolen een back-up van de `/etc/fstab` bestand is gemaakt voordat u kunt bewerken.
 
-1. Maak Hallo gewenst koppelpunt voor het nieuwe bestandssysteem, bijvoorbeeld:
+1. Maak de gewenste koppelpunt voor het nieuwe bestandssysteem, bijvoorbeeld:
 
     ```bash  
     sudo mkdir /data
     ```
 
-2. Hallo logisch Volumepad vinden
+2. Zoek het logische pad naar het
 
     ```bash    
     lvdisplay
@@ -118,22 +118,22 @@ In deze handleiding wordt ervan uitgegaan hebt u drie gegevensschijven die we ve
     ....
     ```
 
-3. Open `/etc/fstab` in een teksteditor en voeg een vermelding voor het nieuwe bestandssysteem hello, bijvoorbeeld:
+3. Open `/etc/fstab` in een teksteditor en voeg een vermelding voor het nieuwe bestandssysteem, bijvoorbeeld:
 
     ```bash    
     /dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
     ```   
     Vervolgens opslaan en sluiten `/etc/fstab`.
 
-4. Testen die Hallo `/etc/fstab` invoer correct is:
+4. Testen of de `/etc/fstab` invoer correct is:
 
     ```bash    
     sudo mount -a
     ```
 
-    Als u deze opdracht resulteert in een foutbericht Controleer Hallo syntaxis in Hallo `/etc/fstab` bestand.
+    Als u deze opdracht resulteert in een foutbericht Controleer de syntaxis de `/etc/fstab` bestand.
    
-    Voer vervolgens Hallo `mount` opdracht tooensure Hallo-bestandssysteem is gekoppeld:
+    Voer vervolgens de `mount` opdracht om te controleren of het bestandssysteem is gekoppeld:
 
     ```bash    
     mount
@@ -143,7 +143,7 @@ In deze handleiding wordt ervan uitgegaan hebt u drie gegevensschijven die we ve
 
 5. (Optioneel) Opstartparameters failsafe in`/etc/fstab`
    
-    Groot aantal distributies zijn beide Hallo `nobootwait` of `nofail` koppelen van de parameters die kunnen worden toegevoegd als toohello `/etc/fstab` bestand. Deze parameters toestaan voor fouten bij het koppelen van een bepaald bestandssysteem en Hallo Linux system toocontinue tooboot toestaan, zelfs als deze tooproperly koppelpunt Hallo RAID-bestandssysteem. Raadpleeg tooyour distributie van documentatie voor meer informatie over deze parameters.
+    Groot aantal distributies bevat de `nobootwait` of `nofail` koppelen van de parameters die kunnen worden toegevoegd aan de `/etc/fstab` bestand. Deze parameters toestaan voor fouten bij het koppelen van een bepaald bestandssysteem en dat het Linux-systeem om door te gaan om op te starten, zelfs als deze niet correct koppelen het RAID-bestandssysteem. Raadpleeg de distributie-documentatie voor meer informatie over deze parameters.
    
     Voorbeeld (Ubuntu):
 
@@ -152,17 +152,17 @@ In deze handleiding wordt ervan uitgegaan hebt u drie gegevensschijven die we ve
     ```
 
 ## <a name="trimunmap-support"></a>TRIM/UNMAP-ondersteuning
-Sommige kernels Linux ondersteunen TRIM/UNMAP operations toodiscard niet-gebruikte blokken op Hallo schijf. Deze bewerkingen zijn voornamelijk nuttig in standard-opslag tooinform Azure die verwijderde pagina's zijn niet langer geldig en kan worden verwijderd. 'S te verwijderen kunt kosten besparen, als u grote bestanden maken en deze vervolgens te verwijderen.
+Sommige kernels Linux ondersteuning TRIM/UNMAP bewerkingen voor het negeren van niet-gebruikte blokken op de schijf. Deze bewerkingen zijn voornamelijk nuttig in standard-opslag om te informeren over Azure die verwijderde pagina's zijn niet langer geldig en kan worden verwijderd. 'S te verwijderen kunt kosten besparen, als u grote bestanden maken en deze vervolgens te verwijderen.
 
-Er zijn twee manieren tooenable TRIM ondersteunen in uw Linux-VM. Raadpleeg uw distributiepunt gebruikelijke voor Hallo aanbevolen benadering:
+Er zijn twee manieren om in te schakelen TRIM ondersteunen in uw Linux-VM. Raadpleeg uw distributiepunt gebruikelijke voor de aanbevolen aanpak:
 
-- Gebruik Hallo `discard` koppelen optie in `/etc/fstab`, bijvoorbeeld:
+- Gebruik de `discard` koppelen optie in `/etc/fstab`, bijvoorbeeld:
 
     ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
     ```
 
-- In sommige gevallen Hallo `discard` optie prestaties gevolgen kan hebben. U kunt ook uitvoeren Hallo `fstrim` opdracht handmatig vanaf de opdrachtregel Hallo of voeg tooyour crontab toorun regelmatig:
+- In sommige gevallen de `discard` optie prestaties gevolgen kan hebben. U kunt ook uitvoeren de `fstrim` opdracht handmatig vanaf de opdrachtregel of toe te voegen aan uw crontab regelmatig wordt uitgevoerd:
 
     **Ubuntu**
 

@@ -1,18 +1,18 @@
 ## <a name="sample-scenario"></a>Voorbeeldscenario
-toobetter laten zien hoe toomanage nsg's, in dit artikel gebruikt Hallo scenario hieronder.
+In dit artikel gebruikt om beter te laten zien hoe u nsg's beheert, het onderstaande scenario.
 
 ![VNet-scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
-In dit scenario maakt u een NSG voor elk subnet in Hallo **TestVNet** virtueel netwerk, zoals hieronder beschreven: 
+In dit scenario maakt u een NSG voor elk subnet in de **TestVNet** virtueel netwerk, zoals hieronder beschreven: 
 
-* **NSG-FrontEnd**. Hallo-front-end NSG worden toegepaste toohello *FrontEnd* subnet, en bevatten twee regels:    
-  * **RDP-regel**. Deze regel kan de RDP-verkeer toohello *FrontEnd* subnet.
-  * **Web-regel**. Deze regel kunnen HTTP-verkeer toohello *FrontEnd* subnet.
-* **NSG-back-end**. Hallo back-end NSG wordt toegepast toohello worden *back-end* subnet, en bevatten twee regels:    
-  * **SQL-regel**. Met deze regel kunnen SQL verkeer alleen via Hallo *FrontEnd* subnet.
-  * **Web-regel**. Deze regel niet alle verkeer van Hallo gebonden *back-end* subnet.
+* **NSG-FrontEnd**. De front-end NSG wordt toegepast op de *FrontEnd* subnet, en bevatten twee regels:    
+  * **RDP-regel**. Deze regel kan de RDP-verkeer naar de *FrontEnd* subnet.
+  * **Web-regel**. Deze regel kunnen HTTP-verkeer naar de *FrontEnd* subnet.
+* **NSG-back-end**. De back-end NSG wordt toegepast op de *back-end* subnet, en bevatten twee regels:    
+  * **SQL-regel**. Met deze regel kunnen SQL verkeer alleen via de *FrontEnd* subnet.
+  * **Web-regel**. Deze regel niet alle internet gebonden verkeer van de *back-end* subnet.
 
-Hallo combinatie van deze regels een DMZ-achtige scenario maken, waarbij Hallo back-end-subnet kan alleen inkomend verkeer voor SQL-verkeer ontvangen van Hallo front-end-subnet, en heeft geen toohello toegang tot Internet, terwijl de front-end-subnet Hallo met de Hallo communiceren kan Internet, en alleen binnenkomende HTTP-aanvragen ontvangen.
+De combinatie van deze regels maken een DMZ-achtige scenario, waarin de back-end-subnet kan alleen inkomend verkeer voor SQL-verkeer ontvangen van de front-end-subnet en heeft geen toegang tot het Internet, terwijl de front-end-subnet kan met het Internet communiceren en ontvangen binnenkomende HTTP-aanvragen alleen.
 
-toodeploy hello scenario hierboven beschreven, volg [deze koppeling](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), klikt u op **tooAzure implementeren**, vervang Hallo standaardparameterwaarden indien nodig en volg de instructies Hallo in Hallo-portal. Is in instructies voor het voorbeeld hieronder Hallo sjabloon Hallo gebruikte toodeploy een resource groepsnamen **RG NSG**. 
+Volg voor het implementeren van de hierboven beschreven scenario [deze koppeling](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), klikt u op **implementeren in Azure**, vervangt u de standaardwaarden voor parameters indien nodig en volg de instructies in de portal. In de onderstaande instructies voorbeeld de sjabloon is gebruikt voor het implementeren van een resourcegroepnamen **RG NSG**. 
 

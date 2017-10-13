@@ -1,8 +1,8 @@
 ---
-title: aaaAzure VPN-Gatewaydocumentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe tooconfigure virtueel particulier netwerk (VPN)-gateways toomanage verkeer tussen virtuele netwerken cloud en on-premises of tussen VNets cloud.
+title: Documentatie voor Azure VPN Gateway - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over hoe u VPN-gateways (Virtual Private Network) configureert om verkeer tussen virtuele netwerken in de cloud en on-premises of tussen VNets in de cloud te beheren.
 services: vpn-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a518f39e0cb8761e239d0c033a7801803edfd0a7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 61273e472dd0d0727df40984ad277aaf4c244611
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vpn-gateway-documentation"></a>VPN Gateway-documentatie
 
-Meer informatie over hoe tooconfigure VPN-Gateway, een VPN-gateway. Documentatie ziet u hoe toosend netwerkverkeer tussen virtuele netwerken van Azure en lokale locaties of andere Azure virtuele netwerken (vnet's).
+Meer informatie over het configureren van VPN Gateway, een gateway voor een virtueel privénetwerk. Documentatie laat zien hoe u netwerkverkeer verzendt tussen virtuele netwerken van Azure en on-premises locaties of andere virtuele netwerken van Azure (VNets).
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Meer informatie over hoe tooconfigure VPN-Gateway, een VPN-gateway. Documentatie
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Maken van een site-naar-site-verbinding met hello Azure-portal aan de slag</h3>
+                        <h3>Een site-naar-site-verbinding maken met Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Meer informatie over hoe tooconfigure VPN-Gateway, een VPN-gateway. Documentatie
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Maken van een punt-naar-site-verbinding met hello Azure-portal aan de slag</h3>
+                        <h3>Een punt-naar-site-verbinding maken met Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@ Meer informatie over hoe tooconfigure VPN-Gateway, een VPN-gateway. Documentatie
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Maken van een VNet-naar-VNet-verbinding met hello Azure-portal aan de slag</h3>
+                        <h3>Een VNet-naar-VNet-verbinding maken met Azure Portal</h3>
                     </div>
                 </div>
             </div>

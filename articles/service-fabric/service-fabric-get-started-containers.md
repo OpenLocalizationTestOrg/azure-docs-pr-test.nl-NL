@@ -1,6 +1,6 @@
 ---
-title: een toepassing Azure Service Fabric-container aaaCreate | Microsoft Docs
-description: Maak uw eerste Windows-containertoepassing in Azure Service Fabric.  Een Docker-installatiekopie aan een Python-toepassing bouwen, push Hallo installatiekopie tooa container register, bouwen en implementeren van een container Service Fabric-toepassing.
+title: Een Azure Service Fabric-containertoepassing maken | Microsoft Docs
+description: Maak uw eerste Windows-containertoepassing in Azure Service Fabric.  Bouw een Docker-installatiekopie met een Python-toepassing, push de installatiekopie naar een containerregister, en bouw en implementeer een Service Fabric-containertoepassing.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,68 +14,68 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/18/2017
 ms.author: ryanwi
-ms.openlocfilehash: b79d3a41eb2da5f7791266588fe9ea7becb0e58f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 025bde02b3f342ec3399d51819d1fa8a91f11374
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Een bestaande toepassing in een Windows-container uitgevoerd op een Service Fabric-cluster nodig niet alle wijzigingen tooyour toepassingen. Dit artikel begeleidt u bij het maken van een Docker-afbeelding met een Python [Flask](http://flask.pocoo.org/) web-toepassing en deze tooa Service Fabric-cluster is geïmplementeerd.  U gaat uw containertoepassing ook delen via [Azure Container Registry](/azure/container-registry/).  In dit artikel wordt ervan uitgegaan dat u de basisbeginselen kent van Docker. U kunt meer informatie over Docker door Hallo lezen [Docker-overzicht](https://docs.docker.com/engine/understanding-docker/).
+Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Windows-container uit te voeren in een Service Fabric-cluster. Dit artikel helpt u bij het maken van een Docker-installatiekopie met een Python [Flask](http://flask.pocoo.org/)-webtoepassing en het implementeren ervan in een Service Fabric-cluster.  U gaat uw containertoepassing ook delen via [Azure Container Registry](/azure/container-registry/).  In dit artikel wordt ervan uitgegaan dat u de basisbeginselen kent van Docker. Meer informatie over Docker kunt u lezen in het [Docker-overzicht](https://docs.docker.com/engine/understanding-docker/).
 
 ## <a name="prerequisites"></a>Vereisten
 Een ontwikkelcomputer waarop wordt uitgevoerd:
 * Visual Studio 2015 of Visual Studio 2017.
 * [Service Fabric SDK en hulpprogramma's](service-fabric-get-started.md).
-*  Docker voor Windows.  [Download Docker CE voor Windows (stabiel)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Na het installeren en starten van Docker, met de rechtermuisknop op het pictogram in systeemvak voor Hallo en selecteer **tooWindows containers overschakelen**. Dit is vereiste toorun Docker-installatiekopieën op basis van Windows.
+*  Docker voor Windows.  [Download Docker CE voor Windows (stabiel)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Nadat u Docker hebt geïnstalleerd en gestart, klikt u met de rechtermuisknop op het systeemvakpictogram en selecteert u **Overschakelen naar Windows-containers**. Dit is vereist voor het uitvoeren van Docker-installatiekopieën op basis van Windows.
 
 Een Windows-cluster met drie of meer knooppunten die worden uitgevoerd op Windows Server 2016 met containers - [Een cluster maken](service-fabric-cluster-creation-via-portal.md) of [Service Fabric gratis uitproberen](https://aka.ms/tryservicefabric).
 
 Een register in Azure Container Registry - [Een containerregister maken](../container-registry/container-registry-get-started-portal.md) in uw Azure-abonnement.
 
-## <a name="define-hello-docker-container"></a>Hallo Docker-container definiëren
-Maken van een installatiekopie op basis van Hallo [Python installatiekopie](https://hub.docker.com/_/python/) zich bevinden op Docker-Hub.
+## <a name="define-the-docker-container"></a>De Docker-container definiëren
+Bouw een installatiekopie op basis van de [Python-installatiekopie](https://hub.docker.com/_/python/) die zich in de Docker-hub bevindt.
 
-Definieer uw Docker-container in een Dockerfile. Hallo Dockerfile bevat instructies voor het instellen van Hallo-omgeving in de container, Hallo-toepassing die u wilt dat toorun laden en poorten toewijzen. Hallo Dockerfile is Hallo invoer toohello `docker build` opdracht, waarbij Hallo installatiekopie wordt gemaakt.
+Definieer uw Docker-container in een Dockerfile. Het bestand Dockerfile bevat instructies voor het instellen van de omgeving in de container, het laden van de toepassing die u wilt uitvoeren en het toewijzen van poorten. Het Dockerfile is de invoer van de opdracht `docker build` waarmee de installatiekopie wordt gemaakt.
 
-Maken van een lege map en het Hallo-bestand maken *Dockerfile* (met zonder extensie). Hallo te volgende toevoegen*Dockerfile* en sla de wijzigingen:
+Maak een lege map en maak het bestand *Dockerfile* (zonder extensie). Voeg het volgende toe aan het bestand *Dockerfile* en sla de wijzigingen op:
 
 ```
 # Use an official Python runtime as a base image
 FROM python:2.7-windowsservercore
 
-# Set hello working directory too/app
+# Set the working directory to /app
 WORKDIR /app
 
-# Copy hello current directory contents into hello container at /app
+# Copy the current directory contents into the container at /app
 ADD . /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
-# Make port 80 available toohello world outside this container
+# Make port 80 available to the world outside this container
 EXPOSE 80
 
 # Define environment variable
 ENV NAME World
 
-# Run app.py when hello container launches
+# Run app.py when the container launches
 CMD ["python", "app.py"]
 ```
 
-Lees Hallo [Dockerfile verwijzing](https://docs.docker.com/engine/reference/builder/) voor meer informatie.
+Lees het [Dockerfile-referentiemateriaal](https://docs.docker.com/engine/reference/builder/) voor meer informatie.
 
 ## <a name="create-a-simple-web-application"></a>Een eenvoudige webtoepassing maken
-Maak een Flask-toepassing die luistert op poort 80 en 'Hallo Wereld!' retourneert.  In dezelfde map Hallo, Hallo-bestand maken *requirements.txt*.  Voeg de volgende Hallo en sla de wijzigingen:
+Maak een Flask-toepassing die luistert op poort 80 en 'Hallo Wereld!' retourneert.  Maak in dezelfde map het bestand *requirements.txt*.  Voeg het volgende toe en sla de wijzigingen op:
 ```
 Flask
 ```
 
-Maak ook Hallo *app.py* -bestand en voeg de volgende Hallo:
+Maak ook het bestand *app.py* en voeg het volgende toe:
 
 ```python
 from flask import Flask
@@ -92,16 +92,16 @@ if __name__ == "__main__":
 ```
 
 <a id="Build-Containers"></a>
-## <a name="build-hello-image"></a>Hallo installatiekopie maken
-Voer Hallo `docker build` toocreate Hallo de afbeelding die wordt uitgevoerd van uw webtoepassing. Open een PowerShell-venster en ga toohello map waarin zich Hallo Dockerfile. Hallo volgende opdracht uitvoeren:
+## <a name="build-the-image"></a>De installatiekopie bouwen
+Voer de opdracht `docker build` uit om de installatiekopie te maken waarmee de webtoepassing wordt uitgevoerd. Open een PowerShell-venster en navigeer naar de map met het bestand Dockerfile. Voer de volgende opdracht uit:
 
 ```
 docker build -t helloworldapp .
 ```
 
-Met deze opdracht builds Hallo nieuwe installatiekopie met Hallo-instructies in uw Dockerfile naming (-t tagging) Hallo installatiekopie 'helloworldapp'. Voor het bouwen van een installatiekopie van een Hallo basisinstallatiekopie omlaag ophaalt uit Docker-Hub en maakt een nieuwe installatiekopie waarmee uw toepassing boven op Hallo basisinstallatiekopie worden toegevoegd.  
+Met deze opdracht wordt de nieuwe installatiekopie gebouwd met behulp van de instructies in het Dockerfile, en krijgt de installatiekopie de naam (-t tagging) `hallowereldapp´. Bij het bouwen van een installatiekopie wordt de basisinstallatiekopie uit de Docker-hub gehaald en wordt er een nieuwe installatiekopie gemaakt waarmee de toepassing wordt toegevoegd boven op de basisinstallatiekopie.  
 
-Uitvoeren zodra Hallo build-opdracht is voltooid, Hallo `docker images` toosee informatie over de nieuwe installatiekopie Hallo opdracht:
+Nadat de buildopdracht is voltooid, voert u de opdracht `docker images` uit om de gegevens van de nieuwe installatiekopie te bekijken:
 
 ```
 $ docker images
@@ -110,71 +110,71 @@ REPOSITORY                    TAG                 IMAGE ID            CREATED   
 helloworldapp                 latest              8ce25f5d6a79        2 minutes ago       10.4 GB
 ```
 
-## <a name="run-hello-application-locally"></a>Hallo-toepassing lokaal uitvoeren
-Controleer of uw installatiekopie lokaal voordat u het register van Hallo-container.  
+## <a name="run-the-application-locally"></a>De toepassing lokaal uitvoeren
+Controleer de installatiekopie eerst lokaal voordat u deze naar het containerregister pusht.  
 
-Hallo-toepassing uitvoeren:
+Voer de toepassing uit:
 
 ```
 docker run -d --name my-web-site helloworldapp
 ```
 
-*naam* geeft een naam toohello container (in plaats van de container-ID Hallo) uitgevoerd.
+Bij *naam* kunt de actieve container een naam geven (in plaats van de container-id).
 
-Eenmaal Hallo container wordt gestart, het IP-adres zoeken, zodat u verbinding kunt maken met container uitgevoerd vanuit een browser tooyour:
+Zodra de container is gestart, zoekt u het bijbehorende IP-adres zodat u vanuit een browser verbinding kunt maken met de actieve container:
 ```
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-Verbinding maken met container toohello.  Open een webbrowser toohello geretourneerde IP-adres, bijvoorbeeld 'http://172.31.194.61' aan te wijzen. U ziet Hallo kop "Hello World!" in de browser Hallo weergeven.
+Maak verbinding met de actieve container.  Open een webbrowser en verwijs naar het IP-adres dat is geretourneerd, bijvoorbeeld http://172.31.194.61. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
 
-toostop uw container, uitvoeren:
+Als u de container wilt stoppen, voert u dit uit:
 
 ```
 docker stop my-web-site
 ```
 
-Hallo-container uit uw ontwikkelcomputer verwijderen:
+De container verwijderen van de ontwikkelcomputer:
 
 ```
 docker rm my-web-site
 ```
 
 <a id="Push-Containers"></a>
-## <a name="push-hello-image-toohello-container-registry"></a>Push Hallo installatiekopie toohello container register
-Nadat u hebt gecontroleerd dat die Hallo-container wordt uitgevoerd op uw ontwikkelcomputer, push-Hallo installatiekopie tooyour register in Azure Container register.
+## <a name="push-the-image-to-the-container-registry"></a>De installatiekopie naar het containerregister pushen
+Nadat u hebt gecontroleerd of de container actief is op de ontwikkelcomputer, pusht u de installatiekopie naar het register in Azure Container Registry.
 
-Voer ``docker login`` toolog in tooyour container register met uw [register referenties](../container-registry/container-registry-authentication.md).
+Voer ``docker login`` uit om u bij uw containerregister aan te melden met uw [registerreferenties](../container-registry/container-registry-authentication.md).
 
-Hallo volgende voorbeeld wordt doorgegeven Hallo-ID en wachtwoord van een Azure Active Directory [service-principal](../active-directory/active-directory-application-objects.md). Bijvoorbeeld, u mogelijk hebt toegewezen een register van de service principal tooyour voor een scenario voor automatisering. Of u kunt zich aanmelden met uw gebruikersnaam en wachtwoord van het register.
+In het volgende voorbeeld worden de id en het wachtwoord van een [service-principal](../active-directory/active-directory-application-objects.md) van Azure Active Directory doorgegeven. U hebt bijvoorbeeld een service-principal aan uw register toegewezen voor een automatiseringsscenario. Of u kunt zich aanmelden met uw gebruikersnaam en wachtwoord van het register.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
-Hallo volgende opdracht maakt u een label of alias van de afbeelding hello, met een volledig gekwalificeerde pad tooyour-register. In dit voorbeeld plaatsen Hallo-installatiekopie in Hallo ```samples``` naamruimte tooavoid vol in de hoofdmap Hallo van Hallo-register.
+Met de volgende opdracht maakt u een tag (of alias) van de installatiekopie met een volledig gekwalificeerd pad naar uw register. In dit voorbeeld wordt de installatiekopie in de naamruimte ```samples``` geplaatst om overbodige items in de hoofdmap van het register te voorkomen.
 
 ```
 docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
 ```
 
-Push Hallo installatiekopie tooyour container register:
+De installatiekopie naar het containerregister pushen:
 
 ```
 docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="create-hello-containerized-service-in-visual-studio"></a>Hallo beperkte service in Visual Studio maken
-Hallo Service Fabric SDK en hulpprogramma's bieden een toohelp service-sjabloon maken van een beperkte toepassing.
+## <a name="create-the-containerized-service-in-visual-studio"></a>De beperkte service maken in Visual Studio
+De Service Fabric SDK en hulpprogramma's bieden een servicesjabloon waarmee u een containertoepassing kunt maken.
 
 1. Start Visual Studio.  Selecteer **Bestand** > **Nieuw** > **Project**.
 2. Selecteer **Service Fabric-toepassing**, geef deze de naam MyFirstContainer en klik op **OK**.
-3. Selecteer **Gast Container** uit Hallo lijst met **servicesjablonen**.
-4. In **Installatiekopienaam** 'myregistry.azurecr.io/samples/helloworldapp', Hallo installatiekopie gepusht van tooyour container opslagplaats invoeren.
+3. Selecteer **Gastcontainer** in de lijst met **servicesjablonen**.
+4. Voer bij **Naam van installatiekopie** het volgende in: myregistry.azurecr.io/samples/helloworldapp. Dit is de installatiekopie die u naar uw containeropslagplaats hebt gepusht.
 5. Geef de service een naam en klik op **OK**.
 
 ## <a name="configure-communication"></a>Communicatie configureren
-beperkte Hallo-service moet een eindpunt voor communicatie. Voeg een `Endpoint` element met het Hallo-protocol en poort type toohello ServiceManifest.xml bestand. Voor dit artikel luistert Hallo beperkte service op poort 8081.  In dit voorbeeld wordt een ingestelde poort 8081 gebruikt.  Als er geen poort is opgegeven, wordt een willekeurige poort van Hallo toepassingspoortbereik gekozen.  
+De containerservice heeft een eindpunt voor communicatie nodig. Voeg een `Endpoint`-element met het protocol, de poort en het type toe aan het bestand ServiceManifest.xml. Voor deze snelstartgids luistert de containerservice naar poort 8081.  In dit voorbeeld wordt een ingestelde poort 8081 gebruikt.  Als er geen poort is opgegeven, wordt een willekeurige poort uit het poortbereik van de toepassing gekozen.  
 
 ```xml
 <Resources>
@@ -184,12 +184,12 @@ beperkte Hallo-service moet een eindpunt voor communicatie. Voeg een `Endpoint` 
 </Resources>
 ```
 
-Als u een eindpunt, publiceert Service Fabric Hallo eindpunt toohello Naming service.  Deze container kunnen worden opgelost door andere services in Hallo cluster wordt uitgevoerd.  U kunt ook de container-container-communicatie met Hallo uitvoeren [omgekeerde proxy](service-fabric-reverseproxy.md).  Communicatie wordt uitgevoerd door Hallo omgekeerde proxy HTTP-luisterpoort en Hallo-naam van het Hallo-services die u toocommunicate met als omgevingsvariabelen wilt.
+Als u een eindpunt opgeeft, publiceert Service Fabric het eindpunt naar de Naming-service.  Andere services die in dit cluster worden uitgevoerd, kunnen deze container dan omzetten.  U kunt ook communicatie van container naar container laten plaatsvinden met behulp van een [omgekeerde proxy](service-fabric-reverseproxy.md).  Communicatie wordt uitgevoerd door de omgekeerde proxy de HTTP-poort voor luisteren en de naam van de services waarmee u wilt communiceren door te geven als omgevingsvariabelen.
 
 ## <a name="configure-and-set-environment-variables"></a>Omgevingsvariabelen configureren en instellen
-Omgevingsvariabelen kunnen worden opgegeven voor elk codepakket in Hallo servicemanifest. Deze functie is beschikbaar voor alle services, ongeacht of ze zijn geïmplementeerd als containers, processen of uitvoerbare gastbestanden. U kunt de omgevingsvariabele waarden in de toepassing hello manifest of geef ze tijdens de implementatie als toepassingsparameters overschrijven.
+Er kunnen omgevingsvariabelen worden opgegeven voor ieder codepakket in het servicemanifest. Deze functie is beschikbaar voor alle services, ongeacht of ze zijn geïmplementeerd als containers, processen of uitvoerbare gastbestanden. U kunt waarden van omgevingsvariabelen overschrijven in het toepassingsmanifest of ze opgeven als toepassingsparameters tijdens de implementatie.
 
-Hallo volgende service manifest XML-fragment toont een voorbeeld van hoe de omgevingsvariabelen toospecify voor een codepakket:
+Het volgende XML-fragment voor het servicemanifest toont een voorbeeld van het opgeven van omgevingsvariabelen voor een codepakket:
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   ...
@@ -199,7 +199,7 @@ Hallo volgende service manifest XML-fragment toont een voorbeeld van hoe de omge
 </CodePackage>
 ```
 
-Deze omgevingsvariabelen kunnen worden genegeerd in het toepassingsmanifest Hallo:
+Deze omgevingsvariabelen kunnen worden overschreven in het toepassingsmanifest:
 
 ```xml
 <ServiceManifestImport>
@@ -211,7 +211,7 @@ Deze omgevingsvariabelen kunnen worden genegeerd in het toepassingsmanifest Hall
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>Poort-naar-host-toewijzing voor containers en container-naar-container-detectie configureren
-Configureer een toocommunicate host-poort die wordt gebruikt met Hallo-container. Hallo-poortbinding maps Hallo poort welke Hallo service binnen Hallo container tooa poort op Hallo host luistert. Voeg een `PortBinding` -element in `ContainerHostPolicies` element van Hallo ApplicationManifest.xml bestand.  Voor dit artikel `ContainerPort` 80 (Hallo container wordt poort 80, als de opgegeven in de Hallo Dockerfile) en `EndpointRef` is 'Guest1TypeEndpoint' (Hallo eindpunt dat eerder is gedefinieerd in Hallo servicemanifest).  Inkomende aanvragen toohello-service op poort 8081 zijn toegewezen tooport 80 op Hallo-container.
+Configureer een hostpoort voor communicatie met de container. De poortbinding wijst de poort toe waarop de service binnen de container luistert naar een poort op de host. Voeg een element `PortBinding` toe aan het element `ContainerHostPolicies` van het bestand ApplicationManifest.xml.  Voor dit artikel geldt: `ContainerPort` is 80 (de container gebruikt poort 80, zoals opgegeven in het bestand Dockerfile) en `EndpointRef` is 'Guest1TypeEndpoint' (het eindpunt dat eerder is gedefinieerd in het servicemanifest).  Binnenkomende aanvragen naar de service op poort 8081 worden toegewezen aan poort 80 in de container.
 
 ```xml
 <Policies>
@@ -222,7 +222,7 @@ Configureer een toocommunicate host-poort die wordt gebruikt met Hallo-container
 ```
 
 ## <a name="configure-container-registry-authentication"></a>Verificatie containerregister configureren
-Container register verificatie configureren door toe te voegen `RepositoryCredentials` te`ContainerHostPolicies` van Hallo ApplicationManifest.xml bestand. Hallo-account en wachtwoord voor Hallo myregistry.azurecr.io container register, waardoor Hallo service toodownload Hallo container de installatiekopie van het Hallo-opslagplaats toevoegen.
+Configureer de verificatie van het containerregister `RepositoryCredentials` door toe te voegen aan `ContainerHostPolicies` van het bestand ApplicationManifest.xml. Voeg het account en wachtwoord toe aan het containerregister myregistry.azurecr.io, waardoor de service voor de containerinstallatiekopie uit de opslagplaats kan downloaden.
 
 ```xml
 <Policies>
@@ -233,9 +233,9 @@ Container register verificatie configureren door toe te voegen `RepositoryCreden
 </Policies>
 ```
 
-Het is raadzaam dat u Hallo opslagplaats wachtwoord versleutelen met behulp van een certificaat uitwisselen die tooall knooppunten van het Hallo-cluster is geïmplementeerd. Wanneer het Service Fabric Hallo service pakket toohello-cluster implementeert, is Hallo uitwisselen certificaat gebruikte toodecrypt Hallo gecodeerde tekst.  Hallo Invoke ServiceFabricEncryptText cmdlet is gebruikte toocreate Hallo gecodeerde tekst hello wachtwoord toohello ApplicationManifest.xml bestand wordt toegevoegd.
+We raden aan het wachtwoord van de opslagplaats te versleutelen door middel van een versleutelingscertificaat dat naar alle knooppunten van het cluster wordt geïmplementeerd. Wanneer Service Fabric het servicepakket naar het cluster implementeert, wordt het versleutelingscertificaat gebruikt om de versleutelde tekst te ontsleutelen.  De cmdlet Invoke-ServiceFabricEncryptText wordt gebruikt om de gecodeerde tekst voor het wachtwoord te maken, die wordt toegevoegd aan het bestand ApplicationManifest.xml.
 
-Hallo volgende script maakt een nieuw zelfondertekend certificaat en exporteert het tooa PFX-bestand.  Hallo-certificaat wordt geïmporteerd in een bestaande sleutelkluis en vervolgens geïmplementeerd toohello Service Fabric-cluster.
+Het volgende script maakt een nieuw zelfondertekend certificaat en exporteert het naar een PFX-bestand.  Het certificaat wordt geïmporteerd in een bestaande sleutelkluis en geïmplementeerd naar het Service Fabric-cluster.
 
 ```powershell
 # Variables.
@@ -253,26 +253,26 @@ Login-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionId $subscriptionId
 
-# Create a self signed cert, export tooPFX file.
+# Create a self signed cert, export to PFX file.
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
 | Export-PfxCertificate -FilePath $filepath -Password $certpwd
 
-# Import hello certificate tooan existing key vault.  hello key vault must be enabled for deployment.
+# Import the certificate to an existing key vault.  The key vault must be enabled for deployment.
 $cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
 
-# Add hello certificate tooall hello VMs in hello cluster.
+# Add the certificate to all the VMs in the cluster.
 Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
 ```
-Hallo-wachtwoord met behulp van Hallo versleutelen [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet.
+Versleutel het wachtwoord met behulp van de cmdlet [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps).
 
 ```powershell
 $text = "=P==/==/=8=/=+u4lyOB=+=nWzEeRfF="
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint $cer.Thumbprint -Text $text -StoreLocation Local -StoreName My
 ```
 
-Vervang Hallo wachtwoord door Hallo gecodeerde tekst die wordt geretourneerd door Hallo [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet en stel `PasswordEncrypted` te 'true'.
+Vervang het wachtwoord door de versleutelde tekst die wordt geretourneerd door de cmdlet [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) en stel `PasswordEncrypted` in op 'true'.
 
 ```xml
 <Policies>
@@ -288,14 +288,14 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 ```
 
 ## <a name="configure-isolation-mode"></a>Isolatiemodus configureren
-Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met isolatiemodus voor Hallo Hallo alle Hallo containers die worden uitgevoerd op dezelfde host machine share Hallo kernel met Hallo host. Hallo kernels zijn met de isolatiemodus Hallo Hyper-V, tussen elke Hyper-V-container en Hallo containerhost geïsoleerd. Hallo isolatiemodus is opgegeven in Hallo `ContainerHostPolicies` -element in het manifestbestand van de toepassing hello. Hallo isolatie modi die kunnen worden opgegeven `process`, `hyperv`, en `default`. Hallo standaardisolatiemodus standaardwaarden te`process` op Windows-Server fungeert als host en de standaardinstellingen te`hyperv` op hosts met Windows 10. Hallo volgende fragment toont hoe Hallo isolatiemodus is opgegeven in het manifestbestand van de toepassing hello.
+Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de procesisolatiemodus delen alle containers die worden uitgevoerd op dezelfde hostcomputer de kernel met de host. Met de Hyper-V-isolatiemodus hebben de kernels een scheiding tussen elke Hyper-V-container en de containerhost. De isolatiemodus is in het manifestbestand van de toepassing opgegeven in het element `ContainerHostPolicies`. De isolatiemodi die kunnen worden opgegeven zijn `process`, `hyperv` en `default`. De standaardmodus voor isolatie wordt standaard ingesteld op `process` op Windows Server-hosts en op `hyperv` op hosts met Windows 10. Het volgende codefragment toont hoe de isolatiemodus wordt opgegeven in het manifestbestand van de toepassing.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
 
 ## <a name="configure-resource-governance"></a>Resourcebeheer configureren
-[Resource governance](service-fabric-resource-governance.md) beperkt Hallo resources die container Hallo op Hallo host kunnen gebruiken. Hallo `ResourceGovernancePolicy` element, dat is opgegeven in het toepassingsmanifest hello, gebruikte toodeclare limieten voor een service-codepakket is. Limieten kunnen worden ingesteld voor Hallo volgende resources: geheugen, MemorySwap, CpuShares (CPU relatieve gewicht), MemoryReservationInMB, BlkioWeight (BlockIO relatieve gewicht).  In dit voorbeeld servicepakket Guest1Pkg één kern opgehaald op Hallo clusterknooppunten waar het wordt geplaatst.  Geheugenlimieten absoluut zijn dus Hallo codepakket beperkt too1024 is MB aan geheugen (en een voorlopig garantie reservering van dezelfde Hallo). Code-pakketten (containers of processen) zijn niet kunnen tooallocate meer geheugen dan deze limiet en probeert toodo dus in een out-geheugen-uitzondering resulteert. Voor de resource limiet afdwinging toowork hebben alle code pakketten binnen een servicepakket geheugenlimieten opgegeven.
+[Resourcebeheer](service-fabric-resource-governance.md) beperkt de resources die de container op de host kan gebruiken. Het element `ResourceGovernancePolicy`, dat is opgegeven in het toepassingsmanifest, wordt gebruikt om resourcebeperkingen te declareren voor een servicecodepakket. Er kunnen resourcebeperkingen worden ingesteld voor de volgende resources: geheugen, MemorySwap, CpuShares (relatief CPU-gewicht), MemoryReservationInMB, BlkioWeight (relatief BlockIO-gewicht).  In dit voorbeeld krijgt het servicepakket Guest1Pkg één kern op de clusterknooppunten waar het wordt geplaatst.  Geheugenlimieten zijn absoluut, dus het codepakket wordt beperkt tot 1024 MB aan geheugen (en een gegarandeerde flexibele reservering hierop). Codepakketten (containers of processen) kunnen niet meer geheugen toewijzen dan deze limiet. Een poging dit toch te doen, leidt tot een Onvoldoende geheugen-uitzondering. Voor een effectieve handhaving van resourcebeperkingen moeten voor alle pakketten binnen een servicepakket geheugenlimieten zijn opgegeven.
 
 ```xml
 <ServiceManifestImport>
@@ -307,23 +307,23 @@ Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met is
 </ServiceManifestImport>
 ```
 
-## <a name="deploy-hello-container-application"></a>Hallo containertoepassing implementeren
-Al uw wijzigingen opslaan en Hallo toepassing bouwen. toopublish uw toepassing, met de rechtermuisknop op **MyFirstContainer** in Solution Explorer en selecteer **publiceren**.
+## <a name="deploy-the-container-application"></a>De containertoepassing implementeren
+Sla al uw wijzigingen op en bouw de toepassing. Klik in Solution Explorer met de rechtermuisknop op **MyFirstContainer** en selecteer **Publish** om uw toepassing te publiceren.
 
-In **verbindingseindpunt**, Voer Hallo eindpunt voor Hallo-cluster.  Bijvoorbeeld: 'containercluster.westus2.cloudapp.azure.com:19000'. U vindt de clientverbinding Hallo eindpunt in Hallo overzichtsblade voor uw cluster in Hallo [Azure-portal](https://portal.azure.com).
+Voer bij **Verbindingseindpunt** het beheereindpunt voor het cluster in.  Bijvoorbeeld: 'containercluster.westus2.cloudapp.azure.com:19000'. U vindt het eindpunt voor de clientverbinding op de blade Overzicht voor het cluster in [Azure Portal](https://portal.azure.com).
 
 Klik op **Publish**.
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is een webhulpprogramma voor het inspecteren en beheren van toepassingen en knooppunten in een Service Fabric-cluster. Open een browser en ga toohttp://containercluster.westus2.cloudapp.azure.com:19080/Explorer/en volgt u de implementatie van de toepassing hello.  Hallo-toepassing wordt geïmplementeerd maar bevindt zich in een foutstatus totdat Hallo installatiekopie gedownload op de clusterknooppunten hello (dit kunnen enige tijd duren, afhankelijk van de grootte van de installatiekopie Hallo): ![fout][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is een webhulpprogramma voor het inspecteren en beheren van toepassingen en knooppunten in een Service Fabric-cluster. Open een browser, ga naar http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ en volg de implementatie van de toepassing.  De toepassing wordt geïmplementeerd, maar heeft een foutstatus totdat de installatiekopie is gedownload op de clusterknooppunten (wat enige tijd kan duren, afhankelijk van de grootte van de installatiekopie): ![Fout][1]
 
-Hallo toepassing gereed is wanneer deze ```Ready``` status: ![gereed][2]
+De toepassing is gereed bij een ```Ready```-status: ![Gereed][2]
 
-Open een browser en ga toohttp://containercluster.westus2.cloudapp.azure.com:8081. U ziet Hallo kop "Hello World!" in de browser Hallo weergeven.
+Open een browser en ga naar http://containercluster.westus2.cloudapp.azure.com:8081. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
 
 ## <a name="clean-up"></a>Opruimen
-U tooincur kosten doorgaan terwijl Hallo cluster wordt uitgevoerd, kunt u [verwijderen van uw cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party-clusters](http://tryazureservicefabric.westus.cloudapp.azure.com/) worden na een paar uur automatisch verwijderd.
+Zolang het cluster actief is, worden er kosten in rekening gebracht. Overweeg daarom [het cluster te verwijderen](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party-clusters](http://tryazureservicefabric.westus.cloudapp.azure.com/) worden na een paar uur automatisch verwijderd.
 
-Wanneer u push-Hallo installatiekopie toohello container register kunt u Hallo-afbeelding voor lokaal verwijderen vanaf de ontwikkelcomputer:
+Nadat u de installatiekopie naar het containerregister hebt gepusht, kunt u de lokale installatiekopie op de ontwikkelcomputer verwijderen:
 
 ```
 docker rmi helloworldapp
@@ -331,7 +331,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Volledig voorbeeld van de manifesten voor de Fabric Service-toepassing en -service
-Hier volgen Hallo volledige service en Toepassingsmanifesten in dit artikel gebruikt.
+Dit zijn de volledige manifesten voor de service en toepassing die in dit artikel worden gebruikt.
 
 ### <a name="servicemanifestxml"></a>ServiceManifest.xml
 ```xml
@@ -342,20 +342,20 @@ Hier volgen Hallo volledige service en Toepassingsmanifesten in dit artikel gebr
                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
-    <!-- This is hello name of your ServiceType.
-         hello UseImplicitHost attribute indicates this is a guest service. -->
+    <!-- This is the name of your ServiceType.
+         The UseImplicitHost attribute indicates this is a guest service. -->
     <StatelessServiceType ServiceTypeName="Guest1Type" UseImplicitHost="true" />
   </ServiceTypes>
 
   <!-- Code package is your service executable. -->
   <CodePackage Name="Code" Version="1.0.0">
     <EntryPoint>
-      <!-- Follow this link for more information about deploying Windows containers tooService Fabric: https://aka.ms/sfguestcontainers -->
+      <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
       </ContainerHost>
     </EntryPoint>
-    <!-- Pass environment variables tooyour container: -->    
+    <!-- Pass environment variables to your container: -->    
     <EnvironmentVariables>
       <EnvironmentVariable Name="HttpGatewayPort" Value=""/>
       <EnvironmentVariable Name="BackendServiceName" Value=""/>
@@ -363,13 +363,13 @@ Hier volgen Hallo volledige service en Toepassingsmanifesten in dit artikel gebr
 
   </CodePackage>
 
-  <!-- Config package is hello contents of hello Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by hello communication listener tooobtain hello port on which to
+      <!-- This endpoint is used by the communication listener to obtain the port on which to
            listen. Please note that if your service is partitioned, this port is shared with
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
@@ -388,8 +388,8 @@ Hier volgen Hallo volledige service en Toepassingsmanifesten in dit artikel gebr
   <Parameters>
     <Parameter Name="Guest1_InstanceCount" DefaultValue="-1" />
   </Parameters>
-  <!-- Import hello ServiceManifest from hello ServicePackage. hello ServiceManifestName and ServiceManifestVersion
-       should match hello Name and Version attributes of hello ServiceManifest element defined in the
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion
+       should match the Name and Version attributes of the ServiceManifest element defined in the
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
@@ -411,11 +411,11 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
-    <!-- hello section below creates instances of service types, when an instance of this
+    <!-- The section below creates instances of service types, when an instance of this
          application type is created. You can also create one or more instances of service type using the
          ServiceFabric PowerShell module.
 
-         hello attribute ServiceTypeName below must match hello name defined in hello imported ServiceManifest.xml file. -->
+         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="Guest1">
       <StatelessService ServiceTypeName="Guest1Type" InstanceCount="[Guest1_InstanceCount]">
         <SingletonPartition />
@@ -427,7 +427,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Tijdsinterval configureren voor geforceerd beëindigen van container
 
-U kunt een tijdsinterval voor Hallo runtime toowait configureren voordat Hallo container wordt verwijderd nadat hello service verwijderen (of een knooppunt van de tooanother verplaatsen) is gestart. Configureren Hallo tijdsinterval verzendt Hallo `docker stop <time in seconds>` opdracht toohello container.   Zie [docker stop](https://docs.docker.com/engine/reference/commandline/stop/) voor meer informatie. Hallo tijd interval toowait is opgegeven bij Hallo `Hosting` sectie. Hallo na cluster manifest codefragment ziet u hoe tooset Hallo Wacht-interval:
+U kunt een tijdsinterval configureren, zodat de runtime die tijd wacht voordat de container wordt verwijderd nadat het verwijderen van een service (of het verplaatsen naar een ander knooppunt) is gestart. Als u een tijdsinterval configureert, wordt de `docker stop <time in seconds>` opdracht verzonden naar de container.   Zie [docker stop](https://docs.docker.com/engine/reference/commandline/stop/) voor meer informatie. Het tijdsinterval dat moet worden gewacht, kunt u opgeven in de sectie `Hosting`. Het volgende fragment van een clustermanifest laat zien hoe u het wachtinterval instelt:
 
 ```xml
 {
@@ -440,12 +440,12 @@ U kunt een tijdsinterval voor Hallo runtime toowait configureren voordat Hallo c
         ]
 }
 ```
-Hallo standaardtijdsinterval is ingesteld too10 seconden. Omdat deze configuratie dynamisch is, wordt een config alleen bijwerken op Hallo cluster updates Hallo time-out. 
+Het standaardtijdsinterval is 10 seconden. Aangezien deze configuratie dynamisch is, wordt de time-out bijgewerkt bij een configuratie-upgrade van het cluster. 
 
 
-## <a name="configure-hello-runtime-tooremove-unused-container-images"></a>Hallo runtime tooremove configureren ongebruikte container installatiekopieën
+## <a name="configure-the-runtime-to-remove-unused-container-images"></a>De runtime configureren voor het verwijderen van ongebruikte containerinstallatiekopieën
 
-U kunt configureren Hallo Service Fabric-cluster tooremove ongebruikte container installatiekopieën van het Hallo-knooppunt. Deze configuratie kunt schijfruimte toobe opnieuw vastgelegd als te veel container afbeeldingen op Hallo knooppunt aanwezig zijn.  tooenable deze functie, de update Hallo `Hosting` sectie in het clustermanifest hello, zoals wordt weergegeven in het volgende codefragment Hallo: 
+U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebruikte containerinstallatiekopieën van het knooppunt. Met deze configuratie kunt u schijfruimte vrijmaken als er te veel containerinstallatiekopieën aanwezig zijn op het knooppunt.  Om deze functie in te schakelen, past u de sectie `Hosting` in het clustermanifest aan zoals wordt weergegeven in het volgende fragment: 
 
 
 ```xml
@@ -461,15 +461,15 @@ U kunt configureren Hallo Service Fabric-cluster tooremove ongebruikte container
 } 
 ```
 
-Voor installatiekopieën die niet worden verwijderd, kunt u ze onder Hallo `ContainerImagesToSkip` parameter. 
+De installatiekopieën die niet moeten worden verwijderd, kunt u opgeven met de parameter `ContainerImagesToSkip`. 
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over het uitvoeren van [containers in Service Fabric](service-fabric-containers-overview.md).
-* Lees Hallo [implementeren van een .NET-toepassing in een container](service-fabric-host-app-in-a-container.md) zelfstudie.
-* Meer informatie over Service Fabric Hallo [toepassing levenscyclus](service-fabric-application-lifecycle.md).
-* Afhandeling Hallo [codevoorbeelden Service Fabric-container](https://github.com/Azure-Samples/service-fabric-dotnet-containers) op GitHub.
+* Lees de zelfstudie [Een .NET-toepassing implementeren in een container](service-fabric-host-app-in-a-container.md).
+* Meer informatie over de [levenscyclus](service-fabric-application-lifecycle.md) van de Service Fabric-toepassing.
+* Bekijk [voorbeelden van Service Fabric-containercode op GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers).
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png

@@ -1,6 +1,6 @@
 ---
-title: aaaSecurity bewaken in Azure Security Center | Microsoft Docs
-description: In dit artikel helpt u tooget gestart met de bewakingsmogelijkheden in Azure Security Center.
+title: Beveiliging bewaken in Azure Security Center | Microsoft Docs
+description: Dit artikel helpt u aan de slag te gaan met de bewakingsmogelijkheden in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -12,119 +12,128 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 09/07/2017
 ms.author: yurid
-ms.openlocfilehash: 43c2a8864d5fe27ba44b0d7bc979db970305ec17
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Beveiligingsstatus bewaken in Azure Security Center
-In dit artikel helpt u Hallo bewakingsmogelijkheden in Azure Security Center toomonitor naleving van beleid gebruiken.
+Dit artikel bevat informatie over het gebruik van de bewakingsmogelijkheden in Azure Security Center om naleving van het beleid te controleren.
 
 ## <a name="what-is-security-health-monitoring"></a>Wat houdt de bewaking van de beveiligingsstatus in?
-We denken dat vaak bewaking te bekijken en te wachten op een gebeurtenis toooccur zodat we toohello situatie kunnen reageren. Beveiligingsbewaking verwijst toohaving een proactieve strategie waarbij uw resources tooidentify systemen die niet voldoen aan de organisatie-standaarden of aanbevolen procedures audits.
+Bij het woord bewaking wordt misschien gesuggereerd dat er wordt gewacht tot een gebeurtenis plaatsvindt en dat er dan op de situatie wordt gereageerd. Bij beveiligingsbewaking is er echter sprake van een proactieve strategie waarbij uw resources worden gecontroleerd om systemen op te sporen die niet voldoen aan de standaarden of aanbevolen procedures van de organisatie.
 
 ## <a name="monitoring-security-health"></a>Beveiligingsstatus bewaken
-Nadat u hebt ingeschakeld [beveiligingsbeleid](security-center-policies.md) voor resources van een abonnement, analyseert Security Center Hallo beveiliging van uw resources tooidentify potentiële beveiligingslekken naar voren. Informatie over uw netwerkconfiguratie is onmiddellijk beschikbaar. Kan het een uur duren voordat of meer informatie over de configuratie van de virtuele machine, zoals beveiliging bijwerken, status en configuratie van besturingssysteem, toobecome beschikbaar. U kunt Hallo beveiligingsstatus van uw resources en eventuele problemen weergeven in Hallo **preventie** sectie. U kunt ook een overzicht van die problemen op Hallo **aanbevelingen** tegel.
+Nadat u een [beveiligingsbeleid](security-center-policies.md) voor de resources van een abonnement hebt ingeschakeld, analyseert Security Center de beveiliging van uw resources om mogelijke beveiligingsproblemen op te sporen. Informatie over uw netwerkconfiguratie is onmiddellijk beschikbaar. Afhankelijk van het aantal virtuele machines en computers waarop de agent is geïnstalleerd, kan het een uur of langer duren voordat informatie is verzameld over configuratie van de VM's en de computer, zoals de status van de beveiligingsupdates en de configuratie van het besturingssysteem. U kunt de beveiligingsstatus van uw resources en eventuele problemen bekijken in het gedeelte **Preventie**. U kunt ook een overzicht van die problemen op de tegel **Aanbevelingen** bekijken.
 
-Voor meer informatie over het tooapply aanbevelingen lezen [beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md).
+Zie [Beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md) voor meer informatie over het toepassen van aanbevelingen.
 
-Onder Hallo **preventie** sectie, kunt u Hallo beveiligingsstatus van uw resources bewaken. In de Hallo voorbeeld te volgen, kunt u bekijken die in elke resource tegel (Compute, netwerken, opslag & gegevens en toepassingen) totaal aantal problemen die zijn geïdentificeerd Hallo heeft.
+In het gedeelte **Preventie** kunt u de beveiligingsstatus van uw resources bewaken. In het volgende voorbeeld ziet u dat in de tegel van elke resource (Berekenen, Netwerken, Opslag en gegevens, en Toepassing) het totale aantal problemen dat is geïdentificeerd wordt weergegeven.
 
 ![De tegel Beveiligingsstatus van de resource](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
 
 ### <a name="monitor-compute"></a>Berekenen controleren
-Wanneer u klikt op **Compute** tegel, hello **Compute** blade die wordt geopend ziet u drie tabbladen:
+Wanneer u klikt op de tegel **Compute** tegel, ziet u drie tabbladen:
 
-- **Overzicht**: aanbevelingen voor controle en virtuele machines.
-- **Virtuele machines**: lijst met alle virtuele machines en de bijbehorende actuele beveiligingsstatussen.
+- **Overzicht**: controle en aanbevelingen.
+- **VM’s en computers**: lijst met alle virtuele machines, computers en de bijbehorende actuele beveiligingsstatussen.
 - **Cloudservices**: lijst met alle web- en worker-rollen gecontroleerd met het beveiligingscentrum.
 
-![Ontbrekende systeemupdate per virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
+![Ontbrekende systeemupdate per virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-U kunt meerdere secties hebben op elk tabblad en in elke sectie kunt u een afzonderlijke optie toosee meer informatie over Hallo aanbevolen stappen tooaddress dat specifieke probleem. 
+Op elk tabblad kunt u meerdere sectie hebben en in elke sectie kunt u een afzonderlijke optie selecteren voor meer informatie over de aanbevolen stappen voor het oplossen van het specifieke probleem. 
 
 #### <a name="monitoring-recommendations"></a>Aanbevelingen ten aanzien van controle
-Deze sectie toont Hallo kunt u het totale aantal virtuele machines die is geïnitialiseerd voor het verzamelen van gegevens en hun huidige status. Nadat alle virtuele machines gegevensverzameling is geïnitialiseerd hebt, worden ze gereed tooreceive Security Center-beveiligingsbeleid. Wanneer u deze vermelding klikt, Hallo **VM-Agent ontbreekt of niet reageert** blade wordt geopend. 
+In deze sectie wordt het totale aantal virtuele machines en computers weergegeven dat is geïnitialiseerd voor het automatisch inrichten en de huidige status. Als u op deze vermelding klikt, wordt **VM-agent ontbreekt of reageert niet** geopend. 
 
 ![Ontbrekende systeemupdate per virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
 
-#### <a name="virtual-machine-recommendations"></a>Aanbevelingen voor virtuele machines
-Dit gedeelte bevat een reeks [aanbevelingen voor elke virtuele machine](security-center-virtual-machine-recommendations.md) die wordt bewaakt door Azure Security Center. de eerste kolom Hallo geeft Hallo aanbeveling. de tweede kolom Hallo toont Hallo kunt u het totale aantal virtuele machines die worden beïnvloed door die aanbeveling. Hallo derde kolom ziet u Hallo ernst van Hallo probleem zoals geïllustreerd in de volgende schermafbeelding Hallo.
+#### <a name="recommendations"></a>Aanbevelingen
+Dit gedeelte bevat een reeks [aanbevelingen voor elke virtuele machine en computer](security-center-virtual-machine-recommendations.md) die wordt bewaakt door Azure Security Center. De eerste kolom bevat de aanbeveling. De tweede kolom geeft het totale aantal virtuele machines en computers weer dat wordt beïnvloed door deze aanbeveling. De derde kolom geeft de ernst van het probleem weer, zoals wordt geïllustreerd op de volgende schermafbeelding:
 
-![Aanbevelingen voor virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
+![Aanbevelingen voor virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig2-sep2017.png)
 
 > [!NOTE]
-> Alleen virtuele machines waarvoor ten minste één openbaar eindpunt worden weergegeven in Hallo **Networking Health** blade in Hallo **netwerktopologie** lijst.
+> Alleen virtuele machines met ten minste één openbaar eindpunt worden weergegeven in **Netwerkstatus** in de lijst **Netwerktopologie**.
 >
->
 
-Elke aanbeveling heeft een set acties die kunnen worden uitgevoerd wanneer u erop klikt. Als u bijvoorbeeld **ontbrekende systeemupdates**, Hallo **ontbrekende systeemupdates** blade wordt geopend. Geeft het Hallo virtuele machines die ontbreken patches en ernst van de ontbrekende update Hallo Hallo zoals weergegeven in de volgende Hallo schermafbeelding.
+Elke aanbeveling heeft een set acties die kunnen worden uitgevoerd wanneer u erop klikt. Als u bijvoorbeeld op **Ontbrekende systeemupdates** klikt, wordt een lijst met virtuele machines en computers waarvoor patches ontbreken en de ernst van de ontbrekende update weergegeven, zoals u ziet in de volgende schermafbeelding:
 
-![Ontbrekende systeemupdates voor virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
+![Ontbrekende systeemupdates voor virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig9-sep2017.png)
 
-Hallo **ontbrekende systeemupdates** blade ziet u een tabel met Hallo volgende informatie:
+De **Ontbrekende systeemupdates** hebben een overzicht van essentiële updates in een grafiek, één voor Windows en één voor Linux. Het tweede gedeelte bevat een tabel met de volgende informatie:
 
-* **VIRTUELE MACHINE**: Hallo-naam van Hallo virtuele machine waarvoor updates ontbreken.
-* **SYSTEEMUPDATES**: Hallo aantal systeemupdates dat ontbreekt.
-* **TIJD van laatste SCAN**: Hallo tijd dat Security Center voor het laatst gescand Hallo virtuele machine voor updates.
-* **STATUS**: huidige status van de aanbeveling Hallo Hallo:
-  * **Open**: Hallo aanbeveling is nog niet opgelost.
-  * **Bezig**: Hallo aanbeveling wordt momenteel toegepast toothose resources en de door u is geen actie vereist.
-  * **Opgelost**: Hallo aanbeveling is al voltooid. (Wanneer het Hallo-probleem is opgelost, Hallo vermelding is beschikbaar).
-* **ERNST**: wordt Hallo ernst van deze bepaalde aanbeveling beschreven:
+* **NAAM**: naam van de ontbrekende update.
+* **AANTAL VM’S EN COMPUTERS**: totaal aantal virtuele machines en computers die deze update niet hebben.
+* **STATUS**: de huidige status van de aanbeveling:
+  * **Open**: de aanbeveling is nog niet opgelost.
+  * **Wordt uitgevoerd**: de aanbeveling wordt momenteel toegepast op deze resources en u hoeft geen actie te ondernemen.
+  * **Opgelost**: de aanbeveling is al voltooid. (Als het probleem is opgelost, wordt de vermelding grijs).
+* **ERNST**: hiermee wordt de ernst van deze bepaalde aanbeveling beschreven:
   * **Hoog**: er bestaat een beveiligingsprobleem voor een belangrijke resource (toepassing, virtuele machine, netwerkbeveiligingsgroep) en dit probleem vereist uw aandacht.
-  * **Gemiddeld**: niet-kritieke of extra stappen zijn vereist toocomplete een proces of een beveiligingsprobleem elimineren.
-  * **Laag**: een beveiligingsprobleem moet worden opgelost, maar dit vereist niet uw onmiddellijke aandacht. (Standaard lage aanbevelingen niet zijn opgenomen, maar u kunt filteren op aanbevelingen als u wilt dat tooview ze.)
+  * **Gemiddeld**: er zijn niet-kritieke of extra stappen nodig om een proces te voltooien of een beveiligingsprobleem op te lossen.
+  * **Laag**: een beveiligingsprobleem moet worden opgelost, maar dit vereist niet uw onmiddellijke aandacht. (Aanbevelingen met de ernstaanduiding Laag worden niet standaard weergegeven, maar u kunt hierop filteren als u deze aanbevelingen wilt bekijken.)
 
-tooview hello aanbeveling, klikt u op Hallo-naam van Hallo virtuele machine. Een nieuwe blade voor die virtuele machine wordt geopend Hallo lijst met updates zoals weergegeven in de volgende schermafbeelding Hallo.
+Klik op de naam van de ontbrekende update om meer informatie voor de aanbeveling weer te geven. 
 
-![Ontbrekende systeemupdates voor een specifieke virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig6-ga.png)
+![Ontbrekende systeemupdates voor een specifieke virtuele machine](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
 > [!NOTE]
-> Hallo hier aanbevelingen voor beveiliging zijn dezelfde als die op Hallo Hallo **aanbevelingen** blade. Zie Hallo [beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md) artikel voor meer informatie over het tooresolve aanbevelingen. Dit is van toepassing is niet alleen voor virtuele machines maar ook voor alle resources die beschikbaar in Hallo zijn **resourcestatus** tegel.
+> Dit zijn dezelfde beveiligingsaanbevelingen als die in de optie **Aanbevelingen**. Zie het artikel [Beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md) voor meer informatie over het toepassen van aanbevelingen. Dit is niet alleen van toepassing voor virtuele machines en computers, maar ook voor alle resources die beschikbaar zijn in de tegel **Resourcestatus**.
 >
->
 
-#### <a name="virtual-machines-section"></a>Sectie voor virtuele machines
-Hallo virtuele machines sectie kunt u een overzicht van alle virtuele machines en aanbevelingen. Elke kolom vertegenwoordigt een reeks aanbevelingen, zoals wordt weergegeven in de volgende schermafbeelding Hallo:
+#### <a name="vms--computers-section"></a>Sectie VM's en computers
+De sectie voor virtuele machines en computers geeft een overzicht weer van alle aanbevelingen van virtuele machines en computers. Elke kolom vertegenwoordigt een reeks aanbevelingen, zoals te zien is op de volgende schermafbeelding:
 
-![Overzicht van alle virtuele machines en aanbevelingen](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
+![Overzicht van alle virtuele machines en aanbevelingen](./media/security-center-monitoring/security-center-monitoring-fig5-sep2017.png)
 
-Hallo-pictogram dat wordt weergegeven onder elke aanbeveling helpt u tooquickly identificeren Hallo virtuele machines die aandacht vereisen en het type aanbeveling Hallo.
+Er zijn vier typen pictogrammen die worden weergegeven in deze lijst, zoals wordt beschreven in deze lijst:
 
-In het vorige voorbeeld hello heeft één virtuele machine een kritieke aanbeveling met betrekking tot endpoint protection. tooget meer informatie over de virtuele machine hello, klikt u erop. Een nieuwe blade geopend vertegenwoordigt deze virtuele machine, zoals wordt weergegeven in de volgende schermafbeelding Hallo.
+![pictogram1](./media/security-center-monitoring/security-center-monitoring-icon1.png) Computer zonder Azure.
 
-![Beveiligingsdetails van virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig8-ga.png)
+![pictogram2](./media/security-center-monitoring/security-center-monitoring-icon2.png) Azure Resource Manager-VM.
 
-Deze blade bevat informatie over de beveiliging voor virtuele-machine Hallo Hallo. U kunt zien Hallo aanbevolen actie en de ernst van elk probleem Hallo Hallo onder aan deze blade wordt.
+![pictogram3](./media/security-center-monitoring/security-center-monitoring-icon3.png) Klassieke Azure-VM.
+
+![pictogram4](./media/security-center-monitoring/security-center-monitoring-icon4.png) Virtuele machines die alleen zijn geïdentificeerd vanuit de werkruimte die deel uitmaakt van het weergegeven abonnement. Dit omvat VM's van andere abonnementen die rapporteren aan de werkruimte in dit abonnement, en VM’s die zijn geïnstalleerd met de directe SCOM-agent en geen resource-ID hebben.
+
+U kunt met het pictogram dat wordt weergegeven onder elke aanbeveling, snel zien welke virtuele machines en computers aandacht vereisen en wat het type aanbeveling is. U kunt ook de optie **Filter** gebruiken voor het selecteren van de opties die u ziet in dit scherm.
+
+![Filteren](./media/security-center-monitoring/security-center-monitoring-fig6-sep2017.png)
+
+In het vorige voorbeeld heeft één virtuele machine een cruciale aanbeveling met betrekking tot eindpuntbeveiliging. Klik op de virtuele machine als u meer informatie over de virtuele machine wilt bekijken:
+
+![Beveiligingsdetails van virtuele machines](./media/security-center-monitoring/security-center-monitoring-fig7-sep2017.png)
+
+Hier vindt u de beveiligingsdetails voor de virtuele machine of computer. Onderin ziet u de aanbevolen actie en de ernst van elk probleem.
 
 #### <a name="cloud-services-section"></a>Veelgestelde vragen over cloudservices
-Een aanbeveling is voor cloud-services gemaakt wanneer Hallo besturingssysteemversie niet actueel is zoals weergegeven in de volgende schermafbeelding Hallo:
+Voor cloudservices wordt een aanbeveling gemaakt wanneer de versie van het besturingssysteem verouderd is, zoals u ziet in de volgende schermafbeelding:
 
 ![Status van cloudservices](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-In een scenario waar u de aanbeveling (dit is geen aanvraag voor het vorige voorbeeld Hallo Hallo) hebt, moet u toofollow Hallo stappen in Hallo aanbeveling tooupdate Hallo besturingssysteemversie. Wanneer een update beschikbaar is, hebt u een waarschuwing (rood of oranje - afhankelijk Hallo ernst van Hallo probleem). Wanneer u op deze waarschuwing in rijen Hallo WebRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd tooIIS) of WorkerRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd tooIIS) klikt, wordt een nieuwe blade geopend met meer informatie over deze aanbeveling zoals weergegeven in de volgende schermafbeelding Hallo:
+Bij een scenario waarin u een aanbeveling krijgt (wat in het vorige voorbeeld niet het geval is), volgt u de stappen in de aanbeveling om de versie van het besturingssysteem bij te werken. Wanneer een update beschikbaar is, ontvangt u een waarschuwing (rood of oranje, afhankelijk van de ernst van het probleem). Als u klikt op deze waarschuwing in de WebRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) of WorkerRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS), krijgt u meer informatie over deze aanbeveling. Dit wordt weergegeven op de volgende schermafbeelding:
 
 ![Details van de cloudservice](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-toosee een meer richtlijnen uitleg over deze aanbeveling, klikt u op **Update besturingssysteemversie** onder Hallo **beschrijving** kolom. Hallo **Update besturingssysteemversie (Preview)** er wordt een blade geopend met meer informatie.
+Als u een meer beschrijvende uitleg wilt zien over deze aanbeveling, klikt u op **Besturingssysteemversie bijwerken** onder de kolom **BESCHRIJVING**. 
 
 ![Aanbevelingen ten aanzien van cloudservices](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
 ### <a name="monitor-virtual-networks"></a>Virtuele netwerken bewaken
-Wanneer u klikt op **Networking** tegel, hello **Networking** er wordt een blade geopend met meer informatie, zoals wordt weergegeven in de volgende schermafbeelding Hallo:
+Wanneer u op de tegel **Netwerken** klikt, wordt de blade **Netwerken** geopend met meer details, zoals op de volgende schermafbeelding wordt weergegeven:
 
 ![De blade Netwerken](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 #### <a name="networking-recommendations"></a>Aanbevelingen voor netwerken
-Zoals hello statusgegevens van de virtuele machine-resource, biedt deze blade een overzicht van de problemen op Hallo bovenaan de blade Hallo en een lijst met bewaakte netwerken op Hallo onder.
+Net als bij de informatie over de resourcestatus van virtuele machines ziet u hier bovenin een overzicht van de problemen en onderin een lijst met bewaakte netwerken.
 
-Hallo networking status uitsplitsing sectie geeft een lijst van mogelijke beveiligingsproblemen en biedt [aanbevelingen](security-center-network-recommendations.md). Mogelijke aandachtspunten zijn:
+In het gedeelte met een uitsplitsing van de netwerkstatussen vindt u de mogelijke beveiligingsproblemen en [aanbevelingen](security-center-network-recommendations.md). Mogelijke aandachtspunten zijn:
 
 * NGFW (Next Generation Firewall) is niet geïnstalleerd
 * De netwerkbeveiligingsgroepen op subnetten zijn niet ingeschakeld
@@ -132,27 +141,25 @@ Hallo networking status uitsplitsing sectie geeft een lijst van mogelijke beveil
 * Externe toegang via openbaar extern eindpunt beperken
 * Status van internetgerichte eindpunten in orde
 
-Wanneer u een aanbeveling klikt, wordt een nieuwe blade geopend met meer informatie over de aanbeveling Hallo zoals weergegeven in het volgende voorbeeld Hallo.
+Wanneer u op een aanbeveling klikt, krijgt u meer informatie over de aanbeveling, zoals weergegeven in het volgende voorbeeld:
 
-![Details voor een aanbeveling Hallo netwerken blade](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
+![Details voor een aanbeveling in Netwerken](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
 
-In dit voorbeeld Hallo **configureren ontbrekende Netwerkbeveiligingsgroepen voor subnetten** blade bevat een lijst met subnetten en virtuele machines die ontbreken-beveiliging voor de groep. Als u Hallo subnet toowhich gewenste tooapply hello netwerkbeveiligingsgroep klikt, wordt er een andere blade geopend.
-
-In Hallo **netwerkbeveiligingsgroep kiezen** blade kunt u Hallo meest geschikte netwerkbeveiligingsgroep voor subnet Hallo selecteren of u kunt een nieuwe netwerkbeveiligingsgroep maken.
+In dit voorbeeld bevat **Ontbrekende netwerkbeveiligingsgroepen voor subnetten configureren** een lijst met subnetten en virtuele machines zonder beveiliging van netwerkbeveiligingsgroepen. Als u op het subnet klikt waarop u de netwerkbeveiligingsgroep wilt toepassen, wordt **Een netwerkbeveiligingsgroep kiezen** geopend. Hier selecteert u de meest geschikte netwerkbeveiligingsgroep voor het subnet of maakt u een nieuwe netwerkbeveiligingsgroep.
 
 #### <a name="internet-facing-endpoints-section"></a>Sectie Internetgerichte eindpunten
-In Hallo **internetgerichte eindpunten** sectie ziet u Hallo virtuele machines die momenteel zijn geconfigureerd met een Internetgericht eindpunt en de huidige status.
+De sectie **Internetgerichte eindpunten** bevat de virtuele machines die momenteel zijn geconfigureerd met een internetgericht eindpunt en de huidige status.
 
 ![Virtuele machines die zijn geconfigureerd met een internetgericht eindpunt en status](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
 
-Deze tabel heeft Hallo eindpuntnaam die vertegenwoordigt Hallo virtuele machine, hello Internetgericht IP-adres, en huidige status van de ernst van de netwerkbeveiligingsgroep Hallo Hallo en Hallo NGFW. Hallo-tabel is gesorteerd op ernst:
+Deze tabel bevat de eindpuntnaam die de virtuele machine vertegenwoordigt, het internetgerichte IP-adres en de huidige status van de ernst van de netwerkbeveiligingsgroep en de NGFW. De tabel is gesorteerd op ernst:
 
 * Rood (bovenaan): hoge prioriteit en moet onmiddellijk worden opgelost
 * Oranje: gemiddelde prioriteit en moet zo snel mogelijk worden opgelost
 * Groen (laatste): integriteitsstatus
 
 #### <a name="networking-topology-section"></a>Sectie Netwerktopologie
-Hallo **netwerktopologie** sectie heeft een hiërarchische weergave van Hallo resources zoals weergegeven in de volgende schermafbeelding Hallo:
+In de sectie **Netwerktopologie** ziet u een hiërarchische weergave van de resources, zoals te zien is op de onderstaande schermafbeelding:
 
 ![Hiërarchische weergave van resources in de sectie Netwerktopologie](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
@@ -162,55 +169,55 @@ Deze tabel is gesorteerd (virtuele machines en subnetten) op ernst:
 * Oranje: gemiddelde prioriteit en moet zo snel mogelijk worden opgelost
 * Groen (laatste): integriteitsstatus
 
-In deze Topologieweergave bevat het eerste niveau Hallo heeft [virtuele netwerken](../virtual-network/virtual-networks-overview.md), [virtuele netwerkgateways](/vpn-gateway/vpn-gateway-site-to-site-create.md), en [virtuele netwerken (klassiek)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). Hallo tweede niveau bevat subnetten en derde niveau Hallo Hallo virtuele machines die deel uitmaken van toothose subnetten heeft. Hallo rechterkolom heeft Hallo huidige status van netwerkbeveiligingsgroep Hallo voor die resources, zoals aangegeven in Hallo voorbeeld te volgen:
+In deze topologieweergave bevat het eerste niveau [virtuele netwerken](../virtual-network/virtual-networks-overview.md), [virtuele netwerkgateways](/vpn-gateway/vpn-gateway-site-to-site-create.md) en [virtuele netwerken (klassiek)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). Het tweede niveau bevat subnetten en het derde niveau bevat de virtuele machines die horen bij deze subnetten. In de rechterkolom bevindt zich de huidige status van de netwerkbeveiligingsgroep voor deze resources, zoals in het volgende voorbeeld wordt weergegeven:
 
-![Status van de netwerkbeveiligingsgroep Hallo in de sectie netwerktopologie](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
+![Status van de netwerkbeveiligingsgroep in de sectie Netwerktopologie](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
-Hallo onderste gedeelte van deze blade is Hallo aanbevelingen voor deze virtuele machine die vergelijkbaar is toowhat eerder is beschreven. U kunt een aanbeveling toolearn meer klikt u op of toepassen van beveiligingscontrole Hallo nodig of de configuratie.
+Het onderste gedeelte van deze blade bevat de aanbevelingen voor deze virtuele machine, vergelijkbaar met wat eerder is beschreven. U kunt op een aanbeveling klikken voor meer informatie of om het benodigde beveiligingsbeheer of de benodigde beveiligingsconfiguratie toe te passen.
 
 ### <a name="monitor-storage--data"></a>Opslag en gegevens controleren
 
-Wanneer u klikt op **opslag & gegevens** in Hallo **preventie** sectie hello **gegevensbronnen** er wordt een blade geopend met aanbevelingen voor SQL en opslag. Heeft ook [aanbevelingen](security-center-sql-service-recommendations.md) voor Hallo algemene status van Hallo-database. Lees voor meer informatie over de versleuteling van opslag [Versleuteling inschakelen voor een Azure-opslagaccount in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+Wanneer u klikt op **Opslag en gegevens** in het gedeelte **Preventie**, wordt **Gegevensbronnen** geopend met aanbevelingen voor SQL en Storage. Ook bevat de blade [aanbevelingen](security-center-sql-service-recommendations.md) voor de algemene integriteitsstatus van de database. Lees voor meer informatie over de versleuteling van opslag [Versleuteling inschakelen voor een Azure-opslagaccount in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
 ![Gegevensbronnen](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
-Onder **SQL aanbevelingen**, klikt u op elke aanbeveling en get meer details over verdere actie tooresolve een probleem. Hallo volgende voorbeeld ziet u Hallo uitbreiding van Hallo **Database Auditing en detectie van bedreigingen op SQL-databases** aanbeveling.
+U kunt onder **SQL-aanbevelingen** op elke aanbeveling klikken voor meer informatie over verdere acties die u kunt ondernemen om een probleem te verhelpen. In het volgende voorbeeld is de aanbeveling **Databasecontrole en detectie van bedreigingen in SQL-databases** uitgevouwen.
 
 ![Details over een SQL-aanbeveling](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-Hallo **controle inschakelen en detectie van bedreigingen op SQL-databases** blade bevat Hallo volgende informatie:
+**Controle en detectie van bedreigingen in SQL-databases inschakelen** bevat de volgende informatie:
 
 * Een lijst met SQL-databases
-* Hallo-server waarop ze zich bevinden
-* Informatie over of deze instelling is overgenomen van Hallo-server of als deze uniek is in deze database is
-* de huidige status Hallo
-* Hallo ernst van Hallo probleem
+* De server waarop deze zich bevinden
+* Informatie over of deze instelling is overgenomen van de server of dat deze uniek is in deze database
+* De huidige status
+* De ernst van het probleem
 
-Als u deze aanbeveling op Hallo database tooaddress klikt, Hallo **controle en detectie van bedreigingen** blade wordt geopend, zoals weergegeven in het volgende scherm Hallo.
+Als u op de database klikt om deze aanbeveling op te volgen, wordt **Controle en detectie van bedreigingen** geopend, zoals wordt weergegeven in het volgende scherm.
 
-![De blade Controle en detectie van bedreigingen](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
+![Controle en detectie van bedreigingen](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
-tooenable controle, selecteer **ON** onder Hallo **controle** optie.
+Als u controle wilt inschakelen, hoeft u alleen maar **AAN** te selecteren onder de optie **Controle**.
 
 ### <a name="monitor-applications"></a>Toepassingen bewaken
 
-Als uw Azure-workload toepassingen die zich bevinden [virtuele machines (gemaakt via Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) met ontsloten webpoorten (TCP-poorten 80 en 443), die tooidentify mogelijke beveiligingsproblemen in Security Center worden bewaakt en herstelstappen aan te bevelen. Wanneer u klikt op Hallo **toepassingen** tegel, hello **toepassingen** er wordt een blade geopend met een reeks aanbevelingen in Hallo **toepassing aanbevelingen** sectie. U ziet ook uitsplitsing van de toepassing hello per host/virtueel IP-adres zoals in de volgende schermafbeelding Hallo.
+Als uw Azure-workload toepassingen in [virtuele machines (gemaakt met Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) heeft met ontsloten webpoorten (TCP-poorten 80 en 443), kunnen deze in Security Center worden bewaakt om mogelijke beveiligingsproblemen op te sporen en stappen voor herstel aan te bevelen. Wanneer u op de tegel **Toepassingen** klikt, wordt **Toepassingen** geopend met een reeks aanbevelingen in de sectie met **Aanbevelingen voor toepassingen**. U ziet ook de uitsplitsing van de toepassing per host, IP/domein, en of er een WAF-oplossing is geïnstalleerd:
 
-![Beveiligingsstatus van toepassingen](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
+![Beveiligingsstatus van toepassingen](./media/security-center-monitoring/security-center-monitoring-fig8-sep2017.png)
 
-Net zoals u met hello andere aanbevelingen, klikt u op een aanbeveling toosee meer informatie over Hallo probleem en hoe tooremediate. Hallo voorbeeld in de volgende afbeelding Hallo is een toepassing die als onbeveiligde webtoepassing is geïdentificeerd. Wanneer u Hallo-toepassing die is niet als veilig beschouwd selecteert, wordt een andere blade geopend met Hallo volgende optie die beschikbaar is:
+Net als bij de andere aanbevelingen kunt in een aanbeveling klikken om meer informatie over het probleem en mogelijke oplossingen weer te geven. Het voorbeeld in de onderstaande afbeelding is een toepassing die als onbeveiligde webtoepassing is geïdentificeerd. Wanneer u de toepassing selecteert die als onveilig wordt beschouwd, wordt de volgende optie beschikbaar:
 
-![Meer informatie over een app die is niet beveiligd](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
+![Details](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
 
-In deze blade vindt u een lijst met alle aanbevelingen voor deze toepassing. Wanneer u klikt op Hallo **web application firewall toevoegen** aanbeveling, Hallo **Web Application Firewall toevoegen** blade wordt geopend met opties voor u tooinstall web application firewall (WAF) vanaf een partner als weergegeven in de volgende schermafbeelding Hallo.
+Hier vindt u een lijst met alle aanbevelingen voor deze toepassing. Als u klikt op de aanbeveling **Een Web Application Firewall toevoegen**, wordt **Een Web Application Firewall toevoegen** met opties geopend, zodat u een WAF (Web Application Firewall) van een partner kunt installeren, zoals wordt weergegeven op de volgende schermafbeelding.
 
 ![Het dialoogvenster Web Application Firewall toevoegen](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 
 ## <a name="see-also"></a>Zie ook
-In dit artikel hebt u geleerd hoe toouse bewakingsmogelijkheden in Azure Security Center. toolearn meer informatie over Azure Security Center Hallo ziet:
+In dit artikel hebt u kunnen lezen hoe u de bewakingsmogelijkheden in Azure Security Center gebruikt. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md): meer informatie over hoe tooconfigure beveiligingsinstellingen in Azure Security Center.
-* [Het beheer van is en reageert toosecurity waarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md): meer informatie over hoe toomanage en gereageerd had toosecurity waarschuwingen.
-* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): meer informatie over hoe toomonitor gezondheidsstatus van uw partneroplossingen Hallo.
-* [Veelgestelde vragen over Azure Security Center](security-center-faq.md): Raadpleeg Veelgestelde vragen over het gebruik van Hallo-service.
+* [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md): leer hoe u beveiligingsinstellingen configureert in Azure Security Center.
+* [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
+* [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
+* [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure.

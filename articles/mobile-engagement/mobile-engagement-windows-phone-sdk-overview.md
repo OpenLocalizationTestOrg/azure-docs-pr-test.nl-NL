@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Mobile Engagement Windows Phone Silverlight-SDK aaaAzure | Microsoft Docs
-description: Overzicht van Windows Phone Silverlight-SDK voor Azure Mobile Engagement Hallo
+title: Azure Mobile Engagement Windows Phone Silverlight-SDK overzicht | Microsoft Docs
+description: Overzicht van de Windows Phone Silverlight-SDK voor Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,38 +14,38 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.openlocfilehash: ff2febed2202127e0538373ebbabe674993ce39d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c4e8ceee4104c3d3a6c3e6b79322ba1cf8463b22
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-overview-for-azure-mobile-engagement"></a>Windows Phone Silverlight-SDK overzicht voor Azure Mobile Engagement
-Begin hier tooget Hallo details over het toointegrate Azure Mobile Engagement in een Windows Phone Silverlight-App. Als u toogive wilt het probeer Controleer eerst of u voltooid onze [15 minuten zelfstudie](mobile-engagement-windows-phone-get-started.md).
+Begin hier de details ophalen over het integreren van Azure Mobile Engagement in een Windows Phone Silverlight-App. Als u u het eerst proberen wilt, controleert u of u onze [15 minuten zelfstudie](mobile-engagement-windows-phone-get-started.md).
 
-Klik op toosee hello [SDK-inhoud](mobile-engagement-windows-phone-sdk-content.md)
+Klik om te zien de [SDK-inhoud](mobile-engagement-windows-phone-sdk-content.md)
 
 ## <a name="integration-procedures"></a>Integratie procedures
-1. Begin hier: [hoe toointegrate Mobile Engagement in uw Windows Phone Silverlight-app](mobile-engagement-windows-phone-integrate-engagement.md)
-2. Voor meldingen: [hoe toointegrate Reach (meldingen) in uw Windows Phone Silverlight-app](mobile-engagement-windows-phone-integrate-engagement-reach.md)
-3. Tag plan implementatie: [hoe toouse Hallo Geavanceerd Mobile Engagement tagging API in uw Windows Phone Silverlight-app](mobile-engagement-windows-phone-use-engagement-api.md)
+1. Begin hier: [Mobile Engagement integreren in uw Windows Phone Silverlight-app](mobile-engagement-windows-phone-integrate-engagement.md)
+2. Voor meldingen: [Reach (meldingen) integreren in uw Windows Phone Silverlight-app](mobile-engagement-windows-phone-integrate-engagement-reach.md)
+3. Tag plan implementatie: [hoe u de geavanceerde Mobile Engagement tagging API in uw Windows Phone Silverlight-app](mobile-engagement-windows-phone-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 ###<a name="331-11032016"></a>3.3.1 (11/03/2016)
-Onderdeel van Hallo *MicrosoftAzure.MobileEngagement* Nuget-pakket **v3.4.1**
+Onderdeel van de *MicrosoftAzure.MobileEngagement* Nuget-pakket **v3.4.1**
 
 * Verbeteringen in stabiliteit.
 
-Zie voor een eerdere versie Hallo [voltooien release-opmerkingen](mobile-engagement-windows-phone-release-notes.md)
+Zie voor een eerdere versie de [voltooien release-opmerkingen](mobile-engagement-windows-phone-release-notes.md)
 
 ## <a name="upgrade-procedures"></a>Upgradeprocedures
-Als u hebt al een oudere versie van onze SDK geïntegreerd in uw toepassing, hebt u tooconsider Hallo volgende punten bij het upgraden van Hallo SDK.
+Als u hebt al een oudere versie van onze SDK geïntegreerd in uw toepassing, hebt u de volgende punten overwegen bij het upgraden van de SDK.
 
-Mogelijk hebt u toofollow verschillende procedures als u verschillende versies van Hallo SDK gemist. Zie Hallo voltooid [Procedures Upgrade](mobile-engagement-windows-phone-upgrade-procedure.md). Bijvoorbeeld als u migreert vanaf 0.10.1 too0.11.0 hebt toofirst Volg Hallo ' van 0.9.0 too0.10.1 ' procedure vervolgens Hallo ' van 0.10.1 too0.11.0 ' procedure.
+U moet verschillende procedures volgen als u verschillende versies van de SDK hebt gemist. Zie de volledige [Procedures Upgrade](mobile-engagement-windows-phone-upgrade-procedure.md). Bijvoorbeeld als u migreert van 0.10.1 naar u moet eerst Volg de procedure 'van 0.9.0 naar 0.10.1' 0.11.0 vervolgens de procedure 'van 0.10.1 naar 0.11.0'.
 
-### <a name="from-200-too330"></a>Van 2.0.0 too3.3.0
+### <a name="from-200-to-330"></a>Van 2.0.0 naar 3.3.0
 #### <a name="test-logs"></a>Test-Logboeken
-De logboeken van de console die wordt geproduceerd door Hallo SDK kunnen worden ingeschakeld/uitgeschakeld/gefilterd. toocustomize deze, update Hallo eigenschap `EngagementAgent.Instance.TestLogEnabled` tooone van Hallo waarde in Hallo `EngagementTestLogLevel` opsomming, bijvoorbeeld:
+De logboeken van de console die wordt geproduceerd door de SDK kunnen worden ingeschakeld/uitgeschakeld/gefilterd. Werk de eigenschap voor het aanpassen van dit `EngagementAgent.Instance.TestLogEnabled` op een van de waarde in de `EngagementTestLogLevel` opsomming, bijvoorbeeld:
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();

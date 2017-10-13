@@ -1,5 +1,5 @@
 ---
-title: aaaAutomate Azure Application Insights met PowerShell | Microsoft Docs
+title: Azure Application Insights met PowerShell automatiseren | Microsoft Docs
 description: Automatiseren maken resource, waarschuwing en beschikbaarheid tests in PowerShell met een Azure Resource Manager-sjabloon.
 services: application-insights
 documentationcenter: 
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: bwren
-ms.openlocfilehash: ebd336eafba58a690a0e8ffbd1c74f7e93dbb682
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 88dbb9515300f847789bc889911cdeff5f5bdb53
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Application Insights-resources maken met PowerShell
-Dit artikel laat zien hoe tooautomate Hallo maken en bijwerken van de [Application Insights](app-insights-overview.md) resources automatisch met behulp van Azure Resource Management. U kunt bijvoorbeeld doen als onderdeel van een buildproces. Samen met de Hallo basic Application Insights-resource, kunt u [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md)Stel [waarschuwingen](app-insights-alerts.md)stelt hello [prijzen schema](app-insights-pricing.md), en andere Azure maken bronnen.
+Dit artikel laat zien hoe te automatiseren voor het maken en bijwerken van de [Application Insights](app-insights-overview.md) resources automatisch met behulp van Azure Resource Management. U kunt bijvoorbeeld doen als onderdeel van een buildproces. Samen met de basic Application Insights-resource, kunt u [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md)Stel [waarschuwingen](app-insights-alerts.md)stelt de [prijzen schema](app-insights-pricing.md), en andere Azure-resources te maken .
 
-Hallo sleutel toocreating deze resources is een JSON-sjablonen voor [Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md). Kortom, Hallo procedure is: Hallo JSON definities van bestaande resources; downloaden parameter van bepaalde waarden zoals namen; en voer vervolgens de sjabloon Hallo gewenst toocreate een nieuwe resource. U kunt verschillende resources samen, toocreate die ze in een Ga - bijvoorbeeld, een app-monitor met beschikbaarheidstests, waarschuwingen en opslag voor continue export van het pakket. Er zijn enkele toosome eigenaardigheden van Hallo parameteriseringen, die wordt hier uitgelegd.
+De sleutel voor het maken van deze resources is een JSON-sjablonen voor [Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md). Kortom, de procedure is: downloaden van de JSON-definities van bestaande resources; parameter van bepaalde waarden zoals namen; en voer vervolgens de sjabloon wanneer u wilt maken van een nieuwe resource. Kunt u verschillende resources samen verpakken, om ze te maken in een gaan - bijvoorbeeld een app-monitor met beschikbaarheidstests, waarschuwingen en opslag voor continue export. Er zijn enkele eigenaardigheden tot een aantal van de parameteriseringen, wordt hier uitgelegd.
 
 ## <a name="one-time-setup"></a>Eenmalige instelling
 Als u dit nog niet hebt PowerShell met uw Azure-abonnement voordat gebruikt:
 
-Hello Azure Powershell-module installeren op Hallo machine waar u toorun Hallo scripts:
+De Azure Powershell-module installeren op de computer waar u de scripts worden uitgevoerd:
 
 1. Installeer [Microsoft Web Platform Installer (v5 of hoger)](http://www.microsoft.com/web/downloads/platform.aspx).
-2. Deze tooinstall Microsoft Azure Powershell gebruiken.
+2. Gebruik dit voor het installeren van Microsoft Azure Powershell.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Een Azure Resource Manager-sjabloon maken
 Maak een nieuw .json-bestand - gaan we deze aanroepen `template1.json` in dit voorbeeld. Kopieer deze inhoud naar het:
@@ -43,7 +43,7 @@ Maak een nieuw .json-bestand - gaan we deze aanroepen `template1.json` in dit vo
             "appName": {
                 "type": "string",
                 "metadata": {
-                    "description": "Enter hello application name."
+                    "description": "Enter the application name."
                 }
             },
             "appType": {
@@ -56,7 +56,7 @@ Maak een nieuw .json-bestand - gaan we deze aanroepen `template1.json` in dit vo
                     "other"
                 ],
                 "metadata": {
-                    "description": "Enter hello application type."
+                    "description": "Enter the application type."
                 }
             },
             "appLocation": {
@@ -69,7 +69,7 @@ Maak een nieuw .json-bestand - gaan we deze aanroepen `template1.json` in dit vo
                     "North Europe"
                 ],
                 "metadata": {
-                    "description": "Enter hello application location."
+                    "description": "Enter the application location."
                 }
             },
             "priceCode": {
@@ -95,7 +95,7 @@ Maak een nieuw .json-bestand - gaan we deze aanroepen `template1.json` in dit vo
                 "type": "int",
                 "defaultValue": 24,
                 "metadata": {
-                    "description": "Enter daily quota reset hour in UTC (0 too23). Values outside hello range will get a random reset hour."
+                    "description": "Enter daily quota reset hour in UTC (0 to 23). Values outside the range will get a random reset hour."
                 }
             },
             "warningThreshold": {
@@ -104,7 +104,7 @@ Maak een nieuw .json-bestand - gaan we deze aanroepen `template1.json` in dit vo
                 "minValue": 1,
                 "maxValue": 100,
                 "metadata": {
-                    "description": "Enter hello % value of daily quota after which warning mail toobe sent. "
+                    "description": "Enter the % value of daily quota after which warning mail to be sent. "
                 }
             }
         },
@@ -153,7 +153,7 @@ Maak een nieuw .json-bestand - gaan we deze aanroepen `template1.json` in dit vo
 
 
 ## <a name="create-application-insights-resources"></a>Application Insights-resources maken
-1. Aanmelden tooAzure in PowerShell:
+1. In PowerShell, moet u zich aanmelden bij Azure:
    
     `Login-AzureRmAccount`
 2. Voer een opdracht als volgt uit:
@@ -166,14 +166,14 @@ Maak een nieuw .json-bestand - gaan we deze aanroepen `template1.json` in dit vo
 
     ``` 
    
-   * `-ResourceGroupName`Hallo-groep is waar u toocreate Hallo nieuwe resources.
-   * `-TemplateFile`Er moeten plaatsvinden voordat Hallo aangepaste parameters.
-   * `-appName`Hallo-naam van Hallo resource toocreate.
+   * `-ResourceGroupName`is de groep waar u wilt maken van de nieuwe resources.
+   * `-TemplateFile`Er moeten plaatsvinden voordat de aangepaste parameters.
+   * `-appName`De naam van de resource te maken.
 
-U kunt andere parameters toevoegen - vindt u bijbehorende beschrijvingen in de sectie van de parameters Hallo van Hallo-sjabloon.
+U kunt andere parameters toevoegen - bijbehorende beschrijvingen vindt in het gedeelte parameters van de sjabloon.
 
-## <a name="tooget-hello-instrumentation-key"></a>tooget hello instrumentatiesleutel
-Na het maken van de bron van een toepassing, moet u de instrumentatiesleutel Hallo: 
+## <a name="to-get-the-instrumentation-key"></a>De instrumentatiesleutel ophalen
+Na het maken van de bron van een toepassing, moet u de instrumentatiesleutel: 
 
 ```PS
     $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
@@ -183,11 +183,11 @@ Na het maken van de bron van een toepassing, moet u de instrumentatiesleutel Hal
 
 
 <a id="price"></a>
-## <a name="set-hello-price-plan"></a>Set Hallo prijs plannen
+## <a name="set-the-price-plan"></a>De prijs planning instellen
 
-U kunt instellen Hallo [prijs plan](app-insights-pricing.md).
+U kunt instellen de [prijs plan](app-insights-pricing.md).
 
-een app-resource met Hallo Enterprise prijs plan, met behulp van Hallo sjabloon bovenstaande toocreate:
+Een resource-app maken met het Enterprise prijs plan, met de bovenstaande sjabloon:
 
 ```PS
         New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
@@ -201,16 +201,16 @@ een app-resource met Hallo Enterprise prijs plan, met behulp van Hallo sjabloon 
 |1|Basic|
 |2|Enterprise|
 
-* Als u alleen toouse Hallo standaardplan basisprijs wilt, kunt u Hallo CurrentBillingFeatures resource van de sjabloon Hallo weglaten.
-* Als u toochange Hallo prijs plan wilt nadat Hallo onderdeel resource is gemaakt, kunt u een sjabloon die worden weggelaten Hallo 'microsoft.insights/components' resource. Bovendien weglaten Hallo `dependsOn` knooppunt uit Hallo resource facturering. 
+* Als u alleen het standaardabonnement basisprijs gebruiken wilt, kunt u de resource CurrentBillingFeatures van de sjabloon weglaten.
+* Als u het plan prijs wijzigen wilt nadat de onderdeel-resource is gemaakt, kunt u een sjabloon die de resource 'microsoft.insights/components' wordt weggelaten. Laat ook de `dependsOn` knooppunt uit de facturering resource. 
 
-tooverify Hallo bijgewerkte prijs plan, bekijkt hello 'Functies + prijzen' blade in Hallo browser. **Vernieuw de weergave van de browser Hallo** toomake zeker dat u de meest recente toestand Hallo zien.
+Kijken om te controleren of het plan bijgewerkte prijs, de 'Functies + prijzen' blade in de browser. **Vernieuw de browserweergave** om ervoor te zorgen dat u de meest recente toestand zien.
 
 
 
 ## <a name="add-a-metric-alert"></a>Waarschuwing voor een metrische toevoegen
 
-tooset van een waarschuwing voor metrische bij Hallo dezelfde tijd als uw app-resource, merge-code als volgt naar het sjabloonbestand Hallo:
+Als u een waarschuwing voor metrische instelt op hetzelfde moment als uw app-resource, het sjabloonbestand samenvoegen code als volgt:
 
 ```JSON
 {
@@ -236,7 +236,7 @@ tooset van een waarschuwing voor metrische bij Hallo dezelfde tijd als uw app-re
       "type": "Microsoft.Insights/alertrules",
       "apiVersion": "2014-04-01",
       "location": "[parameters('appLocation')]",
-      // Ensure this resource is created after hello app resource:
+      // Ensure this resource is created after the app resource:
       "dependsOn": [
         "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
       ],
@@ -272,22 +272,22 @@ tooset van een waarschuwing voor metrische bij Hallo dezelfde tijd als uw app-re
 }
 ```
 
-Als u de sjabloon Hallo aanroept, kunt u eventueel deze parameter toevoegen:
+Als u de sjabloon aanroept, kunt u eventueel deze parameter toevoegen:
 
     `-responseTime 2`
 
 U kunt uiteraard parameter van andere velden. 
 
-toofind uit Hallo namen en configuratie-informatie van andere waarschuwingsregels handmatig maken van een regel en vervolgens controleren in [Azure Resource Manager](https://resources.azure.com/). 
+Voor meer informatie over de namen en configuratie-informatie van andere regels voor waarschuwingen, maakt u handmatig een regel en vervolgens controleren in [Azure Resource Manager](https://resources.azure.com/). 
 
 
 ## <a name="add-an-availability-test"></a>Een beschikbaarheidstest toevoegen
 
-In dit voorbeeld is voor een Pingtest (tootest één pagina).  
+In dit voorbeeld is voor een ping-test (voor het testen van één pagina).  
 
-**Er zijn twee delen** in een beschikbaarheidstest: Hallo test zelf en Hallo waarschuwing die een melding van fouten.
+**Er zijn twee delen** in een beschikbaarheidstest: de test zelf en de waarschuwing die een melding van fouten.
 
-Samenvoegen Hallo na de code in Hallo sjabloonbestand die Hallo-app maakt.
+Samenvoegen met de volgende code in de sjabloonbestand dat de app maakt.
 
 ```JSON
 {
@@ -301,13 +301,13 @@ Samenvoegen Hallo na de code in Hallo sjabloonbestand die Hallo-app maakt.
     },
     resources: { ... // existing resources here ...
     { //
-      // Availability test: part 1 configures hello test
+      // Availability test: part 1 configures the test
       //
       "name": "[variables('pingTestName')]",
       "type": "Microsoft.Insights/webtests",
       "apiVersion": "2014-04-01",
       "location": "[parameters('appLocation')]",
-      // Ensure this is created after hello app resource:
+      // Ensure this is created after the app resource:
       "dependsOn": [
         "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
       ],
@@ -334,7 +334,7 @@ Samenvoegen Hallo na de code in Hallo sjabloonbestand die Hallo-app maakt.
           }
         ],
         "Configuration": {
-          "WebTest": "[concat('<WebTest   Name=\"', variables('pingTestName'), '\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"    Version=\"1.1\"  Url=\"', parameters('Url'),   '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies hello existence of hello specified text in hello response.\"         Level=\"High\"  ExectuionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"',   parameters('pingText'), '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
+          "WebTest": "[concat('<WebTest   Name=\"', variables('pingTestName'), '\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"    Version=\"1.1\"  Url=\"', parameters('Url'),   '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"  ExectuionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"',   parameters('pingText'), '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
         },
         "SyntheticMonitorId": "[variables('pingTestName')]"
       }
@@ -342,7 +342,7 @@ Samenvoegen Hallo na de code in Hallo sjabloonbestand die Hallo-app maakt.
 
     {
       //
-      // Availability test: part 2, hello alert rule
+      // Availability test: part 2, the alert rule
       //
       "name": "[variables('pingAlertRuleName')]",
       "type": "Microsoft.Insights/alertrules",
@@ -384,39 +384,39 @@ Samenvoegen Hallo na de code in Hallo sjabloonbestand die Hallo-app maakt.
 }
 ```
 
-toodiscover hello codes voor andere testlocaties of tooautomate Hallo maken van een complexere webtests, een voorbeeld handmatig maken en vervolgens voorzien Hallo code uit [Azure Resource Manager](https://resources.azure.com/).
+Voor het detecteren van de codes voor andere testlocaties of het maken van een complexere webtests automatiseren handmatig maken van een voorbeeld en vervolgens de code van de parameter [Azure Resource Manager](https://resources.azure.com/).
 
 ## <a name="add-more-resources"></a>Voeg meer resources toe
 
-tooautomate hello maken van een andere bron van welke aard handmatig maken van een voorbeeld en kopieert en voorzien van de code van [Azure Resource Manager](https://resources.azure.com/). 
+Voor het automatiseren van het maken van een andere bron enige vorm van een voorbeeld handmatig maken en kopieert en voorzien van de code van [Azure Resource Manager](https://resources.azure.com/). 
 
-1. Open [Azure Resource Manager](https://resources.azure.com/). Navigeren naar beneden `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`, tooyour toepassingsbron. 
+1. Open [Azure Resource Manager](https://resources.azure.com/). Navigeren naar beneden `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`, de bron van de toepassing. 
    
     ![Navigatie in de Azure-Resource Explorer](./media/app-insights-powershell/01.png)
    
-    *Onderdelen* zijn Hallo basic Application Insights-resources voor het weergeven van toepassingen. Er zijn afzonderlijke bronnen voor Hallo waarschuwingsregels en webtests voor beschikbaarheid gekoppelde.
-2. Kopiëren Hallo JSON van het onderdeel in de juiste plaats Hallo Hallo in `template1.json`.
+    *Onderdelen* zijn de basic Application Insights-resources voor het weergeven van toepassingen. Er zijn afzonderlijke bronnen voor de gekoppelde waarschuwingsregels en webtests voor beschikbaarheid.
+2. De JSON van het onderdeel kopiëren naar de juiste plaats in `template1.json`.
 3. Verwijder deze eigenschappen:
    
    * `id`
    * `InstrumentationKey`
    * `CreationDate`
    * `TenantId`
-4. Hallo webtests en alertrules secties openen en kopieer Hallo JSON voor afzonderlijke items in de sjabloon. (Vanaf Hallo webtests of alertrules-knooppunten niet kopiëren: Ga naar de items onder deze Hallo.)
+4. Open de secties webtests en alertrules en kopieert u de JSON voor afzonderlijke items in de sjabloon. (Van de knooppunten webtests of alertrules niet kopiëren: Ga naar de items eronder.)
    
-    Elke WebTest heeft een bijbehorende waarschuwingsregel, zodat u toocopy hiervan hebt.
+    Elke WebTest heeft een bijbehorende waarschuwingsregel, zodat u hoeft te kopiëren van beide.
    
     U kunt ook waarschuwingen op metrische gegevens opnemen. [De namen van de metrische](app-insights-powershell-alerts.md#metric-names).
 5. Deze regel invoegen in elke resource:
    
     `"apiVersion": "2015-05-01",`
 
-### <a name="parameterize-hello-template"></a>Hallo sjabloon voorzien
-U hebt nu tooreplace Hallo specifieke namen met parameters. te[voorzien van een sjabloon](../azure-resource-manager/resource-group-authoring-templates.md), schrijven van expressies met een [reeks hulpfuncties](../azure-resource-manager/resource-group-template-functions.md). 
+### <a name="parameterize-the-template"></a>Parameter van de sjabloon
+U hebt nu vervangen door de namen van de specifieke parameters. Naar [voorzien van een sjabloon](../azure-resource-manager/resource-group-authoring-templates.md), schrijven van expressies met een [reeks hulpfuncties](../azure-resource-manager/resource-group-template-functions.md). 
 
-Kunnen niet worden voorzien van slechts een deel van een tekenreeks, dus gebruik `concat()` toobuild tekenreeksen.
+Kunnen niet worden voorzien van slechts een deel van een tekenreeks, dus gebruik `concat()` om tekenreeksen samen te stellen.
 
-Hier volgen voorbeelden van Hallo vervangingen moet u toomake. Er zijn meerdere exemplaren van elke vervanging. Mogelijk moet u anderen in uw sjabloon. Deze voorbeelden gebruiken Hallo-parameters en variabelen die we gedefinieerd Hallo boven aan het Hallo-sjabloon.
+Hier volgen enkele voorbeelden van de die u wilt maken. Er zijn meerdere exemplaren van elke vervanging. Mogelijk moet u anderen in uw sjabloon. Deze voorbeelden worden de parameters en variabelen die we gedefinieerd aan de bovenkant van de sjabloon gebruiken.
 
 | zoeken | vervangen |
 | --- | --- |
@@ -429,13 +429,13 @@ Hier volgen voorbeelden van Hallo vervangingen moet u toomake. Er zijn meerdere 
 | `"myappname"`(kleine letters) |`"[toLower(parameters('appName'))]"` |
 | `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Verwijderen van de Guid en -id. |
 
-### <a name="set-dependencies-between-hello-resources"></a>Set afhankelijkheden tussen resources Hallo
-Azure moet de resources in de volgorde van de strikte Hallo instellen. toomake zeker van te zijn dat een installatie is voltooid voordat de Hallo naast begint, afhankelijkheid regels toevoegen:
+### <a name="set-dependencies-between-the-resources"></a>Set afhankelijkheden tussen resources
+Azure moet de resources in strikte volgorde instellen. Om te zorgen dat een installatie is voltooid voordat de volgende begint, moet u afhankelijkheid regels toevoegen:
 
-* Test resource in Hallo beschikbaarheid:
+* Test in de beschikbaarheid van de resource:
   
     `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
-* In de waarschuwing resource Hallo voor een beschikbaarheidstest:
+* In de waarschuwing voor een beschikbaarheidstest:
   
     `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
 
@@ -447,7 +447,7 @@ Andere automation-artikelen:
 * [Een Application Insights-resource maken](app-insights-powershell-script-create-resource.md) -snelle methode zonder een sjabloon te gebruiken.
 * [Waarschuwingen instellen](app-insights-powershell-alerts.md)
 * [Webtests maken](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
-* [Azure Diagnostics tooApplication Insights verzenden](app-insights-powershell-azure-diagnostics.md)
-* [TooAzure vanuit GitHub implementeren](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
+* [Diagnostische Azure-gegevens verzenden naar Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Implementeren in Azure vanuit GitHub](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Release aantekeningen maken](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

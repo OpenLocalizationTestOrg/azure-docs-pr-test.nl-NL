@@ -1,6 +1,6 @@
 ---
-title: aaaAdd verificatie op iOS met Azure Mobile Apps
-description: Meer informatie over hoe toouse Azure Mobile Apps tooauthenticate gebruikers van uw iOS-app via een groot aantal identiteitsproviders, waaronder AAD, Google, Facebook, Twitter en Microsoft.
+title: Verificatie op iOS met Azure Mobile Apps toevoegen
+description: "Informatie over het verifiëren van gebruikers van uw iOS-app via een groot aantal identiteitsproviders, waaronder AAD, Google, Facebook, Twitter en Microsoft met Azure Mobile Apps."
 services: app-service\mobile
 documentationcenter: ios
 author: ggailey777
@@ -14,47 +14,47 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: glenga
-ms.openlocfilehash: df129e1c7517582db0e4705e0a6e98345ac8a48c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 21a2cc6c1eaf4b34cbe8c2d7c4dbb69c8730cf32
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="add-authentication-tooyour-ios-app"></a>Verificatie tooyour iOS-app toevoegen
+# <a name="add-authentication-to-your-ios-app"></a>Verificatie toevoegen aan uw iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-In deze zelfstudie maakt u verificatie toohello toevoegen [iOS snel starten] project met een ondersteunde id-provider. Deze zelfstudie is gebaseerd op Hallo [iOS snel starten] zelfstudie die u moet eerst te voltooien.
+In deze zelfstudie maakt u de verificatie van toevoegen de [iOS snel starten] project met een ondersteunde id-provider. Deze zelfstudie is gebaseerd op de [iOS snel starten] zelfstudie die u moet eerst te voltooien.
 
-## <a name="register"></a>Uw app registreren voor verificatie en Hallo App Service configureren
+## <a name="register"></a>Uw app registreren voor verificatie en de App Service configureren
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Uw app toohello toegestane externe Omleidings-URL's toevoegen
+## <a name="redirecturl"></a>Uw app toevoegen aan de toegestane externe Omleidings-URL 's
 
-Veilige verificatie vereist dat u een nieuwe URL-schema voor uw app definiëren.  Hierdoor Hallo verificatie system tooredirect back tooyour app zodra de Hallo verificatieproces is voltooid.  In deze zelfstudie gebruiken we het URL-schema _appname_ in.  U kunt echter een URL-schema dat u kiest.  Deze moet uniek tooyour mobiele toepassing.  Hallo-omleiding tooenable aan serverzijde th:
+Veilige verificatie vereist dat u een nieuwe URL-schema voor uw app definiëren.  Hierdoor kan de verificatiesysteem terug te keren naar uw app zodra het verificatieproces voltooid is.  In deze zelfstudie gebruiken we het URL-schema _appname_ in.  U kunt echter een URL-schema dat u kiest.  Deze moet uniek zijn voor uw mobiele App.  De omleiding aan serverzijde th inschakelen:
 
-1. In Hallo [Azure-portal], selecteer uw App Service.
+1. In de [Azure-portal], selecteer uw App Service.
 
-2. Klik op Hallo **verificatie / autorisatie** menuoptie.
+2. Klik op de **verificatie / autorisatie** menuoptie.
 
-3. Klik op **Azure Active Directory** onder Hallo **verificatieproviders** sectie.
+3. Klik op **Azure Active Directory** onder de **verificatieproviders** sectie.
 
-4. Set Hallo **beheermodus** te**Geavanceerd**.
+4. Stel de **beheermodus** naar **Geavanceerd**.
 
-5. In Hallo **toegestaan externe Omleidings-URL's**, voer `appname://easyauth.callback`.  Hallo _appname_ in deze reeks is Hallo URL-schema voor uw mobiele toepassing.  Deze moet voldoen aan de normale URL-specificatie voor een protocol (Gebruik letters en cijfers alleen en begin met een letter).  U moet een notitie van Hallo-tekenreeks die u kiest, want u tooadjust uw code mobiele toepassing Hello URL-schema op verschillende plaatsen moet.
+5. In de **toegestaan externe Omleidings-URL's**, voer `appname://easyauth.callback`.  De _appname_ in deze tekenreeks wordt het URL-schema voor uw mobiele toepassing.  Deze moet voldoen aan de normale URL-specificatie voor een protocol (Gebruik letters en cijfers alleen en begin met een letter).  U moet een notitie van de tekenreeks die u naar wens aanpassen van uw mobiele toepassingscode met het URL-schema op verschillende plaatsen.
 
 6. Klik op **OK**.
 
 7. Klik op **Opslaan**.
 
-## <a name="permissions"></a>Machtigingen tooauthenticated gebruikers beperken
+## <a name="permissions"></a>Machtigingen beperken voor geverifieerde gebruikers
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Druk in Xcode op **uitvoeren** toostart Hallo app. Een uitzondering gegenereerd omdat Hallo app tooaccess de back-end als een niet-geverifieerde gebruiker probeert, maar Hallo *TodoItem* tabel nu is verificatie vereist.
+Druk in Xcode op **uitvoeren** om de app te starten. Er is een uitzondering opgetreden omdat de app probeert te krijgen tot de back-end als niet-geverifieerde gebruiker, maar de *TodoItem* tabel nu is verificatie vereist.
 
-## <a name="add-authentication"></a>Verificatie tooapp toevoegen
+## <a name="add-authentication"></a>Verificatie toevoegen aan de app
 **Objective-C**:
 
-1. Open op uw Mac *QSTodoListViewController.m* in Xcode en voeg Hallo volgende methode toe:
+1. Open op uw Mac *QSTodoListViewController.m* in Xcode en voeg de volgende methode toe:
 
     ```Objective-C
     - (void)loginAndGetData
@@ -76,17 +76,17 @@ Druk in Xcode op **uitvoeren** toostart Hallo app. Een uitzondering gegenereerd 
     }
     ```
 
-    Wijziging *google* te*microsoftaccount*, *twitter*, *facebook*, of *windowsazureactivedirectory* als u Google niet als id-provider gebruikt. Als u Facebook gebruikt, moet u [geaccepteerde Facebook domeinen] [ 1] in uw app.
+    Wijziging *google* naar *microsoftaccount*, *twitter*, *facebook*, of *windowsazureactivedirectory* als u Google niet als id-provider gebruikt. Als u Facebook gebruikt, moet u [geaccepteerde Facebook domeinen] [ 1] in uw app.
 
-    Vervang Hallo **urlScheme** met een unieke naam voor uw toepassing.  Hallo urlScheme moet worden Hallo dezelfde als de URL-schema-protocol dat u hebt opgegeven in Hallo Hallo **toegestaan externe Omleidings-URL's** veld hello Azure-portal. Hallo urlScheme wordt gebruikt door Hallo verificatie callback tooswitch back tooyour toepassing nadat de authenticatie-aanvraag voltooid is.
+    Vervang de **urlScheme** met een unieke naam voor uw toepassing.  De urlScheme moet hetzelfde zijn als de URL-schema-protocol dat u hebt opgegeven in de **toegestaan externe Omleidings-URL's** veld in de Azure portal. De urlScheme wordt gebruikt door de callback voor gebruikersverificatie overschakelen naar uw toepassing nadat de authenticatie-aanvraag voltooid is.
 
-2. Vervang `[self refresh]` in `viewDidLoad` in *QSTodoListViewController.m* Hello code te volgen:
+2. Vervang `[self refresh]` in `viewDidLoad` in *QSTodoListViewController.m* met de volgende code:
 
     ```Objective-C
     [self loginAndGetData];
     ```
 
-3. Open Hallo `QSAppDelegate.h` bestand en Hallo volgende code toe te voegen:
+3. Open de `QSAppDelegate.h` -bestand en voeg de volgende code:
 
     ```Objective-C
     #import "QSTodoService.h"
@@ -94,7 +94,7 @@ Druk in Xcode op **uitvoeren** toostart Hallo app. Een uitzondering gegenereerd 
     @property (strong, nonatomic) QSTodoService *qsTodoService;
     ```
 
-4. Open Hallo `QSAppDelegate.m` bestand en Hallo volgende code toe te voegen:
+4. Open de `QSAppDelegate.m` -bestand en voeg de volgende code:
 
     ```Objective-C
     - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
@@ -109,9 +109,9 @@ Druk in Xcode op **uitvoeren** toostart Hallo app. Een uitzondering gegenereerd 
     }
     ```
 
-   Voeg deze code direct vóór Hallo regel lezen `#pragma mark - Core Data stack`.  Vervang de _appname_ wih hello urlScheme waarde die u in stap 1 hebt gebruikt.
+   Voeg deze code direct voor de regel lezen `#pragma mark - Core Data stack`.  Vervang de _appname_ wih de urlScheme-waarde die u in stap 1 hebt gebruikt.
 
-5. Open Hallo `AppName-Info.plist` bestand (vervang AppName met de naam van uw app Hallo) en voeg Hallo code te volgen:
+5. Open de `AppName-Info.plist` bestand (vervang AppName met de naam van uw app) en voeg de volgende code:
 
     ```XML
     <key>CFBundleURLTypes</key>
@@ -127,15 +127,15 @@ Druk in Xcode op **uitvoeren** toostart Hallo app. Een uitzondering gegenereerd 
     </array>
     ```
 
-    Deze code moet worden geplaatst in Hallo `<dict>` element.  Vervang Hallo _appname_ tekenreeks (binnen de matrix voor **CFBundleURLSchemes**) met app-naam Hallo u in stap 1 hebt gekozen.  U kunt deze wijzigingen ook aanbrengen in Hallo plist-editor - Klik op Hallo `AppName-Info.plist` bestand in XCode tooopen hello plist-editor.
+    Deze code moet worden geplaatst in de `<dict>` element.  Vervang de _appname_ tekenreeks (binnen de matrix voor **CFBundleURLSchemes**) met de naam van de app die u in stap 1 hebt gekozen.  U kunt deze wijzigingen ook aanbrengen in de plist-editor - Klik op de `AppName-Info.plist` -bestand in XCode om de plist-editor te openen.
 
-    Vervang Hallo `com.microsoft.azure.zumo` de tekenreeks van **CFBundleURLName** bundel met uw Apple-id.
+    Vervang de `com.microsoft.azure.zumo` de tekenreeks van **CFBundleURLName** bundel met uw Apple-id.
 
-6. Druk op *uitvoeren* toostart Hallo app en meld u vervolgens. Wanneer u bent aangemeld, moet u kunnen tooview Hallo takenlijsten en bijwerken.
+6. Druk op *uitvoeren* naar de app te starten en meld u vervolgens. Wanneer u bent aangemeld, moet u mogelijk zijn de takenlijst weergeven en bijwerken.
 
 **SWIFT**:
 
-1. Open op uw Mac *ToDoTableViewController.swift* in Xcode en voeg Hallo volgende methode toe:
+1. Open op uw Mac *ToDoTableViewController.swift* in Xcode en voeg de volgende methode toe:
 
     ```swift
     func loginAndGetData() {
@@ -162,17 +162,17 @@ Druk in Xcode op **uitvoeren** toostart Hallo app. Een uitzondering gegenereerd 
     }
     ```
 
-    Wijziging *google* te*microsoftaccount*, *twitter*, *facebook*, of *windowsazureactivedirectory* als u Google niet als id-provider gebruikt. Als u Facebook gebruikt, moet u [geaccepteerde Facebook domeinen] [ 1] in uw app.
+    Wijziging *google* naar *microsoftaccount*, *twitter*, *facebook*, of *windowsazureactivedirectory* als u Google niet als id-provider gebruikt. Als u Facebook gebruikt, moet u [geaccepteerde Facebook domeinen] [ 1] in uw app.
 
-    Vervang Hallo **urlScheme** met een unieke naam voor uw toepassing.  Hallo urlScheme moet worden Hallo dezelfde als de URL-schema-protocol dat u hebt opgegeven in Hallo Hallo **toegestaan externe Omleidings-URL's** veld hello Azure-portal. Hallo urlScheme wordt gebruikt door Hallo verificatie callback tooswitch back tooyour toepassing nadat de authenticatie-aanvraag voltooid is.
+    Vervang de **urlScheme** met een unieke naam voor uw toepassing.  De urlScheme moet hetzelfde zijn als de URL-schema-protocol dat u hebt opgegeven in de **toegestaan externe Omleidings-URL's** veld in de Azure portal. De urlScheme wordt gebruikt door de callback voor gebruikersverificatie overschakelen naar uw toepassing nadat de authenticatie-aanvraag voltooid is.
 
-2. Verwijder Hallo regels `self.refreshControl?.beginRefreshing()` en `self.onRefresh(self.refreshControl)` aan het einde van `viewDidLoad()` in *ToDoTableViewController.swift*. Voeg een aanroep te`loginAndGetData()` op hun plaats:
+2. Verwijder de regels `self.refreshControl?.beginRefreshing()` en `self.onRefresh(self.refreshControl)` aan het einde van `viewDidLoad()` in *ToDoTableViewController.swift*. Voeg een aanroep naar `loginAndGetData()` op hun plaats:
 
     ```swift
     loginAndGetData()
     ```
 
-3. Open Hallo `AppDelegate.swift` bestand en voeg Hallo regel toohello na `AppDelegate` klasse:
+3. Open de `AppDelegate.swift` -bestand en voeg de volgende regel om de `AppDelegate` klasse:
 
     ```swift
     var todoTableViewController: ToDoTableViewController?
@@ -187,9 +187,9 @@ Druk in Xcode op **uitvoeren** toostart Hallo app. Een uitzondering gegenereerd 
     }
     ```
 
-    Vervang Hallo _appname_ wih hello urlScheme waarde die u in stap 1 hebt gebruikt.
+    Vervang de _appname_ wih de urlScheme-waarde die u in stap 1 hebt gebruikt.
 
-4. Open Hallo `AppName-Info.plist` bestand (vervang AppName met de naam van uw app Hallo) en voeg Hallo code te volgen:
+4. Open de `AppName-Info.plist` bestand (vervang AppName met de naam van uw app) en voeg de volgende code:
 
     ```xml
     <key>CFBundleURLTypes</key>
@@ -205,13 +205,13 @@ Druk in Xcode op **uitvoeren** toostart Hallo app. Een uitzondering gegenereerd 
     </array>
     ```
 
-    Deze code moet worden geplaatst in Hallo `<dict>` element.  Vervang Hallo _appname_ tekenreeks (binnen de matrix voor **CFBundleURLSchemes**) met app-naam Hallo u in stap 1 hebt gekozen.  U kunt deze wijzigingen ook aanbrengen in Hallo plist-editor - Klik op Hallo `AppName-Info.plist` bestand in XCode tooopen hello plist-editor.
+    Deze code moet worden geplaatst in de `<dict>` element.  Vervang de _appname_ tekenreeks (binnen de matrix voor **CFBundleURLSchemes**) met de naam van de app die u in stap 1 hebt gekozen.  U kunt deze wijzigingen ook aanbrengen in de plist-editor - Klik op de `AppName-Info.plist` -bestand in XCode om de plist-editor te openen.
 
-    Vervang Hallo `com.microsoft.azure.zumo` de tekenreeks van **CFBundleURLName** bundel met uw Apple-id.
+    Vervang de `com.microsoft.azure.zumo` de tekenreeks van **CFBundleURLName** bundel met uw Apple-id.
 
-5. Druk op *uitvoeren* toostart Hallo app en meld u vervolgens. Wanneer u bent aangemeld, moet u kunnen tooview Hallo takenlijsten en bijwerken.
+5. Druk op *uitvoeren* naar de app te starten en meld u vervolgens. Wanneer u bent aangemeld, moet u mogelijk zijn de takenlijst weergeven en bijwerken.
 
-App Service-verificatie gebruikt appels Inter-App-communicatie.  Raadpleeg voor meer informatie over dit onderwerp toohello [Apple-documentatie][2]
+App Service-verificatie gebruikt appels Inter-App-communicatie.  Raadpleeg voor meer informatie over dit onderwerp, de [Apple-documentatie][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist

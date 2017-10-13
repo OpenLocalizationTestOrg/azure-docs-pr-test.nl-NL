@@ -1,6 +1,6 @@
 ---
-title: aaaAzure gebruikersinterface van de Mobile Engagement - Mijn Account
-description: Meer informatie over hoe toomanage uw account-profiel en een test-apparaten met behulp van Azure Mobile Engagement
+title: Azure Mobile Engagement-gebruikersinterface - Mijn Account
+description: Informatie over het beheren van uw account-profiel en een test-apparaten met behulp van Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 1d85f0e87c43605f59f6536ae42a7fb6a99ee36b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toomanage-your-account-profile-and-test-devices"></a>Hoe toomanage uw account-profiel en een test-apparaten
-Dit artikel wordt beschreven Hallo **Start** pagina Hallo **Mobile Engagement** portal. Gebruik van Hallo **Mobile Engagement** portal toomonitor en beheren van uw mobiele apps. 
+# <a name="how-to-manage-your-account-profile-and-test-devices"></a>Uw account profiel en test apparaten beheren
+In dit artikel beschrijft de **Start** pagina van de **Mobile Engagement** portal. U gebruikt de **Mobile Engagement** portal om te controleren en beheren van uw mobiele apps. 
 
-tooget toohello **Mijn account** pagina, klikt u op uw account op Hallo Hallo pagina bovenaan.
+Om te krijgen tot de **Mijn account** pagina, klikt u op uw account boven aan de pagina.
 
-Hallo Mijn Account sectie Hallo die UI is waar u kunt bekijken en Hallo-instellingen die zijn gekoppeld aan uw account, inclusief uw profiel-instellingen wijzigen en testen van apparaat-id. Deze instellingen bevatten items die ook toegankelijk via Hallo apparaat-API.
+Het gedeelte Mijn Account van de gebruikersinterface is waar u kunt bekijken en wijzigen van de instellingen die zijn gekoppeld aan uw account, inclusief de profielinstellingen en apparaat-id's testen. Deze instellingen bevatten items die ook toegankelijk via de apparaat-API.
 
 ![MyAccount1][7]  
 
 ## <a name="profile"></a>Profiel:
-U kunt weergeven of wijzigen van de instellingen van uw account hieronder. U kunt een andere gebruiker machtiging toouse ook geven uw toepassing op basis van hun e-mailadres van Hallo [Start](mobile-engagement-user-interface-home.md).
+U kunt weergeven of wijzigen van de instellingen van uw account hieronder. U kunt ook een andere gebruikersmachtigingen voor het gebruik van uw toepassing op basis van hun e-mailadres van geven de [Start](mobile-engagement-user-interface-home.md).
 
 ![MyAccount2][8]  
 
 ## <a name="devices"></a>Apparaten:
-U kunt weergeven, toevoegen of verwijderen apparaat-id's van Hallo testapparaten waarmee u tootest kunt testen uw **bereiken** of **push** campagnes. Contextafhankelijke instructies voor hoe toofind Hallo apparaat-ID van apparaten voor elk platform (iOS, Android, Windows Phone, enzovoort) worden weergegeven wanneer u klikt op 'Nieuw apparaat'. 
+U kunt weergeven, toevoegen of verwijderen testen van apparaat-id's van de testapparaten die u gebruiken kunt voor het testen van uw **bereiken** of **push** campagnes. Contextafhankelijke instructies voor het vinden van de apparaat-ID van apparaten voor elk platform (iOS, Android, Windows Phone, enzovoort) worden weergegeven wanneer u klikt op 'Nieuw apparaat'. 
 
 ![MyAccount3][9]  
 
-toouse API Push of apparaat-API die u moet tooknow uw gebruikers unieke apparaat-id (parameter Hallo deviceid). Er zijn verschillende manieren tooretrieve het:
+U moet weten van uw gebruikers unieke apparaat-id (de apparaat-id-parameter) voor het gebruik van Push-API of de apparaat-API. Er zijn verschillende manieren te halen:
 
-1. U kunt vanuit uw back-end 'Ophalen' Hallo-functie van Hallo apparaat-API tooget Hallo volledige lijst met apparaat-id's gebruiken.
-2. Van uw app kunt u Hallo SDK tooget deze. (Op Android-, Hallo getDeviceID() functie Hallo agentklasse aanroepen en in iOS, Hallo deviceid eigenschap Hallo-agentklasse lezen.)
-3. Van een aankondiging Reach zal Hallo actie-URL die is gekoppeld aan de aankondiging Hallo Hallo {deviceid} patroon, bevat deze worden automatisch vervangen door Hallo-id van Hallo-apparaat activerende Hallo actie.
+1. Vanuit uw back-end, kunt u de functie 'Get' van de apparaat-API voor de volledige lijst van apparaat-id.
+2. Van uw app kunt u de SDK downloaden. (Op Android-, Roep de functie getDeviceID() van de Agent-klasse en op iOS-, lees de apparaat-id-eigenschap van de Agent-klasse.)
+3. Van een aankondiging Reach als het actie-URL die is gekoppeld aan de aankondiging het patroon {deviceid} bevat wordt deze automatisch vervangen door de id van het apparaat activering van de actie.
    http://<example>.com/registeruser? deviceid = {deviceid} & otherparam = myparamdata worden vervangen door: http://<example>.com/registeruser? deviceid = XXXXXXXXXXXXXXXX & otherparam myparamdata = 
-4. Van een aankondiging Reach-web als HTML-code van de aankondiging Hallo HALLO hallo {deviceid} patroon, bevat wordt deze automatisch vervangen door Hallo-id van Hallo-apparaat Hallo web aankondiging om weer te geven.
+4. Van een aankondiging Reach-webserver als de HTML-code van de aankondiging het patroon {deviceid} bevat wordt deze automatisch vervangen door de id van het apparaat waarop de web-aankondiging.
    Hier is mijn apparaat-id: {deviceid} worden vervangen door: hier is mijn apparaat-id: XXXXXXXXXXXXXXXX
 5. Open uw toepassing op uw apparaat en het uitvoeren van een gebeurtenis in uw app in die zijn gelabeld.
-   Van 'UI - app - Monitor - gebeurtenissen - Details' Hallo gebeurtenis die u hebt uitgevoerd in de lijst hello te zoeken.
-   Klik op de gebeurtenis toothis in Hallo Monitor.
-   U moet uw apparaat-ID vinden in de lijst Hallo Hallo-apparaten die deze gebeurtenis hebt uitgevoerd.
-   Vervolgens kunt u deze apparaat-ID kopiëren en deze te registreren in Hallo 'Uw apparaatplatform UI - Mijn Account - apparaten - nieuwe apparaat - selecteren'.
-   >(Zijn Houd er rekening mee dat als u IDFA is uitgeschakeld voor iOS, Hallo apparaat-ID na verloop van tijd Hallo wijzigen kan als u verwijderen en opnieuw installeren van uw app.)
+   Zoek de gebeurtenis die u hebt uitgevoerd in de lijst in 'UI - app - Monitor - gebeurtenissen - Details'.
+   Klik op deze gebeurtenis in de Monitor.
+   U moet uw apparaat-ID vinden in de lijst met apparaten die deze gebeurtenis hebt uitgevoerd.
+   U kunt vervolgens deze apparaat-ID kopiëren en deze te registreren in de 'UI - Mijn Account - apparaten - nieuwe apparaat - selecteert u uw apparaatplatform'.
+   >(Zijn Houd er rekening mee dat als u IDFA voor iOS is uitgeschakeld, de apparaat-ID via de tijd wijzigen kan als u verwijderen en opnieuw installeren van uw app.)
 
 ## <a name="troubleshooting-guide"></a>Gids voor probleemoplossing
 * [Troubleshooting Guide - Service][Link 24]

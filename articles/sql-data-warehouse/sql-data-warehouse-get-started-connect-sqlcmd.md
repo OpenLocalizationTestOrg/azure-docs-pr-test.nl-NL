@@ -1,6 +1,6 @@
 ---
-title: aaaConnect tooAzure SQL Data Warehouse sqlcmd | Microsoft Docs
-description: Gebruik [sqlcmd] [sqlcmd] opdrachtregelprogramma tooconnect tooand query een Azure SQL Data Warehouse.
+title: Verbinding maken met Azure SQL Data Warehouse sqlcmd | Microsoft Docs
+description: Gebruik het opdrachtregelhulpprogramma [sqlcmd][sqlcmd] om verbinding te maken met en een query uit te voeren op een Azure SQL-datawarehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: antvgski
@@ -15,13 +15,13 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.openlocfilehash: 0334df7b969da1966ba29c97f835a2dc9e383e29
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 5a3fe1046c3417070ba8ff5bd18a0485e2152eff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="connect-toosql-data-warehouse-with-sqlcmd"></a>Verbinding maken met tooSQL Data Warehouse met sqlcmd
+# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Verbinding maken met SQL Data Warehouse met sqlcmd
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -31,43 +31,43 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Gebruik [sqlcmd] [ sqlcmd] opdrachtregelprogramma tooconnect tooand query uitvoeren op een Azure SQL Data Warehouse.  
+Gebruik het opdrachtregelhulpprogramma [sqlcmd][sqlcmd] om verbinding te maken met en een query uit te voeren op een Azure SQL-datawarehouse.  
 
 ## <a name="1-connect"></a>1. Verbinding maken
-tooget gestart met [sqlcmd][sqlcmd], open Hallo-opdrachtprompt en voer **sqlcmd** gevolgd door de verbindingsreeks Hallo voor uw SQL Data Warehouse-database. Hallo-verbindingsreeks vereist Hallo volgende parameters:
+U gaat als volgt aan de slag met [sqlcmd][sqlcmd]: open de opdrachtprompt en voer **sqlcmd** in, gevolgd door de verbindingstekenreeks voor uw SQL Data Warehouse-database. De verbindingstekenreeks moet de volgende parameters bevatten:
 
-* **Server (-S):** Server in de vorm Hallo `<`servernaam`>`. database.windows.net
+* **Server (-S):** server in de notatie `<`servernaam`>`.database.windows.net
 * **Database (-d):** databasenaam.
-* **Id's tussen aanhalingstekens inschakelen (-I):** id's tussen aanhalingstekens moet worden ingeschakeld tooconnect tooa SQL Data Warehouse-exemplaar.
+* **Id's tussen aanhalingstekens inschakelen (-I):** id's tussen aanhalingstekens moeten zijn ingeschakeld om verbinding te kunnen maken met een exemplaar van SQL Data Warehouse.
 
-toouse SQL Server-verificatie, moet u tooadd Hallo gebruikersnaam en wachtwoord parameters:
+Als u gebruik wilt maken van SQL Server-verificatie, moet u de gebruikersnaam- en wachtwoordparameters toevoegen:
 
-* **Gebruiker (-U):** Servergebruiker in de vorm Hallo `<`gebruiker`>`
-* **Wachtwoord (-P):** wachtwoord Hallo gebruiker gekoppeld.
+* **Gebruiker (-U):** servergebruiker in de notatie `<`gebruiker`>`
+* **Wachtwoord (-P):** wachtwoord dat is gekoppeld aan de gebruiker.
 
-De verbindingsreeks kan er bijvoorbeeld Hallo volgende uitzien:
+Een voorbeeld: uw verbindingstekenreeks kan er als volgt uitzien:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-Azure Active Directory Integrated authentication toouse, moet u tooadd hello Azure Active Directory-parameters:
+Als u geïntegreerde verificatie van Azure Active Directory wilt gebruiken, moet u de Azure Active Directory-parameters toevoegen:
 
 * **Azure Active Directory Authentication (-G):** Azure Active Directory gebruiken voor verificatie
 
-De verbindingsreeks kan er bijvoorbeeld Hallo volgende uitzien:
+Een voorbeeld: uw verbindingstekenreeks kan er als volgt uitzien:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
-> U moet te[Azure Active Directory-verificatie inschakelen](sql-data-warehouse-authentication.md) tooauthenticate met Active Directory.
+> U moet [Azure Active Directory Authentication inschakelen](sql-data-warehouse-authentication.md) om te verifiëren met Active Directory.
 > 
 > 
 
 ## <a name="2-query"></a>2. Query’s uitvoeren
-Nadat de verbinding, kunt u elke ondersteunde Transact-SQL-instructie voor Hallo exemplaar uitgeven.  In dit voorbeeld worden query's in de interactieve modus verzonden.
+Wanneer verbinding is gemaakt, kunt u elke ondersteunde Transact-SQL-instructie voor het exemplaar uitvoeren.  In dit voorbeeld worden query's in de interactieve modus verzonden.
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -76,7 +76,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 3> QUIT
 ```
 
-Deze volgende voorbeelden laten zien hoe u uw query's in de batchmodus Hallo -Q gebruiken of uw SQL-toosqlcmd sluizen kunt uitvoeren.
+In de volgende voorbeelden ziet u hoe u uw query's in de batchmodus uitvoert met behulp van de optie -Q of door uw SQL naar sqlcmd te sluizen.
 
 ```sql
 sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
@@ -87,7 +87,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [sqlcmd-documentatie] [ sqlcmd] voor meer informatie over informatie over opties voor Hallo beschikbaar in sqlcmd.
+Zie [sqlcmd-documentatie][sqlcmd] voor meer informatie over de opties die beschikbaar zijn in sqlcmd.
 
 <!--Image references-->
 

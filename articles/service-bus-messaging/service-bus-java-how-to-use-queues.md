@@ -1,6 +1,6 @@
 ---
-title: aaaHow toouse Azure Service Bus-wachtrijen met Java | Microsoft Docs
-description: Meer informatie over hoe toouse Service Bus wachtrijen in Azure. Codevoorbeelden geschreven in Java.
+title: Azure Service Bus-wachtrijen gebruiken met Java | Microsoft Docs
+description: Informatie over het gebruiken van Service Bus-wachtrijen in Azure Codevoorbeelden geschreven in Java.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -13,30 +13,30 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: f68e941438134090c5eee53459e7667bda13ff3c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 170f431525ffdc93a01fc085e48e69c3a774968e
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-toouse-service-bus-queues-with-java"></a>Hoe toouse Service Bus wachtrijen met Java
+# <a name="how-to-use-service-bus-queues-with-java"></a>Service Bus-wachtrijen gebruiken met Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Dit artikel wordt beschreven hoe toouse Service Bus-wachtrijen. Hallo-voorbeelden zijn geschreven in Java en gebruiken van Hallo [Azure SDK voor Java][Azure SDK for Java]. Hallo scenario's worden behandeld: **maken van wachtrijen**, **verzenden en ontvangen berichten**, en **verwijderen van wachtrijen**.
+In dit artikel wordt het gebruik van de Service Bus-wachtrijen beschreven. De voorbeelden zijn geschreven in Java en gebruik de [Azure SDK voor Java][Azure SDK for Java]. De scenario's worden behandeld: **maken van wachtrijen**, **verzenden en ontvangen berichten**, en **verwijderen van wachtrijen**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="configure-your-application-toouse-service-bus"></a>Configureren van uw toepassing toouse Service Bus
-Zorg ervoor dat u hebt geïnstalleerd Hallo [Azure SDK voor Java] [ Azure SDK for Java] voordat u dit voorbeeld maakt. Als u Eclipse gebruikt, kunt u Hallo installeren [Azure Toolkit voor Eclipse] [ Azure Toolkit for Eclipse] die hello Azure SDK voor Java bevat. Vervolgens kunt u toevoegen Hallo **Microsoft Azure-beheerbibliotheken voor Java** tooyour project:
+## <a name="configure-your-application-to-use-service-bus"></a>Uw toepassing configureren voor het gebruik van Service Bus
+Zorg ervoor dat u hebt geïnstalleerd het [Azure SDK voor Java] [ Azure SDK for Java] voordat u dit voorbeeld maakt. Als u Eclipse gebruikt, kunt u de [Azure Toolkit voor Eclipse] [ Azure Toolkit for Eclipse] waarin de Azure SDK voor Java. Vervolgens kunt u toevoegen de **Microsoft Azure-beheerbibliotheken voor Java** aan uw project:
 
 ![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-Voeg de volgende Hallo `import` instructies toohello boven in Hallo Java-bestand:
+Voeg de volgende `import` instructies aan het begin van de Java-bestand:
 
 ```java
-// Include hello following imports toouse Service Bus APIs
+// Include the following imports to use Service Bus APIs
 import com.microsoft.windowsazure.services.servicebus.*;
 import com.microsoft.windowsazure.services.servicebus.models.*;
 import com.microsoft.windowsazure.core.*;
@@ -44,9 +44,9 @@ import javax.xml.datatype.*;
 ```
 
 ## <a name="create-a-queue"></a>Een wachtrij maken
-Beheerbewerkingen voor Service Bus-wachtrijen kunnen worden uitgevoerd via de **ServiceBusContract** klasse. Een **ServiceBusContract** object is gemaakt met een juiste configuratie die door de SAS-token met machtigingen toomanage ingekapseld en Hallo **ServiceBusContract** klasse is de enige punt Hallo communicatie met Azure.
+Beheerbewerkingen voor Service Bus-wachtrijen kunnen worden uitgevoerd via de **ServiceBusContract** klasse. Een **ServiceBusContract** object is gemaakt met een juiste configuratie die de SAS-token met machtigingen voor beheer, ingekapseld en de **ServiceBusContract** klasse is het enige dat communicatie met Azure.
 
-Hallo **ServiceBusService** klasse biedt methoden toocreate, opsommen en verwijderen van wachtrijen. Hallo voorbeeld hieronder toont hoe een **ServiceBusService** -object dat wordt gebruikt toocreate een wachtrij met de naam `TestQueue`, met een naamruimte met de naam `HowToSample`:
+De **ServiceBusService** klasse biedt methoden voor het maken, opsommen en verwijderen van wachtrijen. In het voorbeeld hieronder toont hoe een **ServiceBusService** object kan worden gebruikt voor het maken van een wachtrij met de naam `TestQueue`, met een naamruimte met de naam `HowToSample`:
 
 ```java
 Configuration config =
@@ -71,7 +71,7 @@ catch (ServiceException e)
 }
 ```
 
-Er zijn methoden op `QueueInfo` waarmee de eigenschappen van Hallo wachtrij toobe afgestemd (bijvoorbeeld: tooset Hallo standaard time-to-live (TTL) waarde toobe toegepast toomessages toohello wachtrij verzonden). Hallo volgende voorbeeld laat zien hoe toocreate een wachtrij met de naam `TestQueue` met een maximale grootte van 5 GB:
+Er zijn methoden op `QueueInfo` waarmee de eigenschappen van de wachtrij om te worden afgestemd (bijvoorbeeld: instellen van de time-to-live (TTL) standaardwaarde moet worden toegepast op berichten die naar de wachtrij worden verzonden). Het volgende voorbeeld laat zien hoe een wachtrij met de naam maken `TestQueue` met een maximale grootte van 5 GB:
 
 ````java
 long maxSizeInMegabytes = 5120;
@@ -80,10 +80,10 @@ queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
 CreateQueueResult result = service.createQueue(queueInfo);
 ````
 
-Dat kunt u gebruikmaken van Hallo `listQueues` methode op **ServiceBusContract** toocheck objecten als een wachtrij met een opgegeven naam al in een Servicenaamruimte bestaat.
+Let op: u kunt de `listQueues` methode op **ServiceBusContract** objecten om te controleren of een wachtrij met een opgegeven naam al in een Servicenaamruimte bestaat.
 
-## <a name="send-messages-tooa-queue"></a>Berichten tooa wachtrij verzenden
-een bericht tooa Service Bus-wachtrij toosend, beheersbaarheid voor uw toepassing een **ServiceBusContract** object. Hallo van de volgende code toont hoe een bericht voor Hallo toosend `TestQueue` wachtrij eerder hebt gemaakt in Hallo `HowToSample` naamruimte:
+## <a name="send-messages-to-a-queue"></a>Berichten verzenden naar een wachtrij
+Als u wilt een bericht verzendt naar een Service Bus-wachtrij, beheersbaarheid voor uw toepassing een **ServiceBusContract** object. De volgende code toont hoe u een bericht te verzenden voor de `TestQueue` wachtrij eerder hebt gemaakt de `HowToSample` naamruimte:
 
 ```java
 try
@@ -99,33 +99,33 @@ catch (ServiceException e)
 }
 ```
 
-Berichten worden verzonden naar en ontvangen van Service Bus-wachtrijen, zijn exemplaren van Hallo [BrokeredMessage] [ BrokeredMessage] klasse. [BrokeredMessage] [ BrokeredMessage] objecten hebben een aantal standaardeigenschappen (zoals [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) en [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), een woordenlijst die wordt gebruikt toohold aangepaste toepassingsspecifieke eigenschappen en een hoofdtekst met willekeurige toepassingsgegevens. Een toepassing hello hoofdtekst van het Hallo-bericht kunt instellen door elk serialiseerbaar object doorgeven aan de constructor Hallo Hallo [BrokeredMessage][BrokeredMessage], en de bijbehorende serialisatiefunctie hello wordt vervolgens gebruikt tooserialize Hallo-object. U kunt ook bieden een **java. I/O. InputStream** object.
+Berichten worden verzonden naar en ontvangen van Service Bus-wachtrijen, zijn exemplaren van de [BrokeredMessage] [ BrokeredMessage] klasse. [BrokeredMessage] [ BrokeredMessage] objecten hebben een aantal standaardeigenschappen (zoals [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) en [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), een woordenlijst die wordt gebruikt om aangepaste toepassingsspecifieke eigenschappen en een hoofdtekst met willekeurige toepassingsgegevens. Een toepassing kunt de hoofdtekst van het bericht instellen door elk serialiseerbaar object doorgeven aan de constructor van het [BrokeredMessage][BrokeredMessage], en de juiste serialisatiefunctie wordt vervolgens gebruikt om het object te serialiseren. U kunt ook bieden een **java. I/O. InputStream** object.
 
-Hallo volgende voorbeeld toont hoe vijf toosend test toothe berichten `TestQueue` **MessageSender** we in de vorige codefragment Hallo verkregen:
+Het volgende voorbeeld toont hoe vijf testberichten naar verzendt de `TestQueue` **MessageSender** we verkregen in het vorige codefragment:
 
 ```java
 for (int i=0; i<5; i++)
 {
-     // Create message, passing a string message for hello body.
+     // Create message, passing a string message for the body.
      BrokeredMessage message = new BrokeredMessage("Test message " + i);
      // Set an additional app-specific property.
      message.setProperty("MyProperty", i);
-     // Send message toohello queue
+     // Send message to the queue
      service.sendQueueMessage("TestQueue", message);
 }
 ```
 
-Service Bus-wachtrijen ondersteunen een maximale berichtgrootte van 256 KB in Hallo [standaardcategorie](service-bus-premium-messaging.md) en 1 MB in Hallo [Premium-laag](service-bus-premium-messaging.md). Hallo-kop, die standaard Hallo- en aangepaste toepassingseigenschappen bevat, kan een maximale grootte van 64 KB hebben. Er is geen limiet voor het aantal berichten in een wachtrij hello, maar er is een limiet voor de totale grootte van berichten in een wachtrij Hallo Hallo. De grootte van de wachtrij wordt gedefinieerd tijdens het aanmaken, met een bovengrens van 5 GB.
+Service Bus-wachtrijen ondersteunen een maximale berichtgrootte van 256 kB in de [Standard-laag](service-bus-premium-messaging.md) en 1 MB in de [Premium-laag](service-bus-premium-messaging.md). De koptekst, die de standaard- en aangepaste toepassingseigenschappen bevat, kan maximaal 64 kB groot zijn. Er is geen limiet voor het aantal berichten in een wachtrij, maar er is een limiet voor de totale grootte van de berichten in een wachtrij. De grootte van de wachtrij wordt gedefinieerd tijdens het aanmaken, met een bovengrens van 5 GB.
 
 ## <a name="receive-messages-from-a-queue"></a>Berichten ontvangen uit een wachtrij
-Hallo primaire manier tooreceive berichten uit een wachtrij toouse is een **ServiceBusContract** object. Ontvangen berichten kunnen werken in twee verschillende modi: **ReceiveAndDelete** en **PeekLock**.
+De belangrijkste manier om berichten te ontvangen van een wachtrij is met een **ServiceBusContract** object. Ontvangen berichten kunnen werken in twee verschillende modi: **ReceiveAndDelete** en **PeekLock**.
 
-Bij gebruik van Hallo **ReceiveAndDelete** -modus ontvangt een enkele bewerking - dat wil zeggen als Service Bus een leesaanvraag voor een bericht in een wachtrij ontvangt, wordt markeert het Hallo-bericht als verbruikt en retourneert het toohello toepassing. **ReceiveAndDelete** modus (dit is de standaardmodus Hallo) is Hallo eenvoudigste model en werkt het beste voor scenario's waarin een toepassing kan tolereren niet verwerken van een bericht in de gebeurtenis Hallo van een fout. toounderstand dit, Neem bijvoorbeeld een scenario in welke problemen van de consument Hallo Hallo aanvraag ontvangen en vervolgens vastloopt voordat het wordt verwerkt.
-Omdat Service Bus heeft gemarkeerd als verbruikt, vervolgens wanneer Hallo toepassing opnieuw wordt opgestart en verbruik van berichten opnieuw begint het Hallo-bericht, ontbreekt het Hallo-bericht dat was voorafgaande toohello crash verbruikt.
+Wanneer u de **ReceiveAndDelete** -modus ontvangt een enkele bewerking - dat wil zeggen als Service Bus een leesaanvraag voor een bericht in een wachtrij ontvangt, wordt het bericht als verbruikt gemarkeerd en naar de toepassing wordt geretourneerd. **ReceiveAndDelete** modus (dit is de standaardmodus) is het eenvoudigste model en werkt het beste voor scenario's waarin een toepassing kan tolereren niet verwerken van een bericht bij een storing. Neem bijvoorbeeld een scenario waarin de consument de ontvangstaanvraag uitgeeft en het systeem vervolgens vastloopt voordat de aanvraag wordt verwerkt.
+Omdat Service Bus het bericht als verbruikt heeft gemarkeerd, klikt u vervolgens wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint, ontbreekt het bericht dat voor het vastlopen is verbruikt.
 
-In **PeekLock** -modus ontvangt, wordt een bewerking met twee fasen, waardoor het mogelijk toosupport toepassingen die geen ontbrekende berichten kunnen tolereren. Wanneer Service Bus een aanvraag ontvangt, zoeken naar het volgende bericht toobe Hallo verbruikt, wordt vergrendeld tooprevent andere consumenten het ontvangen en retourneert vervolgens toohello toepassing. Nadat de toepassing hello klaar is met verwerking van het Hallo-bericht (of veilig heeft opgeslagen voor toekomstige verwerking), is de tweede fase Hallo Hallo voltooid proces ontvangen door het aanroepen van **verwijderen** op Hallo ontvangen bericht. Wanneer Service Bus de aanroep Hallo **verwijderen** aanroep, wordt het Hallo-bericht als verbruikt markeren en verwijderen uit de wachtrij Hallo.
+In **PeekLock** -modus ontvangt, wordt een bewerking met twee fasen, waardoor er mogelijk worden ondersteuning voor toepassingen die geen ontbrekende berichten kunnen tolereren. Als Service Bus een aanvraag ontvangt, wordt het volgende te verbruiken bericht gevonden, wordt het bericht vergrendeld om te voorkomen dat andere consumenten het ontvangen en wordt het bericht vervolgens naar de toepassing geretourneerd. Nadat de toepassing klaar is met verwerking van het bericht (of veilig heeft opgeslagen voor toekomstige verwerking), is de tweede fase van het ontvangstproces voltooid door het aanroepen van **verwijderen** voor het ontvangen bericht. Wanneer Service Bus de aanroep de **verwijderen** aanroep, wordt het bericht als verbruikt markeren en verwijderen uit de wachtrij.
 
-Hallo volgende voorbeeld laat zien hoe berichten kunnen worden ontvangen en verwerkt met behulp **PeekLock** modus (geen Hallo standaardmodus). Hello in het volgende voorbeeld wordt een oneindige lus en verwerkt berichten binnenkomen in onze `TestQueue`:
+Het volgende voorbeeld laat zien hoe berichten kunnen worden ontvangen en verwerkt met behulp **PeekLock** modus (niet de standaardmodus). Het volgende voorbeeld wordt een oneindige lus en verwerkt berichten binnenkomen in onze `TestQueue`:
 
 ```java
 try
@@ -140,7 +140,7 @@ try
         if (message != null && message.getMessageId() != null)
         {
             System.out.println("MessageID: " + message.getMessageId());
-            // Display hello queue message.
+            // Display the queue message.
             System.out.print("From queue: ");
             byte[] b = new byte[200];
             String s = null;
@@ -163,8 +163,8 @@ try
         {
             System.out.println("Finishing up - no more messages.");
             break;
-            // Added toohandle no more messages.
-            // Could instead wait for more messages toobe added.
+            // Added to handle no more messages.
+            // Could instead wait for more messages to be added.
         }
     }
 }
@@ -180,17 +180,17 @@ catch (Exception e) {
 }
 ```
 
-## <a name="how-toohandle-application-crashes-and-unreadable-messages"></a>Hoe toohandle toepassing is vastgelopen en onleesbare berichten
-Service Bus biedt functionaliteit toohelp die u netjes te herstellen bij fouten in uw toepassing of problemen bij het verwerken van een bericht. Als een ontvangende toepassing niet kan tooprocess hello bericht voor een bepaalde reden en vervolgens kan worden aangeroepen Hallo **unlockMessage** methode voor het ontvangen Hallo-bericht (in plaats van Hallo **deleteMessage** methode). Deze tot gevolg dat het Service Bus toounlock Hallo in wachtrij Hallo-bericht, waardoor het beschikbaar toobe ontvangen, Hallo ofwel door dezelfde toepassing of door een andere consumerende toepassing verbruikt.
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Het vastlopen van de toepassing en onleesbare berichten afhandelen
+Service Bus biedt functionaliteit om netjes te herstellen bij fouten in uw toepassing of problemen bij het verwerken van een bericht. Als een ontvangende toepassing kan niet worden verwerkt het bericht om een bepaalde reden, dan kan worden aangeroepen de **unlockMessage** methode voor het ontvangen bericht (in plaats van de **deleteMessage** methode). Dit zorgt ervoor dat Service Bus het bericht in de wachtrij ontgrendelt en het beschikbaar maakt om opnieuw te worden ontvangen, ofwel door dezelfde consumerende toepassing of door een andere consumerende toepassing.
 
-Daarnaast is er een time-out gekoppeld aan een bericht in de wachtrij is vergrendeld en als de toepassing hello tooprocess mislukt Hallo bericht voordat de time-out van de vergrendeling verloopt (bijvoorbeeld als Hallo toepassing vastloopt) en Service Bus automatisch Hiermee ontgrendelt u het Hallo-bericht en maakt het beschikbaar toobe opnieuw ontvangen.
+Er is ook een time-out gekoppeld aan een bericht in de wachtrij is vergrendeld en als de toepassing niet kan verwerken van het bericht voordat de time-out van de vergrendeling verloopt (bijvoorbeeld als de toepassing vastloopt), en vervolgens de Service Bus het bericht automatisch ontgrendelt en wordt het beschikbaar worden om opnieuw te ontvangen.
 
-In Hallo gebeurtenis die toepassing hello vastgelopen na het verwerken van het Hallo-bericht, maar voordat u Hallo **deleteMessage** verzoek is uitgegeven, dan is het Hallo-bericht opnieuw bezorgd toohello toepassing opnieuw wordt gestart. Dit wordt vaak genoemd *tenminste eenmaal verwerken*; dat wil zeggen dat elk bericht ten minste één keer wordt verwerkt maar in bepaalde situaties Hallo hetzelfde bericht opnieuw kan worden bezorgd. Als Hallo scenario kan geen dubbele verwerking tolereren, moeten toepassingsontwikkelaars levering van aanvullende logica tootheir toepassing toohandle dubbele berichten toevoegen. Dit wordt vaak bereikt met behulp van Hallo **getMessageId** methode voor het Hallo-bericht dat gelijk blijft bij meerdere bezorgingspogingen.
+In het geval dat de toepassing is vastgelopen na het verwerken van het bericht, maar voordat de **deleteMessage** verzoek is uitgegeven, en vervolgens het bericht is opnieuw bij de toepassing bezorgd wanneer opnieuw wordt gestart. Dit wordt vaak genoemd *tenminste eenmaal verwerken*; dat wil zeggen, elk bericht ten minste één keer wordt verwerkt maar in sommige situaties hetzelfde bericht opnieuw kan worden bezorgd. Als in het scenario dubbele verwerking niet wordt getolereerd, dan moeten toepassingsontwikkelaars extra logica toevoegen aan de toepassing om dubbele berichtbezorging af te handelen. Dit wordt vaak bereikt met behulp van de **getMessageId** methode van het bericht dat gelijk blijft bij meerdere bezorgingspogingen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u Hallo basisprincipes van Service Bus-wachtrijen hebt geleerd, gaat u naar [wachtrijen, onderwerpen en abonnementen] [ Queues, topics, and subscriptions] voor meer informatie.
+Nu u de basisprincipes van Service Bus-wachtrijen hebt geleerd, gaat u naar [wachtrijen, onderwerpen en abonnementen] [ Queues, topics, and subscriptions] voor meer informatie.
 
-Zie voor meer informatie, Hallo [Java Developer Center](https://azure.microsoft.com/develop/java/).
+Raadpleeg het [Java Developer Center](https://azure.microsoft.com/develop/java/) voor meer informatie.
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx

@@ -1,11 +1,11 @@
 ---
-title: aaaIP adrestypen in Azure | Microsoft Docs
+title: IP-adrestypen in Azure | Microsoft Docs
 description: "Meer informatie over openbare en privé-IP-adressen in Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
-editor: tysonn
+manager: jeconnoc
+editor: 
 tags: azure-resource-manager
 ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
@@ -13,100 +13,143 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2016
+ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: 402d3707c00f0b3bf3ef1febd5ade66223da74bf
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 8ddd582ed159e10add896252c40feb19780c42fb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adrestypen en toewijzingsmethoden in Azure
-U kunt toewijzen van IP-adressen tooAzure resources toocommunicate met andere Azure-resources, uw on-premises netwerk en Internet Hallo. Er zijn twee typen IP-adressen die u in Azure kunt gebruiken:
 
-* **Openbare IP-adressen**: gebruikt voor communicatie met de Hallo Internet, met inbegrip van openbare Azure-services
-* **Privé IP-adressen**: gebruikt voor communicatie binnen een Azure-netwerk (VNet) en uw on-premises netwerk wanneer u een VPN-gateway of ExpressRoute-circuit tooextend de tooAzure van uw netwerk.
+U kunt IP-adressen toewijzen aan Azure-resources om te communiceren met andere Azure-resources, uw on-premises netwerk en internet. Er zijn twee typen IP-adressen die u in Azure kunt gebruiken:
+
+* **Openbare IP-adressen**: deze worden gebruikt voor communicatie met internet, met inbegrip van openbare Azure-services.
+* **Privé-IP-adressen**: deze worden gebruikt voor communicatie in een virtueel Azure-netwerk (VNet) en uw on-premises netwerk wanneer u een VPN-gateway of ExpressRoute-circuit gebruikt om uw netwerk uit te breiden naar Azure.
 
 > [!NOTE]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md).  In dit artikel wordt beschreven hoe u Hallo Resource Manager-implementatiemodel, die Microsoft voor de meeste nieuwe implementaties in plaats van Hallo aanbeveelt [klassieke implementatiemodel](virtual-network-ip-addresses-overview-classic.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat door Microsoft wordt aanbevolen voor de meeste nieuwe implementaties in plaats van het [klassieke implementatiemodel](virtual-network-ip-addresses-overview-classic.md).
 > 
 
-Als u bekend met het klassieke implementatiemodel hello bent, controleert u Hallo [verschillen in de IP-adressen tussen het klassieke en het Resource Manager](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
+Als u het klassieke implementatiemodel kent, kunt u [hier lezen wat de verschillen zijn in IP-adressering tussen het klassieke model en het Resource Manager-model](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
 
 ## <a name="public-ip-addresses"></a>Openbare IP-adressen
-Openbare IP-adressen toestaan toocommunicate met Internet en Azure services voor openbare Azure-resources, zoals [Azure Redis-Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL-databases](../sql-database/sql-database-technical-overview.md), en [Azure storage](../storage/common/storage-introduction.md).
 
-In Azure Resource Manager is een [openbaar IP](resource-groups-networking.md#public-ip-address)-adres een resource die zijn eigen eigenschappen heeft. U kunt een openbare IP-adres resource koppelen aan een Hallo resources te volgen:
+Openbare IP-adressen worden gebruikt om Azure-resources te laten communiceren met internet en andere openbare Azure-services, zoals [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [SQL databases](../sql-database/sql-database-technical-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en [Azure Storage](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-* Virtuele machines (VM's)
+In Azure Resource Manager is een [openbaar IP](virtual-network-public-ip-address.md)-adres een resource die zijn eigen eigenschappen heeft. U kunt sommige resources aan een openbare IP-adresresource koppelen, zoals:
+
+* Netwerkinterfaces van virtuele machines
 * Internetgerichte load balancers
 * VPN-gateways
 * Toepassingsgateways
 
-### <a name="allocation-method"></a>Toewijzingsmethode
-Er zijn twee manieren waarop een IP-adres is toegewezen tooa *openbare* IP-resource - *dynamische* of *statische*. Hallo standaard toewijzingsmethode *dynamische*, waarbij een IP-adres **niet** toegewezen op Hallo-tijd van het maken ervan. Hallo openbaar IP-adres wordt in plaats daarvan toegewezen wanneer u start (of maak) die zijn gekoppeld Hallo resource (zoals een virtuele machine of een load balancer). Hallo IP-adres wordt uitgebracht, wanneer u stoppen (of verwijderen) Hallo resource. Hierdoor Hallo IP-adres toochange wanneer u stoppen en starten van een resource.
+### <a name="ip-address-version"></a>IP-adresversie
 
-tooensure hello IP-adres voor hello gekoppelde bron blijft Hallo dezelfde, kunt u instellen Hallo toewijzingsmethode expliciet te*statische*. In dat geval wordt er onmiddellijk een IP-adres toegewezen. Ze zijn vrijgegeven wanneer u Hallo bron verwijderen of te wijzigen van de toewijzingsmethode*dynamische*.
+Openbare IP-adressen worden gemaakt met een IPv4- of IPv6-adres. Openbare IPv6-adressen kunnen alleen worden toegewezen aan internetgerichte load balancers.
+
+### <a name="sku"></a>SKU
+
+Openbare IP-adressen worden gemaakt met een van de volgende SKU's:
+
+#### <a name="basic"></a>Basic
+
+Alle openbare IP-adressen die zijn gemaakt vóór de introductie van SKU's zijn openbare IP-adressen van de basis-SKU. Door de introductie van SKU's kunt u opgeven welke SKU het openbare IP-adres is. Basis-SKU-adressen:
+
+- Worden toegewezen met de statische of dynamische toewijzingsmethode.
+- Worden toegewezen aan een Azure-resource waaraan een openbaar IP-adres kan worden toegewezen, zoals netwerkinterfaces, VPN-gateways, toepassingsgateways en internetgerichte load balancers.
+- Kunnen worden toegewezen aan een specifieke zone.
+- Zijn niet zone-redundant. Zie [Overzicht van beschikbaarheidszones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over beschikbaarheidszones.
+
+#### <a name="standard"></a>Standard
+
+Openbare IP-adressen van de standaard-SKU:
+
+- Worden uitsluitend toegewezen met de statische toewijzingsmethode.
+- Worden toegewezen aan netwerkinterfaces of standaard internetgerichte load balancers. Zie [Standaard-SKU's van Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over SKU's van Azure Load Balancer.
+- Zijn standaard zone-redundant. Kunnen zonegebonden worden gemaakt en gegarandeerd in een bepaalde beschikbaarheidszone.  Zie [Overzicht van beschikbaarheidszones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over beschikbaarheidszones.
+ 
+> [!NOTE]
+> Als u een openbaar IP-adres van een standaard-SKU toewijst aan een netwerkinterface van een virtuele machine, moet u het bedoelde verkeer expliciet toestaan met een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups).  Communicatie met de resource mislukt totdat u een netwerkbeveiligingsgroep maakt en koppelt en het gewenste verkeer expliciet toestaat.
+
+De standaard-SKU zit in de evaluatieversie. Voordat u een openbaar IP-adres van een standaard-SKU maakt, moet u zich eerst registreren voor de evaluatieversie en het adres in een ondersteunde locatie maken. Zie [Registreren voor de evaluatieversie van de standaard-SKU](virtual-network-public-ip-address.md#register-for-the-standard-sku-preview) om u te registreren voor de evaluatieversie. Zie [Beschikbaarheid in regio's](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) voor een lijst met ondersteunde locaties (regio's) en controleer de pagina [Azure Virtual Network-updates](https://azure.microsoft.com/updates/?product=virtual-network) voor aanvullende ondersteuning voor regio's.
+
+
+### <a name="allocation-method"></a>Toewijzingsmethode
+
+Er zijn twee methoden voor het toewijzen van een IP-adres aan een openbare IP-adresresource: *dynamisch* en *statisch*. De standaardtoewijzingsmethode is *dynamisch*, waarbij het IP-adres **niet** wordt toegewezen op het tijdstip van aanmaak. In plaats daarvan wordt het openbare IP-adres pas toegewezen wanneer u de gekoppelde resource (zoals een virtuele machine of load balancer) start (of maakt). Het IP-adres wordt weer vrijgegeven wanneer u de resource stopt (of verwijdert). Nadat het IP-adres vanaf resource A is vrijgegeven, kan het worden toegewezen aan een andere resource. Als het IP-adres wordt toegewezen aan een andere resource terwijl resource A is gestopt, wordt een ander IP-adres toegewezen als u resource A opnieuw start.
+
+Als u wilt dat het IP-adres voor de gekoppelde resource hetzelfde blijft, kunt u de toewijzingsmethode expliciet instellen op *statisch*. Een statisch IP-adres wordt onmiddellijk toegewezen. Het adres wordt alleen vrijgegeven wanneer u de resource verwijdert of de toewijzingsmethode wijzigt in *dynamisch*.
 
 > [!NOTE]
-> Zelfs als u instelt Hallo toewijzingsmethode te*statische*, u kunt geen Hallo werkelijke IP-adres toegewezen toohello opgeven *openbare IP-resource*. In plaats daarvan het toegewezen opgehaald uit een groep met beschikbare IP-adressen in Azure-locatie Hallo Hallo resource is gemaakt in.
+> Ook als u de toewijzingsmethode instelt op *statisch*, kunt u het IP-adres dat aan de openbare IP-adresresource wordt toegewezen, echter niet zelf opgeven. Azure wijst het IP-adres toe vanuit een pool van beschikbare IP-adressen op de Azure-locatie waarin de resource is gemaakt.
 >
 
-Statische openbare IP-adressen worden vaak gebruikt in Hallo volgen scenario's:
+Statische openbare IP-adressen worden vaak gebruikt in de volgende scenario's:
 
-* Eindgebruikers moeten tooupdate firewall-regels toocommunicate met uw Azure-resources.
+* U moet firewallregels bijwerken om te communiceren met uw Azure-resources.
 * U gebruikt een DNS-naamomzetting waarbij een wijziging in het IP-adres het bijwerken van A-records vereist.
 * Uw Azure-resources communiceren met andere apps of services die een op IP-adressen gebaseerd beveiligingsmodel gebruiken.
-* U SSL-certificaten gekoppelde tooan IP-adres gebruiken.
+* U gebruikt SSL-certificaten die zijn gekoppeld aan een IP-adres.
 
 > [!NOTE]
-> Hallo-lijst met IP-adresbereiken waarvan openbare IP-adressen (dynamische/statisch) tooAzure resources worden toegewezen wordt gepubliceerd op [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+> Azure wijst openbare IP-adressen toe uit een bereik dat uniek is voor elke Azure-regio. Zie [IP-adresbereiken Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653) voor meer informatie.
 >
 
 ### <a name="dns-hostname-resolution"></a>DNS-hostnaamomzetting
-U kunt opgeven dat een DNS-domeinnaamlabel voor een openbaar IP-resource, maakt u een toewijzing voor *domainnamelabel*. *locatie*. cloudapp.azure.com toohello openbaar IP-adres in hello Azure beheerde DNS-servers. Bijvoorbeeld, als u een openbaar IP-resource met maakt **contoso** als een *domainnamelabel* in Hallo **VS-West** Azure *locatie*, Hallo FQDN-naam (Fully qualified domain name) **contoso.westus.cloudapp.azure.com** toohello openbaar IP-adres van bron hello wordt opgelost. Een aangepast domein-CNAME-record verwijst toohello openbaar IP-adres in Azure, kunt u deze toocreate FQDN-naam gebruiken.
+U kunt voor een openbare IP-resource een DNS-domeinnaamlabel opgeven, zodat *domeinnaamlabel*.*locatie*. cloudapp.azure.com verwijst naar het openbare IP-adres op de door Azure beheerde DNS-servers. Als u bijvoorbeeld een openbare IP-resource maakt met **contoso** als *domeinnaamlabel* op de Azure*-locatie* **VS - west**, wordt de FQDN-naam (Fully Qualified Domain Name) **contoso.westus.cloudapp.azure.com** omgezet in het openbare IP-adres van de resource. U kunt de FDQN gebruiken voor het maken van een aangepaste domein-CNAME-record die verwijst naar het openbare IP-adres in Azure.
 
 > [!IMPORTANT]
 > Elk domeinnaamlabel dat wordt gemaakt, moet uniek zijn binnen de Azure-locatie.  
 >
 
 ### <a name="virtual-machines"></a>Virtuele machines
-U kunt koppelen een openbaar IP-adres met een [Windows](../virtual-machines/windows/overview.md) of [Linux](../virtual-machines/virtual-machines-linux-about.md) VM toewijzen tooits **netwerkinterface**. In geval van een virtuele machine met meerdere netwerkinterfaces Hallo kunt u deze toewijzen toohello *primaire* alleen netwerkinterface. U kunt een dynamisch of een statische openbare IP-adres tooa VM toewijzen.
+
+U kunt een openbaar IP-adres koppelen aan een virtuele [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)- of [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-machine door het toe te wijzen aan de **netwerkinterface**. U kunt een dynamisch of statisch openbaar IP-adres toewijzen aan een virtuele machine. Meer informatie over [IP-adressen toewijzen aan netwerkinterfaces](virtual-network-network-interface-addresses.md).
 
 ### <a name="internet-facing-load-balancers"></a>Internetgerichte load balancers
-Koppelt u een openbaar IP-adres met een [Azure Load Balancer](../load-balancer/load-balancer-overview.md), door toe te wijzen toohello netwerktaakverdeler **frontend** configuratie. Dit openbare IP-adres doet dienst als een virtueel IP-adres (VIP) met taakverdeling. U kunt een dynamische of statische openbare IP-adres tooa taakverdeler front-toewijzen. U kunt ook meerdere openbare IP-adressen tooa load balancer front-end, waardoor toewijzen [meerdere VIP's](../load-balancer/load-balancer-multivip.md) scenario's, zoals een omgeving met meerdere tenants met websites op basis van SSL.
+
+U kunt een openbaar IP-adres dat met een willekeurige [SKU](#SKU) is gemaakt koppelen aan een [Azure Load Balancer](../load-balancer/load-balancer-overview.md) door het toe te wijzen aan de **front-end**-configuratie van de load balancer. Het openbare IP-adres doet dienst als een virtueel IP-adres (VIP) met taakverdeling. U kunt een dynamisch of statisch openbaar IP-adres toewijzen aan de front-end van een load balancer. U kunt ook meerdere openbare IP-adressen toewijzen aan de front-end van een load balancer, zodat [multi-VIP](../load-balancer/load-balancer-multivip.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-scenario's, zoals een multitenant-omgeving met op SSL gebaseerde websites, mogelijk zijn. Zie [Standaard-SKU's van Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over SKU's van Azure Load Balancer.
 
 ### <a name="vpn-gateways"></a>VPN-gateways
-[Azure VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) gebruikte tooconnect is een Azure-netwerk (VNet) tooother Azure VNets of tooan on-premises netwerk. U moet een openbare IP-adres tooits tooassign **IP-configuratie** tooenable het toocommunicate met Hallo extern netwerk. Op dit moment kunt u alleen toewijzen een *dynamische* openbare IP-adres tooa VPN-gateway.
+
+Een [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) koppelt een virtueel Azure-netwerk aan andere virtuele Azure-netwerken of aan een on-premises netwerk. Een openbaar IP-adres wordt toegewezen aan de VPN-gateway om communicatie met het externe netwerk mogelijk te maken. U kunt alleen een *dynamisch* openbaar IP-adres toewijzen aan een VPN-gateway.
 
 ### <a name="application-gateways"></a>Toepassingsgateways
-U kunt een openbare IP-adres koppelen aan een Azure [Application Gateway](../application-gateway/application-gateway-introduction.md), door toe te kennen van de gateway toohello **frontend** configuratie. Dit openbare IP-adres doet dienst als een VIP met taakverdeling. Op dit moment kunt u alleen toewijzen een *dynamische* openbare IP-adres tooan toepassingsgateway frontend configuratie.
+
+U kunt een openbaar IP-adres koppelen aan een Azure-[toepassingsgateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) door het toe te wijzen aan de **front-end**-configuratie van de gateway. Dit openbare IP-adres doet dienst als een VIP met taakverdeling. U kunt alleen een *dynamisch* openbaar IP-adres toewijzen aan de front-end-configuratie van een toepassingsgateway.
 
 ### <a name="at-a-glance"></a>In een oogopslag
-Hallo in de volgende tabel ziet u Hallo specifieke eigenschap waarmee een openbaar IP-adres kan worden gekoppeld tooa op het hoogste niveau resource en Hallo mogelijke toewijzingsmethoden (dynamisch of statisch) die kunnen worden gebruikt.
+De volgende tabel toont de specifieke eigenschap waarmee een openbaar IP-adres kan worden gekoppeld aan een resource op het hoogste niveau, evenals de mogelijke toewijzingsmethoden (dynamisch of statisch) die kunnen worden gebruikt.
 
 | Resource op het hoogste niveau | IP-adreskoppeling | Dynamisch | Statisch |
 | --- | --- | --- | --- |
 | Virtuele machine |Netwerkinterface |Ja |Ja |
-| Load balancer |Front-end-configuratie |Ja |Ja |
+| Internetgerichte load balancer |Front-end-configuratie |Ja |Ja |
 | VPN-gateway |Gateway-IP-configuratie |Ja |Nee |
 | Toepassingsgateway |Front-end-configuratie |Ja |Nee |
 
 ## <a name="private-ip-addresses"></a>Privé-IP-adressen
-Privé IP-adressen toestaan toocommunicate Azure-resources met andere resources in een [virtueel netwerk](virtual-networks-overview.md) of een on-premises netwerk via een VPN-gateway of ExpressRoute-circuit, zonder gebruik van een Internet-bereikbaar IP-adres.
+Privé-IP-adressen stellen Azure-resources in staat om via een VPN-gateway of een ExpressRoute-circuit te communiceren met andere resources in een [virtueel netwerk](virtual-networks-overview.md) of een on-premises netwerk, zonder gebruik te maken van een via internet bereikbaar IP-adres.
 
-Hello Azure Resource Manager-implementatiemodel is een particulier IP-adres gekoppeld toohello soorten Azure-resources te volgen:
+In het Azure Resource Manager-implementatiemodel is een privé-IP-adres gekoppeld aan de volgende typen Azure-resources:
 
-* VM's
+* Netwerkinterfaces van virtuele machines
 * Interne load balancers (ILB's)
 * Toepassingsgateways
 
+### <a name="ip-address-version"></a>IP-adresversie
+
+Privé-IP-adressen worden gemaakt met een IPv4- of IPv6-adres. Privé-IPv6-adressen kunnen alleen worden toegewezen met de dynamische toewijzingsmethode. U kunt niet communiceren tussen privé-IPv6-adressen op een virtueel netwerk. U kunt inkomend communiceren met een privé-IPv6-adres van het internet via een internetgerichte load balancer. Zie [Een internetgerichte load balancer maken met IPv6](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie.
+
 ### <a name="allocation-method"></a>Toewijzingsmethode
-Een persoonlijke IP-adres wordt toegewezen uit Hallo adres bereik van Hallo subnet toowhich Hallo bron is gekoppeld. Hallo-adresbereik van Hallo-subnet zelf is een onderdeel van het Hallo-VNet-adresbereik.
 
-Er zijn twee methoden voor het toewijzen van een privé-IP-adres: *dynamisch* en *statisch*. Hallo standaard toewijzingsmethode *dynamische*, waarbij Hallo IP-adres automatisch wordt toegewezen uit van de bron van het Hallo-subnet (met behulp van DHCP). Dit IP-adres kunt wijzigen wanneer u stoppen en Hallo resource starten.
+Een privé-IP-adres wordt toegewezen vanuit het adresbereik van het subnet waaraan de resource is gekoppeld. Het adresbereik van het subnet zelf is een onderdeel van het adresbereik van het virtuele netwerk.
 
-U kunt de toewijzingsmethode hello te instellen*statische* tooensure Hallo IP-adres blijft Hallo dezelfde. In dit geval moet u ook een geldig IP-adres die deel uitmaakt van het subnet van de bron van de Hallo tooprovide.
+Er zijn twee methoden voor het toewijzen van een privé-IP-adres: *dynamisch* en *statisch*. De standaardtoewijzingsmethode is *dynamisch*, waarbij het IP-adres automatisch wordt toegewezen vanuit het subnet van de resource (via DHCP). Dit IP-adres kan veranderen wanneer u de resource stopt en start.
+
+Stel de toewijzingsmethode in op *statisch* als u wilt dat het IP-adres altijd hetzelfde blijft. Als u *statisch* opgeeft, moet u een geldig IP-adres opgeven dat deel uitmaakt van het subnet van de resource.
 
 Statische privé-IP-adressen worden vaak gebruikt voor:
 
@@ -115,20 +158,23 @@ Statische privé-IP-adressen worden vaak gebruikt voor:
 * Resources die worden gebruikt door andere apps/resources via een IP-adres.
 
 ### <a name="virtual-machines"></a>Virtuele machines
-Een persoonlijke IP-adres is toegewezen toohello **netwerkinterface** van een [Windows](../virtual-machines/windows/overview.md) of [Linux](../virtual-machines/virtual-machines-linux-about.md) VM. In geval van een VM met een multi-netwerkinterface, wordt aan elke interface een privé-IP-adres toegewezen. U kunt de toewijzingsmethode Hallo opgeven als dynamische of statische voor een netwerkinterface.
 
-#### <a name="internal-dns-hostname-resolution-for-vms"></a>Interne DNS-hostnaamomzetting (voor VM's)
-Alle Azure-VM's zijn standaard geconfigureerd met door [Azure beheerde DNS-servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution), tenzij u expliciet aangepaste DNS-servers configureert. Deze DNS-servers bieden interne naamomzetting voor virtuele machines die zich binnen een Hallo hetzelfde VNet.
+Een privé-IP-adres wordt toegewezen aan de **netwerkinterface** van een virtuele [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)- of [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-machine. Als de virtuele machine meerdere netwerkinterfaces heeft, wordt een privé-IP-adres toegewezen aan elke netwerkinterface. Voor een netwerkinterface kunt u de toewijzingsmethode opgeven als dynamisch of statisch.
 
-Wanneer u een virtuele machine maakt, wordt een toewijzing voor Hallo hostnaam tooits privé IP-adres toohello Azure beheerde DNS-servers toegevoegd. In geval van een meerdere netwerkinterface VM Hallo hostnaam is toegewezen toohello privé IP-adres van de primaire netwerkinterface Hallo.
+#### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>Interne DNS-hostnaamomzetting (voor virtuele machines)
 
-VM's zijn geconfigureerd met Azure beheerde DNS-servers worden kunnen tooresolve Hallo hostnamen van alle virtuele machines binnen hun VNet tootheir privé IP-adressen.
+Alle virtuele machines van Azure zijn standaard geconfigureerd met door [Azure beheerde DNS-servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution), tenzij u expliciet aangepaste DNS-servers configureert. Deze DNS-servers bieden een interne naamomzetting voor virtuele machines die zich in hetzelfde virtuele netwerk bevinden.
+
+Wanneer u een virtuele machine maakt, wordt er een toewijzing van de hostnaam aan het bijbehorende privé-IP-adres toegevoegd aan de via Azure beheerde DNS-servers. Als een virtuele machine meerdere netwerkinterfaces heeft, wordt de hostnaam toegewezen aan het privé-IP-adres van de primaire netwerkinterface.
+
+Virtuele machines die zijn geconfigureerd met via Azure beheerde DNS-servers, kunnen de hostnamen van alle virtuele machines binnen hetzelfde virtuele netwerk omzetten in hun privé-IP-adressen.
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Interne load balancers (ILB) en toepassingsgateways
-U kunt een particuliere IP-adres toohello **front-end** configuratie van een [Azure interne Load Balancer](../load-balancer/load-balancer-internal-overview.md) (ILB) of een [Azure Application Gateway](../application-gateway/application-gateway-introduction.md). Deze privé IP-adres fungeert als een interne eindpunt, toegankelijk alleen toohello bronnen binnen de virtuele netwerk (VNet) en externe netwerken Hallo verbonden toohello VNet. U kunt ofwel een dynamische of statische privé IP-adres toohello front-end configuratie toewijzen.
+
+U kunt een privé-IP-adres toewijzen aan de **front-end**-configuratie van een [interne Azure Load Balancer](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB) of een [Azure Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Dit privé-IP-adres fungeert als een intern eindpunt dat alleen toegankelijk is voor de resources binnen het virtuele netwerk en de externe netwerken die met het virtuele netwerk zijn verbonden. U kunt een dynamisch of statisch privé-IP-adres toewijzen aan de front-end-configuratie.
 
 ### <a name="at-a-glance"></a>In een oogopslag
-Hallo in de volgende tabel ziet u bepaalde Hallo-eigenschap waarmee een persoonlijke IP-adres kan worden gekoppeld tooa op het hoogste niveau resource en Hallo mogelijke toewijzingsmethoden (dynamisch of statisch) die kunnen worden gebruikt.
+De volgende tabel toont de specifieke eigenschap waarmee een privé-IP-adres kan worden gekoppeld aan een resource op het hoogste niveau, evenals de mogelijke toewijzingsmethoden (dynamisch of statisch) die kunnen worden gebruikt.
 
 | Resource op het hoogste niveau | IP-adreskoppeling | Dynamisch | Statisch |
 | --- | --- | --- | --- |
@@ -137,12 +183,12 @@ Hallo in de volgende tabel ziet u bepaalde Hallo-eigenschap waarmee een persoonl
 | Toepassingsgateway |Front-end-configuratie |Ja |Ja |
 
 ## <a name="limits"></a>Limieten
-Hallo worden limieten opgelegd voor het IP-adressering aangegeven in de volledige set Hallo [voor netwerken beperkt](../azure-subscription-service-limits.md#networking-limits) in Azure. Deze limieten gelden per regio en per abonnement. U kunt [contact op met ondersteuning](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) tooincrease Hallo standaardlimiet van bovengrenzen toohello op basis van de behoeften van uw bedrijf.
+De limieten die zijn opgelegd voor IP-adressen, vindt u in de volledige set [limieten voor netwerken](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. De limieten gelden per regio en per abonnement. U kunt [contact opnemen met ondersteuning](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) als u op basis van uw bedrijfsbehoeften de standaardlimieten wilt verhogen tot de maximumlimieten.
 
 ## <a name="pricing"></a>Prijzen
-Openbare IP-adressen kunnen een kostprijs hebben. toolearn meer over IP-adres in Azure, bekijk Hallo prijzen [IP-adres prijzen](https://azure.microsoft.com/pricing/details/ip-addresses) pagina.
+Openbare IP-adressen kunnen een kostprijs hebben. Voor meer informatie over prijzen voor IP-adressen in Azure raadpleegt u de pagina [Prijzen van IP-adressen](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Een virtuele machine met een statische openbare IP-adres met behulp van hello Azure-portal implementeren](virtual-network-deploy-static-pip-arm-portal.md)
+* [Een virtuele machine met een statisch openbaar IP-adres implementeren via Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 * [Een virtuele machine met een statisch openbaar IP-adres implementeren met een sjabloon](virtual-network-deploy-static-pip-arm-template.md)
-* [Een virtuele machine implementeren met een statisch privé IP-adres met hello Azure-portal](virtual-networks-static-private-ip-arm-pportal.md)
+* [Een virtuele machine met een statisch privé-IP-adres implementeren via Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)

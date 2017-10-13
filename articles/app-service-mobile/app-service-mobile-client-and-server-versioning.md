@@ -1,5 +1,5 @@
 ---
-title: aaaClient en server SDK-versies in Mobile Apps- en Mobile Services | Microsoft Docs
+title: Client en server SDK-versies in Mobile Apps- en Mobile Services | Microsoft Docs
 description: Lijst met client-SDK's en compatibiliteit met versies van de server-SDK voor Mobile Services en Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: 
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 5874b7455ea407ca8c77fb1bd03d97d0767ebb47
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Client- en versiebeheer in Mobile Apps- en Mobile Services
-Hallo meest recente versie van Azure Mobile Services is Hallo **Mobile Apps** functie van Azure App Service.
+De meest recente versie van Azure Mobile Services is de **Mobile Apps** functie van Azure App Service.
 
-Hallo mobiele Apps-client en server SDK's oorspronkelijk zijn gebaseerd op die in Mobile Services, maar ze zijn *niet* compatibel met elkaar.
-Dat wil zeggen, moet u een *Mobile Apps* SDK voor clients met een *Mobile Apps* server SDK en op dezelfde manier voor *Mobile Services*. Dit contract wordt afgedwongen via een speciale headerwaarde die wordt gebruikt door Hallo-client en server SDK's, `ZUMO-API-VERSION`.
+De Mobile Apps-client en server SDK's oorspronkelijk zijn gebaseerd op die in Mobile Services, maar ze zijn *niet* compatibel met elkaar.
+Dat wil zeggen, moet u een *Mobile Apps* SDK voor clients met een *Mobile Apps* server SDK en op dezelfde manier voor *Mobile Services*. Dit contract wordt afgedwongen via een speciale headerwaarde die wordt gebruikt door de client en server SDK's, `ZUMO-API-VERSION`.
 
-Opmerking: als dit document tooa verwijst *Mobile Services* backend, hoeft deze niet per se toobe gehost in Mobile Services. Het is nu mogelijk toomigrate een mobiele service toorun op App Service zonder codewijzigingen, maar zou Hallo-service nog steeds gebruikmaken van *Mobile Services* SDK-versies.
+Opmerking: als dit document verwijst naar een *Mobile Services* back-end van het niet per se hoeft te worden gehost in Mobile Services. Het is nu mogelijk om te migreren van een mobiele service worden uitgevoerd op App Service zonder codewijzigingen, maar de service nog steeds gebruikt *Mobile Services* SDK-versies.
 
-informatie over toolearn migreren tooApp Service zonder code wijzigen, Zie Hallo artikel [migreren van een tooAzure Mobile Service-App Service].
+Zie het artikel voor meer informatie over het migreren naar App Service zonder codewijzigingen [een mobiele Service migreren naar Azure App Service].
 
 ## <a name="header-specification"></a>Header-specificatie
-Hallo sleutel `ZUMO-API-VERSION` in Hallo HTTP-koptekst of queryreeks Hallo mag worden opgegeven. Hallo-waarde is een versietekenreeks in formulier Hallo **x.y.z**.
+De sleutel `ZUMO-API-VERSION` mag worden opgegeven in de HTTP-header of de query-tekenreeks. De waarde is een versietekenreeks in het formulier **x.y.z**.
 
 Bijvoorbeeld:
 
@@ -42,15 +42,15 @@ HEADERS: ZUMO-API-VERSIE: 2.0.0
 POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ## <a name="opting-out-of-version-checking"></a>Buiten-versiecontrole uitschakelen
-U kunt ervoor kiezen niet versie controleren door een waarde van **true** voor app-instelling Hallo **MS_SkipVersionCheck**. Geef dit in uw web.config of in Hallo sectie Toepassingsinstellingen hello Azure-portal.
+U kunt ervoor kiezen niet versie controleren door een waarde van **true** voor de app-instelling **MS_SkipVersionCheck**. Geef dit in uw web.config of in de sectie Toepassingsinstellingen van de Azure portal.
 
 > [!NOTE]
-> Er zijn een aantal gedragswijzigingen tussen Mobile Services en mobiele Apps, met name in Hallo gebieden van het offline synchroniseren, verificatie en pushmeldingen. U moet alleen versiecontrole na volledige testen tooensure dat deze wijzigingen het van uw app-functionaliteit niet breken afmelden.
+> Er zijn een aantal gedragswijzigingen tussen Mobile Services en mobiele Apps, met name op het gebied van het offline synchroniseren, verificatie en pushmeldingen. U moet alleen versiecontrole na testen voltooien om ervoor te zorgen dat deze wijzigingen het van uw app-functionaliteit niet breken afmelden.
 >
 >
 
 ## <a name="summary-of-compatibility-for-all-versions"></a>Samenvatting van compatibiliteit voor alle versies
-Hallo diagram hieronder toont Hallo compatibiliteit tussen alle typen van client en server. Een back-end is geclassificeerd als beide Mobile **Services** of Mobile **Apps** op basis van Hallo server SDK die wordt gebruikt.
+Het onderstaande diagram ziet u de compatibiliteit tussen alle typen van client en server. Een back-end is geclassificeerd als beide Mobile **Services** of Mobile **Apps** op basis van de server-SDK die wordt gebruikt.
 
 |  | **Mobile Services** Node.js- of .NET | **Mobiele Apps** Node.js- of .NET |
 | --- | --- | --- |
@@ -59,14 +59,14 @@ Hallo diagram hieronder toont Hallo compatibiliteit tussen alle typen van client
 
 \*Dit kan worden beheerd door te geven **MS_SkipVersionCheck**.
 
-<!-- IMPORTANT!  hello anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
+<!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
 
-<!-- NOTE: hello fwlink toothis document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
+<!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
 
 ## <a name="1.0.0"></a>Mobile Services-client en server
-Hallo client-SDK's in onderstaande tabel voor Hallo compatibel zijn met **Mobile Services**.
+De client-SDK's in de onderstaande tabel compatibel zijn met **Mobile Services**.
 
-Opmerking: Hallo Mobile Services-client-SDK's *niet* een headerwaarde verzenden voor `ZUMO-API-VERSION`. Als het Hallo-service ontvangt deze kop- of queryreekswaarde, een fout geretourneerd, tenzij u expliciet uit zoals hierboven beschreven hebt gekozen.
+Opmerking: de Mobile Services-client SDK's *niet* een headerwaarde verzenden voor `ZUMO-API-VERSION`. Als de service deze kop- of queryreekswaarde ontvangt, een fout geretourneerd, tenzij u expliciet uit zoals hierboven beschreven hebt gekozen.
 
 ### <a name="MobileServicesClients"></a>Mobiele *Services* client-SDK's
 | Clientplatform | Versie | De versieheaderwaarde |
@@ -93,7 +93,7 @@ Opmerking: Hallo Mobile Services-client-SDK's *niet* een headerwaarde verzenden 
 
 ## <a name="2.0.0"></a>Azure Mobile Apps-client en server
 ### <a name="MobileAppsClients"></a>Mobiele *Apps* client-SDK's
-Beginnen met de volgende versies van Hallo client SDK Hallo versiecontrole is geïntroduceerd voor **Azure Mobile Apps**:
+Beginnen met de volgende versies van de client-SDK versiecontrole is geïntroduceerd voor **Azure Mobile Apps**:
 
 | Clientplatform | Versie | De versieheaderwaarde |
 | --- | --- | --- |
@@ -121,11 +121,11 @@ Versiecontrole is opgenomen in de volgende server SDK-versies:
 | 3.0.0-3.x.y |ONWAAR/niet opgegeven |400 - onjuiste aanvraag |
 
 ## <a name="next-steps"></a>Volgende stappen
-* [migreren van een tooAzure Mobile Service-App Service]
+* [een mobiele Service migreren naar Azure App Service]
 
 [Mobile Services-clients]: #MobileServicesClients
 [Clients voor mobiele Apps]: #MobileAppsClients
 
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[migreren van een tooAzure Mobile Service-App Service]: app-service-mobile-migrating-from-mobile-services.md
+[een mobiele Service migreren naar Azure App Service]: app-service-mobile-migrating-from-mobile-services.md

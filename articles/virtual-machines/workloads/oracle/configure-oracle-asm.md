@@ -1,5 +1,5 @@
 ---
-title: aaaSet van Oracle ASM op een virtuele machine van Azure Linux | Microsoft Docs
+title: Oracle ASM instellen op een virtuele machine van Azure Linux | Microsoft Docs
 description: Snel gebruiksklaar Oracle ASM omhoog in uw Azure-omgeving.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: d6a7046638e919876477d46943faabcb1872acac
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Oracle ASM instellen op een virtuele machine van Azure Linux  
 
-Virtuele machines van Azure bieden een volledig worden geconfigureerd en flexibele computeromgeving. Deze zelfstudie bevat informatie over basic virtuele machine van Azure-implementatie in combinatie met het Hallo-installatie en configuratie van Oracle geautomatiseerde Storage Management (ASM).  Procedures voor:
+Virtuele machines van Azure bieden een volledig worden geconfigureerd en flexibele computeromgeving. Deze zelfstudie bevat informatie over basic virtuele machine van Azure-implementatie in combinatie met de installatie en configuratie van Oracle geautomatiseerde Storage Management (ASM).  Procedures voor:
 
 > [!div class="checklist"]
-> * Maken en koppelen tooan VM voor Oracle-Database
+> * Maken en verbinding maken met een Oracle-Database VM
 > * Installeren en configureren van Oracle automatische opslagbeheer
 > * Installeren en configureren van Oracle raster infrastructuur
 > * De installatie van een Oracle-ASM initialiseren
@@ -35,13 +35,13 @@ Virtuele machines van Azure bieden een volledig worden geconfigureerd en flexibe
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Als u tooinstall kiest en Hallo CLI lokaal gebruiken, deze zelfstudie vereist dat u de versie van de Azure CLI Hallo 2.0.4 worden uitgevoerd of hoger. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
+Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-## <a name="prepare-hello-environment"></a>Hallo-omgeving voorbereiden
+## <a name="prepare-the-environment"></a>De omgeving voorbereiden
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-een resourcegroep toocreate gebruiken Hallo [az groep maken](/cli/azure/group#create) opdracht. Een Azure-resourcegroep is een logische container in welke Azure resources worden geïmplementeerd en beheerd. In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in Hallo *eastus* regio.
+Voor het maken van een resourcegroep gebruikt de [az groep maken](/cli/azure/group#create) opdracht. Een Azure-resourcegroep is een logische container in welke Azure resources worden geïmplementeerd en beheerd. In dit voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *eastus* regio.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -49,9 +49,9 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>Een virtuele machine maken
 
-toocreate een virtuele machine op basis van de installatiekopie van de Oracle-Database Hallo en toouse Oracle ASM configureert, voert u Hallo [az vm maken](/cli/azure/vm#create) opdracht. 
+Voor een virtuele machine op basis van de installatiekopie van het Oracle-Database maken en configureren voor het gebruik van Oracle ASM, gebruiken de [az vm maken](/cli/azure/vm#create) opdracht. 
 
-Hallo wordt volgende voorbeeld een virtuele machine met de naam myVM een groot Standard_DS2_v2 met vier bijgesloten gegevensschijven van 50 GB. Als deze niet al bestaan op Hallo van sleutel standaardlocatie, maakt het ook SSH-sleutels.  toouse een specifieke verzameling van sleutels, gebruikt u Hallo `--ssh-key-value` optie.  
+Het volgende voorbeeld wordt een virtuele machine met de naam myVM een groot Standard_DS2_v2 met vier bijgesloten gegevensschijven van 50 GB. Als deze niet al bestaan op de standaardlocatie van de sleutel, maakt het ook SSH-sleutels.  Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
 
    ```azurecli-interactive
    az vm create --resource-group myResourceGroup \
@@ -62,7 +62,7 @@ Hallo wordt volgende voorbeeld een virtuele machine met de naam myVM een groot S
     --data-disk-sizes-gb 50 50 50 50
    ```
 
-Nadat u Hallo VM maakt, geeft Azure CLI informatie vergelijkbare toohello voorbeeld te volgen. Houd er rekening mee Hallo-waarde voor `publicIpAddress`. U gebruikt dit adres tooaccess Hallo VM.
+Nadat u de virtuele machine hebt gemaakt, ziet Azure CLI er ongeveer als volgt uitzien. Noteer de waarde voor `publicIpAddress`. U kunt dit adres gebruiken voor toegang tot de virtuele machine.
 
    ```azurecli
    {
@@ -77,9 +77,9 @@ Nadat u Hallo VM maakt, geeft Azure CLI informatie vergelijkbare toohello voorbe
    }
    ```
 
-### <a name="connect-toohello-vm"></a>Verbinding maken met toohello VM
+### <a name="connect-to-the-vm"></a>Verbinding maken met de virtuele machine
 
-toocreate een SSH-sessie met Hallo VM en extra instellingen configureren, gebruikt u Hallo opdracht te volgen. Hallo IP-adres vervangen door Hallo `publicIpAddress` waarde voor uw virtuele machine.
+Aanvullende instellingen wilt maken van een SSH-sessie met de virtuele machine en configureren, moet u de volgende opdracht gebruiken. Vervang de IP-adres met de `publicIpAddress` waarde voor uw virtuele machine.
 
 ```bash 
 ssh <publicIpAddress>
@@ -87,17 +87,17 @@ ssh <publicIpAddress>
 
 ## <a name="install-oracle-asm"></a>Oracle ASM installeren
 
-tooinstall Oracle ASM, volledige Hallo stappen te volgen. 
+Voltooi de volgende stappen uit voor het installeren van Oracle ASM. 
 
 Zie voor meer informatie over het installeren van Oracle ASM [Oracle ASMLib Downloads voor Oracle Linux 6](http://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html).  
 
-1. U moet toologin als hoofdgebruiker in volgorde toocontinue ASM-installatie:
+1. U moet zich aanmelden als basis om door te gaan met de ASM-installatie:
 
    ```bash
    sudo su -
    ```
    
-2. Deze aanvullende opdrachten tooinstall Oracle ASM onderdelen uitvoeren:
+2. Voer deze aanvullende opdrachten om Oracle-ASM-onderdelen te installeren:
 
    ```bash
     yum list | grep oracleasm 
@@ -114,7 +114,7 @@ Zie voor meer informatie over het installeren van Oracle ASM [Oracle ASMLib Down
    rpm -qa |grep oracleasm
    ```
 
-    Hallo-uitvoer van deze opdracht moet lijst Hallo volgende onderdelen:
+    De uitvoer van deze opdracht moet de volgende onderdelen weergeven:
 
     ```bash
    oracleasm-support-2.1.10-4.el6.x86_64
@@ -122,7 +122,7 @@ Zie voor meer informatie over het installeren van Oracle ASM [Oracle ASMLib Down
    oracleasmlib-2.0.12-1.el6.x86_64
     ```
 
-4. ASM vereist specifieke gebruikers en rollen in volgorde toofunction correct. Hallo opdrachten na maken Hallo vereiste gebruikersaccounts en groepen: 
+4. ASM vereist zijn voor specifieke gebruikers en rollen. De volgende opdrachten maken de vereiste gebruikersaccounts en groepen: 
 
    ```bash
     groupadd -g 54345 asmadmin 
@@ -138,13 +138,13 @@ Zie voor meer informatie over het installeren van Oracle ASM [Oracle ASMLib Down
    id grid
    ```
 
-    Hallo uitvoer van deze opdracht moet lijst Hallo volgende gebruikers en groepen:
+    De uitvoer van deze opdracht moet de volgende gebruikers en groepen weergeven:
 
     ```bash
     uid=3000(grid) gid=54321(oinstall) groups=54321(oinstall),54322(dba),54345(asmadmin),54346(asmdba),54347(asmoper)
     ```
  
-6. Maak een map voor de gebruiker *raster* en Hallo eigenaar wijzigen:
+6. Maak een map voor de gebruiker *raster* en wijzigt u de eigenaar:
 
    ```bash
    mkdir /u01/app/grid 
@@ -153,38 +153,38 @@ Zie voor meer informatie over het installeren van Oracle ASM [Oracle ASMLib Down
 
 ## <a name="set-up-oracle-asm"></a>Oracle ASM instellen
 
-Voor deze zelfstudie Hallo standaardgebruiker is *raster* en Hallo standaardgroep is *asmadmin*. Zorg ervoor dat Hallo *oracle* gebruiker maakt deel uit van Hallo asmadmin groep. tooset van uw Oracle ASM-installatie voltooid Hallo stappen te volgen:
+Voor deze zelfstudie is het de standaardgebruiker *raster* en de standaardgroep is *asmadmin*. Zorg ervoor dat de *oracle* gebruiker maakt deel uit van de groep asmadmin. Als u de installatie van de Oracle-ASM instelt, moet u de volgende stappen uitvoeren:
 
-1. Het instellen van Hallo Oracle ASM bibliotheek stuurprogramma Hallo standaardgebruiker (raster) en de standaardgroep (asmadmin) definiëren evenals Hallo station toostart configureren bij het opstarten is (Kies y) en tooscan voor schijven bij het opstarten (Kies y). U moet tooanswer Hallo prompts van Hallo volgende opdracht:
+1. Instellen van het stuurprogramma van de bibliotheek Oracle ASM omvat het definiëren van de standaardgebruiker (raster) en de standaardgroep (asmadmin), evenals het station te starten op opstarten configureren (Kies y) en om te zoeken naar schijven op opstarten (Kies y). U moet de vragen beantwoorden van de volgende opdracht:
 
    ```bash
    /usr/sbin/oracleasm configure -i
    ```
 
-   Hallo-uitvoer van deze opdracht moet eruitzien vergelijkbare toohello te volgen, te stoppen met prompts toobe beantwoord.
+   De uitvoer van deze opdracht ziet er ongeveer als volgt, stoppen met vraagt worden beantwoord.
 
     ```bash
-   Configuring hello Oracle ASM library driver.
+   Configuring the Oracle ASM library driver.
 
-   This will configure hello on-boot properties of hello Oracle ASM library
-   driver. hello following questions will determine whether hello driver is
-   loaded on boot and what permissions it will have. hello current values
+   This will configure the on-boot properties of the Oracle ASM library
+   driver. The following questions will determine whether the driver is
+   loaded on boot and what permissions it will have. The current values
    will be shown in brackets ('[]'). Hitting <ENTER> without typing an
    answer will keep that current value. Ctrl-C will abort.
 
-   Default user tooown hello driver interface []: grid
-   Default group tooown hello driver interface []: asmadmin
+   Default user to own the driver interface []: grid
+   Default group to own the driver interface []: asmadmin
    Start Oracle ASM library driver on boot (y/n) [n]: y
    Scan for Oracle ASM disks on boot (y/n) [y]: y
    Writing Oracle ASM library driver configuration: done
    ```
 
-2. Weergaveconfiguratie Hallo schijf:
+2. De schijfconfiguratie weergeven:
    ```bash
    cat /proc/partitions
    ```
 
-   Hallo-uitvoer van deze opdracht ziet er vergelijkbare toohello volgen in de lijst met beschikbare schijven
+   De uitvoer van deze opdracht zijn vergelijkbaar met de volgende lijst met beschikbare schijven
 
    ```bash
    8       16   14680064 sdb
@@ -199,34 +199,34 @@ Voor deze zelfstudie Hallo standaardgebruiker is *raster* en Hallo standaardgroe
    11       0       1152 sr0
    ```
 
-3. Schijf formatteren */dev/sdc* Hallo door de volgende opdracht en het beantwoorden van Hallo prompts met:
+3. Schijf formatteren */dev/sdc* door de volgende opdracht uit te voeren en de prompts met beantwoorden:
    - *n*voor nieuwe partitie
    - *p* voor primaire partitie
-   - *1* tooselect Hallo eerste partitie
-   - Druk op `enter` voor Hallo standaard eerste cilinder
-   - Druk op `enter` voor Hallo standaard laatste cilinder
-   - Druk op *w* toowrite Hallo wijzigingen toohello-partitietabel  
+   - *1* om de eerste partitie te selecteren
+   - Druk op `enter` voor de eerste cilinder standaard
+   - Druk op `enter` voor de laatste cilinder standaard
+   - Druk op *w* de wijzigingen naar de partitietabel schrijven  
 
    ```bash
    fdisk /dev/sdc
    ```
    
-   Met de bovenstaande Hallo-antwoorden, moet Hallo uitvoer voor Hallo fdisk opdracht eruitzien als Hallo volgende:
+   Met behulp van de bovenstaande antwoorden, moet de uitvoer voor de opdracht fdisk eruitzien als in het volgende:
 
    ```bash
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
    Building a new DOS disklabel with disk identifier 0xf865c6ca.
-   Changes will remain in memory only, until you decide toowrite them.
-   After that, of course, hello previous content won't be recoverable.
+   Changes will remain in memory only, until you decide to write them.
+   After that, of course, the previous content won't be recoverable.
 
    Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)
 
-   hello device presents a logical sector size that is smaller than
-   hello physical sector size. Aligning tooa physical sector (or optimal
+   The device presents a logical sector size that is smaller than
+   the physical sector size. Aligning to a physical sector (or optimal
    I/O) size boundary is recommended, or performance may be impacted.
 
    WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
-           switch off hello mode (command 'c') and change display units to
+           switch off the mode (command 'c') and change display units to
            sectors (command 'u').
 
    Command (m for help): n
@@ -241,21 +241,21 @@ Voor deze zelfstudie Hallo standaardgebruiker is *raster* en Hallo standaardgroe
    Using default value 6527
 
    Command (m for help): w
-   hello partition table has been altered!
+   The partition table has been altered!
 
-   Calling ioctl() toore-read partition table.
+   Calling ioctl() to re-read partition table.
    Syncing disks.
    ```
 
-4. Herhalingen Hallo voorafgaand aan de opdracht fdisk voor `/dev/sdd`, `/dev/sde`, en `/dev/sdf`.
+4. Herhaal de voorgaande opdracht fdisk voor `/dev/sdd`, `/dev/sde`, en `/dev/sdf`.
 
-5. Controleer de schijfconfiguratie Hallo:
+5. Controleer de schijfconfiguratie:
 
    ```bash
    cat /proc/partitions
    ```
 
-   Hallo-uitvoer van Hallo-opdracht moet eruitzien als Hallo volgende:
+   De uitvoer van de opdracht moet er als volgt uitzien:
 
    ```bash
    major minor  #blocks  name
@@ -276,20 +276,20 @@ Voor deze zelfstudie Hallo standaardgebruiker is *raster* en Hallo standaardgroe
      11       0    1048575 sr0
    ```
 
-6. Controleer de servicestatus voor Oracle ASM Hallo Hallo Oracle ASM-service en starten:
+6. Controleer de status van de Oracle-ASM-service en start de service Oracle ASM:
 
    ```bash
    service oracleasm status 
    service oracleasm start
    ```
 
-   Hallo-uitvoer van Hallo-opdracht moet eruitzien als Hallo volgende:
+   De uitvoer van de opdracht moet er als volgt uitzien:
    
    ```bash
    Checking if ASM is loaded: no
    Checking if /dev/oracleasm is mounted: no
-   Initializing hello Oracle ASMLib driver:                     [  OK  ]
-   Scanning hello system for Oracle ASMLib disks:               [  OK  ]
+   Initializing the Oracle ASMLib driver:                     [  OK  ]
+   Scanning the system for Oracle ASMLib disks:               [  OK  ]
    ```
 
 7. Oracle ASM schijven maken:
@@ -301,7 +301,7 @@ Voor deze zelfstudie Hallo standaardgebruiker is *raster* en Hallo standaardgroe
    service oracleasm createdisk FRA /dev/sdf1
    ```    
 
-   Hallo-uitvoer van Hallo-opdracht moet eruitzien als Hallo volgende:
+   De uitvoer van de opdracht moet er als volgt uitzien:
 
    ```bash
    Marking disk "ASMSP" as an ASM disk:                       [  OK  ]
@@ -316,7 +316,7 @@ Voor deze zelfstudie Hallo standaardgebruiker is *raster* en Hallo standaardgroe
    service oracleasm listdisks
    ```   
 
-   Hallo-uitvoer van Hallo-opdracht moet lijst uitschakelen Hallo Oracle ASM schijven te volgen:
+   De uitvoer van de opdracht moet de volgende Oracle ASM schijven uit lijst:
 
    ```bash
     ASMSP
@@ -325,7 +325,7 @@ Voor deze zelfstudie Hallo standaardgebruiker is *raster* en Hallo standaardgroe
     FRA
    ```
 
-9. Hallo wachtwoorden wijzigen voor de basis-, oracle en raster gebruikers Hallo. **Noteer deze nieuwe wachtwoorden** als u deze later tijdens het Hallo-installatie gebruikt.
+9. De wachtwoorden voor de basis-, oracle en raster gebruikers wijzigen. **Noteer deze nieuwe wachtwoorden** zoals u ze later tijdens de installatie worden gebruikt.
 
    ```bash
    passwd oracle 
@@ -333,7 +333,7 @@ Voor deze zelfstudie Hallo standaardgebruiker is *raster* en Hallo standaardgroe
    passwd root
    ```
 
-10. Hallo map machtiging wijzigen:
+10. De machtiging map wijzigen:
 
    ```bash
    chmod -R 775 /opt 
@@ -350,19 +350,19 @@ Voor deze zelfstudie Hallo standaardgebruiker is *raster* en Hallo standaardgroe
 
 ## <a name="download-and-prepare-oracle-grid-infrastructure"></a>Download en Oracle raster infrastructuur voorbereiden
 
-toodownload en bereid Hallo Oracle raster software voor de infrastructuur voltooid Hallo stappen te volgen:
+Als u wilt downloaden en voorbereiden van de software Oracle raster infrastructuur, moet u de volgende stappen uitvoeren:
 
-1. Oracle raster infrastructuur downloaden van Hallo [Oracle ASM-downloadpagina](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+1. Downloaden van Oracle raster infrastructuur niet vanuit de [Oracle ASM-downloadpagina](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
 
-   Klik onder Hallo-download met de titel **Oracle-Database 12c versie 1 raster infrastructuur (12.1.0.2.0) voor Linux x86-64**, Hallo twee ZIP-bestanden downloaden.
+   Onder het downloaden met de titel **Oracle-Database 12c versie 1 raster infrastructuur (12.1.0.2.0) voor Linux x86-64**, de twee ZIP-bestanden downloaden.
 
-2. Nadat u Hallo ZIP-bestanden tooyour-clientcomputer hebt gedownload, kunt u beveiligde kopie Protocol (SCP) toocopy Hallo bestanden tooyour VM:
+2. Nadat u het ZIP-bestanden op uw clientcomputer hebt gedownload, kunt u beveiligde kopie Protocol (SCP) Kopieer de bestanden naar uw virtuele machine:
 
    ```bash
    scp *.zip <publicIpAddress>:.
    ```
 
-3. SSH in uw Oracle-virtuele machine in Azure in volgorde toomove Hallo ZIP-bestanden in Hallo back-map te kiezen. Wijzig Hallo-eigenaar van het Hallo-bestanden:
+3. SSH terug in uw Oracle-virtuele machine in Azure om het verplaatsen van het ZIP-bestanden in de / opt-map. Wijzig de eigenaar van de bestanden:
 
    ```bash
    ssh <publicIPAddress>
@@ -372,7 +372,7 @@ toodownload en bereid Hallo Oracle raster software voor de infrastructuur voltoo
    sudo chown grid:oinstall linuxamd64_12102_grid_2of2.zip
    ```
 
-4. Hallo bestanden uitpakken. (Installatie Hallo Linux pak hulpprogramma als deze nog niet is geïnstalleerd.)
+4. Pak de bestanden. (De Linux installeren pak hulpprogramma als deze nog niet is geïnstalleerd.)
    
    ```bash
    sudo yum install unzip
@@ -386,31 +386,31 @@ toodownload en bereid Hallo Oracle raster software voor de infrastructuur voltoo
    sudo chown -R grid:oinstall /opt/grid
    ```
 
-6. Update geconfigureerd wisselruimte. Oracle raster onderdelen moeten ten minste 6,8 GB wisselen ruimte tooinstall raster. Hallo standaard wisselbestand voor Oracle Linux afbeeldingen in Azure is alleen 2048MB. U moet tooincrease `ResourceDisk.SwapSizeMB` in Hallo `/etc/waagent.conf` bestands- en Hallo WALinuxAgent service opnieuw starten om Hallo bijgewerkt instellingen tootake effect. Omdat het een alleen-lezen bestand, moet u tooenable schrijftoegang voor toochange bestand machtigingen.
+6. Update geconfigureerd wisselruimte. Oracle raster onderdelen moeten ten minste 6,8 GB wisselruimte voor het installeren van raster. Standaardgrootte van het wisselbestand voor Oracle Linux afbeeldingen in Azure is alleen 2048MB. U moet verhogen om `ResourceDisk.SwapSizeMB` in de `/etc/waagent.conf` -bestand en de WALinuxAgent-service opnieuw starten om de bijgewerkte instellingen kracht te laten worden. Omdat het een alleen-lezen bestand, die u wilt wijzigen bestandsmachtigingen om in te schakelen voor toegang voor schrijven.
 
    ```bash
    sudo chmod 777 /etc/waagent.conf  
    vi /etc/waagent.conf
    ```
    
-   Zoeken naar `ResourceDisk.SwapSizeMB` en Hallo waarde te wijzigen**8192**. U moet toopress `insert` tooenter invoegmodus, typt u de waarde Hallo van **8192** en druk vervolgens op `esc` tooreturn toocommand modus. toowrite hello wijzigingen en afsluiten Hallo-bestand, typ `:wq` en druk op `enter`.
+   Zoeken naar `ResourceDisk.SwapSizeMB` en wijzig de waarde in **8192**. Moet u op `insert` invoegmodus, typt u in de waarde van **8192** en druk vervolgens op `esc` om terug te keren naar de opdrachtmodus. Voor het schrijven van de wijzigingen en sluit het bestand, typ `:wq` en druk op `enter`.
    
    > [!NOTE]
-   > We raden dat u altijd gebruiken `WALinuxAgent` tooconfigure wisselruimte zodat deze altijd op Hallo lokale kortstondige schijf (tijdelijke schijf) voor de beste prestaties gemaakt. Zie voor meer informatie over [hoe tooadd een wisseling in Linux Azure virtuele machines bestand](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
+   > We raden dat u altijd gebruiken `WALinuxAgent` wisselruimte configureren zodat deze altijd wordt gemaakt op de lokale tijdelijke schijf (tijdelijke schijf) voor de beste prestaties. Zie voor meer informatie over [toevoegen van een wisselbestand in Linux Azure virtual machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
 
-## <a name="prepare-your-local-client-and-vm-toorun-x11"></a>Voorbereiden van uw lokale client en de VM toorun x11
-Oracle ASM configureert, dient een grafische interface toocomplete Hallo installatie en configuratie. We gebruiken Hallo x11 protocol toofacilitate deze installatie. Als u een clientsysteem (Mac of Linux) dat al X11 is mogelijkheden ingeschakeld en geconfigureerd - kunt u deze configuratie overslaan en exclusieve tooWindows machines in te stellen. 
+## <a name="prepare-your-local-client-and-vm-to-run-x11"></a>Voorbereiden van uw lokale client en de virtuele machine voor het uitvoeren van x11
+Oracle ASM configureert, dient een grafische interface voor het voltooien van de installatie en configuratie. We gebruiken de x11 protocol om deze installatie. Als u een clientsysteem (Mac of Linux) dat al X11 is mogelijkheden ingeschakeld en geconfigureerd - kunt u deze configuratie en installatie exclusieve overslaan voor Windows-computers. 
 
-1. [Download PuTTY](http://www.putty.org/) en [downloaden Xming](https://xming.en.softonic.com/) tooyour Windows-computer. U moet toocomplete Hallo installatie van beide toepassingen met de Hallo standaardwaarden voordat u doorgaat.
+1. [Download PuTTY](http://www.putty.org/) en [Xming downloaden](https://xming.en.softonic.com/) naar uw Windows-computer. U moet de installatie van beide toepassingen met de standaardwaarden voordat u doorgaat.
 
-2. Nadat u PuTTY hebt geïnstalleerd, open een opdrachtprompt, wijzigen in Hallo PuTTY map (bijvoorbeeld C:\Program Files\PuTTY) en voer `puttygen.exe` in volgorde toogenerate een sleutel.
+2. Nadat u PuTTY hebt geïnstalleerd, open een opdrachtprompt, wijzigen in de PuTTY-map (bijvoorbeeld C:\Program Files\PuTTY) en voer `puttygen.exe` om een sleutel te genereren.
 
 3. In de PuTTY codegenerator:
    
-   1. Een sleutel te genereren door het selecteren van Hallo `Generate` knop.
-   2. Kopieer de inhoud Hallo van Hallo-sleutel (Ctrl + C).
-   3. Selecteer Hallo `Save private key` knop.
-   4. Hallo-waarschuwing over het beveiligen van sleutel met een wachtwoordzin Hallo negeren en selecteer vervolgens `OK`.
+   1. Een sleutel te genereren door de `Generate` knop.
+   2. Kopieer de inhoud van de sleutel (Ctrl + C).
+   3. Selecteer de `Save private key` knop.
+   4. Negeer de waarschuwing over het beveiligen van de sleutel met een wachtwoordzin in en selecteer vervolgens `OK`.
 
    ![Schermopname van PuTTY codegenerator](./media/oracle-asm/puttykeygen.png)
 
@@ -422,88 +422,88 @@ Oracle ASM configureert, dient een grafische interface toocomplete Hallo install
    cd .ssh
    ```
 
-5. Maak een bestand met de naam `authorized_keys`. Hallo-inhoud van Hallo key plakken in dit bestand en sla Hallo-bestand.
+5. Maak een bestand met de naam `authorized_keys`. Plak de inhoud van de sleutel in dit bestand en sla het bestand.
 
    > [!NOTE]
-   > Hallo-sleutel moet Hallo tekenreeks bevatten `ssh-rsa`. Hallo-inhoud van Hallo-sleutel moet ook een enkele regel tekst.
+   > De sleutel moet de tekenreeks bevatten `ssh-rsa`. De inhoud van de sleutel moet ook een enkele regel tekst.
    >  
 
-6. Start op uw clientsysteem PuTTY. In Hallo **categorie** deelvenster te gaan**verbinding** > **SSH** > **Auth**. In Hallo **persoonlijke sleutelbestand voor verificatie** vak, blader toohello-sleutel die u eerder hebt gegenereerd.
+6. Start op uw clientsysteem PuTTY. In de **categorie** deelvenster, gaat u naar **verbinding** > **SSH** > **Auth**. In de **persoonlijke sleutelbestand voor verificatie** vak, blader naar de sleutel die u eerder hebt gegenereerd.
 
-   ![Schermafbeelding van de opties voor Hallo SSH-verificatie](./media/oracle-asm/setprivatekey.png)
+   ![Schermafbeelding van de opties voor SSH-verificatie](./media/oracle-asm/setprivatekey.png)
 
-7. In Hallo **categorie** deelvenster te gaan**verbinding** > **SSH** > **X11**. Selecteer Hallo **inschakelen X11 doorsturen** selectievakje.
+7. In de **categorie** deelvenster, gaat u naar **verbinding** > **SSH** > **X11**. Selecteer de **inschakelen X11 doorsturen** selectievakje.
 
-   ![Schermopname van Hallo SSH X11 opties doorsturen](./media/oracle-asm/enablex11.png)
+   ![Schermafbeelding van de SSH-X11 opties doorsturen](./media/oracle-asm/enablex11.png)
 
-8. In Hallo **categorie** deelvenster te gaan**sessie**. Voer uw Oracle ASM VM `<publicIPaddress>` in Hallo host naam in het dialoogvenster vult u een nieuwe `Saved Session` name op en klik vervolgens op `Save`.  Wanneer opgeslagen, klik op `open` tooconnect tooyour Oracle ASM virtuele machine.  Hallo eerste keer dat u verbinding maakt u een waarschuwing Hallo externe systeem is niet in de cache opgeslagen in het register. Klik op `yes` tooadd deze en door te gaan.
+8. In de **categorie** deelvenster, gaat u naar **sessie**. Voer uw Oracle ASM VM `<publicIPaddress>` in het dialoogvenster host vult u een nieuwe `Saved Session` name op en klik vervolgens op `Save`.  Wanneer opgeslagen, klik op `open` verbinding maken met de Oracle-ASM virtuele machine.  De eerste keer dat u verbinding maakt u een waarschuwing dat het externe systeem is niet in de cache opgeslagen in het register. Klik op `yes` toe te voegen en doorgaan.
 
-   ![Schermopname van Hallo PuTTY-sessie-opties](./media/oracle-asm/puttysession.png)
+   ![Schermafbeelding van de PuTTY-sessie-opties](./media/oracle-asm/puttysession.png)
 
 ## <a name="install-oracle-grid-infrastructure"></a>Oracle raster infrastructuur installeren
 
-tooinstall Oracle raster infrastructuur, volledige Hallo stappen te volgen:
+Als u wilt installeren Oracle raster infrastructuur, moet u de volgende stappen uitvoeren:
 
-1. Meld u aan als **raster**. (U moet kunnen toosign in zonder te worden gevraagd om een wachtwoord.) 
+1. Meld u aan als **raster**. (U moet zich aanmelden zonder te worden gevraagd om een wachtwoord.) 
 
    > [!NOTE]
-   > Als u Windows uitvoert, zorg er dan voor dat u hebt Xming voordat u begint met Hallo installatie gestart.
+   > Als u Windows uitvoert, zorg er dan voor dat u hebt Xming gestart voordat u de installatie begint.
 
    ```bash
    cd /opt/grid
    ./runInstaller
    ```
 
-   Oracle raster infrastructuur 12c versie 1 installatieprogramma wordt geopend. (Het kan enkele minuten duren voordat Hallo installer toostart.)
+   Oracle raster infrastructuur 12c versie 1 installatieprogramma wordt geopend. (Het kan enkele minuten duren voordat het installatieprogramma starten.)
 
-2. Op Hallo **installatieoptie selecteren** pagina **installeren en configureren van Oracle raster infrastructuur voor een zelfstandige Server**.
+2. Op de **installatieoptie selecteren** pagina **installeren en configureren van Oracle raster infrastructuur voor een zelfstandige Server**.
 
-   ![Schermafbeelding van pagina met Hallo-installatieprogramma installatieoptie selecteren](./media/oracle-asm/install01.png)
+   ![Schermafbeelding van pagina met het installatieprogramma de installatie-optie selecteren](./media/oracle-asm/install01.png)
 
-3. Op Hallo **Product talen selecteren** pagina, controleert u **Engels** of Hallo taal die u wilt dat is geselecteerd.  Klik op `next`.
+3. Op de **Product talen selecteren** pagina, controleert u **Engels** of de taal die u wilt dat is geselecteerd.  Klik op `next`.
 
-4. Op Hallo **ASM schijfgroep maken** pagina:
-   - Voer een naam voor de schijfgroep Hallo.
+4. Op de **ASM schijfgroep maken** pagina:
+   - Voer een naam voor de schijfgroep op.
    - Onder **redundantie**, selecteer **externe**.
    - Onder **clustergrootte**, selecteer **4**.
    - Onder **schijven toevoegen**, selecteer **ORCLASMSP**.
    - Klik op `next`.
 
-5. Op Hallo **ASM wachtwoord opgeven** pagina, selecteer Hallo **dezelfde wachtwoorden gebruiken voor deze accounts** optie en voer een wachtwoord.
+5. Op de **ASM wachtwoord opgeven** pagina de **dezelfde wachtwoorden gebruiken voor deze accounts** optie en voer een wachtwoord.
 
-   ![Schermafbeelding van pagina met Hallo-installatieprogramma ASM wachtwoord opgeven](./media/oracle-asm/install04.png)
+   ![Schermafbeelding van pagina met het installatieprogramma ASM wachtwoord opgeven](./media/oracle-asm/install04.png)
 
-6. Op Hallo **beheeropties opgeven** pagina, hebt u Hallo optie tooconfigure EM Cloud-besturingselement. Deze optie wordt overgeslagen: klik `next` toocontinue. 
+6. Op de **beheeropties opgeven** pagina, hebt u de optie voor het configureren van EM Cloud-besturingselement. Deze optie wordt overgeslagen: klik `next` om door te gaan. 
 
-7. Op Hallo **bevoorrechte besturingssysteem** pagina, Hallo standaardinstellingen gebruiken. Klik op `next` toocontinue.
+7. Op de **bevoorrechte besturingssysteem** pagina, gebruikt u de standaardinstellingen. Klik op `next` om door te gaan.
 
-8. Op Hallo **installatielocatie opgeven** pagina, Hallo standaardinstellingen gebruiken. Klik op `next` toocontinue.
+8. Op de **installatielocatie opgeven** pagina, gebruikt u de standaardinstellingen. Klik op `next` om door te gaan.
 
-9. Op Hallo **inventaris maken** pagina, Hallo inventaris Directory ook wijzigen`/u01/app/grid/oraInventory`. Klik op `next` toocontinue.
+9. Op de **inventaris maken** pagina, wijzig de map-inventarisatie in `/u01/app/grid/oraInventory`. Klik op `next` om door te gaan.
 
-   ![Schermafbeelding van pagina met Hallo-installatieprogramma inventaris maken](./media/oracle-asm/install08.png)
+   ![Schermafbeelding van pagina met het installatieprogramma inventaris maken](./media/oracle-asm/install08.png)
 
-10. Op Hallo **hoofdmap script uitvoering configuratie** pagina, selecteer Hallo **automatisch uitgevoerd configuratiescripts** selectievakje. Selecteer Hallo **'root' gebruikersreferenties gebruiken** optie en geef Hallo hoofdmap gebruikerswachtwoord.
+10. Op de **hoofdmap script uitvoering configuratie** pagina de **automatisch uitgevoerd configuratiescripts** selectievakje. Selecteer de **'root' gebruikersreferenties gebruiken** optie en voer het hoofdwachtwoord van de gebruiker.
 
-    ![Schermafbeelding van pagina met Hallo-installatieprogramma hoofdmap script uitvoering configuratie](./media/oracle-asm/install09.png)
+    ![Schermafbeelding van de configuratiepagina voor het installatieprogramma basis-script uitvoeren](./media/oracle-asm/install09.png)
 
-11. Op Hallo **vereiste controles uitvoeren** pagina Hallo huidige mislukt de installatie met fouten. Dit is verwacht gedrag. Selecteer `Fix & Check Again`.
+11. Op de **vereiste controles uitvoeren** pagina, de huidige installatie mislukt met fouten. Dit is verwacht gedrag. Selecteer `Fix & Check Again`.
 
-12. In Hallo **reparatie Script** in het dialoogvenster, klikt u op `OK`.
+12. In de **reparatie Script** in het dialoogvenster, klikt u op `OK`.
 
-13. Op Hallo **samenvatting** pagina, Controleer de geselecteerde instellingen en klik vervolgens op `Install`.
+13. Op de **samenvatting** pagina, Controleer de geselecteerde instellingen en klik vervolgens op `Install`.
 
-    ![Schermafbeelding van overzichtspagina Hallo-installatieprogramma](./media/oracle-asm/install12.png)
+    ![Schermafbeelding van overzichtspagina van het installatieprogramma](./media/oracle-asm/install12.png)
 
-14. Een waarschuwingsdialoogvenster verschijnt de melding u configuratiescripts moet toobe uitgevoerd als een bevoegde gebruiker. Klik op `Yes` toocontinue.
+14. Een waarschuwingsdialoogvenster wordt geïnformeerd u configuratie scripts moeten worden uitgevoerd als een bevoegde gebruiker weergegeven. Klik op `Yes` om door te gaan.
 
-15. Op Hallo **voltooien** pagina, klikt u op `Close` toofinish Hallo-installatie.
+15. Op de **voltooien** pagina, klikt u op `Close` om de installatie te voltooien.
 
 ## <a name="set-up-your-oracle-asm-installation"></a>Instellen van de Oracle-ASM-installatie
 
-tooset van uw Oracle ASM-installatie voltooid Hallo stappen te volgen:
+Als u de installatie van de Oracle-ASM instelt, moet u de volgende stappen uitvoeren:
 
-1. Zorg ervoor dat u nog steeds bent aangemeld als **raster**, van uw X11 sessie. Mogelijk moet u toohit `enter` toorevive Hallo terminal. Start vervolgens Hallo Oracle geautomatiseerde Storage Management Configuration-assistent:
+1. Zorg ervoor dat u nog steeds bent aangemeld als **raster**, van uw X11 sessie. Mogelijk moet u bereikt `enter` naar schud de terminal. Start vervolgens de Oracle geautomatiseerde Storage Management Configuration-assistent:
 
    ```bash
    cd /u01/app/grid/product/12.1.0/grid/bin
@@ -512,40 +512,40 @@ tooset van uw Oracle ASM-installatie voltooid Hallo stappen te volgen:
 
    Oracle ASM configuratie-assistent wordt geopend.
 
-2. In Hallo **ASM configureren: schijfgroepen** dialoogvenster vak, klikt u op Hallo `Create` knop en klik vervolgens op `Show Advanced Options`.
+2. In de **ASM configureren: schijfgroepen** in het dialoogvenster, klikt u op de `Create` knop en klik vervolgens op `Show Advanced Options`.
 
-3. In Hallo **schijfgroep maken** in het dialoogvenster:
+3. In de **schijfgroep maken** in het dialoogvenster:
 
-   - Voer Hallo schijf groepsnaam **gegevens**.
+   - Voer de naam van de schijf **gegevens**.
    - Onder **lidschijven selecteren**, selecteer **ORCL_DATA** en **ORCL_DATA1**.
    - Onder **clustergrootte**, selecteer **4**.
-   - Klik op `ok` toocreate Hallo schijfgroep.
-   - Klik op `ok` tooclose Hallo bevestigingsvenster.
+   - Klik op `ok` om de schijfgroep te maken.
+   - Klik op `ok` om de bevestigingsvenster te sluiten.
 
-   ![Schermopname van dialoogvenster Hallo-schijfgroep maken](./media/oracle-asm/asm02.png)
+   ![Schermopname van het dialoogvenster schijfgroep maken](./media/oracle-asm/asm02.png)
 
-4. In Hallo **ASM configureren: schijfgroepen** dialoogvenster vak, klikt u op Hallo `Create` knop en klik vervolgens op `Show Advanced Options`.
+4. In de **ASM configureren: schijfgroepen** in het dialoogvenster, klikt u op de `Create` knop en klik vervolgens op `Show Advanced Options`.
 
-5. In Hallo **schijfgroep maken** in het dialoogvenster:
+5. In de **schijfgroep maken** in het dialoogvenster:
 
-   - Voer Hallo schijf groepsnaam **FRA**.
+   - Voer de naam van de schijf **FRA**.
    - Onder **redundantie**, selecteer **External (geen)**.
    - Onder **lidschijven selecteren**, selecteer **ORCL_FRA**.
    - Onder **clustergrootte**, selecteer **4**.
-   - Klik op `ok` toocreate Hallo schijfgroep.
-   - Klik op `ok` tooclose Hallo bevestigingsvenster.
+   - Klik op `ok` om de schijfgroep te maken.
+   - Klik op `ok` om de bevestigingsvenster te sluiten.
 
-   ![Schermopname van dialoogvenster Hallo-schijfgroep maken](./media/oracle-asm/asm04.png)
+   ![Schermopname van het dialoogvenster schijfgroep maken](./media/oracle-asm/asm04.png)
 
-6. Selecteer **afsluiten** tooclose configuratie-assistent ASM.
+6. Selecteer **afsluiten** ASM configuratie-assistent sluiten.
 
-   ![Schermopname van Hallo ASM configureren: schijfgroepen-dialoogvenster met de knop Afsluiten](./media/oracle-asm/asm05.png)
+   ![Schermafbeelding van de ASM configureren: schijfgroepen-dialoogvenster met de knop Afsluiten](./media/oracle-asm/asm05.png)
 
-## <a name="create-hello-database"></a>Hallo-database maken
+## <a name="create-the-database"></a>De database maken
 
-Hallo software voor Oracle-database is al geïnstalleerd op de hello Azure Marketplace-installatiekopie. toocreate een database, volledige Hallo stappen te volgen:
+De software van Oracle-database is al geïnstalleerd op de Azure Marketplace-installatiekopie. Als u wilt een database maakt, moet u de volgende stappen uitvoeren:
 
-1. Schakelen gebruikers toohello Oracle supergebruiker en vervolgens initialiseren Hallo-listener voor logboekregistratie:
+1. Gebruikers overschakelen naar de Oracle-beheerder en vervolgens de listener voor logboekregistratie te initialiseren:
 
    ```bash
    su - oracle
@@ -554,27 +554,27 @@ Hallo software voor Oracle-database is al geïnstalleerd op de hello Azure Marke
    ```
    Configuratie-assistent database wordt geopend.
 
-2. Op Hallo **databasebewerking** pagina, klikt u op `Create Database`.
+2. Op de **databasebewerking** pagina, klikt u op `Create Database`.
 
-3. Op Hallo **aanmaakmodus** pagina:
+3. Op de **aanmaakmodus** pagina:
 
-   - Voer een naam voor de Hallo-database.
+   - Voer een naam voor de database.
    - Voor **opslagtype**, zorg ervoor dat **automatische Storage Management (ASM)** is geselecteerd.
-   - Voor **bestanden databaselocatie**, standaard-Hallo ASM voorgestelde locatie.
-   - Voor **snel herstel gebied**, standaard-Hallo ASM voorgestelde locatie.
+   - Voor **bestanden databaselocatie**, gebruikt u de standaard ASM voorgestelde locatie.
+   - Voor **snel herstel gebied**, gebruikt u de standaard ASM voorgestelde locatie.
    - Typ in een **beheerderswachtwoord** en **wachtwoord bevestigen**.
    - Zorg ervoor dat `create as container database` is geselecteerd.
    - Typ in een `pluggable database name` waarde.
 
-4. Op Hallo **samenvatting** pagina, Controleer de geselecteerde instellingen en klik vervolgens op `Finish` toocreate Hallo-database.
+4. Op de **samenvatting** pagina, Controleer de geselecteerde instellingen en klik vervolgens op `Finish` om de database te maken.
 
-   ![Schermafbeelding van overzichtspagina Hallo](./media/oracle-asm/createdb03.png)
+   ![Schermafbeelding van de pagina overzicht](./media/oracle-asm/createdb03.png)
 
-5. Hallo Database is gemaakt. Op Hallo **voltooien** pagina, hebt u Hallo optie toounlock extra accounts toouse deze database en Hallo wachtwoorden wijzigen. Als u toodo doet wenst, selecteer **wachtwoordbeheer** -anders klikt u op `close`.
+5. De Database is gemaakt. Op de **voltooien** pagina, hebt u de optie voor het ontgrendelen van extra accounts voor deze database en de wachtwoorden wijzigen. Als u doen wilt, selecteert u **wachtwoordbeheer** -anders klikt u op `close`.
 
-## <a name="delete-hello-vm"></a>Hallo VM verwijderen
+## <a name="delete-the-vm"></a>De virtuele machine verwijderen
 
-U hebt Oracle automatisch beheer van opslag geconfigureerd op de installatiekopie van Oracle DB Hallo van hello Azure Marketplace.  Wanneer u deze virtuele machine niet meer nodig hebt, kunt u na de opdracht tooremove Hallo-resourcegroep, VM en alle gerelateerde resources hello gebruiken:
+U hebt Oracle automatisch beheer van opslag geconfigureerd op de installatiekopie Oracle DB vanuit Azure Marketplace.  Wanneer u deze virtuele machine niet meer nodig hebt, kunt u de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen:
 
 ```azurecli
 az group delete --name myResourceGroup

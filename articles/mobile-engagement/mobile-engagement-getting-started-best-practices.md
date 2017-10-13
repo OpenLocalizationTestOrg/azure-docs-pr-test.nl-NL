@@ -1,5 +1,5 @@
 ---
-title: aaaAzure Mobile Engagement instructiehandleiding met aanbevolen procedures
+title: Instructiehandleiding Azure Mobile Engagement met aanbevolen procedures
 description: Instructiehandleiding voor Azure Mobile Engagement en aanbevolen procedures voor onboarding
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,40 +14,40 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: d3f81c34fe74f741a60ca511caa55c312af73b1c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Instructiehandleiding met aanbevolen procedures
 ## <a name="overview"></a>Overzicht
-**Hallo mobiele scherm staat vol:** In 2013 uitgevoerde studie bleek Hallo gemiddelde mobiele apparaat 27 toepassingen zijn geïnstalleerd. Gebruikers brachten doorgaans 30 uur per maand door in hun apps. De meeste tijd werd doorgebracht op sociale netwerken en met gamen (ongeveer 20 uur). Begin 2014 waren Hallo Android-markt circa 1,5 miljoen toepassingen voor gebruikers toochoose van. Hallo Apple store bevatte ongeveer 1,2 miljoen apps. Het gebruik van mobiele apps neemt nog steeds toe en ontwikkelaars blijven concurreren op deze groeiende markt. 
+**Het mobiele scherm staat vol:** uit een in 2013 uitgevoerde studie bleek dat op het gemiddelde mobiele apparaat 27 toepassingen zijn geïnstalleerd. Gebruikers brachten doorgaans 30 uur per maand door in hun apps. De meeste tijd werd doorgebracht op sociale netwerken en met gamen (ongeveer 20 uur). Begin 2014 waren er op de Android-markt circa 1,5 miljoen toepassingen beschikbaar waar gebruikers uit konden kiezen. De Apple Store bevatte ongeveer 1,2 miljoen apps. Het gebruik van mobiele apps neemt nog steeds toe en ontwikkelaars blijven concurreren op deze groeiende markt. 
 
-Hallo gemiddelde mobiele gebruiker installeert en verwijdert apps vaak, afhankelijk van veranderende interesses en in-app-ervaringen. In de volgorde toodetermine Hallo succes van een app wordt deze essentieel tooknow meer dan alleen het aantal gebruikers dat uw app installeert. Het is belangrijk tooknow hoe nuttig uw app en als dat de mening hierover verandert. Hallo volgende vragen worden steeds belangrijker:
+De gemiddelde mobiele gebruiker installeert en verwijdert apps vaak, afhankelijk van veranderende interesses en in-app-ervaringen. Als u het succes van uw app wilt bepalen, is het van essentieel belang méér te weten dan alleen het aantal gebruikers dat uw app installeert. U moet ook weten hoe nuttig uw app wordt gevonden en of de mening hierover verandert. De volgende vragen worden steeds belangrijker:
 
-* Uw gebruikers komen toofind uw app niet-interessante of verouderd? 
+* Verliezen uw gebruikers interesse in uw app of vinden ze dat de app verouderd is? 
 * Hoeveel gebruikers zijn al gestopt met het gebruik van uw app? 
 * Neemt het aantal in-app-aankopen toe of af?
-* Gebruikers mislukken toocomplete werkstromen vanwege problemen met het Hallo-app of gebrek aan interesse? 
-* Kan u blijft uw app nuttig en relevant door te pushen nieuwe inhoud tooyour-gebruiker basis? 
-* Zou zijn deze nieuwe inhoud Hallo hetzelfde voor alle gebruikers of gericht zijn op gebruikerssegmenten op basis van gedrag in uw app? 
+* Komt het voor dat gebruikers bepaalde procedures niet voltooien vanwege problemen met de app of gebrek aan interesse? 
+* Ziet u mogelijkheden om uw app nuttig en relevant te houden door uw gebruikers nieuwe inhoud te bieden? 
+* Is deze nieuwe inhoud dan identiek voor alle gebruikers of moet er onderscheid worden gemaakt tussen bepaalde gebruikerssegmenten op basis van gedrag in uw app? 
 
-Antwoorden tooquestions vergelijkbare toothese kan helpen Hallo levensduur en omzet uitbreiden van uw app. Daarnaast kunnen ze u helpen bij het definiëren en behouden van uw gebruikersgroep. 
+De antwoorden op deze en soortgelijke vragen kunnen u helpen de levensduur van uw app te verlengen en uw inkomsten te verhogen. Daarnaast kunnen ze u helpen bij het definiëren en behouden van uw gebruikersgroep. 
 
-Mediagerelateerde apps vaak toohave aantal Hallo langst bewaard door gebruikers. Een reden hiervoor is dat ze voortdurend nieuwe inhoud toousers bieden. Vroege acceptatie van nuttige pushmeldingen omgeleid gebruikerssegment tooa doorgaans toohave een grote invloed op app-retentie. 
+Mediagerelateerde apps worden door gebruikers doorgaans het langst bewaard. Een reden hiervoor is dat deze apps voortdurend nieuwe inhoud leveren aan gebruikers. Het verzenden van nuttige pushmeldingen naar een bepaald gebruikerssegment heeft vaak een grote invloed op app-retentie, zeker als dit vanaf het begin consistent wordt gedaan. 
 
-Hello Azure Mobile Engagement programma is ontworpen toohelp u Hallo levensduur en retentie van uw app door op te geven van een methode toogather uitbreidt en analyseren van gedetailleerde informatie over Hallo gebruik van uw app. Deze methode kunt u uw gebruikersgroep volgens toobehavior classificeren en gerichte campagnes maken voor het leveren van pushmeldingen en in-app-berichten tooidentified gebruikerssegmenten. Key Performance Indicators (KPI's) meten hoe actief uw gebruikers zijn met verschillende aspecten van uw app. Azure Mobile Engagement biedt Hallo methoden u deze KPI's toodetermine nodig. Het helpt verhogen Hallo return op uw investering (ROI) doordat Hallo infrastructuur moet u tooincrease engagement met uw mobiele app. 
+Het programma Azure Mobile Engagement is bedoeld om de levensduur en retentie van uw app te vergroten. Hiertoe biedt Azure Mobile Engagement u een methode voor het verzamelen en analyseren van gedetailleerde informatie over het gebruik van uw app. Met deze methode kunt u uw gebruikers op basis van gedrag classificeren en gerichte campagnes maken voor het sturen van pushmeldingen en in-app-berichten aan geïdentificeerde gebruikerssegmenten. Key Performance Indicators (KPI's) meten hoe actief uw gebruikers zijn met verschillende aspecten van uw app. Azure Mobile Engagement biedt de methoden die u nodig hebt om deze KPI's te bepalen. Dit helpt het rendement te verhogen door de infrastructuur te bieden die u nodig hebt om het gebruik van uw mobiele app te verhogen. 
 
-In de volgorde tooget Hallo optimaal gebruik van Azure Mobile Engagement moet u toostart met een goed ontworpen gebruiksplan. Uw abonnement kunt u identificeren Hallo gedetailleerde gegevens, moet u kunnen toosegment toobe uw gebruiker basis. U kunt segmenten maken op basis van gedrag en op basis van in-app-ervaringen. In de volgorde voor uw abonnement toobe geslaagd is een best practice tooclearly definiëren Hallo KPI die Hallo doelstellingen van uw app wilt meten. Met de gedefinieerde wissen prestatie-indicatoren kunt u eenvoudig hello benodigde logica insluiten in uw app toocollect fijn gedetailleerde gegevens die u gaat gebruiken tooanalyze en voor het evalueren van uw KPI's. In dit onderwerp is een handleiding met aanbevolen procedures voor het definiëren van KPI's Hallo die u in uw plan gebruiken wilt. 
+Wilt u optimaal gebruikmaken van Azure Mobile Engagement, dan moet u beginnen met een goed ontworpen gebruiksplan. Hiermee kunt u de gedetailleerde gegevens identificeren die u nodig hebt om uw gebruikersgroep in segmenten te verdelen. U kunt segmenten maken op basis van gedrag en op basis van in-app-ervaringen. Voor een succesvol plan is het heel belangrijk om de KPI waarmee u de doelstellingen van uw app wilt meten, duidelijk te definiëren. Met duidelijk gedefinieerde prestatie-indicatoren kunt u in uw app eenvoudig de logica opnemen voor het verzamelen van gedetailleerde gegevens. Deze gebruikt u vervolgens om uw KPI's te analyseren en te evalueren. Dit onderwerp is een handleiding met aanbevolen procedures voor het definiëren van de KPI's die u in uw plan gaat gebruiken. 
 
-## <a name="step-1-define-your-kpis-toofit-hello-bet-model"></a>Stap 1: Uw KPI's toofit Hallo BET-model definiëren
-Het correct definiëren van KPI's, kan een toocomplete lastig zijn. Apps die zijn bestemd voor verschillende branches, hebben hun eigen specificaties en doelstellingen. Dit kan tooconfuse vaak een benadering. toohelp kunt dit voorkomen, moeten doelstellingen en KPI's worden ingedeeld in drie hoofdcategorieën: **Business**, **Engagement**, en **technische**. Dit is zogeheten Hallo **BET-model**.
+## <a name="step-1-define-your-kpis-to-fit-the-bet-model"></a>Stap 1: de KPI's definiëren zodat deze bij het BET-model passen
+Het correct definiëren van KPI's kan moeilijk zijn. Apps die zijn bestemd voor verschillende branches, hebben hun eigen specificaties en doelstellingen. Dit kan verwarrend zijn voor het kiezen van een benadering. Om dit te voorkomen, moeten doelstellingen en KPI's worden ingedeeld in drie hoofdcategorieën: **Zakelijk**, **Betrokkenheid** en **Technisch**. In dit verband spreken we ook wel van het **BET-model** (BET = Business, Engagement, Technical).
 
-Een goed plan hebben doorgaans doelstellingen en KPI's Hallo die Hallo uitkomsten in elk van de volgende categorieën van Hallo BET-model Hallo meten.
+Een goed plan bevat doorgaans doelstellingen voor de KPI's waarmee het succes wordt gemeten in elk van de volgende categorieën van het BET-model.
 
 #### <a name="business-kpis"></a>Zakelijke KPI's
-Zakelijke KPI's Hallo eenvoudigste onderdeel toobuild zijn. U hebt deze waarschijnlijk al op een bepaalde manier gedefinieerd toen u uw mobiele app plande. Deze KPI's zijn in het algemeen nuttig bij het meten van de omzet en het rendement van uw app. Hallo biedt volgende lijst een aantal voorbeelden van zakelijke KPI's die u helpen kunnen bij het definiëren van de prestatie-indicatoren:
+Zakelijke KPI's zijn het eenvoudigst te maken. U hebt deze waarschijnlijk al op een bepaalde manier gedefinieerd toen u uw mobiele app plande. Deze KPI's zijn in het algemeen nuttig bij het meten van de omzet en het rendement van uw app. In de volgende lijst ziet u een aantal voorbeelden van zakelijke KPI's die u kunnen helpen bij het definiëren van de prestatie-indicatoren:
 
 * Zakelijke KPI's voor media
   * Aantal advertenties waarop is geklikt
@@ -70,177 +70,177 @@ Zakelijke KPI's Hallo eenvoudigste onderdeel toobuild zijn. U hebt deze waarschi
   * Meldingen waarop is geklikt of die zijn geactiveerd       
 
 #### <a name="engagement-kpis"></a>Betrokkenheids-KPI's
-Een Betrokkenheids-KPI is een prestatie-indicator toomeasure Hallo betrokkenheid van uw gebruikers. Trends op dit gebied kunnen u bepalen Hallo retentie van uw app. Hier volgen enkele voorbeelden van prestatie-indicatoren voor dit type KPI:
+Een betrokkenheids-KPI is een prestatie-indicator die de betrokkenheid van uw gebruikers meet. Aan de hand van de trends op dit gebied kunt u de retentie van uw app bepalen. Hier volgen enkele voorbeelden van prestatie-indicatoren voor dit type KPI:
 
-* Actieve gebruikers in Hallo afgelopen 7 dagen
-* Aantal inactieve gebruikers Hallo afgelopen 7 dagen
-* Telling van gebruikers die Hallo-app niet in 30 dagen gebruikt hebben  
+* Actieve gebruikers in de afgelopen 7 dagen
+* Aantal inactieve gebruikers in de afgelopen 7 dagen
+* Aantal gebruikers dat de app al 30 dagen niet heeft gebruikt  
 
-Op deze betrokkenheidsindicatoren kunnen ook bepaalde voor de hand liggende externe factoren van invloed zijn. U kunt bijvoorbeeld een mobiel apparaat toobe aan een gebruiker te allen tijde overwegen. Dit kan wel of niet het geval zijn. Een gaming-app vaak een hoger gebruik toohave rond de feestdagen wanneer heeft speelt meer tijdens het werk of school.   
+Op deze betrokkenheidsindicatoren kunnen ook bepaalde voor de hand liggende externe factoren van invloed zijn. U kunt bijvoorbeeld aannemen dat een gebruiker altijd een mobiel apparaat bij zich heeft. Dit kan wel of niet het geval zijn. Een gaming-app heeft rond de feestdagen vaak een hoger gebruik, omdat de gebruiker dan vrij heeft van werk of school.   
 
-Goed gedefinieerde KPI's in deze categorie kunt u Hallo relatie tussen uw app en uw klanten meten.
+Met goed gedefinieerde KPI's in deze categorie kunt u de relatie tussen uw app en uw klanten meten.
 
 #### <a name="technical-kpis"></a>Technische KPI's
-Aan de hand van de prestatie-indicatoren in deze categorie kunt u bepalen of uw app goed werkt, of juist vaak vastloopt of crasht. Deze indicatoren kunnen meten Hallo status van uw app en gebruiksproblemen die voorkomen gebruikers dat kunnen via Hallo app bepalen. In deze categorie verzamelde gegevens kan ook informatie over de prestaties die relevant toomarketing teams bevatten. Hallo-gegevens kan ook worden nuttig voor het oplossen van problemen door IT en ondersteuning voor teams toohelp gebruikers gemelde fouten te identificeren. 
+Aan de hand van de prestatie-indicatoren in deze categorie kunt u bepalen of uw app goed werkt, of juist vaak vastloopt of crasht. Deze indicatoren stellen u in staat de status van uw app te meten en problemen met de functionaliteit bloot te leggen die gebruik van de app in de weg staan. De in deze categorie verzamelde gegevens kunnen bovendien prestatie-informatie bevatten die relevant is voor uw marketingteams. Daarnaast kunnen de gegevens nuttig zijn voor het oplossen van problemen door de IT-afdeling en ondersteuningsteams. Denk bijvoorbeeld aan het detecteren van nog niet door gebruikers gemelde fouten. 
 
 Hier volgen enkele voorbeelden van technische KPI's:
 
 * Informatie over onverwerkte of verwerkte uitzonderingen en over het aantal uitzonderingen 
 * Tijdstempel voor laatste crash
 * Knop waarop het laatst is geklikt of de laatst bezochte webpagina
-* Geheugengebruik van het Hallo-app
+* Geheugengebruik van de app
 * Framesnelheid van app
-* Versie van het besturingssysteem die Hallo app wordt uitgevoerd op
+* Versie van het besturingssysteem waarop de app wordt uitgevoerd
 * App-versie
 
-Definieer deze KPI's toohelp meting van app-prestaties en het detecteren van mogelijke fouten. Deze indicatoren kunnen helpen verminderen Hallo tijd toodeliver een oplossing voor uw klanten. Daarnaast kunnen ze u helpen bij het afbakenen van gebruikerssegmenten die bepaalde problemen ondervinden. U kunt gebruiken dat segmentering toocreate campagnes toodeliver meldingen voor gebruikers over beschikbare oplossingen en potentiële promoties toohelp klanttevredenheid herstellen. 
+Definieer deze KPI's voor het meten van app-prestaties en het detecteren van mogelijke fouten. Deze indicatoren kunnen ervoor zorgen dat u minder tijd nodig hebt om uw klanten een oplossing te bieden. Daarnaast kunnen ze u helpen bij het afbakenen van gebruikerssegmenten die bepaalde problemen ondervinden. Deze gebruikerssegmenten kunt u vervolgens via gerichte campagnes benaderen met meldingen over beschikbare oplossingen en promoties. Zo bent u in staat de klanttevredenheid te herstellen. 
 
 #### <a name="playbook-exercise-1-create-your-kpi-dashboard"></a>Draaiboekoefening 1: uw KPI-dashboard maken
-In uw marketingstrategie moeten uw KPI's elk van uw hoofddoelen inzichtelijk maken. Ze moeten duidelijk gedefinieerde gegevenspunten die zorgen uw app en Hallo gedrag van eindgebruikers Hallo aan u toocollect essentiële informatie toomonitor dat ervoor.
+In uw marketingstrategie moeten uw KPI's elk van uw hoofddoelen inzichtelijk maken. Hiervoor hebt u duidelijk gedefinieerde gegevenspunten nodig, waarmee u essentiële informatie kunt verzamelen om uw app en het gedrag van eindgebruikers te monitoren.
 
-Een KPI-dashboard waarin Hallo onderstaande informatie bouwen
+Een KPI-dashboard maken dat onderstaande informatie bevat
 
-1. Wat zijn Hallo KPI's voor Hallo app?
-2. Welke gegevenspunten gaat ik toorepresent elke KPI gebruiken?
+1. Wat zijn de KPI's voor de app?
+2. Welke gegevenspunten gaat u voor elke KPI gebruiken?
 3. Waar bevinden zich deze gegevens voor de toepassing (scherm, instellingen, systeem, enz.)?
 4. Kan ik voor deze KPI een betrokkenheidsreeks afspelen?
 
-U kunt Hallo **KPI Builder** werkblad in onze [Media Playbook-sjabloon] [ Media Playbook link] voor voorbeelden en richtlijnen.
+Gebruik het werkblad **KPI Builder** in onze [Media Playbook-sjabloon][Media Playbook link] voor voorbeelden en richtlijnen.
 
 ## <a name="step-2-your-engagement-program"></a>Stap 2: uw betrokkenheidsprogramma
-Een doordacht programma voor mobiele betrokkenheid vormt een belangrijk onderdeel van uw app. Essentieel hierin is een aantrekkelijk welkomstprogramma dat voor een gebruiker wordt uitgevoerd tijdens het Hallo eerste dagen van app-gebruik. Dit heeft vaak toohave een zeer positieve invloed op de betrokkenheid bij en retentie van uw app. Uit onderzoek is gebleken dat Hallo meerderheid van gebruikers stoppen met behulp van een app Hallo eerste paar dagen na de installatie. U wilt toostrive toomeet of verwachting vroeg overschrijden terwijl Hallo gebruiker nog steeds is gericht op uw app. Zorg ervoor dat u de presentatie Hallo belangrijkste waarde en voordelen van uw app tooyour klanten. 
+Een doordacht programma voor mobiele betrokkenheid vormt een belangrijk onderdeel van uw app. Essentieel hierin is een aantrekkelijk welkomstprogramma dat voor de gebruiker wordt uitgevoerd tijdens de eerste dagen van het app-gebruik. Dit heeft vaak een zeer positieve invloed op de betrokkenheid bij en retentie van uw app. Uit onderzoek is gebleken dat de meeste gebruikers al in de eerste paar dagen na de installatie stoppen met het gebruik van een app. Het is dus zaak om aan de verwachting van de gebruiker te voldoen of deze zelfs te overtreffen wanneer de gebruiker nog aandacht heeft voor uw app. Zorg er daarom voor dat u de belangrijkste waarde en voordelen van uw app benadrukt. 
 
 ![](./media/mobile-engagement-getting-started-best-practices/unsegmented-push-notifications.png)
 
-Pushmeldingen zijn Hallo aanbevolen benadering tooearly betrokkenheid met gebruikers van mobiele apparaten. Maar u moet uiterst voorzichtig zijn met het indelen van gebruikers in segmenten voor pushmeldingen. Wanneer een gebruiker het idee heeft spam of niet-interessante meldingen te ontvangen, kan dit zeer nadelige gevolgen hebben. In enkele klikken kan een gebruiker uw toepassing verwijderen en nooit tooreturn. Hallo Bied gebruikers daarom sterk gepersonaliseerde in-app-waarde in plaats van algemene spam.
+Pushmeldingen zijn de aanbevolen aanpak om in een vroeg stadium betrokkenheid te genereren onder gebruikers van mobiele apparaten. Maar u moet uiterst voorzichtig zijn met het indelen van gebruikers in segmenten voor pushmeldingen. Wanneer een gebruiker het idee heeft spam of niet-interessante meldingen te ontvangen, kan dit zeer nadelige gevolgen hebben. In enkele klikken kan een gebruiker uw toepassing verwijderen en nooit meer installeren. Bied gebruikers daarom sterk gepersonaliseerde in-app-waarde in plaats van algemene spam.
 
-Zodra gebruikers actief zijn ingeschakeld, klikt u vervolgens kunt uw betrokkenheidsprogramma andere aspecten van de app Hallo station.
+Wanneer gebruikers eenmaal actief betrokken zijn, kunt u met uw betrokkenheidsprogramma andere aspecten van de app laten groeien.
 
-Bijvoorbeeld, u een campagne instellen waarin uw actieve gebruikers toorate uw app. Aangezien dit gebruikerssegment Hallo meest actief is en Hallo de meeste ervaring met uw app heeft, u verwachten dat zij toogive Hallo meest nauwkeurige beoordeling. Zodra u een classificatie van hoge app hebt, kunt u station up Hallo aantal organische downloads van uw app stimuleren en de kosten voor aanschaf van nieuwe klant.
+U kunt bijvoorbeeld een campagne instellen waarin u actieve gebruikers vraagt om uw app te beoordelen. Aangezien dit segment gebruikers het meest actief is en de meeste ervaring heeft met uw app, mag u verwachten dat zij de meest nauwkeurige beoordeling geven. Als uw app een hoge beoordeling weet te bereiken, kan dit het aantal organische downloads van uw app stimuleren en uw kosten voor het werven van nieuwe klanten verlagen.
 
 #### <a name="engagement-sequence"></a>Betrokkenheidsreeks
-Een universeel betrokkenheidsprogramma bevat verschillende betrokkenheidsreeksen. Elke reeks probeert verschillende doelstellingen tooreach uit.
+Een universeel betrokkenheidsprogramma bevat verschillende betrokkenheidsreeksen. Elke reeks probeert verschillende doelstellingen te behalen.
 
 ###### <a name="life-push-sequence"></a>Levenscyclusgerelateerde pushreeks
-Hallo doelstellingen voor een Levenscyclusgerelateerde pushreeks zijn verschillend, afhankelijk van Hallo levenscyclus van engagement Hallo van de gebruiker met Hallo-app. Een bepaalde gebruiker kan nieuw zijn, inactief of zeer actief. Gebruikers kunnen in verschillende stadia van de betrokkenheidslevenscyclus profiteren van uw nieuwe inhoud in de vorm van tips of koppelingen toodocumentation Hallo. 
+De doelstellingen van een levenscyclusgerelateerde pushreeks verschillen, afhankelijk van de levenscyclus van de betrokkenheid van de gebruiker bij de app. Een bepaalde gebruiker kan nieuw zijn, inactief of zeer actief. Gebruikers kunnen in verschillende stadia van de betrokkenheidslevenscyclus profiteren van uw nieuwe inhoud in de vorm van tips of koppelingen naar documentatie. 
 
-Een nieuwe gebruiker kan bijvoorbeeld moet helpen bij het ophalen van objectgeoriënteerde tooan app of profiteren van een nieuwe gebruiker incentive vergelijkbare toohello na Hallo eerst die Hallo mailapp starten...
+Nieuwe gebruikers kunnen bijvoorbeeld hulp nodig hebben om zich te oriënteren in een app of profiteren van een incentive voor nieuwe gebruikers (zoals hieronder) wanneer zij de app voor het eerst starten...
 
-*' Fijn dat toohave u vrijgeven! Houd er rekening mee toologin tooget de 1e maand gratis! '*
+*'Fijn dat u er bent! Vergeet niet om u aan te melden, zodat u de eerste maand gratis krijgt.’*
 
 ###### <a name="behavioral-push-sequence"></a>Gedragsgerelateerde pushreeks
-Hallo gedragsgerelateerde pushreeks is erop gericht tooincrease-gebruik op basis van gebruikersgedrag verzameld voor Hallo-app.  
+Een gedragsgerelateerde pushreeks is erop gericht het gebruik te verhogen op basis van gebruikersgedrag dat voor de app is verzameld.  
 
-Bijvoorbeeld, een zeer actieve gebruiker van een fantasy football-app mogelijk voordeel hebben met de volgende pushmelding Hallo...
+Een zeer actieve gebruiker van een fantasy football-app kan bijvoorbeeld voordeel hebben bij een reactie op de volgende pushmelding:
 
-*'Jan, je bent een echte fan! Meld u bij tooour NFL-sectie en win kaartjes toohello SuperBowl!'*
+*'Jan, je bent een echte fan! Meld je aan bij onze NFL-sectie en win kaartjes voor de SuperBowl!'*
 
 ###### <a name="alerting-push-sequence"></a>Pushreeks voor meldingen
-Gebruikers waarderen relevant nieuws dat te maken heeft met hun interesses. Een pushreeks voor meldingen verhoogt de betrokkenheid door meldingen te sturen op basis van duidelijk afgebakende interesses van de gebruiker. Interesses kunnen expliciet worden, wanneer een gebruiker hun eigen interesses in Hallo-app selecteert. Ook kan worden vastgesteld impliciet op basis van gegevens die tijdens gebruikersinteractie met de app Hallo verzameld.
+Gebruikers waarderen relevant nieuws dat te maken heeft met hun interesses. Een pushreeks voor meldingen verhoogt de betrokkenheid door meldingen te sturen op basis van duidelijk afgebakende interesses van de gebruiker. Interesses kunnen expliciet worden vastgesteld door gebruikers hun interesses in de app te laten selecteren. Interesses kunnen echter ook impliciet worden vastgesteld op basis van gegevens die tijdens gebruikersinteractie met de app zijn verzameld.
 
-Hallo gebruiker van een E-Commerce-app kan bijvoorbeeld regelmatig kopen voor een specifiek merk koffie dat u hebt vastgelegd met een zakelijke KPI. Hallo kunt volgende waarschuwing verbeteren door deze gebruiker betrokkenheid bij Hallo-app.
+De gebruiker van een e-commerce-app kan bijvoorbeeld regelmatig koffie van een specifiek merk kopen dat u hebt vastgelegd met een zakelijke KPI. De volgende melding kan de betrokkenheid bij de app van deze gebruiker verbeteren.
 
-*' Hallo Frank, een van uw favoriete merk koffie worden uitgevoerd in verkoop 25% korting op Hallo eerste week van September 2015. Bedankt dat u als klant en wilden toomake zeker dat u zich bewust was.'*
+*'Hallo Frank, in de eerste week van september 2015 krijg je 25% korting op je favoriete merk koffie. We vinden het fijn dat je voor ons kiest en willen je hier op deze manier voor bedanken.'*
 
 ###### <a name="rentention-push-sequence"></a>Retentiegerelateerde pushreeks
-Deze reeks doelstellingen tooretain gebruikers met behulp van een terugkerende melding campagnes toohelp station pushmeldingcampagnes van aanmoedigen Hallo-app. Zo kunt u app-retentie verhogen als gebruiker Hallo Hallo interacties leuk vindt. 
+Deze reeks is erop gericht gebruikers te behouden door middel van terugkerende pushmeldingcampagnes die gebruikers aanmoedigen regelmatig de app te gebruiken. Dergelijke campagnes kunnen helpen de app-retentie te verhogen als de gebruiker de interacties leuk vindt. 
 
-Hallo gebruiker van een sport-app ontvangt bijvoorbeeld Hallo volgende pushmelding wekelijks op basis van Hallo haar favoriete teams:
+De gebruiker van een sport-app ontvangt bijvoorbeeld wekelijks de volgende pushmeldingen op basis van zijn of haar favoriete teams:
 
-*'Voor een toowin kans op 200 punten voorspel of Hallo New York Yankees de wedstrijd tegen de Toronto Blue Jays van deze week winnen gaan!'*
+*'Maak kans op 200 punten en voorspel of de New York Yankees deze week de wedstrijd tegen de Toronto Blue Jays gaan winnen!'*
 
-#### <a name="hello-3w-approach"></a>Hallo 3W-methode
-Hallo verschillende push reeksen mastering helpt u betrokkenheid van eindgebruikers. U moet echter nog steeds toouse Hallo 3W-methode voor het personaliseren van uw meldingen. Hallo 3W-methode dient te houden wie, wat en wanneer van elke melding. Als u hier op de juiste wijze invulling aan geeft, zijn uw meldingen optimaal gericht op betrokkenheid.
+#### <a name="the-3w-approach"></a>De 3W-methode
+Als u weet hoe u de verschillende pushreeksen gebruikt, vergroot u gemakkelijker de betrokkenheid van eindgebruikers. U moet echter nog steeds de 3W-methode gebruiken voor het personaliseren van uw meldingen. De 3W-methode heeft betrekking op het 'Wie?', 'Wat?' en 'Wanneer?' van elke melding. Als u hier op de juiste wijze invulling aan geeft, zijn uw meldingen optimaal gericht op betrokkenheid.
 
 ![](./media/mobile-engagement-getting-started-best-practices/who-what-when.png)
 
-###### <a name="who-hello-user-segment-that-will-receive-messages"></a>Wie: Hallo gebruikerssegment dat berichten ontvangt
-Meldingen tooyour gebruikers te pushen moet worden beschouwd als een zeer vertrouwelijk communicatiekanaal. Controleer of Hallo meldingen gericht van toosend tooa gebruikerssegment goed bereik toohello interesses van dat gebruikerssegment. Onjuist gerouteerde meldingen is zeer waarschijnlijk toohave een negatieve invloed op een gebruiker. Ze overwegen deze spam voorloopspaties tooyour app wordt verwijderd. 
+###### <a name="who-the-user-segment-that-will-receive-messages"></a>Wie: het gebruikerssegment dat berichten ontvangt
+Pushmeldingen aan uw gebruikers moeten worden gezien als een zeer vertrouwelijk communicatiekanaal. Zorg ervoor dat de meldingen die u aan een gebruikerssegment wilt verzenden, perfect aansluiten bij de interesses van dat gebruikerssegment. Onjuist gerouteerde meldingen kunnen gemakkelijk resulteren in een negatieve gebruikerservaring. Gebruikers kunnen uw berichten gaan zien als spam en dat kan ertoe leiden dat ze uw app verwijderen. 
 
-Gebruik een combinatie van specifieke technische en gedragscriteria bij het definiëren van de gebruikerssegmenten die meldingen ontvangen. Een eenvoudig voorbeeld een nauwkeurig afgebakend gebruikerssegment mogelijk vergelijkbare toohello-instructie:
+Gebruik een combinatie van specifieke technische en gedragscriteria bij het definiëren van de gebruikerssegmenten die meldingen ontvangen. Dit is een eenvoudig voorbeeld van een nauwkeurig afgebakend gebruikerssegment:
 
-'Alle gebruikers die gestart Hallo van een mobiele toepassing voor Hallo eerst drie dagen geleden en Hallo aanmeldingspagina tweemaal vervolgens niet daadwerkelijk een aanmelding hebben bezocht'.
+'Alle gebruikers die drie dagen geleden voor het laatst een mobiele toepassing hebben gestart en de aanmeldingspagina tweemaal hebben bezocht, maar zich vervolgens niet daadwerkelijk hebben aangemeld.'
 
-Deze instructie kunt identificeren Hallo-gegevens die u moet toocollect toosupport een specifiek scenario.
+Een dergelijke definitie helpt u bij het identificeren van de gegevens die u moet verzamelen om een specifiek scenario te ondersteunen.
 
-###### <a name="what-hello-message-that-you-will-send"></a>Wat: het Hallo-bericht dat u wilt verzenden
+###### <a name="what-the-message-that-you-will-send"></a>Wat: het bericht dat u verzendt
 **Toon**
 
-Gebruik in uw communicatie een toon die past bij uw gebruikerssegment. Dit is zeker een uitstekende manier tooconnect met uw eindgebruikers en promoveren van een gebruiker interesse in uw app. 
+Gebruik in uw communicatie een toon die past bij uw gebruikerssegment. Dit is een uitstekende manier om contact te maken met uw eindgebruikers en de interesse van gebruikers in uw app te vergroten. 
 
 **Omleiding**
 
-Een pushmelding kan worden gebruikt voor het openen van meer dan u Hallo-toepassing. Als hello biedt bericht op een specifieke context, zoals een nieuwsbericht of een productpromotie, deze melding kan de dieptekoppeling naar direct toohello rechtermuisknop inhoud in de toepassing hello. toosupport, moet u een URL schema toolet Hallo toepassing hello omleiding beheren. Tijdens het maken van uw betrokkenheidsreeksen is dit een belangrijke stap die u niet moet vergeten.
+Een pushmelding kan niet alleen voor het openen van de toepassing worden gebruikt. Als de melding is gerelateerd aan een specifieke context, zoals een nieuwsbericht of een productpromotie, kan er een rechtstreekse dieptekoppeling naar de juiste inhoud in de toepassing tot stand worden gebracht. Als u deze functionaliteit wilt ondersteunen, moet u een URL-schema maken, zodat de toepassing de omleiding kan beheren. Tijdens het maken van uw betrokkenheidsreeksen is dit een belangrijke stap die u niet moet vergeten.
 
-Er kunnen ook omleidingen worden beheerd voor andere systemen. Bijvoorbeeld, met een actie-URL is mogelijk tooredirect eindgebruikers toomany andere systemen, zoals Hallo volgende:
+Er kunnen ook omleidingen worden beheerd voor andere systemen. Met een actie-URL is het bijvoorbeeld mogelijk eindgebruikers om te leiden naar diverse andere systemen, zoals:
 
 * Een website
 * Een postvak met ingesteld e-mailadres
 * Een sms-vak
 * Een beldienst
-* Rechtstreeks toohello toepassingsarchief voor het beoordelen van de toepassing hello. 
+* Rechtstreeks naar de app-winkel voor het beoordelen van de toepassing. 
 
-Dit biedt veel mogelijkheden tooengage eindgebruikers en automatische regels tooimprove prestaties maken.
+Dit biedt veel mogelijkheden om contact te leggen met eindgebruikers en automatische regels te maken voor betere prestaties.
 
 **Indeling/inhoud**
 
 Er zijn diverse typen en indelingen voor pushmeldingen:
 
-1. **Aankondigingen** : Hiermee kunt u toosend reclame berichten toousers op verschillende momenten (buiten de app in de app of op willekeurige momenten).
-2. **Polls** : Hiermee kunt u toogather gegevens van eindgebruikers door vragen aan hen te vragen. De antwoorden zijn vervolgens beschikbaar bij het maken van criteria tootarget eindgebruikers.
-3. **Gegevens-Pushes** : Hiermee kunt u toosend een binair of base64-bestand tooupdate Hallo-app. Hallo-gegevens in een gegevens-push tooyour toepassing toopersonalize Hallo gebruikerservaring in uw app verzonden. Uw toepassing moet toobe ontworpen toosupport Hallo gegevens in een gegevens-push.
-4. **Tegels (alleen Windows Phone)** : Hiermee kunt u toouse Hallo Microsoft Push Notification Service (MPNS) toosend Native Pushmeldingen met XML-gegevens (dit wordt ondersteund vanaf SDK-versie 0.9.0. Hallo uiteindelijke nettolading voor tegels kan niet groter zijn dan 32 kB.). Hallo-bericht verschijnt rechtstreeks op het mededelingenbord van uw tegel.
-5. **Webweergave**: een webweergave is een pop-upvenster met webinhoud. Dit pop-upvenster wordt weergegeven wanneer Hallo door eindgebruikers op Hallo pushmelding heeft geklikt. Een webweergave kunt toohave meer interactie met Hallo door eindgebruikers.
+1. **Aankondigingen**: hiermee kunt u op verschillende momenten advertentieberichten verzenden aan gebruikers (buiten de app om, in de app of op willekeurige momenten).
+2. **Polls**: hiermee kunt u gegevens verzamelen van eindgebruikers door vragen aan hen te stellen. De antwoorden zijn vervolgens beschikbaar voor het opstellen van criteria om eindgebruikers in uw doelgroep te targeten.
+3. **Gegevens-pushes**: hiermee kunt u een binair of base64-gegevensbestand verzenden om de app bij te werken. De informatie in een gegevens-push wordt naar uw toepassing verzonden om de gebruikerservaring in uw app te personaliseren. Uw toepassing moet zo worden ontworpen dat de gegevens in een gegevens-push worden ondersteund.
+4. **Tegels (alleen Windows Phone)**: hiermee kunt u de MPNS (Microsoft Push Notification Service) gebruiken voor het verzenden van native pushmeldingen met XML-gegevens. (Dit wordt ondersteund vanaf SDK-versie 0.9.0. De uiteindelijke nettolading voor tegels mag niet groter zijn dan 32 kB.). Het bericht verschijnt rechtstreeks op het mededelingenbord van uw tegel.
+5. **Webweergave**: een webweergave is een pop-upvenster met webinhoud. Dit pop-upvenster wordt weergegeven wanneer de eindgebruiker op de pushmelding heeft geklikt. Met een webweergave kunt meer interactie hebben met de eindgebruiker.
 
 > [!NOTE]
-> Zorg ervoor dat dat u pushmeldingen verzendt Hallo-inhoud Hallo het desbetreffende platform (iOS, Android, Windows) richtlijnen voldoet voor het ontwikkelen van apps en het verzenden van pushmeldingen.
+> Zorg ervoor dat de inhoud die u in pushmeldingen verzendt, in overeenstemming is met de richtlijnen van het desbetreffende platform (iOS, Android, Windows) voor het ontwikkelen van apps en het verzenden van pushmeldingen.
 > 
 > 
 
-###### <a name="when-hello-timing-of-your-campaign"></a>Wanneer: de timing van uw campagne Hallo
-Wanneer is het beste moment tooactivate Hallo een campagne pushmeldingen te starten? Wordt de campagne handmatig uitgevoerd of automatisch? Moet het een terugkerende campagne worden? Bepalende Hallo juiste moment en de frequentie is essentieel tooengage gebruikers met de beste resultaten Hallo. Voor elke betrokkenheidsreeks en elk scenario moet u opgeven wanneer het beste moment toosend hello pushmeldingen zijn. Hier zijn enkele voorbeelden:
+###### <a name="when-the-timing-of-your-campaign"></a>Wanneer: de timing van uw campagne
+Wanneer is het beste moment om een campagne met pushmeldingen te starten? Wordt de campagne handmatig uitgevoerd of automatisch? Moet het een terugkerende campagne worden? Het juiste moment en de juiste frequentie zijn essentieel om optimale betrokkenheid van uw gebruikers te bereiken. Voor elke betrokkenheidsreeks en elk scenario moet u opgeven wat het beste moment is om pushmeldingen te verzenden. Hier zijn enkele voorbeelden:
 
 ![](./media/mobile-engagement-getting-started-best-practices/campaign-timing-examples.png)
 
 Als u dagelijks veel meldingen verzendt, moet u er rekening mee houden dat uw gebruikers uw communicatie als spam zien. 
 
-Azure Mobile Engagement biedt twee manieren toohelp te voorkomen dat uw communicatie als spam worden beschouwd. Gebruik verfijnde segmentering tooensure u geen doel Hallo dezelfde gebruikers doen. Azure Mobile Engagement biedt bovendien een quotumfunctie. Met deze functie kan het aantal meldingen in een campagne worden beperkt. Bijvoorbeeld, zorgt een standaard quotum too5 per week instellen u dat een gebruiker die is opgenomen als onderdeel van Hallo campagne gebruikerssegment niet meer dan 5 meldingen week ontvangt.
+Azure Mobile Engagement biedt twee manieren om te voorkomen dat uw communicatie-uitingen als spam worden beschouwd. Gebruik verfijnde segmentering om ervoor te zorgen dat u zich niet op dezelfde gebruikers richt. Azure Mobile Engagement biedt bovendien een quotumfunctie. Met deze functie kan het aantal meldingen in een campagne worden beperkt. Als u bijvoorbeeld een standaardquotum van 5 per week instelt, zorgt u ervoor dat een gebruiker in een gebruikerssegment van een campagne niet meer dan 5 meldingen binnen één week ontvangt.
 
 #### <a name="playbook-exercise-2-create-your-engagement-program"></a>Draaiboekoefening 2: uw betrokkenheidsprogramma maken
-Besteed voldoende tijd samenvatten van uw doelstellingen en Hallo campagnes die u tooplay met specifieke reeksen te definiëren. Zorg ervoor dat u Hallo 3W benadering toohello meldingen in uw campagnes toepassen. 
+Besteed voldoende tijd aan het samenvatten van uw doelstellingen en het definiëren van de campagnes die u met specifieke reeksen wilt uitvoeren. Zorg ervoor dat u de 3W-methode toepast op de meldingen in uw campagnes. 
 
-Gebruik Hallo **Betrokkenheidsprogramma** werkblad in Hallo [Media Playbook-sjabloon] [ Media Playbook link] voor voorbeelden en richtlijnen.
+Gebruik het werkblad **Engagement Program** in de [Media Playbook-sjabloon][Media Playbook link] voor voorbeelden en richtlijnen.
 
 ## <a name="step-3-app-integration"></a>Stap 3: app-integratie
 #### <a name="create-a-tag-plan"></a>Een tagplan maken
-toointegrate Azure Mobile Engagement in uw app moet u een tagplan toocreate. Hallo tagplan vormt de basis Hallo van Hallo-project. Het definieert Hallo-relatie tussen de marketingspecificaties, Hallo werkstroom van de toepassing hello en Hallo feitelijke Taggegevens die worden verzameld in Hallo app toomeasure KPI's. Hiermee wordt aangegeven welke analyses u zich toosee in Hallo-portal. Hiermee kunt u ook gebruikerssegmenten te definiëren en gerichte push notifications tooengage uw eindgebruikers verzenden. Zodra u Hallo tagplan gedefinieerd hebt, is toe te voegen Hallo code toointegrate in uw app eenvoudig hello Azure Mobile Engagement SDK gebruiken.
+Voor de integratie van Azure Mobile Engagement in uw app moet u een tagplan maken. Uw tagplan vormt de basis voor het project. In het tagplan definieert u de relatie tussen de marketingspecificaties, de werkstroom van de toepassing en de feitelijke taggegevens die in de app worden verzameld voor het meten van de KPI's. In het tagplan wordt daarnaast aangegeven welke analyses u in de portal kunt zien. Bovendien helpt het tagplan u gebruikerssegmenten te definiëren en gerichte pushmeldingen te verzenden om uw eindgebruikers tot actie aan te zetten. Na het definiëren van het tagplan kunt u de code eenvoudig in uw app integreren met behulp van de Azure Mobile Engagement SDK.
 
-Het is niet de bedoeling dat u met uw tagplan alles in uw toepassing tagt. Alleen taggegevens die onderdeel uitmaken van uw strategie voor mobiele betrokkenheid, moeten hierin worden opgenomen. Wat u wel opneemt en wat niet, verschilt per toepassing. Hallo [Media Playbook-sjabloon] [ Media Playbook link] die Azure Mobile Engagement biedt, helpt u het maken van een tagplan op basis van een bepaalde methode. Gebruik Hallo **Tagplan** werkblad als een handleiding toobuilding uw tagplan.
+Het is niet de bedoeling dat u met uw tagplan alles in uw toepassing tagt. Alleen taggegevens die onderdeel uitmaken van uw strategie voor mobiele betrokkenheid, moeten hierin worden opgenomen. Wat u wel opneemt en wat niet, verschilt per toepassing. De [Media Playbook-sjabloon][Media Playbook link] die Azure Mobile Engagement biedt, helpt u bij het maken van een tagplan op basis van een bepaalde methode. Gebruik het werkblad **Tag Plan** als voorbeeld voor het ontwikkelen van uw tagplan.
 
-Bij het definiëren van een tagsectie in Hallo werkblad, Wees zeer specifiek. Dit is erg belangrijk tooavoid verwarring. Werk elk verwacht scenario waarin elke tag wordt verzonden, tot in detail uit. Hallo-naam van het Hallo-activiteit waarin elke tag is ingesloten bevatten. Deze moet allemaal worden opgenomen in Hallo **Informative** deel uit van Hallo werkblad. Hallo tag plan werkblad moet Hallo belangrijkste referentiepunt voor de testverificatie. 
+Wees zeer specifiek bij het definiëren van een tagsectie in het werkblad. Dit is erg belangrijk om verwarring te voorkomen. Werk elk verwacht scenario waarin elke tag wordt verzonden, tot in detail uit. Voeg de naam toe van de activiteit waarin elke tag is ingesloten. Deze gegevens moeten allemaal worden opgenomen op het gedeelte **Informative** van het werkblad. Het werkblad van het tagplan vormt het belangrijkste referentiepunt voor de testverificatie. 
 
-In Hallo **gegevens toocollect** vindt uw ontwikkelteam moet worden Hallo typen, namen, waarden en extra informatie sleutel/waarde-paren die zijn vereist voor elke tag die in de toepassing hello ingesloten.
+In het gedeelte **Data to collect** vindt uw ontwikkelteam de typen, namen, waarden en sleutel-/waardeparen met extra informatie die zijn vereist voor elke tag die in de toepassing wordt ingesloten.
 
-U wordt aangeraden Hallo tagplan controleren door alle teams die zijn gekoppeld aan het Hallo-project. Breng alle noodzakelijke wijzigingen aan en controleer of alles duidelijk is voor de marketing- en ontwikkelteams.
+U doet er verstandig aan het tagplan te laten controleren door alle teams die aan het project zijn verbonden. Breng alle noodzakelijke wijzigingen aan en controleer of alles duidelijk is voor de marketing- en ontwikkelteams.
 
-Hallo **overzicht van de werkzaamheden** werkblad kan worden gebruikt toohelp handleiding iedereen die in Hallo-project is betrokken.
+Het werkblad **Statement of work** kan worden gebruikt als richtlijn voor iedereen die bij het project is betrokken.
 
 #### <a name="data-types"></a>Gegevenstypen
 Dit zijn veelvoorkomende gegevenstypen die door Azure Mobile Engagement worden ondersteund.
 
 ###### <a name="devices-and-users"></a>Apparaten en gebruikers
-Azure Mobile Engagement identificeert gebruikers door voor elk apparaat een unieke id te genereren. Deze id heet de apparaat-id hello (of de apparaat-id). Deze wordt zodanig dat alle toepassingen op hetzelfde apparaat share Hallo dezelfde apparaat-id gegenereerd.
+Azure Mobile Engagement identificeert gebruikers door voor elk apparaat een unieke id te genereren. Deze id duiden we aan als apparaat-id. De apparaat-id wordt zo gegenereerd dat alle toepassingen die op hetzelfde apparaat worden uitgevoerd, dezelfde id delen.
 
 ###### <a name="sessions-and-activities"></a>Sessies en activiteiten
-Een sessie is een exemplaar van Hallo-app wordt uitgevoerd door een gebruiker. Hallo-sessie begint op Hallo tijd Hallo gebruiker Hallo-app begint stopt.
+Een sessie is een exemplaar van de app dat wordt uitgevoerd door een gebruiker. Een sessie begint op het moment dat de gebruiker de app start en eindigt wanneer de gebruiker de app stopt.
 
-Een activiteit is een logische groepering van een aantal dingen Hallo app tijdens een sessie doen mogelijk. Meestal is dit een bepaald scherm in Hallo-app, maar het kan ook dat iets door Hallo logica van de toepassing hello gedefinieerd. U moet in uw app in ieder geval elk venster en elke activiteit taggen. Hierdoor kunt u toounderstand hello gebruikerspad.
+Een activiteit is een logische groepering van een set taken die de app tijdens een sessie kan uitvoeren. Meestal is dit een bepaald venster in de app, maar het kan ook iets anders zijn dat door de logica van de toepassing is gedefinieerd. U moet in uw app in ieder geval elk venster en elke activiteit taggen. Zo krijgt u inzicht in het gebruikerspad.
 
 ###### <a name="events"></a>Gebeurtenissen
-Gebeurtenissen zijn gebruikte tooreport gebruikersinteractie met Hallo-app. Ze hebben betrekking op directe bewerkingen, zoals het delen van inhoud of het starten van een video. Taggen van gebeurtenissen biedt u gegevenssets die laten zien hoe gebruikers interacteren met Hallo-app. 
+Gebeurtenissen worden gebruikt voor het rapporteren van gebruikersinteractie met de app. Ze hebben betrekking op directe bewerkingen, zoals het delen van inhoud of het starten van een video. Het taggen van gebeurtenissen biedt u gegevenssets die laten zien hoe gebruikers de app gebruiken. 
 
 ###### <a name="jobs"></a>Taken
-Taken zijn gebruikte tooreport acties die een bepaalde duur. Enkele voorbeelden:
+Taken worden gebruikt voor het rapporteren van acties met een bepaalde duur. Enkele voorbeelden:
 
 * Uitvoering van de API-aanroepen
 * Weergavetijd van advertenties
@@ -249,46 +249,46 @@ Taken zijn gebruikte tooreport acties die een bepaalde duur. Enkele voorbeelden:
 * Een video bekijken
 
 ###### <a name="errors"></a>Fouten
-Fouten zijn gebruikte tooreport problemen gedetecteerd door Hallo-app. Denk aan onjuiste gebruikersacties of mislukte API-aanroepen.
+Fouten worden gebruikt voor het rapporteren van problemen die door de app zijn gedetecteerd. Denk aan onjuiste gebruikersacties of mislukte API-aanroepen.
 
 ###### <a name="application-information"></a>Toepassingsgegevens
-Informatie over de toepassing (App-Info) wordt gebruikt tootag gegevens gerelateerd tooa gebruikerservaring met een toepassing. Deze wordt gegenereerd door een gebruikersinteractie met de toepassing hello. 
+Toepassingsgegevens worden gebruikt voor het taggen van gegevens die betrekking hebben op de ervaring van een gebruiker met een toepassing. Ze worden gegenereerd op basis van gebruikersinteractie met de betreffende toepassing. 
 
-Voor een sleutel opgegeven app-info Azure Mobile Engagement alleen houdt van Hallo laatste waarde (geen geschiedenis). Toepassingsgegevens geven inzicht in Hallo status van uw app of uw eindgebruikers. Bijvoorbeeld Hallo aanmelden status of de favoriete productgroep van een gebruiker.
+Voor toepassingsgegevenssleutels houdt Azure Mobile Engagement alleen de laatste waarde bij (niet de geschiedenis). Toepassingsgegevens geven inzicht in de status van uw app of uw eindgebruikers. Denk aan de aanmeldstatus of de favoriete productgroep van een gebruiker.
 
 ###### <a name="crash-data"></a>Crashgegevens
-Crashgegevens automatisch worden verzameld door Hallo Mobile Engagement SDK melden toepassingsfouten die niet door de toepassing hello behandeld. Voorbeeld: een onverwerkte uitzondering.
+Crashgegevens, die automatisch worden verzameld door de Mobile Engagement SDK, melden toepassingsfouten die niet door de toepassing zijn verwerkt. Voorbeeld: een onverwerkte uitzondering.
 
 ###### <a name="extra-data"></a>Extra gegevens
-Gebeurtenissen, fouten, activiteiten en taken kunnen worden uitgebreid met parameters. Dit is een ontwikkelaar als specifieke gegevens van de toepassing hello bieden kan van extra gegevens. Deze gegevens zijn belangrijk voor het definiëren van verfijnde segmentering. 
+Gebeurtenissen, fouten, activiteiten en taken kunnen worden uitgebreid met parameters. Het gaat hier om extra gegevens die de ontwikkelaar als specifieke toepassingsgerelateerde gegevens kan aanleveren. Deze gegevens zijn belangrijk voor het definiëren van verfijnde segmentering. 
 
-Bijvoorbeeld, kunt Hallo-waarde van een 'article'-tag u toosegment eindgebruikers op basis van die bepaald artikel heeft bekeken. Mogelijk is dit echter niet voldoende. Wellicht is het beter als deze 'article'-tag ook extra informatie, zoals 'news_category', binnen een activiteit bevat. Dit kan handig zijn toodetermine Hallo dynamisch favoriete categorieën van Hallo-gebruiker. 
+Met de waarde van een 'article'-tag kunt u bijvoorbeeld eindgebruikers in segmenten opdelen op basis van wie een bepaald artikel heeft bekeken. Mogelijk is dit echter niet voldoende. Wellicht is het beter als deze 'article'-tag ook extra informatie, zoals 'news_category', binnen een activiteit bevat. Dit is bijvoorbeeld handig om dynamisch de favoriete categorieën van de gebruiker te bepalen. 
 
-Extra gegevens worden doorgegeven als sleutel-/waardepaar. In voorbeeld Hallo voor deze mediatoepassing zou Hallo extra gegevens voor 'news_category' Hallo-waarde voor die categorie zijn. Bijvoorbeeld 'sport', 'economie' of 'politiek'.
+Extra gegevens worden doorgegeven als sleutel-/waardepaar. In het voorbeeld voor deze mediatoepassing bestaan de extra gegevens voor 'news_category' uit de waarde voor die categorie. Bijvoorbeeld 'sport', 'economie' of 'politiek'.
 
 #### <a name="tag-and-sdk-integration"></a>Tag- en SDK-integratie
-Voor stapsgewijze instructies voor het integreren van hello Azure Mobile Engagement SDK in uw app, volg Hallo [Engagement SDK-integratie](mobile-engagement-windows-store-integrate-engagement.md) documentatie op Azure-website. Kies uw doelplatform in koppelingen Hallo Hallo boven aan deze pagina.
+Voor stapsgewijze instructies voor het integreren van de Azure Mobile Engagement SDK in uw app volgt u de documentatie voor [Engagement SDK-integratie](mobile-engagement-windows-store-integrate-engagement.md) op de Azure-website. Kies uit de koppelingen aan het begin van de pagina uw doelplatform.
 
-Het is raadzaam om projecten te maken voor twee apps gebouwd op Azure Mobile Engagement. Een voor ontwikkeling en testfase en Hallo andere voor de productiefase. Uw IT-team kunt vervolgens promoveren test tooproduction voor fasering als gebruikersacceptatietests Hallo geslaagd is.
+Het is raadzaam om projecten te maken voor twee apps gebouwd op Azure Mobile Engagement. Een voor de ontwikkel- en testfase en een andere voor de productiefase. Uw IT-team kan de app vervolgens vanuit de testfase doorzetten naar de productiefase wanneer de gebruikersacceptatietests zijn geslaagd.
 
 #### <a name="user-acceptance-testing-uat"></a>Gebruikersacceptatietests
 Gebruikersacceptatietests zijn bedoeld om ervoor te zorgen dat alles werkt zoals ontworpen. Werkstromen kunnen worden voltooid en alle vereiste gegevens kunnen op basis van uw tagplan worden verzameld:
 
-* Codering van gegevens moet worden voldaan volgens toodocumented AZME-concepten
+* Gegevenstagging is ingericht volgens gedocumenteerde AZME-concepten
 * Alle benodigde gegevens worden verzameld (inclusief extra gegevens en toepassingsgegevens)
-* Naamgeving volgt de namen overeenkomen met volgens tooyout Tagplan
+* De naamgeving volgt de namen uit uw tagplan
 * Er worden geen dubbele tags verzonden
 
-Alle Hallo soorten meldingsgedrag die u in uw app hebt ingesloten grondig te testen
+Voer grondige tests uit op alle soorten meldingsgedrag die u in uw app hebt ingesloten
 
 * Aankondigingen, polls, gegevens-pushes buiten en in de app
 * Tekst-/webweergaven
 * Badge-update, categorieën
 
 #### <a name="setup"></a>Instellen
-Het instellen van Azure Mobile Engagement is zeer eenvoudig. Alle Hallo documentatie gerelateerde toohello gebruikersinterface is beschikbaar op Hallo Azure Mobile Engagement-website: [hoe toonavigate gebruikersinterface Hallo](mobile-engagement-user-interface-home.md).
+Het instellen van Azure Mobile Engagement is zeer eenvoudig. De documentatie die betrekking heeft op de gebruikersinterface, is beschikbaar op de Azure Mobile Engagement-website: [Navigeren in de gebruikersinterface](mobile-engagement-user-interface-home.md).
 
-Het wordt aanbevolen dat u door het instellen van de juiste Hallo-rollen en rollidmaatschappen voor gebruikers van uw project Hallo start. Zo kunt u de juiste toegangsrechten toohello platform voor alle gebruikers beheren. De rollen kunnen zijn:
+U doet er verstandig aan te beginnen met het instellen van de juiste rollen en rollidmaatschappen voor de gebruikers van uw project. Zo kunt u voor alle gebruikers het juiste toegangsniveau voor het platform beheren. De rollen kunnen zijn:
 
 * Beheerders
 * Ontwikkelaars
@@ -296,27 +296,27 @@ Het wordt aanbevolen dat u door het instellen van de juiste Hallo-rollen en roll
 
 Daarna:
 
-* Registreer uw apparaat-id tootest op uw eigen apparaat.
-* Ga toohello-instellingen van uw account en stel Hallo tijdzone toohave grafieken en leveringstijd melding instellen voor uw eigen tijdzone.
-* Ga toohello-instellingen van uw toepassing en registreer Hallo 'App-info' moet u tootarget eindgebruikers binnen handbereik.
+* Registreer uw apparaat-id, zodat u op uw eigen apparaat kunt testen.
+* Ga naar uw accountinstellingen en stel de tijdzone in. Grafieken en de aflevertijd van meldingen worden hier dan aan aangepast.
+* Ga naar de instellingen van uw toepassing en registreer de toepassingsgegevens die u nodig hebt om eindgebruikers binnen uw bereik te targeten.
 
-Voor meer informatie over hoe toorun uw eerste push-melding campagne, Bekijk [hoe tooget gestart met en het beheer van pushmeldingen tooreach uit tooyour eindgebruikers](mobile-engagement-how-tos.md).
+Bekijk voor meer informatie over het uitvoeren van uw eerste pushmeldingcampagne [Aan de slag met het gebruik en beheer van pushmeldingen om contact te maken met uw eindgebruikers](mobile-engagement-how-tos.md).
 
 ## <a name="conclusion"></a>Conclusie
 Betrokkenheidsprogramma's zijn niet eenmalig. Experimenteer daarom met wat het beste voor uw app werkt en verbeter uw programma continu op basis hiervan. 
 
-In eerste instantie wordt tijdens de ontwikkeling van ervaring met engagement probeer strategieën niet toobuild een overkoepelende betrokkenheidsstrategie. Een stapsgewijze benadering voor het identificeren van de KPI's en hoe tooleverage ze. Voor elke app maakt u een unieke betrokkenheidsstrategie.
+Probeer terwijl u ervaring opdoet met het ontwikkelen van betrokkenheidsstrategieën, niet meteen een overkoepelende betrokkenheidsstrategie te maken. Kies voor een stapsgewijze benadering. Identificeer uw KPI's en bedenk hoe u deze gaat gebruiken. Voor elke app maakt u een unieke betrokkenheidsstrategie.
 
-U kunt overwegen Hallo volgende tooyour engagement programma's toevoegen nadat u hebt enige ervaring met ontwikkeld:
+Hebt u eenmaal wat ervaring opgedaan, dan kunt u overwegen het volgende aan uw betrokkenheidsprogramma's toe te voegen:
 
-* Prestaties bijhouden: u krijgt gebruikers en u definieert waarschijnlijk bronnen voor gegevensverzameling. Azure mobile Engagement kan worden bronnen gekoppeld toodata-verzameling. Hiermee kunt u toomonitor prestaties van elke bron. Deze informatie worden interessante toomaximize uw investering. 
+* Prestaties bijhouden: u krijgt gebruikers en u definieert waarschijnlijk bronnen voor gegevensverzameling. Azure Mobile Engagement kan worden gekoppeld aan bronnen voor gegevensverzameling. Hierdoor kunt u de prestaties van elke bron controleren. Deze gegevens zijn van belang voor het maximaliseren van uw investering. 
 * A/B-tests: dit is een essentieel onderdeel van het betrokkenheidsprogramma. Elke app heeft zijn eigen specificaties. Met A/B-tests kunt u uw betrokkenheidsprogramma verbeteren.
-* Geografische locatie: dit is een grote kans voor merken. Met vriendelijke groet toothis functie die u kunt bereiken op de juiste plaats Hallo en tijd. U wordt aangeraden verifiëren dat u voldoende gegevens voor het gedrag van eindgebruikers voordat u begint toouse geografische locatie hebt verzameld.
-* Gegevens-push: een gegevens-push is een onzichtbare push. Met een gegevens-push kunt u uw toepassingen aanpassen op basis van het gedrag van eindgebruikers. Als een gebruikerssegment vaak high tech-producten raadpleegt, kan de eigenaar van de app Hallo een gegevens-push die haar startpagina met hightechinhoud wordt aangepast verzenden.
+* Geografische locatie: dit is een grote kans voor merken. Dankzij deze functie kunt u op het juiste moment en de juiste plek contact maken met de juiste gebruikers. U doet er verstandig aan na te gaan of u voldoende gegevens hebt verzameld over het gedrag van eindgebruikers voordat u begint met het gebruik van de functie voor geografische locatie.
+* Gegevens-push: een gegevens-push is een onzichtbare push. Met een gegevens-push kunt u uw toepassingen aanpassen op basis van het gedrag van eindgebruikers. Als een gebruikerssegment bijvoorbeeld vaak hightechproducten raadpleegt, kan de eigenaar van de app een gegevens-push sturen waarmee de startpagina wordt gepersonaliseerd met hightechinhoud.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Een Azure Mobile Engagement-account maken](mobile-engagement-create.md).
-* Ga naar [uw Mobile Engagement-strategie definiëren](mobile-engagement-define-your-mobile-engagement-strategy.md) toolearn meer over het definiëren van uw Mobile Engagement-strategie.
+* Ga naar [Uw Mobile Engagement-strategie definiëren](mobile-engagement-define-your-mobile-engagement-strategy.md) voor meer informatie over het definiëren van uw Mobile Engagement-strategie.
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: aaaHow tooadd operations tooan API in Azure API Management | Microsoft Docs
-description: Meer informatie over hoe tooadd operations tooan API in Azure API Management.
+title: Bewerkingen toevoegen aan een API in Azure API Management | Microsoft Docs
+description: Informatie over het bewerkingen toevoegen aan een API in Azure API Management.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,124 +14,124 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: d57fa59a2b0ceb392cde23150a0cbb326e52d27d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 105fc51c2d1152a40a5757985da47330e0b7b8cf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooadd-operations-tooan-api-in-azure-api-management"></a>Hoe tooadd operations tooan API in Azure API Management
-Voordat een API in API Management kan worden gebruikt, kunnen bewerkingen moeten worden toegevoegd. Dit toont hoe begeleiden tooadd en configureren van verschillende soorten bewerkingen tooan API in API Management.
+# <a name="how-to-add-operations-to-an-api-in-azure-api-management"></a>Bewerkingen toevoegen aan een API in Azure API Management
+Voordat een API in API Management kan worden gebruikt, kunnen bewerkingen moeten worden toegevoegd. Deze handleiding laat zien hoe toevoegen en configureren van verschillende typen aan een API-bewerkingen in API Management.
 
 ## <a name="add-operation"></a>Een bewerking toevoegen
-Bewerkingen worden toegevoegd en tooan API in de publicatieportal Hallo geconfigureerd. tooaccess publisher en klik op Hallo **publicatieportal** in hello Azure-Portal voor uw API Management-service.
+Bewerkingen zijn toegevoegd en geconfigureerd voor een API in de publicatieportal. Voor toegang tot de publicatieportal bevindt, klikt u op **publicatieportal** in de Azure-Portal voor uw API Management-service.
 
 ![Publicatieportal][api-management-management-console]
 
-> Als u nog geen exemplaar van API Management-service hebt gemaakt, raadpleegt u [API Management service-exemplaar maken] [ Create an API Management service instance] in Hallo [aan de slag met Azure API Management] [ Get started with Azure API Management] zelfstudie.
+> Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Create an API Management service instance] in de zelfstudie [Aan de slag met Azure API Management][Get started with Azure API Management].
 > 
 > 
 
-Selecteer Hallo gewenste API in de publicatieportal hello en selecteer vervolgens Hallo **Operations** tabblad. 
+Selecteer de gewenste API in de publicatieportal en selecteer vervolgens de **Operations** tabblad. 
 
 ![Bewerkingen][api-management-operations]
 
-Klik op **bewerking toevoegen** tooadd een nieuwe bewerking. Hallo **nieuwe bewerking** wordt weergegeven en Hallo **handtekening** tabblad wordt standaard geselecteerd.
+Klik op **bewerking toevoegen** toevoegen van een nieuwe bewerking. De **nieuwe bewerking** wordt weergegeven en de **handtekening** tabblad wordt standaard geselecteerd.
 
 ![Bewerking toevoegen][api-management-add-operation]
 
-Geef Hallo **HTTP-term** door in de vervolgkeuzelijst hello te kiezen.
+Geef de **HTTP-term** door te kiezen uit de vervolgkeuzelijst.
 
 ![HTTP-methode][api-management-http-method]
 
 <a name="url-template"></a>
 
-Hallo URL sjabloon door te typen in een URL-fragment die bestaan uit een of meer URL-padsegmenten en nul of meer queryreeksparameters definiëren. Hallo URL sjabloon, toegevoegde toohello basis-URL van Hallo API, identificeert één HTTP-bewerking. Bevat een of meer benoemde variabele onderdelen die zijn geïdentificeerd door accolades. Deze variabele delen Sjabloonparameters worden genoemd en worden de waarden die worden opgehaald uit het Hallo-aanvraag-URL wanneer het Hallo-aanvraag wordt verwerkt door Hallo API Management-platform dynamisch toegewezen.
+Definieer de URL-sjabloon door in een URL-fragment die bestaan uit een of meer URL-padsegmenten en nul of meer queryreeksparameters te typen. De URL-sjabloon, toegevoegd aan de basis-URL van de API identificeert één HTTP-bewerking. Bevat een of meer benoemde variabele onderdelen die zijn geïdentificeerd door accolades. Deze variabele delen Sjabloonparameters worden genoemd en worden de waarden die worden opgehaald uit de aanvraag-URL wanneer de aanvraag wordt verwerkt door het platform van API Management dynamisch toegewezen.
 
-> Hallo URL sjabloon kan jokertekenpatronen bevatten. Bijvoorbeeld, geven `/*` sturen alle aanvragen voor deze HTTP-methode toohello terug eindigt service.
+> De URL-sjabloon kan jokertekenpatronen bevatten. Bijvoorbeeld, geven `/*` wordt sturen alle aanvragen voor deze HTTP-methode voor de back-end service.
 
 ![URL-sjabloon][api-management-url-template]
 
 <a name="rewrite-url-template"></a>
 
-Geef desgewenst Hallo **herschrijven van URL sjabloon**. Hiermee kunt u toouse Hallo standaard URL-sjabloon voor het verwerken van inkomende aanvragen op de front-hello, tijdens het aanroepen van Hallo back-end via een geconverteerde URL volgens toohello Herschrijf de sjabloon. Sjabloonparameters van Hallo URL sjabloon moeten worden gebruikt in Hallo herschrijven sjabloon. Hallo volgende voorbeeld ziet u hoe inhoudstype gecodeerd zoals padsegment in de webservice Hallo uit het vorige voorbeeld Hallo kan worden opgegeven als een queryparameter in Hallo dat API gepubliceerd via Hallo Hallo URL sjablonen met behulp van API Management-platform.
+Geef desgewenst de **herschrijven van URL sjabloon**. Hiermee kunt u de standaard URL-sjabloon gebruiken voor het verwerken van inkomende aanvragen op de front-end tijdens het aanroepen van de back-end via een geconverteerde URL volgens de sjabloon opnieuw. Sjabloonparameters van de URL-sjabloon moeten worden gebruikt in de sjabloon opnieuw. Het volgende voorbeeld ziet hoe inhoudstype gecodeerd zoals padsegment in de webservice van het vorige voorbeeld kan worden opgegeven als een queryparameter in de API gepubliceerd via het API Management-platform met behulp van de URL-sjablonen.
 
 ![Herschrijven van URL-sjabloon][api-management-url-template-rewrite]
 
-Gebruikmaken van aanroepfuncties toohello bewerking Hallo indeling `/customers?customerid=ALFKI` en dit te worden toegewezen`/Customers('ALFKI')` wanneer Hallo back-end-service wordt aangeroepen.
+Aanroepfuncties voor de bewerking wordt de notatie gebruikt `/customers?customerid=ALFKI` en deze worden toegewezen aan `/Customers('ALFKI')` wanneer de back-endservice wordt aangeroepen.
 
-**Weergave** naam en **beschrijving** Geef een beschrijving van de bewerking Hallo en gebruikte tooprovide documentatie zijn toohello ontwikkelaars met behulp van deze API in Hallo developer portal.
+**Weergave** naam en **beschrijving** Geef een beschrijving van de bewerking en worden gebruikt voor het bieden van documentatie voor de ontwikkelaars die met deze API in de portal voor ontwikkelaars.
 
 ![Beschrijving][api-management-description]
 
-Hallo bewerking beschrijving kan worden opgegeven als tekst zonder opmaak of HTML in Hallo **beschrijving** in het tekstvak.
+De beschrijving van de bewerking kan worden opgegeven als tekst zonder opmaak of HTML-code in de **beschrijving** in het tekstvak.
 
 ## <a name="operation-caching"></a>Bewerking opslaan in cache
-Antwoord in cache opslaan vermindert de latentie waargenomen door de consument Hallo API, verlaagt bandbreedteverbruik en afname Hallo belasting op het Hallo HTTP web service implementeren Hallo API. 
+Antwoord in cache opslaan, vermindert de latentie waargenomen door de API-consumenten, verlaagt bandbreedteverbruik en vermindert de belasting van het HTTP-web service-implementatie van de API. 
 
-tooeasily en snel geschikt maken voor Hallo bewerking, selecteer Hallo caching **opslaan in cache** tabblad en controleer Hallo **inschakelen** selectievakje.
+Om snel en eenvoudig cachebewerkingen voor de bewerking, selecteer de **opslaan in cache** tabblad en controleer de **inschakelen** selectievakje.
 
 ![Caching][api-management-caching-tab]
 
-**Duur** Hallo periode gedurende welke Hallo bewerkingsantwoord in cache Hallo blijft bevat. Hallo-standaardwaarde is 3600 seconden oftewel 1 uur.
+**Duur** Hiermee geeft u de periode gedurende welke de bewerkingsantwoord in de cache blijft. De standaardwaarde is 3600 seconden oftewel 1 uur.
 
-Cache-sleutels zijn gebruikte toodifferentiate tussen antwoorden zodat Hallo-antwoord overeenkomt tooeach verschillende Cachesleutel een eigen afzonderlijke waarde in de cache krijgt. Voer desgewenst specifieke queryreeksparameters en/of HTTP-headers toobe gebruikt in de cache-sleutelwaarden in Hallo computing **variëren op queryreeksparameters** en **variëren op headers** tekstvakken respectievelijk. Wanneer er geen is opgegeven, volledige aanvraag-URL en Hallo volgende HTTP-headerwaarden worden gebruikt in de cache genereren van sleutels: **accepteren** en **Accept-Charset**.
+Cache-sleutels worden gebruikt om onderscheid maken tussen antwoorden zodat het overeenkomt met elk ander Cachesleutel antwoord een eigen afzonderlijke waarde in de cache krijgt. U kunt desgewenst specifieke queryreeksparameters en/of HTTP-headers worden gebruikt in de cache sleutelwaarden in computing de **variëren op queryreeksparameters** en **variëren op headers** tekstvakken respectievelijk. Wanneer er geen is opgegeven, volledige aanvraag-URL en de volgende waarden van de HTTP-header worden gebruikt in de cache sleutelgeneratie: **accepteren** en **Accept-Charset**.
 
-> Zie voor meer informatie over opslaan in cache en cachebeleidsregels [hoe toocache bewerking resulteert in Azure API Management][How toocache operation results in Azure API Management].
+> Zie voor meer informatie over opslaan in cache en cachebeleidsregels [hoe in de cache van de bewerking resulteert in Azure API Management][How to cache operation results in Azure API Management].
 > 
 > 
 
 ## <a name="request-parameters"></a>Aanvraagparameters
-Bewerkingsparameters worden beheerd op het tabblad Hallo-Parameters. Parameters die zijn opgegeven in Hallo **URL sjabloon** op Hallo **handtekening** tabblad worden automatisch toegevoegd en kan worden gewijzigd alleen Hallo URL door sjabloon te bewerken. Extra parameters kunnen handmatig worden ingevoerd.
+Bewerkingsparameters worden op het tabblad Parameters beheerd. Parameters die zijn opgegeven de **URL sjabloon** op de **handtekening** tabblad worden automatisch toegevoegd en kan alleen door het bewerken van het URL-sjabloon worden gewijzigd. Extra parameters kunnen handmatig worden ingevoerd.
 
-een nieuwe queryparameter tooadd klikt u op **queryparameter toevoegen** en voer de volgende informatie Hallo:
+Klik op als u een nieuwe queryparameter **queryparameter toevoegen** en voer de volgende informatie:
 
 * **Naam** -parameternaam.
-* **Beschrijving** -een korte beschrijving van het Hallo-parameter (optioneel).
-* **Type** -type voor parameter in de vervolgkeuzelijst Hallo geselecteerd.
-* **Waarden** -waarden die kunnen worden toegewezen toothis-parameter. Hallo-waarden kan worden als standaardwaarde gemarkeerd (optioneel).
-* **Vereist** -Hallo parameter verplicht te stellen door Hallo selectievakje. 
+* **Beschrijving** -een korte beschrijving van de parameter (optioneel).
+* **Type** -type voor parameter omlaag in de vervolgkeuzelijst is geselecteerd.
+* **Waarden** -waarden die kunnen worden toegewezen aan deze parameter. Een van de waarden kan worden als standaardwaarde gemarkeerd (optioneel).
+* **Vereist** -de parameter verplicht te stellen door het selectievakje. 
 
 ![Parameters van de aanvraag][api-management-request-parameters]
 
 ## <a name="request-body"></a>Aanvraagtekst
-Als het Hallo-bewerking staat (bijvoorbeeld PUT, POST) en kunt u desgewenst een voorbeeld van dit voor alle Hallo hoofdtekst ondersteunde weergave-indelingen (bijvoorbeeld json, XML) vereist. 
+Als de bewerking kunt (bijvoorbeeld PUT, POST) en een hoofdtekst kunt u desgewenst een voorbeeld van dit voor alle van de ondersteunde weergave-indelingen (bijvoorbeeld json, XML) vereist. 
 
-> Hallo aanvraagtekst alleen voor documentatie wordt gebruikt en niet wordt gevalideerd.
+> De aanvraagtekst alleen voor documentatie wordt gebruikt en niet wordt gevalideerd.
 > 
 > 
 
-een aanvraagtekst tooenter overschakelen toohello **hoofdtekst** tabblad.
+Als u wilt een aanvraagtekst invoeren, overschakelen naar de **hoofdtekst** tabblad.
 
-Klik op **weergave toevoegen**begint te typen gewenste inhoudstype-naam (bijvoorbeeld application/json), selecteert u deze in de vervolgkeuzelijst Hallo en plakken Hallo voorbeeld van de aanvraag hoofdtekst in geselecteerde Hallo-indeling in het tekstvak Hallo gewenst. 
+Klik op **weergave toevoegen**, gewenste inhoudstype-naam (bijvoorbeeld application/json) begint te typen, selecteert u deze in de vervolgkeuzelijst en plak het gewenste aanvraag hoofdtekst voorbeeld in de geselecteerde indeling in het tekstvak. 
 
 ![Aanvraagtekst][api-management-request-body]
 
-In de aanvullende toorepresentations, kunt u ook een optionele beschrijving in Hallo opgeven **beschrijving** in het tekstvak.
+Extra's worden representaties, u kunt ook opgeven in een optionele beschrijving in de **beschrijving** in het tekstvak.
 
 ## <a name="responses"></a>Antwoorden
-Het is een goede gewoonte tooprovide voorbeelden van reacties voor alle statuscodes die Hallo-bewerking kan opleveren. Elke statuscode mogelijk meer dan één antwoord hoofdtekst voorbeeld, één voor elk Hallo inhoudstypen ondersteund. 
+Het is raadzaam vindt u voorbeelden van reacties voor alle statuscodes die de bewerking kan opleveren. Elke statuscode mogelijk meer dan één antwoord instantie bijvoorbeeld één voor elk van de ondersteunde typen inhoud. 
 
-een antwoord tooadd klikt u op **toevoegen** en typ de gewenste Hallo-statuscode. In dit voorbeeld Hallo status code is **200 OK**. Zodra het Hallo-code wordt weergegeven in de vervolgkeuzelijst hello, selecteren en Hallo antwoordcode is gemaakt en toegevoegd tooyour bewerking.
+Klik op als u een antwoord **toevoegen** en typ de gewenste statuscode. In dit voorbeeld de statuscode is **200 OK**. Zodra de code wordt weergegeven in de vervolgkeuzelijst, selecteert u deze en de antwoordcode wordt gemaakt en toegevoegd aan de bewerking opnieuw.
 
 ![Reactiecode][api-management-response-code]
 
-Klik op **weergave toevoegen**, typ de naam van de gewenste inhoudstype hello (bijvoorbeeld application/json) en selecteer vervolgens in Hallo vervolgkeuzelijst.
+Klik op **weergave toevoegen**, de naam van het gewenste type inhoud (bijvoorbeeld application/json) begint te typen en vervolgens omlaag in de vervolgkeuzelijst selecteren.
 
 ![Inhoudstype voor hoofdtekst][api-management-response-body-content-type]
 
-Hallo antwoord hoofdtekst voorbeeld in de geselecteerde indeling Hallo in Hallo tekstvak plakken. 
+Plak in het voorbeeld van de hoofdtekst van antwoord in de geselecteerde indeling in het tekstvak. 
 
 ![Antwoordtekst][api-management-response-body]
 
-Indien gewenst, voer een optionele beschrijving in Hallo **beschrijving** in het tekstvak.
+Indien gewenst, voer een optionele beschrijving in de **beschrijving** in het tekstvak.
 
-Zodra het Hallo-bewerking is geconfigureerd, klikt u op **opslaan**.
+Nadat de bewerking is geconfigureerd, klikt u op **opslaan**.
 
 ## <a name="next-steps"> </a>Volgende stappen
-Nadat Hallo bewerkingen zijn tooan API toegevoegd, wordt de volgende stap Hallo tooassociate Hallo API met een product is en deze publiceren zodat ontwikkelaars kunnen aanroepen op de operations.
+Nadat de bewerkingen zijn toegevoegd aan een API, wordt de volgende stap is naar de API koppelen aan een product en deze publiceren zodat ontwikkelaars bewerkingen kunnen aanroepen.
 
-* [Hoe toocreate en een product publiceren][How toocreate and publish a product]
+* [Het maken en een product publiceren][How to create and publish a product]
 
 [api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
 [api-management-operations]: ./media/api-management-howto-add-operations/api-management-operations.png
@@ -166,6 +166,6 @@ Nadat Hallo bewerkingen zijn tooan API toegevoegd, wordt de volgende stap Hallo 
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[How tooadd operations tooan API]: api-management-howto-add-operations.md
-[How toocreate and publish a product]: api-management-howto-add-products.md
-[How toocache operation results in Azure API Management]: api-management-howto-cache.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to cache operation results in Azure API Management]: api-management-howto-cache.md

@@ -1,8 +1,8 @@
 ---
-title: aaaAzure zoeken documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe tooadd krachtige mogelijkheden, zoals het controleren van activiteiten, toocustom web of mobiele toepassingen zoeken. API-verwijzingen en andere documentatie.
+title: Documentatie voor Azure Search - zelfstudies, API-verwijzing | Microsoft Docs
+description: Leer hoe u krachtige zoekmogelijkheden, waaronder activiteitsbewaking, kunt toevoegen aan aangepaste web- of mobiele toepassingen. API-verwijzingen en andere documentatie.
 services: search
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 2ef61d7bf68e94c4429ba1b13709ee9b31093b71
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 9debfb5c55332836ff721aae08c7d45c811444f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-documentation"></a>Documentatie voor Azure Search
 
-Meer informatie over hoe tooadd zoeken mogelijkheden tooyour aangepaste web- of mobiele apps met behulp van Azure Search, een beheerde cloudservice zoeken. Zelfstudies, API-referenties en andere documentatie die laten zien hoe tooadd schaalbare zoekopdrachten in volledige tekst via meerdere talen, geo-ruimtelijke zoeken, filter- en meervoudige navigatie en automatisch aangevulde query's markeren en aangepaste analyzers.
+Leer hoe u zoekmogelijkheden kunt toevoegen aan uw aangepaste web- of mobiele apps met Azure Search, een beheerde service voor zoeken in de cloud. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u het volgende kunt toevoegen: schaalbaar doorzoeken van de volledige tekst in meerdere talen, zoeken in verschillende geografische gebieden, navigatie op basis van meervoudig filteren, automatisch aanvullen van query's, markeren van treffers en aangepaste analyse.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Meer informatie over hoe tooadd zoeken mogelijkheden tooyour aangepaste web- of 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure Search met behulp van hello Azure-portal</h3>
+                        <h3>Aan de slag met Azure Search en Azure Portal</h3>
                     </div>
                 </div>
             </div>

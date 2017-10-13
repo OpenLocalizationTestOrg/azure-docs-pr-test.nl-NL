@@ -1,9 +1,9 @@
-Hello Azure CLI 2.0 kunt u toocreate en beheren van uw Azure-resources op Mac OS-, Linux- en Windows. Dit artikel vindt u details van de meest voorkomende opdrachten toocreate hello en beheren van virtuele machines (VM's).
+De Azure CLI 2.0 kunt u maken en beheren van uw Azure-resources op Mac OS-, Linux- en Windows. In dit artikel vindt u details van de meest voorkomende opdrachten voor het maken en beheren van virtuele machines (VM's).
 
-In dit artikel vereist hello Azure CLI versie 2.0.4 of hoger. Voer `az --version` toofind Hallo versie. Als u tooupgrade moet, Zie [2.0 voor Azure CLI installeren](/cli/azure/install-azure-cli). U kunt ook [Cloud Shell](/azure/cloud-shell/quickstart) vanuit de browser.
+Dit artikel is vereist voor de Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). U kunt ook [Cloud Shell](/azure/cloud-shell/quickstart) vanuit de browser.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Basisopdrachten van Azure Resource Manager in Azure CLI
-Voor meer hulp bij specifieke opdrachtregelopties en opties, kunt u opties en Hallo opdracht online help door te typen `az <command> <subcommand> --help`.
+Voor meer hulp bij specifieke opdrachtregelopties en opties, kunt u de opdracht online help-opties en door te typen `az <command> <subcommand> --help`.
 
 ### <a name="create-vms"></a>Virtuele machines maken
 | Taak | Azure CLI-opdrachten |
@@ -33,7 +33,7 @@ Voor meer hulp bij specifieke opdrachtregelopties en opties, kunt u opties en Ha
 ## <a name="disks-and-images"></a>Schijven en installatiekopieën
 | Taak | Azure CLI-opdrachten |
 | --- | --- |
-| Toevoegen van een data schijf tooa VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
+| Een gegevensschijf toevoegen aan een VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
 | Een gegevensschijf verwijderen van een VM | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
 | De grootte van een schijf wijzigen | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
 | Een momentopname maken van een schijf | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
@@ -42,5 +42,5 @@ Voor meer hulp bij specifieke opdrachtregelopties en opties, kunt u opties en Ha
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer voorbeelden van de CLI-opdrachten Hallo Hallo [maken en beheren van virtuele Linux-machines Hello Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md) zelfstudie.
+Zie voor meer voorbeelden van de CLI-opdrachten de [maken en beheren van virtuele Linux-machines met de Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md) zelfstudie.
 

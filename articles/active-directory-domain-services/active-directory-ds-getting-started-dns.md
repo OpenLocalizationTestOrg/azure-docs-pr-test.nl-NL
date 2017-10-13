@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Bijwerken DNS-instellingen voor virtuele Azure-netwerk Hallo | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: DNS-instellingen bijwerken voor het virtuele Azure-netwerk | Microsoft Docs'
 description: Aan de slag met Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: 
@@ -12,39 +12,39 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/27/2017
+ms.date: 09/26/2017
 ms.author: maheshu
-ms.openlocfilehash: e6eaff555cb9b7bb89ab7581d8de0b8cfc844529
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ab8e3215e8e73d3943af06cffafa730cf1b7744b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-preview"></a>Azure Active Directory Domain Services (preview) inschakelen
+# <a name="enable-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services inschakelen
 
-## <a name="task-4-update-dns-settings-for-hello-azure-virtual-network"></a>Taak 4: DNS-instellingen bijwerken voor Hallo virtuele Azure-netwerk
-In de Hallo voorgaande configuratietaken, hebt u Azure Active Directory Domain Services voor uw directory is ingeschakeld. de volgende taak Hallo is tooensure dat computers in het virtuele netwerk Hallo kunnen verbinding maken en gebruiken van deze services. In dit artikel leert bijwerken u Hallo DNS-serverinstellingen voor uw virtuele netwerk toopoint toohello twee IP-adressen waarop Azure Active Directory Domain Services beschikbaar op Hallo virtueel netwerk is.
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Taak 4: DNS-instellingen bijwerken voor het virtuele Azure-netwerk
+In de voorgaande configuratietaken hebt u Azure Active Directory Domain Services ingeschakeld voor uw directory. De volgende taak is om ervoor te zorgen dat computers binnen het virtuele netwerk verbinding kunnen maken met deze services en ze kunnen gebruiken. In dit artikel werkt u de DNS-serverinstellingen voor het virtuele netwerk zo bij dat deze verwijzen naar de twee IP-adressen waarop Azure Active Directory Domain Services beschikbaar is op het virtuele netwerk.
 
-tooupdate hello DNS-serverinstellingen voor Hallo virtuele netwerk waarin u Azure Active Directory Domain Services voltooid Hallo stappen hebt ingeschakeld:
+Voer de volgende stappen uit om de DNS-serverinstellingen bij te werken voor het virtuele netwerk waarin u Azure Active Directory Domain Services hebt ingeschakeld:
 
-1. Hallo **overzicht** tabblad bevat een reeks **configuratiestappen vereist** toobe uitgevoerd nadat u uw beheerde domein volledig is ingericht. Hallo eerste configuratiestap is **Update DNS-serverinstellingen voor het virtuele netwerk**.
+1. Het tabblad **Overzicht** bevat een reeks **vereiste configuratiestappen** die moeten worden uitgevoerd nadat uw beheerde domein volledig is ingericht. De eerste configuratiestap is **de DNS-serverinstellingen voor het virtuele netwerk bijwerken**.
 
     ![Domain Services: tabblad Overzicht nadat het domein volledig is ingericht](./media/getting-started/domain-services-provisioned-overview.png)
 
 2. Wanneer uw domein volledig is ingericht, worden er twee IP-adressen weergegeven in deze tegel. Elk IP-adres vertegenwoordigt een domeincontroller voor uw beheerde domein.
 
-3. toocopy hello eerste IP-adres tooclipboard adres, klikt u op Hallo kopie knop volgende tooit. Klik vervolgens op Hallo **configureren van DNS-servers** knop.
+3. Klik op de kopieerknop naast het eerste IP-adres om het naar het klembord te kopiëren. Klik vervolgens op de knop **DNS-servers configureren**.
 
-4. Hallo eerste IP-adres in Hallo plakken **toevoegen DNS-server** textbox in Hallo **DNS-servers** blade. Horizontaal schuiven toohello links toocopy Hallo tweede IP-adres en plak deze in Hallo **toevoegen DNS-server** textbox.
+4. Plak het eerste IP-adres in het tekstvak **DNS-server toevoegen** in de blade **DNS-servers**. Schuif horizontaal naar links om het tweede IP-adres te kopiëren en plak het in het tekstvak **DNS-server toevoegen**.
 
     ![Domain Services: DNS bijwerken](./media/getting-started/domain-services-update-dns.png)
 
-5. Klik op **opslaan** wanneer u tooupdate Hallo DNS-servers voor het virtuele netwerk Hallo zijn klaar.
+5. Klik wanneer u klaar bent op **Opslaan** om de DNS-servers voor het virtuele netwerk bij te werken.
 
 > [!NOTE]
-> Hallo nieuwe DNS-instellingen voor ophalen virtuele machines in Hallo netwerk alleen na het opnieuw opstarten. Als u ze tooget Hallo bijgewerkt DNS-instellingen meteen moet, activeert u een herstart door het Hallo-portal, PowerShell of CLI Hallo.
+> De nieuwe DNS-instellingen worden pas op de virtuele machines toegepast na het opnieuw opstarten. Als u de bijgewerkte DNS-instellingen meteen wilt toepassen, activeert u opnieuw opstarten via de portal, PowerShell of de CLI.
 >
 >
 
 ## <a name="next-step"></a>Volgende stap
-[Taak 5: wachtwoord synchronisatie tooAzure Active Directory Domain Services inschakelen](active-directory-ds-getting-started-password-sync.md)
+[Taak 5: wachtwoordsynchronisatie inschakelen voor Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)

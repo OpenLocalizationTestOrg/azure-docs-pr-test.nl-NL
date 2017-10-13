@@ -1,6 +1,6 @@
 ---
-title: 'Verbinding maken met uw lokale netwerk tooan virtuele Azure-netwerk: Site-naar-Site-VPN (klassiek): Portal | Microsoft Docs'
-description: Stappen toocreate een IPsec-verbinding van uw on-premises netwerk tooan virtuele Azure-netwerk via openbaar Internet Hallo. Deze stappen kunt u een cross-premises Site-naar-Site VPN-gatewayverbinding maken met de Hallo-portal.
+title: 'Een on-premises netwerk verbinden met een virtueel Azure-netwerk: site-naar-site-VPN (klassiek): Portal | Microsoft Docs'
+description: Stappen voor het maken van een IPSec-verbinding van uw on-premises netwerk met een virtueel Azure-netwerk via het openbare internet. Deze stappen helpen u een cross-premises site-naar-site-VPN-gatewayverbinding te maken met de portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/010/2017
 ms.author: cherylmc
-ms.openlocfilehash: b260bdf610b264458660b278bd32bf0fc5b519ab
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 0be8dd6d90edb7b32b6777c76c9778cda0dcd5ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-site-to-site-connection-using-hello-azure-portal-classic"></a>Een Site-naar-Site verbinding maken met hello Azure-portal (klassiek)
+# <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Een site-naar-site-verbinding maken met behulp van Azure Portal (klassiek)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-Dit artikel laat zien hoe toouse hello Azure portal toocreate een Site-naar-Site VPN-gatewayverbinding vanuit uw lokale netwerk toohello VNet. Hallo stappen in dit artikel van toepassing toohello klassieke implementatiemodel. Ook kunt u deze configuratie met behulp van verschillende hulpprogramma's of implementatiemodel door een andere optie kiezen in Hallo volgende lijst:
+In dit artikel leest u hoe u Azure Portal gebruikt om een site-naar-site-VPN-gatewayverbinding te maken vanaf uw on-premises netwerk naar het VNet. De stappen in dit artikel zijn van toepassing op het klassieke implementatiemodel. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -35,23 +35,23 @@ Dit artikel laat zien hoe toouse hello Azure portal toocreate een Site-naar-Site
 > 
 >
 
-Een Site-naar-Site VPN-gatewayverbinding gebruikte tooconnect is uw on-premises netwerk tooan virtuele Azure-netwerk via een VPN-IPsec/IKE (IKEv1 of IKEv2)-tunnel. Dit type verbinding vereist een VPN-zich on-premises apparaten met een extern gericht openbaar IP-adres toegewezen tooit. Zie [Overzicht van VPN Gateway](vpn-gateway-about-vpngateways.md) voor meer informatie over VPN-gateways.
+Een site-naar-site-VPN-gatewayverbinding wordt gebruikt om een on-premises netwerk via een IPsec-/IKE-VPN-tunnel (IKEv1 of IKEv2) te verbinden met een virtueel Azure-netwerk. Voor dit type verbinding moet er on-premises een VPN-apparaat aanwezig zijn waaraan een extern openbaar IP-adres is toegewezen. Zie [Overzicht van VPN Gateway](vpn-gateway-about-vpngateways.md) voor meer informatie over VPN-gateways.
 
 ![Diagram: cross-premises site-naar-site-VPN-gatewayverbinding](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Controleer of dat u criteria na voorhand Hallo hebt voldaan:
+Controleer voordat u met de configuratie begint, of aan de volgende criteria is voldaan:
 
-* Controleer of de gewenste toowork Hallo klassieke implementatiemodel. Als u toowork Hallo Resource Manager-implementatiemodel wilt, Zie [maken van een Site-naar-Site-verbinding (Resource Manager)](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Indien mogelijk wordt u aangeraden dat u Hallo Resource Manager-implementatiemodel.
-* Zorg ervoor dat u hebt een compatibel VPN-apparaat en iemand die dit kunnen tooconfigure deze. Zie [Over VPN-apparaten](vpn-gateway-about-vpn-devices.md) voor meer informatie over compatibele VPN-apparaten en -apparaatconfiguratie.
+* U hebt vastgesteld dat u wilt werken met het klassieke implementatiemodel. Als u wilt werken met het Resource Manager-implementatiemodel, gaat u naar [Een site-naar-site-verbinding maken (Resource Manager)](vpn-gateway-howto-site-to-site-resource-manager-portal.md). We raden u aan indien mogelijk het Resource Manager-implementatiemodel te gebruiken.
+* U hebt een compatibel VPN-apparaat nodig en iemand die dit kan configureren. Zie [Over VPN-apparaten](vpn-gateway-about-vpn-devices.md) voor meer informatie over compatibele VPN-apparaten en -apparaatconfiguratie.
 * Controleer of u een extern gericht openbaar IPv4-adres voor het VPN-apparaat hebt. Dit IP-adres kan zich niet achter een NAT bevinden.
-* Als u niet bekend bent met de Hallo IP-adresbereiken zich in uw on-premises netwerkconfiguratie, moet u toocoordinate met iemand die deze details voor u verstrekken kan. Wanneer u deze configuratie maakt, moet u Hallo IP-bereik adresvoorvoegsels Azure routeert tooyour on-premises locatie. Geen van de subnetten Hallo van uw on-premises netwerk kunnen via lap met Hallo virtueel netwerksubnetten die u wilt dat tooconnect om te.
-* Op dit moment PowerShell is vereist toospecify Hallo gedeelde sleutel en Hallo VPN-gatewayverbinding maken. Installeer de nieuwste versie Hallo Hallo Azure Service Management (SM) PowerShell-cmdlets. Zie voor meer informatie [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview). Als u werkt met PowerShell voor deze configuratie, zorg er dan voor dat u de bewerkingen uitvoert als beheerder. 
+* Als u de IP-adresbereiken in uw on-premises netwerkconfiguratie niet kent, moet u contact opnemen met iemand die u hierbij kan helpen en de benodigde gegevens kan verstrekken. Wanneer u deze configuratie maakt, moet u de IP-adresbereikvoorvoegsels opgeven die Azure naar uw on-premises locatie doorstuurt. Geen van de subnetten van uw on-premises netwerk kan overlappen met de virtuele subnetten waarmee u verbinding wilt maken.
+* Momenteel is het in PowerShell vereist dat de gedeelde sleutel wordt opgegeven en de VPN-gatewayverbinding wordt gemaakt. Installeer de nieuwste versie van de Azure SM (Service Management) PowerShell-cmdlets. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie. Als u werkt met PowerShell voor deze configuratie, zorg er dan voor dat u de bewerkingen uitvoert als beheerder. 
 
 ### <a name="values"></a>Voorbeeld van configuratiewaarden voor deze oefening
 
-Hallo-voorbeelden in dit artikel gebruiken Hallo waarden te volgen. U kunt deze waarden toocreate een testomgeving gebruiken of toothem verwijzen toobetter begrijpen Hallo voorbeelden in dit artikel.
+In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt deze waarden gebruiken om een testomgeving te maken of ze raadplegen om meer inzicht te krijgen in de voorbeelden in dit artikel.
 
 * **VNet-naam:** TestVNet1
 * **Adresruimte:** 
@@ -65,167 +65,167 @@ Hallo-voorbeelden in dit artikel gebruiken Hallo waarden te volgen. U kunt deze 
 * **Locatie:** VS - oost
 * **DNS-server:** 10.11.0.3 (optioneel voor deze oefening)
 * **Lokale sitenaam:** Site2
-* **Client-adresruimte:** Hallo-adresruimte die bevindt zich op uw on-premises site.
+* **Clientadresruimte:** de adresruimte op uw on-premises site.
 
 ## <a name="CreatVNet"></a>1. Een virtueel netwerk maken
 
-Wanneer u een virtueel netwerk toouse voor een S2S-verbinding maakt, moet u ervoor dat Hallo adresruimten die u opgeeft niet overlappen met een van de Hallo client adresruimten voor Hallo lokale sites die u wilt dat tooconnect naar toomake. Als u overlappende subnetten hebt, werkt de verbinding mogelijk niet goed.
+Als u een virtueel netwerk maakt om te gebruiken met een S2S-verbinding, moet u ervoor zorgen dat de opgegeven adresruimten niet overlappen met een of meer van de clientadresruimten voor de lokale sites waarmee u verbinding wilt maken. Als u overlappende subnetten hebt, werkt de verbinding mogelijk niet goed.
 
-* Als u al een VNet hebt, controleert u of Hallo instellingen compatibel zijn met uw VPN-gateway-ontwerp. Wat aandachtiger tooany subnetten die met andere netwerken overlappen. 
+* Als u al beschikt over een VNet, controleert u of de instellingen compatibel zijn met het ontwerp van de VPN-gateway. Let vooral op eventuele subnetten die met andere netwerken overlappen. 
 
-* Als u nog geen virtueel netwerk hebt, maakt u er een. De schermafbeeldingen dienen alleen als voorbeeld. Ervoor tooreplace Hallo waarden door uw eigen worden.
+* Als u nog geen virtueel netwerk hebt, maakt u er een. De schermafbeeldingen dienen alleen als voorbeeld. Zorg dat u de waarden vervangt door die van uzelf.
 
-### <a name="toocreate-a-virtual-network"></a>toocreate een virtueel netwerk
+### <a name="to-create-a-virtual-network"></a>Een virtueel netwerk maken
 
-1. Navigeer via een browser toohello [Azure-portal](http://portal.azure.com) en, indien nodig, meld u aan met uw Azure-account.
-2. Klik op **+**. In Hallo **zoeken Hallo marketplace** veld, typt u 'Virtueel netwerk'. Zoek **virtueel netwerk** Hallo geretourneerde lijst en klik op tooopen hello **virtueel netwerk** pagina.
+1. Navigeer via een browser naar de [Azure Portal](http://portal.azure.com) en log, indien nodig, in met uw Azure-account.
+2. Klik op **+**. In het veld **Marketplace doorzoeken** typt u 'virtueel netwerk'. Zoek **Virtual Network** in de lijst met resultaten en klik erop om de pagina **Virtual Network** te openen.
 
   ![Pagina voor zoeken van virtueel netwerk](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
-3. Aan de onderkant Hallo van Hallo virtueel netwerk pagina van Hallo **een implementatiemodel selecteren** vervolgkeuzelijst, selecteer **klassieke**, en klik vervolgens op **maken**.
+3. Kies onder aan de pagina Virtueel netwerk in de vervolgkeuzelijst **Een implementatiemodel selecteren** de optie **Klassiek** en klik vervolgens op **Maken**.
 
   ![Een implementatiemodel selecteren](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
-4. Op Hallo **maken van virtuele network(classic)** pagina, Hallo VNet-instellingen configureren. Voeg op deze pagina de eerste adresruimte en één adresbereik voor het subnet toe. Nadat u Hallo VNet maken, kunt u teruggaan en aanvullende subnets en adresruimten toevoegen.
+4. Configureer de VNet-instellingen op de pagina **Virtueel netwerk maken (klassiek)**. Voeg op deze pagina de eerste adresruimte en één adresbereik voor het subnet toe. Nadat u het VNet hebt aangemaakt, kunt u terugkeren en aanvullende subnets en adresruimten toevoegen.
 
   ![Pagina Virtueel netwerk maken](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Pagina Virtueel netwerk maken")
-5. Controleer of deze Hallo **abonnement** Hallo correct is. U kunt abonnementen wijzigen met behulp van Hallo vervolgkeuzelijst.
-6. Klik op **Resourcegroep** en selecteer een bestaande resourcegroep of maak een nieuwe resourcegroep door een naam in te voeren. Zie [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md#resource-groups) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
-7. Selecteer vervolgens Hallo **locatie** instellingen voor uw VNet. Hallo locatie bepaalt waar Hallo-resources die u toothis VNet implementeert blijven staan.
-8. Als u uw VNet gemakkelijk op Hallo dashboard toobe kunnen toofind wilt, selecteer **pincode toodashboard**. Klik op **maken** toocreate uw VNet.
+5. Controleer of het **Abonnement** het juiste is. U kunt abonnementen wijzigen met behulp van de vervolgkeuzelijst.
+6. Klik op **Resourcegroep** en selecteer een bestaande resourcegroep of maak een nieuwe resourcegroep door een naam in te voeren. Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
+7. Selecteer vervolgens de **Locatie**-instellingen voor uw VNet. De locatie bepaalt waar de resources die u naar dit VNet implementeert, worden opgeslagen.
+8. Selecteer **Vastmaken aan dashboard** als u uw VNet gemakkelijk wilt terugvinden op het dashboard. Klik op **Maken** om het VNet te maken.
 
-  ![Pincode toodashboard](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "pincode toodashboard")
-9. Wanneer u op 'Maken', verschijnt een tegel op Hallo dashboard die overeenkomt met Hallo voortgang van uw VNet. Hallo tegel wijzigingen als Hallo VNet wordt gemaakt.
+  ![Vastmaken aan dashboard](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Vastmaken aan dashboard")
+9. Wanneer u op Maken klikt, wordt er op het dashboard een tegel weergegeven die de voortgang van uw VNet weergeeft. De tegel wordt gewijzigd wanneer het VNet wordt gemaakt.
 
   ![Tegel Virtueel netwerk maken](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Tegel Virtueel netwerk maken")
 
-Nadat het virtuele netwerk is gemaakt, ziet u **gemaakt** vermeld onder **Status** op Hallo netwerken pagina in Hallo klassieke Azure-portal.
+Nadat het virtuele netwerk is gemaakt, wordt op de pagina met netwerken in de klassieke Azure-portal **Gemaakt** vermeld onder **Status**.
 
 ## <a name="additionaladdress"></a>2. Extra adresruimte toevoegen
 
-Nadat u het virtuele netwerk hebt gemaakt, kunt u extra adresruimte toevoegen. Toevoegen van extra adresruimte is niet een vereist onderdeel van een S2S-configuratie, maar als u meerdere adresruimten vereist, gebruikt Hallo stappen te volgen:
+Nadat u het virtuele netwerk hebt gemaakt, kunt u extra adresruimte toevoegen. Het toevoegen van extra adresruimte geen vereist onderdeel van een S2S-configuratie, maar als u meerdere adresruimten nodig hebt, voert u de volgende stappen uit:
 
-1. Hallo virtuele netwerken niet vinden in het Hallo-portal.
-2. Op de pagina voor het virtuele netwerk, onder Hallo Hallo **instellingen** sectie, klikt u op **adresruimte**.
-3. Klik op de pagina van het Hallo Address space **+ toevoegen** en voert u extra adresruimte.
+1. Ga naar de virtuele netwerken in de portal.
+2. Ga op de pagina van uw virtuele netwerk naar de sectie **Instellingen** en klik op **Adresruimte**.
+3. Klik op de pagina Adresruimte op **+Toevoegen** en voer extra adresruimte in.
 
 ## <a name="dns"></a>3. Een DNS-server opgeven
 
-DNS-instellingen zijn geen vereist onderdeel van een S2S-configuratie, maar een DNS is nodig voor naamomzetting. Het opgeven van een waarde betekent niet dat er een nieuwe DNS-server wordt gemaakt. Hallo moet DNS-server IP-adres dat u opgeeft een DNS-server die u kunt Hallo namen omzetten voor Hallo resources die u verbinding maakt. Voor instellingen van Hallo voorbeeld hebben we een particulier IP-adres gebruikt. Hallo IP-adres we gebruiken is waarschijnlijk niet Hallo IP-adres van uw DNS-server. Worden toouse ervoor dat uw eigen waarden.
+DNS-instellingen zijn geen vereist onderdeel van een S2S-configuratie, maar een DNS is nodig voor naamomzetting. Het opgeven van een waarde betekent niet dat er een nieuwe DNS-server wordt gemaakt. Het IP-adres van de DNS-server dat u opgeeft, moet het adres zijn van een DNS-server zijn die de namen kan omzetten voor de resources waarmee u verbinding maakt. Voor dit voorbeeld gebruiken we een privé-IP-adres. De kans is zeer klein dat het IP-adres uit het voorbeeld het IP-adres van uw DNS-server is. Zorg ervoor dat u uw eigen waarden gebruikt.
 
-Nadat u het virtuele netwerk hebt gemaakt, kunt u Hallo IP-adres van een DNS-server toohandle naamomzetting kunt toevoegen. Hallo-instellingen voor het virtuele netwerk te openen, klikt u op de DNS-servers en Hallo IP-adres van Hallo DNS-server dat u voor naamomzetting toouse wilt toevoegen.
+Nadat u uw virtuele netwerk hebt gemaakt, kunt u het IP-adres van een DNS-server toevoegen om de naamomzetting te verwerken. Open de instellingen voor het virtuele netwerk, klik op de DNS-servers en voeg het IP-adres toe van de DNS-server die u wilt gebruiken voor naamomzetting.
 
-1. Hallo virtuele netwerken niet vinden in het Hallo-portal.
-2. Op de pagina voor het virtuele netwerk, onder Hallo Hallo **instellingen** sectie, klikt u op **DNS-servers**.
+1. Ga naar de virtuele netwerken in de portal.
+2. Ga op de pagina voor uw virtuele netwerk naar de sectie **Instellingen** en klik op **DNS-servers**.
 3. Voeg een DNS-server toe.
-4. toosave uw instellingen, klikt u op **opslaan** bovenaan Hallo Hallo pagina.
+4. Klik boven aan de pagina op **Opslaan** om uw instellingen op te slaan.
 
-## <a name="localsite"></a>4. Hallo lokale site configureren
+## <a name="localsite"></a>4. De lokale site configureren
 
-de lokale site Hallo verwijst doorgaans tooyour on-premises locatie. Het bevat Hallo IP-adres van Hallo VPN-apparaat toowhich u maakt een verbinding en Hallo IP-adresbereiken die worden doorgestuurd via Hallo VPN-gateway toohello VPN-apparaat.
+De lokale site verwijst doorgaans naar uw on-premises locatie. Het bevat het IP-adres van het VPN-apparaat waarmee u verbinding gaat maken en de IP-adresbereiken die via de VPN-gateway naar het VPN-apparaat worden gerouteerd.
 
-1. Navigeer in Hallo portal toohello virtueel netwerk waarvoor u een gateway toocreate wilt.
-2. Op de pagina voor het virtuele netwerk, klikt u op Hallo Hallo **overzicht** pagina in de sectie voor Hallo VPN-verbindingen, klikt u op **Gateway** tooopen hello **nieuwe VPN-verbinding** pagina.
+1. Navigeer in de portal naar het virtuele netwerk waarvoor u een gateway wil maken.
+2. Ga op de pagina voor uw virtuele netwerk naar **Overzicht** en klik in de sectie VPN-verbindingen op **Gateway** om de pagina **Nieuwe VPN-verbinding** te openen.
 
-  ![Klik op instellingen van de gateway tooconfigure](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "klikt u op tooconfigure gateway-instellingen")
-3. Op Hallo **nieuwe VPN-verbinding** pagina **Site-naar-site**.
-4. Klik op **lokale site - Configureer de vereiste instellingen** tooopen hello **lokale site** pagina. Hallo-instellingen configureren en klik vervolgens op **OK** toosave Hallo instellingen.
-  - **Naam:** maken een naam voor uw lokale site toomake gemakkelijk voor u tooidentify.
-  - **IP-adres van VPN-gateway:** dit openbare IP-adres van Hallo VPN-apparaat voor uw on-premises netwerk Hallo is. Hallo VPN-apparaat vereist een openbaar IPv4-IP-adres. Geef een geldig openbaar IP-adres voor VPN-apparaat toowhich gewenste tooconnect Hallo. Het mag zich niet achter NAT en toobe die door Azure bereikbaar is. Als u niet weet Hallo IP-adres van uw VPN-apparaat, die u kunt altijd plaatsen in een tijdelijke aanduidingswaarde (mits het Hallo-indeling van een geldig openbaar IP-adres) en later wijzigen.
-  - **Client-adresruimte:** lijst Hallo IP-adresbereiken die u wilt dat gerouteerd toohello lokale on-premises netwerk via deze gateway. U kunt meerdere adresruimtebereiken toevoegen. Zorg ervoor dat Hallo bereiken die u hier opgeeft niet overlappen met bereiken van andere uw virtuele netwerk maakt verbinding met netwerken of met Hallo-adresbereiken van het virtuele netwerk Hallo zelf.
+  ![Klik om gatewayinstellingen te configureren](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Klik om gatewayinstellingen te configureren")
+3. Selecteer **Site-naar-site** op de pagina **Nieuwe VPN-verbinding**.
+4. Klik op **Lokale site - vereiste instellingen configureren** om de pagina **Lokale site** te openen. Configureer de instellingen en klik vervolgens op **OK** om de instellingen op te slaan.
+  - **Naam:** geef de lokale site een naam waarmee u deze eenvoudig kunt identificeren.
+  - **IP-adres voor de VPN-gateway:** dit is het openbare IP-adres van het VPN-apparaat voor uw on-premises netwerk. Voor het VPN-apparaat is een openbaar IPv4-adres vereist. Geef een geldig openbaar IP-adres op voor het VPN-apparaat waarmee u verbinding wilt maken. Het mag zich niet achter NAT bevinden en moet bereikbaar zijn voor Azure. Als u het IP-adres van het VPN-apparaat niet kent, kunt u altijd een tijdelijke aanduiding invoegen (zolang deze maar de indeling van een geldig openbaar IP-adres heeft) en dit later wijzigen.
+  - **Clientadresruimte:** vermeld de IP-adresbereiken die u via deze gateway naar het lokale on-premises netwerk wilt routeren. U kunt meerdere adresruimtebereiken toevoegen. Zorg ervoor dat de hier opgegeven bereiken niet overlappen met bereiken van andere netwerken waarmee uw virtuele netwerk is verbonden of met de adresbereiken van het virtuele netwerk zelf.
 
   ![Lokale site](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Lokale site configureren")
 
-## <a name="gatewaysubnet"></a>5. Hallo gatewaysubnet configureren
+## <a name="gatewaysubnet"></a>5. Het gatewaysubnet configureren
 
-U moet een gatewaysubnet maken voor de VPN-gateway. gatewaysubnet Hallo bevat Hallo IP-adressen die gebruikmaken van Hallo VPN-gatewayservices.
+U moet een gatewaysubnet maken voor de VPN-gateway. Het gatewaysubnet bevat de IP-adressen waarvan de VPN-gatewayservices gebruikmaken.
 
-1. Op Hallo **nieuwe VPN-verbinding** pagina, selecteer Hallo selectievakje **gateway onmiddellijk maken**. Hallo optionele gateway 'configuration' pagina wordt weergegeven. Als u geen Hallo selectievakje selecteert, ziet u geen Hallo pagina tooconfigure Hallo gateway-subnet.
+1. Schakel op de pagina **Nieuwe VPN-verbinding** het selectievakje **Gateway onmiddellijk maken** in. De pagina Optionele gatewayconfiguratie wordt weergegeven. Als u het selectievakje niet inschakelt, wordt de pagina voor het configureren van het gatewaysubnet niet weergegeven.
 
   ![Gatewayconfiguratie - subnet, grootte, routingtype](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "Gatewayconfiguratie - subnet, grootte, routingtype")
-2. Hallo tooopen **gatewayconfiguratie** pagina, klikt u op **optionele gatewayconfiguratie - Subnet, grootte en routeringstype**.
-3. Op Hallo **gatewayconfiguratie** pagina, klikt u op **Subnet - vereiste instellingen configureren** tooopen hello **subnet toevoegen** pagina.
+2. Als u de pagina **Gatewayconfiguratie** wilt openen, klikt u op **Optionele gatewayconfiguratie - subnet, grootte en routingtype**.
+3. Klik op de pagina **Gatewayconfiguratie** op **Subnet - vereiste instellingen configureren** om de pagina **Subnet toevoegen** te openen.
 
   ![Gatewayconfiguratie - gatewaysubnet](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "gatewayconfiguratie - gatewaysubnet")
-4. Op Hallo **subnet toevoegen** pagina, Hallo gatewaysubnet toevoegen. Hallo grootte van gatewaysubnet Hallo die u opgeeft, afhankelijk Hallo VPN-gateway-configuratie die u toocreate wilt. Het is mogelijk toocreate een gatewaysubnet van slechts/29, wordt u aangeraden/27 of /28 te gebruiken. U maakt dan een groter subnet dat meer adressen bevat. Met behulp van een groter gatewaysubnet kunt voldoende IP-adressen tooaccommodate mogelijke toekomstige configuraties.
+4. Voeg op de pagina **Subnet toevoegen** het gatewaysubnet toe. De grootte van het gatewaysubnet dat u opgeeft, is afhankelijk van de VPN-gatewayconfiguratie die u wilt maken. Hoewel het mogelijk is om een gatewaysubnet van slechts /29 te maken, wordt minimaal /27 of /28 aanbevolen. U maakt dan een groter subnet dat meer adressen bevat. Met een groter gatewaysubnet beschikt u over voldoende IP-adressen voor mogelijke toekomstige configuraties.
 
   ![Gatewaysubnet toevoegen](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Gatewaysubnet toevoegen")
 
-## <a name="sku"></a>6. Geef hello SKU- en VPN-type
+## <a name="sku"></a>6. Het SKU- en VPN-type opgeven
 
-1. Selecteer Hallo gateway **grootte**. Dit is Hallo gateway-SKU dat u toocreate uw virtuele netwerkgateway. In de portal Hallo Hallo 'Standaard SKU' = **Basic**. Klassieke VPN-gateways gebruiken Hallo oude (verouderde) gateway-SKU's. Zie voor meer informatie over Hallo verouderde gateway-SKU's [werken met virtuele netwerkgateway SKU's (oude SKU's)](vpn-gateway-about-skus-legacy.md).
+1. Selecteer de gateway **Grootte**. Dit is de gateway-SKU die u gaat gebruiken om uw virtuele netwerkgateway te maken. In de portal is de standaard-SKU = **Basic**. Klassieke VPN-gateways gebruiken de oude (verouderde) gateway-SKU's. Zie [Working with virtual network gateway SKUs (old SKUs)](vpn-gateway-about-skus-legacy.md) (Werken met virtuele netwerkgateway-SKU's (oude SKU's)) voor meer informatie over de oude gateway-SKU's.
 
   ![SKUL- en VPN-type selecteren](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "SKU- en VPN-type selecteren")
-2. Selecteer Hallo **Type routering** voor uw gateway. Dit is ook bekend als Hallo VPN-type. Het is belangrijk tooselect Hallo juiste Gatewaytype omdat u Hallo-gateway kan niet van een type tooanother converteren. Uw VPN-apparaat moet compatibel zijn met Hallo routering dat die u selecteert. Zie [Over VPN-gatewayinstellingen](vpn-gateway-about-vpn-gateway-settings.md#vpntype) voor meer informatie over VPN-typen. Mogelijk ziet u artikelen too'RouteBased verwijst ' en 'PolicyBased' VPN typen. ' Dynamische 'komt overeen too'RouteBased', en 'Statische' komt overeen met 'PolicyBased'.
-3. Klik op **OK** toosave Hallo instellingen.
-4. Op Hallo **nieuwe VPN-verbinding** pagina, klikt u op **OK** onderaan Hallo Hallo pagina toobegin maken van uw virtuele netwerkgateway. Afhankelijk van Hallo SKU die u selecteert, kunnen er too45 minuten toocreate een virtuele netwerkgateway.
+2. Selecteer het **Routeringstype** voor uw gateway. Dit staat ook bekend als het VPN-type. Het is belangrijk dat u het juiste gatewaytype selecteert, omdat u de gateway niet van het ene type naar een ander type kunt converteren. Het VPN-apparaat moet compatibel zijn met het routingtype dat u selecteert. Zie [Over VPN-gatewayinstellingen](vpn-gateway-about-vpn-gateway-settings.md#vpntype) voor meer informatie over VPN-typen. Mogelijk ziet u artikelen die verwijzen naar de VPN-typen RouteBased en PolicyBased. Het type Dynamisch komt overeen met RouteBased, en het type Vast komt overeen met PolicyBased.
+3. Klik op **OK** om de instellingen op te slaan.
+4. Klik onder aan de pagina **Nieuwe VPN-verbinding** op **OK** om de virtuele netwerkgateway te gaan maken. Afhankelijk van de SKU die u selecteert, duurt dit maximaal 45 minuten.
 
 ## <a name="vpndevice"></a>7. Uw VPN-apparaat configureren
 
-Site-naar-Site-verbindingen tooan on-premises netwerk een VPN-apparaat vereist. In deze stap configureert u het VPN-apparaat. Bij het configureren van uw VPN-apparaat, moet u de volgende Hallo:
+Voor site-naar-site-verbindingen met een on-premises netwerk is een VPN-apparaat vereist. In deze stap configureert u het VPN-apparaat. Bij de configuratie van uw VPN-apparaat hebt u het volgende nodig:
 
-- Een gedeelde sleutel. Dit is Hallo dezelfde gedeelde sleutel die u opgeeft bij het maken van uw Site-naar-Site VPN-verbinding. In onze voorbeelden gebruiken we een eenvoudige gedeelde sleutel. Het is raadzaam dat u een complexere sleutel toouse genereert.
-- Hallo openbare IP-adres van uw virtuele netwerkgateway. U kunt het openbare IP-adres Hallo weergeven met behulp van hello Azure-portal, PowerShell of CLI.
+- Een gedeelde sleutel. Dit is dezelfde gedeelde sleutel die u opgeeft wanneer u uw site-naar-site-VPN-verbinding maakt. In onze voorbeelden gebruiken we een eenvoudige gedeelde sleutel. We raden u aan een complexere sleutel te genereren.
+- Het openbare IP-adres van de gateway van uw virtuele netwerk. U kunt het openbare IP-adres weergeven met behulp van Azure Portal, PowerShell of de CLI.
 
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="CreateConnection"></a>8. Hallo verbinding maken
-In deze stap maakt u Hallo gedeelde sleutel instellen en Hallo verbinding maken. Hallo Hallo-sleutel die u instelt is moet dezelfde sleutel die is gebruikt in de configuratie van uw VPN-apparaat.
+## <a name="CreateConnection"></a>8. De verbinding maken
+In deze stap stelt u de gedeelde sleutel in en maakt u de verbinding. De sleutel die u instelt, moet dezelfde sleutel zijn die is gebruikt bij de configuratie van het VPN-apparaat.
 
 > [!NOTE]
-> Deze stap is momenteel niet beschikbaar in hello Azure-portal. U moet Hallo Service Management (SM) versie van hello Azure PowerShell-cmdlets gebruiken.
+> Deze stap is momenteel niet beschikbaar in Azure Portal. Gebruik de SM-versie (Service Management) van de Azure PowerShell-cmdlets.
 >
 
-### <a name="step-1-connect-tooyour-azure-account"></a>Step 1. Verbinding maken met tooyour Azure-account
+### <a name="step-1-connect-to-your-azure-account"></a>Step 1. Verbinding maken met uw Azure-account
 
-1. Open de PowerShell-console met verhoogde rechten en tooyour-account koppelen. Gebruik Hallo voorbeeld toohelp die u verbinding maakt te volgen:
+1. Open de PowerShell-console met verhoogde rechten en maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 
   ```powershell
   Add-AzureAccount
   ```
-2. Controleer de abonnementen Hallo voor Hallo-account.
+2. Controleer de abonnementen voor het account.
 
   ```powershell
   Get-AzureSubscription
   ```
-3. Als u meer dan één abonnement hebt, selecteert u Hallo-abonnement dat u wilt dat toouse.
+3. Als u meerdere abonnementen hebt, selecteert u het abonnement dat u wilt gebruiken.
 
   ```powershell
   Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
   ```
 
-### <a name="step-2-set-hello-shared-key-and-create-hello-connection"></a>Stap 2. Hallo gedeelde sleutel instellen en Hallo verbinding maken
+### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Stap 2. De gedeelde sleutel instellen en de verbinding maken
 
-Als u werkt met PowerShell en Hallo klassieke implementatiemodel, zijn soms Hallo namen van bronnen in Hallo-portal niet Hallo namen hello Azure toosee verwacht wanneer u PowerShell. Hallo volgende stappen uit te exporteren Hallo netwerk bestand tooobtain Hallo exacte configuratiewaarden voor Hallo namen.
+Als u werkt met PowerShell en het klassieke implementatiemodel, komen de namen van resources in de portal soms niet overeen met wat verwacht wordt in Azure bij het gebruik van PowerShell. In de volgende stappen leert u hoe u het netwerkconfiguratiebestand exporteert om de exacte namen te verkrijgen.
 
-1. Maak een map op uw computer en vervolgens exporteren Hallo configuration file toohello netwerkmap. In dit voorbeeld is Hallo netwerk configuratiebestand geëxporteerde tooC:\AzureNet.
+1. Maak een map op de computer en exporteer vervolgens het netwerkconfiguratiebestand naar de map. In dit voorbeeld wordt het netwerkconfiguratiebestand geëxporteerd naar C:\AzureNet.
 
   ```powershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
-2. Hallo netwerk-configuratiebestand met een xml-editor te openen en controleer Hallo waarden voor 'name LocalNetworkSite' en 'VirtualNetworkSite name'. Wijzig Hallo voorbeeld tooreflect Hallo waarden die u nodig hebt. Bij het opgeven van een naam die spaties bevat, gebruikt u enkele aanhalingstekens rond het Hallo-waarde.
+2. Open het netwerkconfiguratiebestand met een xml-editor en controleer de waarden voor LocalNetworkSite name en VirtualNetworkSite name. Pas het voorbeeld aan uw omgeving aan. Gebruik voor een naam die spaties bevat, enkele aanhalingstekens rond de waarde.
 
-3. Hallo gedeelde sleutel instellen en Hallo verbinding maken. Hallo '-SharedKey' is een waarde die u genereren en opgeven. In voorbeeld Hallo we 'abc123' gebruikt, maar u kunt genereren (en moeten) gebruikmaken van iets meer complexe. Hallo belangrijke dingen die u hier opgeeft, Hallo-waarde is moet Hallo die dezelfde waarde die u hebt opgegeven bij het configureren van uw VPN-apparaat.
+3. Stel de gedeelde sleutel in en maak de verbinding. -SharedKey is een waarde die u genereert en opgeeft. In het voorbeeld wordt abc123 gebruikt, maar u kunt een ingewikkeldere waarde gebruiken. (aanbevolen) Het is van belang dat de waarde die u hier opgeeft, dezelfde waarde is die u hebt opgegeven bij het configureren van het VPN-apparaat.
 
   ```powershell
   Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
   -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
   ```
-Wanneer Hallo verbinding wordt gemaakt, is het resultaat Hallo: **Status: geslaagd**.
+Wanneer de verbinding is gemaakt, is het resultaat: **Status: geslaagd**.
 
 ## <a name="verify"></a>9. De verbinding controleren
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
-Als u verbindingsproblemen ondervindt, raadpleegt u Hallo **oplossen** sectie van Hallo inhoudsopgave in het linkerdeelvenster Hallo.
+Als u verbindingsproblemen ondervindt, raadpleegt u de sectie **Problemen oplossen** van de inhoudsopgave in het linkerdeelvenster.
 
-## <a name="reset"></a>Hoe tooreset een VPN-gateway
+## <a name="reset"></a>Een VPN-gateway opnieuw instellen
 
-Het opnieuw instellen van een Azure VPN-gateway is handig als u cross-premises VPN-connectiviteit verliest in een of meer Site-to-Site VPN-tunnels. In dit geval uw on-premises VPN-apparaten zijn alle naar behoren werkt, maar er kan geen tooestablish IPsec-tunnels met hello Azure VPN-gateways zijn. Zie [Een VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md) voor de stappen.
+Het opnieuw instellen van een Azure VPN-gateway is handig als u cross-premises VPN-connectiviteit verliest in een of meer Site-to-Site VPN-tunnels. In een dergelijke situatie functioneren al uw on-premises VPN-apparaten naar behoren, maar kunnen ze geen IPSec-tunnels tot stand brengen met de Azure VPN-gateways. Zie [Een VPN-gateway opnieuw instellen](vpn-gateway-resetgw-classic.md) voor de stappen.
 
-## <a name="changesku"></a>Hoe toochange een gateway-SKU
+## <a name="changesku"></a>Een gateway-SKU wijzigen
 
-Voor Hallo toochange een gateway-SKU stappen, Zie [vergroten of verkleinen van een gateway-SKU](vpn-gateway-about-SKUS-legacy.md).
+Zie [Formaat van een gateway-SKU wijzigen](vpn-gateway-about-SKUS-legacy.md) voor de stappen voor het wijzigen van een gateway-SKU.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zodra de verbinding voltooid is, kunt u virtuele netwerken van virtuele machines tooyour kunt toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
+* Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Zie [Virtuele machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
 * Zie [Informatie over geforceerde tunneling](vpn-gateway-about-forced-tunneling.md) voor meer informatie over geforceerde tunneling.

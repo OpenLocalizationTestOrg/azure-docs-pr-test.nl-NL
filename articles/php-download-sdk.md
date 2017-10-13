@@ -1,6 +1,6 @@
 ---
-title: aaaDownload hello Azure SDK voor PHP
-description: Meer informatie over hoe toodownload en installeer hello Azure SDK voor PHP.
+title: De Azure SDK voor PHP downloaden
+description: Informatie over het downloaden en installeren van de Azure SDK voor PHP.
 documentationcenter: php
 services: app-service\web
 author: allclark
@@ -14,41 +14,41 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
-ms.openlocfilehash: 94f56fc4f91bb175c08b9f7a43cb221c827694a8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fd3d28b133ef8e646f5c2f1c1127f654daa61b95
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="download-hello-azure-sdk-for-php"></a>Hello Azure SDK voor PHP downloaden
+# <a name="download-the-azure-sdk-for-php"></a>De Azure SDK voor PHP downloaden
 ## <a name="overview"></a>Overzicht
-Hello Azure SDK voor PHP omvat onderdelen waarmee u toodevelop, implementeren en beheren van PHP-toepassingen voor Azure. Hello Azure SDK voor PHP bevat met name de volgende Hallo:
+De Azure SDK voor PHP omvat onderdelen waarmee u kunt ontwikkelen, implementeren en beheren van PHP-toepassingen voor Azure. De Azure SDK voor PHP bevat met name de volgende:
 
-* **PHP-clientbibliotheken voor Azure Hallo**. Deze klassenbibliotheken biedt een interface voor toegang tot Azure-functies, zoals services voor het beheer van gegevens en cloudservices.  
-* **Hello Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)**. Dit is een reeks opdrachten voor het implementeren en beheren van Azure-services, zoals Azure Websites en Azure Virtual Machines. Hallo werk op elk platform, inclusief Mac, Linux en Windows Azure CLI.
+* **De PHP-clientbibliotheken voor Azure**. Deze klassenbibliotheken biedt een interface voor toegang tot Azure-functies, zoals services voor het beheer van gegevens en cloudservices.  
+* **De Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)**. Dit is een reeks opdrachten voor het implementeren en beheren van Azure-services, zoals Azure Websites en Azure Virtual Machines. Het werk van de Azure CLI op elk platform, inclusief Mac, Linux en Windows.
 * **Azure PowerShell (alleen Windows)**. Dit is een set PowerShell-cmdlets voor het implementeren en beheren van Azure-Services, zoals Cloudservices en virtuele Machines.
-* **Hallo (alleen Windows) Azure Emulators**. Hallo berekeningen en opslag emulators zijn lokale emulators van cloudservices en -gegevens management services waarmee u een toepassing lokaal tootest. Hello Azure Emulators alleen op Windows worden uitgevoerd.
+* **De Azure Emulators (alleen Windows)**. De berekenings- en emulators zijn lokale emulators van cloudservices en -gegevens management services waarmee u een toepassing lokaal te testen. De Azure-Emulators alleen op Windows worden uitgevoerd.
 
-Hallo in de volgende secties wordt beschreven hoe toodownload en installeer Hallo onderdelen die hierboven worden beschreven.
+De volgende secties wordt beschreven hoe downloaden en installeren van de onderdelen die hierboven worden beschreven.
 
-Hallo instructies in dit onderwerp wordt ervan uitgegaan dat u hebt [PHP] [ install-php] geïnstalleerd.
+De instructies in dit onderwerp wordt ervan uitgegaan dat u hebt [PHP] [ install-php] geïnstalleerd.
 
 > [!NOTE]
-> U moet PHP 5.5 of hoger toouse Hallo PHP-clientbibliotheken voor Azure hebben.
+> U kunt PHP 5.5 of hoger de PHP-clientbibliotheken gebruiken voor Azure moet hebben.
 > 
 > 
 
 ## <a name="php-client-libraries-for-azure"></a>PHP-clientbibliotheken voor Azure
-Hallo PHP-clientbibliotheken voor Azure biedt een interface voor toegang tot Azure-functies, zoals services voor het beheer van gegevens en in de cloud services, op een ander besturingssysteem. Deze bibliotheken kunnen worden geïnstalleerd via Hallo Composer.
+De PHP-clientbibliotheken voor Azure biedt een interface voor toegang tot Azure-functies, zoals services voor het beheer van gegevens en in de cloud services, op een ander besturingssysteem. Deze bibliotheken kunnen worden geïnstalleerd via de Composer.
 
-Zie voor meer informatie over hoe toouse PHP-clientbibliotheken voor Azure Hallo [hoe tooUse Blob-Service Hallo][blob-service], [hoe tooUse Tabelservice Hallo] [ table-service] en [hoe tooUse Queue-Service Hallo][queue-service].
+Zie voor meer informatie over het gebruik van de PHP-clientbibliotheken voor Azure [het gebruik van de Blob-Service][blob-service], [het gebruik van de Tabelservice] [ table-service]en [het gebruik van de Queue-Service][queue-service].
 
 ### <a name="install-via-composer"></a>Installeren via de Composer
 1. [Installeer Git][install-git].
 
-    > [AZURE.NOTE] Op Windows moet u ook tooadd Hallo Git uitvoerbare tooyour pad-omgevingsvariabele.
+    > [AZURE.NOTE] In Windows moet u ook de uitvoerbare Git toevoegen aan de omgevingsvariabele PATH.
 
-1. Maak een bestand met de naam **composer.json** in Hallo hoofdmap van uw project en voeg Hallo code tooit te volgen:
+1. Maak een bestand met de naam **composer.json** in de hoofdmap van uw project en voeg de volgende code toe:
    
         {
             "require": {
@@ -61,17 +61,17 @@ Zie voor meer informatie over hoe toouse PHP-clientbibliotheken voor Azure Hallo
         php composer.phar install
 
 ## <a name="azure-powershell-and-azure-emulators"></a>Azure PowerShell en Azure Emulators
-Azure PowerShell is een set PowerShell-cmdlets voor het implementeren en beheren van Azure-Services (zoals Cloudservices en virtuele Machines). Hello Azure Emulators zijn emulators van cloudservices en -gegevens management services waarmee u een toepassing lokaal tootest. Deze onderdelen worden ondersteund. alleen Windows.
+Azure PowerShell is een set PowerShell-cmdlets voor het implementeren en beheren van Azure-Services (zoals Cloudservices en virtuele Machines). De Azure-Emulators zijn emulators van cloudservices en -gegevens management services waarmee u een toepassing lokaal te testen. Deze onderdelen worden ondersteund. alleen Windows.
 
-Hallo aanbevolen manier tooinstall Azure PowerShell en hello Azure Emulators is toouse hello [Microsoft Web Platform Installer][download-wpi]. Houd er rekening mee dat u ook tooinstall andere onderdelen van de ontwikkeling, zoals PHP, SQL Server, Microsoft-Drivers Hallo voor SQL Server voor PHP en WebMatrix kunt.
+De aanbevolen manier voor het installeren van Azure PowerShell en de Azure-emulator is met de [Microsoft Web Platform Installer][download-wpi]. Houd er rekening mee dat u ook kunt andere onderdelen van de ontwikkeling, zoals PHP, SQL Server, de Microsoft-Drivers voor SQL Server voor PHP en WebMatrix installeren.
 
-Voor informatie over het toouse Azure PowerShell, Zie [hoe tooUse Azure PowerShell][powershell-tools].
+Zie voor meer informatie over het gebruik van Azure PowerShell [hoe Azure PowerShell gebruiken][powershell-tools].
 
 ## <a name="azure-cli"></a>Azure CLI
-Hello Azure CLI is een reeks opdrachten voor het implementeren en beheren van Azure-services, zoals Azure Websites en Azure Virtual Machines. Zie voor meer informatie over het installeren van Azure CLI [installeren hello Azure CLI](cli-install-nodejs.md).
+De Azure CLI is een reeks opdrachten voor het implementeren en beheren van Azure-services, zoals Azure Websites en Azure Virtual Machines. Zie voor meer informatie over het installeren van Azure CLI [Azure CLI installeren](cli-install-nodejs.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie, Hallo [PHP-ontwikkelaarscentrum](/develop/php/).
+Zie voor meer informatie de [PHP-ontwikkelaarscentrum](/develop/php/).
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer

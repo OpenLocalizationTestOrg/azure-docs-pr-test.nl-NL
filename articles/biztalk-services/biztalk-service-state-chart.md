@@ -1,6 +1,6 @@
 ---
-title: aaaTasks toegestaan in verschillende statussen of statussen in BizTalk Services | Microsoft Docs
-description: 'Hallo acties/operations toegestaan in andere MABS status: stoppen, starten, opnieuw starten, onderbreken, hervatten, verwijderen, schalen, configuratie en back-ups maken van bijwerken'
+title: Taken die zijn toegestaan in verschillende statussen of statussen in BizTalk Services | Microsoft Docs
+description: 'De acties/operations toegestaan in andere MABS status: stoppen, starten, opnieuw starten, onderbreken, hervatten, verwijderen, schalen, configuratie en back-ups maken van bijwerken'
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 643307ba6fa9b05c82b867912feab249c42b65dd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 918154852cf4ee1b80792eaddb588f5b0237da7c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="what-you-can-and-cant-do-using-hello-biztalk-service-state"></a>Wat u wel en niet met behulp van Hallo BizTalk Service-status
+# <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Wat u wel en niet met behulp van de BizTalk Service-status
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Afhankelijk van de huidige status Hallo Hallo BizTalk service zijn er bewerkingen die u wel of niet uitvoeren op Hallo BizTalk service.
+Afhankelijk van de huidige status van de BizTalk service zijn er bewerkingen die u wel of niet uitvoeren op de BizTalk service.
 
-Bijvoorbeeld, inrichten u een nieuwe BizTalk-service in de klassieke Azure-portal Hallo. Wanneer het is voltooid, Hallo BizTalk-service is in `active` staat. Hallo-actieve status heeft, kunt u stoppen, onderbreken en Hallo BizTalk service verwijderen. Als u Hallo BizTalk service, stopt en stop mislukt en Hallo BizTalk service tooa gaat `StopFailed` status. In Hallo `StopFailed` staat, kunt u Hallo BizTalk-service opnieuw starten. Hallo volgende fout treedt op als u een bewerking die niet zijn toegestaan, zoals hervatten:
+Bijvoorbeeld, het inrichten van een nieuwe BizTalk-service in de klassieke Azure portal. Wanneer het is voltooid, wordt de BizTalk service `active` status. In de actieve status heeft, kunt u stoppen, onderbreken en de BizTalk service verwijderen. Als u de BizTalk-service stoppen en stop mislukt en de BizTalk service gaat dan naar een `StopFailed` status. In de `StopFailed` staat, kunt u de BizTalk service opnieuw starten. De volgende fout treedt op als u een bewerking die niet zijn toegestaan, zoals hervatten:
 
 `Operation not allowed`
 
-## <a name="view-hello-possible-states"></a>Weergave Hallo mogelijke statussen
+## <a name="view-the-possible-states"></a>De mogelijke statussen weergeven
 
-Hallo volgende tabellen Hallo bewerkingen na opvragen of acties die kunnen worden uitgevoerd wanneer Hallo BizTalk Service bevindt zich in een specifieke status. Een ✔ betekent Hallo-bewerking is toegestaan in deze staat. Een lege waarde betekent Hallo-bewerking kan niet worden uitgevoerd in deze staat.
+De volgende tabellen worden de bewerkingen of acties die kunnen worden uitgevoerd wanneer de BizTalk-Service zich in een specifieke status. Een ✔ betekent dat de bewerking is toegestaan in deze staat. Een lege waarde betekent dat de bewerking kan niet worden uitgevoerd terwijl u met die status.
 
 | Servicestatus | Starten | Stoppen | Opnieuw starten | onderbreken | Hervatten | Verwijderen | Schalen | Update <br/> Configuratie | Back-up |
 | --- | --- | --- | --- | --- | --- | --- |--- | --- | --- |
@@ -52,11 +52,11 @@ Hallo volgende tabellen Hallo bewerkingen na opvragen of acties die kunnen worde
 
 
 ## <a name="see-also"></a>Zie ook
-* [Maken van een BizTalk Service met Hallo klassieke Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [Wat u kunt doen op Hallo dashboard, bewaken en schalen tabbladen van BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [U krijgt met Hallo Developer, Basic, Standard en Premium-edities in BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Hoe tooback ups en het terugzetten van een BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Een BizTalk Service met de klassieke Azure portal maken](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [Wat u kunt doen op de tabbladen dashboard, bewaken en schalen van BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [U krijgt met de Developer, Basic, Standard en Premium-edities in BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [Het back-up en herstellen van een BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [Beperking uitgelegd in BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-* [Hallo Service Bus- en toegangsbeheer uitgever en de verlener sleutelwaarden voor uw BizTalk Service ophalen](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-* [Hoe gaan gebruiken Azure BizTalk Services SDK Hallo](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [De Service Bus- en toegangsbeheer uitgever en de verlener sleutelwaarden voor uw BizTalk Service ophalen](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [De Azure BizTalk Services SDK gaan gebruiken](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 

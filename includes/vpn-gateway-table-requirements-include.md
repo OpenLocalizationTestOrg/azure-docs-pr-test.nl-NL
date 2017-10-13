@@ -1,4 +1,4 @@
-Hallo volgens de tabel lijsten Hallo vereisten voor PolicyBased en RouteBased VPN-gateways. Deze tabel is van toepassing tooboth Hallo Resource Manager en de klassieke implementatiemodellen. PolicyBased VPN-gateways zijn hetzelfde als statische gateways Hallo Hallo klassieke model, en op Route gebaseerde gateways zijn hetzelfde als dynamische gateways Hallo.
+De volgende tabel bevat de vereisten voor PolicyBased en RouteBased VPN-gateways. Deze tabel is van toepassing op de Resource Manager en de klassieke implementatiemodellen. Voor het klassieke model PolicyBased VPN-gateways zijn hetzelfde als statische gateways en op Route gebaseerde gateways zijn hetzelfde als dynamische gateways.
 
 |  | **PolicyBased Basic VPN-Gateway** | **Basic op route gebaseerd VPN-Gateway** | **Standaard op route gebaseerd VPN-Gateway** | **RouteBased High Performance VPN-Gateway** |
 | --- | --- | --- | --- | --- |

@@ -1,5 +1,5 @@
 ---
-title: Azure-resourcegroepen die VM-extensies bevatten aaaExporting | Microsoft Docs
+title: Azure-resourcegroepen die VM-extensies bevatten exporteren | Microsoft Docs
 description: Resource Manager-sjablonen met uitbreidingen van de virtuele machine exporteren.
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,23 +15,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
-ms.openlocfilehash: cdbc2030988a19fe68429e8733dc60536c264abf
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cc3c705f1c9123de75ced016a5b39eb1a86b0f73
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exporteren van resourcegroepen met VM-extensies
 
-Azure-resourcegroepen kunnen worden geëxporteerd naar een nieuwe Resource Manager-sjabloon die vervolgens kan worden geïmplementeerd. Hallo exportproces interpreteert bestaande resources en Resource Manager-sjabloon maakt die bij de implementatie resulteert in een vergelijkbare resourcegroep. Wanneer u Hallo resourcegroep exportoptie tegen een bronnengroep met uitbreidingen van de virtuele Machine, worden de verschillende items moeten toobe beschouwd als zoals extensie compatibiliteit en beveiligde instellingen.
+Azure-resourcegroepen kunnen worden geëxporteerd naar een nieuwe Resource Manager-sjabloon die vervolgens kan worden geïmplementeerd. Het exportproces interpreteert bestaande resources en Resource Manager-sjabloon maakt die bij de implementatie resulteert in een vergelijkbare resourcegroep. Wanneer u de optie voor het exporteren van resourcegroep tegen een bronnengroep met uitbreidingen van de virtuele Machine, worden meerdere items moeten worden overwogen zoals extensie compatibiliteit en instellingen beveiligd.
 
-De Documentdetails van dit hoe Hallo resourcegroep exportproces werkt met betrekking tot de virtuele machine extensies, met inbegrip van een lijst met ondersteunde extensies en meer informatie over de verwerking van beveiligde gegevens.
+De Documentdetails van dit de werking van het exportproces resourcegroep met betrekking tot de virtuele machine extensies, met inbegrip van een lijst met extensies ondersteund en informatie over de verwerking van beveiligde gegevens.
 
 ## <a name="supported-virtual-machine-extensions"></a>Ondersteunde virtuele machines-extensies
 
-Er zijn veel uitbreidingen van de virtuele Machine beschikbaar. Niet alle uitbreidingen kunnen worden geëxporteerd naar een Resource Manager-sjabloon Hallo 'Automatiseringsscript' gebruiken. Als de extensie van een virtuele machine niet wordt ondersteund, moet deze toobe handmatig terug in de geëxporteerde sjabloon Hallo geplaatst.
+Er zijn veel uitbreidingen van de virtuele Machine beschikbaar. Niet alle uitbreidingen kunnen worden geëxporteerd naar een Resource Manager-sjabloon met de functie 'Automatiseringsscript'. Als de extensie van een virtuele machine niet wordt ondersteund, moet deze handmatig terug in de geëxporteerde sjabloon worden geplaatst.
 
-Hallo kunnen volgende extensies worden geëxporteerd met Hallo automation script functie.
+De volgende extensies kunnen met de functie voor automatisering script worden geëxporteerd.
 
 | Toestelnummer ||||
 |---|---|---|---|
@@ -46,26 +46,26 @@ Hallo kunnen volgende extensies worden geëxporteerd met Hallo automation script
 | Aangepast Script voor Linux | Linux Chef-Client | Toegang voor Linux VM |
 | Datadog Linux-Agent | Diagnose van Linux | VM-momentopname |
 
-## <a name="export-hello-resource-group"></a>Hallo resourcegroep exporteren
+## <a name="export-the-resource-group"></a>De resourcegroep exporteren
 
-tooexport een resourcegroep in een sjabloon voor herbruikbare voltooid Hallo stappen te volgen:
+Als u wilt een resourcegroep exporteren naar een herbruikbare sjabloon, moet u de volgende stappen uitvoeren:
 
-1. Meld u aan toohello Azure-portal
-2. Klik op Hallo Hub-Menu, resourcegroepen
-3. Hallo doelresourcegroep in de lijst Hallo selecteren
-4. Klik op Hallo resourcegroep blade Automation-Script
+1. Aanmelden bij Azure Portal
+2. Klik in het Menu Hub op resourcegroepen
+3. Selecteer de doelresourcegroep in de lijst
+4. Klik op de blade resourcegroep automatiseringsscript
 
 ![Sjabloon exporteren](./media/extensions-export-templates/template-export.png)
 
-Hello Azure Resource Manager-script voor automatische produceert een Resource Manager-sjabloon, een parameterbestand en implementatie van verschillende voorbeeldscripts zoals PowerShell en Azure CLI. Op dit moment Hallo geëxporteerde sjabloon kan worden gedownload met Hallo downloadknop toegevoegd als een nieuwe sjabloon toohello sjabloonbibliotheek of gedistribueerd met behulp van Hallo implementatieknop.
+Het Azure Resource Manager-script voor automatische produceert een Resource Manager-sjabloon, een parameterbestand en implementatie van verschillende voorbeeldscripts zoals PowerShell en Azure CLI. De geëxporteerde sjabloon kan op dit moment worden gedownload met behulp van de downloadknop als een nieuwe sjabloon wordt toegevoegd aan de sjabloonbibliotheek of geïmplementeerd met behulp van de knop implementeren.
 
 ## <a name="configure-protected-settings"></a>Beveiligde instellingen configureren
 
-Veel virtuele machine van Azure-extensies bevatten een beveiligde instellingen configuratie, waarbij gevoelige gegevens zoals referenties en configuratie tekenreeksen worden gecodeerd. Beveiligde instellingen worden niet geëxporteerd met Hallo automatiseringsscript. Als nodig is, beveiligde instellingen toobe opnieuw in Hallo ingevoegd moeten geëxporteerd sjablonen.
+Veel virtuele machine van Azure-extensies bevatten een beveiligde instellingen configuratie, waarbij gevoelige gegevens zoals referenties en configuratie tekenreeksen worden gecodeerd. Beveiligde instellingen worden niet geëxporteerd met een automatiseringsscript. Indien nodig, beveiligde instellingen moeten opnieuw worden ingevoegd in de geëxporteerde sjablonen.
 
 ### <a name="step-1---remove-template-parameter"></a>Stap 1 - sjabloonparameter verwijderen
 
-Wanneer Hallo die resourcegroep wordt geëxporteerd, een parameter één sjabloon wordt gemaakt tooprovide geëxporteerd een toohello waarde beveiligde instellingen. Deze parameter kan worden verwijderd. tooremove hello parameter bekijkt hello parameterlijst en Hallo-parameter die er ongeveer vergelijkbaar toothis JSON-voorbeeld uitziet verwijderen.
+Als de resourcegroep wordt geëxporteerd, wordt een enkele sjabloonparameter gemaakt voor een waarde opgeven voor de geëxporteerde beveiligde instellingen. Deze parameter kan worden verwijderd. Verwijder de parameter, bekijk de parameterlijst en verwijderen van de parameter dat op dit JSON-voorbeeld lijkt.
 
 ```json
 "extensions_extensionname_protectedSettings": {
@@ -76,9 +76,9 @@ Wanneer Hallo die resourcegroep wordt geëxporteerd, een parameter één sjabloo
 
 ### <a name="step-2---get-protected-settings-properties"></a>Stap 2: Get beveiligde eigenschappen
 
-Omdat elk beveiligd instellen van een reeks vereiste eigenschappen heeft, moet een lijst van deze eigenschappen toobe verzameld. Alle parameters van de configuratie van beveiligde Hallo vindt u in Hallo [Azure Resource Manager-schema op GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). Dit schema bevat alleen de parametersets Hallo voor Hallo-uitbreidingen die worden vermeld in Hallo overzicht sectie van dit document. 
+Omdat elk beveiligd instellen van een reeks vereiste eigenschappen heeft, moet een lijst van deze eigenschappen worden verzameld. Alle parameters van de configuratie van de beveiligde vindt u in de [Azure Resource Manager-schema op GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). Dit schema bevat alleen de parametersets voor de uitbreidingen die worden vermeld in de sectie overzicht van dit document. 
 
-Uit binnen Hallo schema-opslagplaats, zoeken naar Hallo desired-extensie voor dit voorbeeld `IaaSDiagnostics`. Eenmaal Hallo extensies `protectedSettings` object is gevonden, dient u elke parameter. In voorbeeld Hallo Hallo `IaasDiagnostic` uitbreiding, Hallo vereisen parameters zijn `storageAccountName`, `storageAccountKey`, en `storageAccountEndPoint`.
+Uit binnen de schema-opslagplaats, zoekt u de gewenste extensie voor dit voorbeeld `IaaSDiagnostics`. Eenmaal de extensies `protectedSettings` object is gevonden, dient u elke parameter. In het voorbeeld van de `IaasDiagnostic` uitbreiding, de parameters zijn vereist `storageAccountName`, `storageAccountKey`, en `storageAccountEndPoint`.
 
 ```json
 "protectedSettings": {
@@ -102,11 +102,11 @@ Uit binnen Hallo schema-opslagplaats, zoeken naar Hallo desired-extensie voor di
 }
 ```
 
-### <a name="step-3---re-create-hello-protected-configuration"></a>Stap 3 - Hallo beveiligd configuratie opnieuw maken
+### <a name="step-3---re-create-the-protected-configuration"></a>Stap 3: de configuratie van de beveiligde opnieuw maken
 
-Op Hallo van de geëxporteerde sjabloon, zoekt u `protectedSettings` en Hallo geëxporteerde beveiligde instellingsobject vervangen door een nieuwe met extensieparameters Hallo vereist en een waarde voor elk criterium.
+Op de geëxporteerde sjabloon en zoek naar `protectedSettings` en het geëxporteerde beveiligde instellingsobject vervangen door een nieuwe met de vereiste extensie-parameters en een waarde voor elk criterium.
 
-In voorbeeld Hallo Hallo `IaasDiagnostic` uitbreiding, Hallo nieuwe beveiligde instelling configuratie eruit zou Hallo voorbeeld te volgen:
+In het voorbeeld van de `IaasDiagnostic` uitbreiding, de nieuwe configuratie van de instelling voor beveiligde eruit als in het volgende voorbeeld:
 
 ```json
 "protectedSettings": {
@@ -116,7 +116,7 @@ In voorbeeld Hallo Hallo `IaasDiagnostic` uitbreiding, Hallo nieuwe beveiligde i
 }
 ```
 
-Hallo eindextensie resource lijkt vergelijkbare toohello JSON-voorbeeld te volgen:
+De resource eindextensie lijkt op het volgende JSON-voorbeeld:
 
 ```json
 {
@@ -148,9 +148,9 @@ Hallo eindextensie resource lijkt vergelijkbare toohello JSON-voorbeeld te volge
 }
 ```
 
-Als u de sjabloon parameters tooprovide eigenschapswaarden, moeten deze toobe gemaakt. Als u Sjabloonparameters voor beveiligd waarden in te stellen maakt, ervoor toouse hello `SecureString` parametertype zodat gevoelige waarden zijn beveiligd. Zie voor meer informatie over het gebruik van parameters [Azure Resource Manager-sjablonen samenstellen](../../resource-group-authoring-templates.md).
+Als u Sjabloonparameters eigenschapswaarden opgeven, moeten deze worden gemaakt. Bij het maken van Sjabloonparameters voor beveiligd waarden in te stellen, moet u de `SecureString` parametertype zodat gevoelige waarden zijn beveiligd. Zie voor meer informatie over het gebruik van parameters [Azure Resource Manager-sjablonen samenstellen](../../resource-group-authoring-templates.md).
 
-In voorbeeld Hallo Hallo `IaasDiagnostic` uitbreiding, Hallo volgende parameters zouden worden gemaakt in Hallo parameters sectie van Hallo Resource Manager-sjabloon.
+In het voorbeeld van de `IaasDiagnostic` uitbreiding mag de volgende parameters moeten worden gemaakt in de sectie parameters van de Resource Manager-sjabloon.
 
 ```json
 "storageAccountName": {
@@ -163,4 +163,4 @@ In voorbeeld Hallo Hallo `IaasDiagnostic` uitbreiding, Hallo volgende parameters
 }
 ```
 
-Hallo-sjabloon kan op dit moment worden geïmplementeerd met behulp van de implementatiemethode van een sjabloon.
+De sjabloon kan op dit moment worden geïmplementeerd met behulp van de implementatiemethode van een sjabloon.

@@ -1,5 +1,5 @@
 ---
-title: aaaMonitor beschikbaarheid en reactiesnelheid van een website | Microsoft Docs
+title: De beschikbaarheid en reactiesnelheid van een website bewaken | Microsoft Docs
 description: Stel webtests in Application Insights in. Ontvang een waarschuwing wanneer een website niet meer beschikbaar is of traag reageert.
 services: application-insights
 documentationcenter: 
@@ -13,85 +13,85 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/25/2017
 ms.author: bwren
-ms.openlocfilehash: 4c5425c948770cc57a648ca50e217c75ac75fbd7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6c7f52fc3998b0b29301206ffbc6a5a0c4134f6a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
-Nadat u uw web-app of website tooany server hebt geïmplementeerd, kunt u tests toomonitor instellen beschikbaarheid en reactiesnelheid ervan. [Azure Application Insights](app-insights-overview.md) verzendt webaanvragen tooyour toepassing met regelmatige tussenpozen vanaf punten overal Hallo wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
+Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
 
-U kunt beschikbaarheidstests instellen voor alle HTTP of HTTPS-eindpunt dat toegankelijk is vanaf Hallo openbare internet. U hebt geen tooadd alles toohello-website die u test. Zelfs heeft geen toobe uw site: kan het testen van een REST-API-service waarvan u afhankelijk zijn.
+U kunt beschikbaarheidstests instellen voor alle HTTP- en HTTPS-eindpunten die toegankelijk zijn op het openbare internet. U hoeft niks toe te voegen aan de website die u test. Het hoeft niet eens uw site te zijn: u kunt ook een REST API-service testen waarvan u afhankelijk bent.
 
 Er zijn twee soorten beschikbaarheidstests:
 
-* [URL-Pingtest](#create): een eenvoudige test die u in hello Azure-portal kunt maken.
-* [WebTest met meerdere stappen](#multi-step-web-tests): die u maakt in Visual Studio Enterprise en uploaden toohello portal.
+* [URL-pingtest](#create): een eenvoudige test die u in Azure Portal kunt instellen.
+* [Webtest met meerdere stappen](#multi-step-web-tests): deze test kunt u in Visual Studio Enterprise maken en uploaden naar de portal.
 
-U kunt maken van de beschikbaarheidstests too25 per toepassingsresource.
+Per toepassingsresource kunt u maximaal 25 beschikbaarheidstests maken.
 
 ## <a name="create"></a>1. Een resource openen voor uw beschikbaarheidstestrapporten
 
-**Als u al hebt geconfigureerd Application Insights** voor uw web-app, opent u de Application Insights-resource in Hallo [Azure-portal](https://portal.azure.com).
+**Als u Application Insights al hebt geconfigureerd** voor uw web-app, opent u de Application Insights-bron in [Azure Portal](https://portal.azure.com).
 
-**Of, als u wilt dat toosee uw rapporten in een nieuwe resource** te registreren[Microsoft Azure](http://azure.com), gaat u toohello [Azure-portal](https://portal.azure.com), en maak een Application Insights-resource.
+**Of, als u uw rapporten in een nieuwe resource wilt zien:** meld u aan bij [Microsoft Azure](http://azure.com), ga naar [Azure Portal](https://portal.azure.com) en maak een Application Insights-resource.
 
 ![Nieuw > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-Klik op **alle resources** tooopen hello overzichtsblade voor Hallo nieuwe resource.
+Klik op **Alle resources** om de blade Overzicht van de nieuwe resource te openen.
 
 ## <a name="setup"></a>2. Een URL-pingtest aanmaken
-Hallo beschikbaarheid blade geopend en een test toevoegen.
+Open de blade Beschikbaarheid en voeg een test toe.
 
-![Opvulling Hallo ten minste URL van uw website](./media/app-insights-monitor-web-app-availability/13-availability.png)
+![Vul in elk geval de URL van uw website in](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **Hallo URL** een webpagina kunnen worden gewenste tootest, maar deze moet zichtbaar zijn op Hallo van openbare internet. Hallo-URL kan een queryreeks bevatten. Zo kunt u bijvoorbeeld oefenen met uw database. Als Hallo-URL wordt omgezet tooa omleiding, volgen we het too10 omleidingen.
-* **Afhankelijke aanvragen parseren**: als deze optie is ingeschakeld, Hallo test installatiekopieën, scripts, Stijlbestanden en andere bestanden die deel van de webpagina Hallo onder test uitmaken aanvragen. Hallo omvat vastgelegde reactietijd Hallo tijd tooget deze bestanden. Hallo-test mislukt als al deze resources is binnen de time-out voor de hele test Hallo Hallo kunnen niet worden gedownload. 
+* **De URL** kan iedere webpagina zijn die u wilt testen, maar deze moet zichtbaar zijn vanaf het openbare internet. De URL kan een queryreeks bevatten. Zo kunt u bijvoorbeeld oefenen met uw database. Als de URL naar een omleiding is opgelost, kunnen we deze tot maximaal 10 omleidingen opvolgen.
+* **Parseren van afhankelijke aanvragen**: als deze optie is ingeschakeld, vraagt de test om afbeeldingen, scripts, stijlbestanden en andere bestanden die deel van de geteste webpagina uitmaken. De opgenomen reactietijd is inclusief de tijd die nodig is om deze bestanden op te halen. De test mislukt als al deze resources niet succesvol kunnen worden gedownload binnen de timeout voor de hele test. 
 
-    Als het Hallo-optie niet is ingeschakeld, vraagt Hallo test alleen Hallo-bestand op Hallo-URL die u hebt opgegeven.
-* **Nieuwe pogingen inschakelen**: als deze optie is ingeschakeld, Hallo test mislukt, wordt opnieuw geprobeerd na een korte periode. Fouten worden pas gerapporteerd als er drie opeenvolgende pogingen mislukken. Daaropvolgende tests worden dan uitgevoerd op de gebruikelijke Testfrequentie Hallo. Nieuwe pogingen worden tijdelijk uitgesteld tot Hallo volgende geslaagd. Deze regel wordt onafhankelijk toegepast op elke testlocatie. Deze optie wordt aangeraden. Gemiddeld verdwijnt ongeveer 80% van de fouten na het opnieuw proberen.
-* **Testfrequentie**: Hiermee stelt u hoe vaak hello test wordt uitgevoerd vanaf elke testlocatie. Met een frequentie van vijf minuten en vijf testlocaties wordt uw site gemiddeld per minuut getest.
-* **Testlocaties** zijn Hallo plaatst van waar onze servers tooyour-URL voor webinhoud aanvragen verzenden. Kies meer dan één testlocatie, zodat u problemen met uw website kunt onderscheiden van netwerkproblemen. U kunt selecteren too16 vestigingen.
+    Als de optie niet is ingeschakeld, vraagt de test alleen het bestand op van de URL die u hebt opgegeven.
+* **Nieuwe pogingen inschakelen**: als deze optie is ingeschakeld, wordt de test, als de test is mislukt, na een korte periode opnieuw uitgevoerd. Fouten worden pas gerapporteerd als er drie opeenvolgende pogingen mislukken. Daaropvolgende tests worden vervolgens met de gebruikelijke testfrequentie uitgevoerd. Volgende pogingen worden tijdelijk uitgesteld tot er weer een test slaagt. Deze regel wordt onafhankelijk toegepast op elke testlocatie. Deze optie wordt aangeraden. Gemiddeld verdwijnt ongeveer 80% van de fouten na het opnieuw proberen.
+* **Testfrequentie**: stel in hoe vaak de test wordt uitgevoerd vanaf elke testlocatie. Met een frequentie van vijf minuten en vijf testlocaties wordt uw site gemiddeld per minuut getest.
+* **Testlocaties** zijn de plaatsen van waaraf onze servers webaanvragen verzenden naar uw URL. Kies meer dan één testlocatie, zodat u problemen met uw website kunt onderscheiden van netwerkproblemen. U kunt maximaal 16 locaties selecteren.
 * **Criteria voor succes**:
 
-    **Time-out van de test**: deze waarde toobe gewaarschuwd over trage reacties afnemen. Hallo-test wordt als mislukt beschouwd als Hallo-antwoorden van uw site niet binnen deze periode zijn ontvangen. Als u hebt geselecteerd **afhankelijke aanvragen parseren**vervolgens alle Hallo afbeeldingen, Stijlbestanden, scripts en andere afhankelijke resources moeten worden ontvangen binnen deze periode.
+    **Timeout van de test**: verlaag deze waarde om te worden gewaarschuwd over trage reacties. De test wordt als mislukt beschouwd als er binnen deze periode geen reactie van uw site is ontvangen. Als u **Parse onafhankelijke aanvragen** hebt geselecteerd, moeten alle afbeeldingen, stijlbestanden, scripts en andere afhankelijke resources binnen deze periode worden ontvangen.
 
-    **HTTP-antwoord**: Hallo geretourneerde statuscode die voor een geslaagde test staat. 200 is Hallo-code waarmee wordt aangegeven dat een normale webpagina is geretourneerd.
+    **HTTP-antwoord**: de geretourneerde statuscode die staat voor een geslaagde test. 200 is de code die aangeeft dat er een normale webpagina is geretourneerd.
 
-    **Inhoudsovereenkomst**: een tekenreeks, zoals 'Welkom!' Er wordt getest of er in elke respons een exacte (hoofdlettergevoelige) overeenkomst wordt gevonden. Het moet een eenvoudige tekenreeks zijn, zonder jokertekens. Vergeet niet dat als de pagina inhoud wijzigingen die u wellicht tooupdate deze.
-* **Waarschuwingen** zijn, worden standaard verzonden tooyou als er fouten op drie locaties gedurende vijf minuten. Een fout op één locatie is waarschijnlijk toobe een probleem met het netwerk en niet per se aan uw site. Maar kunt u Hallo drempelwaarde toobe meer of minder gevoelig, en u kunt ook wijzigen die Hallo e-mailberichten naar moeten worden verzonden.
+    **Inhoudsovereenkomst**: een tekenreeks, zoals 'Welkom!' Er wordt getest of er in elke respons een exacte (hoofdlettergevoelige) overeenkomst wordt gevonden. Het moet een eenvoudige tekenreeks zijn, zonder jokertekens. Als uw pagina-inhoud wordt gewijzigd, moet u deze tekenreeks mogelijk ook bijwerken.
+* Standaard ontvangt u een **waarschuwing** als er op drie locaties gedurende vijf minuten fouten worden geregistreerd. Als er slechts op één locatie een fout wordt geregistreerd, kan dat ook aan het netwerk liggen en niet per se aan uw site. U kunt de drempel wijzigen om de testgevoeligheid te verhogen of te verlagen. Ook kunt u wijzigen naar wie de e-mails worden verzonden.
 
     U kunt een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) instellen die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd. (Merk op dat, momenteel, queryparameters niet worden doorgegeven als Eigenschappen.)
 
 ### <a name="test-more-urls"></a>Meer URL’s testen
-Voeg meer tests toe. Bijvoorbeeld In toevoeging tootesting uw startpagina, kunt u ervoor dat de database door te testen Hallo-URL voor een zoekopdracht wordt uitgevoerd.
+Voeg meer tests toe. U kunt bijvoorbeeld uw startpagina testen of controleren of uw database wordt uitgevoerd, door de URL te testen voor een zoekopdracht.
 
 
 ## <a name="monitor"></a>3. De resultaten van de beschikbaarheidstest bekijken
 
-Na een paar minuten, klikt u op **vernieuwen** toosee testresultaten. 
+Klik na een paar minuten op **Vernieuwen** om de testresultaten weer te geven. 
 
-![Samenvatting van de resultaten op de startblade Hallo](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
+![Samenvatting van de resultaten op de Startblade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
 
-Hallo scatterplot ziet u voorbeelden van Hallo testresultaten met details van de diagnostische test-stap. Hallo test engine slaat diagnostische gegevens voor tests met fouten. Voor geslaagde tests worden diagnostische gegevens worden opgeslagen voor een subset van Hallo uitvoeringen. Beweeg de muisaanwijzer over een van de Hallo groen/rood punten toosee Hallo test timestamp, testduur, locatie en naam van test. Klik in elk punt in Hallo spreidingsgrafiek tekent toosee Hallo details van Hallo testresultaat.  
+Het spreidingsdiagram laat u voorbeelden van de testresultaten met details over de diagnostische teststappen zien. De testengine slaat diagnostische gegevens op voor tests met fouten. Bij geslaagde tests wordt diagnostische informatie voor een subset van de uitvoeringen opgeslagen. Beweeg de muisaanwijzer over een van de groene/rode punten om de tijdstempel, duur, locatie en naam van de test te bekijken. Klik op een punt in het spreidingsdiagram om de details van een testresultaat te bekijken.  
 
-Selecteer een afzonderlijke test locatie, of Hallo verkorten periode toosee meer rond Hallo periode van belang resultaten. Search Explorer toosee resultaten van alle uitvoeringen gebruiken of aangepaste rapporten voor toorun Analytics-query's op deze gegevens gebruiken.
+Selecteer een bepaalde test of locatie, of verklein de periode om meer resultaten te zien uit de periode die voor u van belang is. Gebruik Search Explorer om resultaten van alle uitvoeringen weer te geven, of gebruik Analytics-query's om aangepaste rapporten uit te voeren op deze gegevens.
 
-In aanvulling toohello onbewerkte resultaten, moet u er twee beschikbaarheid metrische gegevens zijn in Metrics Explorer: 
+Naast de onbewerkte resultaten kunt u twee metrische beschikbaarheidsgegevens gebruiken in Metrics Explorer: 
 
-1. Beschikbaarheid: Percentage Hallo tests die uitgevoerd op alle test uitvoeringen zijn. 
+1. Beschikbaarheid: percentage van de tests die zijn geslaagd, bekeken over alle testuitvoeringen. 
 2. Testduur: gemiddelde testduur van alle testuitvoeringen.
 
-U kunt filters toepassen op de naam van de test hello, locatie tooanalyze trends van een afzonderlijke test en/of de locatie.
+U kunt filters toepassen op de testnaam of -locatie om trends van een bepaalde test en/of locatie te analyseren.
 
 ## <a name="edit"></a> Tests bekijken en bewerken
 
-Selecteer een specifieke test Hallo overzichtspagina. Hier kunt u de specifieke resultaten bekijken en de test bewerken of tijdelijk uitschakelen.
+Selecteer op de pagina Overzicht een specifieke test. Hier kunt u de specifieke resultaten bekijken en de test bewerken of tijdelijk uitschakelen.
 
 ![Een webtest bewerken of uitschakelen](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
 
-Wilt u misschien toodisable beschikbaarheidstests of Hallo waarschuwing regels die zijn gekoppeld aan deze tijdens het uitvoeren van onderhoud op uw service. 
+Het is verstandig beschikbaarheidstests of de regels voor waarschuwingen die eraan zijn gekoppeld uit te schakelen wanneer u onderhoud uitvoert op uw service. 
 
 ## <a name="failures"></a>Als u mislukte tests ziet
 Klik op een rode punt.
@@ -101,118 +101,118 @@ Klik op een rode punt.
 
 Vanuit het resultaat van een beschikbaarheidstest kunt u:
 
-* Hallo-antwoord ontvangen van uw server te controleren.
-* Open Hallo telemetrie verzonden door uw app server tijdens het verwerken van Hallo-exemplaar voor mislukte aanvragen.
-* Meld een probleem of een werkitem in Git of VSTS tootrack Hallo probleem. Hallo bug bevat een koppeling toothis-gebeurtenis.
-* Testresultaat van Hallo web openen in Visual Studio.
+* De reactie inspecteren die is ontvangen van uw server.
+* De telemetrie openen die door uw server-app is verzonden tijdens het verwerken van de mislukte aanvraag.
+* Een probleem of werkitem registreren in Git of VSTS om het probleem te volgen. De bug bevat een koppeling naar deze gebeurtenis.
+* Het webtestresultaat openen in Visual Studio.
 
 
-*Zien de resultaten er goed uit, maar wordt de test toch als mislukt aangeduid?* Controleer alle Hallo-installatiekopieën, scripts, opmaakmodellen en andere bestanden door Hallo pagina wordt geladen. Als een van deze mislukt, is Hallo test gerapporteerd, mislukt, zelfs als Hallo hoofd-html-pagina correct wordt geladen.
+*Zien de resultaten er goed uit, maar wordt de test toch als mislukt aangeduid?* Controleer alle afbeeldingen, scripts, stijlmodellen en andere bestanden geladen door de pagina. Als één van deze mislukt, wordt de test gerapporteerd als mislukt, zelfs als de html-pagina correct laadt.
 
 *Zijn er geen verwante items?* Als u Application Insights hebt ingesteld voor uw app aan serverzijde, kan dit komen doordat er [steekproeven](app-insights-sampling.md) worden uitgevoerd. 
 
 ## <a name="multi-step-web-tests"></a>Webtests met meerdere stappen
-U kunt een scenario bewaken dat bestaat uit een reeks URL's. Bijvoorbeeld, als u een Verkoopwebsite bewaakt, kunt u testen dat toe te voegen items toohello winkelwagen goed werkt.
+U kunt een scenario bewaken dat bestaat uit een reeks URL's. Als u bijvoorbeeld een verkoopwebsite bewaakt, kunt u testen of het toevoegen van items aan de winkelwagen goed werkt.
 
 > [!NOTE] 
 > Er worden kosten in rekening gebracht voor webtests met meerdere stappen. [Prijsoverzicht](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
-een test met meerdere stappen toocreate, u Hallo scenario vastleggen met behulp van Visual Studio Enterprise en vervolgens uploaden Hallo tooApplication Insights opnemen. Application Insights opnieuw Hallo scenario met een interval wordt weergegeven en controleert of Hallo-antwoorden.
+Als u een test met meerdere stappen wilt maken, neemt u het scenario op met Visual Studio Enterprise en uploadt u vervolgens de opname naar Application Insights. Application Insights speelt het scenario opnieuw met intervallen en controleert de reacties.
 
 > [!NOTE]
-> U kunt in uw tests geen gecodeerde functies of lussen gebruiken. Hallo test moet volledig zijn opgenomen in Hallo .webtest script. U kunt echter wel standaard-invoegtoepassingen gebruiken.
+> U kunt in uw tests geen gecodeerde functies of lussen gebruiken. De test moet volledig zijn opgenomen in het .webtest-script. U kunt echter wel standaard-invoegtoepassingen gebruiken.
 >
 
 #### <a name="1-record-a-scenario"></a>1. Een scenario opnemen
-Gebruik Visual Studio Enterprise toorecord een websessie.
+Gebruik Visual Studio Enterprise om een websessie op te nemen.
 
 1. Maak een project om de webprestaties te testen.
 
-    ![Maak een project van de sjabloon Webprestatie- en belastingstest Hallo in Visual Studio Enterprise-editie.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![Maak in de Visual Studio Enterprise-versieneen project vanaf de sjabloon Web Performance en Load Test.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
- * *Hallo webprestaties en belastingstest sjabloon niet wordt weergegeven?* Sluit Visual Studio Enterprise. Open **Visual Studio Installer** toomodify uw Visual Studio Enterprise-installatie. Selecteer onder **Afzonderlijke onderdelen** de optie **Hulpprogramma's voor webprestaties en belastingstests**.
+ * *Ziet u de sjabloon Web Performance en Load Test niet?* Sluit Visual Studio Enterprise. Open **Visual Studio Installer** om de Visual Studio Enterprise-installatie te wijzigen. Selecteer onder **Afzonderlijke onderdelen** de optie **Hulpprogramma's voor webprestaties en belastingstests**.
 
-2. Hallo .webtest-bestand te openen en begin met opnemen.
+2. Open het bestand .webtest en begin met opnemen.
 
-    ![Open Hallo .webtest-bestand en klik op opnemen.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
-3. Acties van de gebruiker gewenste toosimulate in uw test Hallo: open de website, toevoegen van een product toohello winkelwagen, enzovoort. Stop vervolgens de test.
+    ![Open het bestand .webtest en klik op Opnemen.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
+3. Voer de gebruikersacties uit die u in uw test wilt simuleren: open de website, plaats een product in de winkelwagen, enzovoort. Stop vervolgens de test.
 
-    ![Hallo WebTest webtestrecorder wordt uitgevoerd in Internet Explorer.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-record.png)
+    ![De webtestrecorder wordt uitgevoerd in Internet Explorer.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-record.png)
 
     Zorg ervoor dat het scenario niet te lang duurt. Er geldt een limiet van 100 stappen en 2 minuten.
-4. Hallo-test om te bewerken:
+4. Bewerk de test als volgt:
 
-   * Voeg validaties toocheck Hallo ontvangen tekst en reactiecodes.
-   * Verwijder alle overbodige interacties. U kunt ook afhankelijke aanvragen voor afbeeldingen of tooad of trackingsites verwijderen.
+   * Voeg validaties toe om de ontvangen tekst en reactiecodes te controleren.
+   * Verwijder alle overbodige interacties. U kunt ook afhankelijke aanvragen voor afbeeldingen of naar advertentie- of trackingsites verwijderen.
 
-     Houd er rekening mee dat u alleen Hallo testscript bewerken kunt: u kunt geen aangepaste code toevoegen of andere webtests aanroepen. Voeg geen lussen toe in Hallo test. U kunt standaardinvoegtoepassingen voor webtest gebruiken.
-5. Hallo test worden uitgevoerd in Visual Studio toomake controleren of dat het werkt.
+     U kunt alleen het testscript bewerken. U kunt geen aangepaste code toevoegen of andere webtests aanroepen. Voeg geen lussen toe aan de test. U kunt standaardinvoegtoepassingen voor webtest gebruiken.
+5. Voer de test uit in Visual Studio om er zeker van te zijn dat deze werkt.
 
-    Hallo webtestrunner opent een webbrowser en wordt herhaald Hallo acties die u hebt vastgelegd. Controleer of de test werkt zoals verwacht.
+    De webtestrunner opent een webbrowser en herhaalt de acties die u hebt opgenomen. Controleer of de test werkt zoals verwacht.
 
-    ![Hallo .webtest-bestand openen in Visual Studio en klik op uitvoeren.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
+    ![Open in Visual Studio het bestand .webtest en klik op Uitvoeren.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
-#### <a name="2-upload-hello-web-test-tooapplication-insights"></a>2. Hallo web test tooApplication Insights uploaden
-1. Maak een WebTest in Hallo Application Insights-portal.
+#### <a name="2-upload-the-web-test-to-application-insights"></a>2. De webtest uploaden naar Application Insights
+1. Maak in de Application Insights-portal een webtest.
 
-    ![Kies op de blade webtests hello, toevoegen.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
-2. Selecteer de test met meerdere stappen en Hallo .webtest-bestand uploaden.
+    ![Kies op de blade Webtests de optie Toevoegen.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
+2. Selecteer de test met meerdere stappen en upload het .webtest-bestand.
 
     ![Selecteer de webtest met meerdere stappen.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
-    Set Hallo testlocaties, frequentie en Waarschuwingsparameters in Hallo tests uit dezelfde manier als voor ping.
+    Stel de testlocaties, frequentie en waarschuwingsparameters op dezelfde manier in als voor pingtests.
 
-#### <a name="3-see-hello-results"></a>3. Hallo-resultaten te zien
+#### <a name="3-see-the-results"></a>3. De resultaten weergeven
 
-Bekijk uw test resultaten en eventuele fouten in Hallo dezelfde manier als één url-tests uit.
+Bekijk de testresultaten om mogelijke fouten te ontdekken. Dit doet u op dezelfde manier als voor tests met één URL.
 
-Bovendien kunt u Hallo test resultaten tooview downloaden ze in Visual Studio.
+Bovendien kunt u de testresultaten downloaden om ze in Visual Studio weer te geven.
 
 #### <a name="too-many-failures"></a>Te veel fouten?
 
-* Een veelvoorkomende reden voor fout is dat Hallo-test wordt uitgevoerd te lang. Het uitvoeren van de test mag niet langer dan twee minuten duren.
+* Een veelvoorkomende reden voor het mislukken van een test is dat het uitvoeren ervan te lang duurt. Het uitvoeren van de test mag niet langer dan twee minuten duren.
 
-* Vergeet niet dat alle Hallo resources van een pagina moeten correct worden geladen Hallo test toosucceed, waaronder scripts, opmaakmodellen, afbeeldingen, enzovoort.
+* Vergeet niet dat alle resources van een pagina correct moeten laden om de test de doen slagen, inclusief scripts, stijlsheets, afbeeldingen enz.
 
-* Hallo WebTest moet volledig zijn opgenomen in Hallo .webtest script: u kunt gecodeerde functies gebruiken in Hallo test.
+* De webtest moet volledig zijn opgenomen in het .webtest-script. U kunt in de test geen gecodeerde functies gebruiken.
 
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Tijd en willekeurige cijfers invoegen in uw test met meerdere stappen
-Stel dat u een hulpprogramma test dat tijdsafhankelijke gegevens ontvangt van een externe feed (bijvoorbeeld een feed met aandelenkoersen). Wanneer u uw WebTest opneemt, hebt u specifieke tijden toouse, maar u deze hebt ingesteld als parameters van Hallo testen, StartTime en EndTime.
+Stel dat u een hulpprogramma test dat tijdsafhankelijke gegevens ontvangt van een externe feed (bijvoorbeeld een feed met aandelenkoersen). Wanneer u uw webtest opneemt, moet u specifieke tijden gebruiken, maar u stelt deze in als testparameters: StartTime en EndTime.
 
 ![Een webtest met parameters](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
 
-Wanneer u Hallo test uitvoert, moet EndTime altijd toobe Hallo tijd aanwezig en StartTime 15 minuten moet geleden.
+Wanneer u de test uitvoert, moet EndTime altijd de huidige tijd zijn. StartTime moet een kwartier in het verleden liggen.
 
-Web-invoegtoepassingen voor Test kunt u Hallo toodo keren voorzien.
+Web Test invoegtoepassingen bieden de manier om parameters voor tijden toe te voegen.
 
-1. Voeg een webtestinvoegtoepassing toe voor elke gewenste variabele parameterwaarde. Kies in de werkbalk van Hallo web **Webtestinvoegtoepassing toevoegen**.
+1. Voeg een webtestinvoegtoepassing toe voor elke gewenste variabele parameterwaarde. Kies in de werkbalk van de webtest de optie **Webtestinvoegtoepassing toevoegen**.
 
     ![Kies Webtestinvoegtoepassing toevoegen en selecteer een type.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    In dit voorbeeld gebruiken we twee exemplaren van Hallo invoegtoepassing datum / tijd. Een exemplaar is voor "15 minuten geleden" en een ander voor “nu”.
-2. Open de eigenschappen van elke invoegtoepassing Hallo. Een naam geven en stel deze toouse Hallo huidige tijd. Stel voor een van de toepassingen Minuten toevoegen in op -15.
+    In dit voorbeeld gebruiken we twee exemplaren van de invoegtoepassing Date Time. Een exemplaar is voor "15 minuten geleden" en een ander voor “nu”.
+2. Open de eigenschappen van elke invoegtoepassing. Geef de invoegtoepassing een naam en stel deze zodanig in dat de huidige tijd wordt gebruikt. Stel voor een van de toepassingen Minuten toevoegen in op -15.
 
     ![Naam instellen > Huidige tijd gebruiken > Minuten toevoegen.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)
-3. Gebruik in Hallo web testparameters, {{plug-in name}} tooreference naam van de invoegtoepassing.
+3. Gebruik in de webtestparameters {{plug-in name}} om te verwijzen naar de naam van de invoegtoepassing.
 
-    ![Gebruik in Hallo testparameter {{plug-in name}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
+    ![Gebruik in de testparameter {{plug-in name}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
-Nu uw test toohello portal uploaden. Hallo dynamische waarden wordt gebruikt op elke Hallo test wordt uitgevoerd.
+Upload uw test nu naar de portal. Het gebruikt de dynamische waarden bij elke uitvoering van de test.
 
 ## <a name="dealing-with-sign-in"></a>Omgaan met aanmelden
-Als uw gebruikers zich tooyour app, hebt u verschillende opties voor het aanmelden simuleren, zodat u pagina's achter aanmeldingspagina Hallo kunt testen. Hallo aanpak die u gebruikt, is afhankelijk van Hallo type beveiliging van Hallo-app.
+Als uw gebruikers zich aanmelden bij uw app, hebt u verschillende functies om de aanmelding te simuleren, zodat u pagina’s na het aanmelden kunt testen. Welke aanpak u gebruikt, hangt af van het type beveiliging van de app.
 
-In alle gevallen moet u een account maken in uw toepassing net voor Hallo doel van de testen. Hallo-machtigingen voor dit testaccount indien mogelijk beperken zodat er geen mogelijkheid Hallo webtests die invloed hebben op echte gebruikers.
+In alle gevallne moet u een account maken in uw toepassing voor testdoeleinden. Beperk indien mogelijk de machtigingen voor dit testaccount, zodat webtests echte gebruikers niet beïnvloeden.
 
 ### <a name="simple-username-and-password"></a>Eenvoudige gebruikersnaam en wachtwoord
-Neem een WebTest in Hallo gebruikelijke manier. Verwijder eerst de cookies.
+Een webtest op de gebruikelijke manier registreren. Verwijder eerst de cookies.
 
 ### <a name="saml-authentication"></a>SAML-verificatie
-Hallo SAML-invoegtoepassing die beschikbaar is voor webtests gebruiken.
+Gebruik de beschikbare SAML-invoegtoepassing voor webtests.
 
 ### <a name="client-secret"></a>Clientgeheim
-Als uw app een aanmeldroute heeft die een klantgeheim omvat, gebruik dan deze route. Azure Active Directory (AAD) is een voorbeeld van een service die aanmelden met een clientgeheim bevat. In AAD is het clientgeheim Hallo Hallo App-sleutel.
+Als uw app een aanmeldroute heeft die een klantgeheim omvat, gebruik dan deze route. Azure Active Directory (AAD) is een voorbeeld van een service die aanmelden met een clientgeheim bevat. In AAD is het klantgeheim de App Key.
 
 Hier is een voorbeeldwebtest van een Azure web-app met een App Key:
 
@@ -220,71 +220,71 @@ Hier is een voorbeeldwebtest van een Azure web-app met een App Key:
 
 1. Token van AAD krijgen met klantgeheim (AppKey).
 2. Bearer token uit antwoord halen.
-3. Met behulp van bearer-token in autorisatie-header Hallo-API niet aanroepen.
+3. API oproepen met bearer token in de autorisatie-header.
 
-Zorg ervoor dat Hallo WebTest een werkelijke client is-dat wil zeggen, een eigen app AAD heeft - en gebruik de clientId + App-sleutel. Uw test-service heeft een eigen app ook in AAD: Hallo appID URI van deze app wordt weergegeven in de WebTest Hallo in Hallo 'resource' aan.
+Zorg ervoor dat de webtest een eigenlijke client is - dit wil zeggen: een eigen app in AAD heeft - en zijn clientId + App Key gebruikt. Uw service onder de test heeft ook een eigen app in AAD: de appID URI van deze app wordt weergegeven in het “resource”-veld tijdens de webtest.
 
 ### <a name="open-authentication"></a>Open verificatie
-Een voorbeeld van open verificatie is het aanmelden met uw Microsoft- of Google-account. Veel apps dat gebruik OAuth Hallo geheime alternatieve client, zodat uw eerste clientgeheim tooinvestigate moet deze mogelijkheid.
+Een voorbeeld van open verificatie is het aanmelden met uw Microsoft- of Google-account. Veel apps die OAuth gebruiken, bieden een alternatief met clientgeheim, zodat uw eerste tactiek moet zijn deze mogelijkheid te onderzoeken.
 
-Als uw test zich met behulp van OAuth aanmelden moet, is het Hallo algemeen de aanpak:
+Als uw test moet aanmelden met OAuth, is de algemene benadering:
 
-* Gebruik een hulpprogramma zoals Fiddler tooexamine Hallo verkeer tussen de webbrowser, Hallo verificatiesite en uw app.
-* Twee of meer aanmeldingen uit via verschillende apparaten en browsers, uitvoeren of met lange periodes ertussen (tooallow tokens tooexpire).
-* Door het vergelijken van verschillende sessies, identificeren Hallo-token is doorgegeven Hallo verifiëren van de site, die vervolgens tooyour appserver na het aanmelden doorgegeven.
+* Gebruik een hulpprogramma zoals Fiddler om het verkeer tussen de webbrowser, de verificatiesite en uw app te onderzoeken.
+* Voer twee of meer aanmeldingen uit via verschillende apparaten en browsers, of met lange periodes ertussen (zodat de tokens verlopen).
+* Vergelijk de verschillende sessies om te bepalen welk token is doorgegeven door de verificatiesite en daarna, na het aanmelden, wordt doorgegeven aan uw appserver.
 * Neem een webtest op met Visual Studio.
-* Parameter Hallo tokens, Hallo parameter instellen wanneer het Hallo-token wordt geretourneerd van Hallo verificator en gebruik deze in Hallo query toohello site.
-  (Visual Studio probeert tooparameterize Hallo test, maar is niet correct in parameters omgezet Hallo-tokens.)
+* Maak parameters van de tokens. Stel de parameter in wanneer er een token wordt geretourneerd van de verificator en gebruik deze in de query voor de site.
+  (Visual Studio probeert de testparameters toe te voegen, maar voegt de parameters voor de tokens niet correct toe.)
 
 
 ## <a name="performance-tests"></a>Prestatietests
-U kunt een belastingtest op uw website uitvoeren. Zoals Hallo beschikbaarheidstest, kunt u eenvoudige aanvragen of aanvragen voor meerdere stappen van onze punten Hallo wereld verzenden. In tegenstelling tot een beschikbaarheidstest worden vele verzoeken verzonden, waarmee meerdere gelijktijdige gebruikers worden gesimuleerd.
+U kunt een belastingtest op uw website uitvoeren. Zoals de beschikbaarheidstest kunt enkel- of meervoudige aanvragen sturen vanuit onze punten over de hele wereld verspreid. In tegenstelling tot een beschikbaarheidstest worden vele verzoeken verzonden, waarmee meerdere gelijktijdige gebruikers worden gesimuleerd.
 
-Open in de overzichtsblade hello **instellingen**, **prestatietests**. Wanneer u een test maakt, u bent uitgenodigd tooconnect tooor een Visual Studio Team Services-account maken.
+Open op de blade Overzicht **Instellingen**, **Prestatietests**. Als u een test maakt, wordt u uitgenodigd om verbinding te maken met een Visual Studio Team Services-account of om er een te maken.
 
-Wanneer het Hallo-test is voltooid, kunt u responstijden en het succespercentage worden weergegeven.
+Wanneer de test voltooid is, worden de responstijden en succespercentages weergegeven.
 
 
 ![Prestatietest](./media/app-insights-monitor-web-app-availability/perf-test.png)
 
 > [!TIP]
-> Gebruik tooobserve Hallo gevolgen van een prestatietest [Live Stream](app-insights-live-stream.md) en [Profiler](app-insights-profiler.md).
+> Gebruik [Live Stream](app-insights-live-stream.md) en [Profiler](app-insights-profiler.md) om de effecten van een prestatietest te volgen.
 >
 
 ## <a name="automation"></a>Automatisering
-* [Gebruik PowerShell-scripts tooset van een beschikbaarheidstest](app-insights-powershell.md#add-an-availability-test) automatisch.
+* Gebruik [PowerShell-scripts om automatisch een beschikbaarheidstest in te stellen](app-insights-powershell.md#add-an-availability-test).
 * Stel een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) in die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd.
 
 ## <a name="qna"></a>Vragen? Problemen?
 * *Kan ik code aanroepen via mijn webtest?*
 
-    Nee. Hallo stappen van Hallo test moet Hallo .webtest-bestand. U kunt geen andere webtests aanroepen of lussen gebruiken. Maar er zijn verschillende invoegtoepassingen die nuttig kunnen zijn.
+    Nee. De stappen van de test moeten zich in het bestand .webtest bevinden. U kunt geen andere webtests aanroepen of lussen gebruiken. Maar er zijn verschillende invoegtoepassingen die nuttig kunnen zijn.
 * *Wordt HTTPS ondersteund?*
 
     ondersteunen TLS 1.1 en TLS 1.2.
 * *Is er een verschil tussen webtests en beschikbaarheidstests?*
 
-    Hallo mag twee termen worden verwezen door elkaar. Beschikbaarheidstests is een algemene term die uit één URL-ping Hallo Test bovendien toohello meerdere stappen webtests.
-* *Ik graag beschikbaarheidstests toouse voor onze interne server die wordt uitgevoerd achter een firewall.*
+    De twee voorwaarden kunnen door elkaar worden gebruikt. 'Beschikbaarheidstest' is een algemenere term waar niet alleen webtests met meerdere stappen, maar ook tests met enkele URL-ping onder vallen.
+* *Ik wil graag beschikbaarheidstests gebruiken op onze interne server die achter een firewall wordt uitgevoerd.*
 
     Er zijn twee mogelijke oplossingen:
     
-    * Configureer uw firewall toopermit van binnenkomende aanvragen van Hallo [IP-adressen van onze webservices testen agents](app-insights-ip-addresses.md).
-    * Schrijf uw eigen code tooperiodically test uw interne serverfout. Hallo-code als een achtergrondproces uitvoeren op een testserver achter de firewall. Uw testproces voor de kunt sturen de resultaten tooApplication Insights via [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API in Hallo core SDK-pakket. Hiervoor moet uw test toohave uitgaande toegang toohello Application Insights opname servereindpunt, maar dat is een veel kleinere beveiligingsrisico dan Hallo alternatieve van inkomende aanvragen toe te staan. Hallo resultaten worden niet weergegeven in Hallo beschikbaarheid web tests blades, maar wordt weergegeven als de resultaten van de beschikbaarheid in Analytics, zoeken en metriek Explorer.
+    * Configureer uw firewall om binnenkomende aanvragen van de [IP-adressen van onze webtestagents](app-insights-ip-addresses.md) toe te staan.
+    * Schrijf uw eigen code om uw interne server periodiek te testen. Voer de code uit als achtergrondproces op een testserver achter de firewall. De resultaten van het testproces kunnen worden verzonden naar Application Insights door de API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) te gebruiken in het SDK-kernpakket. Hiervoor moet uw testserver uitgaande toegang hebben tot het opname-eindpunt van Application Insights, maar dit is een veel kleiner beveiligingsrisico dan wanneer u binnenkomende aanvragen toestaat. De resultaten worden niet weergegeven in de blades voor de beschikbaarheidswebtests, maar worden weergegeven als beschikbaarheidsresultaten in Analytics, Search en Metric Explorer.
 * *Het uploaden van een webtest met meerdere stappen mislukt*
 
     Er is een limiet van 300 K.
 
     Lussen worden niet ondersteund.
 
-    Verwijzingen tooother webtests worden niet ondersteund.
+    Verwijzingen naar andere webtests worden niet ondersteund.
 
     Gegevensbronnen worden niet ondersteund.
 * *Mijn test met meerdere stappen wordt niet voltooid*
 
     Er is een limiet van 100 aanvragen per test.
 
-    Hallo-test wordt gestopt als deze wordt meer dan twee minuten uitgevoerd.
+    De test wordt gestopt als deze meer dan twee minuten wordt uitgevoerd.
 * *Hoe voer ik een test uit met clientcertificaten?*
 
     Dat wordt niet ondersteund.

@@ -1,6 +1,6 @@
 ---
-title: aaaUnderstand hello Azure Marketplace toekenning reporting | Microsoft Docs
-description: Meer informatie over hoe tooreview en hello Azure Marketplace toekenning rapport opnemen.
+title: Inzicht in de rapportage van Azure Marketplace toekenning | Microsoft Docs
+description: Informatie over het controleren en de Azure Marketplace toekenning rapport opnemen.
 services: marketplace-publishing
 documentationcenter: na
 author: v-jeana
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-ms.openlocfilehash: 2bc21fad1805c0ead80c3f8a56128c789e17798e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5a89e9ba4376d0c4f49feb3783692e28a28902a2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="understand-your-azure-marketplace-payout-reports"></a>Inzicht in uw Azure Marketplace toekenning rapporten
 ## <a name="access-and-view-your-payout-reports"></a>Toegang tot en uw toekenning weergeven
-Terwijl we tooDev Center overgang is sommige van uw rapporten toekenning mogelijk beschikbaar in Hallo Dev Center op https://dev.windows.com/en-us terwijl anderen mogelijk nog wel worden gevonden in de Portal voor publiceren op https://publish.windowsazure.com.
+Terwijl we overgang naar het Dev Center sommige van uw rapporten toekenning mogelijk beschikbaar in het Developer Center op https://dev.windows.com/en-us terwijl anderen mogelijk nog wel worden gevonden in de Portal voor publiceren op https://publish.windowsazure.com.
 
 Toekenning reporting wordt nu beschikbaar zijn in **Dev Center** voor een Marketplace-aanbiedingen die gekoppeld aan moderne uitbetalingen zijn; dit momenteel omvat:
 
@@ -32,12 +32,12 @@ Toekenning reporting wordt nu beschikbaar zijn in **Dev Center** voor een Market
 
 Toekenning reporting wordt nog steeds in **Publishing Portal** voor:
 
-* Gegevens en Dev Services aangeboden onder Web directe (die nog steeds gebruikmaakt Hallo verouderde toekenning system).
+* Gegevens en Dev Services aangeboden onder Web directe (die nog steeds gebruikmaakt van het systeem verouderde toekenning).
 
-Rapporten zijn beschikbaar 45 dagen na de Hallo sluit Hallo kwartaal en na de eventuele restitutie worden berekend.
+Rapporten zijn beschikbaar 45 dagen na het sluiten van het kwartaal en na de eventuele restitutie worden berekend.
 
 ### <a name="access-payout-reports-in-dev-center"></a>Toegang tot toekenning rapporten in Developer Center
-1. Navigeer tooDev Center op https://dev.windows.com/en-us.
+1. Ga naar Dev Center op https://dev.windows.com/en-us.
 2. Klik op **Dashboard**.
 
     ![LandingPageDashboardHighlight][1]
@@ -46,34 +46,34 @@ Rapporten zijn beschikbaar 45 dagen na de Hallo sluit Hallo kwartaal en na de ev
     ![DashboardPayoutSummary][2]
 
 ## <a name="view-your-payout-reports-in-dev-center"></a>Uw toekenning rapporten bekijken in Dev Center
-Hallo toekenning rapport voor elk kwartaal registreert alle transacties die zijn opgetreden binnen dat jaar.
+Het rapport toekenning voor elk kwartaal registreert alle transacties die zijn opgetreden binnen dat jaar.
 
-* de gereserveerde hoeveelheid Hallo geeft betalingen die zijn doorberekend buiten Hallo toekomstige betalingscyclus (bv. deze hoeveelheid verplaatst tooupcoming betaling Hallo volgende maand).  Deze hoeveelheid wordt doorgaans $0 (tenzij een klant ook van tevoren betaalt).
-* Klik op Hallo verwachte betaling of meest recente betaling **details weergeven** toosee een opmerking over deze uitbetalingen koppelingen.
-* Klik op **betaling instructies** tooview Hallo details onder opbrengst per app/product.
-* Klik op Hallo **weergave** toosee afzonderlijke instructies koppelen.
+* De gereserveerde hoeveelheid geeft eventuele betalingen die zijn doorberekend buiten de toekomstige betalingscyclus (bijvoorbeeld deze hoeveelheid wordt verplaatst naar de volgende maand voor toekomstige betaling) aan.  Deze hoeveelheid wordt doorgaans $0 (tenzij een klant ook van tevoren betaalt).
+* Klik op de verwachte betaling of de meest recente betaling **details weergeven** koppelingen naar een opmerking over deze uitbetalingen Zie.
+* Klik op **betaling instructies** de details onder opbrengst per app/product weergeven.
+* Klik op de **weergave** koppeling om te zien van afzonderlijke instructies.
 
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
-* Gebruik Hallo **wordt voortgezet uitsplitsing** filteren Hallo Hallo afzonderlijke instructie tooview onderaan in meerdere apps/producten, indien aanwezig.
+* Gebruik de **wordt voortgezet uitsplitsing** filter onder aan de afzonderlijke instructie om weer te geven van meerdere apps/producten, indien aanwezig.
 
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
 ## <a name="view-your-payout-reports-in-publishing-portal"></a>Uw toekenning-rapporten bekijken in de Portal voor publiceren
-Hallo toekenning rapport voor elk kwartaal registreert alle transacties die zijn opgetreden binnen dat jaar.
+Het rapport toekenning voor elk kwartaal registreert alle transacties die zijn opgetreden binnen dat jaar.
 
-1. Navigeer toohello publishing portal op https://publish.windowsazure.com.
-2. Van Hallo **uitgevers** sectie, klikt u op **toekenning rapporten**.
-3. Klik op Hallo vervolgkeuzelijst toodisplay alle beschikbare driemaandelijkse toekenning rapporten.
+1. Navigeer naar de publishing portal op https://publish.windowsazure.com.
+2. Van de **uitgevers** sectie, klikt u op **toekenning rapporten**.
+3. Klik op de vervolgkeuzelijst om alle beschikbare driemaandelijkse toekenning rapporten weer te geven.
 
     ![accessingpayoutreport][5]
 
 ### <a name="read-your-payout-reports"></a>Uw toekenning rapporten lezen
-Hallo toekenning rapport voor elk kwartaal registreert alle transacties die zijn opgetreden binnen dat jaar.
+Het rapport toekenning voor elk kwartaal registreert alle transacties die zijn opgetreden binnen dat jaar.
 
-* Als u posten die betrekking bepaald kwartaal tooa hebben zoekt, selecteert u Hallo toekenning rapport voor dat kwartaal van Hallo vervolgkeuzelijst. Bijvoorbeeld, als u geïnteresseerd in posten voor tooJune April 2015 bent, die datumbereik selecteren in de vervolgkeuzelijst Hallo.
-* Als u details van uitbetalingen die gerelateerd zijn bepaalde kwartaal tooa zoekt, selecteert u Hallo toekenning rapport voor het volgende kwartaal Hallo. Als u geïnteresseerd in Hallo uitbetalingen voor tooJune April 2015 bent, wordt bijvoorbeeld deze bedragen in Hallo toekenning daaropvolgende rapport voor tooSeptember juli 2015 weergegeven.
+* Als u posten die betrekking op een bepaalde kwartaal hebben zoekt, selecteert u het rapport toekenning voor dat kwartaal in de vervolgkeuzelijst. Bijvoorbeeld, als u geïnteresseerd in posten voor April naar juni 2015 bent, selecteert u die periode in de vervolgkeuzelijst.
+* Als u details van uitbetalingen die betrekking op een bepaalde kwartaal hebben zoekt, selecteert u het rapport toekenning voor het volgende kwartaal. Bijvoorbeeld, als u geïnteresseerd in de uitbetalingen voor April naar juni 2015 bent, verschijnt deze bedragen in het rapport daaropvolgende toekenning juli tot September 2015.
   ![readingpayoutreport][6]
-* Hallo-deelvenster voor financiële overzicht toont tegoeden, tegoed en afschrijvingen per categorie.
+* Financiële samenvatting bevat saldo's en tegoed afschrijvingen per categorie.
 * Posten weergeven afzonderlijke transacties.
 
 ## <a name="definitions"></a>Definities
@@ -86,11 +86,11 @@ Hallo toekenning rapport voor elk kwartaal registreert alle transacties die zijn
 ![ledgerdefinitions][8]
 
 ## <a name="payout-questions"></a>Toekenning vragen
-Als u een vraag gerelateerde hebt tooyour uitbetalingen, neem contact op met het ondersteuningsteam.
+Als u een vraag die betrekking hebben op uw uitbetalingen hebt, contact met ons ondersteuningsteam.
 
 ![payoutquestions][9]
 
-1. Navigeer toohello ondersteuning voor pagina's.
+1. Navigeer naar de pagina's van ondersteuning.
 2. Selecteer **uitbetalingen**.
 3. Selecteer **toekenning gerelateerde vragen**.
 4. Klik op **startaanvraag**.

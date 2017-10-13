@@ -1,6 +1,6 @@
 ---
-title: aaaAzure bronnen & CosmosDB tabel API .NET SDK | Microsoft Docs
-description: Meer informatie over hello Azure CosmosDB API voor de tabel met inbegrip van release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie.
+title: Bronnen voor & Azure CosmosDB tabel API .NET SDK | Microsoft Docs
+description: Meer informatie over de Azure-CosmosDB tabel API, met inbegrip van release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 5217f53274874489d3f10ed1ccae3330fdf91678
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d641d4089f8bce86633b7c476f10617bc642e2b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabel .NET API: Downloaden en release-opmerkingen
 
@@ -27,8 +27,8 @@ ms.lasthandoff: 10/06/2017
 |---|---|
 |**SDK downloaden**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**API-documentatie**|[.NET API-naslagdocumentatie](https://aka.ms/acdbtableapiref)|
-|**Snelstartgids**|[Azure Cosmos DB: Een .NET-app bouwen en Hallo tabel-API](https://aka.ms/acdbtnetqs)|
-|**Zelfstudie**|[Azure CosmosDB: Een container maken met de Hallo Graph API](tutorial-develop-graph-dotnet.md)|
+|**Snelstartgids**|[Azure Cosmos DB: Een app met .NET- en de tabel-API maken](https://aka.ms/acdbtnetqs)|
+|**Zelfstudie**|[Azure CosmosDB: Een container maken met de Graph API](tutorial-develop-graph-dotnet.md)|
 |**Huidige ondersteunde framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 ## <a name="release-notes"></a>Releaseopmerkingen
@@ -36,12 +36,12 @@ ms.lasthandoff: 10/06/2017
 * Initiële preview-versie.
 
 ## <a name="release--retirement-dates"></a>Release & buiten gebruik stellen datums
-Microsoft biedt melding ten minste **12 maanden** voordat het buiten gebruik stellen van een SDK in de volgorde toosmooth Hallo overgang tooa nieuwere/ondersteunde versie.
+Microsoft biedt melding ten minste **12 maanden** voordat het buiten gebruik stellen van een SDK om de overgang naar een nieuwere/ondersteunde versie vloeiend.
 
-Nieuwe functies en functionaliteit en optimalisaties worden alleen toegevoegd toohello huidige SDK, omdat het wordt aanbevolen dat u altijd upgrade toohello nieuwste SDK-versie zo spoedig mogelijk. 
+Nieuwe functies en functionaliteit en optimalisaties alleen zijn toegevoegd aan de huidige SDK, als zodanig wordt aanbevolen dat u altijd een upgrade uitvoert naar de nieuwste SDK versie zo snel mogelijk. 
 
-Een aanvraag tooAzure Cosmos-database met behulp van een buiten gebruik gestelde SDK worden geweigerd door Hallo-service.
+Elk verzoek aan de Azure Cosmos-database met behulp van een buiten gebruik gestelde SDK worden geweigerd door de service.
 
 
 ## <a name="see-also"></a>Zie ook
-Zie toolearn meer informatie over hello Azure Cosmos DB tabel API [inleiding tooAzure Cosmos DB: tabel API](table-introduction.md). 
+Zie voor meer informatie over de Azure-API voor tabel Cosmos DB, [Inleiding tot Azure Cosmos DB: tabel API](table-introduction.md). 

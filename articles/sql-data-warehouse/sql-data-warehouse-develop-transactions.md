@@ -1,5 +1,5 @@
 ---
-title: aaaTransactions in SQL Data Warehouse | Microsoft Docs
+title: Transacties in SQL datawarehouse | Microsoft Docs
 description: Tips voor het implementeren van transacties in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,25 +15,25 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 7c541648553238443b407666612561918096eb61
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>Transacties in SQL datawarehouse
-Zoals u verwachten zou, SQL Data Warehouse biedt ondersteuning voor transacties als onderdeel van de datawarehouse-workload Hallo. Echter wordt tooensure Hallo prestaties van SQL Data Warehouse onderhouden op grote schaal die sommige functies beperkt wanneer zijn vergeleken tooSQL Server. In dit artikel worden gemarkeerd Hallo verschillen en lijsten Hallo anderen. 
+Zoals u verwachten zou, SQL Data Warehouse biedt ondersteuning voor transacties als onderdeel van de datawarehouse-workload. Om te controleren of dat de prestaties van SQL Data Warehouse wordt onderhouden op grote schaal zijn sommige functies echter beperkt in vergelijking tot SQL Server. In dit artikel worden de verschillen gemarkeerd en geeft een lijst van de andere. 
 
 ## <a name="transaction-isolation-levels"></a>Transactie-isolatieniveaus
-SQL Data Warehouse implementeert ACID-transactions. Hallo isolatie van Hallo transactionele ondersteuning is echter beperkt te`READ UNCOMMITTED` en dit kan niet worden gewijzigd. U kunt een aantal codering methoden tooprevent vervuild gegevens leest als dit een probleem voor u is kunt implementeren. Hallo populairste methoden gebruikmaken van CTAS en tabel partitie overschakelen (vaak ook bekend als verschuivende venster patroon Hallo) tooprevent gebruikers van een query die nog steeds wordt voorbereid. Weergaven die vooraf filter Hallo gegevens is ook een populaire benadering.  
+SQL Data Warehouse implementeert ACID-transactions. De isolatie van de transactionele ondersteuning is echter beperkt tot `READ UNCOMMITTED` en dit kan niet worden gewijzigd. U kunt een aantal methoden om te voorkomen dat niet-weggeschreven gelezen gegevens van de gegevens als dit een probleem voor u is coderen implementeren. De meest populaire methoden gebruikmaken van CTAS en tabel partitie overschakelen (vaak het sliding venster-patroon genoemd) om te voorkomen dat gebruikers een query die nog steeds wordt voorbereid. Weergaven die vooraf filter de gegevens is ook een populaire benadering.  
 
 ## <a name="transaction-size"></a>De grootte van de transactie
-Er is een wijziging één transactie in grootte beperkt. Hallo limiet is vandaag de dag "per distributiepunt' toegepast. Daarom kan Hallo totale toewijzing worden vermenigvuldigd Hallo limiet Hallo distributie count. Hallo distributie cap deelt tooapproximate Hallo maximale aantal rijen in de transactie Hallo door Hallo totale grootte van elke rij. Houd rekening met een gemiddelde kolomlengte duurt in plaats van met behulp van de maximale grootte Hallo voor kolommen met variabele lengte.
+Er is een wijziging één transactie in grootte beperkt. De limiet is vandaag de dag "per distributiepunt' toegepast. Daarom kan de totale toewijzing worden berekend door de limiet vermenigvuldigen met het aantal distributiepunten. Naar geschatte het maximale aantal rijen in de transactie deelt het kapje distributie door de totale grootte van elke rij. Houd rekening met een gemiddelde kolomlengte duurt dan de maximumgrootte voor kolommen met variabele lengte.
 
-In de tabel hieronder Hallo Hallo zijn volgende veronderstellingen aangebracht:
+In de tabel hieronder de volgende veronderstellingen zijn aangebracht:
 
 * Een gelijkmatige verdeling van gegevens is opgetreden 
-* de gemiddelde rijlengte Hallo is 250 bytes
+* De gemiddelde rijlengte is 250 bytes
 
 | [DWU][DWU] | Cap per distributiepunt (GiB) | Aantal distributies | Transactie maximumgrootte (GiB) | # Rijen per distributiepunt | Maximumaantal rijen per transactie |
 | --- | --- | --- | --- | --- | --- |
@@ -50,21 +50,21 @@ In de tabel hieronder Hallo Hallo zijn volgende veronderstellingen aangebracht:
 | DW3000 |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
 | DW6000 |45 |60 |2,700 |180,000,000 |10,800,000,000 |
 
-Hallo transactie groottelimiet wordt per transactie of bewerking toegepast. Het is niet toegepast op alle gelijktijdige transacties. Elke transactie is daarom toowrite deze hoeveelheid gegevens toohello logboek toegestaan. 
+De transactie maximale grootte wordt per transactie of bewerking toegepast. Het is niet toegepast op alle gelijktijdige transacties. Elke transactie mag daarom deze hoeveelheid gegevens naar het logboek schrijven. 
 
-toooptimize en minimaliseren Hallo en de hoeveelheid gegevens geschreven toohello logboek Raadpleeg toohello [transacties aanbevolen procedures] [ Transactions best practices] artikel.
+Om te optimaliseren en de hoeveelheid gegevens geschreven naar het logboek te minimaliseren raadpleegt u de [transacties aanbevolen procedures] [ Transactions best practices] artikel.
 
 > [!WARNING]
-> maximale grootte van de transactie kan alleen worden bereikt voor HASH of ROUND_ROBIN gedistribueerd tabellen waarbij Hallo verspreiden Hallo gegevens Hallo is even. Als Hallo transactie is schrijven van gegevens op een wijze vertekende toohello distributies is hello limiet waarschijnlijk toobe voorafgaande toohello transactie maximale grootte heeft bereikt.
+> De grootte van de maximale transactie kan alleen worden bereikt voor HASH of ROUND_ROBIN gedistribueerd tabellen waarbij de spreiding van de gegevens is zelfs. Als de transactie is schrijven van gegevens op een wijze vertekende naar de distributies zijn de limiet is waarschijnlijk worden bereikt voordat de transactie maximale grootte.
 > <!--REPLICATED_TABLE-->
 > 
 > 
 
 ## <a name="transaction-state"></a>Transactiestatus
-SQL Data Warehouse gebruikt Hallo XACT_STATE() functie tooreport een mislukte transactie Hallo waarde -2. Dit betekent dat Hallo transactie is mislukt en is gemarkeerd voor alleen terugdraaien
+SQL Data Warehouse maakt gebruik van de functie XACT_STATE() voor het rapporteren van een mislukte transactie met de waarde -2. Dit betekent dat de transactie is mislukt en is gemarkeerd voor alleen terugdraaien
 
 > [!NOTE]
-> Hallo gebruiken-2 Hallo XACT_STATE functie toodenote een mislukte transactie vertegenwoordigt verschillend gedrag tooSQL Server. Hallo waarde -1 toorepresent een niet-doorvoerbare transactie maakt gebruik van SQL Server. SQL Server kan een aantal fouten binnen een transactie zonder toobe gemarkeerd als niet-doorvoerbare tolereren. Bijvoorbeeld `SELECT 1/0` wordt een fout veroorzaken, maar niet afdwingen van een transactie in een niet-doorvoerbare staat. SQL Server kan ook leesbewerkingen in niet-doorvoerbare transactie Hallo. Echter kunt SQL Data Warehouse u niet doen. Als een fout in een SQL Data Warehouse-transactie optreedt wordt automatisch overgeschakeld naar de Hallo -2-status en kunt u niet kunt toomake selecteren een verdere instructies tot het Hallo-instructie is teruggedraaid. Het is daarom belangrijk toocheck uw toepassing code toosee als XACT_STATE() als u gebruikt moet mogelijk toomake codewijzigingen.
+> Het gebruik van -2 door de functie XACT_STATE om aan te geven van een mislukte transactie vertegenwoordigt verschillend gedrag met SQL Server. SQL Server gebruikt de waarde -1 vertegenwoordigt een niet-doorvoerbare transactie. SQL Server kan een aantal fouten binnen een transactie zonder zijn gemarkeerd als niet-doorvoerbare tolereren. Bijvoorbeeld `SELECT 1/0` wordt een fout veroorzaken, maar niet afdwingen van een transactie in een niet-doorvoerbare staat. SQL Server wordt ook gelezen kan in de niet-doorvoerbare transactie. Echter kunt SQL Data Warehouse u niet doen. Als er een fout optreedt in een SQL Data Warehouse-transactie wordt automatisch overgeschakeld naar de status-2 en u zich niet Breng een select-instructies verder totdat de instructie is teruggedraaid. Daarom is het belangrijk om te controleren dat de toepassingscode om te zien als XACT_STATE() wordt gebruikt als u moet mogelijk codewijzigingen aanbrengen.
 > 
 > 
 
@@ -106,13 +106,13 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-Als u uw code laat als hierboven krijgt u Hallo volgende foutbericht weergegeven:
+Als u uw code laat ongewijzigd hierboven krijgt u het volgende foutbericht weergegeven:
 
-Bericht 111233, 16 niveau 1 staat, regel 1 111233; Hallo huidige transactie is afgebroken en alle wijzigingen in afwachting zijn teruggedraaid. Oorzaak: Een transactie in een status terugdraaien van de alleen-lezen is niet expliciet teruggedraaid voordat een DDL-, DML- of SELECT-instructie.
+Bericht 111233, 16 niveau status 1, regel 1 111233; De huidige transactie is afgebroken en eventuele wijzigingen in behandeling zijn teruggedraaid. Oorzaak: Een transactie in een status terugdraaien van de alleen-lezen is niet expliciet teruggedraaid voordat een DDL-, DML- of SELECT-instructie.
 
-U wordt ook Hallo-uitvoer van Hallo ERROR_ * functies niet ophalen.
+U wordt ook de uitvoer van de functies ERROR_ * niet ophalen.
 
-Hallo-code moet in SQL Data Warehouse toobe enigszins gewijzigd:
+In SQL Data Warehouse moet de code enigszins worden gewijzigd:
 
 ```sql
 SET NOCOUNT ON;
@@ -149,22 +149,22 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-Hallo verwacht gedrag is nu waargenomen. Hallo-fout in Hallo transactie wordt beheerd en Hallo ERROR_ * functies waarden opgeven, zoals verwacht.
+Het verwachte gedrag is nu waargenomen. De fout in de transactie wordt beheerd en de functies ERROR_ * Geef waarden op zoals verwacht.
 
-Alles wat is gewijzigd dat Hallo is `ROLLBACK` Hallo transactie toohappen had voordat Hallo Hallo foutinformatie in Hallo lezen `CATCH` blok.
+Alle die is gewijzigd, is dat de `ROLLBACK` van de transactie moest gebeuren voor het lezen van de foutgegevens in de `CATCH` blok.
 
 ## <a name="errorline-function"></a>De functie Error_Line()
-Het is ook opgemerkt dat SQL Data Warehouse niet implementeren of Hallo ERROR_LINE() functie ondersteunen. Als u dit in uw code u tooremove, moet deze toobe compatibel zijn met SQL Data Warehouse. Query labels in uw code gebruiken in plaats daarvan tooimplement dezelfde functionaliteit. Raadpleeg toohello [LABEL] [ LABEL] artikel voor meer informatie over deze functie.
+Het is ook opgemerkt dat SQL Data Warehouse niet implementeert of ondersteuning voor de functie ERROR_LINE(). Als u in uw code hoeft hebt te verwijderen om te voldoen aan de SQL Data Warehouse. Query labels in uw code in plaats daarvan gebruiken voor het implementeren van dezelfde functionaliteit. Raadpleeg de [LABEL] [ LABEL] artikel voor meer informatie over deze functie.
 
 ## <a name="using-throw-and-raiserror"></a>Met behulp van THROW en RAISERROR
-THROW is moderne implementatie voor uitzonderingen in SQL Data Warehouse Hallo maar RAISERROR wordt ook ondersteund. Er zijn een paar verschillen waarde aandacht toohowever betaalt.
+THROW is de moderne implementatie voor uitzonderingen in SQL Data Warehouse maar RAISERROR wordt ook ondersteund. Er zijn een paar verschillen waarde Let echter op.
 
-* De gebruiker gedefinieerde foutberichten cijfers mogen niet in Hallo 100.000 150.000 bereik voor WEGGOOIEN
+* De gebruiker gedefinieerde foutberichten getallen kan niet binnen het bereik 100.000 150.000 voor WEGGOOIEN
 * Foutberichten voor RAISERROR worden opgelost op 50.000
 * Gebruik van sys.messages wordt niet ondersteund.
 
 ## <a name="limitiations"></a>Limitiations
-SQL Data Warehouse heeft enkele andere beperkingen die betrekking tootransactions hebben.
+SQL Data Warehouse heeft enkele andere beperkingen met betrekking tot transacties.
 
 Ze zijn als volgt:
 
@@ -176,7 +176,7 @@ Ze zijn als volgt:
 * Er is geen ondersteuning voor DDL zoals `CREATE TABLE` gedefinieerd binnen een transactie
 
 ## <a name="next-steps"></a>Volgende stappen
-toolearn meer informatie over het optimaliseren van transacties, Zie [transacties aanbevolen procedures][Transactions best practices].  Zie toolearn over andere best practices SQL Data Warehouse [aanbevolen procedures voor SQL Data Warehouse][SQL Data Warehouse best practices].
+Zie voor meer informatie over het optimaliseren van transacties, [transacties aanbevolen procedures][Transactions best practices].  Zie voor meer informatie over andere aanbevelingen voor SQL Data Warehouse, [aanbevolen procedures voor SQL Data Warehouse][SQL Data Warehouse best practices].
 
 <!--Image references-->
 

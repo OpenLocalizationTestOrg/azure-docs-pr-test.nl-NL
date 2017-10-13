@@ -1,6 +1,6 @@
 ---
-title: aaaAzure Mobile Engagement Web SDK Release-opmerkingen | Microsoft Docs
-description: Hallo meest recente updates en procedures voor Web-SDK voor Azure Mobile Engagement
+title: Azure Mobile Engagement Web SDK Release-opmerkingen | Microsoft Docs
+description: De nieuwste updates en procedures voor het Web SDK voor Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: piyushjo
-ms.openlocfilehash: a082f1fec07341b5cc06efe50512c2dcf01ec1df
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: dc90620d284bdcae888b990f55191be18b29d6f5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk-release-notes"></a>Azure Mobile Engagement Web SDK-releaseopmerkingen
 ## <a name="202-10182016"></a>2.0.2 (10/18/2016)
@@ -26,16 +26,16 @@ ms.lasthandoff: 10/06/2017
 * Vaste crash browsers met cookies is uitgeschakeld.
 
 ## <a name="201-6102016"></a>2.0.1 (6/10/2016)
-* Uitgeschakelde hello SDK in Internet Explorer 8 en Internet Explorer 9.
+* De SDK in Internet Explorer 8 en Internet Explorer 9 wordt uitgeschakeld.
 * Vaste Opera web browserdetectie.
 
 ## <a name="200-672016"></a>2.0.0 (6/7/2016)
 * Azure Mobile Engagement uitgebracht.
-* Bijgewerkt, zodat die Hallo `appId` configuratie wordt vervangen door de configuratie van een verbinding-tekenreeks.
-* Toegevoegde API's tooenable en schakel Hallo-agent.
+* Bijgewerkt zodat de `appId` configuratie wordt vervangen door de configuratie van een verbinding-tekenreeks.
+* Toegevoegde API's inschakelen en uitschakelen van de agent.
 * Verbeterde beveiliging gemaakt.
-* Bijgewerkte toouse systeemeigen JSON-API's van browsers.
-* Hallo-API die worden verzonden en ontvangen van berichten tussen apparaten verwijderd.
-* Verwijderde retouraanroepen gerelateerde toohello afgeschaft XMPP verbinding.
-* Verwijderde ondersteuning voor Hallo Reach-functie.
+* Bijgewerkt voor het gebruik van systeemeigen JSON-API's van browsers.
+* De API die worden verzonden en ontvangen van berichten tussen apparaten verwijderd.
+* Verwijderde retouraanroepen die betrekking hebben op de afgeschafte XMPP-verbinding.
+* Verwijderde ondersteuning voor de Reach-functie.
 

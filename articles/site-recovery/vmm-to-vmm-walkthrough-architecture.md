@@ -1,6 +1,6 @@
 ---
-title: Hallo-architectuur voor Hyper-V-replicatie tooa secundaire site met Azure Site Recovery aaaReview | Microsoft Docs
-description: Dit artikel bevat een overzicht van Hallo-architectuur voor het repliceren van lokale Hyper-V-machines tooa secundaire System Center VMM-site met Azure Site Recovery.
+title: Architectuur voor Hyper-V-replicatie naar een secundaire site met Azure Site Recovery bekijken | Microsoft Docs
+description: "Dit artikel biedt een overzicht van de architectuur voor het repliceren van on-premises Hyper-V-VM’s naar een secundaire System Center VMM-site met Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.openlocfilehash: 0de4b4e8601116c73e6fd710597ce4e561884368
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b78cd0d5a5395873afaddc8856004775f447e8ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="step-1-review-hello-architecture-for-hyper-v-replication-tooa-secondary-site"></a>Stap 1: Bekijk Hallo-architectuur voor Hyper-V-replicatie tooa secundaire site
+# <a name="step-1-review-the-architecture-for-hyper-v-replication-to-a-secondary-site"></a>Stap 1: de architectuur voor Hyper-V-replicatie naar een secundaire site bekijken
 
-Dit artikel wordt beschreven Hallo-onderdelen en processen die betrokken zijn bij het repliceren van on-premises Hyper-V virtuele machines (VM's) in System Center Virtual Machine Manager (VMM) clouds, tooa secundaire VMM-site met behulp van Hallo [Azure Site Recovery](site-recovery-overview.md)service in hello Azure-portal.
+In dit artikel worden de onderdelen en processen beschreven die zijn betrokken bij het repliceren van on-premises Hyper-V-VM's (virtuele machines) in System Center VMM-clouds (Virtual Machine Manager) naar een secundaire VMM-site met behulp van de [Azure Site Recovery](site-recovery-overview.md)-service in Azure Portal.
 
-Eventuele opmerkingen posten onderin Hallo van dit artikel of in Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+U kunt onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen plaatsen.
 
 
 
 ## <a name="architectural-components"></a>Architectuuronderdelen
 
-Dit is wat u nodig hebt voor het repliceren van Hyper-V-machines tooa secundaire VMM-site.
+Dit is wat u nodig hebt om Hyper V-VM's te repliceren naar een secundaire VMM-site.
 
 **Onderdeel** | **Locatie** | **Details**
 --- | --- | ---
-**Azure** | Abonnement in Azure. | Een Recovery Services-kluis in hello Azure-abonnement, tooorchestrate maken en beheren van replicatie tussen de VMM-locaties.
-**VMM-server** | U hebt een primaire en secundaire VMM-locatie nodig. | Het is raadzaam een VMM-server op Hallo primaire site, en één in Hallo secundaire site 
-**Hyper-V-server** |  Een of meer Hyper-V-hostservers in Hallo primaire en secundaire VMM-clouds. | Gegevens worden gerepliceerd tussen Hallo primaire en secundaire Hyper-V-hostservers via Hallo LAN of VPN-, Kerberos of certificaatverificatie gebruiken.  
-**Virtuele Hyper-V-machines** | Op Hyper-V-hostserver. | Hallo-bronserver host moet ten minste één virtuele machine die u wilt dat tooreplicate hebben.
+**Azure** | Abonnement in Azure. | U maakt een Recovery Services-kluis in het Azure-abonnement om de replicatie tussen VMM-locaties te organiseren en te beheren.
+**VMM-server** | U hebt een primaire en secundaire VMM-locatie nodig. | Het wordt aanbevolen om één VMM-beheerserver te gebruiken op de primaire site en één op de secundaire site 
+**Hyper-V-server** |  U hebt een of meer Hyper-V-hostservers nodig die zich bevinden in de primaire en secundaire VMM-clouds. | Gegevens worden tussen de primaire en secundaire Hyper-V-hostservers via het LAN of VPN gerepliceerd met behulp van Kerberos of verificatie via certificaat.  
+**Virtuele Hyper-V-machines** | Op Hyper-V-hostserver. | De bronhostserver moet ten minste één VM hebben die u wilt repliceren.
 
 ## <a name="replication-process"></a>Replicatieproces
 
-1. Hello Azure-account instellen, een Recovery Services-kluis maken en geef op wat u wilt tooreplicate.
-2. U Hallo bron- en replicatie-instellingen configureren, waaronder het hello Azure Site Recovery Provider installeren op de VMM-servers en Hallo Microsoft Azure Recovery Services agent op elke Hyper-V-host.
-3. Maakt u een replicatiebeleid voor de gegevensbron Hallo VMM-cloud. Hallo beleid is toegepast tooall virtuele machines op hosts in Hallo cloud bevindt.
-4. U replicatie voor elke VMM inschakelen en initiële replicatie van een virtuele machine plaats in overeenstemming met Hallo instellingen die u kiest.
+1. U stelt het Azure-account in, maakt een Recovery Services-kluis en geeft op wat u wilt repliceren.
+2. U configureert de instellingen van de bron- en doelreplicatie. Dit omvat het installeren van Azure Site Recovery Provider op VMM-servers en van de Microsoft Azure Recovery Services-agent op elke Hyper-V-host.
+3. U maakt een replicatiebeleid voor de bron-VMM-cloud. Het beleid wordt toegepast op alle VM’s die zich op hosts in de cloud bevinden.
+4. U schakelt replicatie in voor elke VMM. Er vindt een initiële replicatie van een VM plaats in overeenstemming met de instellingen die u kiest.
 5. Na de initiële replicatie begint de replicatie van deltawijzigingen. Bijgehouden wijzigingen voor een item worden opgeslagen in een .hrl-bestand.
 
 
-![Lokale tooon-premises](./media/vmm-to-vmm-walkthrough-architecture/arch-onprem-onprem.png)
+![On-premises naar on-premises](./media/vmm-to-vmm-walkthrough-architecture/arch-onprem-onprem.png)
 
 ## <a name="failover-and-failback-process"></a>Failover- en failbackproces
 
-1. U kunt een geplande of niet-geplande [failover](site-recovery-failover.md) uitvoeren tussen on-premises sites. Als u een geplande failover uitvoert, wordt de Bronmachines tooensure worden afgesloten zonder verlies van gegevens.
-2. U kunt één machine failover of maken [herstelplannen](site-recovery-create-recovery-plans.md) tooorchestrate failover van meerdere machines.
-4. Als u een niet-geplande failover tooa secundaire site na Hallo failover-machines op de secundaire locatie Hallo uitvoert zijn niet ingeschakeld voor beveiliging of replicatie. Als u een geplande failover uitgevoerd na een failover hello, worden machines op de secundaire locatie Hallo beveiligd.
-5. Voer vervolgens Hallo failover toostart toegang tot Hallo werkbelasting van Hallo replica-VM.
-6. Als uw primaire site weer beschikbaar is, start u omgekeerde replicatie tooreplicate van Hallo secundaire site toohello primaire. Omgekeerde replicatie worden Hallo virtuele machines naar een beveiligde status, maar er is nog steeds Hallo secundair datacenter Hallo active-locatie.
-7. toomake hello primaire site naar de actieve locatie Hallo opnieuw u start een geplande failover van de secundaire tooprimary, gevolgd door een andere omgekeerde replicatie.
+1. U kunt een geplande of niet-geplande [failover](site-recovery-failover.md) uitvoeren tussen on-premises sites. Als u een geplande failover uitvoert, worden de virtuele bronmachines afgesloten om gegevensverlies te voorkomen.
+2. U kunt een failover van één machine uitvoeren of [herstelplannen](site-recovery-create-recovery-plans.md) maken om de failover van meerdere virtuele machines te coördineren.
+4. Als u een niet-geplande failover naar een secundaire site uitvoert wanneer de failovermachines in de secundaire locatie niet zijn ingeschakeld voor beveiliging of replicatie. Als u een geplande failover hebt uitgevoerd, zijn de machines op de secundaire locatie na de failover beveiligd.
+5. U geeft de failover vervolgens toegang tot de werkbelasting via de replica-VM.
+6. Als uw primaire site weer beschikbaar is, start u de omgekeerde replicatie van de secundaire site naar de primaire site. Omgekeerde replicatie geeft de virtuele machines een beveiligde status, maar het secundaire datacenter is nog steeds de actieve locatie.
+7. Als u de primaire site weer de actieve locatie wilt maken, start u een geplande failover van de secundaire site naar de primaire site, gevolgd door nog een omgekeerde replicatie.
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga te[stap 2: Controleer Hallo vereisten en beperkingen](vmm-to-vmm-walkthrough-prerequisites.md).
+Ga naar [Stap 2: de vereisten en beperkingen controleren](vmm-to-vmm-walkthrough-prerequisites.md).

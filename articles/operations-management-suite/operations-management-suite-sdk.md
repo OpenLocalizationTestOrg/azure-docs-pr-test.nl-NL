@@ -1,6 +1,6 @@
 ---
-title: aaaOperations Management Suite (OMS) SDK | Microsoft Docs
-description: Dit artikel worden Hallo documentatie en andere bronnen beschikbaar zijn voor toegang tot services OMS buiten Hallo OMS en Azure portals.  Dit omvat REST-API voor toegang vanaf verschillende API's en scriptengines zoals PowerShell
+title: Operations Management Suite (OMS) SDK | Microsoft Docs
+description: Dit artikel vindt de documentatie en andere bronnen beschikbaar zijn voor toegang tot services OMS buiten de portals OMS en Azure.  Dit omvat REST-API voor toegang vanaf verschillende API's en scriptengines zoals PowerShell
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
-ms.openlocfilehash: 7144f10bba70a8f08cc97cec45b4b0a148892c90
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 03e0f5b6fa26806083cd7852e123495c898bcf0c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="operations-management-suite-oms-sdk"></a>Operations Management Suite (OMS) SDK
-[Operations Management Suite (OMS)](operations-management-suite-overview.md) van Microsoft cloud-gebaseerde IT beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloud-infrastructuur.  Dit artikel worden Hallo documentatie en andere bronnen beschikbaar zijn voor toegang tot services OMS buiten Hallo OMS en Azure portals.  Dit omvat REST-API voor toegang vanaf verschillende API's en scriptengines zoals PowerShell. 
+[Operations Management Suite (OMS)](operations-management-suite-overview.md) van Microsoft cloud-gebaseerde IT beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloud-infrastructuur.  Dit artikel vindt de documentatie en andere bronnen beschikbaar zijn voor toegang tot services OMS buiten de portals OMS en Azure.  Dit omvat REST-API voor toegang vanaf verschillende API's en scriptengines zoals PowerShell. 
 
 ## <a name="automation"></a>Automatisering
 * [Azure Automation-documentatie](http://azure.microsoft.com/documentation/services/automation)
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/06/2017
 * [Documentatie voor Azure Backup](http://azure.microsoft.com/documentation/services/backup)
 * [Back-up van PowerShell-Cmdlets](https://msdn.microsoft.com/library/mt619253.aspx)
 * [Back-REST-API](https://msdn.microsoft.com/library/azure/mt772375.aspx)
-* [Implementeren en beheren van back-tooAzure voor Windows Server/Windows-clients met behulp van PowerShell](../backup/backup-client-automation.md)
+* [Implementeren en beheren van back-up naar Azure voor Windows Server/Windows-Client met behulp van PowerShell](../backup/backup-client-automation.md)
 
 ## <a name="log-analytics"></a>Log Analytics
 * [Log Analytics-documentatie](http://azure.microsoft.com/documentation/services/log-analytics)
@@ -51,10 +51,10 @@ ms.lasthandoff: 10/06/2017
 ## <a name="site-recovery"></a>Site Recovery
 * [Site Recovery PowerShell-cmdlets](https://msdn.microsoft.com/library/mt637930.aspx)
 * [Site Recovery REST-API](https://msdn.microsoft.com/library/azure/mt750497.aspx)
-* [Toevoegen van Azure Automation-runbooks toorecovery plannen](../site-recovery/site-recovery-runbook-automation.md)
+* [Azure Automation-runbooks aan herstelplannen toevoegen](../site-recovery/site-recovery-runbook-automation.md)
 * [On-premises Hyper-V virtuele machines en Azure repliceren met behulp van PowerShell en Azure Resource Manager](../site-recovery/site-recovery-deploy-with-powershell-resource-manager.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Lees meer informatie over verschillende opties voor Hallo [integreren met OMS services](operations-management-suite-integration.md).
+* Meer informatie over de verschillende opties voor [integreren met OMS services](operations-management-suite-integration.md).
 * Maak een [aangepaste oplossing in OMS](operations-management-suite-solutions-creating.md).
 

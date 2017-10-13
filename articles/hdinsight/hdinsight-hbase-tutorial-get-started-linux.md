@@ -1,6 +1,6 @@
 ---
-title: aaaGet gestart met een voorbeeld van HBase op HDInsight - Azure | Microsoft Docs
-description: Volg deze Apache HBase voorbeeld toostart met hadoop op HDInsight. Tabellen maken van Hallo HBase-shell en hierin zoeken met Hive.
+title: Aan de slag met een HBase-voorbeeld in HDInsight - Azure | Microsoft Docs
+description: Voer dit voorbeeld voor Apache HBase uit om met Hadoop aan de slag te gaan in HDInsight. Maak tabellen vanuit de HBase-shell en gebruik Hive om query's uit te voeren op de tabellen.
 keywords: hbase-opdracht, hbase-voorbeeld
 services: hdinsight
 documentationcenter: 
@@ -16,65 +16,65 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
-ms.openlocfilehash: 43419780142b320b16180a2b1f25020dee2f7a11
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 2f3cb99c832b6e17ac932112c1d397fa0c8afeca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Aan de slag met een voorbeeld van Apache HBase in HDInsight
 
-Ontdek hoe toocreate een HBase-cluster in HDInsight, HBase-tabellen maken en query uitvoeren op tabellen met Hive. Zie [Overzicht van HDInsight HBase][hdinsight-hbase-overview] voor algemene informatie over HBase.
+Informatie over het maken van een HBase-cluster in HDInsight, het maken van HBase-tabellen en het uitvoeren van query's op tabellen met Hive. Zie [Overzicht van HDInsight HBase][hdinsight-hbase-overview] voor algemene informatie over HBase.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u probeert deze HBase-voorbeeld, hebt u de volgende items Hallo:
+Voordat u begint met dit HBase-voorbeeld, moet u beschikken over de volgende items:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Secure Shell (SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [curl](http://curl.haxx.se/download.html).
 
 ## <a name="create-hbase-cluster"></a>Een HBase-cluster maken
-Hallo volgende procedure maakt gebruik van een Azure Resource Manager-sjabloon toocreate een versie 3.4 op basis van Linux HBase-cluster en Hallo afhankelijke Azure Storage-standaardaccount. Zie toounderstand Hallo parameters die worden gebruikt in de procedure Hallo en andere methoden voor het maken van cluster [maken Linux gebaseerde Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+In de volgende procedure wordt een Azure Resource Manager-sjabloon gebruikt om een Linux 3.4-gebaseerd HBase-cluster en het afhankelijke standaard Azure Storage-opslagaccount te maken. Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) voor meer inzicht in de parameters die voor deze procedure worden gebruikt en andere methoden voor het maken van clusters.
 
-1. Klik op Hallo installatiekopie tooopen Hallo sjabloon in hello Azure-portal te volgen. Hallo-sjabloon bevindt zich in een openbare blob-container. 
+1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen. De sjabloon bevindt zich in een openbare blob-container. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy tooAzure"></a>
-2. Van Hallo **aangepaste implementatie** blade Voer Hallo volgende waarden:
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+2. Voer op de blade **Aangepaste implementatie** de volgende waarden in:
    
-   * **Abonnement**: Selecteer uw Azure-abonnement dat is gebruikt toocreate Hallo-cluster.
+   * **Abonnement**: selecteer het Azure-abonnement dat wordt gebruikt om het cluster te maken.
    * **Resourcegroep**: maak een Azure-resourcebeheergroep of gebruik een bestaande.
-   * **Locatie**: locatie van resourcegroep Hallo Hallo opgeven. 
-   * **Clusternaam**: Voer een naam voor Hallo HBase-cluster.
-   * **Cluster-aanmeldingsnaam en wachtwoord**: Hallo standaardaanmeldnaam is **admin**.
-   * **SSH-gebruikersnaam en wachtwoord**: de standaardgebruikersnaam Hallo **sshuser**.  U kunt de naam wijzigen.
+   * **Locatie**: geef de locatie van de resourcegroep op. 
+   * **Clusternaam**: voer een naam in voor het HBase-cluster.
+   * **Aanmeldgegevens voor het cluster**: de standaardaanmeldnaam is **admin**.
+   * **SSH-gebruikersnaam en -wachtwoord**: de standaardgebruikersnaam is **sshuser**.  U kunt de naam wijzigen.
      
      Andere parameters zijn optioneel.  
      
-     Elk cluster is afhankelijk van een Azure Storage-account. Nadat u een cluster hebt verwijderd, behoudt Hallo gegevens in Hallo storage-account. Hallo clusternaam van het standaardopslagaccount is Hallo naam waaraan 'store' is toegevoegd. Deze is vastgelegd in de sectie met sjabloonvariabelen Hallo.
-3. Selecteer **ik ga akkoord toohello voorwaarden bovengenoemde**, en klik vervolgens op **aankoop**. Het duurt ongeveer 20 minuten toocreate een cluster.
+     Elk cluster is afhankelijk van een Azure Storage-account. Nadat u een cluster hebt verwijderd, blijven de gegevens in het opslagaccount staan. De naam van het standaardopslagaccount voor het cluster is de naam waaraan 'store' is toegevoegd. Deze is vastgelegd in de sectie met sjabloonvariabelen.
+3. Selecteer **Ik ga akkoord met de bovenstaande voorwaarden** en klik vervolgens op **Kopen**. Het duurt ongeveer 20 minuten om een cluster te maken.
 
 > [!NOTE]
-> Nadat een HBase-cluster wordt verwijderd, kunt u een ander HBase-cluster maken met behulp van Hallo dezelfde standaard blob-container. het nieuwe cluster Hallo hervat Hallo HBase-tabellen die u hebt gemaakt in het oorspronkelijke cluster Hallo. tooavoid inconsistenties, we raden aan Hallo HBase-tabellen uit te schakelen voordat u het Hallo-cluster verwijderen.
+> Nadat een HBase-cluster is verwijderd, kunt u een ander HBase-cluster maken met de dezelfde standaard blob-container. Het nieuwe cluster haalt de HBase-tabellen op die u hebt gemaakt in het oorspronkelijke cluster. Om inconsistenties te voorkomen, wordt u aangeraden de HBase-tabellen uit te schakelen voordat u het cluster verwijdert.
 > 
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Tabellen maken en gegevens invoegen
-U kunt SSH tooconnect tooHBase clusters gebruiken en gebruik vervolgens de HBase-Shell toocreate HBase-tabellen, gegevens en gegevens opvragen invoegen. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+U kunt SSH gebruiken om verbinding te maken met HBase-clusters en vervolgens HBase Shell gebruiken om HBase-tabellen te maken, gegevens in te voegen en een query voor gegevens uit te voeren. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-Gegevens worden weergegeven voor de meeste mensen in tabelvorm Hallo:
+Voor de meeste mensen worden de gegevens weergegeven in een tabelindeling:
 
 ![Tabelgegevens in HDInsight HBase][img-hbase-sample-data-tabular]
 
-In HBase (een implementatie van BigTable) lijkt hello dezelfde gegevens:
+In HBase (een implementatie van BigTable), zien dezelfde gegevens er als volgt uit:
 
 ![BigTable-gegevens in HDInsight HBase][img-hbase-sample-data-bigtable]
 
 
-**toouse hello HBase-shell**
+**De HBase-shell gebruiken**
 
-1. Voer Hallo na HBase-opdracht uit in SSH:
+1. Voer de volgende HBase-opdracht uit in SSH:
    
     ```bash
     hbase shell
@@ -103,20 +103,20 @@ In HBase (een implementatie van BigTable) lijkt hello dezelfde gegevens:
     get 'Contacts', '1000'
     ```
    
-    U ziet Hallo dezelfde resultaten als het gebruik van de scanopdracht Hallo omdat er slechts één rij.
+    Aangezien er maar één rij is, zijn de resultaten hetzelfde als voor de scanopdracht.
    
-    Zie voor meer informatie over Hallo HBase-tabelschema [inleiding tooHBase schemaontwerp][hbase-schema]. Raadpleeg de [Snelzoekgids voor Apache HBase][hbase-quick-start] voor meer HBase-opdrachten.
-5. Hallo-shell afsluiten
+    Zie [Inleiding tot het HBase-schemaontwerp][hbase-schema] voor meer informatie over het HBase-tabelschema. Raadpleeg de [Snelzoekgids voor Apache HBase][hbase-quick-start] voor meer HBase-opdrachten.
+5. De shell afsluiten
    
     ```hbaseshell
     exit
     ```
 
-**toobulk load gegevens in HBase-tabel met contacten Hallo**
+**Gegevens bulksgewijs laden in de HBase-tabel met contacten**
 
 U kunt in HBase verschillende methoden gebruiken om gegevens in tabellen te laden.  Zie [Bulk loading](http://hbase.apache.org/book.html#arch.bulk.load) (Bulkgsgewijs laden) voor meer informatie.
 
-Een voorbeeld van een gegevensbestand is te vinden in een openbare Azure Blob-container, *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Hallo-inhoud van het gegevensbestand Hallo is:
+Een voorbeeld van een gegevensbestand is te vinden in een openbare Azure Blob-container, *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  De inhoud van het gegevensbestand is:
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -129,32 +129,32 @@ Een voorbeeld van een gegevensbestand is te vinden in een openbare Azure Blob-co
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-U kunt desgewenst een tekstbestand maken en uploaden Hallo bestand tooyour eigen opslagaccount. Zie voor instructies Hallo [gegevens voor Hadoop-taken in HDInsight uploaden][hdinsight-upload-data].
+U kunt een tekstbestand maken en het bestand desgewenst uploaden naar uw eigen opslagaccount. Zie [Gegevens voor Hadoop-taken in HDInsight uploaden][hdinsight-upload-data] voor instructies.
 
 > [!NOTE]
-> Deze procedure maakt gebruik van Hallo contactpersonen HBase-tabel die u hebt gemaakt in de laatste procedure Hallo.
+> In deze procedure wordt gebruikgemaakt van de HBase-tabel met contacten die u in de laatste procedure hebt gemaakt.
 > 
 
-1. Uitvoeren vanuit SSH Hallo opdracht tootransform Hallo gegevens bestand tooStoreFiles en op te slaan op een relatief pad is opgegeven door Dimporttsv.bulk.output te volgen.  Als u zich in HBase-Shell, gebruikt u Hallo afsluiten opdracht tooexit.
+1. Voer de volgende opdracht vanuit SSH uit om het gegevensbestand te transformeren naar StoreFiles en op te slaan naar een relatief pad dat is opgegeven door Dimporttsv.bulk.output.  Als u zich in HBase Shell bevindt, gebruikt u de afsluitopdracht om af te sluiten.
 
     ```bash   
     hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
     ```
 
-2. Voer Hallo volgende opdracht tooupload Hallo gegevens uit/storedatafileoutput toohello HBase-tabel:
+2. Voer de volgende opdracht uit om de gegevens uit /example/data/storeDataFileOutput naar de HBase-tabel te uploaden:
    
     ```bash
     hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
     ```
 
-3. U kunt Hallo HBase-shell openen en Hallo scan opdracht toolist Hallo tabelinhoud gebruiken.
+3. U kunt de HBase-shell openen en de scanopdracht gebruiken om de tabelinhoud weer te geven.
 
-## <a name="use-hive-tooquery-hbase"></a>Gebruik Hive tooquery HBase
+## <a name="use-hive-to-query-hbase"></a>Hive gebruiken om een query op HBase uit te voeren
 
-Met Hive kunt u een query uitvoeren op de gegevens in HBase-tabellen. In deze sectie maakt u een Hive-tabel die wordt toegewezen toohello HBase-tabel en gebruikt deze tooquery Hallo gegevens in uw HBase-tabel.
+Met Hive kunt u een query uitvoeren op de gegevens in HBase-tabellen. In dit gedeelte maakt u een Hive-tabel die is toegewezen aan de HBase-tabel en deze gebruikt om een query voor de gegevens in uw HBase-tabel uit te voeren.
 
-1. Open **PuTTY**, en maak verbinding toohello cluster.  Zie Hallo-instructies in de vorige procedure Hallo.
-2. Gebruik van Hallo SSH-sessie, Hallo opdracht toostart Beeline te volgen:
+1. Open **PuTTY** en maak verbinding met het cluster.  Zie de instructies in de vorige procedure.
+2. Gebruik tijdens de SSH-sessie de volgende opdracht om Beeline te starten:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
@@ -162,7 +162,7 @@ Met Hive kunt u een query uitvoeren op de gegevens in HBase-tabellen. In deze se
 
     Zie voor meer informatie over Beeline [Hive gebruiken met Hadoop in HDInsight met Beeline](hdinsight-hadoop-use-hive-beeline.md).
        
-3. Voer Hallo volgende HiveQL-script toocreate een Hive-tabel die is toegewezen toohello HBase-tabel. Zorg ervoor dat u hebt gemaakt dat Hallo voorbeeldtabel waarnaar eerder in deze zelfstudie Hallo HBase-shell met voordat u deze instructie uitvoert.
+3. Voer het volgende HiveQL-script uit om een Hive-tabel te maken die is toegewezen aan de HBase-tabel. Zorg ervoor dat u met de HBase-shell de voorbeeldtabel hebt gemaakt waarnaar eerder in deze zelfstudie is verwezen voordat u deze instructie uitvoert.
 
     ```hiveql   
     CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -171,7 +171,7 @@ Met Hive kunt u een query uitvoeren op de gegevens in HBase-tabellen. In deze se
     TBLPROPERTIES ('hbase.table.name' = 'Contacts');
     ```
 
-4. Hallo volgende HiveQL-script tooquery Hallo gegevens in HBase-tabel Hallo uitvoeren:
+4. Voer het volgende HiveQL-script uit om een query uit te voeren voor de gegevens in de HBase-tabel:
 
     ```hiveql   
     SELECT count(rowkey) FROM hbasecontacts;
@@ -179,16 +179,16 @@ Met Hive kunt u een query uitvoeren op de gegevens in HBase-tabellen. In deze se
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>HBase REST API's gebruiken met Curl
 
-Hallo REST API is beveiligd via [basisverificatie](http://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd maken met behulp van beveiligde HTTP (HTTPS) toohelp ervoor te zorgen dat uw referenties veilig toohello server worden verzonden.
+De REST API is beveiligd via [basisverificatie](http://en.wikipedia.org/wiki/Basic_access_authentication). U moet aanvragen altijd uitvoeren via een beveiligde HTTP-verbinding (HTTPS). Zo zorgt u ervoor dat uw referenties veilig worden verzonden naar de server.
 
-2. Gebruik Hallo opdracht toolist Hallo bestaande HBase-tabellen te volgen:
+2. Gebruik de volgende opdracht om een lijst met bestaande HBase-tabellen weer te geven:
 
     ```bash
     curl -u <UserName>:<Password> \
     -G https://<ClusterName>.azurehdinsight.net/hbaserest/
     ```
 
-3. Gebruik Hallo opdracht toocreate een nieuwe HBase-tabel met twee kolomfamilies te volgen:
+3. Gebruik de volgende opdracht om een nieuwe HBase-tabel met twee kolomfamilies te maken:
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -199,8 +199,8 @@ Hallo REST API is beveiligd via [basisverificatie](http://en.wikipedia.org/wiki/
     -v
     ```
 
-    Hallo-schema is opgegeven in Hallo JSon-indeling.
-4. Gebruik Hallo volgende opdracht tooinsert sommige gegevens:
+    Het schema wordt opgegeven in de JSON-indeling.
+4. Gebruik de volgende opdracht om enkele gegevens in te voegen:
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -211,14 +211,14 @@ Hallo REST API is beveiligd via [basisverificatie](http://en.wikipedia.org/wiki/
     -v
     ```
    
-    U moet base64 Hallo opgegeven waarden in Hallo -d switch coderen. In het Hallo-voorbeeld:
+    U moet de waarden die in de schakeloptie -d zijn opgegeven, met Base64 coderen. In het voorbeeld:
    
    * MTAwMA==: 1000
    * UGVyc29uYWw6TmFtZQ==: Persoonlijk:Naam
    * Sm9obiBEb2xl: Joep Davids
      
-     [False rijsleutel](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) tooinsert, kunt u meerdere waarden voor (batch).
-5. Gebruik Hallo opdracht tooget een rij te volgen:
+     [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) maakt het mogelijk om meerdere waarden (in batch) in te voegen.
+5. Gebruik de volgende opdracht om een rij te verkrijgen:
    
     ```bash 
     curl -u <UserName>:<Password> \
@@ -232,30 +232,30 @@ Zie [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest) (Sn
 > [!NOTE]
 > Thrift wordt niet ondersteund door HBase in HDInsight.
 >
-> Wanneer u Curl of andere REST-communicatie met WebHCat, moet u Hallo aanvragen verifiëren door het Hallo-gebruikersnaam en wachtwoord voor Hallo HDInsight Clusterbeheer. Als onderdeel van Hallo Uniform Resource Identifier (URI) toosend Hallo aanvragen toohello server gebruikt, moet u de clusternaam hello gebruiken:
+> Wanneer u Curl of een andere REST-communicatie gebruikt met WebHCat, moet u de aanvragen verifiëren door de gebruikersnaam en het wachtwoord voor de beheerder van het HDInsight-cluster op te geven. U moet ook de clusternaam gebruiken als onderdeel van de URI (Uniform Resource Identifier) die wordt gebruikt om de aanvragen naar de server te verzenden:
 > 
 >   
 >        curl -u <UserName>:<Password> \
 >        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
 >   
->    U ontvangt een reactie vergelijkbaar toohello antwoord te volgen:
+>    Het antwoord dat u ontvangt, is vergelijkbaar met het volgende antwoord:
 >   
 >        {"status":"ok","version":"v1"}
    
 
 
 ## <a name="check-cluster-status"></a>De clusterstatus controleren
-HBase in HDInsight wordt geleverd met een webgebruikersinterface voor het bewaken van clusters. Hallo Webgebruikersinterface gebruikt, kunt u statistieken of informatie over regio's aanvragen.
+HBase in HDInsight wordt geleverd met een webgebruikersinterface voor het bewaken van clusters. Met de webgebruikersinterface kunt u statistieken of informatie over regio's aanvragen.
 
-**tooaccess hello HBase Master UI**
+**De HBase-hoofdinterface openen**
 
-1. Meld u aan bij Hallo Hallo Ambari-Webgebruikersinterface op https://&lt;Clustername >. azurehdinsight.net.
-2. Klik op **HBase** in het linkermenu Hallo.
-3. Klik op **snelle koppelingen** op Hallo bovenaan pagina hello, punt toohello actieve Zookeeper knooppunt koppeling, en klik vervolgens op **HBase Master UI**.  Hallo gebruikersinterface in een ander browsertabblad wordt geopend:
+1. Meld u aan bij de Ambari-webinterface op https://&lt;clusternaam>.azurehdinsight.net.
+2. Klik in het linkermenu op **HBase**.
+3. Klik op **Quick links** boven aan de pagina, wijs de actieve Zookeeper-knooppuntkoppeling aan en klik vervolgens op **HBase Master UI**.  De interface wordt in een nieuw browsertabblad geopend:
 
   ![HDInsight HBase HMaster-interface](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-  Hallo HBase Master UI bevat Hallo uit te voeren:
+  De HBase-hoofdinterface bevat de volgende onderdelen:
 
   - regioservers
   - back-upmasters
@@ -263,8 +263,8 @@ HBase in HDInsight wordt geleverd met een webgebruikersinterface voor het bewake
   - taken
   - softwarekenmerken
 
-## <a name="delete-hello-cluster"></a>Hallo-cluster verwijderen
-tooavoid inconsistenties, we raden aan Hallo HBase-tabellen uit te schakelen voordat u het Hallo-cluster verwijderen.
+## <a name="delete-the-cluster"></a>Het cluster verwijderen
+Om inconsistenties te voorkomen, wordt u aangeraden de HBase-tabellen uit te schakelen voordat u het cluster verwijdert.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -273,9 +273,9 @@ tooavoid inconsistenties, we raden aan Hallo HBase-tabellen uit te schakelen voo
 Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#create-clusters) als u problemen ondervindt met het maken van HDInsight-clusters.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe toocreate een HBase-cluster en hoe toocreate tabellen en weergaven gegevens in deze tabellen vanuit Hallo Hallo HBase-shell. U hebt ook geleerd hoe toouse een Hive query uitvoeren op gegevens in HBase-tabellen en hoe toouse HBase C# REST API's toocreate Hallo een HBase-tabel en gegevens ophalen uit de tabel Hallo.
+In dit artikel hebt u geleerd hoe u een HBase-cluster maakt en hoe u tabellen maakt en de gegevens in deze tabellen vanuit de HBase-shell weergeeft. U hebt ook geleerd hoe u een Hive-query op gegevens in HBase-tabellen uitvoert en hoe u de HBase C# REST API's gebruikt om een HBase-tabel te maken en gegevens op te halen uit de tabel.
 
-toolearn meer, Zie:
+Voor meer informatie zie:
 
 * [Overzicht van HDInsight HBase][hdinsight-hbase-overview]: HBase is een Apache, open-source NoSQL-database op basis van Hadoop. HBase biedt willekeurige toegang en een sterke consistentie voor grote hoeveelheden ongestructureerde en semigestructureerde gegevens.
 
@@ -292,7 +292,6 @@ toolearn meer, Zie:
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/

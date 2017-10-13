@@ -1,6 +1,6 @@
 ---
-title: aaaUsing PowerShell toosetup Application Insights in een Azure | Microsoft Docs
-description: Configureren Azure Diagnostics toopipe tooApplication Insights automatiseren.
+title: PowerShell gebruiken om Application Insights in te stellen in Azure | Microsoft Docs
+description: Automatiseer het configureren van diagnostische Azure-gegevens, zodat deze worden doorgestuurd naar Application Insights.
 services: application-insights
 documentationcenter: .net
 author: sbtron
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2015
 ms.author: bwren
-ms.openlocfilehash: c48a5d8eb23df162522860935af876063aaa6976
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3b6da89cc33cda713b483a2af3cbb493a03d6bec
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="using-powershell-tooset-up-application-insights-for-an-azure-web-app"></a>Met behulp van PowerShell tooset van Application Insights voor een Azure-web-app
-[Microsoft Azure](https://azure.com) kan [toosend Azure Diagnostics geconfigureerd](app-insights-azure-diagnostics.md) te[Azure Application Insights](app-insights-overview.md). Hallo diagnostische gegevens hebben betrekking tooAzure Cloud Services en virtuele Azure-machines. Ze vormen een aanvulling Hallo telemetrie die u verzendt vanuit Hallo-app met behulp van Hallo Application Insights-SDK. Als onderdeel van het Hallo-proces voor het maken van nieuwe resources in Azure automatiseert, kunt u met behulp van PowerShell diagnostische gegevens configureren.
+# <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>PowerShell gebruiken om Application Insights in te stellen voor een Azure-web-app
+[Microsoft Azure](https://azure.com) kan zo [worden geconfigureerd dat er diagnostische Azure-gegevens worden verzonden](app-insights-azure-diagnostics.md) naar [Azure Application Insights](app-insights-overview.md). De diagnostische gegevens hebben betrekking op Azure Cloud Services en virtuele Azure-machines. Ze vormen een aanvulling op de telemetrie die u vanuit de app verzendt met behulp van de Application Insights-SDK. Als onderdeel van het automatiseringsproces voor het maken van nieuwe resources in Azure kunt u het verzenden van diagnostische gegevens configureren met PowerShell.
 
 ## <a name="azure-template"></a>Azure-sjabloon
-Als het Hallo-web-app in Azure en u uw resources met een Azure Resource Manager-sjabloon maakt, kunt u Application Insights configureren door dit knooppunt van de resources toohello toe te voegen:
+Als de web-app in Azure wordt uitgevoerd en u uw resources maakt met een Azure Resource Manager-sjabloon, kunt u Application Insights configureren door dit aan het resource-knooppunt toe te voegen:
 
     {
       resources: [
@@ -42,11 +42,11 @@ Als het Hallo-web-app in Azure en u uw resources met een Azure Resource Manager-
        ]
      } 
 
-* `nameOfAIAppResource`-een naam op voor Hallo Application Insights-resource
-* `myWebAppName`-Hallo Hallo web-app-id
+* `nameOfAIAppResource`: een naam voor de Application Insights-resource
+* `myWebAppName`: de id van de web-app
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>De extensie voor diagnostische gegevens inschakelen als onderdeel van het implementeren van een cloudservice
-Hallo `New-AzureDeployment` cmdlet heeft een parameter `ExtensionConfiguration`, die overweg van configuraties voor diagnostische gegevens. Deze kunnen worden gemaakt met behulp van Hallo `New-AzureServiceDiagnosticsExtensionConfig` cmdlet. Bijvoorbeeld:
+De cmdlet `New-AzureDeployment` bevat de parameter `ExtensionConfiguration`, die overweg kan met vele configuraties voor diagnostische gegevens. Deze kunnen worden gemaakt met de cmdlet `New-AzureServiceDiagnosticsExtensionConfig`. Bijvoorbeeld:
 
 ```ps
 
@@ -123,9 +123,9 @@ Gebruik `Set-AzureServiceDiagnosticsExtension` voor een bestaande service.
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-Als u Hallo extensie voor diagnostische gegevens met behulp van ingeschakeld `Set-AzureServiceDiagnosticsExtension` of `New-AzureServiceDiagnosticsExtensionConfig` zonder de parameter rol hello, klikt u vervolgens kunt u Hallo uitbreiding met behulp van `Remove-AzureServiceDiagnosticsExtension` zonder de parameter rol Hallo. Als de parameter rol Hallo is gebruikt bij het inschakelen van extensie Hallo moet vervolgens het ook worden gebruikt bij het verwijderen van extensie Hallo.
+Als u de extensie voor diagnostische gegevens hebt ingeschakeld met `Set-AzureServiceDiagnosticsExtension` of `New-AzureServiceDiagnosticsExtensionConfig`, zonder de parameter Rol te gebruiken, kunt u de extensie verwijderen met `Remove-AzureServiceDiagnosticsExtension`, zonder de parameter Rol. Als de parameter Rol is gebruikt bij het inschakelen van de extensie, moet deze ook worden gebruikt bij het verwijderen hiervan.
 
-tooremove hello extensie voor diagnostische gegevens van elke afzonderlijke rol:
+De extensie voor diagnostische gegevens verwijderen voor elke afzonderlijke rol:
 
 ```ps
 
@@ -135,6 +135,6 @@ tooremove hello extensie voor diagnostische gegevens van elke afzonderlijke rol:
 
 ## <a name="see-also"></a>Zie ook
 * [Azure Cloud Services-apps bewaken met Application Insights](app-insights-cloudservices.md)
-* [Azure Diagnostics tooApplication Insights verzenden](app-insights-azure-diagnostics.md)
+* [Diagnostische Azure-gegevens verzenden naar Application Insights](app-insights-azure-diagnostics.md)
 * [Het configureren van waarschuwingen automatiseren](app-insights-powershell-alerts.md)
 

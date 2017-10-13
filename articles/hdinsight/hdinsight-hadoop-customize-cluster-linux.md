@@ -1,6 +1,6 @@
 ---
-title: aaaCustomize HDInsight-clusters met behulp van scriptacties - Azure | Microsoft Docs
-description: Aangepaste onderdelen die toolinux gebaseerde HDInsight-clusters met behulp van scriptacties toevoegen. Scriptacties zijn Bash-scripts die kunnen worden gebruikt toocustomize Hallo clusterconfiguratie of toevoegen van extra services en hulpprogramma's zoals Hue, Solr of R.
+title: Met behulp van scriptacties - Azure HDInsight-clusters aanpassen | Microsoft Docs
+description: Aangepaste onderdelen toevoegen op Linux gebaseerde HDInsight-clusters met behulp van scriptacties. Scriptacties zijn Bash-scripts die kunnen worden gebruikt voor het aanpassen van de configuratie van het cluster of Voeg extra services en hulpprogramma's zoals Hue, Solr of R.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,131 +16,131 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
-ms.openlocfilehash: ff22680a8a50b21985f6941f1edaf1dcf863d13f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0c5d00b6cb9f68a1a0e474f81c969eb1b5654c67
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Linux gebaseerde HDInsight-clusters met behulp van de scriptactie aanpassen
 
-HDInsight biedt een configuratieoptie aangeroepen **scriptactie** die wordt aangeroepen met aangepaste scripts die Hallo cluster aanpassen. Deze scripts zijn gebruikte tooinstall extra onderdelen en configuratie-instellingen wijzigen. Scriptacties kunnen worden gebruikt tijdens of na het maken van het cluster.
+HDInsight biedt een configuratieoptie aangeroepen **scriptactie** die aangepaste scripts die aanpassen van het cluster wordt aangeroepen. Deze scripts worden gebruikt voor het installeren van extra onderdelen en configuratie-instellingen wijzigen. Scriptacties kunnen worden gebruikt tijdens of na het maken van het cluster.
 
 > [!IMPORTANT]
-> Hallo mogelijkheid toouse scriptacties op een cluster al actief is alleen beschikbaar voor Linux gebaseerde HDInsight-clusters.
+> De mogelijkheid om met scriptacties op een cluster al actief is alleen beschikbaar voor Linux gebaseerde HDInsight-clusters.
 >
-> Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-Scriptacties kunnen ook gepubliceerde toohello Azure Marketplace worden als een HDInsight-toepassing. Aantal Hallo voorbeelden in dit document laten zien hoe u een HDInsight-toepassing met behulp van actie-scriptopdrachten van PowerShell en .NET SDK Hallo kunt installeren. Zie voor meer informatie over HDInsight-toepassingen [publiceren HDInsight-toepassingen in Azure Marketplace Hallo](hdinsight-apps-publish-applications.md).
+Scriptacties kunnen ook worden gepubliceerd naar Azure Marketplace als een HDInsight-toepassing. Sommige van de voorbeelden in dit document laten zien hoe u een HDInsight-toepassing met behulp van actie-scriptopdrachten van PowerShell en de .NET SDK kunt installeren. Zie voor meer informatie over HDInsight-toepassingen [publiceren HDInsight-toepassingen in Azure Marketplace](hdinsight-apps-publish-applications.md).
 
 ## <a name="permissions"></a>Machtigingen
 
-Als u van een domein HDInsight-cluster gebruikmaakt, zijn er twee Ambari-machtigingen die vereist zijn wanneer met behulp van scriptacties met Hallo-cluster:
+Als u van een domein HDInsight-cluster gebruikmaakt, zijn er twee Ambari-machtigingen die vereist zijn bij het gebruik van scriptacties met het cluster:
 
-* **AMBARI. Voer\_aangepaste\_opdracht**: Hallo Ambari beheerdersrol beschikt over deze machtiging standaard.
-* **HET CLUSTER. Voer\_aangepaste\_opdracht**: beide Hallo HDInsight Clusterbeheer en Ambari beheerder hebben deze machtiging standaard.
+* **AMBARI. Voer\_aangepaste\_opdracht**: de Ambari-beheerdersrol beschikt over deze machtiging standaard.
+* **HET CLUSTER. Voer\_aangepaste\_opdracht**: zowel de HDInsight-Clusterbeheer en Ambari beheerder hebben deze machtiging standaard.
 
 Zie voor meer informatie over het werken met machtigingen met HDInsight domein [domein HDInsight-clusters beheren](hdinsight-domain-joined-manage.md).
 
 ## <a name="access-control"></a>Toegangsbeheer
 
-Als u niet Hallo beheerder of eigenaar van uw Azure-abonnement, uw account moet er ten minste **Inzender** toegang toohello resourcegroep die Hallo HDInsight-cluster bevat.
+Als u niet de beheerder of de eigenaar van uw Azure-abonnement, uw account moet er ten minste **Inzender** toegang tot de resourcegroep die het HDInsight-cluster bevat.
 
-Bovendien, als u een HDInsight-cluster iemand met ten minste maakt **Inzender** toegang toohello Azure-abonnement moet hebben eerder Hallo-provider geregistreerd voor HDInsight. Registratie van de provider wordt uitgevoerd wanneer een gebruiker met Inzender toegang toohello abonnement een resource voor Hallo eerst op Hallo-abonnement maakt. Dit kan ook worden bereikt zonder dat er een resource wordt gemaakt door [een provider te registreren met behulp van REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+Bovendien, als u een HDInsight-cluster iemand met ten minste maakt **Inzender** toegang tot het Azure-abonnement moet hebben eerder geregistreerd de provider voor HDInsight. Registratie van een provider vindt plaats wanneer een gebruiker met toegang tot het abonnement op het niveau van Inzender, voor het eerst een resource maakt onder het abonnement. Dit kan ook worden bereikt zonder dat er een resource wordt gemaakt door [een provider te registreren met behulp van REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
-Zie voor meer informatie over het werken met toegangsbeheer Hallo documenten te volgen:
+Zie de volgende documenten voor meer informatie over werken met toegangsbeheer:
 
-* [Aan de slag met toegangsbeheer in hello Azure-portal](../active-directory/role-based-access-control-what-is.md)
-* [Rol toewijzingen toomanage toegang tooyour Azure-abonnementresources gebruiken](../active-directory/role-based-access-control-configure.md)
+* [Aan de slag met toegangsbeheer in Azure Portal](../active-directory/role-based-access-control-what-is.md)
+* [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](../active-directory/role-based-access-control-configure.md)
 
 ## <a name="understanding-script-actions"></a>Understanding scriptacties
 
-Een scriptactie is gewoon een Bash-script dat u een URI te bieden en parameters voor. Hallo-script wordt uitgevoerd op knooppunten in Hallo HDInsight-cluster. Hallo volgen kenmerken en functies van scriptacties.
+Een scriptactie is gewoon een Bash-script dat u een URI te bieden en parameters voor. Het script wordt uitgevoerd op knooppunten in het HDInsight-cluster. Hieronder vindt u kenmerken en functies van scriptacties.
 
-* Moet worden opgeslagen op een URI die toegankelijk is vanaf Hallo HDInsight-cluster. Hallo volgen mogelijke opslaglocaties:
+* Moet worden opgeslagen op een URI die toegankelijk is vanaf het HDInsight-cluster. Hier volgen de mogelijke opslaglocaties:
 
-    * Een **Azure Data Lake Store** account die toegankelijk is voor Hallo HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Store met HDInsight [een HDInsight-cluster maken met Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * Een **Azure Data Lake Store** account die toegankelijk is voor het HDInsight-cluster. Zie voor meer informatie over het gebruik van Azure Data Lake Store met HDInsight [een HDInsight-cluster maken met Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-        Wanneer u een script dat is opgeslagen in Data Lake Store, Hallo URI-indeling is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+        Wanneer u een script dat is opgeslagen in Data Lake Store, de indeling van de URI is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
         > [!NOTE]
-        > Hallo service principal HDInsight maakt gebruik van tooaccess Data Lake Store moet leestoegang toohello script hebben.
+        > De service-principal die hdinsight gebruikt voor toegang tot Data Lake Store moet leestoegang hebben tot het script.
 
-    * Een blob in een **Azure Storage-account** die beide accounts Hallo primaire of extra opslag voor Hallo HDInsight-cluster is. HDInsight krijgt toegang tot tooboth van deze typen opslagaccounts tijdens het maken van het cluster.
+    * Een blob in een **Azure Storage-account** die beide het primaire of extra storage-account voor het HDInsight-cluster. HDInsight is toegang verleend tot beide typen opslagaccounts tijdens het maken van het cluster.
 
     * Bestand met een openbare sharing-service zoals Azure Blob, GitHub, OneDrive, Dropbox, enz.
 
-        Bijvoorbeeld URI's, Zie Hallo [voorbeeldscripts script actie](#example-script-action-scripts) sectie.
+        Bijvoorbeeld URI's, Zie de [voorbeeldscripts script actie](#example-script-action-scripts) sectie.
 
         > [!WARNING]
-        > HDInsight biedt alleen ondersteuning voor __algemeen__ Azure Storage-accounts. Het ondersteunt momenteel geen Hallo __Blob storage__ accounttype.
+        > HDInsight biedt alleen ondersteuning voor __algemeen__ Azure Storage-accounts. Het momenteel geen ondersteunt de __Blob storage__ accounttype.
 
-* Kan worden beperkt te**uitvoeren op alleen bepaalde knooppunttypen**voor voorbeeld hoofdknooppunten of worker-knooppunten.
+* Kan worden beperkt tot **uitvoeren op alleen bepaalde knooppunttypen**voor voorbeeld hoofdknooppunten of worker-knooppunten.
 
   > [!NOTE]
-  > Gebruikt in combinatie met HDInsight Premium, kunt u opgeven dat Hallo script op Hallo edge-knooppunt moet worden gebruikt.
+  > Wanneer gebruikt met HDInsight Premium, kunt u opgeven dat het script moet worden gebruikt op de edge-knooppunt.
 
 * Kan **persistent** of **ad hoc**.
 
-    **Persistent** scripts zijn toegepaste tooworker knooppunten toegevoegde toohello cluster na het Hallo-script wordt uitgevoerd. Bijvoorbeeld tijdens het Hallo-cluster schalen.
+    **Persistent** scripts worden toegepast op de worker-knooppunten aan het cluster worden toegevoegd nadat het script wordt uitgevoerd. Bijvoorbeeld wanneer het cluster.
 
-    Een persistent script mogelijk ook van toepassing zijn wijzigingen tooanother knooppunttype, zoals een hoofdknooppunt.
+    Een persistent script mogelijk ook wijzigingen toepassen op een ander knooppunttype, zoals een hoofdknooppunt.
 
   > [!IMPORTANT]
   > Persistente scriptacties moeten een unieke naam hebben.
 
-    **Ad hoc** scripts blijven niet bestaan. Ze zijn niet toegepast tooworker knooppunten toegevoegde toohello cluster na het Hallo-script is uitgevoerd. U kunt vervolgens een ad-hoc script tooa promoveren persistent script of degraderen van een persistent script tooan ad-hoc-script.
+    **Ad hoc** scripts blijven niet bestaan. Ze worden niet toegepast op de worker-knooppunten aan het cluster worden toegevoegd nadat het script is uitgevoerd. U kunt vervolgens promoveren van een ad-hoc script een persistent script of degraderen van een persistent script naar een ad-hoc-script.
 
   > [!IMPORTANT]
   > Scriptacties gebruikt tijdens het maken van het cluster worden automatisch doorgevoerd.
   >
   > Scripts die mislukken niet persistent hebt gemaakt, zelfs als u specifiek aangeeft dat ze moeten worden.
 
-* Kan accepteren **parameters** die worden gebruikt door Hallo script tijdens de uitvoering.
-* Voer met **root bevoegdheden** op Hallo clusterknooppunten.
-* Kan worden gebruikt via Hallo **Azure-portal**, **Azure PowerShell**, **Azure CLI**, of **HDInsight .NET SDK**
+* Kan accepteren **parameters** die door het script worden gebruikt tijdens de uitvoering.
+* Voer met **root bevoegdheden** op de clusterknooppunten.
+* Kan worden gebruikt via de **Azure-portal**, **Azure PowerShell**, **Azure CLI**, of **HDInsight .NET SDK**
 
-Hallo cluster houdt een geschiedenis van alle scripts die hebben is uitgevoerd. Hallo-geschiedenis is nuttig wanneer u toofind Hallo-ID van een script nodig hebt voor promotie of degradatie bewerkingen.
+Het cluster houdt een geschiedenis van alle scripts die hebben is uitgevoerd. De geschiedenis is handig als u moet de ID van een script voor promotie of degradatie bewerkingen vinden.
 
 > [!IMPORTANT]
-> Er is geen automatische manier tooundo Hallo wijzigingen die door een script in te grijpen. Hallo wijzigingen handmatig ongedaan te maken of een script dat wordt teruggedraaid ze bieden.
+> Er is geen automatische manier om de wijzigingen die door een scriptactie ongedaan te maken. Handmatig de wijzigingen ongedaan maken of een script dat wordt teruggedraaid ze bieden.
 
 
-### <a name="script-action-in-hello-cluster-creation-process"></a>Scriptactie in het proces voor het Hallo-cluster maken
+### <a name="script-action-in-the-cluster-creation-process"></a>Scriptactie in het proces voor het cluster maken
 
 Scriptacties gebruikt tijdens het maken van het cluster zijn enigszins afwijken van het script acties worden uitgevoerd op een bestaand cluster:
 
-* Hallo-script is **automatisch persistente**.
-* Een **fout** in Hallo script Hallo cluster maken van het proces toofail kan veroorzaken.
+* Het script is **automatisch persistente**.
+* Een **fout** in het script kan ertoe leiden dat het maakproces cluster mislukken.
 
-Hallo volgende diagram wordt weergegeven wanneer het Script wordt uitgevoerd tijdens het maken van een Hallo:
+Het volgende diagram illustreert wanneer het Script wordt uitgevoerd tijdens het maken:
 
 ![Aanpassing van HDInsight-cluster en fasen tijdens het maken van het cluster][img-hdi-cluster-states]
 
-Hallo-script wordt uitgevoerd terwijl HDInsight wordt geconfigureerd. In deze fase Hallo Hallo script wordt parallel uitgevoerd in alle opgegeven knooppunten in cluster Hallo en wordt uitgevoerd met basis-bevoegdheden op Hallo knooppunten.
+Het script wordt uitgevoerd terwijl HDInsight wordt geconfigureerd. In deze fase wordt het script wordt parallel uitgevoerd op de opgegeven knooppunten in het cluster en uitgevoerd met basis-bevoegdheden op de knooppunten.
 
 > [!NOTE]
-> Omdat het Hallo-script wordt uitgevoerd met het niveau bevoegdheid hoofdmap op Hallo clusterknooppunten, kunt u bewerkingen zoals het stoppen en starten van services, met inbegrip van Hadoop-gerelateerde services uitvoeren. Als u services stoppen, moet u ervoor zorgen dat Hallo Ambari-service en andere Hadoop-gerelateerde services actief zijn voordat het Hallo-script is voltooid. Deze services zijn vereist toosuccessfully bepalen Hallo gezondheid en status van de cluster Hallo terwijl deze wordt gemaakt.
+> Omdat het script wordt uitgevoerd met het niveau bevoegdheid hoofdmap op de clusterknooppunten, kunt u bewerkingen zoals het stoppen en starten van services, met inbegrip van Hadoop-gerelateerde services kunt uitvoeren. Als u services stoppen, moet u ervoor zorgen dat de Ambari-service en andere Hadoop-gerelateerde services actief zijn voordat het script is voltooid. Deze services zijn vereist om te bepalen is de status en de status van het cluster terwijl deze wordt gemaakt.
 
 
-U kunt meerdere scriptacties tegelijk gebruiken tijdens het maken van het cluster. Deze scripts worden aangeroepen in Hallo volgorde waarin ze zijn opgegeven.
+U kunt meerdere scriptacties tegelijk gebruiken tijdens het maken van het cluster. Deze scripts worden aangeroepen in de volgorde waarin ze zijn opgegeven.
 
 > [!IMPORTANT]
-> Scriptacties moeten binnen 60 minuten of time-out voltooien. Tijdens de clusterinrichting, voert Hallo script tegelijk met andere processen installatie en configuratie. Concurrentie voor resources, zoals CPU-tijd of netwerk bandbreedte mogelijk Hallo script tootake langer toofinish dan in uw ontwikkelomgeving.
+> Scriptacties moeten binnen 60 minuten of time-out voltooien. Het script wordt uitgevoerd tijdens de clusterinrichting, samen met andere processen installatie en configuratie. Concurrentie voor resources, zoals CPU-tijd of netwerk bandbreedte kan ertoe leiden dat het script duurt langer dan in uw ontwikkelomgeving te voltooien.
 >
-> toominimize Hallo tijd het duurt toorun Hallo script, taken zoals het downloaden en toepassingen van bron compileren voorkomen. Toepassingen vooraf gecompileerd en Hallo binair in Azure Storage opslaat.
+> Als u wilt de tijd minimaliseren nodig die is om te voorkomen dat taken zoals het downloaden en toepassingen van bron compileren uit te voeren van het script. Toepassingen vooraf gecompileerd en het binaire bestand opslaan in Azure Storage.
 
 
 ### <a name="script-action-on-a-running-cluster"></a>Scriptactie op een actief cluster
 
-In tegenstelling tot script acties die worden gebruikt tijdens het maken van het cluster een fout in een script uitgevoerd op een al actief cluster tot niet automatisch toochange Hallo-tooa mislukt clusterstatus. Zodra een script is voltooid, moet tooa status ' actief' hello cluster worden geretourneerd.
+In tegenstelling tot script acties die worden gebruikt tijdens het maken van het cluster een fout in een script uitgevoerd op een al actief cluster tot niet automatisch het cluster te wijzigen in een mislukte status. Zodra een script is voltooid, moet het cluster naar een status 'actief' retourneren.
 
 > [!IMPORTANT]
-> Zelfs als Hallo cluster heeft een status 'actief', bevatten hello mislukte script verbroken dingen. Een script kan bijvoorbeeld bestanden die nodig zijn door Hallo cluster verwijderen.
+> Zelfs als het cluster heeft een status 'actief', bevatten het mislukte script verbroken dingen. Een script kan bijvoorbeeld bestanden die nodig zijn door het cluster te verwijderen.
 >
-> Scripts acties uitgevoerd met bevoegdheden van de hoofdmap, dus moet u ervoor zorgen dat u wat een script doet begrijpt voordat u het cluster tooyour toepast.
+> Scripts acties uitgevoerd met bevoegdheden van de hoofdmap, dus moet u ervoor zorgen dat u wat een script doet begrijpt voordat u deze toepast op uw cluster.
 
-Bij het toepassen van een script tooa cluster Hallo clusterstatus toofrom wijzigingen **met** te**geaccepteerde**, klikt u vervolgens **HDInsight configuratie**, en ten slotte terug te**Met** voor geslaagde scripts. Hallo scriptstatus wordt geregistreerd in de geschiedenis van de scriptactie hello en u kunt deze informatie toodetermine of Hallo-script is geslaagd of mislukt. Bijvoorbeeld, Hallo `Get-AzureRmHDInsightScriptActionHistory` PowerShell-cmdlet kan worden gebruikt tooview Hallo status van een script. Deze retourneert informatie vergelijkbare toohello volgende tekst:
+Bij het toepassen van een script naar een cluster wordt de clusterstatus verandert van **met** naar **geaccepteerde**, vervolgens **HDInsight configuratie**, en ten slotte terug naar **met** voor geslaagde scripts. De scriptstatus wordt geregistreerd in de geschiedenis van de scriptactie en u kunt deze informatie gebruiken om te bepalen of het script is geslaagd of mislukt. Bijvoorbeeld, de `Get-AzureRmHDInsightScriptActionHistory` PowerShell-cmdlet kan worden gebruikt om de status van een script. Gegevens worden geretourneerd vergelijkbaar met de volgende tekst:
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 8/14/2017 7:40:55 PM
@@ -148,22 +148,22 @@ Bij het toepassen van een script tooa cluster Hallo clusterstatus toofrom wijzig
     Status            : Succeeded
 
 > [!NOTE]
-> Als u hebt Hallo cluster (admin) gebruikerswachtwoord gewijzigd nadat het Hallo-cluster is gemaakt, mislukken script acties uitgevoerd op dit cluster. Als u een persistente scriptacties die doel worker-knooppunten hebt, mislukken deze scripts wanneer u Hallo-cluster schaalt.
+> Als u kunt het wachtwoord van de cluster-gebruiker (admin) zijn gewijzigd nadat het cluster is gemaakt, mislukken script acties uitgevoerd op dit cluster. Als u een persistente scriptacties die doel worker-knooppunten hebt, mislukken deze scripts wanneer u de schaal van het cluster.
 
 ## <a name="example-script-action-scripts"></a>Voorbeeld van de scriptactie scripts
 
-Script actie scripts kunnen worden gebruikt via Hallo hulpprogramma's te volgen:
+Script actie scripts kunnen worden gebruikt door de volgende hulpprogramma's:
 
 * Azure Portal
 * Azure PowerShell
 * Azure CLI
 * HDInsight .NET-SDK
 
-HDInsight biedt scripts tooinstall Hallo onderdelen op HDInsight-clusters te volgen:
+HDInsight biedt scripts voor het installeren van de volgende onderdelen op HDInsight-clusters:
 
 | Naam | Script |
 | --- | --- |
-| **Een Azure Storage-account toevoegen** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxaddstorageaccountv01/Add-Storage-account-v01.sh. Zie [toevoegen extra opslagruimte tooan HDInsight-cluster](hdinsight-hadoop-add-storage.md). |
+| **Een Azure Storage-account toevoegen** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxaddstorageaccountv01/Add-Storage-account-v01.sh. Zie [extra opslag toevoegen aan een HDInsight-cluster](hdinsight-hadoop-add-storage.md). |
 | **Hue installeren** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxhueconfigactionv02/Install-HUE-uber-v02.sh. Zie [installeert en gebruikt Hue op HDInsight-clusters](hdinsight-hadoop-hue-linux.md). |
 | **Functie installeren** |https://RAW.githubusercontent.com/hdinsight/Presto-hdinsight/master/installpresto.sh. Zie [installeert en gebruikt de functie op HDInsight-clusters](hdinsight-hadoop-install-presto.md). |
 | **Solr installeren** |https://hdiconfigactions.BLOB.Core.Windows.NET/linuxsolrconfigactionv01/solr-Installer-v01.sh. Zie [installeert en gebruikt Solr op HDInsight-clusters](hdinsight-hadoop-solr-install-linux.md). |
@@ -173,57 +173,57 @@ HDInsight biedt scripts tooinstall Hallo onderdelen op HDInsight-clusters te vol
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Een actie Script gebruiken tijdens het maken van het cluster
 
-Deze sectie bevat voorbeelden op Hallo van de verschillende manieren kunt met scriptacties bij het maken van een HDInsight-cluster.
+Deze sectie vindt u voorbeelden van de verschillende manieren waarop die u scriptacties gebruiken kunt bij het maken van een HDInsight-cluster.
 
-### <a name="use-a-script-action-during-cluster-creation-from-hello-azure-portal"></a>Een actie Script gebruiken tijdens het maken van hello Azure-portal
+### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Een actie Script gebruiken tijdens het maken van de Azure-portal
 
-1. Beginnen met het maken van een cluster, zoals beschreven op [maken Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Wanneer u Hallo bereiken stoppen __Cluster samenvatting__ sectie.
+1. Beginnen met het maken van een cluster, zoals beschreven op [maken Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Stoppen wanneer u bereikt de __Cluster samenvatting__ sectie.
 
-2. Van Hallo __Cluster samenvatting__ sectie, selecteer Hallo __bewerken__ koppelen voor __geavanceerde instellingen__.
+2. Van de __Cluster samenvatting__ sectie, selecteer de __bewerken__ koppelen voor __geavanceerde instellingen__.
 
     ![Koppeling van de geavanceerde instellingen](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
-3. Van Hallo __geavanceerde instellingen__ sectie __acties Script__. Van Hallo __acties Script__ sectie __+ nieuw verzenden__
+3. Van de __geavanceerde instellingen__ sectie __acties Script__. Van de __acties Script__ sectie __+ nieuw verzenden__
 
     ![Een nieuwe scriptactie verzenden](./media/hdinsight-hadoop-customize-cluster-linux/add-script-action.png)
 
-4. Gebruik Hallo __selecteert u een script__ vermelding tooselect een vooraf gemaakte script. selecteert u een aangepast script toouse __aangepaste__ en geef vervolgens Hallo __naam__ en __Bash script URI__ voor uw script.
+4. Gebruik de __selecteert u een script__ item naar een vooraf gemaakte script te selecteren. Selecteer voor het gebruik van een aangepast script __aangepaste__ en geef vervolgens de __naam__ en __Bash script URI__ voor uw script.
 
-    ![Een script in een select script Hallo toevoegen](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![Een script in de vorm Selecteer script toevoegen](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
 
-    Hallo volgende tabel beschrijft Hallo elementen op Hallo formulier:
+    De volgende tabel beschrijft de elementen in het formulier:
 
     | Eigenschap | Waarde |
     | --- | --- |
-    | Selecteer een script | toouse uw eigen script, selecteer __aangepaste__. Selecteer een van de Hallo is aangeleverd scripts. |
-    | Naam |Geef een naam voor de scriptactie Hallo. |
-    | Bash script URI |Geef Hallo URI toohello script is aangeroepen toocustomize Hallo-cluster. |
-    | Worker-HEAD/Zookeeper |Hallo-knooppunten opgeven (**Head**, **Worker**, of **ZooKeeper**) op waarin aanpassing Hallo script wordt uitgevoerd. |
-    | Parameters |Geef parameters op Hallo, indien vereist door het Hallo-script. |
+    | Selecteer een script | Selecteer voor het gebruik van uw eigen script __aangepaste__. Anders selecteert u een van de opgegeven scripts. |
+    | Naam |Geef een naam voor de scriptactie. |
+    | Bash script URI |Geef de URI moet het script dat wordt opgeroepen voor het aanpassen van het cluster. |
+    | Worker-HEAD/Zookeeper |Geef de knooppunten (**Head**, **Worker**, of **ZooKeeper**) op waarmee het script aanpassing wordt uitgevoerd. |
+    | Parameters |Geef de parameters op, indien vereist door het script. |
 
-    Gebruik Hallo __deze scriptactie__ vermelding tooensure die Hallo script wordt toegepast tijdens het schalen van bewerkingen.
+    Gebruik de __deze scriptactie__ vermelding om ervoor te zorgen dat het script wordt toegepast tijdens het schalen van bewerkingen.
 
-5. Selecteer __maken__ toosave Hallo script. Vervolgens kunt u __+ indienen nieuwe__ tooadd een ander script.
+5. Selecteer __maken__ om op te slaan van het script. Vervolgens kunt u __+ indienen nieuwe__ toevoegen van een ander script.
 
     ![Meerdere scriptacties](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts.png)
 
-    Wanneer u klaar bent met het toe te voegen scripts gebruiken Hallo __Selecteer__ knop en vervolgens Hallo __volgende__ knop tooreturn toohello __Cluster samenvatting__ sectie.
+    Wanneer u klaar bent met het toe te voegen scripts gebruiken de __Selecteer__ knop, en vervolgens de __volgende__ terug te keren naar de __Cluster samenvatting__ sectie.
 
-3. toocreate hello cluster, selecteer __maken__ van Hallo __Cluster samenvatting__ selectie.
+3. Voor het maken van het cluster selecteert __maken__ van de __Cluster samenvatting__ selectie.
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Gebruik de actie van een Script van Azure Resource Manager-sjablonen
 
-Hallo-voorbeelden in deze sectie laten zien hoe toouse script acties met Azure Resource Manager-sjablonen.
+De voorbeelden in deze sectie laten zien hoe het gebruik van scriptacties met Azure Resource Manager-sjablonen.
 
 #### <a name="before-you-begin"></a>Voordat u begint
 
-* Zie voor meer informatie over het configureren van een werkstation toorun HDInsight Powershell-cmdlets [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
-* Voor instructies over het toocreate sjablonen, Zie [Azure Resource Manager-sjablonen samenstellen](../azure-resource-manager/resource-group-authoring-templates.md).
+* Zie voor meer informatie over het configureren van een werkstation als HDInsight Powershell-cmdlets wilt uitvoeren, [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
+* Zie voor instructies over het maken van sjablonen [Azure Resource Manager-sjablonen samenstellen](../azure-resource-manager/resource-group-authoring-templates.md).
 * Als u niet eerder hebt gebruikt Azure PowerShell met Resource Manager, raadpleegt u [Azure PowerShell gebruiken met Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
 
 #### <a name="create-clusters-using-script-action"></a>Maken van clusters met behulp van de scriptactie
 
-1. Hallo sjabloon tooa locatie volgen op uw computer kopiëren. Deze sjabloon installeert Giraph op Hallo headnodes en worker-knooppunten in Hallo-cluster. U kunt ook controleren of de JSON-sjabloon Hallo geldig is. Plak de inhoud in sjabloon [JSONLint](http://jsonlint.com/), een online JSON-validatiehulpprogramma.
+1. Kopieer de volgende sjabloon naar een locatie op uw computer. Deze sjabloon wordt Giraph geïnstalleerd op de headnodes en worker-knooppunten in het cluster. U kunt ook controleren of het JSON-sjabloon geldig is. Plak de inhoud in sjabloon [JSONLint](http://jsonlint.com/), een online JSON-validatiehulpprogramma.
 
             {
             "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -378,21 +378,21 @@ Hallo-voorbeelden in deze sectie laten zien hoe toouse script acties met Azure R
                 }
             }
         }
-2. Open Azure PowerShell en tooyour aanmelden met Azure-account. Na het opgeven van referenties van uw retourneert Hallo opdracht informatie over uw account.
+2. Start Azure PowerShell en zich aanmelden bij uw Azure-account. Na het opgeven van uw referenties, retourneert de opdracht informatie over uw account.
 
         Add-AzureRmAccount
 
         Id                             Type       ...
         --                             ----
         someone@example.com            User       ...
-3. Als u meerdere abonnementen, bieden Hallo abonnements-ID hebt willen toouse voor implementatie.
+3. Als u meerdere abonnementen hebt, geeft u de abonnements-ID die u wilt gebruiken voor implementatie.
 
         Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
     > [!NOTE]
-    > U kunt `Get-AzureRmSubscription` tooget een lijst met alle abonnementen die zijn gekoppeld aan je account, waaronder Hallo abonnements-ID voor elk criterium.
+    > U kunt `Get-AzureRmSubscription` voor een lijst van alle abonnementen die zijn gekoppeld aan je account, waaronder de abonnements-ID voor elk criterium.
 
-4. Als u een bestaande resourcegroep niet hebt, kunt u een resourcegroep maken. Geef de naam op Hallo van Hallo resourcegroep en locatie die u nodig hebt voor uw oplossing. Een samenvatting van de nieuwe resourcegroep hello wordt geretourneerd.
+4. Als u een bestaande resourcegroep niet hebt, kunt u een resourcegroep maken. Geef de naam van de resourcegroep en de locatie die u nodig hebt voor uw oplossing. Er wordt een samenvatting van de nieuwe resourcegroep geretourneerd.
 
         New-AzureRmResourceGroup -Name myresourcegroup -Location "West US"
 
@@ -406,19 +406,19 @@ Hallo-voorbeelden in deze sectie laten zien hoe toouse script acties met Azure R
                             *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. toocreate een implementatie voor de resourcegroep, Voer Hallo **New-AzureRmResourceGroupDeployment** opdracht in en geef parameters op Hallo die nodig zijn. Hallo-parameters zijn Hallo gegevens te volgen:
+5. Voor het maken van een implementatie voor de resourcegroep, voer de **New-AzureRmResourceGroupDeployment** opdracht en de vereiste parameters. De parameters omvatten de volgende gegevens:
 
     * Een naam voor uw implementatie
-    * Hallo-naam van de resourcegroep
-    * Hallo-pad of de URL toohello sjabloon die u hebt gemaakt.
+    * De naam van de resourcegroep
+    * Het pad of de URL van de sjabloon die u hebt gemaakt.
 
-  Als de sjabloon parameters vereist, moet u ook deze parameters doorgeven. In dit geval is Hallo script actie tooinstall R op Hallo cluster geen parameters vereist.
+  Als de sjabloon parameters vereist, moet u ook deze parameters doorgeven. In dit geval is de actie van het script voor het installeren van R op het cluster geen parameters vereist.
 
         New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
 
-    Bent u na vragen aan gebruiker tooprovide waarden voor Hallo-parameters in Hallo sjabloon worden gedefinieerd.
+    U wordt gevraagd waarden opgeven voor de gedefinieerde parameters in de sjabloon.
 
-1. Wanneer het Hallo-resourcegroep is geïmplementeerd, wordt een overzicht van Hallo implementatie weergegeven.
+1. Wanneer de resourcegroep is geïmplementeerd, wordt een overzicht van de implementatie weergegeven.
 
           DeploymentName    : mydeployment
           ResourceGroupName : myresourcegroup
@@ -427,70 +427,70 @@ Hallo-voorbeelden in deze sectie laten zien hoe toouse script acties met Azure R
           Mode              : Incremental
           ...
 
-2. Als uw implementatie mislukt, kunt u de volgende cmdlets tooget informatie over mislukte Hallo Hallo kunt gebruiken.
+2. Als uw implementatie mislukt, kunt u de volgende cmdlets voor informatie over de fouten.
 
         Get-AzureRmResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Een actie Script gebruiken tijdens het maken van Azure PowerShell
 
-In deze sectie gebruiken we Hallo [toevoegen AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet tooinvoke scripts met behulp van de scriptactie toocustomize een cluster. Voordat u doorgaat, zorg ervoor dat u hebt geïnstalleerd en geconfigureerd Azure PowerShell. Zie voor meer informatie over het configureren van een werkstation toorun HDInsight PowerShell-cmdlets [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
+In deze sectie gebruiken we de [toevoegen AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet aan te roepen scripts met behulp van de scriptactie voor het aanpassen van een cluster. Voordat u doorgaat, zorg ervoor dat u hebt geïnstalleerd en geconfigureerd Azure PowerShell. Zie voor meer informatie over het configureren van een werkstation als HDInsight PowerShell-cmdlets wilt uitvoeren, [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
 
-Hallo volgende script laat zien hoe tooapply een scriptactie bij het maken van een cluster met behulp van PowerShell:
+Het volgende script laat zien hoe een scriptactie toepassen bij het maken van een cluster met behulp van PowerShell:
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=5-90)]
+[!code-powershell[belangrijkste](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=5-90)]
 
-Het kan enkele minuten duren voordat Hallo-cluster is gemaakt.
+Het kan enkele minuten duren voordat het cluster is gemaakt.
 
-### <a name="use-a-script-action-during-cluster-creation-from-hello-hdinsight-net-sdk"></a>Een actie Script gebruiken tijdens het maken van Hallo HDInsight .NET SDK
+### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>Een actie Script gebruiken tijdens het maken van de HDInsight-SDK voor .NET
 
-Hallo HDInsight .NET SDK biedt clientbibliotheken die het eenvoudiger toowork met HDInsight vanuit een .NET-toepassing maakt. Zie voor een voorbeeld van code [maken Linux gebaseerde clusters in HDInsight met behulp Hallo .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action).
+De HDInsight-SDK voor .NET biedt clientbibliotheken waarmee eenvoudiger te laten werken met HDInsight vanuit een .NET-toepassing. Zie voor een voorbeeld van code [maken Linux gebaseerde clusters in HDInsight met behulp van de .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action).
 
-## <a name="apply-a-script-action-tooa-running-cluster"></a>Toepassen van een scriptactie tooa met cluster
+## <a name="apply-a-script-action-to-a-running-cluster"></a>De actie Script toepassen op een actief cluster
 
-In deze sectie meer informatie over hoe tooapply acties tooa cluster met een script.
+Informatie over het toepassen van scriptacties met een actief cluster in deze sectie.
 
-### <a name="apply-a-script-action-tooa-running-cluster-from-hello-azure-portal"></a>Toepassen van een scriptactie tooa cluster uitvoert vanuit hello Azure-portal
+### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal"></a>Scriptactie toepassen op een cluster uitgevoerd vanuit de Azure-portal
 
-1. Van Hallo [Azure-portal](https://portal.azure.com), selecteer uw HDInsight-cluster.
+1. Van de [Azure-portal](https://portal.azure.com), selecteer uw HDInsight-cluster.
 
-2. Selecteer uit Hallo HDInsight-cluster overzicht Hallo **scriptacties** tegel.
+2. Selecteer in het overzicht van HDInsight-cluster, de **scriptacties** tegel.
 
     ![Script acties tegel](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
    > [!NOTE]
-   > U kunt ook selecteren **alle instellingen** en selecteer vervolgens **scriptacties** van Hallo gedeelte instellingen.
+   > U kunt ook selecteren **alle instellingen** en selecteer vervolgens **scriptacties** in het gedeelte instellingen.
 
-3. Vanaf de bovenkant van de Hallo Hallo scriptacties sectie, selecteer **indienen nieuwe**.
+3. Selecteer in de bovenkant van de sectie scriptacties **indienen nieuwe**.
 
-    ![Toevoegen van een script tooa met cluster](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
+    ![Een script toevoegen aan een actieve cluster](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
-4. Gebruik Hallo __selecteert u een script__ vermelding tooselect een vooraf gemaakte script. selecteert u een aangepast script toouse __aangepaste__ en geef vervolgens Hallo __naam__ en __Bash script URI__ voor uw script.
+4. Gebruik de __selecteert u een script__ item naar een vooraf gemaakte script te selecteren. Selecteer voor het gebruik van een aangepast script __aangepaste__ en geef vervolgens de __naam__ en __Bash script URI__ voor uw script.
 
-    ![Een script in een select script Hallo toevoegen](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
+    ![Een script in de vorm Selecteer script toevoegen](./media/hdinsight-hadoop-customize-cluster-linux/select-script.png)
 
-    Hallo volgende tabel beschrijft Hallo elementen op Hallo formulier:
+    De volgende tabel beschrijft de elementen in het formulier:
 
     | Eigenschap | Waarde |
     | --- | --- |
-    | Selecteer een script | toouse uw eigen script, selecteer __aangepaste__. Anders selecteert u een geleverde script. |
-    | Naam |Geef een naam voor de scriptactie Hallo. |
-    | Bash script URI |Geef Hallo URI toohello script is aangeroepen toocustomize Hallo-cluster. |
-    | Worker-HEAD/Zookeeper |Hallo-knooppunten opgeven (**Head**, **Worker**, of **ZooKeeper**) op waarin aanpassing Hallo script wordt uitgevoerd. |
-    | Parameters |Geef parameters op Hallo, indien vereist door het Hallo-script. |
+    | Selecteer een script | Selecteer voor het gebruik van uw eigen script __aangepaste__. Anders selecteert u een geleverde script. |
+    | Naam |Geef een naam voor de scriptactie. |
+    | Bash script URI |Geef de URI moet het script dat wordt opgeroepen voor het aanpassen van het cluster. |
+    | Worker-HEAD/Zookeeper |Geef de knooppunten (**Head**, **Worker**, of **ZooKeeper**) op waarmee het script aanpassing wordt uitgevoerd. |
+    | Parameters |Geef de parameters op, indien vereist door het script. |
 
-    Gebruik Hallo __deze scriptactie__ vermelding toomake ervoor Hallo script wordt toegepast tijdens het schalen van bewerkingen.
+    Gebruik de __deze scriptactie__ vermelding om ervoor te zorgen dat het script wordt toegepast tijdens het schalen van bewerkingen.
 
-5. Gebruik tot slot Hallo **maken** knop tooapply Hallo script toohello cluster.
+5. Gebruik tot slot de **maken** knop om toe te passen van het script voor het cluster.
 
-### <a name="apply-a-script-action-tooa-running-cluster-from-azure-powershell"></a>Toepassen van een scriptactie tooa cluster uitvoeren vanaf Azure PowerShell
+### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Scriptactie toepassen op een actief cluster van Azure PowerShell
 
-Voordat u doorgaat, zorg ervoor dat u hebt geïnstalleerd en geconfigureerd Azure PowerShell. Zie voor meer informatie over het configureren van een werkstation toorun HDInsight PowerShell-cmdlets [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
+Voordat u doorgaat, zorg ervoor dat u hebt geïnstalleerd en geconfigureerd Azure PowerShell. Zie voor meer informatie over het configureren van een werkstation als HDInsight PowerShell-cmdlets wilt uitvoeren, [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
 
-Hallo volgende voorbeeld laat zien hoe tooapply een script actie tooa actief cluster:
+Het volgende voorbeeld laat zien hoe een scriptactie toepassen op een actief cluster:
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
+[!code-powershell[belangrijkste](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
 
-Zodra het Hallo-bewerking is voltooid, wordt informatie vergelijkbare toohello volgende tekst:
+Nadat de bewerking is voltooid, wordt de informatie is vergelijkbaar met de volgende tekst:
 
     OperationState  : Succeeded
     ErrorMessage    :
@@ -499,31 +499,31 @@ Zodra het Hallo-bewerking is voltooid, wordt informatie vergelijkbare toohello v
     Parameters      :
     NodeTypes       : {HeadNode, WorkerNode}
 
-### <a name="apply-a-script-action-tooa-running-cluster-from-hello-azure-cli"></a>Toepassen van een scriptactie tooa cluster uitvoert vanuit hello Azure CLI
+### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Scriptactie toepassen op een actief cluster van de Azure CLI
 
-Voordat u doorgaat, zorg ervoor dat u hebt geïnstalleerd en geconfigureerd hello Azure CLI. Zie voor meer informatie [installeren hello Azure CLI](../cli-install-nodejs.md).
+Zorg ervoor dat u hebt geïnstalleerd en de Azure CLI geconfigureerd voordat u verdergaat. Zie voor meer informatie [Azure CLI installeren](../cli-install-nodejs.md).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. tooswitch tooAzure modus Resource Manager, gebruikt u na de opdracht op de opdrachtregel Hallo Hallo:
+1. Als u wilt overschakelen naar de modus Azure Resource Manager, gebruik de volgende opdracht bij de opdrachtprompt:
 
         azure config mode arm
 
-2. Gebruik hello tooauthenticate tooyour Azure-abonnement te volgen.
+2. Gebruik de volgende om uw Azure-abonnement te verifiëren.
 
         azure login
 
-3. Hallo opdracht tooapply na een script actie tooa actief cluster gebruiken
+3. Gebruik de volgende opdracht toe te passen van een scriptactie naar een actief cluster
 
         azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
 
-    Als u de parameters voor deze opdracht weglaat, wordt u gevraagd deze. Als script die u met opgeeft Hallo `-u` accepteert parameters, kunt u ze met behulp van Hallo `-p` parameter.
+    Als u de parameters voor deze opdracht weglaat, wordt u gevraagd deze. Als het script dat u met opgeeft `-u` accepteert parameters, kunt u deze opgeven met behulp van de `-p` parameter.
 
-    Geldige knooppunt-typen zijn `headnode`, `workernode`, en `zookeeper`. Als Hallo script knooppunttypen toegepaste toomultiple moet, geef Hallo typen gescheiden door een ';'. Bijvoorbeeld `-n headnode;workernode`.
+    Geldige knooppunt-typen zijn `headnode`, `workernode`, en `zookeeper`. Als het script moet worden toegepast op typen met meerdere knooppunten, geeft u de typen gescheiden door een ';'. Bijvoorbeeld `-n headnode;workernode`.
 
-    toopersist Hallo script, Hallo toevoegen `--persistOnSuccess`. U kunt ook deze persistent maken Hallo script later met behulp van `azure hdinsight script-action persisted set`.
+    Om te blijven behouden het script, voeg de `--persistOnSuccess`. U kunt ook het script later behouden met behulp van `azure hdinsight script-action persisted set`.
 
-    Zodra het Hallo-taak is voltooid, wordt uitvoer vergelijkbare toohello volgende tekst:
+    Zodra de taak is voltooid, wordt de uitvoer is vergelijkbaar met de volgende tekst:
 
         info:    Executing command hdinsight script-action create
         + Executing Script Action on HDInsight cluster
@@ -533,127 +533,127 @@ Voordat u doorgaat, zorg ervoor dat u hebt geïnstalleerd en geconfigureerd hell
         data:    Operation ID:  b707b10e-e633-45c0-baa9-8aed3d348c13
         info:    hdinsight script-action create command OK
 
-### <a name="apply-a-script-action-tooa-running-cluster-using-rest-api"></a>Toepassen van een scriptactie tooa actief cluster met behulp van REST-API
+### <a name="apply-a-script-action-to-a-running-cluster-using-rest-api"></a>De actie Script toepassen op een actief cluster met behulp van REST-API
 
 Zie [scriptacties uitvoeren op een actief cluster](https://msdn.microsoft.com/library/azure/mt668441.aspx).
 
-### <a name="apply-a-script-action-tooa-running-cluster-from-hello-hdinsight-net-sdk"></a>Toepassen van een scriptactie tooa cluster uitvoert vanuit Hallo HDInsight .NET SDK
+### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>Scriptactie toepassen op een actief cluster van de HDInsight-SDK voor .NET
 
-Zie voor een voorbeeld van het gebruik van Hallo .NET SDK tooapply scripts tooa cluster [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Zie voor een voorbeeld van het gebruik van de .NET SDK scripts toepassen op een cluster [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 ## <a name="view-history-promote-and-demote-script-actions"></a>Geschiedenis weergeven en degraderen scriptacties promoveren
 
-### <a name="using-hello-azure-portal"></a>Met behulp van hello Azure-portal
+### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
 
-1. Van Hallo [Azure-portal](https://portal.azure.com), selecteer uw HDInsight-cluster.
+1. Van de [Azure-portal](https://portal.azure.com), selecteer uw HDInsight-cluster.
 
-2. Selecteer uit Hallo HDInsight-cluster overzicht Hallo **scriptacties** tegel.
+2. Selecteer in het overzicht van HDInsight-cluster, de **scriptacties** tegel.
 
     ![Script acties tegel](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
    > [!NOTE]
-   > U kunt ook selecteren **alle instellingen** en selecteer vervolgens **scriptacties** van Hallo gedeelte instellingen.
+   > U kunt ook selecteren **alle instellingen** en selecteer vervolgens **scriptacties** in het gedeelte instellingen.
 
-4. Een geschiedenis van scripts voor dit cluster wordt weergegeven op Hallo scriptacties sectie. Deze informatie omvat een lijst met persistente scripts. Hallo onderstaande schermafbeelding ziet u dat Hallo Solr script is uitgevoerd op dit cluster. Hallo schermopname weergegeven de persistente scripts niet.
+4. Een geschiedenis van scripts voor dit cluster wordt weergegeven in de sectie scriptacties. Deze informatie omvat een lijst met persistente scripts. In de onderstaande schermafbeelding ziet u dat de Solr script is uitgevoerd op dit cluster. De permanente scripts niet wordt weergegeven in de schermafbeelding.
 
     ![De sectie Acties script](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
 
-5. Sectie met eigenschappen voor dit script Hallo selecteren van een script uit Hallo geschiedenis worden weergegeven. U kunt vanaf de bovenkant van de Hallo van welkomstscherm, Hallo script opnieuw uitvoeren of promoveer deze.
+5. De sectie met eigenschappen voor dit script te selecteren van een script in de geschiedenis worden weergegeven. U kunt het script opnieuw uitvoeren of promoveer deze vanaf de bovenkant van het scherm.
 
     ![Eigenschappen van de script-acties](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. U kunt ook Hallo **...**  toohello rechts van de vermeldingen op Hallo scriptacties sectie tooperform acties.
+6. U kunt ook de **...**  rechts van de vermeldingen in de sectie scriptacties acties uit te voeren.
 
     ![Acties... script gebruik](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 
 ### <a name="using-azure-powershell"></a>Azure PowerShell gebruiken
 
-| Gebruik de volgende Hallo... | te... |
+| Gebruik de volgende... | Aan... |
 | --- | --- |
 | Get-AzureRmHDInsightPersistedScriptAction |Informatie over persistente scriptacties ophalen |
-| Get-AzureRmHDInsightScriptActionHistory |Een geschiedenis van script acties toegepast toohello cluster of details voor een specifiek script ophalen |
-| Set-AzureRmHDInsightPersistedScriptAction |Bijdraagt aan een ad-hoc script actie tooa persistent scriptactie |
-| Remove-AzureRmHDInsightPersistedScriptAction |Selecteert, wordt een persistent script actie tooan ad-hoc-actie |
+| Get-AzureRmHDInsightScriptActionHistory |Een geschiedenis van scriptacties toegepast op het cluster of de details voor een specifiek script ophalen |
+| Set-AzureRmHDInsightPersistedScriptAction |Bijdraagt aan een ad-hoc scriptactie naar een persistent script-actie |
+| Remove-AzureRmHDInsightPersistedScriptAction |Selecteert, wordt een actie persistent script aan een ad-hoc actie |
 
 > [!IMPORTANT]
-> Met behulp van `Remove-AzureRmHDInsightPersistedScriptAction` wordt niet ongedaan gemaakt Hallo-bewerkingen worden uitgevoerd door een script. Deze cmdlet worden alleen persistent gemaakte vlag Hallo verwijderd.
+> Met behulp van `Remove-AzureRmHDInsightPersistedScriptAction` die de acties die worden uitgevoerd door een script wordt niet ongedaan gemaakt. Deze cmdlet worden alleen de persistente vlag verwijderd.
 
-Hallo volgende voorbeeldscript wordt gedemonstreerd met behulp van Hallo cmdlets toopromote vervolgens degraderen van een script.
+Het volgende voorbeeldscript wordt gedemonstreerd met behulp van de cmdlets verhogen, en vervolgens degraderen van een script.
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
+[!code-powershell[belangrijkste](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
 
-### <a name="using-hello-azure-cli"></a>Hello Azure CLI gebruiken
+### <a name="using-the-azure-cli"></a>Azure CLI gebruiken
 
-| Gebruik de volgende Hallo... | te... |
+| Gebruik de volgende... | Aan... |
 | --- | --- |
 | `azure hdinsight script-action persisted list <clustername>` |Een lijst met persistente scriptacties ophalen |
 | `azure hdinsight script-action persisted show <clustername> <scriptname>` |Ophalen van gegevens op een specifieke persistente scriptacties actie |
-| `azure hdinsight script-action history list <clustername>` |Een geschiedenis van script acties toegepast toohello cluster ophalen |
+| `azure hdinsight script-action history list <clustername>` |Ophalen van een geschiedenis van scriptacties toegepast op het cluster |
 | `azure hdinsight script-action history show <clustername> <scriptname>` |Ophalen van informatie over een specifiek script-actie |
-| `azure hdinsight script action persisted set <clustername> <scriptexecutionid>` |Bijdraagt aan een ad-hoc script actie tooa persistent scriptactie |
-| `azure hdinsight script-action persisted delete <clustername> <scriptname>` |Selecteert, wordt een persistent script actie tooan ad-hoc-actie |
+| `azure hdinsight script action persisted set <clustername> <scriptexecutionid>` |Bijdraagt aan een ad-hoc scriptactie naar een persistent script-actie |
+| `azure hdinsight script-action persisted delete <clustername> <scriptname>` |Selecteert, wordt een actie persistent script aan een ad-hoc actie |
 
 > [!IMPORTANT]
-> Met behulp van `azure hdinsight script-action persisted delete` wordt niet ongedaan gemaakt Hallo-bewerkingen worden uitgevoerd door een script. Deze cmdlet worden alleen persistent gemaakte vlag Hallo verwijderd.
+> Met behulp van `azure hdinsight script-action persisted delete` die de acties die worden uitgevoerd door een script wordt niet ongedaan gemaakt. Deze cmdlet worden alleen de persistente vlag verwijderd.
 
-### <a name="using-hello-hdinsight-net-sdk"></a>Met behulp van Hallo HDInsight .NET SDK
+### <a name="using-the-hdinsight-net-sdk"></a>Met behulp van de HDInsight-SDK voor .NET
 
-Voor een voorbeeld van het gebruik van Hallo .NET SDK tooretrieve script geschiedenis van een cluster promoten of degraderen van scripts, Zie [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Voor een voorbeeld van het gebruik van de .NET SDK script geschiedenis ophalen uit een cluster promoten of degraderen van scripts, Zie [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 > [!NOTE]
-> Dit voorbeeld wordt ook hoe een HDInsight-toepassing gebruikt tooinstall Hallo .NET SDK.
+> In dit voorbeeld demonstreert ook hoe u een HDInsight-toepassing met de .NET SDK te installeren.
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Ondersteuning voor open-source software gebruikt op HDInsight-clusters
 
-Hallo Microsoft Azure HDInsight-service gebruikt een ecosysteem van open-source technologieën gevormd rond Hadoop. Microsoft Azure biedt een algemeen niveau van ondersteuning voor de open source-technologieën. Zie voor meer informatie, Hallo **ondersteuning bereik** sectie Hallo [ondersteuning Veelgestelde vragen over Azure-website](https://azure.microsoft.com/support/faq/). Hallo HDInsight-service biedt een extra verificatieniveau van ondersteuning voor ingebouwde onderdelen.
+De Microsoft Azure HDInsight-service gebruikt een ecosysteem van open-source technologieën gevormd rond Hadoop. Microsoft Azure biedt een algemeen niveau van ondersteuning voor de open source-technologieën. Zie voor meer informatie de **ondersteuning bereik** sectie van de [ondersteuning Veelgestelde vragen over Azure-website](https://azure.microsoft.com/support/faq/). De HDInsight-service biedt een extra verificatieniveau van ondersteuning voor ingebouwde-onderdelen.
 
-Er zijn twee soorten open source-onderdelen die beschikbaar in Hallo HDInsight-service zijn:
+Er zijn twee soorten open source-onderdelen die beschikbaar in de HDInsight-service zijn:
 
-* **Ingebouwde onderdelen** -deze onderdelen vooraf zijn geïnstalleerd op HDInsight-clusters en geef de kernfunctionaliteit van Hallo-cluster. YARN ResourceManager Hallo Hive query language (HiveQL) en Hallo Mahout bibliotheek bijvoorbeeld behoren toothis categorie. Een volledige lijst met clusteronderdelen is beschikbaar in [wat is er nieuw in Hallo Hadoop-clusterversies geleverd door HDInsight](hdinsight-component-versioning.md).
-* **Aangepaste onderdelen** -u, als een gebruiker van het Hallo-cluster kunt installeren of gebruiken in uw werkbelasting een onderdeel is beschikbaar in Hallo community of door u gemaakte.
+* **Ingebouwde onderdelen** -deze onderdelen vooraf zijn geïnstalleerd op HDInsight-clusters en geef de kernfunctionaliteit van het cluster. Bijvoorbeeld: YARN ResourceManager, de Hive-query language (HiveQL) en de bibliotheek Mahout behoren tot deze categorie. Een volledige lijst met clusteronderdelen is beschikbaar in [wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight](hdinsight-component-versioning.md).
+* **Aangepaste onderdelen** -u, als een gebruiker van het cluster kunt installeren of gebruiken in uw werkbelasting een onderdeel is beschikbaar in de community of door u gemaakte.
 
 > [!WARNING]
-> Onderdelen van Hallo HDInsight-cluster worden volledig ondersteund. Microsoft Support helpt tooisolate en oplossen van problemen met gerelateerde toothese onderdelen.
+> Onderdelen van het HDInsight-cluster worden volledig ondersteund. Microsoft Support kunt opsporen en oplossen van problemen met betrekking tot deze onderdelen.
 >
-> Aangepaste onderdelen ontvangen binnen commercieel redelijke ondersteuning toohelp u toofurther Hallo probleem op te lossen. Microsoft ondersteuning mogelijk kunnen tooresolve Hallo probleem of ze kunnen u vragen tooengage beschikbare kanalen voor Hallo open-source technologieën waar grondige kennis van deze technologie kan worden gevonden. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [http://apache.org](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
+> Aangepaste onderdelen ontvangt binnen commercieel redelijke ondersteuning u helpen het probleem verder op te lossen. Microsoft ondersteuning mogelijk het probleem op te lossen of ze gevraagd om te benaderen beschikbare kanalen voor de open-source technologieën waar grondige kennis van deze technologie kan worden gevonden. Bijvoorbeeld: Er zijn veel community-sites die kunnen worden gebruikt, zoals: [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Ook hebben Apache projecten project-sites op [http://apache.org](http://apache.org), bijvoorbeeld: [Hadoop](http://hadoop.apache.org/).
 
-Hallo HDInsight-service biedt verschillende manieren toouse aangepaste onderdelen. Hallo hetzelfde niveau van de ondersteuning van toepassing is, ongeacht hoe een onderdeel gebruikt of is geïnstalleerd op Hallo-cluster. Hallo volgende lijst bevat de meest voorkomende manieren Hallo dat aangepaste onderdelen kunnen worden gebruikt op HDInsight-clusters:
+De HDInsight-service biedt verschillende manieren om te gebruiken van aangepaste onderdelen. Hetzelfde niveau van de ondersteuning van toepassing is, ongeacht hoe een onderdeel gebruikt of is geïnstalleerd op het cluster. De volgende lijst bevat de meest voorkomende manieren dat aangepaste onderdelen op HDInsight-clusters kunnen worden gebruikt:
 
-1. Verzending van taak - Hadoop- of andere typen taken die worden uitgevoerd of het gebruik van aangepaste onderdelen kan worden verzonden toohello cluster.
+1. Verzending van taak - Hadoop- of andere typen taken die worden uitgevoerd of het gebruik van aangepaste onderdelen kan worden verzonden naar het cluster.
 
-2. Aanpassing van de cluster - tijdens het maken van het cluster, kunt u aanvullende instellingen en aangepaste onderdelen die zijn geïnstalleerd op de clusterknooppunten Hallo opgeven.
+2. Aanpassing van de cluster - tijdens het maken van het cluster, kunt u aanvullende instellingen en aangepaste onderdelen die zijn geïnstalleerd op de clusterknooppunten opgeven.
 
-3. Steekproeven - voor populaire aangepaste onderdelen, Microsoft en anderen kunnen voorbeelden van hoe deze onderdelen kunnen worden gebruikt op Hallo HDInsight-clusters bieden. Deze voorbeelden worden geleverd zonder ondersteuning.
+3. Steekproeven - voor populaire aangepaste onderdelen, Microsoft en anderen kunnen voorbeelden van hoe deze onderdelen kunnen worden gebruikt op de HDInsight-clusters bieden. Deze voorbeelden worden geleverd zonder ondersteuning.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Hier kunt u Ambari web UI tooview informatie die wordt geregistreerd door scriptacties. Als Hallo-script is mislukt tijdens maken van het cluster, zijn Hallo Logboeken ook beschikbaar in Hallo standaardopslagaccount die zijn gekoppeld aan het Hallo-cluster. Deze sectie bevat informatie over hoe tooretrieve Hallo registreert met behulp van deze beide opties.
+Ambari-webgebruikersinterface kunt u informatie die zijn vastgelegd door scriptacties weergeven. Als het script is mislukt tijdens maken van het cluster, zijn de logboeken ook beschikbaar in het standaardopslagaccount die is gekoppeld aan het cluster. Deze sectie bevat informatie over het ophalen van de logboeken met behulp van deze beide opties.
 
-### <a name="using-hello-ambari-web-ui"></a>Met behulp van Hallo Ambari-Webgebruikersinterface
+### <a name="using-the-ambari-web-ui"></a>Met behulp van de Ambari-webgebruikersinterface
 
-1. Navigeer in uw browser toohttps://CLUSTERNAME.azurehdinsight.net. Vervang CLUSTERNAME door Hallo-naam van uw HDInsight-cluster.
+1. Ga naar https://CLUSTERNAME.azurehdinsight.net in uw browser. CLUSTERNAAM vervangen door de naam van uw HDInsight-cluster.
 
-    Voer desgevraagd Hallo beheerder naam (admin) en het wachtwoord voor Hallo-cluster. Mogelijk hebt u tooreenter Hallo beheerdersreferenties in een webformulier.
+    Wanneer u wordt gevraagd, typt u de accountnaam van de beheerder (admin) en het wachtwoord voor het cluster. U moet de beheerdersreferenties in een webformulier invoeren.
 
-2. Selecteer in de balk Hallo bovenaan Hallo Hallo pagina Hallo **ops** vermelding. Een lijst met huidige en vorige bewerkingen die worden uitgevoerd op Hallo cluster door Ambari wordt weergegeven.
+2. Selecteer in de balk aan de bovenkant van de pagina de **ops** vermelding. Een lijst met huidige en vorige bewerkingen die worden uitgevoerd op het cluster door Ambari wordt weergegeven.
 
     ![Ambari web UI-balk met ops geselecteerd](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
 
-3. Zoeken naar Hallo vermeldingen waarvoor **uitvoeren\_customscriptaction** in Hallo **Operations** kolom. Deze vermeldingen worden gemaakt als Hallo scriptacties uitvoert.
+3. De items waarvoor vindt **uitvoeren\_customscriptaction** in de **Operations** kolom. Deze vermeldingen worden gemaakt wanneer de Script-bewerkingen worden uitgevoerd.
 
     ![Schermopname van bewerkingen](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
 
-    tooview hello STDOUT en STDERR uitvoer, selecteer Hallo run\customscriptaction post en detailanalyse Hallo koppelingen. Deze uitvoer wordt gegenereerd wanneer het Hallo-script wordt uitgevoerd, en mogelijk bevatten nuttige informatie.
+    Als u wilt weergeven in de uitvoer STDOUT en STDERR, selecteer de vermelding run\customscriptaction en inzoomen via de koppelingen. Deze uitvoer wordt gegenereerd wanneer het script wordt uitgevoerd, en mogelijk bevatten nuttige informatie.
 
-### <a name="access-logs-from-hello-default-storage-account"></a>Toegang tot logboeken van het standaardopslagaccount Hallo
+### <a name="access-logs-from-the-default-storage-account"></a>Toegang tot logboeken van het standaardopslagaccount
 
-Als Hallo cluster maken vanwege fout in tooa script actie mislukt, zijn Hallo logboeken toegankelijk vanuit Hallo cluster storage-account.
+Als het maken van het cluster is mislukt vanwege een scriptfout actie, zijn de logboeken toegankelijk vanuit het opslagaccount van het cluster.
 
-* Hallo opslag logboeken zijn beschikbaar op `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
+* De logboeken van de opslag zijn beschikbaar op `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
     ![Schermopname van bewerkingen](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-    In deze map Hallo logboeken afzonderlijk ingedeeld voor headnode, workernode en zookeeper-knooppunten. Een aantal voorbeelden:
+    De logboeken zijn in deze map afzonderlijk ingedeeld voor headnode, workernode en zookeeper-knooppunten. Een aantal voorbeelden:
 
     * **Headnode** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
 
@@ -661,28 +661,28 @@ Als Hallo cluster maken vanwege fout in tooa script actie mislukt, zijn Hallo lo
 
     * **Zookeeper-knooppunt** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* Alle stdout en stderr van de bijbehorende host Hallo is geüpload toohello storage-account. Er is een **uitvoer -\*.txt** en **fouten -\*.txt** voor elke scriptactie. Hallo uitvoer-txt-bestand bevat informatie over Hallo URI van Hallo-script dat is uitgevoerd op Hallo host. Bijvoorbeeld
+* Alle stdout en stderr van de bijbehorende host is geüpload naar het opslagaccount. Er is een **uitvoer -\*.txt** en **fouten -\*.txt** voor elke scriptactie. De uitvoer-txt-bestand bevat informatie over de URI van het script dat is uitgevoerd op de host. Bijvoorbeeld
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
-* Het is mogelijk dat u een script actie cluster herhaaldelijk met de Hallo maken dezelfde naam. In dat geval kunt u de relevante Hallo-logboeken op basis van datum-mapnaam Hallo onderscheiden. Hallo-mapstructuur voor een cluster (mijncluster) gemaakt op verschillende datums verschijnt bijvoorbeeld vergelijkbare toohello logboekvermeldingen te volgen:
+* Het is mogelijk dat u een script actie cluster herhaaldelijk met dezelfde naam maken. In dat geval kunt u de relevante logboekbestanden op basis van de naam van de datum-map onderscheiden. Bijvoorbeeld, lijkt de mapstructuur voor een cluster (mijncluster) gemaakt op verschillende datums op de volgende logboekvermeldingen:
 
     `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 
-* Als u een script actie cluster met de Hallo maakt dezelfde naam op Hallo dezelfde dag, kunt u Hallo uniek voorvoegsel tooidentify Hallo relevante logboekbestanden.
+* Als u een script actie cluster met dezelfde naam op dezelfde dag maakt, kunt u het voorvoegsel uniek te identificeren van de relevante logboekbestanden.
 
-* Als u een cluster in de buurt van 12:00 AM (middernacht) maakt, is het mogelijk dat de logboekbestanden Hallo twee dagen overbruggen. In dergelijke gevallen kunt u twee andere datum mappen voor Hallo Zie hetzelfde cluster.
+* Als u een cluster in de buurt van 12:00 AM (middernacht) maakt, is het mogelijk dat de logboekbestanden twee dagen overbruggen. In dergelijke gevallen ziet u twee andere datum mappen voor hetzelfde cluster.
 
-* Uploaden logboek bestanden toohello standaardcontainer kan een too5 minuten, met name voor grote clusters in beslag nemen. Dus als u tooaccess Hallo logboeken wilt, moet u niet onmiddellijk verwijderen Hallo cluster als een scriptactie is mislukt.
+* Logboekbestanden uploaden naar de standaardcontainer kan maximaal 5 minuten, met name voor grote clusters duren. Dus als u toegang wilt tot de logboeken, verwijdert niet onmiddellijk u het cluster als een scriptactie is mislukt.
 
 ### <a name="ambari-watchdog"></a>Ambari watchdog
 
 > [!WARNING]
-> Hallo-wachtwoord voor Hallo Ambari Watchdog (hdinsightwatchdog) op uw Linux gebaseerde HDInsight-cluster niet wijzigen. Wijzigen van Hallo het wachtwoord voor dit account wordt verbroken Hallo mogelijkheid toorun nieuwe scriptacties op Hallo HDInsight-cluster.
+> Wijzig het wachtwoord niet voor de Ambari-Watchdog (hdinsightwatchdog) op uw Linux gebaseerde HDInsight-cluster. Wijzigen van het wachtwoord voor dit account, verbreekt de mogelijkheid nieuwe scriptacties uitvoeren op het HDInsight-cluster.
 
 ### <a name="cant-import-name-blobservice"></a>Naam BlobService kan niet worden geïmporteerd.
 
-__Symptomen__: Hallo script actie mislukt. Wanneer u hello bewerking in Ambari bekijkt tekst vergelijkbare toohello volgende fout weergegeven:
+__Symptomen__: het script actie mislukt. Tekst die vergelijkbaar is met de volgende fout wordt weergegeven wanneer u de bewerking in Ambari weergeven:
 
 ```
 Traceback (most recent call list):
@@ -691,33 +691,33 @@ Traceback (most recent call list):
 ImportError: cannot import name BlobService
 ```
 
-__Oorzaak__: deze fout treedt op als Hallo Python Azure Storage client bijwerkt die is opgenomen in Hallo HDInsight-cluster. HDInsight verwacht Azure Storage client 0.20.0.
+__Oorzaak__: deze fout treedt op als u de Python Azure Storage client bijwerkt die is opgenomen in het HDInsight-cluster. HDInsight verwacht Azure Storage client 0.20.0.
 
-__Resolutie__: tooresolve deze fout handmatig verbinding maken met behulp van tooeach cluster knooppunt `ssh` en Hallo gebruik de volgende opdracht tooreinstall Hallo juiste opslag-clientversie:
+__Resolutie__: los deze fout, handmatig verbinding maken met elk cluster knooppunt gebruikt `ssh` en gebruik de volgende opdracht om opnieuw te installeren de juiste opslag clientversie:
 
 ```
 sudo pip install azure-storage==0.20.0
 ```
 
-Zie voor informatie over het maken van verbinding toohello cluster met SSH, [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+Zie voor informatie over de verbinding met het cluster met SSH, [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### <a name="history-doesnt-show-scripts-used-during-cluster-creation"></a>Geschiedenis van niet wordt scripts die worden gebruikt tijdens het maken van het cluster weergegeven
 
-Als uw cluster is gemaakt voordat 15 maart 2016, ziet u mogelijk niet een vermelding in de geschiedenis van de scriptactie. Als u het formaat van Hallo cluster na 15 maart 2016 Hallo scripts met behulp van tijdens het maken van het cluster worden weergegeven in de geschiedenis zoals die worden toegepast toonew knooppunten in cluster als onderdeel van Hallo Hallo vergroten of verkleinen van de bewerking.
+Als uw cluster is gemaakt voordat 15 maart 2016, ziet u mogelijk niet een vermelding in de geschiedenis van de scriptactie. Als u de grootte van het cluster na 15 maart 2016, de scripts die met behulp van tijdens het maken van het cluster weergegeven in de geschiedenis als ze worden toegepast op nieuwe knooppunten in het cluster als onderdeel van de bewerking formaat wijzigen.
 
 Er zijn twee uitzonderingen:
 
 * Als uw cluster is gemaakt vóór 1 September 2015. Deze datum is wanneer scriptacties zijn geïntroduceerd. Een cluster is gemaakt voor deze datum kan niet hebben gebruikt scriptacties voor maken van het cluster.
 
-* Als u meerdere scriptacties gebruikt tijdens het maken van het cluster en Hallo dezelfde naam voor meerdere scripts of Hallo gebruikt naam dezelfde, dezelfde URI, maar verschillende parameters voor meerdere scripts. In dergelijke gevallen wordt u Hallo volgende fout:
+* Als u meerdere scriptacties tijdens het maken van het cluster gebruikt en dezelfde naam voor meerdere scripts of de dezelfde naam, dezelfde URI, maar verschillende parameters voor meerdere scripts gebruikt. In deze gevallen is foutbericht het volgende:
 
-    Op dit cluster vanwege tooconflicting scriptnamen in bestaande scripts worden geen nieuwe script acties kunnen worden uitgevoerd. Scriptnamen die zijn opgegeven bij het cluster moet maken allemaal uniek zijn. Bestaande scripts worden uitgevoerd op formaat.
+    Op dit cluster vanwege conflicterende scriptnamen in bestaande scripts worden geen nieuwe script acties kunnen worden uitgevoerd. Scriptnamen die zijn opgegeven bij het cluster moet maken allemaal uniek zijn. Bestaande scripts worden uitgevoerd op formaat.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Scriptactie-scripts ontwikkelen voor HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Installeren en gebruiken van Solr op HDInsight-clusters](hdinsight-hadoop-solr-install-linux.md)
 * [Installeren en gebruiken van Giraph op HDInsight-clusters](hdinsight-hadoop-giraph-install-linux.md)
-* [Extra opslagruimte tooan HDInsight-cluster toevoegen](hdinsight-hadoop-add-storage.md)
+* [Extra opslag toevoegen aan een HDInsight-cluster](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fasen tijdens het maken van het cluster"

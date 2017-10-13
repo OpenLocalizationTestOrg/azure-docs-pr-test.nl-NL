@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: saeedakhter-msft
-ms.openlocfilehash: abfd742e710458de3193dc5051de7818a112376c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 44d5d31d49c375c802a67511d1f962df20656559
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C: u kunt u op uw app richten, dan letten wij op de registratie en aanmelding
 
-Azure AD B2C is een oplossing voor identiteitsbeheer in de cloud voor uw web- en mobiele toepassingen. Het is een maximaal beschikbare wereldwijde service toohundreds miljoenen identiteiten. Azure AD B2C is ontwikkeld op een hoogwaardig, veilig platform en is bedoeld om uw toepassingen, uw bedrijf en uw klanten te beveiligen.
+Azure AD B2C is een oplossing voor identiteitsbeheer in de cloud voor uw web- en mobiele toepassingen. Dit is een maximaal beschikbare, wereldwijde service die naar honderden miljoenen identiteiten kan worden geschaald. Azure AD B2C is ontwikkeld op een hoogwaardig, veilig platform en is bedoeld om uw toepassingen, uw bedrijf en uw klanten te beveiligen.
 
-Met een minimale configuratie kunt Azure AD B2C in uw toepassing tooauthenticate:
+Met een minimale configuratie kan Azure AD B2C uw toepassing in staat stellen om het volgende te verifiëren:
 
 * **Sociale accounts** (zoals Facebook, Google en LinkedIn)
 * **Bedrijfsaccounts** (met behulp van open-standaardprotocollen, OpenID Connect of SAML)
@@ -32,7 +32,7 @@ Met een minimale configuratie kunt Azure AD B2C in uw toepassing tooauthenticate
 
 ## <a name="get-started"></a>Aan de slag
 
-Haal eerst uw eigen tenant met behulp van Hallo stappen die worden beschreven in [een Azure AD B2C-tenant maken](active-directory-b2c-get-started.md).
+Haal eerst uw eigen tenant op aan de hand van de stappen in [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md) (Een Azure AD B2C-tenant maken).
 
 Kies het scenario voor het ontwikkelen van uw toepassing:
 
@@ -45,38 +45,38 @@ Kies het scenario voor het ontwikkelen van uw toepassing:
 
 ## <a name="whats-new"></a>Nieuwe functies
 
-Kijk vaak toolearn over toekomstige wijzigingen toohello Azure Active Directory B2C. We tweeten ook over eventuele updates via @AzureAD.
+Kijk regelmatig of er nieuwe informatie is over toekomstige wijzigingen in Azure Active Directory B2C. We tweeten ook over eventuele updates via @AzureAD.
 
-* Bovendien te 'ingebouwde beleid (algemeen beschikbaar is),' Hallo ['Aangepaste beleidsregels'](active-directory-b2c-overview-custom.md) functie is nu beschikbaar in public preview.  Aangepaste beleidsregels zijn voor identity-professionals die controle over Hallo samenstelling van hun ervaring identiteit nodig.
-* Hallo [Access Token](https://azure.microsoft.com/en-us/blog/azure-ad-b2c-access-tokens-now-in-public-preview) functie is nu beschikbaar in public preview.
+* Naast "Geïntegreerd beleid" (algemene beschikbaarheid), is nu ook de functie ["Aangepast beleid"](active-directory-b2c-overview-custom.md) beschikbaar in de openbare preview.  Aangepaste beleidsregels zijn bedoeld voor identiteitsprofessionals die controle over de samenstelling van hun identiteitservaring nodig hebben.
+* De functie [Toegangstoken](https://azure.microsoft.com/en-us/blog/azure-ad-b2c-access-tokens-now-in-public-preview) is nu beschikbaar in de openbare preview.
 * [Algemene beschikbaarheid van in Europa gebaseerde Azure AD B2C](https://azure.microsoft.com/en-us/blog/azuread-b2c-ga-eu/)-directory's is aangekondigd.
 * Bekijk onze groeiende bibliotheek met [codevoorbeelden op GitHub](https://github.com/Azure-Samples?q=b2c).
 
-## <a name="how-tooarticles"></a>Hoe tooarticles
+## <a name="how-to-articles"></a>Artikelen met procedures
 
-Meer informatie over hoe toouse specifieke Azure Active Directory B2C-functies:
+Lees meer over het gebruik van specifieke functies van Azure Active Directory B2C:
 
 * Configureer accounts van [Facebook](active-directory-b2c-setup-fb-app.md), [Google +](active-directory-b2c-setup-goog-app.md), [Microsoft](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) en [LinkedIn](active-directory-b2c-setup-li-app.md) voor gebruik in uw consumententoepassingen.
-* [Gebruik aangepaste kenmerken toocollect informatie over uw consumenten](active-directory-b2c-reference-custom-attr.md).
+* [Gebruik aangepaste kenmerken om informatie over uw consumenten te verzamelen](active-directory-b2c-reference-custom-attr.md).
 * [Schakel Azure Multi-Factor Authentication in uw consumententoepassingen in](active-directory-b2c-reference-mfa.md).
 * [Stel selfservice wachtwoordherstel in voor uw consumenten](active-directory-b2c-reference-sspr.md).
-* [Hallo uiterlijk aan van de registratie aanpassen, meld u aan in en andere consumentenpagina's](active-directory-b2c-reference-ui-customization.md) die door Azure Active Directory B2C worden behandeld.
-* [Gebruik hello Azure Active Directory Graph API tooprogrammatically maken, lezen, bijwerken en verwijderen van consumenten](active-directory-b2c-devquickstarts-graph-dotnet.md) in uw Azure Active Directory B2C-tenant.
+* [Pas het uiterlijk aan van de registratie- en aanmeldingspagina en andere consumentenpagina's](active-directory-b2c-reference-ui-customization.md) die door Azure Active Directory B2C worden verwerkt.
+* [Gebruik Azure Active Directory Graph API om consumenten programmatisch te maken, te lezen, bij te werken en te verwijderen](active-directory-b2c-devquickstarts-graph-dotnet.md) in uw Azure Active Directory B2C-tenant.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Deze koppelingen zijn handig voor het verkennen van Hallo service gedetailleerd besproken:
+Deze koppelingen zijn handig als u de service uitgebreid wilt verkennen:
 
-* Zie Hallo [prijsinformatie voor Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+* Zie de [Prijsinformatie over Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Bekijk onze [codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) voor Azure Active Directory B2C. 
-* Hulp bij Stack Overflow met behulp van Hallo [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c) label.
-* Geef ons uw mening via [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c), willen we toohear ze!
-* Bekijk Hallo [naslaginformatie over Azure AD B2C-Protocol](active-directory-b2c-reference-protocols.md).
-* Bekijk Hallo [Azure AD B2C tokenverwijzing](active-directory-b2c-reference-tokens.md).
-* Lees Hallo [Azure Active Directory B2C Veelgestelde vragen over](active-directory-b2c-faqs.md).
+* Vraag hulp bij Stack Overflow met de tags [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c).
+* Geef ons uw mening via [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c). We horen graag wat u ervan vindt.
+* Lees de [naslaginformatie voor Azure AD B2C-protocollen](active-directory-b2c-reference-protocols.md).
+* Lees de [naslaginformatie voor Azure AD B2C-tokens](active-directory-b2c-reference-tokens.md).
+* Lees de [veelgestelde vragen over Azure Active Directory B2C](active-directory-b2c-faqs.md).
 * [Aanvragen voor bestandsondersteuning voor Azure Active Directory B2C](active-directory-b2c-support.md).
 
 ## <a name="get-security-updates-for-our-products"></a>Beveiligingsupdates voor onze producten downloaden
 
-We raden u meldingen van wanneer er beveiligingsincidenten door bezoeken optreden tooget [deze pagina](https://technet.microsoft.com/security/dd252948) en u te abonneren tooSecurity Advisory Alerts.
+We raden u aan in te stellen dat u meldingen ontvangt wanneer er beveiligingsincidenten optreden. Ga hiervoor naar [deze pagina](https://technet.microsoft.com/security/dd252948) en abonneer u op Security Advisory Alerts.
 

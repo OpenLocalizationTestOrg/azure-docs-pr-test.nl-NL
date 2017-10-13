@@ -1,6 +1,6 @@
 ---
-title: aaaLinux compute virtuele machines in een cluster HPC Pack | Microsoft Docs
-description: Meer informatie over hoe toocreate en gebruik een Pack HPC-cluster in Azure voor Linux van de high performance computing (HPC)-workloads
+title: Linux VM's in een cluster HPC Pack compute | Microsoft Docs
+description: Meer informatie over het maken en gebruiken van een HPC Pack-cluster in Azure voor Linux van de high performance computing (HPC)-workloads
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 9ed20d6cd69a6472a00666caf8965e9d022698a6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Aan de slag met Linux-rekenknooppunten in een HPC Pack-cluster in Azure
-Instellen van een [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) cluster in Azure met een hoofdknooppunt met Windows Server en meerdere rekenknooppunten met een ondersteunde Linux-distributie. Verken opties toomove gegevens tussen Hallo Linux-knooppunten en Hallo Windows-hoofdknooppunt van het Hallo-cluster. Meer informatie over hoe toosubmit Linux HPC cluster toohello taken.
+Instellen van een [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) cluster in Azure met een hoofdknooppunt met Windows Server en meerdere rekenknooppunten met een ondersteunde Linux-distributie. Gebruik de opties voor het verplaatsen van gegevens tussen de Linux-knooppunten en het Windows-hoofdknooppunt van het cluster. Informatie over het verzenden van Linux HPC-taken voor het cluster.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-Op een hoog niveau hello volgende diagram toont Hallo HPC Pack cluster u maken en bewerken.
+Op een hoog niveau ziet het volgende diagram u het cluster HPC Pack u maken en bewerken.
 
 ![HPC Pack cluster met Linux-knooppunten][scenario]
 
-Voor andere opties toorun Linux HPC werkbelastingen in Azure, Zie [technische bronnen voor batchverwerking en high performance computing](../../../batch/big-compute-resources.md).
+Zie voor andere opties voor het gebruik van de Linux HPC workloads in Azure, [technische bronnen voor batchverwerking en high performance computing](../../../batch/big-compute-resources.md).
 
 ## <a name="deploy-an-hpc-pack-cluster-with-linux-compute-nodes"></a>Een HPC Pack cluster met Linux-rekenknooppunten implementeren
-Dit artikel ziet u twee opties toodeploy een HPC Pack-cluster in Azure met Linux-rekenknooppunten. Beide methoden gebruiken een Marketplace-installatiekopie van Windows Server met HPC Pack toocreate Hallo hoofdknooppunt. 
+Dit artikel ziet u twee opties voor het implementeren van een HPC Pack-cluster in Azure met Linux-rekenknooppunten. Beide methoden voor het gebruik van een Marketplace-installatiekopie van Windows Server met HPC Pack te maken van het hoofdknooppunt. 
 
-* **Azure Resource Manager-sjabloon** -een sjabloon uit Azure Marketplace hello of een snelstartsjabloon van Hallo-community, tooautomate maken van Hallo-cluster in Hallo Resource Manager-implementatiemodel. Bijvoorbeeld, Hallo [HPC Pack cluster voor Linux-werkbelastingen](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) sjabloon in hello Azure Marketplace maakt een complete HPC Pack clusterinfrastructuur voor Linux HPC werkbelastingen.
-* **PowerShell-script** -gebruik Hallo [Microsoft HPC Pack IaaS-implementatiescript](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (**nieuw HpcIaaSCluster.ps1**) tooautomate een volledige Clusterimplementatie Hallo klassieke implementatiemodel. Deze Azure PowerShell-script maakt gebruik van een installatiekopie van een HPC Pack VM in hello Azure Marketplace voor snelle implementatie en biedt een uitgebreide set configuratie parameters toodeploy Linux-rekenknooppunten.
+* **Azure Resource Manager-sjabloon** -een sjabloon uit Azure Marketplace, of een sjabloon Quick Start van de community gebruiken voor het automatiseren van het maken van het cluster in het Resource Manager-implementatiemodel. Bijvoorbeeld, de [HPC Pack cluster voor Linux-werkbelastingen](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) sjabloon in Azure Marketplace maakt een complete HPC Pack clusterinfrastructuur voor Linux HPC werkbelastingen.
+* **PowerShell-script** -gebruik de [Microsoft HPC Pack IaaS-implementatiescript](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (**nieuw HpcIaaSCluster.ps1**) voor het automatiseren van een implementatie van het volledige cluster in het klassieke implementatiemodel. Deze Azure PowerShell-script maakt gebruik van een installatiekopie van een HPC Pack VM in Azure Marketplace voor snelle implementatie en biedt een uitgebreide set parameters voor de configuratie voor het implementeren van Linux-rekenknooppunten.
 
-Zie voor meer informatie over opties voor de implementatie van HPC Pack cluster in Azure [toocreate opties en beheren van een cluster high performance computing (HPC) in Azure met Microsoft HPC Pack](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Zie voor meer informatie over opties voor de implementatie van HPC Pack cluster in Azure [opties voor het maken en beheren van een high performance computing (HPC)-cluster in Azure met Microsoft HPC Pack](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="prerequisites"></a>Vereisten
-* **Azure-abonnement** -kunt u een abonnement in beide hello Azure globale of Azure China-service. Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.
-* **Quotum voor kernen** -moet u mogelijk tooincrease Hallo quotum van kernen, met name als u verschillende clusterknooppunten met multicore VM-grootten toodeploy kiezen. tooincrease een quotum, opent u een ondersteuningsaanvraag online klant zonder kosten.
-* **Linux-distributies** -momenteel HPC Pack Hallo volgende Linux-distributies rekenknooppunten ondersteunt. U kunt Marketplace-versies van deze verdelingen gebruiken indien beschikbaar, of geef uw eigen.
+* **Azure-abonnement** -kunt u een abonnement in de globale Azure of Azure China-service. Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.
+* **Quotum voor kernen** -moet u mogelijk verhogen van het quotum van kernen, vooral als u kiest voor het implementeren van verschillende clusterknooppunten multicore VM-grootte. U kunt een quotum verhogen, door een ondersteuningsaanvraag online klant kosteloos te openen.
+* **Linux-distributies** -momenteel HPC Pack ondersteunt de volgende Linux-distributies voor rekenknooppunten. U kunt Marketplace-versies van deze verdelingen gebruiken indien beschikbaar, of geef uw eigen.
   
   * **Op basis van centOS**: 6.5, 6.6, 6.7, 7.0, 7.1, 7.2, 6.5 HPC, 7.1 HPC
   * **Red Hat Enterprise Linux**: 6.7, 6,8, 7.2
@@ -51,49 +51,49 @@ Zie voor meer informatie over opties voor de implementatie van HPC Pack cluster 
   * **Ubuntu Server**: 14.04 TNS, 16.04 TNS
     
     > [!TIP]
-    > toouse hello Azure RDMA-netwerk met een van de RDMA-compatibele Hallo VM-grootten, Geef een SUSE Linux Enterprise Server 12 HPC of op basis van CentOS HPC-installatiekopie uit hello Azure Marketplace. Zie voor meer informatie [hoge prestaties compute-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Geef voor het gebruik van het Azure RDMA-netwerk met een van de RDMA-compatibele VM-grootten, een SUSE Linux Enterprise Server 12 HPC of op basis van CentOS HPC-installatiekopie uit Azure Marketplace. Zie voor meer informatie [hoge prestaties compute-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
-Aanvullende vereisten toodeploy Hallo-cluster met behulp van Hallo HPC Pack IaaS-implementatiescript:
+Aanvullende vereisten voor het implementeren van het cluster met behulp van het implementatiescript HPC Pack IaaS:
 
-* **Clientcomputer** -u moet een implementatiescript van Windows-clientapparaten computer toorun Hallo cluster.
+* **Clientcomputer** -moet u een Windows-clientcomputer om uit te voeren een script voor de implementatie van het cluster.
 * **Azure PowerShell** - [installeren en configureren van Azure PowerShell](/powershell/azure/overview) (versie 0.8.10 of hoger) op de clientcomputer.
-* **HPC Pack IaaS-implementatiescript** - downloaden en uitpakken Hallo meest recente versie van script Hallo van Hallo [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). U kunt Hallo-versie van script Hallo controleren door te voeren `.\New-HPCIaaSCluster.ps1 –Version`. In dit artikel is gebaseerd op versie 4.4.1 of hoger van Hallo-script.
+* **HPC Pack IaaS-implementatiescript** - downloaden en uitpakken van de meest recente versie van het script van de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). U kunt de versie van het script controleren door te voeren `.\New-HPCIaaSCluster.ps1 –Version`. In dit artikel is gebaseerd op versie 4.4.1 of hoger van het script.
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>Implementatieoptie 1. Een Resource Manager-sjabloon gebruiken
-1. Ga toohello [HPC Pack cluster voor Linux-werkbelastingen](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) sjabloon in Azure Marketplace Hallo en klik op **implementeren**.
-2. In Azure-portal hello, Hallo informatie bekijken en klik op **maken**.
+1. Ga naar de [HPC Pack cluster voor Linux-werkbelastingen](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) sjabloon in de Azure Marketplace en op **implementeren**.
+2. Lees de informatie in de Azure portal en klik vervolgens op **maken**.
    
     ![Maken van de portal][portal]
-3. Op Hallo **basisbeginselen** blade een naam voor het Hallo-cluster, die ook de namen van hoofdknooppunt Hallo VM. U kunt een bestaande resourcegroep kiezen of een groep voor de implementatie van Hallo maken in een locatie die beschikbaar tooyou. Hallo locatie is van invloed op Hallo beschikbaarheid van bepaalde VM-grootten en andere Azure-services (Zie [producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/regions/services/)).
-4. Op Hallo **Head knooppunt instellingen** blade voor een eerste implementatie, kunt u in het algemeen Hallo standaardinstellingen accepteren. 
+3. Op de **basisbeginselen** blade een naam voor het cluster, die ook de namen van de VM in het hoofdknooppunt. U kunt een bestaande resourcegroep kiezen of maken van een groep voor de implementatie op een locatie die voor u beschikbaar is. De locatie is van invloed op de beschikbaarheid van bepaalde VM-grootten en andere Azure-services (Zie [producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/regions/services/)).
+4. Op de **Head knooppunt instellingen** blade voor een eerste implementatie, kunt u in het algemeen de standaardinstellingen accepteren. 
    
    > [!NOTE]
-   > Hallo **post-configuratiescript URL** is een optionele instelling toospecify openbaar beschikbare Windows PowerShell-script dat u toorun op Hallo hoofdknooppunt VM wilt nadat deze wordt uitgevoerd. 
+   > De **post-configuratiescript URL** is een optionele instelling om op te geven van een openbaar beschikbare Windows PowerShell-script dat u uitvoeren op het hoofdknooppunt VM wilt nadat deze wordt uitgevoerd. 
    > 
    > 
-5. Op Hallo **Compute knooppunt instellingen** blade selecteren van een naamgevingspatroon uit voor het Hallo-knooppunten, Hallo aantal en grootte van Hallo knooppunten en Linux-distributie toodeploy Hallo.
-6. Op Hallo **infrastructuurinstellingen** blade Voer namen voor Hallo virtueel netwerk en Active Directory domain, domein en VM-beheerdersreferenties en naamgevingspatroon uit een voor Hallo storage-accounts.
+5. Op de **Compute knooppunt instellingen** blade, selecteer een naming patroon voor de knooppunten, het aantal en de grootte van de knooppunten en de Linux-distributie te implementeren.
+6. Op de **infrastructuurinstellingen** blade invoeren voor het virtuele netwerk en Active Directory-domein, domein en VM-beheerdersreferenties en naamgevingspatroon uit een voor de storage-accounts.
    
    > [!NOTE]
-   > HPC Pack Hallo Active Directory-domein tooauthenticate cluster gebruikers gebruikt. 
+   > HPC Pack maakt gebruik van de Active Directory-domein om gebruikers van de cluster te verifiëren. 
    > 
    > 
-7. Nadat de validatietests Hallo uitgevoerd en u de gebruiksvoorwaarden Hallo bekijken, klikt u op **aankoop**.
+7. Nadat de validatietests worden uitgevoerd en u de gebruiksvoorwaarden bekijken, klikt u op **aankoop**.
 
-### <a name="deployment-option-2-use-hello-iaas-deployment-script"></a>Implementatieoptie 2. Hallo IaaS-implementatiescript gebruiken
-Hieronder vindt u aanvullende vereisten toodeploy Hallo cluster met behulp van Hallo HPC Pack IaaS-implementatiescript:
+### <a name="deployment-option-2-use-the-iaas-deployment-script"></a>Implementatieoptie 2. Gebruik het script voor IaaS-implementatie
+Hieronder vindt u aanvullende vereisten voor het implementeren van het cluster met behulp van het implementatiescript HPC Pack IaaS:
 
-* **Clientcomputer** -u moet een implementatiescript van Windows-clientapparaten computer toorun Hallo cluster.
+* **Clientcomputer** -moet u een Windows-clientcomputer om uit te voeren een script voor de implementatie van het cluster.
 * **Azure PowerShell** - [installeren en configureren van Azure PowerShell](/powershell/azure/overview) (versie 0.8.10 of hoger) op de clientcomputer.
-* **HPC Pack IaaS-implementatiescript** - downloaden en uitpakken Hallo meest recente versie van script Hallo van Hallo [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). U kunt Hallo-versie van script Hallo controleren door te voeren `.\New-HPCIaaSCluster.ps1 –Version`. In dit artikel is gebaseerd op versie 4.4.1 of hoger van Hallo-script.
+* **HPC Pack IaaS-implementatiescript** - downloaden en uitpakken van de meest recente versie van het script van de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). U kunt de versie van het script controleren door te voeren `.\New-HPCIaaSCluster.ps1 –Version`. In dit artikel is gebaseerd op versie 4.4.1 of hoger van het script.
 
 **XML-configuratiebestand**
 
-een XML-configuratiebestand Hallo HPC Pack IaaS-implementatiescript gebruikt als invoer toodescribe Hallo HPC-cluster. Hallo geeft volgende voorbeeldconfiguratiebestand een kort cluster die bestaan uit een hoofdknooppunt HPC Pack en twee grootte A7 CentOS 7.0 Linux-rekenknooppunten. 
+Het implementatiescript HPC Pack IaaS maakt gebruik van een XML-configuratiebestand als invoer om te beschrijven de HPC-cluster. Het volgende voorbeeld-configuratiebestand bevat een kleine cluster die bestaan uit een hoofdknooppunt HPC Pack en twee grootte A7 CentOS 7.0 Linux-rekenknooppunten. 
 
-Hallo-bestand aanpassen nodig zijn voor uw omgeving en de configuratie van het gewenste cluster en sla het bestand met een naam, zoals HPCDemoConfig.xml. U moet bijvoorbeeld toosupply de abonnementsnaam van uw en een unieke opslagaccountnaam en de naam van cloud-service. U kunt bovendien toochoose een andere Linux installatiekopie Hallo rekenknooppunten ondersteund. Zie voor meer informatie over het Hallo-elementen in het configuratiebestand Hallo Hallo Manual.rtf bestand in map voor Hallo-script en [een HPC-cluster maken met Hallo HPC Pack IaaS-implementatiescript](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Wijzigen van het bestand nodig zijn voor uw omgeving en de configuratie van het gewenste cluster en sla het bestand met een naam, zoals HPCDemoConfig.xml. Bijvoorbeeld, moet u de abonnementsnaam van uw en de naam van een uniek account op te geven en in de cloud servicenaam. U wilt ook kiezen een andere ondersteunde Linux-afbeelding voor de rekenknooppunten. Zie het bestand Manual.rtf in de scriptmap voor meer informatie over de elementen in het configuratiebestand en [een HPC-cluster maken met het implementatiescript HPC Pack IaaS](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -131,63 +131,63 @@ Hallo-bestand aanpassen nodig zijn voor uw omgeving en de configuratie van het g
 </IaaSClusterConfig>
 ```
 
-**toorun hello HPC Pack IaaS-implementatiescript**
+**Het implementatiescript HPC Pack IaaS uitvoeren**
 
-1. Open Windows PowerShell op de clientcomputer Hallo als beheerder.
-2. Wijziging toohello uit de map waar het Hallo-script is geïnstalleerd (E:\IaaSClusterScript in dit voorbeeld).
+1. Open Windows PowerShell op de clientcomputer als beheerder.
+2. Wijzig de directory naar de map waarin het script is geïnstalleerd (E:\IaaSClusterScript in dit voorbeeld).
    
     ```powershell
     cd E:\IaaSClusterScript
     ```
-3. Hallo na de opdracht toodeploy Hallo HPC Pack cluster worden uitgevoerd. In dit voorbeeld wordt ervan uitgegaan dat configuratiebestand Hallo bevindt zich in E:\HPCDemoConfig.xml
+3. Voer de volgende opdracht voor het implementeren van het cluster HPC Pack. In dit voorbeeld wordt ervan uitgegaan dat het configuratiebestand in E:\HPCDemoConfig.xml bevinden zich
    
     ```powershell
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
     ```
    
-    a. Omdat Hallo **AdminPassword** is niet opgegeven in Hallo voorafgaand aan de opdracht, bent u na vragen aan gebruiker tooenter Hallo wachtwoord voor gebruiker *MyAdminName*.
+    a. Omdat de **AdminPassword** niet is opgegeven in de voorgaande opdracht u wordt gevraagd het wachtwoord invoeren voor de gebruiker *MyAdminName*.
    
-    b. Hallo-script wordt gestart toovalidate Hallo-configuratiebestand. Tooseveral minuten, afhankelijk van de netwerkverbinding Hallo kan duren.
+    b. Het script vervolgens valideren van het configuratiebestand wordt gestart. Het kan enkele minuten duren, afhankelijk van de netwerkverbinding.
    
     ![Validatie][validate]
    
-    c. Nadat de validaties doorgeven, bevat Hallo script Hallo cluster resources toocreate. Voer *Y* toocontinue.
+    c. Nadat de validatie slaagt, worden het script de clusterbronnen maken. Voer *Y* om door te gaan.
    
     ![Resources][resources]
    
-    d. Hallo script start toodeploy Hallo HPC Pack cluster en Hallo-configuratie zonder verdere handmatige stappen is voltooid. Hallo-script kunt uitvoeren voor enkele minuten.
+    d. Het script begint met de implementatie van het cluster HPC Pack en de configuratie zonder verdere handmatige stappen is voltooid. Het script kunt uitvoeren voor enkele minuten.
    
     ![Implementeren][deploy]
    
    > [!NOTE]
-   > In dit voorbeeld Hallo script genereert een logboekbestand automatisch sinds Hallo **- LogFile** parameter is niet opgegeven. Hallo-Logboeken in realtime niet worden geschreven, maar worden verzameld achter Hallo Hallo validatie en Hallo-implementatie. Als Hallo PowerShell-proces is gestopt tijdens het Hallo-script wordt uitgevoerd, is enkele logboeken gaan verloren.
+   > In dit voorbeeld genereert het script een logboekbestand automatisch aangezien de **- LogFile** parameter is niet opgegeven. De logboeken in realtime niet worden geschreven, maar worden verzameld aan het einde van de validatie en de implementatie. Als het PowerShell-proces wordt gestopt terwijl het script wordt uitgevoerd, is enkele logboeken gaan verloren.
    > 
    > 
 
-## <a name="connect-toohello-head-node"></a>Verbinding maken met het hoofdknooppunt toohello
-Nadat u Hallo HPC Pack cluster in Azure worden geïmplementeerd [verbinding maken met extern bureaublad](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toohello hoofdknooppunt VM gebruik Hallo domeinreferenties die u hebt opgegeven tijdens de implementatie Hallo-cluster (bijvoorbeeld *hpc\\ clusteradmin*). U beheren Hallo cluster vanaf het hoofdknooppunt Hallo.
+## <a name="connect-to-the-head-node"></a>Verbinding maken met het hoofdknooppunt
+Nadat u het HPC Pack cluster in Azure worden geïmplementeerd [verbinding maken met extern bureaublad](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) met het hoofdknooppunt VM gebruikmaken van het domein referenties u opgegeven bij de implementatie van het cluster (bijvoorbeeld *hpc\\clusteradmin*). U beheren het cluster vanaf het hoofdknooppunt.
 
-Start op het hoofdknooppunt Hallo HPC Cluster Manager toocheck Hallo status van Hallo HPC Pack cluster. U kunt beheren en bewaken van Linux-rekenknooppunten hello dezelfde manier werken met Windows rekenknooppunten. Zie bijvoorbeeld Hallo Linux-knooppunten die worden vermeld in **bronbeheer** (deze knooppunten worden geïmplementeerd met Hallo **LinuxNode** sjabloon).
+Start op het hoofdknooppunt HPC Cluster Manager om de status van het cluster HPC Pack te controleren. U kunt beheren en bewaken Linux rekenknooppunten dezelfde manier als u werkt met Windows rekenknooppunten. Bijvoorbeeld, ziet u de Linux-knooppunten die worden vermeld in **bronbeheer** (deze knooppunten worden geïmplementeerd met de **LinuxNode** sjabloon).
 
 ![Knooppunt Management][management]
 
-U ziet ook Hallo Linux-knooppunten in Hallo **Heatmap** weergeven.
+U ziet ook de Linux-knooppunten in de **Heatmap** weergeven.
 
 ![Heatmap][heatmap]
 
-## <a name="how-toomove-data-in-a-cluster-with-linux-nodes"></a>Hoe toomove gegevens in een cluster met Linux-knooppunten
-U hebt verschillende opties toomove gegevens tussen Linux-knooppunten en Hallo Windows-hoofdknooppunt van het Hallo-cluster. Hier volgen drie algemene methoden in de volgende secties Hallo uitvoeriger beschreven:
+## <a name="how-to-move-data-in-a-cluster-with-linux-nodes"></a>Het verplaatsen van gegevens in een cluster met Linux-knooppunten
+U hebt verschillende mogelijkheden om gegevens tussen Linux-knooppunten en het Windows-hoofdknooppunt van het cluster te verplaatsen. Hier volgen drie algemene methoden uitgebreid beschreven in de volgende secties:
 
-* **Azure File** -gegarandeerd dat een beheerde SMB-share toostore bestandsgegevens in Azure-opslag-bestanden. Knooppunten voor Windows en Linux-knooppunten een Azure-bestandsshare kunnen koppelen als een station of een map op Hallo dezelfde tijd, zelfs als ze zijn geïmplementeerd in verschillende virtuele netwerken.
-* **Hoofdknooppunt SMB-share** -koppelt een standaard gedeelde Windows-map van het hoofdknooppunt Hallo op Linux-knooppunten.
+* **Azure File** -beschrijft een beheerde SMB-bestandsshare voor het opslaan van gegevensbestanden in Azure-opslag. Knooppunten voor Windows en Linux-knooppunten kunnen koppelen een Azure-bestandsshare als een station of een map op hetzelfde moment, zelfs als ze zijn geïmplementeerd in verschillende virtuele netwerken.
+* **Hoofdknooppunt SMB-share** -koppelt een standaard gedeelde Windows-map van het hoofdknooppunt op Linux-knooppunten.
 * **HEAD knooppunt NFS-server** -biedt een oplossing voor het delen van bestanden voor een gemengde omgeving van Windows en Linux.
 
 ### <a name="azure-file-storage"></a>Azure File storage
-Hallo [Azure File](https://azure.microsoft.com/services/storage/files/) -service geeft bestandsshares met behulp van Hallo standaard SMB 2.1-protocol. Azure virtuele machines en cloudservices kunnen bestandsgegevens delen tussen toepassingsonderdelen via gekoppelde shares en on-premises toepassingen hebben toegang tot bestandsgegevens in een share via Hallo File storage-API. 
+De [Azure File](https://azure.microsoft.com/services/storage/files/) -service geeft bestandsshares met behulp van het standaard SMB 2.1-protocol. Azure virtuele machines en cloudservices kunnen bestandsgegevens delen tussen toepassingsonderdelen via gekoppelde shares en on-premises toepassingen hebben toegang tot bestandsgegevens in een share via de File storage-API. 
 
-Zie voor gedetailleerde stappen toocreate een Azure-bestand delen en koppel deze aan Hallo hoofdknooppunt [aan de slag met Azure File storage in Windows](../../../storage/files/storage-how-to-use-files-windows.md). toomount hello Azure-bestandsshare op Hallo van Linux-knooppunten, Zie [hoe toouse Azure File storage met Linux](../../../storage/files/storage-how-to-use-files-linux.md). Zie tooset persistent maken verbindingen [Persisting verbindingen tooMicrosoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Zie voor gedetailleerde stappen voor een Azure-bestandsshare maken en koppelen van het hoofdknooppunt van het [aan de slag met Azure File storage in Windows](../../../storage/files/storage-how-to-use-files-windows.md). De Azure-bestandsshare koppelen op de Linux-knooppunten, Zie [Azure File storage gebruiken met Linux](../../../storage/files/storage-how-to-use-files-linux.md). Zie voor het persistent maken verbindingen instellen [Persisting verbindingen met Microsoft Azure-bestanden](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
-In Hallo voorbeeld te volgen, maakt u een Azure-bestandsshare op een opslagaccount. Hallo toomount delen op Hallo hoofdknooppunt, open een opdrachtprompt en voert u Hallo volgende opdrachten:
+In het volgende voorbeeld wordt een Azure-bestandsshare te maken van een opslagaccount. De share op het hoofdknooppunt koppelen, open een opdrachtprompt en voer de volgende opdrachten:
 
 ```command
 cmdkey /add:allvhdsje.file.core.windows.net /user:allvhdsje /pass:<storageaccountkey>
@@ -195,11 +195,11 @@ cmdkey /add:allvhdsje.file.core.windows.net /user:allvhdsje /pass:<storageaccoun
 net use Z: \\allvhdje.file.core.windows.net\rdma /persistent:yes
 ```
 
-In dit voorbeeld allvhdsje is de naam van uw opslagaccount, storageaccountkey is de sleutel van uw opslagaccount en rdma is hello Azure File-sharenaam. Hello Azure-bestandsshare is gekoppeld als Z: op Hallo hoofdknooppunt.
+In dit voorbeeld allvhdsje is de naam van uw opslagaccount, storageaccountkey is de sleutel van uw opslagaccount en rdma is de sharenaam van de Azure-bestand. De Azure-bestandsshare is gekoppeld als Z: op het hoofdknooppunt.
 
-toomount hello Azure-bestandsshare op Linux-knooppunten, voer een **clusrun** opdracht op Hallo hoofdknooppunt. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)**  is een nuttig HPC Pack hulpprogramma toocarry administratieve taken op meerdere knooppunten. (Zie ook [Clusrun voor Linux-knooppunten](#Clusrun-for-Linux-nodes) in dit artikel.)
+Koppelen van de Azure-bestandsshare op Linux-knooppunten, voer een **clusrun** opdracht op het hoofdknooppunt. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)**  is een nuttig hulpmiddel HPC Pack bij het uitvoeren van beheertaken op meerdere knooppunten. (Zie ook [Clusrun voor Linux-knooppunten](#Clusrun-for-Linux-nodes) in dit artikel.)
 
-Open een Windows PowerShell-venster en Voer Hallo volgende opdrachten:
+Open een Windows PowerShell-venster en voer de volgende opdrachten:
 
 ```powershell
 clusrun /nodegroup:LinuxNodes mkdir -p /rdma
@@ -207,22 +207,22 @@ clusrun /nodegroup:LinuxNodes mkdir -p /rdma
 clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.net/rdma /rdma -o vers=2.1`,username=allvhdsje`,password=<storageaccountkey>'`,dir_mode=0777`,file_mode=0777
 ```
 
-de eerste opdracht Hallo maakt een map met de naam /rdma op alle knooppunten in Hallo LinuxNodes groep. de tweede opdracht Hallo koppelt hello Azure File share allvhdsjw.file.core.windows.net/rdma op Hallo /rdma map met dir en de bestandsnaam modus bits set too777. In de tweede opdracht Hallo allvhdsje is de naam van uw opslagaccount en storageaccountkey is sleutel van uw opslagaccount.
+De eerste opdracht maakt een map met de naam /rdma op alle knooppunten in de groep LinuxNodes. De tweede opdracht koppelt de allvhdsjw.file.core.windows.net/rdma Azure File share naar de map /rdma met dir en de bestandsmodus ingesteld op 777. In de tweede opdracht allvhdsje is de naam van uw opslagaccount en storageaccountkey is de sleutel van uw opslagaccount.
 
 > [!NOTE]
-> Hallo '\`' symbool in de tweede opdracht Hallo is een escapeteken voor PowerShell. "\`, 'betekent dat Hallo', ' (door komma's teken) maakt deel uit van Hallo-opdracht.
+> De '\`' symbool in de tweede opdracht is een escapeteken voor PowerShell. "\`, ' betekent dat de","(kommateken) een onderdeel van de opdracht is.
 > 
 > 
 
 ### <a name="head-node-share"></a>Hoofdknooppunt share
-U kunt ook een gedeelde map van het hoofdknooppunt Hallo op Linux-knooppunten koppelen. Een share bevat Hallo eenvoudigste manier waarop tooshare bestanden, maar Hallo hoofdknooppunt en alle Linux-knooppunten moeten worden geïmplementeerd in Hallo hetzelfde virtuele netwerk. Hier volgen de stappen Hallo.
+U kunt ook een gedeelde map van het hoofdknooppunt op Linux-knooppunten koppelen. Een share biedt de eenvoudigste manier om bestanden te delen, maar het hoofdknooppunt en alle Linux-knooppunten in hetzelfde virtuele netwerk moeten worden geïmplementeerd. Hier volgen de stappen.
 
-1. Maak een map op het hoofdknooppunt Hallo en tooEveryone delen met de machtiging lezen/schrijven. Bijvoorbeeld D:\OpenFOAM delen op Hallo hoofdknooppunt als \\CentOS7RDMA HN\OpenFOAM. Hier volgt CentOS7RDMA HN Hallo hostname van Hallo hoofdknooppunt.
+1. Maak een map op het hoofdknooppunt en delen voor iedereen met machtigingen voor lezen/schrijven. Bijvoorbeeld D:\OpenFOAM delen op het hoofdknooppunt als \\CentOS7RDMA HN\OpenFOAM. Hier volgt CentOS7RDMA HN de hostnaam van het hoofdknooppunt.
    
     ![Machtigingen voor de bestandsshare][fileshareperms]
    
     ![Delen van bestanden][filesharing]
-2. Open een Windows PowerShell-venster en Voer Hallo volgende opdrachten uit:
+2. Open een Windows PowerShell-venster en voer de volgende opdrachten:
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -230,19 +230,19 @@ U kunt ook een gedeelde map van het hoofdknooppunt Hallo op Linux-knooppunten ko
     clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
     ```
 
-de eerste opdracht Hallo maakt een map met de naam /openfoam op alle knooppunten in Hallo LinuxNodes groep. de tweede opdracht Hallo koppelt Hallo gedeelde map //CentOS7RDMA-HN/OpenFOAM op Hallo-map met dir en de bestandsnaam modus bits set too777. Hallo moet gebruikersnaam en wachtwoord in Hallo-opdracht Hallo gebruikersnaam en wachtwoord van een gebruiker van het cluster op Hallo hoofdknooppunt. (Zie [toevoegen of verwijderen cluster gebruikers](https://technet.microsoft.com/library/ff919330.aspx).)
+De eerste opdracht maakt een map met de naam /openfoam op alle knooppunten in de groep LinuxNodes. De tweede opdracht koppelt de gedeelde map //CentOS7RDMA-HN/OpenFOAM naar de map met dir en de bestandsmodus ingesteld op 777. De gebruikersnaam en wachtwoord in de opdracht moet de gebruikersnaam en het wachtwoord van een gebruiker van het cluster op het hoofdknooppunt. (Zie [toevoegen of verwijderen cluster gebruikers](https://technet.microsoft.com/library/ff919330.aspx).)
 
 > [!NOTE]
-> Hallo '\`' symbool in de tweede opdracht Hallo is een escapeteken voor PowerShell. "\`, 'betekent dat Hallo', ' (door komma's teken) maakt deel uit van Hallo-opdracht.
+> De '\`' symbool in de tweede opdracht is een escapeteken voor PowerShell. "\`, ' betekent dat de","(kommateken) een onderdeel van de opdracht is.
 > 
 > 
 
 ### <a name="nfs-server"></a>NFS-server
-Hallo NFS-service kunt u tooshare en migreren van bestanden tussen computers met besturingssystemen Hallo Windows Server 2012 met behulp van SMB-protocol Hallo en met Hallo NFS-protocol op basis van Linux-computers. Hallo NFS-server en alle andere knooppunten hebben geïmplementeerd in Hallo toobe hetzelfde virtuele netwerk. Dit biedt betere compatibiliteit met Linux-knooppunten vergeleken met een SMB-share. Bijvoorbeeld: het bestandskoppelingen ondersteunt.
+De NFS-service kunt u delen en migreren van bestanden tussen de computers waarop het besturingssysteem van Windows Server 2012 met behulp van het SMB-protocol en Linux-computers met de NFS-protocol. De NFS-server en alle andere knooppunten moeten worden geïmplementeerd in hetzelfde virtuele netwerk. Dit biedt betere compatibiliteit met Linux-knooppunten vergeleken met een SMB-share. Bijvoorbeeld: het bestandskoppelingen ondersteunt.
 
-1. tooinstall en stelt u de NFS-server stappen Hallo in [Server voor Network File System-eerste Share End-to-End](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx).
+1. Volg de stappen in wilt installeren en instellen van een NFS-server, [Server voor Network File System-eerste Share End-to-End](http://blogs.technet.com/b/filecab/archive/2012/10/08/server-for-network-file-system-first-share-end-to-end.aspx).
    
-    Maak bijvoorbeeld een NFS-share met de naam nfs Hello volgende eigenschappen:
+    Maak bijvoorbeeld een NFS-share met de naam nfs met de volgende eigenschappen:
    
     ![NFS-autorisatie][nfsauth]
    
@@ -251,7 +251,7 @@ Hallo NFS-service kunt u tooshare en migreren van bestanden tussen computers met
     ![NFS-NTFS-machtigingen][nfsperm]
    
     ![Eigenschappen van de NFS-beheer][nfsmanage]
-2. Open een Windows PowerShell-venster en Voer Hallo volgende opdrachten uit:
+2. Open een Windows PowerShell-venster en voer de volgende opdrachten:
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare
@@ -259,47 +259,47 @@ Hallo NFS-service kunt u tooshare en migreren van bestanden tussen computers met
     clusrun /nodegroup:LinuxNodes mount CentOS7RDMA-HN:/nfs /nfsshared
     ```
    
-   de eerste opdracht Hallo maakt een map met de naam /nfsshared op alle knooppunten in Hallo LinuxNodes groep. Hallo tweede opdracht koppelingen Hallo NFS delen CentOS7RDMA HN: / nfs op Hallo map. Hier CentOS7RDMA HN:-nfs Hallo extern pad van de NFS-share is.
+   De eerste opdracht maakt een map met de naam /nfsshared op alle knooppunten in de groep LinuxNodes. De tweede opdracht koppelt de NFS-share CentOS7RDMA HN: / nfs naar de map. Hier CentOS7RDMA HN:-nfs is de externe pad van de NFS-share.
 
-## <a name="how-toosubmit-jobs"></a>Hoe toosubmit taken
-Er zijn verschillende manieren toosubmit taken toohello HPC Pack cluster:
+## <a name="how-to-submit-jobs"></a>Het verzenden van taken
+Er zijn verschillende manieren om taken voor het cluster HPC Pack te verzenden:
 
 * HPC Cluster Manager of HPC Job Manager GUI
 * HPC-webportal
 * REST API
 
-Verzending van de taak toohello cluster in Azure via HPC Pack GUI-hulpprogramma's en Hallo HPC-webportal Hallo zijn dezelfde als voor Windows-rekenknooppunten. Zie [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) en [hoe toosubmit taken uit een on-premises clientcomputer](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Verzenden van de taak aan het cluster in Azure via HPC Pack GUI-hulpprogramma's en de HPC-webportal zijn hetzelfde als voor Windows rekenknooppunten. Zie [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) en [het verzenden van taken van een on-premises clientcomputer](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-toosubmit-taken via Hallo REST-API te verwijzen[maken en verzenden van taken op met de REST-API in Microsoft HPC Pack Hallo](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). toosubmit taken van een Linux-client ook verwijzen toohello Python voorbeeld in Hallo [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756).
+Raadpleeg voor het verzenden van taken via de REST-API [maken en verzenden van taken met behulp van de REST-API in Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Voor het verzenden van taken van een Linux-client ook verwijzen naar het Python-voorbeeld in de [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756).
 
 ## <a name="clusrun-for-linux-nodes"></a>Clusrun voor Linux-knooppunten
-HPC Pack Hallo [clusrun](https://technet.microsoft.com/library/cc947685.aspx) hulpprogramma kan worden gebruikt tooexecute opdrachten op Linux-knooppunten via een opdrachtprompt of HPC Cluster Manager. Hier volgen enkele eenvoudige voorbeelden.
+De HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) hulpprogramma kan worden gebruikt voor het uitvoeren van opdrachten op Linux-knooppunten via een opdrachtprompt of HPC Cluster Manager. Hier volgen enkele eenvoudige voorbeelden.
 
-* Huidige gebruikersnamen op alle knooppunten in cluster Hallo weergeven.
+* Huidige gebruikersnamen weergeven op alle knooppunten in het cluster.
   
     ```command
     clusrun whoami
     ```
-* Hallo installeren **gdb** foutopsporingsprogramma met **yum** op alle knooppunten in Hallo linuxnodes groeperen en Hallo knooppunten na 10 minuten opnieuw opstarten.
+* Installeer de **gdb** foutopsporingsprogramma met **yum** op alle knooppunten in de linuxnodes groep en de knooppunten na 10 minuten opnieuw opstarten.
   
     ```command
     clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
     ```
-* Een weergave van elk getal van 1 tot en met 10 voor één seconde op elk knooppunt van Linux in Hallo cluster shell-script maken, uitvoeren en de uitvoer van Hallo knooppunten onmiddellijk weergeven.
+* Maken van een shell-script weergeven van elk getal van 1 tot en met 10 voor één seconde op elke Linux-knooppunt in het cluster, uitvoeren en uitvoer van de knooppunten onmiddellijk weergeven.
   
     ```command
     clusrun /interleaved /nodegroup:linuxnodes echo \"for i in {1..10}; do echo \\\"\$i\\\"; sleep 1; done\" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
 > [!NOTE]
-> Mogelijk moet u toouse bepaalde escape-tekens in **clusrun** opdrachten. Zoals u in dit voorbeeld, gebruik ^ in een opdrachtprompt tooescape Hallo ' > ' symbool.
+> Mogelijk moet u bepaalde escapetekens in gebruiken **clusrun** opdrachten. Zoals u in dit voorbeeld, gebruik ^ in een opdrachtprompt als escape voor de ' > ' symbool.
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Probeer schaalt Hallo cluster tooa groter aantal knooppunten of het uitvoeren van een Linux-werkbelasting op Hallo-cluster. Zie voor een voorbeeld [NAMD uitvoeren met Microsoft HPC Pack op Linux-rekenknooppunten in Azure](hpcpack-cluster-namd.md).
-* Probeer een cluster met [RDMA-functionaliteit, rekenintensieve VMs](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toorun MPI-belastingen. Zie voor een voorbeeld [OpenFOAM uitvoeren met Microsoft HPC Pack op een Linux RDMA-cluster in Azure](hpcpack-cluster-openfoam.md).
-* Als u geïnteresseerd bent in het werken met Linux-knooppunten in een on-premises HPC Pack-cluster, raadpleegt u Hallo [TechNet richtlijnen](https://technet.microsoft.com/library/mt595803.aspx).
+* Probeer schalen van het cluster naar een groter aantal knooppunten, of een werkbelasting Linux wordt uitgevoerd op het cluster. Zie voor een voorbeeld [NAMD uitvoeren met Microsoft HPC Pack op Linux-rekenknooppunten in Azure](hpcpack-cluster-namd.md).
+* Probeer een cluster met [RDMA-functionaliteit, rekenintensieve VMs](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) MPI-workloads uitvoeren. Zie voor een voorbeeld [OpenFOAM uitvoeren met Microsoft HPC Pack op een Linux RDMA-cluster in Azure](hpcpack-cluster-openfoam.md).
+* Als u geïnteresseerd bent in het werken met Linux-knooppunten in een on-premises HPC Pack-cluster, raadpleegt u de [TechNet richtlijnen](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->
 [scenario]:media/hpcpack-cluster/scenario.png

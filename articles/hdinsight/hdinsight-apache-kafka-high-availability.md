@@ -1,6 +1,6 @@
 ---
-title: beschikbaarheid van aaaHigh met Apache Kafka - Azure HDInsight | Microsoft Docs
-description: Meer informatie over hoe tooensure hoge beschikbaarheid met Apache Kafka in Azure HDInsight. Meer informatie over hoe toorebalance replica's in Kafka partitie zodat ze zich op verschillende foutdomeinen binnen hello Azure-regio met HDInsight.
+title: Hoge beschikbaarheid met Apache Kafka - Azure HDInsight | Microsoft Docs
+description: Informatie over hoge beschikbaarheid garanderen met Apache Kafka in Azure HDInsight. Informatie over het opnieuw verdelen van partitiereplica's in Kafka zodat deze zich bevinden op verschillende foutdomeinen binnen de Azure-regio met HDInsight.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -12,30 +12,30 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/20/2017
 ms.author: larryfr
-ms.openlocfilehash: 337468f36b531f83c2999e87907de89cf3d19dd4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3edec2e68356604562af2219ccd498732c564ec5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight"></a>Hoge beschikbaarheid van uw gegevens met Apache Kafka (preview) in HDInsight
 
-Meer informatie over hoe tooconfigure partitie replica's voor Kafka onderwerpen tootake profiteren van de onderliggende hardware configuratie van rack. Deze configuratie zorgt er Hallo beschikbaarheid van gegevens die zijn opgeslagen in de Apache-Kafka op HDInsight.
+Informatie over het configureren van partitiereplica's voor Kafka-onderwerpen om te profiteren van de onderliggende rek-configuratie van de hardware. Deze configuratie waarborgt de beschikbaarheid van gegevens die zijn opgeslagen in Apache Kafka op HDInsight.
 
 ## <a name="fault-and-update-domains-with-kafka"></a>Probleem- en updatedomeinen met Kafka
 
-Een foutdomein is een logische groepering van de onderliggende hardware in een Azure-datacenter. Elk foutdomein deelt een algemene voedingsbron en netwerkswitch. Hallo virtuele machines en beheerde schijven die Hallo knooppunten binnen een HDInsight-cluster implementeren zijn verdeeld over deze domeinen met fouten. Deze architectuur beperkt Hallo potentiële impact van problemen met de fysieke hardware.
+Een foutdomein is een logische groepering van de onderliggende hardware in een Azure-datacenter. Elk foutdomein deelt een algemene voedingsbron en netwerkswitch. De virtuele machines en beheerde schijven die de knooppunten in een HDInsight-cluster implementeren zijn verdeeld over deze foutdomeinen. Deze architectuur beperkt de potentiële impact van problemen met de fysieke hardware.
 
-Elke Azure-regio heeft een bepaald aantal foutdomeinen. Zie voor een lijst van domeinen en het aantal foutdomeinen ze bevatten Hallo Hallo [beschikbaarheidssets](../virtual-machines/linux/regions-and-availability.md#availability-sets) documentatie.
+Elke Azure-regio heeft een bepaald aantal foutdomeinen. Zie de [Beschikbaarheidssets](../virtual-machines/linux/regions-and-availability.md#availability-sets)-documentatie voor een lijst met domeinen en het aantal foutdomeinen die ze bevatten.
 
 > [!IMPORTANT]
-> Kafka is niet bekend met foutdomeinen. Wanneer u een onderwerp in Kafka maakt, kan deze alle replica's opslaan in Hallo hetzelfde foutdomein. toosolve dit probleem, bieden we Hallo [Kafka partitie deel opnieuw hulpprogramma](https://github.com/hdinsight/hdinsight-kafka-tools).
+> Kafka is niet bekend met foutdomeinen. Wanneer u een onderwerp in Kafka maakt, is het daarom mogelijk dat alle partitiereplica's in hetzelfde foutdomein worden opgeslagen. Als oplossing voor dit probleem bieden we het [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools) (hulpprogramma voor het opnieuw indelen van Kafka-partities).
 
-## <a name="when-toorebalance-partition-replicas"></a>Wanneer de replica's voor het partitioneren van toorebalance
+## <a name="when-to-rebalance-partition-replicas"></a>Wanneer partitiereplica 's opnieuw moeten worden ingedeeld
 
-tooensure hello hoogste beschikbaarheid van uw gegevens Kafka, u moet opnieuw verdelen Hallo partitie replica's voor uw onderwerp op Hallo volgende tijden:
+Om de hoogst mogelijke beschikbaarheid van uw Kafka-gegevens te waarborgen, moet u de partitiereplica's voor uw onderwerp op de volgende tijden opnieuw indelen:
 
 * wanneer een nieuw onderwerp of partitie wordt gemaakt
 
@@ -46,15 +46,15 @@ tooensure hello hoogste beschikbaarheid van uw gegevens Kafka, u moet opnieuw ve
 > [!IMPORTANT]
 > Wij raden het gebruik aan van een Azure-regio die drie foutdomeinen bevat en van een replicatiefactor van 3.
 
-Als u een regio met slechts twee domeinen met fouten gebruiken moet, gebruikt u een factor van de replicatie van 4 toospread Hallo-replica's gelijkmatig tussen de twee domeinen met fouten Hallo.
+Als u een regio met slechts twee foutdomeinen moet gebruiken, gebruik dan een replicatiefactor van 4 om de replica's gelijkmatig te verdelen over de twee foutdomeinen.
 
-Zie voor een voorbeeld van het maken van onderwerpen en -instelling Hallo replicatie factor Hallo [beginnen met Kafka op HDInsight](hdinsight-apache-kafka-get-started.md) document.
+Zie het document [Aan de slag met Apache Kafka in HDInsight](hdinsight-apache-kafka-get-started.md) voor een voorbeeld van het maken van onderwerpen en instellen van de replicatiefactor.
 
-## <a name="how-toorebalance-partition-replicas"></a>Hoe toorebalance partitie-replica 's
+## <a name="how-to-rebalance-partition-replicas"></a>Hoe partitiereplica 's opnieuw moeten worden ingedeeld
 
-Gebruik Hallo [Kafka partitie deel opnieuw hulpprogramma](https://github.com/hdinsight/hdinsight-kafka-tools) toorebalance onderwerpen geselecteerd. Dit hulpprogramma moet vanaf een SSH-sessie toohello hoofdknooppunt van het cluster Kafka worden uitgevoerd.
+Gebruik het [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools) (hulpprogramma voor het opnieuw indelen van Kafka-partities) om de geselecteerde onderwerpen opnieuw in te delen. Dit hulpprogramma moet vanaf een SSH-sessie naar het hoofdknooppunt van het Kafka-cluster worden uitgevoerd.
 
-Zie voor meer informatie over tooHDInsight via SSH verbinding te maken, de [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
+Zie het document [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie over verbinding maken met HDInsight met behulp van SSH.
 
 ## <a name="next-steps"></a>Volgende stappen
 

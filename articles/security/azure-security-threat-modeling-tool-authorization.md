@@ -1,6 +1,6 @@
 ---
-title: -Microsoft Threat Modeling Tool - aaaAuthorization Azure | Microsoft Docs
-description: oplossingen voor bedreigingen die worden weergegeven in Hallo Threat Modeling hulpprogramma
+title: Autorisatie - hulpmiddel voor het modelleren van Microsoft Threat - Azure | Microsoft Docs
+description: oplossingen voor bedreigingen die worden weergegeven in het hulpprogramma Threat Modeling
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 3ea7ae2b46baa8578e574e6006b98dfe172829e7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="security-frame-authorization--mitigations"></a>Beveiliging Frame: Autorisatie | Oplossingen 
 | Product/Service | Artikel |
 | --------------- | ------- |
-| **Een grens machine vertrouwensrelatie** | <ul><li>[Zorg ervoor dat de juiste ACL's geconfigureerde toorestrict niet-geautoriseerde toegang toodata op Hallo apparaat zijn](#acl-restricted-access)</li><li>[Zorg ervoor dat gevoelige gebruikersspecifieke toepassingsinhoud wordt opgeslagen in gebruikersprofiel directory](#sensitive-directory)</li><li>[Zorg ervoor dat Hallo geïmplementeerde toepassingen worden uitgevoerd met de minimaal benodigde bevoegdheden](#deployed-privileges)</li></ul> |
-| **Webtoepassing** | <ul><li>[Sequentiële volgorde afdwingen bij het verwerken van zakelijke logica stromen](#sequential-logic)</li><li>[Snelheidsbeperking mechanisme tooprevent opsomming implementeren](#rate-enumeration)</li><li>[Zorg ervoor dat de juiste autorisatie geïmplementeerd is en principe van minimale bevoegdheden wordt gevolgd.](#principle-least-privilege)</li><li>[Zakelijke logica en resource toegang autorisatiebeslissingen moeten niet zijn gebaseerd op parameters van de binnenkomende aanvraag](#logic-request-parameters)</li><li>[Zorg ervoor dat de inhoud en resources zijn niet inventariseerbare of toegankelijk via de geforceerde bladeren](#enumerable-browsing)</li></ul> |
-| **Database** | <ul><li>[Zorg ervoor dat minst bevoegde accounts gebruikte tooconnect tooDatabase server](#privileged-server)</li><li>[Rij Level Security-RLS tooprevent tenants toegang tot elkaars gegevens implementeren](#rls-tenants)</li><li>[De rol sysadmin mag alleen geldige nodig gebruikers hebben.](#sysadmin-users)</li></ul> |
-| **IoT-Cloudgateway** | <ul><li>[TooCloud Gateway verbinding maken met de minste bevoegdheden tokens](#cloud-least-privileged)</li></ul> |
-| **Azure Event Hub** | <ul><li>[Een verzenden alleen-lezen machtigingen SAS-sleutel gebruiken voor het genereren van apparaattokens](#sendonly-sas)</li><li>[Gebruik geen toegangstokens die directe toegang toohello Event Hub opgeven](#access-tokens-hub)</li><li>[Verbinding maken met tooEvent Hub met SAS-codes dat Hallo minimale machtigingen vereist](#sas-minimum-permissions)</li></ul> |
-| **Azure Documentdb** | <ul><li>[Gebruik resource tokens tooconnect tooDocumentDB indien mogelijk](#resource-docdb)</li></ul> |
-| **Vertrouwensgrenzen van Azure** | <ul><li>[Inschakelen van fijnmazig access management tooAzure abonnement met RBAC](#grained-rbac)</li></ul> |
-| **Service Fabric-Vertrouwensgrenzen** | <ul><li>[Beperken van de client toegang toocluster bewerkingen met RBAC](#cluster-rbac)</li></ul> |
+| **Een grens machine vertrouwensrelatie** | <ul><li>[Zorg ervoor dat de juiste ACL's zijn geconfigureerd voor niet-geautoriseerde toegang tot gegevens op het apparaat beperken](#acl-restricted-access)</li><li>[Zorg ervoor dat gevoelige gebruikersspecifieke toepassingsinhoud wordt opgeslagen in gebruikersprofiel directory](#sensitive-directory)</li><li>[Zorg ervoor dat de geïmplementeerde toepassingen worden uitgevoerd met de minimaal benodigde bevoegdheden](#deployed-privileges)</li></ul> |
+| **Webtoepassing** | <ul><li>[Sequentiële volgorde afdwingen bij het verwerken van zakelijke logica stromen](#sequential-logic)</li><li>[Snelheidsbeperking mechanisme om te voorkomen dat opsomming implementeren](#rate-enumeration)</li><li>[Zorg ervoor dat de juiste autorisatie geïmplementeerd is en principe van minimale bevoegdheden wordt gevolgd.](#principle-least-privilege)</li><li>[Zakelijke logica en resource toegang autorisatiebeslissingen moeten niet zijn gebaseerd op parameters van de binnenkomende aanvraag](#logic-request-parameters)</li><li>[Zorg ervoor dat de inhoud en resources zijn niet inventariseerbare of toegankelijk via de geforceerde bladeren](#enumerable-browsing)</li></ul> |
+| **Database** | <ul><li>[Zorg ervoor dat de minst bevoegde accounts worden gebruikt voor het verbinding maken met Database-server](#privileged-server)</li><li>[Rij Level Security-RLS om te voorkomen dat tenants toegang tot elkaars gegevens implementeren](#rls-tenants)</li><li>[De rol sysadmin mag alleen geldige nodig gebruikers hebben.](#sysadmin-users)</li></ul> |
+| **IoT-Cloudgateway** | <ul><li>[Verbinding maken met de Cloudgateway minder rechten tokens gebruiken](#cloud-least-privileged)</li></ul> |
+| **Azure Event Hub** | <ul><li>[Een verzenden alleen-lezen machtigingen SAS-sleutel gebruiken voor het genereren van apparaattokens](#sendonly-sas)</li><li>[Toegangstokens die directe toegang tot de Event Hub verlenen niet gebruiken](#access-tokens-hub)</li><li>[Verbinding maken met Event Hub met SAS-sleutels die de vereiste minimale machtigingen](#sas-minimum-permissions)</li></ul> |
+| **Azure Documentdb** | <ul><li>[Resource-tokens gebruiken voor verbinding met DocumentDB indien mogelijk](#resource-docdb)</li></ul> |
+| **Vertrouwensgrenzen van Azure** | <ul><li>[Geavanceerd toegangsbeheer voor Azure-abonnement met RBAC inschakelen](#grained-rbac)</li></ul> |
+| **Service Fabric-Vertrouwensgrenzen** | <ul><li>[Van de client toegang tot de bewerkingen voor een cluster met RBAC beperken](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Veld beveiligingsniveau en beveiliging modellering uitgevoerd indien vereist](#modeling-field)</li></ul> |
-| **Dynamics CRM-Portal** | <ul><li>[Beveiliging modellering van portal accounts Houd in gedachten dat beveiligingsmodel Hallo voor Hallo portal wijkt af van de rest van CRM Hallo uitvoeren](#portal-security)</li></ul> |
-| **Azure Storage** | <ul><li>[Fijnmazig toestemming van een bereik van entiteiten in de Azure-tabelopslag](#permission-entities)</li><li>[Op rollen gebaseerde toegangsbeheer (RBAC) tooAzure storage-account met Azure Resource Manager inschakelen](#rbac-azure-manager)</li></ul> |
+| **Dynamics CRM-Portal** | <ul><li>[Beveiliging modellering van portal accounts houden er rekening mee dat het beveiligingsmodel voor de portal van de rest van CRM verschilt uitvoeren](#portal-security)</li></ul> |
+| **Azure Storage** | <ul><li>[Fijnmazig toestemming van een bereik van entiteiten in de Azure-tabelopslag](#permission-entities)</li><li>[Op rollen gebaseerde toegangsbeheer (RBAC) naar Azure storage-account met Azure Resource Manager inschakelen](#rbac-azure-manager)</li></ul> |
 | **Mobiele clients** | <ul><li>[Impliciete jailbreakdetectie of detectie basismappen implementeren](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Van zwakke klassenverwijzing in WCF](#weak-class-wcf)</li><li>[WCF-implementeren Authorization control](#wcf-authz)</li></ul> |
 | **Web-API** | <ul><li>[Juiste autorisatiemechanismen in ASP.NET Web API implementeren](#authz-aspnet)</li></ul> |
-| **IoT-apparaat** | <ul><li>[Autorisatie controles uitvoeren in Hallo-apparaat als deze ondersteuning biedt voor verschillende acties die verschillende machtigingsniveaus vereisen](#device-permission)</li></ul> |
-| **Veld IoT Gateway** | <ul><li>[Autorisatie controles uitvoeren in Hallo Veldgateway als deze ondersteuning biedt voor verschillende acties die verschillende machtigingsniveaus vereisen](#field-permission)</li></ul> |
+| **IoT-apparaat** | <ul><li>[Autorisatie controles uitvoeren in het apparaat als deze ondersteuning biedt voor verschillende acties die verschillende machtigingsniveaus vereisen](#device-permission)</li></ul> |
+| **Veld IoT Gateway** | <ul><li>[Autorisatie controles uitvoeren in de Gateway van het veld als deze ondersteuning biedt voor verschillende acties die verschillende machtigingsniveaus vereisen](#field-permission)</li></ul> |
 
-## <a id="acl-restricted-access"></a>Zorg ervoor dat de juiste ACL's geconfigureerde toorestrict niet-geautoriseerde toegang toodata op Hallo apparaat zijn
+## <a id="acl-restricted-access"></a>Zorg ervoor dat de juiste ACL's zijn geconfigureerd voor niet-geautoriseerde toegang tot gegevens op het apparaat beperken
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/06/2017
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | Zorg ervoor dat de juiste ACL's geconfigureerde toorestrict niet-geautoriseerde toegang toodata op Hallo apparaat zijn|
+| **Stappen** | Zorg ervoor dat de juiste ACL's zijn geconfigureerd voor niet-geautoriseerde toegang tot gegevens op het apparaat beperken|
 
 ## <a id="sensitive-directory"></a>Zorg ervoor dat gevoelige gebruikersspecifieke toepassingsinhoud wordt opgeslagen in gebruikersprofiel directory
 
@@ -60,9 +60,9 @@ ms.lasthandoff: 10/06/2017
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | Zorg ervoor dat gevoelige gebruikersspecifieke toepassingsinhoud wordt opgeslagen in gebruikersprofiel directory. Dit is tooprevent meerdere gebruikers Hallo machine toegang tot elkaars gegevens.|
+| **Stappen** | Zorg ervoor dat gevoelige gebruikersspecifieke toepassingsinhoud wordt opgeslagen in gebruikersprofiel directory. Dit is om te voorkomen dat meerdere gebruikers van de machine toegang tot elkaars gegevens.|
 
-## <a id="deployed-privileges"></a>Zorg ervoor dat Hallo geïmplementeerde toepassingen worden uitgevoerd met de minimaal benodigde bevoegdheden
+## <a id="deployed-privileges"></a>Zorg ervoor dat de geïmplementeerde toepassingen worden uitgevoerd met de minimaal benodigde bevoegdheden
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/06/2017
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | Zorg ervoor dat de toepassing hello geïmplementeerd met minimale bevoegdheden wordt uitgevoerd. |
+| **Stappen** | Zorg ervoor dat de gedistribueerde toepassing wordt uitgevoerd met de minimaal benodigde bevoegdheden. |
 
 ## <a id="sequential-logic"></a>Sequentiële volgorde afdwingen bij het verwerken van zakelijke logica stromen
 
@@ -82,9 +82,9 @@ ms.lasthandoff: 10/06/2017
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | In volgorde tooverify die deze fase via is uitgevoerd door een legitieme gebruiker u wilt tooenforce Hallo toepassing tooonly zakelijke logica processtromen in opeenvolgende volgorde, met alle stappen in de realistische menselijke tijd wordt verwerkt en niet verwerken volgorde, wordt overgeslagen stappen, verwerkt de stappen van een andere gebruiker of transacties te snel verzonden.|
+| **Stappen** | Om te controleren of deze fase via werd uitgevoerd door een legitieme gebruiker die u wilt afdwingen van de toepassing alleen verwerken zakelijke logica stromen in opeenvolgende volgorde, met alle stappen in de realistische menselijke tijd wordt verwerkt en niet verwerken volgorde, overgeslagen stappen verwerkte stappen van een andere gebruiker of transacties te snel worden verzonden.|
 
-## <a id="rate-enumeration"></a>Snelheidsbeperking mechanisme tooprevent opsomming implementeren
+## <a id="rate-enumeration"></a>Snelheidsbeperking mechanisme om te voorkomen dat opsomming implementeren
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -104,7 +104,7 @@ ms.lasthandoff: 10/06/2017
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | <p>Hallo principe betekent dat een gebruikersaccount geeft alleen de bevoegdheden die de essentiële toothat gebruikers werkuren. Bijvoorbeeld, een back-gebruiker geen tooinstall software nodig: daarom Hallo back-gebruiker beschikt over rechten alleen toorun back-ups en back-up-gerelateerde toepassingen. Andere bevoegdheden, zoals het installeren van nieuwe software, worden geblokkeerd. Hallo geldt ook tooa pc-gebruiker die meestal werkt in een normaal gebruikersaccount en opent een account met machtigingen, een wachtwoord beveiligd (dat wil zeggen, een superuser) alleen wanneer Hallo situatie absoluut vraagt. </p><p>Dit principe kan ook worden toegepast tooyour-webtoepassingen. In plaats van alleen afhankelijk van de op rollen gebaseerde verificatiemethoden met behulp van sessies, in plaats daarvan willen we tooassign bevoegdheden toousers door middel van een systeem met verificatie op basis van de Database. We sessies in volgorde tooidentify nog steeds gebruiken als Hallo gebruiker is aangemeld correct nu alleen in plaats van die gebruiker met een specifieke rol die we toe te wijzen met bevoegdheden tooverify welke acties hij bevoorrechte tooperform op Hallo systeem toewijzen. Een groot pro van deze methode is ook, wanneer een gebruiker toobe minder bevoegdheden die uw wijzigingen worden toegepast op Hallo snel heeft omdat Hallo toewijzen is niet afhankelijk Hallo-sessie die anders tooexpire eerst had toegewezen.</p>|
+| **Stappen** | <p>Het principe betekent dat een gebruikersaccount geeft alleen de bevoegdheden die essentieel zijn voor dat gebruikers werken. Bijvoorbeeld, een back-gebruiker niet hoeft te installeren: daarom de back-gebruiker beschikt over rechten voor het uitvoeren van back-ups en back-up-gerelateerde toepassingen. Andere bevoegdheden, zoals het installeren van nieuwe software, worden geblokkeerd. Het principe geldt ook voor een pc-gebruiker die meestal werkt in een normaal gebruikersaccount en opent een account met machtigingen, een wachtwoord beveiligd (dat wil zeggen, een superuser) alleen wanneer de situatie absoluut vraagt. </p><p>Dit principe kan ook worden toegepast op uw webtoepassingen. In plaats van alleen afhankelijk van de op rollen gebaseerde verificatiemethoden met behulp van sessies, in plaats daarvan willen we rechten toewijzen aan gebruikers met behulp van een systeem met verificatie op basis van de Database. We nog steeds sessies gebruiken om u te identificeren als de gebruiker is aangemeld correct nu alleen in plaats van die gebruiker met een specifieke rol die we toe te wijzen met bevoegdheden om te controleren welke acties die hij bepaalde bevoegdheden heeft uit te voeren op het systeem toewijzen. Een groot pro van deze methode is ook, wanneer een gebruiker heeft minder bevoegdheden die uw wijzigingen worden toegepast op elk gewenst moment omdat het toewijzen is niet afhankelijk van de sessie die anders eerst vervallen moest worden toegewezen.</p>|
 
 ## <a id="logic-request-parameters"></a>Zakelijke logica en resource toegang autorisatiebeslissingen moeten niet zijn gebaseerd op parameters van de binnenkomende aanvraag
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 10/06/2017
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | Wanneer u controleert of een gebruiker met beperkte toegang tooreview is verwerkt bepaalde gegevens, Hallo toegang beperkingen moet serverzijde. Hallo userID moet worden opgeslagen in een sessievariabele aanmelden en moet de gebruikte tooretrieve gebruikersgegevens uit de database Hallo |
+| **Stappen** | Wanneer u controleert of een gebruiker beperkt is tot bepaalde gegevens bekijken, moet de toegangsbeperkingen verwerkte serverzijde. De gebruikers-id moet worden opgeslagen in een sessievariabele aanmelden en moet worden gebruikt voor het ophalen van gebruikersgegevens uit de database |
 
 ### <a name="example"></a>Voorbeeld
 ```SQL
@@ -123,7 +123,7 @@ SELECT data
 FROM personaldata 
 WHERE userID=:id < - session var 
 ```
-Nu kan een aanvaller mogelijk niet knoeien en Hallo toepassing bewerking niet wijzigen omdat het Hallo-id voor het ophalen van gegevens Hallo verwerkt serverzijde.
+Een aanvaller mogelijk kan nu niet kunnen knoeien en wijzig verwerkt de bewerking van de toepassing omdat de id voor het ophalen van de gegevens is serverzijde.
 
 ## <a id="enumerable-browsing"></a>Zorg ervoor dat de inhoud en resources zijn niet inventariseerbare of toegankelijk via de geforceerde bladeren
 
@@ -134,9 +134,9 @@ Nu kan een aanvaller mogelijk niet knoeien en Hallo toepassing bewerking niet wi
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | <p>Gevoelige statisch en configuratie-bestanden moeten niet worden opgeslagen in Hallo Webroot. Voor de inhoud niet vereist toobe openbare inhoud op de juiste toegang besturingselementen moeten worden toegepast of de verwijdering van Hallo zelf.</p><p>Ook wordt geforceerde bladeren meestal gecombineerd met Brute kracht technieken toogather informatie door te proberen tooaccess zoveel URL's als mogelijke tooenumerate mappen en bestanden op een server. Aanvallers kunnen controleren voor alle variaties van vaak bestaande bestanden. Een zoekbewerking wachtwoord zou bijvoorbeeld bestanden met inbegrip van psswd.txt, password.htm password.dat en andere variaties omvatten.</p><p>toomitigate dit mogelijkheden voor de detectie van beveiligingsaanvallen probeert moeten worden opgenomen.</p>|
+| **Stappen** | <p>Gevoelige statisch en configuratie-bestanden moeten niet worden opgeslagen in de hoofdmap van het web. Voor de inhoud niet als public is vereist, de juiste toegangscontroles moeten worden toegepast of het verwijderen van de inhoud zelf.</p><p>Geforceerde bladeren wordt ook meestal gecombineerd met Brute kracht technieken gegevens verzamelen door het openen van zoveel URL's mogelijk bij het opsommen van mappen en bestanden op een server. Aanvallers kunnen controleren voor alle variaties van vaak bestaande bestanden. Een zoekbewerking wachtwoord zou bijvoorbeeld bestanden met inbegrip van psswd.txt, password.htm password.dat en andere variaties omvatten.</p><p>Mogelijkheden voor de detectie van beveiligingsaanvallen pogingen moeten worden opgenomen als oplossing hiervoor kunt.</p>|
 
-## <a id="privileged-server"></a>Zorg ervoor dat minst bevoegde accounts gebruikte tooconnect tooDatabase server
+## <a id="privileged-server"></a>Zorg ervoor dat de minst bevoegde accounts worden gebruikt voor het verbinding maken met Database-server
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -145,9 +145,9 @@ Nu kan een aanvaller mogelijk niet knoeien en Hallo toepassing bewerking niet wi
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | [SQL-Database machtigingen hiërarchie](https://msdn.microsoft.com/library/ms191465), [securables voor SQL-database](https://msdn.microsoft.com/library/ms190401) |
-| **Stappen** | Minst bevoegde accounts moet gebruikte tooconnect toohello database. Aanmelding van de toepassing moet worden beperkt in Hallo-database en moet alleen geselecteerde opgeslagen procedures worden uitgevoerd. Aanmelding van de toepassing moet hebben geen directe tabeltoegang. |
+| **Stappen** | Minst bevoegde accounts moeten worden gebruikt voor verbinding met de database. Aanmelding van de toepassing moet worden beperkt in de database en moet alleen geselecteerde opgeslagen procedures worden uitgevoerd. Aanmelding van de toepassing moet hebben geen directe tabeltoegang. |
 
-## <a id="rls-tenants"></a>Rij Level Security-RLS tooprevent tenants toegang tot elkaars gegevens implementeren
+## <a id="rls-tenants"></a>Rij Level Security-RLS om te voorkomen dat tenants toegang tot elkaars gegevens implementeren
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -156,9 +156,9 @@ Nu kan een aanvaller mogelijk niet knoeien en Hallo toepassing bewerking niet wi
 | **Van toepassing technologieën** | SQL Azure, OnPrem |
 | **Kenmerken**              | SQL-versie - V12, SQL-versie - MsSQL2016 |
 | **Verwijzingen**              | [SQL Server-beveiliging voor rijniveau (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
-| **Stappen** | <p>Beveiliging op rijniveau kunt klanten toocontrol toegang toorows in een databasetabel op basis van kenmerken Hallo van Hallo gebruiker (bijv, groep lidmaatschap of -uitvoering context) van een query uit te voeren.</p><p>Rij-Level Security (RLS) vereenvoudigt het Hallo-ontwerp en de codering van beveiliging in uw toepassing. RLS kunt u tooimplement beperkingen voor gegevenstoegang rij. Bijvoorbeeld ervoor te zorgen dat werknemers toegang krijgen tot alleen die rijen met gegevens die relevante tootheir afdeling zijn of een bedrijf van de klant gegevens toegang tooonly Hallo gegevens relevante tootheir beperken.</p><p>Hallo toegang beperking logica is gevonden in de databaselaag Hallo in plaats van opslag van Hallo-gegevens in een andere toepassingslaag. elke keer dat de toegang tot die gegevens van elke categorie wordt uitgevoerd, past Hallo databasesysteem Hallo toegangsbeperkingen. Hierdoor Hallo beveiligingssysteem betrouwbaarder en robuuste doordat Hallo surface area van Hallo beveiligingssysteem.</p><p>|
+| **Stappen** | <p>Met beveiliging op rijniveau kunnen klanten de toegang tot rijen in een databasetabel beheren op basis van de kenmerken van de gebruiker die een query uitvoert (bijvoorbeeld groepslidmaatschap of uitvoeringscontext).</p><p>Rij-Level Security (RLS) vereenvoudigt het ontwerp en het coderen van beveiliging in uw toepassing. Met RLS kunt u beperkingen instellen voor de toegang tot gegevens in rijen. U kunt bijvoorbeeld bepalen dat werkrollen alleen toegang hebben tot de rijen met gegevens die relevant zijn voor hun afdeling, of de toegang van klanten beperken tot de gegevens die relevant zijn voor hun bedrijf.</p><p>De beperking toegang logica is gevonden in de databaselaag in plaats van opslag van de gegevens in een andere toepassingslaag. Elke keer dat de toegang tot die gegevens van elke categorie wordt uitgevoerd, past het databasesysteem de toegangsbeperkingen. Dit maakt het beveiligingssysteem betrouwbaarder en robuuste doordat het oppervlak van het beveiligingssysteem.</p><p>|
 
-Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepassing alleen tooSQL Server vanaf 2016 en Azure SQL-database. Als Hallo out-of-the-box-RLS functie is niet geïmplementeerd, er moet voor worden gezorgd dat de gegevenstoegang beperkt met behulp van weergaven en Procedures is
+Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is alleen van toepassing op SQL-Server vanaf 2016 en Azure SQL database. Als de out-of-the-box-RLS-functie niet is geïmplementeerd, er moet voor worden gezorgd dat de gegevenstoegang beperkt met behulp van weergaven en Procedures is
 
 ## <a id="sysadmin-users"></a>De rol sysadmin mag alleen geldige nodig gebruikers hebben.
 
@@ -169,9 +169,9 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepa
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | [SQL-Database machtigingen hiërarchie](https://msdn.microsoft.com/library/ms191465), [securables voor SQL-database](https://msdn.microsoft.com/library/ms190401) |
-| **Stappen** | Leden van de vaste serverrol SysAdmin Hallo moeten zeer beperkt en nooit accounts die worden gebruikt door toepassingen bevatten.  Bekijk Hallo lijst met gebruikers in rol Hallo en verwijder alle overbodige accounts|
+| **Stappen** | Leden van de vaste serverrol sysadmin moeten zeer beperkt en nooit accounts die worden gebruikt door toepassingen bevatten.  Bekijk de lijst met gebruikers in de rol en verwijdert u eventuele overbodige accounts|
 
-## <a id="cloud-least-privileged"></a>TooCloud Gateway verbinding maken met de minste bevoegdheden tokens
+## <a id="cloud-least-privileged"></a>Verbinding maken met de Cloudgateway minder rechten tokens gebruiken
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -180,7 +180,7 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepa
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | Keuze van de gateway - Azure IoT Hub |
 | **Verwijzingen**              | [Toegangsbeheer IOT-Hub](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
-| **Stappen** | Minimale bevoegdheden machtigingen toovarious onderdelen die verbinding maken met tooCloud Gateway (IoT Hub) bieden. Typisch voorbeeld is: apparaat/inrichting component registryread schrijftijd gebruikt, gebeurtenis-Processor (ASA) maakt gebruik van Service verbinding maken. Afzonderlijke apparaten verbinding maken met de referenties van het apparaat|
+| **Stappen** | Minimale bevoegdheid machtigingen opgeven voor verschillende onderdelen die verbinding met Cloud-Gateway (IoT Hub maken). Typisch voorbeeld is: apparaat/inrichting component registryread schrijftijd gebruikt, gebeurtenis-Processor (ASA) maakt gebruik van Service verbinding maken. Afzonderlijke apparaten verbinding maken met de referenties van het apparaat|
 
 ## <a id="sendonly-sas"></a>Een verzenden alleen-lezen machtigingen SAS-sleutel gebruiken voor het genereren van apparaattokens
 
@@ -191,20 +191,9 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepa
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | [Verificatie en beveiliging model overzicht van Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Stappen** | Een SAS-sleutel is gebruikte toogenerate afzonderlijk apparaattokens. Een SAS-sleutel verzenden alleen-lezen machtigingen tijdens het genereren van het Hallo-apparaattoken gebruiken voor een opgegeven uitgever|
+| **Stappen** | Een SAS-sleutel wordt gebruikt voor het genereren van afzonderlijke apparaattokens. Een SAS-sleutel verzenden alleen-lezen machtigingen gebruiken tijdens het genereren van het apparaattoken voor een opgegeven uitgever|
 
-## <a id="access-tokens-hub"></a>Gebruik geen toegangstokens die directe toegang toohello Event Hub opgeven
-
-| Titel                   | Details      |
-| ----------------------- | ------------ |
-| **Onderdeel**               | Azure Event Hub | 
-| **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | Algemene |
-| **Kenmerken**              | N.v.t.  |
-| **Verwijzingen**              | [Verificatie en beveiliging model overzicht van Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Stappen** | Een token dat directe toegang toohello event hub verleent mogen niet worden toegekend toohello apparaat. Met behulp van een minstens een token voor Hallo-apparaat dat toegang alleen tooa publisher te zou identificeren en deze afgekeurde als gevonden toobe een rogue of aangetast apparaat.|
-
-## <a id="sas-minimum-permissions"></a>Verbinding maken met tooEvent Hub met SAS-codes dat Hallo minimale machtigingen vereist
+## <a id="access-tokens-hub"></a>Toegangstokens die directe toegang tot de Event Hub verlenen niet gebruiken
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -213,9 +202,20 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepa
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | [Verificatie en beveiliging model overzicht van Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Stappen** | Minimale bevoegdheden machtigingen toovarious backend-toepassingen die verbinding toohello Event Hub maken bieden. Afzonderlijke SAS-sleutels voor elke back-endtoepassing genereren en leveren alleen Hallo vereist machtigingen - toothem verzenden, ontvangen of beheren.|
+| **Stappen** | Een token die directe toegang tot de event hub verleent mogen niet worden toegekend aan het apparaat. Met behulp van een minstens een token voor het apparaat dat toegang tot een uitgever alleen geeft te zou identificeren en afgekeurde deze als een rogue worden gevonden of aangetast apparaat.|
 
-## <a id="resource-docdb"></a>Gebruik resource tokens tooconnect tooCosmos DB indien mogelijk
+## <a id="sas-minimum-permissions"></a>Verbinding maken met Event Hub met SAS-sleutels die de vereiste minimale machtigingen
+
+| Titel                   | Details      |
+| ----------------------- | ------------ |
+| **Onderdeel**               | Azure Event Hub | 
+| **SDL-fase**               | Ontwikkelen |  
+| **Van toepassing technologieën** | Algemene |
+| **Kenmerken**              | N.v.t.  |
+| **Verwijzingen**              | [Verificatie en beveiliging model overzicht van Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **Stappen** | Minimale bevoegdheid machtigingen opgeven voor verschillende back-end-toepassingen die verbinding met de Event Hub maken. Afzonderlijke SAS-sleutels voor elke back-endtoepassing genereren en leveren alleen de vereiste machtigingen - verzenden, ontvangen of beheren toe.|
+
+## <a id="resource-docdb"></a>Resource-tokens gebruiken voor verbinding met Cosmos DB indien mogelijk
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -224,9 +224,9 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepa
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | Een resource-token is gekoppeld aan een resource van de machtiging DocumentDB en opnamen Hallo relatie tussen Hallo gebruiker van een database en het Hallo-machtiging die de gebruiker heeft voor een specifieke bron DocumentDB-toepassing (bijvoorbeeld verzameling en het document). Gebruik altijd een resource token tooaccess hello DocumentDB als Hallo-client niet kan vertrouwd worden met de verwerking van sleutels in master of alleen-lezen - als een eindgebruikerstoepassing zoals een mobiele of bureaubladtoepassingen client. Gebruik hoofdsleutel of alleen-lezen sleutels van de back-end-toepassingen die deze sleutels veilig kunnen opslaan.|
+| **Stappen** | Een resource-token is gekoppeld aan een resource van de machtiging DocumentDB en vastlegt van de relatie tussen de gebruiker van een database en de machtiging die de gebruiker heeft voor een specifieke bron DocumentDB-toepassing (bijvoorbeeld verzameling en het document). Gebruik altijd het token van een resource voor toegang tot de DocumentDB als de client niet kan vertrouwd worden met de verwerking van sleutels in master of alleen-lezen - als een eindgebruikerstoepassing zoals een mobiele of bureaubladtoepassingen client. Gebruik hoofdsleutel of alleen-lezen sleutels van de back-end-toepassingen die deze sleutels veilig kunnen opslaan.|
 
-## <a id="grained-rbac"></a>Inschakelen van fijnmazig access management tooAzure abonnement met RBAC
+## <a id="grained-rbac"></a>Geavanceerd toegangsbeheer voor Azure-abonnement met RBAC inschakelen
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -234,10 +234,10 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepa
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
-| **Verwijzingen**              | [Rol toewijzingen toomanage toegang tooyour Azure-abonnementresources gebruiken](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
-| **Stappen** | Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegangsbeheer voor Azure. Met RBAC kunt verleent u alleen Hallo hoeveelheid toegang die gebruikers nodig tooperform hun werk hebben.|
+| **Verwijzingen**              | [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
+| **Stappen** | Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegangsbeheer voor Azure. Met RBAC kunt u alleen de toegangsrechten aan gebruikers verlenen die ze nodig hebben om hun taken uit te voeren.|
 
-## <a id="cluster-rbac"></a>Beperken van de client toegang toocluster bewerkingen met RBAC
+## <a id="cluster-rbac"></a>Van de client toegang tot de bewerkingen voor een cluster met RBAC beperken
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -246,7 +246,7 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepa
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | Omgeving - Azure |
 | **Verwijzingen**              | [Toegangsbeheer op basis van rollen voor Service Fabric-clients](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security-roles/) |
-| **Stappen** | <p>Azure Service Fabric ondersteunt twee verschillende toegangsrechten besturingselementtypen voor clients die verbonden tooa Service Fabric-cluster zijn: beheerder en gebruiker. Toegangsbeheer kunt Hallo beheerder toolimit toegang toocertain cluster clusterbewerkingen voor verschillende groepen gebruikers, Hallo cluster veiliger maken.</p><p>Beheerders hebben volledige toegang toomanagement mogelijkheden (inclusief lezen/schrijven-mogelijkheden). Gebruikers hebben standaard alleen leestoegang toomanagement mogelijkheden (bijvoorbeeld querymogelijkheden) en Hallo mogelijkheid tooresolve toepassingen en services.</p><p>U opgeven Hallo twee client rollen (administrator en client) gelijktijdig Hallo met maken van het cluster door afzonderlijke certificaten voor elk.</p>|
+| **Stappen** | <p>Azure Service Fabric ondersteunt twee verschillende toegangsrechten besturingselementtypen voor clients die zijn verbonden met een Service Fabric-cluster: beheerder en gebruiker. Toegangsbeheer kan de Clusterbeheerder om te beperken van toegang tot bepaalde clusterbewerkingen voor verschillende groepen gebruikers, zodat het cluster beter te beveiligen.</p><p>Beheerders hebben volledige toegang tot de beheerfuncties (inclusief lezen/schrijven-mogelijkheden). Gebruikers hebben standaard alleen leestoegang tot beheermogelijkheden (bijvoorbeeld querymogelijkheden) en de mogelijkheid om op te lossen, toepassingen en services.</p><p>U opgeven de twee client-rollen (administrator en client) op het moment van het maken van het cluster door afzonderlijke certificaten voor elk.</p>|
 
 ## <a id="modeling-field"></a>Veld beveiligingsniveau en beveiliging modellering uitgevoerd indien vereist
 
@@ -259,7 +259,7 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepa
 | **Verwijzingen**              | N.v.t.  |
 | **Stappen** | Veld beveiligingsniveau en beveiliging modellering uitgevoerd indien vereist|
 
-## <a id="portal-security"></a>Beveiliging modellering van portal accounts Houd in gedachten dat beveiligingsmodel Hallo voor Hallo portal wijkt af van de rest van CRM Hallo uitvoeren
+## <a id="portal-security"></a>Beveiliging modellering van portal accounts houden er rekening mee dat het beveiligingsmodel voor de portal van de rest van CRM verschilt uitvoeren
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -268,7 +268,7 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepa
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | Beveiliging modellering van portal accounts Houd in gedachten dat beveiligingsmodel Hallo voor Hallo portal wijkt af van de rest van CRM Hallo uitvoeren|
+| **Stappen** | Beveiliging modellering van portal accounts houden er rekening mee dat het beveiligingsmodel voor de portal van de rest van CRM verschilt uitvoeren|
 
 ## <a id="permission-entities"></a>Fijnmazig toestemming van een bereik van entiteiten in de Azure-tabelopslag
 
@@ -278,10 +278,10 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepa
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | StorageType - tabel |
-| **Verwijzingen**              | [Hoe toodelegate toegang krijgen tot tooobjects in uw Azure storage-account via SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **Stappen** | In bepaalde zakelijke scenario's zijn Azure Table Storage vereist toostore gevoelige gegevens die caters toodifferent partijen. Bijvoorbeeld gevoelige gegevens die betrekking hebben toodifferent landen. In dergelijke gevallen kan SAS handtekeningen worden samengesteld door te geven Hallo partitie en rij sleutelbereiken, zodat een gebruiker toegang heeft tot gegevens specifieke tooa bepaald land.| 
+| **Verwijzingen**              | [Het overdragen van toegang tot objecten in uw Azure storage-account via SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
+| **Stappen** | In bepaalde gevallen bedrijven, kunnen Azure Table Storage worden vereist voor het opslaan van gevoelige gegevens die aan andere partijen caters. Bijvoorbeeld gevoelige gegevens die betrekking hebben op andere landen. In dergelijke gevallen kan SAS handtekeningen worden samengesteld door te geven van de partitie- en rijkoppen sleutelbereiken, zodat een gebruiker toegang de gegevens die specifiek zijn voor een bepaald land tot.| 
 
-## <a id="rbac-azure-manager"></a>Op rollen gebaseerde toegangsbeheer (RBAC) tooAzure storage-account met Azure Resource Manager inschakelen
+## <a id="rbac-azure-manager"></a>Op rollen gebaseerde toegangsbeheer (RBAC) naar Azure storage-account met Azure Resource Manager inschakelen
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -289,8 +289,8 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepa
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
-| **Verwijzingen**              | [Hoe toosecure uw storage-account met op rollen gebaseerde toegangsbeheer (RBAC)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
-| **Stappen** | <p>Als u een nieuw opslagaccount maakt, selecteert u een van de klassieke weergave of Azure Resource Manager-implementatiemodel. Hallo klassieke model van het maken van resources in Azure kunt alleen ofwel volledig, ofwel toegang toohello abonnement en op zijn beurt Hallo storage-account.</p><p>Met hello Azure Resource Manager-model plaatst u Hallo storage-account in een resource group en beheer toegang toohello management vlak van het specifieke storage-account met Azure Active Directory. Bijvoorbeeld, kunt u specifieke gebruikers geven Hallo mogelijkheid tooaccess Hallo toegangscodes voor opslag, terwijl andere gebruikers informatie over Hallo storage-account weergeven kunnen, maar heeft geen toegang de opslagaccountsleutels Hallo tot.</p>|
+| **Verwijzingen**              | [Het beveiligen van uw opslagaccount met op rollen gebaseerde toegangsbeheer (RBAC)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
+| **Stappen** | <p>Als u een nieuw opslagaccount maakt, selecteert u een van de klassieke weergave of Azure Resource Manager-implementatiemodel. Het klassieke model van het maken van resources in Azure kunt alleen ofwel volledig, ofwel toegang tot het abonnement, en daarmee ook de storage-account.</p><p>Met het Azure Resource Manager-model plaatst u het opslagaccount in een resource group en beheren van toegang op het beheervlak van het specifieke storage-account met Azure Active Directory. Bijvoorbeeld, kunt u specifieke gebruikers de mogelijkheid bieden toegang tot de opslagaccountsleutels, terwijl andere gebruikers informatie over het opslagaccount kunnen bekijken, maar heeft geen toegang de opslagaccountsleutels tot.</p>|
 
 ## <a id="rooting-detection"></a>Impliciete jailbreakdetectie of detectie basismappen implementeren
 
@@ -301,7 +301,7 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepa
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | <p>Toepassing moet een eigen configuratie- en gebruikersbestanden gegevens in de aanvraag als telefoon is geroot of heeft een jailbreak beveiligt. Basismappen/geroot op te splitsen impliceert onbevoegde toegang, welke normale gebruikers niet op hun eigen telefoons. Daarom moet toepassing impliciete detectielogica hebben voor opstarten van de toepassing, toodetect als Hallo telefoon is geroot.</p><p>Hallo detectielogica voor smartcardlezers kan eenvoudig toegang krijgen tot bestanden die normaal gesproken alleen basis-gebruiker toegang, bijvoorbeeld heeft:</p><ul><li>/System/App/SuperUser.APK</li><li>/ sbin/su</li><li>/System/bin/su</li><li>/System/xbin/su</li><li>/Data/Local/xbin/su</li><li>/Data/local/bin/su</li><li>/System/SD/xbin/su</li><li>/System/bin/failsafe/su</li><li>/Data/Local/su</li></ul><p>Als de toepassing hello toegang heeft tot deze bestanden, geeft aan dat de toepassing hello als hoofdgebruiker wordt uitgevoerd.</p>|
+| **Stappen** | <p>Toepassing moet een eigen configuratie- en gebruikersbestanden gegevens in de aanvraag als telefoon is geroot of heeft een jailbreak beveiligt. Basismappen/geroot op te splitsen impliceert onbevoegde toegang, welke normale gebruikers niet op hun eigen telefoons. Daarom moet toepassing impliciete detectielogica hebben voor opstarten van de toepassing, om te detecteren of de telefoon is geroot.</p><p>De detectielogica kan eenvoudig toegang krijgen tot bestanden die normaal gesproken alleen basis-gebruiker toegang, bijvoorbeeld heeft:</p><ul><li>/System/App/SuperUser.APK</li><li>/ sbin/su</li><li>/System/bin/su</li><li>/System/xbin/su</li><li>/Data/Local/xbin/su</li><li>/Data/local/bin/su</li><li>/System/SD/xbin/su</li><li>/System/bin/failsafe/su</li><li>/Data/Local/su</li></ul><p>Als de toepassing toegang heeft tot deze bestanden, geeft u aan dat de toepassing wordt uitgevoerd als hoofdgebruiker.</p>|
 
 ## <a id="weak-class-wcf"></a>Van zwakke klassenverwijzing in WCF
 
@@ -312,10 +312,10 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is van toepa
 | **Van toepassing technologieën** | Algemeen, NET Framework 3 |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg Koninkrijk](https://vulncat.fortify.com/en/vulncat/index.html) |
-| **Stappen** | <p>Hallo wordt een verwijzing zwakke klasse, dat een aanvaller kan tooexecute niet-geautoriseerde code gebruikt. Hallo programma verwijst naar een gebruiker gedefinieerde klasse die is niet uniek geïdentificeerd. Wanneer deze licht geïdentificeerde klasse, Hallo CLR type loader zoekt Hallo klasse in de volgende locaties in Hallo Hallo wordt geladen in .NET opgegeven volgorde:</p><ol><li>Assembly van het type Hallo Hallo bekend is, Hallo loader zoekopdrachten Hallo van het configuratiebestand omleiding locaties, GAC, Hallo huidige assembly met configuratie-informatie als basismap van de toepassing hello</li><li>Als de assembly Hallo onbekend is, Hallo Hallo loader zoekopdrachten huidige assembly van mscorlib en Hallo locatie geretourneerd door Hallo TypeResolve gebeurtenis-handler</li><li>Deze zoekvolgorde CLR kan worden gewijzigd met hooks zoals Hallo mechanisme voor het doorsturen van het Type en Hallo AppDomain.TypeResolve gebeurtenis</li></ol><p>Wanneer een hacker Hallo CLR-zoekvolgorde door het maken van een andere klasse Hallo dezelfde naam en die Hallo CLR eerst laadt plaatsen in een alternatieve locatie, Hallo CLR wordt per ongeluk Hallo aanvaller opgegeven code uitvoeren</p>|
+| **Stappen** | <p>Een verwijzing zwakke klasse, waardoor een aanvaller kan uitvoeren van niet-geautoriseerde code wordt gebruikt door het systeem. Het programma verwijst naar een gebruiker gedefinieerde klasse die is niet uniek geïdentificeerd. Wanneer .NET wordt geladen voor deze licht geïdentificeerde klasse, zoekt de lader van de CLR-type voor de klasse in de volgende locaties in de opgegeven volgorde:</p><ol><li>Als de assembly van het type bekend is, zoekt de lader van de locaties in het configuratiebestand omleiding, GAC. de huidige assembly met configuratie-informatie en de basismap van de toepassing</li><li>Als de assembly onbekend is, zoekt de lader van de huidige assembly van mscorlib en de locatie die is geretourneerd door de gebeurtenis-handler TypeResolve</li><li>Deze zoekvolgorde CLR kan worden gewijzigd met hooks zoals het mechanisme voor het doorsturen van het Type en de gebeurtenis AppDomain.TypeResolve</li></ol><p>Als een hacker de CLR-zoekvolgorde door het maken van een andere klasse met dezelfde naam en het onbedoeld plaatsen hiervan op een andere locatie of de CLR wordt geladen eerst de CLR wordt de code aanvaller opgegeven uitvoeren</p>|
 
 ### <a name="example"></a>Voorbeeld
-Hallo `<behaviorExtensions/>` element van Hallo WCF-configuratiebestand onderstaande Hiermee geeft u WCF-tooadd een aangepaste gedrag klasse tooa bepaalde WCF-extensie.
+De `<behaviorExtensions/>` element van het configuratiebestand WCF Hiermee geeft u WCF een aangepaste gedrag klasse toevoegen aan een bepaalde WCF-extensie.
 ```
 <system.serviceModel>
     <extensions>
@@ -325,10 +325,10 @@ Hallo `<behaviorExtensions/>` element van Hallo WCF-configuratiebestand ondersta
     </extensions>
 </system.serviceModel>
 ```
-Met behulp van de FQDN-namen (sterk) unieke wijze identificeert een en verhoogt bovendien beveiliging van uw systeem. Volledig gekwalificeerde assembly-namen gebruiken bij het registreren van typen in Hallo machine.config en app.config-bestanden.
+Met behulp van de FQDN-namen (sterk) unieke wijze identificeert een en verhoogt bovendien beveiliging van uw systeem. Volledig gekwalificeerde assembly-namen gebruiken bij het registreren van typen in het machine.config- en app.config-bestanden.
 
 ### <a name="example"></a>Voorbeeld
-Hallo `<behaviorExtensions/>` element van Hallo WCF-configuratiebestand onderstaande Hiermee geeft u WCF tooadd aangepaste gedrag sterk verwezen klasse tooa bepaalde WCF-extensie.
+De `<behaviorExtensions/>` element van het configuratiebestand WCF Hiermee geeft u WCF aangepaste gedrag sterk verwezen klasse toevoegen aan een bepaalde WCF-extensie.
 ```
 <system.serviceModel>
     <extensions>
@@ -349,10 +349,10 @@ Hallo `<behaviorExtensions/>` element van Hallo WCF-configuratiebestand ondersta
 | **Van toepassing technologieën** | Algemeen, NET Framework 3 |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg Koninkrijk](https://vulncat.fortify.com/en/vulncat/index.html) |
-| **Stappen** | <p>Deze service wordt niet gebruikt voor een besturingselement voor autorisatie. Wanneer een client een bepaalde WCF-service wordt aangeroepen, biedt WCF verschillende autorisatie-schema's die controleren dat die Hallo aanroeper heeft een machtiging tooexecute Hallo servicemethode op Hallo-server. Als autorisatie besturingselementen zijn niet ingeschakeld voor de WCF-services, kunt een geverifieerde gebruiker uitbreiding van bevoegdheden te bereiken.</p>|
+| **Stappen** | <p>Deze service wordt niet gebruikt voor een besturingselement voor autorisatie. Wanneer een client een bepaalde WCF-service wordt aangeroepen, biedt WCF verschillende autorisatie-schema's die controleren dat de aanroeper toegangsrechten heeft voor de servicemethode niet uitvoeren op de server. Als autorisatie besturingselementen zijn niet ingeschakeld voor de WCF-services, kunt een geverifieerde gebruiker uitbreiding van bevoegdheden te bereiken.</p>|
 
 ### <a name="example"></a>Voorbeeld
-Hallo na configuratie wordt WCF toonot selectievakje Hallo autorisatieniveau van Hallo client wanneer Hallo-service wordt uitgevoerd:
+De volgende configuratie wordt WCF Autorisatieniveau voor de client niet moet controleren bij het uitvoeren van de service:
 ```
 <behaviors>
     <serviceBehaviors>
@@ -363,10 +363,10 @@ Hallo na configuratie wordt WCF toonot selectievakje Hallo autorisatieniveau van
     </serviceBehaviors>
 </behaviors>
 ```
-Gebruik een service autorisatie schema tooverify die de aanroeper van methode Hallo Hallo is dus geautoriseerde toodo. WCF beschikt over twee modi en kunt u Hallo definitie van een aangepaste autorisatie-schema. Hallo UseWindowsGroups modus Windows-rollen en gebruikers en Hallo UseAspNetRoles modus gebruikt een provider van een ASP.NET-functie, zoals SQL Server, tooauthenticate.
+Gebruik een schema van de autorisatie service om te controleren dat de aanroeper van de methode is gemachtigd om dit te doen. WCF biedt twee modi en kan de definitie van een aangepaste autorisatie-schema. De modus UseWindowsGroups Windows-rollen en voor gebruikers en de modus UseAspNetRoles gebruikt een ASP.NET-rolprovider, zoals SQL Server om te verifiëren.
 
 ### <a name="example"></a>Voorbeeld
-Hallo wordt volgende configuratie WCF toomake ervoor dat Hallo client maakt deel uit van de groep Administrators Hallo voordat Hallo toevoegen-service wordt uitgevoerd:
+De volgende configuratie wordt WCF om ervoor te zorgen dat de client deel van de groep Administrators uitmaakt voor het uitvoeren van de service toevoegen:
 ```
 <behaviors>
     <serviceBehaviors>
@@ -377,7 +377,7 @@ Hallo wordt volgende configuratie WCF toomake ervoor dat Hallo client maakt deel
     </serviceBehaviors>
 </behaviors>
 ```
-Hallo-service wordt vervolgens gedeclareerd als Hallo volgende:
+De service wordt vervolgens gedeclareerd als het volgende:
 ```
 [PrincipalPermission(SecurityAction.Demand,
 Role = ""Builtin\\Administrators"")]
@@ -397,7 +397,7 @@ return result;
 | **Van toepassing technologieën** | Algemeen, MVC5 |
 | **Kenmerken**              | N.V.T. identiteitsprovider Provider - ADFS, Identity - Azure AD |
 | **Verwijzingen**              | [Verificatie en autorisatie in ASP.NET Web-API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
-| **Stappen** | <p>Gegevens over de serverfunctie voor gebruikers van de toepassing hello kan worden afgeleid van Azure AD of AD FS-claims als Hallo toepassing afhankelijk van deze als id-provider is of Hallo toepassing zelf kan het opgegeven. In al deze gevallen moet Hallo aangepaste autorisatie-uitvoering Hallo rol gebruikersgegevens valideren.</p><p>Gegevens over de serverfunctie voor gebruikers van de toepassing hello kan worden afgeleid van Azure AD of AD FS-claims als Hallo toepassing afhankelijk van deze als id-provider is of Hallo toepassing zelf kan het opgegeven. In al deze gevallen moet Hallo aangepaste autorisatie-uitvoering Hallo rol gebruikersgegevens valideren.</p>
+| **Stappen** | <p>Rolgegevens voor de gebruikers van toepassingen kan worden afgeleid van Azure AD of AD FS-claims als de toepassing afhankelijk van deze als id-provider is of de toepassing zelf kan het opgegeven. In al deze gevallen moet de aangepaste autorisatie-uitvoering de gebruikersgegevens van de rol valideren.</p><p>Rolgegevens voor de gebruikers van toepassingen kan worden afgeleid van Azure AD of AD FS-claims als de toepassing afhankelijk van deze als id-provider is of de toepassing zelf kan het opgegeven. In al deze gevallen moet de aangepaste autorisatie-uitvoering de gebruikersgegevens van de rol valideren.</p>
 
 ### <a name="example"></a>Voorbeeld
 ```C#
@@ -430,7 +430,7 @@ public bool ValidateRoles(actionContext)
 
 }
 ```
-Alle domeincontrollers Hallo en actiemethoden die tooprotected moet moeten gedecoreerd worden met hierboven kenmerk.
+Alle domeincontrollers en actiemethoden dat vereist is voor beveiligde moeten gedecoreerd worden met hierboven kenmerk.
 ```C#
 [ApiAuthorize]
 public class CustomController : ApiController
@@ -439,7 +439,7 @@ public class CustomController : ApiController
 }
 ```
 
-## <a id="device-permission"></a>Autorisatie controles uitvoeren in Hallo-apparaat als deze ondersteuning biedt voor verschillende acties die verschillende machtigingsniveaus vereisen
+## <a id="device-permission"></a>Autorisatie controles uitvoeren in het apparaat als deze ondersteuning biedt voor verschillende acties die verschillende machtigingsniveaus vereisen
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -448,9 +448,9 @@ public class CustomController : ApiController
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | <p>Hallo apparaat dienen Hallo aanroeper toocheck toe te staan als Hallo aanroeper Hallo vereist machtigingen tooperform Hallo actie aangevraagd heeft. Voor bijvoorbeeld kunt spreek Hallo apparaat is een Smart Lock deur die kan worden gecontroleerd vanuit Hallo cloud, plus het functies zoals het op afstand vergrendelen van klep Hallo biedt.</p><p>Hallo Smart Lock van klep biedt ontgrendelen functionaliteit, alleen wanneer iemand is fysiek wordt geleverd in de buurt Hallo deur met een kaart. In dit geval moet Hallo-implementatie van de externe opdracht Hallo en besturingselement worden gedaan zodanig dat geen een functionaliteit toounlock Hallo deur biedt omdat Hallo cloudgateway niet geautoriseerde toosend deur Hallo toounlock van een opdracht.</p>|
+| **Stappen** | <p>Het apparaat moet de aanroeper om te controleren of de aanroeper heeft de vereiste machtigingen om uit te voeren van de gevraagde actie te autoriseren. Voor bijvoorbeeld kunnen aannemen dat het apparaat is een Smart Lock deur die kan worden gecontroleerd vanuit de cloud, plus het functies zoals het vergrendelen op afstand de deur biedt.</p><p>De Smart Lock van klep biedt ontgrendelen functionaliteit, alleen wanneer iemand is fysiek wordt geleverd bij de deur met een kaart. In dit geval moet de implementatie van de externe opdracht en controle in zodanig dat deze niet functionaliteit om te ontgrendelen de deur biedt als de cloudgateway is niet geautoriseerd voor het verzenden van een opdracht voor het ontgrendelen van de deur worden uitgevoerd.</p>|
 
-## <a id="field-permission"></a>Autorisatie controles uitvoeren in Hallo Veldgateway als deze ondersteuning biedt voor verschillende acties die verschillende machtigingsniveaus vereisen
+## <a id="field-permission"></a>Autorisatie controles uitvoeren in de Gateway van het veld als deze ondersteuning biedt voor verschillende acties die verschillende machtigingsniveaus vereisen
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
@@ -459,4 +459,4 @@ public class CustomController : ApiController
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | Hallo Veldgateway dienen Hallo aanroeper toocheck toe te staan als Hallo aanroeper Hallo vereist machtigingen tooperform Hallo actie aangevraagd heeft. Voor bijvoorbeeld moet er andere machtigingen voor een gebruiker met beheerdersrechten gebruikt interface/API tooconfigure een veld gateway v/s-apparaten die verbinding maken tooit.|
+| **Stappen** | De Gateway van het veld moet de aanroeper om te controleren of de aanroeper heeft de vereiste machtigingen om uit te voeren van de gevraagde actie te autoriseren. Voor bijvoorbeeld moet er andere machtigingen voor een beheerder gebruiker/API interface gebruikt voor het configureren van een veld gateway v/s-apparaten die verbinding maken.|

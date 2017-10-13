@@ -1,6 +1,6 @@
 ---
-title: aaaAdd opslaan in cache tooimprove prestaties in Azure API Management | Microsoft Docs
-description: Meer informatie over hoe tooimprove Hallo latentie, bandbreedtegebruik en webservice voor API Management-serviceaanroepen geladen.
+title: Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren | Microsoft Docs
+description: Informatie over het verbeteren van de latentie, het bandbreedteverbruik en de webservicewerklast voor API Management-serviceaanroepen.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 056ab7cf788218327e30bd5c028b76e3b1977fb0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 59c595f0d5ce849f44c46fdb6cab0b44d35fffa0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="add-caching-tooimprove-performance-in-azure-api-management"></a>Toevoegen van cachebewerkingen tooimprove prestaties in Azure API Management
+# <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Opslaan in cache toevoegen om de prestaties in Azure API Management te verbeteren
 Bewerkingen in API Management kunnen worden geconfigureerd voor het opslaan van antwoorden in de cache. Door het opslaan van antwoorden in de cache kan de API-latentie, het bandbreedteverbruik en de webservicewerklast aanzienlijk worden verminderd voor gegevens die niet vaak wijzigen.
 
-Deze handleiding ontdekt u hoe tooadd antwoord in cache opslaan voor uw API en beleidsregels voor Hallo voorbeeld-Echo-API-bewerkingen te configureren. U kunt vervolgens Hallo bewerking aanroepen vanuit het Hallo developer portal tooverify cache in te grijpen.
+In deze handleiding wordt getoond hoe u het opslaan van antwoorden in de cache toevoegt voor uw API en beleidsregels configureert voor de bewerkingen voor de voorbeeld-Echo-API. U kunt de bewerking vervolgens aanroepen vanuit de ontwikkelaarsportal om te controleren of opslaan in de cache werkt.
 
 > [!NOTE]
 > Zie [Aangepast opslaan in cache in Azure API Management](api-management-sample-cache-by-key.md) voor informatie over het opslaan van items in de cache per sleutel met behulp van beleidsexpressies.
@@ -31,54 +31,54 @@ Deze handleiding ontdekt u hoe tooadd antwoord in cache opslaan voor uw API en b
 > 
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat de volgende Hallo stappen in deze handleiding, hebt u een API Management-service-exemplaar met een API en een product dat is geconfigureerd. Als u nog geen exemplaar van API Management-service hebt gemaakt, raadpleegt u [API Management service-exemplaar maken] [ Create an API Management service instance] in Hallo [aan de slag met Azure API Management] [ Get started with Azure API Management] zelfstudie.
+Voordat u de stappen in deze handleiding volgt, moet u een service-exemplaar van API Management hebben waarvoor een API en een product zijn geconfigureerd. Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Create an API Management service instance] in de zelfstudie [Aan de slag met Azure API Management][Get started with Azure API Management].
 
 ## <a name="configure-caching"> </a>Een bewerking voor opslaan in cache configureren
-In deze stap controleert u opslaan in cache-instellingen van Hallo Hallo **GET Resource (in cache)** bewerking van Hallo voorbeeld-Echo-API.
+In deze stap controleert u de cache-instellingen van de bewerking **GET Resource (in cache)** van de voorbeeld-Echo-API.
 
 > [!NOTE]
-> Elk exemplaar van API Management-service is vooraf geconfigureerd met een Echo-API die kan worden gebruikt tooexperiment met en meer informatie over API Management. Zie [Aan de slag met Azure API Management][Get started with Azure API Management] voor meer informatie.
+> Elk service-exemplaar van API Management wordt al geconfigureerd geleverd met een Echo-API die kan worden gebruikt om te experimenteren met API Management en hier meer over te leren. Zie [Aan de slag met Azure API Management][Get started with Azure API Management] voor meer informatie.
 > 
 > 
 
-tooget gestart, klikt u op **publicatieportal** in hello Azure-Portal voor uw API Management-service. Hiermee gaat u toohello API Management-publicatieportal.
+Als u aan de slag wilt gaan, klikt u op **Publicatieportal** in Azure Portal voor uw API Management-service. Hiermee gaat u naar de publicatieportal van API Management.
 
 ![Publicatieportal][api-management-management-console]
 
-Klik op **API's** van Hallo **API Management** menu op Hallo links en klik vervolgens op **Echo-API**.
+Klik op **API's** in het menu **API Management** aan de linkerkant en klik vervolgens op **Echo-API**.
 
 ![Echo-API][api-management-echo-api]
 
-Klik op Hallo **Operations** tabblad en klik vervolgens op Hallo **GET Resource (in cache)** bewerking Hallo **Operations** lijst.
+Klik op het tabblad **Bewerkingen** en klik vervolgens op de bewerking **GET Resource (in cache)** in de lijst **Bewerkingen**.
 
 ![Bewerkingen Echo-API][api-management-echo-api-operations]
 
-Klik op Hallo **opslaan in cache** tabblad tooview Hallo opslaan in cache-instellingen voor deze bewerking.
+Klik op het tabblad **Opslaan in cache** om de cache-instellingen voor deze bewerking te bekijken.
 
 ![Tabblad Opslaan in cache][api-management-caching-tab]
 
-tooenable cache voor een bewerking, selecteer Hallo **inschakelen** selectievakje. In dit voorbeeld is opslaan in cache ingeschakeld.
+Als u opslaan in cache wilt inschakelen voor een bewerking, schakelt u het selectievakje **Inschakelen** in. In dit voorbeeld is opslaan in cache ingeschakeld.
 
-Het bewerkingsantwoord van elke sleutelhash op basis van waarden in Hallo Hallo **variëren op queryreeksparameters** en **variëren op headers** velden. Als u meerdere antwoorden op basis van queryreeksparameters of headers toocache wilt, kunt u ze configureren in deze twee velden.
+Elk bewerkingsantwoord heeft een sleutel, op basis van de waarden in de velden **Variëren op queryreeksparameters** en **Variëren op headers**. Als u meerdere antwoorden in de cache wilt opslaan op basis van queryreeksparameters of headers, kunt u deze configureren in deze twee velden.
 
-**Duur** wordt Hallo Vervalinterval opgegeven van Hallo in de cache opgeslagen reacties. In dit voorbeeld hello-interval is **3600** seconden, dat gelijkwaardige tooone uur.
+Met **Duur** wordt het vervalinterval opgegeven van de antwoorden in de cache. In dit voorbeeld is het interval **3600** seconden, dat gelijk is aan één uur.
 
-Eerste aanvraag toohello Hallo opslaan in cache configureren in dit voorbeeld gebruikt, Hallo **GET Resource (in cache)** bewerking een antwoord geretourneerd van Hallo back-endservice. Dit antwoord wordt in de cache opgeslagen, ingevoerd met Hallo opgegeven headers en query tekenreeksparameters. Volgende aanroepen toohello bewerking, met overeenkomende parameters, Hallo hebben in de cache opgeslagen antwoord geretourneerd totdat Hallo cacheduurinterval is verlopen.
+Met de cacheconfiguratie in dit voorbeeld wordt met de eerste aanvraag voor de bewerking **GET Resource (in cache)** een antwoord geretourneerd van de back-endservice. Dit antwoord wordt in de cache opgeslagen, met een sleutel per de opgegeven headers en querytekenreeksparameters. Voor volgende aanroepen voor de bewerking, met overeenkomende parameters, wordt het antwoord geretourneerd dat in de cache is opgeslagen, tot het cacheduurinterval is verlopen.
 
-## <a name="caching-policies"></a>Revisie Hallo cachebeleidsregels
-In deze stap controleert u opslaan in cache-instellingen voor Hallo Hallo **GET Resource (in cache)** bewerking van Hallo voorbeeld-Echo-API.
+## <a name="caching-policies"> </a>De cachebeleidsregels controleren
+In deze stap controleert u de cache-instellingen voor de bewerking **GET Resource (in cache)** van de voorbeeld-Echo-API.
 
-Wanneer er cache-instellingen zijn geconfigureerd voor een bewerking op Hallo **opslaan in cache** tabblad opslaan in cache toegevoegd voor Hallo-bewerking. Deze beleidsregels kunnen worden bekeken en bewerkt in de beleidseditor Hallo.
+Wanneer er cache-instellingen zijn geconfigureerd voor een bewerking op het tabblad **Opslaan in cache**, worden cachebeleidsregels toegevoegd voor de bewerking. Deze beleidsregels kunnen worden bekeken en bewerkt in de beleidseditor.
 
-Klik op **beleid** van Hallo **API Management** menu op Hallo linker- en selecteer vervolgens **Echo-API / GET Resource (in cache)** van Hallo **bewerking**vervolgkeuzelijst.
+Klik op **Beleidsregels** in het menu **API Management** menu aan de linkerkant en selecteer vervolgens **Echo-API / GET Resource (in cache)** in de vervolgkeuzelijst **Bewerking**.
 
 ![Bewerking beleidsbereik][api-management-operation-dropdown]
 
-Hallo-beleid voor deze bewerking weergegeven in de beleidseditor Hallo.
+Hiermee worden de beleidsregels voor deze bewerking in de beleidseditor weergegeven.
 
 ![Beleidseditor API Management][api-management-policy-editor]
 
-Hallo beleidsdefinitie voor deze bewerking bevat Hallo beleidsregels waarmee Hallo caching configuratie gedefinieerd, die is gecontroleerd met Hallo **opslaan in cache** tabblad in de vorige stap Hallo.
+De beleidsdefinitie voor deze bewerking bevat de beleidsregels waarmee de cacheconfiguratie wordt gedefinieerd die is gecontroleerd met het tabblad **Opslaan in cache** in de vorige stap.
 
 ```xml
 <policies>
@@ -98,49 +98,49 @@ Hallo beleidsdefinitie voor deze bewerking bevat Hallo beleidsregels waarmee Hal
 ```
 
 > [!NOTE]
-> Wijzigingen toohello cachebeleidsregels in de beleidseditor hello, worden weergegeven op Hallo **opslaan in cache** tabblad van een bewerking en vice versa.
+> Wijzigingen die via de beleidseditor in de cachebeleidsregels worden aangebracht, worden weergegeven op het tabblad **Opslaan in cache** van een bewerking en vice versa.
 > 
 > 
 
-## <a name="test-operation"></a>Een bewerking aanroepen en Hallo opslaan in cache testen
-toosee hello caching in actie, kunnen we Hallo bewerking aanroepen vanuit Hallo-portal voor ontwikkelaars. Klik op **ontwikkelaarsportal** in Hallo menu rechtsboven.
+## <a name="test-operation"> </a>Een bewerking aanroepen en het opslaan in de cache testen
+Als u het opslaan in de cache in werking wilt zien, kunnen we de bewerking aanroepen vanuit de ontwikkelaarsportal. Klik op **ontwikkelaarsportal** in het menu rechtsboven.
 
-![ontwikkelaarsportal][api-management-developer-portal-menu]
+![Ontwikkelaarsportal][api-management-developer-portal-menu]
 
-Klik op **API's** in Hallo bovenste menu en selecteer vervolgens **Echo-API**.
+Klik op **API's** in het bovenste menu en selecteer **Echo-API**.
 
 ![Echo-API][api-management-apis-echo-api]
 
-> Als er slechts één API is geconfigureerd of zichtbaar tooyour-account op de API's te klikken u rechtstreeks toohello bewerkingen voor die API gaat.
+> Als er slechts één API is geconfigureerd of zichtbaar is voor uw account, gaat u wanneer u op API's klikt rechtstreeks naar de bewerkingen voor die API.
 > 
 > 
 
-Selecteer Hallo **GET Resource (in cache)** bewerking en klik vervolgens op **Console openen**.
+Selecteer de bewerking **GET Resource (in cache)** en klik op **Console openen**.
 
 ![Console openen][api-management-open-console]
 
-Hallo-console kunt u bewerkingen rechtstreeks vanuit de ontwikkelaarsportal hello tooinvoke.
+Met de console kunt u bewerkingen rechtstreeks vanuit de ontwikkelaarsportal aanroepen.
 
 ![Console][api-management-console]
 
-Behoud de standaardwaarden Hallo voor **param1** en **param2**.
+Behoud de standaardwaarden voor **param1** en **param2**.
 
-Selecteer de gewenste sleutel in Hallo Hallo **abonnementssleutel** vervolgkeuzelijst. Als uw account slechts één abonnement heeft, is de sleutel al geselecteerd.
+Selecteer de gewenste sleutel in de vervolgkeuzelijst **subscription-key**. Als uw account slechts één abonnement heeft, is de sleutel al geselecteerd.
 
-Voer **sampleheader: Value1** in Hallo **aanvraagheaders** in het tekstvak.
+Voer **sampleheader:value1** in het tekstvak **Aanvraagheaders** in.
 
-Klik op **HTTP Get** en maak een notitie van Hallo antwoordheaders.
+Klik op **HTTP Get** en noteer de antwoordheaders.
 
-Voer **sampleheader: Value2** in Hallo **aanvraagheaders** in het tekstvak en klik vervolgens op **HTTP Get**.
+Voer **sampleheader:value2** in het tekstvak **Aanvraagheaders** in en klik vervolgens op **HTTP Get**.
 
-Houd er rekening mee dat Hallo de waarde van **sampleheader** nog steeds **value1** Hallo reactie. Probeer een aantal verschillende waarden en merk op dat in de cache opgeslagen reactie van de eerste aanroep Hallo Hallo wordt geretourneerd.
+Merk op dat de waarde van **sampleheader** nog steeds **value1** in het antwoord is. Probeer een aantal verschillende waarden en merk op dat het antwoord in de cache van de eerste aanroep wordt geretourneerd.
 
-Voer **25** in Hallo **param2** veld en klik vervolgens op **HTTP Get**.
+Voer **25** in het veld **param2** in en klik vervolgens op **HTTP Get**.
 
-Houd er rekening mee dat Hallo de waarde van **sampleheader** in Hallo antwoord is nu **value2**. Omdat Hallo per querytekenreeks Bewerkingsresultaten, Hallo vorige cacheantwoord niet geretourneerd.
+Merk op dat de waarde van **sampleheader** in het antwoord nu **value2** is. Omdat de bewerkingsresultaten een sleutel per querytekenreeks hebben, is het vorige antwoord in de cache niet geretourneerd.
 
 ## <a name="next-steps"> </a>Volgende stappen
-* Zie voor meer informatie over cachebeleidsregels [cachebeleidsregels] [ Caching policies] in Hallo [documentatie voor API Management-beleid][API Management policy reference].
+* Zie [Cachebeleidsregels][Caching policies] in [Naslaginformatie over beleid voor API Management][API Management policy reference] voor meer informatie over cachebeleidsregels.
 * Zie [Aangepast opslaan in cache in Azure API Management](api-management-sample-cache-by-key.md) voor informatie over het opslaan van items in de cache per sleutel met behulp van beleidsexpressies.
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
@@ -155,10 +155,10 @@ Houd er rekening mee dat Hallo de waarde van **sampleheader** in Hallo antwoord 
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[How tooadd operations tooan API]: api-management-howto-add-operations.md
-[How tooadd and publish a product]: api-management-howto-add-products.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
-[Add APIs tooa product]: api-management-howto-add-products.md#add-apis
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
 
@@ -168,6 +168,6 @@ Houd er rekening mee dat Hallo de waarde van **sampleheader** in Hallo antwoord 
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 [Configure an operation for caching]: #configure-caching
-[Review hello caching policies]: #caching-policies
-[Call an operation and test hello caching]: #test-operation
+[Review the caching policies]: #caching-policies
+[Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps

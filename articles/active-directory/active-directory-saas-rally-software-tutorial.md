@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Rally Software | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en Rally Software.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Rally Software.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,231 +14,231 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
-ms.openlocfilehash: c75c8b98ce7fab19964c13de5ad7e19ef3ebd0e6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6481c9ef0ca71419ccfa6f7956f4702985743df3
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Zelfstudie: Azure Active Directory-integratie met Rally Software
 
-In deze zelfstudie leert u hoe toointegrate Rally Software met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe Software Rally integreren met Azure Active Directory (Azure AD).
 
-Software Rally integreren met Azure AD biedt Hallo volgende voordelen:
+Software Rally integreren met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tooRally Software heeft.
-- U kunt uw gebruikers tooautomatically get aangemelde tooRally Software (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
-- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren.
+- U kunt beheren in Azure AD die toegang tot Rally Software heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Rally Software (Single Sign-On) inschakelen met hun Azure AD-accounts.
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure AD-integratie met Software Rally tooconfigure, moet u Hallo volgende items:
+Voor het configureren van Azure AD-integratie met Rally Software, moet u de volgende items:
 
 - Een Azure AD-abonnement
 - Een Software Rally eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Het toevoegen van Software Rally van Hallo-galerie
+1. Rally Software uit de galerie toevoegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-rally-software-from-hello-gallery"></a>Het toevoegen van Software Rally van Hallo-galerie
-tooconfigure hello integratie van Software Rally in Azure AD, moet u tooadd Rally Software uit Hallo galerie tooyour lijst met beheerde SaaS-apps.
+## <a name="adding-rally-software-from-the-gallery"></a>Rally Software uit de galerie toevoegen
+Voor het configureren van de integratie van Software Rally in Azure AD, moet u Rally Software uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-**tooadd Rally Software uit de galerie hello, Voer Hallo stappen te volgen:**
+**Als u wilt toevoegen Rally Software uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
-    ![Hello Azure Active Directory-knop][1]
+    ![De Azure Active Directory-knop][1]
 
-2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Hallo Enterprise toepassingen blade][2]
+    ![De blade Enterprise-toepassingen][2]
     
-3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![knop voor nieuwe toepassing Hello][3]
+    ![De knop Nieuw toepassing][3]
 
-4. Typ in het zoekvak Hallo **Rally Software**, selecteer **Rally Software** van resultaat deelvenster klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
+4. Typ in het zoekvak **Rally Software**, selecteer **Rally Software** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Software in de lijst met resultaten Hallo Rally](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_addfromgallery.png)
+    ![Rally Software in de lijst met resultaten](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 
 In deze sectie configureert en test eenmalige aanmelding Azure AD met Rally Software op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in Software Rally is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en het Hallo gerelateerde gebruiker in Software Rally toobe tot stand gebracht.
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Software Rally is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Software Rally tot stand worden gebracht.
 
-In Software Rally Hallo waarde Hallo toewijzen **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** tooestablish Hallo koppeling relatie.
+Wijs in Rally Software, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-tooconfigure en test eenmalige aanmelding Azure AD met Rally Software, moet u toocomplete Hallo bouwstenen te volgen:
+Om te configureren en testen van Azure AD eenmalige aanmelding met Rally Software, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Rally Software](#create-a-rally-software-test-user)**  -toohave een equivalent van Britta Simon in Rally Software die is gekoppeld toohello Azure AD-weergave van de gebruiker.
-4. **[Toewijzen van de testgebruiker hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  -tooverify Hallo of configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Rally Software](#create-a-rally-software-test-user)**  - Rally Software die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding in uw toepassing Rally configureren.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing Rally configureren.
 
-**Voer tooconfigure Azure AD eenmalige aanmelding met Rally Software Hallo stappen te volgen:**
+**Voor het configureren van Azure AD eenmalige aanmelding met Rally Software, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op Hallo Hallo **Rally Software** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **Rally Software** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_samlbase.png)
 
-3. Op Hallo **Rally Software domein en URL's** sectie, voert u Hallo stappen te volgen:
+3. Op de **Rally Software domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Software-domein en de URL's eenmalige aanmelding informatie Rally](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_url.png)
 
-    a. In Hallo **aanmeldings-URL** textbox, typ een URL met Hallo patroon volgen:`https://<tenant-name>.rally.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<tenant-name>.rally.com`
 
-    b. In Hallo **id** textbox, typ een URL met Hallo patroon volgen:`https://<tenant-name>.rally.com`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<tenant-name>.rally.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Bijwerken van deze waarden Hello werkelijke aanmeldings-URL en -id. Neem contact op met [Rally Software Client ondersteuningsteam](https://help.rallydev.com/) tooget deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Rally Software Client ondersteuningsteam](https://help.rallydev.com/) ophalen van deze waarden. 
  
 
 
-4. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens Hallo op uw computer.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
-    ![Hallo certificaat downloadkoppeling](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_certificate.png) 
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_certificate.png) 
 
 5. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-rally-software-tutorial/tutorial_general_400.png)
 
-6. Op Hallo **softwareconfiguratie Rally** sectie, klikt u op **Rally Software configureren** tooopen **eenmalige aanmelding configureren** venster. Kopiëren Hallo **Sign-Out-URL en de entiteit-ID SAML** van Hallo **Naslaggids punt.**
+6. Op de **softwareconfiguratie Rally** sectie, klikt u op **Rally Software configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL en SAML entiteit-ID** van de **Naslaggids punt.**
 
     ![De softwareconfiguratie Rally](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_configure.png) 
 
-7. Meld u bij tooyour **Rally Software** tenant.
+7. Meld u aan bij uw **Rally Software** tenant.
 
-8. Klik in de werkbalk bovenaan Hallo Hallo op **Setup**, en selecteer vervolgens **abonnement**.
+8. Klik in de werkbalk bovenaan op **Setup**, en selecteer vervolgens **abonnement**.
    
     ![Abonnement](./media/active-directory-saas-rally-software-tutorial/ic769531.png "abonnement")
 
-9. Klik op Hallo **actie** knop. Selecteer **abonnement bewerken** op Hallo rechtsboven Hallo-werkbalk.
+9. Klik op de **actie** knop. Selecteer **abonnement bewerken** op de rechtsboven in de werkbalk.
 
-10. Op Hallo **abonnement** dialoogvenster pagina Hallo volgende stappen uit te voeren en klik vervolgens op **opslaan en sluiten**:
+10. Op de **abonnement** dialoogvenster pagina de volgende stappen uit en klik vervolgens op **opslaan en sluiten**:
    
     ![Verificatie](./media/active-directory-saas-rally-software-tutorial/ic769542.png "verificatie")
    
     a. Selecteer **Rally of eenmalige aanmelding verificatie** uit de vervolgkeuzelijst verificatie.
 
-    b. In Hallo **identiteit provider URL** textbox plakken Hallo-waarde van **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure-portal. 
+    b. In de **identiteit provider URL** textbox, plak de waarde van **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure-portal. 
 
-    c. In Hallo **eenmalige aanmelding, afmelding** textbox plakken Hallo-waarde van **Sign-Out URL**, die u hebt gekopieerd vanuit Azure-portal.
+    c. In de **eenmalige aanmelding, afmelding** textbox, plak de waarde van **Sign-Out URL**, die u hebt gekopieerd vanuit Azure-portal.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
    ![Een Azure AD-testgebruiker maken][100]
 
-**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
+**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in Azure-portal in het linkerdeelvenster Hallo Hallo op Hallo **Azure Active Directory** knop.
+1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
 
-    ![Hello Azure Active Directory-knop](./media/active-directory-saas-rally-software-tutorial/create_aaduser_01.png)
+    ![De Azure Active Directory-knop](./media/active-directory-saas-rally-software-tutorial/create_aaduser_01.png)
 
-2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
-    ![Hallo 'Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-rally-software-tutorial/create_aaduser_02.png)
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-rally-software-tutorial/create_aaduser_02.png)
 
-3. tooopen hello **gebruiker** in het dialoogvenster, klikt u op **toevoegen** Hallo boven aan het Hallo **alle gebruikers** in het dialoogvenster.
+3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
 
-    ![knop voor Hallo toevoegen](./media/active-directory-saas-rally-software-tutorial/create_aaduser_03.png)
+    ![De knop toevoegen](./media/active-directory-saas-rally-software-tutorial/create_aaduser_03.png)
 
-4. In Hallo **gebruiker** dialoogvenster Voer Hallo stappen te volgen:
+4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
 
-    ![het dialoogvenster Hallo-gebruiker](./media/active-directory-saas-rally-software-tutorial/create_aaduser_04.png)
+    ![Het dialoogvenster gebruiker](./media/active-directory-saas-rally-software-tutorial/create_aaduser_04.png)
 
-    a. In Hallo **naam** in het vak **BrittaSimon**.
+    a. In de **naam** in het vak **BrittaSimon**.
 
-    b. In Hallo **gebruikersnaam** type Hallo e-mailadres van de gebruiker Britta Simon vak.
+    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer Hallo **wachtwoord weergeven** selectievakje en schrijf Hallo-waarde die wordt weergegeven in Hallo **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
  
 ### <a name="create-a-rally-software-test-user"></a>Een testgebruiker Rally Software maken
 
-Voor Azure AD gebruikers toobe kunnen toosign in, moeten ze ingerichte toohello Rally softwaretoepassing met behulp van de namen van de Azure Active Directory-gebruiker zijn.
+Azure AD-gebruikers moeten kunnen aanmelden, als ze worden ingericht voor de Software Rally-toepassing met behulp van de namen van de Azure Active Directory-gebruiker.
 
-**tooconfigure gebruikers inrichten, Voer Hallo stappen te volgen:**
+**Als u wilt configureren voor gebruikers inrichten, moet u de volgende stappen uitvoeren:**
 
-1. Meld u bij tooyour Rally Software tenant.
+1. Aanmelden bij uw tenant Rally Software.
 
-2. Ga te**Setup \> gebruikers**, en klik vervolgens op **+ nieuw toevoegen**.
+2. Ga naar **Setup \> gebruikers**, en klik vervolgens op **+ nieuw toevoegen**.
    
     ![Gebruikers](./media/active-directory-saas-rally-software-tutorial/ic781039.png "gebruikers")
 
-3. Hallo typenaam in een tekstvak voor de nieuwe gebruiker Hallo en klik vervolgens op **toevoegen met Details**.
+3. Typ de naam in het tekstvak voor de nieuwe gebruiker en klik vervolgens op **toevoegen met Details**.
 
-4. In Hallo **gebruiker maken** sectie, voert u Hallo stappen te volgen:
+4. In de **gebruiker maken** sectie, voert u de volgende stappen uit:
    
     ![Gebruiker maken](./media/active-directory-saas-rally-software-tutorial/ic781040.png "gebruiker maken")
 
-    a. In Hallo **gebruikersnaam** textbox Hallo-typenaam van de gebruiker zoals **Brittsimon**.
+    a. In de **gebruikersnaam** textbox, typ de naam van gebruiker, zoals **Brittsimon**.
    
-    b. In **e-mailadres** textbox Voer Hallo e-mailadres van de gebruiker zoals  **brittasimon@contoso.com** .
+    b. In **e-mailadres** textbox, voer het e-mailadres van de gebruiker zoals  **brittasimon@contoso.com** .
 
-    c. In **voornaam** tekst hello eerste naam van gebruiker zoals **Britta**.
+    c. In **voornaam** tekst en voer de voornaam van de gebruiker zoals **Britta**.
 
-    d. In **achternaam** tekst hello laatste naam van gebruiker zoals **Simon**.
+    d. In **achternaam** tekst en voer de achternaam van de gebruiker zoals **Simon**.
 
     e. Klik op **opslaan en sluiten**.
 
    >[!NOTE]
-   >U kunt andere Software Rally gebruiker account hulpmiddelen voor het maken of API's die worden geleverd door Software Rally tooprovision Azure AD-gebruikersaccounts.
+   >U kunt geen andere hulpprogramma's voor Software Rally gebruiker-account maken of API's die worden geleverd door Software Rally gebruiken voor het inrichten van Azure AD-gebruikersaccounts.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen door het verlenen van toegang tooRally Software.
+In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot Software Rally.
 
-![Hallo-gebruikersrollen toewijzen][200] 
+![Toewijzen van de gebruikersrol][200] 
 
-**tooassign Britta Simon tooRally Software, Voer Hallo stappen te volgen:**
+**Britta Simon om aan te wijzen Rally Software, moet u de volgende stappen uitvoeren:**
 
-1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met de toepassingen van Hallo **Rally Software**.
+2. Selecteer in de lijst met toepassingen **Rally Software**.
 
-    ![Hallo Rally Software koppeling in de lijst met Hallo-toepassingen](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_app.png)  
+    ![De koppeling Rally Software in de lijst met toepassingen](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_app.png)  
 
-3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
-    ![de koppeling 'Gebruikers en groepen' Hallo][202]
+    ![De koppeling 'Gebruikers en groepen'][202]
 
 4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
-    ![Hallo toevoegen toewijzing deelvenster][203]
+    ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -246,13 +246,13 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
     
 ### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
-Hallo-doel van deze sectie is tootest uw Azure AD-configuratie voor één aanmelding via Hallo Toegangsvenster.
+Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u op Hallo Rally Software tegel in Hallo Toegangsvenster, krijgt u automatisch aangemelde tooyour Rally softwaretoepassing.
+Als u op de tegel Rally Software in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Rally Software.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

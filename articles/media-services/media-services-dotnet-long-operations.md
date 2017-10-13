@@ -1,6 +1,6 @@
 ---
-title: aaaPolling langlopende bewerkingen | Microsoft Docs
-description: Dit onderwerp wordt beschreven hoe toopoll langlopende bewerkingen.
+title: Polling langlopende bewerkingen | Microsoft Docs
+description: Dit onderwerp wordt beschreven hoe pollen langlopende bewerkingen.
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: f8315a5ddbe484d794c3e2164e47dd9e70521671
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7123a2d44d3b7c332afe30fb0fcea88ca29e313a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Live streamen met Azure mediaservices leveren
 
 ## <a name="overview"></a>Overzicht
 
-Microsoft Azure Media Services biedt API's die aanvragen tooMedia Services toostart bewerkingen verzenden (bijvoorbeeld: maken, starten, stoppen of verwijderen van een kanaal). Deze bewerkingen zijn langlopend.
+Microsoft Azure Media Services biedt API's die aanvragen verzenden naar de Media Services activiteiten te starten (bijvoorbeeld: maken, starten, stoppen of verwijderen van een kanaal). Deze bewerkingen zijn langlopend.
 
-Hallo Media Services .NET SDK biedt API's die Hallo aanvraag verzenden en te wachten op Hallo bewerking toocomplete (intern hello API's zijn gedelegeerd voor bewerking uitgevoerd met een bepaalde interval). Bijvoorbeeld bij het aanroepen van kanaal. Start(), Hallo-methode retourneert nadat Hallo-kanaal is gestart. U kunt ook de asynchrone versie hello gebruiken: wachten op een kanaal. StartAsync() (Zie voor meer informatie over de taakgebaseerde asynchrone patroon [tik](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). API's die een aanvraag verzendt en vervolgens poll-frequentie voor Hallo status totdat het Hallo-bewerking is voltooid, worden 'polling methoden' genoemd. Deze methoden (met name Hallo asynchrone versie) worden aanbevolen voor interactieve toepassingen en/of stateful services.
+Media Services .NET SDK biedt API's die de aanvraag verzendt en wacht totdat de bewerking is voltooid (intern maakt de API's zijn gedelegeerd voor het bewerkingsvoortgang op bepaalde tijden). Bijvoorbeeld bij het aanroepen van kanaal. Start(), de methode retourneert nadat het kanaal is gestart. U kunt ook de asynchrone versie: wachten op een kanaal. StartAsync() (Zie voor meer informatie over de taakgebaseerde asynchrone patroon [tik](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). API's die een aanvraag verzendt en vervolgens poll-frequentie voor de status totdat de bewerking voltooid is, worden 'polling methoden' genoemd. Deze methoden (met name de Async-versie) worden aanbevolen voor interactieve toepassingen en/of stateful services.
 
-Er zijn scenario's waarbij een toepassing niet kan wachten op een langdurige http-aanvraag en toopoll handmatig wil voor Hallo bewerking uitgevoerd. Een typisch voorbeeld zou een browser interactie met een stateless webservice: als Hallo browser aanvraagt toocreate een kanaal, Hallo webservice initieert een langdurige bewerking retourneert Hallo bewerking-ID toohello browser. Hallo browser kan vervolgens vraagt u Hallo web service tooget Hallo bewerkingsstatus op basis van het Hallo-ID. Hallo Media Services .NET SDK biedt API's die handig voor dit scenario zijn. Deze API's worden 'niet polling methoden' genoemd.
-Hallo ' niet polling methoden' hebben Hallo volgende naamgevingspatroon: verzenden*OperationName*bewerking (bijvoorbeeld SendCreateOperation). Verzenden*OperationName*bewerking methoden retourneren Hallo **IOperation** object; hello geretourneerde object bevat informatie die gebruikt tootrack Hallo-bewerking worden kan. Hallo verzenden*OperationName*OperationAsync methoden retourneren **taak<IOperation>**.
+Er zijn scenario's waarbij een toepassing niet kan wachten op een langdurige HTTP-verzoek en wil poll-frequentie voor de voortgang van de bewerking handmatig. Een typisch voorbeeld zou een browser interactie met een stateless webservice: als de browser aanvraagt een kanaal te maken, de webservice initieert een langdurige bewerking en retourneert de bewerkings-ID in de browser. De browser kan vervolgens vraagt u de web-service om op te halen van de status van de bewerking op basis van de-ID. Media Services .NET SDK biedt API's die handig voor dit scenario zijn. Deze API's worden 'niet polling methoden' genoemd.
+'Niet polling methoden' hebben de volgende naamgevingspatroon: verzenden*OperationName*bewerking (bijvoorbeeld SendCreateOperation). Verzenden*OperationName*bewerking methoden retourneren de **IOperation** object; het geretourneerde object bevat informatie die kan worden gebruikt voor het bijhouden van de bewerking. De verzenden*OperationName*OperationAsync methoden retourneren **taak<IOperation>**.
 
-Op dit moment Hallo volgende klassen ondersteuning niet polling methoden: **kanaal**, **StreamingEndpoint**, en **programma**.
+Op dit moment wordt de volgende klassen ondersteuning voor methoden niet polling: **kanaal**, **StreamingEndpoint**, en **programma**.
 
-toopoll voor bewerkingsstatus hello, gebruik Hallo **GetOperation** methode op Hallo **OperationBaseCollection** klasse. Hallo intervallen toocheck Hallo bewerkingsstatus volgende gebruiken: voor **kanaal** en **StreamingEndpoint** bewerkingen, gebruikt u 30 seconden; voor **programma** bewerkingen, gebruikmaken van 10 seconden.
+Om te controleren voor de status van de bewerking, gebruiken de **GetOperation** methode op de **OperationBaseCollection** klasse. Gebruik de volgende intervallen om te controleren van de bewerkingsstatus: voor **kanaal** en **StreamingEndpoint** bewerkingen, gebruikt u 30 seconden; voor **programma** bewerkingen, gebruik van 10 seconden.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
-Uw ontwikkelomgeving instellen en vullen Hallo app.config-bestand met de verbindingsinformatie, zoals beschreven in [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md).
+Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md).
 
 ## <a name="example"></a>Voorbeeld
 
-Hallo volgende voorbeeld definieert een klasse met de naam **ChannelOperations**. De definitie van deze klasse kan een startpunt voor de klassedefinitie van uw web-service zijn. Eenvoud gebruik hello volgende voorbeelden voor Hallo niet asynchrone versies van methoden.
+Het volgende voorbeeld definieert een klasse met de naam **ChannelOperations**. De definitie van deze klasse kan een startpunt voor de klassedefinitie van uw web-service zijn. Voor eenvoud gebruik de volgende voorbeelden de versies niet asynchrone methoden.
 
-Hallo-voorbeeld ziet u ook hoe deze klasse in Hallo-client kunnen worden gebruikt.
+Het voorbeeld ziet ook hoe de client deze klasse zou kunnen gebruiken.
 
 ### <a name="channeloperations-class-definition"></a>De klassendefinitie ChannelOperations
 
@@ -54,12 +54,12 @@ Hallo-voorbeeld ziet u ook hoe deze klasse in Hallo-client kunnen worden gebruik
     using System.Net;
 
     /// <summary> 
-    /// hello ChannelOperations class only implements 
-    /// hello Channel’s creation operation. 
+    /// The ChannelOperations class only implements 
+    /// the Channel’s creation operation. 
     /// </summary> 
     public class ChannelOperations
     {
-        // Read values from hello App.config file.
+        // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
             ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -77,12 +77,12 @@ Hallo-voorbeeld ziet u ook hoe deze klasse in Hallo-client kunnen worden gebruik
         }
 
         /// <summary>  
-        /// Initiates hello creation of a new channel.  
+        /// Initiates the creation of a new channel.  
         /// </summary>  
-        /// <param name="channelName">Name toobe given toohello new channel</param>  
+        /// <param name="channelName">Name to be given to the new channel</param>  
         /// <returns>  
-        /// Operation Id for hello long running operation being executed by Media Services. 
-        /// Use this operation Id toopoll for hello channel creation status. 
+        /// Operation Id for the long running operation being executed by Media Services. 
+        /// Use this operation Id to poll for the channel creation status. 
         /// </returns> 
         public string StartChannelCreation(string channelName)
         {
@@ -99,14 +99,14 @@ Hallo-voorbeeld ziet u ook hoe deze klasse in Hallo-client kunnen worden gebruik
         }
 
         /// <summary> 
-        /// Checks if hello operation has been completed. 
-        /// If hello operation succeeded, hello created channel Id is returned in hello out parameter.
+        /// Checks if the operation has been completed. 
+        /// If the operation succeeded, the created channel Id is returned in the out parameter.
         /// </summary> 
-        /// <param name="operationId">hello operation Id.</param> 
+        /// <param name="operationId">The operation Id.</param> 
         /// <param name="channel">
-        /// If hello operation succeeded, 
-        /// hello created channel Id is returned in hello out parameter.</param>
-        /// <returns>Returns false if hello operation is still in progress; otherwise, true.</returns> 
+        /// If the operation succeeded, 
+        /// the created channel Id is returned in the out parameter.</param>
+        /// <returns>Returns false if the operation is still in progress; otherwise, true.</returns> 
         public bool IsCompleted(string operationId, out string channelId)
         {
             IOperation operation = _context.Operations.GetOperation(operationId);
@@ -117,9 +117,9 @@ Hallo-voorbeeld ziet u ook hoe deze klasse in Hallo-client kunnen worden gebruik
             switch (operation.State)
             {
                 case OperationState.Failed:
-                    // Handle hello failure. 
+                    // Handle the failure. 
                     // For example, throw an exception. 
-                    // Use hello following information in hello exception: operationId, operation.ErrorMessage.
+                    // Use the following information in the exception: operationId, operation.ErrorMessage.
                     break;
                 case OperationState.Succeeded:
                     completed = true;
@@ -180,7 +180,7 @@ Hallo-voorbeeld ziet u ook hoe deze klasse in Hallo-client kunnen worden gebruik
         }
     }
 
-### <a name="hello-client-code"></a>Hallo-clientcode
+### <a name="the-client-code"></a>De clientcode
     ChannelOperations channelOperations = new ChannelOperations();
     string opId = channelOperations.StartChannelCreation("MyChannel001");
 
@@ -193,7 +193,7 @@ Hallo-voorbeeld ziet u ook hoe deze klasse in Hallo-client kunnen worden gebruik
         isCompleted = channelOperations.IsCompleted(opId, out channelId);
     }
 
-    // If we got here, we should have hello newly created channel id.
+    // If we got here, we should have the newly created channel id.
     Console.WriteLine(channelId);
 
 

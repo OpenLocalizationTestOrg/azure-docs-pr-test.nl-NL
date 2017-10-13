@@ -1,7 +1,7 @@
-tootag een bron tijdens de implementatie toevoegen Hallo `tags` element toohello resource die u implementeert. Hallo tagnaam en waarde opgeven.
+Als u een resource wilt taggen tijdens de implementatie, voegt u het element `tags` toe aan de resource die u wilt implementeren. Geef de naam en waarde van de tag op.
 
-### <a name="apply-a-literal-value-toohello-tag-name"></a>De naam van een letterlijke waarde toohello tag toepassen
-Hallo volgende voorbeeld ziet u een opslagaccount met twee tags (`Dept` en `Environment`) tooliteral waarden zijn ingesteld:
+### <a name="apply-a-literal-value-to-the-tag-name"></a>Een letterlijke waarde toepassen op de tagnaam
+In het volgende voorbeeld wordt een opslagaccount weergegeven met twee tags (`Dept` en `Environment`) die zijn ingesteld op letterlijke waarden:
 
 ```json
 {
@@ -27,8 +27,8 @@ Hallo volgende voorbeeld ziet u een opslagaccount met twee tags (`Dept` en `Envi
 }
 ```
 
-### <a name="apply-an-object-toohello-tag-element"></a>Toepassen van een object toohello tag-element
-U kunt definiëren van een objectparameter die verschillende labels opslaat en toepassen van dat object toohello tag-element. Elke eigenschap in het Hallo-object wordt een afzonderlijke code voor Hallo resource. Hallo volgende voorbeeld heeft een parameter met de naam `tagValues` toegepaste toohello tag-element is.
+### <a name="apply-an-object-to-the-tag-element"></a>Een object toepassen op het tagelement
+U kunt een objectparameter definiëren waarmee verschillende tags worden opgeslagen en dit object vervolgens toepassen op het tagelement. Elke eigenschap in het object wordt een afzonderlijke tag voor de resource. Het volgende voorbeeld heeft een parameter met de naam `tagValues` die wordt toegepast op het tagelement.
 
 ```json
 {
@@ -60,9 +60,9 @@ U kunt definiëren van een objectparameter die verschillende labels opslaat en t
 }
 ```
 
-### <a name="apply-a-json-string-toohello-tag-name"></a>De naam van een JSON-tekenreeks toohello tag toepassen
+### <a name="apply-a-json-string-to-the-tag-name"></a>Een JSON-tekenreeks toepassen op de tagnaam
 
-toostore veel waarden in een enkel label toepassing een JSON-tekenreeks die Hallo waarden vertegenwoordigt. Hallo gehele JSON-tekenreeks wordt opgeslagen als een tag kan niet meer dan 256 tekens. Hallo volgende voorbeeld is een enkel label met de naam `CostCenter` die verschillende waarden van een JSON-tekenreeks bevat:  
+Als u veel waarden wilt opslaan in een enkele tag, past u een JSON-tekenreeks toe die de waarden vertegenwoordigt. De volledige JSON-tekenreeks wordt opgeslagen als een tag met maximaal 256 tekens. Het volgende voorbeeld heeft een enkele tag met de naam `CostCenter` die verschillende waarden uit een JSON-tekenreeks bevat:  
 
 ```json
 {

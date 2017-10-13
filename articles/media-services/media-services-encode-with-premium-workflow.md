@@ -1,6 +1,6 @@
 ---
-title: aaaAdvanced codering met Media Encoder Premium Workflow | Microsoft Docs
-description: Meer informatie over hoe tooencode met Media Encoder Premium Workflow. Codevoorbeelden zijn geschreven in C# en gebruiken van Hallo Media Services SDK voor .NET.
+title: Geavanceerde codering met Media Encoder Premium Workflow | Microsoft Docs
+description: Informatie over het coderen met Media Encoder Premium Workflow. Codevoorbeelden zijn geschreven in C# en gebruiken van de Media Services SDK voor .NET.
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 5a1c3d019a5c8fbf9bda2da751a7eff4c4907d97
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2b03853bf07e05c07fd730d5e8a8563963887921
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Geavanceerde codering met Media Encoder Premium Workflow
 > [!NOTE]
@@ -29,47 +29,47 @@ ms.lasthandoff: 10/06/2017
 Premium-encoder vragen, e-mepd op Microsoft.com.
 
 ## <a name="overview"></a>Overzicht
-Microsoft Azure Media Services introduceert Hallo **Media Encoder Premium werkstroom** Mediaprocessor. Deze processor biedt geavanceerde mogelijkheden voor uw werkstromen premium-op-verzoek-codering.
+Microsoft Azure Media Services introduceert de **Media Encoder Premium werkstroom** Mediaprocessor. Deze processor biedt geavanceerde mogelijkheden voor uw werkstromen premium-op-verzoek-codering.
 
-Hallo volgende onderwerpen worden gegevens over te**Media Encoder Premium werkstroom**:
+De volgende onderwerpen worden gegevens over **Media Encoder Premium werkstroom**:
 
-* [Ondersteunde indelingen door Hallo Media Encoder Premium werkstroom](media-services-premium-workflow-encoder-formats.md) – bespreekt Hallo bestandsindelingen en codecs ondersteund door **Media Encoder Premium werkstroom**.
-* [Overzicht en een vergelijking van Azure op aanvraag media coderingsprogramma's](media-services-encode-asset.md) vergelijkt Hallo codering mogelijkheden van **Media Encoder Premium werkstroom** en **Media Encoder Standard**.
+* [Ondersteund door de werkstroom met Media Encoder Premium indelingen](media-services-premium-workflow-encoder-formats.md) : het bestand Discusses indelingen en codecs ondersteund door **Media Encoder Premium werkstroom**.
+* [Overzicht en een vergelijking van Azure op aanvraag media coderingsprogramma's](media-services-encode-asset.md) vergelijkt de codering mogelijkheden van **Media Encoder Premium werkstroom** en **Media Encoder Standard**.
 
-Dit onderwerp wordt beschreven hoe tooencode met **Media Encoder Premium werkstroom** met .NET.
+Dit onderwerp wordt beschreven hoe u coderen met **Media Encoder Premium werkstroom** met .NET.
 
-Taken voor het Hallo-codering **Media Encoder Premium werkstroom** vereisen een afzonderlijke configuratie-bestand, een werkstroom wordt genoemd. Deze bestanden hebben de extensie .workflow en zijn gemaakt met de Hallo [Workflow Designer](media-services-workflow-designer.md) hulpprogramma.
+Codering van taken voor de **Media Encoder Premium werkstroom** vereisen een afzonderlijke configuratie-bestand, een werkstroom wordt genoemd. Deze bestanden hebben de extensie .workflow en worden gemaakt met de [Workflow Designer](media-services-workflow-designer.md) hulpprogramma.
 
-Ook kunt u opvragen Hallo standaard Werkstroombestanden [hier](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Hallo-map bevat ook Hallo beschrijving van deze bestanden.
+U kunt de standaard ook ophalen Werkstroombestanden [hier](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). De map bevat ook de beschrijving van deze bestanden.
 
-Hallo Werkstroombestanden moeten toobe geüpload tooyour Media Services-account als een actief, en deze activa in toohello taak codering moet worden doorgegeven.
+De Werkstroombestanden moeten worden geüpload naar uw Media Services-account als een actief en dit activum moet worden doorgegeven aan de codering taak.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
-Uw ontwikkelomgeving instellen en vullen Hallo app.config-bestand met de verbindingsinformatie, zoals beschreven in [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md). 
+Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="encoding-example"></a>Voorbeeld van de codering
 
-Hallo volgende voorbeeld laat zien hoe tooencode met **Media Encoder Premium werkstroom**.
+Het volgende voorbeeld laat zien hoe coderen met **Media Encoder Premium werkstroom**.
 
-Hallo stappen worden uitgevoerd:
+De volgende stappen worden uitgevoerd:
 
 1. Maak een asset en upload het werkstroombestand van een.
 2. Maak een asset en upload een bronbestand voor media.
-3. Hallo 'Media Encoder Premium Workflow' Mediaprocessor ophalen.
+3. De media-processor 'Media Encoder Premium Workflow' worden opgehaald.
 4. Een taak en een taak maken.
 
-    In de meeste gevallen Hallo configuratietekenreeks voor Hallo-taak is leeg (zoals in het volgende voorbeeld Hallo). Er zijn een aantal geavanceerde scenario's (waarvoor u tootooset runtime eigenschappen dynamisch) in dat geval zou u een taak toohello codering van XML-tekenreeks opgeven. Voorbeelden van dergelijke scenario's zijn: een overlay, parallelle en sequentiële media wilt, subtitling maken.
-5. Twee invoer activa toohello taak toevoegen.
+    In de meeste gevallen de configuratietekenreeks voor de taak is leeg (zoals in het volgende voorbeeld). Er zijn een aantal geavanceerde scenario's (waarvoor u dynamisch instellen van de eigenschappen van de runtime) in dat geval zou u een XML-tekenreeks voor de codering taak opgeven. Voorbeelden van dergelijke scenario's zijn: een overlay, parallelle en sequentiële media wilt, subtitling maken.
+5. Twee invoer elementen toevoegen aan de taak.
 
-    1. 1e – Hallo werkstroom asset.
-    2. 2e: Hallo video asset.
+    1. 1e: de werkstroom asset.
+    2. 2e: de video asset.
 
     >[!NOTE]
-    >Hallo werkstroom asset moet worden toegevoegd als toohello taak voordat Hallo media asset.
-   Hallo configuratietekenreeks voor deze taak mag niet leeg zijn.
+    >De asset werkstroom moet worden toegevoegd aan de taak voordat de asset media.
+   De configuratietekenreeks voor deze taak mag niet leeg zijn.
    
-6. Hallo coderingstaak verzenden.
+6. De coderingstaak verzenden.
 
         using System;
         using System.Linq;
@@ -136,42 +136,42 @@ Hallo stappen worden uitgevoerd:
                 {
                     // Declare a new job.
                     IJob job = _context.Jobs.Create("Premium Workflow encoding job");
-                    // Get a media processor reference, and pass tooit hello name of the
-                    // processor toouse for hello specific task.
+                    // Get a media processor reference, and pass to it the name of the
+                    // processor to use for the specific task.
                     IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
 
-                    // Create a task with hello encoding details, using a string preset.
+                    // Create a task with the encoding details, using a string preset.
                     ITask task = job.Tasks.AddNew("Premium Workflow encoding task",
                         processor,
                         "",
                         TaskOptions.None);
 
-                    // Specify hello input asset toobe encoded.
+                    // Specify the input asset to be encoded.
                     task.InputAssets.Add(workflow);
                     task.InputAssets.Add(video); // we add one asset
-                                                 // Add an output asset toocontain hello results of hello job.
+                                                 // Add an output asset to contain the results of the job.
                                                  // This output is specified as AssetCreationOptions.None, which
-                                                 // means hello output asset is not encrypted.
+                                                 // means the output asset is not encrypted.
                     task.OutputAssets.AddNew("Output asset",
                         AssetCreationOptions.None);
 
-                    // Use hello following event handler toocheck job progress.  
+                    // Use the following event handler to check job progress.  
                     job.StateChanged += new
                             EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-                    // Launch hello job.
+                    // Launch the job.
                     job.Submit();
 
-                    // Check job execution and wait for job toofinish.
+                    // Check job execution and wait for job to finish.
                     Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
                     progressJobTask.Wait();
 
-                    // If job state is Error hello event handling
+                    // If job state is Error the event handling
                     // method for job progress should log errors.  Here we check
                     // for error state and exit if needed.
                     if (job.State == JobState.Error)
                     {
-                        throw new Exception("\nExiting method due toojob error.");
+                        throw new Exception("\nExiting method due to job error.");
                     }
 
                     return job.OutputMediaAssets[0];

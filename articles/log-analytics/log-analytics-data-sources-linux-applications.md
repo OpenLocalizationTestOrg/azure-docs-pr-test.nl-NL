@@ -1,6 +1,6 @@
 ---
-title: aaaCollect Linux toepassingsprestaties in OMS Log Analytics | Microsoft Docs
-description: Dit artikel bevat informatie voor het configureren van Hallo OMS-Agent voor Linux toocollect prestatiemeteritems voor MySQL en Apache HTTP-Server.
+title: Verzamelen van de toepassingsprestaties Linux in OMS Log Analytics | Microsoft Docs
+description: Dit artikel bevat informatie voor het configureren van de OMS-Agent voor Linux voor het verzamelen van prestatiemeteritems voor MySQL en Apache HTTP-Server.
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 51105c6add5c7941a004570a76a4d94c02fc8a71
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Verzamelen van prestatiemeteritems voor Linux-toepassingen in Log Analytics 
-Dit artikel bevat informatie voor het configureren van Hallo [OMS-Agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) toocollect prestatiemeteritems voor specifieke toepassingen.  Hallo-toepassingen die zijn opgenomen in dit artikel zijn:  
+Dit artikel bevat informatie voor het configureren van de [OMS-Agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) voor het verzamelen van prestatiemeteritems voor specifieke toepassingen.  De toepassingen die zijn opgenomen in dit artikel zijn:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP-Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
-Als MySQL-Server of MariaDB Server wordt gedetecteerd op de computer Hallo wanneer Hallo OMS-agent is geïnstalleerd, wordt een provider voor de MySQL-Server voor prestatiebewaking automatisch geïnstalleerd. Deze provider verbindt toohello lokale MySQL/MariaDB server tooexpose prestatiestatistieken weer. MySQL-gebruikersreferenties moeten worden geconfigureerd zodat hello provider toegang heeft tot Hallo MySQL-Server.
+Als MySQL-Server of MariaDB Server wordt gedetecteerd op de computer wanneer de OMS-agent is geïnstalleerd, wordt een provider voor de MySQL-Server voor prestatiebewaking automatisch geïnstalleerd. Deze provider verbinding maakt met de lokale MySQL/MariaDB-server om prestatiestatistieken weer te geven. MySQL-gebruikersreferenties moeten worden geconfigureerd zodat de provider toegang heeft tot de MySQL-Server.
 
 ### <a name="configure-mysql-credentials"></a>MySQL-referenties configureren
-Hallo MySQL OMI provider moet de gebruiker vooraf geconfigureerde MySQL en MySQL-clientbibliotheken geïnstalleerd in volgorde tooquery Hallo prestatie- en statusgegevens van Hallo MySQL-exemplaar.  Deze referenties worden opgeslagen in een verificatiebestand dat opgeslagen op Hallo Linux-agent.  Hallo verificatiebestand geeft aan welke bind-adres en poort Hallo MySQL exemplaar luistert en wat referenties toouse toogather metrische gegevens.  
+De provider MySQL OMI moet de gebruiker vooraf geconfigureerde MySQL en MySQL-clientbibliotheken query's op de prestaties en de statusgegevens van de MySQL-exemplaar geïnstalleerd.  Deze referenties worden opgeslagen in een verificatiebestand dat opgeslagen op de Linux-agent.  Het verificatiebestand specificeert welke bind-adres en poort van het exemplaar MySQL luistert op en wat referenties om te gebruiken voor het verzamelen van metrische gegevens.  
 
-Tijdens de installatie van Hallo OMS-Agent voor Linux Hallo MySQL OMI scant provider MySQL my.cnf configuratiebestanden (standaardlocaties) voor bind-adres en poort en gedeeltelijk set Hallo verificatiebestand MySQL OMI.
+Tijdens de installatie van de OMS-Agent voor Linux de MySQL OMI provider scant MySQL my.cnf configuratiebestanden (standaardlocaties) voor bind-adres en poort en de MySQL OMI gedeeltelijk verificatiebestand ingesteld.
 
-Hallo MySQL verificatie-bestand is opgeslagen op `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
+De MySQL-verificatie-bestand is opgeslagen op `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
 
 ### <a name="authentication-file-format"></a>Verificatie-bestandsindeling
-Hieronder vindt u Hallo-indeling voor Hallo MySQL OMI verificatiebestand
+Hieronder vindt u de indeling voor het bestand MySQL OMI-verificatie
 
     [Port]=[Bind-Address], [username], [Base64 encoded Password]
     (Port)=(Bind-Address), (username), (Base64 encoded Password)
     (Port)=(Bind-Address), (username), (Base64 encoded Password)
     AutoUpdate=[true|false]
 
-Hallo-vermeldingen in Hallo verificatiebestand worden beschreven in de volgende tabel Hallo.
+De vermeldingen in het verificatiebestand worden in de volgende tabel beschreven.
 
 | Eigenschap | Beschrijving |
 |:--|:--|
-| Poort | Hallo huidige poort Hallo MySQL exemplaar luistert op vertegenwoordigt. Poort 0 geeft aan dat na Hallo-eigenschappen worden gebruikt voor het standaardexemplaar. |
+| Poort | Hiermee geeft u de huidige poort luistert het MySQL-exemplaar op. Poort 0 geeft aan dat de volgende eigenschappen worden gebruikt voor het standaardexemplaar. |
 | BIND-adres| Huidige MySQL bind-adres. |
-| gebruikersnaam| MySQL-gebruiker gebruikt toouse toomonitor Hallo MySQL server-exemplaar. |
-| Base64-gecodeerd wachtwoord| Wachtwoord van Hallo MySQL bewaking gebruiker gecodeerd in Base64. |
-| Automatisch bijwerken| Hiermee geeft u op of toorescan voor in Hallo my.cnf bestand wijzigingen en de Hallo MySQL OMI verificatiebestand overschrijven wanneer hello MySQL OMI Provider is bijgewerkt. |
+| gebruikersnaam| MySQL-gebruiker gebruikt om te gebruiken voor het bewaken van de MySQL-server-exemplaar. |
+| Base64-gecodeerd wachtwoord| Wachtwoord van de MySQL bewaking gebruiker gecodeerd in Base64. |
+| Automatisch bijwerken| Geeft aan of opnieuw scannen op wijzigingen in het bestand my.cnf en het bestand MySQL OMI verificatie overschrijven wanneer de MySQL OMI-Provider is bijgewerkt. |
 
 ### <a name="default-instance"></a>Standaard-instantie
-Hallo MySQL OMI verificatiebestand kunt definiëren een standaardexemplaar en poort nummer toomake meerdere MySQL-exemplaren op een Linux-host eenvoudiger beheren.  Hallo-standaardexemplaar wordt aangeduid door een instantie met poort 0. Alle extra exemplaren worden overgenomen eigenschappen instellen van het standaardexemplaar hello, tenzij ze verschillende waarden opgeven. Bijvoorbeeld als MySQL exemplaar luisteren op poort '3308' wordt toegevoegd, Hallo standaardexemplaar bind-adres, gebruikersnaam en wachtwoord Base64-gecodeerd wordt gebruikte tootry worden en Hallo exemplaar luistert op 3308 bewaken. Hallo-exemplaar op 3308 is gebonden tooanother adres en maakt gebruik van Hallo dezelfde MySQL-gebruikersnaam en wachtwoord paar alleen Hallo bind-adres is vereist als hello andere eigenschappen worden overgenomen.
+Het bestand MySQL OMI-verificatie kunt definiëren een standaard exemplaar en het poortnummer nummer zodat meerdere exemplaren van MySQL op een Linux-host eenvoudiger beheren.  Het standaardexemplaar wordt aangeduid door een instantie met poort 0. Alle extra exemplaren worden overgenomen eigenschappen instellen van het standaardexemplaar, tenzij ze verschillende waarden opgeven. Bijvoorbeeld, als MySQL exemplaar luisteren op poort '3308' wordt toegevoegd, wordt het standaardexemplaar bind-adres, gebruikersnaam en wachtwoord Base64-gecodeerd worden gebruikt om te controleren van het exemplaar op 3308 luistert. Als het exemplaar op 3308 is gebonden aan een ander adres en dezelfde MySQL gebruikersnaam en wachtwoord twee gebruikt alleen de binding-adres nodig is en de overige eigenschappen worden overgenomen.
 
-Hallo tabel heeft voorbeeld exemplaar instellingen 
+De volgende tabel bevat voorbeeld exemplaar instellingen 
 
 | Beschrijving | File |
 |:--|:--|
@@ -67,53 +67,53 @@ Hallo tabel heeft voorbeeld exemplaar instellingen
 
 
 ### <a name="mysql-omi-authentication-file-program"></a>Programma voor verificatie bestand MySQL OMI
-Provider is een MySQL OMI verificatie programma die gebruikt tooedit Hallo MySQL OMI verificatiebestand worden kan opgenomen met Hallo-installatie van Hallo MySQL OMI. Hallo verificatie bestand programma kan worden gevonden op Hallo locatie te volgen.
+Is opgenomen met de installatie van de provider MySQL OMI een MySQL OMI verificatie programma dat kan worden gebruikt voor het bewerken van het bestand MySQL OMI verificatie. Het programma voor verificatie-bestand vindt op de volgende locatie.
 
     /opt/microsoft/mysql-cimprov/bin/mycimprovauth
 
 > [!NOTE]
-> Hallo referentiebestand moet worden gelezen door Hallo omsagent account. Hallo mycimprovauth opdracht uitgevoerd als omsgent wordt aanbevolen.
+> Het referentiebestand moet worden gelezen door de omsagent-account. Met de opdracht mycimprovauth als omsgent wordt aanbevolen.
 
-Hallo volgende tabel biedt details over Hallo-syntaxis voor het gebruik van mycimprovauth.
+De volgende tabel biedt details over de syntaxis voor het gebruik van mycimprovauth.
 
 | Bewerking | Voorbeeld | Beschrijving
 |:--|:--|:--|
-| AutoUpdate * false\|waar * | mycimprovauth autoupdate false | Sets Hallo verificatiebestand al dan niet automatisch bijgewerkt op opnieuw opstarten of bijwerken. |
-| standaard *gebruikersnaamwachtwoord bind-adres* | mycimprovauth standaard 127.0.0.1 hoofdmap pwd | Sets Hallo standaardexemplaar in Hallo verificatiebestand MySQL OMI.<br>het wachtwoordveld Hallo moet worden ingevoerd als tekst zonder opmaak - Hallo-wachtwoord in Hallo MySQL OMI verificatiebestand Base 64 gecodeerde worden. |
-| Verwijder * default\|port_num * | mycimprovauth 3308 | Verwijdert het opgegeven exemplaar Hallo beide standaard of door poortnummer. |
-| Help | mycimprov help | Een lijst met opdrachten toouse afdrukken. |
-| afdrukken | mycimprov afdrukken | Een eenvoudig tooread MySQL OMI verificatiebestand afdrukken. |
-| bijwerken van port_num *gebruikersnaamwachtwoord bind-adres* | mycimprov update 3307 127.0.0.1 hoofdmap pwd | Het opgegeven exemplaar Hallo updates of Hallo-exemplaar wordt toegevoegd als deze niet bestaat. |
+| AutoUpdate * false\|waar * | mycimprovauth autoupdate false | Stelt de verificatiebestand al dan niet automatisch bijgewerkt op opnieuw opstarten of bijwerken. |
+| standaard *gebruikersnaamwachtwoord bind-adres* | mycimprovauth standaard 127.0.0.1 hoofdmap pwd | Hiermee stelt u het standaardexemplaar in de MySQL OMI verificatiebestand.<br>Het wachtwoordveld moet worden ingevoerd als tekst zonder opmaak: het wachtwoord in het bestand MySQL OMI-verificatie wordt Base 64 gecodeerde. |
+| Verwijder * default\|port_num * | mycimprovauth 3308 | Verwijdert het opgegeven exemplaar van een standaard of door poortnummer. |
+| Help | mycimprov help | Afdrukken een lijst met opdrachten te gebruiken. |
+| afdrukken | mycimprov afdrukken | Afdrukken een gemakkelijk te lezen MySQL OMI verificatiebestand. |
+| bijwerken van port_num *gebruikersnaamwachtwoord bind-adres* | mycimprov update 3307 127.0.0.1 hoofdmap pwd | Het opgegeven exemplaar van updates of het exemplaar wordt toegevoegd als deze niet bestaat. |
 
-Hallo definiëren volgende voorbeeldopdrachten een standaardgebruikersaccount voor Hallo MySQL-server op localhost.  het wachtwoordveld Hallo moet worden ingevoerd als tekst zonder opmaak - Hallo-wachtwoord in Hallo MySQL OMI verificatiebestand Base 64 gecodeerde
+De volgende voorbeeldopdrachten wordt een standaard-gebruikersaccount voor de MySQL-server op localhost definiëren.  Het wachtwoordveld moet worden ingevoerd als tekst zonder opmaak: het wachtwoord in het bestand MySQL OMI-verificatie worden Base 64 gecodeerde
 
     sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
     sudo /opt/omi/bin/service_control restart
 
 ### <a name="database-permissions-required-for-mysql-performance-counters"></a>Databasemachtigingen vereist voor de MySQL-prestatiemeteritems
-Hallo MySQL gebruiker vereist toegang toohello volgende query's toocollect prestatiegegevens MySQL-Server. 
+De gebruiker MySQL vereist toegang tot de volgende query's voor het verzamelen van prestatiegegevens MySQL-Server. 
 
     SHOW GLOBAL STATUS;
     SHOW GLOBAL VARIABLES:
 
 
-Hallo MySQL ook is vereist, selecteer toegang toohello standaardtabellen te volgen.
+De gebruiker MySQL vereist ook Selecteer toegang tot de volgende standaardtabellen.
 
 - INFORMATION_SCHEMA
 - MySQL. 
 
-Deze rechten kunnen worden verleend door het uitvoeren van Hallo grant opdrachten te volgen.
+Deze rechten kunnen worden verleend met de volgende grant-opdrachten.
 
-    GRANT SELECT ON information_schema.* too‘monuser’@’localhost’;
-    GRANT SELECT ON mysql.* too‘monuser’@’localhost’;
+    GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
+    GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
 
 
 > [!NOTE]
-> toogrant machtigingen tooa MySQL gebruiker Hallo gebruiker verlenen bewaking moet hebben de bevoegdheid 'GRANT optie' hello, evenals Hallo bevoegdheid wordt verleend.
+> Om machtigingen te verlenen aan een MySQL hebben bewaking gebruiker de gebruiker verlenen de bevoegdheid 'GRANT optie', evenals de bevoegdheid wordt verleend.
 
 ### <a name="define-performance-counters"></a>Prestatiemeteritems definiëren
 
-Zodra u Hallo OMS-Agent voor Linux toosend gegevens tooLog Analytics configureert, moet u Hallo prestaties tellers toocollect configureren.  Gebruik de procedure Hallo in [Windows en Linux prestaties gegevensbronnen in Log Analytics](log-analytics-data-sources-windows-events.md) met items in de volgende tabel Hallo Hallo.
+Zodra u de OMS-Agent voor Linux gegevens verzenden naar logboekanalyse configureert, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux prestaties gegevensbronnen in logboekanalyse](log-analytics-data-sources-windows-events.md) met de items in de volgende tabel.
 
 | Objectnaam | Naam van het meteritem |
 |:--|:--|
@@ -137,19 +137,19 @@ Zodra u Hallo OMS-Agent voor Linux toosend gegevens tooLog Analytics configureer
 | MySQL-Server | Tabel vergrendelen conflicten Pct |
 
 ## <a name="apache-http-server"></a>Apache HTTP-Server 
-Als de Apache HTTP-Server op Hallo-computer wordt gedetecteerd wanneer Hallo omsagent bundel is geïnstalleerd, wordt een provider voor de Apache HTTP-Server voor prestatiebewaking automatisch geïnstalleerd. Deze provider is afhankelijk van een Apache-module die moet worden geladen in Hallo Apache HTTP-Server in de volgorde tooaccess prestatiegegevens. Hallo-module kan worden geladen met de volgende opdracht Hallo:
+Als de Apache HTTP-Server op de computer wordt gedetecteerd wanneer de bundel omsagent is geïnstalleerd, wordt een provider voor de Apache HTTP-Server voor prestatiebewaking automatisch geïnstalleerd. Deze provider is afhankelijk van een Apache-module om prestatiegegevens toegang te krijgen in de Apache HTTP-Server moet worden geladen. De module kan worden geladen met de volgende opdracht:
 ```
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -c
 ```
 
-toounload hello Apache bewakingsmodule, Hallo volgende opdracht uitvoeren:
+Als u wilt verwijderen (Unload) van de Apache-bewakingsmodule, voer de volgende opdracht:
 ```
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 ```
 
 ### <a name="define-performance-counters"></a>Prestatiemeteritems definiëren
 
-Zodra u Hallo OMS-Agent voor Linux toosend gegevens tooLog Analytics configureert, moet u Hallo prestaties tellers toocollect configureren.  Gebruik de procedure Hallo in [Windows en Linux prestaties gegevensbronnen in Log Analytics](log-analytics-data-sources-windows-events.md) met items in de volgende tabel Hallo Hallo.
+Zodra u de OMS-Agent voor Linux gegevens verzenden naar logboekanalyse configureert, moet u de prestatiemeteritems voor het verzamelen van configureren.  Gebruik de procedure in [Windows en Linux prestaties gegevensbronnen in logboekanalyse](log-analytics-data-sources-windows-events.md) met de items in de volgende tabel.
 
 | Objectnaam | Naam van het meteritem |
 |:--|:--|
@@ -167,4 +167,4 @@ Zodra u Hallo OMS-Agent voor Linux toosend gegevens tooLog Analytics configureer
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Verzamelen van prestatiemeteritems](log-analytics-data-sources-performance-counters.md) van Linux-agents.
-* Meer informatie over [Meld zoekopdrachten](log-analytics-log-searches.md) tooanalyze Hallo gegevens verzameld van gegevensbronnen en oplossingen. 
+* Meer informatie over [Meld zoekopdrachten](log-analytics-log-searches.md) om de gegevens verzameld van gegevensbronnen en oplossingen te analyseren. 

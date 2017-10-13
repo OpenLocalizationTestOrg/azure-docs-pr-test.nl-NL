@@ -1,6 +1,6 @@
 ---
-title: aaaSetting Up hello Azure-hulpprogramma voor importeren/exporteren v1 | Microsoft Docs
-description: Meer informatie over hoe tooset up Hallo station voorbereidings- en hulpprogramma voor hello Azure Import/Export-service. Dit verwijst toov1 Hallo hulpprogramma voor importeren/exporteren.
+title: Instellen van de Azure Import/Export hulpprogramma v1 | Microsoft Docs
+description: Informatie over het instellen van de voorbereiding van het station en het hulpprogramma voor de Azure Import/Export-service voor het repareren. Dit verwijst naar v1 van het hulpprogramma voor importeren/exporteren.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,56 +14,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 838db815a7d4e6c04369711ef3eedb31fbb0b1b4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4fb4c7e39c0385cae7c7984eb774d6a468ee18e4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="setting-up-hello-azure-importexport-tool"></a>Instellen van hello Azure-hulpprogramma voor importeren/exporteren
-Hallo Microsoft Azure-hulpprogramma voor importeren/exporteren is Hallo station voorbereidings- en hulpprogramma waarmee u met Hallo Microsoft Azure Import/Export-service kunt. U kunt Hallo hulpprogramma gebruiken voor Hallo volgende functies:  
+# <a name="setting-up-the-azure-importexport-tool"></a>Instellen van de Azure-hulpprogramma voor importeren/exporteren
+Het hulpprogramma voor importeren/exporteren van Microsoft Azure is het station voorbereiding hulpprogramma en herstel die u met de Microsoft Azure Import/Export-service gebruiken kunt. U kunt het hulpprogramma gebruiken voor de volgende functies:  
   
--   Voordat u een import-taak maakt, kunt u dit hulpprogramma toocopy toohello vaste gegevensstations u gaat tooship tooa Windows Azure-Datacenter.  
+-   Voordat u een import-taak maakt, kunt u dit hulpprogramma kunt gebruiken om gegevens te kopiëren naar de harde schijven die u wilt verzenden naar een Windows Azure-Datacenter.  
   
--   Nadat een import-taak is voltooid, kunt u dit hulpprogramma toorepair alle blobs zijn beschadigd, ontbreekt of het conflict met andere blobs.  
+-   Nadat een import-taak is voltooid, kunt u dit hulpprogramma kunt gebruiken om te herstellen van alle bestaande blobs zijn beschadigd, ontbreekt of het conflict met andere blobs.  
   
--   Nadat u Hallo-stations van een voltooide exporttaak ontvangt, kunt u dit hulpprogramma toorepair gebruiken bestanden die zijn beschadigd of ontbreekt op Hallo stations.  
+-   Nadat u de stations van een voltooide exporttaak ontvangt, kunt u dit hulpprogramma kunt gebruiken om te herstellen van bestanden die beschadigd of ontbreken op de stations zijn.  
   
 ## <a name="prerequisites"></a>Vereisten  
-Als u schijven voor een import-taak voorbereidt, moet u toomeet Hallo volgende vereisten:  
+Als u schijven voor een import-taak voorbereidt, moet u voldoen aan de volgende vereisten:  
   
 -   U moet een actief Azure-abonnement hebben.  
   
--   Uw abonnement vergezeld gaan van een storage-account met voldoende beschikbare ruimte toostore Hallo bestanden u tooimport gaat.  
+-   Uw abonnement vergezeld gaan van een opslagaccount met voldoende beschikbare ruimte voor het opslaan van de bestanden die u gaat importeren.  
   
--   Ten minste één van de sleutels voor Hallo moet u voor Hallo storage-account.  
+-   U moet ten minste één van de sleutels voor het opslagaccount.  
   
--   U moet een computer ('kopie machine' hello) met Windows 7, Windows Server 2008 R2 of een nieuwere Windows-besturingssysteem geïnstalleerd.  
+-   U moet een computer (de ' kopie-machine') met Windows 7, Windows Server 2008 R2 of een nieuwere Windows-besturingssysteem geïnstalleerd.  
   
--   Hallo .NET Framework 4 moet worden geïnstalleerd op Hallo kopie machine.  
+-   .NET Framework 4 moet worden geïnstalleerd op de computer kopiëren.  
   
--   BitLocker moet zijn ingeschakeld op Hallo kopie machine.  
+-   BitLocker moet zijn ingeschakeld op de computer kopiëren.  
   
--   U moet een of meer stations waarin gegevens toobe geïmporteerd of leeg 3.5-inch SATA harde schijven verbonden toohello kopie machine.  
+-   U moet een of meer stations met gegevens die moeten worden geïmporteerd of lege 3.5-inch SATA harde schijven gekoppeld aan de machine kopiëren.  
   
--   Hallo-bestanden die u van plan bent tooimport moet toegankelijk is vanaf Hallo kopie machine, ongeacht of deze op een netwerkshare of een lokale vaste schijf. 
+-   De bestanden die u van plan bent om te importeren moet toegankelijk zijn vanaf de computer kopiëren of ze zich op een netwerkshare of een lokale vaste schijf. 
   
-Als u een import die is gedeeltelijk mislukt toorepair probeert, moet u:  
+Als u probeert te herstellen van een import die is gedeeltelijk mislukt, moet u:  
   
--   Hallo kopie-logboekbestanden  
+-   De logboekbestanden kopiëren  
   
--   Hallo opslagaccountsleutel  
+-   De sleutel van het opslagaccount  
   
-  Als u toorepair uitvoer gedeeltelijk mislukt probeert is, moet u:  
+  Als u probeert te herstellen van een uitvoer die is gedeeltelijk mislukt, moet u:  
   
--   Hallo kopie-logboekbestanden  
+-   De logboekbestanden kopiëren  
   
--   Hallo manifest-bestanden (optioneel)  
+-   De manifest-bestanden (optioneel)  
   
--   Hallo opslagaccountsleutel  
+-   De sleutel van het opslagaccount  
   
-## <a name="installing-hello-azure-importexport-tool"></a>Hello Azure-hulpprogramma voor importeren/exporteren installeren  
- Hello Azure-hulpprogramma voor importeren/exporteren bestaat uit de volgende bestanden Hallo:  
+## <a name="installing-the-azure-importexport-tool"></a>Installeren van het hulpprogramma Azure Import/Export  
+ De Azure-hulpprogramma voor importeren/exporteren bestaat uit de volgende bestanden:  
   
 -   WAImportExport.exe  
   
@@ -77,9 +77,9 @@ Als u een import die is gedeeltelijk mislukt toorepair probeert, moet u:
   
 -   hddid.dll  
   
- Kopieer deze bestanden tooa werkmap, bijvoorbeeld, `c:\WAImportExport`. Vervolgens een opdrachtregel-venster openen in de beheerdersmodus en Hallo boven map instellen als de huidige map.  
+ Deze bestanden kopiëren naar een werkmap, bijvoorbeeld `c:\WAImportExport`. Vervolgens een opdrachtregel-venster openen in de beheerdersmodus en de bovenstaande directory instellen als de huidige map.  
   
- toooutput help voor Hallo-opdracht Hallo hulpprogramma zonder parameters uitvoeren:  
+ Voer het hulpprogramma zonder parameters om de uitvoer van de help voor de opdracht:  
   
 ```  
 WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  
@@ -119,117 +119,117 @@ Preview an Export Job:
 Parameters:  
   
     /j:<JournalFile>  
-        - Required. Path toohello journal file. Each drive must have one and only one  
-          journal file. hello journal file corresponding toohello target drive must always  
+        - Required. Path to the journal file. Each drive must have one and only one  
+          journal file. The journal file corresponding to the target drive must always  
           be specified.  
     /logdir:<LogDirectory>  
-        - Optional. hello log directory. Verbose log files as well as some temporary  
-          files will be written toothis directory. If not specified, current directory  
-          will be used as hello log directory.  
+        - Optional. The log directory. Verbose log files as well as some temporary  
+          files will be written to this directory. If not specified, current directory  
+          will be used as the log directory.  
     /id:<SessionId>  
-        - Required. hello session Id is used tooidentify a copy session. It is used too 
+        - Required. The session Id is used to identify a copy session. It is used to  
           ensure accurate recovery of an interrupted copy session. In addition, files  
-          that are copied in a copy session are stored in a directory named after hello  
-          session Id on hello target drive.  
+          that are copied in a copy session are stored in a directory named after the  
+          session Id on the target drive.  
     /resumesession  
-        - Optional. If hello last copy session was terminated abnormally, this parameter  
-          can be specified tooresume hello session.  
+        - Optional. If the last copy session was terminated abnormally, this parameter  
+          can be specified to resume the session.  
     /abortsession  
-        - Optional. If hello last copy session was terminated abnormally, this parameter  
-          can be specified tooabort hello session.  
+        - Optional. If the last copy session was terminated abnormally, this parameter  
+          can be specified to abort the session.  
     /sn:<StorageAccountName>  
-        - Required. Only applicable for RepairImport and RepairExport. hello name of  
-          hello storage account.  
+        - Required. Only applicable for RepairImport and RepairExport. The name of  
+          the storage account.  
     /sk:<StorageAccountKey>  
-        - Optional. hello key of hello storage account. One of /sk: and /csas: must be  
+        - Optional. The key of the storage account. One of /sk: and /csas: must be  
           specified.  
     /csas:<ContainerSas>  
-        - Optional. A container SAS, in format of <ContainerName>?<SasString>, toobe  
-          used for import hello data. One of /sk: and /csas: must be specified.  
+        - Optional. A container SAS, in format of <ContainerName>?<SasString>, to be  
+          used for import the data. One of /sk: and /csas: must be specified.  
     /t:<TargetDriveLetter>  
-        - Required. Drive letter of hello target drive.  
+        - Required. Drive letter of the target drive.  
     /r:<RepairFile>  
         - Required. Only applicable for RepairImport and RepairExport.  
-          Path toohello file for tracking repair progress. Each drive must have one  
+          Path to the file for tracking repair progress. Each drive must have one  
           and only one repair file.  
     /d:<TargetDirectories>  
         - Required. Only applicable for RepairImport and RepairExport.  
-          For RepairImport, one or more semicolon-separated directories toorepair;  
-          For RepairExport, one directory toorepair, e.g. root directory of hello drive.  
+          For RepairImport, one or more semicolon-separated directories to repair;  
+          For RepairExport, one directory to repair, e.g. root directory of the drive.  
     /format  
-        - Optional. If specified, hello target drive will be formatted. DO NOT specify  
-          this parameter if you do not want tooformat hello drive.  
+        - Optional. If specified, the target drive will be formatted. DO NOT specify  
+          this parameter if you do not want to format the drive.  
     /silentmode  
-        - Optional. If not specified, hello /format parameter will require a confirmation  
-          from console before hello tool formats hello drive. If this parameter is specified,  
-          not confirmation will be given for formatting hello drive.  
+        - Optional. If not specified, the /format parameter will require a confirmation  
+          from console before the tool formats the drive. If this parameter is specified,  
+          not confirmation will be given for formatting the drive.  
     /encrypt  
-        - Optional. If specified, hello target drive will be encrypted with BitLocker.  
-          If hello drive has already been encrypted with BitLocker, do not specify this  
-          parameter and instead specify hello BitLocker key using hello "/k" parameter.  
+        - Optional. If specified, the target drive will be encrypted with BitLocker.  
+          If the drive has already been encrypted with BitLocker, do not specify this  
+          parameter and instead specify the BitLocker key using the "/k" parameter.  
     /bk:<BitLockerKey>  
-        - Optional. hello current BitLocker key if hello drive has already been encrypted  
+        - Optional. The current BitLocker key if the drive has already been encrypted  
           with BitLocker.  
     /Disposition:<Disposition>  
-        - Optional. Specifies hello behavior when a blob with hello same path as hello one  
+        - Optional. Specifies the behavior when a blob with the same path as the one  
           being imported already exists. Valid values are: rename, no-overwrite and  
-          overwrite (case-sensitive). If not specified, "rename" will be used as hello  
+          overwrite (case-sensitive). If not specified, "rename" will be used as the  
           default value.  
     /BlobType:<BlobType>  
-        - Optional. hello blob type for hello imported blob(s). Valid values are BlockBlob  
-          and PageBlob. If not specified, BlockBlob will be used as hello default value.  
+        - Optional. The blob type for the imported blob(s). Valid values are BlockBlob  
+          and PageBlob. If not specified, BlockBlob will be used as the default value.  
     /PropertyFile:<PropertyFile>  
-        - Optional. Path toohello property file for hello file(s) toobe imported.  
+        - Optional. Path to the property file for the file(s) to be imported.  
     /MetadataFile:<MetadataFile>  
-        - Optional. Path toohello metadata file for hello file(s) toobe imported.  
+        - Optional. Path to the metadata file for the file(s) to be imported.  
     /CopyLogFile:<DriveCopyLogFile>  
-        - Required. Only applicable for RepairImport and RepairExport. Path toohello  
+        - Required. Only applicable for RepairImport and RepairExport. Path to the  
           drive copy log file (verbose or error).  
     /ManifestFile:<DriveManifestFile>  
-        - Required. Only applicable for RepairExport. Path toohello drive manifest file.  
+        - Required. Only applicable for RepairExport. Path to the drive manifest file.  
     /PathMapFile:<DrivePathMapFile>  
-        - Optional. Only applicable for RepairImport. Path toohello file containing  
-          mappings of file paths relative toohello drive root toolocations of actual files  
+        - Optional. Only applicable for RepairImport. Path to the file containing  
+          mappings of file paths relative to the drive root to locations of actual files  
           (tab-delimited). When first specified, it will be populated with file paths  
           with empty targets, which means either they are not found in TargetDirectories,  
-          access denied, with invalid name, or they exist in multiple directories. hello  
-          path map file can be manually edited tooinclude hello correct target paths and  
-          specified again for hello tool tooresolve hello file paths correctly.  
+          access denied, with invalid name, or they exist in multiple directories. The  
+          path map file can be manually edited to include the correct target paths and  
+          specified again for the tool to resolve the file paths correctly.  
     /ExportBlobListFile:<ExportBlobListFile>  
-        - Required. Path toohello XML file containing list of blob paths or blob path  
-          prefixes for hello blobs toobe exported. hello file format is hello same as hello  
-          blob list blob format in hello Put Job operation of hello Import/Export service  
+        - Required. Path to the XML file containing list of blob paths or blob path  
+          prefixes for the blobs to be exported. The file format is the same as the  
+          blob list blob format in the Put Job operation of the Import/Export service  
           REST API.  
     /DriveSize:<DriveSize>  
-        - Required. Size of drives toobe used for export. For example, 500GB, 1.5TB.  
+        - Required. Size of drives to be used for export. For example, 500GB, 1.5TB.  
           Note: 1 GB = 1,000,000,000 bytes  
                 1 TB = 1,000,000,000,000 bytes  
     /srcdir:<SourceDirectory>  
-        - Required. Source directory that contains files toobe copied toohello  
+        - Required. Source directory that contains files to be copied to the  
           target drives.  
     /dstdir:<DestinationBlobVirtualDirectory>  
-        - Required. Destination blob virtual directory toowhich hello files will  
+        - Required. Destination blob virtual directory to which the files will  
           be imported.  
     /srcfile:<SourceFilePath>  
-        - Required. Path toohello source file toobe imported.  
+        - Required. Path to the source file to be imported.  
     /dstblob:<DestinationBlobPath>  
-        - Required. Destination blob path for hello file toobe imported.  
+        - Required. Destination blob path for the file to be imported.  
     /skipwrite
-        - Optional. tooskip write process. Used for inplace data drive preparation.
-          Be sure tooreserve enough space (3 GB per 7TB) for drive manifest file!
+        - Optional. To skip write process. Used for inplace data drive preparation.
+          Be sure to reserve enough space (3 GB per 7TB) for drive manifest file!
 Examples:  
   
-    Copy a source directory tooa drive:  
+    Copy a source directory to a drive:  
     WAImportExport.exe PrepImport  
         /j:9WM35C2V.jrn /id:session#1 /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GEL  
         xmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /t:x /format /encrypt /srcdir:d:\movi  
         es\drama /dstdir:movies/drama/  
   
-    Copy another directory toohello same drive following hello above command:  
+    Copy another directory to the same drive following the above command:  
     WAImportExport.exe PrepImport  
         /j:9WM35C2V.jrn /id:session#2 /srcdir:d:\movies\action /dstdir:movies/action/  
   
-    Copy another file toohello same drive following hello above commands:  
+    Copy another file to the same drive following the above commands:  
     WAImportExport.exe PrepImport  
         /j:9WM35C2V.jrn /id:session#3 /srcfile:d:\movies\dvd.vhd /dstblob:movies/dvd.vhd /BlobType:PageBlob  
   
@@ -259,4 +259,4 @@ Examples:
 * [De taakstatus controleren met kopielogboekbestanden](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Een importtaak herstellen](../storage-import-export-tool-repairing-an-import-job-v1.md)   
 * [Een exporttaak herstellen](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Het oplossen van problemen hello Azure-hulpprogramma voor importeren/exporteren](storage-import-export-tool-troubleshooting-v1.md)
+* [Problemen met het hulpprogramma Azure Import/Export oplossen](storage-import-export-tool-troubleshooting-v1.md)

@@ -1,6 +1,6 @@
 ---
-title: een Azure Service Fabric-app aaaPackage | Microsoft Docs
-description: Hoe toopackage een Service Fabric-toepassing voordat u tooa cluster implementeert.
+title: Pakket van een Azure-Service Fabric-app | Microsoft Docs
+description: Het pakket een Service Fabric-toepassing voordat u implementeert naar een cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: ryanwi
-ms.openlocfilehash: b3918e1e25e532acdc9440855213e1fa364ea000
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 486a27d7ca576c8fe1552c02eb24ece6b8bb2ba8
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="package-an-application"></a>Een toepassing van het pakket
-Dit artikel wordt beschreven hoe toopackage een Service Fabric-toepassing, waardoor het gereed is voor implementatie.
+In dit artikel wordt beschreven hoe een Service Fabric-toepassing van het pakket en gereed is voor implementatie te maken.
 
 ## <a name="package-layout"></a>Lay-out
-Hallo-toepassingsmanifest, een of meer service-manifesten en andere benodigde pakket bestanden moeten worden opgeslagen in een specifieke indeling voor implementatie in een Service Fabric-cluster. Hallo voorbeeld manifesten in dit artikel moet toobe georganiseerd in Hallo directory-structuur te volgen:
+Het toepassingsmanifest, een of meer service-manifesten en andere benodigde pakket-bestanden moeten worden ingedeeld in een specifieke indeling voor implementatie in een Service Fabric-cluster. De manifesten voorbeeld in dit artikel moet worden ingedeeld in de volgende mapstructuur:
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -45,47 +45,47 @@ D:\TEMP\MYAPPLICATIONTYPE
             init.dat
 ```
 
-Hallo mappen zijn benoemde toomatch hello **naam** kenmerken van elk element in de bijbehorende. Bijvoorbeeld, als hello servicemanifest bevat twee code pakketten met Hallo namen **MyCodeA** en **MyCodeB**, en vervolgens twee mappen met dezelfde namen zou bevatten Hallo Hallo nodig binaire bestanden voor elke code het pakket.
+De mappen zijn met de naam overeenkomt met de **naam** kenmerken van elk element in de bijbehorende. Als de servicemanifest bevat twee code pakketten met de namen bijvoorbeeld **MyCodeA** en **MyCodeB**, en vervolgens twee mappen met dezelfde namen van de benodigde binaire bestanden voor elk codepakket zou bevatten.
 
 ## <a name="use-setupentrypoint"></a>Entrypoint gebruiken
-Typische scenario's voor het gebruik van **entrypoint** zijn wanneer u toorun een uitvoerbaar bestand voordat Hallo-service wordt gestart dient of u tooperform een bewerking met verhoogde bevoegdheden moet. Bijvoorbeeld:
+Typische scenario's voor het gebruik van **entrypoint** wanneer moet u een uitvoerbaar bestand uitvoeren voordat de service wordt gestart of moet u een bewerking met verhoogde bevoegdheden uit te voeren. Bijvoorbeeld:
 
-* In te stellen en het initialiseren van omgevingsvariabelen die Hallo service uitvoerbare behoeften. Het is niet beperkt tooonly uitvoerbare bestanden via Hallo Service Fabric-programmeermodellen geschreven. Npm.exe moet bijvoorbeeld een aantal omgevingsvariabelen die is geconfigureerd voor het implementeren van een node.js-toepassing.
+* In te stellen en het initialiseren van omgevingsvariabelen op die moet van het uitvoerbare bestand van de service. Het is niet beperkt tot alleen uitvoerbare bestanden die zijn geschreven via de Service Fabric-programmeermodellen. Npm.exe moet bijvoorbeeld een aantal omgevingsvariabelen die is geconfigureerd voor het implementeren van een node.js-toepassing.
 * Instellen van toegangsbeheer door beveiligingscertificaten te installeren.
 
-Voor meer informatie over het tooconfigure hello **entrypoint**, Zie [Hallo beleid configureren voor een service-instelling toegangspunt.](service-fabric-application-runas-security.md)
+Voor meer informatie over het configureren van de **entrypoint**, Zie [het beleid voor een toegangspunt voor service-instellingen configureren](service-fabric-application-runas-security.md)
 
 <a id="Package-App"></a>
 ## <a name="configure"></a>Configureren
 ### <a name="build-a-package-by-using-visual-studio"></a>Het bouwen van een pakket met behulp van Visual Studio
-Als u uw toepassing toocreate Visual Studio 2015 gebruikt, kunt u Hallo pakket opdracht tooautomatically een pakket maakt dat overeenkomt met de Hallo lay-out die hierboven worden beschreven.
+Als u Visual Studio 2015 gebruikt om uw toepassing te maken, kunt u de pakket-opdracht voor het automatisch maken van een pakket dat overeenkomt met de indeling van de hierboven beschreven.
 
-toocreate een pakket met de rechtermuisknop op Hallo application-project in Solution Explorer en kiest Hallo pakket, zoals hieronder wordt weergegeven:
+Voor het maken van een pakket met de rechtermuisknop op de application-project in Solution Explorer en kiest u de opdracht pakket, zoals hieronder wordt weergegeven:
 
 ![Een toepassing met Visual Studio-pakket][vs-package-command]
 
-Wanneer verpakking voltooid is, kunt u Hallo-locatie van het Hallo-pakket vinden in Hallo **uitvoer** venster. Hallo verpakking stap gebeurt automatisch wanneer u implementeert of opsporen in uw toepassing in Visual Studio.
+Wanneer het pakket is voltooid, kunt u de locatie van het pakket in vinden de **uitvoer** venster. De stap pakket worden automatisch uitgevoerd wanneer u implementeert of opsporen in uw toepassing in Visual Studio.
 
 ### <a name="build-a-package-by-command-line"></a>Het bouwen van een pakket met de opdrachtregel
-Het is ook mogelijk tooprogrammatically pakket van uw toepassing met `msbuild.exe`. Achter de schermen hello, Visual Studio wordt uitgevoerd het Hallo-uitvoer is dus dezelfde.
+Het is ook mogelijk via een programma wordt gebruikt door uw toepassing verpakken `msbuild.exe`. Achter de schermen Visual Studio wordt uitgevoerd het zodat de uitvoer hetzelfde is.
 
 ```shell
 D:\Temp> msbuild HelloWorld.sfproj /t:Package
 ```
 
-## <a name="test-hello-package"></a>Hallo-testpakket
-U kunt Hallo pakketstructuur lokaal via PowerShell controleren met behulp van Hallo [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) opdracht.
-Met deze opdracht controleert manifest bij het parseren van problemen en controleer of alle verwijzingen. Met deze opdracht controleert alleen of Hallo structurele juistheid van Hallo mappen en bestanden in Hallo-pakket.
-Er niet gecontroleerd van Hallo pakketinhoud code of gegevens buiten de controleren of alle vereiste bestanden aanwezig zijn.
+## <a name="test-the-package"></a>Het pakket testen
+U kunt de pakketstructuur lokaal via PowerShell controleren met behulp van de [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) opdracht.
+Met deze opdracht controleert manifest bij het parseren van problemen en controleer of alle verwijzingen. Met deze opdracht controleert alleen of de structurele juistheid van de mappen en bestanden in het pakket.
+Het niet controleren of een van de pakketinhoud code of gegevens buiten de controleren of alle vereiste bestanden aanwezig zijn.
 
 ```
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
 False
-Test-ServiceFabricApplicationPackage : hello EntryPoint MySetup.bat is not found.
+Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
 ```
 
-Deze fout ziet u dat Hallo *MySetup.bat* bestand waarnaar wordt verwezen in Hallo servicemanifest **entrypoint** ontbreekt in het Hallo-codepakket. Nadat de ontbrekende Hallo-bestand wordt toegevoegd, wordt verificatie van de toepassing hello doorgegeven:
+Deze fout ziet u dat de *MySetup.bat* bestand waarnaar wordt verwezen in het servicemanifest **entrypoint** ontbreekt in het codepakket. Nadat het ontbrekende bestand is toegevoegd, wordt de controle van toepassingen wordt doorgegeven:
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -113,22 +113,22 @@ PS D:\temp>
 
 Als uw toepassing [toepassingsparameters](service-fabric-manage-multiple-environment-app-configuration.md) gedefinieerd, kunt u ze in doorgeven [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) voor de juiste validatie.
 
-Als u Hallo cluster waarop de toepassing hello wordt geïmplementeerd weet, kunt u doorgeeft in Hallo `ImageStoreConnectionString` parameter. Hallo-pakket is in dit geval ook gevalideerd met eerdere versies van de toepassing hello die al in het Hallo-cluster worden uitgevoerd. Bijvoorbeeld, Hallo validatie kan detecteren of een pakket met de Hallo dezelfde versie, maar verschillende inhoud al is geïmplementeerd.  
+Als u het cluster waarop de toepassing wordt geïmplementeerd, kunt u doorgeeft in de `ImageStoreConnectionString` parameter. Het pakket wordt in dit geval ook gevalideerd met eerdere versies van de toepassing die al in het cluster worden uitgevoerd. Bijvoorbeeld: de validatie kan detecteren of een pakket met dezelfde versie maar verschillende inhoud al is geïmplementeerd.  
 
-Zodra de toepassing hello correct wordt verpakt en is gevalideerd, evalueren op basis van Hallo grootte en het aantal bestanden Hallo als compressie is vereist.
+Als de toepassing correct wordt verpakt en is gevalideerd, evalueren op basis van de grootte en het aantal bestanden als compressie is vereist.
 
 ## <a name="compress-a-package"></a>Een pakket comprimeren
-Wanneer een pakket grote of veel bestanden heeft, kunt u het comprimeren voor een snellere implementatie. Compressie vermindert Hallo aantal bestanden en Hallo pakketgrootte.
-Voor een gecomprimeerde toepassingspakket [Uploading Hallo toepassingspakket](service-fabric-deploy-remove-applications.md#upload-the-application-package) duurt langer dan toouploading Hallo niet-gecomprimeerde pakket (speciaal als compressie tijd zijn meeberekend), maar [registreren](service-fabric-deploy-remove-applications.md#register-the-application-package) en [afmelden Hallo toepassingstype](service-fabric-deploy-remove-applications.md#unregister-an-application-type) voor een gecomprimeerde pakket sneller zijn.
+Wanneer een pakket grote of veel bestanden heeft, kunt u het comprimeren voor een snellere implementatie. Compressie vermindert het aantal bestanden en de grootte van het pakket.
+Voor een gecomprimeerde toepassingspakket [uploaden van het toepassingspakket](service-fabric-deploy-remove-applications.md#upload-the-application-package) kan het langer duren vergeleken met het uploaden van de niet-gecomprimeerde pakket (speciaal als compressie tijd zijn meeberekend), maar [registreren](service-fabric-deploy-remove-applications.md#register-the-application-package)en [afmelden het toepassingstype](service-fabric-deploy-remove-applications.md#unregister-an-application-type) voor een gecomprimeerde pakket sneller zijn.
 
-Hallo-mechanisme voor clientimplementatie is hetzelfde voor gecomprimeerde en ongecomprimeerde pakketten. Hallo-pakket is gecomprimeerd, wordt deze opgeslagen als zodanig in Hallo cluster image store als deze niet op Hallo knooppunt gecomprimeerd voordat de toepassing hello wordt uitgevoerd.
-Hallo compressie vervangt Hallo geldig Service Fabric-pakket door Hallo gecomprimeerde versie. Hallo map moet schrijfmachtigingen toestaan. Compressie uitgevoerd op een al gecomprimeerde pakket levert geen wijzigingen aangebracht.
+Het mechanisme deployment is hetzelfde voor gecomprimeerde en ongecomprimeerde pakketten. Als het pakket is gecomprimeerd, wordt deze als zodanig in het archief van de cluster-installatiekopie is opgeslagen en wordt deze op het knooppunt wordt gedecomprimeerd voordat de toepassing wordt uitgevoerd.
+De compressie vervangt het geldig Service Fabric-pakket met de gecomprimeerde versie. De map moet schrijfmachtigingen toestaan. Compressie uitgevoerd op een al gecomprimeerde pakket levert geen wijzigingen aangebracht.
 
-U kunt een pakket met de Powershell-opdracht Hallo comprimeren [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) met `CompressPackage` overschakelen. U kunt Hallo decomprimeren van het pakket met de Hallo dezelfde opdracht met behulp `UncompressPackage` overschakelen.
+U kunt een pakket met de Powershell-opdracht comprimeren [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) met `CompressPackage` overschakelen. U kunt het pakket met dezelfde decomprimeren opdracht met behulp `UncompressPackage` overschakelen.
 
-Hallo volgende opdracht worden gecomprimeerd Hallo pakket zonder deze toohello image store. U kunt een gecomprimeerde pakket tooone of meer Service Fabric-clusters, kopiëren, indien nodig, met behulp van [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) zonder Hallo `SkipCopy` vlag.
-Hallo-pakket bevat nu ZIP-bestanden voor Hallo `code`, `config`, en `data` pakketten. Hallo-toepassingsmanifest en Hallo service manifesten zijn niet ingepakte, omdat ze nodig zijn voor veel interne bewerkingen (zoals pakket delen van de toepassing de naam en versie extraheren voor bepaalde validaties).
-Hallo manifesten comprimeren zouden deze bewerkingen niet efficiënt.
+De volgende opdracht wordt het pakket gecomprimeerd zonder kopiëren naar de image store. U kunt een gecomprimeerde pakket kopiëren naar een of meer Service Fabric-clusters, indien nodig, met behulp van [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) zonder de `SkipCopy` vlag.
+Het pakket bevat nu ZIP-bestanden voor de `code`, `config`, en `data` pakketten. Het toepassingsmanifest en de manifesten voor de service zijn niet ingepakte, omdat ze nodig zijn voor veel interne bewerkingen (zoals pakket delen, een toepassing de naam en versie extraheren voor bepaalde validaties).
+Comprimeren van de manifesten zouden deze bewerkingen niet efficiënt.
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -163,21 +163,21 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ```
 
-U kunt ook comprimeren en kopieer het pakket met Hallo [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) in één stap.
-Als Hallo pakket groot is, geeft u een hoog genoeg time-out tooallow tijd voor zowel Hallo pakket compressie en Hallo uploaden toohello cluster.
+U kunt ook comprimeren en kopieer het pakket met [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) in één stap.
+Als het pakket groot is, geeft u een hoog genoeg time-out zodat de tijd voor de compressie van het pakket en voor het uploaden naar het cluster.
 ```
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
-Service Fabric berekent intern controlesommen voor toepassingspakketten Hallo voor validatie. Bij gebruik van compressie, worden de Hallo controlesommen berekend op Hallo ingepakte versies van elk pakket.
-Als u een niet-gecomprimeerde versie van het toepassingspakket hebt gekopieerd, en u toouse compressie voor Hallo wilt hetzelfde pakket, moet u Hallo versies van Hallo `code`, `config`, en `data` pakketten tooavoid checksum komt niet overeen. Als hello-pakketten ongewijzigd zijn, in plaats van Hallo versie wijzigen, kunt u [diff inrichting](service-fabric-application-upgrade-advanced.md). Met deze optie Hallo ongewijzigd pakket niet opnemen in plaats daarvan ernaar verwijzen vanuit Hallo servicemanifest.
+Service Fabric berekent intern controlesommen voor de toepassingspakketten voor validatie. Bij gebruik van compressie, worden de controlesommen berekend op de gecomprimeerde versies van elk pakket.
+Als u een niet-gecomprimeerde versie van het toepassingspakket gekopieerd en u wilt gebruik compressie voor hetzelfde pakket, moet u de versies van de `code`, `config`, en `data` pakketten om te voorkomen dat checksum komt niet overeen. Als de pakketten niet gewijzigd in plaats van de versie wijzigen zijn, kunt u [diff inrichting](service-fabric-application-upgrade-advanced.md). Met deze optie wordt het pakket ongewijzigd niet opnemen in plaats daarvan ernaar verwijzen vanuit het servicemanifest.
 
-Als u een gecomprimeerde versie van pakket Hallo geüpload en u wilt dat een niet-gecomprimeerde pakket toouse, moet u op dezelfde manier Hallo versies tooavoid Hallo checksum komt niet overeen bijwerken.
+Als u een gecomprimeerde versie van het pakket hebt geüpload en u wilt een niet-gecomprimeerde pakket gebruiken, moet u ook de versies om te voorkomen dat de checksum komt niet overeen bijwerken.
 
-Hallo pakket is nu correct verpakt, gevalideerd en gecomprimeerd (indien nodig), zodat deze gereed is voor [implementatie](service-fabric-deploy-remove-applications.md) tooone of meer Service Fabric-clusters.
+Het pakket is nu correct verpakt, gevalideerd en gecomprimeerd (indien nodig), zodat deze gereed is voor [implementatie](service-fabric-deploy-remove-applications.md) op een of meer Service Fabric-clusters.
 
 ### <a name="compress-packages-when-deploying-using-visual-studio"></a>Comprimeren van pakketten bij het implementeren met Visual Studio
-U kunt opgeven dat Visual Studio toocompress pakketten op implementatie door toe te voegen Hallo `CopyPackageParameters` element tooyour publicatieprofiel en stel Hallo `CompressPackage` kenmerk te`true`.
+U kunt opgeven dat Visual Studio te comprimeren van pakketten op implementatie door toe te voegen de `CopyPackageParameters` element dat u wilt uw publicatieprofiel en stel de `CompressPackage` kenmerk `true`.
 
 ``` xml
     <PublishProfile xmlns="http://schemas.microsoft.com/2015/05/fabrictools">
@@ -188,16 +188,16 @@ U kunt opgeven dat Visual Studio toocompress pakketten op implementatie door toe
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-[Implementeren en toepassingen verwijderen] [ 10] wordt beschreven hoe toouse PowerShell toomanage toepassingsexemplaren
+[Implementeren en toepassingen verwijderen] [ 10] wordt beschreven hoe u PowerShell gebruiken voor het beheren van toepassingsexemplaren
 
-[Het beheren van parameters voor de toepassing voor omgevingen met meerdere] [ 11] wordt beschreven hoe tooconfigure parameters en variabelen voor exemplaren van een andere toepassing.
+[Het beheren van parameters voor de toepassing voor omgevingen met meerdere] [ 11] wordt beschreven hoe u parameters en variabelen voor exemplaren van een andere toepassing.
 
-[Beveiligingsbeleid voor uw toepassing configureert] [ 12] wordt beschreven hoe toorun services onder beveiligingstoegang beleid toorestrict.
+[Beveiligingsbeleid voor uw toepassing configureert] [ 12] wordt beschreven hoe u services onder het beveiligingsbeleid om toegang te beperken.
 
 <!--Image references-->
 [vs-package-command]: ./media/service-fabric-package-apps/vs-package-command.png
 
-<!--Link references--In actual articles, you only need a single period before hello slash-->
+<!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md

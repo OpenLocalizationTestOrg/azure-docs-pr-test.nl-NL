@@ -1,7 +1,7 @@
-Hallo na taken wordt uitgevoerd in dit scenario:
+In dit scenario worden de volgende taken uitgevoerd:
 
-* Maken van een load balancer die netwerkverkeer op poort 80 ontvangt en taakverdeling verkeer toovirtual machines 'web1' en 'web2' te verzenden
-* NAT-regels voor de externe bureaublad toegang/SSH voor virtuele machines achter Hallo load balancer maken
+* Een load balancer maken die netwerkverkeer ontvangt op poort 80 en taakverdelingsverkeer naar virtuele machines 'web1' en 'web2' verzenden
+* NAT-regels voor toegang tot extern bureaublad maken/SSH voor virtuele machines achter de load balancer
 * Statuscontroles maken
 
 ![Load balancer-scenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)

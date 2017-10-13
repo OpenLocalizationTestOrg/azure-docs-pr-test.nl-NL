@@ -1,6 +1,6 @@
 ---
-title: aaaLoad uit Azure blob tooAzure datawarehouse | Microsoft Docs
-description: Meer informatie over hoe toouse PolyBase tooload gegevens van Azure blob-opslag in SQL Data Warehouse. Enkele tabellen uit openbare gegevens laden in Hallo Contoso Retail Data Warehouse-schema.
+title: Laden van Azure blob met Azure datawarehouse | Microsoft Docs
+description: Informatie over hoe u gegevens uit Azure blob-opslag laden in SQL Data Warehouse met PolyBase. Enkele tabellen uit openbare gegevens laden in het datawarehouse van Contoso Retail-schema.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 4b4978ccefa4d55ff5c89fba84c5e705422ddbb7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2859c1144f72fd685af89f83024df1409902ab0c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>Gegevens uit Azure blob-opslag laden in SQL Data Warehouse (PolyBase)
 > [!div class="op_single_selector"]
@@ -28,37 +28,37 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-PolyBase en T-SQL-opdrachten tooload gegevens gebruiken uit Azure blob-opslag in Azure SQL Data Warehouse. 
+PolyBase en T-SQL-opdrachten gebruiken voor gegevens uit Azure blob-opslag laden in Azure SQL Data Warehouse. 
 
-tookeep eenvoudig, deze zelfstudie wordt geladen twee tabellen vanuit een openbare Azure Storage-Blob in Hallo Contoso Retail Data Warehouse-schema. tooload hello volledige gegevensset, Hallo-voorbeeld uitvoeren [Load Hallo volledige Contoso Retail Data Warehouse] [ Load hello full Contoso Retail Data Warehouse] uit Hallo-opslagplaats voor Microsoft SQL Server-voorbeelden.
+Deze zelfstudie wordt in het schema Contoso Retail Data Warehouse het gemak houden de twee tabellen van een openbare Azure Storage-Blob geladen. Het voorbeeld uitvoert voor het laden van de volledige gegevensset, [volledige Contoso Retail Data Warehouse laden] [ Load the full Contoso Retail Data Warehouse] uit de opslagplaats voor Microsoft SQL Server-voorbeelden.
 
 In deze zelfstudie wordt u:
 
-1. Tooload PolyBase uit Azure blob-opslag configureren
+1. PolyBase laden uit Azure blob-opslag configureren
 2. Openbare gegevens laden in de database
-3. Optimalisaties uitvoeren nadat de Hallo load is voltooid.
+3. Optimalisaties uitvoeren nadat de belasting is voltooid.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-toorun in deze zelfstudie, moet u een Azure-account die al een SQL Data Warehouse-database. Als u dit nog geen hebt, raadpleegt u [maken van een SQL Data Warehouse][Create a SQL Data Warehouse].
+Als u wilt uitvoeren in deze zelfstudie, moet u een Azure-account die al een SQL Data Warehouse-database. Als u dit nog geen hebt, raadpleegt u [maken van een SQL Data Warehouse][Create a SQL Data Warehouse].
 
-## <a name="1-configure-hello-data-source"></a>1. Hallo-gegevensbron configureren
-PolyBase gebruikt T-SQL externe objecten toodefine Hallo locatie en kenmerken van Hallo externe gegevens. Hallo externe objectdefinities worden opgeslagen in SQL Data Warehouse. Hallo-gegevens zelf is die extern zijn opgeslagen.
+## <a name="1-configure-the-data-source"></a>1. Configureer de gegevensbron
+PolyBase gebruikt externe T-SQL-objecten voor het definiëren van de locatie en de kenmerken van de externe gegevens. De externe objectdefinities worden opgeslagen in SQL Data Warehouse. De gegevens zelf is die extern zijn opgeslagen.
 
 ### <a name="11-create-a-credential"></a>1.1. Een referentie maken
-**Deze stap overslaan** als u Hallo Contoso openbare gegevens laadt. U hoeft geen beveiligde toegang toohello openbare gegevens omdat die al toegankelijk tooanyone.
+**Deze stap overslaan** als u de openbare Contoso-gegevens worden geladen. U hoeft niet op veilige toegang tot openbare gegevens omdat die al toegankelijk voor iedereen.
 
-**Deze stap niet overslaan** als u deze zelfstudie als een sjabloon voor het laden van uw eigen gegevens. tooaccess gegevens via een referentie gebruik Hallo na script toocreate database-scoped referentie en vervolgens worden gebruikt bij het Hallo-locatie van de gegevensbron Hallo definiëren.
+**Deze stap niet overslaan** als u deze zelfstudie als een sjabloon voor het laden van uw eigen gegevens. Toegang tot gegevens via een referentie op die het volgende script gebruiken voor het maken van een database-scoped referentie en vervolgens worden gebruikt bij het definiëren van de locatie van de gegevensbron.
 
 ```sql
 -- A: Create a master key.
 -- Only necessary if one does not already exist.
--- Required tooencrypt hello credential secret in hello next step.
+-- Required to encrypt the credential secret in the next step.
 
 CREATE MASTER KEY;
 
 
 -- B: Create a database scoped credential
--- IDENTITY: Provide any string, it is not used for authentication tooAzure storage.
+-- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
 -- SECRET: Provide your Azure storage account key.
 
 
@@ -70,9 +70,9 @@ WITH
 
 
 -- C: Create an external data source
--- TYPE: HADOOP - PolyBase uses Hadoop APIs tooaccess data in Azure blob storage.
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
--- CREDENTIAL: Provide hello credential created in hello previous step.
+-- CREDENTIAL: Provide the credential created in the previous step.
 
 CREATE EXTERNAL DATA SOURCE AzureStorage
 WITH (
@@ -82,10 +82,10 @@ WITH (
 );
 ```
 
-Toostep 2 overslaan.
+Verder met stap 2.
 
-### <a name="12-create-hello-external-data-source"></a>1.2. De externe gegevensbron Hallo maken
-Gebruik deze [externe gegevensbron maken] [ CREATE EXTERNAL DATA SOURCE] opdracht toostore Hallo locatie van het Hallo-gegevens en Hallo type gegevens. 
+### <a name="12-create-the-external-data-source"></a>1.2. De externe gegevensbron maken
+Gebruik deze [externe gegevensbron maken] [ CREATE EXTERNAL DATA SOURCE] opdracht voor het opslaan van de locatie van de gegevens en het type gegevens. 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -97,12 +97,12 @@ WITH
 ```
 
 > [!IMPORTANT]
-> Als u op uw openbare azure blob storage-containers toomake kiest, houd er rekening mee dat als de gegevenseigenaar Hallo voor gegevens kosten voor uitgaande brengt wanneer gegevens Hallo Datacenter verlaat. 
+> Als u uw azure blob storage-containers om openbaar te maken kiest, houd er rekening mee dat als eigenaar van de gegevens u gefactureerd voor gegevens kosten voor uitgaande wanneer gegevens het datacenter verlaat. 
 > 
 > 
 
 ## <a name="2-configure-data-format"></a>2. Indeling van gegevens configureren
-Hallo-gegevens worden opgeslagen in tekstbestanden in Azure blob-opslag en elk veld wordt gescheiden met een scheidingsteken. Voer deze [EXTERNAL FILE FORMAT maken] [ CREATE EXTERNAL FILE FORMAT] opdracht toospecify Hallo indeling van Hallo-gegevens in Hallo tekstbestanden. Hallo Contoso gegevens is niet-gecomprimeerde en pipe gescheiden.
+De gegevens worden opgeslagen in tekstbestanden in Azure blob-opslag en elk veld wordt gescheiden met een scheidingsteken. Voer deze [EXTERNAL FILE FORMAT maken] [ CREATE EXTERNAL FILE FORMAT] opdracht voor het opgeven van de indeling van de gegevens in de tekstbestanden. De Contoso-gegevens niet-gecomprimeerde en pipe gescheiden.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -116,21 +116,21 @@ WITH
 );
 ``` 
 
-## <a name="3-create-hello-external-tables"></a>3. Hallo externe tabellen maken
-Nu u Hallo bron- en gegevensindeling hebt opgegeven, bent u klaar toocreate Hallo externe tabellen. 
+## <a name="3-create-the-external-tables"></a>3. De externe tabellen maken
+Nu dat u hebt opgegeven dat de bron- en gegevensindeling, bent u klaar voor het maken van de externe tabellen. 
 
-### <a name="31-create-a-schema-for-hello-data"></a>3.1. Maak een schema voor Hallo-gegevens.
-toocreate een plaats toostore Hallo Contoso-gegevens in de database, een schema maken.
+### <a name="31-create-a-schema-for-the-data"></a>3.1. Maak een schema voor de gegevens.
+Maak een schema voor het maken van een plaats voor het opslaan van de Contoso-gegevens in uw database.
 
 ```sql
 CREATE SCHEMA [asb]
 GO
 ```
 
-### <a name="32-create-hello-external-tables"></a>3.2. Hallo externe tabellen maken.
-Voer dit script toocreate hello DimProduct en FactOnlineSales externe tabellen. Alle we hier doen is kolomnamen en gegevenstypen definiëren, en deze binding toohello locatie en de indeling van hello Azure blob-opslag-bestanden. Hallo-definitie wordt opgeslagen in SQL Data Warehouse en Hallo gegevens nog steeds in hello Azure Storage-Blob.
+### <a name="32-create-the-external-tables"></a>3.2. Maak de externe tabellen.
+Voer dit script voor het maken van de DimProduct en FactOnlineSales externe tabellen. Alle we hier doen is kolomnamen en gegevenstypen definiëren, en ze te binden aan de locatie en de indeling van de Azure blob-opslag-bestanden. De definitie is opgeslagen in SQL Data Warehouse en de gegevens nog in de Azure Storage-Blob.
 
-Hallo **locatie** parameter Hallo map onder de hoofdmap Hallo in hello Azure Storage-Blob is. Elke tabel is in een andere map.
+De **locatie** parameter is de map onder de hoofdmap in de Azure Storage-Blob. Elke tabel is in een andere map.
 
 ```sql
 
@@ -215,23 +215,23 @@ WITH
 ;
 ```
 
-## <a name="4-load-hello-data"></a>4. Hallo gegevens laden
-Er zijn verschillende manieren tooaccess externe gegevens.  U kunt query over gegevens rechtstreeks vanaf de externe tabel hello, Hallo gegevens laden in nieuwe databasetabellen of externe gegevens tooexisting databasetabellen toevoegen.  
+## <a name="4-load-the-data"></a>4. De gegevens laden
+Er is een verschillende manieren om toegang te krijgen tot externe gegevens.  U kunt een query over gegevens rechtstreeks vanuit de externe tabel, de gegevens in de nieuwe databasetabellen laden of externe gegevens toevoegen aan bestaande databasetabellen.  
 
 ### <a name="41-create-a-new-schema"></a>4.1. Een nieuw schema maken
-CTAS maakt een nieuwe tabel die gegevens bevat.  Maak eerst een schema voor Hallo contoso gegevens.
+CTAS maakt een nieuwe tabel die gegevens bevat.  Maak eerst een schema voor de contoso-gegevens.
 
 ```sql
 CREATE SCHEMA [cso]
 GO
 ```
 
-### <a name="42-load-hello-data-into-new-tables"></a>4.2. Hallo gegevens laden in de nieuwe tabellen
-tooload gegevens uit Azure blob-opslag en opslaan in een tabel in de database, gebruikt u Hallo [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instructie. Bij het laden van met CTAS maakt gebruik van Hallo sterk getypeerd externe tabellen die u hebt alleen created.tooload Hallo gegevens in nieuwe tabellen, gebruikt u een [CTAS] [ CTAS] instructie per tabel. 
+### <a name="42-load-the-data-into-new-tables"></a>4.2. De gegevens in de nieuwe tabellen laden
+Gebruiken om gegevens uit Azure blob-opslag laden en opslaan in een tabel in de database, de [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instructie. Laden met CTAS maakt gebruik van de sterk getypeerde externe tabellen die u zojuist hebt gemaakt. Als u wilt de gegevens in de nieuwe tabellen laden, gebruikt u een [CTAS] [ CTAS] instructie per tabel. 
  
-CTAS wordt een nieuwe tabel gemaakt en gevuld met Hallo resultaten van een select-instructie. CTAS definieert Hallo nieuwe tabel toohave Hallo dezelfde kolommen en gegevenstypen hebben als Hallo resultaten van Hallo-instructie SELECT. Als u alle Hallo kolommen uit een externe tabel selecteert, worden nieuwe tabel Hallo een replica van Hallo kolommen en gegevenstypen in Hallo externe tabel.
+CTAS wordt een nieuwe tabel gemaakt en gevuld met de resultaten van een select-instructie. CTAS wordt gedefinieerd in de nieuwe tabel dezelfde kolommen en gegevenstypen hebben als de resultaten van de select-instructie. Als u alle kolommen uit een externe tabel selecteert, worden de nieuwe tabel een replica van de kolommen en gegevenstypen in de externe tabel.
 
-In dit voorbeeld maken we zowel Hallo dimensie en Hallo feitentabel als hash-gedistribueerde tabellen. 
+We maken als u de dimensie en de feitentabel als hash-gedistribueerde tabellen in dit voorbeeld. 
 
 ```sql
 SELECT GETDATE();
@@ -241,20 +241,20 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="43-track-hello-load-progress"></a>4.3 Hallo load voortgang bijhouden
-U kunt de voortgang Hallo uw belast met dynamische beheerweergaven (DMV's) op te volgen. 
+### <a name="43-track-the-load-progress"></a>4.3 de load-voortgang bijhouden
+U kunt de voortgang van uw belasting met dynamische beheerweergaven (DMV's) te volgen. 
 
 ```sql
--- toosee all requests
+-- To see all requests
 SELECT * FROM sys.dm_pdw_exec_requests;
 
--- toosee a particular request identified by its label
+-- To see a particular request identified by its label
 SELECT * FROM sys.dm_pdw_exec_requests as r
 WHERE r.[label] = 'CTAS : Load [cso].[DimProduct]             '
       OR r.[label] = 'CTAS : Load [cso].[FactOnlineSales]        '
 ;
 
--- tootrack bytes and files
+-- To track bytes and files
 SELECT
     r.command,
     s.request_id,
@@ -278,9 +278,9 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5. Compressie columnstore optimaliseren
-Standaard worden in SQL Data Warehouse Hallo tabel opgeslagen als een geclusterde columnstore-index. Nadat een belasting is voltooid, zijn aantal rijen met Hallo gegevens niet gecomprimeerd in Hallo columnstore.  Er is een aantal redenen waarom dit kan gebeuren. toolearn meer, Zie [columnstore-indexen beheren][manage columnstore indexes].
+Standaard worden in de tabel in SQL Data Warehouse opgeslagen als een geclusterde columnstore-index. Nadat een belasting is voltooid, kunnen sommige van de rijen met gegevens niet in de columnstore worden gecomprimeerd.  Er is een aantal redenen waarom dit kan gebeuren. Zie voor meer informatie, [columnstore-indexen beheren][manage columnstore indexes].
 
-queryprestaties toooptimize en de compressie columnstore na een load opnieuw worden opgebouwd Hallo tabel tooforce hello columnstore-index toocompress alle Hallo rijen. 
+Voor het optimaliseren van de prestaties van query's en de compressie columnstore na een werklast in de tabel om af te dwingen de columnstore-index moeten worden gecomprimeerd alle rijen opnieuw worden opgebouwd. 
 
 ```sql
 SELECT GETDATE();
@@ -290,14 +290,14 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Zie voor meer informatie over het onderhouden van de columnstore-indexen Hallo [columnstore-indexen beheren] [ manage columnstore indexes] artikel.
+Zie voor meer informatie over het onderhouden van de columnstore-indexen, de [columnstore-indexen beheren] [ manage columnstore indexes] artikel.
 
 ## <a name="6-optimize-statistics"></a>6. Statistieken optimaliseren
-Het is beste toocreate-statistieken voor één kolom onmiddellijk na een belasting. Er zijn enkele mogelijkheden voor statistieken. Bijvoorbeeld, als u één kolom statistieken voor elke kolom maken duurt het mogelijk een lange tijd toorebuild alle Hallo statistieken. Als u weet dat bepaalde kolommen niet toobe in query predicaten gaat, kunt u statistieken maken voor deze kolommen overslaan.
+Het is raadzaam om te maken van statistieken voor één kolom onmiddellijk na een belasting. Er zijn enkele mogelijkheden voor statistieken. Bijvoorbeeld als u statistieken voor één kolom in elke kolom maakt het mogelijk lang duren voor het opnieuw samenstellen van de statistieken. Als u weet dat bepaalde kolommen niet gaan worden als in query predicaten, kunt u statistieken maken voor deze kolommen overslaan.
 
-Als u toocreate statistieken voor één kolom voor elke kolom van elke tabel besluit, kunt u Hallo opgeslagen procedure-codevoorbeeld `prc_sqldw_create_stats` in Hallo [statistieken] [ statistics] artikel.
+Als u besluit te maken van statistieken voor één kolom voor elke kolom van elke tabel, kunt u de voorbeeldcode van de opgeslagen procedure `prc_sqldw_create_stats` in de [statistieken] [ statistics] artikel.
 
-Hallo volgende voorbeeld is een goed uitgangspunt voor het maken van statistieken. Statistieken voor één kolom wordt gemaakt op elke kolom in de dimensietabel Hallo en op elke gekoppelde kolom in Hallo feitentabellen. U kunt één of meerdere kolommen statistieken tooother feit tabelkolommen altijd later op toevoegen.
+Het volgende voorbeeld is een goed uitgangspunt voor het maken van statistieken. Statistieken voor één kolom wordt gemaakt op elke kolom in de dimensietabel en op elke gekoppelde kolom in de feitentabellen. U kunt altijd statistieken met één of meerdere kolommen naar andere kolommen van de tabel feit later toevoegen.
 
 ```sql
 CREATE STATISTICS [stat_cso_DimProduct_AvailableForSaleDate] ON [cso].[DimProduct]([AvailableForSaleDate]);
@@ -344,7 +344,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ## <a name="achievement-unlocked"></a>Bereiken ontgrendeld!
 Openbare gegevens is in Azure SQL Data Warehouse geladen. Taak geweldig!
 
-U kunt nu starten Hallo tabellen met behulp van query's zoals Hallo volgende opvragen:
+U kunt nu starten opvragen van de tabellen met behulp van query's als volgt:
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -355,7 +355,7 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Contoso Retail Data Warehouse-gegevens voor tooload Hallo volledige, Hallo script in gebruiken voor meer tips voor het ontwikkeling, raadpleegt u [overzicht van SQL Data Warehouse voor ontwikkelaars][SQL Data Warehouse development overview].
+De volledige Contoso Retail-datawarehouse om gegevens te laden, gebruikt u het script in voor meer tips voor ontwikkeling, Zie [overzicht van SQL Data Warehouse voor ontwikkelaars][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
@@ -377,4 +377,4 @@ Contoso Retail Data Warehouse-gegevens voor tooload Hallo volledige, Hallo scrip
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
-[Load hello full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
+[Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md

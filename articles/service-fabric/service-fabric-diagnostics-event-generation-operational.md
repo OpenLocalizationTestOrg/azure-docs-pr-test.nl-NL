@@ -1,6 +1,6 @@
 ---
-title: Service Fabric operationele kanaal aaaAzure | Microsoft Docs
-description: Uitgebreide lijst met Logboeken die worden gegenereerd in Hallo operationele kanaal van Azure Service Fabric-clusters.
+title: Azure Service Fabric operationele kanaal | Microsoft Docs
+description: Uitgebreide lijst met Logboeken die worden gegenereerd in de operationele kanaal van Azure Service Fabric-clusters.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: dekapur
-ms.openlocfilehash: 358782420ed62b202d6a89fe0f200b5ef0384c9c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 934719868ab9968db352db2b440014d35dbc0274
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="operational-channel"></a>Operationele kanaal 
 
-Hallo operationele kanaal bestaat uit de logboeken van hoog niveau acties die door Service Fabric wordt uitgevoerd op de knooppunten als uw cluster. Wanneer ' diagnostische gegevens ' is ingeschakeld voor een cluster hello Azure Diagnostics-agent op het cluster is geïmplementeerd en is standaard geconfigureerd voor tooread logboeken van het operationele kanaal Hallo. Meer informatie over het configureren van Hallo [Azure Diagnostics agent](service-fabric-diagnostics-event-aggregation-wad.md) toomodify Hallo diagnostische configuratie van uw cluster toopick meer logboeken of prestatiemeteritems. 
+Het operationele kanaal bestaat uit de logboeken van hoog niveau acties die door Service Fabric wordt uitgevoerd op de knooppunten als uw cluster. Als ' diagnostische gegevens ' is ingeschakeld voor een cluster, de Azure Diagnostics-agent op het cluster is geïmplementeerd en is standaard geconfigureerd om te lezen in de logboeken van het operationele kanaal. Meer informatie over het configureren van de [Azure Diagnostics agent](service-fabric-diagnostics-event-aggregation-wad.md) de configuratie van diagnostische gegevens van het cluster om op te halen meer logboeken of prestatiemeteritems wijzigen. 
 
 ## <a name="operational-channel-logs"></a>Operationele kanaal Logboeken 
 
-Hier volgt een uitgebreide lijst met Logboeken die worden geleverd door de Service Fabric in Hallo operationele kanaal. 
+Hier volgt een uitgebreide lijst met Logboeken die worden geleverd door de Service Fabric in het operationele kanaal. 
 
 | Gebeurtenis-id | Naam | Bron (taak) | Niveau |
 | --- | --- | --- | --- |
@@ -56,6 +56,6 @@ Hier volgt een uitgebreide lijst met Logboeken die worden geleverd door de Servi
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over algemene [genereren van gebeurtenissen op Hallo platform niveau](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
-* Wijzigen van uw [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) configuratie toocollect meer logboeken
-* [Instellen van Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) toosee het operationele kanaal Logboeken
+* Meer informatie over algemene [genereren van gebeurtenissen op het niveau van het platform](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
+* Wijzigen van uw [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) configuratie meer logboeken verzamelen
+* [Instellen van Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) om te zien van uw operationele logboeken kanaal

@@ -1,6 +1,6 @@
 ---
-title: aaaStorSimple virtuele matrix Updates release-opmerkingen | Microsoft Docs
-description: Beschrijft kritieke open problemen en oplossingen voor Hallo virtuele StorSimple-matrix met Update 0.2 en 0,1.
+title: StorSimple virtuele matrix Updates release-opmerkingen | Microsoft Docs
+description: Kritieke open problemen en oplossingen beschrijft voor de virtuele StorSimple-matrix met Update 0.2 en 0,1.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,72 +14,72 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-ms.openlocfilehash: dfd38890feeb667c95134f2adbb35ce2df165620
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c4ccde9635b3874864baa9d4d262ff5ddcf2a425
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Opmerkingen bij de release van de StorSimple virtuele matrix Update 0.2 en 0,1
 ## <a name="overview"></a>Overzicht
-Hallo volgende releaseopmerkingen Hallo kritieke open problemen identificeren en Hallo opgeloste problemen voor updates van Microsoft Azure StorSimple virtuele matrix. (Microsoft Azure StorSimple virtuele matrix is ook bekend als Hallo lokale virtueel StorSimple-apparaat of Hallo virtuele StorSimple-apparaat.) 
+De volgende releaseopmerkingen Identificeer de kritieke problemen openen en de problemen opgelost voor updates van Microsoft Azure StorSimple virtuele matrix. (Microsoft Azure StorSimple virtuele matrix is ook bekend als de lokale virtueel StorSimple-apparaat of het virtuele StorSimple-apparaat.) 
 
-Hallo release-opmerkingen worden voortdurend bijgewerkt en wanneer er kritieke problemen waarvoor een tijdelijke oplossing nodig worden ontdekt, worden ze toegevoegd. Voordat u uw virtuele StorSimple-apparaat implementeert, zorgvuldig door Hallo gegevens in Hallo release-opmerkingen.
+De release-opmerkingen worden voortdurend bijgewerkt en wanneer er kritieke problemen waarvoor een tijdelijke oplossing nodig worden ontdekt, worden ze toegevoegd. Voordat u uw virtuele StorSimple-apparaat implementeert, zorgvuldig door de gegevens in de release-opmerkingen.
 
-Update 0.2 overeenkomt met de softwareversie toohello **10.0.10280.0**; Update 0.1 is versie **10.0.10279.0**. de volgende secties voor Hallo Hallo wijzigingen voor elke update vermeld. 
+Update 0.2 komt overeen met de softwareversie **10.0.10280.0**; Update 0.1 is versie **10.0.10279.0**. De onderstaande secties worden de wijzigingen voor elke update. 
 
 > [!NOTE]
-> Updates kunnen verstoren, wordt uw apparaat opnieuw opstarten. Als i/o's uitgevoerd worden, wordt Hallo apparaat uitvaltijd in rekening gebracht.
+> Updates kunnen verstoren, wordt uw apparaat opnieuw opstarten. Als i/o's uitgevoerd worden, wordt het apparaat uitvaltijd in rekening gebracht.
 > 
 > 
 
-## <a name="issues-fixed-in-hello-update-02"></a>Problemen in Hallo Update 0.2 opgelost
-Update 0.2 bevat alle wijzigingen van de Update 0.1 in toevoeging toohello oplossing wordt beschreven in de volgende tabel Hallo:
+## <a name="issues-fixed-in-the-update-02"></a>Problemen in de Update 0.2 opgelost
+Update 0.2 bevat alle wijzigingen van de Update 0.1 naast de oplossing in de volgende tabel beschreven:
 
 | Functie | Probleem |
 | --- | --- |
-| Updates |In de laatste versie Hallo zijn niet updates automatisch gedetecteerd in de klassieke Azure-portal Hallo zodat u toouse Hallo lokale Webgebruikersinterface tooinstall updates had. Dit probleem is opgelost in deze release. U kunt na de installatie van Update 0.2 toekomstige updates met behulp van Hallo klassieke Azure-portal installeren. |
+| Updates |In de laatste versie zijn niet updates automatisch gedetecteerd in de klassieke Azure portal, zodat moest u de lokale Webgebruikersinterface gebruiken om updates te installeren. Dit probleem is opgelost in deze release. U kunt na de installatie van Update 0.2 toekomstige updates met de klassieke Azure portal installeren. |
 
-## <a name="whats-new-in-hello-update-01"></a>Wat is er nieuw in Update 0.1 Hallo
-Update 0.1 Hallo volgende bevat oplossingen voor problemen en verbeteringen. 
+## <a name="whats-new-in-the-update-01"></a>Wat is er nieuw in de Update 0.1
+Update 0.1 bevat de volgende oplossingen voor problemen en verbeteringen. 
 
-* **Verbeterde tolerantie voor cloud uitval**: deze release heeft verschillende oplossingen voor problemen rond herstel na noodgevallen, back-up, herstel en lagen in Hallo-gebeurtenis van een onderbreking van de cloud-connectiviteit. 
-* **Verbeterde prestaties terugzetten**: deze versie bevat oplossingen voor problemen die hebben Hallo voltooiingstijd van hersteltaken Hallo aanzienlijk verminderen.
-* **Ruimte vrijmaken optimalisatie geautomatiseerde**: wanneer gegevens worden verwijderd op dun ingerichte volumes, hello ongebruikte opslagruimte blokken moeten toobe vrijgemaakt. Deze release heeft verbeterde Hallo ruimte vrijmaken proces uit Hallo cloud waardoor Hallo ongebruikte ruimte worden beschikbare sneller als vergeleken toohello vorige versies.
-* **Installatiekopieën van het nieuwe virtuele schijf**: nieuwe VHD en VHDX VMDK zijn nu beschikbaar via Hallo klassieke Azure-portal. U kunt deze installatiekopieën tooprovision nieuwe Update 0.1 apparaten downloaden.
-* **Hallo nauwkeurigheid van de status van de taken in het Hallo-portal verbeteren**: In Hallo eerdere versie van software, rapportage in de portal Hallo taakstatus is niet gedetailleerde. Dit probleem wordt opgelost in deze release.
-* **Domain join-ervaring**: bugfixes verwante toodomain toevoegen en het hernoemen van Hallo-apparaat.
+* **Verbeterde tolerantie voor cloud uitval**: deze release heeft verschillende oplossingen voor problemen rond herstel na noodgevallen, back-up, herstel en lagen in het geval van een onderbreking van de cloud-connectiviteit. 
+* **Verbeterde prestaties terugzetten**: deze versie bevat oplossingen voor problemen die u hebt de voltooiingstijd van de hersteltaken aanzienlijk verminderen.
+* **Ruimte vrijmaken optimalisatie geautomatiseerde**: wanneer gegevens worden verwijderd op dun ingerichte volumes, de blokken ongebruikte opslag moeten worden vrijgemaakt. Deze release is het proces voor het vrijmaken van ruimte uit de cloud waardoor de ongebruikte ruimte wordt sneller beschikbaar in vergelijking met vorige versies worden verbeterd.
+* **Installatiekopieën van het nieuwe virtuele schijf**: nieuwe VHD en VHDX VMDK zijn nu beschikbaar via de klassieke Azure portal. U kunt deze installatiekopieën voor het inrichten van nieuwe Update 0.1 apparaten downloaden.
+* **Verbetering van de nauwkeurigheid van de status van taken in de portal**: In de eerdere versie van software, taakstatus rapportage in de portal is niet gedetailleerde. Dit probleem wordt opgelost in deze release.
+* **Domain join-ervaring**: oplossingen voor problemen die zijn gerelateerd aan lid te worden van domein en het hernoemen van het apparaat.
 
-## <a name="issues-fixed-in-hello-update-01"></a>Problemen in Hallo Update 0.1 opgelost
-Hallo bevat volgende tabel een samenvatting van problemen in deze release worden opgelost.
+## <a name="issues-fixed-in-the-update-01"></a>Problemen in de Update 0.1 opgelost
+De volgende tabel bevat een samenvatting van problemen in deze release worden opgelost.
 
 | Nee. | Functie | Probleem |
 | --- | --- | --- |
-| 1 |VMDK |In sommige versies van VMware is Hallo besturingssysteemschijf gezien als sparse die waarschuwingen veroorzaken en normale bewerkingen verstoren. Dit is opgelost in deze release. |
-| 2 |iSCSI-server |Hallo-gebruiker is in de laatste versie Hallo vereist toospecify een gateway voor elke ingeschakelde netwerkinterface van uw virtuele StorSimple-apparaat. Dit gedrag is gewijzigd in deze release zodat hello gebruiker tooconfigure ten minste één gateway voor alle netwerkinterfaces van Hallo ingeschakeld. |
-| 3 |Ondersteuningspakket |In eerdere versie van software Hallo, ondersteuning voor verzameling van pakket mislukt bij het Hallo pakket grootten zijn groter dan 1 GB. Dit probleem is opgelost in deze release. |
-| 4 |Toegang tot de cloud |In de laatste versie Hallo als hello virtuele StorSimple-matrix is geen verbinding met het netwerk- en opnieuw is opgestart, heeft hello lokale UI problemen met de netwerkverbinding. Dit probleem is opgelost in deze release. |
-| 5 |Bewaking van grafieken |Hallo cloud capaciteit gebruik grafieken weergegeven in de vorige release hello, na een failover apparaat onjuiste waarden in de klassieke Azure-portal Hallo. Dit probleem wordt opgelost in de huidige release Hallo. |
+| 1 |VMDK |De OS-schijf is in sommige versies van VMware gezien als sparse die waarschuwingen veroorzaken en normale bewerkingen verstoren. Dit is opgelost in deze release. |
+| 2 |iSCSI-server |De gebruiker is in de laatste versie vereist voor het opgeven van een gateway voor elke ingeschakelde netwerkinterface van uw virtuele StorSimple-apparaat. Dit gedrag is gewijzigd in deze release, zodat de gebruiker heeft ten minste één gateway voor de ingeschakelde netwerkinterfaces configureren. |
+| 3 |Ondersteuningspakket |Ondersteuning voor verzameling van pakket mislukt als de grootte van het pakket groter dan 1 GB zijn in de eerdere versie van software. Dit probleem is opgelost in deze release. |
+| 4 |Toegang tot de cloud |In de laatste versie als de virtuele StorSimple-matrix is geen verbinding met het netwerk en opnieuw is opgestart, heeft de gebruikersinterface van de lokale problemen met de netwerkverbinding. Dit probleem is opgelost in deze release. |
+| 5 |Bewaking van grafieken |De cloud capaciteit gebruik grafieken weergegeven in de vorige release, na een failover apparaat onjuiste waarden in de klassieke Azure portal. Dit probleem wordt opgelost in de huidige release. |
 
-## <a name="known-issues-in-hello-update-01"></a>Bekende problemen in Hallo Update 0.1
-Hallo volgende tabel bevat een samenvatting van bekende problemen voor het virtuele StorSimple-matrix Hallo en omvat Hallo problemen release genoteerd uit Hallo vorige versies. **Hallo problemen release vermeld in deze release zijn gemarkeerd met een sterretje. Bijna alle Hallo problemen in deze lijst hebt overgedragen Hallo GA-release van het virtuele StorSimple-matrix.**
+## <a name="known-issues-in-the-update-01"></a>Bekende problemen in de Update 0.1
+De volgende tabel bevat een samenvatting van bekende problemen voor de virtuele StorSimple-matrix en omvat problemen met de release genoteerd uit de vorige versies. **De versie van de problemen vermeld in deze release zijn gemarkeerd met een sterretje. Bijna alle problemen in deze lijst hebt overgedragen van de GA-release van het virtuele StorSimple-matrix.**
 
 | Nee. | Functie | Probleem | Tijdelijke oplossing/opmerkingen |
 | --- | --- | --- | --- |
-| **1.** |Updates |Hallo virtuele apparaten gemaakt in de preview-versie Hallo niet bijgewerkte tooa ondersteund algemene beschikbaarheid versie. |Deze virtuele apparaten, moeten voor algemene beschikbaarheid release met een disaster recovery (DR) werkstroom Hallo failover worden uitgevoerd. |
-| **2.** |Ingerichte gegevensschijf |Eenmaal hebt u een gegevensschijf van een bepaalde opgegeven omvang ingericht en Hallo bijbehorende virtuele StorSimple-apparaat hebt gemaakt, moet u niet uitbreiden of verkleinen Hallo gegevensschijf. Poging toodo dus leidt tot verlies van alle Hallo-gegevens in de lokale lagen Hallo Hallo-apparaat. | |
-| **3.** |Groepsbeleid |Wanneer een apparaat lid van een domein is, kan een Groepsbeleid toepassen nadelig beïnvloeden Hallo apparaat bewerking. |Zorg ervoor dat uw virtuele matrix in de eigen organisatie-eenheid (OE) voor Active Directory en geen groepsbeleidsobjecten (GPO) toegepaste tooit zijn. |
+| **1.** |Updates |De virtuele apparaten die zijn gemaakt in de preview-versie kunnen niet worden bijgewerkt naar een ondersteunde versie van de algemene beschikbaarheid. |Deze virtuele apparaten moeten failover worden uitgevoerd voor de algemene beschikbaarheid release met behulp van een werkstroom van disaster recovery (DR). |
+| **2.** |Ingerichte gegevensschijf |Als u een gegevensschijf van een bepaalde opgegeven omvang hebt ingericht en de bijbehorende virtuele StorSimple-apparaat hebt gemaakt, moet u niet uitbreiden of verkleinen van de gegevensschijf. Poging om dit te doen leidt tot verlies van de gegevens in de lokale lagen van het apparaat. | |
+| **3.** |Groepsbeleid |Wanneer een apparaat lid van een domein is, toepassen van een Groepsbeleid kunt nadelige invloed heeft op het apparaat opnieuw. |Zorg ervoor dat uw virtuele matrix in de eigen organisatie-eenheid (OE) voor Active Directory en geen groepsbeleidsobjecten (GPO) worden toegepast. |
 | **4.** |Lokale webgebruikersinterface |Als verbeterde beveiligingsfuncties zijn ingeschakeld in Internet Explorer (IE ESC), is het mogelijk dat sommige gebruikersinterface lokale webpagina's zoals probleemoplossing of onderhoud niet correct werkt. Knoppen op deze pagina's ook werkt mogelijk niet. |Verbeterde beveiligingsfuncties in Internet Explorer uitschakelen. |
-| **5.** |Lokale webgebruikersinterface |In een Hyper-V virtuele machine, Hallo netwerkinterfaces in Hallo web-gebruikersinterface worden weergegeven als 10 Gbps-interfaces. |Dit gedrag is een weerspiegeling van Hyper-V. 10 Gbps voor virtuele netwerkadapters worden altijd weergegeven in Hyper-V. |
-| **6.** |Gelaagde volumes of shares |Vergrendeling voor toepassingen die met Hallo StorSimple gelaagde volumes werken bereik in bytes wordt niet ondersteund. Als byte bereik vergrendeling is ingeschakeld, werkt StorSimple lagen niet. |Aanbevolen maatregelen zijn onder andere: <br></br>Bereik aan bytes is vergrendeld in uw toepassingslogica uitschakelen.<br></br>Kies tooput gegevens voor deze toepassing in lokaal vastgemaakte volumes tegenstelling tot tootiered volumes.<br></br>*Hoewel*: als met behulp van lokaal volumes vastgemaakte en byte bereik vergrendeling is ingeschakeld, u zich Hallo lokaal vastgemaakt volume kunt online voordat Hallo herstellen voltooid is. In dergelijke gevallen als een herstelbewerking uitgevoerd wordt, moet klikt u wachten Hallo terugzetten toocomplete. |
-| **7.** |Gelaagde shares |Werken met grote bestanden kan leiden tot een trage laag. |Als u werkt met grote bestanden, wordt u aangeraden dat Hallo grootste bestand kleiner is dan 3% van de grootte van de bestandsshare Hallo. |
-| **8.** |Capaciteit voor shares gebruikt |Mogelijk ziet u verbruik op Hallo afwezigheid van alle gegevens op Hallo share delen. Dit is omdat Hallo gebruikt capaciteit voor shares metagegevens bevat. | |
-| **9.** |Herstel na noodgevallen |U kunt alleen noodherstel Hallo van een bestand server toohello uitvoeren hetzelfde domein als die van het bronvolume Hallo. Disaster recovery tooa doelapparaat in een ander domein wordt niet ondersteund in deze release. |Dit wordt geïmplementeerd in een latere versie. |
-| **10.** |Azure PowerShell |Hallo virtuele StorSimple-apparaten kunnen niet worden beheerd via hello Azure PowerShell in deze release. |Alle Hallo beheer van virtuele apparaten Hallo moet worden gedaan door middel van Hallo klassieke Azure-portal en Hallo lokale webgebruikersinterface. |
-| **11.** |Wachtwoord wijzigen |Hallo virtuele matrix apparaat console accepteert alleen invoer in de indeling en-US. | |
-| **12.** |CHAP |CHAP-referenties eenmaal is gemaakt, kunnen niet worden verwijderd. Bovendien als u CHAP-referenties Hallo wijzigt, u moet tootake Hallo volumes offline en brengt ze online voor Hallo wijziging tootake effect. |Deze wordt opgelost in een latere versie. |
-| **13.** |iSCSI-server |Hallo 'Opslagruimte hebt gebruikt' voor een iSCSI-volume weergegeven kan niet verschillen in Hallo StorSimple Manager-service en Hallo iSCSI-host. |Hallo iSCSI-host heeft Hallo bestandssysteem weergave.<br></br>Hallo apparaat ziet toegewezen wanneer Hallo volume op de maximale grootte Hallo is Hallo-blokken. |
-| **14.** |File server * |Als een bestand in een map een alternatieve gegevens stroom (ADS heeft) gekoppeld, is niet Hallo ADVERTENTIES back-up gemaakt of hersteld via herstel na noodgevallen, klonen en herstel Item. | |
+| **5.** |Lokale webgebruikersinterface |In een Hyper-V virtuele machine, de netwerkinterfaces in de web-gebruikersinterface worden weergegeven als 10 Gbps-interfaces. |Dit gedrag is een weerspiegeling van Hyper-V. 10 Gbps voor virtuele netwerkadapters worden altijd weergegeven in Hyper-V. |
+| **6.** |Gelaagde volumes of shares |Bytebereik vergrendelen voor toepassingen die werken met de StorSimple gelaagde volumes wordt niet ondersteund. Als byte bereik vergrendeling is ingeschakeld, werkt StorSimple lagen niet. |Aanbevolen maatregelen zijn onder andere: <br></br>Bereik aan bytes is vergrendeld in uw toepassingslogica uitschakelen.<br></br>Wilt u gegevens voor deze toepassing in lokaal vastgemaakte volumes in plaats van gelaagde volumes plaatsen.<br></br>*Hoewel*: als met behulp van lokaal volumes vastgemaakte en byte bereik vergrendeling is ingeschakeld, worden op de hoogte dat lokaal vastgemaakt volume online worden kan voordat de herstelbewerking voltooid is. In dergelijke gevallen, als een herstelbewerking uitgevoerd wordt, moet vervolgens wachten op de herstelbewerking is voltooid. |
+| **7.** |Gelaagde shares |Werken met grote bestanden kan leiden tot een trage laag. |Wanneer u werkt met grote bestanden, raden we aan dat het grootste bestand kleiner dan 3% van de grootte van de bestandsshare is. |
+| **8.** |Capaciteit voor shares gebruikt |Mogelijk ziet u weer in de afwezigheid van alle gegevens op de share te delen. Dit is omdat het gebruikte capaciteit voor shares metagegevens bevat. | |
+| **9.** |Herstel na noodgevallen |U kunt alleen het herstel na noodgevallen van een bestandsserver aan hetzelfde domein als die van het bronapparaat uitvoeren. Herstel na noodgevallen op een doelapparaat in een ander domein wordt niet ondersteund in deze release. |Dit wordt geïmplementeerd in een latere versie. |
+| **10.** |Azure PowerShell |Het virtuele StorSimple-apparaten kunnen niet worden beheerd via de Azure PowerShell in deze release. |Het beheer van de virtuele apparaten moet worden uitgevoerd via de klassieke Azure portal en de lokale webgebruikersinterface. |
+| **11.** |Wachtwoord wijzigen |De console van het virtuele matrix accepteert alleen invoer in de indeling en-US. | |
+| **12.** |CHAP |CHAP-referenties eenmaal is gemaakt, kunnen niet worden verwijderd. Bovendien, als u de referenties CHAP wijzigt, moet u offline zetten van de volumes en brengt u ze online om de wijziging door te voeren. |Deze wordt opgelost in een latere versie. |
+| **13.** |iSCSI-server |De 'opslagruimte hebt gebruikt' weergegeven voor een iSCSI-volume kan niet verschillen in de StorSimple Manager-service en de iSCSI-host. |De iSCSI-host heeft de weergave van het bestandssysteem.<br></br>Het apparaat, ziet de blokken toegewezen wanneer het volume bij de maximale grootte is. |
+| **14.** |File server * |Als een bestand in een map heeft een alternatieve gegevens stroom (ADS) gekoppeld, wordt de ADVERTENTIES geen back-up gemaakt of hersteld via herstel na noodgevallen, klonen en herstel Item. | |
 
 ## <a name="next-step"></a>Volgende stap
 [Updates installeren](storsimple-ova-install-update-01.md) op uw virtuele StorSimple-matrix.

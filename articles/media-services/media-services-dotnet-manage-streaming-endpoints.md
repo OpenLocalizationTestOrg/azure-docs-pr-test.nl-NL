@@ -1,6 +1,6 @@
 ---
-title: aaaManage streaming-eindpunten met .NET SDK. | Microsoft Docs
-description: Dit onderwerp leest hoe toomanage streaming-eindpunten met hello Azure-portal.
+title: Streaming-eindpunten met .NET SDK beheren. | Microsoft Docs
+description: Dit onderwerp leest hoe voor het beheren van streaming-eindpunten met de Azure-portal.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 30c092a8ebf4e2b2902392f4cf98f46d812ccdbc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2f4f464f8604b6f453d6b50b736c6a3a889a3408
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Streaming-eindpunten met .NET SDK beheren
 
 >[!NOTE]
->Zorg ervoor dat tooreview hello [overzicht](media-services-streaming-endpoints-overview.md) onderwerp. Bekijk ook [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Leest de [overzicht](media-services-streaming-endpoints-overview.md) onderwerp. Bekijk ook [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
-Hallo-code in dit onderwerp wordt getoond hoe toodo Hallo na taken met Azure Media Services .NET SDK Hallo:
+De code in dit onderwerp toont hoe u de volgende taken uitvoeren met Azure Media Services .NET SDK:
 
-- Bekijk Hallo standaardstreaming-eindpunt.
+- Bekijk het standaard streaming-eindpunt.
 - Nieuwe streaming-eindpunt maken/toevoegen.
 
-    U kunt toohave meerdere streaming-eindpunten als u van plan toohave bent verschillende CDN of een CDN en directe toegang.
+    U kunt meerdere streaming-eindpunten hebben als u van plan bent een andere CDN of een CDN en directe toegang heeft.
 
     > [!NOTE]
     > U wordt alleen gefactureerd als uw Streaming-eindpunt wordt uitgevoerd.
     
-- Hallo streaming-eindpunt worden bijgewerkt.
+- Werk het streaming-eindpunt.
     
-    Zorg ervoor dat toocall Hallo Update() functie.
+    Zorg ervoor dat de functie Update() aanroepen.
 
-- Hallo streaming-eindpunt verwijderen.
+- Verwijder het streaming-eindpunt.
 
     >[!NOTE]
-    >Hallo standaardstreaming-eindpunt kan niet worden verwijderd.
+    >Het standaard streaming-eindpunt kan niet worden verwijderd.
 
-Zie voor meer informatie over hoe tooscale streaming-eindpunt Hallo [dit](media-services-portal-scale-streaming-endpoints.md) onderwerp.
+Zie voor meer informatie over het schalen van het streaming-eindpunt [dit](media-services-portal-scale-streaming-endpoints.md) onderwerp.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
-Uw ontwikkelomgeving instellen en vullen Hallo app.config-bestand met de verbindingsinformatie, zoals beschreven in [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md). 
+Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="add-code-that-manages-streaming-endpoints"></a>Code die wordt beheerd streaming-eindpunten toevoegen
     
-Hallo-code in Program.cs Hallo vervangen door Hallo code te volgen:
+Vervang de code in de Program.cs met de volgende code:
 
     using System;
     using System.Configuration;
@@ -65,7 +65,7 @@ Hallo-code in Program.cs Hallo vervangen door Hallo code te volgen:
     {
         class Program
         {
-        // Read values from hello App.config file.
+        // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =

@@ -1,6 +1,6 @@
 ---
-title: Active Directory-v2.0 aaaAzure Node.js web-app aanmelden | Microsoft Docs
-description: Meer informatie over hoe toobuild een Node.js web-app die een gebruiker zich aanmeldt met behulp van zowel een persoonlijk Microsoft-account en een account voor werk of school.
+title: Azure Active Directory-v2.0 Node.js web-app aanmelden | Microsoft Docs
+description: Informatie over het bouwen van een Node.js-web-app die een gebruiker zich aanmeldt met behulp van zowel een persoonlijk Microsoft-account en een account voor werk of school.
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
@@ -15,42 +15,42 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f8ce6e2b841c215cb14e82bcf444fe849634cc88
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6d49c742f72440e22830915c90de009d9188db2a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="add-sign-in-tooa-nodejs-web-app"></a>Aanmelden tooa Node.js-web-app toevoegen
+# <a name="add-sign-in-to-a-nodejs-web-app"></a>Aanmelden toevoegen aan een Node.js-web-app
 
 > [!NOTE]
-> Niet alle Azure Active Directory-scenario's en onderdelen werken met Hallo v2.0-eindpunt. toodetermine of moet u Hallo v2.0-eindpunt of Hallo v1.0 eindpunt, gelezen over [v2.0 beperkingen](active-directory-v2-limitations.md).
+> Niet alle Azure Active Directory-scenario's en onderdelen werken met het v2.0-eindpunt. Meer informatie over om te bepalen of u het v2.0-eindpunt of het eindpunt v1.0 moet gebruiken, [v2.0 beperkingen](active-directory-v2-limitations.md).
 > 
 
-In deze zelfstudie gebruiken we Passport toodo Hallo taken te volgen:
+In deze zelfstudie gebruiken we Passport naar de volgende taken uitvoeren:
 
-* Hallo-gebruiker aanmelden via Azure Active Directory (Azure AD) in een web-app en Hallo v2.0-eindpunt.
-* Informatie over Hallo gebruiker weergegeven.
-* Meld u Hallo gebruiker buiten het Hallo-app.
+* Meld u de gebruiker met behulp van Azure Active Directory (Azure AD) en het v2.0-eindpunt in een web-app.
+* Informatie over de gebruiker weergegeven.
+* Meld u aan de gebruiker buiten de app.
 
-**Passport** is verificatiemiddleware voor Node.js. Flexibel en modulair, Passport kan onopvallend worden verwijderd in een snelle gebaseerde of restify-webtoepassing. In Passport, een uitgebreide set strategieën ondersteuning voor verificatie met behulp van een gebruikersnaam en wachtwoord, Facebook, Twitter of andere opties. We hebben een strategie ontwikkeld voor Azure AD. In dit artikel we u zien hoe tooinstall Hallo module en voeg vervolgens hello Azure AD `passport-azure-ad` invoegtoepassing.
+**Passport** is verificatiemiddleware voor Node.js. Flexibel en modulair, Passport kan onopvallend worden verwijderd in een snelle gebaseerde of restify-webtoepassing. In Passport, een uitgebreide set strategieën ondersteuning voor verificatie met behulp van een gebruikersnaam en wachtwoord, Facebook, Twitter of andere opties. We hebben een strategie ontwikkeld voor Azure AD. In dit artikel wordt beschreven hoe u installeert de module en voegt u de Azure AD `passport-azure-ad` invoegtoepassing.
 
 ## <a name="download"></a>Downloaden
-Hallo-code voor deze zelfstudie wordt bijgehouden [op GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs). toofollow hello zelfstudie, kunt u [basis van Hallo app downloaden als ZIP-bestand](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/skeleton.zip) of kloon Hallo basisproject:
+De code voor deze zelfstudie wordt onderhouden in [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs). Wilt u de zelfstudie, kunt u [basis van de app downloaden als ZIP-bestand](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/skeleton.zip) of het geraamte:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-U kunt ook de toepassing hello voltooid op Hallo einde van deze zelfstudie ophalen.
+U kunt ook de voltooide toepassing aan het einde van deze zelfstudie ophalen.
 
 ## <a name="1-register-an-app"></a>1: een app registreren
-Maakt een nieuwe app op [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of voert u [deze gedetailleerde stappen](active-directory-v2-app-registration.md) tooregister een app. Zorg ervoor dat u:
+Maakt een nieuwe app op [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of voert u [deze gedetailleerde stappen](active-directory-v2-app-registration.md) om een app te registreren. Zorg ervoor dat u:
 
-* Kopiëren Hallo **toepassings-Id** tooyour app toegewezen. U moet voor deze zelfstudie.
-* Hallo toevoegen **Web** platform voor uw app.
-* Kopiëren Hallo **omleidings-URI** van Hallo-portal. Moet u Hallo standaardwaarde URI van `urn:ietf:wg:oauth:2.0:oob`.
+* Kopieer de **toepassings-Id** toegewezen aan uw app. U moet voor deze zelfstudie.
+* Voeg de **Web** platform voor uw app.
+* Kopieer de **omleidings-URI** vanuit de portal. Moet u de standaardwaarde van de URI van `urn:ietf:wg:oauth:2.0:oob`.
 
-## <a name="2-add-prerequisities-tooyour-directory"></a>2: prerequisities tooyour map toevoegen
-Bij een opdrachtprompt mappen toogo tooyour hoofdmap niet wijzigen als u nog geen er. Voer Hallo volgende opdrachten:
+## <a name="2-add-prerequisities-to-your-directory"></a>2: prerequisities toevoegen aan uw directory
+Bij een opdrachtprompt, wijzig de mappen naar de hoofdmap, als u niet al er. Voer de volgende opdrachten uit:
 
 * `npm install express`
 * `npm install ejs`
@@ -65,22 +65,22 @@ Bij een opdrachtprompt mappen toogo tooyour hoofdmap niet wijzigen als u nog gee
 * `npm install express-session`
 * `npm install cookie-parser`
 
-Daarnaast gebruiken wij `passport-azure-ad` in Hallo geraamte van Hallo Quick Start:
+Daarnaast gebruiken wij `passport-azure-ad` in de basis van de Snelstartgids:
 
 * `npm install passport-azure-ad`
 
-Hiermee installeert u Hallo bibliotheken die `passport-azure-ad` gebruikt.
+Hiermee installeert u de bibliotheken die `passport-azure-ad` gebruikt.
 
-## <a name="3-set-up-your-app-toouse-hello-passport-node-js-strategy"></a>3: uw app toouse Hallo passport-knooppunt-js strategie instellen
-Hallo Express-middleware toouse hello OpenID Connect-verificatieprotocol instellen. U gebruikt Passport tooissue aanmelden en afmeldingsaanvragen te verzenden, Hallo gebruikerssessie beheren en informatie ophalen over de gebruiker hello, onder andere.
+## <a name="3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>3: uw app instellen voor gebruik van de strategie passport-knooppunt-js
+De Express-middleware instellen voor gebruik van het OpenID Connect-verificatieprotocol. U kunt Passport aan- en afmeldingsaanvragen te verzenden en informatie ophalen over de gebruiker, onder andere de gebruikerssessie te beheren.
 
-1.  Open in de hoofdmap van de Hallo van Hallo-project, Hallo bestand Config.js file. In Hallo `exports.creds` sectie, voert u de configuratiewaarden van uw app.
+1.  Open het bestand Config.js file in de hoofdmap van het project. In de `exports.creds` sectie, voert u de configuratiewaarden van uw app.
   
-  * `clientID`: Hallo **toepassings-Id** die is toegewezen tooyour-app in hello Azure-portal.
-  * `returnURL`: Hallo **omleidings-URI** die u hebt ingevoerd in Hallo-portal.
-  * `clientSecret`: Hallo geheim dat u hebt gegenereerd in Hallo-portal.
+  * `clientID`: De **toepassings-Id** die toegewezen aan uw app in de Azure-portal.
+  * `returnURL`: De **omleidings-URI** die u hebt ingevoerd in de portal.
+  * `clientSecret`: Het geheim dat u hebt gegenereerd in de portal.
 
-2.  In de hoofdmap van de Hallo van Hallo-project, Hallo App.js bestand te openen. tooinvoke hello OIDCStrategy stratey, wordt geleverd met `passport-azure-ad`, Hallo aanroep volgende toevoegen:
+2.  Open het bestand App.js in de hoofdmap van het project. Om aan te roepen de stratey OIDCStrategy, wordt geleverd met `passport-azure-ad`, voeg de volgende oproep verzenden:
 
   ```JavaScript
   var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -91,12 +91,12 @@ Hallo Express-middleware toouse hello OpenID Connect-verificatieprotocol instell
   });
   ```
 
-3.  toohandle uw aanvragen aanmelden gebruik Hallo strategie die u zojuist hebt waarnaar wordt verwezen:
+3.  Gebruik de strategie die u zojuist hebt om uw aanmelding verzoeken afhandelen waarnaar wordt verwezen:
 
   ```JavaScript
-  // Use hello OIDCStrategy within Passport (section 2)
+  // Use the OIDCStrategy within Passport (section 2)
   //
-  //   Strategies in Passport require a `validate` function. hello function accepts
+  //   Strategies in Passport require a `validate` function. The function accepts
   //   credentials (in this case, an OpenID identifier), and invokes a callback
   //   with a user object.
   passport.use( new OIDCStrategy({
@@ -131,23 +131,23 @@ Hallo Express-middleware toouse hello OpenID Connect-verificatieprotocol instell
   ));
   ```
 
-Passport wordt een vergelijkbaar patroon gebruikt voor alle strategieën (Twitter, Facebook, enzovoort). Alle schrijvers van strategieën toohello patroon. Hallo-strategie doorgeven een `function()` die gebruikmaakt van een token en `done` als parameters. Hallo-strategie terug nadat al het werk wordt. Hallo-gebruiker en stash Hallo token opslaan zodat u niet tooask voor het opnieuw hoeft.
+Passport wordt een vergelijkbaar patroon gebruikt voor alle strategieën (Twitter, Facebook, enzovoort). Alle schrijvers van strategieën voor het patroon. Geeft de strategie voor een `function()` die gebruikmaakt van een token en `done` als parameters. De strategie terug nadat al het werk wordt. Sla de gebruiker en het token niet initialiseren zodat u niet hoeft te vragen voor het opnieuw.
 
   > [!IMPORTANT]
-  > Hallo voorafgaande code geldt voor elke gebruiker die tooyour server kan worden geverifieerd. Dit wordt automatische registratie genoemd. Op een productieserver je wilt niet dat toolet iedereen zonder dat zij een registratieproces die u kiest doorlopen eerst. Dit is meestal Hallo patroon die u in consumenten-apps ziet. Hallo-app kunt u mogelijk tooregister met Facebook, maar vervolgens wordt u gevraagd een tooenter aanvullende informatie. Als u een opdrachtregelprogramma zijn niet voor deze zelfstudie gebruikt, kan u Hallo e extraheren uit Hallo Tokenobject dat wordt geretourneerd. Vervolgens vraagt u mogelijk Hallo gebruiker tooenter aanvullende informatie. Omdat dit een testserver is, u Hallo gebruiker toevoegen rechtstreeks toohello de database in het geheugen.
+  > De voorafgaande code geldt voor elke gebruiker die kan worden geverifieerd met de server. Dit wordt automatische registratie genoemd. Op een productieserver wilt u niet dat iedereen, kunnen zonder dat zij een registratieproces die u kiest doorlopen eerst. Dit is doorgaans het patroon die u in consumenten-apps ziet. De app kunt u mogelijk registreren met Facebook, maar vervolgens wordt u gevraagd om in te voeren als u meer informatie. Als u een opdrachtregelprogramma zijn niet voor deze zelfstudie gebruikt, kunt u het e-mailbericht kan extraheren uit het Tokenobject dat wordt geretourneerd. Vervolgens vraagt u mogelijk de gebruiker in te voeren als u meer informatie. Omdat dit een testserver is, moet u de gebruiker rechtstreeks naar de database in het geheugen toevoegen.
   > 
   > 
 
-4.  Voeg Hallo methoden tookeep bijhouden van gebruikers die zijn ondertekend, te gebruiken zoals wordt vereist door Passport. Dit omvat het serialiseren en deserialiseren van Hallo gebruikersgegevens:
+4.  Voeg de methoden die u gebruikt voor het bijhouden van gebruikers die zijn aangemeld, zoals wordt vereist door Passport. Dit omvat het serialiseren en deserialiseren van gegevens van de gebruiker:
 
   ```JavaScript
 
   // Passport session setup (section 2)
 
-  //   toosupport persistent login sessions, Passport needs toobe able to
-  //   serialize users into, and deserialize users out of, hello session. Typically,
-  //   this is as simple as storing hello user ID when serializing, and finding
-  //   hello user by ID when deserializing.
+  //   To support persistent login sessions, Passport needs to be able to
+  //   serialize users into, and deserialize users out of, the session. Typically,
+  //   this is as simple as storing the user ID when serializing, and finding
+  //   the user by ID when deserializing.
   passport.serializeUser(function(user, done) {
     done(null, user.email);
   });
@@ -158,7 +158,7 @@ Passport wordt een vergelijkbaar patroon gebruikt voor alle strategieën (Twitte
     });
   });
 
-  // Array toohold signed-in users
+  // Array to hold signed-in users
   var users = [];
 
   var findByEmail = function(email, fn) {
@@ -173,7 +173,7 @@ Passport wordt een vergelijkbaar patroon gebruikt voor alle strategieën (Twitte
   };
   ```
 
-5.  Voeg code Hallo Hallo Express-engine wordt geladen. Gebruik van Hallo standaard /views en /routes patroon dat Express:
+5.  Voeg de code die de Express-engine wordt geladen. Gebruik van de standaard /views en /routes patroon dat Express:
 
   ```JavaScript
 
@@ -189,7 +189,7 @@ Passport wordt een vergelijkbaar patroon gebruikt voor alle strategieën (Twitte
     app.use(cookieParser());
     app.use(expressSession({ secret: 'keyboard cat', resave: true, saveUninitialized: false }));
     app.use(bodyParser.urlencoded({ extended : true }));
-    // Initialize Passport!  Also use passport.session() middleware, toosupport
+    // Initialize Passport!  Also use passport.session() middleware, to support
     // persistent login sessions (recommended).
     app.use(passport.initialize());
     app.use(passport.session());
@@ -199,31 +199,31 @@ Passport wordt een vergelijkbaar patroon gebruikt voor alle strategieën (Twitte
 
   ```
 
-6.  Hallo POST routes die lever Hallo werkelijke aanmelden aanvragen toohello toevoegen `passport-azure-ad` engine:
+6.  Toevoegen van het bericht van routes die lever de werkelijke aanmelden aanvragen voor de `passport-azure-ad` engine:
 
   ```JavaScript
 
   // Auth routes (section 3)
 
   // GET /auth/openid
-  //   Use passport.authenticate() as route middleware tooauthenticate the
-  //   request. hello first step in OpenID authentication involves redirecting
-  //   hello user toohello user's OpenID provider. After authenticating, hello OpenID
-  //   provider redirects hello user back toothis application at
+  //   Use passport.authenticate() as route middleware to authenticate the
+  //   request. The first step in OpenID authentication involves redirecting
+  //   the user to the user's OpenID provider. After authenticating, the OpenID
+  //   provider redirects the user back to this application at
   //   /auth/openid/return.
 
   app.get('/auth/openid',
     passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
     function(req, res) {
-      log.info('Authentication was called in hello sample');
+      log.info('Authentication was called in the sample');
       res.redirect('/');
     });
 
   // GET /auth/openid/return
-  //   Use passport.authenticate() as route middleware tooauthenticate the
-  //   request. If authentication fails, hello user is redirected back toothe
-  //   sign-in page. Otherwise, hello primary route function is called.
-  //   In this example, it redirects hello user toohello home page.
+  //   Use passport.authenticate() as route middleware to authenticate the
+  //   request. If authentication fails, the user is redirected back to the
+  //   sign-in page. Otherwise, the primary route function is called.
+  //   In this example, it redirects the user to the home page.
   app.get('/auth/openid/return',
     passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
     function(req, res) {
@@ -232,10 +232,10 @@ Passport wordt een vergelijkbaar patroon gebruikt voor alle strategieën (Twitte
     });
 
   // POST /auth/openid/return
-  //   Use passport.authenticate() as route middleware tooauthenticate the
-  //   request. If authentication fails, hello user is redirected back toothe
-  //   sign-in page. Otherwise, hello primary route function is called. 
-  //   In this example, it redirects hello user toohello home page.
+  //   Use passport.authenticate() as route middleware to authenticate the
+  //   request. If authentication fails, the user is redirected back to the
+  //   sign-in page. Otherwise, the primary route function is called. 
+  //   In this example, it redirects the user to the home page.
 
   app.post('/auth/openid/return',
     passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
@@ -245,10 +245,10 @@ Passport wordt een vergelijkbaar patroon gebruikt voor alle strategieën (Twitte
     });
   ```
 
-## <a name="4-use-passport-tooissue-sign-in-and-sign-out-requests-tooazure-ad"></a>4: gebruik Passport tooissue aan- en afmeldingsaanvragen tooAzure AD-aanvragen
-Uw app is nu ingesteld toocommunicate met Hallo v2.0-eindpunt met behulp van Hallo OpenID Connect-verificatieprotocol. Hallo `passport-azure-ad` strategie zorgt voor alle Hallo details van verificatieberichten, het valideren van tokens van Azure AD en het onderhoud van Hallo gebruikerssessie. Alle die altijd is ingeschakeld toodo toogive is uw gebruikers een manier toosign in en meld u out en toogather meer informatie over het Hallo-gebruiker die is aangemeld.
+## <a name="4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>4: gebruik Passport om aan- en afmeldingsaanvragen te verzenden naar Azure AD
+Uw app is nu ingesteld om te communiceren met het v2.0-eindpunt met behulp van het OpenID Connect-verificatieprotocol. De `passport-azure-ad` strategie zorgt voor de details van verificatieberichten, het valideren van tokens van Azure AD en het onderhoud van de gebruikerssessie. Alle die nog moet doen om uw gebruikers aanmelden en afmelden en meer informatie over de gebruiker die is aangemeld verzamelen is.
 
-1.  Hallo toevoegen **standaard**, **aanmelding**, **account**, en **afmelding** methoden tooyour App.js bestand:
+1.  Voeg de **standaard**, **aanmelding**, **account**, en **afmelding** methoden voor het bestand App.js:
 
   ```JavaScript
 
@@ -265,7 +265,7 @@ Uw app is nu ingesteld toocommunicate met Hallo v2.0-eindpunt met behulp van Hal
   app.get('/login',
     passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
     function(req, res) {
-      log.info('Login was called in hello sample');
+      log.info('Login was called in the sample');
       res.redirect('/');
   });
 
@@ -276,22 +276,22 @@ Uw app is nu ingesteld toocommunicate met Hallo v2.0-eindpunt met behulp van Hal
 
   ```
 
-  Dit zijn Hallo details:
+  Hier volgen de details:
     
-    * Hallo `/` route toohello index.ejs weergave wordt omgeleid. Dit wordt Hallo gebruiker doorgegeven in Hallo-aanvraag (indien aanwezig).
-    * Hallo `/account` eerst routeren *zorgt ervoor dat u bent geverifieerd* (u implementeert die in de volgende code Hallo). Hallo-gebruiker wordt vervolgens doorgegeven in Hallo-aanvraag. Dit is zodat u meer informatie over gebruikers Hallo krijgt.
-    * Hallo `/login` gesprekken rondsturen uw `azuread-openidconnect` verificator van `passport-azuread`. Als dat niet lukt, wordt hij omgeleid Hallo gebruiker terug te`/login`.
-    * Hallo `/logout` route roept Hallo logout.ejs weergeven (en route). Hiermee worden cookies en vervolgens retourneert Hallo back tooindex.ejs gebruiker.
+    * De `/` route wordt omgeleid naar de weergave index.ejs. Dit wordt de gebruiker doorgegeven in de aanvraag (indien aanwezig).
+    * De `/account` eerst routeren *zorgt ervoor dat u bent geverifieerd* (u implementeert die in de volgende code). Vervolgens wordt de gebruiker in de aanvraag doorgegeven. Dit is zodat u meer informatie over de gebruiker krijgt.
+    * De `/login` gesprekken rondsturen uw `azuread-openidconnect` verificator van `passport-azuread`. Als dat niet lukt, wordt de gebruiker wordt omgeleid naar `/login`.
+    * De `/logout` route roept de logout.ejs weergeven (en route). Hiermee worden cookies gewist en retourneert vervolgens de gebruiker terug naar index.ejs.
 
-2.  Hallo toevoegen **EnsureAuthenticated** methode die u eerder in gebruikt `/account`:
+2.  Voeg de **EnsureAuthenticated** methode die u eerder in gebruikt `/account`:
 
   ```JavaScript
 
-  // Route middleware tooensure hello user is authenticated (section 4)
+  // Route middleware to ensure the user is authenticated (section 4)
 
-  //   Use this route middleware on any resource that needs toobe protected. If
-  //   hello request is authenticated (typically via a persistent login session),
-  //   hello request proceeds. Otherwise, hello user is redirected toothe
+  //   Use this route middleware on any resource that needs to be protected. If
+  //   the request is authenticated (typically via a persistent login session),
+  //   the request proceeds. Otherwise, the user is redirected to the
   //   sign-in page.
   function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) { return next(); }
@@ -300,7 +300,7 @@ Uw app is nu ingesteld toocommunicate met Hallo v2.0-eindpunt met behulp van Hal
 
   ```
 
-3.  Maak in App.js, Hallo-server:
+3.  Maak in App.js, de server:
 
   ```JavaScript
 
@@ -309,10 +309,10 @@ Uw app is nu ingesteld toocommunicate met Hallo v2.0-eindpunt met behulp van Hal
   ```
 
 
-## <a name="5-create-hello-views-and-routes-in-express-that-you-show-your-user-on-hello-website"></a>5: Hallo weergaven en routes in Express dat u uw gebruikers worden weergegeven op Hallo website maken
-Hallo routes en weergaven waarin informatie toohello gebruiker toevoegen. Hallo routes en weergaven ook Hallo afhandelen `/logout` en `/login` routes die u hebt gemaakt.
+## <a name="5-create-the-views-and-routes-in-express-that-you-show-your-user-on-the-website"></a>5: Maak de weergaven en routes in Express dat u uw gebruikers worden weergegeven op de website
+Voeg de routes en weergaven die aan de gebruiker alleen informatie weergegeven. De routes en weergaven verwerken ook de `/logout` en `/login` routes die u hebt gemaakt.
 
-1. Maken in de hoofdmap hello, Hallo `/routes/index.js` route.
+1. In de hoofdmap, maken de `/routes/index.js` route.
 
   ```JavaScript
 
@@ -325,7 +325,7 @@ Hallo routes en weergaven waarin informatie toohello gebruiker toevoegen. Hallo 
   };
   ```
 
-2.  Maken in de hoofdmap hello, Hallo `/routes/user.js` route.
+2.  In de hoofdmap, maken de `/routes/user.js` route.
 
   ```JavaScript
 
@@ -338,9 +338,9 @@ Hallo routes en weergaven waarin informatie toohello gebruiker toevoegen. Hallo 
   };
   ```
 
-  `/routes/index.js`en `/routes/user.js` zijn eenvoudige routes die Hallo aanvraag tooyour weergaven doorgegeven, met inbegrip van Hallo gebruiker, indien aanwezig.
+  `/routes/index.js`en `/routes/user.js` zijn eenvoudige routes die de aanvraag aan uw weergaven doorgegeven, met inbegrip van de gebruiker, indien aanwezig.
 
-3.  Maken in de hoofdmap hello, Hallo `/views/index.ejs` weergeven. Deze pagina roept de **aanmelding** en **afmelding** methoden. U ook hello gebruiken `/views/index.ejs` toocapture accountgegevens te bekijken. U kunt voorwaardelijke Hallo `if (!user)` als Hallo-gebruiker in Hallo-aanvraag wordt doorgegeven. Het is bewijs dat u een gebruiker aangemeld hebt.
+3.  In de hoofdmap, maken de `/views/index.ejs` weergeven. Deze pagina roept de **aanmelding** en **afmelding** methoden. Ook gebruiken de `/views/index.ejs` weergave voor het vastleggen van gegevens van het account. U kunt de voorwaardelijke `if (!user)` als de gebruiker in de aanvraag wordt doorgegeven. Het is bewijs dat u een gebruiker aangemeld hebt.
 
   ```JavaScript
   <% if (!user) { %>
@@ -353,7 +353,7 @@ Hallo routes en weergaven waarin informatie toohello gebruiker toevoegen. Hallo 
   <% } %>
   ```
 
-4.  Maken in de hoofdmap hello, Hallo `/views/account.ejs` weergeven. Hallo `/views/account.ejs` weergave kunt u aanvullende informatie tooview die `passport-azuread` worden geplaatst in de gebruikersaanvraag Hallo.
+4.  In de hoofdmap, maken de `/views/account.ejs` weergeven. De `/views/account.ejs` weergave kunt u aanvullende informatie weergeven die `passport-azuread` op aanvraag van de gebruiker worden geplaatst.
 
   ```Javascript
   <% if (!user) { %>
@@ -372,7 +372,7 @@ Hallo routes en weergaven waarin informatie toohello gebruiker toevoegen. Hallo 
   <% } %>
   ```
 
-5.  Toevoegen van een lay-out. Maken in de hoofdmap hello, Hallo `/views/layout.ejs` weergeven.
+5.  Toevoegen van een lay-out. In de hoofdmap, maken de `/views/layout.ejs` weergeven.
 
   ```HTML
 
@@ -399,20 +399,20 @@ Hallo routes en weergaven waarin informatie toohello gebruiker toevoegen. Hallo 
   </html>
   ```
 
-6.  toobuild en uitvoeren van uw app uitvoeren `node app.js`. Ga vervolgens te`http://localhost:3000`.
+6.  Voor het bouwen en uitvoeren van uw app, voer `node app.js`. Ga vervolgens naar `http://localhost:3000`.
 
-7.  Aanmelden met een persoonlijk Microsoft-account of een account voor werk of school. Houd er rekening mee dat de identiteit van de gebruiker Hallo worden weerspiegeld in Hallo /account lijst. 
+7.  Aanmelden met een persoonlijk Microsoft-account of een account voor werk of school. Houd er rekening mee dat de identiteit van de gebruiker wordt weergegeven in de lijst /account. 
 
 U hebt nu een web-app die is beveiligd met behulp van protocollen volgens de industrienorm. U kunt gebruikers in uw app verifiëren met behulp van hun persoonlijke en werk of school-account.
 
 ## <a name="next-steps"></a>Volgende stappen
-Ter referentie: Hallo voltooid voorbeeld (zonder uw configuratiewaarden) wordt geleverd als [een ZIP-bestand](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip). U kunt dit ook klonen vanuit GitHub:
+Voor een verwijzing naar het voltooide voorbeeld (zonder uw configuratiewaarden) wordt geleverd als [een ZIP-bestand](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip). U kunt dit ook klonen vanuit GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-Vervolgens kunt u op toomore geavanceerde onderwerpen. U kunt tootry:
+Vervolgens kunt u op verplaatsen met geavanceerdere onderwerpen. Het is raadzaam om te proberen:
 
-[Een Node.js-web-API beveiligen met behulp van Hallo v2.0-eindpunt](active-directory-v2-devquickstarts-node-api.md)
+[Een Node.js-web-API beveiligen met behulp van het v2.0-eindpunt](active-directory-v2-devquickstarts-node-api.md)
 
 Hier volgen enkele aanvullende resources:
 
@@ -420,5 +420,5 @@ Hier volgen enkele aanvullende resources:
 * [Stack-overloop 'azure active directory' tag](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ### <a name="get-security-updates-for-our-products"></a>Beveiligingsupdates voor onze producten downloaden
-We raden u toosign up toobe een melding wanneer er beveiligingsincidenten optreden. Op Hallo [Microsoft technische beveiligingsmeldingen](https://technet.microsoft.com/security/dd252948) pagina moet u zich abonneren tooSecurity adviezen waarschuwingen.
+We raden u aan te melden om te worden geïnformeerd wanneer er beveiligingsincidenten optreden. Op de [Microsoft technische beveiligingsmeldingen](https://technet.microsoft.com/security/dd252948) pagina moet u zich abonneren op beveiligingswaarschuwingen aanbevelingen.
 

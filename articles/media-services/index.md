@@ -1,8 +1,8 @@
 ---
-title: aaaAzure documentatie voor Media Services - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toosecurely stream op aanvraag of live uitzenden hoogwaardige video met Media Services, een uitbreidbaar cloudplatform. Zelfstudies, API-verwijzingen en meer.
+title: Documentatie voor Azure Media Services - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over veilig streamen van video op aanvraag of live video van broadcastkwaliteit met Media Services, een uitbreidbaar cloudplatform. Zelfstudies, API-verwijzingen en meer.
 services: media-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c36b7dbf14434e7aadc38f2c74ca7d3830a1bd3f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 809595570f1c82ff6ff99bc15bf813560510e7f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-services-documentation"></a>Documentatie voor Media Services
 
-Meer informatie over hoe toostream broadcast-videokwaliteit met Media Services, een uitbreidbaar cloudplatform. Zelfstudies, API-referenties en andere documentatie ziet u hoe de op aanvraag voor het leveren van toosecurely en live video of audio-stromen die toomillions van gebruikers schalen.
+Meer informatie over het streamen van video van broadcastkwaliteit met Media Services, een uitbreidbaar cloudplatform. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u veilig on-demand of live video- of audiostromen levert aan miljoenen gebruikers.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -70,7 +70,7 @@ Meer informatie over hoe toostream broadcast-videokwaliteit met Media Services, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Azure Media Services met behulp van hello Azure Portal</h3>
+                        <h3>Aan de slag met Azure Media Services met Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ Meer informatie over hoe toostream broadcast-videokwaliteit met Media Services, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Een Azure Media Services-account maken met hello Azure Portal</h3>
+                        <h3>Een Azure Media Services-account maken met Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Meer informatie over hoe toostream broadcast-videokwaliteit met Media Services, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Gestarte leveren inhoud met behulp van Azure Portal Hallo ophalen</h3>
+                        <h3>Aan de slag met het leveren van inhoud met Azure Portal</h3>
                     </div>
                 </div>
             </div>

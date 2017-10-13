@@ -1,6 +1,6 @@
 ---
-title: aaaHow toouse Notification Hubs met PHP
-description: Meer informatie over hoe toouse Azure Notification Hubs vanuit een PHP-back-end.
+title: Notification Hubs gebruiken met PHP
+description: Informatie over het gebruik van Azure Notification Hubs vanuit een PHP-back-end.
 services: notification-hubs
 documentationcenter: 
 author: ysxu
@@ -14,48 +14,48 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: yuaxu
-ms.openlocfilehash: 6cd426286a684006a07867fcf44a8ff71be7efa8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c27b6308ff528224a0398e0ff40537db05417bb0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toouse-notification-hubs-from-php"></a>Hoe toouse Notification Hubs met PHP
+# <a name="how-to-use-notification-hubs-from-php"></a>Hoe Notification Hubs gebruiken vanuit PHP
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-U kunt alle functies van de Notification Hubs kunt openen vanaf een PHP-Java/Ruby back-end Hallo Notification Hub REST-interface gebruiken, zoals beschreven in de MSDN-onderwerp Hallo [Notification Hubs REST-API's](http://msdn.microsoft.com/library/dn223264.aspx).
+U kunt alle functies van de Notification Hubs kunt openen vanaf een PHP-Java/Ruby back-end met de Notification Hub REST-interface, zoals beschreven in de MSDN-onderwerp [Notification Hubs REST-API's](http://msdn.microsoft.com/library/dn223264.aspx).
 
 In dit onderwerp laten we zien hoe:
 
 * Een REST-client voor Notification Hubs-functies in PHP;
-* Ga als volgt Hallo [Get gestart zelfstudie](notification-hubs-ios-apple-push-notification-apns-get-started.md) voor uw mobiele platform keuze, het implementeren van Hallo back-end gedeelte in PHP.
+* Ga als volgt de [Get gestart zelfstudie](notification-hubs-ios-apple-push-notification-apns-get-started.md) implementeren voor uw mobiele platform van de keuze van het back-end-gedeelte in PHP.
 
 ## <a name="client-interface"></a>Client-interface
-de belangrijkste clientinterface Hallo Hallo kan bieden dezelfde methoden die beschikbaar in Hallo zijn [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), Hierdoor kunt u toodirectly vertalen alle Hallo zelfstudies en voorbeelden die momenteel beschikbaar is op deze site, en die is bijgedragen door Hallo-community op Hallo internet.
+De belangrijkste clientinterface kan bieden dezelfde methoden die beschikbaar zijn in de [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), Hiermee kunt u rechtstreeks vertalen de zelfstudies en voorbeelden die momenteel beschikbaar is op deze site en die is bijgedragen door de community op het internet.
 
-U vindt alle Hallo-code die beschikbaar zijn in Hallo [PHP REST wrapper voorbeeld].
+U vindt de code die zijn beschikbaar in de [PHP REST wrapper voorbeeld].
 
-Bijvoorbeeld, toocreate een client:
+Als u bijvoorbeeld wilt maken van een client:
 
     $hub = new NotificationHub("connection string", "hubname");    
 
-toosend een systeemeigen iOS-meldingen:
+Een iOS systeemeigen bericht verzenden:
 
     $notification = new Notification("apple", '{"aps":{"alert": "Hello!"}}');
     $hub->sendNotification($notification, null);
 
 ## <a name="implementation"></a>Implementatie
-Als u nog niet hebt gedaan, volgt u onze [Get gestart zelfstudie] -up maken van de laatste sectie toohello waar u tooimplement Hallo back-end hebt.
-Als u wilt dat kunt u ook Hallo code uit Hallo gebruiken [PHP REST wrapper voorbeeld] en gaat u rechtstreeks toohello [voltooid Hallo zelfstudie](#complete-tutorial) sectie.
+Als u nog niet hebt gedaan, volgt u onze [Get gestart zelfstudie] omhoog naar de laatste sectie waar u hebt voor het implementeren van de back-end.
+Ook als u wilt dat u kunt de code uit de [PHP REST wrapper voorbeeld] en rechtstreeks naar de [Voltooi de zelfstudie](#complete-tutorial) sectie.
 
-Alle details tooimplement een volledige REST-wrapper vindt u op Hallo [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In deze sectie wordt beschreven Hallo PHP uitvoering van Hallo belangrijke stappen vereist tooaccess Notification Hubs REST-eindpunten:
+De details voor het implementeren van een volledige REST-wrapper vindt u op [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In deze sectie wordt de PHP-implementatie van de belangrijkste stappen vereist voor toegang tot Notification Hubs REST-eindpunten worden beschreven:
 
-1. Hallo-verbindingsreeks parseren
-2. Hallo-Autorisatietoken te genereren
-3. Hallo HTTP-aanroep uitvoeren
+1. De verbindingsreeks parseren
+2. Het verificatietoken genereren
+3. De HTTP-aanroep uitvoeren
 
-### <a name="parse-hello-connection-string"></a>Hallo-verbindingsreeks parseren
-Hier volgt Hallo hoofdklasse geïmplementeerd Hallo client, waarvan constructor die kan worden geparseerd Hallo-verbindingsreeks:
+### <a name="parse-the-connection-string"></a>De verbindingsreeks parseren
+Dit is de hoofdklasse uitvoering van de client, waarvan constructor die kan worden geparseerd de verbindingsreeks:
 
     class NotificationHub {
         const API_VERSION = "?api-version=2013-10";
@@ -91,8 +91,8 @@ Hier volgt Hallo hoofdklasse geïmplementeerd Hallo client, waarvan constructor 
 
 
 ### <a name="create-security-token"></a>Beveiligingstoken maken
-Hallo-details van hello security token maken zijn beschikbaar [hier](http://msdn.microsoft.com/library/dn495627.aspx).
-Hallo volgende methode heeft toegevoegd toobe toohello **NotificationHub** klassentoken toocreate Hallo op basis van Hallo-URI van de huidige aanvraag Hallo en opgehaald uit de verbindingsreeks Hallo Hallo-referenties.
+De details van het token maken voor beveiliging zijn beschikbaar [hier](http://msdn.microsoft.com/library/dn495627.aspx).
+De volgende methode moet worden toegevoegd aan de **NotificationHub** klasse te maken van het token op basis van de URI van de huidige aanvraag en de referenties die zijn opgehaald uit de verbindingsreeks.
 
     private function generateSasToken($uri) {
         $targetUri = strtolower(rawurlencode(strtolower($uri)));
@@ -134,9 +134,9 @@ Laat het ons definiëren eerst een klasse die een melding vertegenwoordigt.
 
 Deze klasse is een container voor een native notification-instantie, of een set eigenschappen in geval van een melding van de sjabloon en een set headers die-indeling (systeemeigen platform of sjabloon) en platform-specifieke eigenschappen (zoals Apple verlopen eigenschap en WNS bevat headers).
 
-Raadpleeg toohello [Notification Hubs REST-API's, documentatie](http://msdn.microsoft.com/library/dn495827.aspx) en specifieke notification-platforms indelingen Hallo voor alle beschikbare opties Hallo.
+Raadpleeg de [Notification Hubs REST-API's, documentatie](http://msdn.microsoft.com/library/dn495827.aspx) en de specifieke notification-platforms worden gebruikt voor alle beschikbare opties.
 
-. Met deze klasse worden we kunnen nu schrijven Hallo verzenden waarschuwingsmethoden binnen Hallo **NotificationHub** klasse.
+. Met deze klasse worden we kunnen nu schrijven de verzenden waarschuwingsmethoden binnen de **NotificationHub** klasse.
 
     public function sendNotification($notification, $tagsOrTagExpression="") {
         if (is_array($tagsOrTagExpression)) {
@@ -180,7 +180,7 @@ Raadpleeg toohello [Notification Hubs REST-API's, documentatie](http://msdn.micr
             CURLOPT_POSTFIELDS => $notification->payload
         ));
 
-        // Send hello request
+        // Send the request
         $response = curl_exec($ch);
 
         // Check for errors
@@ -195,16 +195,16 @@ Raadpleeg toohello [Notification Hubs REST-API's, documentatie](http://msdn.micr
         }
     } 
 
-Hallo hierboven methoden een HTTP POST-aanvraag toohello /messages eindpunt van uw notification hub, met de juiste hoofdtekst Hallo en headers toosend Hallo melding verzenden.
+De bovenstaande methoden verzenden een HTTP POST-aanvraag naar het eindpunt /messages van uw notification hub, met de juiste instantie en -koppen om de melding te verzenden.
 
-## <a name="complete-tutorial"></a>Volledige Hallo-zelfstudie
-U kunt nu Hallo-zelfstudie aan de slag uitvoeren met het Hallo-bericht verzenden vanuit een PHP-back-end.
+## <a name="complete-tutorial"></a>Voltooi de zelfstudie
+U kunt nu de zelfstudie aan de slag uitvoeren met de melding verzenden vanuit een PHP-back-end.
 
-Uw Notification Hubs-client initialiseren (vervangen door Hallo verbindingsreeks en hubnaam verbindingsnaam volgens de instructies in Hallo [Get gestart zelfstudie]):
+Uw Notification Hubs-client initialiseren (vervangen door de verbindingsreeks en hubnaam verbindingsnaam volgens de instructies in de [Get gestart zelfstudie]):
 
     $hub = new NotificationHub("connection string", "hubname");    
 
-Voeg Hallo verzenden code, afhankelijk van uw mobiele doelplatform toe.
+Voeg de code verzenden, afhankelijk van uw mobiele doelplatform.
 
 ### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows Store en Windows Phone 8.1 (zonder Silverlight)
     $toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
@@ -243,13 +243,13 @@ Voeg Hallo verzenden code, afhankelijk van uw mobiele doelplatform toe.
 Uitvoeren van uw PHP-code moet produceren nu een melding weergegeven op het doelapparaat.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit onderwerp we hebt u geleerd hoe toocreate een eenvoudige Java REST-client voor Notification Hubs. Hier kunt u het volgende doen:
+In dit onderwerp we hebt u geleerd hoe u een eenvoudige Java REST-client voor Notification Hubs maakt. Hier kunt u het volgende doen:
 
-* Hallo volledige downloaden [PHP REST wrapper voorbeeld], die alle Hallo code bovenstaande bevat.
-* Meer informatie over Notification Hubs functie tags in Hallo [nieuws op te splitsen zelfstudie] gaan
-* Meer informatie over het pushen van meldingen tooindividual gebruikers in [gebruikers waarschuwen zelfstudie]
+* Downloaden van de volledige [PHP REST wrapper voorbeeld], die de bovenstaande code bevat.
+* Meer informatie over Notification Hubs functie labels in de [nieuws op te splitsen zelfstudie] gaan
+* Meer informatie over pushmeldingen naar afzonderlijke gebruikers in [gebruikers waarschuwen zelfstudie]
 
-Zie voor meer informatie, ook Hallo [PHP-ontwikkelaarscentrum](/develop/php/).
+Zie voor meer informatie, ook de [PHP-ontwikkelaarscentrum](/develop/php/).
 
 [PHP REST wrapper voorbeeld]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Get gestart zelfstudie]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/

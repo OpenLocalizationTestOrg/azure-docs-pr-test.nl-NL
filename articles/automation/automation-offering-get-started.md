@@ -1,9 +1,9 @@
 ---
-title: AAA aan de slag met Azure Automation | Microsoft Docs
-description: Dit artikel bevat een overzicht van Azure Automation-service aan de hand van Hallo ontwerp en de implementatie-informatie in voorbereiding tooonboard Hallo aanbieding uit Azure Marketplace.
+title: Aan de slag met Azure Automation | Microsoft Docs
+description: Als voorbereiding om de service aan te bieden via Azure Marketplace, vindt u in dit artikel een overzicht van de Azure Automation-service. Hier worden de ontwerp- en implementatiegegevens doorgenomen.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -12,39 +12,39 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/18/2017
+ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 434e8ea28c55ff9bda1d2e46a7a6b8378a3baa0a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>Aan de slag met Azure Automation
 
-Deze introductiehandleiding introduceert de belangrijkste concepten gerelateerde toohello implementatie van Azure Automation. Als u nieuwe tooAutomation in Azure of ervaring met automation werkstroom software, zoals System Center Orchestrator hebben, deze handleiding helpt u begrijpen hoe tooprepare en vrijgeven automatisering.  Daarna worden u voorbereid toobegin ontwikkelen van runbooks ter ondersteuning van uw automatiseringsbehoeften proces. 
+Deze introductiehandleiding introduceert de belangrijkste concepten met betrekking tot de implementatie van Azure Automation. Als u niet bekend bent met Automation in Azure of ervaring hebt met werkstroomautomatiseringssoftware als System Center Orchestrator, leert u in deze handleiding hoe u Automation voorbereidt en ermee aan de slag gaat.  Daarna wordt u voorbereid op de ontwikkeling van runbooks ter ondersteuning van uw procesautomatiseringsbehoeften. 
 
 
 ## <a name="automation-architecture-overview"></a>Overzicht van Automation-architectuur
 
 ![Overzicht van Azure Automation](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
-Azure Automation is een software als een dienst (SaaS)-toepassing die voorziet in een schaalbare en betrouwbare, multitenant omgeving tooautomate verwerkt met runbooks en configuratie wijzigingen tooWindows- en Linux-systemen met behulp van Desired State Configuration beheren (DSC) in Azure, andere cloudservices of on-premises. Entiteiten in uw Automation-account, zoals runbooks, assets en Uitvoeren als-accounts, zijn geïsoleerd van andere Automation-accounts in uw abonnement en andere abonnementen.  
+Azure Automation is een SaaS-toepassing (Software als een service) die een schaalbare en betrouwbare multitenant-omgeving biedt om processen met runbooks te automatiseren en configuratiewijzigingen op Windows- en Linux-systemen te beheren met Desired State Configuration (DSC) in Azure, andere cloudservices of on-premises. Entiteiten in uw Automation-account, zoals runbooks, assets en Uitvoeren als-accounts, zijn geïsoleerd van andere Automation-accounts in uw abonnement en andere abonnementen.  
 
-Runbooks die u uitvoert in Azure, worden uitgevoerd op Automation-sandboxes, die op het Azure-platform als een virtuele PaaS-machine (platform als een service) worden gehost.  Automation-sandboxes bieden isolatie van tenants voor alle aspecten van de uitvoering van runbooks: modules, opslag, geheugen, netwerkcommunicatie, taakstromen enzovoort. Deze rol wordt beheerd door service Hallo en is niet toegankelijk is vanaf uw Azure of een Azure Automation-account voor u toocontrol.         
+Runbooks die u uitvoert in Azure, worden uitgevoerd op Automation-sandboxes, die op het Azure-platform als een virtuele PaaS-machine (platform als een service) worden gehost.  Automation-sandboxes bieden isolatie van tenants voor alle aspecten van de uitvoering van runbooks: modules, opslag, geheugen, netwerkcommunicatie, taakstromen enzovoort. Deze rol wordt beheerd door de service. U kunt deze niet beheren vanuit uw Azure- of Azure Automation-account.         
 
-tooautomate hello implementatie en beheer van bronnen in uw lokale datacentrum of andere cloudservices, na het maken van een Automation-account, kunt u een of meer machines toorun Hallo aanwijzen [hybride Runbook Worker (HRW)](automation-hybrid-runbook-worker.md) rol.  Elke HRW vereist Hallo Microsoft Management Agent met een werkruimte voor logboekanalyse tooa verbinding en een Automation-account.  Hallo Microsoft Management Agent logboekanalyse is gebruikte toobootstrap Hallo-installatie, onderhouden en bewaken van Hallo-functionaliteit van Hallo HRW.  Hallo-levering van runbooks en Hallo instructie toorun die ze door Azure Automation worden uitgevoerd.
+Als u de implementatie en het beheer van resources in uw lokale datacenter of andere cloudservices wilt automatiseren, kunt u nadat u een Automation-account hebt gemaakt, een of meer computers aanwijzen om de HRW-rol ([Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)) uit te voeren.  Op elke HRW moet de Microsoft Management Agent zijn geïnstalleerd. Deze moet een verbinding hebben met een Log Analytics-werkruimte en een Automation-account.  Log Analytics wordt gebruikt om de installatie te starten, de Microsoft Management Agent te onderhouden en de functionaliteit van de HRW te bewaken.  De levering van runbooks en de instructie om ze uit te voeren, worden verzorgd door Azure Automation.
 
-U kunt meerdere HRW tooprovide hoge beschikbaarheid implementeren voor uw runbooks, runbooktaken saldo laden en in sommige gevallen toe te wijzen aan hen voor bepaalde werkbelastingen of omgevingen.  Hallo Microsoft Monitoring Agent op Hallo HRW communicatie met de Hallo Automation-service via TCP-poort 443 initieert en er zijn geen binnenkomende firewallvereisten.  Nadat u runbook uitgevoerd op een HRW binnen Hallo-omgeving hebt en u wilt dat Hallo runbook tooperform beheertaken op basis van andere machines of services in die omgeving, er mogelijk andere poorten die Hallo worden runbook vereist toegang tot.  Als de beleidsregels van uw IT-beveiliging niet toestaan computers op uw netwerk tooconnect toohello Internet dat, raadpleegt u Hallo artikel [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md), die fungeert als proxy voor Hallo HRW toocollect taak de status en configuratie-informatie uit ontvangen uw Automation-account.
+U kunt meerdere HRW’s implementeren voor hoge beschikbaarheid voor uw runbooks, voor een gelijkmatige verdeling van runbooktaken en (in sommige gevallen) om ze toe te wijzen aan bepaalde workloads of omgevingen.  De Microsoft Monitoring Agent op de HRW communiceert met de Automation-service via TCP-poort 443. Er zijn daarbij geen firewallvereisten voor binnenkomend verkeer.  Wanneer er een runbook op een HRW in de omgeving wordt uitgevoerd en u het runbook ook beheertaken voor andere computers of services in de omgeving wilt laten uitvoeren, moet u het runbook mogelijk ook toegang geven tot andere poorten.  Als het IT-beveiligingsbeleid niet toestaat dat computers in het netwerk verbinding maken met internet, raadpleegt u het artikel [OMS-gateway](../log-analytics/log-analytics-oms-gateway.md). De gateway fungeert als een proxy voor de HRW om taakstatusinformatie te verzamelen en configuratiegegevens van uw Automation-account te ontvangen.
 
-Runbooks die worden uitgevoerd op een HRW uitgevoerd in context van lokale systeemaccount op de computer Hallo Hallo hello, wordt wat Hallo aanbevolen beveiligingscontext bij het uitvoeren van beheertaken op Hallo lokale Windows-computer. Als u Hallo runbook toorun taken op basis van bronnen buiten Hallo lokale computer wilt, moet u mogelijk toodefine beveiligde referentieassets in Automation-account toegang tot van Hallo runbook en tooauthenticate gebruiken met de externe bron Hallo Hallo. U kunt [referentie](automation-credentials.md), [certificaat](automation-certificates.md), en [verbinding](automation-connections.md) activa in uw runbook met cmdlets waarmee u toospecify referenties zodat u ze kunt verifiëren.
+Runbooks die op een HRW worden uitgevoerd, werken in de context van het lokale systeemaccount op de computer. Dit is de aanbevolen beveiligingscontext voor het uitvoeren van beheertaken op de lokale Windows-computer. Als u het runbook taken wilt laten uitvoeren voor resources buiten de lokale computer, moet u mogelijk beveiligde referentieassets in het Automation-account definiëren. U moet deze referenties vanuit het runbook kunnen gebruiken voor verificatie bij de externe resource. U kunt de assets [Referentie](automation-credentials.md), [Certificaat](automation-certificates.md) en [Verbinding](automation-connections.md) in uw runbook gebruiken met cmdlets waarmee u referenties kunt opgeven, zodat u ze kunt verifiëren.
 
-DSC-configuraties die zijn opgeslagen in Azure Automation kunnen rechtstreeks toegepaste tooAzure virtuele machines zijn. Andere fysieke en virtuele machines kunnen configuraties van hello Azure Automation DSC-pull-server aanvragen.  Voor het beheren van configuraties van uw on-premises fysieke of virtuele Windows- en Linux-systemen, hoeft u niet toodeploy eventuele infrastructuur toosupport Hallo Automation DSC pull-server, alleen uitgaande toegang tot Internet vanaf elk systeem toobe beheerd door Automation DSC , communiceren via TCP-poort 443 toohello OMS-service.   
+DSC-configuraties die zijn opgeslagen in Azure Automation, kunnen rechtstreeks worden toegepast op virtuele Azure-machines. Voor andere fysieke en virtuele machines kunnen configuraties via de pull-server van Azure Automation DSC zijn vereist.  Voor het beheer van configuraties van uw on-premises fysieke of virtuele Windows- en Linux-systemen hoeft u geen infrastructuur te implementeren ter ondersteuning van de Automation DSC pull-server. U hoeft alleen uitgaande internettoegang in te stellen vanaf elk systeem dat u wilt beheren met Automation DSC en dat via TCP-poort 443 met de OMS-service communiceert.   
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="automation-dsc"></a>Automation DSC
-Azure Automation DSC gebruikte toomanage verschillende machines kan worden:
+Azure Automation DSC kan worden gebruikt voor het beheer van verschillende machines:
 
 * Virtuele machines van Azure (klassiek) met Windows of Linux
 * Virtuele machines van Azure met Windows of Linux
@@ -52,73 +52,73 @@ Azure Automation DSC gebruikte toomanage verschillende machines kan worden:
 * Fysieke/virtuele Windows-computers on-premises of in een andere cloud dan Azure of AWS
 * Fysieke/virtuele Linux-computers on-premises of in een andere cloud dan Azure of AWS
 
-meest recente versie van WMF 5 Hallo moet worden geïnstalleerd voor Hallo PowerShell DSC-agent voor Windows toobe kunnen toocommunicate met Azure Automation. meest recente versie van de Hallo Hallo [PowerShell DSC-agent voor Linux](https://www.microsoft.com/en-us/download/details.aspx?id=49150) voor Linux toobe kunnen toocommunicate met Azure Automation moeten worden geïnstalleerd.
+Op de PowerShell DSC-agent moet de meest recente versie van WMF 5 worden geïnstalleerd, anders kan Windows niet communiceren met Azure Automation. De meest recente versie van de [PowerShell DSC-agent voor Linux](https://www.microsoft.com/en-us/download/details.aspx?id=49150) moet worden geïnstalleerd, anders kan Linux niet communiceren met Azure Automation.
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker  
-Wanneer een computer toorun hybride runbook aanwijzing van taken, moet deze computer Hallo volgende hebben:
+De computer waarop u hybride runbooktaken wilt uitvoeren, moet over het volgende beschikken:
 
 * Windows Server 2012 of hoger
-* Windows PowerShell 4.0 of hoger.  Het is raadzaam om de installatie van Windows PowerShell 5.0 op Hallo computer voor een hogere mate van betrouwbaarheid. U kunt de nieuwe versie Hallo downloaden van Hallo [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=50395)
+* Windows PowerShell 4.0 of hoger.  Voor extra betrouwbaarheid is het raadzaam om Windows PowerShell 5.0 op de computer te installeren. U kunt de nieuwe versie downloaden via het [Microsoft Downloadcentrum](https://www.microsoft.com/download/details.aspx?id=50395)
 * Minimaal twee kernen
 * Minimaal 4 GB aan RAM-geheugen
 
-### <a name="permissions-required-toocreate-automation-account"></a>Machtigingen vereist toocreate Automation-account
-toocreate of update een Automation-account, hebt u Hallo na specifieke rechten en machtigingen nodig toocomplete in dit onderwerp.   
+### <a name="permissions-required-to-create-automation-account"></a>Machtigingen die zijn vereist om een Automation-account te maken
+Als u een Automation-account wilt maken of bijwerken, moet u de volgende specifieke bevoegdheden en machtigingen hebben om dit onderwerp te voltooien.   
  
-* In de volgorde toocreate een Automation-account, uw AD-gebruikersaccount moet toobe toegevoegde tooa rol met de rol van eigenaar gelijkwaardige toohello machtigingen voor Microsoft.Automation bronnen zoals wordt beschreven in artikel [toegangsbeheer op basis van rollen in Azure Automation ](automation-role-based-access-control.md).  
-* Als Hallo App registraties instellen te is ingesteld**Ja**, kunnen gebruikers niet-beheerders in uw Azure AD-tenant [AD-toepassingen registreren](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Als Hallo app registraties instellen te is ingesteld**Nee**, Hallo gebruiker deze bewerking moet een globale beheerder in Azure AD. 
+* Om een Automation-account te kunnen maken, moet uw AD-gebruikersaccount worden toegevoegd aan een rol die machtigingen heeft die equivalent zijn aan de rol Eigenaar voor Microsoft.Automation-resources. Dit is beschreven in het artikel [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md).  
+* Als de instelling App-registraties is ingesteld op **Ja**, kunnen gebruikers in uw Azure AD-tenant zonder beheerdersrechten [AD-toepassingen registreren](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Als de app-registratie-instelling is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD. 
 
-Als u niet lid zijn van de Active Directory-exemplaar van Hallo abonnement voordat u toohello globale beheerder/SA-administrator-rol van Hallo abonnement worden toegevoegd, kunt u tooActive Directory wordt toegevoegd als gast. In dit geval ontvangt u een "u hebt geen machtigingen toocreate..." Waarschuwing voor Hallo **Automation-Account toevoegen** blade. Gebruikers die zijn toegevoegd toohello globale beheerder/SA-administrator-rol kan worden verwijderd uit Active Directory-exemplaar van het abonnement Hallo eerst en opnieuw toegevoegd toomake ze een volledige gebruiker in Active Directory. tooverify deze situatie van Hallo **Azure Active Directory** deelvenster in Azure portal, selecteer Hallo **gebruikers en groepen**, selecteer **alle gebruikers** en, nadat u Hallo selecteren specifieke gebruiker, schakelt **profiel**. waarde van Hallo Hallo **gebruikerstype** kenmerk onder Hallo gebruikersprofiel moet niet gelijk aan **Gast**.
+Als u geen lid bent van het Active Directory-exemplaar van het abonnement voordat u wordt toegevoegd aan de rol van globale beheerder/medebeheerder van het abonnement, wordt u als gast toegevoegd aan Active Directory. In dat geval wordt de waarschuwing 'U bent niet gemachtigd om…' weergegeven op de blade **Automation-account toevoegen**. Gebruikers die zijn toegevoegd aan de rol van globale beheerder/medebeheerder, kunnen worden verwijderd uit het Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
 
 ## <a name="authentication-planning"></a>Verificatieplanning
-Azure Automation kunt u tooautomate taken op basis van bronnen in Azure, on-premises en bij andere cloudproviders.  Om een runbook tooperform de vereiste acties moet hebben machtigingen toosecurely toegang Hallo resources met de minimale rechten Hallo binnen Hallo abonnement vereist.  
+Met Azure Automation kunt u taken automatiseren voor bronnen in Azure, on-premises en bij andere cloudproviders.  Om een runbook in staat te stellen de vereiste acties uit te voeren, moet het machtigingen hebben om veilig toegang te krijgen tot de resources met de minimale rechten die vereist zijn binnen het abonnement.  
 
 ### <a name="what-is-an-automation-account"></a>Wat is een Automation-account 
-Alle Hallo automatiseringstaken die u uitvoert op resources met behulp van hello Azure-cmdlets in Azure Automation verifiëren tooAzure verificatie op basis van referentie op organisatie-id van Azure Active Directory.  Een Automation-account is gescheiden van Hallo account u toosign gebruikt in de portal tooconfigure toohello en Azure-resources gebruiken.  Automation-resources die zijn opgenomen met een account zijn Hallo volgende:
+Alle automatiseringstaken die u met behulp van de Azure-cmdlets in Azure Automation voor resources uitvoert, moeten worden geverifieerd bij Azure met behulp van verificatie op basis van organisatie-identiteitreferenties van Azure Active Directory.  Een Automation-account is gescheiden van het account waarmee u zich aanmeldt bij de portal om Azure-resources te configureren en te gebruiken.  De volgende Automation-resources zijn opgenomen in een account:
 
 * **Certificaten**: certificaten die worden gebruikt voor verificatie vanuit een runbook of DSC-configuratie of deze toevoegen.
-* **Verbindingen** -verificatie en configuratie vereiste informatie op tooconnect tooan externe service of toepassing vanuit een runbook of de DSC-configuratie bevat.
-* **Referenties** -is een PSCredential-object met beveiligingsgegevens zoals een gebruikersnaam en wachtwoord vereist tooauthenticate vanuit een runbook of de DSC-configuratie.
-* **Integratiemodules** -PowerShell-modules die deel uitmaakt van een Azure Automation-account toomake gebruik van cmdlets in runbooks en DSC-configuraties zijn.
+* **Verbindingen**: de verificatie- en configuratiegegevens die nodig zijn om vanuit een runbook of DSC-configuratie verbinding te maken met een externe service of toepassing.
+* **Referenties**: een PSCredential-object dat beveiligingsreferenties bevat, zoals de combinatie van gebruikersnaam en wachtwoord die is vereist voor verificatie vanuit een runbook of DSC-configuratie.
+* **Integratiemodules**: PowerShell-modules die zijn opgenomen in een Azure Automation-account om gebruik te maken van de cmdlets in runbooks en DSC-configuraties.
 * **Schema’s**: schema's voor het starten of stoppen van een runbook op een opgegeven moment, met terugkerende frequenties.
 * **Variabelen**: waarden die beschikbaar zijn vanuit een runbook of de DSC-configuratie.
-* **DSC-configuraties** -zijn PowerShell-scripts die wordt beschreven hoe tooconfigure een functie van het besturingssysteem of instelling of een toepassing installeert op een Windows- of Linux-computer.  
+* **DSC-configuraties**: PowerShell-scripts die beschrijven hoe u een functie of instelling van het besturingssysteem configureert of hoe u een toepassing installeert op een Windows- of Linux-computer.  
 * **Runbooks**: een set taken die een aantal geautomatiseerde processen uitvoeren in Azure Automation op basis van Windows PowerShell.    
 
-Hallo Automation-resources voor elk Automation-account zijn gekoppeld aan één Azure-regio, maar Automation-accounts kunnen alle Hallo resources in uw abonnement beheren. Automation-accounts maken in verschillende regio's, als u beleid hebt waardoor gegevens en resources toobe geïsoleerde tooa specifieke regio.
+De Automation-resources voor elk Automation-account zijn gekoppeld aan één Azure-regio, maar Automation-accounts kunnen alle resources in uw abonnement beheren. U kunt Automation-accounts in verschillende regio's maken als u te maken hebt met beleidsregels die bepalen dat gegevens en resources moeten worden geïsoleerd in een specifieke regio.
 
 > [!NOTE]
-> Automation-accounts en Hallo-resources die ze bevatten die zijn gemaakt in hello Azure-portal, niet toegankelijk in de klassieke Azure-portal Hallo. Als u toomanage deze accounts of hun resources met Windows PowerShell wilt, moet u hello Azure Resource Manager-modules.
+> Automation-accounts, en de resources die deze bevatten die in Azure Portal worden gemaakt, zijn niet toegankelijk via de klassieke Azure-portal. Als u deze accounts of de bijbehorende resources wilt beheren met Windows PowerShell, moet u gebruikmaken van de Azure Resource Manager-modules.
 > 
 
-Wanneer u een Automation-account in hello Azure-portal maakt, worden automatisch twee verificatie-entiteiten maken:
+Wanneer u in Azure Portal een Automation-account maakt, worden er automatisch twee accounts gemaakt:
 
-* Een Uitvoeren als-account. Door dit account worden een service-principal in Azure Active Directory (Azure AD) en een certificaat gemaakt. Hallo Inzender op rollen gebaseerde toegangsbeheer (RBAC), die Resource Manager-resources met behulp van runbooks beheert wijst ook toe.
-* Een klassiek Uitvoeren als-account. Dit account uploadt een beheercertificaat dat gebruikt toomanage klassieke resources is met behulp van runbooks.
+* Een Uitvoeren als-account. Door dit account worden een service-principal in Azure Active Directory (Azure AD) en een certificaat gemaakt. Ook wordt door dit account de inzender voor op rollen gebaseerd toegangsbeheer (RBAC) toegewezen, die resources van Resource Manager beheert met runbooks.
+* Een klassiek Uitvoeren als-account. Door dit account wordt een beheercertificaat geüpload, dat wordt gebruikt om klassieke resources te beheren met runbooks.
 
-Toegangsbeheer op basis van rollen is beschikbaar met Azure Resource Manager toogrant toegestane acties tooan Azure AD-gebruikersaccount en Run As-account en verifiëren van deze service-principal.  Lees [toegangsbeheer op basis van rollen in Azure Automation-artikel](automation-role-based-access-control.md) voor verdere informatie toohelp ontwikkelen van een model voor het beheren van machtigingen in Automation.  
+Op rollen gebaseerd toegangsbeheer is beschikbaar in Azure Resource Manager voor het toekennen van toegestane acties aan een Azure AD-gebruikersaccount en Uitvoeren als-account, en om die service-principal te verifiëren.  Lees het artikel [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md) voor meer informatie die u helpt bij het ontwikkelen van een model voor het beheren van machtigingen in Automation.  
 
 #### <a name="authentication-methods"></a>Verificatiemethoden
-Hallo volgende tabel ziet u Hallo verschillende verificatiemethoden voor elke omgeving wordt ondersteund door Azure Automation.
+De volgende tabel bevat een overzicht van de verschillende verificatiemethoden voor elke omgeving die wordt ondersteund door Azure Automation.
 
 | Methode | Omgeving 
 | --- | --- | 
 | Uitvoeren als-account van Azure en klassiek Uitvoeren als-account |Azure Resource Manager en klassieke Azure-implementatie |  
 | Azure AD-gebruikersaccount |Azure Resource Manager en klassieke Azure-implementatie |  
-| Windows-verificatie |Lokale datacentrum of andere cloudprovider met behulp van Hallo Hybrid Runbook Worker |  
+| Windows-verificatie |Lokaal datacenter of een andere cloudprovider met de Hybrid Runbook Worker |  
 | AWS-referenties |Amazon Web Services |  
 
-Onder Hallo **hoe to\Authentication en beveiliging** sectie, zijn ondersteunende artikelen zodat overzicht en de implementatiestappen tooconfigure verificatie voor deze omgevingen, hetzij met een bestaande of nieuwe account u reserveren voor deze omgeving.  Hallo voor hello Azure uitvoeren als en klassieke Run As-account, onderwerp [Automation Update die Run As-account](automation-create-runas-account.md) wordt beschreven hoe tooupdate uw bestaande Automation-account met Hallo Run As-accounts van Hallo portal of met behulp van PowerShell als dat niet is oorspronkelijk is geconfigureerd met een Run As- of klassieke Run As-account. Als u wilt toocreate een Run As- en klassieke Run As-account met een certificaat dat is uitgegeven door uw enterprise-certificeringsinstantie (CA), raadpleegt u dit artikel toolearn hoe toocreate Hallo gebruikersaccounts via deze configuratie.     
+In de sectie **Procedures\Verificatie en beveiliging** vindt u ondersteunende artikelen met een overzicht en de implementatiestappen om verificatie te configureren voor deze omgevingen, met een bestaand account of een nieuw account dat u speciaal aan die omgeving hebt toegewezen.  Voor het Uitvoeren als-account van Azure en het klassieke Uitvoeren als-account raadpleegt u het onderwerp [Automation Uitvoeren als-account bijwerken met PowerShell](automation-create-runas-account.md). Hierin wordt beschreven hoe u een bestaand Automation-account met een Uitvoeren als-account bijwerkt vanuit de portal of met behulp van PowerShell als het oorspronkelijk niet is geconfigureerd met een Uitvoeren als- of klassiek Uitvoeren als-account. Als u een Uitvoeren als- en een klassiek Uitvoeren als-account wilt maken met een certificaat dat is uitgegeven door uw certificeringsinstantie (CA) voor ondernemingen, raadpleegt u dit artikel voor meer informatie over hoe u de accounts maakt met deze configuratie.     
  
 ## <a name="network-planning"></a>Netwerkplanning
-Voor Hallo Hybrid Runbook Worker tooconnect tooand registreren met de Microsoft Operations Management Suite (OMS), toohello-poortnummer toegang moet hebben en Hallo URL's die hieronder worden beschreven.  Dit is bovendien toohello [poorten en URL's die zijn vereist voor Microsoft Monitoring Agent Hallo](../log-analytics/log-analytics-windows-agents.md#network) tooconnect tooOMS. Als u een proxyserver voor communicatie tussen het Hallo-agent en Hallo OMS-service gebruiken, moet u tooensure dat de juiste resources Hallo toegankelijk zijn. Als u een firewall toorestrict toegang toohello Internet gebruikt, moet u tooconfigure uw firewall toopermit toegang.
+De Hybrid Runbook Worker kan alleen verbinding maken met en zich registreren bij Microsoft Operations Management Suite (OMS) als het toegang heeft tot het poortnummer en de URL's die hieronder worden beschreven.  Dit is in aanvulling op de [poorten en URL's die vereist zijn voor de Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md#network) om verbinding te maken met OMS. Als u een proxyserver gebruikt voor communicatie tussen de agent en de OMS-service, moet u controleren of de juiste resources toegankelijk zijn. Als u een firewall gebruikt om toegang tot internet te beperken, moet u uw firewall zodanig configureren dat toegang wordt toegestaan.
 
-onderstaande lijst Hallo poort en URL's die vereist voor Hallo Hybrid Runbook Worker toocommunicate met Automation zijn Hallo-gegevens.
+In de onderstaande informatie vindt u de poort en URL's die nodig zijn om de Hybrid Runbook Worker te laten communiceren met Automation.
 
 * Poort: alleen TCP 443 is vereist voor uitgaande toegang tot internet
 * Algemene URL: *.azure-automation.net
 
-Als u een Automation-account dat is gedefinieerd voor een bepaald gebied hebt en u toorestrict communicatie met die regionaal datacenter wilt, hello volgende tabel bevat Hallo DNS-record voor elke regio.
+Als u een Automation-account voor een specifieke regio hebt gedefinieerd en de communicatie met dat regionaal datacenter wilt beperken, vindt u in de volgende tabel de DNS-record voor elke regio.
 
 | **Regio** | **DNS-record** |
 | --- | --- |
@@ -135,60 +135,59 @@ Als u een Automation-account dat is gedefinieerd voor een bepaald gebied hebt en
 | Verenigd Koninkrijk Zuid | uks-jobruntimedata-prod-su1.azure-automation.net |
 | VS (overheid) - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
 
-Voor een lijst met IP-adressen in plaats van namen, downloaden en bekijken Hallo [Azure Datacenter IP-adres](https://www.microsoft.com/download/details.aspx?id=41653) XML-bestand van Hallo Microsoft Download Center. 
+Voor een lijst met IP-adressen in plaats van namen downloadt en bekijkt u het XML-bestand met [Azure-datacenter-IP-adressen](https://www.microsoft.com/download/details.aspx?id=41653) in het Microsoft Downloadcentrum. 
 
 > [!NOTE]
-> Dit bestand bevat Hallo IP-adresbereiken (met inbegrip van de berekenings-, SQL en -bereiken) in Microsoft Azure-Datacenters Hallo gebruikt. Een bijgewerkt bestand geboekt wekelijks die weerspiegelt Hallo momenteel geïmplementeerd bereiken en alle toekomstige wijzigingen toohello IP-adresbereiken. Nieuwe bereiken verschijnen in Hallo-bestand wordt niet worden gebruikt in datacenters Hallo voor ten minste één week. Controleer downloaden Hallo nieuwe xml bestand elke week en de benodigde wijzigingen Hallo uitvoeren op uw site toocorrectly identificeren services in Azure wordt uitgevoerd. Express Route-gebruikers mogelijk Let dat dit bestand gebruikt tooupdate Hallo BGP-aankondiging van Azure ruimte in Hallo eerste week van elke maand. 
+> Dit bestand bevat de IP-adresbereiken (inclusief bereiken voor Compute, SQL en Storage) die worden gebruikt in de Microsoft Azure-datacenters. Er wordt wekelijks een bijgewerkt bestand geplaatst waarin staat welke bereiken momenteel zijn geïmplementeerd en welke wijzigingen in de toekomst aan de IP-bereiken zullen worden aangebracht. Nieuwe bereiken in het bestand worden gedurende ten minste één week nog niet in de datacenters gebruikt. Download elke week het nieuwe XML-bestand en voer de benodigde wijzigingen uit op uw site om de services die in Azure worden uitgevoerd correct te identificeren. Express Route-gebruikers zullen merken dat dit bestand wordt gebruikt om in de eerste week van elke maand de BGP-advertenties van Azure-ruimte bij te werken. 
 > 
 
 ## <a name="creating-an-automation-account"></a>Een Automation-account maken
 
-Er zijn verschillende manieren die u een Automation-account in hello Azure-portal maken kunt.  Hallo volgende tabel wordt elk type implementatie-ervaring en verschillen tussen deze twee geïntroduceerd.  
+Er zijn verschillende manieren waarop u in Azure Portal een Automation-account kunt maken.  In de volgende tabel worden de diverse typen implementatie-ervaring en de verschillen daartussen geïntroduceerd.  
 
 |Methode | Beschrijving |
 |-------|-------------|
-| Automation & Hallo Marketplace besturingselement selecteren | Een aanbieding een Automation-account en de OMS-werkruimte maakt gekoppeld tooone in dezelfde resourcegroep en regio Hallo.  Integratie met OMS ook omvat Hallo voordeel van het gebruik van logboekanalyse toomonitor en analyseren van runbook-taak status en taak streams na verloop van tijd en gebruikmaken van geavanceerde functies tooescalate of problemen onderzoeken. Hallo bieden ook implementeert Hallo bijhouden & updatebeheer oplossingen die zijn standaard ingeschakeld. |
-| Automatisering van Hallo Marketplace selecteren | Maakt een Automation-account in een nieuwe of bestaande resourcegroep dat geen gekoppelde tooan OMS-werkruimte en omvat niet alle beschikbare oplossingen Hallo Automation en Control aangeboden. Dit is een basisconfiguratie waarin u kennis kunt tooAutomation en kunt u meer informatie over hoe toowrite runbooks, DSC-configuraties en gebruik Hallo mogelijkheden van Hallo-service. |
-| Geselecteerde beheeroplossingen | Als u een oplossing – selecteert  **[updatebeheer](../operations-management-suite/oms-solution-update-management.md)**,  **[starten/stoppen virtuele machines tijdens daluren](automation-solution-vm-management.md)**, of  **[ Het bijhouden van](../log-analytics/log-analytics-change-tracking.md)**  ze vraagt u een bestaande automatisering tooselect en OMS-werkruimte, of dit aanbieden Hallo van optie toocreate beide als nodig voor Hallo oplossing toobe geïmplementeerd in uw abonnement. |
+| Selecteer Automation en besturing in Marketplace | Een aanbieding waarmee een Automation-account en een OMS-werkruimte worden gemaakt die zijn gekoppeld in dezelfde resourcegroep en regio.  Integratie met OMS bevat ook het voordeel van Log Analytics waarmee u de taakstatus en taakstromen van een runbook na verloop van tijd kunt controleren en analyseren. Daarnaast kunt u beschikken over geavanceerde functies om problemen te escaleren of te onderzoeken. In de aanbieding zijn ook de oplossingen Wijzigingen bijhouden en Updatebeheer geïmplementeerd. Deze zijn standaard ingeschakeld. |
+| Selecteer Automation in Marketplace | Hiermee wordt in een nieuwe of bestaande resourcegroep een Automation-account gemaakt dat niet is gekoppeld aan een OMS-werkruimte en geen beschikbare oplossingen bevat uit de aanbieding Automation en beheer. Dit is een basisconfiguratie om kennis te maken met Automation en te leren hoe u runbooks schrijft, DSC configureert en de mogelijkheden van de service gebruikt. |
+| Geselecteerde beheeroplossingen | Als u een oplossing selecteert (**[Updatebeheer](../operations-management-suite/oms-solution-update-management.md)**, **[VM's buiten de bedrijfsuren starten/stoppen](automation-solution-vm-management.md)** of **[Wijzigingen bijhouden](../log-analytics/log-analytics-change-tracking.md)**), wordt u gevraagd een bestaande Automation- en OMS-werkruimte te selecteren of krijgt u de mogelijkheid om beide te maken als dat nodig is voor de oplossing die u in uw abonnement wilt implementeren. |
 
-In dit onderwerp leert u een Automation-account en een OMS-werkruimte maken door het onboarding Hallo Automation & Control-aanbieding.  een zelfstandige Automation-account voor testdoeleinden of toopreview Hallo-service, bekijk Hallo volgende artikel toocreate [zelfstandige Automation-account maken](automation-create-standalone-account.md).  
+In dit onderwerp doorloopt u de stappen voor het maken van een Automation-account en de OMS-werkruimte door de aanbieding Automation en beheer te implementeren.  Als u een zelfstandig Automation-account wilt maken om de service te testen of te bekijken, raadpleegt u het artikel [Create standalone Automation account](automation-create-standalone-account.md) (Een zelfstandig Automation-account maken).  
 
 ### <a name="create-automation-account-integrated-with-oms"></a>Een Automation-account maken dat is geïntegreerd met OMS
-Hallo aanbevolen methode tooonboard die Automation wordt Hallo Automation en Control aanbieding van Hallo Marketplace kiest.  Hiermee maakt u zowel een Automation-account en wordt tot stand gebracht Hallo-integratie met een OMS-werkruimte, waaronder Hallo optie tooinstall Hallo beheeroplossingen die beschikbaar met de Hallo aanbieding zijn.  
+De aanbevolen methode om Automation te implementeren, is door de aanbieding Automation en beheer te selecteren in Marketplace.  In dat geval wordt dan zowel een Automation-account gemaakt als de integratie met een OMS-werkruimte tot stand gebracht. Daarnaast krijgt u de mogelijkheid om de beheeroplossingen te installeren die met de aanbieding beschikbaar zijn.  
 
-1. Meld u aan toohello Azure-portal met een account dat lid is van de rol Abonnementsbeheerders hello en medebeheerder van Hallo-abonnement.
+1. Meld u aan bij Azure Portal met een account dat lid is van de rol Abonnementsbeheerders en dat medebeheerder is van het abonnement.
 
 2. Klik op **Nieuw**.<br><br> ![De optie Nieuw selecteren in Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
-3. Zoeken naar **Automation** en klik vervolgens in Hallo zoekresultaten Selecteer **Automation en Control***.<br><br> ![Zoek naar en selecteer Automation en beheer in Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
+3. Zoek naar **Automation** en klik in de zoekresultaten op **Automation en beheer***.<br><br> ![Zoek naar en selecteer Automation en beheer in Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 
-4. Klik na het lezen van Hallo beschrijving voor de aanbieding Hallo **maken**.  
+4. Lees de beschrijving van de aanbieding en klik op **Maken**.  
 
-5. Op Hallo **Automation en Control** instellingenblade, selecteer **OMS-werkruimte**.  Op Hallo **OMS werkruimten** blade een OMS-werkruimte gekoppeld toohello dezelfde Azure-abonnement dat Hallo Automation-account is in selecteren of maken van een OMS-werkruimte.  Als u een OMS-werkruimte niet hebt, selecteert u **nieuwe werkruimte maken** en op Hallo **OMS-werkruimte** blade Hallo volgende uitvoeren: 
-   - Geef een naam voor de nieuwe Hallo **OMS-werkruimte**.
-   - Selecteer een **abonnement** toolink tooby selecteren in de vervolgkeuzelijst Hallo als Hallo standaard geselecteerd niet geschikt is.
+5. Selecteer op de blade met instellingen voor **Automation en beheer** de optie **OMS-werkruimte**.  Selecteer op de blade **OMS-werkruimte** een OMS-werkruimte die is gekoppeld aan hetzelfde Azure-abonnement als dat van het Automation-account of maak een nieuwe OMS-werkruimte.  Als u geen OMS-werkruimte hebt, selecteert u **Nieuwe werkruimte maken** en voert u op de blade **OMS-werkruimte** het volgende uit: 
+   - Geef een naam op voor de nieuwe **OMS-werkruimte**.
+   - Selecteer een **abonnement** om te koppelen door een selectie in de vervolgkeuzelijst te maken als de geselecteerde standaardwaarde niet juist is.
    - Voor **Resourcegroep** kunt u een resourcegroep maken of een bestaande resourcegroep selecteren.  
-   - Selecteer een **locatie**.  Momenteel Hallo enige locaties beschikbaar zijn **Australië-Zuidoost**, **VS-Oost**, **Zuidoost-Azië**, **West-Centraal VS**, en  **West-Europa**.
-   - Selecteer een **prijscategorie**.  Hallo-oplossing wordt aangeboden in twee lagen: vrij te maken en Per knooppunt (OMS) is laag.  Hallo gratis laag heeft een limiet op Hallo hoeveelheid gegevens die worden verzameld per dag, bewaarperiode en runbook-taak runtime minuten.  Hallo Per knooppunt (OMS) laag heeft geen een limiet op Hallo hoeveelheid dagelijks verzamelde gegevens.  
-   - Selecteer **Automation-account**.  Als u een nieuwe OMS-werkruimte maakt, bent u vereiste tooalso maken een Automation-account dat is gekoppeld aan Hallo nieuwe OMS-werkruimte opgegeven eerder, met inbegrip van uw Azure-abonnement, resourcegroep en de regio.  U kunt selecteren **een Automation-account maken** en op Hallo **Automation-Account** blade biedt Hallo volgende: 
-  - In Hallo **naam** Hallo naam Hallo Automation-account.
+   - Selecteer een **locatie**.  Zie [in welke regio's Azure Automation beschikbaar is](https://azure.microsoft.com/regions/services/) voor aanvullende informatie.  De oplossingen worden in twee prijscategorieën aangeboden: Gratis en Per knooppunt (OMS).  De gratis categorie heeft een limiet op de hoeveelheid gegevens die dagelijks wordt verzameld, op de retentieperiode en op de runtimeminuten van runbooktaken.  De categorie Per knooppunt (OMS) kent geen limiet voor de hoeveelheid gegevens die dagelijks wordt verzameld.  
+   - Selecteer **Automation-account**.  Als u een nieuwe OMS-werkruimte maakt, moet u ook een Automation-account maken dat is gekoppeld aan de nieuwe OMS-werkruimte die eerder is opgegeven, inclusief uw Azure-abonnement, resourcegroep en regio.  U kunt **Een Automation-account maken** selecteren en het volgende opgeven op de blade **Automation-account**: 
+  - Voer in het veld **Naam** de naam van het Automation-account in.
 
-    Alle andere opties worden automatisch ingevuld op basis van Hallo OMS-werkruimte geselecteerd en deze opties kunnen niet worden gewijzigd.  Een Azure uitvoeren als-account is Hallo standaardmethode voor verificatie Hallo aanbieding.  Nadat u op **OK**, Hallo configuratieopties worden gevalideerd en Hallo Automation-account is gemaakt.  U kunt de voortgang onder volgen **meldingen** in Hallo-menu. 
+    Alle overige opties worden automatisch ingevuld op basis van de geselecteerde OMS-werkruimte. Deze opties kunnen niet worden gewijzigd.  Een Uitvoeren als-account van Azure is de standaardmethode voor verificatie voor de aanbieding.  Nadat u op **OK** hebt geklikt, worden de configuratieopties gevalideerd en wordt het Automation-account gemaakt.  U kunt de voortgang bijhouden onder **Meldingen** in het menu. 
 
-    Selecteer anders een bestaand Automation Uitvoeren als-account.  Hallo-account die u selecteert al mag geen gekoppelde tooanother OMS-werkruimte, anders een melding is opgenomen in het Hallo-blade.  Als deze al is gekoppeld, u moet tooselect een ander Automation Run As-account of een maken.
+    Selecteer anders een bestaand Automation Uitvoeren als-account.  Het account dat u selecteert, mag nog niet aan een andere OMS-werkruimte zijn gekoppeld, anders wordt er een melding op de blade weergegeven.  Als het account al is gekoppeld, moet u een ander Automation Uitvoeren als-account selecteren of een account maken.
 
-    Klik na het voltooien van de vereiste informatie op Hallo **maken**.  Hallo-informatie wordt gecontroleerd en Hallo Automation-Account en Run As-accounts worden gemaakt.  U keert terug toohello **OMS-werkruimte** blade automatisch.  
+    Klik na het opgeven van de vereiste informatie op **Maken**.  De informatie wordt gecontroleerd en het Automation-Account en Uitvoeren als-account worden gemaakt.  U keert automatisch terug naar de blade **OMS-werkruimte**.  
 
-6. Na het opgeven van Hallo vereiste informatie op Hallo **OMS-werkruimte** blade, klikt u op **maken**.  Tijdens het Hallo-informatie is geverifieerd en Hallo werkruimte wordt gemaakt, kunt u de voortgang onder bijhouden **meldingen** in Hallo-menu.  U keert terug toohello **oplossing toevoegen** blade.  
+6. Nadat u de vereiste gegevens hebt opgegeven op de blade **OMS-werkruimte**, klikt u op **Maken**.  Terwijl de gegevens worden geverifieerd en de werkruimte wordt gemaakt, kunt u de voortgang bijhouden onder **Meldingen** in het menu.  U keert terug naar de blade **Oplossing toevoegen**.  
 
-7. Op Hallo **Automation en Control** instellingenblade u wilt tooinstall Hallo aanbevolen vooraf geselecteerd oplossingen bevestigen. Als u een oplossing uitschakelt, kunt u deze later afzonderlijk installeren.  
+7. Op de blade **Automation en beheer** bevestigt u dat u de aanbevolen vooraf geselecteerde oplossingen wilt installeren. Als u een oplossing uitschakelt, kunt u deze later afzonderlijk installeren.  
 
-8. Klik op **maken** tooproceed met onboarding Automation en een OMS-werkruimte. Alle instellingen worden gevalideerd en vervolgens probeert toodeploy Hallo aanbieden in uw abonnement.  Dit kan duren enkele seconden toocomplete en u kunt de voortgang onder volgen **meldingen** in Hallo-menu. 
+8. Klik op **Maken** om verder te gaan met de implementatie van Automation en een OMS-werkruimte. Alle instellingen worden gecontroleerd en daarna wordt geprobeerd de aanbieding in uw abonnement te implementeren.  Dit proces kan enkele seconden duren en u kunt de voortgang bijhouden onder **Meldingen** in het menu. 
 
-Nadat Hallo aanbieding is vrijgegeven, kunt u beginnen met het maken van runbooks, werken met Hallo beheeroplossingen die u hebt ingeschakeld, implementeert een [hybride Runbook worker](automation-hybrid-runbook-worker.md) rol of beginnen met werken met [logboekanalyse](https://docs.microsoft.com/azure/log-analytics) toocollect gegevens die worden gegenereerd door de bronnen in uw cloud of on-premises omgeving.   
+Wanneer de aanbieding is geïmplementeerd, kunt u runbooks gaan maken, de beheeroplossingen gebruiken die u hebt ingeschakeld, de rol [Hybrid Runbook Worker implementeren](automation-hybrid-runbook-worker.md) of aan de slag gaan met [Log Analytics](https://docs.microsoft.com/azure/log-analytics) en gegevens verzamelen die zijn gegenereerd door resources in uw cloud- of on-premises omgeving.   
 
 ## <a name="next-steps"></a>Volgende stappen
 * Raadpleeg [Runbooks verifiëren met een Azure Uitvoeren als-account](automation-verify-runas-authentication.md) als u wilt controleren of uw nieuwe Azure Automation-account kan worden geverifieerd met Azure-resources.
-* tooget gestart met het maken van runbooks, eerst bekijkt hello [Automation-runbooktypen](automation-runbook-types.md) ondersteund en gerelateerde overwegingen voordat u begint met het ontwerpen.
+* Als u runbooks wilt gaan maken, lees dan voordat u aan de slag gaat eerst welke [typen Automation-runbooks](automation-runbook-types.md) er worden ondersteund en gerelateerde overwegingen.
 
 

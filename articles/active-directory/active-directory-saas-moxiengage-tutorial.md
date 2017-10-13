@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Moxi benaderen | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en Moxi benaderen.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Moxi benaderen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,109 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jeedes
-ms.openlocfilehash: ff3242a0981aff6dff9ec6e3f66f0e7c4a9b5b20
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 25b5e377d8d0d504860ab9a8c4dac49c9ca5b104
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Zelfstudie: Azure Active Directory-integratie met Moxi benaderen
 
-In deze zelfstudie leert u hoe toointegrate Moxi benaderen met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe Moxi benaderen integreren met Azure Active Directory (Azure AD).
 
-Moxi benaderen integreren met Azure AD biedt Hallo volgende voordelen:
+Moxi benaderen integreren met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD wie toegang tot tooMoxi Engage heeft
-- U kunt uw gebruikers tooautomatically get aangemelde tooMoxi Engage (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren
+- U kunt beheren in Azure AD die toegang tot Moxi benaderen heeft
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Moxi benaderen (Single Sign-On) inschakelen met hun Azure AD-accounts
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure AD-integratie met Moxi benaderen tooconfigure, moet u Hallo volgende items:
+Voor het configureren van Azure AD-integratie met Moxi benaderen, moet u de volgende items:
 
 - Een Azure AD-abonnement
 - Een Moxi benaderen eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Het toevoegen van Moxi benaderen van Hallo-galerie
+1. Toe te voegen Moxi benaderen uit de galerie
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-moxi-engage-from-hello-gallery"></a>Het toevoegen van Moxi benaderen van Hallo-galerie
-tooconfigure hello integratie van Moxi benaderen in Azure AD, moet u tooadd Moxi benaderen uit Hallo galerie tooyour lijst met beheerde SaaS-apps.
+## <a name="adding-moxi-engage-from-the-gallery"></a>Toe te voegen Moxi benaderen uit de galerie
+Voor het configureren van de integratie van Moxi benaderen in Azure AD, moet u Moxi benaderen toevoegen uit de galerie aan de lijst met beheerde SaaS-apps.
 
-**tooadd Moxi benaderen via Hallo gallery Hallo stappen uitvoeren:**
+**Als u wilt toevoegen Moxi benaderen uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak Hallo **Moxi benaderen**.
+4. Typ in het zoekvak **Moxi benaderen**.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-moxiengage-tutorial/tutorial_moxiengage_search.png)
 
-5. Selecteer in het deelvenster resultaten hello, **Moxi benaderen**, en klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
+5. Selecteer in het deelvenster resultaten **Moxi benaderen**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-moxiengage-tutorial/tutorial_moxiengage_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie kunt u configureren en testen eenmalige aanmelding Azure AD met Moxi benaderen op basis van een testgebruiker genaamd "Britta Simon."
 
-Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in Moxi benaderen is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker Hallo in Moxi benaderen toobe tot stand gebracht.
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Moxi benaderen is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Moxi benaderen tot stand worden gebracht.
 
-Wijs in het Moxi benaderen, Hallo-waarde van Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** tooestablish Hallo koppeling relatie.
+Wijs in het Moxi benaderen, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-tooconfigure en eenmalige aanmelding Azure AD-test met Moxi benaderen, moet u toocomplete Hallo bouwstenen te volgen:
+Om te configureren en testen van Azure AD eenmalige aanmelding met Moxi benaderen, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker Moxi benaderen](#creating-a-moxi-engage-test-user)**  -toohave een equivalent van Britta Simon in Moxi benaderen die gekoppelde toohello Azure AD-weergave van de gebruiker.
-4. **[Toewijzen hello Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  -tooverify Hallo of configuratie werkt.
+1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maken van een testgebruiker Moxi benaderen](#creating-a-moxi-engage-test-user)**  - Moxi benaderen die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding configureren in uw toepassing Moxi benaderen.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing Moxi benaderen.
 
-**Voer tooconfigure Azure AD eenmalige aanmelding met Moxi benaderen, Hallo stappen te volgen:**
+**Voor het configureren van Azure AD eenmalige aanmelding met Moxi benaderen, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op Hallo Hallo **Moxi benaderen** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **Moxi benaderen** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-moxiengage-tutorial/tutorial_moxiengage_samlbase.png)
 
-3. Op Hallo **Moxi benaderen domein en de URL's** sectie, voert u Hallo stappen te volgen:
+3. Op de **Moxi benaderen domein en de URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-moxiengage-tutorial/tutorial_moxiengage_url.png)
 
-    In Hallo **aanmeldings-URL** textbox, typ een URL met Hallo patroon volgen:`https://svc.<moxiworks-integration-domain>/service/v1/auth/inbound/saml/aad`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://svc.<moxiworks-integration-domain>/service/v1/auth/inbound/saml/aad`
 
     > [!NOTE] 
-    > Deze waarde is geen echte. Deze waarde bijwerken Hello werkelijke aanmeldings-URL. Neem contact op met [Moxi benaderen Client ondersteuningsteam](mailto:support@moxiworks.com) tooget deze waarde. 
+    > Deze waarde is geen echte. Deze waarde bijwerken met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [Moxi benaderen Client ondersteuningsteam](mailto:support@moxiworks.com) deze waarde op te halen. 
  
-4. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens Hallo op uw computer.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-moxiengage-tutorial/tutorial_moxiengage_certificate.png) 
 
@@ -123,64 +123,64 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-moxiengage-tutorial/tutorial_general_400.png)
 
-6. tooconfigure eenmalige aanmelding op **Moxi benaderen** zijde, moet u toosend Hallo gedownload **Metadata XML** te[ondersteuningsteam Moxi benaderen](mailto:support@moxiworks.com). Ze deze instelling toohave Hallo SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+6. Eenmalige aanmelding configureren op **Moxi benaderen** zijde, moet u de gedownloade verzenden **Metadata XML** naar [ondersteuningsteam Moxi benaderen](mailto:support@moxiworks.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
 ![Azure AD-gebruiker maken][100]
 
-**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
+**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo **Azure-portal**, op Hallo navigatiedeelvenster links, klikt u op **Azure Active Directory** pictogram.
+1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-moxiengage-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen** en klik op **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
     
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-moxiengage-tutorial/create_aaduser_02.png) 
 
-3. Hallo tooopen **gebruiker** dialoogvenster, klikt u op **toevoegen** op Hallo Hallo dialoogvenster bovenaan.
+3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-moxiengage-tutorial/create_aaduser_03.png) 
 
-4. Op Hallo **gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:
+4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-moxiengage-tutorial/create_aaduser_04.png) 
 
-    a. In Hallo **naam** textbox type **BrittaSimon**.
+    a. In de **naam** textbox type **BrittaSimon**.
 
-    b. In Hallo **gebruikersnaam** textbox type Hallo **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
 
-    c. Selecteer **wachtwoord weergeven** en schrijf Hallo-waarde van Hallo **wachtwoord**.
+    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
  
 ### <a name="creating-a-moxi-engage-test-user"></a>Maken van een testgebruiker Moxi benaderen
 
-In deze sectie kunt u een gebruiker Britta Simon aangeroepen in het benaderen van Moxi maken. Werken met [ondersteuningsteam Moxi benaderen](mailto:support@moxiworks.com) Hallo gebruikers toevoegen in Hallo Moxi benaderen platform.
+In deze sectie kunt u een gebruiker Britta Simon aangeroepen in het benaderen van Moxi maken. Werken met [ondersteuningsteam Moxi benaderen](mailto:support@moxiworks.com) om toe te voegen de gebruikers van het platform Moxi benaderen.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
 
-In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen door het verlenen van toegang tooMoxi Engage.
+In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen Moxi benaderen.
 
 ![Gebruiker toewijzen][200] 
 
-**tooassign Britta Simon tooMoxi Engage, Voer Hallo stappen te volgen:**
+**Als u wilt toewijzen Britta Simon Moxi bezighouden, moet u de volgende stappen uitvoeren:**
 
-1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met de toepassingen van Hallo **Moxi benaderen**.
+2. Selecteer in de lijst met toepassingen **Moxi benaderen**.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-moxiengage-tutorial/tutorial_moxiengage_app.png) 
 
-3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
@@ -188,7 +188,7 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -196,14 +196,14 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
     
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van Hallo Toegangsvenster testen.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Als u op Hallo Moxi benaderen tegel in Hallo Toegangsvenster, krijgt u automatische aanmelding tooMoxi uitoefenen toepassing.
-Zie voor meer informatie over Hallo Toegangspaneel [inleiding toohello Toegangspaneel](active-directory-saas-access-panel-introduction.md). 
+Als u op de tegel Moxi benaderen in het deelvenster toegang, krijgt u automatische aanmelding bij de toepassing Moxi benaderen.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

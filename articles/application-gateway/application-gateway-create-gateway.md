@@ -1,9 +1,9 @@
 ---
-title: aaaCreate, openen of verwijderen van een toepassingsgateway | Microsoft Docs
-description: Deze pagina vindt u instructies toocreate, configureren, start en een Azure-toepassingsgateway verwijderen
+title: Een toepassingsgateway maken, openen of verwijderen | Microsoft Docs
+description: Op deze pagina vindt u instructies voor het maken, configureren, openen en verwijderen van een Azure-toepassingsgateway
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: gwallace
-ms.openlocfilehash: 3efef5b49880c9efdafad8b88d4bce5b749b82af
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.author: davidmu
+ms.openlocfilehash: 7fb54e96d20d34f453b7b016094b84504348335b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>Een toepassingsgateway maken, openen of verwijderen met PowerShell 
 
@@ -30,47 +30,47 @@ ms.lasthandoff: 10/06/2017
 > * [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway is een load balancer in laag 7. Het biedt failover, HTTP-aanvragen routeren tussen verschillende servers, ongeacht of deze op Hallo cloud of on-premises. Application Gateway bevat veel ADC-functies (Application Delivery Controller), waaronder HTTP-taakverdeling, op cookies gebaseerde sessieaffiniteit, SSL-offload (Secure Sockets Layer), aangepaste statustests en ondersteuning voor meerdere locaties. toofind een volledige lijst van ondersteunde functies, gaat u naar [Application Gateway-overzicht](application-gateway-introduction.md)
+Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application Gateway bevat veel ADC-functies (Application Delivery Controller), waaronder HTTP-taakverdeling, op cookies gebaseerde sessieaffiniteit, SSL-offload (Secure Sockets Layer), aangepaste statustests en ondersteuning voor meerdere locaties. Een volledige lijst met ondersteunde functies vindt u in [Application Gateway Overview](application-gateway-introduction.md) (Overzicht van Application Gateway)
 
-Dit artikel begeleidt u bij Hallo stappen toocreate, configureren en start een toepassingsgateway verwijderen.
+In dit artikel vindt u meer informatie over de stappen voor het maken, configureren, openen en verwijderen van een toepassingsgateway.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-1. Hallo meest recente versie van hello Azure PowerShell-cmdlets installeren met behulp van Hallo Web Platform Installer. U kunt downloaden en installeren van de meest recente versie Hallo van Hallo **Windows PowerShell** sectie Hallo [pagina Downloads](https://azure.microsoft.com/downloads/).
-2. Als u een bestaand virtueel netwerk hebt, selecteert u een bestaande lege subnet of een nieuw subnet maken in uw bestaande virtuele netwerk uitsluitend voor gebruik met Hallo toepassingsgateway. U kunt geen Hallo application gateway tooa ander virtueel netwerk implementeren dan Hallo resources u van plan bent toodeploy achter Hallo toepassingsgateway tenzij vnet-peering wordt gebruikt. Ga meer toolearn naar [Vnet-Peering](../virtual-network/virtual-network-peering-overview.md)
-3. Controleer of u een werkend virtueel netwerk hebt met een geldig subnet. Zorg ervoor dat er geen virtuele machines en cloudimplementaties die van Hallo subnet gebruikmaken zijn. Hallo toepassingsgateway moet afzonderlijk in een virtueel netwerksubnet.
-4. Hallo-servers dat u toouse Hallo toepassingsgateway configureert moeten bestaan of hun eindpunten in het virtuele netwerk hello of een openbaar IP-/ VIP-adres hebben.
+1. Installeer de nieuwste versie van de Azure PowerShell-cmdlets via het webplatforminstallatieprogramma. U kunt de nieuwste versie downloaden en installeren via het gedeelte **Windows PowerShell** op de pagina [Downloads](https://azure.microsoft.com/downloads/).
+2. Als u een bestaand virtueel netwerk hebt, selecteert u een bestaand leeg subnet of maakt u een nieuw subnet in uw bestaande virtuele netwerk, uitsluitend voor gebruik door de toepassingsgateway. U kunt de toepassingsgateway niet implementeren op een ander virtueel netwerk dan de resources die u wilt implementeren achter de toepassingsgateway, tenzij VNET-peering wordt gebruikt. Zie [VNET-peering](../virtual-network/virtual-network-peering-overview.md) voor meer informatie
+3. Controleer of u een werkend virtueel netwerk hebt met een geldig subnet. Zorg ervoor dat er geen virtuele machines en cloudimplementaties zijn die gebruikmaken van het subnet. De toepassingsgateway moet afzonderlijk in een subnet van een virtueel netwerk staan.
+4. De servers die u voor gebruik van de toepassingsgateway configureert, moeten al bestaan in het virtuele netwerk of hier hun eindpunten hebben. Een andere optie is om er een openbaar IP- of VIP-adres aan toe te wijzen.
 
-## <a name="what-is-required-toocreate-an-application-gateway"></a>Wat is vereist toocreate een application gateway?
+## <a name="what-is-required-to-create-an-application-gateway"></a>Wat is er vereist om een toepassingsgateway te maken?
 
-Wanneer u Hallo gebruikt `New-AzureApplicationGateway` opdracht toocreate Hallo toepassingsgateway geen configuratie ingesteld op dit moment en resource Hallo nieuw gemaakt zijn geconfigureerd met XML of een configuratieobject.
+Als u de opdracht `New-AzureApplicationGateway` gebruikt om de toepassingsgateway te maken, is er op dat moment nog geen configuratie ingesteld en wordt de zojuist gemaakte resource met XML of met een configuratieobject geconfigureerd.
 
-Hallo-waarden zijn:
+De waarden zijn:
 
-* **Back-endserverpool:** Hallo lijst met IP-adressen van Hallo back-endservers. Hallo IP-adressen moeten ofwel deel uitmaken toohello virtueel netwerksubnet ofwel moeten een openbare IP-/ VIP.
-* **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gebonden tooa servergroep en toegepaste tooall servers binnen de pool Hallo zijn.
-* **Front-endpoort:** deze is Hallo openbare poort die in Hallo toepassingsgateway wordt geopend. Verkeer komt binnen via deze poort en vervolgens wordt omgeleid tooone van Hallo back-endservers.
-* **Listener:** Hallo listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig), en Hallo SSL-certificaatnaam (als u SSL-offloading configureert).
-* **Regel:** Hallo regel verbindt Hallo listener Hallo back-endserverpool en definieert welk verkeer van back-endserver groep Hallo moet gerichte toowhen dit bij een bepaalde listener aankomt.
+* **Back-endserverpool:** de lijst met IP-adressen van de back-endservers. De IP-adressen moeten ofwel deel uitmaken van het subnet van het virtuele netwerk, ofwel openbare IP-/VIP-adressen zijn.
+* **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool.
+* **Front-endpoort:** dit is de openbare poort die in de toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-endservers.
+* **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze waarden zijn hoofdlettergevoelig) en de SSL-certificaatnaam (als u SSL-offloading configureert).
+* **Regel:** de regel verbindt de listener met de back-endserverpool en definieert naar welke back-endserverpool het verkeer moet worden omgeleid wanneer dit bij een bepaalde listener aankomt.
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-toocreate een toepassingsgateway:
+Ga als volgt te werk om een toepassingsgateway te maken:
 
 1. Maak een toepassingsgatewayresource.
 2. Maak een XML-configuratiebestand of een configuratieobject.
-3. Doorvoeren Hallo configuratie toohello nieuw gemaakte toepassingsgatewayresource.
+3. Voer de configuratie door voor de zojuist gemaakte toepassingsgatewayresource.
 
 > [!NOTE]
-> Als u voor uw toepassingsgateway een aangepaste test tooconfigure nodig hebt, raadpleegt u [met PowerShell een toepassingsgateway maken met aangepaste tests](application-gateway-create-probe-classic-ps.md). Bekijk [Custom probes and health monitoring](application-gateway-probe-overview.md) (Aangepaste tests en statusbewaking) voor meer informatie.
+> Als u voor uw toepassingsgateway een aangepaste test moet configureren, raadpleegt u [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-classic-ps.md) (Met PowerShell een toepassingsgateway maken met aangepaste tests). Bekijk [Custom probes and health monitoring](application-gateway-probe-overview.md) (Aangepaste tests en statusbewaking) voor meer informatie.
 
 ![Voorbeeldscenario][scenario]
 
 ### <a name="create-an-application-gateway-resource"></a>Een toepassingsgatewayresource maken
 
-Gebruik Hallo-gateway Hallo toocreate `New-AzureApplicationGateway` cmdlet, waarbij Hallo waarden vervangt door uw eigen. Facturering voor Hallo-gateway op dit moment niet worden gestart. Facturering begint met een latere stap Hallo gateway is gestart.
+Gebruik de cmdlet `New-AzureApplicationGateway` en vervang de waarden door uw eigen waarden om een gateway te maken. Er worden op dat moment nog geen kosten in rekening gebracht voor gebruik van de gateway. De kosten zijn pas vanaf een latere stap van toepassing, wanneer de gateway wordt geopend.
 
-Hallo volgende voorbeeld maakt u een toepassingsgateway met behulp van een virtueel netwerk met de naam 'testvnet1' en een subnet met de naam 'subnet 1':
+In het volgende voorbeeld wordt een toepassingsgateway gemaakt met een virtueel netwerk met de naam testvnet1 en een subnet met de naam subnet-1:
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -78,7 +78,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 *Description*, *InstanceCount* en *GatewaySize* zijn optionele parameters.
 
-toovalidate die Hallo gateway is gemaakt, kunt u Hallo `Get-AzureApplicationGateway` cmdlet.
+Gebruik de cmdlet `Get-AzureApplicationGateway` om te controleren of de gateway is gemaakt.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -97,21 +97,21 @@ DnsName       :
 ```
 
 > [!NOTE]
-> de standaardwaarde voor Hallo *InstanceCount* is 2 en de maximale waarde is 10. de standaardwaarde voor Hallo *GatewaySize* is normaal. U kunt kiezen tussen Small, Medium en Large.
+> De standaardwaarde voor *InstanceCount* is 2 en de maximale waarde is 10. De standaardwaarde voor *GatewaySize* is Medium. U kunt kiezen tussen Small, Medium en Large.
 
-*VirtualIPs* en *DnsName* leeg worden weergegeven omdat het Hallo-gateway is nog niet gestart. Deze worden nadat Hallo gateway Hallo uitvoeringsstatus is gemaakt.
+*VirtualIPs* en *DnsName* zijn leeg, omdat de gateway nog niet is geopend. Deze parameters worden ingevuld zodra de gateway wordt geactiveerd.
 
-## <a name="configure-hello-application-gateway"></a>Hallo toepassingsgateway configureren
+## <a name="configure-the-application-gateway"></a>De toepassingsgateway configureren
 
-U kunt Hallo toepassingsgateway configureren met XML of een configuratieobject.
+U kunt de toepassingsgateway configureren met XML of een configuratieobject.
 
-### <a name="configure-hello-application-gateway-by-using-xml"></a>Hallo toepassingsgateway configureren met XML
+### <a name="configure-the-application-gateway-by-using-xml"></a>De toepassingsgateway configureren met XML
 
-In Hallo voorbeeld te volgen, gebruiken een XML-bestand tooconfigure alle instellingen voor de toepassingsgateway en ze toohello toepassingsgatewayresource doorvoeren.  
+In het volgende voorbeeld gebruikt u een XML-bestand om alle instellingen voor de toepassingsgateway te configureren en deze door te voeren voor de toepassingsgatewayresource.  
 
 #### <a name="step-1"></a>Stap 1
 
-Kopieer Hallo tekst tooNotepad te volgen.
+Kopieer de volgende tekst naar Kladblok.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -158,12 +158,12 @@ Kopieer Hallo tekst tooNotepad te volgen.
 </ApplicationGatewayConfiguration>
 ```
 
-Hallo waarden tussen haakjes Hallo voor Hallo configuratie-items bewerken. Hallo-bestand opslaan met de bestandsextensie .xml.
+Bewerk de waarden tussen de haakjes voor de configuratie-items. Sla het bestand op met de bestandsextensie .xml.
 
 > [!IMPORTANT]
-> Hallo protocolitem Http of Https is hoofdlettergevoelig.
+> Het protocolitem Http of Https is hoofdlettergevoelig.
 
-Hallo volgende voorbeeld ziet u hoe een configuratie toouse tooset up Hallo toepassingsgateway bestand. Hallo voorbeeld load compromis tussen de HTTP-verkeer via de openbare poort 80 en stuurt netwerkverkeer tooback-endpoort 80 tussen twee IP-adressen.
+In het volgende voorbeeld ziet u hoe u de toepassingsgateway instelt met een configuratiebestand. De voorbeeldbelasting verdeelt het HTTP-verkeer op openbare poort 80 en stuurt netwerkverkeer naar back-endpoort 80 tussen twee IP-adressen.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -212,24 +212,24 @@ Hallo volgende voorbeeld ziet u hoe een configuratie toouse tooset up Hallo toep
 
 #### <a name="step-2"></a>Stap 2
 
-Vervolgens stelt u de toepassingsgateway Hallo. Gebruik Hallo `Set-AzureApplicationGatewayConfig` cmdlet uit met een XML-configuratiebestand.
+Vervolgens stelt u de toepassingsgateway in. Gebruik de cmdlet `Set-AzureApplicationGatewayConfig` met een XML-configuratiebestand.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-### <a name="configure-hello-application-gateway-by-using-a-configuration-object"></a>Hallo toepassingsgateway configureren met behulp van een configuration-object
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>De toepassingsgateway configureren met een configuratieobject
 
-Hallo volgende voorbeeld ziet u hoe tooconfigure toepassingsgateway Hallo met behulp van configuratie-objecten. Alle configuratie-items moeten afzonderlijk worden geconfigureerd en vervolgens toegevoegd tooan application gateway configuration-object. Nadat Hallo configuration-object is gemaakt, gebruikt u Hallo `Set-AzureApplicationGateway` opdracht toocommit Hallo configuratie toohello eerder gemaakte toepassingsgatewayresource.
+In het volgende voorbeeld ziet u hoe u de toepassingsgateway configureert met configuratieobjecten. Alle configuratie-items moeten afzonderlijk worden geconfigureerd en vervolgens worden toegevoegd aan een configuratieobject voor de toepassingsgateway. Wanneer u het configuratieobject hebt gemaakt, gebruikt u de opdracht `Set-AzureApplicationGateway` om de configuratie door te voeren voor de eerder gemaakte toepassingsgatewayresource.
 
 > [!NOTE]
-> Voordat u een waarde tooeach configuration-object toewijst, moet u toodeclare wat voor soort object PowerShell voor opslag gebruikt. Hallo eerste regel toocreate Hallo afzonderlijke items definieert wat `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` worden gebruikt.
+> Voordat u aan elk configuratieobject een waarde toewijst, moet u opgeven welk soort object PowerShell voor opslag gebruikt. In de eerste regel voor het maken van het afzonderlijke item wordt gedefinieerd welke `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` er worden gebruikt.
 
 #### <a name="step-1"></a>Stap 1
 
 Maak alle afzonderlijke configuratie-items.
 
-Maak Hallo front-end-IP zoals weergegeven in het volgende voorbeeld Hallo.
+Maak het front-end-IP-adres zoals in het volgende voorbeeld wordt weergegeven.
 
 ```powershell
 $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
@@ -238,7 +238,7 @@ $fip.Type = "Private"
 $fip.StaticIPAddress = "10.0.0.5"
 ```
 
-Maak Hallo front-endpoort zoals weergegeven in het volgende voorbeeld Hallo.
+Maak de front-endpoort zoals in het volgende voorbeeld wordt weergegeven.
 
 ```powershell
 $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
@@ -246,9 +246,9 @@ $fep.Name = "fep1"
 $fep.Port = 80
 ```
 
-Hallo back-endserverpool maken.
+Maak de back-endserverpool.
 
-Hallo IP-adressen die zijn toegevoegd toohello back-endserverpool zoals weergegeven in het volgende voorbeeld Hallo definiëren.
+Geef op welke IP-adressen er aan de back-endservergroep moeten worden toegevoegd, zoals in het volgende voorbeeld wordt weergegeven.
 
 ```powershell
 $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
@@ -256,7 +256,7 @@ $servers.Add("10.0.0.1")
 $servers.Add("10.0.0.2")
 ```
 
-Gebruik Hallo $server object tooadd Hallo waarden toohello back-end-pool object ($pool).
+Gebruik het object $server om de waarden toe te voegen aan het back-endpoolobject ($pool).
 
 ```powershell
 $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
@@ -264,7 +264,7 @@ $pool.BackendServers = $servers
 $pool.Name = "pool1"
 ```
 
-Hallo back-endserverpoolinstelling maken.
+Maak de back-endserverpoolinstelling.
 
 ```powershell
 $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
@@ -274,7 +274,7 @@ $setting.Port = 80
 $setting.Protocol = "http"
 ```
 
-Hallo-listener maken.
+Maak de listener.
 
 ```powershell
 $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
@@ -285,7 +285,7 @@ $listener.Protocol = "http"
 $listener.SslCert = ""
 ```
 
-Hallo-regel maken.
+Maak de regel.
 
 ```powershell
 $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
@@ -298,9 +298,9 @@ $rule.BackendAddressPool = "pool1"
 
 #### <a name="step-2"></a>Stap 2
 
-Wijs alle afzonderlijke configuratie-items tooan application gateway configuration-object ($appgwconfig).
+Wijs alle afzonderlijke configuratie-items toe aan een configuratieobject voor de toepassingsgateway ($appgwconfig).
 
-Hallo front-end-IP-toohello configuratie toevoegen.
+Voeg het front-end-IP-adres toe aan de configuratie.
 
 ```powershell
 $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
@@ -308,34 +308,34 @@ $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.L
 $appgwconfig.FrontendIPConfigurations.Add($fip)
 ```
 
-Hallo front-endpoort toohello configuratie toevoegen.
+Voeg de front-endpoort toe aan de configuratie.
 
 ```powershell
 $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
 $appgwconfig.FrontendPorts.Add($fep)
 ```
-Hallo back-endserver groep toohello configuratie toevoegen.
+Voeg de back-endserverpool toe aan de configuratie.
 
 ```powershell
 $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
 $appgwconfig.BackendAddressPools.Add($pool)
 ```
 
-Hallo back-end-pool instelling toohello configuratie toevoegen.
+Voeg de back-endpoolinstelling toe aan de configuratie.
 
 ```powershell
 $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
 $appgwconfig.BackendHttpSettingsList.Add($setting)
 ```
 
-Hallo-listener toohello configuratie toevoegen.
+Voeg de listener toe aan de configuratie.
 
 ```powershell
 $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
 $appgwconfig.HttpListeners.Add($listener)
 ```
 
-Hallo regel toohello configuratie toevoegen.
+Voeg de regel toe aan de configuratie.
 
 ```powershell
 $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
@@ -343,28 +343,28 @@ $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
 ### <a name="step-3"></a>Stap 3
-Toepassingsgatewayresource van Hallo configuration-object toohello doorvoeren met behulp van `Set-AzureApplicationGatewayConfig`.
+Voer met behulp van `Set-AzureApplicationGatewayConfig` het configuratieobject door in de toepassingsgatewayresource.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 ```
 
-## <a name="start-hello-gateway"></a>Hallo gateway starten
+## <a name="start-the-gateway"></a>De gateway openen
 
-Zodra het Hallo-gateway is geconfigureerd, gebruikt u Hallo `Start-AzureApplicationGateway` cmdlet toostart Hallo gateway. Facturering voor een application gateway wordt gestart nadat het Hallo-gateway is gestart.
+Nadat de gateway is geconfigureerd, gebruikt u de cmdlet `Start-AzureApplicationGateway` om de gateway te activeren. Voor een toepassingsgateway worden pas kosten doorberekend wanneer de gateway is geactiveerd.
 
 > [!NOTE]
-> Hallo `Start-AzureApplicationGateway` cmdlet toofinish too15-20 minuten kan duren.
+> Het kan 15 tot 20 minuten duren voordat de cmdlet `Start-AzureApplicationGateway` klaar is.
 
 ```powershell
 Start-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="verify-hello-gateway-status"></a>Controleer of de status van de gateway Hallo
+## <a name="verify-the-gateway-status"></a>De gatewaystatus controleren
 
-Gebruik Hallo `Get-AzureApplicationGateway` cmdlet toocheck Hallo status van Hallo-gateway. Als `Start-AzureApplicationGateway` is voltooid in de vorige stap Hallo *status* moet worden uitgevoerd, en *Vip* en *DnsName* geldige waarden.
+Gebruik de cmdlet `Get-AzureApplicationGateway` om de status van de gateway te controleren. Als `Start-AzureApplicationGateway` in de vorige stap zonder fouten is voltooid, moet bij *State* Running staan en moeten *Vip* en *DnsName* geldige waarden bevatten.
 
-Hallo volgende voorbeeld wordt een toepassingsgateway weergegeven die actief is en gereed tootake verkeer dat is bestemd voor `http://<generated-dns-name>.cloudapp.net`.
+In het volgende voorbeeld wordt een toepassingsgateway weergegeven die actief is en verkeer kan verwerken dat is bestemd voor `http://<generated-dns-name>.cloudapp.net`.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -384,15 +384,15 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-hello-application-gateway"></a>Hallo toepassingsgateway verwijderen
+## <a name="delete-the-application-gateway"></a>De toepassingsgateway verwijderen
 
-toodelete hello toepassingsgateway:
+De toepassingsgateway verwijderen:
 
-1. Gebruik Hallo `Stop-AzureApplicationGateway` cmdlet toostop Hallo gateway.
-2. Gebruik Hallo `Remove-AzureApplicationGateway` cmdlet tooremove Hallo gateway.
-3. Controleer of deze Hallo-gateway is verwijderd met behulp van Hallo `Get-AzureApplicationGateway` cmdlet.
+1. Gebruik de cmdlet `Stop-AzureApplicationGateway` om de gateway te stoppen.
+2. Gebruik de cmdlet `Remove-AzureApplicationGateway` om de gateway te verwijderen.
+3. Gebruik de cmdlet `Get-AzureApplicationGateway` om te controleren of de gateway is verwijderd.
 
-Hallo volgende voorbeeld ziet u Hallo `Stop-AzureApplicationGateway` cmdlet uit op de eerste regel hello, gevolgd door Hallo uitvoer.
+In het volgende voorbeeld wordt de cmdlet `Stop-AzureApplicationGateway` op de eerste regel weergegeven, gevolgd door de uitvoer.
 
 ```powershell
 Stop-AzureApplicationGateway AppGwTest
@@ -406,7 +406,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-Nadat de toepassingsgateway Hallo gestopt is, gebruikt u Hallo `Remove-AzureApplicationGateway` cmdlet tooremove Hallo-service.
+Nadat de toepassingsgateway is gestopt, gebruikt u de cmdlet `Remove-AzureApplicationGateway` om de service te verwijderen.
 
 ```powershell
 Remove-AzureApplicationGateway AppGwTest
@@ -420,7 +420,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
-tooverify die Hallo service is verwijderd, kunt u Hallo `Get-AzureApplicationGateway` cmdlet. Deze stap is niet vereist.
+Gebruik de cmdlet `Get-AzureApplicationGateway` als u wilt controleren of de service is verwijderd. Deze stap is niet vereist.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -429,15 +429,15 @@ Get-AzureApplicationGateway AppGwTest
 ```
 VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
-Get-AzureApplicationGateway : ResourceNotFound: hello gateway does not exist.
+Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 .....
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u tooconfigure SSL-offload wilt, Zie [een toepassingsgateway voor SSL-offload configureren](application-gateway-ssl.md).
+Als u SSL-offload wilt configureren, raadpleegt u [Configure an application gateway for SSL offload](application-gateway-ssl.md) (Een toepassingsgateway voor SSL-offload configureren).
 
-Als u wilt dat tooconfigure een toouse application gateway met een interne load balancer, raadpleegt u [een toepassingsgateway maken met een interne load balancer (ILB)](application-gateway-ilb.md).
+Als u een toepassingsgateway wilt configureren voor gebruik met een interne load balancer, raadpleegt u [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md) (Een toepassingsgateway met een interne load balancer (ILB) maken).
 
 Als u meer informatie wilt over de algemene opties voor load balancing, raadpleegt u:
 

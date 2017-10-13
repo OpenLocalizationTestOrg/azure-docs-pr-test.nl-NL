@@ -1,6 +1,6 @@
 ---
-title: aaaHow toolog gebeurtenissen tooAzure Event Hubs in Azure API Management | Microsoft Docs
-description: Meer informatie over hoe toolog gebeurtenissen tooAzure Event Hubs in Azure API Management.
+title: Het registreren van gebeurtenissen voor Azure Event Hubs in Azure API Management | Microsoft Docs
+description: Informatie over het vastleggen van gebeurtenissen in Azure Event Hubs in Azure API Management.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,92 +14,92 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 09ca65fc48a874467c6662858f7594e9b19fcdb9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a310236179677046ec49930b07cfdffdadc37974
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toolog-events-tooazure-event-hubs-in-azure-api-management"></a>Hoe toolog gebeurtenissen tooAzure Event Hubs in Azure API Management
-Azure Event Hubs is een uiterst schaalbare inkomend gegevensservice die miljoenen gebeurtenissen per seconde opnemen kan, zodat u kunt verwerken en analyseren van Hallo enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Event Hubs fungeert als Hallo 'voordeur' van een gebeurtenispijplijn en zodra gegevens zijn verzameld in een event hub, kunnen worden omgezet en opgeslagen met een realtime-analyseprovider of batchverwerking/opslagadapters. Event Hubs worden losgekoppeld Hallo productie van een stream van gebeurtenissen van Hallo gebruik van deze gebeurtenissen, zodat gebeurtenisconsumers Hallo gebeurtenissen op basis van hun eigen planning kunnen openen.
+# <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Het registreren van gebeurtenissen voor Azure Event Hubs in Azure API Management
+Azure Event Hubs is een zeer schaalbare service voor inkomende gegevens die miljoenen gebeurtenissen per seconde kan opnemen, voor verwerking en analyse van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Event Hubs fungeert als de 'voordeur' van een gebeurtenispijplijn en zodra gegevens zijn verzameld in een event hub, kunnen worden omgezet en opgeslagen met een realtime-analyseprovider of batchverwerking/opslagadapters. Event Hubs koppelt de productie van een gebeurtenissenstroom los van het gebruik van deze gebeurtenissen, zodat de consumenten ervan toegang hebben tot de gebeurtenissen op basis van hun eigen planning.
 
-Dit artikel is een aanvullende toohello [Azure API Management integreren met Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) video en beschrijft hoe toolog API Management-gebeurtenissen met Azure Event Hubs.
+Dit artikel is een aanvulling op de [Azure API Management integreren met Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) video en wordt beschreven hoe u API Management-gebeurtenissen met Azure Event Hubs.
 
 ## <a name="create-an-azure-event-hub"></a>Een Azure Event Hub maken
-een nieuwe Event Hub, aanmelden toohello toocreate [klassieke Azure-portal](https://manage.windowsazure.com) en klik op **nieuw**->**App Services**->**Service Bus**  -> **Event Hub**->**snelle invoer**. Voer een naam Event Hub, regio, selecteer een abonnement en selecteer een naamruimte. Als u nog niet eerder hebt gemaakt met een naamruimte kunt u een door een naam te typen in Hallo **Namespace** textbox. Nadat alle eigenschappen zijn geconfigureerd, klikt u op **maken van een nieuwe Event Hub** toocreate Hallo Event Hub.
+Voor het maken van nieuwe Event Hub, aanmelding bij de [klassieke Azure-portal](https://manage.windowsazure.com) en klik op **nieuw**->**App Services**->**Service Bus**->**Event Hub**->**snelle invoer**. Voer een naam Event Hub, regio, selecteer een abonnement en selecteer een naamruimte. Als u nog niet eerder hebt gemaakt met een naamruimte kunt u een door een naam in de **Namespace** textbox. Nadat alle eigenschappen zijn geconfigureerd, klikt u op **maken van een nieuwe Event Hub** voor het maken van de Event Hub.
 
 ![Event hub maken][create-event-hub]
 
-Vervolgens gaat u toohello **configureren** tabblad voor uw nieuwe Event Hub en maak twee **gedeeld toegangsbeleid**. Naam Hallo eerste **verzenden** en hieraan **verzenden** machtigingen.
+Vervolgens gaat u naar de **configureren** tabblad voor uw nieuwe Event Hub en maak twee **gedeeld toegangsbeleid**. De naam van het eerste beheerpunt **verzenden** en hieraan **verzenden** machtigingen.
 
 ![Verzenden van beleid][sending-policy]
 
-Naam Hallo tweede **ontvangen**, geeft u het **luisteren** machtigingen en klik op **opslaan**.
+De naam van de tweede waarde **ontvangen**, geeft u het **luisteren** machtigingen en klik op **opslaan**.
 
 ![Beleid ontvangen][receiving-policy]
 
-Elk gedeeld toegangsbeleid kunt toepassingen toosend en tooand gebeurtenissen ontvangen van Hallo Event Hub. tooaccess Hallo-verbindingsreeksen voor deze beleidsregels Navigeer toohello **Dashboard** tabblad Hallo Event Hub en klik op **verbindingsgegevens**.
+Elk gedeeld toegangsbeleid kunt toepassingen voor het verzenden en ontvangen van gebeurtenissen naar en van de Event Hub. Voor toegang tot de verbindingsreeksen voor dit beleid, gaat u naar de **Dashboard** tabblad van de Event Hub en klik op **verbindingsgegevens**.
 
 ![Verbindingsreeks][event-hub-dashboard]
 
-Hallo **verzenden** verbindingsreeks wordt gebruikt bij het vastleggen van gebeurtenissen, en Hallo **ontvangen** verbindingsreeks wordt gebruikt bij het downloaden van gebeurtenissen van Hallo Event Hub.
+De **verzenden** verbindingsreeks wordt gebruikt bij het vastleggen van gebeurtenissen, en de **ontvangen** verbindingsreeks wordt gebruikt bij het downloaden van gebeurtenissen van de Event Hub.
 
 ![Verbindingsreeks][event-hub-connection-string]
 
 ## <a name="create-an-api-management-logger"></a>Maken van een API Management-logboek
-Nu dat u een Event Hub hebt, de volgende stap Hallo tooconfigure is een [berichtenlogboek](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) in uw API Management-service zodat deze zich gebeurtenissen toohello Event Hub aanmelden kan.
+Nu dat u een Event Hub hebt, de volgende stap is voor het configureren van een [berichtenlogboek](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) in uw API Management-service zodat deze gebeurtenissen in de Event Hub vastleggen kan.
 
-API Management voorkomen zijn geconfigureerd met Hallo [API Management REST API](http://aka.ms/smapi). Controleer voordat u Hallo REST-API voor Hallo eerst gebruikt, Hallo [vereisten](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) en zorg ervoor dat er [toegang toohello REST-API ingeschakeld](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
+API Management voorkomen zijn geconfigureerd met behulp van de [API Management REST API](http://aka.ms/smapi). Controleer voordat u de REST-API voor het eerst gebruikt, de [vereisten](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) en zorg ervoor dat er [toegang tot de REST-API ingeschakeld](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
 
-toocreate een logboek maken een HTTP PUT-aanvraag met Hallo URL sjabloon te volgen.
+Controleer een HTTP PUT-aanvraag van de volgende URL-sjabloon voor het maken van een logboek.
 
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
 
-* Vervang `{your service}` met Hallo-naam van uw API Management-service-exemplaar.
-* Vervang `{new logger name}` met Hallo gewenste naam voor uw nieuwe berichtenlogboek. U verwijst bij het configureren van Hallo deze naam [logboek voor eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) beleid
+* Vervang `{your service}` met de naam van uw API Management-service-exemplaar.
+* Vervang `{new logger name}` met de gewenste naam voor uw nieuwe berichtenlogboek. U verwijst bij het configureren van deze naam de [logboek voor eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) beleid
 
-Hallo na headers toohello aanvraag toevoegen.
+De volgende headers toevoegen aan de aanvraag.
 
 * Content-Type: application/json
 * Autorisatie: SharedAccessSignature 58...
-  * Voor instructies voor het genereren van Hallo `SharedAccessSignature` Zie [Azure API Management REST API Authentication](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
+  * Voor instructies voor het genereren van de `SharedAccessSignature` Zie [Azure API Management REST API Authentication](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
 
-Hallo aanvraagtekst met behulp van de volgende sjabloon Hallo opgeven.
+Geef de hoofdtekst van de aanvraag van de volgende sjabloon.
 
 ```json
 {
   "type" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
-    "name" : "Name of hello Event Hub from hello Azure Classic Portal",
+    "name" : "Name of the Event Hub from the Azure Classic Portal",
     "connectionString" : "Endpoint=Event Hub Sender connection string"
     }
 }
 ```
 
-* `type`te moet worden ingesteld`AzureEventHub`.
-* `description`biedt een optionele beschrijving van Hallo berichtenlogboek en tekenreekslengte van nul kan zijn, indien gewenst.
-* `credentials`Hallo bevat `name` en `connectionString` van uw Azure Event Hub.
+* `type`moet worden ingesteld op `AzureEventHub`.
+* `description`biedt een optionele beschrijving van het logboek en tekenreekslengte van nul kan zijn, indien gewenst.
+* `credentials`bevat de `name` en `connectionString` van uw Azure Event Hub.
 
-Wanneer u indienen hello, als Hallo berichtenlogboek statuscode is gemaakt `201 Created` wordt geretourneerd.
+Wanneer u de aanvraag als een statuscode van is gemaakt door het logboek `201 Created` wordt geretourneerd.
 
 > [!NOTE]
-> Zie voor andere mogelijke retourcodes en hun redenen [maken van een logboek](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). andere bewerkingen toosee hoe uitvoeren, zoals de lijst, bijwerken en verwijderen, Zie Hallo [berichtenlogboek](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) entiteit documentatie.
+> Zie voor andere mogelijke retourcodes en hun redenen [maken van een logboek](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). Om te zien hoe andere bewerkingen zoals lijst, bijwerken en verwijderen, Zie de [berichtenlogboek](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) entiteit documentatie.
 >
 >
 
 ## <a name="configure-log-to-eventhubs-policies"></a>Logboek-eventhubs-beleid configureren
-Nadat uw berichtenlogboek in API Management is geconfigureerd, kunt u uw logboek-eventhubs-beleid toolog Hallo gewenst gebeurtenissen configureren. Hallo logboek-eventhubs-beleid kan worden gebruikt in beide Hallo binnenkomende of beleidssectie Hallo uitgaande beleid.
+Zodra uw berichtenlogboek in API Management is geconfigureerd, kunt u uw logboek-eventhubs-beleid voor de gewenste gebeurtenissen logboekregistratie configureren. Het logboek voor eventhubs-beleid kan worden gebruikt in de sectie binnenkomende beleid of de beleidssectie voor uitgaande.
 
-beleid voor tooconfigure aanmelden toohello [Azure-portal](https://portal.azure.com), gaat u tooyour API Management-service en klik op **publicatieportal** tooaccess Hallo publicatieportal.
+Voor het configureren van beleidsregels voor aanmelding bij de [Azure-portal](https://portal.azure.com), navigeer naar uw API Management-service en klik op **publicatieportal** voor toegang tot de publicatieportal.
 
 ![Publicatieportal][publisher-portal]
 
-Klik op **beleid** Selecteer de gewenste product Hallo en API Hallo API Management-menu op Hallo links, en klik op **beleid toevoegen**. In dit voorbeeld wordt bij het toevoegen van een beleid toohello **Echo-API** in Hallo **onbeperkt** product.
+Klik op **beleid** in het menu API Management aan de linkerkant, selecteer de gewenste product en de API en op **beleid toevoegen**. In dit voorbeeld wordt een beleid voor toevoegt de **Echo-API** in de **onbeperkt** product.
 
 ![Beleid toevoegen][add-policy]
 
-Plaats de cursor in Hallo `inbound` beleid sectie en klikt u op Hallo **logboek tooEventHub** beleid tooinsert hello `log-to-eventhub` beleidssjabloon-instructie.
+Plaats de cursor in de `inbound` beleidssectie en klik op de **logboek EventHub** beleid invoegen de `log-to-eventhub` beleidssjabloon-instructie.
 
 ![Beleidseditor][event-hub-policy]
 
@@ -109,11 +109,11 @@ Plaats de cursor in Hallo `inbound` beleid sectie en klikt u op Hallo **logboek 
 </log-to-eventhub>
 ```
 
-Vervang `logger-id` met de naam van Hallo API Management berichtenlogboek die u hebt geconfigureerd in de vorige stap Hallo Hallo.
+Vervang `logger-id` met de naam van het API Management-logboek die u in de vorige stap hebt geconfigureerd.
 
-U kunt een expressie die een tekenreeks als waarde voor Hallo Hallo retourneert `log-to-eventhub` element. In dit voorbeeld is een tekenreeks met Hallo datum en tijd, servicenaam, aanvraag-id, aanvraag IP-adres en naam van de bewerking wordt vastgelegd.
+U kunt een expressie die een tekenreeks retourneert als de waarde voor de `log-to-eventhub` element. In dit voorbeeld wordt een tekenreeks met de datum en tijd, servicenaam, aanvraag-id, aanvraag IP-adres en de naam van bewerking geregistreerd.
 
-Klik op **opslaan** toosave Hallo beleidsconfiguratie bijgewerkt. Zodra deze is opgeslagen Hallo beleid actief is en gebeurtenissen worden vastgelegd toohello aangewezen Event Hub.
+Klik op **opslaan** de bijgewerkte beleidsconfiguratie opslaan. Het beleid actief is en worden gebeurtenissen vastgelegd op de aangewezen Event Hub zodra deze is opgeslagen.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over Azure Event Hubs

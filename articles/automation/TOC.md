@@ -5,6 +5,7 @@
 ## Runbook-zelfstudie
 ### [Een grafisch runbook maken](automation-first-runbook-graphical.md)
 ### [PowerShell-runbook maken](automation-first-runbook-textual-powershell.md)
+### [Mijn eerste Python-runbook](automation-first-runbook-textual-python2.md)
 ### [PowerShell Workflow-runbook maken](automation-first-runbook-textual.md)
 # Procedures
 ## Verificatie en beveiliging
@@ -34,17 +35,21 @@
 ### [Runbook-instellingen wijzigen](automation-runbook-settings.md)
 ### [Azure Automation-gegevens beheren](automation-managing-data.md)
 ### [Azure Automation Runbook aanroepen vanuit een Log Analytics-waarschuwing](automation-invoke-runbook-from-omsla-alert.md)
-### [Geeft een JSON-object tooan Azure Automation-runbook](automation-pass-json-string.md)
+### [Een JSON-object doorgeven aan een Azure Automation-runbook](automation-pass-json-string.md)
 ## Hybrid Runbook Worker
 ### [Hybrid Runbook Worker implementeren](automation-hybrid-runbook-worker.md)
+### [Hybrid Runbook Worker voor Azure Automation in Windows](automation-windows-hrw-install.md)
+### [Hybrid Runbook Worker voor Azure Automation in Linux](automation-linux-hrw-install.md)
 ### [Runbooks op werkrol uitvoeren](automation-hrw-run-runbooks.md)
+### [Automation Hybrid Runbook Workers verwijderen](automation-remove-hrw.md)
 ## Configuration Management (DSC) implementeren
 ### [Overzicht van Desired State Configuration (DSC)](automation-dsc-overview.md)
 ### [Aan de slag](automation-dsc-getting-started.md)
+### [Servers configureren met een gewenste status en afwijking beheren met Azure Automation](tutorial-configure-servers-desired-state.md)
 ### [Onboarding van machines voor beheer](automation-dsc-onboarding.md)
 ### [DSC-configuraties compileren](automation-dsc-compile.md)
 ### [Doorlopende implementatie met Chocolatey](automation-dsc-cd-chocolatey.md)
-### [Doorsturen van Azure Automation DSC reporting gegevens tooOMS Log Analytics](automation-dsc-diagnostics.md)
+### [Azure Automation DSC-rapportagegegevens doorsturen aan OMS Log Analytics](automation-dsc-diagnostics.md)
 ## Assets beheren
 ### [Certificaten](automation-certificates.md)
 ### [Verbindingen](automation-connections.md)
@@ -64,11 +69,15 @@
 ### [Azure Automation Runbook aanroepen vanuit een Log Analytics-waarschuwing](automation-invoke-runbook-from-omsla-alert.md)
 ### [Een Azure Resource Manager-sjabloon in een Azure Automation-PowerShell-runbook implementeren](automation-deploy-template-runbook.md)
 ## Oplossingen
-### [Tracering wijzigen](../log-analytics/log-analytics-change-tracking.md)
 ### [Updatebeheer](../operations-management-suite/oms-solution-update-management.md)
+#### [Updates voor meerdere virtuele machines beheren](manage-update-multi.md)
+#### [SCCMr integreren met OMS Updatebeheer](oms-solution-updatemgmt-sccmintegration.md)
+### [Wijzigingen bijhouden](../log-analytics/log-analytics-change-tracking.md)
+### [Bijhouden van wijzigingen in uw virtuele machines](automation-vm-change-tracking.md)
+### [Een virtuele machine met inventarisverzameling beheren](automation-vm-inventory.md)
 ### [Virtuele machines starten/stoppen buiten kantooruren](automation-solution-vm-management.md)
 ## Bewaken
-### [Azure Automation-taak gegevens tooLog Analytics doorsturen](automation-manage-send-joblogs-log-analytics.md)
+### [Azure Automation-taakgegevens doorsturen naar Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Azure Automation-account loskoppelen van Log Analytics](automation-unlink-from-log-analytics.md)
 ## Migreren
 ### [Migreren vanuit Orchestrator](automation-orchestrator-migration.md)
@@ -77,8 +86,8 @@
 ### [Veelvoorkomende problemen oplossen](automation-troubleshooting-automation-errors.md)
 ### [Problemen met Hybrid Runbook Worker oplossen](automation-troubleshooting-hybrid-runbook-worker.md)
 # Naslaginformatie
-## [PowerShell](/powershell/module/azurerm.automation)
-## [PowerShell (klassiek)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/module/azurerm.automation)
+## [Azure PowerShell (klassiek)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](/rest/api/automation)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/azure/mt163781)

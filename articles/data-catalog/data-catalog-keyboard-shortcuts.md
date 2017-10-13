@@ -1,6 +1,6 @@
 ---
-title: aaaKeyboard snelkoppelingen voor Azure Data Catalog | Microsoft Docs
-description: In dit artikel bevat Hallo sneltoetsen voor Azure Data Catalog.
+title: Sneltoetsen voor Azure Data Catalog | Microsoft Docs
+description: In dit artikel ziet de sneltoetsen voor Azure Data Catalog.
 services: data-catalog
 documentationcenter: 
 author: spelluru
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/17/2017
 ms.author: spelluru
-ms.openlocfilehash: 58511a27e9b4e7bf5ab0a38b13b1132ec6467512
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d498eac2d0dfe7d271bdb5e47159faa113545ab4
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Sneltoetsen voor Azure Data Catalog
-## <a name="keyboard-shortcuts-for-hello-data-catalog-data-source-registration-tool"></a>Sneltoetsen voor Hallo Data Catalog data source hulpprogramma voor registratie
+## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Sneltoetsen voor de gegevens van Data Catalog bron hulpprogramma voor registratie
 ### <a name="general-keyboard-shortcuts"></a>Algemene sneltoetsen
 | Bewerking | Druk op |
 | --- | --- |
-| Tabblad tooeach besturingselement op een pagina |tabblad |
+| Tabblad aan elk besturingselement op een pagina |tabblad |
 | Kies een optie |Voer of SPATIEBALK |
 | Pagina maximaliseren |WIN + PIJL-OMHOOG |
 | Pagina terugzetten/minimaliseren |WIN + PIJL-OMLAAG |
@@ -40,13 +40,13 @@ ms.lasthandoff: 10/06/2017
 ### <a name="data-source-selection-page"></a>Gegevensbronselectiepagina
 | Bewerking | Druk op |
 | --- | --- |
-| Ga toonext-pagina (indien ingeschakeld) |ALT + N |
-| Geselecteerd type niet wijzigen wanneer Hallo richt zich voornamelijk op een tegel |LINKS, rechts omhoog of pijl-omlaag |
+| Ga naar de volgende pagina (indien ingeschakeld) |ALT + N |
+| Geselecteerd type niet wijzigen wanneer de focus op een tegel is |LINKS, rechts omhoog of pijl-omlaag |
 
 ### <a name="data-source-connection-page"></a>Bronpagina van gegevens voor verbinding
 | Bewerking | Druk op |
 | --- | --- |
-| Ga tooprevious-pagina (indien ingeschakeld) |ALT + P |
+| Ga naar vorige pagina (indien ingeschakeld) |ALT + P |
 | Kies de knop verbinding maken. |ALT + C |
 
 ### <a name="connection-context-page"></a>Verbindingspagina-context
@@ -55,9 +55,9 @@ ms.lasthandoff: 10/06/2017
 | Registratieknop (indien ingeschakeld) |ALT + R |
 | Voorbeeld van selectievakje opnemen (indien beschikbaar) |ALT + P |
 | Gegevens profiel selectievakje opnemen (indien beschikbaar) |ALT + D |
-| Navigeer tooeach lijstitem |PIJL omhoog of omlaag |
+| Navigeer naar elk lijstitem |PIJL omhoog of omlaag |
 | Serverhiërarchie, een structuurweergave knooppunt uitvouwen |PIJL-RECHTS |
-| Geselecteerde items voor verplaatsen **beschikbare objecten** of **objecten toobe geregistreerd** |SPATIEBALK |
+| Geselecteerde items voor verplaatsen **beschikbare objecten** of **objecten moeten worden geregistreerd** |SPATIEBALK |
 
 ### <a name="publish-progress-page"></a>Publiceren op de voortgangspagina
 | Bewerking | Druk op |
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/06/2017
 | Knop Opslaan (indien ingeschakeld) |ALT + S |
 | De knop Annuleren |ALT + C |
 
-## <a name="keyboard-shortcuts-for-hello-data-catalog-portal"></a>Sneltoetsen voor Hallo Data Catalog-portal
+## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Sneltoetsen voor de Data Catalog-portal
 | Bewerking | Druk op |
 | --- | --- |
 | Navigeer |TAB en SHIFT + TAB |
@@ -80,9 +80,9 @@ ms.lasthandoff: 10/06/2017
 | Inzoomen op een sectie |RUIMTE of ENTER |
 | Een sectie verlaten |ESC |
 | Een asset pincode/losmaken |ALT + P |
-| Detecteren op Hallo pagina wanneer een asset geselecteerd is, selecteer asset |RUIMTE of ENTER |
+| Wanneer een asset focus heeft, selecteert u op de pagina discover asset |RUIMTE of ENTER |
 | De asset wordt toegevoegd of verwijderen van meervoudige selectie |CTRL + SPATIEBALK of ENTER |
-| Wisselknop Hallo zoeken komt overeen met het menu |ALT + S |
+| Zoeken in het menu komt overeen met in-of uitschakelen |ALT + S |
 | Wisselknop **openen In** menu |ALT + O |
-| Container verkennen als Hallo asset een container is |ALT + L |
+| Container verkennen als de asset een container is |ALT + L |
 

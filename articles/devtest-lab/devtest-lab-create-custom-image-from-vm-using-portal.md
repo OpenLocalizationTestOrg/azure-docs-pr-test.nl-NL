@@ -1,6 +1,6 @@
 ---
-title: de aangepaste installatiekopie van een virtuele machine van een Azure DevTest Labs aaaCreate | Microsoft Docs
-description: Meer informatie over hoe een aangepaste installatiekopie in Azure DevTest Labs vanuit een ingericht met VM toocreate hello Azure-portal
+title: Een Azure DevTest Labs aangepaste installatiekopie maken van een virtuele machine | Microsoft Docs
+description: Meer informatie over het maken van een aangepaste installatiekopie in Azure DevTest Labs van een ingerichte virtuele machine met de Azure portal
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.openlocfilehash: 7dccb79d3db4aae676c7bd2f6b800301210491e2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9d2dcf7164985508d691e8a0c123efaf3b8aa19a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Een aangepaste installatiekopie van een virtuele machine maken
 
@@ -26,29 +26,29 @@ ms.lasthandoff: 10/06/2017
 
 ## <a name="step-by-step-instructions"></a>Stapsgewijze instructies
 
-U kunt een aangepaste installatiekopie van een ingerichte virtuele machine maken en daarna gebruiken die aangepaste installatiekopie toocreate identieke virtuele machines. Hallo stappen laten zien hoe toocreate een aangepaste installatiekopie van een virtuele machine:
+U kunt een aangepaste installatiekopie maken van een ingerichte virtuele machine en gebruik daarna die aangepaste installatiekopie identieke virtuele machines maken. De volgende stappen uit te laten zien hoe u een aangepaste installatiekopie maken van een virtuele machine:
 
-1. Meld u aan toohello [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecteer **meer services**, en selecteer vervolgens **DevTest Labs** uit Hallo-lijst.
+1. Selecteer **Meer services** en selecteer in de lijst vervolgens **DevTest Labs**.
 
-1. Selecteer de gewenste lab Hallo in lijst Hallo van labs.  
+1. Selecteer de gewenste testomgeving uit de lijst van labs.  
 
-1. Selecteer op Hallo van labblade, **mijn virtuele machines**.
+1. Selecteer op de labblade **mijn virtuele machines**.
  
-1. Op Hallo **mijn virtuele machines** blade Selecteer Hallo VM waaruit de toocreate Hallo aangepaste installatiekopie.
+1. Op de **mijn virtuele machines** blade, selecteert u de virtuele machine van waaruit u wilt maken van de aangepaste installatiekopie.
 
-1. Selecteer op de blade Hallo van de virtuele machine **maken aangepaste installatiekopie (VHD)**.
+1. Selecteer op de VM-blade **maken aangepaste installatiekopie (VHD)**.
 
     ![Afbeelding van aangepaste menu-item maken](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. Op Hallo **afbeelding maken** blade een naam en beschrijving voor de aangepaste installatiekopie opgeven. Deze informatie wordt weergegeven in de lijst Hallo van basissen bij het maken van een virtuele machine.
+1. Op de **afbeelding maken** blade een naam en beschrijving voor de aangepaste installatiekopie opgeven. Deze informatie wordt weergegeven in de lijst met databases wanneer u een virtuele machine maken.
 
     ![Blade voor aangepaste installatiekopie maken](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. Geef op of sysprep is uitgevoerd op Hallo VM. Als Hallo sysprep is niet uitgevoerd op Hallo VM, kunt u opgeven of u wilt dat sysprep uitgevoerd wanneer een virtuele machine vanuit deze aangepaste installatiekopie wordt gemaakt.
+1. Geef op of sysprep is uitgevoerd op de virtuele machine. Als de sysprep is niet uitgevoerd op de virtuele machine, moet u opgeven of u wilt dat sysprep uitgevoerd wanneer een virtuele machine wordt gemaakt van deze aangepaste installatiekopie.
 
-1. Selecteer **OK** wanneer klaar toocreate Hallo aangepaste installatiekopie.
+1. Selecteer **OK** wanneer u klaar bent met het maken van de aangepaste installatiekopie.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -59,4 +59,4 @@ U kunt een aangepaste installatiekopie van een ingerichte virtuele machine maken
 
 ##<a name="next-steps"></a>Volgende stappen
 
-- [Een VM tooyour lab toevoegen](./devtest-lab-add-vm-with-artifacts.md)
+- [Een virtuele machine toevoegen aan uw testomgeving](./devtest-lab-add-vm-with-artifacts.md)

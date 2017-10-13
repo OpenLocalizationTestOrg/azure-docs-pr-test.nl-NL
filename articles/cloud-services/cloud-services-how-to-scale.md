@@ -1,6 +1,6 @@
 ---
-title: een cloudservice aaaAuto schalen in de klassieke portal Hallo | Microsoft Docs
-description: (klassiek) Meer informatie over hoe toouse Hallo regels voor klassieke portal tooconfigure automatisch schalen voor een cloud service-Webrol of worker-rol in Azure.
+title: Een cloudservice automatisch schalen in de klassieke portal | Microsoft Docs
+description: (klassiek) Informatie over het configureren van regels voor automatisch schalen voor een cloud service-web-rol of functie worker in Azure met behulp van de klassieke portal.
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: ddb5816d4d22192c6d2f51d7508e390779742078
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 90d55bbac6e113d6add848ace67cf0749e26342b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-tooconfigure-auto-scaling-for-a-cloud-service-in-hello-classic-portal"></a>Hoe tooconfigure automatisch schalen voor een Cloudservice in de klassieke portal Hallo
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-classic-portal"></a>Het automatisch schalen voor een Cloudservice in de klassieke portal configureren
 > [!div class="op_single_selector"]
 > * [Azure Portal](cloud-services-how-to-scale-portal.md)
 > * [Klassieke Azure Portal](cloud-services-how-to-scale.md)
 
-U kunt instellingen voor automatische voor uw Webrol of functie worker configureren op Hallo Scale pagina Hallo klassieke Azure-portal. U kunt ook handmatig schalen in plaats van automatisch schalen op basis van regels.
+U kunt instellingen voor automatische voor uw Webrol of functie worker configureren op de pagina schaal van de klassieke Azure portal. U kunt ook handmatig schalen in plaats van automatisch schalen op basis van regels.
 
 > [!NOTE]
-> Dit artikel is gericht op Cloud Service-web- en werkrollen rollen. Wanneer u een virtuele machine (klassiek) rechtstreeks maakt, wordt deze gehost in een cloudservice. Sommige van deze informatie is van toepassing toothese typen virtuele machines. Schalen van een beschikbaarheidsset van virtuele machines wordt alleen afgesloten ze in- of uitschakelen op basis van Hallo scale regels die u configureert. Zie voor meer informatie over virtuele Machines en beschikbaarheidssets [beheren Hallo beschikbaarheid van virtuele Machines](../virtual-machines/windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> Dit artikel is gericht op Cloud Service-web- en werkrollen rollen. Wanneer u een virtuele machine (klassiek) rechtstreeks maakt, wordt deze gehost in een cloudservice. Sommige van deze informatie geldt voor deze typen virtuele machines. Schalen van een beschikbaarheidsset van virtuele machines wordt alleen afgesloten ze in- of uitschakelen op basis van de scale-regels die u configureert. Zie voor meer informatie over virtuele Machines en beschikbaarheidssets [de beschikbaarheid van virtuele Machines beheren](../virtual-machines/windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-Hallo volgende informatie voordat u de schaal van uw toepassing configureren, moet u overwegen:
+U kunt de volgende informatie voordat u configureert voor uw toepassing schalen:
 
 * Schalen wordt beïnvloed door de belangrijkste informatie over het gebruik.
 
-    Grotere rolinstanties gebruik meer kernen. U kunt een toepassing alleen binnen het Hallo-limiet van kernen schalen voor uw abonnement. Bijvoorbeeld, Stel dat uw abonnement heeft een limiet van 20 kernen. Als u een toepassing met twee middelgrote cloudservices (in totaal 4 kernen) uitvoert, kunt u alleen opschalen andere cloud service-implementaties in uw abonnement door Hallo resterende 16 kernen. Zie voor meer informatie over grootten [Cloud Service Sizes](cloud-services-sizes-specs.md).
+    Grotere rolinstanties gebruik meer kernen. U kunt een toepassing alleen binnen de limiet van kernen schalen voor uw abonnement. Bijvoorbeeld, Stel dat uw abonnement heeft een limiet van 20 kernen. Als u een toepassing met twee middelgrote cloudservices (in totaal 4 kernen) uitvoert, kunt u alleen opschalen andere cloud service-implementaties in uw abonnement door de resterende 16 kernen. Zie voor meer informatie over grootten [Cloud Service Sizes](cloud-services-sizes-specs.md).
 
-* U moet een wachtrij maken en deze koppelen aan een rol voordat u een toepassing op basis van een bericht drempelwaarde kunt schalen. Zie voor meer informatie [hoe toouse Queue Storage-Service Hallo](../storage/queues/storage-dotnet-how-to-use-queues.md).
+* U moet een wachtrij maken en deze koppelen aan een rol voordat u een toepassing op basis van een bericht drempelwaarde kunt schalen. Zie voor meer informatie [het gebruik van de Queue Storage-Service](../storage/queues/storage-dotnet-how-to-use-queues.md).
 
-* U kunt de resources die gekoppeld tooyour zijn schalen cloudservice. Zie voor meer informatie over het koppelen van resources [hoe: koppelen van een cloudservice voor resource tooa](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
+* U kunt de resources die zijn gekoppeld aan uw cloudservice schalen. Zie voor meer informatie over het koppelen van resources [procedure: een bron koppelen aan een cloudservice](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
-* tooenable hoge beschikbaarheid van uw toepassing, moet u zorgen dat deze wordt geïmplementeerd met twee of meer rolinstanties. Zie voor meer informatie [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+* Om hoge beschikbaarheid van uw toepassing, moet u ervoor zorgen dat deze wordt geïmplementeerd met twee of meer rolinstanties. Zie voor meer informatie [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
 ## <a name="schedule-scaling"></a>Planning schalen
-Standaard alle rollen niet op een specifiek schema. Daarom toepassing instellingen gewijzigd tooall tijdstippen en alle dagen in de loop Hallo jaar. Als u wilt, kunt u handmatig of automatisch schalen voor een van de volgende modi Hallo kunt instellen:
+Standaard alle rollen niet op een specifiek schema. Daarom instellingen gewijzigd van toepassing op alle tijden en alle dagen in het jaar. Als u wilt, kunt u de installatie handmatig of automatisch schalen voor een van de volgende modi:
 
 * Weekdagen
 * Tijdens het weekend
@@ -52,80 +52,80 @@ Standaard alle rollen niet op een specifiek schema. Daarom toepassing instelling
 * Specifieke datums
 * Specifiek datumbereik
 
-Hallo planning instelling is geconfigureerd in Hallo [klassieke Azure-portal](https://manage.windowsazure.com/) op Hallo  
+De instelling van de planning is geconfigureerd in de [klassieke Azure-portal](https://manage.windowsazure.com/) op de  
 **Cloudservices** > **\[uw cloudservice\]** > **Scale** > **\[productie of Staging\]**  pagina.
 
-Klik op Hallo **instellen van tijden waarop planning** knop voor elke rol die u wilt dat toochange.
+Klik op de **instellen van tijden waarop planning** knop voor elke rol die u wilt wijzigen.
 
 ![Cloudservice automatisch schalen op basis van een planning][scale_schedules]
 
 ## <a name="manual-scale"></a>Handmatig schalen
-Op Hallo **Scale** pagina, u kunt handmatig vergroten of verkleinen Hallo aantal exemplaren in een cloudservice. Deze instelling is geconfigureerd voor elke schema dat u hebt gemaakt of tooall tijd als u een planning niet hebt gemaakt.
+Op de **Scale** pagina, u kunt handmatig vergroten of verkleinen het aantal exemplaren in een cloudservice wordt uitgevoerd. Deze instelling is geconfigureerd voor elke planning die u hebt gemaakt of aan alle tijd als u een planning niet hebt gemaakt.
 
-1. In Hallo [klassieke Azure-portal](https://manage.windowsazure.com/), klikt u op **Cloudservices**, en klik vervolgens op Hallo-naam van Hallo cloud service tooopen Hallo dashboard.
+1. In de [klassieke Azure-portal](https://manage.windowsazure.com/), klikt u op **Cloudservices**, en klik vervolgens op de naam van de cloudservice om het dashboard te openen.
    
    > [!TIP]
-   > Als u de cloudservice niet ziet, moet u mogelijk toochange van **productie** te**fasering** of vice versa.
+   > Als u de cloudservice niet ziet, moet u mogelijk gewijzigd van **productie** naar **fasering** of vice versa.
 
 2. Klik op **Scale**.
-3. Hallo schema u opties voor schaling toochange wilt selecteren. *Geen geplande tijden* is Hallo standaard als er geen schema's gedefinieerd.
-4. Hallo zoeken **schaal op metriek** sectie en selecteer ****. Dit is de standaardinstelling Hallo voor alle functies.
-5. Elke rol in Hallo cloud-service heeft een schuifregelaar voor het wijzigen van het aantal exemplaren toouse Hallo.
+3. Selecteer de planning die u wilt schalen opties voor het wijzigen. *Geen geplande tijden* is de standaardwaarde als er geen schema's gedefinieerd.
+4. Zoeken naar de **schaal op metriek** sectie en selecteer ****. Dit is de standaardinstelling voor alle functies.
+5. Elke rol in de cloudservice heeft een schuifregelaar voor het wijzigen van het aantal exemplaren moet worden gebruikt.
    
     ![De functie van een cloud-service handmatig schalen][manual_scale]
    
-    Als u meer exemplaren nodig hebt, moet u mogelijk toochange hello [cloud van de grootte van de virtuele machine service](cloud-services-sizes-specs.md).
+    Als u meer exemplaren nodig hebt, moet u mogelijk wijzigen de [cloud van de grootte van de virtuele machine service](cloud-services-sizes-specs.md).
 6. Klik op **Opslaan**.  
    Rolinstanties worden toegevoegd of verwijderd op basis van uw selecties.
 
 > [!TIP]
-> Wanneer u ziet ![][tip_icon] uw tooit muis verplaatsen en u hulp over welke specifieke instelling komt.
+> Wanneer u ziet ![][tip_icon] de muis bewegen en u hulp over welke specifieke instelling komt.
 
 ## <a name="automatic-scale---cpu"></a>Automatische scale - CPU
-Deze modus wordt geschaald als Hallo gemiddelde percentage van CPU-gebruik boven of onder de opgegeven drempelwaarden gaat. Rolinstanties zijn gemaakt of verwijderd als dit gebeurt.
+Deze modus wordt geschaald als het gemiddelde percentage van CPU-gebruik boven of onder de opgegeven drempelwaarden gaat. Rolinstanties zijn gemaakt of verwijderd als dit gebeurt.
 
-1. In Hallo [klassieke Azure-portal](https://manage.windowsazure.com/), klikt u op **Cloudservices**, en klik vervolgens op Hallo-naam van Hallo cloud service tooopen Hallo dashboard.
+1. In de [klassieke Azure-portal](https://manage.windowsazure.com/), klikt u op **Cloudservices**, en klik vervolgens op de naam van de cloudservice om het dashboard te openen.
    
    > [!TIP]
-   > Als u de cloudservice niet ziet, moet u mogelijk toochange van **productie** te**fasering** of vice versa.
+   > Als u de cloudservice niet ziet, moet u mogelijk gewijzigd van **productie** naar **fasering** of vice versa.
 
 2. Klik op **Scale**.
-3. Hallo schema u opties voor schaling toochange wilt selecteren. *Geen geplande tijden* is Hallo standaard als er geen schema's gedefinieerd.
-4. Hallo zoeken **schaal op metriek** sectie en selecteer **CPU**.
-5. U kunt nu een minimum en maximum aantal rollen instanties, Hallo doel CPU-gebruik (tootrigger een schaal van) en hoeveel exemplaren tooscale omhoog en omlaag door configureren.
+3. Selecteer de planning die u wilt schalen opties voor het wijzigen. *Geen geplande tijden* is de standaardwaarde als er geen schema's gedefinieerd.
+4. Zoeken naar de **schaal op metriek** sectie en selecteer **CPU**.
+5. U kunt nu een minimum en maximum aantal rollen instanties, het doel CPU-gebruik (voor het activeren van een schaal van) en hoeveel exemplaren omhoog en omlaag schalen door configureren.
 
 ![De functie van een cloud-service schalen door cpu-belasting][cpu_scale]
 
 > [!TIP]
-> Wanneer u ziet ![][tip_icon] uw tooit muis verplaatsen en u hulp over welke specifieke instelling komt.
+> Wanneer u ziet ![][tip_icon] de muis bewegen en u hulp over welke specifieke instelling komt.
 
 ## <a name="automatic-scale---queue"></a>Automatische scale - wachtrij
-Deze modus wordt automatisch geschaald als het aantal berichten in een wachtrij Hallo boven of onder een bepaalde drempelwaarde vallen gaat. Rolinstanties zijn gemaakt of verwijderd als dit gebeurt.
+Deze modus wordt automatisch geschaald als het aantal berichten in een wachtrij boven of onder een bepaalde drempelwaarde vallen gaat. Rolinstanties zijn gemaakt of verwijderd als dit gebeurt.
 
-1. In Hallo [klassieke Azure-portal](https://manage.windowsazure.com/), klikt u op **Cloudservices**, en klik vervolgens op Hallo-naam van Hallo cloud service tooopen Hallo dashboard.
+1. In de [klassieke Azure-portal](https://manage.windowsazure.com/), klikt u op **Cloudservices**, en klik vervolgens op de naam van de cloudservice om het dashboard te openen.
    
    > [!TIP]
-   > Als u de cloudservice niet ziet, moet u mogelijk toochange van **productie** te**fasering** of vice versa.
+   > Als u de cloudservice niet ziet, moet u mogelijk gewijzigd van **productie** naar **fasering** of vice versa.
 
 2. Klik op **Scale**.
-3. Hallo zoeken **schaal op metriek** sectie en selecteer **wachtrij**.
-4. U kunt nu een minimum en maximum aantal exemplaren van de functies, Hallo wachtrij en het aantal van de wachtrij berichten tooprocess voor elk exemplaar en hoeveel exemplaren tooscale omhoog en omlaag door configureren.
+3. Zoeken naar de **schaal op metriek** sectie en selecteer **wachtrij**.
+4. U kunt nu een minimum en maximum aantal exemplaren van de functies, de wachtrij en het aantal Wachtrijberichten voor het verwerken voor elk exemplaar en hoeveel exemplaren omhoog en omlaag schalen door configureren.
 
 ![De functie van een cloud-service schalen door een berichtenwachtrij][queue_scale]
 
 > [!TIP]
-> Wanneer u ziet ![][tip_icon] uw tooit muis verplaatsen en u hulp over welke specifieke instelling komt.
+> Wanneer u ziet ![][tip_icon] de muis bewegen en u hulp over welke specifieke instelling komt.
 
 ## <a name="scale-linked-resources"></a>Gekoppelde resources schalen
-Vaak wanneer u een rol schalen, is een nuttig tooscale Hallo database die Hallo toepassing ook wordt gebruikt. Als u Hallo database toohello cloudservice koppelt, kunt u instellingen voor die bron schalen door te klikken op de desbetreffende koppeling Hallo Hallo openen.
+Vaak wanneer u een rol schalen, is het nuttig voor het schalen van de database die de toepassing ook wordt gebruikt. Als u de database een koppeling naar de cloudservice, kunt u de instellingen voor schalen voor die bron openen door te klikken op de koppeling.
 
-1. In Hallo [klassieke Azure-portal](https://manage.windowsazure.com/), klikt u op **Cloudservices**, en klik vervolgens op Hallo-naam van Hallo cloud service tooopen Hallo dashboard.
+1. In de [klassieke Azure-portal](https://manage.windowsazure.com/), klikt u op **Cloudservices**, en klik vervolgens op de naam van de cloudservice om het dashboard te openen.
    
    > [!TIP]
-   > Als u de cloudservice niet ziet, moet u mogelijk toochange van **productie** te**fasering** of vice versa.
+   > Als u de cloudservice niet ziet, moet u mogelijk gewijzigd van **productie** naar **fasering** of vice versa.
 
 2. Klik op **Scale**.
-3. Hallo zoeken **gekoppelde resources** sectie en klik op **scale voor deze database beheren**.
+3. Zoeken naar de **gekoppelde resources** sectie en klik op **scale voor deze database beheren**.
    
    > [!NOTE]
    > Als er geen een **gekoppelde resources** sectie u waarschijnlijk geen gekoppelde resources.

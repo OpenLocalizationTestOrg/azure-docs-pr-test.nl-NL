@@ -1,6 +1,6 @@
 ---
-title: "aaaSelect Linux VM-installatiekopieën Hello Azure CLI | Microsoft Docs"
-description: "Meer informatie over hoe toouse hello Azure CLI toodetermine Hallo uitgever, aanbieding, SKU en versie voor Marketplace-VM-installatiekopieën."
+title: "Selecteer de installatiekopieën van het Linux-VM met de Azure CLI | Microsoft Docs"
+description: "Informatie over het gebruik van de Azure CLI om te bepalen van de uitgever, aanbieding, SKU en versie voor installatiekopieën van Marketplace VM."
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
@@ -16,41 +16,41 @@ ms.workload: infrastructure
 ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b115b8654bc156b5bfadba53a6b002a105acb68
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-toofind-linux-vm-images-in-hello-azure-marketplace-with-hello-azure-cli"></a>Hoe toofind Linux VM-installatiekopieën in Azure Marketplace Hallo Hello Azure CLI
-Dit onderwerp wordt beschreven hoe toouse hello Azure CLI 2.0 toofind VM-installatiekopieën in hello Azure Marketplace. Gebruik deze informatie toospecify een Marketplace-installatiekopie bij het maken van een Linux-VM.
+# <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Linux-VM-installatiekopieën zoeken in Azure Marketplace met de Azure CLI
+Dit onderwerp wordt beschreven hoe u met de Azure CLI 2.0 VM-installatiekopieën vinden in Azure Marketplace. Deze informatie gebruiken om op te geven van een Marketplace-installatiekopie bij het maken van een Linux-VM.
 
-Zorg ervoor dat u de Hallo meest recente geïnstalleerd [Azure CLI 2.0](/cli/azure/install-az-cli2) en worden vastgelegd in tooan Azure-account (`az login`).
+Zorg ervoor dat u de meest recente geïnstalleerd [Azure CLI 2.0](/cli/azure/install-az-cli2) en u bent aangemeld bij een Azure-account (`az login`).
 
 ## <a name="terminology"></a>Terminologie
 
-Marketplace-installatiekopieën worden aangeduid in Hallo CLI en andere Azure-hulpprogramma's op basis van tooa hiërarchie:
+Marketplace-installatiekopieën worden geïdentificeerd in de CLI en andere Azure-hulpprogramma's volgens een hiërarchie:
 
-* **Publisher** -Hallo organisatie die Hallo-installatiekopie heeft gemaakt. Voorbeeld: canonieke
+* **Publisher** -de organisatie die de installatiekopie heeft gemaakt. Voorbeeld: canonieke
 * **Bieden** -een groep verwante afbeeldingen die zijn gemaakt door een uitgever. Voorbeeld: Ubuntu Server
 * **SKU** : een exemplaar van een aanbieding, zoals een grote release van een distributiepunt. Voorbeeld: 16.04-TNS
-* **Versie** -Hallo versienummer van een installatiekopie van het SKU. Wanneer u de installatiekopie van het Hallo opgeeft, kunt u Hallo versienummer met 'nieuwste' vervangen die Hallo meest recente versie van Hallo-distributiepunt selecteert.
+* **Versie** -het versienummer van een installatiekopie van het SKU. Bij het opgeven van de installatiekopie, kunt u het versienummer met 'nieuwste' vervangen die de meest recente versie van de verdeling selecteert.
 
-toospecify een Marketplace-installatiekopie, doorgaans gebruikt u de installatiekopie van het Hallo *URN*. Hallo URN combineert deze waarden, gescheiden door een dubbele punt (:)-teken Hallo: *Publisher*:*bieden*:*Sku*:*versie*. 
+Als u een Marketplace-installatiekopie, doorgaans gebruikt u de installatiekopie van het *URN*. Deze waarden, gescheiden door het teken van de dubbele punt (:) worden gecombineerd voor de URN: *Publisher*:*bieden*:*Sku*:*versie*. 
 
 
 ## <a name="list-popular-images"></a>Lijst met populaire installatiekopieën
 
-Hallo uitvoeren [az vm afbeeldingenlijst](/cli/azure/vm/image#list) opdracht zonder Hallo `--all` optie, toosee installatiekopieën van een lijst met populaire VM in hello Azure Marketplace. Bijvoorbeeld uitvoeren Hallo opdracht toodisplay na een in cache opgeslagen lijst van populaire afbeeldingen in tabelindeling:
+Voer de [az vm afbeeldingenlijst](/cli/azure/vm/image#list) opdracht, zonder de `--all` optie voor een overzicht van populaire VM-installatiekopieën in Azure Marketplace. Voer bijvoorbeeld de volgende opdracht een lijst wilt weergeven in de cache van populaire afbeeldingen in tabelindeling:
 
 ```azurecli
 az vm image list --output table
 ```
 
-Hallo uitvoer bevat Hallo URN (waarde in Hallo Hallo *Urn* kolom), waardoor u toospecify Hallo installatiekopie gebruiken. Wanneer u een virtuele machine maakt met een van deze populaire Marketplace-installatiekopieën, kunt u ook opgeven Hallo URN alias, zoals *UbuntuLTS*.
+De uitvoer bevat de URN (de waarde in de *Urn* kolom), waarmee u de installatiekopie opgeven. Wanneer u een virtuele machine maakt met een van deze populaire Marketplace-installatiekopieën, kunt u ook opgeven de alias URN zoals *UbuntuLTS*.
 
 ```
-You are viewing an offline list of images, use --all tooretrieve an up-to-date list
+You are viewing an offline list of images, use --all to retrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
 CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
@@ -65,9 +65,9 @@ UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServe
 
 ## <a name="find-specific-images"></a>Specifieke installatiekopieën zoeken
 
-een specifieke VM-installatiekopie in Marketplace, Hallo toofind gebruiken Hallo `az vm image list` opdracht Hello `--all` optie. Deze versie van de opdracht Hallo neemt enige tijd toocomplete en kunnen langdurige uitvoer geretourneerd zodat u meestal Hallo lijst filteren op `--publisher` of een andere parameter. 
+Ga voor een specifieke VM-installatiekopie in de Marketplace, gebruiken de `az vm image list` opdracht met de `--all` optie. Deze versie van de opdracht neemt enige tijd voltooid en kan langdurige uitvoer geretourneerd zodat u doorgaans de lijst filteren op `--publisher` of een andere parameter. 
 
-Hallo volgende opdracht geeft bijvoorbeeld alle Debian-aanbiedingen (Vergeet niet dat zonder Hallo `--all` overschakelen, zoekt alleen lokale cache Hallo van algemene installatiekopieën):
+De volgende opdracht geeft bijvoorbeeld alle Debian-aanbiedingen (Vergeet niet dat zonder de `--all` overschakelen, zoekt alleen de lokale cache van algemene installatiekopieën):
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
@@ -102,11 +102,11 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201708040        
 ...
 ```
 
-Toepassen van vergelijkbare filters Hello `--location`, `--publisher`, en `--sku` opties. U kunt zelfs gedeeltelijke overeenkomsten uitvoeren op een filter, zoals het zoeken naar `--offer Deb` toofind alle Debian installatiekopieën.
+Toepassen van filters voor soortgelijke de `--location`, `--publisher`, en `--sku` opties. U kunt zelfs gedeeltelijke overeenkomsten uitvoeren op een filter, zoals het zoeken naar `--offer Deb` alle Debian installatiekopieën vinden.
 
-Als u niet een bepaalde locatie met de Hallo opgeeft `--location` optie, Hallo waarden voor `westus` standaard worden geretourneerd. (Een andere standaardlocatie ingesteld door `az configure --defaults location=<location>`.)
+Als u geen dat een bepaalde locatie met opgeeft de `--location` optie, de waarden voor `westus` standaard worden geretourneerd. (Een andere standaardlocatie ingesteld door `az configure --defaults location=<location>`.)
 
-Bijvoorbeeld, Hallo volgende opdracht geeft een lijst van alle Debian 8 SKU's in `westeurope`:
+Bijvoorbeeld de volgende opdracht worden alle Debian 8 SKU's in `westeurope`:
 
 ```azurecli
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
@@ -133,15 +133,15 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ...
 ```
 
-## <a name="navigate-hello-images"></a>Navigeer Hallo installatiekopieën 
-Een andere manier toofind een installatiekopie op een locatie wordt toorun hello [az vm image lijst-uitgevers](/cli/azure/vm/image#list-publishers), [az vm image lijst-aanbiedingen](/cli/azure/vm/image#list-offers), en [az vm image lijst-SKU's](/cli/azure/vm/image#list-skus) opdrachten in de reeks. Met deze opdrachten moet u deze waarden bepalen:
+## <a name="navigate-the-images"></a>Installatiekopieën van het navigeren 
+Een installatiekopie niet vinden in een locatie op een andere manier is om uit te voeren de [az vm image lijst-uitgevers](/cli/azure/vm/image#list-publishers), [az vm image lijst-aanbiedingen](/cli/azure/vm/image#list-offers), en [az vm image lijst-SKU's](/cli/azure/vm/image#list-skus) opdrachten in de reeks. Met deze opdrachten moet u deze waarden bepalen:
 
-1. Lijst Hallo installatiekopie uitgevers.
+1. Geef de uitgevers van installatiekopieën weer.
 2. Geef de aanbiedingen voor een bepaalde uitgever weer.
 3. Geef de SKU's voor een bepaalde aanbieding weer.
 
 
-Bijvoorbeeld: hello volgende opdracht worden Hallo installatiekopie uitgevers in Hallo VS-West locatie:
+De volgende opdracht worden bijvoorbeeld de uitgevers van de installatiekopie op de locatie VS-West:
 
 ```azurecli
 az vm image list-publishers --location westus --output table
@@ -166,7 +166,7 @@ westus      activeeon
 westus      adatao
 ...
 ```
-Gebruik die deze informatie toofind van een bepaalde uitgever biedt. Bijvoorbeeld, als Canonical een installatiekopie-uitgever in Hallo locatie VS-West is, hun aanbiedingen vinden door te voeren `azure vm image list-offers`. Hallo locatie en uitgever zoals in het volgende voorbeeld Hallo Hallo doorgeven:
+Gebruik deze informatie om te zoeken aanbiedingen van een bepaalde uitgever. Bijvoorbeeld, als Canonical een installatiekopie-uitgever op de locatie VS-West is, hun aanbiedingen vinden door te voeren `azure vm image list-offers`. Geef de locatie en de uitgever zoals in het volgende voorbeeld:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -185,7 +185,7 @@ westus      Ubuntu_Core
 westus      Ubuntu_Snappy_Core
 westus      Ubuntu_Snappy_Core_Docker
 ```
-U ziet dat de Canonical in de regio VS-West Hallo Hallo publiceert **UbuntuServer** bieden op Azure. Maar wat SKU's? tooget uitvoeren van deze waarden `azure vm image list-skus` en stel Hallo locatie, de uitgever en de aanbieding die u gedetecteerd:
+U ziet dat in de regio VS-West Canonical publiceert de **UbuntuServer** bieden op Azure. Maar welke SKU's? Uitvoeren als u deze waarden, `azure vm image list-skus` en stel de locatie, de uitgever en de aanbieding die u gedetecteerd:
 
 ```azurecli
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
@@ -219,7 +219,7 @@ westus      17.04-DAILY
 westus      17.10-DAILY
 ```
 
-Gebruik tot slot Hallo `az vm image list` opdracht toofind een specifieke versie van Hallo SKU die u bijvoorbeeld wilt **16.04 LTS**:
+Gebruik tot slot de `az vm image list` opdracht om te bepalen van een specifieke versie van de SKU die u wilt bijvoorbeeld **16.04 LTS**:
 
 ```azurecli
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
@@ -257,4 +257,4 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 ## <a name="next-steps"></a>Volgende stappen
-Nu kunt u precies Hallo installatiekopie u toouse door duurt Opmerking Hallo URN waarde. Deze waarde Hello doorgeven `--image` parameter wanneer u een virtuele machine met de Hallo maakt [az vm maken](/cli/azure/vm#create) opdracht. Houd er rekening mee dat u eventueel Hallo-versienummer in Hallo URN door 'nieuwste vervangen kunt'. Deze versie is altijd de nieuwste versie Hallo Hallo-verdeling. toocreate een virtuele machine snel met behulp van Hallo URN informatie, Zie [maken en beheren van virtuele Linux-machines Hello Azure CLI](tutorial-manage-vm.md).
+U kunt nu nauwkeurig de installatiekopie die u gebruiken wilt door de URN-waarde. Deze waarde met de `--image` parameter bij het maken van een virtuele machine met de [az vm maken](/cli/azure/vm#create) opdracht. Houd er rekening mee dat u eventueel het versienummer in de URN door 'nieuwste vervangen kunt'. Deze versie is altijd de nieuwste versie van het distributiepunt. Om snel een virtuele machine maken met behulp van de URN informatie, Zie [maken en beheren van virtuele Linux-machines met de Azure CLI](tutorial-manage-vm.md).

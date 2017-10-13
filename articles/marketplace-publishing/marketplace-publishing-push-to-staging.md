@@ -1,6 +1,6 @@
 ---
-title: aaaPrepare en testen van uw aanbieding voor implementatie toohello Azure Marketplace | Microsoft Docs
-description: Gedetailleerde instructies voor het verstrekken inhoud marketing, prijscategorie plannen te configureren en testen van uw aanbieding voordat u implementeert toohello Azure Marketplace.
+title: Voorbereiden en testen van uw aanbieding voor implementatie naar Azure Marketplace | Microsoft Docs
+description: Gedetailleerde instructies voor het verstrekken inhoud marketing, prijscategorie plannen te configureren en testen van uw aanbieding voordat u implementeert naar Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
-ms.openlocfilehash: 04f142c2dc894716c187751736549586c24a9d01
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="complete-hello-offer-creation-with-marketing-content"></a>Volledige Hallo bieden maken met marketing inhoud
-In deze stap van het publicatieproces hello moet u tooprovide bepaalde marketing inhoud en gegevens over uw aanbieding en/of SKU's in hello Azure Marketplace. Bijvoorbeeld, krijgt u een beschrijving van het product, bedrijfslogo prijs plannen, details van plannen en andere informatie nodig toopush aanbieding en/of SKU toostaging. Deze informatie wordt gebruikt als marketing inhoud in hello Azure-portal. Nu begint u dit proces in Hallo [publishing portal][link-pubportal].
+# <a name="complete-the-offer-creation-with-marketing-content"></a>Het maken van de aanbieding met marketing inhoud voltooien
+In deze stap van het publicatieproces moet u bepaalde marketing inhoud en gegevens over uw aanbieding en/of in Azure Marketplace-SKU's bieden. Bijvoorbeeld, krijgt u een beschrijving van het product, bedrijfslogo prijs plannen, details van plannen en andere gegevens die nodig zijn voor de push-aanbieding en/of SKU voor fasering. Deze informatie wordt gebruikt als marketing inhoud in de Azure portal. Nu begint u dit proces in de [publishing portal][link-pubportal].
 
 ## <a name="step-1-provide-marketplace-marketing-content"></a>Stap 1: Geef Marketplace marketing inhoud
-**Engels is standaard Hallo en alleen ondersteunde taal.** Zorg ervoor dat alle informatie in Hallo velden in het Engels. Alle gegevens kan op elk gewenst moment totdat u push-toostaging worden bewerkt.
+**Engels is de standaardinstelling en wordt alleen ondersteund taal.** Zorg ervoor dat alle informatie in de velden in het Engels. U kunt alle informatie op elk gewenst moment bewerken totdat u overgaat tot fasering.
 
-1. Ga toohello portal publiceren [https://publish.windowsazure.com](https://publish.windowsazure.com).
-2. Klik op Hallo linkermenu op Hallo **Marketing** tabblad.
-3. In het hoofdpaneel hello, klikt u op Hallo **Engels (V.S.)** knop.
+1. Ga naar de publishing portal [https://publish.windowsazure.com](https://publish.windowsazure.com).
+2. Klik in het menu links op de **Marketing** tabblad.
+3. Klik in het hoofdpaneel op de **Engels (V.S.)** knop.
    
    > [!IMPORTANT]
-   > Alle velden moeten vermeldingen, met inbegrip van Hallo-installatiekopieën, voor u toobe kunnen toopush toostaging hebben.
+   > Alle velden moeten vermeldingen, met inbegrip van de installatiekopieën, u kunt push voor fasering hebben.
    > 
    > 
 
 ### <a name="details-and-plans"></a>Details en plannen
-1. Titel van de aanbieding hello (maximaal 50 tekens) invoeren, bieden samenvatting (maximaal 100 tekens), lange samenvatting (maximaal 256 tekens) bieden, beschrijving (maximaal 1300 tekens), logo's onder Hallo aanbieding **Details** tabblad
-2. Plan de titel (maximaal 50 tekens), plan samenvatting (maximaal 100 tekens) invoeren, plan beschrijving (maximaal 2000 tekens) onder Hallo **plannen** tabblad.
+1. Voer de titel van aanbieding (maximaal 50 tekens), bieden samenvatting (maximaal 100 tekens), lange samenvatting (maximaal 256 tekens) bieden, bieden beschrijving (maximaal 1300 tekens), logo's onder de **Details** tabblad
+2. Plan de titel (maximaal 50 tekens), plan samenvatting (maximaal 100 tekens) invoeren, plan beschrijving (maximaal 2000 tekens) onder de **plannen** tabblad.
    
    > [!NOTE]
-   > U kunt na de HTML-tags tooformat Hallo samenvatting, lange samenvatting en de beschrijving van aanbieding Hallo en planningen Hallo gebruiken. Hallo toegestane HTML-codes zijn h1, h2, h3, h4, h5, p, ol, ul, li, een [target | href], sterk, em, b, ik.
+   > U kunt de volgende HTML-codes om de samenvatting, lange samenvatting en de beschrijving van de aanbieding en plannen. De toegestane HTML-codes zijn h1, h2, h3, h4, h5, p, ol, ul, li, een [target | href], sterk, em, b, ik.
    > 
    > 
 3. Geef geen dubbele tekst onder de beschrijving van aanbieding en plannen.
 4. Geef geen dubbele tekst onder de titel en aanbieding lange samenvatting van het plan.
 5. Dubbele tekst onder de titel plan invoeren en bieden samenvatting niet.
 6. Geef geen identieke plan titels voor een aanbieding met meerdere plannen.
-7. Installatiekopieën van Hallo vereiste specificaties (in Hallo Publishing Portal genoemd) in PNG-indeling, één voor elke grootte uploaden.
-8. Zorg ervoor dat Hallo logo's hello Azure Marketplace-logo die richtlijnen hieronder worden vermeld.
+7. Installatiekopieën van de vereiste specificaties (wordt vermeld in de Portal voor publiceren) in PNG-indeling, één voor elke grootte uploaden.
+8. Zorg ervoor dat de logo's Volg de richtlijnen voor het logo van Azure Marketplace die hieronder worden vermeld.
    
    ![tekenen](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
 
 **Richtlijnen voor Azure Marketplace-Logo**
 
-Alle Hallo logo's uploaden van Hallo Publishing Portal moeten Hallo hieronder richtlijnen te volgen:
+Alle logo's uploaden van de Publishing Portal moeten Volg de onderstaande richtlijnen:
 
-* Hello Azure ontwerp heeft een eenvoudige kleurenpalet. Houd Hallo van de primaire en secundaire kleuren op uw logo laag.
-* Hallo themakleuren hello Azure-portal zijn wit en zwarte. Daarom Vermijd het gebruik van deze kleuren als achtergrondkleur Hallo van uw logo's. Gebruik een kleur die uw logo's prominent op Hallo Azure-portal zou maken. Het wordt aangeraden de eenvoudige primaire kleuren. **Als u met behulp van transparante achtergrond, moet u ervoor zorgen dat Hallo zijn logo's / tekst niet witte of zwarte of blauw.**
-* Een achtergrond met kleurovergang niet gebruiken op Hallo-logo.
-* Vermijd tekst, zelfs uw bedrijf of de naam van het merk, plaatsen op Hallo-logo. Hallo-uiterlijk van uw logo moet 'platte' en moet niet verlopen.
-* Hallo-logo mag niet worden uitgerekt.
+* Het ontwerp van de Azure heeft een eenvoudige kleurenpalet. Houd het aantal primaire en secundaire kleuren op uw logo laag.
+* Themakleur van de Azure portal zijn wit en zwarte. Daarom Vermijd het gebruik van deze kleuren als de achtergrondkleur van uw logo's. Sommige kleur waaruit zou uw logo's opvallende meldingen in de Azure portal gebruiken. Het wordt aangeraden de eenvoudige primaire kleuren. **Als u met behulp van transparante achtergrond, zorg ervoor dat zijn de logo's / tekst niet witte of zwarte of blauw.**
+* Een achtergrond met kleurovergang niet gebruiken op het logo.
+* Vermijd het logo van tekst, zelfs uw bedrijf of de naam van het merk, brengen. Het uiterlijk van uw logo moet 'platte' en moet niet verlopen.
+* Het logo mag niet worden uitgerekt.
 * Kleine logo moet met een grootte van 40 X 40 px
 * Gemiddeld logo moet met een grootte van 90 X 90 px
 * Grote logo moet met een grootte van 115 X 115 px
@@ -68,48 +68,48 @@ Alle Hallo logo's uploaden van Hallo Publishing Portal moeten Hallo hieronder ri
 * Hero-logo moet met een grootte van 815 X 290 px
 
 > [!NOTE]
-> Hallo Hero logo is optioneel. Hallo-uitgever kunt niet tooupload een Hero-logo. Maar één keer geüploade Hallo hero pictogram kan niet worden verwijderd uit Hallo portal publiceren. Op dat moment moet Hallo partner hello Azure Marketplace richtlijnen voor het Hero pictogrammen volgen.
+> Het logo Hero is optioneel. De publisher kunt niet een logo Hero uploaden. Echter eenmaal geüploade het pictogram hero kan niet worden verwijderd uit de publicatie van de portal. Op dat moment wordt moet de partner volgen na de richtlijnen voor Azure Marketplace voor Hero pictogrammen.
 > 
 > 
 
   ![tekenen](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-03.png)
 
-**Aanvullende richtlijnen voor Hallo Hero logo pictogram (optioneel)**
+**Aanvullende richtlijnen voor het pictogram van Hero logo (optioneel)**
 
-* Hallo Hero logo is optioneel. Hallo-uitgever kunt niet tooupload een Hero-logo. **Maar één keer geüploade Hallo hero pictogram kan niet worden verwijderd uit Hallo portal publiceren. Op dat moment Hallo partner hello Azure Marketplace richtlijnen moet volgen voor Hero pictogrammen anders Hallo aanbieding niet worden goedgekeurd tooproduction.**
-* Hallo weergavenaam van de uitgever, plan titel en Hallo bieden lange samenvatting worden weergegeven in wit tekstkleur. Daarom moet u niet een lichte kleur op de achtergrond Hallo Hallo Hero pictogram houden. Zwart, wit en transparante achtergrond is niet toegestaan voor Hero pictogrammen.
-* Hallo publisher weergavenaam, plan titel, Hallo aanbieding lange samenvatting en Hallo knop maken zodra Hallo aanbieding gaat vermelde programmatisch binnen Hallo Hero-logo zijn ingesloten. U moet dus niet alle tekst invoeren bij het ontwerpen van Hallo Hero-logo. Stelt u lege ruimte op Hallo rechts omdat hello tekst (dat wil zeggen publisher weergavenaam, plan titel Hallo aanbieding lange samenvatting) wordt opgenomen via programmacode door ons hier. Hallo lege ruimte voor de tekst hello moet 415 x 100 op Hallo rechts (en deze worden gecompenseerd via 370px van Hallo links).
+* Het logo Hero is optioneel. De publisher kunt niet een logo Hero uploaden. **Echter eenmaal geüploade het pictogram hero kan niet worden verwijderd uit de publicatie van de portal. Op dat moment wordt moet de partner de richtlijnen voor Azure Marketplace voor Hero pictogrammen anders die de aanbieding niet goedgekeurd voor productie volgen.**
+* De weergavenaam van de uitgever, plan titel en de lange samenvatting aanbieding worden weergegeven in wit tekstkleur. Daarom moet u niet een lichte kleur op de achtergrond van het pictogram Hero houden. Zwart, wit en transparante achtergrond is niet toegestaan voor Hero pictogrammen.
+* De weergavenaam van de uitgever, plan titel, de aanbieding lange samenvatting en de knop maken ingesloten programmatisch binnen het logo Hero zodra de aanbieding wordt vermeld. U moet dus niet alle tekst invoeren bij het ontwerpen van het logo Hero. Laat u lege ruimte aan de rechterkant omdat de tekst (dat wil zeggen Publisher weergavenaam, plan titel, de aanbieding lange samenvatting) worden opgenomen via programmacode door ons hier. De lege ruimte voor de tekst moet 415 x 100 aan de rechterkant (en deze worden gecompenseerd via 370px vanaf de linkerkant).
   
   ![tekenen](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
 ### <a name="links"></a>Koppelingen
-Op Hallo **koppelingen** tabblad op Hallo linkerbalk, voert u alle koppelingen met informatie waarmee klanten. Voer voor elke koppeling een naam en URL in.
+Op de **koppelingen** tabblad in de linkerbalk, voert u alle koppelingen met informatie waarmee klanten. Voer voor elke koppeling een naam en URL in.
 
 ![tekenen](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-link-01.png)
 
 ### <a name="sample-images-optional"></a>Voorbeeld installatiekopieën (optioneel)
 > [!NOTE]
 > Inclusief de installatiekopie van een voorbeeld is een optionele stap.
-> Hoewel u meerdere installatiekopieën van het voorbeeld in Hallo kunt uploaden portal publiceren, slechts één afbeelding (willekeurig geselecteerd door Hallo-systeem) opgehaald in hello Azure-portal weergegeven. Daarom is het raadzaam hooguit één voorbeeld van afbeelding te uploaden.
+> Hoewel u meerdere installatiekopieën van het voorbeeld in de publicatie kunt uploaden portal slechts één installatiekopie (willekeurig geselecteerd door het systeem) wordt weergegeven in de Azure-portal. Daarom is het raadzaam hooguit één voorbeeld van afbeelding te uploaden.
 > 
 > 
 
-Op Hallo **voorbeeld installatiekopieën** tabblad op Hallo linkermenu, een nieuwe installatiekopie uploaden door te klikken op **een nieuwe installatiekopie uploaden**. Als u een bestaande installatiekopie hebt en u tooreplace dat wilt, klikt u op **vervangen installatiekopie**.
+Op de **voorbeeld installatiekopieën** tabblad in het menu links, een nieuwe installatiekopie uploaden door te klikken op **een nieuwe installatiekopie uploaden**. Als u een bestaande installatiekopie hebt en u wilt vervangen, klikt u op **vervangen installatiekopie**.
 
 ![tekenen](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-sampleimg-01.png)
 
 ### <a name="legal"></a>Juridische informatie
-Op Hallo **juridische** tabblad, geeft u een koppeling tooyour beleidsregels/gebruiksvoorwaarden. Plak Hallo voorwaarden in grote Hallo **gebruiksvoorwaarden** vak. Hallo tekenlimiet voor Hallo juridische gebruiksvoorwaarden is 1.000.000 tekens.
+Op de **juridische** tabblad, een koppeling naar uw beleidsregels/gebruiksvoorwaarden opgeven. Typt of plakt u de voorwaarden in de grote **gebruiksvoorwaarden** vak. Het aantal tekens voor de juridische gebruiksvoorwaarden is 1.000.000 tekens.
 
 ![tekenen](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
-**Opmerking:** voor virtuele Machine biedt, wanneer een aanbieding/SKU tijdelijk worden opgeslagen in Azure Portal Hallo u niet wijzigen Hallo velden hieronder:
+**Opmerking:** voor virtuele Machine biedt, als een aanbieding/SKU is gestart in de Azure-Portal, u niet wijzigen de velden hieronder:
 
 * **Aanbieding-id:** [-virtuele Machines portal publiceren > -> uw aanbieding VM-installatiekopieën -> tabblad-id bieden >]
 * **SKU-id:** [-virtuele Machines portal publiceren > -> uw aanbieding -> Selecteer SKU's tabblad -> een SKU toevoegen]
 * **Publisher Namespace:** [portal publiceren -> virtuele Machines-overzicht tabblad-Vertel ons over uw bedrijf (vinden onder 'Stap 2 registreren van uw bedrijf') -> > > Publisher Namespace-Namespace >]
 
-Voor virtuele Machine biedt, zodra Hallo aanbieding/SKU wordt vermeld in hello Azure Marketplace, wijzigen u niet Hallo velden hieronder:
+Voor de virtuele Machine biedt, zodra de aanbieding/SKU wordt vermeld in Azure Marketplace, wijzigen u niet de velden hieronder:
 
 * **Aanbieding-id:** [-virtuele Machines portal publiceren > -> uw aanbieding -> Selecteer VM-installatiekopieën-bieden id >]
 * **SKU-id:** [-virtuele Machines portal publiceren > -> uw aanbieding -> Selecteer SKU's tabblad -> een SKU toevoegen]
@@ -118,22 +118,22 @@ Voor virtuele Machine biedt, zodra Hallo aanbieding/SKU wordt vermeld in hello A
 * **Wijziging van de vermelde SKU(s) prijzen**
 * **Facturering Model wijziging van de vermelde SKU(s)**
 * **Verwijderen van de gebieden van de vermelde SKU(s) facturering**
-* **Veranderende Hallo gegevens telling van de vermelde SKU(s) schijf**
+* **Het aantal gegevensschijven van de vermelde SKU(s) wijzigen**
 
 ## <a name="step-2-set-your-prices"></a>Stap 2: Uw prijzen instellen
 ### <a name="pricing-models"></a>Prijsmodellen
 | Prijsmodel | Beschrijving |
 | --- | --- |
 | Basis |Betaald platte maandelijks tarief op moment van aanschaf; bijvoorbeeld $10/ maand. |
-| Verbruik (ook Gebruik, meter) |Betalen per gebruik, die wordt gedefinieerd door de uitgever Hallo van Hallo aanbieding. Overschrijding kan niet worden gedefinieerd per seat per gebruiker, enz., omdat er geen concept van een fractie van een gebruiker of de mogelijkheid toodo proration. Gebruik wordt gerapporteerd door de partner Hallo op uurbasis. Klant betaalt op Hallo van maandelijkse factureringscyclus als tegengestelde tooup voorzijde zoals maandelijks plannen. |
+| Verbruik (ook Gebruik, meter) |Betalen per gebruik, die wordt gedefinieerd door de uitgever van de aanbieding. Overschrijding kan niet worden gedefinieerd per seat per gebruiker, enz., omdat er geen concept van een fractie van een gebruiker of de mogelijkheid om u te doen proration. Gebruik wordt gerapporteerd door de partner op uurbasis. Klant betaalt op de van maandelijkse factureringscyclus, in plaats van vooraf like maandelijks plannen. |
 | Gratis proefversie |Klant kan gratis gebruiken, voor een beperkte periode, en klik daarna betaalt normale tarieven. |
 | Gratis laag |Plan is altijd gratis. |
-| Migratie (ook conversie van of upgrade/downgrade) van plan |Concept van een gebruiker verplaatsen van hun huidige plan tooanother acceptabele plan; gedefinieerd door de partner. |
+| Migratie (ook conversie van of upgrade/downgrade) van plan |Concept van een gebruiker van hun huidige plan verplaatst naar een ander acceptabele plan; gedefinieerd door de partner. |
 
 **Prijzen van modellen die beschikbaar zijn op aanbiedingtype**
 
 > [!IMPORTANT]
-> Beschikbaarheid van bepaalde prijscategorie modellen verschillen per type abonnementsaanbod. Zie de onderstaande tabel voor Hallo.
+> Beschikbaarheid van bepaalde prijscategorie modellen verschillen per type abonnementsaanbod. Zie de onderstaande tabel.
 > 
 > 
 
@@ -143,141 +143,141 @@ Voor virtuele Machine biedt, zodra Hallo aanbieding/SKU wordt vermeld in hello A
 | Developer-service |Ja |Ja |Ja |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. Instellen van uw VM-prijzen
-Voor virtuele machines, hebben we momenteel Hallo volgende **3 soorten factureringsmodellen:**
+Voor virtuele machines, hebben we momenteel de volgende **3 soorten factureringsmodellen:**
 
-* **HOURLY:** klanten ophalen in rekening gebracht op basis van op basis van ingesteld door Hallo uitgevers op de VM-grootten Hallo Hallo-tarieven per uur. In geval van **per uur facturering** model Hallo SKU's, Hallo totale prijs worden Hallo optelling van Hallo software kosten in rekening gebracht door Hallo uitgever en Hallo infrastructuurkosten in rekening gebracht door Microsoft. De totale kosten worden weergegeven toohello klant als een prijs per uur en een maandelijkse wanneer ze Hallo aankoop overweegt (Zie onderstaande schermafbeelding voor Hallo). **Publisher ontvangt 80% van Hallo software kosten in rekening gebracht door hen.** Daarom moet u ervoor Hallo berekening dienovereenkomstig voordat u de prijzen voor de SKU's.
+* **HOURLY:** klanten ophalen in rekening gebracht op basis van op basis van de ingesteld door de uitgevers op de VM-grootten tarieven per uur. In geval van **per uur facturering** model van de SKU's, de totale prijs worden de som van de software-kosten in rekening gebracht door de uitgever en de infrastructuurkosten in rekening gebracht door Microsoft. De totale kosten worden weergegeven aan de klant als een prijs per uur en een maandelijkse wanneer ze de aankoop overweegt (Zie de onderstaande schermafbeelding). **Publisher ontvangt 80% van de software-kosten in rekening gebracht door hen.** Maak daarom prijzen voor de berekening dienovereenkomstig voordat instellen voor uw SKU's maken.
   
     ![tekenen](media/marketplace-publishing-push-to-staging/img2.1-01.png)
-* **Gratis proefversie:** dit is een andere versie van elk uur Hallo-model. Hier Hallo klant niet ophalen in rekening gebracht voor de kosten van de software voor Hallo eerste 30 days(Free) nadat Hallo VM is geïmplementeerd. Na 30days ze ophalen in rekening gebracht per uur op basis van een op basis van Hallo tarieven ingesteld door Hallo uitgevers in per uur Hallo-model.
-* **Bring-Your-eigenaar-License (BYOL):** Hallo uitgevers beheren Hallo-licentieverlening van Hallo software die wordt uitgevoerd op Hallo VM.
+* **Gratis proefversie:** dit is een andere versie van het model per uur. Hier de klant niet ophalen in rekening gebracht voor de kosten van de software voor de eerste 30 days(Free) nadat de virtuele machine is geïmplementeerd. Na 30days ze ophalen in rekening gebracht per uur op basis van een op basis van de tarieven ingesteld door de uitgevers in het model per uur.
+* **Bring-Your-eigenaar-License (BYOL):** de uitgevers beheren van de licenties van de software op de virtuele machine wordt uitgevoerd.
 
-**Belangrijk:** nadat Hallo aanbieding/SKU wordt vermeld in hello Azure Marketplace, u Hallo velden hieronder niet wijzigen.
+**Belangrijk:** zodra de aanbieding/SKU wordt vermeld in Azure Marketplace, u kunt de onderstaande velden niet wijzigen.
 
 * **Wijziging van de vermelde SKU(s) prijzen**
 * **Facturering Model wijziging van de vermelde SKU(s)**
 * **Verwijderen van de gebieden van de vermelde SKU(s) facturering**
-* **Veranderende Hallo gegevens telling van de vermelde SKU(s) schijf**
+* **Het aantal gegevensschijven van de vermelde SKU(s) wijzigen**
 * **Aanbieding-id:** [-virtuele Machines portal publiceren > -> uw aanbieding -> Selecteer VM-installatiekopieën-bieden id >]
 * **SKU-id:** [-virtuele Machines portal publiceren > -> uw aanbieding -> Selecteer SKU's tabblad -> een SKU toevoegen]
 * **Publisher Namespace:** [-virtuele Machines portal publiceren >-tabblad -> overzicht > Vertel ons over uw bedrijf (gevonden onder stap 2 registreren) Publisher Namespace-Namespace >]
 * **Poorten:** [-virtuele Machines portal publiceren > -> uw aanbieding VM-installatiekopieën -> tabblad-poorten openen >]
 
-### <a name="sell-to-countries-of-hello-sku"></a>Landen 'Verkopen naar' Hallo SKU
-U moet toocarefully overwegen waar u uw SKU's beschikbaar maken. Sommige landen zijn geclassificeerd als 'Microsoft-opdracht' en anderen die zijn geclassificeerd als 'ISV-opdracht'.
+### <a name="sell-to-countries-of-the-sku"></a>Landen "Verkopen to" van de SKU
+Zo moet u zorgvuldig overwegen waar u uw SKU's beschikbaar maken. Sommige landen zijn geclassificeerd als 'Microsoft-opdracht' en anderen die zijn geclassificeerd als 'ISV-opdracht'.
 
-* In 'Microsoft-opdracht' landen Microsoft verzamelt belasting van klanten en betaalt (mandaten) belastingen toohello government.
-* Partners zijn verantwoordelijk voor het verzamelen van belastingen klanten en betaalt belastingen toohello government in 'ISV hetzij' landen. Als u toosell in landen 'ISV hetzij' kiest, moet u Hallo mogelijkheid toocalculate hebben en betalen in Hallo landen die u selecteert.
+* In 'Microsoft-opdracht' landen Microsoft verzamelt belasting van klanten en betaalt belastingen (mandaten) bij de overheid.
+* Partners zijn verantwoordelijk voor het verzamelen van klanten belastingen en belastingen betalen van de overheid in 'ISV hetzij' landen. Als u kiest in 'ISV hetzij' landen verkopen, moet u hebt de mogelijkheid om te berekenen en betalen in landen die u selecteert.
 
 > [!NOTE]
-> De SKU is alleen beschikbaar in Hallo landen tenzij u de prijscategorie in Hallo [portal publiceren](https://publish.windowsazure.com). Richtlijnen tooget set Hallo prijzen van elk uur en BYOL-SKU's worden hieronder gegeven.
+> De SKU is alleen beschikbaar in de landen tenzij u de prijscategorie instellen in de [portal publiceren](https://publish.windowsazure.com). Hieronder volgt richtlijnen voor de prijzen van elk uur en BYOL-SKU's worden ingesteld.
 > 
 > 
 
-### <a name="211-how-toosetup-hourly-pricing-model-for-a-sku"></a>2.1.1 hoe toosetup model per uur voor een SKU-prijzen
-Stappen Hallo toosetup per uur prijzen model voor een SKU hieronder:
+### <a name="211-how-to-setup-hourly-pricing-model-for-a-sku"></a>2.1.1 het instellen van elk uur prijsmodel voor een SKU
+Volg de stappen die hieronder worden genoemd Setup per uur prijzen model voor een SKU:
 
-1. Aanmelding toohello [portal publiceren](https://publish.windowsazure.com).
-2. Navigeer toohello **virtuele MACHINES** tabblad en selecteer uw aanbieding.
-3. Klik op Hallo Hallo linkerkant side menu **SKU's** tabblad.
-4. Zorg ervoor dat Hallo die SKU is gemarkeerd als 'Per uur facturering Model'. Als dat niet zo is, klikt u op Hallo **bewerken** knop toorevert Hallo facturering model. Een venster wordt geopend. Schakel het selectievakje Hallo selectievakje 'facturering en licenties gebeurt extern van Azure (aka Bring Your Own License)' en Hallo wijzigingen opslaan.
-5. Als u tooenable gratis proefversie voor de eerste 30days Hallo van SKU-implementatie wilt, selecteert u vervolgens Hallo optie 'Één maand' voor Hallo vraag 'Is een gratis proefversie beschikbaar?' Selecteer anders Hallo optie 'No proefversie'. Nu stappen Hallo hieronder genoemd.
-6. Klik op Hallo Hallo linkerkant side menu **prijzen** tabblad.
+1. Meld u aan bij de [portal publiceren](https://publish.windowsazure.com).
+2. Navigeer naar de **virtuele MACHINES** tabblad en selecteer uw aanbieding.
+3. Klik in het menu links naast de **SKU's** tabblad.
+4. Zorg ervoor dat de SKU is gemarkeerd als 'Per uur facturering Model'. Als dat niet zo is, klikt u op de **bewerken** knop om het facturering model terug te zetten. Een venster wordt geopend. Schakel het selectievakje uit, facturering en licenties gebeurt extern van Azure (aka Bring Your Own License)' en de wijzigingen opslaan.
+5. Als u inschakelen gratis proefversie voor de eerste 30days van SKU-implementatie wilt, selecteert u vervolgens de optie 'Één maand' voor de vraag 'Is een gratis proefversie beschikbaar?' Anders selecteert u de optie 'No proefversie'. Nu de stappen hieronder genoemd.
+6. Klik in het menu links naast de **prijzen** tabblad.
 7. Selecteer uw base regio.
    
    ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.1_07.png)
-8. Hallo prijzen voor alle kernen ingesteld. **U moet prijs opgeven voor alle Hallo kernen van een SKU, zelfs als dit niet wordt ondersteund door uw SKU.**
+8. Stel de prijzen voor alle kernen. **U moet prijs opgeven voor de kernen van een SKU, zelfs als dit niet wordt ondersteund door uw SKU.**
    
     ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)
-9. Hallo prijzen voor Hallo handmatig andere regio's instellen of kunt u Hallo AUTOPRICE wizard tooset Hallo prijzen van andere regio's op basis van Hallo base regio. toouse hello AUTOPRICE wizard Klik op de knop Hallo **AUTOPRICE andere markten gebaseerd op prijzen IN de Verenigde Staten.** **Opmerking:** Hallo knoplabel kan afwijken, afhankelijk van het Hallo-regio die u hebt geselecteerd. Aangezien we Verenigde Staten hebt geselecteerd tijdens het maken van dit document, dus Hallo knop heet als 'Automatische prijs andere markten op basis van de prijzen in de Verenigde Staten' in hello onderstaande schermafbeelding.
+9. De prijzen voor andere regio's handmatig instellen of u kunt de wizard AUTOPRICE gebruiken om in te stellen de prijzen van andere regio's op basis van de basis regio. Gebruik de wizard AUTOPRICE Klik op de knop **AUTOPRICE andere markten gebaseerd op prijzen IN de Verenigde Staten.** **Opmerking:** van de knop label kan afwijken, afhankelijk van de regio die u hebt geselecteerd. Aangezien we Verenigde Staten hebt geselecteerd tijdens het maken van dit document, dus de knop wordt aangeduid als 'Automatische prijs andere markten op basis van de prijzen in de Verenigde Staten' in de onderstaande schermafbeelding.
    
    ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.1_09.png)
-10. Hallo automatisch prijs wizard wordt geopend. de eerste pagina Hallo weergeven Hallo selectie voor base markt De sectie maken en toohello volgende pagina op Hallo '-' > knop verplaatsen.
+10. De wizard automatisch prijs wordt geopend. De eerste pagina wordt weergegeven voor de selectie voor base markt. Controleer de sectie en verplaatsen naar de volgende pagina door op de knop '-' > te klikken.
     
     ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.1_10.png)
-11. Optie voor het selecteren van Hallo kernen en abonnementen wordt op Hallo pagina 2 weergegeven. Hallo gewenst plannen en klik op de knop-' >'. Klik op Hallo **wisselknop alle** knop tooselect alle Hallo **Service-plannen** en **Meters** of kunt u de selectievakjes Hallo handmatig controleren. **U moet prijs opgeven voor alle Hallo kernen van een SKU, zelfs als dit niet wordt ondersteund door uw SKU.** Zorg daarom dat alle Hallo core grootten zijn geselecteerd.
+11. Optie voor het selecteren van de kernen en plannen wordt weergegeven op de pagina 2. Selecteer de gewenste plannen en klik op de knop-' >'. Klik op de **wisselknop alle** knop om alles te selecteren de **Service-plannen** en **Meters** of kunt u de selectievakjes handmatig controleren. **U moet prijs opgeven voor de kernen van een SKU, zelfs als dit niet wordt ondersteund door uw SKU.** Zorg daarom dat alle core-grootten zijn geselecteerd.
     
     ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
-12. Pagina 3 geeft Hallo markten/regio's. Klik op Hallo **wisselknop alle** knop tooselect alle regio's of handmatig controleren Hallo vakken voor de regio. Klik op Hallo '->' knop toomove toohello volgende pagina. **Opmerking:** Microsoft btw overschreven landen worden aangeduid met een huis zoals symbool. Raadpleeg de sectie 'Verkopen naar' landen toohello Hallo SKU van deze pagina voor meer informatie.
+12. Pagina 3 geeft de markten en regio's. Klik op de **wisselknop alle** knop alle regio's selecteren of handmatig Schakel de selectievakjes voor de regio. Klik op de knop '-' > verplaatst naar de volgende pagina. **Opmerking:** Microsoft btw overschreven landen worden aangeduid met een huis zoals symbool. Raadpleeg voor meer informatie de sectie 'Verkopen naar' landen van de SKU van deze pagina.
     
     ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
-13. Pagina 4 weergeven Hallo wisselkoersen Klik op Hallo knop toocomplete Hallo stappen hebt uitgevoerd.
+13. Pagina 4 wordt weergegeven de wisselkoersen. Klik op de knop Voltooien om de stappen te voltooien.
 
-### <a name="212-how-toosetup-byol-pricing-model-for-a-sku"></a>2.1.2 hoe toosetup BYOL prijsmodel voor een SKU
-Stappen Hallo toosetup BYOL prijsmodel voor een SKU hieronder:
+### <a name="212-how-to-setup-byol-pricing-model-for-a-sku"></a>2.1.2 hoe setup BYOL prijsmodel voor een SKU
+Volg de stappen voor het instellen van BYOL-model voor een SKU prijzen hieronder:
 
-1. Aanmelding toohello [portal publiceren](https://publish.windowsazure.com).
-2. Navigeer toohello **virtuele MACHINES** tabblad en selecteer uw aanbieding.
-3. Klik op Hallo Hallo linkerkant side menu **SKU's** tabblad.
-4. Zorg ervoor dat Hallo die SKU is gemarkeerd als 'Bring your own license SKU'. Als dat niet het geval is, klikt u op Hallo bewerken knop toorevert Hallo facturering model. Een venster wordt geopend. Selectievakje Hallo 'facturering en licenties gebeurt extern van Azure (aka Bring Your Own License)' en Hallo wijzigingen opslaan.
+1. Meld u aan bij de [portal publiceren](https://publish.windowsazure.com).
+2. Navigeer naar de **virtuele MACHINES** tabblad en selecteer uw aanbieding.
+3. Klik in het menu links naast de **SKU's** tabblad.
+4. Zorg ervoor dat de SKU is gemarkeerd als 'Bring your own license SKU'. Als dat niet het geval is, klikt u op de knop bewerken om het facturering model terug te zetten. Een venster wordt geopend. Schakel het selectievakje 'facturering en licenties gebeurt extern van Azure (aka Bring Your Own License)' en de wijzigingen opslaan.
    
    ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.2_04.png)
-5. Klik op Hallo Hallo linkerkant side menu **prijzen** tabblad.
-6. U kunt uw base regio selecteren en SKU die beschikbaar zijn in de regio Hallo Hallo door het selectievakje Hallo tegen Hallo SKU onder sectie Hallo EXTERNALLY-LICENSED (BYOL) SKU beschikbaarheid (Zie onderstaande schermafbeelding voor Hallo).
+5. Klik in het menu links naast de **prijzen** tabblad.
+6. Selecteer de base regio en de SKU beschikbaar in de regio door het selectievakje voor de SKU onder de sectie EXTERNALLY-LICENSED (BYOL) SKU beschikbaarheid (Zie de onderstaande schermafbeelding).
    
    ![tekenen](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)
-7. Hallo SKU beschikbaar maken in Hallo andere regio's handmatig of de wizard kunt u Hallo AUTOPRICE voor dit doel. Raadpleeg toohello punten #9 te #13 (omdat daarin wordt uitgelegd Hallo gebruik van Hallo AUTOPRICE wizard) in de sectie Hallo **' 2.1.1 hoe toosetup per uur prijzen model voor een SKU '** aan deze pagina.
+7. De SKU beschikbaar in andere regio's handmatig aanbrengen of kunt u de wizard AUTOPRICE voor dit doel. Raadpleeg de punten #9 tot #13 (omdat daarin wordt uitgelegd in het gebruik van de wizard AUTOPRICE) in de sectie **' 2.1.1 het instellen van elk uur prijzen model voor een SKU '** aan deze pagina.
 
 ### <a name="22-set-your-developer-service-prices"></a>2.2. Instellen van uw service Developer prijzen
-Plannen kunnen een combinatie van base + verbruik, waarbij base Hallo maandbedrag en overschrijding is Hallo betalen per gebruik prijs zijn. (Zie hieronder voor meer informatie.)
+Plannen kunnen een combinatie van base + verbruik, waarbij base maandelijks tarief en overschrijding is de prijs betalen per gebruik zijn. (Zie hieronder voor meer informatie.)
 
 **Voorbeeld:** Contoso developer serviceaanbieding
 
 | Plannen | Prijs | Bevat | Migratiepad |
 | --- | --- | --- | --- |
-| Gratis |$0/ maand |Basic-functionaliteit. |Tooany kunt andere plan migreren |
-| Brons |$10/ maand |Basic-functionaliteit en een quotum van 1.000 van functie X. |Kunt migreren tooBronze Plus, Zilver en goud plannen |
-| Brons Plus |Gratis proefperiode: $0/ maand + $0/meter01 |Basic-functionaliteit en een quotum van 10.000 van functie X.  Zodra het quotum voor functie X wordt gebruikt, kunt Hallo klant betalen per gebruik via meter01. |TooSilver Plus en Gold kunt plannen migreren |
-| Brons Plus |Periode betaald (ook gratis proefversie is verlopen): $10/maand + $ 0,05/meter01 |Basic-functionaliteit en een quotum van 10.000 van functie X.  Zodra het quotum voor functie X wordt gebruikt, kunt Hallo klant betalen per gebruik via meter01. |TooSilver Plus en Gold kunt plannen migreren |
-| Zilver |$ 0,15/meter01 |Hallo klant kunt betalen per gebruik via meter01 dat voor de functie X. |TooBronze en goud plannen kunt migreren |
-| Zilver Plus |$20/ maand + $ 0,15/meter01 + $ 0,01/meter02 |Basic-functionaliteit en een quotum van 10.000 van functie X en 100 liggen van Y-functie.  Zodra het Hallo functie X quotum wordt gebruikt, kunt Hallo klant betalen per gebruik via meter01.  Zodra het Hallo functie Y quotum wordt gebruikt, kunt Hallo klant betalen per gebruik via meter02. |TooBronze Plus en Gold kunt plannen migreren |
-| Goud |$ 1.000/maand |Quotum van 10.000 van functie X, 1000 van functie Y, en van functie Z onbeperkt. |Tooall plannen, behalve gratis kunt migreren |
+| Gratis |$0/ maand |Basic-functionaliteit. |Kunt migreren naar een andere plannen |
+| Brons |$10/ maand |Basic-functionaliteit en een quotum van 1.000 van functie X. |Kunt migreren naar Brons Plus, Zilver en goud plannen |
+| Brons Plus |Gratis proefperiode: $0/ maand + $0/meter01 |Basic-functionaliteit en een quotum van 10.000 van functie X.  Zodra het quotum voor functie X wordt gebruikt, kan de klant betalen per gebruik via meter01. |Kunt migreren naar zilver Plus en goud plannen |
+| Brons Plus |Periode betaald (ook gratis proefversie is verlopen): $10/maand + $ 0,05/meter01 |Basic-functionaliteit en een quotum van 10.000 van functie X.  Zodra het quotum voor functie X wordt gebruikt, kan de klant betalen per gebruik via meter01. |Kunt migreren naar zilver Plus en goud plannen |
+| Zilver |$ 0,15/meter01 |De klant kunt betalen per gebruik via meter01 dat voor de functie X. |Kunt migreren naar brons en goud plannen |
+| Zilver Plus |$20/ maand + $ 0,15/meter01 + $ 0,01/meter02 |Basic-functionaliteit en een quotum van 10.000 van functie X en 100 liggen van Y-functie.  Zodra het quotum voor functie X wordt gebruikt, moet de klant kunt betalen per gebruik via meter01.  Zodra het quotum voor functie Y wordt gebruikt, moet de klant kunt betalen per gebruik via meter02. |Kunt migreren naar Brons Plus en goud plannen |
+| Goud |$ 1.000/maand |Quotum van 10.000 van functie X, 1000 van functie Y, en van functie Z onbeperkt. |Alle plannen, behalve gratis kunt migreren |
 
 ## <a name="step-3-provide-support-information"></a>Stap 3: Ondersteuning bieden informatie
-Hallo-contactgegevens worden voor interne communicatie tussen Hallo partner en Microsoft alleen gebruikt. Hallo ondersteunings-URL is beschikbaar toohello end klanten.
+De contactgegevens worden gebruikt voor interne communicatie tussen de partner en Microsoft alleen. De URL voor ondersteuning is beschikbaar voor de end-klanten.
 
-1. Ga toohello **ondersteuning** kop op Hallo linkerkant van Hallo publishing portal.
+1. Ga naar de **ondersteuning** kop aan de linkerkant van de portal voor publiceren.
 2. Voer gegevens in onder **technische contactpersoon**.
 3. Voer gegevens in onder **Customer Support**. Als u alleen e-mailondersteuning opgeeft, wordt een dummy telefoonnummer opgeven en uw opgegeven e-mailadres wordt gebruikt in plaats daarvan.
-4. Voer Hallo ondersteunings-URL.
+4. Voer de URL voor ondersteuning.
 
 ## <a name="step-4-choose-azure-marketplace-categories"></a>Stap 4: Azure Marketplace categorieën kiezen
-Hallo **categorieën** tabblad bevat een matrix van selecties. Uw aanbieding onder deze mogelijk vallen en u toofive categorieën kan selecteren.
+De **categorieën** tabblad bevat een matrix van selecties. Uw aanbieding mogelijk vallen onder deze, en kunt u maximaal vijf categorieën selecteren.
 
 ## <a name="how-your-marketing-will-appear"></a>Hoe uw marketing wordt weergegeven
-Hieronder vindt u een gedetailleerde weergave van het gebruik van informatie bieden Hallo op Hallo [Azure Marketplace-website](https://azure.microsoft.com/marketplace/) en in Hallo [Azure-portal](https://portal.azure.com).
+Hieronder vindt u een gedetailleerde weergave van hoe de marketinggegevens aanbieding wordt gebruikt op de [Azure Marketplace-website](https://azure.microsoft.com/marketplace/) en in de [Azure-portal](https://portal.azure.com).
 
 ### <a name="azure-marketplace-website"></a>Azure Marketplace-website
 ![tekenen](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
 
 ![tekenen](media/marketplace-publishing-push-to-staging/acom-catalog-02.png)
 
-*Lijst van aanbiedingen op Hallo Azure Marketplace-website*
+*Overzicht van aanbiedingen op de website van de Azure Marketplace*
 
 ![tekenen](media/marketplace-publishing-push-to-staging/acom-listing-details-01.png)
 
-*Details van de beschrijving op Hallo Azure Marketplace-website van de aanbieding*
+*Details op de website van de Azure Marketplace beschrijving van de aanbieding*
 
 ![tekenen](media/marketplace-publishing-push-to-staging/acom-listing-details-02.png)
 
-*Beschrijving op Hallo Azure Marketplace website prijzen aanbieding*
+*Beschrijving prijsinformatie op de website van de Azure Marketplace aanbieding*
 
 ### <a name="azure-portal"></a>Azure Portal
 ![tekenen](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
-*Overzicht van aanbiedingen in hello Azure Portal*
+*Overzicht van aanbiedingen in de Azure Portal*
 
 ![tekenen](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
 
-*Beschrijving van aanbieding in hello Azure-portal*
+*Beschrijving van aanbieding in de Azure portal*
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat uw Marketplace-inhoud is geladen, gaan we verder gaan met het testen van uw aanbieding in fasering. U moet echter Hallo juiste aanbiedingtype selecteren in Hallo onderstaande, zoals stappen per type abonnementsaanbod verschillen.
+Nu dat uw Marketplace-inhoud is geladen, gaan we verder gaan met het testen van uw aanbieding in fasering. U moet echter het juiste aanbiedingstype selecteren uit de lijst hieronder, zoals stappen per type abonnementsaanbod verschillen.
 
 * [Testen van uw VM-aanbieding in fasering](marketplace-publishing-vm-image-test-in-staging.md)
 * [Testen van uw oplossing sjabloon aanbieding in fasering](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## <a name="see-also"></a>Zie ook
-* [Aan de slag: hoe toopublish een aanbieding toohello Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Aan de slag: hoe een aanbieding publiceren in Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
 [img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg

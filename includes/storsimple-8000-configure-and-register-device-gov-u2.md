@@ -1,24 +1,24 @@
 <!--author=SharS last changed: 06/22/2016-->
 
-### <a name="tooconfigure-and-register-hello-device"></a>tooconfigure en registreer Hallo-apparaat
-1. Toegang tot Hallo Windows PowerShell-interface op de seriële console van het StorSimple-apparaat. Zie [PuTTY gebruiken tooconnect toohello de seriële console apparaat](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console) voor instructies. **Ervoor toofollow Hallo procedure exact worden of u zich niet kunnen tooaccess Hallo-console.**
-2. Hallo-sessie die wordt geopend, klikt u op **Enter** één keer tooget vanaf de opdrachtprompt.
-3. U zult na vragen aan gebruiker toochoose Hallo taal dat u tooset voor uw apparaat dat wilt. Hallo taal op te geven en druk vervolgens op **Enter**.
+### <a name="to-configure-and-register-the-device"></a>Het apparaat configureren en registreren
+1. Open de Windows PowerShell-interface op de seriële console van het StorSimple-apparaat. Zie [PuTTY gebruiken om verbinding te maken met de seriële console van het apparaat](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console) voor instructies. **Volg de procedure exact, omdat u anders geen toegang hebt tot de console.**
+2. Druk in de geopende sessie eenmaal op **Enter** om een opdrachtprompt weer te geven.
+3. U wordt gevraagd de taal te kiezen die u voor uw apparaat wilt instellen. Geef de taal op en druk op **Enter**.
    
     ![Apparaat 1 configureren en registreren met StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
-4. Kies optie 1 toolog op met volledige toegang in Hallo seriële consolemenu wordt weergegeven.
+4. Kies in het weergegeven menu van de seriële console optie 1 om u aan te melden met volledige toegang.
    
     ![Apparaat 2 registreren met StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice2-gov-include.png)
-5. Volgende stappen tooconfigure Hallo minimale vereiste netwerkinstellingen voor uw apparaat Hallo uitvoeren.
+5. Voer de volgende stappen uit voor het configureren van de minimale vereiste netwerkinstellingen voor uw apparaat.
    
    > [!IMPORTANT]
-   > Deze configuratiestappen moeten toobe uitgevoerd op de actieve controller Hallo Hallo-apparaat. menu van de seriële console Hallo geeft Hallo controllerstatus in de banner het Hallo-bericht. Als u geen verbinding maken met actieve controller toohello, verbreken en maak verbinding toohello actieve controller.
+   > Deze configuratiestappen moeten worden uitgevoerd op de actieve controller van het apparaat. In het menu van de seriële console wordt de controllerstatus in het bannerbericht aangegeven. Als u geen verbinding maken met de actieve controller, verbreken en maak verbinding met de actieve controller.
    
-   1. Typ uw wachtwoord bij de opdrachtprompt Hallo. Hallo standaardapparaatwachtwoord is **Wachtwoord1**.
-   2. Type Hallo volgende opdracht:
+   1. Typ uw wachtwoord bij de opdrachtprompt. Het standaardapparaatwachtwoord is **Password1**.
+   2. Typ de volgende opdracht:
       
         `Invoke-HcsSetupWizard`
-   3. Een setup-wizard verschijnt toohelp u Hallo netwerkinstellingen voor Hallo apparaat configureren. Geef Hallo volgende informatie:
+   3. Er wordt een instellingenwizard weergegeven om u te helpen bij het configureren van de netwerkinstellingen voor het apparaat. Geef de volgende gegevens:
       
       * IP-adres voor DATA 0-netwerkinterface
       * Subnetmasker
@@ -27,52 +27,52 @@
       * IP-adres voor de primaire NTP-server
       
       > [!NOTE]
-      > Mogelijk hebt u toowait voor een paar minuten voordat het Hallo-subnetmasker en DNS-instellingen toobe toegepast.
+      > U moet wachten op een paar minuten voor het subnetmasker en DNS-instellingen worden toegepast.
     
    4. Configureer desgewenst uw webproxyserver.
       
       > [!IMPORTANT]
-      > Hoewel webproxyconfiguratie optioneel is, worden op de hoogte gebracht als u een webproxy gebruikt, u alleen deze hier configureren kunt. Voor meer informatie gaat te[webproxy voor uw apparaat configureren](../articles/storsimple/storsimple-configure-web-proxy.md).
+      > Hoewel webproxyconfiguratie optioneel is, worden op de hoogte gebracht als u een webproxy gebruikt, u alleen deze hier configureren kunt. Zie [Configure web proxy for your device](../articles/storsimple/storsimple-configure-web-proxy.md) (Webproxy voor uw apparaat configureren) voor meer informatie.
      
-6. Druk op Ctrl + C tooexit Hallo-installatiewizard.
-8. Hallo cmdlet toopoint Hallo apparaat toohello Microsoft Azure Government portal volgen (omdat deze toohello openbare klassieke Azure-portal standaard verwijst) worden uitgevoerd. Dit wordt opnieuw opgestart beide domeincontrollers. Het is raadzaam dat u twee PuTTY sessies toosimultaneously verbinding tooboth domeincontrollers, zodat u kunt zien als elke domeincontroller opnieuw wordt gestart.
+6. Druk op Ctrl + C om de wizard setup af te sluiten.
+8. Voer de volgende cmdlet als het apparaat naar de portal voor Microsoft Azure Government (omdat deze naar de openbare klassieke Azure portal standaard verwijst). Dit wordt opnieuw opgestart beide domeincontrollers. Het is raadzaam dat u twee PuTTY sessies tegelijk verbinding maken met beide domeincontrollers zodat u kunt zien als elke domeincontroller opnieuw wordt gestart.
    
     `Set-CloudPlatform -AzureGovt_US`
    
-   Hier ziet u een bevestigingsbericht. Accepteer de standaardinstelling hello (**Y**).
-9. Hallo na de installatie van cmdlet tooresume uitvoeren:
+   Hier ziet u een bevestigingsbericht. Accepteer de standaardinstelling (**Y**).
+9. Voer de volgende cmdlet als u wilt doorgaan met setup:
    
     `Invoke-HcsSetupWizard`
    
     ![De wizard setup hervatten](./media/storsimple-configure-and-register-device-gov-u2/HCS_ResumeSetup-gov-include.png)
    
-10. Hallo-netwerkinstellingen accepteren. U ziet een validatiebericht nadat u elke instelling hebt geaccepteerd.
-11. Uit veiligheidsoverwegingen wachtwoord apparaatbeheerder Hallo na Hallo eerste sessie verlopen en moet u toochange deze nu. Als daarom wordt gevraagd, geeft u een beheerderswachtwoord voor het apparaat op. Een geldig beheerderswachtwoord voor een apparaat moet 8 tot 15 tekens bevatten. Hallo wachtwoord moet bevatten drie van de volgende Hallo: kleine letters, hoofdletters, numerieke en speciale tekens.
+10. De netwerkinstellingen accepteren. U ziet een validatiebericht nadat u elke instelling hebt geaccepteerd.
+11. Uit veiligheidsoverwegingen is het beheerderswachtwoord van het apparaat na de eerste sessie verlopen en moet u het nu wijzigen. Als daarom wordt gevraagd, geeft u een beheerderswachtwoord voor het apparaat op. Een geldig beheerderswachtwoord voor een apparaat moet 8 tot 15 tekens bevatten. Het wachtwoord moet drie van de volgende elementen bevatten: kleine letters, hoofdletters, cijfers en speciale tekens.
     
     <br/>![Apparaat 5 registreren met StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. laatste stap in de wizard setup Hallo Hallo registreert uw apparaat bij Hallo StorSimple-apparaat Manager-service. Hiervoor u serviceregistratiesleutel die u hebt verkregen in moet Hallo [stap 2: Get Hallo serviceregistratiesleutel](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Nadat u de registratiesleutel Hallo opgeeft, moet u wellicht toowait 2-3 minuten voordat het Hallo-apparaat is geregistreerd.
+12. Bij de laatste stap in de instellingenwizard wordt uw apparaat geregistreerd met de StorSimple-apparaatbeheerfunctie. Hiervoor moet u de serviceregistratiesleutel die u hebt verkregen in [stap 2: de serviceregistratiesleutel ophalen](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Nadat u de registratiesleutel hebt opgegeven, moet u mogelijk twee tot drie minuten wachten voordat het apparaat is geregistreerd.
     
     > [!NOTE]
-    > U drukt op Ctrl + C op een tijd tooexit Hallo setup-wizard. Als u alle Hallo netwerkinstellingen (IP-adres voor Data 0, subnetmasker en Gateway) hebt ingevoerd, wordt uw vermeldingen behouden blijft.
+    > U kunt op elk gewenst moment op Ctrl+C drukken om de instellingenwizard af te sluiten. Als u alle netwerkinstellingen (IP-adres voor Data 0, subnetmasker en gateway) hebt ingevoerd, blijven uw gegevens behouden.
     
     ![Voortgang van de StorSimple-registratie](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegistrationProgress-gov-include.png)
-13. Nadat het Hallo-apparaat is geregistreerd, weergegeven een gegevensversleutelingssleutel van Service. Kopieer deze sleutel en bewaar deze op een veilige plaats. **Deze sleutel is vereist bij het Hallo-service registratie sleutel tooregister extra apparaten Hello StorSimple-apparaat Manager-service.** Raadpleeg te[StorSimple security](../articles/storsimple/storsimple-8000-security.md) voor meer informatie over deze sleutel.
+13. Nadat het apparaat is geregistreerd, wordt er een gegevensversleutelingssleutel van de service weergegeven. Kopieer deze sleutel en bewaar deze op een veilige plaats. **Deze sleutel is vereist bij de serviceregistratiesleutel extra apparaten registreren bij de service Manager voor StorSimple-apparaat.** Zie [StorSimple security](../articles/storsimple/storsimple-8000-security.md) (StorSimple-beveiliging) voor meer informatie over deze sleutel.
     
     ![Apparaat 7 registreren met StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)
     > [!IMPORTANT]
-    > toocopy hello tekst uit Hallo seriële console-venster, selecteert u de tekst hello. U moet kunnen toopaste in Hallo Klembord of een teksteditor.
+    > Kopieer de tekst uit het venster van de seriële console gewoon door de tekst te selecteren. U kunt de tekst vervolgens op het klembord of in een teksteditor plakken.
     > 
-    > Gebruik geen **Ctrl + c drukken** toocopy Hallo service gegevensversleutelingssleutel. Met behulp van **Ctrl + c drukken** veroorzaken tooexit Hallo-installatiewizard. Als gevolg hiervan Hallo apparaat administrator-wachtwoord worden niet gewijzigd en Hallo apparaat toohello standaardwachtwoord wordt teruggezet.
+    > Gebruik geen **Ctrl + c drukken** kopiëren van de gegevensversleutelingssleutel van service. Met behulp van **Ctrl + c drukken** u de wizard setup wilt afsluiten. Als gevolg hiervan wordt het beheerderswachtwoord van het apparaat niet gewijzigd en wordt het standaardwachtwoord opnieuw ingesteld.
     
-14. Exit Hallo seriële console.
-15. Toohello Azure Government Portal terug en Voer Hallo stappen te volgen:
+14. Sluit de seriële console af.
+15. Terug naar de overheid van de Azure Portal en voer de volgende stappen uit:
     
-    1. Ga tooyour Apparaatbeheer StorSimple-service.
-    2. Klik op **Apparaten**. Identificeren van de lijst met apparaten Hallo Hallo-apparaat dat u ddeploying bent. Controleer of dat het Hallo-apparaat verbinding heeft met toohello service door het opzoeken van Hallo status. Hallo Apparaatstatus moet **Online**.
+    1. Ga naar uw StorSimple-apparaatbeheerservice.
+    2. Klik op **Apparaten**. Identificeer het apparaat dat u ddeploying bent in de lijst met apparaten. Controleer of dat het apparaat verbinding heeft gemaakt met de service door het opzoeken van de status. Het apparaat moet de status **Online** hebben.
             
-        Als de apparaatstatus Hallo **Offline**, wacht een paar minuten voor Hallo apparaat toocome online.
+        Als de status van het apparaat **Offline** is, moet u een paar minuten wachten totdat het apparaat online is.
        
-        Als Hallo apparaat na een paar minuten nog steeds offline is, moet u ervoor dat uw firewallnetwerk is geconfigureerd zoals beschreven in toomake [netwerkvereisten voor uw StorSimple-apparaat](../articles/storsimple/storsimple-8000-system-requirements.md).
+        Als het apparaat na een paar minuten nog steeds offline is, moet u ervoor zorgen dat uw firewallnetwerk is geconfigureerd zoals wordt beschreven in [Netwerkvereisten voor uw StorSimple-apparaat](../articles/storsimple/storsimple-8000-system-requirements.md).
        
-        Controleer of poort 9354 open is voor uitgaande communicatie als dit wordt gebruikt door Hallo servicebus voor Apparaatbeheer van StorSimple-Service-naar-apparaat communicatie.
+        Controleer of poort 9354 open is voor uitgaande communicatie, omdat de servicebus deze poort gebruikt voor de communicatie van de StorSimple-apparaatbeheerfunctie naar het apparaat.
 

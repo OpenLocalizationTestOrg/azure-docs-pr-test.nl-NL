@@ -7,7 +7,7 @@
 ## [Een logische app maken](logic-apps-create-a-logic-app.md)
 ## [Sjablonen voor logische apps](logic-apps-use-logic-app-templates.md)
 ## [Logische apps maken met sjablonen](logic-apps-arm-provision.md)
-## [MABS apps toologic apps verplaatsen](logic-apps-move-from-mabs.md)
+## [MABS-apps verplaatsen naar logische apps](logic-apps-move-from-mabs.md)
 
 # Procedures
 ## Ontwikkelen
@@ -19,8 +19,19 @@
 ### [Berichten batchgewijs verwerken](logic-apps-batch-process-send-receive-messages.md)
 ### [Definities voor logische apps maken](logic-apps-author-definitions.md)
 ### [Aanroepen, triggeren of nesten van logische apps](logic-apps-http-endpoint.md)
-### [Aangepaste API's maken voor logische apps](logic-apps-create-api-app.md)
-### [Aangepaste API's voor logische apps aanroepen](logic-apps-custom-hosted-api.md)
+### Aangepaste connectors ontwikkelen
+#### [Overzicht van aangepaste connectors](custom-connector-overview.md)
+#### [Connectors maken van web-API's](custom-connector-build-web-api-app-tutorial.md)
+#### [Connectors beveiligen met Azure AD](custom-connector-azure-active-directory-authentication.md)
+#### [API's beschrijven met Postman](custom-connector-api-postman-collection.md)
+#### [OpenAPI voor aangepaste connectors uitbreiden](custom-connector-openapi-extensions.md)
+#### [De connector registreren](logic-apps-custom-connector-register.md)
+#### [De connector certificeren](custom-connector-submit-certification.md)
+#### [Veelgestelde vragen over aangepaste connectors](custom-connector-faq.md)
+### Aangepaste API's ontwikkelen
+#### [Aangepaste API's maken voor logische apps](logic-apps-create-api-app.md)
+#### [Beveiligd aanroepen van aangepaste API's](logic-apps-custom-api-authentication.md)
+#### [Aangepaste API's implementeren en aanroepen](logic-apps-custom-api-host-deploy-call.md)
 ### [Fouten en uitzonderingen verwerken](logic-apps-exception-handling.md)
 ### [Inhoudstypen verwerken](logic-apps-content-type.md)
 ### [Uw logische apps beveiligen](logic-apps-securing-a-logic-app.md)
@@ -32,6 +43,7 @@
 ### [Partners](logic-apps-enterprise-integration-partners.md)
 ### [Overeenkomsten](logic-apps-enterprise-integration-agreements.md)
 ### [B2B-verwerking](logic-apps-enterprise-integration-b2b.md)
+### [EDI-berichten verzenden als batch](logic-apps-scenario-edi-send-batch-messages.md)
 ### [XML-verwerking](logic-apps-enterprise-integration-xml.md)
 ### [Verwerking van platte bestanden](logic-apps-enterprise-integration-flatfile.md)
 ### [XML valideren](logic-apps-enterprise-integration-xml-validation.md)
@@ -46,7 +58,7 @@
 ### [EDIFACT-bedrijfsintegratie](logic-apps-enterprise-integration-edifact.md)
 ### [EDIFACT-codering](logic-apps-enterprise-integration-edifact-encode.md)
 ### [EDIFACT-decodering](logic-apps-enterprise-integration-edifact-decode.md)
-### [Hoe toohandle EDIFACT documenten met een segment UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
+### [EDIFACT-documenten met een UNH2.5-segment verwerken](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [X12-bedrijfsintegratie](logic-apps-enterprise-integration-x12.md)
 ### [X12-codering](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12-decodering](logic-apps-enterprise-integration-x12-decode.md)
@@ -54,7 +66,7 @@
 ### [Fouten en oplossingen](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Toegang tot on-premises gegevens
-### [Verbinding maken met tooon lokale gegevens](logic-apps-gateway-connection.md)
+### [Verbinding maken met on-premises gegevens](logic-apps-gateway-connection.md)
 ### [Gegevensgateway installeren](logic-apps-gateway-install.md)
 
 ## Automatiseren en implementeren
@@ -73,12 +85,11 @@
 #### [Volgschema voor X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Aangepaste volgschema's](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## Voorbeelden, scenario's en rondleidingen
-### [Overzicht](logic-apps-examples-and-scenarios.md)
+## [Voorbeelden, scenario's en stapsgewijze handleidingen](logic-apps-examples-and-scenarios.md)
 ### [Een serverloos sociale dashboard maken](logic-apps-scenario-social-serverless.md)
 ### [Logische apps aanroepen met Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Verwerking van fouten en uitzonderingen toevoegen](logic-apps-scenario-error-and-exception-handling.md)
-### [B2B-verwerking](logic-apps-enterprise-integration-b2b.md)
+### [B2B-verwerking](logic-apps-enterprise-integration-b2b.md) 
 
 ## Prijzen en facturering
 ### [Prijzen](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -98,7 +109,7 @@
 ## [Definitietaal van werkstroom](logic-apps-workflow-definition-language.md)
 ## [Werkstroomacties en -triggers](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
-## [PowerShell](/powershell/module/azurerm.logicapp)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Connectors: gedetailleerde onderwerpen
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Azure Blob Storage](../connectors/connectors-create-api-azureblobstorage.md)

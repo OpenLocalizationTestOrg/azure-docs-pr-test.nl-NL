@@ -1,6 +1,6 @@
 ---
-title: aaaUnderstand hello querytaal Azure IoT Hub | Microsoft Docs
-description: Handleiding voor ontwikkelaars - beschrijving van de SQL-achtige IoT Hub-querytaal Hallo gebruikt tooretrieve informatie over apparaat horende en taken van uw IoT-hub.
+title: Inzicht in de taal van de query Azure IoT Hub | Microsoft Docs
+description: Handleiding voor ontwikkelaars - beschrijving van de SQL-achtige IoT Hub-querytaal gebruikt voor het ophalen van informatie over apparaat horende taken uit uw IoT-hub.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/17
 ms.author: elioda
-ms.openlocfilehash: 01a7c8ffdf44c6c27b834739d02c8fef1dd3d3fd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a7650104eda58923558892f6f0f6666d16dbce28
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Referentie - querytaal IoT Hub voor apparaat horende, taken en het routeren van berichten
 
-IoT Hub biedt een krachtige SQL-achtige taal tooretrieve informatie met betrekking tot [apparaat horende] [ lnk-twins] en [taken][lnk-jobs], en [berichtroutering][lnk-devguide-messaging-routes]. Dit artikel biedt:
+IoT Hub biedt een krachtige SQL-achtige taal voor het ophalen van informatie met betrekking tot [apparaat horende] [ lnk-twins] en [taken][lnk-jobs], en [berichtroutering][lnk-devguide-messaging-routes]. Dit artikel biedt:
 
-* Een inleiding toohello belangrijke functies van Hallo querytaal IoT Hub, en
-* Hallo gedetailleerde omschrijving van Hallo-taal.
+* Een inleiding tot de belangrijkste functies van de querytaal IoT Hub en
+* De gedetailleerde beschrijving van de taal.
 
 ## <a name="get-started-with-device-twin-queries"></a>Aan de slag met apparaat twin query 's
-[Apparaat horende] [ lnk-twins] kan willekeurige JSON-objecten bevatten als zowel labels en eigenschappen. IoT-Hub kunt u tooquery apparaat horende als een enkele JSON-document met alle apparaten twin informatie.
-Stel bijvoorbeeld dat uw IoT hub apparaat horende hebben Hallo structuur te volgen:
+[Apparaat horende] [ lnk-twins] kan willekeurige JSON-objecten bevatten als zowel labels en eigenschappen. IoT-Hub kunt u query apparaat horende als een enkele JSON-document met alle apparaten twin informatie.
+Stel bijvoorbeeld dat uw IoT hub apparaat horende de volgende structuur hebben:
 
 ```json
 {
@@ -70,8 +70,8 @@ Stel bijvoorbeeld dat uw IoT hub apparaat horende hebben Hallo structuur te volg
 }
 ```
 
-IoT-Hub toont Hallo apparaat horende als een documentverzameling aangeroepen **apparaten**.
-Hallo volgende query haalt dus Hallo hele set horende apparaten:
+IoT-Hub toont de horende apparaten als een documentverzameling aangeroepen **apparaten**.
+De volgende query haalt dus de hele set horende apparaten:
 
 ```sql
 SELECT * FROM devices
@@ -80,14 +80,14 @@ SELECT * FROM devices
 > [!NOTE]
 > [Azure IoT SDK's] [ lnk-hub-sdks] ondersteuning voor paginering van veel resultaten.
 
-IoT-Hub kunt u tooretrieve apparaat horende filteren met willekeurig voorwaarden. Bijvoorbeeld:
+IoT-Hub kunt u voor het ophalen van apparaat horende filteren met willekeurig voorwaarden. Bijvoorbeeld:
 
 ```sql
 SELECT * FROM devices
 WHERE tags.location.region = 'US'
 ```
 
-haalt Hallo apparaat horende Hello **location.region** tag te ingesteld**VS**.
+haalt de horende apparaten met de **location.region** tag ingesteld op **VS**.
 Booleaanse operators en rekenkundige vergelijkingen worden ondersteund, bijvoorbeeld
 
 ```sql
@@ -96,21 +96,21 @@ WHERE tags.location.region = 'US'
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
-Hiermee haalt u alle apparaten horende zich in Hallo ons geconfigureerd toosend telemetrie minder vaak dan elke minuut. Voor uw gemak is het ook mogelijk toouse matrixconstanten Hello **IN** en **NIN** (niet-in) operators. Bijvoorbeeld:
+Hiermee haalt u alle apparaten horende zich in de Verenigde Staten geconfigureerd voor het verzenden van telemetrie minder vaak elke minuut. Voor uw gemak het is ook mogelijk om te gebruiken matrixconstanten met de **IN** en **NIN** (niet-in) operators. Bijvoorbeeld:
 
 ```sql
 SELECT * FROM devices
 WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
-alle apparaten horende die gerapporteerd Wi-Fi of bekabelde verbindingen opgehaald. Het is vaak nodig tooidentify alle apparaat horende die een bepaalde eigenschap bevatten. IoT Hub Hallo-functie ondersteunt `is_defined()` voor dit doel. Bijvoorbeeld:
+alle apparaten horende die gerapporteerd Wi-Fi of bekabelde verbindingen opgehaald. Vaak is het nodig zijn voor het identificeren van alle apparaat horende die een bepaalde eigenschap bevatten. IoT Hub biedt ondersteuning voor de functie `is_defined()` voor dit doel. Bijvoorbeeld:
 
 ```SQL
 SELECT * FROM devices
 WHERE is_defined(properties.reported.connectivity)
 ```
 
-alle apparaten horende waarmee Hallo opgehaald `connectivity` eigenschap gerapporteerd. Raadpleeg toohello [WHERE-component] [ lnk-query-where] sectie voor de volledige verwijzing Hallo Hallo filtermogelijkheden.
+ophalen van alle apparaat horende waarmee de `connectivity` eigenschap gerapporteerd. Raadpleeg de [WHERE-component] [ lnk-query-where] sectie voor de volledige verwijzing van de filtermogelijkheden.
 
 Groepering en aggregaties worden ook ondersteund. Bijvoorbeeld:
 
@@ -121,7 +121,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-retourneert Hallo telling van Hallo apparaten in de status van elk telemetrie-configuratie.
+retourneert de telling van de apparaten in de status van elk telemetrie-configuratie.
 
 ```json
 [
@@ -140,10 +140,10 @@ retourneert Hallo telling van Hallo apparaten in de status van elk telemetrie-co
 ]
 ```
 
-Hallo voorgaande voorbeeld ziet u een situatie waarin drie apparaten gerapporteerd geslaagde configuratie, twee Hallo configuration steeds toepast en een heeft een fout gerapporteerd.
+Het vorige voorbeeld ziet u een situatie waarin drie apparaten gerapporteerd geslaagde configuratie, twee nog steeds toepassen van de configuratie en een heeft een fout gerapporteerd.
 
 ### <a name="c-example"></a>C#-voorbeeld
-Hallo queryfunctionaliteit die wordt blootgelegd door Hallo [C# service SDK] [ lnk-hub-sdks] in Hallo **RegistryManager** klasse.
+De queryfunctionaliteit die wordt blootgelegd door de [C# service SDK] [ lnk-hub-sdks] in de **RegistryManager** klasse.
 Hier volgt een voorbeeld van een eenvoudige query:
 
 ```csharp
@@ -158,20 +158,20 @@ while (query.HasMoreResults)
 }
 ```
 
-Opmerking hoe Hallo **query** object is gemaakt met een paginagrootte (omhoog too1000) en vervolgens meerdere pagina's kunnen worden opgehaald door de aanroepende Hallo **GetNextAsTwinAsync** methoden meerdere keren.
-Opmerking die queryobject Hallo beschrijft meerdere **volgende\***, afhankelijk van Hallo deserialisatie optie vereist door de query hello, zoals twin of taak apparaatobjecten, of gewoon JSON toobe gebruikt als u projecties.
+Opmerking hoe de **query** object is gemaakt met een paginagrootte (maximaal 1000) en vervolgens meerdere pagina's kunnen worden opgehaald door het aanroepen van de **GetNextAsTwinAsync** methoden meerdere keren.
+Opmerking dat het queryobject meerdere bevat **volgende\***, afhankelijk van de deserialisatie-optie die door de query, zoals apparaatobjecten twin of de taak, of gewoon JSON vereist om te worden gebruikt als u projecties.
 
 ### <a name="nodejs-example"></a>Node.js-voorbeeld
-Hallo queryfunctionaliteit die wordt blootgelegd door Hallo [Azure IoT service SDK voor Node.js] [ lnk-hub-sdks] in Hallo **register** object.
+De queryfunctionaliteit die wordt blootgelegd door de [Azure IoT service SDK voor Node.js] [ lnk-hub-sdks] in de **register** object.
 Hier volgt een voorbeeld van een eenvoudige query:
 
 ```nodejs
 var query = registry.createQuery('SELECT * FROM devices', 100);
 var onResults = function(err, results) {
     if (err) {
-        console.error('Failed toofetch hello results: ' + err.message);
+        console.error('Failed to fetch the results: ' + err.message);
     } else {
-        // Do something with hello results
+        // Do something with the results
         results.forEach(function(twin) {
             console.log(twin.deviceId);
         });
@@ -184,17 +184,17 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Opmerking hoe Hallo **query** object is gemaakt met een paginagrootte (omhoog too1000) en vervolgens meerdere pagina's kunnen worden opgehaald door de aanroepende Hallo **nextAsTwin** methoden meerdere keren.
-Opmerking die queryobject Hallo beschrijft meerdere **volgende\***, afhankelijk van Hallo deserialisatie optie vereist door de query hello, zoals twin of taak apparaatobjecten, of gewoon JSON toobe gebruikt als u projecties.
+Opmerking hoe de **query** object is gemaakt met een paginagrootte (maximaal 1000) en vervolgens meerdere pagina's kunnen worden opgehaald door het aanroepen van de **nextAsTwin** methoden meerdere keren.
+Opmerking dat het queryobject meerdere bevat **volgende\***, afhankelijk van de deserialisatie-optie die door de query, zoals apparaatobjecten twin of de taak, of gewoon JSON vereist om te worden gebruikt als u projecties.
 
 ### <a name="limitations"></a>Beperkingen
 > [!IMPORTANT]
-> Apparaat horende queryresultaten, kunnen een paar minuten vertraging met opzicht toohello meest recente waarden bevatten. Als het uitvoeren van query's afzonderlijk apparaat horende door-id, het is altijd beter toouse Hallo apparaat twin API, die altijd bevat de meest recente waarden Hallo en hoger beperking limieten ophalen.
+> Apparaat horende queryresultaten, kunnen een paar minuten vertraging met betrekking tot de meest recente waarden bevatten. Als het uitvoeren van query's afzonderlijk apparaat horende door-id, is het altijd beter om de ophalen apparaat twin API, die altijd de meest recente waarden bevat en is beperking hoger limieten gebruiken.
 
 Op dit moment vergelijkingen bijvoorbeeld alleen tussen primitieve typen (geen objecten) worden ondersteund `... WHERE properties.desired.config = properties.reported.config` wordt alleen ondersteund als deze eigenschappen primitieve waarden hebben.
 
 ## <a name="get-started-with-jobs-queries"></a>Aan de slag met taken query 's
-[Taken] [ lnk-jobs] bieden een manier tooexecute bewerkingen op sets van apparaten. Elk apparaat twin Hallo informatie bevat van Hallo taken waarvoor onderdeel in een verzameling met de naam is **taken**.
+[Taken] [ lnk-jobs] bieden een manier om het uitvoeren van bewerkingen op sets van apparaten. Elk apparaat twin bevat de informatie van de taken die het onderdeel in een verzameling met de naam is **taken**.
 Logisch,
 
 ```json
@@ -226,23 +226,23 @@ Logisch,
 }
 ```
 
-Deze verzameling is momenteel als waarop **devices.jobs** in Hallo querytaal IoT Hub.
+Deze verzameling is momenteel als waarop **devices.jobs** querytaal van de IoT-Hub.
 
 > [!IMPORTANT]
-> Op dit moment Hallo taken eigenschap nooit geretourneerd tijdens het opvragen van apparaat horende (dat wil zeggen, query's met ' apparaten'). Kan alleen worden benaderd rechtstreeks met query's met `FROM devices.jobs`.
+> De eigenschap taken wordt op dit moment nooit geretourneerd tijdens het opvragen van apparaat horende (dat wil zeggen, query's met ' apparaten'). Kan alleen worden benaderd rechtstreeks met query's met `FROM devices.jobs`.
 >
 >
 
-Bijvoorbeeld: tooget alle taken (afgelopen en geplande) die invloed hebben op één apparaat, kunt u Hallo query te volgen:
+Bijvoorbeeld, als u alle taken (afgelopen en geplande) die invloed hebben op één apparaat, kunt u de volgende query:
 
 ```sql
 SELECT * FROM devices.jobs
 WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
-Houd er rekening mee hoe deze query bevat Hallo apparaatspecifieke status (en mogelijk Hallo directe methode antwoord) van elke taak geretourneerd.
-Het is ook mogelijk toofilter met willekeurige Booleaanse voorwaarden op alle objecteigenschappen in Hallo **devices.jobs** verzameling.
-Bijvoorbeeld: Hallo query te volgen:
+Houd er rekening mee hoe deze query bevat de status van de apparaat-specifieke (en mogelijk het antwoord directe methode) van elke taak geretourneerd.
+Het is ook mogelijk om te filteren met willekeurig Booleaanse voorwaarden op alle eigenschappen van het object in de **devices.jobs** verzameling.
+Bijvoorbeeld de volgende query:
 
 ```sql
 SELECT * FROM devices.jobs
@@ -254,7 +254,7 @@ WHERE devices.jobs.deviceId = 'myDeviceId'
 
 haalt alle voltooid apparaat twin update taken voor apparaat **myDeviceId** die zijn gemaakt na September 2016.
 
-Het is ook mogelijk tooretrieve Hallo per apparaat resultaten van één taak.
+Het is ook mogelijk om op te halen van de resultaten per apparaat van een enkele taak.
 
 ```sql
 SELECT * FROM devices.jobs
@@ -265,18 +265,18 @@ WHERE devices.jobs.jobId = 'myJobId'
 Op dit moment wordt een query op **devices.jobs** bieden geen ondersteuning voor:
 
 * Projecties, daarom alleen `SELECT *` is mogelijk.
-* De voorwaarden die betrekking toohello apparaat twin in toevoeging toojob eigenschappen hebben (Zie Hallo voorgaande sectie).
+* De voorwaarden die naar het apparaat twin naast taakeigenschappen verwijzen (Zie de vorige sectie).
 * Uitvoeren van aggregaties, zoals count, avg, groeperen op.
 
 ## <a name="get-started-with-device-to-cloud-message-routes-query-expressions"></a>Aan de slag met de apparaat-naar-cloud bericht routes query-expressies
 
-Met behulp van [apparaat-naar-cloud routes][lnk-devguide-messaging-routes], kunt u een IoT Hub toodispatch apparaat-naar-cloud-op basis van expressies geëvalueerd op basis van afzonderlijke berichten toodifferent-eindpunten berichten configureren.
+Met behulp van [apparaat-naar-cloud routes][lnk-devguide-messaging-routes], kunt u IoT Hub apparaat-naar-cloud-berichten naar verschillende eindpunten op basis van expressies geëvalueerd op basis van afzonderlijke berichten verzenden.
 
-Hallo route [voorwaarde] [ lnk-query-expressions] gebruikt Hallo dezelfde IoT Hub-querytaal als voorwaarden in twin en taak query's. Route voorwaarden worden geëvalueerd op Hallo berichtkoppen en hoofdtekst. Uw routering query-expressie is mogelijk alleen berichtkoppen alleen Hallo hoofdtekst van het bericht of beide headers bericht en berichttekst. IoT Hub wordt ervan uitgegaan dat een specifiek schema voor Hallo kopteksten en de berichttekst in, in volgorde tooroute berichten en Hallo volgende secties is beschreven wat er nodig is voor IoT Hub tooproperly route:
+De route [voorwaarde] [ lnk-query-expressions] de dezelfde querytaal van IoT Hub gebruikt als voorwaarden in twin en taak query's. Route voorwaarden worden geëvalueerd op het berichtkoppen en de hoofdtekst. Uw routering query-expressie is mogelijk alleen berichtkoppen, alleen de hoofdtekst van het bericht of beide headers bericht en berichttekst. IoT Hub wordt ervan uitgegaan dat een specifiek schema voor de kopteksten en de hoofdtekst van het bericht om te routeren van berichten en de volgende secties wordt beschreven wat is vereist voor de IoT-Hub te routeren correct:
 
 ### <a name="routing-on-message-headers"></a>Routering op berichtkoppen
 
-IoT Hub wordt ervan uitgegaan dat de volgende JSON-weergave van berichtkoppen voor berichtroutering Hallo:
+IoT Hub wordt ervan uitgegaan dat de volgende JSON-weergave van berichtkoppen voor het routeren van berichten:
 
 ```json
 {
@@ -298,41 +298,41 @@ IoT Hub wordt ervan uitgegaan dat de volgende JSON-weergave van berichtkoppen vo
 }
 ```
 
-Bericht Systeemeigenschappen worden voorafgegaan door Hallo `'$'` symbool.
-Eigenschappen van de gebruiker worden altijd geopend met hun naam. Als de naam van een eigenschap toocoincide met een systeemeigenschap gebeurt (zoals `$to`), Hallo gebruikerseigenschap wordt opgehaald met de Hallo `$to` expressie.
-U kunt altijd toegang hebt tot de eigenschap system Hallo met behulp van haakjes `{}`: u kunt bijvoorbeeld Hallo expressie gebruiken `{$to}` tooaccess Hallo systeemeigenschap `to`. Eigenschapnamen ophalen altijd Hallo overeenkomstige system-eigenschap.
+Bericht Systeemeigenschappen worden voorafgegaan door de `'$'` symbool.
+Eigenschappen van de gebruiker worden altijd geopend met hun naam. Als de naam van een eigenschap gebeurt overeenkomen met een systeemeigenschap (zoals `$to`), de eigenschap wordt opgehaald met de `$to` expressie.
+U kunt altijd toegang hebt tot de systeemeigenschap met behulp van haakjes `{}`: u kunt bijvoorbeeld de expressie gebruiken `{$to}` voor toegang tot de systeemeigenschap `to`. Eigenschapnamen ophalen altijd de bijbehorende systeemeigenschap.
 
 Houd er rekening mee dat de namen van eigenschappen zijn niet hoofdlettergevoelig.
 
 > [!NOTE]
-> Alle berichteigenschappen zijn tekenreeksen. Eigenschappen, zoals beschreven in Hallo [ontwikkelaarshandleiding][lnk-devguide-messaging-format], zijn momenteel niet beschikbaar toouse in query's.
+> Alle berichteigenschappen zijn tekenreeksen. Eigenschappen, zoals beschreven in de [ontwikkelaarshandleiding][lnk-devguide-messaging-format], zijn momenteel niet beschikbaar voor gebruik in query's.
 >
 
-Als u bijvoorbeeld een `messageType` eigenschap, kunt u tooroute alle telemetrie tooone eindpunt en alle waarschuwingen tooanother eindpunt. U kunt Hallo na expressie tooroute Hallo telemetrie schrijven:
+Als u bijvoorbeeld een `messageType` eigenschap, kunt u alle telemetrie op één eindpunt en alle waarschuwingen naar een ander eindpunt te routeren. U kunt de volgende expressie voor het routeren van de telemetrie schrijven:
 
 ```sql
 messageType = 'telemetry'
 ```
 
-En Hallo expressie tooroute Hallo waarschuwingsberichten te volgen:
+En de expressie voor het routeren van de waarschuwing berichten in de volgende:
 
 ```sql
 messageType = 'alert'
 ```
 
-Booleaanse expressies en functies worden ook ondersteund. Met deze functie kunt u toodistinguish tussen ernstniveau worden weergegeven, bijvoorbeeld:
+Booleaanse expressies en functies worden ook ondersteund. Deze functie kunt u bijvoorbeeld onderscheid maken tussen ernst:
 
 ```sql
 messageType = 'alerts' AND as_number(severity) <= 2
 ```
 
-Raadpleeg toohello [expressie en voorwaarden] [ lnk-query-expressions] sectie voor Hallo volledige lijst van ondersteunde operatoren en functies.
+Raadpleeg de [expressie en voorwaarden] [ lnk-query-expressions] sectie voor een volledige lijst van ondersteunde operatoren en functies.
 
 ### <a name="routing-on-message-bodies"></a>Routering op de berichttekst
 
-IoT Hub kan alleen worden doorgestuurd op basis van de berichttekst inhoud als de berichttekst Hallo correct is gevormd JSON gecodeerd in UTF-8, UTF-16- of UTF-32. U moet Hallo-inhoudstype van het Hallo-bericht te instellen`application/json` en Hallo inhoud codering tooone Hallo UTF-coderingen in Hallo-bericht headers tooallow Hallo-bericht van IoT Hub tooroute op basis van de inhoud van Hallo ondersteund. Als een Hallo headers niet is opgegeven, wordt IoT-Hub niet geprobeerd tooevaluate een query-expressie met betrekking tot Hallo hoofdtekst tegen het Hallo-bericht. Als uw bericht is niet een JSON-bericht, of als het Hallo-bericht geeft geen Hallo inhoudstype en codering van inhoud, mag u nog steeds berichtroutering tooroute op basis van berichtkoppen Hallo Hallo-bericht.
+IoT Hub kan alleen worden doorgestuurd op basis van de berichttekst inhoud als de berichttekst correct is gevormd JSON gecodeerd in UTF-8, UTF-16- of UTF-32. U moet het inhoudstype van het bericht instellen `application/json` en de inhoudsversleuteling op een van de ondersteunde coderingen UTF in berichtkoppen om toe te staan van IoT Hub voor het routeren van het bericht op basis van de inhoud. Als een van de headers niet is opgegeven, wordt niet IoT Hub proberen om te evalueren van een queryexpressie met betrekking tot de hoofdtekst tegen het bericht. Als uw bericht is niet een JSON-bericht, of als het bericht geeft niet het type inhoud en de codering van inhoud, kan u nog steeds berichtroutering gebruiken voor het routeren van het bericht op basis van de berichtkoppen.
 
-U kunt `$body` in Hallo query-expressie tooroute Hallo-bericht. Kunt u de verwijzing naar een eenvoudige hoofdtekst, hoofdtekst matrixverwijzing of meerdere hoofdtekst verwijzingen in Hallo query-expressie. Uw query-expressie kunt ook een verwijzing instantie met een verwijzing van de header bericht combineren. Hallo hieronder vindt u bijvoorbeeld alle geldige query-expressies:
+U kunt `$body` in de query-expressie voor het routeren van het bericht. U kunt een eenvoudige hoofdtekst-verwijzing, hoofdtekst matrixverwijzing of meerdere hoofdtekst verwijzingen in de query-expressie. Uw query-expressie kunt ook een verwijzing instantie met een verwijzing van de header bericht combineren. De volgende zijn bijvoorbeeld alle geldige query-expressies:
 
 ```sql
 $body.message.Weather.Location.State = 'WA'
@@ -343,7 +343,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Basisprincipes van een IoT Hub-query
-Elke IoT Hub-query bevat van een geselecteerd en van clausules en door waar u optionele en GROUP BY componenten. Elke query wordt uitgevoerd op een verzameling van JSON-documenten, bijvoorbeeld apparaat horende. Hallo FROM-component geeft Hallo document verzameling toobe herhaald op (**apparaten** of **devices.jobs**). Vervolgens Hallo-filter in Hallo waarin component is toegepast. Met aggregaties, Hallo resultaten van deze stap worden gegroepeerd als opgegeven in de Hallo GROUP BY-component en voor elke groep een rij wordt gegenereerd zoals opgegeven in Hallo SELECT-component.
+Elke IoT Hub-query bevat van een geselecteerd en van clausules en door waar u optionele en GROUP BY componenten. Elke query wordt uitgevoerd op een verzameling van JSON-documenten, bijvoorbeeld apparaat horende. De component FROM geeft aan dat de te worden herhaald op documentenverzameling (**apparaten** of **devices.jobs**). Klik wordt in de component WHERE gefilterd. Met aggregaties, worden de resultaten van deze stap gegroepeerd als opgegeven in de component GROUP BY en voor elke groep, een rij wordt gegenereerd zoals opgegeven in de component SELECT.
 
 ```sql
 SELECT <select_list>
@@ -353,18 +353,18 @@ FROM <from_specification>
 ```
 
 ## <a name="from-clause"></a>FROM-component
-Hallo **van < from_specification >** component kunt wordt ervan uitgegaan dat slechts twee waarden: **van apparaten**, tooquery apparaat horende, of **van devices.jobs**, tooquery taak per-apparaat meer informatie.
+De **van < from_specification >** component kunt wordt ervan uitgegaan dat slechts twee waarden: **van apparaten**, apparaat-horende query of **van devices.jobs**, query taak per apparaat meer informatie.
 
 ## <a name="where-clause"></a>WHERE-component
-Hallo **waarbij < filter_condition >** component is optioneel. Hiermee wordt een of meer voorwaarden dat Hallo JSON-documenten in hello FROM verzameling moeten voldoen aan de toobe opgenomen als onderdeel van Hallo resultaat. Elk JSON-document moet worden geëvalueerd Hallo opgegeven voorwaarden te 'true' toobe in Hallo resultaat opgenomen.
+De **waarbij < filter_condition >** component is optioneel. Hiermee geeft u een of meer voorwaarden dat de JSON-in de verzameling van documenten moeten voldoen om te worden opgenomen als onderdeel van het resultaat. De opgegeven voorwaarden op "true" moet worden opgenomen in het resultaat moet worden geëvalueerd door elk JSON-document.
 
-Hallo toegestaan voorwaarden worden beschreven in de sectie [expressies en voorwaarden][lnk-query-expressions].
+De toegestane voorwaarden worden beschreven in de sectie [expressies en voorwaarden][lnk-query-expressions].
 
 ## <a name="select-clause"></a>SELECT-component
-Hallo SELECT-component (**Selecteer < select_list >**) is verplicht en Hiermee geeft u de waarden die worden opgehaald uit het Hallo-query. Hiermee geeft u Hallo JSON waarden toobe toogenerate nieuwe JSON-objecten gebruikt.
-Voor elk element van gefilterde (en desgewenst gegroepeerde) subset van hello FROM verzameling Hallo, Hallo Projectiefase wordt een nieuwe JSON-object worden geconstrueerd met Hallo opgegeven waarden in de SELECT-component Hallo gegenereerd.
+De component SELECT (**Selecteer < select_list >**) is verplicht en Hiermee geeft u de waarden die worden opgehaald uit de query. Deze geeft de JSON-waarden moeten worden gebruikt voor het genereren van de nieuwe JSON-objecten.
+De Projectiefase genereert voor elk element van de gefilterde (en desgewenst gegroepeerde) subset van de verzameling van een nieuwe JSON-object gemaakt met de opgegeven waarden in de component SELECT.
 
-Hieronder vindt u Hallo grammatica van Hallo SELECT-component:
+Hieronder vindt u de grammatica van de component SELECT:
 
 ```
 SELECT [TOP <max number>] <projection list>
@@ -386,12 +386,12 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-waar **%{attribute_name/** tooany-eigenschap van Hallo JSON-document in hello FROM verzameling verwijst. Enkele voorbeelden van SELECT-component kunnen worden gevonden in Hallo [aan de slag met apparaat twin query's] [ lnk-query-getstarted] sectie.
+waar **%{attribute_name/** verwijst naar een eigenschap van het JSON-document in de verzameling FROM. Enkele voorbeelden van SELECT-component kunnen worden gevonden in de [aan de slag met apparaat twin query's] [ lnk-query-getstarted] sectie.
 
 Op dit moment selectie componenten anders dan **Selecteer \***  worden alleen ondersteund in cumulatieve query's in horende apparaten.
 
 ## <a name="group-by-clause"></a>GROUP BY-component
-Hallo **GROUP BY < group_specification >** component is een optionele stap die kan worden uitgevoerd nadat de WHERE-component in Hallo Hallo-filter opgegeven en voordat Hallo projectie opgegeven in Hallo selecteren. Deze documenten op basis van de waarde van een kenmerk Hallo gegroepeerd. Deze groepen zijn gebruikte toogenerate geaggregeerd waarden zoals opgegeven in de SELECT-component Hallo.
+De **GROUP BY < group_specification >** component is een optionele stap die kan worden uitgevoerd na het opgegeven in de component WHERE, en voordat de projectie Selecteer in het opgegeven filter. Deze groepen documenten op basis van de waarde van een kenmerk. Deze groepen worden gebruikt voor het genereren van geaggregeerde waarden zoals opgegeven in de component SELECT.
 
 Er is een voorbeeld van een GROUP BY-query:
 
@@ -402,7 +402,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-Hallo formele syntaxis voor GROUP BY is:
+De formele syntaxis voor de GROUP BY is:
 
 ```
 GROUP BY <group_by_element>
@@ -411,19 +411,19 @@ GROUP BY <group_by_element>
     | < group_by_element > '.' attribute_name
 ```
 
-waar **%{attribute_name/** tooany-eigenschap van Hallo JSON-document in hello FROM verzameling verwijst.
+waar **%{attribute_name/** verwijst naar een eigenschap van het JSON-document in de verzameling FROM.
 
-Op dit moment wordt Hallo GROUP BY-component alleen ondersteund bij het opvragen van horende apparaten.
+De component GROUP BY wordt momenteel alleen ondersteund bij het opvragen van apparaat horende.
 
 ## <a name="expressions-and-conditions"></a>Expressies en voorwaarden
 Op een hoog niveau een *expressie*:
 
-* Evalueert tooan exemplaar van een JSON-type (zoals Booleaanse waarde, getal, string, matrix of object), en
-* Wordt gedefinieerd door het bewerken van gegevens die afkomstig zijn van Hallo apparaat JSON-document en constanten met ingebouwde operatoren en functies.
+* Resulteert in een exemplaar van een JSON-type (zoals Booleaanse waarde, getal, string, matrix of object), en
+* Wordt gedefinieerd door het bewerken van gegevens die afkomstig zijn van de JSON-document apparaat en de constanten die met ingebouwde operatoren en functies.
 
-*Voorwaarden* expressies die tooa Booleaanse waarde evalueren zijn. Een constante anders dan Booleaanse waarde **true** wordt beschouwd als **false** (inclusief **null**, **niet-gedefinieerde**, een willekeurig exemplaar object of de matrix elke tekenreeks en duidelijk Hallo Booleaanse waarde **false**).
+*Voorwaarden* expressies die in een Booleaanse waarde resulteren zijn. Een constante anders dan Booleaanse waarde **true** wordt beschouwd als **false** (inclusief **null**, **niet-gedefinieerde**, een willekeurig exemplaar object of de matrix een willekeurige tekenreeks en duidelijk de Booleaanse waarde **false**).
 
-Hallo-syntaxis voor expressies is:
+De syntaxis voor expressies is:
 
 ```
 <expression> ::=
@@ -455,15 +455,15 @@ Waarbij:
 
 | Symbool | Definitie |
 | --- | --- |
-| %{attribute_name/ | Een eigenschap van JSON-document in Hallo Hallo **FROM** verzameling. |
-| binary_operator | Een binaire operator die worden vermeld in Hallo [Operators](#operators) sectie. |
-| functie_naam| Een functie die worden vermeld in Hallo [functies](#functions) sectie. |
+| %{attribute_name/ | Een eigenschap van het JSON-document in de **FROM** verzameling. |
+| binary_operator | Een binaire operator die worden vermeld in de [Operators](#operators) sectie. |
+| functie_naam| Een functie die worden vermeld in de [functies](#functions) sectie. |
 | decimal_literal |Een float uitgedrukt in decimale notatie. |
-| hexadecimal_literal |Een getal, uitgedrukt door Hallo tekenreeks '0 x' gevolgd door een reeks van hexadecimale cijfers. |
+| hexadecimal_literal |Een getal uitgedrukt in de tekenreeks '0 x' gevolgd door een reeks van hexadecimale cijfers. |
 | string_literal |Letterlijke tekenreeks zijn vertegenwoordigd door een reeks van nul of meer Unicode-tekens of escapereeksen Unicode-tekenreeksen. Letterlijke tekenreeks zijn ingesloten in enkele aanhalingstekens (apostrof: ') of dubbele aanhalingstekens (aanhalingsteken: '). Hiermee heft toegestaan: `\'`, `\"`, `\\`, `\uXXXX` voor Unicode-tekens die zijn gedefinieerd door 4 hexadecimale cijfers. |
 
 ### <a name="operators"></a>Operators
-Hallo operators volgende worden ondersteund:
+De volgende operators worden ondersteund:
 
 | Familie | Operators |
 | --- | --- |
@@ -472,55 +472,55 @@ Hallo operators volgende worden ondersteund:
 | Vergelijking |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Functies
-Tijdens het opvragen van horende en taken Hallo alleen ondersteund is functie:
+Tijdens het opvragen van horende en zijn die de enige ondersteunde is functie:
 
 | Functie | Beschrijving |
 | -------- | ----------- |
-| IS_DEFINED(Property) | Retourneert een Booleaanse waarde waarmee wordt aangegeven als Hallo eigenschap een waarde is toegewezen (met inbegrip van `null`). |
+| IS_DEFINED(Property) | Retourneert een Booleaanse waarde die aangeeft of de eigenschap een waarde is toegewezen (met inbegrip van `null`). |
 
-Routes voorwaarden worden Hallo na wiskundige functies ondersteund:
-
-| Functie | Beschrijving |
-| -------- | ----------- |
-| ABS(x) | Retourneert Hallo absolute (positieve) waarde Hallo opgegeven numerieke expressie. |
-| EXP(x) | Retourneert Hallo exponentiële waarde Hallo opgegeven numerieke expressie (e ^ x). |
-| Power(x,y) | Retourneert de waarde van de opgegeven Hallo Hallo expressie toohello opgegeven power (x ^ y).|
-| Square(x) | Retourneert Hallo vierkante Hallo opgegeven numerieke waarde. |
-| CEILING(x) | Retourneert Hallo kleinste geheel getal groter dan of gelijk zijn aan om Hallo opgegeven numerieke expressie. |
-| Floor(x) | Retourneert de grootste integer Hallo kleiner dan of gelijk toohello numerieke expressie opgegeven. |
-| Sign(x) | Retourneert Hallo positieve (+ 1), nul (0) of minteken (-1) Hallo opgegeven numerieke expressie.|
-| WORTEL(x) | Retourneert Hallo vierkante Hallo opgegeven numerieke waarde. |
-
-Routes voorwaarden worden Hallo na type controleren en functies die ondersteund:
+In situaties routes, worden de volgende wiskundige functies ondersteund:
 
 | Functie | Beschrijving |
 | -------- | ----------- |
-| AS_NUMBER | Converteert Hallo invoerreeks tooa getal. `noop`Als de invoer is een getal. `Undefined` als tekenreeks geen een getal vertegenwoordigt.|
-| IS_ARRAY | Retourneert een Booleaanse waarde die aangeeft als Hallo type Hallo expressie opgegeven is een matrix. |
-| IS_BOOL | Retourneert een Booleaanse waarde die aangeeft als Hallo type Hallo expressie opgegeven is een Booleaanse waarde. |
-| IS_DEFINED | Retourneert een Booleaanse waarde die aangeeft of Hallo eigenschap een waarde is toegewezen. |
-| IS_NULL | Retourneert een Booleaanse waarde die aangeeft als Hallo type Hallo expressie opgegeven is null. |
-| IS_NUMBER | Retourneert een Booleaanse waarde die aangeeft als Hallo type Hallo expressie opgegeven is een getal. |
-| IS_OBJECT | Retourneert een Booleaanse waarde die aangeeft als Hallo type Hallo expressie opgegeven is een JSON-object. |
-| IS_PRIMITIVE | Retourneert een Booleaanse waarde waarmee wordt aangegeven als Hallo type Hallo opgegeven expressie is een primitief (string, Boolean, numerieke of `null`). |
-| IS_STRING | Retourneert een Booleaanse waarde die aangeeft als Hallo type Hallo expressie opgegeven is een tekenreeks. |
+| ABS(x) | Retourneert de absolute (positieve) waarde van de opgegeven numerieke expressie. |
+| EXP(x) | Berekent de exponentiële waarde van de opgegeven numerieke expressie (e ^ x). |
+| Power(x,y) | Retourneert de waarde van de opgegeven expressie voor de opgegeven macht (x ^ y).|
+| Square(x) | Retourneert het kwadraat van de numerieke waarde die is opgegeven. |
+| CEILING(x) | Retourneert de kleinste waarde van geheel getal groter dan of gelijk zijn aan de opgegeven numerieke expressie. |
+| Floor(x) | Retourneert het grootste gehele getal kleiner dan of gelijk zijn aan de opgegeven numerieke expressie. |
+| Sign(x) | Retourneert de positief (+ 1), nul (0) of minteken (-1) van de opgegeven numerieke expressie.|
+| WORTEL(x) | Retourneert het kwadraat van de numerieke waarde die is opgegeven. |
 
-Routes voorwaarden worden Hallo na tekenreeks-functies ondersteund:
+In situaties routes, worden het volgende type controleren en de casten functies ondersteund:
 
 | Functie | Beschrijving |
 | -------- | ----------- |
-| CONCAT(x,...) | Retourneert een tekenreeks die Hallo resultaat is van het samenvoegen van twee of meer tekenreekswaarden. |
-| LENGTH(x) | Retourneert Hallo aantal tekens Hallo opgegeven tekenreeksexpressie.|
-| LOWER(x) | Retourneert een tekenreeksexpressie na hoofdletter gegevens toolowercase converteren. |
-| UPPER(x) | Retourneert een tekenreeksexpressie na kleine letter gegevens toouppercase converteren. |
-| De SUBTEKENREEKS (tekenreeks, start [, lengte]) | Retourneert deel uit van een tekenreeksexpressie die begint bij Hallo opgegeven teken op nul gebaseerde positie en blijft toohello opgegeven lengte of toohello einde van de Hallo-tekenreeks. |
-| INDEX_OF (tekenreeks, fragment) | Retourneert Hallo beginpositie van de eerste instantie Hallo van tweede tekenreeksexpressie Hallo binnen Hallo eerste opgegeven tekenreeksexpressie of -1 als het Hallo-tekenreeks is niet gevonden.|
-| STARTS_WITH (x, y) | Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie Hallo op de tweede met de Hallo begint. |
-| ENDS_WITH (x, y) | Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie Hallo Hallo tweede eindigt. |
-| CONTAINS(x,y) | Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie Hallo Hallo op de tweede bevat. |
+| AS_NUMBER | De invoerreeks converteert naar een getal. `noop`Als de invoer is een getal. `Undefined` als tekenreeks geen een getal vertegenwoordigt.|
+| IS_ARRAY | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een matrix is. |
+| IS_BOOL | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een Booleaanse waarde is. |
+| IS_DEFINED | Retourneert een Booleaanse waarde die aangeeft of de eigenschap een waarde is toegewezen. |
+| IS_NULL | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie null is. |
+| IS_NUMBER | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie is van een getal. |
+| IS_OBJECT | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een JSON-object is. |
+| IS_PRIMITIVE | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie is van een primitief (string, Boolean, numerieke of `null`). |
+| IS_STRING | Retourneert een Booleaanse waarde die aangeeft of het type van de opgegeven expressie een tekenreeks is. |
+
+In situaties routes, worden de volgende tekenreeksfuncties ondersteund:
+
+| Functie | Beschrijving |
+| -------- | ----------- |
+| CONCAT(x,...) | Retourneert een tekenreeks die het resultaat van het samenvoegen van twee of meer tekenreekswaarden. |
+| LENGTH(x) | Retourneert het aantal tekens van de opgegeven tekenreeksexpressie.|
+| LOWER(x) | Retourneert een tekenreeksexpressie na hoofdletter gegevens converteren naar kleine letters. |
+| UPPER(x) | Retourneert een tekenreeksexpressie na kleine letter gegevens converteren naar hoofdletters. |
+| De SUBTEKENREEKS (tekenreeks, start [, lengte]) | Retourneert deel van een tekenreeksexpressie die beginnen bij de op nul gebaseerde positie opgegeven teken en blijft de opgegeven lengte of het einde van de tekenreeks. |
+| INDEX_OF (tekenreeks, fragment) | Retourneert de beginpositie van het eerste exemplaar van de tweede tekenreeksexpressie binnen de eerste expressie in de opgegeven tekenreeks is of -1 als de tekenreeks is niet gevonden.|
+| STARTS_WITH (x, y) | Retourneert een Boolean die aangeeft of de eerste expressie tekenreeks begint met het tweede. |
+| ENDS_WITH (x, y) | Retourneert een Boolean die aangeeft of de eerste tekenreeksexpressie eindigt op de tweede. |
+| CONTAINS(x,y) | Retourneert een Boolean die aangeeft of de eerste expressie tekenreeks de tweede bevat. |
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over hoe tooexecute query's in uw apps met behulp van [Azure IoT SDK's][lnk-hub-sdks].
+Meer informatie over het uitvoeren van query's in uw apps met behulp van [Azure IoT SDK's][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
 [lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions

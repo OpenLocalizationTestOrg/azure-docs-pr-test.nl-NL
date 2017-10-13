@@ -1,6 +1,6 @@
 ---
-title: een toepassing met hello Azure AD v2.0-eindpunt met behulp van de portal Hallo aaaRegister | Microsoft Docs
-description: Hoe tooregister een app met Microsoft voor het inschakelen aanmelden en toegang tot Microsoft-services met behulp van Hallo v2.0-eindpunt
+title: Een toepassing registreren met het Azure AD v2.0-eindpunt met de portal | Microsoft Docs
+description: Het registreren van een app met Microsoft voor het inschakelen aanmelden en toegang tot Microsoft-services met behulp van het v2.0-eindpunt
 services: active-directory
 documentationcenter: 
 author: lnalepa
@@ -15,38 +15,38 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: c56c98906656062435516e820cb318a04c03149c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e6202aa8665c906382666fe08a561421e50e0a8d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooregister-an-app-with-hello-v20-endpoint"></a>Hoe tooregister een app met Hallo v2.0-eindpunt
-een app die zowel MSA & Azure AD accepteert toobuild aanmelden, moet u eerst een app met Microsoft tooregister.  Op dit moment kunt u won't kunnen toouse worden alle bestaande apps u met Azure AD hebt wellicht of MSA - u moet een merk nieuwe toocreate.
+# <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Het registreren van een app met het v2.0-eindpunt
+Als u wilt maken van een app die zowel MSA & Azure AD accepteert aanmelden, u moet eerst een app registreren bij Microsoft.  Op dit moment niet mogelijk om eventuele bestaande apps u met Azure AD hebt wellicht te gebruiken of MSA - u moet een geheel nieuwe maken.
 
 > [!NOTE]
-> Niet alle Azure Active Directory-scenario's en functies worden ondersteund door Hallo v2.0-eindpunt.  toodetermine als Hallo v2.0-eindpunt, moet u meer informatie over [v2.0 beperkingen](active-directory-v2-limitations.md).
+> Niet alle Azure Active Directory-scenario's en functies worden ondersteund door het v2.0-eindpunt.  Meer informatie over om te bepalen of moet u het v2.0-eindpunt, [v2.0 beperkingen](active-directory-v2-limitations.md).
 > 
 > 
 
-## <a name="visit-hello-microsoft-app-registration-portal"></a>Ga naar Hallo-portal voor registratie van Microsoft-app
-Eerste dingen eerst - Navigeer te[https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  Dit is een nieuwe app-portal voor wachtwoordregistratie waar u uw Microsoft-apps kunt beheren.
+## <a name="visit-the-microsoft-app-registration-portal"></a>Ga naar de Microsoft app-registratieportal
+Eerste dingen-: Ga naar [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  Dit is een nieuwe app-portal voor wachtwoordregistratie waar u uw Microsoft-apps kunt beheren.
 
 Meld u aan met ofwel een persoonlijke of werk of school Microsoft-account.  Als u geen ofwel hebt, moet u zich aanmelden voor een nieuw persoonlijk account. Opwekken, won't duurt lang - wij hier wachten.
 
 Uitgevoerd? U moet nu worden kijken naar de lijst met Microsoft-apps, die waarschijnlijk leeg is.  Hiermee kunt wijzigen.
 
-Klik op **een app toevoegen**, en een naam geven.  Hallo portal toewijzen uw app een globally unique identifier toepassings-Id die u later in uw code.  Als uw app een serverzijde-onderdeel bevat dat toegangstokens moet voor aanroepen API's (nadenkt: Office, Azure of uw eigen web-API), moet u toocreate een **Toepassingsgeheim** hier ook.
+Klik op **een app toevoegen**, en een naam geven.  De portal toewijzen uw app een globally unique identifier toepassings-Id die u later in uw code.  Als uw app een serverzijde-onderdeel bevat dat toegangstokens moet voor aanroepen API's (denkt: Office, Azure of uw eigen web-API), moet u maken een **Toepassingsgeheim** hier ook.
 
-Voeg vervolgens Hallo Platforms die uw app wilt gebruiken.
+Voeg vervolgens de Platforms die uw app wilt gebruiken.
 
 * Voor op basis van web-apps, geeft u een **omleidings-URI** waar aanmelden berichten kunnen worden verzonden.
-* Voor mobiele apps Noteer Hallo standaard omleidings-uri die automatisch voor u gemaakt.
+* Noteer de standaard voor mobiele apps omleidings-uri die automatisch voor u gemaakt.
 
-U kunt eventueel Hallo uiterlijk van de aanmeldingspagina in Hallo-profiel.  Zorg ervoor dat tooclick **opslaan** voordat u doorgaat.
+U kunt desgewenst het uiterlijk van de aanmeldingspagina in de sectie profiel aanpassen.  Zorg ervoor dat u **opslaan** voordat u doorgaat.
 
 > [!NOTE]
-> Wanneer u maakt een toepassing met behulp [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), Hallo toepassing wordt geregistreerd in thuis Hallo-tenant van Hallo-account dat u toosign bij Hallo-portal.  Dit betekent dat u een toepassing in uw Azure AD-tenant met behulp van een persoonlijk Microsoft-account niet kunt registreren.  Als u expliciet tooregister een toepassing in een bepaalde tenant wenst, aanmelden met een account die oorspronkelijk is gemaakt in deze tenant.
+> Wanneer u maakt een toepassing met behulp [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), de toepassing wordt geregistreerd in de oorspronkelijke tenant van het account waarmee u zich aanmeldt bij de portal.  Dit betekent dat u een toepassing in uw Azure AD-tenant met behulp van een persoonlijk Microsoft-account niet kunt registreren.  Als u expliciet een toepassing in een bepaalde tenant te registreren, aanmelden met een account die oorspronkelijk is gemaakt in deze tenant.
 > 
 > 
 

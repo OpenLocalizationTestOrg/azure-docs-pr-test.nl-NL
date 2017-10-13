@@ -1,6 +1,6 @@
 ---
-title: aaaUse Hadoop Hive en extern bureaublad in HDInsight - Azure | Microsoft Docs
-description: Informatie over hoe tooconnect tooHadoop-cluster in HDInsight met behulp van extern bureaublad en vervolgens Hive-query's uitvoeren met behulp van Hallo opdrachtregelinterface Hive.
+title: Hadoop Hive en extern bureaublad gebruiken in HDInsight - Azure | Microsoft Docs
+description: Informatie over het verbinden met Hadoop-cluster in HDInsight met behulp van extern bureaublad en voer de Hive-query's via de opdrachtregelinterface Hive.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,41 +16,41 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: f86ffc1be33a8b0b2346d1a1388e5dfa6d0f8777
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 187c7cb413b3707e58eea387857375053d267189
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Hive gebruiken met Hadoop op HDInsight met extern bureaublad
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-In dit artikel leert u hoe tooconnect tooan HDInsight-cluster met behulp van extern bureaublad en voer vervolgens Hive query's met behulp van Hallo Hive-opdrachtregelinterface (CLI).
+In dit artikel hebt u meer informatie over het verbinding maken met een HDInsight-cluster met behulp van extern bureaublad, en vervolgens Hive-query's uitvoeren met Hive-opdrachtregelinterface (CLI).
 
 > [!IMPORTANT]
-> Extern bureaublad is alleen beschikbaar op HDInsight-clusters die Windows hello besturingssysteem gebruiken. Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> Extern bureaublad is alleen beschikbaar op HDInsight-clusters die Windows als het besturingssysteem gebruiken. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 >
-> Voor HDInsight 3.4 of hoger, Zie [Hive gebruiken met HDInsight en Beeline](hdinsight-hadoop-use-hive-beeline.md) voor informatie over het uitvoeren van Hive-query rechtstreeks op Hallo-cluster vanaf een opdrachtregel.
+> Voor HDInsight 3.4 of hoger, Zie [Hive gebruiken met HDInsight en Beeline](hdinsight-hadoop-use-hive-beeline.md) voor informatie over het uitvoeren van Hive-query's op het cluster rechtstreeks vanaf een opdrachtregel.
 
 ## <a id="prereq"></a>Vereisten
-toocomplete hello stappen in dit artikel, moet u de volgende Hallo:
+Voor het voltooien van de stappen in dit artikel, moet u het volgende:
 
 * Een cluster op basis van Windows HDInsight (Hadoop in HDInsight)
 * Een clientcomputer met Windows 10, Windows 8 of Windows 7
 
 ## <a id="connect"></a>Verbinding maken met extern bureaublad
-Extern bureaublad inschakelen voor Hallo HDInsight-cluster en verbind tooit met behulp Hallo-instructies in de [tooHDInsight clusters met RDP verbinding](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+Extern bureaublad inschakelen voor het HDInsight-cluster en vervolgens verbinding maken met het door de instructies op [verbinding maken met HDInsight-clusters met RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
-## <a id="hive"></a>Hallo Hive-opdracht gebruiken
-Wanneer u verbinding hebt met het bureaublad toohello voor Hallo HDInsight-cluster gebruiken Hallo toowork met Hive stappen te volgen:
+## <a id="hive"></a>Gebruik de opdracht Hive
+Wanneer u verbinding hebt met het bureaublad voor het HDInsight-cluster, gebruik de volgende stappen uit om te werken met Hive:
 
-1. Hallo HDInsight bureaublad starten Hallo **Hadoop-opdrachtregel**.
-2. Voer Hallo opdracht toostart Hallo Hive CLI te volgen:
+1. Start vanaf het bureaublad HDInsight de **Hadoop-opdrachtregel**.
+2. Voer de volgende opdracht om de CLI Hive starten:
 
         %hive_home%\bin\hive
 
-    Als Hallo CLI is gestart, ziet u Hallo CLI Hive-prompt: `hive>`.
-3. Gebruik Hallo CLI Hallo na toocreate instructies een nieuwe tabel met de naam te geven **log4jLogs** voorbeeldgegevens gebruikt:
+    Als de CLI is gestart, ziet u de CLI Hive-prompt: `hive>`.
+3. De volgende instructies om een nieuwe tabel met de naam te maken met behulp van de CLI Voer **log4jLogs** voorbeeldgegevens gebruikt:
 
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
@@ -59,45 +59,45 @@ Wanneer u verbinding hebt met het bureaublad toohello voor Hallo HDInsight-clust
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Deze instructies uitvoeren Hallo volgende acties:
+    Deze instructies uitvoeren de volgende acties:
 
-   * **DROP TABLE**: Hiermee verwijdert u Hallo tabel en het Hallo-gegevensbestand als Hallo tabel al bestaat.
-   * **EXTERNE tabel maken**: maakt een nieuwe 'extern' tabel in Hive. Externe tabellen opslaan alleen Hallo tabeldefinitie in Hive (hello gegevens in de oorspronkelijke locatie Hallo blijft).
+   * **DROP TABLE**: Hiermee verwijdert u de tabel en het gegevensbestand als de tabel al bestaat.
+   * **EXTERNE tabel maken**: maakt een nieuwe 'extern' tabel in Hive. De definitie van de tabel opslaan externe tabellen in Hive (de gegevens links op de oorspronkelijke locatie).
 
      > [!NOTE]
-     > Externe tabellen moeten worden gebruikt wanneer u gegevens toobe worden bijgewerkt door een externe bron (zoals een uploadproces geautomatiseerde gegevens) of door een andere MapReduce-bewerking onderliggende hello verwacht, maar u wilt dat altijd Hive query toouse Hallo meest recente gegevens.
+     > Externe tabellen moeten worden gebruikt wanneer u de onderliggende gegevens worden bijgewerkt door een externe bron (zoals een uploadproces geautomatiseerde gegevens) of door een andere MapReduce-bewerking verwacht, maar u wilt dat altijd de meest recente gegevens gebruiken voor Hive-query's.
      >
-     > Verwijderen van een externe tabel komt **niet** Hallo gegevens alleen Hallo tabeldefinitie kunt verwijderen.
+     > Verwijderen van een externe tabel komt **niet** de gegevens, de definitie van de tabel verwijderen.
      >
      >
-   * **INDELING van de rij**: Hive-wordt uitgelegd hoe Hallo gegevens wordt opgemaakt. In dit geval worden Hallo velden in elk logboek gescheiden door een spatie.
-   * **AS TEXTFILE locatie opgeslagen**: vertelt Hive waar Hallo gegevens zijn opgeslagen (directory Hallo bijvoorbeeld/gegevens) en deze is opgeslagen als tekst.
-   * **Selecteer**: selecteert een telling van alle rijen waarin kolom **t4** Hallo waarde bevat **[fout]**. Dit moet een waarde van retourneren **3** omdat er drie rijen met deze waarde.
-   * **INPUT__FILE__NAME zoals '%.log'** -vertelt Hive die we alleen gegevens uit bestanden eindigt op moet retourneren. log. Hiermee beperkt u Hallo zoeken toohello sample.log-bestand dat Hallo gegevens bevat, en voorkomt dat het retourneren van gegevens uit andere voorbeeld gegevensbestanden die komen niet overeen met de Hallo-schema die is gedefinieerd.
-4. Gebruik Hallo na toocreate instructies een nieuwe 'interne' tabel met de naam **foutenlogboeken**:
+   * **INDELING van de rij**: Hive-wordt uitgelegd hoe de gegevens wordt opgemaakt. In dit geval worden de velden in elk logboek gescheiden door een spatie.
+   * **AS TEXTFILE locatie opgeslagen**: vertelt Hive waar de gegevens zijn opgeslagen (de map met de voorbeeldgegevens /) en deze is opgeslagen als tekst.
+   * **Selecteer**: selecteert een telling van alle rijen waarin kolom **t4** bevat de waarde **[fout]**. Dit moet een waarde van retourneren **3** omdat er drie rijen met deze waarde.
+   * **INPUT__FILE__NAME zoals '%.log'** -vertelt Hive die we alleen gegevens uit bestanden eindigt op moet retourneren. log. Dit beperkt de zoekopdracht tot het sample.log-bestand dat de gegevens bevat, en voorkomt dat het retourneren van gegevens uit andere voorbeeld gegevensbestanden die komen niet overeen met het schema dat is gedefinieerd.
+4. Gebruik de volgende instructies voor het maken van een nieuwe 'interne' tabel met de naam **foutenlogboeken**:
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
-    Deze instructies uitvoeren Hallo volgende acties:
+    Deze instructies uitvoeren de volgende acties:
 
-   * **MAKEN van tabel als niet bestaat**: maakt een tabel als deze niet al bestaat. Omdat Hallo **externe** trefwoord wordt niet gebruikt, is dit een interne tabel die is opgeslagen in Hallo Hive-datawarehouse en volledig wordt beheerd door Hive.
+   * **MAKEN van tabel als niet bestaat**: maakt een tabel als deze niet al bestaat. Omdat de **externe** trefwoord wordt niet gebruikt, is dit een interne tabel die is opgeslagen in het datawarehouse Hive en volledig wordt beheerd door Hive.
 
      > [!NOTE]
-     > In tegenstelling tot **externe** tabellen, verwijderen van een interne tabel ook Hallo onderliggende gegevens worden verwijderd.
+     > In tegenstelling tot **externe** tabellen, ook verwijderen van een interne tabel worden de onderliggende gegevens verwijderd.
      >
      >
-   * **OPGESLAGEN AS ORC**: Hallo-gegevens opslaat in geoptimaliseerde rij kolomindeling (ORC). Dit is een maximaal geoptimaliseerd en efficiënte indeling voor het opslaan van gegevens met Hive.
-   * **INSERT OVERSCHRIJVEN... Selecteer**: rijen uit Hallo geselecteerd **log4jLogs** tabel met **[fout]**, en vervolgens voegt gegevens in Hallo Hallo **foutenlogboeken** tabel.
+   * **OPGESLAGEN AS ORC**: de gegevens opslaat in geoptimaliseerde rij kolomindeling (ORC). Dit is een maximaal geoptimaliseerd en efficiënte indeling voor het opslaan van gegevens met Hive.
+   * **INSERT OVERSCHRIJVEN... Selecteer**: selecteert rijen uit de **log4jLogs** tabel met **[fout]**, voegt u vervolgens de gegevens in de **foutenlogboeken** tabel.
 
-     tooverify die alleen rijen die bevatten **[fout]** in kolom t4 waren opgeslagen toohello **foutenlogboeken** tabel, gebruikt u na de instructie tooreturn alle rijen uit Hallo Hallo **foutenlogboeken**:
+     Om te controleren dat die bevatten alleen rijen **[fout]** in kolom t4 zijn opgeslagen op de **foutenlogboeken** tabel, met de volgende instructie retourneert alle rijen uit **foutenlogboeken**:
 
        Selecteer * uit foutenlogboeken;
 
      Drie rijen met gegevens moeten worden geretourneerd, alle overkoepelende **[fout]** in kolom t4.
 
 ## <a id="summary"></a>Samenvatting
-Zoals u ziet, Hallo Hallo Hive opdracht biedt een eenvoudige manier toointeractively Hive-query's uitvoeren op een HDInsight-cluster, Hallo monitor status van taken en Hallo uitvoer ophalen.
+Zoals u ziet de de Hive-opdracht biedt een eenvoudige manier om interactief Hive-query's uitvoeren op een HDInsight-cluster, de taakstatus te controleren en ophalen van de uitvoer.
 
 ## <a id="nextsteps"></a>Volgende stappen
 Voor algemene informatie over Hive in HDInsight:
@@ -109,10 +109,10 @@ Voor informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 * [Pig gebruiken met Hadoop in HDInsight](hdinsight-use-pig.md)
 * [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
-Als u van Tez met Hive gebruikmaakt, raadpleegt u Hallo volgende documenten voor het opsporen van informatie:
+Als u van Tez met Hive gebruikmaakt, raadpleegt u de volgende documenten voor het opsporen van informatie:
 
-* [Hallo Tez UI op HDInsight op basis van Windows gebruiken](hdinsight-debug-tez-ui.md)
-* [Hallo Ambari Tez weergave op Linux gebaseerde HDInsight gebruiken](hdinsight-debug-ambari-tez-view.md)
+* [De Tez-gebruikersinterface op HDInsight op basis van Windows gebruiken](hdinsight-debug-tez-ui.md)
+* [De weergave Ambari Tez op Linux gebaseerde HDInsight gebruiken](hdinsight-debug-ambari-tez-view.md)
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 

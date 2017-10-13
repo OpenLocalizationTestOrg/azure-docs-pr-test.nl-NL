@@ -1,6 +1,6 @@
 ---
 title: "Hybride identiteit: vergelijking van hulpprogramma’s voor directory-integratie | Microsoft Docs"
-description: Deze pagina bevat een uitgebreide tabel waarin Hallo vergelijkt verschillende hulpprogramma die kunnen worden gebruikt voor directory-integratie is.
+description: Deze pagina bevat een uitgebreide tabel waarin de verschillende hulpprogramma's voor directory-integratie worden vergeleken.
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -14,45 +14,45 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 18ac0a0f58726eceb85510df516e8db71429b313
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f87b5837c7a786c8b309a6a52e69b53c0ad4c9d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Vergelijking van hulpprogramma’s voor directory-integratie voor hybride identiteit
-Hallo jaren hulpprogramma Hallo toegenomen en ontwikkeld.  Dit document is toohelp bieden een geconsolideerde weergave van deze hulpprogramma's en een vergelijking van Hallo-functies die beschikbaar in elk zijn.
+In de afgelopen jaren hebben de hulpprogramma's voor directory-integratie zich enorm ontwikkeld.  Dit document geeft een overzicht van deze hulpprogramma's en hierin worden de beschikbare functies in elk hulpprogramma vergeleken.
 
-<!-- hello hardcoded link is a workaround for campaign ids not working in acom links-->
+<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
 > [!NOTE]
-> Azure AD Connect bevat Hallo-onderdelen en functionaliteit die eerder is uitgebracht als Dirsync en AAD Sync. Deze hulpprogramma's zijn niet meer afzonderlijk uitgebracht en alle toekomstige verbeteringen worden opgenomen in updates tooAzure AD verbinding kan maken, zodat u altijd weet waar tooget Hallo meest recente functionaliteit.
+> Azure AD Connect bevat de onderdelen en functionaliteit die eerder zijn uitgebracht als Dirsync en AAD Sync. Deze hulpprogramma's worden niet meer afzonderlijk uitgebracht en alle toekomstige verbeteringen worden opgenomen in updates voor Azure AD Connect, zodat u altijd weet waar u de meest recente functionaliteit kunt ophalen.
 > 
 > DirSync en Azure AD Sync zijn afgeschaft. Meer informatie vindt u [hier](active-directory-aadconnect-dirsync-deprecated.md).
 > 
 > 
 
-Hallo sleutel volgen voor elk van de tabellen hello gebruiken.
+Gebruik de volgende sleutel voor elk van de tabellen.
 
 ● = Nu beschikbaar  
 FR = Toekomstige release  
 PP = Openbare preview  
 
-## <a name="on-premises-toocloud-synchronization"></a>On-Premises tooCloud synchronisatie
+## <a name="on-premises-to-cloud-synchronization"></a>Synchronisatie van on-premises naar cloud
 | Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices (AAD Sync) | Hulpprogramma voor Azure Active Directory-synchronisatie (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
-| Verbinding maken met toosingle on-premises AD-forest |● |● |● |● |● |
-| Verbinding maken met toomultiple on-premises AD-forests |● |● | |● |● |
-| Verbinding maken met toomultiple lokale Exchange-organisaties |● | | | | |
-| Verbinding maken met on-premises LDAP-adreslijst toosingle |FR | | |● |● |
-| Verbinding maken met on-premises LDAP-adreslijsten toomultiple |FR | | |● |● |
-| Verbinding maken met tooon-premises AD en on-premises LDAP-adreslijsten |FR | | |● |● |
-| Verbinding maken met toocustom systemen (dat wil zeggen SQL, Oracle, MySQL, enz.) |FR | | |● |● |
+| Verbinding maken met één on-premises AD-forest |● |● |● |● |● |
+| Verbinding maken met meerdere on-premises AD-forests |● |● | |● |● |
+| Verbinding maken met meerdere on-premises Exchange-organisaties |● | | | | |
+| Verbinding maken met één on-premises LDAP-adreslijst |FR | | |● |● |
+| Verbinding maken met meerdere on-premises LDAP-adreslijsten |FR | | |● |● |
+| Verbinding maken met on-premises AD- en on-premises LDAP-adreslijsten |FR | | |● |● |
+| Verbinding maken met aangepaste systemen (SQL, Oracle, MySQL enzovoort) |FR | | |● |● |
 | Door de klant gedefinieerde kenmerken synchroniseren (directory-extensies) |● | | | | |
-| Verbinding maken met tooon-premises HR (SAP, Oracle eBusiness, PeopleSoft) |FR | | |● |● |
-| Ondersteunt de FIM-synchronisatieregels en -connectors voor het inrichten van tooon-premises systemen. | | | |● |● |
+| Verbinding maken met on-premises HR (SAP, Oracle eBusiness, PeopleSoft) |FR | | |● |● |
+| Biedt ondersteuning voor FIM-synchronisatieregels en -connectors voor de inrichting van on-premises systemen. | | | |● |● |
 
-## <a name="cloud-tooon-premises-synchronization"></a>Synchronisatie van cloud-tooOn-Premises
+## <a name="cloud-to-on-premises-synchronization"></a>Synchronisatie van cloud naar on-premises
 | Functie | Azure Active Directory Connect | Azure Active Directory-synchronisatieservices | Hulpprogramma voor Azure Active Directory-synchronisatie (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Write-back van apparaten |● | |● | | |
@@ -74,8 +74,8 @@ PP = Openbare preview
 | Biedt ondersteuning voor installatie op een domeincontroller |● |● |● | |
 | Biedt ondersteuning voor installatie met SQL Express |● |● |● | |
 | Eenvoudig upgraden van DirSync |● | | | |
-| Lokalisatie van Admin UX tooWindows Server-talen |● |● |● | |
-| Lokalisatie van eindgebruiker-UX tooWindows Server-talen | | | |● |
+| Lokalisatie van beheerder-UX naar Windows Server-talen |● |● |● | |
+| Lokalisatie van eindgebruiker-UX naar Windows Server-talen | | | |● |
 | Ondersteuning voor Windows Server 2008 en Windows Server 2008 R2 |● voor synchronisatie, niet voor federatie |● |● |● |
 | Ondersteuning voor Windows Server 2012 en Windows Server 2012 R2 |● |● |● |● |
 
@@ -84,9 +84,9 @@ PP = Openbare preview
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Filteren op domeinen en organisatie-eenheden |● |● |● |● |● |
 | Filteren op kenmerkwaarden van objecten |● |● |● |● |● |
-| Toestaan dat minimale set kenmerken toobe gesynchroniseerd (MinSync) |● |● | | | |
-| Verschillende sjablonen toobe toegepast voor kenmerkstromen toestaan |● |● | | | |
-| Toestaan dat het verwijderen van kenmerken van AD tooAzure AD stroomt |● |● | | | |
+| Toestaan dat minimale set kenmerken worden gesynchroniseerd (MinSync) |● |● | | | |
+| Toestaan dat verschillende servicesjablonen worden toegepast voor kenmerkstromen |● |● | | | |
+| Toestaan dat het verwijderen van kenmerken van AD naar Azure AD stroomt |● |● | | | |
 | Geavanceerd aanpassen voor kenmerkstromen toestaan |● |● | |● |● |
 
 ## <a name="next-steps"></a>Volgende stappen

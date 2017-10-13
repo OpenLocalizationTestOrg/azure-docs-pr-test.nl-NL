@@ -1,6 +1,6 @@
 ---
-title: aaaReplicate Hyper-V-machines in VMM met SAN met behulp van Azure Site Recovery | Microsoft Docs
-description: Dit artikel wordt beschreven hoe tooreplicate Hyper-V virtuele machines tussen twee sites met Azure Site Recovery SAN-replicatie.
+title: Hyper-V-machines in VMM met SAN repliceren met behulp van Azure Site Recovery | Microsoft Docs
+description: Dit artikel wordt beschreven hoe u Hyper-V virtuele machines repliceren tussen twee sites met Azure Site Recovery SAN-replicatie.
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.openlocfilehash: cee4ff519a8e9e7f29e17e923a9533fb339634b4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3df38802fcdc86e4553253d38c49faff455f873e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="replicate-hyper-v-vms-in-vmm-clouds-tooa-secondary-site-with-azure-site-recovery-by-using-san"></a>Hyper-V-machines in VMM-clouds tooa secundaire site met Azure Site Recovery repliceren met behulp van SAN
+# <a name="replicate-hyper-v-vms-in-vmm-clouds-to-a-secondary-site-with-azure-site-recovery-by-using-san"></a>Hyper-V-machines in VMM-clouds repliceren naar een secundaire site met Azure Site Recovery met behulp van SAN
 
 
-Gebruik dit artikel als u wilt dat toodeploy [Azure Site Recovery](site-recovery-overview.md) toomanage replicatie van Hyper-V-machines (beheerd in System Center Virtual Machine Manager-clouds) tooa secundaire VMM-site, met behulp van Azure Site Recovery in de klassieke portal Hallo. Dit scenario is niet beschikbaar in de nieuwe Azure portal Hallo.
+Gebruik dit artikel als u wilt implementeren [Azure Site Recovery](site-recovery-overview.md) voor het beheren van replicatie van Hyper-V-machines (beheerd in System Center Virtual Machine Manager-clouds) naar een secundaire VMM-site met Azure Site Recovery in de klassieke portal. Dit scenario is niet beschikbaar in de nieuwe Azure portal.
 
 
 
-Na de eventuele opmerkingen aan Hallo einde van dit artikel. Vind antwoorden tootechnical vragen in Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Na de eventuele opmerkingen aan het einde van dit artikel. Vind antwoorden op technische vragen in de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="why-replicate-with-san-and-site-recovery"></a>Waarom repliceren met SAN- en Site Recovery?
 
-* SAN biedt een replicatieoplossing op bedrijfsniveau, schaalbare, zodat een primaire site met Hyper-V met SAN LUN's tooa secundaire site met SAN kan worden gerepliceerd. Opslag wordt beheerd door VMM en replicatie en failover wordt beheerd met Site Recovery.
-* Site Recovery heeft samengewerkt met verschillende [SAN-opslag partners](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx) tooprovide Fibre Channel en iSCSI-opslag gerepliceerd.  
-* Gebruik uw bestaande SAN-infrastructuur tooprotect bedrijfskritieke apps geïmplementeerd in Hyper-V-clusters. Virtuele machines kunnen worden gerepliceerd als een groep, zodat u apps met N-aantal lagen failover mogelijk consistent.
+* SAN biedt een replicatieoplossing op bedrijfsniveau, schaalbare, zodat een primaire site met Hyper-V met SAN LUN's naar een secundaire site met SAN repliceren kunt. Opslag wordt beheerd door VMM en replicatie en failover wordt beheerd met Site Recovery.
+* Site Recovery heeft samengewerkt met verschillende [SAN-opslag partners](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx) om te voorzien in replicatie Fibre Channel en iSCSI-opslag.  
+* Gebruik uw bestaande SAN-infrastructuur ter bescherming van essentiële apps die worden geïmplementeerd in Hyper-V-clusters. Virtuele machines kunnen worden gerepliceerd als een groep, zodat u apps met N-aantal lagen failover mogelijk consistent.
 * SAN-replicatie zorgt voor replicatieconsistentie in verschillende lagen van een toepassing met gesynchroniseerde replicatie voor de laag RTO en RPO en asynchrone uitvoering replicatie voor hoge flexibiliteit (afhankelijk van de mogelijkheden van uw opslagmatrix).  
-* U kunt SAN-opslag in VMM fabric Hallo beheren en SMI-S in VMM toodiscover bestaande opslag gebruiken.  
+* U kunt SAN-opslag in de VMM-fabric beheren en gebruiken van SMI-S in VMM om bestaande opslag te detecteren.  
 
 Opmerking:
-- Replicatie van site-naar-site met SAN is niet beschikbaar in hello Azure-portal. De optie is alleen beschikbaar in de klassieke portal Hallo. Nieuwe kluizen kunnen niet worden gemaakt in de klassieke portal Hallo. Bestaande kluizen kunnen worden beheerd.
-- Replicatie van SAN tooAzure wordt niet ondersteund.
-- Gedeelde vhdx-bestanden kan niet worden gerepliceerd of logische eenheden (LUN's) die rechtstreeks zijn verbonden tooVMs via iSCSI of Fibre Channel. Gastclusters kunnen worden gerepliceerd.
+- Replicatie van site-naar-site met SAN is niet beschikbaar in de Azure-portal. De optie is alleen beschikbaar in de klassieke portal. Nieuwe kluizen kunnen niet worden gemaakt in de klassieke portal. Bestaande kluizen kunnen worden beheerd.
+- Replicatie van SAN naar Azure wordt niet ondersteund.
+- U kunt geen gedeelde vhdx-bestanden of logische eenheden (LUN's) die rechtstreeks zijn verbonden met virtuele machines via iSCSI of Fibre Channel repliceren. Gastclusters kunnen worden gerepliceerd.
 
 
 ## <a name="architecture"></a>Architectuur
 
 ![SAN-architectuur](./media/site-recovery-vmm-san/architecture.png)
 
-- **Azure**: instellen van een Site Recovery-kluis in hello Azure-portal.
-- **SAN-opslag**: SAN-opslag in Hallo VMM fabric wordt beheerd. U Hallo opslagprovider toevoegen, opslagcategorieën aanmaken en instellen van de opslaggroepen.
-- **VMM en Hyper-V**: We raden aan een VMM-server op elke site. Instellen van VMM-privéclouds en Hyper-V-clusters in die clouds plaatsen. Tijdens de implementatie hello Azure Site Recovery Provider is geïnstalleerd op elke VMM-server en Hallo-server is geregistreerd in kluis Hallo. Hallo Provider communiceert met de Hallo Site Recovery service toomanage replicatie, failover en failback.
-- **Replicatie**: nadat u opslag in VMM installeren en configureren van replicatie in Site Recovery, replicatie tussen Hallo primaire en secundaire SAN-opslag. Er zijn geen replicatiegegevens verzonden tooSite herstel.
-- **Failover**: inschakelen-failover in Hallo Site Recovery-portal. Er is geen gegevens verloren gaan tijdens de failover omdat replicatie synchroon is.
-- **Failback**: toofail achter, inschakelen van omgekeerde replicatie tootransfer deltawijzigingen van Hallo secundaire site toohello primaire site. Als omgekeerde replicatie voltooid is, kunt u een geplande failover uitvoeren vanaf de secundaire tooprimary. Deze geplande failover Hallo replica VMs stopt op de secundaire site Hallo en ze op de primaire site Hallo gestart.
+- **Azure**: instellen van een Site Recovery-kluis in de Azure portal.
+- **SAN-opslag**: SAN-opslag in de VMM-fabric wordt beheerd. U voegt u de opslagprovider toe, opslagcategorieën aanmaken en instellen van de opslaggroepen.
+- **VMM en Hyper-V**: We raden aan een VMM-server op elke site. Instellen van VMM-privéclouds en Hyper-V-clusters in die clouds plaatsen. Tijdens de implementatie van de Azure Site Recovery Provider is geïnstalleerd op elke VMM-server en de server is geregistreerd in de kluis. De Provider communiceert met de Site Recovery-service voor het beheren van replicatie, failover en failback.
+- **Replicatie**: nadat u opslag in VMM installeren en configureren van replicatie in Site Recovery, replicatie tussen de primaire en secundaire SAN-opslag. Er zijn geen replicatiegegevens verzonden naar Site Recovery.
+- **Failover**: schakelen van failover in de Site Recovery-portal. Er is geen gegevens verloren gaan tijdens de failover omdat replicatie synchroon is.
+- **Failback**: als u wilt een failback uit, schakelt u de omgekeerde replicatie deltawijzigingen overzetten van de secundaire site naar de primaire site. Als omgekeerde replicatie voltooid is, kunt u een geplande failover uitvoeren vanaf de secundaire op primaire. Deze geplande failover wordt de replica virtuele machines op de secundaire site gestopt en start ze op de primaire site.
 
 
 ## <a name="before-you-start"></a>Voordat u begint
@@ -61,14 +61,14 @@ Opmerking:
 
 **Vereisten** | **Details**
 --- | ---
-**Azure** |U hebt een [Microsoft Azure](https://azure.microsoft.com/)-account nodig. U kunt beginnen met een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/). [Meer informatie](https://azure.microsoft.com/pricing/details/site-recovery/) over prijzen voor Site Recovery. Een Azure Site Recovery-kluis tooconfigure maken en beheren van replicatie en failover.
-**VMM** | U kunt gebruiken één VMM-server en andere clouds repliceren, maar we raden aan één VMM in Hallo primaire site en één in Hallo secundaire site. VMM kan worden geïmplementeerd als een fysieke of virtuele zelfstandige server of als een cluster. <br/><br/>Hallo VMM-server moet worden uitgevoerd op System Center 2012 R2 of hoger met Hallo meest recente cumulatieve updates.<br/><br/> U moet ten minste één cloud zijn geconfigureerd op Hallo primaire VMM-server u wilt dat tooprotect en één cloud zijn geconfigureerd op de secundaire VMM-server Hallo gewenste toouse voor failover.<br/><br/> Hallo-broncloud moet een of meer VMM-hostgroepen bevatten.<br/><br/> Alle VMM-clouds moeten Hallo Hyper-V Capaciteitsprofiel ingesteld hebben.<br/><br/> Zie voor meer informatie over het instellen van VMM-clouds [implementeren van een privécloud VM](https://technet.microsoft.com/en-us/system-center-docs/vmm/scenario/cloud-overview).
-**Hyper-V** | U moet een of meer Hyper-V-clusters in primaire en secundaire VMM-clouds.<br/><br/> Hallo bron Hyper-V-cluster moet een of meer virtuele machines bevatten.<br/><br/> Hallo VMM-hostgroepen in de primaire en secundaire sites Hallo moeten ten minste één van de Hyper-V-clusters Hallo bevatten.<br/><br/>Hallo host- en Hyper-V-servers moet worden uitgevoerd op Windows Server 2012 of hoger met Hallo Hyper-V-rol en Hallo meest recente updates zijn geïnstalleerd.<br/><br/> Als u Hyper-V in een cluster uitvoert en een statische IP-adressen gebaseerde cluster hebt, zijn de clusterbroker niet automatisch gemaakt. U moet deze handmatig configureren. Zie voor meer informatie [hostclusters voor Hyper-V replica voorbereiden](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters).
-**SAN-opslag** | U kunt guest geclusterde virtuele machines met iSCSI of channel-opslag of met behulp van gedeelde virtuele harde schijven (vhdx) repliceren.<br/><br/> U moet twee SAN-matrices: een in Hallo primaire site en één in Hallo secundaire site.<br/><br/> Een netwerkinfrastructuur moet worden ingesteld tussen Hallo matrices. Peering en replicatie moeten worden geconfigureerd. Replicatie-licenties moeten worden ingesteld in overeenstemming met de opslagvereisten matrix Hallo.<br/><br/>Stel netwerken tussen Hallo Hyper-V-hostservers en Hallo opslagmatrix zodat hosts met opslag-LUN's communiceren kunnen met behulp van iSCSI of Fibre Channel.<br/><br/> Controleer [ondersteunde opslagmatrices](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).<br/><br/> SMI-S-providers van fabrikanten van opslag-matrix moeten worden geïnstalleerd en Hallo SAN-matrices moeten worden beheerd door Hallo-provider. Hallo Provider volgens toomanufacturer instructies instellen.<br/><br/>Zorg ervoor dat Hallo-matrix SMI-S-provider zich op een server die Hallo VMM server toegankelijk via Hallo-netwerk met een IP-adres of FQDN-naam.<br/><br/> Elke SAN-matrix moet een of meer beschikbare opslaggroepen hebben.<br/><br/> Hallo primaire VMM-server Hallo primaire matrix moet beheren en secundaire VMM-server Hallo Hallo secundaire matrix moet beheren.
-**Netwerktoewijzing** | Stel netwerktoewijzing zodat gerepliceerde virtuele machines optimaal op secundaire Hyper-V-hostservers zijn geplaatst na een failover en dat ze zijn verbonden tooappropriate VM-netwerken. Als u geen netwerktoewijzing configureert, niet replica VMs verbonden tooany netwerk na een failover.<br/><br/> Zorg ervoor dat VMM netwerken correct zijn geconfigureerd zodat u netwerktoewijzing tijdens de implementatie van Site Recovery kunt instellen. In VMM moet Hallo VM's op de bronhost Hyper-V Hallo verbonden tooa VMM VM-netwerk. Dit netwerk moet gekoppelde tooa logisch netwerk dat is gekoppeld aan Hallo cloud.<br/><br/> Hallo doelcloud moet een bijbehorende VM-netwerk hebt en deze gekoppelde tooa bijbehorende logisch netwerk dat is gekoppeld aan Hallo doelcloud op zijn beurt moet worden.<br/><br/>.
+**Azure** |U hebt een [Microsoft Azure](https://azure.microsoft.com/)-account nodig. U kunt beginnen met een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/). [Meer informatie](https://azure.microsoft.com/pricing/details/site-recovery/) over prijzen voor Site Recovery. Maak een Azure Site Recovery-kluis configureren en beheren van replicatie en failover.
+**VMM** | U kunt gebruiken één VMM-server en andere clouds repliceren, maar we raden aan één VMM in de primaire site en één in de secundaire site. VMM kan worden geïmplementeerd als een fysieke of virtuele zelfstandige server of als een cluster. <br/><br/>De VMM-server moet worden uitgevoerd op System Center 2012 R2 of hoger met de meest recente cumulatieve updates.<br/><br/> U moet ten minste één cloud zijn geconfigureerd op de primaire VMM-server die u wilt beveiligen en één cloud zijn geconfigureerd op de secundaire VMM-server die u wilt gebruiken voor failover.<br/><br/> De broncloud moet een of meer VMM-hostgroepen bevatten.<br/><br/> Alle VMM-clouds moeten het Hyper-V-Capaciteitsprofiel ingesteld hebben.<br/><br/> Zie voor meer informatie over het instellen van VMM-clouds [implementeren van een privécloud VM](https://technet.microsoft.com/en-us/system-center-docs/vmm/scenario/cloud-overview).
+**Hyper-V** | U moet een of meer Hyper-V-clusters in primaire en secundaire VMM-clouds.<br/><br/> Het bron-Hyper-V-cluster moet een of meer virtuele machines bevatten.<br/><br/> De VMM-hostgroepen in de primaire en secundaire sites moeten ten minste één van de Hyper-V-clusters bevatten.<br/><br/>De servers van de Hyper-V-host en het doel moeten worden uitgevoerd WindowsServer 2012 of hoger met de Hyper-V-rol en de meest recente updates zijn geïnstalleerd.<br/><br/> Als u Hyper-V in een cluster uitvoert en een statische IP-adressen gebaseerde cluster hebt, zijn de clusterbroker niet automatisch gemaakt. U moet deze handmatig configureren. Zie voor meer informatie [hostclusters voor Hyper-V replica voorbereiden](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters).
+**SAN-opslag** | U kunt guest geclusterde virtuele machines met iSCSI of channel-opslag of met behulp van gedeelde virtuele harde schijven (vhdx) repliceren.<br/><br/> U moet twee SAN-matrices: één in de primaire site en één in de secundaire site.<br/><br/> Een netwerkinfrastructuur moet worden ingesteld tussen de matrices. Peering en replicatie moeten worden geconfigureerd. Replicatie-licenties moeten worden ingesteld in overeenstemming met de opslagvereisten voor de matrix.<br/><br/>Instellen van het netwerk tussen de Hyper-V-host-servers en de opslagmatrix zodat hosts met opslag-LUN's communiceren kunnen met behulp van iSCSI of Fibre Channel.<br/><br/> Controleer [ondersteunde opslagmatrices](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).<br/><br/> SMI-S-providers van fabrikanten van opslag-matrix moeten worden geïnstalleerd en de SAN-matrices moeten worden beheerd door de provider. Instellen van de Provider volgens de instructies van de fabrikant.<br/><br/>Zorg ervoor dat de SMI-S-provider van de matrix is op een server waarop de VMM-server toegankelijk via het netwerk met een IP-adres of FQDN-naam.<br/><br/> Elke SAN-matrix moet een of meer beschikbare opslaggroepen hebben.<br/><br/> De primaire VMM-server de primaire matrix moet beheren en de secundaire VMM-server moet de secundaire matrix beheren.
+**Netwerktoewijzing** | Stel netwerktoewijzing zodat gerepliceerde virtuele machines optimaal op secundaire Hyper-V-hostservers zijn geplaatst na een failover en zodat ze zijn verbonden met de juiste VM-netwerken. Als u geen netwerktoewijzing configureert, replica VMs niet verbonden met een netwerk na een failover.<br/><br/> Zorg ervoor dat VMM netwerken correct zijn geconfigureerd zodat u netwerktoewijzing tijdens de implementatie van Site Recovery kunt instellen. In VMM, moeten de virtuele machines op de bronhost Hyper-V zijn verbonden met een VMM VM-netwerk. Dit netwerk moet zijn gekoppeld aan een logisch netwerk dat is verbonden met de cloud.<br/><br/> De doelcloud moet een bijbehorende VM-netwerk hebt en deze op zijn beurt moet zijn gekoppeld aan een corresponderende logisch netwerk dat is gekoppeld aan de doelcloud.<br/><br/>.
 
-## <a name="step-1-prepare-hello-vmm-infrastructure"></a>Stap 1: Hallo VMM infrastructuur voorbereiden
-tooprepare uw VMM-infrastructuur, moet u:
+## <a name="step-1-prepare-the-vmm-infrastructure"></a>Stap 1: De VMM-infrastructuur voorbereiden
+Als u met het voorbereiden van uw VMM-infrastructuur, moet u:
 
 1. Controleer of de VMM-clouds.
 2. Integreren en classificeren van SAN-opslag in VMM.
@@ -80,65 +80,65 @@ tooprepare uw VMM-infrastructuur, moet u:
 
 Zorg ervoor dat de VMM-clouds correct zijn ingesteld voordat u begint met implementatie van Site Recovery.
 
-### <a name="integrate-and-classify-san-storage-in-hello-vmm-fabric"></a>Integreren en SAN-opslag in VMM fabric Hallo classificeren
+### <a name="integrate-and-classify-san-storage-in-the-vmm-fabric"></a>Integreren en classificeren van SAN-opslag in de VMM-fabric
 
-1. Hallo VMM-console, ga te**Fabric** > **opslag** > **Resources toevoegen** > **opslagapparaten**.
-2. In Hallo **opslagapparaten toevoegen** wizard selecteert u **Selecteer een type opslagprovider** en selecteer **SAN- en NAS-apparaten gedetecteerd en beheerd door een SMI-S-provider**.
+1. Ga in de VMM-console naar **Fabric** > **opslag** > **Resources toevoegen** > **opslagapparaten**.
+2. In de **opslagapparaten toevoegen** wizard selecteert u **Selecteer een type opslagprovider** en selecteer **SAN- en NAS-apparaten gedetecteerd en beheerd door een SMI-S-provider**.
 
     ![Type provider](./media/site-recovery-vmm-san/provider-type.png)
 
-3. Op Hallo **Protocol opgeven en het adres van de SMI-S-opslagprovider Hallo** pagina **SMI-S CIMXML** en Hallo-instellingen voor verbinding toohello provider opgeven.
-4. In **Provider IP-adres of FQDN-naam** en **TCP/IP-poort**, Hallo-instellingen voor verbinding toohello provider opgeven. U kunt alleen een SSL-verbinding voor de SMI-S CIMXML gebruiken.
+3. Op de **Geef Protocol en adres op van de SMI-S-opslagprovider** pagina **SMI-S CIMXML** en geef de instellingen voor het verbinden met de provider.
+4. In **Provider IP-adres of FQDN-naam** en **TCP/IP-poort**, geef de instellingen voor het verbinden met de provider. U kunt alleen een SSL-verbinding voor de SMI-S CIMXML gebruiken.
 
     ![Provider verbinding maken](./media/site-recovery-vmm-san/connect-settings.png)
-5. In **Run as-account**, VMM uitvoeren als-account die u kunt toegang krijgen tot Hallo-provider of maak een account opgeven.
-6. Op Hallo **informatie verzamelen** pagina VMM probeert automatisch importeren en toodiscover Hallo informatie over opslagapparaten. detectie van tooretry, klikt u op **Provider scannen**. Als het detectieproces Hallo slaagt, gedetecteerd Hallo opslagmatrices, opslaggroepen, de fabrikant, model en capaciteit op Hallo pagina worden weergegeven.
+5. In **Run as-account**, VMM uitvoeren als-account die u kunt toegang tot de provider of maak een account opgeven.
+6. Op de **informatie verzamelen** pagina VMM probeert automatisch te detecteren en importeren van de informatie over opslagapparaten. Om te proberen detectie, klikt u op **Provider scannen**. Als het detectieproces is geslaagd, de gedetecteerde opslagmatrices, opslaggroepen, de fabrikant, model en capaciteit staan op de pagina.
 
     ![Opslag detecteren](./media/site-recovery-vmm-san/discover.png)
-7. In **storage pools tooplace onder beheer selecteren en toewijzen van een classificatie**, selecteer de opslaggroepen Hallo VMM beheerd en ze een classificatie toewijzen. LUN-gegevens worden geïmporteerd vanaf Hallo opslaggroepen. Maken van LUN's die zijn gebaseerd op Hallo toepassingen moet u tooprotect, hun capaciteitsvereisten en uw vereisten voor wat tooreplicate samen nodig heeft.
+7. In **Selecteer opslaggroepen onder beheer te plaatsen en het toewijzen van een classificatie**, selecteer de opslaggroepen VMM beheerd en ze een classificatie toewijzen. LUN-gegevens worden geïmporteerd vanaf de opslaggroepen. LUN's op basis van de toepassingen die u wilt beveiligen, hun capaciteitsvereisten en uw vereisten voor wat er moet repliceren samen maken.
 
     ![Opslag classificeren](./media/site-recovery-vmm-san/classify.png)
 
 ### <a name="create-luns-and-allocate-storage"></a>LUN's maken en toewijzen van opslag
 
-Maken van LUN's die zijn gebaseerd op Hallo toepassingen moet u tooprotect capaciteitsvereisten en uw vereisten voor wat tooreplicate samen nodig heeft.
+LUN's op basis van de toepassingen die u wilt beveiligen, capaciteitsvereisten en uw vereisten voor wat er moet repliceren samen maken.
 
-1. Nadat het Hallo-opslag in VMM fabric hello wordt weergegeven, kunt u [inrichten van LUN's](https://technet.microsoft.com/en-us/system-center-docs/vmm/manage/manage-storage-host-groups#create-a-lun-in-vmm).
+1. Nadat de opslag wordt weergegeven in de VMM-fabric, kunt u [inrichten van LUN's](https://technet.microsoft.com/en-us/system-center-docs/vmm/manage/manage-storage-host-groups#create-a-lun-in-vmm).
 
      > [!NOTE]
-     > Geen VHD's voor VM die zijn ingeschakeld voor replicatie tooLUNs Hallo niet toevoegen. Als deze LUN's niet in een replicatiegroep voor de Site Recovery, won't ze worden gedetecteerd door Site Recovery.
+     > Voeg de virtuele harde schijven voor de virtuele machine die zijn ingeschakeld voor replicatie met LUN's niet. Als deze LUN's niet in een replicatiegroep voor de Site Recovery, won't ze worden gedetecteerd door Site Recovery.
      >
 
-2. Toegewezen opslag capaciteit toohello Hyper-V-hostcluster zodat VMM virtuele machine toohello ingericht gegevensopslag kunt implementeren:
+2. Opslagcapaciteit voor het Hyper-V-hostcluster toewijzen zodat VMM kan de gegevens van virtuele machines naar de ingerichte opslag implementeren kunt:
 
-   * Voordat u toohello opslagcluster toewijzen, moet u tooallocate deze toohello VMM-hostgroep op welke Hallo cluster zich bevindt. Zie voor meer informatie [hoe tooallocate opslag logische eenheden tooa hostgroep in VMM](https://technet.microsoft.com/library/gg610686.aspx) en [hoe tooallocate opslaggroepen tooa hostgroep in VMM](https://technet.microsoft.com/library/gg610635.aspx).
-   * Opslagcluster capaciteit toohello toewijzen, zoals beschreven in [hoe tooconfigure opslag op een host met Hyper-V-cluster in VMM](https://technet.microsoft.com/library/gg610692.aspx).
+   * Voordat het toewijzen van opslag aan het cluster, moet u deze toewijzen aan de VMM-hostgroep waarin het cluster zich bevindt. Zie voor meer informatie [hoe logische eenheden voor opslag toewijzen aan een hostgroep in VMM](https://technet.microsoft.com/library/gg610686.aspx) en [hoe opslaggroepen toewijzen aan een hostgroep in VMM](https://technet.microsoft.com/library/gg610635.aspx).
+   * Toewijzen van opslagcapaciteit aan het cluster, zoals beschreven in [opslag configureren op een Hyper-V-hostcluster in VMM](https://technet.microsoft.com/library/gg610692.aspx).
 
     ![Type provider](./media/site-recovery-vmm-san/provider-type.png)
-3. In **Protocol opgeven en het adres van de SMI-S-opslagprovider Hallo**, selecteer **SMI-S CIMXML**. Hallo-instellingen opgeven voor het verbinden van toohello provider. Alleen voor de SMI-S CIMXML kunt u een SSL-verbinding.
+3. In **Geef Protocol en adres op van de SMI-S-opslagprovider**, selecteer **SMI-S CIMXML**. Geef de instellingen voor het verbinden met de provider. Alleen voor de SMI-S CIMXML kunt u een SSL-verbinding.
 
     ![Provider verbinding maken](./media/site-recovery-vmm-san/connect-settings.png)
-4. In **Run as-account**, VMM uitvoeren als-account die u kunt toegang krijgen tot Hallo-provider of maak een account opgeven.
-5. In **informatie verzamelen**, VMM probeert automatisch importeren en toodiscover Hallo informatie over opslagapparaten. Als u tooretry nodig hebt, klikt u op **Provider scannen**. Als het detectieproces Hallo is geslaagd, Hallo opslagmatrices, worden opslaggroepen, de fabrikant, model en capaciteit weergegeven op de pagina Hallo.
+4. In **Run as-account**, VMM uitvoeren als-account die u kunt toegang tot de provider of maak een account opgeven.
+5. In **informatie verzamelen**, VMM probeert automatisch te detecteren en importeren van de informatie over opslagapparaten. Als u opnieuw proberen moet, klikt u op **Provider scannen**. Als het detectieproces is geslaagd, de opslagmatrices, opslaggroepen, worden de fabrikant, model en capaciteit weergegeven op de pagina.
 
     ![Opslag detecteren](./media/site-recovery-vmm-san/discover.png)
-7. In **storage pools tooplace onder beheer selecteren en toewijzen van een classificatie**, selecteer de opslaggroepen Hallo dat VMM wordt beheren en hieraan een classificatie. LUN-gegevens worden geïmporteerd vanaf Hallo opslaggroepen.
+7. In **Selecteer opslaggroepen onder beheer te plaatsen en het toewijzen van een classificatie**, selecteer de opslaggroepen dat VMM wordt beheren en hieraan een classificatie. LUN-gegevens worden geïmporteerd vanaf de opslaggroepen.
 
     ![Opslag classificeren](./media/site-recovery-vmm-san/classify.png)
 
 
 ### <a name="create-replication-groups"></a>Replicatiegroepen maken
 
-Een replicatiegroep met alle Hallo-LUN's die tooreplicate samen moet maken.
+Maak een replicatiegroep met alle LUN's die moet worden gerepliceerd samen.
 
-1. Open in de VMM-console Hallo Hallo **replicatiegroepen** tabblad Eigenschappen van de matrix Hallo opslag en klik vervolgens op **nieuw**.
-2. Hallo replicatiegroep maken.
+1. Open in de VMM-console de **replicatiegroepen** tabblad van de eigenschappen van de opslagmatrix en klik vervolgens op **nieuw**.
+2. Maken van de replicatiegroep.
 
     ![Groep voor SAN-replicatie](./media/site-recovery-vmm-san/rep-group.png)
 
 ### <a name="set-up-networks"></a>Stel netwerken
 
-Als u de netwerktoewijzing tooconfigure wilt, Hallo te volgen:
+Als u netwerktoewijzing configureren wilt, het volgende doen:
 
 1. Site Recovery netwerktoewijzing zien.
 2. Bereid VM-netwerken in VMM voor:
@@ -149,100 +149,100 @@ Als u de netwerktoewijzing tooconfigure wilt, Hallo te volgen:
 
 ## <a name="step-2-create-a-vault"></a>Stap 2: Een kluis maken
 
-1. Meld u aan toohello [Azure-portal](https://portal.azure.com) van Hallo VMM-server die u wilt tooregister in Hallo kluis.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) van de VMM-server die u wilt registreren in de kluis.
 2. Vouw **Data Services** > **Recovery Services**, en klik vervolgens op **Site Recovery-kluis**.
 3. Klik op **Nieuw maken** > **Snelle invoer**.
-4. In **naam**, voer een beschrijvende naam tooidentify Hallo-kluis.
-5. In **regio**, selecteer de geografische regio voor de kluis Hallo Hallo. toocheck ondersteunde regio's, Zie [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
+4. Voer in **Naam** een beschrijvende naam in om de kluis aan te duiden.
+5. Selecteer in **Regio** de geografische regio voor de kluis. Ondersteunde regio's, Zie [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Klik op **Kluis maken**.
 
     ![Nieuwe kluis](./media/site-recovery-vmm-san/create-vault.png)
 
-Selectievakje Hallo status balk tooconfirm die Hallo kluis is gemaakt. Hallo-kluis wordt weergegeven als **Active** op Hallo belangrijkste **Recovery Services** pagina.
+Controleer de statusbalk om te bevestigen dat de kluis is gemaakt. De kluis wordt weergegeven als **Active** op de hoofdblade **Recovery Services** pagina.
 
-### <a name="register-hello-vmm-servers"></a>Hallo VMM-servers registreren
+### <a name="register-the-vmm-servers"></a>De VMM-servers registreren
 
-1. Open Hallo **Quick Start** pagina uit Hallo **Recovery Services** pagina. Snel starten kan ook op elk gewenst moment worden geopend door te kiezen Hallo-pictogram.
+1. Open de **Quick Start** pagina van de **Recovery Services** pagina. Snel starten kan ook op elk gewenst moment worden geopend door het kiezen van het pictogram.
 
     ![Pictogram Snel starten](./media/site-recovery-vmm-san/quick-start-icon.png)
-2. Selecteer in de vervolgkeuzelijst hello, **tussen Hyper-V lokale site met behulp van replicatie van de matrix**.
+2. Selecteer in de vervolgkeuzelijst **tussen Hyper-V lokale site met behulp van replicatie van de matrix**.
 
     ![Registratiesleutel](./media/site-recovery-vmm-san/select-san.png)
-3. In **VMM-servers voorbereiden**, download de nieuwste versie Hallo van hello Azure Site Recovery Provider-installatiebestand.
-4. Voer dit bestand op Hallo bron-VMM-server. Als VMM in een cluster is geïmplementeerd en u Hallo Provider voor Hallo eerst installeert, Hallo Provider installeren op een actief knooppunt- en eindtijd Hallo installatie tooregister Hallo VMM-server in Hallo kluis. Installeer vervolgens Hallo Provider op Hallo andere knooppunten. Als u een Hallo Provider upgrade uitvoert, moet u tooupgrade op alle knooppunten zodat ze dezelfde versie van Provider hebt Hallo.
-5. Hallo-installatieprogramma controleert de vereisten en aanvragen machtiging toostop Hallo VMM service toobegin Provider setup. Hallo-service wordt opnieuw opgestart nadat setup is voltooid. Op een VMM-cluster, moet u na vragen aan gebruiker toostop Hallo Cluster-rol.
-6. In **Microsoft Update**, kunt u zich aanmelden voor updates en updates van de Provider worden geïnstalleerd op basis van beleid voor tooyour Microsoft Update.
+3. In **VMM-servers voorbereiden**, download de nieuwste versie van het Azure Site Recovery Provider-installatiebestand.
+4. Voer dit bestand op de bron-VMM-server uit. Als VMM in een cluster is geïmplementeerd en u de Provider voor het eerst installeert, de Provider installeren op een actief knooppunt- en eindtijd van de installatie om de VMM-server in de kluis registreren. Installeer Provider vervolgens op de andere knooppunten. Als u Provider bijwerkt, moet u de upgrade op alle knooppunten, zodat ze dezelfde versie van Provider hebben.
+5. Het installatieprogramma controleert de vereisten en aanvragen machtiging voor het stoppen van de VMM-service om te beginnen met de installatie van de Provider. De service wordt opnieuw opgestart nadat setup is voltooid. Op een cluster VMM u gevraagd om te stoppen van de Cluster-rol.
+6. In **Microsoft Update**, kunt u zich aanmelden voor updates en updates van de Provider worden geïnstalleerd volgens uw beleid voor Microsoft Update.
 
     ![Microsoft-updates](./media/site-recovery-vmm-san/ms-update.png)
 
-7. Hallo-installatielocatie voor Provider Hallo is standaard <SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin. Klik op **installeren** toobegin.
+7. De locatie is geïnstalleerd voor de Provider is standaard <SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin. Klik op **installeren** om te beginnen.
 
     ![Installatielocatie](./media/site-recovery-vmm-san/install-location.png)
 
-8. Nadat het Hallo-Provider is geïnstalleerd, klikt u op **registreren** tooregister Hallo VMM-server in Hallo kluis.
+8. Nadat de Provider is geïnstalleerd, klikt u op **registreren** de VMM-server registreren in de kluis.
 
     ![De installatie is voltooid](./media/site-recovery-vmm-san/install-complete.png)
 
-9. In **internetverbinding**, opgeven hoe door Hallo Provider toohello Internet verbinding maakt. Selecteer **standaardsysteemproxyinstellingen gebruiken** als u wilt dat toouse Hallo standaardinstellingen voor internetverbindingen op Hallo-server.
+9. In **internetverbinding**, opgeven hoe de Provider verbinding maakt met Internet. Selecteer **standaardsysteemproxyinstellingen gebruiken** als u wilt de standaardinstellingen van de Internet-verbindingen op de server gebruiken.
 
     ![Instellingen voor internet](./media/site-recovery-vmm-san/proxy-details.png)
 
-   * Desgewenst kunt u een aangepaste proxy toouse instellen voordat u Hallo Provider installeert. Wanneer u aangepaste proxyinstellingen configureert, wordt een test uitgevoerd toocheck Hallo proxyverbinding.
-   * Als u een aangepaste proxy gebruikt, of als uw standaardproxy verificatie vereist, moet u Hallo proxy-gegevens, inclusief Hallo-adres en poort.
-   * Hallo vereist dat URL 's moet toegankelijk zijn vanaf Hallo VMM-server.
-   * Als u een aangepaste proxy gebruikt, VMM uitvoeren als-account (DRAProxyAccount) automatisch is gemaakt met behulp van Hallo opgegeven proxyreferenties. Hallo-proxyserver zodanig configureren dat dit account kan worden geverifieerd. U kunt Hallo Run As-accountinstellingen in de VMM-console Hallo wijzigen (**instellingen** > **beveiliging** > **Run As-Accounts**  >  **DRAProxyAccount**). U moet de VMM-service voor Hallo wijziging tootake effect Hallo opnieuw.
-10. In **registratiesleutel**, selecteer Hallo-sleutel die u hebt gedownload van Hallo portal en gekopieerde toohello VMM-server.
-11. In **kluisnaam**, Controleer de naam van de Hallo van Hallo kluis in welke Hallo server wordt geregistreerd.
+   * Als u een aangepaste proxy gebruikt wilt, deze instellen voordat u de Provider installeren. Wanneer u aangepaste proxyinstellingen configureert, wordt een test uitgevoerd om te controleren van de proxyverbinding.
+   * Als u een aangepaste proxy gebruikt, of als uw standaardproxy verificatie vereist, moet u de proxy-gegevens, inclusief het adres en poort.
+   * De vereiste URL's moeten toegankelijk is vanaf de VMM-server.
+   * Als u een aangepaste proxy gebruikt, wordt automatisch een VMM uitvoeren als-account (DRAProxyAccount) gemaakt met behulp van de opgegeven proxyreferenties. De proxyserver zodanig configureren dat dit account kan worden geverifieerd. U kunt de instellingen van het Run As-account in de VMM-console wijzigen (**instellingen** > **beveiliging** > **Run As-Accounts**  >   **DRAProxyAccount**). De VMM-service voor de wijziging door te voeren, moet u opnieuw.
+10. In **registratiesleutel**, selecteer de sleutel die u hebt gedownload vanuit de portal en gekopieerd naar de VMM-server.
+11. Controleer in **Kluisnaam** de naam van de kluis waarin de server wordt geregistreerd.
 
     ![Serverregistratie](./media/site-recovery-vmm-san/vault-creds.png)
-12. Hallo-instelling voor wachtwoordversleuteling wordt alleen gebruikt voor VMM tooAzure replicatie. U kunt deze negeren.
+12. De versleutelingsinstelling wordt alleen gebruikt voor VMM naar Azure replicatie. U kunt deze negeren.
 
     ![Serverregistratie](./media/site-recovery-vmm-san/encrypt.png)
-13. In **servernaam**, Geef een beschrijvende naam tooidentify Hallo VMM-server in Hallo kluis. Geef in een clusterconfiguratie Hallo VMM-clusterrolnaam op.
-14. In **initiële synchronisatie van metagegevens van cloud**, selecteer of u toosynchronize metagegevens wilt maken voor alle clouds op Hallo VMM-server. Deze actie hoeft alleen toohappen eenmaal op elke server. Als u niet toosynchronize alle clouds wilt, kunt u laat u deze instelling uitgeschakeld en synchroniseert u elke cloud afzonderlijk in de eigenschappen van de cloud Hallo in Hallo VMM-console.
+13. Geef in **Servernaam** een beschrijvende naam op om de VMM-server in de kluis te identificeren. Geef in een clusterconfiguratie de VMM-clusterrolnaam op.
+14. In **initiële synchronisatie van metagegevens van cloud**Selecteer of u metagegevens wilt synchroniseren voor alle clouds op de VMM-server. Deze actie hoeft op elke server slechts één keer te worden uitgevoerd. Als u niet alle clouds wilt synchroniseren, laat u deze instelling uitgeschakeld en synchroniseert u elke cloud afzonderlijk in de cloudeigenschappen in de VMM-console.
 
     ![Serverregistratie](./media/site-recovery-vmm-san/friendly-name.png)
 
-15. Klik op **volgende** toocomplete Hallo proces. Na registratie worden metagegevens van Hallo VMM-server opgehaald door Azure Site Recovery. Hallo-server wordt weergegeven in **Servers** > **VMM-Servers** in Hallo kluis.
+15. Klik op **Volgende** om het proces te voltooien. Na de registratie worden door Azure Site Recovery metagegevens van de VMM-server opgehaald. De server wordt weergegeven in **Servers** > **VMM-Servers** in de kluis.
 
 ### <a name="command-line-installation"></a>Installatie vanaf de opdrachtregel
 
-Hello Azure Site Recovery Provider kan ook worden geïnstalleerd met behulp van Hallo opdrachtregel te volgen. Deze methode kan gebruikte tooinstall Hallo-provider op Server Core voor Windows Server 2012 R2 zijn.
+De Azure Site Recovery Provider kan ook worden geïnstalleerd met behulp van de volgende opdrachtregel. Deze methode kan worden gebruikt voor het installeren van de provider in Server Core voor Windows Server 2012 R2.
 
-1. Hallo-Provider en de registratiesleutel sleutel tooa installatiemap downloaden. Bijvoorbeeld: C:\ASR.
-2. Hallo VMM-service niet stoppen.
-3. Pak het Provider-installatieprogramma Hallo. Deze opdrachten uitvoeren als beheerder:
+1. Download het providerinstallatiebestand en de registratiesleutel naar een map. Bijvoorbeeld: C:\ASR.
+2. Stop de VMM-service.
+3. Pak het Provider-installatieprogramma. Deze opdrachten uitvoeren als beheerder:
 
         C:\Windows\System32> CD C:\ASR
         C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
-4. Hallo Provider installeren:
+4. Installeer de Provider:
 
         C:\ASR> setupdr.exe /i
-5. Hallo Provider registreren:
+5. Registreer de Provider:
 
         CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-        C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of hello server> /Credentials <path of hello credentials file> /EncryptionEnabled <full file name toosave hello encryption certificate>         
+        C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
 
 Parameters:
 
-* **/ Credentials**: vereiste parameter voor de locatie van Hallo welke Hallo registratiesleutelbestand zich bevindt.  
-* **/ FriendlyName**: vereiste parameter voor de naam van de Hallo van Hallo Hyper-V-hostserver die wordt weergegeven in hello Azure Site Recovery-portal.
-* **/ EncryptionEnabled**: een optionele parameter alleen gebruikt wanneer van VMM tooAzure te repliceren.
-* **/ proxyaddress**: een optionele parameter waarmee het adres van de proxyserver Hallo Hallo.
-* **/ proxyport**: optionele parameter waarmee het Hallo-poort van de proxyserver Hallo.
-* **proxyusername**: optionele parameter waarmee de proxygebruikersnaam hello (indien Hallo proxy verificatie is vereist).
-* **/ proxypassword**: optionele parameter waarmee het Hallo-wachtwoord voor verificatie met de proxyserver hello (indien Hallo proxy verificatie is vereist).
+* **/ Credentials**: vereiste parameter voor de locatie waarin het registratiesleutelbestand zich bevindt.  
+* **/ FriendlyName**: vereiste parameter voor de naam van de Hyper-V-hostserver die wordt weergegeven in de Azure Site Recovery-portal.
+* **/ EncryptionEnabled**: een optionele parameter alleen gebruikt wanneer van VMM naar Azure repliceren.
+* **/proxyAddress**: een optionele parameter waarmee het adres van de proxyserver wordt opgegeven.
+* **/proxyport**: een optionele parameter waarmee de poort van de proxyserver wordt opgegeven.
+* **proxyusername**: optionele parameter waarmee de proxygebruikersnaam (als de proxy verificatie is vereist).
+* **/ proxypassword**: optionele parameter waarmee het wachtwoord voor verificatie met de proxyserver (als de proxy verificatie is vereist).
 
 ## <a name="step-3-map-storage-arrays-and-pools"></a>Stap 3: Opslagmatrices en groepen toewijzen
 
-Primaire en secundaire matrices toospecify welke secundaire opslaggroep replicatiegegevens van de primaire groep Hallo ontvangt worden toegewezen. Opslag toewijzen voordat u replicatie configureert omdat Hallo toewijzingsinformatie wordt gebruikt wanneer u de beveiliging voor replicatiegroepen inschakelen.
+Primaire en secundaire matrices om op te geven welke secundaire opslaggroep replicatiegegevens ontvangt van de primaire groep worden toegewezen. Opslag toewijzen voordat het configureren van replicatie, omdat de informatie over de Identiteitstoewijzing wordt gebruikt wanneer u de beveiliging voor replicatiegroepen inschakelen.
 
-Voordat u begint, controleert u of VMM-clouds worden weergegeven in de kluis Hallo. Clouds worden gedetecteerd bij het synchroniseren van alle clouds tijdens de installatie van de Provider of wanneer u een specifieke cloud in VMM-console Hallo synchroniseert.
+Voordat u begint, controleert u of de VMM-clouds worden weergegeven in de kluis. Clouds worden gedetecteerd bij het synchroniseren van alle clouds tijdens de installatie van de Provider of wanneer u een specifieke cloud in de VMM-console synchroniseren.
 
 1. Klik op **Resources** > **serveropslag** > **kaart bron- en Doelmatrices**.
     ![Serverregistratie](./media/site-recovery-vmm-san/storage-map.png)
 
-2. Hallo opslagmatrices op de primaire site Hallo selecteren en deze matrices toostorage op de secundaire site Hallo toewijzen. In **opslaggroepen**, selecteert u een bron en doel storage pool toomap.
+2. Selecteer de opslagmatrices op de primaire site en toe te wijzen aan opslagmatrices op de secundaire site. In **opslaggroepen**, selecteert u een bron en doel van de opslaggroep om toe te wijzen.
 
     ![Serverregistratie](./media/site-recovery-vmm-san/storage-map-pool.png)
 
@@ -250,90 +250,90 @@ Voordat u begint, controleert u of VMM-clouds worden weergegeven in de kluis Hal
 
 Nadat de VMM-servers zijn geregistreerd, kunt u cloudbeveiligingsinstellingen configureren.
 
-1. Op Hallo **Quick Start** pagina, klikt u op **beveiliging instellen voor VMM-clouds**.
-2. Op Hallo **beveiligde Items** tabblad, selecteer Hallo cloud **configuratie**.
+1. Op de **Quick Start** pagina, klikt u op **beveiliging instellen voor VMM-clouds**.
+2. Op de **beveiligde Items** tabblad, selecteer de cloud **configuratie**.
 3. In **doel**, selecteer **VMM**.
-4. In **doellocatie**, selecteer Hallo VMM-server die wordt beheerd Hallo cloud gewenste toouse voor herstel.
-5. In **doel cloud**, selecteer Hallo doelcloud gewenste toouse voor VM-failover.
-   * Het is raadzaam dat u selecteert een doelcloud op die voldoet aan de herstelvereisten voor Hallo virtuele machines die u beveiligt.
-   * Een cloud kan alleen tooa één cloudpaar--als een primaire of een doelcloud behoren.
-6. Site Recovery controleert of dat wolken hebben toegang tot tooSAN opslag en de opslag van die Hallo matrices worden toegewezen.
+4. In **doellocatie**, selecteert u de VMM-server die de cloud die u wilt gebruiken voor herstel beheert.
+5. In **doel cloud**, selecteer de doelcloud die u wilt gebruiken voor VM-failover.
+   * Het is raadzaam dat u selecteert een doelcloud op die voldoet aan de herstelvereisten voor de virtuele machines die u beveiligt.
+   * Een cloud kan slechts aan één cloudpaar--als een primaire of een doelcloud op.
+6. Site Recovery controleert of dat wolken hebben toegang tot SAN-opslag, en dat de opslagmatrices zijn toegewezen.
 7. Als controle is geslaagd, in **replicatietype**, selecteer **SAN**.
 
-Nadat u Hallo instellingen opslaat, wordt er een taak gemaakt die kan worden gecontroleerd op Hallo **taken** tabblad. Instellingen kunnen worden gewijzigd op Hallo **configureren** tabblad. Als u toomodify Hallo doellocatie of doelcloud wilt, moet u Hallo cloudconfiguratie verwijderen en vervolgens opnieuw configureren Hallo cloud.
+Nadat u de instellingen hebt opgeslagen, wordt er een taak gemaakt die kan worden gecontroleerd op de **taken** tabblad. Instellingen kunnen worden gewijzigd op de **configureren** tabblad. Als u de doellocatie of doelcloud wijzigen wilt, moet u de cloudconfiguratie verwijderen en vervolgens opnieuw configureren van de cloud.
 
 ## <a name="step-5-enable-network-mapping"></a>Stap 5: Netwerktoewijzing inschakelen
 
-1. Op Hallo **Quick Start** pagina, klikt u op **netwerken toewijzen**.
-2. Hallo bron-VMM-server selecteren en selecteer vervolgens Hallo doel VMM server toowhich Hallo netwerken worden toegewezen. Hallo-lijst van de bron en hun bijbehorende doelnetwerken weergegeven. Een lege waarde weergegeven voor de netwerken die niet zijn toegewezen. Klik op Hallo informatie pictogram volgende toohello bron en doel namen tooview Hallo netwerksubnetten voor elk netwerk.
-3. Selecteer een netwerk in **netwerk op de bron**, en klik vervolgens op **kaart**. Hallo-service detecteert Hallo VM-netwerken op de doelserver Hallo en geeft deze weer.
+1. Op de **Quick Start** pagina, klikt u op **netwerken toewijzen**.
+2. Selecteer de bron-VMM-server en selecteer vervolgens de doel-VMM-server waarop de netwerken worden toegewezen. De lijst met de bron en hun bijbehorende doelnetwerken worden weergegeven. Een lege waarde weergegeven voor de netwerken die niet zijn toegewezen. Klik op het informatiepictogram naast de bron en doel netwerknamen om weer te geven van de subnetten voor elk netwerk.
+3. Selecteer een netwerk in **netwerk op de bron**, en klik vervolgens op **kaart**. De service detecteert de VM-netwerken op de doelserver en geeft deze weer.
 
     ![SAN-architectuur](./media/site-recovery-vmm-san/network-map1.png)
-4. Selecteer een van de VM-netwerken Hallo in Hallo doel-VMM-server.
+4. Selecteer een van de VM-netwerken in de doel-VMM-server.
 
     ![SAN-architectuur](./media/site-recovery-vmm-san/network-map2.png)
 
-5. Wanneer u een doelnetwerk selecteert, worden hello beveiligde clouds die Hallo Bronnetwerk weergegeven. Netwerken met beschikbare doelservers worden ook weergegeven. Het is raadzaam dat u selecteert een doelnetwerk dat beschikbaar tooall Hallo clouds die u gebruikt voor replicatie.
-6. Klik op Hallo vinkje toocomplete Hallo toewijzingsproces. Een taak gestart die uitgevoerd wordt bijgehouden. U kunt deze ook bekijken op Hallo **taken** tabblad.
+5. Wanneer u een doelnetwerk selecteert, worden de beveiligde clouds die gebruikmaken van het Bronnetwerk weergegeven. Netwerken met beschikbare doelservers worden ook weergegeven. Het is raadzaam dat u selecteert een doelnetwerk dat beschikbaar is voor alle clouds die u voor replicatie gebruikt.
+6. Klik op het vinkje om het toewijzingsproces te voltooien. Een taak gestart die uitgevoerd wordt bijgehouden. U kunt weergeven op de **taken** tabblad.
 
 ## <a name="step-6-enable-replication-for-replication-groups"></a>Stap 6: Replicatie inschakelen voor replicatiegroepen
 
-Voordat u beveiliging voor virtuele machines inschakelen kunt, moet u replicatie tooenable voor replicatie van opslaggroepen.
+Voordat u beveiliging voor virtuele machines inschakelen kunt, moet u replicatie inschakelen voor replicatie van opslaggroepen.
 
-1. Op Hallo **eigenschappen** pagina van de primaire cloud Hallo in Hallo Site Recovery-portal, open Hallo **virtuele Machines** tabblad en klik op **replicatiegroep toevoegen**.
-2. Selecteer een of meer VMM replicatiegroepen die zijn gekoppeld aan cloud hello, Controleer of de bron en doel matrices Hallo en replicatiefrequentie Hallo opgeven.
+1. Op de **eigenschappen** pagina van de primaire cloud in de Site Recovery-portal, open de **virtuele Machines** tabblad en klik op **replicatiegroep toevoegen**.
+2. Selecteer een of meer VMM replicatiegroepen die zijn gekoppeld aan de cloud, Controleer of de bron en doel-matrices en geef de replicatiefrequentie.
 
-Site Recovery, VMM en Hallo SMI-S-providers inrichten Hallo doel site opslag-LUN's en storage-replicatie inschakelen. Hallo replicatiegroep al is gerepliceerd, Site Recovery hergebruikt de bestaande replicatierelatie Hallo als updates Hallo informatie.
+Site Recovery, VMM en de SMI-S-providers inrichten van de site doelopslag LUN's en storage-replicatie inschakelen. Als de replicatiegroep al is gerepliceerd, wordt met Site Recovery hergebruikt de bestaande replicatierelatie en de informatie bijgewerkt.
 
 ## <a name="step-7-enable-protection-for-virtual-machines"></a>Stap 7: Beveiliging voor virtuele machines inschakelen
 
 
-Wanneer een opslaggroep wordt gerepliceerd, schakel de beveiliging voor virtuele machines in de VMM-console Hallo met een van de volgende methoden Hallo:
+Wanneer u een opslaggroep wordt gerepliceerd, schakel de beveiliging voor virtuele machines in de VMM-console met een van de volgende methoden:
 
-* **Nieuwe virtuele machine**: wanneer u een virtuele machine maakt, u replicatie inschakelt en Hallo VM koppelen aan een replicatiegroep Hallo.
-  Met deze optie gebruikt VMM intelligente plaatsing toooptimally plaats Hallo VM-opslag op Hallo LUN's van de replicatiegroep Hallo. Site Recovery Hallo maken van een schaduwkopie VM op de secundaire site Hallo ingedeeld en capaciteit toegewezen zodat replica-VM kunnen worden gestart na een failover.
-* **Bestaande virtuele machine**: als een virtuele machine in VMM al is geïmplementeerd, kunt u replicatie inschakelt en uitvoeren van een opslaggroep migratie tooa replicatie. Na voltooiing, VMM en de Site Recovery detecteren Hallo van nieuwe virtuele machine en start u deze beheren in Site Recovery. Een schaduw VM wordt gemaakt op de secundaire site Hallo en capaciteit is toegewezen, zodat die Hallo replica virtuele machine kan worden gestart na een failover.
+* **Nieuwe virtuele machine**: wanneer u een virtuele machine maakt, u replicatie inschakelt en de virtuele machine koppelen aan de replicatiegroep.
+  Met deze optie gebruikt VMM intelligente plaatsing om optimaal plaats van de VM-opslag op de LUN's van de replicatiegroep. Site Recovery ingedeeld van het maken van een schaduwkopie VM op de secundaire site en capaciteit toegewezen zodat replica-VM kunnen worden gestart na een failover.
+* **Bestaande virtuele machine**: als een virtuele machine in VMM al is geïmplementeerd, kunt u replicatie inschakelt en uitvoeren van een opslagmigratie aan een replicatiegroep. Na voltooiing wordt VMM en de Site Recovery de nieuwe virtuele machine te detecteren en start deze beheren in Site Recovery. Een schaduw VM wordt gemaakt op de secundaire site en capaciteit is toegewezen, zodat de replica virtuele machine kan worden gestart na een failover.
 
 ![Beveiliging inschakelen](./media/site-recovery-vmm-san/enable-protect.png)
 
-Nadat de virtuele machines zijn ingeschakeld voor replicatie, worden ze in Hallo Site Recovery-console weergegeven. U kunt zien VM-eigenschappen, status volgen en bijhouden van failover-replicatiegroepen die meerdere virtuele machines bevatten. In SAN-replicatie moeten alle virtuele machines die zijn gekoppeld aan een replicatiegroep failover samen. Dit is omdat failover op Hallo opslaglaag eerst plaatsvindt. Het is belangrijk toogroup uw replicatie goed groepen en alleen gekoppelde virtuele machines tegelijk te plaatsen.
+Nadat de virtuele machines zijn ingeschakeld voor replicatie, worden deze weergegeven in de Site Recovery-console. U kunt zien VM-eigenschappen, status volgen en bijhouden van failover-replicatiegroepen die meerdere virtuele machines bevatten. In SAN-replicatie moeten alle virtuele machines die zijn gekoppeld aan een replicatiegroep failover samen. Dit is omdat failover op de opslaglaag eerst plaatsvindt. Het is belangrijk dat uw replicatiegroepen goed gegroepeerd en alleen bijbehorende virtuele machines samen plaats.
 
 > [!NOTE]
-> Nadat u replicatie voor een virtuele machine hebt ingeschakeld, niet de VHD's tooLUNs toevoegen tenzij ze zich in een replicatiegroep voor de Site Recovery bevinden. Virtuele harde schijven wordt alleen door Site Recovery worden gedetecteerd als ze zich in een replicatiegroep voor de Site Recovery bevinden.
+> Nadat u replicatie voor een virtuele machine hebt ingeschakeld, niet toevoegen de VHD's met LUN's tenzij ze zich in een replicatiegroep voor de Site Recovery bevinden. Virtuele harde schijven wordt alleen door Site Recovery worden gedetecteerd als ze zich in een replicatiegroep voor de Site Recovery bevinden.
 >
 >
 
-U kunt de voortgang, met inbegrip van de initiële replicatie Hallo op Hallo volgen **taken** tabblad. Nadat de taak beveiliging voltooien hello wordt uitgevoerd, is Hallo virtuele machine gereed voor failover.
+U kunt de voortgang, inclusief de initiële replicatie op volgen de **taken** tabblad. Nadat de taak beveiliging voltooien wordt uitgevoerd, is de virtuele machine gereed voor failover.
 
 ![Beveiligingstaak voor virtuele machines](./media/site-recovery-vmm-san/job-props.png)
 
-## <a name="step-8-test-hello-deployment"></a>Stap 8: Hallo-implementatie testen
+## <a name="step-8-test-the-deployment"></a>Stap 8: De implementatie testen
 
-Test uw implementatie toomake ervoor dat virtuele machines mislukken dan verwacht. toodo hiervan kan een herstelplan maken en een testfailover uitvoeren.
+Test uw implementatie om ervoor te zorgen dat virtuele machines mislukken dan verwacht. U doet dit door een herstelplan maken en een testfailover uitvoeren.
 
-1. Op Hallo **herstelplannen** tabblad **herstelplan maken**.
-2. Geef een naam voor het herstelplan Hallo en selecteer de bron en doel-VMM-servers. Hallo-bronserver, moet virtuele machines die zijn ingeschakeld voor failover en herstel hebben. Selecteer **SAN** tooview alleen clouds die zijn geconfigureerd voor SAN-replicatie.
+1. Op de **herstelplannen** tabblad **herstelplan maken**.
+2. Geef een naam voor het herstelplan en selecteer de bron en doel-VMM-servers. De bronserver moet virtuele machines die zijn ingeschakeld voor failover en herstel. Selecteer **SAN** om weer te geven alleen clouds die zijn geconfigureerd voor SAN-replicatie.
 
     ![Herstelplan maken](./media/site-recovery-vmm-san/r-plan.png)
 
-3. In **virtuele Machines selecteren**, replicatiegroepen selecteren. Alle virtuele machines die zijn gekoppeld aan de groep Hallo toohello herstelplan toegevoegd. Deze virtuele machines worden toegevoegd toohello herstel standaardgroep (groep 1). U kunt meer groepen toevoegen, indien nodig. Na de replicatie, worden virtuele machines genummerd volgens toohello volgorde van Hallo recovery planningsgroepen.
+3. In **virtuele Machines selecteren**, replicatiegroepen selecteren. Alle virtuele machines die zijn gekoppeld aan de groep worden toegevoegd aan het herstelplan. Deze virtuele machines worden toegevoegd aan de standaardgroep van recovery plan (groep 1). U kunt meer groepen toevoegen, indien nodig. Virtuele machines worden na de replicatie genummerd volgens de volgorde van de recovery planningsgroepen.
 
     ![Selecteer de virtuele machines](./media/site-recovery-vmm-san/r-plan-vm.png)
-4. Nadat het herstelplan Hallo is gemaakt, wordt weergegeven in de lijst Hallo op Hallo **herstelplannen** tabblad. Hallo-abonnement selecteren en kies **Testfailover**.
-5. Op Hallo **Testfailover bevestigen** pagina **geen**. Met deze optie is ingeschakeld, niet Hallo failover replica VMs tooany verbonden netwerk. Hiermee test u die Hallo VMs failover zoals verwacht, maar het Hallo-netwerkomgeving niet testen. Zie voor meer informatie over andere netwerkopties [siteherstel failover](site-recovery-failover.md).
+4. Nadat het herstelplan is gemaakt, is deze weergegeven in de lijst op de **herstelplannen** tabblad. Selecteer het plan en kies **Testfailover**.
+5. Op de **Testfailover bevestigen** pagina **geen**. Met deze optie is ingeschakeld, failover replica-VM niet verbonden met een netwerk. Hiermee wordt gecontroleerd dat de virtuele machines mislukken dan verwacht, maar niet het testen van de netwerkomgeving. Zie voor meer informatie over andere netwerkopties [siteherstel failover](site-recovery-failover.md).
 
     ![Selecteer testnetwerk](./media/site-recovery-vmm-san/test-fail1.png)
 
-6. Hallo test-VM wordt gemaakt op Hallo dezelfde host als Hallo-host op welke replica Hallo VM zich bevindt. Deze is niet toohello cloud welke Hallo replica-VM zich bevindt toegevoegd.
-2. Hallo replica-VM heeft na de replicatie, een ander IP-adres dan Hallo primaire virtuele machine. Als u adressen van DHCP uitgeeft, wordt deze automatisch worden bijgewerkt. Als u geen DHCP en u hello wilt wordt dezelfde adressen, moet u een aantal scripts toorun.
-3. Voer dit script tooretrieve Hallo IP-adres:
+6. De test virtuele machine wordt gemaakt op dezelfde host als de host waarop de replica virtuele machine bestaat. Dit is niet toegevoegd aan de cloud waarin de replica-VM zich bevindt.
+2. De replica virtuele machine heeft na de replicatie, een ander IP-adres dan de primaire virtuele machine. Als u adressen van DHCP uitgeeft, wordt deze automatisch worden bijgewerkt. Als u geen DHCP en u dezelfde adressen wilt, moet u een aantal scripts worden uitgevoerd.
+3. Voer dit script voor het ophalen van het IP-adres:
 
        $vm = Get-SCVirtualMachine -Name <VM_NAME>
        $na = $vm[0].VirtualNetworkAdapters>
        $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
        $ip.address  
 
-4. In dit voorbeeld script tooupdate DNS worden uitgevoerd. Geef Hallo IP-adres dat u hebt opgehaald.
+4. Voer dit voorbeeldscript voor het bijwerken van DNS. Geef het IP-adres dat u hebt opgehaald.
 
        [string]$Zone,
        [string]$name,
@@ -347,4 +347,4 @@ Test uw implementatie toomake ervoor dat virtuele machines mislukken dan verwach
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat u hebt een test failover toocheck dat uw omgeving werkt zoals verwacht uitgevoerd, Zie [siteherstel failover](site-recovery-failover.md) toolearn over verschillende soorten failovers.
+Na het uitvoeren van een testfailover kan controleren of uw omgeving werkt zoals verwacht, Zie [siteherstel failover](site-recovery-failover.md) voor meer informatie over de verschillende soorten failovers.

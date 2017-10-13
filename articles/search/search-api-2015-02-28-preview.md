@@ -1,5 +1,5 @@
 ---
-title: aaaAzure Search Service REST API-versie Preview 2015-02-28-| Microsoft Docs
+title: Azure Search Service REST API-versie Preview 2015-02-28-| Microsoft Docs
 description: Azure Search Service REST API-versie 2015-02-28-Preview bevat experimentele functies zoals natuurlijke Taalanalyse en moreLikeThis zoekopdrachten.
 services: search
 documentationcenter: na
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 05/01/2017
 ms.author: brjohnst
-ms.openlocfilehash: 63cb30b7f43a42552c6744ea087afea947857224
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e6ad5c964bfa8421be2706cb4015980e01a271b7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-search-service-rest-api-version-2015-02-28-preview"></a>Azure Search Service REST-API: Versie 2015-02-28-Preview
-Dit artikel is Hallo-naslagdocumentatie voor `api-version=2015-02-28-Preview`. Deze preview Hallo huidige algemeen beschikbaar versie, breidt [api-version = 2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), doordat Hallo volgende experimentele kenmerken:
+Dit artikel is de documentatie bij `api-version=2015-02-28-Preview`. Deze preview breidt de huidige versie van de algemeen beschikbaar [api-version = 2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), door de volgende experimentele functies:
 
-* `moreLikeThis`queryparameter in Hallo [documenten zoeken](#SearchDocs) API. Andere documenten die specifiek document relevante tooanother zijn gevonden.
+* `moreLikeThis`queryparameter in de [documenten zoeken](#SearchDocs) API. Het zoeken naar andere documenten die relevant voor een ander specifieke document zijn.
 
-Een paar extra onderdelen van Hallo `2015-02-28-Preview` REST-API afzonderlijk worden beschreven. Deze omvatten:
+Een paar extra onderdelen van de `2015-02-28-Preview` REST-API afzonderlijk worden beschreven. Deze omvatten:
 
 * [Score berekenen voor profielen](search-api-scoring-profiles-2015-02-28-preview.md)
 * [Indexeerfuncties](search-api-indexers-2015-02-28-preview.md)
 
-Azure Search-service is beschikbaar in meerdere versies. Raadpleeg het te[Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie.
+Azure Search-service is beschikbaar in meerdere versies. Raadpleeg [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie.
 
 ## <a name="apis-in-this-document"></a>API's in dit document
-Azure-API van zoekservice ondersteunt twee URL-syntaxis voor de API-bewerkingen: eenvoudige en OData (Zie [ondersteuning voor OData (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798932.aspx) voor meer informatie). Hallo bevat volgende lijst eenvoudige Hallo-syntaxis.
+Azure-API van zoekservice ondersteunt twee URL-syntaxis voor de API-bewerkingen: eenvoudige en OData (Zie [ondersteuning voor OData (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798932.aspx) voor meer informatie). De volgende lijst ziet u de eenvoudige syntaxis.
 
 [Index maken](#CreateIndex)
 
@@ -89,9 +89,9 @@ Azure-API van zoekservice ondersteunt twee URL-syntaxis voor de API-bewerkingen:
 <a name="IndexOps"></a>
 
 ## <a name="index-operations"></a>Indexbewerkingen
-U kunt maken en beheren van de indexen in Azure Search-service via een eenvoudige HTTP-aanvragen (POST, GET, PUT, DELETE) op basis van een resource voor de gegeven index. toocreate een index u boeken eerst een JSON-document met een beschrijving van Hallo Indexeer schema. Hallo schema gedefinieerd Hallo velden van het Hallo-index, de gegevenstypen en hoe ze kunnen worden gebruikt (bijvoorbeeld in zoekopdrachten in volledige tekst, filters, sorteren of facetten). Het definieert ook scoreprofiel profielen, suggestiefunctie en andere kenmerken tooconfigure Hallo gedrag van Hallo index.
+U kunt maken en beheren van de indexen in Azure Search-service via een eenvoudige HTTP-aanvragen (POST, GET, PUT, DELETE) op basis van een resource voor de gegeven index. Als u wilt een index maken, moet u eerst een JSON-document met een beschrijving van het indexschema boeken. De velden van de index, de gegevenstypen en hoe ze kunnen worden gebruikt (bijvoorbeeld in zoekopdrachten in volledige tekst, filters, sorteren of facetten) worden gedefinieerd in het schema. Het definieert ook scoreprofiel profielen, suggestiefunctie en andere kenmerken voor het configureren van het gedrag van de index.
 
-Hallo bevat volgende voorbeeld een afbeelding van een schema dat wordt gebruikt voor zoekopdrachten op gegevens van hotel met Hallo beschrijvingsveld gedefinieerd in twee talen. U ziet hoe kenmerken bepalen hoe Hallo veld wordt gebruikt. Bijvoorbeeld Hallo `hotelId` wordt gebruikt als de documentsleutel hello (`"key": true`) en wordt uitgesloten van zoekopdrachten in volledige tekst (`"searchable": false`).
+Het volgende voorbeeld bevat een afbeelding van een schema dat wordt gebruikt voor zoekopdrachten op gegevens van hotel met het beschrijvingsveld gedefinieerd in twee talen. U ziet hoe kenmerken bepalen hoe het veld wordt gebruikt. Bijvoorbeeld de `hotelId` wordt gebruikt als de documentsleutel (`"key": true`) en wordt uitgesloten van zoekopdrachten in volledige tekst (`"searchable": false`).
 
     {
     "name": "hotels",  
@@ -118,67 +118,67 @@ Hallo bevat volgende voorbeeld een afbeelding van een schema dat wordt gebruikt 
      ]
     }
 
-Nadat Hallo index is gemaakt, kunt u documenten die Hallo index vullen gaat uploaden. Zie [toevoegen of Update documenten](#AddOrUpdateDocuments) voor deze stap.
+Nadat de index is gemaakt, kunt u documenten die de index te vullen gaat uploaden. Zie [toevoegen of Update documenten](#AddOrUpdateDocuments) voor deze stap.
 
-Zie voor een video-inleiding tooindexing in Azure Search, Hallo [aflevering Channel 9 Cloud hebben betrekking op Azure Search](http://go.microsoft.com/fwlink/p/?LinkId=511509).
+Zie voor een video-Inleiding tot in Azure Search indexeren, de [aflevering Channel 9 Cloud hebben betrekking op Azure Search](http://go.microsoft.com/fwlink/p/?LinkId=511509).
 
 <a name="CreateIndex"></a>
 
 ## <a name="create-index"></a>Index maken
-Een index is Hallo primaire methode voor het ordenen en documenten zoeken in Azure Search, vergelijkbare toohow een tabel ordent records in een database. Elke index heeft een verzameling van documenten dat alle toohello indexschema (veldnamen, gegevenstypen en eigenschappen) voldoen, maar indexen ook aanvullende constructies (suggestiefunctie, score-profielen en opties voor CORS) waarmee andere zoekgedrag opgeven.
+Een index is de primaire methode voor het ordenen en documenten zoeken in Azure Search, vergelijkbaar met hoe records in een database in een tabel worden geordend. Elke index heeft een verzameling van documenten dat alle conform het indexschema (veldnamen, gegevenstypen en eigenschappen), maar indexen ook aanvullende constructies (suggestiefunctie, score-profielen en opties voor CORS) waarmee andere zoekgedrag opgeven.
 
-U kunt een nieuwe index maken in Azure Search-service met behulp van een HTTP POST of PUT-aanvraag. Hallo-hoofdtekst van Hallo-aanvraag is een JSON-schema dat Hallo index en configuratie-informatie bevat.
+U kunt een nieuwe index maken in Azure Search-service met behulp van een HTTP POST of PUT-aanvraag. De hoofdtekst van de aanvraag is een JSON-schema dat de index en configuratie-informatie bevat.
 
     POST https://[service name].search.windows.net/indexes?api-version=[api-version]
     Content-Type: application/json
     api-key: [admin key]
 
-U kunt ook gebruik van PUT en Hallo indexnaam op Hallo URI opgeven. Als het Hallo-index niet bestaat, kunt u deze wordt gemaakt.
+U kunt ook gebruik van opslag en geef de indexnaam op de URI. Als de index niet bestaat, wordt deze gemaakt.
 
     PUT https://[search service url]/indexes/[index name]?api-version=[api-version]
 
-Maken van een index bepaalt Hallo-structuur van Hallo documenten opgeslagen en gebruikt in zoekopdrachten. Invullen Hallo index is een afzonderlijke bewerking. Voor deze stap kunt u een [indexeerfunctie](https://msdn.microsoft.com/library/azure/mt183328.aspx) (beschikbaar voor ondersteunde gegevensbronnen) of een [toevoegen, bijwerken of verwijderen van documenten](https://msdn.microsoft.com/library/azure/dn798930.aspx) bewerking. Hallo omgekeerde index wordt gegenereerd wanneer het Hallo-documenten zijn geplaatst.
+Maken van een index bepaalt de structuur van de documenten opgeslagen en gebruikt in zoekopdrachten. Vullen van de index is een afzonderlijke bewerking. Voor deze stap kunt u een [indexeerfunctie](https://msdn.microsoft.com/library/azure/mt183328.aspx) (beschikbaar voor ondersteunde gegevensbronnen) of een [toevoegen, bijwerken of verwijderen van documenten](https://msdn.microsoft.com/library/azure/dn798930.aspx) bewerking. De omgekeerde index wordt gegenereerd wanneer de documenten worden geplaatst.
 
-**Opmerking**: Hallo kunt u het maximum aantal indexen toegestaan hangt af van de prijscategorie. Hallo gratis service kunt u too3 indexen. Standard-service kan 50-indexen per zoekservice. Zie [limieten en beperkingen](http://msdn.microsoft.com/library/azure/dn798934.aspx) voor meer informatie.
+**Opmerking**: het maximum aantal indexen toegestaan hangt af van de prijscategorie. De gratis service kunnen maximaal 3 indexen. Standard-service kan 50-indexen per zoekservice. Zie [limieten en beperkingen](http://msdn.microsoft.com/library/azure/dn798934.aspx) voor meer informatie.
 
 **Aanvraag**
 
-HTTPS is vereist voor alle aanvragen van de service. Hallo **Create Index** aanvraag kan worden geconstrueerd met een methode POST of PUT. Wanneer u POST, moet u de naam van een index in de aanvraagtekst Hallo samen met de indexdefinitie schema Hallo opgeven. Met opslag is de indexnaam Hallo deel van Hallo-URL. Als het Hallo-index niet bestaat, wordt deze gemaakt. Als deze al bestaat, is het bijgewerkte toohello nieuwe definitie.
+HTTPS is vereist voor alle aanvragen van de service. De **Create Index** aanvraag kan worden geconstrueerd met een methode POST of PUT. Wanneer u POST, moet u de naam van een index in de aanvraagtekst samen met de indexdefinitie schema opgeven. Met opslag is de naam van de index onderdeel van de URL. Als de index niet bestaat, wordt deze gemaakt. Als deze al bestaat, wordt deze bijgewerkt naar de nieuwe definitie.
 
-Hallo indexnaam moet in kleine letters worden, beginnen met een letter of cijfer, hebben geen slashes of punten en minder dan 128 tekens bevatten. Hallo rest van de naam van de Hallo kan na het starten van de indexnaam Hallo met een letter of cijfer bevatten een letter, cijfer en streepjes, zolang Hallo streepjes niet opeenvolgende zijn.
+De naam van de index moet in kleine letters worden, beginnen met een letter of cijfer, hebben geen slashes of punten en minder dan 128 tekens bevatten. De rest van de naam kan na het starten van de naam van de index met een letter of cijfer bevatten een letter, cijfer en streepjes, zolang de streepjes niet opeenvolgende zijn.
 
-Hallo `api-version` is vereist. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor een lijst met beschikbare versies.
+De `api-version` is vereist. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor een lijst met beschikbare versies.
 
 **Aanvraagheaders**
 
-Hallo volgende lijst beschrijft Hallo vereiste en optionele aanvraagheaders.
+De volgende lijst beschrijft de vereiste en optionele aanvraagheaders.
 
-* `Content-Type`: Vereist. Stel deze optie te`application/json`
-* `api-key`: Vereist. Hallo `api-key` wordt gebruikt voor
-* Hallo aanvraag tooyour Search-service worden geverifieerd. Het is een tekenreekswaarde, een unieke tooyour-service. Hallo **Create Index** aanvraag moet bevatten een `api-key` header tooyour beheersleutel (als tegengestelde tooa querysleutel) ingesteld.
+* `Content-Type`: Vereist. Stel dit in op`application/json`
+* `api-key`: Vereist. De `api-key` wordt gebruikt voor
+* de aanvraag om uw Search-service te verifiëren. Het is een tekenreekswaarde die uniek is voor uw service. De **Create Index** aanvraag moet bevatten een `api-key` header ingesteld op de administratorsleutel (in plaats van een querysleutel).
 
-U moet ook Hallo service naam tooconstruct Hallo aanvraag-URL. U kunt beide servicenaam Hallo ophalen en `api-key` van uw servicedashboard in hello Azure-Portal. Zie [maken van een Azure Search-service in Hallo portal](search-create-service-portal.md) voor pagina navigatie hulp.
+U moet ook de naam van de service om de aanvraag-URL samen te stellen. U krijgt de servicenaam en `api-key` van uw servicedashboard in de Azure Portal. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor pagina navigatie hulp.
 
 <a name="RequestData"></a>
 **Syntaxis van de aanvraag hoofdtekst**
 
-Hallo-hoofdtekst van Hallo-aanvraag bevat een schemadefinitie, waaronder Hallo lijst met gegevensvelden binnen de documenten die zal worden opgenomen in deze index, gegevenstypen, kenmerken, evenals een optionele lijst met profielen voor score berekenen gebruikte tooscore die overeenkomt met de documenten op Querytijd.
+De hoofdtekst van de aanvraag bevat een schemadefinitie waarin de lijst met gegevensvelden binnen de documenten die zal worden opgenomen in deze index, gegevenstypen, kenmerken, evenals een optionele lijst met profielen die worden gebruikt voor het beoordelen van overeenkomende documenten op het moment dat de query score berekenen .
 
-Houd er rekening mee voor een POST-aanvraag moet u de indexnaam Hallo opgeven in de aanvraagtekst Hallo.
+Houd er rekening mee dat een POST-aanvraag, moet u de naam van de index in de aanvraagtekst.
 
-Er kan alleen worden één sleutelveld in Hallo index. Toobe heeft een string-veld. Dit veld wordt de unieke id voor elk document dat is opgeslagen in de index Hallo Hallo.
+Er kan alleen worden één sleutelveld in de index. Er moet een tekenreeksveld. Dit veld wordt de unieke identificatie aangegeven voor elk document dat is opgeslagen in de index.
 
-belangrijkste onderdelen van een index Hallo zijn Hallo volgende:
+De belangrijkste onderdelen van een index omvatten het volgende:
 
 * `name`
 * `fields`die zal worden opgenomen in deze index, zoals naam, gegevenstype en eigenschappen die de toegestane acties op dat veld definiëren.
 * `suggesters`gebruikt voor automatisch aanvullen of automatisch aangevulde query's.
 * `scoringProfiles`gebruikt voor aangepaste zoekactie score positie. Zie [scoreprofiel profielen toevoegen](https://msdn.microsoft.com/library/azure/dn798928.aspx) voor meer informatie.
-* `analyzers`, `charFilters`, `tokenizers`, `tokenFilters` toodefine hoe uw documenten/query's worden onderverdeeld in worden geïndexeerd/doorzoekbare tokens gebruikt. Zie [analyse in Azure Search](https://aka.ms//azsanalysis) voor meer informatie.
-* `defaultScoringProfile`toooverwrite hello standaard score berekenen gedrag gebruikt.
-* `corsOptions`tooallow cross-origin-query's op uw index.
+* `analyzers`, `charFilters`, `tokenizers`, `tokenFilters` gebruikt om te definiëren hoe uw documenten/query's worden onderverdeeld in worden geïndexeerd/doorzoekbare-tokens. Zie [analyse in Azure Search](https://aka.ms//azsanalysis) voor meer informatie.
+* `defaultScoringProfile`gebruikt voor het overschrijven van de standaard score berekenen gedrag.
+* `corsOptions`cross-origin-query's op uw index toestaat.
 
-Hallo-syntaxis voor het Hallo-aanvraaglading structureren is als volgt. Een voorbeeld van een aanvraag wordt aangeboden op verder in dit onderwerp.
+De syntaxis voor het structureren nettolading van de aanvraag is als volgt. Een voorbeeld van een aanvraag wordt aangeboden op verder in dit onderwerp.
 
     {
       "name": (optional on PUT; required on POST) "name_of_index",
@@ -192,22 +192,22 @@ Hallo-syntaxis voor het Hallo-aanvraaglading structureren is als volgt. Een voor
           "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
           "key": true | false (default, only Edm.String fields can be keys),
           "retrievable": true (default) | false,              
-          "analyzer": "name of hello analyzer used for search and indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
-          "searchAnalyzer": "name of hello search analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
-          "indexAnalyzer": "name of hello indexing analyzer" (only if 'searchAnalyzer' is set and 'analyzer' is not set)
+          "analyzer": "name of the analyzer used for search and indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
+          "searchAnalyzer": "name of the search analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
+          "indexAnalyzer": "name of the indexing analyzer" (only if 'searchAnalyzer' is set and 'analyzer' is not set)
         }
       ],
       "suggesters": [
         {
           "name": "name of suggester",
-          "searchMode": "analyzingInfixMatching" (other modes may be added in hello future),
+          "searchMode": "analyzingInfixMatching" (other modes may be added in the future),
           "sourceFields": ["field1", "field2", ...]
         }
       ],
       "scoringProfiles": [
         {
           "name": "name of scoring profile",
-          "text": (optional, only applies toosearchable fields) {
+          "text": (optional, only applies to searchable fields) {
             "weights": {
               "searchable_field_name": relative_weight_value (positive numbers),
               ...
@@ -225,14 +225,14 @@ Hallo-syntaxis voor het Hallo-aanvraaglading structureren is als volgt. Een voor
                 "constantBoostBeyondRange": true | false (default)
               },
               "freshness": {
-                "boostingDuration": "..." (value representing timespan leading toonow over which boosting occurs)
+                "boostingDuration": "..." (value representing timespan leading to now over which boosting occurs)
               },
               "distance": {
-                "referencePointParameter": "...", (parameter toobe passed in queries toouse as reference location, see "scoringParameter" for syntax details)
-                "boostingDistance": # (hello distance in kilometers from hello reference location where hello boosting range ends)
+                "referencePointParameter": "...", (parameter to be passed in queries to use as reference location, see "scoringParameter" for syntax details)
+                "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
               },
               "tag": {
-                "tagsParameter": "..." (parameter toobe passed in queries toospecify list of tags toocompare against target field, see "scoringParameter" for syntax details)
+                "tagsParameter": "..." (parameter to be passed in queries to specify list of tags to compare against target field, see "scoringParameter" for syntax details)
               }
             }
           ],
@@ -253,68 +253,68 @@ Hallo-syntaxis voor het Hallo-aanvraaglading structureren is als volgt. Een voor
 
 **Indexkenmerken**
 
-Hallo kunnen volgende kenmerken worden ingesteld bij het maken van een index. Zie voor meer informatie over score berekenen en score berekenen voor profielen [toevoegen score berekenen voor profielen](https://msdn.microsoft.com/library/azure/dn798928.aspx).
+De volgende kenmerken kunnen worden ingesteld bij het maken van een index. Zie voor meer informatie over score berekenen en score berekenen voor profielen [toevoegen score berekenen voor profielen](https://msdn.microsoft.com/library/azure/dn798928.aspx).
 
-`name`-Stelt Hallo naam van Hallo-veld.
+`name`-De naam van het veld ingesteld.
 
-`type`-Stelt Hallo gegevenstype voor Hallo-veld.
+`type`-Hiermee stelt u het gegevenstype voor het veld.
 
-`searchable`-Markeert Hallo veld als volledige tekst kunnen zoeken. Dit betekent dat deze ietwat analysis zoals woordafbreking tijdens het indexeren. Als u een `searchable` tooa veldwaarde zoals 'mooi day' intern worden gesplitst in afzonderlijke tokens Hallo 'mooi' en 'dag'. Hierdoor kan de volledige tekst zoekt naar deze voorwaarden. Velden van het type `Edm.String` of `Collection(Edm.String)` zijn `searchable` standaard. Mag geen velden van andere typen `searchable`.
+`searchable`-Markeert het veld als volledige tekst kunnen zoeken. Dit betekent dat deze ietwat analysis zoals woordafbreking tijdens het indexeren. Als u een `searchable` veld een waarde zoals 'mooi day', intern dit verdeeld in de afzonderlijke tokens 'mooi' en 'dag'. Hierdoor kan de volledige tekst zoekt naar deze voorwaarden. Velden van het type `Edm.String` of `Collection(Edm.String)` zijn `searchable` standaard. Mag geen velden van andere typen `searchable`.
 
-* **Opmerking**: `searchable` velden gebruiken extra ruimte in de index omdat Azure Search, een extra tokens versie van de veldwaarde Hallo voor zoekopdrachten in volledige tekst wordt opgeslagen. Als u wilt dat toosave ruimte uw index en u hoeft niet een veld toobe opgenomen in zoekopdrachten, stelt u `searchable` te`false`.
+* **Opmerking**: `searchable` velden gebruiken extra ruimte in de index omdat Azure Search, een extra tokens versie van de waarde van het veld voor zoekopdrachten in volledige tekst wordt opgeslagen. Als u wilt opslaan ruimte in de index en hoeft u niet een veld in zoekopdrachten wilt opnemen, stelt `searchable` naar `false`.
 
-`filterable`-Hiermee kunt Hallo veld toobe waarnaar wordt verwezen in `$filter` query's. `filterable`verschilt van `searchable` in de verwerking van tekenreeksen. Velden van het type `Edm.String` of `Collection(Edm.String)` die zijn `filterable` niet worden bewerkt woordafbreking, zodat vergelijkingen zijn voor exact overeenkomt met alleen. Bijvoorbeeld, als u dergelijke veld instellen `f` te 'mooi day' `$filter=f eq 'sunny'` wordt geen overeenkomsten gevonden maar `$filter=f eq 'sunny day'` wordt. Alle velden zijn `filterable` standaard.
+`filterable`-Kan het veld verwezen in `$filter` query's. `filterable`verschilt van `searchable` in de verwerking van tekenreeksen. Velden van het type `Edm.String` of `Collection(Edm.String)` die zijn `filterable` niet worden bewerkt woordafbreking, zodat vergelijkingen zijn voor exact overeenkomt met alleen. Bijvoorbeeld, als u dergelijke veld instellen `f` om 'mooi day' `$filter=f eq 'sunny'` wordt geen overeenkomsten gevonden maar `$filter=f eq 'sunny day'` wordt. Alle velden zijn `filterable` standaard.
 
-`sortable`-Standaard Hallo system sorteert resultaten op score, maar in veel ervaringen gebruikers wilt toosort door velden in het Hallo-documenten. Velden van het type `Collection(Edm.String)` kan niet worden `sortable`. Alle andere velden zijn `sortable` standaard.
+`sortable`-Het systeem worden standaard resultaten gesorteerd op score, maar veel ervaringen gebruikers wilt sorteren op velden in de documenten. Velden van het type `Collection(Edm.String)` kan niet worden `sortable`. Alle andere velden zijn `sortable` standaard.
 
 `facetable`-Doorgaans gebruikt in een weergave van zoekresultaten met treffers per categorie (bijvoorbeeld zoeken naar digitale camera's en Zie treffers op merk, door megapixels, door de prijs, enz.). Deze optie kan niet worden gebruikt met velden van het type `Edm.GeographyPoint`. Alle andere velden zijn `facetable` standaard.
 
-* **Opmerking**: velden van het type `Edm.String` die zijn `filterable`, `sortable`, of `facetable` kan niet groter zijn dan 32 KB lang. Dit is omdat deze velden worden behandeld als een enkel zoekterm en Hallo maximale lengte van een term in Azure Search 32KB is. Als u toostore meer tekst dan deze in een veld één tekenreeks moet, moet u tooexplicitly ingesteld `filterable`, `sortable`, en `facetable` te`false` in de indexdefinitie van de.
-* **Opmerking**: als een veld geen van bovenstaande Hallo heeft kenmerken te ingesteld`true` (`searchable`, `filterable`, `sortable`, of`facetable`) Hallo veld effectief is uitgesloten van Hallo omgekeerde index. Deze optie is nuttig voor velden die niet worden gebruikt in query's, maar die nodig zijn in de zoekresultaten. Met uitzondering van dergelijke velden van de index Hallo verbetert de prestaties.
+* **Opmerking**: velden van het type `Edm.String` die zijn `filterable`, `sortable`, of `facetable` kan niet groter zijn dan 32 KB lang. Dit is omdat deze velden worden behandeld als een enkel zoekterm en de maximale lengte van een term in Azure Search 32KB is. Als u meer tekst dan deze opgeslagen in een enkel tekenreeksveld wilt, moet u expliciet instellen `filterable`, `sortable`, en `facetable` naar `false` in de indexdefinitie van de.
+* **Opmerking**: als een veld geen van de bovenstaande kenmerken die zijn ingesteld heeft op `true` (`searchable`, `filterable`, `sortable`, of`facetable`) het veld effectief is uitgesloten van de omgekeerde index. Deze optie is nuttig voor velden die niet worden gebruikt in query's, maar die nodig zijn in de zoekresultaten. Met uitzondering van dergelijke velden uit de index verbetert de prestaties.
 
-`key`-Markeringen Hallo veld unieke id's voor documenten in Hallo index bevat. Moet precies één veld worden gekozen als Hallo `key` veld en moet zijn van het type `Edm.String`. Sleutelvelden kunnen worden gebruikt toolook documenten rechtstreeks via Hallo [Lookup API](#LookupAPI).
+`key`-Markeert het veld bevat de unieke id's voor documenten in de index. Moet precies één veld worden gekozen als de `key` veld en moet zijn van het type `Edm.String`. Sleutelvelden kunnen worden gebruikt voor het opzoeken van documenten rechtstreeks via de [Lookup API](#LookupAPI).
 
-`retrievable`-Instellen of Hallo veld in een zoekresultaat kan worden geretourneerd.  Dit is handig wanneer u toouse een veld (bijvoorbeeld marge) als een filter wilt sorteren of score berekenen mechanisme, maar niet dat Hallo veld toobe zichtbaar toohello gebruiker wilt. Dit kenmerk moet `true` voor `key` velden.
+`retrievable`-Instellen of het veld in een zoekresultaat kan worden geretourneerd.  Dit is handig als u een veld (bijvoorbeeld marge) gebruiken als een filter, wilt sorteren of score berekenen mechanisme maar niet dat het veld wilt zichtbaar is voor de eindgebruiker. Dit kenmerk moet `true` voor `key` velden.
 
-`analyzer`-Naam van Hallo analyzer toouse voor veld Hallo Hallo stelt op zoektijd en indexering tijd. Zie voor een set waarden toegestaan Hallo [Analyzers](https://msdn.microsoft.com/library/mt605304.aspx). Deze optie kan alleen worden gebruikt met `searchable` velden en deze kunnen niet worden ingesteld met een `searchAnalyzer` of `indexAnalyzer`.  Zodra Hallo analyzer is gekozen, kan deze niet meer wijzigen voor het Hallo-veld.
+`analyzer`-De naam van de analyzer te gebruiken voor het veld op zoektijd en indexering tijd instellen. Zie voor de toegestane set waarden [Analyzers](https://msdn.microsoft.com/library/mt605304.aspx). Deze optie kan alleen worden gebruikt met `searchable` velden en deze kunnen niet worden ingesteld met een `searchAnalyzer` of `indexAnalyzer`.  Zodra de analyzer is gekozen, kan deze niet meer wijzigen voor het veld.
 
-`searchAnalyzer`-Stelt Hallo naam van Hallo analyzer gebruikt op het moment van de zoekactie voor Hallo-veld. Zie voor een set waarden toegestaan Hallo [Analyzers](https://msdn.microsoft.com/library/mt605304.aspx). Deze optie kan alleen worden gebruikt met `searchable` velden. Deze moet worden ingesteld samen met `indexAnalyzer` en deze kan niet worden ingesteld met Hallo `analyzer` optie. Deze analyzer kan worden bijgewerkt op een bestaand veld.
+`searchAnalyzer`-De naam van de analyzer gebruikt op het moment van de zoekactie voor het veld instellen. Zie voor de toegestane set waarden [Analyzers](https://msdn.microsoft.com/library/mt605304.aspx). Deze optie kan alleen worden gebruikt met `searchable` velden. Deze moet worden ingesteld samen met `indexAnalyzer` en deze kan niet worden ingesteld samen met de `analyzer` optie. Deze analyzer kan worden bijgewerkt op een bestaand veld.
 
-`indexAnalyzer`-Stelt Hallo naam van Hallo analyzer gebruikt bij indexering voor Hallo-veld. Zie voor een set waarden toegestaan Hallo [Analyzers](https://msdn.microsoft.com/library/mt605304.aspx). Deze optie kan alleen worden gebruikt met `searchable` velden. Deze moet worden ingesteld samen met `searchAnalyzer` en deze kan niet worden ingesteld met Hallo `analyzer` optie. Zodra Hallo analyzer is gekozen, kan deze niet meer wijzigen voor het Hallo-veld.
+`indexAnalyzer`-Hiermee stelt u de naam van de analysefunctie voor indexering tijd voor het veld wordt gebruikt. Zie voor de toegestane set waarden [Analyzers](https://msdn.microsoft.com/library/mt605304.aspx). Deze optie kan alleen worden gebruikt met `searchable` velden. Deze moet worden ingesteld samen met `searchAnalyzer` en deze kan niet worden ingesteld samen met de `analyzer` optie. Zodra de analyzer is gekozen, kan deze niet meer wijzigen voor het veld.
 
-`suggesters`-Stelt Hallo zoekmodus en velden Hallo bron van Hallo-inhoud voor suggesties zijn. Zie [Suggestiefunctie](#Suggesters) voor meer informatie.
+`suggesters`-De modus en de velden die de bron van de inhoud voor suggesties zijn ingesteld. Zie [Suggestiefunctie](#Suggesters) voor meer informatie.
 
-`scoringProfiles`-Definieert aangepast scoreprofiel gedrag waarmee u het van invloed zijn op welke objecten hoger in de zoekresultaten weergegeven. Scoreprofiel profielen zijn opgebouwd veldgewichten en functies. Zie [toevoegen score berekenen voor profielen](https://msdn.microsoft.com/library/azure/dn798928.aspx) voor meer informatie over Hallo kenmerken in een scoreprofiel gebruikt.
+`scoringProfiles`-Definieert aangepast scoreprofiel gedrag waarmee u het van invloed zijn op welke objecten hoger in de zoekresultaten weergegeven. Scoreprofiel profielen zijn opgebouwd veldgewichten en functies. Zie [toevoegen score berekenen voor profielen](https://msdn.microsoft.com/library/azure/dn798928.aspx) voor meer informatie over de kenmerken in een scoreprofiel gebruikt.
 
 <!-- This is a standalone topic in MSDN -->
 <a name="LanguageSupport"></a>
 **Taalondersteuning**
 
-De doorzoekbare velden ondergaan analyse die het beste omvat vaak woordafbreking, tekst normalisatie en voorwaarden worden uitgefilterd. Standaard doorzoekbare velden in Azure Search worden geanalyseerd met Hallo [Apache Lucene standaard analyzer](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html) die tekst opgesplitst in elementen na de['Segmentering Unicode-tekst'](http://unicode.org/reports/tr29/) regels. Bovendien converteert Hallo standaard analyzer alle tekens tootheir kleine letters formulier. Zowel geïndexeerde documenten en zoektermen doorlopen die Hallo analysis tijdens het indexeren en de verwerking van query's.
+De doorzoekbare velden ondergaan analyse die het beste omvat vaak woordafbreking, tekst normalisatie en voorwaarden worden uitgefilterd. Standaard doorzoekbare velden in Azure Search worden geanalyseerd met de [Apache Lucene standaard analyzer](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html) die tekst opgesplitst in elementen na de['Segmentering Unicode-tekst'](http://unicode.org/reports/tr29/) regels. De standaard analyzer converteert bovendien alle tekens naar hun formulier kleine letters. Zowel geïndexeerde documenten en zoektermen doorlopen die de analyse tijdens het indexeren en de verwerking van query's.
 
 Azure Search biedt ondersteuning voor verschillende talen. Elke taal is vereist voor een niet-standaard tekst analyzer die accounts voor kenmerken van een bepaalde taal. Azure Search biedt twee typen analyzers:
 
 * 35 analyzers Lucene back-up.
 * 50 analyzers bedrijfseigen Microsoft natuurlijke taal verwerken van de technologie die wordt gebruikt in Office en Bing back-up.
 
-Sommige ontwikkelaars liever Hallo meer vertrouwde eenvoudige, open source-oplossing van Lucene. Lucene analyzers sneller zijn, maar Hallo Microsoft analyzers hebben geavanceerde mogelijkheden, zoals Lemmata, word decompounding (in talen zoals Duits, Deens, Nederlands, Zweeds, Noors, Ests, voltooien, Hongaars, Slowaaks) en entiteit herkenning (URL 's e-mailberichten, datums, getallen). Indien mogelijk moet u vergelijkingen van beide Hallo Microsoft en Lucene analyzers toodecide-welke is beter geschikt uitvoeren.
+Sommige ontwikkelaars liever de meer vertrouwde, eenvoudig en open-source Lucene-oplossing. Lucene analyzers sneller zijn, maar de analyzers Microsoft hebben geavanceerde mogelijkheden, zoals Lemmata, word decompounding (in talen zoals Duits, Deens, Nederlands, Zweeds, Noors, Ests, voltooien, Hongaars, Slowaaks) en entiteit erkenning (URL 's e-mailberichten, datums, getallen). Indien mogelijk moet u vergelijkingen van de Microsoft- en Lucene analyzers om te bepalen welke beter geschikt is uitgevoerd.
 
 ***Hoe ze zich verhouden***
 
-Hallo Lucene analyzer voor Engels wordt standaard analyzer Hallo uitgebreid. Deze bezittelijke voornaamwoorden (afsluitende van) met woorden verwijdert, is van toepassing als gevolg conform [Porter afleiding algoritme](http://tartarus.org/~martin/PorterStemmer/), en verwijdert u Engels [stopwoorden](http://en.wikipedia.org/wiki/Stop_words).
+De analyzer Lucene voor Engels breidt de standaard analyzer. Deze bezittelijke voornaamwoorden (afsluitende van) met woorden verwijdert, is van toepassing als gevolg conform [Porter afleiding algoritme](http://tartarus.org/~martin/PorterStemmer/), en verwijdert u Engels [stopwoorden](http://en.wikipedia.org/wiki/Stop_words).
 
-Ter vergelijking voert Hallo Microsoft analyzer Lemmata in plaats van de gegevens als gevolg. Dit betekent dat deze kan omgaan met verbogen en onregelmatige word formulieren veel beter wat resulteert in meer relevante zoekresultaten (controle module 7 van [Azure Search MVA presentatie](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) voor meer informatie).
+Ter vergelijking voert Microsoft analyzer Lemmata in plaats van de gegevens als gevolg. Dit betekent dat deze kan omgaan met verbogen en onregelmatige word formulieren veel beter wat resulteert in meer relevante zoekresultaten (controle module 7 van [Azure Search MVA presentatie](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) voor meer informatie).
 
-Indexering met Microsoft analyzers is gemiddeld twee toothree keer langzamer dan de Lucene-equivalenten, afhankelijk van het Hallo-taal. Prestaties van de zoekopdracht moet niet aanzienlijk beïnvloed voor de gemiddelde grootte query's.
+Indexering met Microsoft analyzers is gemiddeld twee tot drie keer langzamer dan de Lucene-equivalenten, afhankelijk van de taal. Prestaties van de zoekopdracht moet niet aanzienlijk beïnvloed voor de gemiddelde grootte query's.
 
 ***Configuratie***
 
-Voor elk veld in de indexdefinitie hello, kunt u Hallo instellen `analyzer` tooan analyzer eigenschapsnaam die welke taal en de leverancier aangeeft. Hallo dezelfde analyzer worden toegepast wanneer het indexeren en het zoeken voor dat veld.
-U kunt bijvoorbeeld afzonderlijke velden voor Engels, Frans en Spaans hotel beschrijvingen die bestaan naast elkaar in Hallo hebben dezelfde index. Gebruik Hallo ['searchFields' queryparameter](#SearchQueryParameters) toospecify welke toosearch taalspecifieke veld tegen in uw query's. U kunt query voorbeelden waarin Hallo bekijken `analyzer` eigenschap in [documenten zoeken](#SearchDocs). 
+U kunt voor elk veld in de indexdefinitie instellen de `analyzer` eigenschap in op de naam van een analyzer die welke taal en de leverancier aangeeft. De dezelfde analyzer worden toegepast wanneer het indexeren en het zoeken voor dat veld.
+U kunt bijvoorbeeld afzonderlijke velden voor Engels, Frans en Spaans hotel beschrijvingen die bestaan naast elkaar op dezelfde positie hebben. Gebruik de ['searchFields' queryparameter](#SearchQueryParameters) om op te geven welk veld specifieke taal zijn gebonden om te zoeken op basis van uw query's. U kunt bekijken query voorbeelden die zijn de `analyzer` eigenschap in [documenten zoeken](#SearchDocs). 
 
 ***Lijst met Analyzer***
 
-Hieronder vindt u een lijst van ondersteunde talen samen met de namen van Lucene en Microsoft analyzer Hallo.
+Hieronder volgt de lijst van ondersteunde talen samen met de namen van Lucene en Microsoft analyzer.
 
 <table style="font-size:12">
     <tr>
@@ -611,33 +611,33 @@ Hieronder vindt u een lijst van ondersteunde talen samen met de namen van Lucene
         <td>
         <ul>
             <li>Unicode-tekst segmentering (standaard Tokenizer)</li>
-            <li>Opvouwbaar filter ASCII - converteert Unicode-tekens die geen deel uitmaken toohello set eerst 127 ASCII-tekens in de ASCII-equivalenten. Dit is handig voor het verwijderen van diakritische tekens.</li>
+            <li>Opvouwbaar filter ASCII - converteert Unicode-tekens die geen deel uitmaken van de set eerst 127 ASCII-tekens naar hun ASCII-equivalenten. Dit is handig voor het verwijderen van diakritische tekens.</li>
         </ul>
         </td>
     </tr>
 </table>
 
-Alle analyzers met namen van aantekeningen voorzien met <i>lucene</i> worden van stroom voorzien door [van Apache Lucene taalanalyse](http://lucene.apache.org/core/4_9_0/analyzers-common/overview-summary.html). Meer informatie over Hallo ASCII vouwen filter vindt [hier](http://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html).
+Alle analyzers met namen van aantekeningen voorzien met <i>lucene</i> worden van stroom voorzien door [van Apache Lucene taalanalyse](http://lucene.apache.org/core/4_9_0/analyzers-common/overview-summary.html). Meer informatie over de ASCII vouwen filter vindt [hier](http://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html).
 
 **Suggesties**
 
-Een `suggester` wordt gedefinieerd welke velden in een index zijn gebruikte toosupport automatisch aanvullen in zoekopdrachten. Doorgaans gedeeltelijke zoekreeksen toohello worden verzonden [suggesties API](#Suggestions) terwijl Hallo gebruiker een zoekquery typen is en het Hallo-API een set met voorgestelde zinnen retourneert. Een suggestie die u in Hallo index definieert bepaalt welke velden gebruikte toobuild Hallo automatisch aangevulde zoektermen. Zie [Suggestiefunctie](#Suggesters) voor configuratie-informatie.
+Een `suggester` wordt gedefinieerd welke velden in een index worden gebruikt voor de ondersteuning voor automatisch aanvullen in zoekopdrachten. Doorgaans gedeeltelijke zoekreeksen worden verzonden naar de [suggesties API](#Suggestions) terwijl de gebruiker een zoekopdracht typen is en de API een set met voorgestelde zinnen retourneert. Een suggestie die u in de index definieert bepaalt welke velden worden gebruikt om de type-ahead zoektermen samen te stellen. Zie [Suggestiefunctie](#Suggesters) voor configuratie-informatie.
 
 **Scoreprofielen**
 
-Een `scoringProfile` aangepast scoreprofiel gedrag waarmee u het van invloed zijn op welke objecten in zoekresultaten Hallo hoger weergegeven definieert. Scoreprofiel profielen zijn opgebouwd veldgewichten en functies. toouse ze, geeft u een profiel met de naam in de queryreeks Hallo.
+Een `scoringProfile` definieert aangepast scoreprofiel gedrag waarmee u het van invloed zijn op welke objecten hoger in de zoekresultaten weergegeven. Scoreprofiel profielen zijn opgebouwd veldgewichten en functies. Als u wilt gebruiken, geeft u een profiel met de naam van de queryreeks.
 
-Een standaard score berekenen profiel werkt achter de schermen-toocompute Hallo een score zoeken voor elk item in een resultatenset. U kunt Hallo interne, naamloze scoreprofiel gebruiken. U kunt ook instellen `defaultScoringProfile` toouse een aangepast profiel als Hallo standaard, wanneer u een aangepast profiel niet is opgegeven in de queryreeks Hallo aangeroepen.
+Een standaard score berekenen profiel werkt achter de schermen om de score van een zoekopdracht voor elk item in een resultatenset te berekenen. U kunt de interne naamloze scoreprofiel gebruiken. U kunt ook instellen `defaultScoringProfile` aangeroepen een aangepast profiel gebruiken als de standaard, wanneer u een aangepast profiel niet is opgegeven in de queryreeks.
 
-Zie [tooa search-index (Azure Search Service REST-API) toevoegen score berekenen profielen](search-api-scoring-profiles-2015-02-28-preview.md) voor meer informatie.
+Zie [scoreprofiel profielen toevoegen aan een zoekindex (Azure Search Service REST-API)](search-api-scoring-profiles-2015-02-28-preview.md) voor meer informatie.
 
 **CORS-opties**
 
-Client-side Javascript kan API's standaard niet aanroepen omdat Hallo browser voorkomt u alle cross-origin-aanvragen dat. Inschakelen van CORS (Cross-Origin Resource Sharing) met instelling Hallo `corsOptions` kenmerk tooallow cross-origin-query's tooyour index. Houd er rekening mee dat alleen query API-ondersteuning CORS uit veiligheidsoverwegingen. Hallo volgend opties kan worden ingesteld voor CORS:
+Client-side Javascript kan API's standaard niet aanroepen omdat de browser voorkomen alle cross-origin-aanvragen dat wordt. Inschakelen van CORS (Cross-Origin Resource Sharing) door in te stellen de `corsOptions` kenmerk waarmee cross-origin-query's naar uw index. Houd er rekening mee dat alleen query API-ondersteuning CORS uit veiligheidsoverwegingen. De volgende opties kunnen worden ingesteld voor CORS:
 
-* `allowedOrigins`(vereist): dit is een lijst met oorsprongen op waarvoor toegang tooyour index wordt verleend. Dit betekent dat een Javascript-code opgehaald uit deze oorsprongen zijn toegestaan tooquery uw index (ervan uitgaande dat het juiste Hallo-API-sleutel biedt). Elke oorsprong heeft meestal Hallo vorm `protocol://fully-qualified-domain-name:port` Hoewel Hallo poort vaak wordt weggelaten. Zie [in dit artikel](http://go.microsoft.com/fwlink/?LinkId=330822) voor meer informatie.
-  * Als u tooallow toegang tooall oorsprongen wilt, omvatten `*` als één item in Hallo `allowedOrigins` matrix. Houd er rekening mee dat **dit wordt niet aanbevolen beveiligingsprocedure voor productie search-services.** Dit kan echter nuttig zijn voor ontwikkeling of foutopsporing zijn.
-* `maxAgeInSeconds`(optioneel): Browsers gebruiken deze waarde toodetermine Hallo duur (in seconden) toocache CORS voorbereidende antwoorden. Dit moet een niet-negatief geheel getal zijn. Hallo groter deze waarde is, Hallo betere prestaties, maar Hallo langer die het duurt voor CORS-beleid wijzigingen tootake effect. Als deze niet is ingesteld, wordt een standaardduur van 5 minuten gebruikt.
+* `allowedOrigins`(vereist): dit is een lijst met oorsprongen op waarvoor toegang tot uw index wordt verleend. Dit betekent dat eventuele Javascript-code opgehaald uit deze oorsprongen mag worden query uitvoeren in uw index (ervan uitgaande dat de juiste API-sleutel biedt). Elke oorsprong heeft meestal de vorm `protocol://fully-qualified-domain-name:port` Hoewel de poort vaak wordt weggelaten. Zie [in dit artikel](http://go.microsoft.com/fwlink/?LinkId=330822) voor meer informatie.
+  * Als u toestaan toegang tot alle oorsprongen wilt, opnemen `*` als één item in de `allowedOrigins` matrix. Houd er rekening mee dat **dit wordt niet aanbevolen beveiligingsprocedure voor productie search-services.** Dit kan echter nuttig zijn voor ontwikkeling of foutopsporing zijn.
+* `maxAgeInSeconds`(optioneel): Browsers gebruiken deze waarde voor de duur (in seconden) te voorbereidende CORS-antwoorden cache. Dit moet een niet-negatief geheel getal zijn. Hoe hoger deze waarde is, de prestaties beter, maar hoe langer het duurt CORS wijzigingen voor beleid van kracht te laten worden. Als deze niet is ingesteld, wordt een standaardduur van 5 minuten gebruikt.
 
 <a name="CreateUpdateIndexExample"></a>
 **Voorbeeld van de aanvraag hoofdtekst**
@@ -671,35 +671,35 @@ Client-side Javascript kan API's standaard niet aanroepen omdat Hallo browser vo
 
 Aanvraag is gelukt: '201 gemaakt'.
 
-Standaard bevat antwoordtekst Hallo Hallo JSON voor Hallo indexdefinitie die is gemaakt. Als hello `Prefer` aanvraagheader is te ingesteld`return=minimal`, Hallo antwoordtekst leeg en Hallo geslaagd status code ' 204 geen inhoud ' in plaats van '201 gemaakt'. Dit geldt ongeacht of gebruikte toocreate Hallo index plaatsen of POST was.
+De antwoordtekst bevatten standaard de JSON voor de definitie van de index die is gemaakt. Als de `Prefer` aanvraagheader is ingesteld op `return=minimal`, de antwoordtekst leeg en worden de statuscode geslaagd zijn ' 204 geen inhoud ' in plaats van '201 gemaakt'. Dit geldt ook als plaatsen of POST is gebruikt om de index te maken.
 
 **Opmerkingen**
 
-Op dit moment is er beperkte ondersteuning voor index schema-updates. Alle schema-updates die opnieuw worden geïndexeerd moeten zoals het wijzigen van veldtypen worden momenteel niet ondersteund. Hoewel u bestaande velden kunnen niet worden gewijzigd of verwijderd, kan nieuwe velden kunnen tooan bestaande index op elk gewenst moment worden toegevoegd. Wanneer u een nieuw veld toevoegt, hebben alle documenten in index Hallo automatisch een null-waarde voor dat veld. Er zijn geen extra opslagruimte worden gebruikt totdat nieuwe documenten toohello index zijn toegevoegd.
+Op dit moment is er beperkte ondersteuning voor index schema-updates. Alle schema-updates die opnieuw worden geïndexeerd moeten zoals het wijzigen van veldtypen worden momenteel niet ondersteund. Hoewel u bestaande velden kunnen niet worden gewijzigd of verwijderd, worden nieuwe velden kunnen worden toegevoegd aan een bestaande index op elk gewenst moment. Wanneer u een nieuw veld toevoegt, hebben alle documenten in de index automatisch een null-waarde voor dat veld. Er zijn geen extra opslagruimte worden gebruikt totdat nieuwe documenten die zijn toegevoegd aan de index.
 
 <a name="Suggesters"></a>
 
 ## <a name="suggesters"></a>Suggesties
-Hallo suggesties functie in Azure Search is een type-ahead of automatisch aanvullen query-functie, met een lijst van mogelijke zoektermen in het antwoord toopartial tekenreeks invoer in een zoekvak ingevoerd. U vast opgevallen Querysuggesties bij gebruik van zoekmachines commerciële web: '.NET' te typen Bing genereert een overzicht van voorwaarden voor '.NET 4.5 uitvoeren ', '.NET Framework 3.5", enzovoort. Wanneer u Hallo Search service REST-API, vereist suggesties implementeren in een aangepaste Azure Search-toepassing hello volgende:
+De functie suggesties in Azure Search is een type-ahead of automatisch aanvullen query-functie, met een lijst van mogelijke zoektermen in reactie op invoer van gedeeltelijke tekenreeks ingevoerd in een zoekvak. U vast opgevallen Querysuggesties bij gebruik van zoekmachines commerciële web: '.NET' te typen Bing genereert een overzicht van voorwaarden voor '.NET 4.5 uitvoeren ', '.NET Framework 3.5", enzovoort. Wanneer u de zoekservice REST-API, suggesties implementeren in een aangepaste Azure Search-toepassing is het volgende vereist:
 
-* Suggesties inschakelen door het toevoegen van een **suggestie** bouw in uw index, geeft de naam hello, zoekmodus en een lijst met velden waarvoor automatisch aangevulde wordt aangeroepen. Bijvoorbeeld, als u 'stad' als een bronveld, te typen gedeeltelijke zoektekenreeks 'Sea' leidt ertoe dat "Seattle" opgeeft, 'Strand' en 'Seatac' (alle drie zijn de namen van de werkelijke stad) aangeboden tot als query suggesties toohello gebruiker.
-* Suggesties aanroepen door de aanroepende Hallo [suggesties API](#Suggestions) in uw toepassingscode. Gedeeltelijke zoekreeksen worden doorgaans toohello service verzonden tijdens het Hallo-gebruiker is een zoekopdracht typen en deze API retourneert een set met voorgestelde zinnen.
+* Suggesties inschakelen door het toevoegen van een **suggestie** bouw in uw index, geeft de naam, zoekmodus en een lijst met velden waarvoor automatisch aangevulde wordt aangeroepen. Bijvoorbeeld, als u 'stad' opgeeft als een bronveld gedeeltelijke zoektekenreeks 'Sea' te typen, leidt tot "Seattle", 'Strand' en 'Seatac' (alle drie zijn de namen van de werkelijke stad) aangeboden als suggesties voor de query voor de gebruiker.
+* Suggesties worden aangeroepen door het aanroepen van de [suggesties API](#Suggestions) in uw toepassingscode. Gedeeltelijke zoekreeksen worden meestal verzonden naar de service terwijl de gebruiker een zoekopdracht typen is en deze API een set met voorgestelde zinnen retourneert.
 
-Dit artikel wordt uitgelegd hoe tooconfigure een **suggestie**. Bekijk ook Hallo [suggesties API](#Suggestions) voor meer informatie over hoe een suggestie wordt gebruikt.
+Dit artikel wordt uitgelegd hoe u configureert een **suggestie**. Controleer ook de [suggesties API](#Suggestions) voor meer informatie over hoe een suggestie wordt gebruikt.
 
 **Gebruik**
 
-`Suggesters`in Hallo index worden gemaakt en werken het beste als gebruikt toosuggest specifieke documenten in plaats van losse voorwaarden of zinnen. Hallo best candidate velden zijn titels, namen en andere relatief korte zinnen die een item kunnen identificeren. Minder effectief zijn herhalende velden, zoals de categorieën en tags, of zeer lange velden zoals beschrijvingen of opmerkingen velden.
+`Suggesters`worden gemaakt in de index en werk aanbevolen als gebruikt voor bepaalde documenten in plaats van losse termen of woordgroepen voorstellen. De beste kandidaat velden zijn titels, namen en andere relatief korte zinnen die een item kunnen identificeren. Minder effectief zijn herhalende velden, zoals de categorieën en tags, of zeer lange velden zoals beschrijvingen of opmerkingen velden.
 
-Als onderdeel van de indexdefinitie hello, kunt u een één suggestie toohello toevoegen `suggesters` verzameling. Eigenschappen die, een suggestie bepalen zijn Hallo volgende:
+Als onderdeel van de indexdefinitie, kunt u een suggestie één aan toevoegen de `suggesters` verzameling. Eigenschappen die, een suggestie bepalen omvatten het volgende:
 
-* `name`: Hallo-naam van Hallo suggestie. U Hallo-naam van Hallo suggestie gebruiken bij het aanroepen van Hallo `suggest` API.
-* `searchMode`: Hallo toosearch gebruikte strategie voor candidate zinnen. Hallo modus worden alleen ondersteund op dit moment is `analyzingInfixMatching`, flexibele overeenkomende woordgroepen aan Hallo begin of in het midden van zinnen Hallo uitvoert.
-* `sourceFields`: Een lijst met een of meer velden Hallo bron van Hallo-inhoud voor suggesties zijn. Alleen velden van het type `Edm.String` en `Collection(Edm.String)` mogelijk bronnen voor suggesties. Alleen de velden die een aangepaste taalanalyse ingesteld niet kunnen worden gebruikt.
+* `name`: De naam van de suggestie. U de naam van de suggestie gebruiken bij het aanroepen van de `suggest` API.
+* `searchMode`: De gebruikte strategie voor het zoeken naar candidate zinnen. Alleen de modus die momenteel worden ondersteund is `analyzingInfixMatching`, uitvoert, wordt er flexibele overeenkomende woordgroepen aan het begin of in het midden van zinnen.
+* `sourceFields`: Een lijst met een of meer velden die de bron van de inhoud voor suggesties. Alleen velden van het type `Edm.String` en `Collection(Edm.String)` mogelijk bronnen voor suggesties. Alleen de velden die een aangepaste taalanalyse ingesteld niet kunnen worden gebruikt.
 
 **Suggestie voorbeeld**
 
-Een suggestie maakt deel uit van Hallo index. Er kan slechts één suggestie bestaan in Hallo `suggesters` verzameling in de huidige versie Hallo naast Hallo verzameling velden en `scoringProfiles`.
+Een suggestie maakt deel uit van de index. Er kan slechts één suggestie bestaan in de `suggesters` verzameling in de huidige versie, naast de verzameling van velden en `scoringProfiles`.
 
         {
           "name": "hotels",
@@ -719,45 +719,45 @@ Een suggestie maakt deel uit van Hallo index. Er kan slechts één suggestie bes
         }
 
 > [!NOTE]
-> Als u Hallo openbare preview-versie van Azure Search gebruikt `suggesters` wordt vervangen door een oudere Boole-eigenschap (`"suggestions": false`) die alleen voorvoegsel suggesties voor korte tekenreeksen (3-25 tekens) wordt ondersteund. De vervanging ervan `suggesters`, ondersteunt infix overeenkomende waarmee wordt gezocht naar overeenkomende voorwaarden aan Hallo begin of in het midden van de Hallo van veldinhoud, met betere tolerantie voor fouten in zoekreeksen. Vanaf Hallo algemeen beschikbaar release, is dit nu Hallo alleen implementatie van Hallo suggesties API. Hallo oudere `suggestions` eigenschap die is geïntroduceerd in `api-version=2014-07-31-Preview` toowork blijft in deze versie, maar is niet operationeel in Hallo `2015-02-28` of latere versies van Azure Search.
+> Als u de openbare preview-versie van Azure Search gebruikt `suggesters` wordt vervangen door een oudere Boole-eigenschap (`"suggestions": false`) die alleen voorvoegsel suggesties voor korte tekenreeksen (3-25 tekens) wordt ondersteund. De vervanging ervan `suggesters`, ondersteunt infix overeenkomende waarmee wordt gezocht naar overeenkomende voorwaarden aan het begin of in het midden van veldinhoud, met betere tolerantie voor fouten in zoekreeksen. Vanaf versie van de algemeen beschikbaar, is dit nu de enige implementatie van de suggesties API. De oudere `suggestions` eigenschap die is geïntroduceerd in `api-version=2014-07-31-Preview` blijft werken in deze versie, maar is niet operationeel is in de `2015-02-28` of latere versies van Azure Search.
 > 
 > 
 
 <a name="UpdateIndex"></a>
 
 ## <a name="update-index"></a>Index bijwerken
-U kunt een bestaande index in Azure Search met behulp van een HTTP PUT-aanvraag bijwerken. Updates kunnen het toevoegen van nieuwe velden toohello bestaand schema, CORS-opties wijzigen en wijzigen, scoreprofiel profielen bevatten. Zie [toevoegen score berekenen voor profielen](https://msdn.microsoft.com/library/azure/dn798928.aspx) voor meer informatie. U opgeven Hallo naam van Hallo index tooupdate op Hallo aanvraag-URI:
+U kunt een bestaande index in Azure Search met behulp van een HTTP PUT-aanvraag bijwerken. Updates kunnen nieuwe velden toevoegen aan het bestaande schema, CORS-opties wijzigen en wijzigen, scoreprofiel profielen bevatten. Zie [toevoegen score berekenen voor profielen](https://msdn.microsoft.com/library/azure/dn798928.aspx) voor meer informatie. U opgeven de naam van de index om bij te werken op de aanvraag-URI:
 
     PUT https://[search service url]/indexes/[index name]?api-version=[api-version]
     Content-Type: application/json
     api-key: [admin key]
 
-**Belangrijk:** ondersteuning voor index schema-updates beperkt toooperations die Hallo search-index opnieuw opbouwen niet nodig is. Alle schema-updates die opnieuw worden geïndexeerd moeten, zoals het wijzigen van veldtypen, worden momenteel niet ondersteund. Nieuwe velden kunnen op elk gewenst moment worden toegevoegd, hoewel bestaande velden kunnen niet worden gewijzigd of verwijderd. Hallo geldt te`suggesters`. Nieuwe velden kunnen worden toegevoegd tooa suggestie op Hallo Hallo tijdvelden worden toegevoegd, maar velden kunnen niet worden verwijderd uit `suggesters` en bestaande velden kunnen niet te worden toegevoegd`suggesters`.
+**Belangrijk:** ondersteuning voor index schema-updates is beperkt tot bewerkingen waarvoor de search-index opnieuw opbouwen niet nodig. Alle schema-updates die opnieuw worden geïndexeerd moeten, zoals het wijzigen van veldtypen, worden momenteel niet ondersteund. Nieuwe velden kunnen op elk gewenst moment worden toegevoegd, hoewel bestaande velden kunnen niet worden gewijzigd of verwijderd. Hetzelfde geldt voor `suggesters`. Nieuwe velden kunnen worden toegevoegd aan een suggestie op het moment dat de velden worden toegevoegd, maar velden kunnen niet worden verwijderd uit `suggesters` en bestaande velden kunnen niet worden toegevoegd aan `suggesters`.
 
-Wanneer u een nieuw veld tooan index toevoegt, hebben alle documenten in index Hallo automatisch een null-waarde voor dat veld. Er zijn geen extra opslagruimte worden gebruikt totdat nieuwe documenten toohello index zijn toegevoegd.
+Wanneer u een nieuw veld toevoegt aan een index, hebben alle documenten in de index automatisch een null-waarde voor dat veld. Er zijn geen extra opslagruimte worden gebruikt totdat nieuwe documenten die zijn toegevoegd aan de index.
 
 **Aanvraag**
 
-HTTPS is vereist voor alle aanvragen van de service. Hallo **Index bijwerken** aanvraag is opgesteld met HTTP PUT. Met opslag is de indexnaam Hallo deel van Hallo-URL. Als het Hallo-index niet bestaat, wordt deze gemaakt. Als al Hallo index bestaat, is het bijgewerkte toohello nieuwe definitie.
+HTTPS is vereist voor alle aanvragen van de service. De **Index bijwerken** aanvraag is opgesteld met HTTP PUT. Met opslag is de naam van de index onderdeel van de URL. Als de index niet bestaat, wordt deze gemaakt. Als de index al bestaat, wordt deze bijgewerkt naar de nieuwe definitie.
 
-Hallo indexnaam moet in kleine letters worden, beginnen met een letter of cijfer, hebben geen slashes of punten en minder dan 128 tekens bevatten. Hallo rest van de naam van de Hallo kan na het starten van de indexnaam Hallo met een letter of cijfer bevatten een letter, cijfer en streepjes, zolang Hallo streepjes niet opeenvolgende zijn.
+De naam van de index moet in kleine letters worden, beginnen met een letter of cijfer, hebben geen slashes of punten en minder dan 128 tekens bevatten. De rest van de naam kan na het starten van de naam van de index met een letter of cijfer bevatten een letter, cijfer en streepjes, zolang de streepjes niet opeenvolgende zijn.
 
-`api-version=[string]`(vereist). Hallo preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
+`api-version=[string]`(vereist). De preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
 
 **Aanvraagheaders**
 
-Hallo volgende lijst beschrijft Hallo vereiste en optionele aanvraagheaders.
+De volgende lijst beschrijft de vereiste en optionele aanvraagheaders.
 
-* `Content-Type`: Vereist. Stel deze optie te`application/json`
-* `api-key`: Vereist. Hallo `api-key` gebruikte tooauthenticate Hallo aanvraag tooyour Search-service is. Het is een tekenreekswaarde, een unieke tooyour-service. Hallo **Index bijwerken** aanvraag moet bevatten een `api-key` header tooyour beheersleutel (als tegengestelde tooa querysleutel) ingesteld.
+* `Content-Type`: Vereist. Stel dit in op`application/json`
+* `api-key`: Vereist. De `api-key` wordt gebruikt voor verificatie van de aanvraag voor uw zoekservice. Het is een tekenreekswaarde die uniek is voor uw service. De **Index bijwerken** aanvraag moet bevatten een `api-key` header ingesteld op de administratorsleutel (in plaats van een querysleutel).
 
-U moet ook Hallo service naam tooconstruct Hallo aanvraag-URL. U krijgt de naam van de service Hallo en `api-key` van uw servicedashboard in hello Azure-Portal. Zie [maken van een Azure Search-service in Hallo portal](search-create-service-portal.md) voor pagina navigatie hulp.
+U moet ook de naam van de service om de aanvraag-URL samen te stellen. U krijgt de servicenaam en `api-key` van uw servicedashboard in de Azure Portal. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor pagina navigatie hulp.
 
 **Syntaxis van de aanvraag hoofdtekst**
 
-Bij het bijwerken van een bestaande index Hallo hoofdtekst vergezeld gaan van de oorspronkelijke schemadefinitie Hallo plus Hallo nieuwe velden die u wilt toevoegen, evenals Hallo gewijzigd scoreprofiel profielen, suggestiefunctie en CORS-opties, indien van toepassing. Als u scoreprofiel Hallo-profielen en CORS-opties niet wijzigt, moet u opnemen Hallo originele wanneer Hallo index is gemaakt. Hallo best patroon toouse voor updates is over het algemeen tooretrieve Hallo indexdefinitie met een GET, wijzigen en vervolgens bijwerken met PUT.
+Bij het bijwerken van een bestaande index vergezeld de hoofdtekst gaan van de oorspronkelijke schemadefinitie, plus de nieuwe velden die u wilt toevoegen, evenals de gewijzigde scoreprofiel profielen, suggestiefunctie en CORS-opties, indien van toepassing. Als u de CORS-opties en profielen scoreprofiel niet wijzigt, moet u de oorspronkelijke wanneer de index is gemaakt opnemen. In het algemeen het beste patroon voor updates te gebruiken is het ophalen van de indexdefinitie met een GET, wijzigt u deze vervolgens bijwerken met PUT.
 
-Hallo schemasyntaxis gebruikt een index is hier gereproduceerd toocreate voor uw gemak. Zie [Create Index](#CreateIndex) voor meer informatie.
+De schemasyntaxis van het gebruikt voor het maken van een index is hier gereproduceerd voor uw gemak. Zie [Create Index](#CreateIndex) voor meer informatie.
 
     {
       "name": (optional) "name_of_index",
@@ -771,22 +771,22 @@ Hallo schemasyntaxis gebruikt een index is hier gereproduceerd toocreate voor uw
           "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
           "key": true | false (default, only Edm.String fields can be keys),
           "retrievable": true (default) | false, 
-          "analyzer": "name of hello analyzer used for search and indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
-          "searchAnalyzer": "name of hello search analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
-          "indexAnalyzer": "name of hello indexing analyzer" (only if 'searchAnalyzer' is set and 'analyzer' is not set)
+          "analyzer": "name of the analyzer used for search and indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
+          "searchAnalyzer": "name of the search analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
+          "indexAnalyzer": "name of the indexing analyzer" (only if 'searchAnalyzer' is set and 'analyzer' is not set)
         }
       ],
       "suggesters": [
         {
           "name": "name of suggester",
-          "searchMode": "analyzingInfixMatching" (other modes may be added in hello future),
+          "searchMode": "analyzingInfixMatching" (other modes may be added in the future),
           "sourceFields": ["field1", "field2", ...]
         }
       ],
       "scoringProfiles": [
         {
           "name": "name of scoring profile",
-          "text": (optional, only applies toosearchable fields) {
+          "text": (optional, only applies to searchable fields) {
             "weights": {
               "searchable_field_name": relative_weight_value (positive numbers),
               ...
@@ -804,14 +804,14 @@ Hallo schemasyntaxis gebruikt een index is hier gereproduceerd toocreate voor uw
                 "constantBoostBeyondRange": true | false (default)
               },
               "freshness": {
-                "boostingDuration": "..." (value representing timespan leading toonow over which boosting occurs)
+                "boostingDuration": "..." (value representing timespan leading to now over which boosting occurs)
               },
               "distance": {
-                "referencePointParameter": "...", (parameter toobe passed in queries toouse as reference location, see "scoringParameter" for syntax details)
-                "boostingDistance": # (hello distance in kilometers from hello reference location where hello boosting range ends)
+                "referencePointParameter": "...", (parameter to be passed in queries to use as reference location, see "scoringParameter" for syntax details)
+                "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
               },
               "tag": {
-                "tagsParameter": "..." (parameter toobe passed in queries toospecify list of tags toocompare against target field, see "scoringParameter" for syntax details)
+                "tagsParameter": "..." (parameter to be passed in queries to specify list of tags to compare against target field, see "scoringParameter" for syntax details)
               }
             }
           ],
@@ -835,37 +835,37 @@ Hallo schemasyntaxis gebruikt een index is hier gereproduceerd toocreate voor uw
 
 Aanvraag is gelukt: ' 204 geen inhoud '.
 
-Standaard wordt Hallo antwoordtekst niet leeg zijn. Echter, als hello `Prefer` aanvraagheader is te ingesteld`return=representation`, Hallo antwoordtekst bevat Hallo JSON voor Hallo indexdefinitie die is bijgewerkt. In dit geval statuscode van Hallo geslaagd zijn ' 200 OK '.
+Standaard wordt de antwoordtekst leeg zijn. Echter, als de `Prefer` aanvraagheader is ingesteld op `return=representation`, de hoofdtekst van het antwoord bevat de JSON voor de definitie van de index die is bijgewerkt. In dit geval wordt de statuscode geslaagd zijn ' 200 OK '.
 
 **Definitie van de index met aangepaste analyzers bijwerken**
 
-Als er een analyzer, een tokenizer, een token filter of een char-filter is gedefinieerd, kan niet worden gewijzigd. Nieuwe te kunnen alleen worden toegevoegd tooan bestaande index als hello `allowIndexDowntime` tootrue-vlag is ingesteld in Hallo index updateaanvraag: 
+Als er een analyzer, een tokenizer, een token filter of een char-filter is gedefinieerd, kan niet worden gewijzigd. Nieuwe te kunnen alleen worden toegevoegd aan een bestaande index als de `allowIndexDowntime` vlag is ingesteld op true in de index update-aanvraag: 
 
 `PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true`
 
-Opmerking dat deze bewerking uw index offline wordt geplaatst voor ten minste een paar seconden, waardoor uw indexeren en query-toofail aanvragen. Beschikbaarheid en wegschrijven van Hallo-index kan worden gehinderd minuten nadat het Hallo-index wordt bijgewerkt of langer voor zeer grote indexen.
+Houd er rekening mee dat deze bewerking uw index offline voor ten minste een paar seconden, waardoor uw indexeren en queryaanvragen mislukken wordt geplaatst. Beschikbaarheid van de prestaties en schrijven van de index kan worden gehinderd minuten nadat de index is bijgewerkt of langer voor zeer grote indexen.
 
 <a name="ListIndexes"></a>
 
 ## <a name="list-indexes"></a>Lijst met indexen
-Hallo **lijst indexen** bewerking retourneert een lijst met Hallo indexen momenteel in uw Azure Search-service.
+De **lijst indexen** bewerking retourneert een lijst van de indexen momenteel in uw Azure Search-service.
 
     GET https://[service name].search.windows.net/indexes?api-version=[api-version]
     api-key: [admin key]
 
 **Aanvraag**
 
-HTTPS is vereist voor alle aanvragen van de service. Hallo **lijst indexen** aanvraag kan worden opgesteld met Hallo GET-methode.
+HTTPS is vereist voor alle aanvragen van de service. De **lijst indexen** aanvraag kan worden opgesteld met de GET-methode.
 
-`api-version=[string]`(vereist). Hallo preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
+`api-version=[string]`(vereist). De preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
 
 **Aanvraagheaders**
 
-Hallo volgende lijst beschrijft Hallo vereiste en optionele aanvraagheaders.
+De volgende lijst beschrijft de vereiste en optionele aanvraagheaders.
 
-* `api-key`: Vereist. Hallo `api-key` gebruikte tooauthenticate Hallo aanvraag tooyour Search-service is. Het is een tekenreekswaarde, een unieke tooyour-service. Hallo **lijst indexen** aanvraag moet bevatten een `api-key` set tooan beheersleutel (als tegengestelde tooa query-sleutel).
+* `api-key`: Vereist. De `api-key` wordt gebruikt voor verificatie van de aanvraag voor uw zoekservice. Het is een tekenreekswaarde die uniek is voor uw service. De **lijst indexen** aanvraag moet bevatten een `api-key` ingesteld op een beheersleutel (in plaats van een querysleutel).
 
-U moet ook Hallo service naam tooconstruct Hallo aanvraag-URL. U krijgt de naam van de service Hallo en `api-key` van uw servicedashboard in hello Azure-Portal. Zie [maken van een Azure Search-service in Hallo portal](search-create-service-portal.md) voor pagina navigatie hulp.
+U moet ook de naam van de service om de aanvraag-URL samen te stellen. U krijgt de servicenaam en `api-key` van uw servicedashboard in de Azure Portal. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor pagina navigatie hulp.
 
 **Aanvraagtekst**
 
@@ -894,11 +894,11 @@ Hier volgt een voorbeeld-antwoordtekst:
       ]
     }
 
-Houd er rekening mee dat u kunt filteren, antwoord Hallo omlaag toojust Hallo eigenschappen die u geïnteresseerd bent in. Bijvoorbeeld: als u alleen een lijst met indexnamen wilt, Hallo OData gebruiken `$select` query-optie:
+Houd er rekening mee dat u het antwoord naar beneden eigenschappen die u geïnteresseerd bent in kunt filteren. Bijvoorbeeld: als u alleen een lijst met indexnamen wilt, gebruiken de OData `$select` query-optie:
 
     GET /indexes?api-version=2015-02-28-Preview&$select=name
 
-In dit geval zou Hallo reactie van Hallo bovenstaande voorbeeld als volgt uitzien:
+In dit geval wordt zou het antwoord van het bovenstaande voorbeeld als volgt uitzien:
 
     {
       "value": [
@@ -908,31 +908,31 @@ In dit geval zou Hallo reactie van Hallo bovenstaande voorbeeld als volgt uitzie
       ]
     }
 
-Dit is een nuttig toosave bandbreedte als er een groot aantal indexen in uw zoekservice.
+Dit is een nuttig techniek bandbreedte opslaan als er een groot aantal indexen in uw zoekservice.
 
 <a name="GetIndex"></a>
 
 ## <a name="get-index"></a>Index ophalen
-Hallo **Index ophalen** bewerking Hallo indexdefinitie opgehaald uit Azure Search.
+De **Index ophalen** bewerking krijgt de definitie van de index van Azure Search.
 
     GET https://[service name].search.windows.net/indexes/[index name]?api-version=[api-version]
     api-key: [admin key]
 
 **Aanvraag**
 
-HTTPS is vereist voor serviceaanvragen. Hallo **Index ophalen** aanvraag kan worden opgesteld met Hallo GET-methode.
+HTTPS is vereist voor serviceaanvragen. De **Index ophalen** aanvraag kan worden opgesteld met de GET-methode.
 
-Hallo [naam van de index] in Hallo aanvraag-URI geeft aan welke tooreturn index uit Hallo indexverzameling.
+De [indexnaam] in de aanvraag-URI geeft aan welke index om te retourneren van de indexverzameling.
 
-`api-version=[string]`(vereist). Hallo preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
+`api-version=[string]`(vereist). De preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
 
 **Aanvraagheaders**
 
-Hallo volgende lijst beschrijft Hallo vereiste en optionele aanvraagheaders.
+De volgende lijst beschrijft de vereiste en optionele aanvraagheaders.
 
-* `api-key`: Hallo `api-key` gebruikte tooauthenticate Hallo aanvraag tooyour Search-service is. Het is een tekenreekswaarde, een unieke tooyour-service. Hallo **Index ophalen** aanvraag moet bevatten een `api-key` set tooan beheersleutel (als tegengestelde tooa query-sleutel).
+* `api-key`: De `api-key` wordt gebruikt voor verificatie van de aanvraag voor uw zoekservice. Het is een tekenreekswaarde die uniek is voor uw service. De **Index ophalen** aanvraag moet bevatten een `api-key` ingesteld op een beheersleutel (in plaats van een querysleutel).
 
-U moet ook Hallo service naam tooconstruct Hallo aanvraag-URL. U krijgt de naam van de service Hallo en `api-key` van uw servicedashboard in hello Azure-Portal. Zie [maken van een Azure Search-service in Hallo portal](search-create-service-portal.md) voor pagina navigatie hulp.
+U moet ook de naam van de service om de aanvraag-URL samen te stellen. U krijgt de servicenaam en `api-key` van uw servicedashboard in de Azure Portal. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor pagina navigatie hulp.
 
 **Aanvraagtekst**
 
@@ -942,31 +942,31 @@ Geen.
 
 Statuscode: 200 OK wordt geretourneerd voor een geslaagde reactie.
 
-Zie Hallo voorbeeld JSON in [maken en bijwerken van een Index](#CreateUpdateIndexExample) voor een voorbeeld van Hallo antwoord nettolading.
+Zie het voorbeeld JSON in [maken en bijwerken van een Index](#CreateUpdateIndexExample) voor een voorbeeld van de nettolading van de reactie.
 
 <a name="DeleteIndex"></a>
 
 ## <a name="delete-index"></a>Index verwijderen
-Hallo **Index verwijderen** bewerking verwijdert u een index en de bijbehorende documentatie van uw Azure Search-service. U krijgt de indexnaam Hallo van Hallo servicedashboard in hello Azure-portal of van Hallo API. Zie [lijst indexen](#ListIndexes) voor meer informatie.
+De **Index verwijderen** bewerking verwijdert u een index en de bijbehorende documentatie van uw Azure Search-service. U krijgt de naam van de index van het servicedashboard in de Azure portal of van de API. Zie [lijst indexen](#ListIndexes) voor meer informatie.
 
     DELETE https://[service name].search.windows.net/indexes/[index name]?api-version=[api-version]
     api-key: [admin key]
 
 **Aanvraag**
 
-HTTPS is vereist voor serviceaanvragen. Hallo **Index verwijderen** aanvraag kan worden opgesteld met Hallo DELETE-methode.
+HTTPS is vereist voor serviceaanvragen. De **Index verwijderen** aanvraag kan worden opgesteld met de DELETE-methode.
 
-Hallo [naam van de index] in Hallo aanvraag-URI geeft aan welke toodelete index uit Hallo indexverzameling.
+De [indexnaam] in de aanvraag-URI geeft aan welke index te verwijderen uit de indexverzameling.
 
-`api-version=[string]`(vereist). Hallo preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
+`api-version=[string]`(vereist). De preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
 
 **Aanvraagheaders**
 
-Hallo volgende lijst beschrijft Hallo vereiste en optionele aanvraagheaders.
+De volgende lijst beschrijft de vereiste en optionele aanvraagheaders.
 
-* `api-key`: Vereist. Hallo `api-key` gebruikte tooauthenticate Hallo aanvraag tooyour Search-service is. Het is een tekenreekswaarde, unieke tooyour service-URL. Hallo **Index verwijderen** aanvraag moet bevatten een `api-key` header tooyour beheersleutel (als tegengestelde tooa querysleutel) ingesteld.
+* `api-key`: Vereist. De `api-key` wordt gebruikt voor verificatie van de aanvraag voor uw zoekservice. Het is een tekenreekswaarde die uniek is voor uw service-URL. De **Index verwijderen** aanvraag moet bevatten een `api-key` header ingesteld op de administratorsleutel (in plaats van een querysleutel).
 
-U moet ook Hallo service naam tooconstruct Hallo aanvraag-URL. U krijgt de naam van de service Hallo en `api-key` van uw servicedashboard in hello Azure-Portal. Zie [maken van een Azure Search-service in Hallo portal](search-create-service-portal.md) voor pagina navigatie hulp.
+U moet ook de naam van de service om de aanvraag-URL samen te stellen. U krijgt de servicenaam en `api-key` van uw servicedashboard in de Azure Portal. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor pagina navigatie hulp.
 
 **Aanvraagtekst**
 
@@ -979,31 +979,31 @@ Statuscode: 204 geen inhoud wordt geretourneerd voor een geslaagde reactie.
 <a name="GetIndexStats"></a>
 
 ## <a name="get-index-statistics"></a>Indexstatistieken opvragen
-Hallo **statistieken voor Index ophalen** bewerking retourneert van Azure Search een aantal documenten voor de huidige index Hallo plus opslaggebruik.
+De **statistieken voor Index ophalen** bewerking retourneert van Azure Search een aantal documenten voor de huidige index plus opslaggebruik.
 
     GET https://[service name].search.windows.net/indexes/[index name]/stats?api-version=[api-version]
     api-key: [admin key]
 
 > [!NOTE]
-> Statistieken over document aantal en de opslaggrootte worden elke paar minuten, niet in realtime verzameld. Hallo-statistieken die zijn geretourneerd door deze API kan daarom niet overeen met wijzigingen die zijn veroorzaakt door een recente indexbewerkingen.
+> Statistieken over document aantal en de opslaggrootte worden elke paar minuten, niet in realtime verzameld. De statistieken die is geretourneerd door deze API kan daarom niet overeen met wijzigingen die zijn veroorzaakt door een recente indexbewerkingen.
 > 
 > 
 
 **Aanvraag**
 
-HTTPS is vereist voor alle services aanvragen. Hallo **statistieken voor Index ophalen** aanvraag kan worden opgesteld met Hallo GET-methode.
+HTTPS is vereist voor alle services aanvragen. De **statistieken voor Index ophalen** aanvraag kan worden opgesteld met de GET-methode.
 
-Hallo [naam van de index] in Hallo aanvraag-URI vertelt Hallo service tooreturn indexstatistieken voor de opgegeven index Hallo.
+De [indexnaam] in de aanvraag-URI Hiermee geeft u de service om terug te keren indexstatistieken voor de opgegeven index.
 
-`api-version=[string]`(vereist). Hallo preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
+`api-version=[string]`(vereist). De preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
 
 **Aanvraagheaders**
 
-Hallo volgende lijst beschrijft Hallo vereiste en optionele aanvraagheaders.
+De volgende lijst beschrijft de vereiste en optionele aanvraagheaders.
 
-* `api-key`: Hallo `api-key` gebruikte tooauthenticate Hallo aanvraag tooyour Search-service is. Het is een tekenreekswaarde, een unieke tooyour-service. Hallo **ophalen indexstatistieken** aanvraag moet bevatten een `api-key` set tooan beheersleutel (als tegengestelde tooa query-sleutel).
+* `api-key`: De `api-key` wordt gebruikt voor verificatie van de aanvraag voor uw zoekservice. Het is een tekenreekswaarde die uniek is voor uw service. De **ophalen indexstatistieken** aanvraag moet bevatten een `api-key` ingesteld op een beheersleutel (in plaats van een querysleutel).
 
-U moet ook Hallo service naam tooconstruct Hallo aanvraag-URL. U krijgt de naam van de service Hallo en `api-key` van uw servicedashboard in hello Azure-Portal. Zie [maken van een Azure Search-service in Hallo portal](search-create-service-portal.md) voor pagina navigatie hulp.
+U moet ook de naam van de service om de aanvraag-URL samen te stellen. U krijgt de servicenaam en `api-key` van uw servicedashboard in de Azure Portal. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor pagina navigatie hulp.
 
 **Aanvraagtekst**
 
@@ -1013,17 +1013,17 @@ Geen.
 
 Statuscode: 200 OK wordt geretourneerd voor een geslaagde reactie.
 
-Hallo-antwoordtekst heeft Hallo volgende indeling:
+De antwoordtekst is in de volgende indeling:
 
     {
       "documentCount": number,
-      "storageSize": number (size of hello index in bytes)
+      "storageSize": number (size of the index in bytes)
     }
 
 <a name="TestAnalyzer"></a>
 
 ## <a name="test-analyzer"></a>Test Analyzer
-Hallo **analyseren API** ziet u hoe een analyzer tekst opgesplitst in tokens.
+De **analyseren API** ziet u hoe een analyzer tekst opgesplitst in tokens.
 
     POST https://[service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
     Content-Type: application/json
@@ -1031,49 +1031,49 @@ Hallo **analyseren API** ziet u hoe een analyzer tekst opgesplitst in tokens.
 
 **Aanvraag**
 
-HTTPS is vereist voor alle services aanvragen. Hallo **analyseren API** aanvraag kan worden opgesteld met Hallo POST-methode.
+HTTPS is vereist voor alle services aanvragen. De **analyseren API** aanvraag kan worden opgesteld met de POST-methode.
 
-`api-version=[string]`(vereist). Hallo preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
+`api-version=[string]`(vereist). De preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
 
 **Aanvraagheaders**
 
-Hallo volgende lijst beschrijft Hallo vereiste en optionele aanvraagheaders.
+De volgende lijst beschrijft de vereiste en optionele aanvraagheaders.
 
-* `api-key`: Hallo `api-key` gebruikte tooauthenticate Hallo aanvraag tooyour Search-service is. Het is een tekenreekswaarde, een unieke tooyour-service. Hallo **analyseren API** aanvraag moet bevatten een `api-key` set tooan beheersleutel (als tegengestelde tooa query-sleutel).
+* `api-key`: De `api-key` wordt gebruikt voor verificatie van de aanvraag voor uw zoekservice. Het is een tekenreekswaarde die uniek is voor uw service. De **analyseren API** aanvraag moet bevatten een `api-key` ingesteld op een beheersleutel (in plaats van een querysleutel).
 
-U moet ook de indexnaam Hallo en Hallo service naam tooconstruct Hallo aanvraag-URL. U krijgt de naam van de service Hallo en `api-key` van uw servicedashboard in hello Azure-Portal. Zie [maken van een Azure Search-service in Hallo portal](search-create-service-portal.md) voor pagina navigatie hulp.
+U moet ook de naam van de index en de naam van de service om de aanvraag-URL samen te stellen. U krijgt de servicenaam en `api-key` van uw servicedashboard in de Azure Portal. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor pagina navigatie hulp.
 
 **Aanvraagtekst**
 
     {
-      "text": "Text tooanalyze",
+      "text": "Text to analyze",
       "analyzer": "analyzer_name"
     }
 
 of
 
     {
-      "text": "Text tooanalyze",
+      "text": "Text to analyze",
       "tokenizer": "tokenizer_name",
       "tokenFilters": (optional) [ "token_filter_name" ],
       "charFilters": (optional) [ "char_filter_name" ]
     }
 
-Hallo `analyzer_name`, `tokenizer_name`, `token_filter_name` en `char_filter_name` toobe geldige namen van de vooraf gedefinieerde of aangepaste analyzers, tokenizers, token filters en char filters voor Hallo index nodig. Zie informatie over het proces van lexicale analyse Hallo toolearn [analyse in Azure Search](https://aka.ms/azsanalysis).
+De `analyzer_name`, `tokenizer_name`, `token_filter_name` en `char_filter_name` moet een geldige naam van de vooraf gedefinieerde of aangepaste analyzers, tokenizers, token filters en char filters voor de index. Voor meer informatie over het proces van lexicale analyse Zie [analyse in Azure Search](https://aka.ms/azsanalysis).
 
 **Antwoord**
 
 Statuscode: 200 OK wordt geretourneerd voor een geslaagde reactie.
 
-Hallo-antwoordtekst heeft Hallo volgende indeling:
+De antwoordtekst is in de volgende indeling:
 
     {
       "tokens": [
         {
           "token": string (token),
-          "startOffset": number (index of hello first character of hello token),
-          "endOffset": number (index of hello last character of hello token),
-          "position": number (position of hello token in hello input text)
+          "startOffset": number (index of the first character of the token),
+          "endOffset": number (index of the last character of the token),
+          "position": number (position of the token in the input text)
         },
         ...
       ]
@@ -1084,7 +1084,7 @@ Hallo-antwoordtekst heeft Hallo volgende indeling:
 **Aanvraag**
 
     {
-      "text": "Text tooanalyze",
+      "text": "Text to analyze",
       "analyzer": "standard"
     }
 
@@ -1117,20 +1117,20 @@ Hallo-antwoordtekst heeft Hallo volgende indeling:
 <a name="DocOps"></a>
 
 ## <a name="document-operations"></a>Document bewerkingen
-In Azure Search is een index wordt opgeslagen in de cloud Hallo en ingevuld met JSON-documenten toohello service te uploaden. Alle Hallo-documenten die u uploadt omvatten Hallo corpus van uw zoekgegevens. Documenten bevatten velden, zijn sommige van deze in de zoektermen tokenized als ze worden geüpload. Hallo `/docs` URL-segment in hello Azure Search API vertegenwoordigt Hallo-verzameling van documenten in een index. Alle bewerkingen die worden uitgevoerd op de verzameling Hallo zoals uploaden, samenvoegen, verwijderen of documenten opvragen plaatsvinden in Hallo context van een enkele index geval Hallo-URL's voor deze bewerkingen wordt altijd gestart met `/indexes/[index name]/docs` voor een naam voor de gegeven index.
+In Azure Search is een index wordt opgeslagen in de cloud, en ingevuld met JSON-documenten die u naar de service uploadt. Alle documenten die u uploadt, omvatten de corpus van uw zoekgegevens. Documenten bevatten velden, zijn sommige van deze in de zoektermen tokenized als ze worden geüpload. De `/docs` URL-segment in de Azure Search API vertegenwoordigt de verzameling van documenten in een index. Alle bewerkingen die worden uitgevoerd op de verzameling zoals uploaden, samenvoegen, verwijderen of documenten nemen opvragen plaatsen in de context van een enkele index, dus de URL's voor deze bewerkingen wordt altijd gestart met `/indexes/[index name]/docs` voor een naam voor de gegeven index.
 
-Uw toepassingscode moet ofwel genereren voor JSON-documenten tooupload tooAzure zoeken of kunt u een [indexeerfunctie](https://msdn.microsoft.com/library/dn946891.aspx) tooload documenten als gegevensbron hello Azure SQL Database of Azure Cosmos DB. Indexen worden gewoonlijk ingevuld uit een enkele gegevensset die u opgeeft.
+Uw toepassingscode moet ofwel JSON-documenten te uploaden naar Azure Search genereren of kunt u een [indexeerfunctie](https://msdn.microsoft.com/library/dn946891.aspx) documenten laden als de gegevensbron Azure SQL Database of Azure Cosmos DB is. Indexen worden gewoonlijk ingevuld uit een enkele gegevensset die u opgeeft.
 
-U moet plannen op beschikt over een document voor elk item dat u wilt dat toosearch. Een toepassing van de verhuur film wellicht een document per film, een toepassing via wellicht een document per SKU, een toepassing online cursusprogramma wellicht een document per loop, een bedrijf wellicht een document voor elk academic papier in hun opslagplaats, enzovoort.
+U moet plannen, moeten een document voor elk item dat u wilt zoeken. Een toepassing van de verhuur film wellicht een document per film, een toepassing via wellicht een document per SKU, een toepassing online cursusprogramma wellicht een document per loop, een bedrijf wellicht een document voor elk academic papier in hun opslagplaats, enzovoort.
 
-Documenten bestaan uit een of meer velden. Velden kunnen bevatten tekst die wordt door Azure Search in zoektermen tokenized, evenals niet getokeniseerd of niet-tekstwaarden plaatsen die kunnen worden gebruikt in filters of scoreprofiel profielen. Hallo worden namen, gegevenstypen en zoekfuncties ondersteund voor elk veld bepaald door Hallo Indexeer schema. Een van de velden Hallo in elke indexschema dat moet worden aangemerkt als een ID en elk document moet een waarde voor Hallo-ID-veld dat een unieke identificatie van dat document in Hallo index hebben. Alle andere documentvelden zijn optioneel en tooa null-waarde wordt teruggezet of niet opgegeven. Houd er rekening mee dat null-waarden geen ruimte vrijmaken in Hallo search-index hebben.
+Documenten bestaan uit een of meer velden. Velden kunnen bevatten tekst die wordt door Azure Search in zoektermen tokenized, evenals niet getokeniseerd of niet-tekstwaarden plaatsen die kunnen worden gebruikt in filters of scoreprofiel profielen. De namen, gegevenstypen en zoekfuncties ondersteund voor elk veld worden bepaald door het schema van de index. Een van de velden in elke indexschema dat moet worden aangemerkt als een ID en elk document moet een waarde hebben voor het veld ID die een unieke identificatie van dat document in de index. Alle andere documentvelden zijn optioneel en wordt teruggezet op een null-waarde als niet opgegeven. Houd er rekening mee dat null-waarden geen ruimte vrijmaken in de search-index hebben.
 
-Als u documenten uploaden, moet hebt u al Hallo index gemaakt op Hallo-service. Zie [Create Index](#CreateIndex) voor meer informatie over deze eerste stap.
+Als u documenten uploaden, moet u al hebt gemaakt de index van de service. Zie [Create Index](#CreateIndex) voor meer informatie over deze eerste stap.
 
 <a name="AddOrUpdateDocuments"></a>
 
 ## <a name="add-update-or-delete-documents"></a>Toevoegen, bijwerken of verwijderen van documenten
-U kunt uploaden, samenvoegen, merge of uploaden of delete documenten vanuit een opgegeven index met behulp van HTTP POST. Batchverwerking van documenten (too1000 documenten per batch) of 16 MB per batch wordt aanbevolen voor grote aantallen van updates.
+U kunt uploaden, samenvoegen, merge of uploaden of delete documenten vanuit een opgegeven index met behulp van HTTP POST. Batchverwerking van documenten maximaal (1000 documenten per batch) of 16 MB per batch wordt aanbevolen voor grote aantallen van updates.
 
     POST https://[service name].search.windows.net/indexes/[index name]/docs/index?api-version=[api-version]
     Content-Type: application/json
@@ -1140,22 +1140,22 @@ U kunt uploaden, samenvoegen, merge of uploaden of delete documenten vanuit een 
 
 HTTPS is vereist voor alle aanvragen van de service. U kunt uploaden, samenvoegen, merge of uploaden of delete documenten vanuit een opgegeven index met behulp van HTTP POST.
 
-Hallo-aanvraag URI bevat [naam van de index] opgeven welke index toopost documenten. U kunt alleen documenten tooone index boeken tegelijk.
+De aanvraag-URI bevat [naam van de index] opgeven welke index om documenten te plaatsen. U kunt alleen documenten naar een index boeken tegelijk.
 
-`api-version=[string]`(vereist). Hallo preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
+`api-version=[string]`(vereist). De preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
 
 **Aanvraagheaders**
 
-Hallo volgende lijst beschrijft Hallo vereiste en optionele aanvraagheaders.
+De volgende lijst beschrijft de vereiste en optionele aanvraagheaders.
 
-* `Content-Type`: Vereist. Stel deze optie te`application/json`
-* `api-key`: Vereist. Hallo `api-key` gebruikte tooauthenticate Hallo aanvraag tooyour Search-service is. Het is een tekenreekswaarde, een unieke tooyour-service. Hallo **documenten toevoegen** aanvraag moet bevatten een `api-key` header tooyour beheersleutel (als tegengestelde tooa querysleutel) ingesteld.
+* `Content-Type`: Vereist. Stel dit in op`application/json`
+* `api-key`: Vereist. De `api-key` wordt gebruikt voor verificatie van de aanvraag voor uw zoekservice. Het is een tekenreekswaarde die uniek is voor uw service. De **documenten toevoegen** aanvraag moet bevatten een `api-key` header ingesteld op de administratorsleutel (in plaats van een querysleutel).
 
-U moet ook Hallo service naam tooconstruct Hallo aanvraag-URL. U krijgt de naam van de service Hallo en `api-key` van uw servicedashboard in hello Azure-Portal. Zie [maken van een Azure Search-service in Hallo portal](search-create-service-portal.md) voor pagina navigatie hulp.
+U moet ook de naam van de service om de aanvraag-URL samen te stellen. U krijgt de servicenaam en `api-key` van uw servicedashboard in de Azure Portal. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor pagina navigatie hulp.
 
 **Aanvraagtekst**
 
-Hallo-hoofdtekst van Hallo-aanvraag bevat een of meer documenten toobe geïndexeerd. Documenten worden aangeduid met een unieke sleutel. Elk document dat is gekoppeld aan een actie: uploaden, samenvoegen, mergeOrUpload of verwijderen. Het uploaden van aanvragen mag Hallo documentgegevens bevatten als een set van sleutel-waardeparen.
+De hoofdtekst van de aanvraag bevat een of meer documenten te indexeren. Documenten worden aangeduid met een unieke sleutel. Elk document dat is gekoppeld aan een actie: uploaden, samenvoegen, mergeOrUpload of verwijderen. Het uploaden van aanvragen moeten de gegevens van het document bevatten als een set van sleutel-waardeparen.
 
     {
       "value": [
@@ -1176,14 +1176,14 @@ Hallo-hoofdtekst van Hallo-aanvraag bevat een of meer documenten toobe geïndexe
 
 **Documentacties**
 
-* `upload`: Er is een upload-actie is vergelijkbaar tooan "upsert", waarbij Hallo document wordt ingevoegd als het nieuwe en bijgewerkt/vervangen als deze bestaat. Houd er rekening mee dat alle velden in geval van Hallo-update worden vervangen.
-* `merge`: Samenvoegen updates een bestaand document met het Hallo opgegeven velden. Als Hallo document niet bestaat, mislukt de Hallo samenvoegen. Elk veld dat u in een samenvoeging opgeeft wordt vervangen door Hallo bestaand veld in Hallo-document. ook velden van het type `Collection(Edm.String)`. Bijvoorbeeld, als hello document bevat een veld 'labels' met de waarde `["budget"]` en u een samenvoeging met de waarde `["economy", "pool"]` voor 'tags' hello uiteindelijke waarde van veld Hallo 'tags' worden `["economy", "pool"]`. Het **niet** worden `["budget", "economy", "pool"]`.
-* `mergeOrUpload`: gedraagt zich als `merge` wanneer een document met de opgegeven sleutel al Hallo in Hallo index bestaat. Als Hallo document niet bestaat nog, gedraagt zich als `upload` met een nieuw document.
-* `delete`: Het opgegeven document Hallo verwijdert verwijderen uit Hallo index. Houd er rekening mee dat alle velden u opgeeft in een `delete` bewerking dan Hallo sleutelveld worden genegeerd. Als u wilt dat tooremove een afzonderlijk veld uit een document, gebruikt u `merge` in plaats daarvan en stelt Hallo veld expliciet in te`null`.
+* `upload`: Er is een upload-actie is vergelijkbaar met een "upsert", waarbij het document wordt ingevoegd als het nieuwe en bijgewerkt/vervangen als deze bestaat. Houd er rekening mee dat alle velden in het geval van de update worden vervangen.
+* `merge`: Een bestaand document merge bijgewerkt met de opgegeven velden. Als het document niet bestaat, mislukt de samenvoeging. Alle velden die u in een samenvoeging opgeeft, vervangen de bestaande velden in het document, ook velden van het type `Collection(Edm.String)`. Bijvoorbeeld, als het document bevat een veld 'labels' met de waarde `["budget"]` en u een samenvoeging met de waarde `["economy", "pool"]` voor 'tags', worden de uiteindelijke waarde van het veld 'tags' `["economy", "pool"]`. Het **niet** worden `["budget", "economy", "pool"]`.
+* `mergeOrUpload`: gedraagt zich als `merge` wanneer een document met de opgegeven sleutel al in de index bestaat. Als het document niet bestaat nog, gedraagt zich als `upload` met een nieuw document.
+* `delete`: Het opgegeven document verwijdert verwijderen uit de index. Houd er rekening mee dat alle velden u opgeeft in een `delete` bewerking dan het sleutelveld worden genegeerd. Als u verwijderen van een afzonderlijk veld uit een document wilt, gebruikt u `merge` en stelt u het veld expliciet naar `null`.
 
 **Antwoord**
 
-Statuscode 200 wordt (OK) geretourneerd voor een geslaagd antwoord, wat betekent dat alle items zijn geïndexeerd. Dit wordt aangegeven door Hallo `status` eigenschap wordt ingesteld tootrue voor alle items, evenals Hallo `statusCode` eigenschap wordt ingesteld tooeither 201 (voor recent geüploade documenten) of 200 (voor samengevoegde of verwijderde documenten):
+Statuscode 200 wordt (OK) geretourneerd voor een geslaagd antwoord, wat betekent dat alle items zijn geïndexeerd. Dit wordt aangegeven door de `status` eigenschap wordt ingesteld op true voor alle artikelen, ook als de `statusCode` eigenschap wordt ingesteld op 201 (voor recent geüploade documenten) of 200 (voor samengevoegde of verwijderde documenten):
 
     {
       "value": [
@@ -1208,14 +1208,14 @@ Statuscode 200 wordt (OK) geretourneerd voor een geslaagd antwoord, wat betekent
       ]
     }  
 
-Statuscode 207 (meerdere Status) wordt geretourneerd wanneer ten minste één item is niet geïndexeerd. Items die niet zijn geïndexeerd hebben Hallo `status` veld toofalse ingesteld. Hallo `errorMessage` en `statusCode` eigenschappen Hallo reden voor fout indexeren hello wordt aangeven:
+Statuscode 207 (meerdere Status) wordt geretourneerd wanneer ten minste één item is niet geïndexeerd. Items die niet zijn geïndexeerd hebben de `status` veld ingesteld op false. De `errorMessage` en `statusCode` eigenschappen wordt de reden voor de indexering fout aangeven:
 
     {
       "value": [
         {
           "key": "unique_key_of_document_1",
           "status": false,
-          "errorMessage": "hello search service is too busy tooprocess this document. Please try again later.",
+          "errorMessage": "The search service is too busy to process this document. Please try again later.",
           "statusCode": 503
         },
         {
@@ -1227,13 +1227,13 @@ Statuscode 207 (meerdere Status) wordt geretourneerd wanneer ten minste één it
         {
           "key": "unique_key_of_document_3",
           "status": false,
-          "errorMessage": "Index is temporarily unavailable because it was updated with hello 'allowIndexDowntime' flag set too'true'. Please try again later.",
+          "errorMessage": "Index is temporarily unavailable because it was updated with the 'allowIndexDowntime' flag set to 'true'. Please try again later.",
           "statusCode": 422
         }
       ]
     }  
 
-Hallo volgende tabel wordt uitgelegd Hallo verschillende per document statuscodes die kunnen worden geretourneerd in antwoord Hallo. Houd er rekening mee dat sommige duiden op problemen met het Hallo-aanvraag zelf, terwijl anderen tijdelijke fouten geven. Hallo laatstgenoemde die probeert u het opnieuw na een vertraging.
+De volgende tabel beschrijft de verschillende per document statuscodes die kunnen worden geretourneerd in het antwoord. Houd er rekening mee dat sommige duiden op problemen met de aanvraag zelf, terwijl anderen tijdelijke fouten geven. De laatste die probeert u het opnieuw na een vertraging.
 
 <table style="font-size:12">
     <tr>
@@ -1246,7 +1246,7 @@ Hallo volgende tabel wordt uitgelegd Hallo verschillende per document statuscode
         <td>200</td>
         <td>Document is gewijzigd of verwijderd.</td>
         <td>N.v.t.</td>
-        <td>Verwijderbewerkingen zijn <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a>. Dat wil zeggen, zelfs als de documentsleutel van een niet in de index hello bestaat, leidt probeert een delete-bewerking met die sleutel tot een 200-statuscode.</td>
+        <td>Verwijderbewerkingen zijn <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a>. Dat wil zeggen, zelfs als de documentsleutel van een niet in de index bestaat, leidt probeert een delete-bewerking met die sleutel tot een 200-statuscode.</td>
     </tr>
     <tr>
         <td>201</td>
@@ -1256,39 +1256,39 @@ Hallo volgende tabel wordt uitgelegd Hallo verschillende per document statuscode
     </tr>
     <tr>
         <td>400</td>
-        <td>Er is een fout opgetreden in Hallo-document dat waardoor deze niet kan worden geïndexeerd.</td>
+        <td>Er is een fout opgetreden in het document dat waardoor deze niet kan worden geïndexeerd.</td>
         <td>Nee</td>
-        <td>Hallo foutbericht weergegeven in het antwoord Hallo wordt aangegeven wat is er iets mis met Hallo-document.</td>
+        <td>Het foutbericht in het antwoord geeft aan wat is het probleem met het document.</td>
     </tr>
     <tr>
         <td>404</td>
-        <td>Hallo-document kan niet worden samengevoegd omdat Hallo opgegeven sleutel niet in het Hallo-index bestaat.</td>
+        <td>Het document kan niet worden samengevoegd omdat de opgegeven sleutel niet in de index bestaat.</td>
         <td>Nee</td>
         <td>Deze fout treedt niet op bij uploads omdat ze nieuwe documenten maken en dit niet voor verwijderingen gebeurt omdat ze <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a>.</td>
     </tr>
     <tr>
         <td>409</td>
-        <td>Een versieconflict gevonden tijdens een poging de tooindex een document.</td>
+        <td>Er is een versieconflict gedetecteerd bij een poging tot het indexeren van een document.</td>
         <td>Ja</td>
-        <td>Dit kan gebeuren wanneer u probeert tooindex Hallo dezelfde meer dan één keer gelijktijdig-document.</td>
+        <td>Dit kan gebeuren wanneer u probeert meer dan één keer gelijktijdig index van hetzelfde document.</td>
     </tr>
     <tr>
         <td>422</td>
-        <td>Hallo index is tijdelijk niet beschikbaar omdat deze is bijgewerkt met de Hallo 'allowIndexDowntime' vlag set too'true'.</td>
+        <td>De index is tijdelijk niet beschikbaar omdat deze is bijgewerkt met de vlag 'allowIndexDowntime' is ingesteld op 'true'.</td>
         <td>Ja</td>
         <td></td>
     </tr>
     <tr>
         <td>503</td>
-        <td>Uw search-service is tijdelijk niet beschikbaar is, mogelijk vanwege tooheavy laden.</td>
+        <td>Uw search-service is tijdelijk niet beschikbaar is, mogelijk vanwege een zware belasting.</td>
         <td>Ja</td>
-        <td>Uw code moet worden gewacht voordat opnieuw uit te voeren in dit geval of u het risico verlenging van de Hallo-service niet beschikbaar zijn.</td>
+        <td>Uw code moet worden gewacht voordat opnieuw uit te voeren in dit geval of u het risico verlenging van de service niet beschikbaar zijn.</td>
     </tr>
 </table> 
 
-**Opmerking**: als uw clientcode wordt vaak een 207 antwoord tegenkomt, een mogelijke reden is dat Hallo system belast wordt. U kunt dit controleren door te controleren Hallo `statusCode` eigenschap voor 503. Als dit Hallo geval is, wordt aangeraden ***beperking indexering aanvragen***. Anders als indexering verkeer niet subside, Hallo system kan worden gestart voor het weigeren van alle aanvragen met 503-fouten.
+**Opmerking**: als uw clientcode wordt vaak een 207 antwoord tegenkomt, een mogelijke reden is dat het systeem belast wordt. U kunt dit bevestigen door het controleren van de `statusCode` eigenschap voor 503. Als dit het geval is, wordt aangeraden ***beperking indexering aanvragen***. Anders als indexeren verkeer niet subside, kan start het systeem het verwijderen van alle aanvragen met 503-fouten.
 
-Statuscode 429 geeft aan dat u het quotum van Hallo aantal documenten per index hebt overschreden. Een nieuwe index maken of een upgrade uit voor hogere Capaciteitslimieten.
+Statuscode 429 geeft aan dat u het quotum van het aantal documenten per index hebt overschreden. Een nieuwe index maken of een upgrade uit voor hogere Capaciteitslimieten.
 
 **Voorbeeld:**
 
@@ -1341,7 +1341,7 @@ Statuscode 429 geeft aan dat u het quotum van Hallo aantal documenten per index 
 <a name="SearchDocs"></a>
 
 ## <a name="search-documents"></a>Documenten zoeken
-Een **Search** bewerking als een GET of POST-aanvraag wordt uitgegeven en parameters waarmee Hallo criteria voor het selecteren van de overeenkomende documenten bevat.
+Een **Search** bewerking als een GET of POST-aanvraag wordt uitgegeven en parameters waarmee de criteria voor het selecteren van de overeenkomende documenten bevat.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?[query parameters]
     api-key: [admin or query key]
@@ -1350,22 +1350,22 @@ Een **Search** bewerking als een GET of POST-aanvraag wordt uitgegeven en parame
     Content-Type: application/json
     api-key: [admin or query key]
 
-**Wanneer toouse BOEKT in plaats van ophalen**
+**Wanneer POST gebruiken in plaats van GET**
 
-Bij het gebruik van HTTP GET toocall hello **Search** API, moet u toobe Houd er rekening mee dat Hallo Hallo aanvraag-URL kan niet langer zijn dan 8 KB. Dit is meestal genoeg voor de meeste toepassingen. Sommige toepassingen produceren echter zeer grote query's of OData-filterexpressies. Voor deze toepassingen namelijk met behulp van HTTP POST een betere keuze kunt u grotere filters en query's dan GET. Met POST, Hallo aantal termen of componenten in een query is Hallo factor, niet Hallo grootte van Hallo onbewerkte query omdat Hallo aanvraag groottelimiet voor POST ongeveer 16 MB is beperken.
+Wanneer u HTTP GET aan te roepen de **Search** API, moet u er rekening mee dat de lengte van de aanvraag-URL kan niet hoger is dan 8 KB. Dit is meestal genoeg voor de meeste toepassingen. Sommige toepassingen produceren echter zeer grote query's of OData-filterexpressies. Voor deze toepassingen namelijk met behulp van HTTP POST een betere keuze kunt u grotere filters en query's dan GET. Met POST is het aantal voorwaarden of componenten in een query de beperkende factor, niet de grootte van de onbewerkte query omdat de limiet voor de aanvraag voor POST ongeveer 16 MB is.
 
 > [!NOTE]
-> Hoewel de maximale grootte Hallo POST-aanvraag is te lang., zoekquery's en filterexpressies mogen niet willekeurig complexe. Zie [Lucene-querysyntaxis](https://msdn.microsoft.com/library/mt589323.aspx) en [OData-expressiesyntaxis](https://msdn.microsoft.com/library/dn798921.aspx) voor meer informatie over zoekopdracht query en filter complexiteit beperkingen.
+> Hoewel de maximale grootte van POST-aanvraag te lang. is, zoekquery's en filterexpressies mogen niet willekeurig complexe. Zie [Lucene-querysyntaxis](https://msdn.microsoft.com/library/mt589323.aspx) en [OData-expressiesyntaxis](https://msdn.microsoft.com/library/dn798921.aspx) voor meer informatie over zoekopdracht query en filter complexiteit beperkingen.
 > 
 > 
 
 **Aanvraag**
 
-HTTPS is vereist voor serviceaanvragen. Hallo **Search** aanvraag kan worden opgesteld met Hallo GET of POST-methoden.
+HTTPS is vereist voor serviceaanvragen. De **Search** aanvraag kan worden opgesteld met de methoden GET of POST.
 
-Hallo aanvraag-URI geeft aan welke tooquery index, voor alle documenten die overeenkomen met Hallo-parameters. Parameters zijn opgegeven in de queryreeks Hallo in geval van GET-aanvragen hello en in Hallo aanvraag hoofdtekst in geval van Hallo van POST-aanvragen.
+De aanvraag-URI geeft aan welke index van de query voor alle documenten die overeenkomen met de parameters. Parameters zijn opgegeven voor de queryreeks weergegeven in het geval van GET-aanvragen en in de aanvraag hoofdtekst in het geval van POST-aanvragen.
 
-Als een best practice bij het maken van GET-aanvragen te onthouden[URL coderen](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) specifieke parameters bij het aanroepen van REST-API rechtstreeks Hallo-query. Voor **Search** bewerkingen, dit omvat:
+Als een best practice bij het maken van GET-aanvragen, moet u [URL coderen](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) specifieke queryparameters bij het aanroepen van de REST-API rechtstreeks. Voor **Search** bewerkingen, dit omvat:
 
 * `$filter`
 * `facet`
@@ -1374,85 +1374,85 @@ Als een best practice bij het maken van GET-aanvragen te onthouden[URL coderen](
 * `search`
 * `moreLikeThis`
 
-URL-codering wordt alleen aanbevolen voor Hallo hierboven queryparameters. Als u per ongeluk URL coderen hello volledige queryreeks (alles na Hallo?), worden aanvragen wordt verbroken.
+URL-codering wordt alleen aanbevolen voor de bovenstaande queryparameters. Als u per ongeluk URL coderen de volledige query-tekenreeks (alles na de?), aanvragen worden verbroken.
 
-Zo is de URL-codering ook alleen nodig bij het aanroepen van Hallo direct met REST-API aan. Er is geen URL-codering is nodig bij het aanroepen van **zoeken** POST, met of bij het gebruik van Hallo [.NET-clientbibliotheek](https://msdn.microsoft.com/library/dn951165.aspx), die het URL-codering voor u verwerkt.
+Zo is de URL-codering ook alleen nodig bij het aanroepen van de REST-API die rechtstreeks met de GET. Er is geen URL-codering is nodig bij het aanroepen van **zoeken** met behulp van POST, of bij het gebruik de [.NET-clientbibliotheek](https://msdn.microsoft.com/library/dn951165.aspx), die het URL-codering voor u verwerkt.
 
 <a name="SearchQueryParameters"></a>
 **Query-Parameters**
 
-**Search** verschillende querycriteria kunnen geven en ook opgeven zoekgedrag parameters accepteert. U opgeven dat deze parameters in Hallo URL querytekenreeks bij het aanroepen van **Search** via GET en als JSON-eigenschappen in de aanvraagtekst Hallo bij het aanroepen van **Search** via POST. Hallo-syntaxis voor een aantal parameters is enigszins verschillen tussen GET en POST. Deze verschillen worden vermeld als die van toepassing zijn hieronder:
+**Search** verschillende querycriteria kunnen geven en ook opgeven zoekgedrag parameters accepteert. U opgeven dat deze parameters in de URL van de querytekenreeks bij het aanroepen van **Search** via GET en als JSON-eigenschappen in de aanvraagtekst bij het aanroepen van **Search** via POST. De syntaxis voor een aantal parameters is enigszins verschillen tussen GET en POST. Deze verschillen worden vermeld als die van toepassing zijn hieronder:
 
-`search=[string]`(optioneel) - Hallo toosearch voor tekst. Alle `searchable` velden worden doorzocht door standaard tenzij `searchFields` is opgegeven. Bij het zoeken naar `searchable` velden, Hallo zoektekst zelf tokenized, zodat meerdere voorwaarden kunnen worden gescheiden door spaties bevatten (bijvoorbeeld: `search=hello world`). toomatch gebruik van elke termijn `*` (dit kan handig zijn voor Booleaanse filterquery's). Als deze parameter wordt weggelaten heeft hetzelfde effect als de instelling voor het te Hallo`*`. Zie [eenvoudige querysyntaxis](https://msdn.microsoft.com/library/dn798920.aspx) voor foutopsporingsgegevens op Hallo zoeksyntaxis.
+`search=[string]`(optioneel) - de tekst om naar te zoeken. Alle `searchable` velden worden doorzocht door standaard tenzij `searchFields` is opgegeven. Bij het zoeken naar `searchable` velden, de zoektekst zelf tokenized, zodat meerdere voorwaarden kunnen worden gescheiden door spaties bevatten (bijvoorbeeld: `search=hello world`). Gebruik voor elke term `*` (dit kan handig zijn voor Booleaanse filterquery's). Als deze parameter wordt weggelaten heeft hetzelfde effect als instellen op `*`. Zie [eenvoudige querysyntaxis](https://msdn.microsoft.com/library/dn798920.aspx) voor specifieke informatie over de syntaxis van de zoekopdracht.
 
-* **Opmerking**: Hallo resultaten kunnen soms verrassend zijn bij het opvragen via `searchable` velden. Hallo tokenizer bevat logica toohandle gevallen algemene tooEnglish tekst zoals apostrof, komma's in cijfers, enzovoort. Bijvoorbeeld: `search=123,456` komt overeen met een enkele term 123,456 in plaats van afzonderlijke termen Hallo 123 en 456, omdat komma's worden gebruikt als duizend scheidingstekens voor grote aantallen in het Engels. Daarom wordt u aangeraden witruimte in plaats van leestekens tooseparate voorwaarden in Hallo `search` parameter.
+* **Opmerking**: de resultaten kunnen soms verrassend worden tijdens het opvragen via `searchable` velden. Het tokenizer bevat de logica voor de afhandeling van aanvragen die gemeenschappelijk zijn voor de Engelse tekst zoals apostrof, komma's in cijfers, enzovoort. Bijvoorbeeld: `search=123,456` komt overeen met een enkele term 123,456 in plaats van de afzonderlijke termen 123 en 456, omdat komma's worden gebruikt als duizend scheidingstekens voor grote aantallen in het Engels. Daarom wordt u aangeraden witruimte in plaats van leestekens te scheiden van de voorwaarden in de `search` parameter.
 
-`searchMode=any|all`(optioneel, standaard te`any`) - of één of alle Hallo zoektermen in volgorde toocount Hallo document als een overeenkomst moeten overeenkomen.
+`searchMode=any|all`(optioneel, wordt standaard ingesteld op `any`) - of een of meer van de zoektermen om op te tellen van het document als een overeenkomst moeten overeenkomen.
 
-`searchFields=[string]`(optioneel) - Hallo lijst met door komma's gescheiden veld namen toosearch voor Hallo opgegeven tekst. Doelvelden moeten worden gemarkeerd als `searchable`.
+`searchFields=[string]`(optioneel): de lijst met door komma's gescheiden veldnamen om te zoeken naar de opgegeven tekst. Doelvelden moeten worden gemarkeerd als `searchable`.
 
-`queryType=simple|full`(optioneel, standaard te`simple`): wanneer set te 'eenvoudige' zoektekst wordt geïnterpreteerd met behulp van een eenvoudige querytaal waarmee symbolen zoals +, * en ' '. Query's worden geëvalueerd in de doorzoekbare velden (of velden die zijn aangegeven in `searchFields`) in elk document standaard. Wanneer het querytype hello te is ingesteld`full` zoektekst met behulp van Hallo Lucene-querytaal waarmee veld-specifieke en gewogen zoekopdrachten wordt geïnterpreteerd. Zie [eenvoudige querysyntaxis](https://msdn.microsoft.com/library/dn798920.aspx) en [Lucene-querysyntaxis](https://msdn.microsoft.com/library/mt589323.aspx) voor foutopsporingsgegevens op Hallo zoeken syntaxis. 
+`queryType=simple|full`(optioneel, wordt standaard ingesteld op `simple`): wanneer is ingesteld op 'eenvoudige' zoektekst wordt geïnterpreteerd met behulp van een eenvoudige querytaal waarmee symbolen zoals +, * en ' '. Query's worden geëvalueerd in de doorzoekbare velden (of velden die zijn aangegeven in `searchFields`) in elk document standaard. Als het querytype is ingesteld op `full` zoektekst met behulp van de Lucene-querytaal waarmee veld-specifieke en gewogen zoekopdrachten wordt geïnterpreteerd. Zie [eenvoudige querysyntaxis](https://msdn.microsoft.com/library/dn798920.aspx) en [Lucene-querysyntaxis](https://msdn.microsoft.com/library/mt589323.aspx) voor specifieke informatie over de syntaxis van de zoekopdracht. 
 
 > [!NOTE]
-> Zoeken in Hallo Lucene querytaal wordt niet ondersteund voor $filter dat vergelijkbare functionaliteit biedt liggen.
+> Zoeken in de querytaal wordt niet ondersteund voor $filter dat vergelijkbare functionaliteit biedt Lucene liggen.
 > 
 > 
 
-`moreLikeThis=[key]`(optioneel) **Belangrijk:** deze functie is alleen beschikbaar in `2015-02-28-Preview`. Deze optie kan niet worden gebruikt in een query met Hallo tekst zoekparameter `search=[string]`. Hallo `moreLikeThis` parameter vindt documenten die vergelijkbaar toohello document dat is opgegeven door Hallo documentsleutel zijn. Wanneer een search-aanvraag wordt gedaan met `moreLikeThis`, een lijst met zoektermen is gegenereerd op basis van het Hallo-frequentie en zeldzaamheid van termen in Hallo brondocument. Deze voorwaarden worden vervolgens gebruikt toomake Hallo aanvraag. Hallo standaard de inhoud van alle `searchable` velden worden beschouwd als tenzij `searchFields` is gebruikte toorestrict welke velden worden doorzocht.  
+`moreLikeThis=[key]`(optioneel) **Belangrijk:** deze functie is alleen beschikbaar in `2015-02-28-Preview`. Deze optie kan niet worden gebruikt in een query met de parameter text search `search=[string]`. De `moreLikeThis` parameter vindt documenten die vergelijkbaar met het document dat is opgegeven door de documentsleutel zijn. Wanneer een search-aanvraag wordt gedaan met `moreLikeThis`, een lijst met zoektermen is gegenereerd op basis van de frequentie en zeldzaamheid van termen in de brondocument. Deze voorwaarden worden vervolgens gebruikt om de aanvraag. Standaard wordt de inhoud van alle `searchable` velden worden beschouwd als tenzij `searchFields` wordt gebruikt om te beperken welke velden worden doorzocht.  
 
-`$skip=#`(optioneel) - aantal search Hallo resulteert tooskip; Kan niet meer dan 100.000. Als u documenten in volgorde tooscan maar kan niet worden gebruikt `$skip` vanwege toothis beperking, kunt u overwegen `$orderby` voor een compleet besteld sleutel en `$filter` query in plaats daarvan met een bereik.
+`$skip=#`(optioneel): het aantal zoekresultaten om over te slaan; Kan niet meer dan 100.000. Als u wilt scannen van documenten in volgorde, maar kan niet worden gebruikt `$skip` vanwege deze beperking, kunt u overwegen `$orderby` voor een compleet besteld sleutel en `$filter` query in plaats daarvan met een bereik.
 
 > [!NOTE]
 > Bij het aanroepen van **Search** POST gebruikt, deze parameter is met de naam `skip` in plaats van `$skip`.
 > 
 > 
 
-`$top=#`(optioneel) - aantal search Hallo tooretrieve resulteert. Dit kan worden gebruikt in combinatie met `$skip` zoekresultaten tooimplement clientzijde oproepen.
+`$top=#`(optioneel): het aantal zoekresultaten om op te halen. Dit kan worden gebruikt in combinatie met `$skip` clientzijde oproepen van zoekresultaten.
 
 > [!NOTE]
 > Bij het aanroepen van **Search** POST gebruikt, deze parameter is met de naam `top` in plaats van `$top`.
 > 
 > 
 
-`$count=true|false`(optioneel, standaard te`false`)-geeft aan of toofetch Hallo totaal aantal resultaten. Dit is het aantal alle documenten die overeenkomen met de Hallo Hallo `search` en `$filter` parameters worden genegeerd `$top` en `$skip`. Als u deze waarde te`true` mogelijk invloed op de prestaties. Houd er rekening mee dat Hallo aantal geretourneerd een benadering is.
+`$count=true|false`(optioneel, wordt standaard ingesteld op `false`)-geeft aan of voor het ophalen van het totale aantal resultaten. Dit is de telling van alle documenten die overeenkomen met de `search` en `$filter` parameters worden genegeerd `$top` en `$skip`. De waarde instelt op `true` mogelijk invloed op de prestaties. Houd er rekening mee dat het aantal dat wordt geretourneerd een benadering is.
 
 > [!NOTE]
 > Bij het aanroepen van **Search** POST gebruikt, deze parameter is met de naam `count` in plaats van `$count`.
 > 
 > 
 
-`$orderby=[string]`(optioneel): een lijst met door komma's gescheiden expressies toosort Hallo resultaten door. Elke expressie kan bestaan uit naam van een veld of een aanroep van toohello `geo.distance()` functie. Elke expressie kan worden gevolgd door `asc` tooindicated oplopende, en `desc` tooindicate aflopende. Hallo standaard is oplopende volgorde. Ties wordt Hallo overeen scores van documenten worden opgesplitst. Als er geen `$orderby` is opgegeven, Hallo standaardsorteervolgorde is Aflopend op document overeen score. Er is een limiet van 32 componenten voor `$orderby`.
+`$orderby=[string]`(optioneel): een lijst met door komma's gescheiden expressies sorteer de resultaten op. Elke expressie kan bestaan uit naam van een veld of een aanroep van de `geo.distance()` functie. Elke expressie kan worden gevolgd door `asc` aangegeven oplopende, en `desc` om aan te geven aflopende. De standaardwaarde is oplopende volgorde. Ties wordt de overeenkomst scores van documenten worden opgesplitst. Als er geen `$orderby` is opgegeven, wordt de standaardsorteervolgorde is Aflopend op document overeen score. Er is een limiet van 32 componenten voor `$orderby`.
 
 > [!NOTE]
 > Bij het aanroepen van **Search** POST gebruikt, deze parameter is met de naam `orderby` in plaats van `$orderby`.
 > 
 > 
 
-`$select=[string]`(optioneel): een lijst met door komma's gescheiden velden tooretrieve. Als u niets opgeeft, moet alle velden die zijn gemarkeerd als worden opgehaald in het Hallo-schema zijn opgenomen. U kunt ook expliciet alle velden aanvragen door deze parameter te`*`.
+`$select=[string]`(optioneel): een lijst met door komma's gescheiden velden om op te halen. Als u niets opgeeft, moet alle velden die zijn gemarkeerd als worden opgehaald in het schema zijn opgenomen. U kunt ook expliciet alle velden aanvragen door deze parameter in te stellen op `*`.
 
 > [!NOTE]
 > Bij het aanroepen van **Search** POST gebruikt, deze parameter is met de naam `select` in plaats van `$select`.
 > 
 > 
 
-`facet=[string]`(nul of meer) - een veld toofacet door. Hallo-tekenreeks kan eventueel parameters toocustomize Hallo facetten uitgedrukt als een door komma's gescheiden `name:value` paren. Geldige parameters zijn:
+`facet=[string]`(nul of meer) - facet door een veld. De tekenreeks kan eventueel parameters voor het aanpassen van de facetten die zijn uitgedrukt als een door komma's gescheiden `name:value` paren. Geldige parameters zijn:
 
-* `count`(max. aantal facet voorwaarden; standaardwaarde is 10). Er is geen maximum maar hogere waarden worden een bijbehorende op de prestaties, vooral als Hallo meervoudige veld een groot aantal unieke voorwaarden bevat.
-  * Bijvoorbeeld: `facet=category,count:5` opgehaald Hallo bovenste vijf categorieën in facet resultaten.  
-  * **Opmerking**: als hello `count` parameter kleiner is dan het aantal unieke voorwaarden hello, Hallo resultaten mogelijk niet nauwkeurig. Dit is vanwege toohello manier facetten query's zijn verdeeld over shards. Verhogen `count` doorgaans toeneemt Hallo nauwkeurigheid van Hallo term aantallen, maar in een prestatievermindering optreden.
-* `sort`(een van de `count` toosort *aflopende* op aantal `-count` toosort *oplopende* op aantal `value` toosort *oplopende* op waarde, of `-value` toosort *aflopende* door waarde)
-  * Bijvoorbeeld: `facet=category,count:3,sort:count` opgehaald Hallo bovenste drie categorieën in facet resultaten in aflopende volgorde voor het aantal documenten met de stadsnaam van elke Hallo. Bijvoorbeeld, als bovenste drie categorieën Hallo Budget, Motel en luxe zijn, Budget gevonden in de 5 is, Motel 6 en heeft, luxe 4 is, vervolgens hello buckets niet in volgorde van Hallo Motel, Budget, luxe.
-  * Bijvoorbeeld: `facet=rating,sort:-value` buckets voor alle mogelijke beoordelingen in aflopende volgorde voor waarde produceert. Als Hallo classificaties uit 1 too5, wordt Hallo buckets besteld 5, 4, 3, 2, 1, ongeacht het aantal documenten overeenkomen met elke beoordeling.
+* `count`(max. aantal facet voorwaarden; standaardwaarde is 10). Er is geen maximum maar hogere waarden worden een bijbehorende op de prestaties, vooral als het meervoudige veld een groot aantal unieke voorwaarden bevat.
+  * Bijvoorbeeld: `facet=category,count:5` de top vijf categorieën in facet resultaten opgehaald.  
+  * **Opmerking**: als de `count` parameter kleiner is dan het aantal unieke termen, de resultaten mogelijk niet nauwkeurig. Dit is vanwege de manier waarop facetten query's zijn verdeeld over shards. Verhogen `count` doorgaans verhoogt de nauwkeurigheid van de termijn tellingen, maar in een prestatievermindering optreden.
+* `sort`(een van de `count` te sorteren *aflopende* op aantal `-count` te sorteren *oplopende* op aantal `value` te sorteren *oplopende* door de waarde of `-value` te sorteren *aflopende* door waarde)
+  * Bijvoorbeeld: `facet=category,count:3,sort:count` opgehaald van de belangrijkste drie categorieën in facet resultaten in aflopende volgorde voor het aantal documenten met de stadsnaam van elke. Bijvoorbeeld, als de eerste drie categorieën Budget, Motel en luxe zijn, Budget gevonden in de 5 is, Motel 6 en heeft, luxe 4 is, klikt u vervolgens de buckets niet in de volgorde Motel, Budget, luxe.
+  * Bijvoorbeeld: `facet=rating,sort:-value` buckets voor alle mogelijke beoordelingen in aflopende volgorde voor waarde produceert. Als de classificaties uit 1 tot en met 5, wordt de buckets besteld 5, 4, 3, 2, 1, ongeacht het aantal documenten overeenkomen met elke beoordeling.
 * `values`(pipe gescheiden numerieke of `Edm.DateTimeOffset` waarden opgeven van een dynamische set facet vermelding waarden)
-  * Bijvoorbeeld: `facet=baseRate,values:10|20` produceert drie buckets: één voor base snelheid 0 up toobut niet met inbegrip van 10, één voor 10 up toobut niet inclusief 20 en één voor 20 of hoger.
+  * Bijvoorbeeld: `facet=baseRate,values:10|20` produceert drie buckets: één voor base snelheid 0 tot en met, maar niet 10, één voor 10 tot inclusief maar niet inclusief 20 en één voor 20 of hoger.
   * Bijvoorbeeld: `facet=lastRenovationDate,values:2010-02-01T00:00:00Z` produceert twee buckets: één voor hotels renovated vóór februari 2010 en één voor hotels renovated februari 1e, 2010 of hoger.
 * `interval`(geheel getal interval dat groter is dan 0 voor getallen, of `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year` datumwaarden tijd)
   * Bijvoorbeeld: `facet=baseRate,interval:100` produceert op basis van base snelheid bereiken met een grootte van 100 buckets. Bijvoorbeeld, als base tarieven alle tussen $60 en $600, zullen er buckets voor 0-100, 100-200, 200 en 300, 400 500, 300 400 en 500-600.
   * Bijvoorbeeld: `facet=lastRenovationDate,interval:year` één bucket voor elk jaar wanneer hotels zijn renovated produceert.
-* `timeoffset`([+-] hh: mm, [+-] UUMM, of [+-] hh) `timeoffset` is optioneel. Kan alleen worden gecombineerd met Hallo `interval` optie en alleen wanneer toegepaste tooa veld van het type `Edm.DateTimeOffset`. Hallo waarde geeft Hallo UTC tijd verschoven tooaccount voor bij het instellen van tijd grenzen.
-  * Bijvoorbeeld: `facet=lastRenovationDate,interval:day,timeoffset:-01:00` gebruikt Hallo dag grens die bij 01:00:00 UTC (middernacht in Hallo doeltijdzone begint)
-* **Opmerking**: `count` en `sort` worden gecombineerd tot Hallo dezelfde facet specificatie, maar ze kunnen niet worden gecombineerd met `interval` of `values`, en `interval` en `values` kan niet worden gecombineerd.
-* **Opmerking**: Interval facetten op datum / tijd worden berekend op basis van UTC-tijd als `timeoffset` is niet opgegeven. Bijvoorbeeld: voor `facet=lastRenovationDate,interval:day`, Hallo dag grens begint bij 00:00:00 UTC. 
+* `timeoffset`([+-] hh: mm, [+-] UUMM, of [+-] hh) `timeoffset` is optioneel. Kan alleen worden gecombineerd met de `interval` optie, en alleen wanneer toegepast op een veld van type `Edm.DateTimeOffset`. De waarde geeft de UTC-tijd offset voor serviceaccount bij het instellen van tijd grenzen.
+  * Bijvoorbeeld: `facet=lastRenovationDate,interval:day,timeoffset:-01:00` maakt gebruik van de dag-grens die begint bij 01:00:00 UTC (middernacht in de doel-tijdzone)
+* **Opmerking**: `count` en `sort` kunnen worden gecombineerd in dezelfde facet-specificatie, maar kan niet worden gecombineerd met `interval` of `values`, en `interval` en `values` kan niet worden gecombineerd.
+* **Opmerking**: Interval facetten op datum / tijd worden berekend op basis van UTC-tijd als `timeoffset` is niet opgegeven. Bijvoorbeeld: voor `facet=lastRenovationDate,interval:day`, de dag grens bij 00:00:00 UTC begint. 
 
 > [!NOTE]
 > Bij het aanroepen van **Search** POST gebruikt, deze parameter is met de naam `facets` in plaats van `facet`. Bovendien geeft u het als een JSON-matrix van tekenreeksen waar elke tekenreeks een afzonderlijke facet-expressie is.
@@ -1468,51 +1468,51 @@ Zo is de URL-codering ook alleen nodig bij het aanroepen van Hallo direct met RE
 
 `highlight=[string]`(optioneel): een reeks door komma's gescheiden veldnamen gebruikt voor treffer worden gemarkeerd. Alleen `searchable` velden kunnen worden gebruikt voor treffers markeren.
 
-`highlightPreTag=[string]`(optioneel, standaard te`<em>`): een string-code die voegt toohit licht toe. Moet worden ingesteld met `highlightPostTag`.
+`highlightPreTag=[string]`(optioneel, wordt standaard ingesteld op `<em>`): een string-code die voegt toe om licht bereikt. Moet worden ingesteld met `highlightPostTag`.
 
 > [!NOTE]
-> Bij het aanroepen van **Search** gebruik van GET, gereserveerde tekens in Hallo URL procent-gecodeerd moeten zijn (bijvoorbeeld, in plaats van #, % 23).
+> Bij het aanroepen van **Search** gebruik van GET, gereserveerde tekens in de URL moet procent gecodeerd (bijvoorbeeld, in plaats van #, % 23).
 > 
 > 
 
-`highlightPostTag=[string]`(optioneel, standaard te`</em>`)-tekenreeks label toohit highlights worden toegevoegd. Moet worden ingesteld met `highlightPreTag`.
+`highlightPostTag=[string]`(optioneel, wordt standaard ingesteld op `</em>`)-een string-code die wordt toegevoegd voor licht bereikt. Moet worden ingesteld met `highlightPreTag`.
 
 > [!NOTE]
-> Bij het aanroepen van **Search** gebruik van GET, gereserveerde tekens in Hallo URL procent-gecodeerd moeten zijn (bijvoorbeeld, in plaats van #, % 23).
+> Bij het aanroepen van **Search** gebruik van GET, gereserveerde tekens in de URL moet procent gecodeerd (bijvoorbeeld, in plaats van #, % 23).
 > 
 > 
 
-`scoringProfile=[string]`(optioneel) - Hallo-naam van een score profiel tooevaluate overeen scores voor overeenkomende documenten in volgorde toosort Hallo resultaten.
+`scoringProfile=[string]`(optioneel): de naam van een scoreprofiel evalueren overeen scores voor documenten-koppeling om de resultaten te sorteren.
 
-`scoringParameter=[string]`Geeft aan Hallo waarden voor elke parameter die is gedefinieerd in een score functie (nul of meer) - (bijvoorbeeld `referencePointParameter`) met de indeling Hallo `name-value1,value2,...`.
+`scoringParameter=[string]`Geeft aan de waarden voor elke parameter die is gedefinieerd in een score-functie (nul of meer) - (bijvoorbeeld `referencePointParameter`) met de indeling `name-value1,value2,...`.
 
-* Bijvoorbeeld, als Hallo score berekenen profiel een functie met definieert een parameter met de naam van de optie 'mylocation' hello query-tekenreeks zou zijn `&scoringParameter=mylocation--122.2,44.8`. Hallo eerste dash scheidt Hallo naam uit de lijst met waarden Hallo, terwijl de tweede streepje Hallo deel uit van Hallo eerste waarde (lengtegraad in dit voorbeeld maakt).
-* Scoreprofiel parameters kunt u een dergelijke waarden in Hallo lijst met enkele aanhalingstekens escape zoals voor de code die versterking kunt bevatten komma's. Als Hallo waarden zelf tussen enkele aanhalingstekens bevatten, kunt u dit omheen door te verdubbelen.
-  * Bijvoorbeeld, als u een parameter met de naam 'mytag' versterking tag hebt en u tooboost op Hallo code wilt waarden 'Hallo, O'Brien' en 'Smith' hello query verbindingsreeksoptie zou worden `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Aanhalingstekens zijn alleen vereist voor waarden die door komma's bevatten.
+* Bijvoorbeeld, als de scoreprofiel een functie met een parameter met de naam 'mylocation definieert' de queryoptie-tekenreeks zou zijn `&scoringParameter=mylocation--122.2,44.8`. Het eerste streepje scheidt u de naam van de lijst met waarden terwijl de tweede streepje deel uit van de eerste waarde (lengtegraad in dit voorbeeld maakt).
+* Scoreprofiel parameters kunt u een dergelijke waarden in de lijst met enkele aanhalingstekens escape zoals voor de code die versterking kunt bevatten komma's. Als de waarden zelf tussen enkele aanhalingstekens bevatten, kunt u dit omheen door te verdubbelen.
+  * Bijvoorbeeld, als u een parameter met de naam 'mytag' versterking label hebben en u wilt verhogen in het label waarden 'Hallo, O'Brien' en 'Smith' de query verbindingsreeksoptie zou worden `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Aanhalingstekens zijn alleen vereist voor waarden die door komma's bevatten.
 
 > [!NOTE]
 > Bij het aanroepen van **Search** POST gebruikt, deze parameter is met de naam `scoringParameters` in plaats van `scoringParameter`. U ook als een JSON-matrix van tekenreeksen waar elke tekenreeks een afzonderlijke is `name-values` paar.
 > 
 > 
 
-`minimumCoverage`(optioneel, standaard too100) - een getal tussen 0 en 100, waarmee wordt aangegeven percentage Hallo Hallo-index die moet worden gedekt door een zoekopdracht om Hallo query toobe gerapporteerd als een is voltooid. Standaard Hallo gehele index moet beschikbaar zijn of `Search` HTTP-statuscode 503 wordt geretourneerd. Als u instelt `minimumCoverage` en `Search` is geslaagd, wordt HTTP 200 retourneren en bevatten een `@search.coverage` waarde in het antwoord Hallo Hallo percentage Hallo-index die is opgenomen in het Hallo-query waarmee wordt aangegeven.
+`minimumCoverage`(optioneel, de standaardwaarde is 100)-een getal tussen 0 en 100 die het percentage van de index die moet worden gedekt door een zoekopdracht om de query moet worden gerapporteerd als een succes aangeeft. Standaard de gehele index moet beschikbaar zijn of `Search` HTTP-statuscode 503 wordt geretourneerd. Als u instelt `minimumCoverage` en `Search` is geslaagd, wordt HTTP 200 retourneren en bevatten een `@search.coverage` waarde in het antwoord die het percentage van de index die is opgenomen in de query aangeeft.
 
 > [!NOTE]
-> Als u deze parameter tooa-waarde lager dan 100 nuttig zijn kan voor beschikbaarheid van de zoekopdracht zelfs voor services met slechts één replica. Niet alle overeenkomende documenten zijn echter toobe aanwezig zijn in de zoekresultaten Hallo gegarandeerd. Als zoeken intrekken belangrijker tooyour toepassing dan beschikbaarheid is, wordt het aanbevolen tooleave is `minimumCoverage` op de standaardwaarde van 100.
+> Als deze parameter op een waarde lager dan 100 is handig voor beschikbaarheid van de zoekopdracht zelfs voor services met slechts één replica. Niet alle overeenkomende documenten zijn echter gegarandeerd aanwezig zijn in de zoekresultaten. Als zoeken intrekken belangrijker voor uw toepassing dan beschikbaarheid, wordt het is raadzaam om te laten `minimumCoverage` op de standaardwaarde van 100.
 > 
 > 
 
-`api-version=[string]`(vereist). Hallo preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
+`api-version=[string]`(vereist). De preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
 
-Opmerking: Voor deze bewerking Hallo `api-version` is opgegeven als een queryparameter in Hallo-URL, ongeacht of u aanroepen **Search** met GET of POST.
+Opmerking: voor deze bewerking, de `api-version` is opgegeven als een queryparameter in de URL ongeacht of u aanroepen **Search** met GET of POST.
 
 **Aanvraagheaders**
 
-Hallo volgende lijst beschrijft Hallo vereiste en optionele aanvraagheaders.
+De volgende lijst beschrijft de vereiste en optionele aanvraagheaders.
 
-* `api-key`: Hallo `api-key` gebruikte tooauthenticate Hallo aanvraag tooyour Search-service is. Het is een tekenreekswaarde, unieke tooyour service-URL. Hallo **Search** aanvraag kunt opgeven, een beheersleutel of een querysleutel voor `api-key`.
+* `api-key`: De `api-key` wordt gebruikt voor verificatie van de aanvraag voor uw zoekservice. Het is een tekenreekswaarde die uniek is voor uw service-URL. De **Search** aanvraag kunt opgeven, een beheersleutel of een querysleutel voor `api-key`.
 
-U moet ook Hallo service naam tooconstruct Hallo aanvraag-URL. U krijgt de naam van de service Hallo en `api-key` van uw servicedashboard in hello Azure-Portal. Zie [maken van een Azure Search-service in Hallo portal](search-create-service-portal.md) voor pagina navigatie hulp.
+U moet ook de naam van de service om de aanvraag-URL samen te stellen. U krijgt de servicenaam en `api-key` van uw servicedashboard in de Azure Portal. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor pagina navigatie hulp.
 
 **Aanvraagtekst**
 
@@ -1527,7 +1527,7 @@ Voor POST:
       "highlight": "highlight_field_1, highlight_field_2, ...",
       "highlightPreTag": "pre_tag",
       "highlightPostTag": "post_tag",
-      "minimumCoverage": # (% of index that must be covered toodeclare query successful; default 100),
+      "minimumCoverage": # (% of index that must be covered to declare query successful; default 100),
       "moreLikeThis": "document_key" (mutually exclusive with "search" parameter),
       "orderby": "orderby_expression",
       "scoringParameters": [ "scoring_parameter_1", "scoring_parameter_2", ... ],
@@ -1542,9 +1542,9 @@ Voor POST:
 
 **Voortzetting van antwoorden voor Deelzoekopdrachten**
 
-Soms kan niet Azure Search alle aangevraagde resultaten in een enkel antwoord met zoeken Hallo retourneren. Dit kan gebeuren om verschillende redenen, zoals wanneer Hallo query te veel documenten aanvragen door op te geven niet `$top` of een waarde opgeeft voor `$top` die te groot is. In dergelijke gevallen horen Azure Search Hallo `@odata.nextLink` aantekening in antwoordtekst hello, en ook `@search.nextPageParameters` als deze een POST-aanvraag. Kunt u Hallo waarden van deze aantekeningen tooformulate zoeken aanvraag tooget Hallo volgende ergens anders in Hallo zoeken antwoord. Dit wordt genoemd, een ***voortzetting*** van de oorspronkelijke zoekaanvraag Hallo en Hallo aantekeningen in het algemeen worden genoemd ***voortzetting tokens***. Zie [Hallo onderstaand voorbeeld](#SearchResponse) voor meer informatie over Hallo syntaxis van deze aantekeningen en waar ze worden weergegeven in de antwoordtekst Hallo. 
+Soms kan geen Azure Search alle aangevraagde resultaten retourneren in een enkel antwoord met zoeken. Dit kan gebeuren om verschillende redenen, zoals wanneer de query te veel documenten aanvragen door op te geven niet `$top` of een waarde opgeeft voor `$top` die te groot is. In dergelijke gevallen kunt u Azure Search bevat de `@odata.nextLink` aantekening in de hoofdtekst van antwoord en ook `@search.nextPageParameters` als deze een POST-aanvraag. De waarden van deze aantekeningen kunt u een andere Search-aanvraag voor het ophalen van het volgende gedeelte van het antwoord van de zoekactie te formuleren. Dit wordt genoemd, een ***voortzetting*** van de oorspronkelijke zoekopdracht aanvraag en de aantekeningen in het algemeen worden genoemd ***voortzetting tokens***. Zie [het onderstaande voorbeeld](#SearchResponse) voor meer informatie over de syntaxis van deze aantekeningen en waar ze worden weergegeven in de hoofdtekst van het antwoord. 
 
-Hallo redenen waarom Azure Search voortzetting tokens retourneert zijn implementatie en onderwerp toochange. Robuuste clients moeten altijd gereed toohandle gevallen waarbij minder documenten dan verwacht worden geretourneerd en een vervolgtoken is opgenomen toocontinue bij het ophalen van documenten. Ook opmerking die u moet gebruiken dezelfde HTTP-methode als de oorspronkelijke aanvraag Hallo in volgorde toocontinue Hallo. Bijvoorbeeld, als u een GET-aanvraag verzonden, voortzetting verzoeken u verzendt moeten ook gebruiken GET (en ook voor POST).
+De redenen waarom Azure Search voortzetting tokens retourneert zijn implementatie en kan worden gewijzigd. Robuuste clients moet altijd gereed is voor het afhandelen van gevallen waarbij minder documenten dan verwacht worden geretourneerd en een vervolgtoken is opgenomen om door te gaan met het ophalen van documenten. Houd er ook rekening mee dat u dezelfde HTTP-methode als de oorspronkelijke aanvraag gebruiken moet om door te gaan. Bijvoorbeeld, als u een GET-aanvraag verzonden, voortzetting verzoeken u verzendt moeten ook gebruiken GET (en ook voor POST).
 
 <a name="SearchResponse"></a>
 **Antwoord**
@@ -1552,9 +1552,9 @@ Hallo redenen waarom Azure Search voortzetting tokens retourneert zijn implement
 Statuscode: 200 OK wordt geretourneerd voor een geslaagde reactie.
 
     {
-      "@odata.count": # (if $count=true was provided in hello query),
-      "@search.coverage": # (if minimumCoverage was provided in hello query),
-      "@search.facets": { (if faceting was specified in hello query)
+      "@odata.count": # (if $count=true was provided in the query),
+      "@search.coverage": # (if minimumCoverage was provided in the query),
+      "@search.facets": { (if faceting was specified in the query)
         "facet_field": [
           {
             "value": facet_entry_value (for non-range facets),
@@ -1565,7 +1565,7 @@ Statuscode: 200 OK wordt geretourneerd voor een geslaagde reactie.
         ],
         ...
       },
-      "@search.nextPageParameters": { (request body toofetch hello next page of results if not all results could be returned in this response and Search was called with POST)
+      "@search.nextPageParameters": { (request body to fetch the next page of results if not all results could be returned in this response and Search was called with POST)
         "count": ... (value from request body if present),
         "facets": ... (value from request body if present),
         "filter": ... (value from request body if present),
@@ -1597,58 +1597,58 @@ Statuscode: 200 OK wordt geretourneerd voor een geslaagde reactie.
         },
         ...
       ],
-      "@odata.nextLink": (URL toofetch hello next page of results if not all results could be returned in this response; Applies tooboth GET and POST)
+      "@odata.nextLink": (URL to fetch the next page of results if not all results could be returned in this response; Applies to both GET and POST)
     }
 
 **Voorbeelden:**
 
-U vindt aanvullende voorbeelden gegeven op Hallo [OData-expressiesyntaxis voor Azure Search](https://msdn.microsoft.com/library/azure/dn798921.aspx) pagina.
+U vindt aanvullende voorbeelden gegeven op de [OData-expressiesyntaxis voor Azure Search](https://msdn.microsoft.com/library/azure/dn798921.aspx) pagina.
 
-1)    Hallo Search Index gesorteerd in aflopende volgorde datum.
+1)    Zoeken in de Index gesorteerd Aflopend op datum.
 
     GET-/indexes/hotels/docs? zoeken = * & $orderby = lastRenovationDate desc & api-version = 2015-02-28-Preview
 
     POST /indexes/hotels/docs/search? api-version = 2015-02-28-Preview {"zoeken": ' * ', 'orderby': "lastRenovationDate desc"}
 
-2)    In een meervoudige zoekopdracht zoekt Hallo-index en facetten voor categorieën, classificatie, labels, evenals artikelen met baseRate in specifieke bereiken ophalen:
+2)    Zoeken in de index in een meervoudige zoekopdracht, en facetten voor categorieën, classificatie, labels, evenals artikelen met baseRate in specifieke bereiken ophalen:
 
     GET /indexes/hotels/docs? zoeken = test & facet = categorie & facet = classificatie & facet = labels & facet baseRate, waarden: 80 = | 150 | 220 & api-version = 2015-02-28-Preview
 
     POST /indexes/hotels/docs/search? api-version = 2015-02-28-Preview {"zoeken": 'test', 'facetten': ['categorie', 'classificatie', 'tags', ' baseRate, waarden: 80 | 150 | 220"]}
 
-3)    Met een filter Hallo vorige meervoudige queryresultaten beperken nadat de gebruiker op Hallo classificatie 3 en categorie 'Motel':
+3)    De queryresultaten van de vorige meervoudige met een filter beperken nadat de gebruiker klikt op classificatie 3 en categorie 'Motel':
 
     GET /indexes/hotels/docs? zoeken = test & facet = labels & facet baseRate, waarden: 80 = | 150 | 220 & $filter = classificatie eq 3 en categorie-eq "Motel" & api-version = 2015-02-28-Preview
 
     POST /indexes/hotels/docs/search? api-version = 2015-02-28-Preview {"zoeken": 'test', 'facetten': ['tags', ' baseRate, waarden: 80 | 150 | 220"], 'filter': 'classificatie eq 3 en categorie-eq 'Motel' '}
 
-4) In een meervoudige zoekopdracht, moet u een bovenlimiet instellen op unieke voorwaarden in een query zijn geretourneerd. Hallo standaardwaarde is 10, maar u kunt vergroten of verkleinen van deze waarde Hallo `count` parameter op Hallo `facet` kenmerk:
+4) In een meervoudige zoekopdracht, moet u een bovenlimiet instellen op unieke voorwaarden in een query zijn geretourneerd. De standaardwaarde is 10, maar u kunt vergroten of verkleinen van deze waarde met behulp van de `count` parameter bij de `facet` kenmerk:
 
     GET-/indexes/hotels/docs? zoeken = test & facet = city, aantal: 5 & api-version = 2015-02-28-Preview
 
     POST /indexes/hotels/docs/search? api-version = 2015-02-28-Preview {'zoeken': 'test', 'facetten': ["city, aantal: 5"]}
 
-5)    Hallo Index binnen specifieke velden; zoeken Bijvoorbeeld, een specifieke taal zijn gebonden veld:
+5)    Zoeken in de Index binnen specifieke velden; Bijvoorbeeld, een specifieke taal zijn gebonden veld:
 
     GET-/indexes/hotels/docs? zoeken = hôtel & searchFields = description_fr & api-version = 2015-02-28-Preview
 
     POST /indexes/hotels/docs/search? api-version = 2015-02-28-Preview {"zoeken": "hôtel', 'searchFields':"description_fr"}
 
-6) Hallo Index over meerdere velden zoeken. Bijvoorbeeld, u kunt opslaan en query doorzoekbare velden in meerdere talen, alle binnen dezelfde index Hallo.  Als de Engelse en Franse beschrijvingen naast elkaar bestaan in Hallo dezelfde document, kunt u terugkeren of alle in Hallo queryresultaten:
+6) De Index zoeken in meerdere velden. U kunt bijvoorbeeld, opslaan en opvragen doorzoekbare velden in meerdere talen, allemaal binnen dezelfde index.  Als de Engelse en Franse beschrijvingen in hetzelfde document naast elkaar bestaan, kunt u een of meer in de queryresultaten retourneren:
 
     GET-/indexes/hotels/docs? zoeken = hotel & searchFields = beschrijving, description_fr & api-version = 2015-02-28-Preview
 
     POST /indexes/hotels/docs/search? api-version = 2015-02-28-Preview {"zoeken": "Hotels", "searchFields": "beschrijving, description_fr"}
 
-Houd er rekening mee dat u kunt alleen een query één index op een tijdstip. Maak meerdere indexen voor elke taal geen tenzij u tooquery een tegelijk.
+Houd er rekening mee dat u kunt alleen een query één index op een tijdstip. Maak meerdere indexen voor elke taal geen tenzij u van plan bent een voor een query.
 
-7)    Wisselbestand - Get Hallo 1e pagina met items (paginaformaat is 10):
+7)    Wisselbestand - Get de 1e pagina van de items (paginaformaat is 10):
 
     GET-/indexes/hotels/docs? zoeken = * & $skip = 0 & $top = 10 & api-version = 2015-02-28-Preview
 
     POST /indexes/hotels/docs/search? api-version = 2015-02-28-Preview {"zoeken": "* ', 'overslaan': 0, 'top': 10}
 
-8)    Wisselbestand - Get Hallo 2e pagina met items (paginaformaat is 10):
+8)    Wisselbestand - Get van de 2e pagina van de items (paginaformaat is 10):
 
     GET-/indexes/hotels/docs? zoeken = * & $skip = 10 & $top = 10 & api-version = 2015-02-28-Preview
 
@@ -1666,33 +1666,33 @@ Houd er rekening mee dat u kunt alleen een query één index op een tijdstip. Ma
 
     POST /indexes/hotels/docs/search? api-version = 2015-02-28-Preview {'filter': ' (baseRate ge 60 en baseRate lt 300) of hotelName eq 'Fraai verblijf' "}
 
-11) Hallo-index te zoeken en fragmenten met treffers licht retourneren
+11) De index en keer terug fragmenten met treffers licht zoeken
 
     GET-/indexes/hotels/docs? zoeken = iets & Markeer = beschrijving & api-version = 2015-02-28-Preview
 
     POST /indexes/hotels/docs/search? api-version = 2015-02-28-Preview {"zoeken": "iets", "highlight": 'beschrijving'}
 
-12) Hallo-index te zoeken en documenten van dichter toofarther weg van een referentielocatie gesorteerd retourneren
+12) Zoeken in de index en documenten van dichter bij verder weg van verwijzing naar een locatie gesorteerd retourneren
 
     GET-/indexes/hotels/docs? zoeken = iets & $orderby=geo.distance (locatie, geography'POINT(-122.12315 47.88121)') & api-version = 2015-02-28-Preview
 
     POST /indexes/hotels/docs/search? api-version = 2015-02-28-Preview {"zoeken": "iets', 'orderby': ' geo.distance (locatie, geography'POINT(-122.12315 47.88121)')"}
 
-13) Zoeken Hallo index ervan uitgaande dat er een 'geografisch' aangeroepen scoreprofiel met twee afstandsscorefuncties, wordt één definiëren van een parameter genaamd 'currentLocation' en één voor het definiëren van een parameter met de naam 'lastLocation'
+13) Zoeken in de index ervan uitgaande dat er is een 'geografisch' aangeroepen scoreprofiel met twee afstandsscorefuncties, één definiëren van een parameter genaamd 'currentLocation' en één voor het definiëren van een parameter met de naam 'lastLocation'
 
     GET /indexes/hotels/docs? zoeken = iets & scoringProfile = geo & scoringParameter = currentLocation--122.123,44.77233 & scoringParameter = lastLocation--121.499,44.2113 & api-version = 2015-02-28-Preview
 
     POST /indexes/hotels/docs/search? api-version = 2015-02-28-Preview {"zoeken": "iets', 'scoringProfile': 'geo', 'scoringParameters': [' currentLocation--122.123,44.77233 ', ' lastLocation--121.499,44.2113 ']}
 
-14) Documenten zoeken in het Hallo-index met behulp [vereenvoudigde querysyntaxis](https://msdn.microsoft.com/library/dn798920.aspx). Deze query retourneert hotels waar doorzoekbare velden Hallo voorwaarden 'comfort' en 'locatie', maar niet 'motel bevatten':
+14) Documenten zoeken in de index met behulp [vereenvoudigde querysyntaxis](https://msdn.microsoft.com/library/dn798920.aspx). Deze query retourneert hotels waar doorzoekbare velden de termen 'comfort' en 'locatie', maar niet 'motel bevatten':
 
     GET-/indexes/hotels/docs? zoeken = comfort + locatie-motel & searchMode = all & api-version = 2015-02-28-Preview
 
     POST /indexes/hotels/docs/search? api-version = 2015-02-28-Preview {"zoeken": "comfort + locatie-motel ', 'searchMode': 'alle'}
 
-Houd er rekening mee Hallo gebruik van `searchMode=all` hierboven. Deze parameter inclusief overschrijft Hallo standaard van `searchMode=any`, zorgt dat `-motel` 'En niet' in plaats van "Of niet" betekent. Zonder `searchMode=all`, krijgt u "Of niet" dat wordt uitgebreid in plaats van de zoekresultaten wordt beperkt, en dit kan erg intuïtief toosome gebruikers zijn.
+Let op het gebruik van `searchMode=all` hierboven. De standaardwaarde van deze parameter inclusief overschrijft `searchMode=any`, zorgt dat `-motel` 'En niet' in plaats van "Of niet" betekent. Zonder `searchMode=all`u "Of niet" dat wordt uitgebreid dan beperkt zoekresultaten ophalen en dit kan erg intuïtief om bepaalde gebruikers zijn.
 
-15) Documenten zoeken in het Hallo-index met behulp [lucene-querysyntaxis](https://msdn.microsoft.com/library/mt589323.aspx). Deze query retourneert hotels waarbij categorieveld Hallo Hallo term 'budget' en alle doorzoekbare velden die Hallo de zin "onlangs renovated" bevat. Documenten met Hallo zinsnede 'onlangs renovated' krijgen een hogere rang als gevolg van Hallo term versterking waarde (3)
+15) Documenten zoeken in de index met behulp [lucene-querysyntaxis](https://msdn.microsoft.com/library/mt589323.aspx). Deze query retourneert hotels waar de categorieveld bevat de term 'budget' en de doorzoekbare velden die de zin 'onlangs renovated'. Documenten met de zinsnede 'onlangs renovated' krijgen een hogere rang als gevolg van de termijn versterking waarde (3)
 
     GET-/indexes/hotels/docs? zoeken = categorie: budget en \"onlangs renovated\"^ 3 & searchMode = all & api-version = 2015-02-28-Preview & querytype = full
 
@@ -1701,38 +1701,38 @@ Houd er rekening mee Hallo gebruik van `searchMode=all` hierboven. Deze paramete
 <a name="LookupAPI"></a>
 
 ## <a name="lookup-document"></a>Lookup-Document
-Hallo **Lookup Document** bewerking een document opgehaald uit Azure Search. Dit is handig wanneer een gebruiker op een specifieke zoekresultaat klikt en toolook om specifieke details over dat document gewenste.
+De **Lookup Document** bewerking een document opgehaald uit Azure Search. Dit is handig wanneer een gebruiker op een specifieke zoekresultaat klikt en u wilt zoeken om specifieke details over dat document.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs/[key]?[query parameters]
     api-key: [admin or query key]
 
 **Aanvraag**
 
-HTTPS is vereist voor serviceaanvragen. Hallo **Lookup Document** verzoek als volgt kan worden samengesteld.
+HTTPS is vereist voor serviceaanvragen. De **Lookup Document** verzoek als volgt kan worden samengesteld.
 
     GET /indexes/[index name]/docs/key?[query parameters]
 
-U kunt ook Hallo traditionele OData-syntaxis voor het opzoeken van een sleutel gebruiken:
+U kunt ook kunt u de traditionele OData-syntaxis voor het opzoeken van een sleutel:
 
     GET /indexes('[index name]')/docs('[key]')?[query parameters]
 
-Hallo-aanvraag URI bevat [index name] en [sleutel], die aangeeft welke tooretrieve document uit welke index. U kunt slechts één document tegelijk ophalen. Gebruik **Search** tooget meerdere documenten in één aanvraag.
+De aanvraag-URI bevat [index name] en [sleutel], die aangeeft welk document op te halen uit welke index. U kunt slechts één document tegelijk ophalen. Gebruik **Search** meerdere documenten in één aanvraag ophalen.
 
 **Query-Parameters**
 
-`$select=[string]`(optioneel): een lijst met door komma's gescheiden velden tooretrieve. Als dat niet-opgegeven of te ingesteld`*`, alle velden die zijn gemarkeerd als worden opgehaald in het Hallo-schema zijn opgenomen in het Hallo-projectie.
+`$select=[string]`(optioneel): een lijst met door komma's gescheiden velden om op te halen. Als dat niet-opgegeven of ingesteld op `*`, alle velden die zijn gemarkeerd als worden opgehaald in het schema zijn opgenomen in de projectie.
 
-`api-version=[string]`(vereist). Hallo preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
+`api-version=[string]`(vereist). De preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
 
-Opmerking: Voor deze bewerking Hallo `api-version` is opgegeven als een queryparameter.
+Opmerking: voor deze bewerking, de `api-version` is opgegeven als een queryparameter.
 
 **Aanvraagheaders**
 
-Hallo volgende lijst beschrijft Hallo vereiste en optionele aanvraagheaders.
+De volgende lijst beschrijft de vereiste en optionele aanvraagheaders.
 
-* `api-key`: Hallo `api-key` gebruikte tooauthenticate Hallo aanvraag tooyour Search-service is. Het is een tekenreekswaarde, unieke tooyour service-URL. Hallo **Lookup Document** aanvraag kunt opgeven, een beheersleutel of een querysleutel voor `api-key`.
+* `api-key`: De `api-key` wordt gebruikt voor verificatie van de aanvraag voor uw zoekservice. Het is een tekenreekswaarde die uniek is voor uw service-URL. De **Lookup Document** aanvraag kunt opgeven, een beheersleutel of een querysleutel voor `api-key`.
 
-U moet ook Hallo service naam tooconstruct Hallo aanvraag-URL. U krijgt de naam van de service Hallo en `api-key` van uw servicedashboard in hello Azure-Portal. Zie [maken van een Azure Search-service in Hallo portal](search-create-service-portal.md) voor pagina navigatie hulp.
+U moet ook de naam van de service om de aanvraag-URL samen te stellen. U krijgt de servicenaam en `api-key` van uw servicedashboard in de Azure Portal. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor pagina navigatie hulp.
 
 **Aanvraagtekst**
 
@@ -1743,23 +1743,23 @@ Geen.
 Statuscode: 200 OK wordt geretourneerd voor een geslaagde reactie.
 
     {
-      field_name: field_value (fields matching hello default or specified projection)
+      field_name: field_value (fields matching the default or specified projection)
     }
 
 **Voorbeeld**
 
-Lookup Hallo document die sleutel '2' heeft
+Het document dat de sleutel '2' heeft lookup
 
     GET /indexes/hotels/docs/2?api-version=2015-02-28-Preview
 
-Lookup Hallo-document met sleutel 3 met OData-syntaxis:
+Het document dat uit de sleutel met OData-syntaxis 3 lookup:
 
     GET /indexes('hotels')/docs('3')?api-version=2015-02-28-Preview
 
 <a name="CountDocs"></a>
 
 ## <a name="count-documents"></a>Aantal documenten
-Hallo **aantal documenten** bewerking wordt een telling van het aantal documenten in een zoekindex Hallo opgehaald. Hallo `$count` syntaxis maakt deel uit van Hallo OData-protocol.
+De **aantal documenten** bewerking wordt een telling van het aantal documenten in een zoekindex opgehaald. De `$count` syntaxis maakt deel uit van het OData-protocol.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs/$count?api-version=[api-version]
     Accept: text/plain
@@ -1767,20 +1767,20 @@ Hallo **aantal documenten** bewerking wordt een telling van het aantal documente
 
 **Aanvraag**
 
-HTTPS is vereist voor serviceaanvragen. Hallo **aantal documenten** aanvraag kan worden opgesteld met Hallo GET-methode.
+HTTPS is vereist voor serviceaanvragen. De **aantal documenten** aanvraag kan worden opgesteld met de GET-methode.
 
-Hallo [naam van de index] in Hallo aanvraag-URI vertelt Hallo service tooreturn een telling van alle items in Hallo docs verzameling van Hallo opgegeven index.
+De [indexnaam] in de aanvraag-URI Hiermee geeft u de service te retourneren van een telling van alle items in de verzameling documenten van de opgegeven index.
 
-`api-version=[string]`(vereist). Hallo preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
+`api-version=[string]`(vereist). De preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
 
 **Aanvraagheaders**
 
-Hallo volgende lijst beschrijft Hallo vereiste en optionele aanvraagheaders.
+De volgende lijst beschrijft de vereiste en optionele aanvraagheaders.
 
-* `Accept`: Met deze waarde te moet worden ingesteld`text/plain`.
-* `api-key`: Hallo `api-key` gebruikte tooauthenticate Hallo aanvraag tooyour Search-service is. Het is een tekenreekswaarde, unieke tooyour service-URL. Hallo **aantal documenten** aanvraag kunt opgeven, een beheersleutel of een querysleutel voor `api-key`.
+* `Accept`: Met deze waarde moet worden ingesteld op `text/plain`.
+* `api-key`: De `api-key` wordt gebruikt voor verificatie van de aanvraag voor uw zoekservice. Het is een tekenreekswaarde die uniek is voor uw service-URL. De **aantal documenten** aanvraag kunt opgeven, een beheersleutel of een querysleutel voor `api-key`.
 
-U moet ook Hallo service naam tooconstruct Hallo aanvraag-URL. U krijgt de naam van de service Hallo en `api-key` van uw servicedashboard in hello Azure-Portal. Zie [maken van een Azure Search-service in Hallo portal](search-create-service-portal.md) voor pagina navigatie hulp.
+U moet ook de naam van de service om de aanvraag-URL samen te stellen. U krijgt de servicenaam en `api-key` van uw servicedashboard in de Azure Portal. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor pagina navigatie hulp.
 
 **Aanvraagtekst**
 
@@ -1790,14 +1790,14 @@ Geen.
 
 Statuscode: 200 OK wordt geretourneerd voor een geslaagde reactie.
 
-Hallo-antwoordtekst bevat Hallo count-waarde als een geheel getal als tekst zonder opmaak geformatteerd.
+Hoofdtekst van de reactie bevat de count-waarde als een geheel getal als tekst zonder opmaak geformatteerd.
 
 <a name="Suggestions"></a>
 
 ## <a name="suggestions"></a>Suggesties
-Hallo **suggesties** bewerking suggesties op basis van deelzoekopdrachten invoer worden opgehaald. Dit wordt doorgaans gebruikt in de vakken tooprovide automatisch aangevulde zoeksuggesties als gebruikers zoektermen invoert.
+De **suggesties** bewerking suggesties op basis van deelzoekopdrachten invoer worden opgehaald. Dit wordt doorgaans gebruikt in de zoekvakken opgeven type-ahead suggesties gebruikers zoektermen invoert.
 
-Suggestie aanvragen die zijn gericht op het opmaken van de doeldocumenten, zodat Hallo voorgestelde tekst kan worden herhaald als meerdere candidate documenten Hallo overeenkomen met dezelfde invoer zoeken. U kunt `$select` tooretrieve andere document velden (inclusief Hallo documentsleutel) zodat u kunt zien welke document Hallo bron voor elke suggestie.
+Suggestie aanvragen gericht op de voorstellen doeldocumenten, zodat de voorgestelde tekst kan worden herhaald als meerdere candidate documenten invoer dezelfde zoekopdracht overeenkomen. U kunt `$select` om op te halen van andere documentvelden (inclusief de documentsleutel) zodat u kunt zien welke document is de bron voor elke suggestie.
 
 Een **suggesties** bewerking als een GET of POST-aanvraag is uitgegeven.
 
@@ -1808,104 +1808,104 @@ Een **suggesties** bewerking als een GET of POST-aanvraag is uitgegeven.
     Content-Type: application/json
     api-key: [admin or query key]
 
-**Wanneer toouse BOEKT in plaats van ophalen**
+**Wanneer POST gebruiken in plaats van GET**
 
-Bij het gebruik van HTTP GET toocall hello **suggesties** API, moet u toobe Houd er rekening mee dat Hallo Hallo aanvraag-URL kan niet langer zijn dan 8 KB. Dit is meestal genoeg voor de meeste toepassingen. Sommige toepassingen produceren echter zeer grote query's specifiek OData-filterexpressies. Voor deze toepassingen namelijk met behulp van HTTP POST een betere keuze kunt u grotere filters dan GET. Met POST, Hallo aantal componenten in een filter is een beperkende factor hello, grootte van de onbewerkte filtertekenreeks Hallo niet Hallo omdat Hallo aanvraag groottelimiet voor POST is ongeveer 16 MB.
+Wanneer u HTTP GET aan te roepen de **suggesties** API, moet u er rekening mee dat de lengte van de aanvraag-URL kan niet hoger is dan 8 KB. Dit is meestal genoeg voor de meeste toepassingen. Sommige toepassingen produceren echter zeer grote query's specifiek OData-filterexpressies. Voor deze toepassingen namelijk met behulp van HTTP POST een betere keuze kunt u grotere filters dan GET. Met POST is het aantal componenten in een filter de beperkende factor, niet de grootte van de onbewerkte filtertekenreeks omdat de limiet voor de aanvraag voor POST ongeveer 16 MB is.
 
 > [!NOTE]
-> Hoewel de maximale grootte Hallo POST-aanvraag erg groot is, kunnen niet filterexpressies willekeurig complex zijn. Zie [OData-expressiesyntaxis](https://msdn.microsoft.com/library/dn798921.aspx) voor meer informatie over filter complexiteit beperkingen.
+> Hoewel de maximale grootte van POST-aanvraag erg groot is, kunnen niet filterexpressies willekeurig complex zijn. Zie [OData-expressiesyntaxis](https://msdn.microsoft.com/library/dn798921.aspx) voor meer informatie over filter complexiteit beperkingen.
 > 
 > 
 
 **Aanvraag**
 
-HTTPS is vereist voor serviceaanvragen. Hallo **suggesties** aanvraag kan worden opgesteld met Hallo GET of POST-methoden.
+HTTPS is vereist voor serviceaanvragen. De **suggesties** aanvraag kan worden opgesteld met de methoden GET of POST.
 
-Hallo aanvraag-URI bevat Hallo-naam van Hallo index tooquery. Parameters, zoals Hallo gedeeltelijk invoer zoekterm, zijn opgegeven in de queryreeks Hallo in geval van Hallo van GET-aanvragen en in Hallo aanvraag hoofdtekst in geval van Hallo van POST-aanvragen.
+De aanvraag-URI bevat de naam van de index van de query. Parameters, zoals de gedeeltelijk invoer zoekterm zijn opgegeven voor de queryreeks weergegeven in het geval van GET-aanvragen en in de aanvraag hoofdtekst in het geval van POST-aanvragen.
 
-Als een best practice bij het maken van GET-aanvragen te onthouden[URL coderen](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) specifieke parameters bij het aanroepen van REST-API rechtstreeks Hallo-query. Voor **suggesties** bewerkingen, dit omvat:
+Als een best practice bij het maken van GET-aanvragen, moet u [URL coderen](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) specifieke queryparameters bij het aanroepen van de REST-API rechtstreeks. Voor **suggesties** bewerkingen, dit omvat:
 
 * `$filter`
 * `highlightPreTag`
 * `highlightPostTag`
 * `search`
 
-URL-codering wordt alleen aanbevolen voor Hallo hierboven queryparameters. Als u per ongeluk URL coderen hello volledige queryreeks (alles na Hallo?), worden aanvragen wordt verbroken.
+URL-codering wordt alleen aanbevolen voor de bovenstaande queryparameters. Als u per ongeluk URL coderen de volledige query-tekenreeks (alles na de?), aanvragen worden verbroken.
 
-Zo is de URL-codering ook alleen nodig bij het aanroepen van Hallo direct met REST-API aan. Er is geen URL-codering is nodig bij het aanroepen van **suggesties** met behulp van POST, of bij het gebruik van Hallo [.NET-clientbibliotheek](https://msdn.microsoft.com/library/dn951165.aspx), die het URL-codering voor u verwerkt.
+Zo is de URL-codering ook alleen nodig bij het aanroepen van de REST-API die rechtstreeks met de GET. Er is geen URL-codering is nodig bij het aanroepen van **suggesties** POST, met of wanneer u de [.NET-clientbibliotheek](https://msdn.microsoft.com/library/dn951165.aspx), die URL-codering voor u verwerkt.
 
 **Query-Parameters**
 
-**Suggesties** verschillende querycriteria kunnen geven en ook opgeven zoekgedrag parameters accepteert. U opgeven dat deze parameters in Hallo URL querytekenreeks bij het aanroepen van **suggesties** via GET en als JSON-eigenschappen in de aanvraagtekst Hallo bij het aanroepen van **suggesties** via POST. Hallo-syntaxis voor een aantal parameters is enigszins verschillen tussen GET en POST. Deze verschillen worden vermeld als die van toepassing zijn hieronder:
+**Suggesties** verschillende querycriteria kunnen geven en ook opgeven zoekgedrag parameters accepteert. U opgeven dat deze parameters in de URL van de querytekenreeks bij het aanroepen van **suggesties** via GET en als JSON-eigenschappen in de aanvraagtekst bij het aanroepen van **suggesties** via POST. De syntaxis voor een aantal parameters is enigszins verschillen tussen GET en POST. Deze verschillen worden vermeld als die van toepassing zijn hieronder:
 
-`search=[string]`-Hallo tekst toouse toosuggest zoekopdrachten. Moet minimaal 1 teken en niet meer dan 100 tekens.
+`search=[string]`-de tekst moet worden gebruikt voor het voorstellen van query's. Moet minimaal 1 teken en niet meer dan 100 tekens.
 
-`highlightPreTag=[string]`(optioneel): een tekenreeks-code die voegt toosearch treffers toe. Moet worden ingesteld met `highlightPostTag`.
-
-> [!NOTE]
-> Bij het aanroepen van **suggesties** gebruik van GET, gereserveerde tekens in Hallo URL procent-gecodeerd moeten zijn (bijvoorbeeld, in plaats van #, % 23).
-> 
-> 
-
-`highlightPostTag=[string]`(optioneel): een tekenreeks-code die wordt toegevoegd toosearch treffers. Moet worden ingesteld met `highlightPreTag`.
+`highlightPreTag=[string]`(optioneel): een tekenreeks tag die voegt toe om te zoeken naar treffers. Moet worden ingesteld met `highlightPostTag`.
 
 > [!NOTE]
-> Bij het aanroepen van **suggesties** gebruik van GET, gereserveerde tekens in Hallo URL procent-gecodeerd moeten zijn (bijvoorbeeld, in plaats van #, % 23).
+> Bij het aanroepen van **suggesties** gebruik van GET, gereserveerde tekens in de URL moet procent gecodeerd (bijvoorbeeld, in plaats van #, % 23).
 > 
 > 
 
-`suggesterName=[string]`-Hallo-naam van Hallo suggestie als opgegeven in de Hallo `suggesters` verzameling die deel uitmaakt van de indexdefinitie Hallo. Een `suggester` bepaalt welke velden voor voorgestelde querytermen worden gescand. Zie [Suggestiefunctie](#Suggesters) voor meer informatie.
+`highlightPostTag=[string]`(optioneel): een tekenreeks tag die worden toegevoegd om te zoeken naar treffers. Moet worden ingesteld met `highlightPreTag`.
 
-`fuzzy=[boolean]`(optioneel, standaard = false)-tootrue wanneer Stel deze API suggesties wordt gevonden, zelfs als er een teken vervangen of ontbreekt in de zoektekst Hallo is. Het wordt geleverd op de prestaties, zoals fuzzy suggestie zoekopdrachten trager en meer bronnen gebruiken terwijl dit een betere ervaring in sommige scenario's biedt.
+> [!NOTE]
+> Bij het aanroepen van **suggesties** gebruik van GET, gereserveerde tekens in de URL moet procent gecodeerd (bijvoorbeeld, in plaats van #, % 23).
+> 
+> 
 
-`searchFields=[string]`(optioneel) - Hallo-lijst met door komma's gescheiden veld namen toosearch voor Hallo zoektekst opgegeven. Doelvelden moeten zijn ingeschakeld voor suggesties.
+`suggesterName=[string]`-de naam van de suggestie zoals opgegeven in de `suggesters` verzameling die deel uitmaakt van de indexdefinitie. Een `suggester` bepaalt welke velden voor voorgestelde querytermen worden gescand. Zie [Suggestiefunctie](#Suggesters) voor meer informatie.
 
-`$top=#`(optioneel, standaard = 5)-aantal suggesties tooretrieve Hallo. Moet een getal tussen 1 en 100 liggen.
+`fuzzy=[boolean]`(optioneel, standaard = false)-als ingesteld op waar deze API vindt u suggesties zelfs als er een teken vervangen of ontbreekt in de zoektekst. Het wordt geleverd op de prestaties, zoals fuzzy suggestie zoekopdrachten trager en meer bronnen gebruiken terwijl dit een betere ervaring in sommige scenario's biedt.
+
+`searchFields=[string]`(optioneel): de lijst met door komma's gescheiden veldnamen om te zoeken naar de opgegeven zoektekst. Doelvelden moeten zijn ingeschakeld voor suggesties.
+
+`$top=#`(optioneel, standaard = 5)-het aantal suggesties om op te halen. Moet een getal tussen 1 en 100 liggen.
 
 > [!NOTE]
 > Bij het aanroepen van **suggesties** POST gebruikt, deze parameter is met de naam `top` in plaats van `$top`.
 > 
 > 
 
-`$filter=[string]`(optioneel): een expressie die documenten Hallo-filters in aanmerking voor suggesties.
+`$filter=[string]`(optioneel): een expressie die de documenten filters in aanmerking voor suggesties.
 
 > [!NOTE]
 > Bij het aanroepen van **suggesties** POST gebruikt, deze parameter is met de naam `filter` in plaats van `$filter`.
 > 
 > 
 
-`$orderby=[string]`(optioneel): een lijst met door komma's gescheiden expressies toosort Hallo resultaten door. Elke expressie kan bestaan uit naam van een veld of een aanroep van toohello `geo.distance()` functie. Elke expressie kan worden gevolgd door `asc` tooindicated oplopende, en `desc` tooindicate aflopende. Hallo standaard is oplopende volgorde. Er is een limiet van 32 componenten voor `$orderby`.
+`$orderby=[string]`(optioneel): een lijst met door komma's gescheiden expressies sorteer de resultaten op. Elke expressie kan bestaan uit naam van een veld of een aanroep van de `geo.distance()` functie. Elke expressie kan worden gevolgd door `asc` aangegeven oplopende, en `desc` om aan te geven aflopende. De standaardwaarde is oplopende volgorde. Er is een limiet van 32 componenten voor `$orderby`.
 
 > [!NOTE]
 > Bij het aanroepen van **suggesties** POST gebruikt, deze parameter is met de naam `orderby` in plaats van `$orderby`.
 > 
 > 
 
-`$select=[string]`(optioneel): een lijst met door komma's gescheiden velden tooretrieve. Als u niets opgeeft, wordt alleen Hallo documentsleutel en suggestie tekst wordt geretourneerd. U kunt alle velden expliciet aanvragen door deze parameter te`*`.
+`$select=[string]`(optioneel): een lijst met door komma's gescheiden velden om op te halen. Als u niets opgeeft, worden alleen de sleutel en suggestie tekst wordt geretourneerd. U kunt alle velden expliciet aanvragen door deze parameter in te stellen op `*`.
 
 > [!NOTE]
 > Bij het aanroepen van **suggesties** POST gebruikt, deze parameter is met de naam `select` in plaats van `$select`.
 > 
 > 
 
-`minimumCoverage`(optioneel, standaard too80) - een getal tussen 0 en 100, waarmee wordt aangegeven percentage Hallo Hallo-index die moet worden gedekt door een query suggesties om Hallo query toobe gerapporteerd als een is voltooid. Standaard moet ten minste 80% van de index Hallo beschikbaar zijn of `Suggest` HTTP-statuscode 503 wordt geretourneerd. Als u instelt `minimumCoverage` en `Suggest` is geslaagd, wordt HTTP 200 retourneren en bevatten een `@search.coverage` waarde in het antwoord Hallo Hallo percentage Hallo-index die is opgenomen in het Hallo-query waarmee wordt aangegeven.
+`minimumCoverage`(optioneel, de standaardwaarde 80)-een getal tussen 0 en 100 die het percentage van de index die moet worden gedekt door een query suggesties om de query moet worden gerapporteerd als een succes aangeeft. Standaard ten minste 80% van de index moet beschikbaar zijn of `Suggest` HTTP-statuscode 503 wordt geretourneerd. Als u instelt `minimumCoverage` en `Suggest` is geslaagd, wordt HTTP 200 retourneren en bevatten een `@search.coverage` waarde in het antwoord die het percentage van de index die is opgenomen in de query aangeeft.
 
 > [!NOTE]
-> Als u deze parameter tooa-waarde lager dan 100 nuttig zijn kan voor beschikbaarheid van de zoekopdracht zelfs voor services met slechts één replica. Niet alle overeenkomende suggesties zijn echter toobe aanwezig is in de resultaten Hallo gegarandeerd. Als intrekken belangrijker tooyour toepassing dan beschikbaarheid en vervolgens de best niet toolower `minimumCoverage` lager dan de standaardwaarde 80.
+> Als deze parameter op een waarde lager dan 100 is handig voor beschikbaarheid van de zoekopdracht zelfs voor services met slechts één replica. Niet alle overeenkomende suggesties zijn echter gegarandeerd aanwezig zijn in de resultaten. Als intrekken belangrijker voor uw toepassing dan beschikbaarheid, wordt het is raadzaam niet te verlagen `minimumCoverage` lager dan de standaardwaarde 80.
 > 
 > 
 
-`api-version=[string]`(vereist). Hallo preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
+`api-version=[string]`(vereist). De preview-versie is `api-version=2015-02-28-Preview`. Zie [Search Serviceversiebeheer](http://msdn.microsoft.com/library/azure/dn864560.aspx) voor meer informatie en alternatieve versies.
 
-Opmerking: Voor deze bewerking Hallo `api-version` is opgegeven als een queryparameter in Hallo-URL, ongeacht of u aanroepen **suggesties** met GET of POST.
+Opmerking: voor deze bewerking, de `api-version` is opgegeven als een queryparameter in de URL ongeacht of u aanroepen **suggesties** met GET of POST.
 
 **Aanvraagheaders**
 
-Hallo volgende lijst beschrijft Hallo vereiste en optionele aanvraagheaders
+De volgende lijst beschrijft de vereiste en optionele aanvraagheaders
 
-* `api-key`: Hallo `api-key` gebruikte tooauthenticate Hallo aanvraag tooyour Search-service is. Het is een tekenreekswaarde, unieke tooyour service-URL. Hallo **suggesties** aanvraag een beheersleutel of een querysleutel kunt opgeven als Hallo `api-key`.
+* `api-key`: De `api-key` wordt gebruikt voor verificatie van de aanvraag voor uw zoekservice. Het is een tekenreekswaarde die uniek is voor uw service-URL. De **suggesties** aanvraag kunt opgeven, een beheersleutel of een querysleutel als de `api-key`.
 
-U moet ook Hallo service naam tooconstruct Hallo aanvraag-URL. U krijgt de naam van de service Hallo en `api-key` van uw servicedashboard in hello Azure-Portal. Zie [maken van een Azure Search-service in Hallo portal](search-create-service-portal.md) voor pagina navigatie hulp.
+U moet ook de naam van de service om de aanvraag-URL samen te stellen. U krijgt de servicenaam en `api-key` van uw servicedashboard in de Azure Portal. Zie [maken van een Azure Search-service in de portal](search-create-service-portal.md) voor pagina navigatie hulp.
 
 **Aanvraagtekst**
 
@@ -1918,7 +1918,7 @@ Voor POST:
       "fuzzy": true | false (default),
       "highlightPreTag": "pre_tag",
       "highlightPostTag": "post_tag",
-      "minimumCoverage": # (% of index that must be covered toodeclare query successful; default 80),
+      "minimumCoverage": # (% of index that must be covered to declare query successful; default 80),
       "orderby": "orderby_expression",
       "search": "partial_search_input",
       "searchFields": "field_name_1, field_name_2, ...",
@@ -1932,7 +1932,7 @@ Voor POST:
 Statuscode: 200 OK wordt geretourneerd voor een geslaagde reactie.
 
     {
-      "@search.coverage": # (if minimumCoverage was provided in hello query),
+      "@search.coverage": # (if minimumCoverage was provided in the query),
       "value": [
         {
           "@search.text": "...",
@@ -1942,10 +1942,10 @@ Statuscode: 200 OK wordt geretourneerd voor een geslaagde reactie.
       ]
     }
 
-Als Hallo projectie optie gebruikte tooretrieve velden die zijn opgenomen in elk element van Hallo matrix:
+Als de optie projectie wordt gebruikt voor het ophalen van velden die zijn opgenomen in elk element van de matrix:
 
     {
-      "@search.coverage": # (if minimumCoverage was provided in hello query),
+      "@search.coverage": # (if minimumCoverage was provided in the query),
       "value": [
         {
           "@search.text": "...",
@@ -1958,7 +1958,7 @@ Als Hallo projectie optie gebruikte tooretrieve velden die zijn opgenomen in elk
 
 **Voorbeeld**
 
-5 suggesties waarbij Hallo deelzoekopdrachten invoer is 'lux' ophalen
+5 suggesties waar de deelzoekopdrachten-invoer is 'lux' ophalen
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2015-02-28-Preview
 

@@ -1,16 +1,16 @@
 Ondersteuning voor twee foutopsporingsfuncties is nu beschikbaar in Azure: ondersteuning voor Console-uitvoer en Schermafbeelding voor het Azure Virtual Machines Resource Manager-implementatiemodel. 
 
-Wanneer u uw eigen installatiekopie tooAzure of zelfs opstarten een van de installatiekopieën van het platform hello te brengen, kunnen er diverse redenen waarom een virtuele Machine in een niet-opstartbare status opgehaald. Met deze functies kunt u tooeasily diagnosticeren en op uw virtuele Machines herstellen.
+Wanneer u uw eigen installatiekopie importeert in Azure of een van de installatiekopieën van het platform opstart, kan een VM vanwege verschillende redenen in een status belanden waarin deze niet kan worden opgestart. Met deze functies kunt u uw virtuele machines eenvoudig analyseren en herstellen na fouten bij het opstarten.
 
-Voor virtuele Linux-Machines, kunt u eenvoudig hello uitvoer van uw consolelogboek van Hallo Portal bekijken:
+Bij virtuele Linux-machines kunt u eenvoudig de uitvoer van uw consolelogboek bekijken via de portal:
 
 ![Azure Portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
  
-Echter voor Windows en Linux virtuele Machines kunt Azure ook u een schermopname van Hallo VM van de hypervisor Hallo toosee:
+U kunt echter bij zowel virtuele Windows- als Linux-machines een schermopname van de virtuele machine bekijken via de hypervisor van Azure:
 
 ![Fout](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
 
-Beide functies worden ondersteund voor virtuele Azure-machines in alle regio's. Opmerking: de schermafbeeldingen en de uitvoer kunnen duren too10 minuten tooappear in uw opslagaccount.
+Beide functies worden ondersteund voor virtuele Azure-machines in alle regio's. Houd er rekening mee dat het tot 10 minuten kan duren voordat de schermafbeeldingen en uitvoer worden weergegeven in uw opslagaccount.
 
 ## <a name="common-boot-errors"></a>Veelvoorkomende opstartfouten
 
@@ -29,15 +29,15 @@ Beide functies worden ondersteund voor virtuele Azure-machines in alle regio's. 
 - [Opstartfout of OPSTARTAPPARAAT_NIET_TOEGANKELIJK](https://support.microsoft.com/help/4010143)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Diagnostische gegevens op een nieuwe virtuele machine inschakelen
-1. Wanneer u een nieuwe virtuele Machine maakt van Hallo Preview-Portal, selecteer Hallo **Azure Resource Manager** uit Hallo deployment model vervolgkeuzelijst:
+1. Wanneer u een nieuwe virtuele machine maakt in de Preview Portal, selecteert u de **Azure Resource Manager** uit de vervolgkeuzelijst van het implementatiemodel:
  
     ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
 
-2. Hallo bewaking optie tooselect Hallo storage-account waarin u tooplace wilt dat deze diagnostische bestanden configureren.
+2. Configureer de optie Bewaking om het opslagaccount te selecteren waarin u wilt deze diagnostische bestanden wilt plaatsen.
  
     ![VM maken](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
 
-3. Als u met een Azure Resource Manager-sjabloon implementeert, virtuele-machinebron tooyour navigeren en Hallo diagnostische profielsectie toevoegen. Houd er rekening mee toouse Hallo '2015-06-15' API-versie-header.
+3. Als u met een Azure Resource Manager-sjabloon implementeert, gaat u naar de resource van de virtuele machine en voegt u de sectie diagnostisch profiel toe. Vergeet niet de API-versieheader '2015-06-15' te gebruiken.
 
     ```json
     {
@@ -46,7 +46,7 @@ Beide functies worden ondersteund voor virtuele Azure-machines in alle regio's. 
           … 
     ```
 
-4. Hallo diagnostische profiel kunt u tooselect Hallo storage-account waar u tooput deze logboeken.
+4. Met het diagnostische profiel kunt u het opslagaccount selecteren waarin u deze logboeken wilt opslaan.
 
     ```json
             "diagnosticsProfile": {
@@ -59,11 +59,11 @@ Beide functies worden ondersteund voor virtuele Azure-machines in alle regio's. 
         }
     ```
 
-een voorbeeld van een virtuele Machine met diagnostische gegevens over opstarten is ingeschakeld, het uitchecken van onze opslagplaats hier toodeploy.
+Bekijk hier onze opslagplaats om een voorbeeld-VM te implementeren waarop met diagnostische gegevens over het opstarten zijn ingeschakeld.
 
 ## <a name="update-an-existing-virtual-machine"></a>Een bestaande virtuele machine bijwerken ##
 
-tooenable diagnostische gegevens over opstarten via Hallo Portal, kunt u ook een bestaande virtuele Machine via de Portal Hallo bijwerken. Selecteer Hallo Boot Diagnostics optie en opslaan. Opnieuw opstarten Hallo VM tootake effect.
+U kunt ook een bestaande virtuele machine bijwerken via de portal zodat de diagnostische gegevens over het opstarten via de portal zijn ingeschakeld. Selecteer de optie Diagnostische gegevens over het opstarten en selecteer vervolgens Opslaan. Start de VM opnieuw op om de wijzigingen door te voeren.
 
 ![Bestaande VM bijwerken](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
 

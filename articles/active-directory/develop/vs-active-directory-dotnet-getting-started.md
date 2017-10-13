@@ -1,6 +1,6 @@
 ---
-title: aaaGet gestart met Azure AD in Visual Studio MVC projecten | Microsoft Docs
-description: Hoe tooget gestart met behulp van Azure Active Directory in MVC projecten nadat u verbinding maken van een Azure AD met Visual Studio tooor hebt verbonden services
+title: Aan de slag met Azure AD in Visual Studio MVC projecten | Microsoft Docs
+description: Hoe u aan de slag met Azure Active Directory in MVC projecten nadat verbinding maken met of maken van een Azure AD met Visual Studio services verbonden
 services: active-directory
 documentationcenter: 
 author: kraigb
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 807824dd6e4e57e443f8a7322cf2e5326384316d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c4d49cfc9887e422b3eaed2b96348c99eca48881
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="getting-started-with-azure-active-directory-and-visual-studio-connected-services-mvc-projects"></a>Aan de slag met Azure Active Directory en Visual Studio verbonden services (MVC-projecten)
 > [!div class="op_single_selector"]
@@ -28,11 +28,11 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-## <a name="requiring-authentication-tooaccess-controllers"></a>Verificatie tooaccess domeincontrollers vereisen
-Alle domeincontrollers in uw project zijn adorned Hello **autoriseren** kenmerk. Dit kenmerk moet Hallo gebruiker toobe geverifieerd voordat toegang tot deze controllers. Dit kenmerk tooallow Hallo controller toobe anoniem, gebruikt verwijderen uit Hallo-controller. Als u tooset Hallo machtigingen op een meer gedetailleerd niveau wilt, kunt u Hallo kenmerk tooeach methode waarvoor de autorisatie in plaats van het toepassen van toohello controllerklasse toepassen.
+## <a name="requiring-authentication-to-access-controllers"></a>Verificatie te vereisen voor toegang tot domeincontrollers
+Alle domeincontrollers in uw project zijn adorned met de **autoriseren** kenmerk. Dit kenmerk moet de gebruiker moet worden geverifieerd voordat toegang tot deze controllers. Verwijder dit kenmerk van de controller zodat de controller voor anonieme toegang. Als u de machtigingen instelt op een meer gedetailleerd niveau wilt, toepassen van het kenmerk voor elke methode waarvoor de autorisatie in plaats van aan de controllerklasse toepast.
 
 ## <a name="adding-signin--signout-controls"></a>Toevoegen van aanmelding / SignOut besturingselementen
-tooadd hello aanmelding/SignOut besturingselementen tooyour weergeven, kunt u Hallo **_LoginPartial.cshtml** gedeeltelijke weergave tooadd Hallo functionaliteit tooone van uw weergaven. Hier volgt een voorbeeld van Hallo functionaliteit toegevoegd toohello standaard **_Layout.cshtml** weergeven. (Houd er rekening mee Hallo laatste element in Hallo div met de klasse navigatiebalk samenvouwen):
+Als u wilt de aanmelding/SignOut-besturingselementen toevoegen aan uw weergave, kunt u de **_LoginPartial.cshtml** gedeeltelijke weergave de functionaliteit toevoegen aan een van uw weergaven. Hier volgt een voorbeeld van de functionaliteit toegevoegd aan de standaard **_Layout.cshtml** weergeven. (Houd rekening met het laatste element in de div met de klasse navigatiebalk samenvouwen):
 
 <pre>
     &lt;!DOCTYPE html&gt; 

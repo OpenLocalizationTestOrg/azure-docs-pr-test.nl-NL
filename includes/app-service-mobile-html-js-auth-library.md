@@ -1,8 +1,8 @@
 ### <a name="server-auth"></a>Procedure: Verifiëren bij een provider (Server Flow)
-toohave Mobile Apps beheren Hallo verificatieproces in uw app, moet u uw app registreren met de id-provider. In Azure App Service moet u tooconfigure Hallo toepassings-ID en geheim geleverd door uw provider.
-Zie voor meer informatie, Hallo zelfstudie [toevoegen verificatie tooyour app](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
+Als u het verificatieproces in uw app door Mobile Apps wilt laten beheren, moet u uw app registreren bij uw id-provider. Daarna moet u in uw Azure App Service de door uw provider verstrekte toepassings-id en geheim configureren.
+Zie de zelfstudie [Verificatie toevoegen aan uw app](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md) voor meer informatie.
 
-Wanneer u de id-provider hebt geregistreerd, aanroepen Hallo `.login()` methode met de naam van uw provider Hallo. Bijvoorbeeld: toologin met Facebook Hallo volgende code gebruiken:
+Wanneer u de id-provider hebt geregistreerd, roept u de methode `.login()` aan met de naam van uw provider. Meld u bijvoorbeeld aan bij Facebook met de volgende code:
 
 ```
 client.login("facebook").done(function (results) {
@@ -12,16 +12,16 @@ client.login("facebook").done(function (results) {
 });
 ```
 
-geldige waarden voor de provider Hallo Hallo zijn 'aad', 'facebook', 'google', 'microsoftaccount' en 'twitter'.
+De geldige waarden voor de provider zijn 'aad', 'facebook', 'google', 'microsoftaccount' en 'twitter'.
 
 > [!NOTE]
-> Verificatie via Google werkt momenteel niet via Server Flow.  tooauthenticate met Google, moet u een [client-flow-methode](#client-auth).
+> Verificatie via Google werkt momenteel niet via Server Flow.  Voor verificatie via Google moet u een [client-flowmethode](#client-auth) gebruiken.
 
-In dit geval beheert Azure App Service Hallo OAuth 2.0-verificatiestroom.  Het Hallo-aanmeldingspagina van de geselecteerde provider hello wordt weergegeven en genereert een App Service-verificatietoken na geslaagde aanmelding met Hallo id-provider. Hallo aanmelding functie, retourneert als u klaar een JSON-object dat toegang biedt tot zowel de Hallo gebruikers-ID en de App Service-verificatietoken in Hallo userId authenticationToken velden en respectievelijk. Dit token kan worden opgeslagen in de cache en opnieuw worden gebruikt totdat het verloopt.
+In dit geval beheert Azure App Service de OAuth 2.0-verificatiestroom.  Deze geeft de aanmeldingspagina van de geselecteerde provider weer en genereert een App Service-verificatietoken na geslaagde aanmelding bij de id-provider. De aanmeldingsfunctie retourneert na voltooiing een JSON-object dat zowel de gebruikers-id als het App Service-verificatietoken respectievelijk in de velden userId en authenticationToken weergeeft. Dit token kan worden opgeslagen in de cache en opnieuw worden gebruikt totdat het verloopt.
 
 ###<a name="client-auth"></a>Procedure: Verifiëren bij een provider (Client Flow)
 
-Uw app kan ook afzonderlijk Neem contact op met de identiteitsprovider Hallo en geef vervolgens Hallo geretourneerd token tooyour App Service voor verificatie. Deze stroom client kunt u een één-aanmeldingservaring aanpast voor gebruikers of tooretrieve extra gebruikersgegevens van de identiteitsprovider Hallo tooprovide.
+Uw app kan ook afzonderlijk contact opnemen met de id-provider en het geretourneerde token vervolgens aan uw App Service verstrekken voor verificatie. Met deze clientstroom kunt u een eenmalige aanmelding bieden voor gebruikers of aanvullende gebruikersgegevens ophalen van de id-provider.
 
 #### <a name="social-authentication-basic-example"></a>Eenvoudig voorbeeld van sociale verificatie
 
@@ -38,11 +38,11 @@ client.login(
 });
 
 ```
-In dit voorbeeld wordt ervan uitgegaan dat Hallo-token opgegeven door de respectieve provider Hallo SDK wordt opgeslagen in token Hallo-variabele.
+In dit voorbeeld wordt ervan uitgegaan dat het token dat is opgegeven door de betreffende SDK-provider, is opgeslagen in de tokenvariabele.
 
 #### <a name="microsoft-account-example"></a>Voorbeeld van Microsoft-account
 
-Hallo wordt na Hallo Live SDK, die ondersteuning biedt voor één aanmelding voor Windows Store-apps met behulp van Microsoft-Account:
+In het volgende voorbeeld wordt de Live SDK gebruikt, die eenmalige aanmelding ondersteunt voor Windows Store-apps met behulp van een Microsoft-account:
 
 ```
 WL.login({ scope: "wl.basic"}).then(function (result) {
@@ -59,11 +59,11 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 ```
 
-In dit voorbeeld krijgt een token van Live verbinding maken, die is opgegeven tooyour App Service door het Hallo-aanmelding functie aanroepen.
+In dit voorbeeld wordt een token opgehaald van Live Connect, dat wordt doorgegeven aan uw App Service door de aanmeldingsfunctie aan te roepen.
 
-###<a name="auth-getinfo"></a>Hoe: ophalen van informatie over Hallo geverifieerde gebruiker
+###<a name="auth-getinfo"></a>Procedure: Informatie verzamelen over de geverifieerde gebruiker
 
-Hallo verificatie-informatie kan worden opgehaald uit Hallo `/.auth/me` -eindpunt met een HTTP-aanroepen met eventuele AJAX-bibliotheek.  Zorg ervoor dat u Hallo ingesteld `X-ZUMO-AUTH` header tooyour verificatietoken.  Hallo-verificatietoken opgeslagen in `client.currentUser.mobileServiceAuthenticationToken`.  Bijvoorbeeld: toouse Hallo ophalen API:
+De verificatiegegevens kunnen worden opgehaald uit het `/.auth/me`-eindpunt met een HTTP aanroep aan een willekeurige AJAX-bibliotheek.  Zorg ervoor dat u de `X-ZUMO-AUTH`-header in uw verificatietoken instelt.  Het verificatietoken wordt opgeslagen in `client.currentUser.mobileServiceAuthenticationToken`.  Als u bijvoorbeeld de API 'Ophalen' gebruikt:
 
 ```
 var url = client.applicationUrl + '/.auth/me';
@@ -73,8 +73,8 @@ fetch(url, { headers: headers })
     .then(function (data) {
         return data.json()
     }).then(function (user) {
-        // hello user object contains hello claims for hello authenticated user
+        // The user object contains the claims for the authenticated user
     });
 ```
 
-Ophalen is beschikbaar als [npm-pakket](https://www.npmjs.com/package/whatwg-fetch), maar kan ook met een browser worden gedownload van [CDNJS](https://cdnjs.com/libraries/fetch). U kunt ook jQuery of een andere AJAX-API toofetch Hallo-informatie.  Gegevens worden ontvangen als JSON-object.
+Ophalen is beschikbaar als [npm-pakket](https://www.npmjs.com/package/whatwg-fetch), maar kan ook met een browser worden gedownload van [CDNJS](https://cdnjs.com/libraries/fetch). U kunt ook jQuery of een andere AJAX-API gebruiken voor het ophalen van de informatie.  Gegevens worden ontvangen als JSON-object.

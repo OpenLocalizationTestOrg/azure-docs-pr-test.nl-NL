@@ -1,12 +1,12 @@
 ---
-title: aaaBack up Windows bestanden en mappen tooAzure (Resource Manager) | Microsoft Docs
-description: Meer informatie over tooback van Windows-bestanden en mappen tooAzure in een implementatie van Resource Manager.
+title: Een back-up van Windows-bestanden en -mappen maken in Azure (Resource Manager) | Microsoft Docs
+description: Leer hoe u een back-up van Windows-bestanden en -mappen maakt in Azure met behulp van Resource Manager-implementatie.
 services: backup
 documentationcenter: 
 author: markgalioto
 manager: carmonm
 editor: 
-keywords: hoe toobackup; hoe tooback; back-bestanden en mappen
+keywords: back-up maken; hoe u een back-up maakt; back-up van bestanden en mappen maken
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,216 +15,216 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.openlocfilehash: 07d6580a84d5092ed2c61bf86ff5fcb148423ef2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>Eerste blik: een back-up maken van bestanden en mappen met Resource Manager-implementatie
-Dit artikel wordt uitgelegd hoe tooback van uw Windows Server (of Windows-computer)-bestanden en mappen tooAzure met behulp van de implementatie van een Resource Manager. Het is een zelfstudie beoogde toowalk u bij het Hallo-basisbeginselen. Als u wilt dat tooget gestart met behulp van Azure Backup, bent u op de juiste plaats Hallo.
+In dit artikel wordt uitgelegd hoe u een back-up maakt van bestanden en mappen op uw Windows Server (of Windows-computer) in Azure met behulp van Resource Manager-implementatie. Het artikel is bedoeld als handleiding waarmee u stapsgewijs de basis onder de knie krijgt. Als u met Azure Backup wilt leren werken, bent u hier op de goede plek.
 
-Als u tooknow meer informatie over Azure Backup wilt, Lees dit [overzicht](backup-introduction-to-azure-backup.md).
+Als u meer wilt weten over Azure Backup, lees dan dit [overzicht](backup-introduction-to-azure-backup.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/) aan waarmee u toegang hebt tot alle services van Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
-tooback van uw bestanden en mappen, moet u een Recovery Services-kluis in Hallo regio waar u toostore Hallo gegevens toocreate. U moet ook toodetermine hoe u uw opslag repliceren wilt.
+Als u een back-up wilt maken van uw bestanden en mappen, moet u een Recovery Services-kluis maken in de regio waar u de gegevens wilt opslaan. U moet ook bepalen op welke manier u uw opslag wilt repliceren. 
 
-### <a name="toocreate-a-recovery-services-vault"></a>toocreate een Recovery Services-kluis
-1. Als u dit nog niet hebt gedaan, meld u aan toohello [Azure Portal](https://portal.azure.com/) met behulp van uw Azure-abonnement.
-2. Klik op het menu Hub Hallo **meer services** en typt u in de lijst met resources Hallo **Recovery Services** en klik op **Recovery Services-kluizen**.
+### <a name="to-create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
+1. Meld u met uw Azure-abonnement aan bij de [Azure Portal](https://portal.azure.com/) als u dat nog niet hebt gedaan.
+2. Klik in het menu Hub op **Meer services**, typ in de lijst met resources **Recovery Services** en klik vervolgens op **Recovery Services-kluizen**.
 
     ![Een Recovery Services-kluis maken, stap 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
-    Als er recovery services-kluizen in Hallo abonnement, worden Hallo kluizen weergegeven.
-3. Op Hallo **Recovery Services-kluizen** menu, klikt u op **toevoegen**.
+    Als er Recovery Services-kluizen in het abonnement aanwezig zijn, worden deze weergegeven.
+3. Klik in het menu **Recovery Services-kluizen** op **Toevoegen**.
 
     ![Een Recovery Services-kluis maken, stap 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    Hallo Recovery Services vault blade wordt geopend, waarin u wordt gevraagd tooprovide een **naam**, **abonnement**, **resourcegroep**, en **locatie**.
+    De blade Recovery Services-kluis wordt geopend en u wordt gevraagd een **naam**, **abonnement**, **resourcegroep** en **locatie** in te voeren.
 
     ![Een Recovery Services-kluis maken, stap 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-4. Voor **naam**, voer een beschrijvende naam tooidentify Hallo-kluis. de naam van de Hallo moet toobe unieke voor hello Azure-abonnement. Typ een naam die tussen 2 en 50 tekens bevat. De naam moet beginnen met een letter en mag alleen letters, cijfers en afbreekstreepjes bevatten.
+4. Voer bij **Naam** een beschrijvende naam in om de kluis aan te duiden. De naam moet uniek zijn voor het Azure-abonnement. Typ een naam die tussen 2 en 50 tekens bevat. De naam moet beginnen met een letter en mag alleen letters, cijfers en afbreekstreepjes bevatten.
 
-5. In Hallo **abonnement** sectie, gebruikt u Hallo vervolgkeuzelijst toochoose hello Azure-abonnement. Als u slechts één abonnement, dat abonnement wordt weergegeven en kunt u de volgende stap toohello overslaan. Als u niet zeker weet welk abonnement toouse Hallo standaard gebruiken (of voorgestelde) abonnement. Er zijn alleen meerdere mogelijkheden als uw organisatieaccount is gekoppeld aan meerdere Azure-abonnementen.
+5. Kies het Azure-abonnement in de vervolgkeuzelijst in het gedeelte **Abonnement**. Als u slechts één abonnement hebt, wordt dit weergegeven en kunt u doorgaan met de volgende stap. Als u niet zeker weet welk abonnement u moet gebruiken, gebruikt u het standaard- (of voorgestelde) abonnement. Er zijn alleen meerdere mogelijkheden als uw organisatieaccount is gekoppeld aan meerdere Azure-abonnementen.
 
-6. In Hallo **resourcegroep** sectie:
+6. In het gedeelte **Resourcegroep**:
 
-    * Selecteer **nieuw** als u wilt dat toocreate een nieuwe resourcegroep.
+    * selecteert u **Nieuw** als u een nieuwe resourcegroep wilt maken,
     of
-    * Selecteer **gebruik bestaande** en klik op Hallo vervolgkeuzelijst toosee Hallo lijst met beschikbare resourcegroepen.
+    * selecteert u **Bestaande gebruiken** en klikt u op de vervolgkeuzelijst om de lijst met beschikbare resourcegroepen te zien.
 
-  Zie voor meer informatie over resourcegroepen Hallo [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+  Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen.
 
-7. Klik op **locatie** tooselect Hallo geografische regio voor Hallo kluis. Deze keuze bepaalt Hallo geografische regio waar uw back-upgegevens worden verzonden.
+7. Klik op **Locatie** om de geografische regio voor de kluis te selecteren. Deze keuze bepaalt de geografische regio waar uw back-upgegevens naartoe worden verzonden.
 
-8. Aan de onderkant van de Hallo van blade Hallo Recovery Services-kluis, klikt u op **maken**.
+8. Klik onder aan de blade Recovery Services-kluis op **Maken**.
 
-    Het kan enkele minuten duren voordat Hallo die Recovery Services-kluis toobe gemaakt. Hallo statusmeldingen rechtsboven Hallo van Hallo portal bewaken. Zodra de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Services-kluizen Hallo. Als u uw kluis na enkele minuten niet ziet, klik dan op **Vernieuwen**.
+    Het kan enkele minuten duren voordat de Recovery Services-kluis is gemaakt. Controleer de statusmeldingen rechtsboven in de portal. Zodra de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Services-kluizen. Als u uw kluis na enkele minuten niet ziet, klik dan op **Vernieuwen**.
 
     ![Op de knop Vernieuwen klikken](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
-    Nadat u uw kluis in Hallo lijst met Recovery Services-kluizen ziet, bent u klaar tooset Hallo opslag redundantie.
+    Wanneer u uw kluis in de lijst met Recovery Services-kluizen ziet, kunt u de opslagredundantie instellen.
 
-### <a name="set-storage-redundancy-for-hello-vault"></a>Redundantie van gegevensopslag voor Hallo kluis instellen
-Wanneer u een Recovery Services-kluis maakt, zorg ervoor dat redundantie van gegevensopslag geconfigureerde Hallo zoals u dat wilt.
+### <a name="set-storage-redundancy-for-the-vault"></a>Opslagredundantie instellen voor de kluis
+Wanneer u een Recovery Services-kluis maakt, zorg er dan voor dat de opslagredundantie op de gewenste manier is geconfigureerd.
 
-1. Van Hallo **Recovery Services-kluizen** blade, klikt u op de nieuwe kluis Hallo.
+1. Klik op de blade **Recovery Services-kluizen** op de nieuwe kluis.
 
-    ![Selecteer Hallo nieuwe kluis in Hallo-lijst met Recovery Services-kluis](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![De nieuwe kluis in de lijst met Recovery Services-kluizen selecteren](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-    Wanneer u Hallo kluis selecteert, Hallo **Recovery Services-kluis** blade overzicht en de blade instellingen hello (*die Hallo-naam van de kluis Hallo Hallo boven heeft*) en Hallo details blade kluis openen.
+    Wanneer u de kluis selecteert, wordt de blade **Recovery Services-kluis** smaller en worden de blade Instellingen (*met bovenaan de kluisnaam*) en de blade met kluisdetails geopend.
 
-    ![Het Hallo-opslagconfiguratie weergeven voor nieuwe kluis](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
-2. Op de blade instellingen Hallo nieuwe kluis, Hallo verticale dia tooscroll omlaag toohello sectie beheren en op **back-upinfrastructuur**.
-    Hallo back-upinfrastructuur blade wordt geopend.
-3. Klik op Hallo back-upinfrastructuur blade **back-upconfiguratie** tooopen hello **back-upconfiguratie** blade.
+    ![De opslagconfiguratie voor nieuwe kluis bekijken](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+2. Schuif op de blade Instellingen van de nieuwe kluis omlaag naar het gedeelte Beheren en klik op **Back-upinfrastructuur**.
+    De blade Back-up maken van infrastructuur wordt geopend.
+3. Klik op de blade Back-up maken van infrastructuur op **Back-up maken van configuratie** om de blade **Back-up maken van configuratie** te openen.
 
-    ![De opslagconfiguratie Hallo voor nieuwe kluis instellen](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
-4. Kies Hallo geschikte optie voor opslagreplicatie voor uw kluis.
+    ![De opslagconfiguratie voor nieuwe kluis instellen](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+4. Kies het type opslagreplicatie dat geschikt is voor uw kluis.
 
     ![keuzes bij opslagconfiguratie](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Uw kluis heeft standaard geografisch redundante opslag. Als u Azure als een eindpunt primaire back-upopslag gebruikt, gaat u verder toouse **geografisch redundante**. Als u geen Azure als een eindpunt primaire back-upopslag gebruikt, kiest u **lokaal redundante**, die zorgt voor lagere kosten voor hello Azure-opslag. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante ](../storage/common/storage-redundancy.md#locally-redundant-storage) opslag in dit [overzicht van opslagredundantie](../storage/common/storage-redundancy.md).
+    Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy.md#geo-redundant-storage) en [lokaal redundante ](../storage/common/storage-redundancy.md#locally-redundant-storage) opslag in dit [overzicht van opslagredundantie](../storage/common/storage-redundancy.md).
 
 Nu u een kluis hebt gemaakt, kunt u deze voor de back-ups van bestanden en mappen configureren.
 
-## <a name="configure-hello-vault"></a>Hallo kluis configureren
-1. Op de blade van de Recovery Services-kluis (voor Hallo kluis u zojuist hebt gemaakt), in de sectie aan de slag Hallo Hallo, klikt u op **back-up**, vervolgens op Hallo **aan de slag met back-up** blade Selecteer  **Back-updoel**.
+## <a name="configure-the-vault"></a>De kluis configureren
+1. Klik in het gedeelte Aan de slag van de blade van de Recovery Services-kluis (voor de kluis die u zojuist hebt gemaakt) op **Back-up** en dan op de blade **Aan de slag met black-ups**. Selecteer vervolgens **Doel van de back-up**.
 
     ![Open de blade back-updoelstelling](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-    Hallo **back-updoel** blade wordt geopend.
+    De blade **Back-updoelstelling** wordt geopend.
 
     ![Open de blade back-updoelstelling](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
-2. Van Hallo **waar wordt uw workload uitgevoerd?** vervolgkeuzelijst, selecteer **On-premises**.
+2. Selecteer **On-premises** in het menu **Waar wordt uw workload uitgevoerd?**.
 
     U kiest **On-premises** omdat uw Windows Server of Windows-computer een fysieke machine is die zich niet in Azure bevindt.
 
-3. Van Hallo **wat wilt u wilt dat toobackup?** selecteert u **bestanden en mappen**, en klik op **OK**.
+3. Selecteer **Bestanden en mappen** in het menu **Waarvan wilt u een back-up maken?** en klik vervolgens op **OK**.
 
     ![Bestanden en mappen configureren](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
 
-    Als u op OK klikt, verschijnt een vinkje volgende te**back-updoel**, en Hallo **infrastructuur voorbereiden** blade wordt geopend.
+    Nadat u op OK hebt geklikt, wordt er een vinkje weergegeven naast **Back-updoelstelling** en wordt de blade **Infrastructuur voorbereiden** geopend.
 
     ![Nu de back-updoelstelling is geconfigureerd, gaat u de infrastructuur voorbereiden](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
-4. Op Hallo **infrastructuur voorbereiden** blade, klikt u op **Agent downloaden voor Windows Server of Windows Client**.
+4. Klik op de blade **Infrastructuur voorbereiden** op **Agent voor Windows Server of Windows Client downloaden**.
 
     ![infrastructuur voorbereiden](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
-    Als u van Windows Server essentiële gebruikmaakt, kiest u toodownload Hallo-agent voor Windows Server essentieel. Een pop-upmenu vraagt u toorun of MARSAgentInstaller.exe opslaan.
+    Als u Windows Server Essential gebruikt, kiest u voor het downloaden van de agent voor Windows Server Essential. In een pop-upmenu wordt gevraagd of u MARSAgentInstaller.exe wilt uitvoeren of opslaan.
 
     ![Dialoogvenster MARSAgentInstaller](./media/backup-try-azure-backup-in-10-mins/mars-installer-run-save.png)
 
-5. In het pop-upmenu Hallo downloaden, klikt u op **opslaan**.
+5. Klik in het downloadpop-upvenster op **Opslaan**.
 
-    Standaard Hallo **MARSagentinstaller.exe** bestand tooyour downloadmap wordt opgeslagen. Als het Hallo-installatieprogramma is voltooid, ziet u een pop-upvenster waarin wordt gevraagd als u toorun Hallo installatieprogramma wilt of Hallo-map open.
+    Standaard wordt het bestand **MARSagentinstaller.exe** opgeslagen in de map Downloads. Wanneer het installatieprogramma is voltooid, ziet u een pop-upvenster waarin wordt gevraagd of u het installatieprogramma wilt uitvoeren of de map wilt openen.
 
     ![infrastructuur voorbereiden](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
-    U hoeft niet tooinstall Hallo agent nog. Nadat u de kluisreferenties Hallo hebt gedownload, kunt u Hallo-agent installeren.
+    U hoeft de agent nog niet te installeren. U kunt de agent installeren nadat u de kluisreferenties hebt gedownload.
 
-6. Op Hallo **infrastructuur voorbereiden** blade, klikt u op **downloaden**.
+6. Klik op de blade **Infrastructuur voorbereiden** op **Downloaden**.
 
     ![kluisreferenties downloaden](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    de map Downloads tooyour downloaden Hello kluisreferenties Nadat de kluisreferenties Hallo downloaden, ziet u een pop-upvenster waarin wordt gevraagd als u wilt dat tooopen of Hallo referenties op te slaan. Klik op **Opslaan**. Als u per ongeluk op **Open**, laten Hallo dialoogvenster waarmee wordt geprobeerd tooopen hello kluisreferenties, mislukken. U kunt de kluisreferenties Hallo niet openen. De volgende stap toohello worden voortgezet. Hallo kluisreferenties zijn in de map Downloads Hallo.   
+    De kluisreferenties worden naar de map Downloads gedownload. Nadat de kluisreferenties zijn gedownload, ziet u een pop-upvenster waarin u wordt gevraagd of u de referenties wilt openen of opslaan. Klik op **Opslaan**. Als u per ongeluk klikt op **Openen**, kunt u het dialoogvenster waarmee wordt geprobeerd de kluisreferenties te openen, laten mislukken. U kunt de kluisreferenties niet openen. Ga door naar de volgende stap. De kluisreferenties bevinden zich in de map Downloads.   
 
     ![kluisreferenties downloaden is voltooid](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 
-## <a name="install-and-register-hello-agent"></a>Installeren en registreren Hallo-agent
+## <a name="install-and-register-the-agent"></a>De agent installeren en registreren
 
 > [!NOTE]
-> Inschakelen back-ups via hello Azure-portal is nog niet beschikbaar. Gebruik Hallo Microsoft Azure Recovery Services Agent tooback van uw bestanden en mappen.
+> Het maken van back-ups via Azure Portal is nog niet beschikbaar. U kunt met de Microsoft Azure Recovery Services-agent back-ups maken van uw bestanden en mappen.
 >
 
-1. Zoek en dubbelklik op Hallo **MARSagentinstaller.exe** vanuit Hallo Downloads map (of een andere locatie is opgeslagen).
+1. Zoek en dubbelklik op **MARSagentinstaller.exe** in de map Downloads (of een andere locatie waar het bestand is opgeslagen).
 
-    Hallo-installatieprogramma biedt een reeks berichten zoals deze pakt wordt geïnstalleerd en geregistreerd Hallo Recovery Services-agent.
+    Het installatieprogramma geeft een reeks berichten tijdens het uitpakken, installeren en registreren van de Recovery Services-agent.
 
     ![uitvoeren van installatiereferenties van de Recovery Services-agent](./media/backup-try-azure-backup-in-10-mins/mars-installer-registration.png)
 
-2. Hallo Microsoft Azure Recovery Services Agent-installatiewizard voltooien. wizard toocomplete hello, moet u:
+2. Doorloop de installatiewizard van de Microsoft Azure Recovery Services Agent. Om de wizard volledig door te kunnen lopen, moet u:
 
-   * Kies een locatie voor de installatie en cache map Hallo.
-   * Geef uw proxyserveradres als u een proxy server tooconnect toohello serverinformatie internet.
+   * Een locatie voor de installatie en de cachemap kiezen.
+   * De informatie van uw proxyserver invoeren als u een proxyserver gebruikt om verbinding te maken met internet.
    * Uw gebruikersnaam en wachtwoord invoeren als u gebruikmaakt van een geverifieerde proxyserver.
-   * Geef referenties op Hallo gedownload kluis
-   * Hallo-wachtwoordzin voor versleuteling op een veilige locatie opslaan.
+   * De gedownloade kluisreferenties invoeren
+   * De wachtwoordzin voor de versleuteling op een veilige locatie opslaan.
 
      > [!NOTE]
-     > Als u kwijtraakt of Hallo wachtwoordzin vergeet, Microsoft u niet helpen Hallo back-upgegevens te herstellen. Hallo-bestand opslaan in een veilige locatie. Het is vereiste toorestore een back-up.
+     > Als u de wachtwoordzin kwijtraakt of vergeet, kan Microsoft u niet helpen om de back-upgegevens te herstellen. Sla het bestand daarom op een veilige locatie op. Het is verplicht om een back-up te herstellen.
      >
      >
 
-Hallo-agent wordt nu geïnstalleerd en uw computer is ingeschreven toohello kluis. U bent klaar tooconfigure en uw back-up plannen.
+De agent wordt nu geïnstalleerd en uw computer wordt geregistreerd bij de kluis. U kunt nu uw back-up configureren en plannen.
 
 ## <a name="network-and-connectivity-requirements"></a>Netwerk- en verbindingsvereisten
 
-Als uw machine/de proxy toegang tot internet beperkt heeft, moet u controleren of firewall-instellingen op Hallo mcahine/proxy geconfigureerde tooallow Hallo volgende URL's zijn: <br>
+Als uw computer/proxy beperkte internettoegang heeft, moet u zorgen dat in de firewall-instellingen op de computer/proxy de volgende URL's zijn toegestaan: <br>
     1. www.msftncsi.com
     2. *.Microsoft.com
     3. *.WindowsAzure.com
     4. *.microsoftonline.com
-    5. *.windows.ne
+    5. *.windows.net
 
 ## <a name="back-up-your-files-and-folders"></a>Een back-up maken van uw bestanden en mappen
-Hallo eerste back-up bevat twee belangrijke taken uitvoeren:
+Als u voor het eerst een back-up maakt, moet u twee belangrijke taken uitvoeren:
 
-* Hallo back-up plannen
-* Back-up van bestanden en mappen voor Hallo eerst
+* De back-up plannen
+* Voor de eerste keer een back-up maken van bestanden en mappen
 
-toocomplete hello eerste back-up, gebruik Hallo Microsoft Azure Recovery Services agent.
+Gebruik de Microsoft Azure Recovery Services-agent om de eerste back-up uit te voeren.
 
-### <a name="tooschedule-hello-backup-job"></a>back-uptaak van tooschedule Hallo
-1. Open Hallo Microsoft Azure Recovery Services agent. U vindt deze door te zoeken naar **Microsoft Azure Backup** op uw machine.
+### <a name="to-schedule-the-backup-job"></a>De back-up plannen
+1. Open de Microsoft Azure Recovery Services-agent. U vindt deze door te zoeken naar **Microsoft Azure Backup** op uw machine.
 
-    ![Hello Azure Recovery Services-agent starten](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
-2. Klik in de Recovery Services-agent Hallo op **back-up plannen**.
+    ![De Azure Recovery Services-agent starten](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
+2. Klik in de Recovery Services-agent op **Back-up plannen**.
 
     ![Een back-up van de Windows Server plannen](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
-3. Op Hallo aan de slag pagina van de Wizard Back-up plannen hello, klikt u op **volgende**.
-4. Klik op Hallo Items selecteren tooBackup pagina op **Items toevoegen**.
-5. Selecteer Hallo bestanden en mappen die u wilt tooback en klik vervolgens op **OK**.
+3. Op de pagina Aan de slag van de wizard Back-up plannen klikt u op **Volgende**.
+4. Op de pagina Items selecteren voor back-up klikt u op **Items toevoegen**.
+5. Selecteer de bestanden en mappen waarvan u een back-up wilt maken en klik op **OK**.
 6. Klik op **Volgende**.
-7. Op Hallo **back-upschema specificeren** pagina, geeft u Hallo **back-upschema** en klik op **volgende**.
+7. Op de pagina **Back-upschema specificeren** voert u het **back-upschema** in en klikt u op **Volgende**.
 
     U kunt dagelijkse back-ups (maximaal drie keer per dag en wekelijkse back-ups plannen.
 
     ![Items voor back-up van Windows Server](./media/backup-try-azure-backup-in-10-mins/specify-backup-schedule-close.png)
 
    > [!NOTE]
-   > Zie voor meer informatie over hoe toospecify back-upschema Hallo Hallo artikel [met Azure Backup tooreplace uw tape-infrastructuur](backup-azure-backup-cloud-as-tape.md).
+   > Zie het artikel [Uw tape-infrastructuur vervangen met Azure Backup](backup-azure-backup-cloud-as-tape.md) voor meer informatie over hoe u een back-upschema moet invoeren.
    >
 
-8. Op Hallo **retentiebeleid selecteren** pagina, selecteer Hallo **bewaarbeleid** voor Hallo back-up.
+8. Op de pagina **Retentiebeleid selecteren** selecteert het de **Retentiebeleid** voor de kopie van de back-up.
 
-    Hallo het bewaarbeleid geeft aan hoe lang de back-upgegevens hello wordt opgeslagen. U kunt verschillende Bewaarbeleidsregels op basis van wanneer Hallo back-up opgeven in plaats van het opgeven van een 'plat beleid' voor alle back-punten. Uw behoeften, kunt u Hallo dagelijkse, wekelijkse, maandelijkse en jaarlijkse bewaren beleid toomeet wijzigen.
-9. Kies op Hallo eerste back-uptype kiezen pagina Hallo-type voor eerste back-up. Hallo-optie ingesteld laat **automatisch via netwerk Hallo** geselecteerd en klik vervolgens op **volgende**.
+    In het retentiebeleid wordt bepaald hoelang de back-upgegevens worden opgeslagen. In plaats van alleen 'plat beleid' voor alle back-uppunten op te geven kunt u een ander retentiebeleid opgeven op basis van wanneer de back-up plaatsvindt. U kunt het dagelijkse, wekelijkse, maandelijkse en jaarlijkse retentiebeleid aanpassen, zodat het beleid altijd is afgestemd op uw behoeften.
+9. Op de pagina Type voor eerste back-up kiezen kiest u het type voor de eerste back-up. Laat de optie **Automatisch via het netwerk** aangevinkt staan en klik vervolgens op **Volgende**.
 
-    U kunt back-up automatisch via netwerk hello, of u offline back-ups. Hallo rest van dit artikel beschrijft Hallo-proces voor het automatisch een back-up maken. Als u liever toodo een offline back-up, Hallo artikel lezen [Offline back-werkstroom in Azure Backup](backup-azure-backup-import-export.md) voor meer informatie.
-10. Op de bevestigingspagina Hallo Hallo informatie bekijken en klik vervolgens op **voltooien**.
-11. Nadat het Hallo-wizard is voltooid voor het maken van back-upschema hello, klikt u op **sluiten**.
+    U kunt automatisch via het netwerk of offline back-ups maken. In het laatste deel van dit artikel wordt het proces voor automatische back-ups beschreven. Als u liever offline back-ups maakt, lees dan het artikel [Werkstroom voor offline back-up in Azure Backup](backup-azure-backup-import-export.md) voor meer informatie.
+10. Lees de informatie op de pagina Bevestiging en klik vervolgens op **Voltooien**.
+11. Nadat u de wizard voor het maken van een back-upschema hebt doorlopen, klikt u op **Sluiten**.
 
-### <a name="tooback-up-files-and-folders-for-hello-first-time"></a>tooback van bestanden en mappen voor de eerste keer Hallo
-1. Klik in het Hallo Recovery Services-agent op **Back-Up uit** toocomplete Hallo eerste seeding via Hallo netwerk.
+### <a name="to-back-up-files-and-folders-for-the-first-time"></a>Voor de eerste keer een back-up maken van bestanden en mappen
+1. Klik in de Recovery Services-agent op **Nu een back-up maken** om de eerste seeding via het netwerk te voltooien.
 
     ![Nu back-up maken van Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
-2. Op de bevestigingspagina Hallo revisie Hallo-instellingen die de Wizard Back-Up nu Hallo tooback Hallo machine gebruikt. Klik vervolgens op **Back-up maken**.
-3. Klik op **sluiten** tooclose Hallo-wizard. Als u Hallo wizard sluit voordat de back-upproces Hallo is voltooid, blijft Hallo wizard toorun op Hallo achtergrond.
+2. Controleer op de pagina Bevestiging de instellingen die de wizard Nu back-up maken gebruikt om een back-up te maken van de machine. Klik vervolgens op **Back-up maken**.
+3. Klik op **Sluiten** om de wizard te sluiten. Als u de wizard sluit voordat het back-upproces is voltooid, blijft de wizard op de achtergrond aanwezig.
 
-Nadat de eerste back-up Hallo is voltooid, Hallo **taak voltooid** status wordt weergegeven in Hallo back-up-console.
+Nadat de eerste back-up is voltooid, wordt de status **Taak voltooid** weergegeven in de back-upconsole.
 
 ![IR voltooid](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
 ## <a name="questions"></a>Vragen?
-Als u vragen hebt of als er een functie die u toosee opgenomen wilt, [Stuur ons feedback](http://aka.ms/azurebackup_feedback).
+Als u vragen hebt of als er een functie is die u graag opgenomen ziet worden, [stuur ons dan uw feedback](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [back-ups maken van Windows-machines](backup-configure-vault.md).
 * Wanneer u eenmaal een back-up hebt gemaakt van uw bestanden en mappen, kunt u [uw kluizen en servers beheren](backup-azure-manage-windows-server.md).
-* Als u een back-up toorestore moet, gebruikt u in dit artikel te[bestanden tooa Windows-machine herstellen](backup-azure-restore-windows-server.md).
+* Als u een back-up moet herstellen, [zet de bestanden dan terug naar een Windows-machine](backup-azure-restore-windows-server.md) aan de hand van dit artikel.

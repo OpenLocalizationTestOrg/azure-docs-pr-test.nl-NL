@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Dropbox voor bedrijven | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en Dropbox voor bedrijven.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Dropbox voor bedrijven.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,84 +13,84 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 0fb01eab4f7c6c4516eac64a4343e46ea221f98d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6f7616e47322242f01a13d763f71c93d4ac06a92
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-dropbox-for-business-for-automatic-user-provisioning"></a>Zelfstudie: Dropbox voor bedrijven configureren voor het automatisch gebruikers inrichten
 
-Hallo-doel van deze zelfstudie is tooshow u stappen die u tooperform in Dropbox voor bedrijven en Azure AD tooautomatically leveren en intrekken gebruikersaccounts vanuit Azure AD-tooDropbox voor bedrijven moet Hallo.
+Het doel van deze zelfstudie is zodat u de stappen die u wilt uitvoeren in Dropbox voor bedrijven en Azure AD automatisch inrichten en ongedaan inrichten gebruikersaccounts vanuit Azure AD naar Dropbox voor bedrijven.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Hallo scenario beschreven in deze zelfstudie wordt ervan uitgegaan dat u al hebt Hallo volgende items:
+Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
 *   Een Azure Active directory-tenant.
 *   Een Dropbox voor bedrijven-eenmalige aanmelding ingeschakeld abonnement.
 *   Een gebruikersaccount in Dropbox voor bedrijven met beheerdersmachtigingen Team.
 
-## <a name="assigning-users-toodropbox-for-business"></a>Gebruikers tooDropbox toewijzen voor bedrijven
+## <a name="assigning-users-to-dropbox-for-business"></a>Gebruikers toewijzen aan Dropbox voor bedrijven
 
-Azure Active Directory gebruikt een concept 'toewijzingen' toodetermine welke gebruikers toegang tooselected apps krijgen genoemd. In de context van de Hallo van automatische gebruikers account inrichten, alleen Hallo-gebruikers en groepen die '' tooan toepassing in Azure AD toegewezen zijn gesynchroniseerd.
+Azure Active Directory gebruikt een concept 'toewijzingen' genoemd om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van automatische gebruikers account inrichten, alleen de gebruikers en groepen die '' tot een toepassing in Azure AD toegewezen zijn gesynchroniseerd.
 
-Voordat u configureren en inschakelen van Hallo-service inricht, moet u toodecide welke gebruikers en/of groepen in Azure AD vertegenwoordigen Hallo-gebruikers die toegang moeten hebben tot tooyour Dropbox voor bedrijven-app. Als besloten, kunt u deze gebruikers tooyour Dropbox voor bedrijven-app kunt toewijzen door hier Hallo-instructies te volgen:
+Voordat u configureren en inschakelen van de inrichting service, moet u bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang nodig tot uw Dropbox voor bedrijven-app. Als besloten, kunt u deze gebruikers toewijzen aan uw Dropbox voor bedrijven-app door de volgende instructies te volgen:
 
-[Toewijzen van een gebruiker of groep tooan enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-toodropbox-for-business"></a>Belangrijke tips voor het toewijzen van gebruikers tooDropbox voor bedrijven
+### <a name="important-tips-for-assigning-users-to-dropbox-for-business"></a>Belangrijke tips voor het toewijzen van gebruikers aan Dropbox voor bedrijven
 
-*   Het is raadzaam om één tooDropbox voor bedrijven tootest Hallo configuratie inrichten door Azure AD-gebruiker is toegewezen. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+*   Het is raadzaam om één Azure AD-gebruiker is toegewezen aan Dropbox voor bedrijven voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-*   Wanneer een gebruiker tooDropbox toewijzen voor bedrijven, moet u een geldige gebruikersrol selecteren. Hallo 'Default toegang' rol werkt niet voor het inrichten van...
+*   Wanneer een gebruiker toewijzen aan Dropbox voor bedrijven, moet u een geldige gebruikersrol selecteren. De rol 'Default toegang' werkt niet voor het inrichten van...
 
 ## <a name="enable-automated-user-provisioning"></a>Geautomatiseerde Gebruikersinrichting inschakelen
 
-Deze sectie helpt u bij het verbinden van uw Azure AD-tooDropbox voor bedrijven van gebruikersaccount inrichten API en Hallo service toocreate inrichting configureren, bijwerken en uitschakelen van toegewezen gebruikersaccounts in Dropbox voor bedrijven op basis van gebruikers en groepen toewijzing in Azure AD.
+Deze sectie helpt u bij het verbinden van uw Azure AD met Dropbox voor bedrijven van gebruikersaccount inrichten API en configureren van de inrichting service te maken, bijwerken en uitschakelen van toegewezen gebruikersaccounts in Dropbox voor bedrijven op basis van gebruikers en groepen toewijzen in Azure AD.
 
 >[!Tip]
->U kunt ook tooenabled op basis van SAML eenmalige aanmelding voor Dropbox voor bedrijven, in het Hallo-instructies te volgen [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
+>U kunt ook op basis van SAML eenmalige aanmelding is ingeschakeld voor Dropbox voor bedrijven, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
 
-### <a name="tooconfigure-automatic-user-account-provisioning"></a>tooconfigure automatische account gebruikersaanvragen:
+### <a name="to-configure-automatic-user-account-provisioning"></a>Voor het configureren van automatische account gebruikersaanvragen:
 
-1. In Hallo [Azure-portal](https://portal.azure.com), bladeren toohello **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
+1. In de [Azure-portal](https://portal.azure.com), blader naar de **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
 
-2. Als u al Dropbox voor bedrijven hebt geconfigureerd voor eenmalige aanmelding, zoeken naar uw exemplaar van Dropbox voor bedrijven met Hallo zoekveld opgegeven. Selecteer anders **toevoegen** en zoek naar **Dropbox voor bedrijven** in Hallo-toepassingsgalerie. Selecteer Dropbox voor bedrijven in zoekresultaten hello, en voeg deze tooyour lijst met toepassingen.
+2. Als u al Dropbox voor bedrijven voor eenmalige aanmelding hebt geconfigureerd, kunt u zoeken naar uw exemplaar van Dropbox voor bedrijven met behulp van het zoekveld. Selecteer anders **toevoegen** en zoek naar **Dropbox voor bedrijven** in de galerie met toepassingen. Selecteer Dropbox voor bedrijven in de zoekresultaten en toe te voegen aan uw lijst met toepassingen.
 
-3. Selecteer uw exemplaar van Dropbox voor bedrijven en vervolgens Hallo **inrichten** tabblad.
+3. Selecteer uw exemplaar van Dropbox voor bedrijven en selecteer vervolgens de **inrichten** tabblad.
 
-4. Set Hallo **modus inrichting** te**automatische**. 
+4. Stel de **Inrichtingsmodus** naar **automatische**. 
 
     ![Inrichting](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/provisioning.png)
 
-5. Onder Hallo **beheerdersreferenties** sectie, klikt u op **autoriseren**. Er wordt een Dropbox voor zakelijke aanmeldingsdialoogvenster geopend in een nieuw browservenster.
+5. Onder de **beheerdersreferenties** sectie, klikt u op **autoriseren**. Er wordt een Dropbox voor zakelijke aanmeldingsdialoogvenster geopend in een nieuw browservenster.
 
-6. Op Hallo **aanmelden tooDropbox toolink met Azure AD** dialoogvenster Aanmelden tooyour Dropbox voor bedrijven-tenant.
+6. Op de **aanmelden bij Dropbox om te koppelen aan Azure AD** dialoogvenster Aanmelden bij uw Dropbox voor bedrijven-tenant.
 
      ![Gebruikers inrichten](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/ic769518.png "gebruikers inrichten")
 
-7. Bevestig dat u toogive Azure Active Directory machtiging toomake wijzigingen tooyour Dropbox voor bedrijven-tenant wilt. Klik op **toestaan**.
+7. Bevestig dat u wilt machtigen voor Azure Active Directory wijzigingen aanbrengen in uw Dropbox voor bedrijven-tenant. Klik op **toestaan**.
     
       ![Gebruikers inrichten](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/ic769519.png "gebruikers inrichten")
 
-8. Klik in hello Azure-portal, op **testverbinding** tooensure Azure AD verbinding kan maken van tooyour Dropbox voor bedrijven-app. Als Hallo verbinding mislukt, zorg ervoor dat uw Dropbox voor bedrijven-account Team beheerdersmachtigingen heeft en probeer het Hallo **'Autoriseren'** stap opnieuw.
+8. Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD, kan verbinding maken met uw Dropbox voor bedrijven-app. Als de verbinding is mislukt, zorg ervoor dat uw Dropbox voor bedrijven-account Team beheerdersmachtigingen heeft en probeer de **'Autoriseren'** stap opnieuw.
 
-9. Voer e-mailadres van een persoon of groep die inrichting fout meldingen in Hallo ontvangen moet Hallo **e-mailmelding** veld en Hallo selectievakje.
+9. Voer het e-mailadres van een persoon of groep die in inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het selectievakje in.
 
 10. Klik op **opslaan.**
 
-11. Selecteer onder Hallo toewijzingen sectie, **tooDropbox voor bedrijven synchroniseren Azure Active Directory-gebruikers.**
+11. Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory-gebruikers Dropbox voor bedrijven.**
 
-12. In Hallo **kenmerktoewijzingen** sectie, bekijkt hello gebruikerskenmerken die worden gesynchroniseerd vanuit Azure AD-tooDropbox voor bedrijven. kenmerken die zijn geselecteerd als Hallo **overeenkomend** eigenschappen zijn gebruikte toomatch Hallo gebruikersaccounts in Dropbox voor bedrijven voor update-bewerkingen. Selecteer Hallo knop toocommit wijzigingen zijn opgeslagen.
+12. In de **kenmerktoewijzingen** sectie, controleert u de kenmerken van de gebruiker van Azure AD worden gesynchroniseerd met Dropbox voor bedrijven. De kenmerken die zijn geselecteerd als **overeenkomend** eigenschappen overeenkomen met de gebruikersaccounts in Dropbox voor bedrijven voor update-bewerkingen worden gebruikt. Selecteer de knop Opslaan eventuele wijzigingen doorvoeren.
 
-13. tooenable Hallo inrichting Azure AD-service voor Dropbox voor bedrijven, wijziging Hallo **inrichting Status** te**op** in Hallo Zoekinstellingen
+13. Wijzigen om de Azure AD-service voor Dropbox voor bedrijven inricht, de **inrichting Status** naar **op** in de sectie instellingen
 
 14. Klik op **opslaan.**
 
-Hallo initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen tooDropbox voor bedrijven in Hallo gebruikers en groepen sectie begint. de initiële synchronisatie Hallo duurt langer tooperform dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden, zolang het Hallo-service wordt uitgevoerd. U kunt Hallo **synchronisatiedetails** sectie toomonitor uitgevoerd en volgt u koppelingen tooprovisioning activiteitsrapporten, waarin alle acties die worden uitgevoerd door hello voor bedrijven-app op uw Dropbox-service inricht.
+De initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan Dropbox voor bedrijven in de sectie gebruikers en groepen wordt gestart. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service op uw Dropbox voor bedrijven-app.
 
-U kunt nu een testaccount maken. Wacht tot up too20 minuten tooverify die Hallo-account is gesynchroniseerd tooDropbox voor bedrijven.
+U kunt nu een testaccount maken. Wacht 20 minuten duren om te verifiëren dat het account is gesynchroniseerd met Dropbox voor bedrijven.
 
 Een is voltooid gebruikersaanvragen cyclus wordt aangegeven door de bijbehorende status.
 

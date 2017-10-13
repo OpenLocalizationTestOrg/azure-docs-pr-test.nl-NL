@@ -1,6 +1,6 @@
 ---
-title: aaaHow toodelegate gebruiker registratie en de product-abonnement
-description: Meer informatie over hoe toodelegate gebruiker registratie en product abonnement tooa derde partij in Azure API Management.
+title: Het overdragen van de gebruiker de registratie- en productinformatie abonnement
+description: Informatie over het overdragen van de registratie en product gebruikerabonnement aan een derde partij in Azure API Management.
 services: api-management
 documentationcenter: 
 author: antonba
@@ -14,122 +14,122 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 406648db2d2f37c4dcda466294726d331cc0551b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2637ab6405f2d4ea1da84981295a144874dfa4f6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toodelegate-user-registration-and-product-subscription"></a>Hoe toodelegate gebruiker registratie en de product-abonnement
-Overdracht, kunt u toouse uw bestaande website voor het verwerken van ontwikkelaars sign-in/sign-up-to-date en abonnement tooproducts als toousing Hallo ingebouwde functionaliteit in de ontwikkelaarsportal Hallo geboden. Dit maakt het mogelijk uw website tooown Hallo gebruikergegevens en Hallo validatie van de volgende stappen uitvoeren in een aangepaste manier.
+# <a name="how-to-delegate-user-registration-and-product-subscription"></a>Het overdragen van de gebruiker de registratie- en productinformatie abonnement
+Overdracht kunt u uw bestaande website te gebruiken voor het verwerken van ontwikkelaars sign-in/sign-up-to-date en abonnement op producten in plaats van met behulp van de ingebouwde functie in de portal voor ontwikkelaars. Hierdoor kan uw website aan de eigenaar van de gebruikersgegevens en de validatie van de volgende stappen uitvoeren in een aangepaste manier.
 
 ## <a name="delegate-signin-up"></a>Overdragen developer aanmelden en registreren
-toodelegate aanmelden en registreren tooyour bestaande website voor ontwikkelaars u een eindpunt speciale delegering toocreate op uw site die fungeert moet als toegangspunt voor het verzoek gestart vanaf Hallo API Management-portal voor ontwikkelaars Hallo.
+Om te delegeren developer aanmelden en aanmelden met uw bestaande website, moet u een speciale delegering-eindpunt op de site die als het toegangspunt voor het verzoek gestart vanuit de ontwikkelaarsportal API Management fungeert maken.
 
-Hallo laatste werkstroom zijn als volgt:
+De laatste werkstroom zijn als volgt:
 
-1. Ontwikkelaars klikt op Hallo aanmelden of registreren op koppeling Hallo API Management-portal voor ontwikkelaars
-2. Browser wordt omgeleid toohello delegering eindpunt
-3. Eindpunt van de overdracht in leidt tooor geeft UI gevraagd gebruiker toosign in- of registreren
-4. Indien geslaagd kunt is Hallo gebruiker omgeleide back toohello API Management developer portal-pagina die ze vanuit gestart
+1. Ontwikkelaars klikken op de koppeling aanmelden of registreren bij API Management-portal voor ontwikkelaars
+2. Browser wordt omgeleid naar het eindpunt voor overdracht
+3. Eindpunt van de overdracht wordt omgeleid naar in of geeft UI gebruiker wordt gevraagd te aanmelden of registreren
+4. Indien geslaagd kunt wordt de gebruiker omgeleid naar de API Management developer portal-pagina die ze vanaf gestart
 
-toobegin, gaan we eerste tooroute voor configuratie-API Management-aanvragen via uw eindpunt overdracht. Hallo publicatieportal van API Management, klik op **beveiliging** en klik vervolgens op Hallo **delegering** tabblad. Klik op Hallo selectievakje tooenable gemachtigde aanmelden en registreren.
+Om te beginnen, aanvragen laten we eerst set-up API Management te routeren via uw eindpunt overdracht. Klik in de publicatieportal van API Management op **beveiliging** en klik vervolgens op de **delegering** tabblad. Klik op het selectievakje in zodat de gemachtigde-in- en registratie.
 
 ![Overdracht pagina][api-management-delegation-signin-up]
 
-* Bepaal wat Hallo-URL van uw eindpunt speciale delegering wordt en invoeren in Hallo **delegering eindpunt-URL** veld. 
-* Binnen Hallo **delegering verificatiesleutel** veld Voer een geheim dat is gebruikt toocompute een tooyou opgegeven handtekening voor de verificatie-tooensure die aanvraag Hallo inderdaad afkomstig is van Azure API Management. U kunt klikken op Hallo **genereren** knop toohave API een willekeurig genereren van een sleutel voor u.
+* Bepalen wat de URL van uw eindpunt speciale delegering wordt en voer deze in de **delegering eindpunt-URL** veld. 
+* Binnen de **delegering verificatiesleutel** veld Voer een geheim dat wordt gebruikt voor het berekenen van een handtekening die u voor verificatie om ervoor te zorgen dat de aanvraag inderdaad afkomstig is van Azure API Management. U kunt klikken op de **genereren** knop API een willekeurig genereren van een sleutel voor u hebben.
 
-Nu u toocreate hello moet **delegering eindpunt**. Tooperform heeft een aantal acties:
+Nu moet u maken de **delegering eindpunt**. Er is een aantal acties uitvoeren:
 
-1. Een aanvraag ontvangt in Hallo formulier te volgen:
+1. Een aanvraag ontvangen in de volgende notatie:
    
    > *http://www.yourwebsite.com/apimdelegation?Operation=Signin&returnUrl= {URL van bronpagina} & salt = {tekenreeks} & sig = {tekenreeks}*
    > 
    > 
    
-    De queryparameters voor Hallo-in- / registratie-aanvraag:
+    De queryparameters voor de aanvraag-in- / registratie:
    
    * **bewerking**: welk type overdracht aanvraag is - deze kan alleen worden identificeert **SignIn** in dit geval
-   * **returnUrl**: Hallo URL van Hallo pagina waar Hallo gebruiker hebt geklikt op een koppeling aanmelden of registreren
+   * **returnUrl**: de URL van de pagina waar de gebruiker hebt geklikt op een koppeling aanmelden of registreren
    * **Salt**: een speciale salt tekenreeks voor een hash beveiliging computing
-   * **SIG**: een berekende beveiliging hash toobe gebruikt voor de vergelijking tooyour eigen berekende hash
-2. Controleer of dat deze Hallo-aanvraag afkomstig is van Azure API Management (optioneel, maar sterk aanbevolen voor beveiliging)
+   * **SIG**: een hash van de berekende beveiliging moet worden gebruikt voor vergelijking van uw eigen berekende hash
+2. Controleer of dat de aanvraag afkomstig is van Azure API Management (optioneel, maar sterk aanbevolen voor beveiliging)
    
-   * Een HMAC SHA512-hash van een tekenreeks op basis van Hallo COMPUTE **returnUrl** en **salt** queryparameters ([voorbeeldcode hieronder]):
+   * COMPUTE een HMAC SHA512-hash van een tekenreeks op basis van de **returnUrl** en **salt** queryparameters ([voorbeeldcode hieronder]):
      
      > HMAC (**salt** + '\n' + **returnUrl**)
      > 
      > 
-   * Vergelijk Hallo hierboven berekende hash toohello waarde Hallo **sig** queryparameter. Als twee Hallo-hashes overeenkomen, op de volgende stap toohello verplaatst, anders dat Hallo-aanvraag wordt geweigerd.
-3. Controleer of u een aanvraag voor sign-in/aanmelding-up worden ontvangen: Hallo **bewerking** queryparameter te worden ingesteld '**SignIn**'.
-4. Hallo gebruiker opleveren UI toosign in- of registreren
-5. Als de gebruiker Hallo aanmelding hebt u toocreate een bijbehorende account voor hen in API Management. [Maken van een gebruiker] Hello API Management REST-API. Wanneer doet, moet u instellen van Hallo gebruiker-ID toohello tooan-ID die u kunt bijhouden van of hetzelfde in uw archief van de gebruiker is.
-6. Wanneer Hallo is geverifieerd:
+   * Vergelijk de bovenstaande berekende hash op de waarde van de **sig** queryparameter. Als de twee hashes overeenkomen, gaat u verder met de volgende stap, anders dat de aanvraag wordt geweigerd.
+3. Controleer of u een aanvraag voor sign-in/aanmelding-up worden ontvangen: de **bewerking** queryparameter wordt ingesteld op '**SignIn**'.
+4. De gebruiker opleveren UI aanmelden of registreren
+5. Als de gebruiker de aanmelding is die u moet een bijbehorende account voor hen maken in API Management. [Maken van een gebruiker] met de REST-API van API Management. Wanneer doet, zorg ervoor dat u de gebruikers-ID ingesteld op hetzelfde is in uw archief van de gebruiker of een id die u kunt van bijhouden.
+6. Wanneer de gebruiker is geverifieerd:
    
-   * [eenmalige aanmelding (SSO)-token van een aanvraag] via Hallo API Management REST-API
-   * een returnUrl query parameter toohello SSO-URL die u hebt ontvangen van de bovenstaande Hallo API-aanroep toevoegen:
+   * [eenmalige aanmelding (SSO)-token van een aanvraag] via de API Management REST API
+   * een queryparameter returnUrl toevoegen aan de SSO-URL die u hebt ontvangen van de API-aanroep hierboven:
      
      > bijvoorbeeld https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
-   * Hallo gebruiker toohello hierboven geproduceerde URL omleiden
+   * de gebruiker omgeleid naar de URL van de bovenstaande geproduceerd
 
-In aanvulling toohello **SignIn** bewerking, kunt u ook uitvoeren accountbeheer door Hallo vorige stappen te volgen en met behulp van een Hallo bewerkingen te volgen.
+Naast de **SignIn** bewerking, kunt u ook uitvoeren accountbeheer door de vorige stappen te volgen en het gebruik van een van de volgende bewerkingen.
 
 * **ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
 
-U moet doorgeven Hallo queryparameters voor accountbeheerbewerkingen te volgen.
+U moet de volgende queryparameters voor accountbeheerbewerkingen doorgeven.
 
 * **bewerking**: identificeert welk type overdracht aanvraag (ChangePassword, ChangeProfile of CloseAccount)
-* **userId**: Hallo gebruikers-id van Hallo account toomanage
+* **userId**: de gebruikers-id van het account voor het beheren van
 * **Salt**: een speciale salt tekenreeks voor een hash beveiliging computing
-* **SIG**: een berekende beveiliging hash toobe gebruikt voor de vergelijking tooyour eigen berekende hash
+* **SIG**: een hash van de berekende beveiliging moet worden gebruikt voor vergelijking van uw eigen berekende hash
 
 ## <a name="delegate-product-subscription"></a>Product abonnement overdragen
-Product abonnement delegeren werkt op dezelfde manier toodelegating gebruiker aanmelden /-up. laatste werkstroom Hallo zou als volgt zijn:
+Product abonnement delegeren werkt op dezelfde manier voor het delegeren van de gebruiker aanmelden /-up. De laatste werkstroom zou als volgt zijn:
 
-1. Ontwikkelaar selecteert een product in Hallo API Management-portal voor ontwikkelaars en klikt op Hallo abonneren knop
-2. Browser wordt omgeleid toohello delegering eindpunt
-3. Overdracht eindpunt vereist product abonnement stappen worden uitgevoerd - dit is tooyou en kan leiden tot omleiding tooanother pagina toorequest factureringsgegevens, extra vragen, of het opslaan van informatie Hallo en niet een gebruikersactie vereist
+1. Ontwikkelaar een product selecteert in de API Management-portal voor ontwikkelaars en klikt op de knop aanmelden
+2. Browser wordt omgeleid naar het eindpunt voor overdracht
+3. Overdracht eindpunt vereist product abonnement stappen worden uitgevoerd - deze bepaalt zelf en kan leiden tot omleiden naar een andere pagina om aan te vragen factureringsgegevens extra vragen, of het opslaan van de informatie en niet een gebruikersactie vereist
 
-tooenable hello functionaliteit op Hallo **delegering** pagina op **delegeren product abonnement**.
+Voor het inschakelen van de functionaliteit op de **delegering** pagina op **delegeren product abonnement**.
 
-Verzeker u ervan Hallo delegering eindpunt voert Hallo van de volgende activiteiten:
+Verzeker u ervan dat het eindpunt van de overdracht worden de volgende acties uitgevoerd:
 
-1. Een aanvraag ontvangt in Hallo formulier te volgen:
+1. Een aanvraag ontvangen in de volgende notatie:
    
-   > *{bewerking} http://www.yourwebsite.com/apimdelegation?Operation= & productId = {product toosubscribe naar} & userId = {user aanvraag} & salt = {tekenreeks} & sig = {tekenreeks}*
+   > *{bewerking} http://www.yourwebsite.com/apimdelegation?Operation= & productId = {product abonneren op} & userId = {user aanvraag} & salt = {tekenreeks} & sig = {tekenreeks}*
    > 
    > 
    
-    De queryparameters voor Hallo product abonnement geval:
+    De queryparameters voor het product abonnement geval:
    
-   * **bewerking**: identificeert welk type overdracht aanvraag is. Voor het product abonnement zijn aanvragen Hallo geldige opties:
-     * 'Abonneren': een verzoek toosubscribe Hallo gebruiker tooa opgegeven product met opgegeven ID (Zie hieronder)
-     * 'Afmelden': een verzoek toounsubscribe een gebruiker vanuit een product
-     * 'Vernieuwen': een verzoek toorenew een abonnement (bijvoorbeeld die kan verlopen)
-   * **productId**: Hallo-ID van Hallo product Hallo gebruiker toosubscribe naar aangevraagd
-   * **userId**: Hallo-ID van Hallo gebruiker voor wie Hallo-aanvraag wordt gedaan
+   * **bewerking**: identificeert welk type overdracht aanvraag is. Voor het product abonnement zijn aanvragen de geldige opties:
+     * 'Abonneren': een verzoek voor een abonnement van de gebruiker voor een bepaald product met opgegeven ID (Zie hieronder)
+     * 'Afmelden': een verzoek om te stoppen van een gebruiker vanuit een product
+     * 'Vernieuwen': een verzoek om een abonnement (bijvoorbeeld die kan verlopen) te vernieuwen
+   * **productId**: de ID van het product dat de gebruiker gevraagd om u te abonneren op
+   * **userId**: de ID van de gebruiker voor wie de aanvraag wordt gedaan
    * **Salt**: een speciale salt tekenreeks voor een hash beveiliging computing
-   * **SIG**: een berekende beveiliging hash toobe gebruikt voor de vergelijking tooyour eigen berekende hash
-2. Controleer of dat deze Hallo-aanvraag afkomstig is van Azure API Management (optioneel, maar sterk aanbevolen voor beveiliging)
+   * **SIG**: een hash van de berekende beveiliging moet worden gebruikt voor vergelijking van uw eigen berekende hash
+2. Controleer of dat de aanvraag afkomstig is van Azure API Management (optioneel, maar sterk aanbevolen voor beveiliging)
    
-   * Een HMAC-SHA512 van een tekenreeks op basis van Hallo COMPUTE **productId**, **userId** en **salt** queryparameters:
+   * COMPUTE een HMAC-SHA512 van een tekenreeks op basis van de **productId**, **userId** en **salt** queryparameters:
      
      > HMAC (**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
-   * Vergelijk Hallo hierboven berekende hash toohello waarde Hallo **sig** queryparameter. Als twee Hallo-hashes overeenkomen, op de volgende stap toohello verplaatst, anders dat Hallo-aanvraag wordt geweigerd.
-3. De verwerking van een abonnement die op basis van Hallo type in de aangevraagde bewerking uitvoeren **bewerking** -bijvoorbeeld facturering, meer vragen, enzovoort.
-4. Abonneren op het met succes abonneren Hallo gebruiker toohello product op uw kant, Hallo gebruiker toohello API Management-product door [aanroepen Hallo REST-API voor het product abonnement].
+   * Vergelijk de bovenstaande berekende hash op de waarde van de **sig** queryparameter. Als de twee hashes overeenkomen, gaat u verder met de volgende stap, anders dat de aanvraag wordt geweigerd.
+3. De verwerking van een abonnement die op basis van het type in de aangevraagde bewerking uitvoeren **bewerking** -bijvoorbeeld facturering, meer vragen, enzovoort.
+4. Abonneren op het abonnement is de gebruiker op het product aan uw kant, door de gebruiker het API Management-product door [aanroepen van de REST-API voor het product abonnement].
 
 ## <a name="delegate-example-code"></a> Voorbeeldcode
-Deze voorbeelden tonen hoe code tootake hello *delegering validatiesleutel*, die is ingesteld in overdracht welkomstscherm van de publicatieportal hello, toocreate een HMAC die vervolgens toovalidate Hallo handtekening, aan te tonen Hallo geldigheid van Hallo gebruikt doorgegeven returnUrl. Hallo dezelfde code voor Hallo productId en userId met kleine wijziging werkt.
+Deze codevoorbeelden laten zien hoe nemen de *delegering validatiesleutel*, die in het scherm van de overdracht van de publicatieportal is ingesteld voor het maken van een HMAC die vervolgens wordt gebruikt voor het valideren van de handtekening, de geldigheid van de returnUrl die is doorgegeven aan te tonen. De dezelfde code werkt voor de product-id en gebruikers-id met kleine wijziging.
 
-**C#-code toogenerate hash van returnUrl**
+**C#-code voor het genereren van de hash van returnUrl**
 
 ```c#
 using System.Security.Cryptography;
@@ -141,12 +141,12 @@ string signature;
 using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
 {
     signature = Convert.ToBase64String(encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl)));
-    // change too(salt + "\n" + productId + "\n" + userId) when delegating product subscription
-    // compare signature toosig query parameter
+    // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+    // compare signature to sig query parameter
 }
 ```
 
-**NodeJS code toogenerate hash van returnUrl**
+**Code genereren van de hash van returnUrl NodeJS**
 
 ```
 var crypto = require('crypto');
@@ -157,14 +157,14 @@ var salt = 'salt query parameter';
 
 var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
 var digest = hmac.update(salt + '\n' + returnUrl).digest();
-// change too(salt + "\n" + productId + "\n" + userId) when delegating product subscription
-// compare signature toosig query parameter
+// change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+// compare signature to sig query parameter
 
 var signature = digest.toString('base64');
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over delegering Hallo video te volgen.
+Zie de volgende video voor meer informatie over delegering.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]
 > 
@@ -174,7 +174,7 @@ Zie voor meer informatie over delegering Hallo video te volgen.
 [Delegating product subscription]: #delegate-product-subscription
 [eenmalige aanmelding (SSO)-token van een aanvraag]: http://go.microsoft.com/fwlink/?LinkId=507409
 [een gebruiker maken]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
-[aanroepen Hallo REST-API voor het product abonnement]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[aanroepen van de REST-API voor het product abonnement]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
 [voorbeeldcode hieronder]: #delegate-example-code
 

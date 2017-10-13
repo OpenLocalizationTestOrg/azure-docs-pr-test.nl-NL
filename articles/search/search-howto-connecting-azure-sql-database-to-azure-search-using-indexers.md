@@ -1,6 +1,6 @@
 ---
-title: aaaConnecting Azure SQL Database tooAzure zoeken met behulp van indexeerfuncties | Microsoft Docs
-description: Meer informatie over hoe toopull gegevens van Azure SQL Database tooan Azure Search-index met de indexeerfuncties.
+title: Verbinding maken met Azure SQL-Database naar Azure Search met behulp van indexeerfuncties | Microsoft Docs
+description: Informatie over het ophalen van gegevens uit Azure SQL Database naar een Azure Search-index met de indexeerfuncties.
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -14,53 +14,53 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: b28a11cf18ef994de99e09af90bbfeb171ef3cde
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="connecting-azure-sql-database-tooazure-search-using-indexers"></a>Verbinding maken met Azure SQL Database tooAzure zoeken met de indexeerfuncties
+# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Verbinding maken met Azure SQL Database in Azure Search met indexeerfuncties
 
-Voordat u kunt een query een [Azure Search-index](search-what-is-an-index.md), moet u deze vullen met uw gegevens. Als gegevens Hallo in een Azure SQL database woont, een **Azure Search-indexeerfunctie voor Azure SQL Database** (of **Azure SQL-indexeerfunctie** kortweg) kunt automatiseren Hallo indexering, wat betekent minder code toowrite en minder dat infrastructuur toocare over.
+Voordat u kunt een query een [Azure Search-index](search-what-is-an-index.md), moet u deze vullen met uw gegevens. Als de gegevens zich in een Azure SQL database, een **Azure Search-indexeerfunctie voor Azure SQL Database** (of **Azure SQL-indexeerfunctie** kortweg) het indexing proces, wat betekent minder code dat te schrijven en minder infrastructuur interesseren kunt automatiseren.
 
-Dit artikel behandelt Hallo mechanismen voor het gebruik van [indexeerfuncties](search-indexer-overview.md), maar ook functies die alleen beschikbaar in Azure SQL-databases (bijvoorbeeld geïntegreerd wijzigingen bijhouden) beschreven. 
+In dit artikel bevat informatie over het mechanisme voor het gebruik van [indexeerfuncties](search-indexer-overview.md), maar ook functies die alleen beschikbaar in Azure SQL-databases (bijvoorbeeld geïntegreerd wijzigingen bijhouden) beschreven. 
 
-In aanvulling tooAzure SQL-databases, biedt Azure Search indexeerfuncties voor [Azure Cosmos DB](search-howto-index-documentdb.md), [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), en [Azure-tabelopslag](search-howto-indexing-azure-tables.md). ondersteuning voor andere gegevensbronnen toorequest uw feedback op Hallo [forum met feedback van Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
+Naast Azure SQL-databases, biedt Azure Search indexeerfuncties voor [Azure Cosmos DB](search-howto-index-documentdb.md), [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), en [Azure-tabelopslag](search-howto-indexing-azure-tables.md). Vraag ondersteuning voor andere gegevensbronnen, uw feedback geven over de [forum met feedback van Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexeerfuncties en gegevensbronnen
 
-Een **gegevensbron** bepaalt welke gegevens tooindex, referenties voor toegang tot gegevens en beleidsregels die wijzigingen in gegevens hello (nieuwe, gewijzigde of verwijderde rijen) efficiënt te identificeren. Het gedefinieerd als een onafhankelijke resource zodat deze kan worden gebruikt door meerdere indexeerfuncties.
+Een **gegevensbron** geeft aan welke gegevens worden index, referenties voor toegang tot gegevens en beleidsregels die wijzigingen in de gegevens (nieuwe, gewijzigde of verwijderde rijen) efficiënt te identificeren. Het gedefinieerd als een onafhankelijke resource zodat deze kan worden gebruikt door meerdere indexeerfuncties.
 
-Een **indexeerfunctie** is een bron die een enkele gegevensbron is verbonden met een gerichte search-index. Een indexeerfunctie wordt gebruikt in de volgende manieren Hallo:
+Een **indexeerfunctie** is een bron die een enkele gegevensbron is verbonden met een gerichte search-index. Een indexeerfunctie wordt gebruikt in de volgende manieren:
 
-* Uitvoeren van een momentopname van Hallo gegevens toopopulate een index.
-* Bijwerken van een index met wijzigingen in de gegevensbron Hallo volgens een schema.
-* Voer op aanvraag tooupdate een index zo nodig.
+* Uitvoeren van een momentopname van de gegevens naar een index te vullen.
+* Bijwerken van een index met wijzigingen in de gegevensbron volgens een schema.
+* Voer op aanvraag voor het bijwerken van een index, indien nodig.
 
-Een enkele indexeerfunctie kan alleen gebruiken één tabel of weergave, maar u kunt meerdere indexeerfuncties als u meerdere zoekindexen toopopulate wilt maken. Zie voor meer informatie over concepten [indexbewerkingen: gangbare werkstroom](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
+Een enkele indexeerfunctie kan alleen gebruiken één tabel of weergave, maar u kunt meerdere indexeerfuncties maken als u wilt meerdere zoekindexen vullen. Zie voor meer informatie over concepten [indexbewerkingen: gangbare werkstroom](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
 
 U kunt instellen en configureren van een Azure SQL-indexeerfunctie met:
 
-* De wizard gegevens importeren in Hallo [Azure-portal](https://portal.azure.com)
+* De wizard gegevens importeren in de [Azure-portal](https://portal.azure.com)
 * Azure Search [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 * Azure Search [REST-API](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
 
-In dit artikel gebruiken we Hallo REST-API toocreate **indexeerfuncties** en **gegevensbronnen**.
+In dit artikel, kun je de REST-API maken **indexeerfuncties** en **gegevensbronnen**.
 
-## <a name="when-toouse-azure-sql-indexer"></a>Wanneer toouse Azure SQL indexeerfunctie
-Afhankelijk van verschillende factoren tooyour gegevens die betrekking hebben, Hallo gebruik van Azure SQL-indexeerfunctie mogelijk of niet. Als uw gegevens Hallo volgens de vereisten past, kunt u Azure SQL-indexeerfunctie.
+## <a name="when-to-use-azure-sql-indexer"></a>Het gebruik van Azure SQL indexeerfunctie
+Afhankelijk van verschillende factoren, met betrekking tot uw gegevens, het gebruik van Azure SQL-indexeerfunctie mogelijk of niet. Als uw gegevens aan de volgende vereisten, kunt u Azure SQL-indexeerfunctie.
 
 | Criteria | Details |
 |----------|---------|
-| Gegevens zijn afkomstig van één tabel of weergave | Als het Hallo-gegevens is verspreid over meerdere tabellen, kunt u één enkele weergave van Hallo gegevens maken. Echter, als u een weergave gebruikt, u niet kunt toouse SQL Server geïntegreerd wijziging detectie toorefresh een index met incrementele wijzigingen. Zie voor meer informatie [vastleggen gewijzigd en verwijderd rijen](#CaptureChangedRows) hieronder. |
-| Gegevenstypen zijn compatibel | De meeste, maar niet alle Hallo SQL-typen worden ondersteund in een Azure Search-index. Zie voor een lijst [toewijzing gegevenstypen](#TypeMapping). |
-| Synchronisatie van realtime gegevens is niet vereist | Een indexeerfunctie kan de tabel opnieuw indexeren van maximaal vijf minuten. Als uw gegevenswijzigingen vaak en hello verandert nodig toobe weerspiegeld in Hallo index binnen enkele seconden of minuten op één, wordt u aangeraden Hallo [REST-API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) of [.NET SDK](search-import-data-dotnet.md) toopush rechtstreeks rijen bijgewerkt. |
-| Incrementele indexeren is mogelijk | Als er een grote gegevensset en plan toorun Hallo indexeerfunctie volgens een schema, de Azure Search moet kunnen identificeren tooefficiently nieuwe, gewijzigde of verwijderde rijen. Niet-incrementele indexeren is alleen toegestaan als u indexeren op aanvraag (niet op schema), of minder dan 100.000 rijen te indexeren. Zie voor meer informatie [vastleggen gewijzigd en verwijderd rijen](#CaptureChangedRows) hieronder. |
+| Gegevens zijn afkomstig van één tabel of weergave | Als de gegevens is verspreid over meerdere tabellen, kunt u één enkele weergave van de gegevens maken. Echter, als u een weergave gebruikt, u niet mogelijk gebruik van SQL Server geïntegreerd opsporing vernieuwen van een index met incrementele wijzigingen. Zie voor meer informatie [vastleggen gewijzigd en verwijderd rijen](#CaptureChangedRows) hieronder. |
+| Gegevenstypen zijn compatibel | De meeste, maar niet alle de SQL-typen worden ondersteund in een Azure Search-index. Zie voor een lijst [toewijzing gegevenstypen](#TypeMapping). |
+| Synchronisatie van realtime gegevens is niet vereist | Een indexeerfunctie kan de tabel opnieuw indexeren van maximaal vijf minuten. Als uw gegevens vaak worden gewijzigd en de wijzigingen worden weergegeven in de index binnen enkele seconden of minuten op één moeten, wordt u aangeraden de [REST-API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) of [.NET SDK](search-import-data-dotnet.md) voor de bijgewerkte rijen direct push. |
+| Incrementele indexeren is mogelijk | Als u een grote gegevensset en plannen voor de indexeerfunctie uitvoeren op een planning hebt, is Azure Search moet kunnen nieuwe, gewijzigde of verwijderde rijen efficiënt te identificeren. Niet-incrementele indexeren is alleen toegestaan als u indexeren op aanvraag (niet op schema), of minder dan 100.000 rijen te indexeren. Zie voor meer informatie [vastleggen gewijzigd en verwijderd rijen](#CaptureChangedRows) hieronder. |
 
 ## <a name="create-an-azure-sql-indexer"></a>Maak een Azure SQL-indexeerfunctie
 
-1. Hallo-gegevensbron maken:
+1. De gegevensbron maken:
 
    ```
     POST https://myservice.search.windows.net/datasources?api-version=2016-09-01
@@ -71,15 +71,15 @@ Afhankelijk van verschillende factoren tooyour gegevens die betrekking hebben, H
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
         "credentials" : { "connectionString" : "Server=tcp:<your server>.database.windows.net,1433;Database=<your database>;User ID=<your user name>;Password=<your password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
-        "container" : { "name" : "name of hello table or view that you want tooindex" }
+        "container" : { "name" : "name of the table or view that you want to index" }
     }
    ```
 
-   U kunt Hallo-verbindingsreeks ophalen van Hallo [Azure-portal](https://portal.azure.com); hello gebruiken `ADO.NET connection string` optie.
+   U krijgt de verbindingsreeks van de [Azure-portal](https://portal.azure.com); gebruik de `ADO.NET connection string` optie.
 
-2. Hallo doel Azure Search-index maken als u nog niet hebt. U kunt een index maken met Hallo [portal](https://portal.azure.com) of Hallo [Index-API maken](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Zorg ervoor dat Hallo schema van de doelindex is compatibel met het schema van de brontabel Hallo Hallo - Zie [toewijzing tussen SQL en Azure search-gegevenstypen](#TypeMapping).
+2. De doel-Azure Search-index maken als u nog niet hebt. U kunt maken met een index met behulp van de [portal](https://portal.azure.com) of de [Index-API maken](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Zorg ervoor dat het schema van de doelindex compatibel met het schema van de brontabel - Zie [toewijzing tussen SQL en Azure search-gegevenstypen](#TypeMapping).
 
-3. Hallo indexeerfunctie door een naam geven en verwijzen naar Hallo gegevens bron en doel-index maken:
+3. De indexeerfunctie maken door een naam geven en verwijst naar de index van het bron- en doel:
 
     ```
     POST https://myservice.search.windows.net/indexers?api-version=2016-09-01
@@ -100,14 +100,14 @@ Een indexeerfunctie gemaakt op deze manier beschikt niet over een planning. Deze
 
 U kunt verschillende aspecten van de indexeerfunctie gedrag, zoals batchgrootte en het aantal documenten worden overgeslagen voordat de uitvoering van een indexeerfunctie is mislukt. Zie voor meer informatie [indexeerfunctie-API maken](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
-Mogelijk moet u tooallow Azure-services tooconnect tooyour database. Zie [verbinding te maken van Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voor instructies over het toodo die.
+Mogelijk moet u verbinding maken met uw database Azure-services toestaan. Zie [verbinding te maken van Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voor instructies over hoe u dat doet.
 
-toomonitor Hallo indexeerfunctie status en geschiedenis van de uitvoering (aantal items dat is geïndexeerd, fouten, enzovoort), gebruik een **indexeerfunctie status** aanvraag:
+Gebruik voor het bewaken van de indexeerfunctie status en uitvoering geschiedenis (aantal items dat is geïndexeerd, fouten, enz.), een **indexeerfunctie status** aanvraag:
 
     GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2016-09-01
     api-key: admin-key
 
-antwoord Hallo ziet vergelijkbare toohello volgende uit:
+Het antwoord moet er ongeveer als volgt uitzien:
 
     {
         "@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
@@ -140,11 +140,11 @@ antwoord Hallo ziet vergelijkbare toohello volgende uit:
         ]
     }
 
-Uitvoergeschiedenis-ups van too50 van meest recent voltooid Hallo-uitvoeringen die zijn gerangschikt in omgekeerde volgorde hello (zodat de meest recente uitvoering Hallo eerst in het antwoord Hallo komt) bevat.
-Meer informatie over antwoord Hallo vindt u in [indexeerfunctie Status ophalen](http://go.microsoft.com/fwlink/p/?LinkId=528198)
+Uitvoergeschiedenis van bevat maximaal 50 van de meest recentelijk uitgevoerde uitvoeringen die in de omgekeerde volgorde worden gesorteerd (zodat de meest recente uitvoering bovenaan in het antwoord).
+Meer informatie over het antwoord vindt u in [indexeerfunctie Status ophalen](http://go.microsoft.com/fwlink/p/?LinkId=528198)
 
 ## <a name="run-indexers-on-a-schedule"></a>Indexeerfuncties volgens een planning wordt uitgevoerd
-U kunt ook rangschikken Hallo indexeerfunctie toorun periodiek volgens een schema. toodo dit Hallo toevoegen **planning** eigenschap tijdens het maken of bijwerken van Hallo indexeerfunctie. Hallo in het volgende voorbeeld ziet u een indexeerfunctie PUT-aanvraag tooupdate Hallo:
+U kunt ook de indexeerfunctie periodiek wordt uitgevoerd volgens een schema rangschikken. Voeg hiervoor de **planning** eigenschap tijdens het maken of bijwerken van de indexeerfunctie. Het volgende voorbeeld ziet een PUT-aanvraag voor het bijwerken van de indexeerfunctie:
 
     PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2016-09-01
     Content-Type: application/json
@@ -156,23 +156,23 @@ U kunt ook rangschikken Hallo indexeerfunctie toorun periodiek volgens een schem
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-Hallo **interval** parameter is vereist. Hallo interval verwijst toohello tijd tussen twee opeenvolgende indexeerfunctie uitvoeringen Hallo is gestart. Hallo kleinste toegestane interval is 5 minuten. Hallo langste is één dag. Moet zijn geformatteerd als de waarde van een XSD-'dayTimeDuration' (een beperkte subset van een [duur van de ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) waarde). Hallo-patroon hiervoor is: `P(nD)(T(nH)(nM))`. Voorbeelden: `PT15M` voor elke 15 minuten `PT2H` voor elke 2 uur.
+De **interval** parameter is vereist. Het interval verwijst naar de tijd tussen het begin van de twee opeenvolgende indexeerfunctie uitvoeringen. De minimaal toegestane interval is 5 minuten. het langste is één dag. Moet zijn geformatteerd als de waarde van een XSD-'dayTimeDuration' (een beperkte subset van een [duur van de ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) waarde). Het patroon hiervoor is: `P(nD)(T(nH)(nM))`. Voorbeelden: `PT15M` voor elke 15 minuten `PT2H` voor elke 2 uur.
 
-Hallo optionele **startTime** geeft aan wanneer hello geplande uitvoeringen moeten worden begonnen. Als dit wordt weggelaten, wordt de Hallo huidige UTC-tijd gebruikt. Deze tijd kan zich op Hallo voorbij – in dat geval de eerste uitvoering Hallo alsof Hallo indexeerfunctie uitgevoerd continu sinds Hallo startTime is gepland.  
+De optionele **startTime** geeft aan wanneer de geplande uitvoeringen moeten beginnen. Als u dit weglaat, wordt de huidige UTC-tijd gebruikt. Deze tijd kan worden in het verleden – waarin geval de eerste uitvoering is gepland als de indexeerfunctie wordt uitgevoerd continu sinds de starttijd.  
 
-Slechts één van de uitvoering van een indexeerfunctie kunt uitvoeren op een tijdstip. Als een indexeerfunctie wordt uitgevoerd wanneer de uitvoering is gepland, Hallo uitvoering uitgesteld tot Hallo volgende geplande tijdstip.
+Slechts één van de uitvoering van een indexeerfunctie kunt uitvoeren op een tijdstip. Als een indexeerfunctie wordt uitgevoerd wanneer de uitvoering is gepland, wordt de uitvoering wordt uitgesteld totdat de volgende tijdstip geplande.
 
-Laten we eens een voorbeeld toomake dit concrete. Stel dat we Hallo volgende per uur schema dat is geconfigureerd:
+Een voorbeeld om dit te concrete laten we eens. Stel dat we de volgende per uur schema dat is geconfigureerd:
 
     "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
 
 Dit is wat er gebeurt:
 
-1. Hallo eerste indexeerfunctie uitvoering wordt gestart op of rond 1 maart 2015 12:00 uur DE UTC.
+1. De eerste uitvoering van de indexeerfunctie wordt gestart op of rond 1 maart 2015 12:00 uur DE UTC.
 2. Stel dat deze uitvoering duurt 20 minuten (of elk gewenst moment minder dan 1 uur).
-3. tweede Hallo-uitvoering wordt gestart op of rond 1 maart 2015 1:00 uur
+3. De tweede uitvoering wordt gestart op of rond 1 maart 2015 1:00 uur
 4. Stel nu dat deze uitvoering meer dan een uur – bijvoorbeeld 70 minuten – neemt zodat ongeveer 2:10 uur is voltooid
-5. Het is nu 2:00 uur, tijd voor het derde uitvoering toostart Hallo. Echter, omdat Hallo tweede uitvoering van 1 uur is nog steeds uitgevoerd, Hallo derde uitvoeren wordt overgeslagen. Hallo derde uitvoering begint bij 3 uur.
+5. Het is nu 2:00 uur, tijd voor de derde uitvoering te starten. Echter, omdat de tweede uitvoering van 1 uur nog steeds actief is, het derde uitvoeren wordt overgeslagen. De uitvoering van de derde begint bij 3 uur.
 
 U kunt toevoegen, wijzigen of verwijderen van een planning voor een bestaande indexeerfunctie met behulp van een **PUT indexeerfunctie** aanvraag.
 
@@ -180,10 +180,10 @@ U kunt toevoegen, wijzigen of verwijderen van een planning voor een bestaande in
 
 ## <a name="capture-new-changed-and-deleted-rows"></a>Nieuwe, gewijzigde en verwijderde rijen vastleggen
 
-Maakt gebruik van Azure Search **incrementele indexeren** tooavoid met toore-index Hallo gehele tabel of weergave telkens wanneer een indexeerfunctie wordt uitgevoerd. Azure Search biedt dat twee detectie beleid toosupport incrementele indexeren wijzigen. 
+Maakt gebruik van Azure Search **incrementele indexeren** om te voorkomen dat opnieuw indexeren de gehele tabel of weergave telkens wanneer een indexeerfunctie wordt uitgevoerd. Azure Search biedt dat twee detectie beleidsregels ter ondersteuning van incrementele indexeren wijzigen. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>In SQL geïntegreerde wijzigingen bijhouden van beleid
-Als uw SQL database ondersteunt [bijhouden](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), wordt u aangeraden **SQL geïntegreerde wijzigen Traceringsbeleid**. Dit is het meest efficiënt beleid Hallo. Bovendien kunt u Azure Search tooidentify verwijderde rijen zonder dat u tooadd hoeft een expliciete 'soft delete' kolom tooyour tabel.
+Als uw SQL database ondersteunt [bijhouden](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), wordt u aangeraden **SQL geïntegreerde wijzigen Traceringsbeleid**. Dit is het meest efficiënt beleid. Bovendien kunt u Azure Search, verwijderde rijen identificeren zonder dat u hoeft een expliciete 'soft delete'-kolom toevoegen aan uw tabel.
 
 #### <a name="requirements"></a>Vereisten 
 
@@ -191,12 +191,12 @@ Als uw SQL database ondersteunt [bijhouden](https://docs.microsoft.com/sql/relat
   * SQL Server 2012 SP3 en later, als u SQL Server op Azure Virtual machines.
   * Azure SQL Database V12, als u Azure SQL Database.
 + Alleen tabellen (Er zijn geen weergaven). 
-+ In de database Hallo [inschakelen voor het bijhouden](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) voor Hallo tabel. 
-+ Er is geen samengestelde primaire sleutel (een primaire sleutel die meer dan één kolom) op Hallo tabel.  
++ In de database [inschakelen voor het bijhouden](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) voor de tabel. 
++ Er is geen samengestelde primaire sleutel (een primaire sleutel die meer dan één kolom) voor de tabel.  
 
 #### <a name="usage"></a>Gebruik
 
-toouse dit beleid maken of bijwerken van de gegevensbron die u als volgt:
+Gebruik dit beleid, maken of bijwerken van de gegevensbron die u als volgt:
 
     {
         "name" : "myazuresqldatasource",
@@ -208,27 +208,27 @@ toouse dit beleid maken of bijwerken van de gegevensbron die u als volgt:
       }
     }
 
-Wanneer met behulp van SQL geïntegreerd bijhouden van beleid, geef geen een afzonderlijke gegevens detectie verwijderingsbeleid - dit beleid bevat ingebouwde ondersteuning voor het identificeren van verwijderde rijen. Echter voor automagically' hello verwijderingen toobe gedetecteerd' moet hello documentsleutel in uw search-index worden Hallo hetzelfde als de primaire sleutel Hallo in Hallo SQL-tabel. 
+Wanneer met behulp van SQL geïntegreerd bijhouden van beleid, geef geen een afzonderlijke gegevens detectie verwijderingsbeleid - dit beleid bevat ingebouwde ondersteuning voor het identificeren van verwijderde rijen. Echter voor de verwijderingen gedetecteerde 'automagically' moet moet de documentsleutel in uw search-index hetzelfde zijn als de primaire sleutel in de SQL-tabel. 
 
 <a name="HighWaterMarkPolicy"></a>
 
 ### <a name="high-water-mark-change-detection-policy"></a>Beleid voor High-Water Mark wijzigen
 
-Beleid voor deze wijziging is afhankelijk van een 'high-water mark' kolom vastleggen Hallo versie of tijd wanneer een rij voor het laatst is bijgewerkt. Als u een weergave, moet u een high-water mark-beleid. Hallo high-water mark kolom moet voldoen aan Hallo volgens de vereisten.
+Beleid voor deze wijziging is afhankelijk van een 'high-water mark' kolom voor het vastleggen van de versie of de tijd waarop een rij voor het laatst is bijgewerkt. Als u een weergave, moet u een high-water mark-beleid. De kolom high-water mark moet voldoen aan de volgende vereisten.
 
 #### <a name="requirements"></a>Vereisten 
 
-* Alle voegt een waarde opgeven voor Hallo-kolom.
-* Alle updates tooan item ook Hallo-waarde van Hallo kolom wijzigen.
-* Hallo-waarde van deze kolom wordt verhoogd met elke invoegen of bijwerken.
-* Query's met Hallo waar te volgen en ORDER BY-componenten efficiënt kunnen worden uitgevoerd:`WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
+* Alle voegt een waarde opgeven voor de kolom.
+* Alle updates aan een item wordt ook de waarde van de kolom wijzigen.
+* De waarde van deze kolom wordt verhoogd met elke invoegen of bijwerken.
+* Query's met het volgende waar en ORDER BY-componenten efficiënt kunnen worden uitgevoerd:`WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
-> Ten zeerste aangeraden Hallo [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) gegevenstype voor Hallo high-water mark kolom. Als een ander gegevenstype wordt gebruikt, is het bijhouden toocapture alle wijzigingen in de aanwezigheid van transacties die worden uitgevoerd als een query indexeerfunctie Hallo niet gegarandeerd. Wanneer u **rowversion** in een configuratie met alleen-lezen-replica's, moet u Hallo indexeerfunctie verwijzen op Hallo primaire replica. Alleen een primaire replica kan worden gebruikt voor scenario's voor het synchroniseren van gegevens.
+> Wij raden met behulp van de [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) gegevenstype voor de kolom high-water mark. Als een ander gegevenstype wordt gebruikt, wordt tracering van wijzigingen niet gegarandeerd voor het vastleggen van alle wijzigingen in de aanwezigheid van transacties dat gelijktijdig loopt met een indexeerfunctie-query wordt uitgevoerd. Wanneer u **rowversion** in een configuratie met alleen-lezen-replica's, moet u de indexeerfunctie aanwijst op de primaire replica. Alleen een primaire replica kan worden gebruikt voor scenario's voor het synchroniseren van gegevens.
 
 #### <a name="usage"></a>Gebruik
 
-toouse een high-water mark-beleid maken of bijwerken van de gegevensbron die u als volgt:
+Voor het gebruik van een high-water mark-beleid maken of bijwerken van de gegevensbron die u als volgt:
 
     {
         "name" : "myazuresqldatasource",
@@ -242,11 +242,11 @@ toouse een high-water mark-beleid maken of bijwerken van de gegevensbron die u a
     }
 
 > [!WARNING]
-> Als de brontabel Hallo geen een index op Hallo high-water mark kolom heeft, kunnen een query's die worden gebruikt door Hallo SQL indexeerfunctie time-out. In het bijzonder Hallo `ORDER BY [High Water Mark Column]` component vereist een index toorun efficiënt wanneer Hallo tabel veel rijen bevat.
+> Als de brontabel geen een index voor de kolom high-water mark heeft, kunnen er query's die worden gebruikt door de SQL-indexeerfunctie time-out. In het bijzonder de `ORDER BY [High Water Mark Column]` component vereist een index worden efficiënt wordt uitgevoerd wanneer u deze tabel bevat veel rijen.
 >
 >
 
-Als u de time-outfouten ondervindt, kunt u Hallo `queryTimeout` indexeerfunctie configuratie-instelling tooset hello tooa outwaarde query hoger is dan de time-out voor Hallo standaard 5 minuten. Bijvoorbeeld, tooset Hallo time-out too10 minuten maken of bijwerken van Hallo indexeerfunctie Hello volgende configuratie:
+Als u de time-outfouten ondervindt, kunt u de `queryTimeout` indexeerfunctie configuratie-instelling voor de querytime-out ingesteld op een waarde die hoger is dan de time-out van standaard 5 minuten. Bijvoorbeeld, om te stellen de time-out voor 10 minuten, maken of bijwerken van de indexeerfunctie met de volgende configuratie:
 
     {
       ... other indexer definition properties
@@ -254,7 +254,7 @@ Als u de time-outfouten ondervindt, kunt u Hallo `queryTimeout` indexeerfunctie 
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
 
-U kunt ook uitschakelen Hallo `ORDER BY [High Water Mark Column]` component. Dit wordt echter niet aanbevolen omdat als Hallo indexeerfunctie worden uitgevoerd door een fout wordt onderbroken, Hallo indexeerfunctie toore proces alle rijen heeft als deze later - wordt uitgevoerd zelfs als Hallo indexeerfunctie al bijna alle Hallo rijen verwerkt door Hallo wanneer die deze is onderbroken. Hallo toodisable `ORDER BY` -component, gebruik Hallo `disableOrderByHighWaterMarkColumn` instellen in de definitie van de indexeerfunctie Hallo:  
+U kunt ook uitschakelen de `ORDER BY [High Water Mark Column]` component. Dit wordt echter niet aanbevolen omdat als de uitvoering van de indexeerfunctie wordt onderbroken door een fout, wordt de indexeerfunctie is opnieuw verwerkt alle rijen als deze later - wordt uitgevoerd zelfs als de indexeerfunctie bijna alle rijen al verwerkt door de tijd dat deze is onderbroken. Uitschakelen van de `ORDER BY` component, gebruik de `disableOrderByHighWaterMarkColumn` instellen in de definitie van de indexeerfunctie:  
 
     {
      ... other indexer definition properties
@@ -263,22 +263,22 @@ U kunt ook uitschakelen Hallo `ORDER BY [High Water Mark Column]` component. Dit
     }
 
 ### <a name="soft-delete-column-deletion-detection-policy"></a>Beleid voor voorlopig verwijderen kolom verwijdering detectie
-Wanneer rijen worden verwijderd uit de brontabel hello, wilt u waarschijnlijk toodelete die rijen uit ook Hallo search-index. Als u Hallo SQL geïntegreerde wijzigingen bijhouden van beleid, dit is afgehandeld voor u. Echter, Hallo high-water mark Traceringsbeleid niet helpt u met verwijderde rijen. Welke toodo?
+Wanneer rijen zijn verwijderd uit de brontabel, wilt u waarschijnlijk de rijen verwijderen uit de search-index. Als u beleid voor de SQL geïntegreerd bijhouden, is dit afgehandeld voor u. Echter, de high-water mark bijhouden beleid niet helpt u met verwijderde rijen. Hoe pakt u dit aan?
 
-Als Hallo rijen fysiek zijn verwijderd uit de tabel hello, heeft Azure Search geen manier tooinfer Hallo aanwezigheid van records die niet meer bestaat.  Echter, kunt u Hallo 'soft-delete' techniek toologically verwijderen rijen zonder te verwijderen op tabel Hallo. Voeg een kolom tooyour tabel of weergave en rijen markeren als verwijderd met behulp van die kolom.
+Als de rijen worden fysiek verwijderd uit de tabel, er Azure Search geen manier voor het afleiden van de aanwezigheid van records die niet meer bestaat.  U kunt echter de techniek 'soft-delete' logisch om rijen te verwijderen zonder dat ze worden verwijderd uit de tabel. Een kolom toevoegen aan de rijen van de tabel of weergave en markeren als verwijderd met behulp van die kolom.
 
-Wanneer u Hallo voorlopig verwijderen techniek, kunt u beleid voor voorlopig verwijderen Hallo als volgt bij het maken of bijwerken van de gegevensbron Hallo:
+Wanneer u de soft-delete-methode gebruikt, kunt u het beleid voor voorlopige verwijdering als volgt bij het maken of bijwerken van de gegevensbron kunt opgeven:
 
     {
         …,
         "dataDeletionDetectionPolicy" : {
            "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
            "softDeleteColumnName" : "[a column name]",
-           "softDeleteMarkerValue" : "[hello value that indicates that a row is deleted]"
+           "softDeleteMarkerValue" : "[the value that indicates that a row is deleted]"
         }
     }
 
-Hallo **softDeleteMarkerValue** moet een tekenreeks-Hallo tekenreeksrepresentatie van de werkelijke waarde gebruiken. Bijvoorbeeld, als u een kolom met gehele getallen waar verwijderde rijen zijn gemarkeerd met Hallo waarde 1 hebt, gebruik `"1"`. Als u een bits-kolom waar verwijderde rijen zijn gemarkeerd met Booleaanse waarde ' True ' hello hebt, gebruikt u `"True"`.
+De **softDeleteMarkerValue** moet een tekenreeks-de tekenreeksweergave van uw werkelijke waarde gebruiken. Bijvoorbeeld, als u een kolom met gehele getallen waar verwijderde rijen zijn gemarkeerd met de waarde 1 hebt, gebruik `"1"`. Als u hebt een bits-kolom waar verwijderde rijen zijn gemarkeerd met de waarde voor Boole-waarde ' True ', gebruikt u `"True"`.
 
 <a name="TypeMapping"></a>
 
@@ -290,11 +290,11 @@ Hallo **softDeleteMarkerValue** moet een tekenreeks-Hallo tekenreeksrepresentati
 | bigint |Edm.Int64, Edm.String | |
 | reële float |Edm.Double, Edm.String | |
 | smallmoney, geld decimale numerieke |Edm.String |Azure Search biedt geen ondersteuning voor het decimale typen converteren naar Edm.Double omdat dit precisie verliezen |
-| CHAR, nchar, varchar, nvarchar |Edm.String<br/>Collection(EDM.String) |Een SQL-tekenreeks kan gebruikte toopopulate een veld verzameling (EDM.String) zijn als Hallo tekenreeks een JSON-matrix van tekenreeksen vertegenwoordigt:`["red", "white", "blue"]` |
+| CHAR, nchar, varchar, nvarchar |Edm.String<br/>Collection(EDM.String) |Een SQL-tekenreeks kan worden gebruikt voor het vullen van een veld verzameling (EDM.String) als de tekenreeks een JSON-matrix van tekenreeksen vertegenwoordigt:`["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
-| Geografie |Edm.GeographyPoint |Alleen Geografie exemplaren van het type punt met SRID 4326 (dit is standaard Hallo) worden ondersteund |
-| ROWVERSION |N.v.t. |Kolommen van de rij-versie in Hallo-zoekindex kunnen niet worden opgeslagen, maar ze kunnen worden gebruikt voor het bijhouden |
+| Geografie |Edm.GeographyPoint |Alleen Geografie exemplaren van het type punt met SRID 4326 (dit is de standaardinstelling) worden ondersteund |
+| ROWVERSION |N.v.t. |Kolommen van de rij-versie kunnen niet worden opgeslagen in de search-index, maar ze kunnen worden gebruikt voor het bijhouden |
 | tijd, timespan, binary, varbinary, image, xml, geometry, CLR-typen |N.v.t. |Niet ondersteund |
 
 ## <a name="configuration-settings"></a>Configuratie-instellingen
@@ -302,10 +302,10 @@ SQL-indexeerfunctie beschrijft de verschillende configuratie-instellingen:
 
 | Instelling | Gegevenstype | Doel | Standaardwaarde |
 | --- | --- | --- | --- |
-| queryTimeout |Tekenreeks |Sets Hallo-out voor de uitvoering van de SQL-query |5 minuten (' 00: 05:00 ") |
-| disableOrderByHighWaterMarkColumn |BOOL |Zorgt ervoor dat Hallo SQL-query die wordt gebruikt door Hallo high-water mark beleid tooomit Hallo ORDER BY-component. Zie [High-Water Mark beleid](#HighWaterMarkPolicy) |ONWAAR |
+| queryTimeout |Tekenreeks |Hiermee stelt u de time-out voor de uitvoering van de SQL-query |5 minuten (' 00: 05:00 ") |
+| disableOrderByHighWaterMarkColumn |BOOL |Zorgt ervoor dat de SQL-query die wordt gebruikt door het beleid high-water mark weglaten de component ORDER BY. Zie [High-Water Mark beleid](#HighWaterMarkPolicy) |ONWAAR |
 
-Deze instellingen worden gebruikt in Hallo `parameters.configuration` object in de definitie van de indexeerfunctie Hallo. Bijvoorbeeld, tooset Hallo query time-out too10 minuten, maken of bijwerken van Hallo indexeerfunctie Hello volgende configuratie:
+Deze instellingen worden gebruikt de `parameters.configuration` -object in de definitie van de indexeerfunctie. Bijvoorbeeld, als u wilt de querytime-out ingesteld op 10 minuten, maken of bijwerken van de indexeerfunctie met de volgende configuratie:
 
     {
       ... other indexer definition properties
@@ -317,23 +317,23 @@ Deze instellingen worden gebruikt in Hallo `parameters.configuration` object in 
 
 **V: kan ik Azure SQL-indexeerfunctie gebruiken met SQL-databases die zijn uitgevoerd op IaaS virtuele machines in Azure**
 
-Ja. U moet echter de zoekdatabase service tooconnect tooyour tooallow. Zie voor meer informatie [verbinding van een Azure Search-indexeerfunctie tooSQL Server configureren op een Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
+Ja. U moet echter toestaan uw search-service verbinding maken met uw database. Zie voor meer informatie [configureren van een verbinding van een Azure Search-indexeerfunctie naar SQL Server op een Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
 **V: kan ik Azure SQL-indexeerfunctie met SQL-databases met lokale gebruiken?**
 
-Niet rechtstreeks. Er wordt niet aanbevolen noch een rechtstreekse verbinding ondersteuning als dit dus tooopen u uw databases tooInternet verkeer moeten zou. Klanten zijn met dit scenario met brug technologieën zoals Azure Data Factory geslaagd. Zie voor meer informatie [Push gegevens tooan Azure Search-index met Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
+Niet rechtstreeks. Er wordt niet aanbevolen noch een rechtstreekse verbinding ondersteunen zoals doen dus moet u uw databases om internetverkeer te openen. Klanten zijn met dit scenario met brug technologieën zoals Azure Data Factory geslaagd. Zie voor meer informatie [Push-gegevens naar een Azure Search-index met behulp van Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
 **V: kan ik Azure SQL-indexeerfunctie gebruiken dan SQL Server op Azure wordt uitgevoerd in een IaaS-databases**
 
-Nee. Dit scenario wordt ondersteund niet omdat Hallo een indexeerfunctie met alle databases dan SQL Server is niet getest.  
+Nee. Dit scenario wordt ondersteund niet omdat de indexeerfunctie met alle databases dan SQL Server is niet getest.  
 
 **V: kan ik meerdere indexeerfuncties uitgevoerd volgens een planning maken?**
 
-Ja. Echter kan slechts één indexeerfunctie worden uitgevoerd op één knooppunt tegelijk. Als u meerdere indexeerfuncties gelijktijdig uitgevoerd moet, kunt u uw search-service toomore dan één zoekeenheid schaalt.
+Ja. Echter kan slechts één indexeerfunctie worden uitgevoerd op één knooppunt tegelijk. Als u meerdere indexeerfuncties gelijktijdig uitgevoerd moet, kunt u uw zoekservice aan meer dan één zoekeenheid schaalt.
 
 **V: bevat een indexeerfunctie invloed zijn op de workload van mijn query's uitgevoerd?**
 
-Ja. Indexeerfunctie wordt uitgevoerd op een van de knooppunten Hallo in uw zoekservice en resources voor dat knooppunt worden gedeeld tussen indexeren ten behoeve van de queryverkeer en andere API-aanvragen. Als u werkbelastingen met een intensieve indexeren en de query uitvoert en een hoge frequentie van 503-fouten of toenemende reactietijden optreden, kunt u overwegen [uw search-service schaalt](search-capacity-planning.md).
+Ja. Indexeerfunctie wordt uitgevoerd op een van de knooppunten in uw zoekservice en resources voor dat knooppunt worden gedeeld tussen indexeren ten behoeve van de queryverkeer en andere API-aanvragen. Als u werkbelastingen met een intensieve indexeren en de query uitvoert en een hoge frequentie van 503-fouten of toenemende reactietijden optreden, kunt u overwegen [uw search-service schaalt](search-capacity-planning.md).
 
 **V: kan ik gebruik van een secundaire replica in een [failovercluster](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) als een gegevensbron?**
 
@@ -343,16 +343,16 @@ Voor incrementele indexeren Azure Search ondersteunt twee beleidsregels wijzigen
 
 Op alleen-lezen-replica's ondersteunt SQL database geen geïntegreerde wijzigingen bijhouden. Daarom moet u een High-Water Mark beleid gebruiken. 
 
-Onze standaard aanbeveling is toouse Hallo rowversion gegevenstype voor Hallo high-water mark kolom. Echter, is met behulp van rowversion afhankelijk van de SQL-Database `MIN_ACTIVE_ROWVERSION` functie, wat niet wordt ondersteund op alleen-lezen-replica's. U moet daarom Hallo indexeerfunctie tooa primaire replica verwijzen als u van rowversion gebruikmaakt.
+We bevelen aan standaard is het gebruik van het gegevenstype rowversion voor de kolom high-water mark. Echter, is met behulp van rowversion afhankelijk van de SQL-Database `MIN_ACTIVE_ROWVERSION` functie, wat niet wordt ondersteund op alleen-lezen-replica's. Daarom moet u de indexeerfunctie verwijzen naar een primaire replica als u van rowversion gebruikmaakt.
 
-Als u toouse rowversion op een alleen-lezen-replica probeert, ziet u de volgende fout Hallo: 
+Als u probeert te gebruiken rowversion op een alleen-lezen-replica, ziet u de volgende fout: 
 
-    "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update hello datasource and specify a connection toohello primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+    "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
 
 **V: kan ik een alternatieve, niet-tijdstempelkolom gebruiken voor het bijhouden van een high-water mark?**
 
 Het wordt niet aangeraden. Alleen **rowversion** voor betrouwbare gegevenssynchronisatie kunt. Echter, afhankelijk van uw toepassingslogica mogelijk veilige als:
 
-+ U kunt ervoor zorgen dat wanneer Hallo indexeerfunctie wordt uitgevoerd, er zijn geen openstaande transacties op Hallo-tabel die wordt geïndexeerd (bijvoorbeeld alle tabel updates gebeuren als een batch volgens een schema en hello Azure Search-indexeerfunctie planning tooavoid overlapt met het Hallo-tabel is ingesteld schema bijwerken).  
++ U kunt ervoor zorgen dat wanneer de indexeerfunctie wordt uitgevoerd, er geen openstaande transacties in de tabel die wordt geïndexeerd (bijvoorbeeld alle tabel updates geval een batch op een planning en de Azure Search-indexeerfunctie planning is ingesteld zijn om te voorkomen dat overlapt met de tabel update plannen).  
 
-+ U doen een volledige opnieuw indexeren toopick up gemiste rijen regelmatig. 
++ U doen een volledige opnieuw indexeren om op te halen rijen gemiste regelmatig. 

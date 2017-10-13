@@ -1,8 +1,8 @@
 ---
-title: aaaAzure documentatie van de Advisor - zelfstudie | Microsoft Docs
+title: Documentatie voor Azure Advisor - zelfstudies | Microsoft Docs
 description: 
 services: advisor
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 1a1f8280c89b4e38af8c9cb2f5e55486a78186d3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 30d8d4f3565fcc5e4c5c514a74f94c3ce24819e6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-advisor-documentation"></a>Documentatie voor Azure Advisor
 
-Azure Advisor is een persoonlijke cloud-consultant die u helpt volgen best practices toooptimize uw Azure-implementaties. Advisor analyseert de configuratie van uw resources en de gebruiksgerelateerde telemetrie. Vervolgens raadt oplossingen toohelp Hallo prestaties, beveiliging, verbeteren en hoge beschikbaarheid van uw resources tijdens het zoeken naar verkoopkansen tooreduce uw algehele Azure besteden aan.
+Azure Advisor is een persoonlijke cloudconsultant die u helpt aanbevolen procedures voor het optimaliseren van uw Azure-implementaties te volgen. Advisor analyseert de configuratie van uw resources en de gebruiksgerelateerde telemetrie. Vervolgens raadt het programma oplossingen aan om de prestaties, beveiliging en beschikbaarheid van uw resources te verbeteren, en zoekt het tegelijkertijd naar manieren om uw totale Azure-uitgaven te verlagen.
 
 <ul class="panelContent cardsFTitle">
     <li>

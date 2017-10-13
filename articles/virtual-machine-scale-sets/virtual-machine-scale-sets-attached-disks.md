@@ -1,6 +1,6 @@
 ---
-title: Virtuele Machine Scale Sets gekoppeld gegevensschijven aaaAzure | Microsoft Docs
-description: Meer informatie over hoe toouse gekoppeld gegevensschijven met virtuele-machineschaalsets
+title: Gekoppelde gegevensschijven met virtuele-machineschaalsets in Azure | Microsoft Docs
+description: Leer gekoppelde gegevensschijven gebruiken met virtuele-machineschaalsets
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gbowerman
@@ -15,29 +15,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
-ms.openlocfilehash: 77b66f80934c0aaf7bb1ad0de00a738052a878ce
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Virtuele-machineschaalsets in Azure en gekoppelde gegevensschijven
-[Virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) in Azure ondersteunen nu virtuele machines met gekoppelde gegevensschijven. Gegevensschijven kunnen worden gedefinieerd in het opslagprofiel Hallo voor schaalsets die zijn gemaakt met beheerde Azure-schijven. Eerder waren hello alleen direct gekoppelde opslag beschikbare opties met virtuele machines in schaalsets Hallo OS station en tijdelijke stations.
+[Virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) in Azure ondersteunen nu virtuele machines met gekoppelde gegevensschijven. Gegevensschijven kunnen worden gedefinieerd in het opslagprofiel voor schaalsets dat is gemaakt met Azure Managed Disks. Eerder waren de enige direct gekoppelde opslagopties met virtuele machines in schaalsets het station van het besturingssysteem en tijdelijke stations.
 
 > [!NOTE]
->  Wanneer u een schaal bijgesloten gegevensschijven die zijn gedefinieerd in te stellen maakt, moet u nog steeds toomount en indeling Hallo schijven uit binnen een VM-toouse ze (alleen like voor zelfstandige virtuele Azure-machines). Een handige manier toodo die dit toouse een extensie voor aangepaste scripts die een Standaardscript toopartition aanroept en formatteren van alle Hallo gegevensschijven op een virtuele machine is.
+>  Wanneer u een schaalset maakt die is gedefinieerd met gekoppelde gegevensschijven, dient u de schijven nog steeds te koppelen en formatteren van binnen een VM om ze te gebruiken (net als bij zelfstandige virtuele Azure-machines). Een handige manier om dit te doen is om een aangepaste scriptextensie te gebruiken die een standaardscript oproept om alle gegevensschijven op de VM te partitioneren en formatteren.
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>Een schaalset maken met gekoppelde gegevensschijven
-Een eenvoudige manier toocreate een met gekoppelde schijven schaalset is toouse hello [Azure CLI](https://github.com/Azure/azure-cli) _vmss maken_ opdracht. Hallo volgende voorbeeld maakt een Azure-resourcegroep en een VM-schaalset van 10 Ubuntu VM's, elk met 2 bijgesloten gegevensschijven, 50 GB en 100 GB respectievelijk.
+Een eenvoudige manier om een schaalset met gekoppelde schijven te maken, is om de opdracht _vmss create_ in [Azure CLI](https://github.com/Azure/azure-cli) te gebruiken. In het volgende voorbeeld wordt een Azure-resourcegroep en een VM-schaalset van 10 virtuele Ubuntu-machines gemaakt, elk met 2 gekoppelde gegevensschijven, van respectievelijk 50 GB en 100 GB.
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
-Houd er rekening mee dat Hallo _vmss maken_ wordt standaard een bepaalde configuratiewaarden als u ze niet opgeven. toosee hello beschikbare opties dat kunt u proberen overschrijven:
+De opdracht _vmss create_ gebruikt standaard bepaalde configuratiewaarden als u ze niet opgeeft. Probeer het volgende om de beschikbare opties te bekijken die u kunt overschrijven:
 ```bash
 az vmss create --help
 ```
-Een andere manier toocreate een schaal gekoppelde gegevensschijven in te stellen is een schaal in een Azure Resource Manager-sjabloon instellen toodefine bevatten een _dataDisks_ sectie in Hallo _storageProfile_, en Hallo implementeren de sjabloon. Hallo 50 en 100 GB schijf bovenstaande voorbeeld zou als volgt in Hallo sjabloon worden gedefinieerd:
+Een andere manier om een schaalset te maken met gekoppelde gegevensschijven, is om een schaalset te definiëren in een Azure Resource Manager-sjabloon, een _dataDisks_-sectie op te nemen in het _storageProfile_ en de sjabloon te implementeren. Het bovenstaande voorbeeld met een schijf van 50 en 100 GB zou in de sjabloon als volgt worden gedefinieerd:
 ```json
 "dataDisks": [
     {
@@ -54,18 +54,18 @@ Een andere manier toocreate een schaal gekoppelde gegevensschijven in te stellen
     }
 ]
 ```
-Ziet u een voorbeeld van een voltooid, gereed toodeploy van een scale set-sjabloon met een gekoppelde schijf hier gedefinieerd: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
+U kunt hier een volledig voorbeeld bekijken van een schaalset die klaar is om geïmplementeerd te worden met een gekoppelde schijf: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
 
-## <a name="adding-a-data-disk-tooan-existing-scale-set"></a>Toevoegen van een bestaande schaal voor gegevens schijf tooan instellen
+## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>Een gegevensschijf toevoegen aan een bestaande schaalset
 > [!NOTE]
->  U kunt alleen koppelen schijven tooa scale gegevensset die is gemaakt met [Azure beheerd schijven](./virtual-machine-scale-sets-managed-disks.md).
+>  U kunt gegevensschijven alleen koppelen aan een schaalset die is gemaakt met [Azure Managed Disks](./virtual-machine-scale-sets-managed-disks.md).
 
-U kunt geen gegevens schijf tooa VM schaal ingesteld met Azure CLI toevoegen _az vmss schijf koppelen_ opdracht. Geef een LUN op die nog niet in gebruik is. Hallo na CLI voorbeeld wordt een 50 GB station toolun 3 toegevoegd:
+U kunt een gegevensschijf toevoegen aan een VM-schaalset met behulp van de Azure CLI-opdracht _az vmss disk attach_. Geef een LUN op die nog niet in gebruik is. In het volgende CLI-voorbeeld wordt een 50GB-station aan LUN 3 toegevoegd:
 ```bash
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
 
-Hallo volgende PowerShell-voorbeeld wordt een 50 GB station toolun 3 toegevoegd:
+In het volgende PowerShell-voorbeeld wordt een 50 GB-station aan LUN 3 toegevoegd:
 ```powershell
 $vmss = Get-AzureRmVmss -ResourceGroupName myvmssrg -VMScaleSetName myvmss
 $vmss = Add-AzureRmVmssDataDisk -VirtualMachineScaleSet $vmss -Lun 3 -Caching 'ReadWrite' -CreateOption Empty -DiskSizeGB 50 -StorageAccountType StandardLRS
@@ -73,9 +73,9 @@ Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScale
 ```
 
 > [!NOTE]
-> Andere VM-grootten hebben andere beperkingen op Hallo aantal gekoppelde schijven die ze ondersteunen. Controleer Hallo [kenmerken van virtuele machine grootte](../virtual-machines/windows/sizes.md) voordat een nieuwe schijf toe te voegen.
+> Andere VM-grootten hebben andere limieten voor het aantal gekoppelde schijven dat wordt ondersteund. Controleer de [formaatkenmerken van de virtuele machine](../virtual-machines/windows/sizes.md) voordat u een nieuwe schijf toevoegt.
 
-U kunt ook een schijf toevoegen door het toevoegen van een nieuwe vermelding toohello _dataDisks_ eigenschap in Hallo _storageProfile_ instellen van een scale-definitie en het toepassen van Hallo wijzigen. tootest deze, zoeken naar een bestaande scale setdefinitie in Hallo [Azure Resource Explorer](https://resources.azure.com/). Selecteer _bewerken_ en een nieuwe schijf toohello lijst met gegevensschijven toe te voegen. Bijvoorbeeld bovenstaande Hallo-voorbeeld gebruikt:
+U kunt ook een schijf toevoegen door een nieuwe vermelding toe te voegen aan de eigenschap _dataDisks_ in het _storageProfile_ van een schaalsetdefinitie en de wijziging toe te passen. U kunt dit testen door een bestaande schaalsetdefinitie te vinden in [Azure Resource Explorer](https://resources.azure.com/). Selecteer _Bewerken_ en voeg een nieuwe schijf toe aan de lijst met gegevensschijven. Bijvoorbeeld met het bovenstaande voorbeeld:
 ```json
 "dataDisks": [
     {
@@ -99,33 +99,33 @@ U kunt ook een schijf toevoegen door het toevoegen van een nieuwe vermelding too
 ]
 ```
 
-Selecteer vervolgens _plaatsen_ tooapply hello tooyour scale set wordt gewijzigd. Dit voorbeeld zou moeten werken als u gebruikmaakt van een VM-formaat dat meer dan twee gekoppelde gegevensschijven ondersteunt.
+Selecteer vervolgens _PUT_ om de wijzigingen toe te passen op uw schaalset. Dit voorbeeld zou moeten werken als u gebruikmaakt van een VM-formaat dat meer dan twee gekoppelde gegevensschijven ondersteunt.
 
 > [!NOTE]
-> Wanneer u een wijziging tooa schaal definitie zoals het toevoegen of verwijderen van een gegevensschijf ingesteld, is van toepassing tooall nieuw gemaakte virtuele machines, maar is alleen van toepassing tooexisting VMs hello _upgradePolicy_ eigenschap te 'automatisch' is ingesteld. Als deze optie is ingesteld te 'handmatig', moet u toomanually Hallo nieuwe model tooexisting VM's van toepassing. U kunt dit doen in Hallo-portal met Hallo _Update AzureRmVmssInstance_ PowerShell-opdracht of met behulp van Hallo _az vmss update-exemplaren_ CLI-opdracht.
+> Wanneer u een wijziging aanbrengt in een schaalsetdefinitie, zoals het toevoegen of verwijderen van een gegevensschijf, wordt deze toegepast op alle nieuwe virtuele machines. Deze wordt echter alleen toegepast op bestaande virtuele machines als de eigenschap _upgradePolicy_ is ingesteld op 'Automatisch'. Als de eigenschap is ingesteld op 'Handmatig', dient u handmatig het nieuwe model toe te passen op bestaande virtuele machines. U kunt dit doen in de portal met behulp van de PowerShell-opdracht _Update-AzureRmVmssInstance_ of de CLI-opdracht _az vmss update-instances_.
 
-## <a name="adding-pre-populated-data-disks-tooan-existent-scale-set"></a>Toe te voegen vooraf ingestelde schijven tooan scale-bestaande gegevensset 
-> Wanneer u schijven tooan bestaande toevoegt schaalset model ontwikkeld, Hallo schijf wordt altijd gemaakt leeg. Dit scenario omvat ook nieuwe exemplaren gemaakt door Hallo schaalset. Dit gedrag is omdat Hallo scaleset definitie een lege gegevensschijf heeft. In de volgorde toocreate vooraf ingestelde gegevensstations voor een bestaand scale set-model, kunt u een van de volgende twee opties kiezen:
+## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Vooraf gevulde gegevensschijven toevoegen aan een bestaande schaalset 
+> Wanneer u schijven toevoegt aan een bestaand model met een schaalset, wordt er standaard altijd een lege schijf gemaakt. Dit scenario geldt ook voor nieuwe exemplaren die met de schaalset worden gemaakt. De reden voor dit gedrag is dat de definitie van de schaalset een lege gegevensschijf bevat. Om in deze situatie vooraf gevulde gegevensschijven te maken voor een bestaand model met een schaalset, kunt u kiezen voor een van de volgende twee opties:
 
-* Gegevens kopiëren van Hallo exemplaar 0 VM toohello gegevens een of meer schijven in Hallo andere virtuele machines door het uitvoeren van een aangepast script.
-* Maken van een begeleide afbeelding met schijf Hallo OS plus gegevensschijf (met gegevens Hallo vereist) en maak een nieuwe scaleset met Hallo-installatiekopie. Op deze manier om nieuwe virtuele machine gemaakt heeft een schijf die die is opgegeven in de definitie Hallo van Hallo scaleset. Aangezien deze definitie tooan afbeelding met een gegevensschijf die gegevens aangepast verwijzen wordt, terug elke virtuele machine op Hallo scaleset automatisch met deze wijzigingen.
+* Gegevens kopiëren van de VM met het exemplaar 0 naar een of meer gegevensschijven in de andere VM's door het uitvoeren van een aangepast script.
+* Een beheerde installatiekopie maken van de besturingssysteemschijf plus de gegevensschijf (met de vereiste gegevens) en vervolgens een nieuwe schaalset maken aan de hand van de installatiekopie. Op deze manier beschikt elke nieuwe VM over een gegevensschijf die is opgegeven in de definitie van de schaalset. Aangezien in deze definitie wordt verwezen naar een installatiekopie met een gegevensschijf die aangepaste gegevens bevat, zijn deze wijzigingen automatisch beschikbaar op elke virtuele machine in de schaalset.
 
-> Hallo manier toocreate een aangepaste installatiekopie u hier vindt: [een begeleide afbeelding van een gegeneraliseerde virtuele machine in Azure maken](/azure/virtual-machines/windows/capture-image-resource/) 
+> De instructies voor het maken van een aangepaste installatiekopie vindt u hier: [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource/) (Een beheerde installatiekopie maken van een gegeneraliseerde VM in Azure). 
 
-> Hallo gebruiker moet toocapture Hallo 0 virtuele die vereiste gegevens heeft Hallo-instantie en gebruik vervolgens deze vhd voor Hallo installatiekopie definitie.
+> De gebruiker moet de VM met het exemplaar 0 vastleggen omdat daar de vereiste gegevens op staan en vervolgens die VHD gebruiken voor de definitie van de installatiekopie.
 
 ## <a name="removing-a-data-disk-from-a-scale-set"></a>Een gegevensschijf verwijderen uit een schaalset
-U kunt een gegevensschijf verwijderen uit een VM-schaalset met behulp van de Azure CLI-opdracht _az vmss disk detach_. Bijvoorbeeld hello volgende opdracht wordt gedefinieerd op lun 2 Hallo-schijf:
+U kunt een gegevensschijf verwijderen uit een VM-schaalset met behulp van de Azure CLI-opdracht _az vmss disk detach_. Met de volgende opdracht wordt bijvoorbeeld de schijf die is gedefinieerd op LUN 2 verwijderd:
 ```bash
 az vmss disk detach -g dsktest -n dskvmss --lun 2
 ```  
-Op dezelfde manier kunt u ook een schijf verwijderen uit een schaal ingesteld door het verwijderen van een item uit Hallo _dataDisks_ eigenschap in Hallo _storageProfile_ en Hallo wijziging toe te passen. 
+U kunt ook een schijf verwijderen uit een schaalset door een invoerwaarde uit de eigenschap _dataDisks_ te verwijderen in het _storageProfile_ en de wijziging toe te passen. 
 
 ## <a name="additional-notes"></a>Aanvullende opmerkingen
-Ondersteuning voor Azure Managed schijven en schaal ingesteld gekoppelde gegevensschijven is beschikbaar in de API-versie [ _2016-04-30-preview_ ](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) of hoger van Hallo Microsoft.Compute-API.
+Er is ondersteuning voor Azure Managed Disks en aan schaalsets gekoppelde gegevensschijven beschikbaar in API [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) of hoger van de Microsoft.Compute API.
 
-In de aanvankelijke implementatie van de gekoppelde schijfondersteuning voor schaalsets Hallo kan niet u koppelen of ontkoppelen van gegevensschijven van afzonderlijke virtuele machines in een schaalset.
+Bij de eerste implementatie van ondersteuning voor gekoppelde schijven voor schaalsets, kunt u geen gegevensschijven koppelen aan of loskoppelen van afzonderlijke virtuele machines in een schaalset.
 
-De ondersteuning in Azure Portal voor gekoppelde gegevensschijven in schaalsets is oorspronkelijk beperkt. Afhankelijk van uw vereisten dat kunt u Azure-sjablonen, CLI, PowerShell SDK's en REST-API toomanage gekoppelde schijven.
+De ondersteuning in Azure Portal voor gekoppelde gegevensschijven in schaalsets is oorspronkelijk beperkt. Afhankelijk van uw vereisten kunt u Azure-sjablonen, CLI, PowerShell, SDK's en REST API gebruiken voor het beheren van gekoppelde schijven.
 
 

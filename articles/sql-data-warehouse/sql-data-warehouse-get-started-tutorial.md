@@ -1,6 +1,6 @@
 ---
-title: aan de slag aaaAzure SQL Data Warehouse - zelfstudie | Microsoft Docs
-description: Deze zelfstudie leert u hoe tooprovision en gegevens laden in Azure SQL Data Warehouse. U leert ook Hallo basisbeginselen van schalen, onderbreken en afstemmen.
+title: 'Azure SQL Data Warehouse: aan de slag-zelfstudie | Microsoft Docs'
+description: In deze zelfstudie leert u hoe u gegevens kunt inrichten en laden in Azure SQL Data Warehouse. U leert ook de basisbeginselen voor schalen, onderbreken en afstemmen.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,32 +15,32 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
-ms.openlocfilehash: edd2a21b0fe49ca8e9792c7c512310339a822c55
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Aan de slag met SQL Data Warehouse
 
-Deze zelfstudie laat zien hoe tooprovision en gegevens laden in Azure SQL Data Warehouse. U leert ook Hallo basisbeginselen van schalen, onderbreken en afstemmen. Wanneer u klaar bent u klaar tooquery en Verken uw datawarehouse.
+In deze zelfstudie wordt beschreven hoe u gegevens kunt inrichten en laden in Azure SQL Data Warehouse. U leert ook de basisbeginselen voor schalen, onderbreken en afstemmen. Na deze zelfstudie bent u er klaar voor om uw datawarehouse te verkennen en een query voor dit datawarehouse uit te voeren.
 
-**Geschatte tijd toocomplete:** dit is een end-to-end zelfstudie met voorbeeldcode die het duurt ongeveer 30 minuten toocomplete als u Hallo vereisten hebt voldaan. 
+**Geschatte tijd om dit te voltooien:** dit is een end-to-end-zelfstudie met voorbeeldcode. Als aan de vereisten wordt voldaan, duurt het ongeveer 30 minuten om deze te voltooien. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Hallo-zelfstudie wordt ervan uitgegaan dat u bekend bent met de basisconcepten van SQL Data Warehouse. Zie [Wat is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md) als u eerst wat meer informatie nodig hebt. 
+Aangenomen wordt dat u bekend bent met de basisbeginselen van SQL Data Warehouse. Zie [Wat is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md) als u eerst wat meer informatie nodig hebt. 
 
 ### <a name="sign-up-for-microsoft-azure"></a>Registreren voor Microsoft Azure
-Als u nog geen Microsoft Azure-account hebt, moet u toosign voor één toouse deze service. Deze stap kunt u overslaan als u al een account hebt. 
+Als u nog geen Microsoft Azure-account hebt, moet u zich registreren voordat u deze service kunt gebruiken. Deze stap kunt u overslaan als u al een account hebt. 
 
-1. Navigeer toohello account pagina's [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
+1. Ga naar de accountpagina [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
 2. Maak een gratis Azure-account of koop een account.
-3. Volg de instructies Hallo
+3. Volg de instructies
 
 ### <a name="install-appropriate-sql-client-drivers-and-tools"></a>Toepasselijke stuurprogramma's en hulpprogramma's installeren voor SQL-client
 
-De meeste hulpprogramma's van SQL-client verbinding kunnen maken voor tooSQL Data Warehouse via JDBC, ODBC- of ADO.NET. Vervaldatum toohello groot aantal functies van T-SQL die ondersteuning biedt voor SQL Data Warehouse, zijn sommige clienttoepassingen niet volledig compatibel is met SQL Data Warehouse.
+De meeste SQL-clienthulpprogramma's kunnen verbinding maken met SQL Data Warehouse met behulp van JDBC, ODBC of ADO.NET. Vanwege het grote aantal T-SQL-functies waarvoor SQL Data Warehouse ondersteuning biedt, zijn sommige clienttoepassingen niet volledig compatibel met SQL Data Warehouse.
 
 Als u een Windows-besturingssysteem gebruikt, raden we u aan te kiezen voor [Visual Studio] of [SQL Server Management Studio].
 
@@ -50,7 +50,7 @@ Als u een Windows-besturingssysteem gebruikt, raden we u aan te kiezen voor [Vis
 
 ## <a name="create-a-sql-data-warehouse"></a>Een SQL Data Warehouse maken
 
-SQL Data Warehouse is een speciaal databasetype dat is ontworpen voor parallelle verwerking op zeer grote schaal. Hallo-database is verdeeld over meerdere knooppunten en query's parallel worden verwerkt. SQL Data Warehouse is een besturingselement-knooppunt dat activiteiten van alle knooppunten in Hallo Hallo ingedeeld. Hallo-knooppunten zelf uw gegevens toomanage SQL-Database gebruiken.  
+SQL Data Warehouse is een speciaal databasetype dat is ontworpen voor parallelle verwerking op zeer grote schaal. De database wordt gedistribueerd over meerdere knooppunten en query's worden parallel verwerkt. SQL Data Warehouse heeft een besturingselementknooppunt waarmee de activiteiten van alle knooppunten worden ingedeeld. De knooppunten zelf maken gebruik van SQL Database om uw gegevens te beheren.  
 
 > [!NOTE]
 > Het maken van een SQL Data Warehouse kan een nieuwe factureerbare service tot gevolg hebben.  Zie [Prijzen van SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) voor meer informatie.
@@ -58,14 +58,14 @@ SQL Data Warehouse is een speciaal databasetype dat is ontworpen voor parallelle
 
 ### <a name="create-a-data-warehouse"></a>Een datawarehouse maken
 
-1. Meld u aan bij Hallo [Azure-portal](https://portal.azure.com).
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
 2. Klik op **Nieuw** > **Databases** > **SQL Data Warehouse**.
 
     ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Vul de implementatiegegevens in
 
-    **Databasenaam**: kies een naam. Als u meerdere datawarehouses hebt, raden wij aan uw namen bevatten gegevens zoals Hallo regio, omgeving, bijvoorbeeld *mydw-westus-1-test*.
+    **Databasenaam**: kies een naam. Als u meerdere datawarehouses hebt, raden we u aan details, zoals de regio en omgeving, op te nemen in de namen, bijvoorbeeld *mydw-westus-1-test*.
 
     **Abonnement:** uw Azure-abonnement
 
@@ -75,61 +75,61 @@ SQL Data Warehouse is een speciaal databasetype dat is ontworpen voor parallelle
 
     **Bron**: lege database
 
-    **Server**: Selecteer Hallo-server die u hebt gemaakt in [vereisten].
+    **Server**: selecteer de server die u hebt gemaakt in [Vereisten].
 
-    **Sortering**: laat Hallo standaardsortering SQL_Latin1_General_CP1_CI_AS.
+    **Sortering**: laat de standaardsortering SQL_Latin1_General_CP1_CI_AS staan.
 
-    **Selecteer prestaties**: het is raadzaam beginnen met het standaard 400DWU Hallo.
+    **Prestaties selecteren**: we raden aan te beginnen met de standaardinstelling 400 DWU.
 
-4. Kies **pincode toodashboard** ![pincode tooDashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
+4. Kies **Vastmaken aan dashboard** ![Vastmaken aan dashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
-5. Terug zitten en wachten op uw datawarehouse toodeploy! Dit is normaal voor dit proces tootake enkele minuten. Hallo portal waarschuwt u als uw datawarehouse gereed toouse is. 
+5. U hoeft niets te doen. Het datawarehouse wordt automatisch geïmplementeerd. Dit proces duurt normaal gesproken enkele minuten. U ontvangt een waarschuwing via de portal als het datawarehouse klaar is voor gebruik. 
 
-## <a name="connect-toosql-data-warehouse"></a>Verbinding maken met tooSQL Data Warehouse
+## <a name="connect-to-sql-data-warehouse"></a>Verbinding maken met SQL Data Warehouse
 
-Deze zelfstudie maakt gebruik van SQL Server Management Studio (SSMS) tooconnect toohello-datawarehouse. TooSQL Data Warehouse verbinding kunnen maken via deze ondersteunde connectors: ADO.NET, JDBC, ODBC- en PHP. Let op: de functionaliteit van hulpprogramma's die niet door Microsoft worden ondersteund, is mogelijk beperkt.
+In deze zelfstudie leert u SSMS (SQL Server Management Studio) te gebruiken om verbinding te maken met het datawarehouse. U kunt verbinding maken met SQL Data Warehouse via deze ondersteunde connectoren: ADO.NET, JDBC, ODBC en PHP. Let op: de functionaliteit van hulpprogramma's die niet door Microsoft worden ondersteund, is mogelijk beperkt.
 
 
 ### <a name="get-connection-information"></a>Verbindingsgegevens ophalen
 
-tooconnect tooyour datawarehouse, moet u tooconnect via Hallo logische SQL-server u hebt gemaakt in [vereisten].
+Als u verbinding wilt maken met het datawarehouse, moet u eerst verbinding maken via de logische SQL-server die u hebt gemaakt in [Vereisten].
 
-1. Selecteer uw datawarehouse in Hallo dashboard of zoekt u het in uw resources.
+1. Selecteer het datawarehouse op het dashboard of zoek het in de resources.
 
     ![Dashboard van SQL Data Warehouse](./media/sql-data-warehouse-get-started-tutorial/sql-dw-dashboard.png)
 
-2. Volledige naam van de Hallo voor Hallo logische SQL-server vinden.
+2. Ga naar de volledige naam voor de logische server.
 
     ![Servernaam selecteren](./media/sql-data-warehouse-get-started-tutorial/select-server.png)
 
-3. SSMS openen en gebruiken van object explorer tooconnect toothis server met behulp van Hallo server admin-referenties die u hebt gemaakt in [vereisten]
+3. Open SSMS en gebruik de objectverkenner om verbinding te maken met deze server met behulp van de referenties voor de serverbeheerder die u hebt gemaakt in [Vereisten]
 
     ![Verbinden met SSMS](./media/sql-data-warehouse-get-started-tutorial/ssms-connect.png)
 
-Als alles goed gaat, moet u nu verbonden tooyour logische SQL-server. Aangezien u aangemeld als serverbeheerder hello, kunt u tooany database gehost door Hallo-server, inclusief Hallo-hoofddatabase. 
+Als alles goed gaat, hebt u nu verbinding met de logische SQL-server. U bent aangemeld als serverbeheerder en kunt daarom verbinding maken met elke database die wordt gehost op de server, inclusief de hoofddatabase. 
 
-Er is slechts één server-beheerdersaccount en de meeste bevoegdheden van een gebruiker Hallo heeft. Wees voorzichtig niet tooallow te veel mensen in uw organisatie tooknow Hallo admin-wachtwoord. 
+Er is slechts één serverbeheerdersaccount. Dit account heeft van alle gebruikers de meeste bevoegdheden. Zorg ervoor dat niet te veel gebruikers in de organisatie het beheerderswachtwoord kennen. 
 
-U kunt ook een Azure Active Directory-beheerdersaccount hebben. Wij niet hier Hallo-gegevens. Als u toolearn meer wilt over het gebruik van Azure Active Directory-verificatie, Zie [Azure AD authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
+U kunt ook een Azure Active Directory-beheerdersaccount hebben. Hier gaan we verder niet op in. Zie [Azure AD-verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) voor meer informatie over het gebruik van Azure Active Directory-verificatie.
 
 Hierna bespreken we het maken van extra aanmeldingen en gebruikers.
 
 
 ## <a name="create-a-database-user"></a>Een databasegebruiker maken
 
-In deze stap maakt u een gebruiker account tooaccess uw datawarehouse. We ook ziet u hoe toogive die gebruiker Hallo mogelijkheid toorun query's met een grote hoeveelheid geheugen en CPU-resources.
+In deze stap maakt u een gebruikersaccount voor toegang tot het datawarehouse. We laten ook zien hoe u deze gebruiker de mogelijkheid kunt geven om query's uit te voeren met zeer veel geheugen en CPU-resources.
 
-### <a name="notes-about-resource-classes-for-allocating-resources-tooqueries"></a>Opmerkingen over de resource-klassen voor het toewijzen van resources tooqueries
+### <a name="notes-about-resource-classes-for-allocating-resources-to-queries"></a>Opmerkingen over resourceklassen voor het toewijzen van resources aan query's
 
-- tookeep het gebruik van uw gegevens beschermen, niet Hallo server admin toorun-query's op uw productiedatabases. Hieraan Hallo meeste bevoegdheden van een gebruiker en gebruik van tooperform brengt bewerkingen op gegevens van gebruiker met uw gegevens in gevaar. Ook omdat Hallo serverbeheerder is tooperform beheerbewerkingen bedoeld, voert deze bewerkingen met slechts een kleine toewijzing van geheugen en CPU-resources. 
+- Als u uw gegevens wilt beveiligen, kunt u beter niet het serverbeheerdersaccount gebruiken om query's uit te voeren voor de productiedatabases. Dit account heeft de meeste bevoegdheden van alle gebruikers. Als u het gebruikt om bewerkingen uit te voeren op gebruikersgegevens, lopen uw gegevens mogelijk risico. Aangezien het serverbeheerdersaccount is bedoeld om beheerbewerkingen uit te voeren, wordt voor de uitvoering van deze bewerkingen bovendien slechts een kleine hoeveelheid geheugen en CPU-resources toegewezen. 
 
-- SQL Data Warehouse maakt gebruik van vooraf gedefinieerde databaserollen resource klassen, tooallocate verschillende hoeveelheden geheugen, CPU-bronnen en gelijktijdigheid sleuven toousers aangeroepen. Elke gebruiker kan tooa klein, normaal, groot of extra groot bronklasse behoren. Hallo van gebruiker bronklasse bepaalt Hallo resources Hallo gebruiker heeft toorun query's en bewerkingen worden geladen.
+- SQL Data Warehouse maakt gebruik van vooraf gedefinieerde databaserollen, 'resourceklassen' genaamd, om verschillende hoeveelheden geheugen, CPU-resources en gelijktijdigheidssleuven toe te wijzen aan gebruikers. Elke gebruiker kan deel uitmaken van een kleine, gemiddelde, grote of extra grote resourceklasse. De resourceklasse van de gebruiker bepaalt de resources die de gebruiker heeft om query's uit te voeren en bewerkingen te laden.
 
-- Voor optimale gegevenscompressie, Hallo gebruiker mogelijk tooload grote of extra groot toewijzingen. Meer informatie over resourceklassen vindt u [hier](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+- Voor een optimale compressie van gegevens moet de gebruiker bewerkingen meestal laden met grote of extra grote resourcetoewijzingen. Meer informatie over resourceklassen vindt u [hier](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
 ### <a name="create-an-account-that-can-control-a-database"></a>Een account maken waarmee een database kan worden beheerd
 
-Nadat u bent momenteel aangemeld in Hallo serverbeheerder hebt machtigingen toocreate aanmeldingen en gebruikers.
+Omdat u momenteel bent aangemeld als serverbeheerder, bent u gemachtigd om aanmeldingen en gebruikers te maken.
 
 1. Open een nieuwe query voor **Hoofd** met behulp van SSMS of een andere queryclient.
 
@@ -137,62 +137,61 @@ Nadat u bent momenteel aangemeld in Hallo serverbeheerder hebt machtigingen tooc
 
     ![Nieuwe query in Hoofd1](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
-2. Voer in het queryvenster Hallo, deze toocreate T-SQL-opdracht een aanmelding met de naam MedRCLogin en een gebruiker met de naam LoadingUser. Deze aanmelding kan verbinding maken toohello logische SQL-server.
+2. Voer in het queryvenster deze T-SQL-opdracht uit om een aanmelding te maken met de naam MedRCLogin en een gebruiker met de naam Gebruiker laden. Deze aanmelding kan verbinding maken met de logische SQL-server.
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
-3. Nu opvragen Hallo *SQL Data Warehouse-database*, op basis van een database-gebruikersaccount maken Hallo aanmelding u tooaccess gemaakt en worden bewerkingen uitvoeren op Hallo-database.
+3. Tijdens het uitvoeren van een query voor de *SQL Data Warehouse-database* maakt u nu een databasegebruiker op basis van de aanmelding die u hebt gemaakt, om toegang te krijgen tot bewerkingen en deze uit te voeren voor de database.
 
     ```sql
     CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
-4. Hallo database gebruiker besturingselement machtigingen toohello database aangeroepen NYT geven. 
+4. Verleen de databasegebruiker machtigingen voor de database met de naam NYT. 
 
     ```sql
-    GRANT CONTROL ON DATABASE::[NYT] tooLoadingUser;
+    GRANT CONTROL ON DATABASE::[NYT] to LoadingUser;
     ```
     > [!NOTE]
-    > Als de databasenaam van uw afbreekstreepjes in het heeft, moet u ervoor toowrap deze haakjes! 
+    > Als de databasenaam afbreekstreepjes bevat, omsluit u deze met haken. 
     >
 
-### <a name="give-hello-user-medium-resource-allocations"></a>Hallo gebruiker gemiddeld toewijzingen geven
+### <a name="give-the-user-medium-resource-allocations"></a>De gebruiker middelgrote resourcetoewijzingen geven
 
-1. Voer deze opdracht T-SQL toomake deze in een lid van Hallo gemiddeld resourceklasse, mediumrc wordt aangeroepen. 
+1. Voer deze T-SQL-opdracht uit om de gebruiker lid te maken van de middelgrote resourceklasse met de naam mediumrc. 
 
     ```sql
     EXEC sp_addrolemember 'mediumrc', 'LoadingUser';
     ```
     > [!NOTE]
-    > Klik op [hier](sql-data-warehouse-develop-concurrency.md#resource-classes) toolearn meer informatie over klassen gelijktijdigheid van taken en resource! 
+    > Klik [hier](sql-data-warehouse-develop-concurrency.md#resource-classes) voor meer informatie over gelijktijdigheid- en resourceklassen. 
     >
 
-2. Toohello logische server verbinden met de nieuwe referenties Hallo
+2. Via de nieuwe referenties verbinding maken met de logische server
 
     ![Aanmelden met nieuwe aanmeldgegevens](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
 ## <a name="load-data-from-azure-blob-storage"></a>Gegevens laden vanuit Azure-blobopslag
 
-U bent nu klaar tooload gegevens in uw datawarehouse. Deze stap ziet u hoe tooload New York City taxi CAB-bestand van een openbare Azure-opslag-blob. 
+U bent nu klaar om gegevens te laden in het datawarehouse. In deze stap wordt beschreven hoe u gegevens over taxi's in New York kunt laden uit een openbare Azure Storage-blob. 
 
-- Een veelgebruikte manier tooload gegevens in SQL Data Warehouse is toofirst Hallo gegevens tooAzure blob-opslag verplaatsen en vervolgens in uw datawarehouse te laden. toomake deze eenvoudiger toounderstand hoe tooload, hebben we Den Haag taxi cab-gegevens die al worden gehost in een openbare Azure-opslag-blob. 
+- Een veelgebruikte manier om gegevens te laden in SQL Data Warehouse is om de gegevens eerst te verplaatsen naar Azure-blobopslag en ze vervolgens in het datawarehouse te laden. Er worden al taxigegevens over New York gehost in de openbare Azure Storage-blob, zodat u gemakkelijker kunt zien hoe u moet laden. 
 
-- Voor toekomstig gebruik, toolearn hoe tooget uw gegevens tooAzure blob-opslag- of deze rechtstreeks vanuit uw bron in SQL Data Warehouse, Zie tooload hello [laden overzicht](sql-data-warehouse-overview-load.md).
+- Raadpleeg het [laadoverzicht](sql-data-warehouse-overview-load.md) voor informatie over het overbrengen van gegevens naar Azure-blobopslag of het rechtstreeks vanuit de bron laden van gegevens in SQL Data Warehouse.
 
 
 ### <a name="define-external-data"></a>Externe gegevens definiëren
 
-1. Maak een hoofdsleutel. U hoeft alleen toocreate een hoofdsleutel eenmaal per database. 
+1. Maak een hoofdsleutel. U hoeft maar één hoofdsleutel per database te maken. 
 
     ```sql
     CREATE MASTER KEY;
     ```
 
-2. Hallo-locatie van hello Azure blob met Hallo taxi CAB-bestand gegevens definiëren.  
+2. Definieer de locatie van de Azure-blob die de taxigegevens bevat.  
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -203,11 +202,11 @@ U bent nu klaar tooload gegevens in uw datawarehouse. Deze stap ziet u hoe toolo
     );
     ```
 
-3. Hallo externe bestandsindelingen definiëren
+3. De externe bestandsindelingen definiëren
 
-    Hallo ```CREATE EXTERNAL FILE FORMAT``` opdracht is gebruikte toospecify de indeling van de bestanden die Hallo externe gegevens bevatten. Ze bevatten tekst gescheiden door een of meer tekens, genaamd scheidingstekens. Voor demonstratiedoeleinden Hallo taxi CAB-bestand gegevens opgeslagen als niet-gecomprimeerde gegevens en als gzip gecomprimeerde gegevens.
+    De ```CREATE EXTERNAL FILE FORMAT```-opdracht wordt gebruikt om de indeling op te geven van de bestanden die de externe gegevens bevatten. Ze bevatten tekst gescheiden door een of meer tekens, genaamd scheidingstekens. Ter illustratie worden de taxigegevens opgeslagen als niet-gecomprimeerde gegevens en als gecomprimeerde GZip-gegevens.
 
-    Voer deze opdrachten T-SQL toodefine twee verschillende indelingen: niet-gecomprimeerd en gecomprimeerd.
+    Voer deze T-SQL-opdrachten uit om twee verschillende indelingen te definiëren: niet-gecomprimeerd en gecomprimeerd.
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -238,7 +237,7 @@ U bent nu klaar tooload gegevens in uw datawarehouse. Deze stap ziet u hoe toolo
     ```sql
     CREATE SCHEMA ext;
     ```
-5. Hallo externe tabellen maken. Deze tabellen verwijzen naar gegevens die zijn opgeslagen in Azure-blobopslag. Hallo T-SQL-opdrachten toocreate na enkele externe tabellen dat alle punt toohello Azure blob we eerder in onze externe gegevensbron gedefinieerde uitgevoerd.
+5. Maak de externe tabellen. Deze tabellen verwijzen naar gegevens die zijn opgeslagen in Azure-blobopslag. Voer de volgende T-SQL-opdrachten uit om verschillende externe tabellen te maken die allemaal verwijzen naar de Azure-blob die eerder is gedefinieerd in de externe gegevensbron.
 
 ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
@@ -415,11 +414,11 @@ U bent nu klaar tooload gegevens in uw datawarehouse. Deze stap ziet u hoe toolo
     ;
 ```
 
-### <a name="import-hello-data-from-azure-blob-storage"></a>Hallo-gegevens importeren uit Azure blob-opslag.
+### <a name="import-the-data-from-azure-blob-storage"></a>Importeer de gegevens vanuit Azure-blobopslag.
 
-SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS SELECT (CTAS). Deze instructie maakt een nieuwe tabel op basis van Hallo resultaten van een select-instructie. Hallo nieuwe tabel heeft dezelfde kolommen en gegevenstypen Hallo Hallo resultaten van Hallo selecteert u de instructie.  Dit is een elegante manier tooimport gegevens uit Azure blob storage in SQL Data Warehouse.
+SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS SELECT (CTAS). Deze instructie maakt een nieuwe tabel op basis van de resultaten van een selecteerinstructie. De nieuwe tabel heeft dezelfde gegevenstypen en kolommen als de resultaten van de selecteerinstructie.  Dit is een elegante manier om gegevens te importeren uit Azure-blobopslag naar SQL Data Warehouse.
 
-1. Voer dit script tooimport uw gegevens.
+1. Voer dit script uit om uw gegevens te importeren.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -496,7 +495,7 @@ SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS
 
 2. Bekijk uw gegevens tijdens het laden.
 
-   U laadt meerdere GB's aan gegevens en comprimeert die tot hoogwaardige geclusterde columnstore-indexen. Hallo volgende query worden uitgevoerd die gebruikmaakt van een dynamische Beheerweergave weergaven (DMV's) tooshow Hallo status Hallo belast. Na het starten van de query Hallo halen een koffie en een gevulde terwijl SQL Data Warehouse enkele zware werk bevat.
+   U laadt meerdere GB's aan gegevens en comprimeert die tot hoogwaardige geclusterde columnstore-indexen. Voer de volgende query uit, die gebruikmaakt van dynamische beheerweergaven (DMV's) om de status van de belasting weer te geven. Pak er een kopje koffie bij nadat u de query hebt gestart. SQL Data Warehouse doet ondertussen het zware werk voor u.
     
     ```sql
     SELECT
@@ -539,51 +538,51 @@ SQL Data Warehouse ondersteunt een sleutelinstructie met de naam CREATE TABLE AS
 
 ## <a name="improve-query-performance"></a>Queryprestaties verbeteren
 
-Er zijn verschillende manieren tooimprove prestaties van query's en tooachieve Hallo snelle prestaties van SQL Data Warehouse tooprovide ontworpen.  
+Er zijn verschillende manieren om de queryprestaties te verbeteren en om de snelle prestaties te bereiken waarvoor SQL Data Warehouse is ontworpen.  
 
-### <a name="see-hello-effect-of-scaling-on-query-performance"></a>Zie Hallo effect van het schalen van op de prestaties van query 's 
+### <a name="see-the-effect-of-scaling-on-query-performance"></a>Het effect van schalen op de queryprestaties bekijken 
 
-Eenzijdige tooimprove queryprestaties is tooscale bronnen door Hallo DWU-serviceniveau voor uw datawarehouse wijzigen. Elk serviceniveau kost meer, maar u kunt op elk gewenst moment terugschalen of resources onderbreken. 
+U kunt de queryprestaties verbeteren door resources te schalen. Dit doet u door het DWU-serviceniveau voor uw datawarehouse te wijzigen. Elk serviceniveau kost meer, maar u kunt op elk gewenst moment terugschalen of resources onderbreken. 
 
 In deze stap vergelijkt u de prestaties bij twee verschillende DWU-instellingen.
 
-Eerst schalen we Hallo sizing omlaag too100 DWU zodat we een beter beeld van hoe een rekenknooppunt krijgt op zichzelf uitvoeren kunt.
+Eerst gaan we de bewerking omlaag schalen naar 100 DWU, zodat we een idee krijgen van hoe een rekenknooppunt afzonderlijk presteert.
 
-1. Ga toohello portal en selecteer uw SQL Data Warehouse.
+1. Ga naar de portal en selecteer uw SQL Data Warehouse.
 
-2. Selecteer schaal in de blade SQL Data Warehouse Hallo. 
+2. Selecteer de schaal in de blade SQL Data Warehouse. 
 
     ![DW schalen vanuit de portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
 
-3. Hallo-prestaties balk too100 DWU terugschroeven en klik op opslaan.
+3. Schaal de prestatiebalk omlaag naar 100 DWU en klik op opslaan.
 
     ![Schalen en opslaan](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
 
-4. Wacht tot de schaal bewerking toofinish.
+4. Wacht totdat de schaalbewerking is voltooid.
 
     > [!NOTE]
-    > Query's kunnen niet worden uitgevoerd tijdens het Hallo schaal wijzigen. Het schalen **beëindigt** uw huidige actieve query's. U kunt ze opnieuw wanneer het Hallo-bewerking is voltooid.
+    > Query's kunnen niet worden uitgevoerd tijdens het wijzigen van de schaal. Het schalen **beëindigt** uw huidige actieve query's. U kunt ze opnieuw starten wanneer de bewerking is voltooid.
     >
     
-5. Voer een scanbewerking op Hallo reis gegevens, Hallo bovenste miljoen vermeldingen voor alle Hallo kolommen te selecteren. Als u meteen toomove snel op bent, kunt u gratis tooselect minder rijen. Let op Hallo duurt toorun deze bewerking.
+5. Voer een scanbewerking uit op de reisgegevens, waarbij u het eerste miljoen vermeldingen voor alle kolommen selecteert. Als u snel door wilt gaan, kunt u gerust minder rijen selecteren. Noteer de tijd die nodig is voor het uitvoeren van deze bewerking.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
     ```
-6. Schalen van uw datawarehouse back-too400 DWU. Denk eraan dat elke 100 DWU is het toevoegen van een andere compute knooppunt tooyour Azure SQL Data Warehouse.
+6. Schaal uw datawarehouse terug naar 400 DWU. Met elke 100 DWU wordt een extra rekenknooppunt aan uw Azure SQL Data Warehouse toegevoegd.
 
-7. Hallo query opnieuw uitvoeren. U zou een duidelijk verschil moeten zien. 
+7. Voer de opnieuw query uit. U zou een duidelijk verschil moeten zien. 
 
     > [!NOTE]
-    > Omdat Hallo query een grote hoeveelheid gegevens retourneert, mogelijk Hallo bandbreedte beschikbaarheid van SSMS machine Hallo een prestatieknelpunt. Dit kan tot gevolg hebben dat er helemaal geen sprake is van prestatieverbetering!
+    > Omdat de query een grote hoeveelheid gegevens retourneert, kan de beschikbare bandbreedte van de computer waarop SSMS wordt uitgevoerd een knelpunt zijn. Dit kan tot gevolg hebben dat er helemaal geen sprake is van prestatieverbetering!
 
 > [!NOTE]
-> SQL Data Warehouse gebruikt MPP (Massively Parallel Processing). Query's die bij het scannen of analytische functies uitvoeren op miljoenen rijen ervaren Hallo true kracht van Azure SQL Data Warehouse.
+> SQL Data Warehouse gebruikt MPP (Massively Parallel Processing). Query's die scannen of analytische functies uitvoeren op miljoenen rijen, ervaren de ware kracht van Azure SQL Data Warehouse.
 >
 
-### <a name="see-hello-effect-of-statistics-on-query-performance"></a>Zie Hallo effect van statistieken op de prestaties van query 's
+### <a name="see-the-effect-of-statistics-on-query-performance"></a>Het effect van statistieken op de queryprestaties bekijken
 
-1. Voer een query dat joins datum-tabel met de Hallo reis tabel Hallo
+1. Een query uitvoeren die de tabel Date met de tabel Trip samenvoegt
 
     ```sql
     SELECT TOP (1000000) 
@@ -615,10 +614,10 @@ Eerst schalen we Hallo sizing omlaag too100 DWU zodat we een beter beeld van hoe
         ON  tr.DateID = dt.DateID
     ```
 
-    Deze query heeft een tijdje omdat SQL Data Warehouse tooshuffle gegevens heeft voordat het Hallo join kunt uitvoeren. Joins geen tooshuffle gegevens als ze ontworpen toojoin gegevens in Hallo zijn dezelfde manier als deze is gedistribueerd. Dat is een ingewikkelder onderwerp. 
+    Deze query kost extra tijd, omdat SQL Data Warehouse gegevens moet verdelen voordat er kan worden samengevoegd. Er hoeven geen gegevens te worden verdeeld bij samenvoegingen als de gegevens moeten worden samengevoegd op dezelfde manier als ze zijn gedistribueerd. Dat is een ingewikkelder onderwerp. 
 
 2. Statistieken maken een groot verschil. 
-3. Deze instructie toocreate statistieken worden uitgevoerd op Hallo join-kolommen.
+3. Voer deze instructie uit om statistieken te maken voor de samenvoegingskolommen.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -628,16 +627,16 @@ Eerst schalen we Hallo sizing omlaag too100 DWU zodat we een beter beeld van hoe
     > [!NOTE]
     > SQL DW beheert niet automatisch statistieken voor u. Statistieken zijn belangrijk voor de prestaties van query's en we raden u ten zeerste aan statistieken te maken en bij te werken.
     > 
-    > **Krijgt u Hallo profiteren door statistieken op kolommen die betrokken zijn in joins van kolommen die worden gebruikt in Hallo waar component en kolommen gevonden in de GROUP BY.**
+    > **U haalt het meeste voordeel uit statistieken bij kolommen die onderdeel uitmaken van samenvoegingen, kolommen met het WHERE-component en kolommen in GROUP BY.**
     >
 
-3. Hallo query opnieuw uitvoeren van de vereisten en bekijk eventuele prestatieverschillen in. Bij Hallo verschillen in prestaties van query's wordt niet als ingrijpende als omhoog schalen, ziet u een versnellen. 
+3. Voer de query in Vereisten opnieuw uit en kijk of er prestatieverschillen zijn. De verschillen in de prestaties van query's zijn niet zo ingrijpend als wanneer u omhoog schaalt, maar u zou wel een versnelling moeten zien. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U bent nu klaar tooquery en verkennen. Bekijk onze aanbevolen procedures en tips.
+U bent nu klaar om query’s uit te voeren en te verkennen. Bekijk onze aanbevolen procedures en tips.
 
-Als u klaar bent verkennen voor Hallo dag, zodat toopause ervoor dat uw exemplaar! In productie, kunt u enorm veel besparingen ervaring door te onderbreken en schalen toomeet behoeften van uw bedrijf.
+Als u klaar bent voor vandaag, zorg dan dat u uw exemplaar onderbreekt. U kunt enorm besparen op de productie door te onderbreken en schalen op basis van uw zakelijke behoeften.
 
 ![Onderbreken](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
@@ -651,20 +650,20 @@ Als u klaar bent verkennen voor Hallo dag, zodat toopause ervoor dat uw exemplaa
 
 [Top 10 aanbevolen procedures voor het bouwen van een grootschalige relationele Data Warehouse][]
 
-[Migreren gegevens tooAzure SQL Data Warehouse][]
+[Gegevens migreren naar Azure SQL Data Warehouse][]
 
 [Gelijktijdigheid en werklastbeheer]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Aanbevolen procedures voor Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Querybewaking]: sql-data-warehouse-manage-monitor.md
 [Top 10 aanbevolen procedures voor het bouwen van een grootschalige relationele Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
-[Migreren gegevens tooAzure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Gegevens migreren naar Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 
 
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[vereisten]: sql-data-warehouse-get-started-tutorial.md#prerequisites
+[Vereisten]: sql-data-warehouse-get-started-tutorial.md#prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/

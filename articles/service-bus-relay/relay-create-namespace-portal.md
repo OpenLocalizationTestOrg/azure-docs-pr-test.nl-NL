@@ -1,6 +1,6 @@
 ---
-title: met behulp van een naamruimte van het type Relay-aaaCreate hello Azure-portal | Microsoft Docs
-description: Een Relay-naamruimte met toocreate Hallo hoe Azure-portal.
+title: Een Relay-naamruimte maken met behulp van Azure Portal | Microsoft Docs
+description: Een Relay-naamruimte maken met behulp van Azure Portal.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.openlocfilehash: ab3abedbe63aa2d806ffd3a0db7e4aa3c99c4b0d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 27cc817fd4fc2d88b0b7d87f99d58795a6b8b864
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-relay-namespace-using-hello-azure-portal"></a>Maken van een Relay-naamruimte met behulp van hello Azure-portal
-Een naamruimte is een algemene container voor al uw Azure Relay-onderdelen. Er kunnen zich meerdere relays in één naamruimte bevinden, en naamruimten fungeren vaak als toepassingscontainers. Er zijn momenteel twee verschillende manieren toocreate een relay-naamruimte.
+# <a name="create-a-relay-namespace-using-the-azure-portal"></a>Een Relay-naamruimte maken met behulp van Azure Portal
+Een naamruimte is een algemene container voor al uw Azure Relay-onderdelen. Er kunnen zich meerdere relays in één naamruimte bevinden, en naamruimten fungeren vaak als toepassingscontainers. Er zijn momenteel twee verschillende manieren om een relay-naamruimte te maken.
 
 1. Azure-portal (dit artikel)
 2. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-sjablonen
 
-## <a name="create-a-namespace-in-hello-azure-portal"></a>Een naamruimte maken in hello Azure-portal
+## <a name="create-a-namespace-in-the-azure-portal"></a>Een naamruimte in Azure Portal maken
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 

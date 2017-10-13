@@ -1,6 +1,6 @@
 ---
-title: aaaGet gestart met Python en Azure Cloud Services | Microsoft Docs
-description: Overzicht van het gebruik van Python-Tools voor Visual Studio toocreate Azure cloudservices, met inbegrip van webrollen en werkrollen.
+title: Aan de slag met Python en Azure Cloud Services | Microsoft Docs
+description: Overzicht van het gebruik van Python-tools voor Visual Studio voor het maken van Azure Cloud Services, met inbegrip van webrollen en werkrollen.
 services: cloud-services
 documentationcenter: python
 author: thraka
@@ -14,15 +14,15 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: f5fd85e754839f146abe912351c59dc4a148c990
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 030a09c05ac4b480c9326b8a9ebc585339f312b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python-web- en -werkrollen met Python-tools voor Visual Studio
 
-Dit artikel biedt een overzicht van het gebruik van Python-web- en -werkrollen met [Python Tools for Visual Studio][Python Tools for Visual Studio]. Meer informatie over hoe toouse Visual Studio toocreate en implementeren van een eenvoudige Cloud-Service die gebruikmaakt van Python.
+Dit artikel biedt een overzicht van het gebruik van Python-web- en -werkrollen met [Python Tools for Visual Studio][Python Tools for Visual Studio]. U kunt hier lezen hoe u met Visual Studio een eenvoudige cloudservice maakt en implementeert die gebruikmaakt van Python.
 
 ## <a name="prerequisites"></a>Vereisten
 * [Visual Studio 2013, 2015 of 2017](https://www.visualstudio.com/)
@@ -35,45 +35,45 @@ Dit artikel biedt een overzicht van het gebruik van Python-web- en -werkrollen m
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Wat zijn Python-web- en -werkrollen?
-Azure biedt drie rekenmodellen voor het uitvoeren van toepassingen: [web-appsfunctie in Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] en [Azure Cloud Services][execution model-cloud services]. Alle drie modellen ondersteunen Python. Cloud Services, die web- en werkrollen bevatten, bieden *Platform as a Service (PaaS)*. Binnen een cloudservice biedt een Webrol een speciale Internet Information Services (IIS) web server toohost front-end-web-toepassingen, terwijl een werkrol kan asynchrone, langlopende of permanente onafhankelijk van de gebruikersinteractie of invoer taken worden uitgevoerd.
+Azure biedt drie rekenmodellen voor het uitvoeren van toepassingen: [web-appsfunctie in Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] en [Azure Cloud Services][execution model-cloud services]. Alle drie modellen ondersteunen Python. Cloud Services, die web- en werkrollen bevatten, bieden *Platform as a Service (PaaS)*. Binnen een cloudservice biedt een webrol een speciale IIS-webserver (Internet Information Services) voor het hosten van front-end webtoepassingen. Een werkrol kan asynchrone langlopende of permanente taken uitvoeren onafhankelijk van de interactie of invoer van de gebruiker.
 
 Zie [Wat is een cloudservice?] voor meer informatie.
 
 > [!NOTE]
-> *Zoek toobuild een ongecompliceerde website?*
-> Als uw scenario slechts een ongecompliceerde website-front-end omvat, kunt u overwegen Hallo eenvoudige functie Web Apps in Azure App Service. Als uw website groeit en uw vereisten veranderen, kunt u gemakkelijk tooa Cloudservice upgraden. Zie Hallo <a href="/develop/python/">Python Developer Center</a> voor artikelen over ontwikkeling met de functie van de Hallo Web Apps in Azure App Service.
+> *Wilt u een eenvoudige website bouwen?*
+> Als uw scenario slechts een ongecompliceerde website-front-end omvat, kunt u overwegen de eenvoudige functie Web Apps in Azure App Service te gebruiken. U kunt vervolgens gemakkelijk upgraden naar een cloudservice naarmate uw website groeit en de vereisten veranderen. Zie het <a href="/develop/python/">Python Developer Center</a> voor artikelen over ontwikkeling met de functie Web Apps in Azure App Service.
 > <br />
 > 
 > 
 
 ## <a name="project-creation"></a>Een project maken
-In Visual Studio, kunt u **Azure Cloud Service** in Hallo **nieuw Project** dialoogvenster onder **Python**.
+In Visual Studio kunt u **Azure Cloud Service** selecteren in het dialoogvenster **Nieuw project** onder **Python**.
 
 ![Het dialoogvenster Nieuw project](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
 
-U kunt nieuwe web- en werkrollen maken in hello Azure Cloud Service-wizard.
+U kunt nieuwe web- en werkrollen maken in de Azure Cloud Service-wizard.
 
 ![Het dialoogvenster Azure Cloud Service](./media/cloud-services-python-ptvs/new-service-wizard.png)
 
-Hallo werkrolsjabloon wordt geleverd met standaardtekst code tooconnect tooan Azure storage-account of Azure Service Bus.
+De werkrolsjabloon wordt geleverd met standaardcode om verbinding maken met een Azure-opslagaccount of Azure Service Bus.
 
 ![Cloudserviceoplossing](./media/cloud-services-python-ptvs/worker.png)
 
-U kunt de web- of worker rollen tooan bestaande cloudservice op elk gewenst moment toevoegen.  U kunt de bestaande projecten tooadd kiezen in uw oplossing of nieuwe maken.
+U kunt op elk gewenst moment web- of werkrollen toevoegen aan een bestaande cloudservice.  U kunt bestaande projecten aan uw oplossing toevoegen of nieuwe maken.
 
 ![De opdracht Rol toevoegen](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
 Uw cloudservice kan rollen bevatten die zijn geïmplementeerd in verschillende talen.  U kunt bijvoorbeeld een Python-webrol hebben die is geïmplementeerd met Django, met Python of met C#-werkrollen.  U kunt eenvoudig communiceren tussen uw rollen met behulp van de Service Bus-wachtrijen of opslagwachtrijen.
 
-## <a name="install-python-on-hello-cloud-service"></a>Python installeren op Hallo-cloudservice
+## <a name="install-python-on-the-cloud-service"></a>Python installeren op de cloudservice
 > [!WARNING]
-> Hallo setup-scripts die zijn geïnstalleerd met Visual Studio (op Hallo tijd die in dit artikel voor het laatst is bijgewerkt) werken niet. Deze sectie beschrijft een tijdelijke oplossing.
+> De installatiescripts die met Visual Studio zijn geïnstalleerd, werken niet (op het moment dat dit artikel voor het laatst werd bijgewerkt). Deze sectie beschrijft een tijdelijke oplossing.
 > 
 > 
 
-Hallo belangrijkste probleem met de installatiescripts Hallo is dat ze niet python installeert. Eerste stap definieert twee [starten van de taken](cloud-services-startup-tasks.md) in Hallo [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) bestand. de eerste taak hello (**PrepPython.ps1**) downloadt en installeert Hallo Python-runtime. de tweede taak hello (**PipInstaller.ps1**) pip tooinstall eventuele afhankelijkheden die u hebt uitgevoerd.
+Het belangrijkste probleem met de installatiescripts is dat Python hiermee niet wordt geïnstalleerd. Eerst definieert u twee [opstarttaken](cloud-services-startup-tasks.md) in het bestand [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef). De eerste taak (**PrepPython.ps1**) downloadt en installeert de Python-runtime. De tweede taak (**PipInstaller.ps1**) voert pip uit om alle afhankelijkheden die u mogelijk hebt, te installeren.
 
-Hallo scripts te volgen zijn geschreven als doel Python 3.5. Als u wilt dat toouse Hallo versie 2.x van python, set Hallo **PYTHON2** variabele bestand te**op** voor Hallo twee starten van de taken en runtime-taak Hallo: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
+De volgende scripts zijn geschreven voor gebruik met Python 3.5. Als u versie 2.x van Python wilt gebruiken, stelt u de variabele **PYTHON2** in het bestand in op **on** (aan) voor de twee opstarttaken en de runtimetaak: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
 
 ```xml
 <Startup>
@@ -100,7 +100,7 @@ Hallo scripts te volgen zijn geschreven als doel Python 3.5. Als u wilt dat toou
 </Startup>
 ```
 
-Hallo **PYTHON2** en **PYPATH** variabelen toohello worker starten van de taak moeten worden toegevoegd. Hallo **PYPATH** variabele wordt alleen gebruikt als hello **PYTHON2** variabele is ingesteld, te**op**.
+De variabelen **PYTHON2** en **PYPATH** moeten aan de opstarttaak van de werkrol worden toegevoegd. De variabele **PYPATH** wordt alleen gebruikt als de variabele **PYTHON2** is ingesteld op **on** (aan).
 
 ```xml
 <Runtime>
@@ -166,10 +166,10 @@ Hallo **PYTHON2** en **PYPATH** variabelen toohello worker starten van de taak m
 
 
 
-Maak vervolgens Hallo **PrepPython.ps1** en **PipInstaller.ps1** bestanden in Hallo **. / bin** map van uw rol.
+Maak vervolgens de bestanden **PrepPython.ps1** en **PipInstaller.ps1** in de map **./bin** van uw rol.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-Dit script installeert Python. Als hello **PYTHON2** omgevingsvariabele is te ingesteld**op**, en vervolgens Python 2.7 is geïnstalleerd, anders Python 3.5 is geïnstalleerd.
+Dit script installeert Python. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on**, wordt Python 2.7 geïnstalleerd; anders wordt Python 3.5 geïnstalleerd.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -195,7 +195,7 @@ if (-not $is_emulated){
             $outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
         }
 
-        Write-Output "Not found, downloading $url too$outFile$nl"
+        Write-Output "Not found, downloading $url to $outFile$nl"
         Invoke-WebRequest $url -OutFile $outFile
         Write-Output "Installing$nl"
 
@@ -215,7 +215,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-Dit script pip-aanroepen en installeert u alle afhankelijkheden Hallo in Hallo **requirements.txt** bestand. Als hello **PYTHON2** omgevingsvariabele is te ingesteld**op**, en vervolgens Python 2.7 wordt gebruikt, anders Python 3.5 wordt gebruikt.
+Met dit script wordt pip aangeroepen en worden alle afhankelijkheden in het bestand **requirements.txt** geïnstalleerd. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on**, wordt Python 2.7 gebruikt; anders wordt Python 3.5 gebruikt.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -244,13 +244,13 @@ if (-not $is_emulated){
 
 #### <a name="modify-launchworkerps1"></a>LaunchWorker.ps1 wijzigen
 > [!NOTE]
-> In geval van Hallo een **werkrol** project **LauncherWorker.ps1** bestand is vereist tooexecute Hallo opstarten. In een **Webrol** project, hello opstartbestand is in plaats daarvan gedefinieerd in de Projecteigenschappen Hallo.
+> In het geval van een project met een **werkrol** is het bestand **LauncherWorker.ps1** vereist om het opstartbestand uit te voeren. Bij een project met een **webrol** wordt het opstartbestand in plaats daarvan gedefinieerd in de projecteigenschappen.
 > 
 > 
 
-Hallo **bin\LaunchWorker.ps1** toodo veel voorbereidende werk, maar niet echt werkt oorspronkelijk is gemaakt. Hallo-inhoud in dat bestand vervangen door Hallo script te volgen.
+Het bestand **bin\LaunchWorker.ps1** is oorspronkelijk gemaakt om heel wat voorbereidende taken te verrichten, maar werkt niet echt. Vervang de inhoud van dat bestand door het volgende script.
 
-Dit script aanroept Hallo **worker.py** bestand van uw project python. Als hello **PYTHON2** omgevingsvariabele is te ingesteld**op**, en vervolgens Python 2.7 wordt gebruikt, anders Python 3.5 wordt gebruikt.
+Met dit script wordt het bestand **worker.py** van uw Python-project aangeroepen. Als de omgevingsvariabele **PYTHON2** is ingesteld op **on**, wordt Python 2.7 gebruikt; anders wordt Python 3.5 gebruikt.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -274,7 +274,7 @@ else
 {
     Write-Output "Running (EMULATED) worker.py$nl"
 
-    # Customize tooyour local dev environment
+    # Customize to your local dev environment
 
     if ($is_python2) {
         cd..
@@ -288,7 +288,7 @@ else
 ```
 
 #### <a name="pscmd"></a>ps.cmd
-Hallo Visual Studio sjablonen moeten gemaakt een **ps.cmd** bestand in Hallo **. / bin** map. Deze shell-script illustreert Hallo PowerShell bovenstaande wrapper-scripts en biedt logboekregistratie op basis van de naam Hallo van Hallo PowerShell wrapper is aangeroepen. Als dit bestand niet is gemaakt, ziet u hieronder wat het moet bevatten. 
+De Visual Studio-sjablonen zouden in de map **./bin** een bestand **ps.cmd** moeten hebben gemaakt. Dit shellscript roept de bovenstaande PowerShell-wrapperscripts aan en biedt logboekregistratie op basis van de naam van de aangeroepen PowerShell-wrapper. Als dit bestand niet is gemaakt, ziet u hieronder wat het moet bevatten. 
 
 ```bat
 @echo off
@@ -302,38 +302,38 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 ## <a name="run-locally"></a>Lokaal uitvoeren
-Als u uw cloudserviceproject als opstartproject Hallo instelt en druk op F5 Hallo cloudservice wordt uitgevoerd in Hallo lokale Azure-emulator.
+Als u uw cloudserviceproject instelt als opstartproject en op F5 drukt, wordt de cloudservice in de lokale Azure-emulator uitgevoerd.
 
-Hoewel PTVS ondersteunt werkt starten in Hallo emulator foutopsporing (bijvoorbeeld onderbrekingspunten) niet.
+Hoewel PTVS opstarten in de emulator ondersteunt, werkt foutopsporing (bijvoorbeeld onderbrekingspunten) niet.
 
-toodebug uw web- en werkrollen rollen, die u kunt Hallo rolproject instellen als opstartproject Hallo en fouten opsporen in dat in plaats daarvan.  U kunt ook meerdere opstartprojecten instellen.  Met de rechtermuisknop op het Hallo-oplossing en selecteer vervolgens **Opstartprojecten instellen**.
+Voor foutopsporing in uw web- en werkrollen kunt u het rolproject instellen als opstartproject en daarop foutopsporing uitvoeren.  U kunt ook meerdere opstartprojecten instellen.  Klik met de rechtermuisknop op de oplossing en selecteer vervolgens **Opstartprojecten instellen**.
 
 ![Eigenschappen van opstartprojecten in de oplossing](./media/cloud-services-python-ptvs/startup.png)
 
-## <a name="publish-tooazure"></a>TooAzure publiceren
-toopublish, met de rechtermuisknop op het Hallo-cloudserviceproject in Hallo oplossing en selecteer vervolgens **publiceren**.
+## <a name="publish-to-azure"></a>Publiceren naar Azure
+Om te publiceren, klikt u met de rechtermuisknop op het cloudserviceproject in de oplossing en selecteert u vervolgens **Publiceren**.
 
 ![Aanmelden voor publiceren in Microsoft Azure](./media/cloud-services-python-ptvs/publish-sign-in.png)
 
-Volg de wizard Hallo. Schakel Extern bureaublad in, als dat nodig is. Extern bureaublad is handig als u iets toodebug.
+Volg de wizard. Schakel Extern bureaublad in, als dat nodig is. Extern bureaublad is handig wanneer u ergens fouten in moet opsporen.
 
 Klik op **Publiceren** wanneer u klaar bent met het configureren van instellingen.
 
-De voortgang wordt weergegeven in het uitvoervenster Hallo vervolgens ziet u Hallo activiteitenlogboek van Microsoft Azure-venster.
+De voortgang wordt gedeeltelijk weergegeven in het uitvoervenster. Vervolgens ziet u het venster Activiteitenlogboek van Microsoft Azure.
 
 ![Het venster Activiteitenlogboek van Microsoft Azure](./media/cloud-services-python-ptvs/publish-activity-log.png)
 
-Implementatie duurt enkele minuten toocomplete, vervolgens uw web-en/of werkrollen uitgevoerd op Azure!
+De implementatie duurt enkele minuten. Daarna worden uw web- en/of werkrollen uitgevoerd in Azure.
 
 ### <a name="investigate-logs"></a>Logboeken onderzoeken
-Nadat Hallo cloud service virtuele machine opgestart wordt en geïnstalleerd Python, kunt u bekijkt hello logboeken toofind foutberichten. Deze logboeken bevinden zich in Hallo **C:\Resources\Directory\\{rol} \LogFiles** map. **PrepPython.err.txt** met ten minste één fout erin uit wanneer Hallo script toodetect probeert als Python is geïnstalleerd en **PipInstaller.err.txt** een verouderde versie van pip mogelijk klagen.
+Nadat de virtuele machine van de cloudservice wordt gestart en Python installeert, kunt u de logboeken controleren op foutberichten. Deze logboeken bevinden zich in de map **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** bevat ten minste één fout doordat het script probeert te detecteren of Python is geïnstalleerd. Mogelijk geeft **PipInstaller.err.txt** ook aan dat de versie van pip is verouderd.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de documentatie bij PTVS Hallo voor meer gedetailleerde informatie over het werken met functies voor web- en werkrollen in Python-Tools voor Visual Studio:
+Zie de documentatie bij PTVS voor meer informatie over het werken met web- en werkrollen in Python-tools voor Visual Studio:
 
 * [Cloudserviceprojecten][Cloud Service Projects]
 
-Zie voor meer informatie over het gebruik van Azure-services van uw web- en werkrollen rollen, zoals het gebruik van Azure Storage of Service Bus Hallo artikelen te volgen:
+Zie de volgende artikelen voor meer informatie over het gebruik van Azure-services via uw web- en werkrollen, zoals het gebruik van Azure Storage of Service Bus:
 
 * [Blob-service][Blob Service]
 * [Tabelservice][Table Service]
@@ -344,7 +344,7 @@ Zie voor meer informatie over het gebruik van Azure-services van uw web- en werk
 <!--Link references-->
 
 [Wat is een cloudservice?]: cloud-services-choose-me.md
-[execution model-web sites]: ../app-service-web/app-service-web-overview.md
+[execution model-web sites]: ../app-service/app-service-web-overview.md
 [execution model-vms]:../virtual-machines/windows/overview.md
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/

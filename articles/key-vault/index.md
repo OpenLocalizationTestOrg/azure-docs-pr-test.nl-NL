@@ -1,8 +1,8 @@
 ---
-title: aaaAzure Sleutelkluis documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toouse Sleutelkluis toocreate en onderhouden van sleutels die toegang tot en het versleutelen van uw cloud-bronnen, apps en oplossingen. Zelfstudies, API-verwijzingen en meer.
+title: Documentatie voor Azure Key Vault - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over hoe u Key Vault gebruikt om sleutels te maken en te onderhouden waarmee u de resources, apps en oplossingen in de cloud kunt openen en versleutelen. Zelfstudies, API-verwijzingen en meer.
 services: key-vault
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a7fbebf94b3f345731ccba0ab788c83efa4c021e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3267373f6db336c34d13709cc0392631531313f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="key-vault-documentation"></a>Documentatie voor Key Vault
 
-Meer informatie over hoe toouse Sleutelkluis toosafeguard en cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services te beheren. Zelfstudies, API-referenties en andere documentatie die u zien hoe toocreate en onderhouden van sleutels die toegang tot en het versleutelen van uw resources en oplossingen.
+Meer informatie over hoe u Key Vault gebruikt om cryptografische sleutels en geheimen te beveiligen en te beheren die door cloudtoepassingen en -services worden gebruikt. Zelfstudies, API-referenties en andere documentatie laten zien hoe u sleutels maakt en onderhoudt waarmee u uw resources en oplossingen kunt openen en versleutelen.
 
 <ul class="panelContent cardsFTitle">
     <li>

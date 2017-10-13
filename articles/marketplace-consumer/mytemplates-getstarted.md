@@ -1,6 +1,6 @@
 ---
-title: aaaGet slag met persoonlijke sjablonen | Microsoft Docs
-description: Toevoegen, beheren en delen van uw persoonlijke sjablonen met hello Azure-portal, hello Azure CLI of PowerShell.
+title: Aan de slag met persoonlijke sjablonen | Microsoft Docs
+description: Uw persoonlijke sjablonen toevoegen, beheren en delen met de Azure-portal, de Azure CLI of PowerShell.
 services: marketplace-customer
 documentationcenter: 
 author: VybavaRamadoss
@@ -16,120 +16,120 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
-ms.openlocfilehash: 1fe2c6422f62a98f7ae9ba5c61b9639d993f0bca
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-private-templates-on-hello-azure-portal"></a>Aan de slag met persoonlijke sjablonen in hello Azure Portal
-Een [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) sjabloon is een declaratief sjabloon gebruikt toodefine uw implementatie. U kunt definiëren Hallo resources toodeploy voor een oplossing en geef parameters en variabelen die u in staat tooinput waarden voor verschillende omgevingen stellen. Hallo sjabloon bestaat uit JSON en uitdrukkingen die u kunt tooconstruct waarden voor uw implementatie.
+# <a name="get-started-with-private-templates-on-the-azure-portal"></a>Aan de slag met persoonlijke sjablonen in de Azure-portal
+Een [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) sjabloon is een declaratief sjabloon om uw implementatie te definiëren. U kunt de resources bepalen die u wilt implementeren in een oplossing en de parameters en variabelen vaststellen waarmee u waarden kunt invoeren voor verschillende omgevingen. De sjabloon bestaat uit JSON en uitdrukkingen die u kunt gebruiken om waarden voor uw implementatie samen te stellen.
 
-Kunt u Hallo nieuwe **sjablonen** mogelijkheden in Hallo [Azure Portal](https://portal.azure.com) samen met de Hallo **Microsoft.Gallery** resourceprovider als een uitbreiding van Hallo [ Azure Marketplace](https://azure.microsoft.com/marketplace/) toocreate tooenable gebruikers, beheren en implementeren van persoonlijke sjablonen vanuit een persoonlijke bibliotheek.
+U kunt de nieuwe **sjabloon**mogelijkheden van de [Azure-portal](https://portal.azure.com) gebruiken in combinatie met de **Microsoft.Gallery** resourceprovider als een uitbreiding van de [Azure Marketplace](https://azure.microsoft.com/marketplace/). Zo kunnen gebruikers persoonlijke sjablonen maken, beheren en implementeren vanuit een persoonlijke bibliotheek.
 
-Dit document vindt u bij het toevoegen, beheren en delen van een persoonlijk **sjabloon** met behulp van hello Azure-Portal.
+Dit document is een handleiding voor het toevoegen, beheren en delen van een persoonlijk **sjabloon** via de Azure-portal.
 
 ## <a name="guidance"></a>Richtlijnen
-Hallo volgende tips kunt u profiteren van **sjablonen** bij het werken met uw oplossingen:
+Met de volgende tips kunt u profiteren van de **sjablonen** wanneer u aan de slag gaat met uw oplossingen:
 
-* Een **sjabloon** is een inkapselende resource met een Resource Manager-sjabloon en aanvullende metagegevens. Dit werkt op dezelfde manier tooan item in Hallo Marketplace. Hallo belangrijkste verschil is dat het een persoonlijk item als tegengestelde toohello openbaar Marketplace-item is.
-* Hallo **sjablonen** bibliotheek geschikt is voor gebruikers hoeven toocustomize implementaties.
+* Een **sjabloon** is een inkapselende resource met een Resource Manager-sjabloon en aanvullende metagegevens. Het werkt op dezelfde manier als een item in de Marketplace. Het belangrijkste verschil is dat het een persoonlijk item is, in plaats van een openbaar Marketplace-item.
+* De **sjablonen**bibliotheek is zeer geschikt voor gebruikers die hun implementaties willen aanpassen.
 * **Sjablonen** zijn handig voor gebruikers die een eenvoudige opslagplaats in Azure nodig hebben.
 * Begin met een bestaand Resource Manager-sjabloon. Zoek sjablonen in [github](https://github.com/Azure/azure-quickstart-templates) of [exporteer een sjabloon](../azure-resource-manager/resource-manager-export-template.md) vanuit een bestaande resourcegroep.
-* **Sjablonen** gebonden toohello-gebruiker die deze publiceert. Hallo de naam van uitgever is zichtbaar tooeveryone die tooit leestoegang heeft.
+* **Sjablonen** zijn gekoppeld aan de gebruiker die deze publiceert. De naam van de uitgever is zichtbaar voor alle gebruikers met leestoegang.
 * **Sjablonen** zijn resources van de Resource Manager en kunnen na publicatie niet meer worden gewijzigd.
 
 ## <a name="add-a-template-resource"></a>Een sjabloonresource toevoegen
-Er zijn twee manieren toocreate een **sjabloon** resource in hello Azure-portal.
+Er zijn twee manieren om een **sjabloon**resource te maken in de Azure-portal.
 
 ### <a name="method-1--create-a-new-template-resource-from-a-running-resource-group"></a>Methode 1: Maak een nieuwe sjabloonresource vanuit een bestaande resourcegroep
-1. Navigeer tooan bestaande resourcegroep in hello Azure-Portal. Klik op **Sjabloon exporteren** in **Instellingen**.
-2. Zodra het Hallo Resource Manager-sjabloon is geëxporteerd, gebruikt u Hallo **sjabloon opslaan** knop toosave het toohello **sjablonen** opslagplaats. Meer informatie over het exporteren van sjablonen vindt u [hier](../azure-resource-manager/resource-manager-export-template.md).
+1. Navigeer naar een bestaande resourcegroep in de Azure-portal. Klik op **Sjabloon exporteren** in **Instellingen**.
+2. Zodra de Resource Manager-sjabloon is geëxporteerd, gebruikt u de knop **Sjabloon opslaan** om de sjabloon op te slaan in de  **Sjabloon**opslag. Meer informatie over het exporteren van sjablonen vindt u [hier](../azure-resource-manager/resource-manager-export-template.md).
    <br /><br />
    ![Resourcegroep exporteren](media/rg-export-portal1.PNG)  <br />
-3. Selecteer Hallo **tooTemplate opslaan** opdrachtknop.
+3. Selecteer de opdrachtknop **Opslaan in sjabloon**.
    <br /><br />
-4. Voer Hallo volgende informatie:
+4. Voer de volgende informatie in:
    
-   * Naam: naam van het object hello (Opmerking: dit is een naam op basis van Azure Resource Manager. Alle naamsbeperkingen zijn van toepassing en de naam kan achteraf niet meer worden gewijzigd).
-   * Beschrijving – korte samenvatting van Hallo-sjabloon.
+   * Naam: naam van het sjabloonobject (LET OP: dit is een naam op basis van Azure Resource Manager. Alle naamsbeperkingen zijn van toepassing en de naam kan achteraf niet meer worden gewijzigd).
+   * Beschrijving – korte samenvatting van de sjabloon.
      
      ![Sjabloon opslaan](media/save-template-portal1.PNG)  <br />
 5. Klik op **Opslaan**.
    
    > [!NOTE]
-   > Hallo blade sjabloon exporteren geeft een melding weer wanneer hello geëxporteerde Resource Manager-sjabloon fouten bevat, maar u kunt nog steeds kunnen toosave deze Resource Manager-sjabloon toohello sjablonen. Zorg ervoor dat Controleer en corrigeer eventuele Resource Manager voordat opnieuw distribueren Hallo geëxporteerd Resource Manager-sjabloon sjabloonproblemen.
+   > De blade Sjabloon exporteren geeft een melding weer wanneer de geëxporteerde Resource Manager-sjabloon fouten bevat. U kunt deze Resource Manager-sjabloon nog steeds opslaan bij de Sjablonen. Controleer en corrigeer alle problemen met de Resource Manager-sjabloon voordat u deze opnieuw implementeert.
    > 
    > 
 
 ### <a name="method-2--add-a-new-template-resource-from-browse"></a>Methode 2: Een nieuwe sjabloonresource toevoegen door middel van bladeren
-U kunt ook toevoegen een nieuwe **sjabloon** helemaal met Hallo + knop toevoegen in **Bladeren > sjablonen**. U moet een naam, beschrijving en Hallo Resource Manager-sjabloon JSON tooprovide.
+U kunt ook een nieuw **Sjabloon** maken en toevoegen met behulp van de knop Toevoegen in **Bladeren > sjablonen**. U moet een naam, beschrijving en JSON opgeven voor de Resource Manager-sjabloon.
 
 ![Sjabloon toevoegen](media/add-template-portal1.PNG)  <br />
 
 > [!NOTE]
-> Microsoft.Gallery is een op tenants gebaseerde resourceprovider van Azure. Hallo is sjabloonresource gebonden toohello-gebruiker die deze is gemaakt. Het is niet gebonden tooany bepaald abonnement. Een abonnement moet toobe ervoor gekozen alleen bij het implementeren van een sjabloon.
+> Microsoft.Gallery is een op tenants gebaseerde resourceprovider van Azure. De sjabloonresource is gekoppeld aan de gebruiker die deze gemaakt heeft. Deze is niet gekoppeld aan een bepaald abonnement. U hoeft alleen een abonnement te kiezen wanneer u een sjabloon implementeert.
 > 
 > 
 
 ## <a name="view-template-resources"></a>Sjabloonresources bekijken
-Alle **sjablonen** tooyou beschikbaar die kan worden weergegeven wanneer **Bladeren > sjablonen**. Dit zijn zowel **sjablonen** die u hebt gemaakt als sjablonen met verschillende bevoegdheidsniveaus die met u zijn gedeeld. Meer informatie in Hallo [toegangsbeheer](#access-control-for-a-tenant-resource-provider) hieronder.
+U kunt alle beschikbare **sjablonen** bekijken via **Bladeren > sjablonen**. Dit zijn zowel **sjablonen** die u hebt gemaakt als sjablonen met verschillende bevoegdheidsniveaus die met u zijn gedeeld. Meer informatie vindt u in het gedeelte [toegangscontrole](#access-control-for-a-tenant-resource-provider) hieronder.
 
 ![Sjabloon weergeven](media/view-template-portal1.PNG)  <br />
 
-U kunt Hallo weergeven van een **sjabloon** door te klikken op een item in de lijst Hallo.
+U kunt de gegevens van een **sjabloon** bekijken door op een item in de lijst te klikken.
 
 ![Sjabloon weergeven](media/view-template-portal2c.png)  <br />
 
 ## <a name="edit-a-template-resource"></a>Een sjabloonresource bewerken
-U kunt starten Hallo bewerken stroom voor een **sjabloon** door Hallo-item op Hallo zoeklijst rechtermuisknop te klikken of door te kiezen opdrachtknop Hallo-bewerken.
+U kunt een **sjabloon** bewerken door met de rechtermuisknop te klikken op het item in de lijst Bladeren of op de knop Bewerken.
 
 ![Sjabloon bewerken](media/edit-template-portal1a.PNG)  <br />
 
-U kunt Hallo beschrijving of de sjabloontekst van Resource Manager-bewerken. U kunt Hallo-naam niet bewerken omdat deze de naam van een Resource Manager-resource. Wanneer u Hallo Resource Manager-sjabloon JSON bewerkt zullen we dit valideren tooensure dat het een geldige JSON is. Kies **OK** en vervolgens **opslaan** toosave uw bijgewerkte sjabloon.
+U kunt de beschrijving of de tekst van de  Resource Manager-sjabloon bewerken. U kunt de naam niet bewerken, omdat dit de naam is van een Resource Manager-resource. Wanneer u de JSON van de Resource Manager-sjabloon bewerkt, zullen we dit valideren om er zeker van te zijn dat deze geldig is. Klik op **OK** en vervolgens op **Opslaan** om uw bijgewerkte sjabloon op te slaan.
 
 ![Sjabloon bewerken](media/edit-template-portal2a.PNG)  <br />
 
-Eenmaal Hallo **sjabloon** wordt opgeslagen ziet u een bevestigingsbericht weergegeven.
+Wanneer het **sjabloon** is opgeslagen, wordt een bevestigingsbericht weergegeven.
 
 ![Sjabloon bewerken](media/edit-template-portal3b.png)  <br />
 
 ## <a name="deploy-a-template-resource"></a>Een sjabloonresource implementeren
-U kunt elk **sjabloon** implementeren waarvoor u een **lees**machtiging heeft. Hallo implementatie stroom wordt Hallo standaard Azure-sjabloon implementatie blade gestart. Vul Hallo waarden voor Hallo Resource Manager-sjabloon parameters tooproceed met Hallo-implementatie.
+U kunt elk **sjabloon** implementeren waarvoor u een **lees**machtiging heeft. Tijdens de implementatie wordt de standaardblade voor het implementeren van Azure-sjablonen geopend. Vul de parameterwaarden voor de Resource Manager-sjabloon in om verder te gaan met de implementatie.
 
 ![Sjabloon implementeren](media/deploy-template-portal1b.png)  <br />
 
 ## <a name="share-a-template-resource"></a>Een sjabloonresource delen
-U kunt een **sjabloon**resource delen met anderen. Delen gedraagt zich op dezelfde manier te[roltoewijzing voor een resource in Azure](../active-directory/role-based-access-control-configure.md). Hallo **sjabloon** eigenaar biedt machtigingen tooother gebruikers die kunnen communiceren met een sjabloonresource. Hallo persoon of groep personen die u deelt Hallo **sjabloon** met worden kunnen toosee Hallo Resource Manager-sjabloon en de galerie-eigenschappen.
+U kunt een **sjabloon**resource delen met anderen. Delen werkt op ongeveer dezelfde manier als [het toewijzen van rollen voor een resource in Azure](../active-directory/role-based-access-control-configure.md). De eigenaar van de **sjabloon** geeft andere gebruikers toestemming om te werken met een sjabloonresource. De persoon of groep personen met wie u het **sjabloon** heeft gedeeld kan de Resource Manager-sjabloon en de galerie-eigenschappen zien.
 
-### <a name="access-control-for-hello-microsoftgallery-resources"></a>Toegangsbeheer voor Microsoft.Gallery-resources Hallo
+### <a name="access-control-for-the-microsoftgallery-resources"></a>Toegangsbeheer voor Microsoft.Gallery-resources
 | Rol | Machtigingen |
 | --- | --- |
-| Eigenaar |Volledige controle over de sjabloonresource Hallo onder andere het delen |
-| Lezer |Sjabloonresource lezen en kunnen op Hallo sjabloonresource |
-| Inzender |Kunnen bewerken en verwijderen op Hallo sjabloonresource. Gebruiker delen Hallo sjabloon niet met anderen |
+| Eigenaar |Heeft volledige controle over de sjabloonresource, onder andere het delen ervan |
+| Lezer |Kan de sjabloonresource lezen en uitvoeren (implementeren) |
+| Inzender |Kan de sjabloonresource bewerken en verwijderen. Gebruiker kan de sjabloon niet delen met anderen |
 
-Selecteer **Share** op Hallo bladeritem met de rechtermuisknop te klikken of op Hallo weergave blade van een specifiek item. Hiermee opent u een omgeving om het sjabloon te delen.
+Selecteer **Delen** in het bladeritem door te klikken met de rechtermuisknop of op de blade voor het weergeven van een specifiek item. Hiermee opent u een omgeving om het sjabloon te delen.
 
 ![Sjabloon delen](media/share-template-portal1a.png)  <br />
 
- U kunt nu een rol en een gebruiker of groep tooprovide toegang tooa bepaalde **sjabloon**. Hallo beschikbare rollen zijn eigenaar, lezer en Inzender. Meer informatie in Hallo [toegangsbeheer](#access-control-for-a-tenant-resource-provider) sectie hierboven.
+ U kunt nu een rol en een gebruiker of groep kiezen die u toegang wilt geven tot een bepaald **sjabloon**. De beschikbare rollen zijn Eigenaar, Lezer en Inzender. Meer informatie vindt u in het gedeelte [toegangscontrole](#access-control-for-a-tenant-resource-provider) hierboven.
 
 ![Sjabloon delen](media/share-template-portal2b.png)  <br />
 
 ![Sjabloon delen](media/share-template-portal3b.png)  <br />
 
-Klik op **Selecteren** en vervolgens op **Ok**. U kunt nu zien Hallo gebruikers of groepen hebt u toohello resource toegevoegd.
+Klik op **Selecteren** en vervolgens op **Ok**. U kunt nu de gebruikers of groepen bekijken die u aan de resource hebt toegevoegd.
 
 ![Sjabloon delen](media/share-template-portal4b.png)  <br />
 
 > [!NOTE]
-> Een sjabloon kan alleen worden gedeeld met gebruikers en groepen in Hallo dezelfde Azure Active Directory-tenant. Als u een sjabloon met een e-mailadres dat zich niet in uw tenant deelt, wordt een uitnodiging verzonden hello gebruiker toojoin hello tenant als gast waarin wordt gevraagd.
+> U kunt een sjabloon alleen delen met gebruikers en groepen in dezelfde tenant van Azure Active Directory. Als u een sjabloon deelt met een e-mailadres dat zich niet in uw tenant bevindt, wordt een uitnodiging verstuurd waarin de gebruiker wordt gevraagd om als gast deel te nemen aan de tenant.
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-* toolearn over het maken van Resource Manager-sjablonen, Zie [sjablonen te bewerken](../azure-resource-manager/resource-group-authoring-templates.md)
-* Zie toounderstand Hallo functies die u kunt gebruiken in een Resource Manager-sjabloon [sjabloonfuncties](../azure-resource-manager/resource-group-template-functions.md)
+* Zie [Sjablonen samenstellen](../azure-resource-manager/resource-group-authoring-templates.md) voor meer informatie over het maken van Resource Manager-sjablonen
+* Zie [Sjabloonfuncties](../azure-resource-manager/resource-group-template-functions.md) voor inzicht in de functies die u in een Resource Manager-sjabloon kunt gebruiken.
 * Zie [Best practices voor het ontwerpen van Azure Resource Manager-sjablonen](../azure-resource-manager/best-practices-resource-manager-design-templates.md) voor meer informatie over het ontwerpen van uw sjablonen
 

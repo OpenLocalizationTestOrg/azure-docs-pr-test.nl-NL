@@ -8,9 +8,10 @@
 # Aan de slag
 
 ## [Zelfstudie voor beginners](sql-data-warehouse-get-started-tutorial.md)
+## [Elastische query-zelfstudie](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Aanbevolen procedures](sql-data-warehouse-best-practices.md)
 ## [Beheren](sql-data-warehouse-overview-manage.md)
-## [Ondersteuning krijgen](sql-data-warehouse-get-started-create-support-ticket.md)
+
 
 
 # Procedures
@@ -20,7 +21,7 @@
 ### [Overzicht van back-up](sql-data-warehouse-backups.md)
 ### [Overzicht van herstel](sql-data-warehouse-restore-database-overview.md)
 #### [Azure Portal](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Verbinding maken
@@ -34,7 +35,7 @@
 
 ## Maken
 ### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Ontwikkelen
@@ -80,6 +81,8 @@
 ### [Power BI-visualisatie](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
 
+### [Elastische query met SQL Database en SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
+
 ## Belasting
 
 ### Concepten
@@ -89,7 +92,7 @@
 ### Zelfstudies
 #### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 
-### Hoe tooguides
+### Handleidingen
 #### [Voorbeeldgegevens](sql-data-warehouse-load-sample-databases.md)
 #### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 #### [BCP](sql-data-warehouse-load-with-bcp.md)
@@ -106,7 +109,7 @@
 ### [Schema migreren](sql-data-warehouse-migrate-schema.md)
 ### [Code migreren](sql-data-warehouse-migrate-code.md)
 ### [Gegevens migreren](sql-data-warehouse-migrate-data.md)
-### [Toopremium opslag migreren](sql-data-warehouse-migrate-to-premium-storage.md)
+### [Migreren naar Premium-opslag](sql-data-warehouse-migrate-to-premium-storage.md)
 
 ## Compute beheren
 
@@ -139,18 +142,22 @@
 # Naslaginformatie
 
 ## [Capaciteitslimieten](sql-data-warehouse-service-capacity-limits.md)
-## [Elementen van de T-SQL-taal](sql-data-warehouse-reference-tsql-language-elements.md)
-## [T-SQL-instructies](sql-data-warehouse-reference-tsql-statements.md)
-## [Systeemweergaven T-SQL](sql-data-warehouse-reference-tsql-system-views.md)
+## T-SQL
+### [Volledige naslaginformatie](https://docs.microsoft.com/sql/t-sql/language-reference/)
+### [SQL DW-taalelementen](sql-data-warehouse-reference-tsql-language-elements.md)
+### [SQL DW-instructies](sql-data-warehouse-reference-tsql-statements.md)
+## [Systeemweergaven](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell-cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=databases)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
+## [Functieverzoeken](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Ondersteuning](sql-data-warehouse-get-started-create-support-ticket.md)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partners

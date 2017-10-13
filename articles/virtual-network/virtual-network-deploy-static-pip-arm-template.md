@@ -1,6 +1,6 @@
 ---
-title: aaaCreate een virtuele machine met een statisch openbaar IP-adres - Azure Resource Manager-sjabloon | Microsoft Docs
-description: Meer informatie over hoe toocreate een virtuele machine met een statische openbare IP-adres met een Azure Resource Manager-sjabloon.
+title: Een virtuele machine maken met statische openbare IP-adres - Azure Resource Manager-sjabloon | Microsoft Docs
+description: Informatie over het maken van een virtuele machine met een statische openbare IP-adres met een Azure Resource Manager-sjabloon.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a8640ed4fad06b0e09820e6114fd6789db73847
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2f503aa60fdd9b7cf66ef482a1041e34c88e5c01
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a>Een virtuele machine maken met een statisch openbaar IP-adres met een Azure Resource Manager-sjabloon
 
@@ -34,14 +34,14 @@ ms.lasthandoff: 10/06/2017
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
 > [!NOTE]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). In dit artikel bevat informatie over Hallo Resource Manager-implementatiemodel, die Microsoft voor de meeste nieuwe implementaties in plaats van het klassieke implementatiemodel hello aanbeveelt gebruiken.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). In dit artikel wordt behandeld met het implementatiemodel van Resource Manager, die Microsoft voor de meeste nieuwe implementaties in plaats van het klassieke implementatiemodel aanbeveelt.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 ## <a name="public-ip-address-resources-in-a-template-file"></a>Openbare IP-adres resources in een sjabloonbestand
-U kunt weergeven en downloaden Hallo [voorbeeldsjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json).
+U kunt bekijken en download de [voorbeeldsjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json).
 
-Hallo volgende sectie wordt uitgelegd Hallo definitie van Hallo openbare IP-resource, op basis van de bovenstaande Hallo scenario:
+De volgende sectie ziet u de definitie van het openbare IP-resource, op basis van de bovenstaande scenario:
 
 ```json
 {
@@ -58,9 +58,9 @@ Hallo volgende sectie wordt uitgelegd Hallo definitie van Hallo openbare IP-reso
 },
 ```
 
-Kennisgeving Hallo **publicIPAllocationMethod** -eigenschap die is ingesteld te*statische*. Deze eigenschap kan zijn *dynamische* (standaardwaarde) of *statische*. Instelling voor het toostatic wordt gegarandeerd dat Hallo openbaar IP-adres toegewezen nooit wordt gewijzigd.
+U ziet de **publicIPAllocationMethod** eigenschap die is ingesteld op *statische*. Deze eigenschap kan zijn *dynamische* (standaardwaarde) of *statische*. Instellen op statisch wordt gegarandeerd dat het openbare IP-adres toegewezen nooit wordt gewijzigd.
 
-Hallo volgende sectie wordt uitgelegd Hallo koppeling van Hallo openbaar IP-adres met een netwerkinterface:
+De volgende sectie ziet u de koppeling van het openbare IP-adres aan een netwerkinterface:
 
 ```json
   {
@@ -95,9 +95,9 @@ Hallo volgende sectie wordt uitgelegd Hallo koppeling van Hallo openbaar IP-adre
 },
 ```
 
-Kennisgeving Hallo **publicIPAddress** eigenschap die verwijst toohello **Id** van een resource met de naam **variables('webVMSetting').pipName**. Dat is Hallo-naam van Hallo openbare IP-resource hierboven weergegeven.
+U ziet de **publicIPAddress** eigenschap die verwijst naar de **Id** van een resource met de naam **variables('webVMSetting').pipName**. Dat is de naam van het openbare IP-resource hierboven weergegeven.
 
-Ten slotte Hallo netwerkinterface die hierboven wordt vermeld in Hallo **Schaalaanpassingsset** eigenschap Hallo VM wordt gemaakt.
+Ten slotte de netwerkinterface die hierboven wordt vermeld in de **Schaalaanpassingsset** eigenschap van de virtuele machine wordt gemaakt.
 
 ```json
       "networkProfile": {
@@ -109,16 +109,16 @@ Ten slotte Hallo netwerkinterface die hierboven wordt vermeld in Hallo **Schaala
       }
 ```
 
-## <a name="deploy-hello-template-by-using-click-toodeploy"></a>Hallo-sjabloon implementeren met Klik toodeploy
+## <a name="deploy-the-template-by-using-click-to-deploy"></a>De sjabloon implementeren met Klik om te implementeren
 
-Hallo voorbeeldsjabloon beschikbaar in de openbare opslagplaats Hallo maakt gebruik van een parameterbestand met Hallo standaard waarden gebruikt toogenerate Hallo scenario die hierboven worden beschreven. toodeploy deze sjabloon met klikt u op toodeploy, klikt u op **tooAzure implementeren** in Hallo Readme.md bestand voor Hallo [VM met statische PIP](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP) sjabloon. Hallo standaardparameterwaarden vervangen indien gewenst en voer waarden in voor Hallo leeg parameters.  Volg de instructies Hallo in Hallo portal toocreate een virtuele machine met een statische openbare IP-adres.
+De voorbeeldsjabloon in de openbare opslagplaats maakt gebruik van een parameterbestand dat de standaardwaarden bevat voor het genereren van het hierboven beschreven scenario. Deze als sjabloon wilt implementeren met Klik om te implementeren, klikt u op **implementeren in Azure** in het bestand Readme.md voor de [VM met statische PIP](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP) sjabloon. De standaardwaarden voor de parameter vervangen indien gewenst en voer waarden in voor de lege parameters.  Volg de instructies in de portal voor het maken van een virtuele machine met een statisch openbaar IP-adres.
 
-## <a name="deploy-hello-template-by-using-powershell"></a>Hallo-sjabloon implementeren met behulp van PowerShell
+## <a name="deploy-the-template-by-using-powershell"></a>De sjabloon implementeren met PowerShell
 
-toodeploy hello sjabloon die u hebt gedownload met behulp van PowerShell, Hallo volgende stappen.
+Volg onderstaande stappen als u de sjabloon die u hebt gedownload, wilt implementeren met PowerShell.
 
-1. Als u Azure PowerShell nog nooit hebt gebruikt, volledige Hallo stappen voor het Hallo [hoe tooInstall en configureer Azure PowerShell](/powershell/azure/overview) artikel.
-2. In een PowerShell-console uitvoeren Hallo `New-AzureRmResourceGroup` cmdlet toocreate een nieuwe resourcegroep, indien nodig. Als er al een resourcegroep hebt gemaakt, gaat u toostep 3.
+1. Als u Azure PowerShell nog nooit hebt gebruikt, voer de stappen in de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel.
+2. Voer in een PowerShell-console de `New-AzureRmResourceGroup` cmdlet indien nodig een nieuwe resourcegroep maken. Als er al een resourcegroep hebt gemaakt, gaat u naar stap 3.
 
     ```powershell
     New-AzureRmResourceGroup -Name PIPTEST -Location westus
@@ -132,7 +132,7 @@ toodeploy hello sjabloon die u hebt gedownload met behulp van PowerShell, Hallo 
         Tags              :
         ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/StaticPublicIP
 
-3. In een PowerShell-console uitvoeren Hallo `New-AzureRmResourceGroupDeployment` cmdlet toodeploy Hallo sjabloon.
+3. Voer in een PowerShell-console de `New-AzureRmResourceGroupDeployment` cmdlet om de sjabloon te implementeren.
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name DeployVM -ResourceGroupName PIPTEST `
@@ -167,22 +167,22 @@ toodeploy hello sjabloon die u hebt gedownload met behulp van PowerShell, Hallo 
    
         Outputs           :
 
-## <a name="deploy-hello-template-by-using-hello-azure-cli"></a>Hallo-sjabloon implementeren met hello Azure CLI
-toodeploy hello sjabloon met behulp van hello Azure CLI, volledige Hallo stappen te volgen:
+## <a name="deploy-the-template-by-using-the-azure-cli"></a>De sjabloon implementeren met de Azure CLI
+Als u wilt de sjabloon implementeren met behulp van de Azure CLI, moet u de volgende stappen uitvoeren:
 
-1. Als u Azure CLI nog nooit hebt gebruikt, stappen Hallo in Hallo [installeren en configureren van Azure CLI Hallo](../cli-install-nodejs.md) tooinstall artikel en configureer deze.
-2. Voer Hallo `azure config mode` opdracht tooswitch tooResource modus Manager, zoals hieronder wordt weergegeven.
+1. Als u Azure CLI nog nooit hebt gebruikt, volg de stappen in de [installeren en configureren van de Azure CLI](../cli-install-nodejs.md) artikel om te installeren en configureren.
+2. Voer de `azure config mode` opdracht overschakelen naar de modus Resource Manager, zoals hieronder wordt weergegeven.
 
     ```azurecli
     azure config mode arm
     ```
 
-    Hallo verwachte uitvoer voor Hallo bovenstaande opdracht:
+    De verwachte uitvoer voor de bovenstaande opdracht:
 
         info:    New mode is arm
 
-3. Open Hallo [parameterbestand](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), selecteer de inhoud ervan en tooa bestand opslaan op uw computer. In dit voorbeeld Hallo parameters tooa-bestand met de naam worden opgeslagen *parameters.json*. Hallo parameterwaarden binnen Hallo bestand desgewenst wijzigen, maar minimaal wordt aanbevolen dat u het Hallo-waarde voor Hallo adminPassword parameter tooa unieke, complex wachtwoord wijzigt.
-4. Voer Hallo `azure group deployment create` cmd toodeploy Hallo nieuwe VNet met behulp van Hallo sjabloon en de parameterbestanden die u hebt gedownload en hierboven zijn gewijzigd. Vervang in Hallo opdracht onderstaande <path> met Hallo pad u Hallo-bestand moet worden opgeslagen. 
+3. Open de [parameterbestand](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), selecteer de inhoud ervan en sla deze op een bestand op uw computer. Bijvoorbeeld, de parameters worden opgeslagen in een bestand met de naam *parameters.json*. De parameterwaarden in het bestand desgewenst wijzigen, maar minimaal wordt aanbevolen dat u de waarde voor de parameter adminPassword naar een unieke, complex wachtwoord wijzigen.
+4. Voer de `azure group deployment create` cmd naar de nieuwe VNet te implementeren met behulp van de sjabloon en de parameterbestanden die u hebt gedownload en hierboven zijn gewijzigd. Vervang in de onderstaande opdracht <path> met het pad u het bestand moet worden opgeslagen. 
 
     ```azurecli
     azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json

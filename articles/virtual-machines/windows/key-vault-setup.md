@@ -1,6 +1,6 @@
 ---
-title: aaaSet up Key Vault voor Windows-VM's in Azure Resource Manager | Microsoft Docs
-description: Hoe tooset up Sleutelkluis voor gebruik met een virtuele machine van Azure Resource Manager.
+title: Instellen van de Sleutelkluis voor Windows-machines in Azure Resource Manager | Microsoft Docs
+description: Het instellen van de Sleutelkluis voor gebruik met een virtuele machine van Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -15,26 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: 53bbe90708202ecfdcf754822d04bf2469631f08
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a5083a5216efbfd76fd912ec48c2f0ec3b30c4a1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Sleutelkluis instellen voor virtuele machines in Azure Resource Manager
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
-In Azure Resource Manager-stack, worden geheimen/certificaten gemodelleerd als resources die worden geleverd door de resourceprovider Hallo van Sleutelkluis. toolearn meer informatie over de Sleutelkluis, Zie [wat is Azure Sleutelkluis?](../../key-vault/key-vault-whatis.md)
+In Azure Resource Manager-stack, worden geheimen/certificaten gemodelleerd als resources die worden geleverd door de bronprovider van de Sleutelkluis. Zie voor meer informatie over Sleutelkluis, [wat is Azure Sleutelkluis?](../../key-vault/key-vault-whatis.md)
 
 > [!NOTE]
-> 1. Hallo in volgorde voor Sleutelkluis toobe gebruikt met virtuele machines van Azure Resource Manager **EnabledForDeployment** eigenschap op Sleutelkluis tootrue moet worden ingesteld. U kunt dit doen in verschillende clients.
-> 2. Hallo Sleutelkluis behoeften toobe gemaakt in Hallo hetzelfde abonnement en dezelfde locatie als Hallo van virtuele Machine.
+> 1. In de volgorde voor Sleutelkluis moet worden gebruikt met virtuele machines van Azure Resource Manager, de **EnabledForDeployment** eigenschap voor Sleutelkluis moet zijn ingesteld op true. U kunt dit doen in verschillende clients.
+> 2. De Sleutelkluis moet worden gemaakt in hetzelfde abonnement en dezelfde locatie als de virtuele Machine.
 >
 >
 
-## <a name="use-powershell-tooset-up-key-vault"></a>Gebruik PowerShell tooset up Sleutelkluis
-toocreate een sleutelkluis met behulp van PowerShell, Zie [aan de slag met Azure Key Vault](../../key-vault/key-vault-get-started.md#vault).
+## <a name="use-powershell-to-set-up-key-vault"></a>PowerShell gebruiken voor het instellen van de Sleutelkluis
+Zie voor informatie over het maken van een sleutelkluis met behulp van PowerShell [aan de slag met Azure Key Vault](../../key-vault/key-vault-get-started.md#vault).
 
 Voor nieuwe sleutelkluizen, kunt u deze PowerShell-cmdlet:
 
@@ -44,15 +44,15 @@ Voor bestaande sleutelkluizen, kunt u deze PowerShell-cmdlet:
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
-## <a name="us-cli-tooset-up-key-vault"></a>Ons CLI tooset up Sleutelkluis
-toocreate een sleutelkluis met behulp van Hallo-opdrachtregelinterface (CLI), Zie [Key Vault beheren met CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
+## <a name="us-cli-to-set-up-key-vault"></a>Ons CLI voor het instellen van de Sleutelkluis
+Zie voor informatie over het maken van een sleutelkluis via de opdrachtregelinterface (CLI) [Key Vault beheren met CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
 
-Voor CLI hebt u toocreate hello sleutelkluis voordat u beleid voor Hallo implementatie toewijst. U kunt dit doen met behulp van de volgende opdracht Hallo:
+U hebt de sleutelkluis maken voordat u het beleid voor de implementatie toewijzen voor CLI. U gebruikt hiervoor de volgende opdracht:
 
     azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
-## <a name="use-templates-tooset-up-key-vault"></a>Gebruik sjablonen tooset up Sleutelkluis
-Terwijl u een sjabloon gebruikt, moet u tooset hello `enabledForDeployment` eigenschap te`true` voor Hallo Sleutelkluis resource.
+## <a name="use-templates-to-set-up-key-vault"></a>Sjablonen gebruiken voor het instellen van de Sleutelkluis
+Terwijl u een sjabloon gebruikt, moet u de `enabledForDeployment` eigenschap `true` voor de Sleutelkluis-resource.
 
     {
       "type": "Microsoft.KeyVault/vaults",

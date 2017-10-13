@@ -1,8 +1,8 @@
 ---
-title: aaaAzure documentatie in de Cloud Services - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Zelfstudies, API-referenties en andere documentatie uitgelegd hoe u toouse Cloudservices toohost en maximaal beschikbare en schaalbare cloud-toepassingen en API's worden uitgevoerd.
+title: Documentatie voor Azure Cloud Services - zelfstudies, API-verwijzing | Microsoft Docs
+description: Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u Cloud Services kunt gebruiken om schaalbare en maximaal beschikbare API's en cloudtoepassingen te hosten en uit te voeren.
 services: cloud-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 80793de5a66c9f125c23caf2664fbf08015298ab
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 566daede7e0b32110ceae2afa473e427992bc3a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cloud-services-documentation"></a>Documentatie over Cloud Services
 
-Meer informatie over hoe toouse Cloud Services-toohost en maximaal beschikbare, schaalbare cloudtoepassingen uitvoeren en API's.  Zelfstudies, API-referenties en andere documentatie wordt uitgelegd hoe toomanage virtuele machine fungeert als host en configureren, patch, en software installeren.
+Leer hoe u Cloud Services kunt gebruiken om maximaal beschikbare, schaalbare cloudtoepassingen en API's te hosten en uit te voeren.  Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u hosts voor virtuele machines kunt beheren en software kunt configureren, patchen en installeren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -107,8 +107,14 @@ Meer informatie over hoe toouse Cloud Services-toohost en maximaal beschikbare, 
                 <div class="card">
                     <div class="cardText">
                         <h3>Talen</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">.csdef XMLSchema</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">.cscfg XMLSchema</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-file">.csdef XML Schema</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">LoadBalancerProbe Schema</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-webrole">WebRole Schema</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-workerrole">WorkerRole Schema</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-networktrafficrules">NetworkTrafficRules Schema</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-file">.cscfg XML Schema</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-role">Role Schema</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-networkconfiguration">NetworkConfiguration Schema</a></p>
                     </div>
                 </div>
             </div>
@@ -127,5 +133,3 @@ Meer informatie over hoe toouse Cloud Services-toohost en maximaal beschikbare, 
         </div>
     </li>
 </ul>
-
-

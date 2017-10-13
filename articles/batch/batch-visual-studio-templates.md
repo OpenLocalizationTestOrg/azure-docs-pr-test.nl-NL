@@ -1,5 +1,5 @@
 ---
-title: met Visual Studio-projectsjablonen - Azure Batch-oplossingen bouwen aaaStart | Microsoft Docs
+title: Begin met het ontwikkelen met Visual Studio-projectsjablonen - Azure Batch-oplossingen | Microsoft Docs
 description: Meer informatie over hoe sjablonen voor Visual Studio-project kunt implementeren en uitvoeren van uw rekenintensieve workloads op Azure Batch.
 services: batch
 documentationcenter: .net
@@ -15,136 +15,136 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a61c480ddc4dffd66c01220a137a3e852e39c338
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: da77ce827c65deb18d9d84ce5cf768d89788e205
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-visual-studio-project-templates-toojump-start-batch-solutions"></a>Visual Studio-project sjablonen toojump start Batch-oplossingen gebruiken
+# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Gebruik Visual Studio-projectsjablonen Batch-oplossingen snel op
 
-Hallo **Job Manager** en **taak Processor Visual Studio sjablonen** bieden voor Batch code toohelp u tooimplement en voer uw rekenintensieve workloads op Batch met Hallo minste inspanning. Dit document beschrijft deze sjablonen en biedt richtlijnen voor het toouse ze.
+De **Job Manager** en **taak Processor Visual Studio sjablonen** bieden code om te implementeren en uitvoeren van uw rekenintensieve workloads op Batch met zo min mogelijk moeite voor Batch. Dit document beschrijft deze sjablonen en biedt richtlijnen voor het gebruik ervan.
 
 > [!IMPORTANT]
-> In dit artikel wordt besproken enige informatie die van toepassing zijn toothese twee sjablonen en wordt ervan uitgegaan dat u bekend met Hallo Batch-service en de belangrijkste concepten gerelateerde tooit bent: opslaggroepen, rekenknooppunten, jobs en taken, jobbeheertaken, omgevingsvariabelen en andere relevante informatie. U vindt meer informatie in [basisbeginselen van Azure Batch](batch-technical-overview.md), [overzicht van de Batch-functies voor ontwikkelaars](batch-api-basics.md), en [aan de slag met hello Azure Batch-bibliotheek voor .NET](batch-dotnet-get-started.md).
+> In dit artikel vindt u alleen informatie die van toepassing op deze twee sjablonen en wordt ervan uitgegaan dat u bekend met de Batch-service en de belangrijkste concepten die betrekking hebben op het bent: pools, rekenknooppunten, taken en taken, jobbeheertaken, omgevingsvariabelen en andere relevante informatie. U vindt meer informatie in [basisbeginselen van Azure Batch](batch-technical-overview.md), [overzicht van de Batch-functies voor ontwikkelaars](batch-api-basics.md), en [aan de slag met de Azure Batch-bibliotheek voor .NET](batch-dotnet-get-started.md).
 > 
 > 
 
 ## <a name="high-level-overview"></a>Overzicht
-Hallo Job Manager en de processorsnelheid van de taak sjablonen zijn gebruikte toocreate twee nuttig onderdelen:
+De Job Manager en de processorsnelheid van de taak sjablonen kunnen worden gebruikt voor het maken van twee nuttig onderdelen:
 
 * Een jobbeheertaak waarmee de splitser van een taak die een taak verbreken kunt omlaag in meerdere taken die onafhankelijk, parallel kunnen worden uitgevoerd.
-* Een taak processor die gebruikt tooperform vooraf verwerken en naverwerking rond een toepassing vanaf de opdrachtregel worden kan.
+* Een taak processor dat voorverwerking en naverwerking rond een toepassing vanaf de opdrachtregel uit te voeren kan worden gebruikt.
 
-Bijvoorbeeld in een scenario film rendering zou Hallo taak splitser zet een taak één film in honderden of duizenden afzonderlijke taken die afzonderlijke frames afzonderlijk wilt verwerken. Dienovereenkomstig, Hallo taak processor zou Hallo rendering toepassing en alle afhankelijke processen die vereist toorender zijn elk frame aanroepen, evenals aanvullende acties (bijvoorbeeld kopiëren Hallo weergegeven frame tooa opslaglocatie) uitvoeren.
+Bijvoorbeeld in een scenario film rendering van zou de splitser taak zet een taak één film in honderden of duizenden afzonderlijke taken die afzonderlijke frames afzonderlijk wilt verwerken. : De taak processor de van renderingtoepassing zou aanroepen en alle afhankelijke processen die nodig zijn om weer te geven elk frame, evenals aanvullende acties (bijvoorbeeld het gerenderde frame kopiëren naar een opslaglocatie) uitvoeren.
 
 > [!NOTE]
-> Hallo Job Manager en de processorsnelheid van de taak sjablonen zijn onafhankelijk van elkaar, dus u toouse beide of slechts één van beide, afhankelijk van Hallo vereisten van uw compute-taak en op uw voorkeuren kunt.
+> De Job Manager en de processorsnelheid van de taak sjablonen zijn onafhankelijk van elkaar, zodat u kiezen kunt om beide of slechts één van beide, afhankelijk van de vereisten van uw compute-taak en op uw voorkeuren te gebruiken.
 > 
 > 
 
-Zoals u in het onderstaande diagram kunt hello, doorlopen een compute-taak die gebruikmaakt van deze sjablonen drie fasen:
+Zoals u in het onderstaande diagram, doorlopen een compute-taak die gebruikmaakt van deze sjablonen drie fasen:
 
-1. Hallo clientcode (bijvoorbeeld toepassingen, web-service, enzovoort) verzendt een taak toohello Batch-service op Azure, als de taak manager taak Hallo job manager programma opgeven.
-2. Hallo Batch-service wordt Hallo jobbeheertaak op een rekenknooppunt uitgevoerd en hello taak splitser gestart Hallo opgegeven aantal taak processor taken op als veel waar nodig rekenknooppunten, op basis van het Hallo-parameters en specificaties in Hallo taak splitser code.
-3. Hallo taak processor taken onafhankelijk uitvoeren, parallel tooprocess Hallo invoergegevens en uitvoergegevens Hallo genereren.
+1. De clientcode (bijvoorbeeld toepassingen, web-service, enzovoort) verzendt een taak met de Batch-service op Azure, zoals de manager van de taak van de taak programma voor de taak opgeven.
+2. De jobbeheertaak wordt in de Batch-service op een rekenknooppunt uitgevoerd en de splitser taak start het opgegeven aantal taak processor taken op als veel waar nodig rekenknooppunten, op basis van de parameters en -specificaties in de code van de splitser taak.
+3. De taken van de processor taak uitgevoerd onafhankelijk, parallel voor de invoergegevens verwerkt en het genereren van de uitvoergegevens.
 
-![Diagram die weergeeft hoe clientcode samenwerkt met Hallo Batch-service][diagram01]
+![Diagram die weergeeft hoe clientcode samenwerkt met de Batch-service][diagram01]
 
 ## <a name="prerequisites"></a>Vereisten
-toouse hello Batch sjablonen, moet u de volgende Hallo:
+De Batch als sjablonen wilt gebruiken, moet u het volgende:
 
 * Een computer met Visual Studio 2015 geïnstalleerd. Batch-sjablonen zijn momenteel alleen ondersteund voor Visual Studio 2015.
-* Hallo Batch sjablonen, die beschikbaar zijn vanuit Hallo [Visual Studio-galerie] [ vs_gallery] als Visual Studio-extensies. Er zijn twee manieren tooget Hallo-sjablonen:
+* De Batch-sjablonen, die beschikbaar zijn vanuit de [Visual Studio-galerie] [ vs_gallery] als Visual Studio-extensies. Er zijn twee manieren om de sjablonen te verkrijgen:
   
-  * Hallo sjablonen met behulp van Hallo installeren **uitbreidingen en Updates** dialoogvenster in Visual Studio (Zie voor meer informatie [zoeken en met behulp van Visual Studio Extensions][vs_find_use_ext]). In Hallo **uitbreidingen en Updates** dialoogvenster, zoeken en downloaden Hallo beide uitbreidingen te volgen:
+  * Installeren van de sjablonen met behulp van de **uitbreidingen en Updates** dialoogvenster in Visual Studio (Zie voor meer informatie [zoeken en met behulp van Visual Studio Extensions][vs_find_use_ext]). In de **uitbreidingen en Updates** dialoogvenster vak, zoeken en downloaden van de volgende twee extensies:
     
     * Azure Batch-Job Manager met de taak splitsen
     * Processor van Azure Batch-taak
-  * Hallo sjablonen downloaden uit de online galerie Hallo voor Visual Studio: [projectsjablonen voor Microsoft Azure-Batch][vs_gallery_templates]
-* Als u van plan toouse hello bent [toepassingspakketten](batch-application-packages.md) functie toodeploy Hallo job manager en taak processor toohello Batch-rekenknooppunten, moet u toolink een storage account tooyour Batch-account.
+  * De sjablonen gedownload vanuit de online-galerie voor Visual Studio: [projectsjablonen voor Microsoft Azure-Batch][vs_gallery_templates]
+* Als u wilt gebruiken de [toepassingspakketten](batch-application-packages.md) functie voor het implementeren van de manager van de taak en taak processor naar de Batch-rekenknooppunten, moet u een opslagaccount aan uw Batch-account koppelen.
 
 ## <a name="preparation"></a>Voorbereiding
-Het is raadzaam om een oplossing met uw job manager, evenals de processor taak maken omdat dit eenvoudiger tooshare code tussen uw job manager en de taak processor-programma's kunt aanbrengen. toocreate deze oplossing als volgt te werk:
+Het is raadzaam om een oplossing met uw job manager, evenals de processor taak maken omdat hierdoor kunt u gemakkelijker code tussen uw job manager en de taak processor-programma's te delen. Volg deze stappen voor het maken van deze oplossing:
 
 1. Open Visual Studio en selecteer **bestand** > **nieuw** > **Project**.
 2. Onder **sjablonen**, vouw **andere projecttypen**, klikt u op **Visual Studio-oplossingen**, en selecteer vervolgens **blanco-oplossing**.
-3. Typ een naam die uw toepassing en Hallo doel van deze oplossing (bijvoorbeeld ' LitwareBatchTaskPrograms').
-4. toocreate Hallo nieuwe oplossing, klikt u op **OK**.
+3. Typ een naam voor uw toepassing en het doel van deze oplossing (bijvoorbeeld ' LitwareBatchTaskPrograms').
+4. Klik op om de nieuwe oplossing **OK**.
 
 ## <a name="job-manager-template"></a>Taak Manager-sjabloon
-Hallo Job Manager-sjabloon kunt tooimplement een jobbeheertaak die Hallo van de volgende activiteiten kunt uitvoeren:
+De sjabloon Job Manager helpt u bij het implementeren van een jobbeheertaak die u kunt de volgende acties uitvoeren:
 
 * Een job onderverdeeld in meerdere taken.
-* Deze toorun taken in Batch verzenden.
+* Deze taken uit te voeren op Batch verzenden.
 
 > [!NOTE]
 > Zie voor meer informatie over jobbeheertaken [overzicht van de Batch-functies voor ontwikkelaars](batch-api-basics.md#job-manager-task).
 > 
 > 
 
-### <a name="create-a-job-manager-using-hello-template"></a>Een Job Manager met Hallo-sjabloon maken
-tooadd een job manager toohello oplossing die u eerder hebt gemaakt, als volgt te werk:
+### <a name="create-a-job-manager-using-the-template"></a>Een Job Manager met behulp van de sjabloon maken
+Als u wilt een taak toevoegen aan de oplossing die u eerder hebt gemaakt, de volgende stappen uit:
 
 1. Open uw bestaande oplossing in Visual Studio.
-2. Klik in Solution Explorer met de rechtermuisknop op Hallo-oplossing, klikt u op **toevoegen** > **nieuw Project**.
+2. Klik in Solution Explorer met de rechtermuisknop op de oplossing, klikt u op **toevoegen** > **nieuw Project**.
 3. Onder **Visual C#**, klikt u op **Cloud**, en klik vervolgens op **Azure Batch-Job Manager met taak splitser**.
-4. Typ een naam waarmee u een beschrijving van uw toepassing en dit project (bijvoorbeeld als Hallo job manager identificeert 'LitwareJobManager').
-5. toocreate Hallo-project, klik op **OK**.
-6. Ten slotte build Hallo project tooforce Visual Studio tooload alle waarnaar wordt verwezen NuGet-pakketten en tooverify die Hallo project geldig is voordat u begint met het wijzigen van deze.
+4. Typ een naam waarmee u een beschrijving van uw toepassing en dit project (bijvoorbeeld als de beheerder van de taak identificeert 'LitwareJobManager').
+5. Klik op om het project **OK**.
+6. Bouw ten slotte het project om af te dwingen van Visual Studio laden alle waarnaar wordt verwezen NuGet-pakketten en om te controleren of het project geldig is voordat u begint met het wijzigen van deze.
 
 ### <a name="job-manager-template-files-and-their-purpose"></a>De sjabloonbestanden Job Manager en hun doel
-Wanneer u een project met Hallo Job Manager-sjabloon maakt, genereert het codebestanden drie groepen:
+Wanneer u een project met behulp van de Job Manager-sjabloon maakt, genereert het codebestanden drie groepen:
 
-* Hallo belangrijkste programmabestand (Program.cs). Dit bevat toegangspunt Hallo-programma en op het hoogste niveau uitzonderingsverwerking. U mag niet normaal gesproken deze toomodify nodig.
-* Hallo Framework-map. Dit document bevat Hallo-bestanden die verantwoordelijk is voor Hallo 'standaard' werk dat door Hallo taak programma manager – uitpakken van de parameters, toe te voegen taken toohello batchverwerking, enzovoort. U mag niet toomodify normaal gesproken moet deze bestanden.
-* Hallo taak splitser bestand (JobSplitter.cs). Dit is waar u uw toepassingsspecifieke logica voor het splitsen van een taak in taken wordt geplaatst.
+* Het belangrijkste programmabestand (Program.cs). Dit document bevat de programma-ingangspunt en uitzonderingsverwerking op het hoogste niveau. U mag niet normaal gesproken moet dit wijzigen.
+* De Framework-map. Dit bevat de bestanden die verantwoordelijk is voor het 'standaard'-werk dat door het programma job manager – uitpakken van de parameters, taken toe te voegen aan de Batch-job, enzovoort. U mag niet normaal gesproken moet deze bestanden wijzigen.
+* De taak splitser-bestand (JobSplitter.cs). Dit is waar u uw toepassingsspecifieke logica voor het splitsen van een taak in taken wordt geplaatst.
 
-Natuurlijk kunt u aanvullende bestanden toevoegen als vereiste toosupport uw taak splitser code, afhankelijk van de complexiteit Hallo van Hallo taak logica splitsen.
+Natuurlijk kunt u aanvullende bestanden toevoegen als vereist ter ondersteuning van uw taak splitser code, afhankelijk van de complexiteit van de taak logica splitsen.
 
-Hallo sjabloon genereert ook standaard .NET projectbestanden zoals een .csproj-bestand, app.config, packages.config, enz.
+De sjabloon genereert ook standaard .NET projectbestanden zoals een .csproj-bestand, app.config, packages.config, enz.
 
-Hallo rest van deze sectie beschrijft Hallo verschillende bestanden en de codestructuur en wordt uitgelegd wat elke klasse doet.
+De rest van deze sectie beschrijft de verschillende bestanden en de codestructuur en wordt uitgelegd wat elke klasse doet.
 
-![Visual Studio Solution Explorer toont van Hallo Job Manager sjabloonoplossing][solution_explorer01]
+![Visual Studio Solution Explorer toont de Job Manager sjabloonoplossing][solution_explorer01]
 
 **Framework-bestanden**
 
-* `Configuration.cs`: Ingekapseld Hallo laden van gegevens van de taak configuratie zoals Batch accountdetails, gekoppelde opslagaccountreferenties taak en informatie en taakparameters. Het bevat ook toegang tooBatch gedefinieerde omgevingsvariabelen (Zie omgevingsinstellingen voor taken in Batch-documentatie voor Hallo) via Hallo Configuration.EnvironmentVariable klasse.
-* `IConfiguration.cs`: Samenvattingen Hallo-implementatie van Hallo Configuration-klasse, zodat u kunt eenheid testen uw taak splitser met behulp van een valse of mock configuration-object.
-* `JobManager.cs`: Het Hallo-onderdelen van Hallo job manager programma ingedeeld. Is verantwoordelijk voor Hallo Hallo taak splitser, aanroepen van Hallo taak splitser, initialiseren en tijdens het verzenden van taken Hallo geretourneerd door Hallo taak splitser toohello taak submitter.
-* `JobManagerException.cs`: Vertegenwoordigt een fout die Hallo job manager tooterminate vereist. JobManagerException is gebruikte toowrap 'verwacht' fouten waarin specifieke diagnostische informatie kan worden opgegeven als onderdeel van de beëindiging.
-* `TaskSubmitter.cs`: Deze klasse is geretourneerd door Hallo taak splitser toohello Batch-job verantwoordelijk tooadding-taken. Hallo Taakbeheer heeft klasse aggregeert Hallo reeks taken in batches voor efficiënt, maar tijdige toevoeging toohello taak vervolgens TaskSubmitter.SubmitTasks aanroepen in een achtergrondthread voor elke batch.
+* `Configuration.cs`: Het laden van gegevens van de taak configuratie zoals details van de Batch-account, gekoppelde opslagaccountreferenties taak en taakgegevens en taakparameters ingekapseld. Bovendien wordt toegang tot Batch gedefinieerde omgevingsvariabelen (Zie omgevingsinstellingen voor taken in de documentatie van de Batch) via de Configuration.EnvironmentVariable-klasse.
+* `IConfiguration.cs`: Hiermee isoleert de implementatie van de Configuration-klasse, zodat u kunt testen van eenheden uw taak splitser met behulp van een valse of mock configuration-object.
+* `JobManager.cs`: De onderdelen van het programma job manager ingedeeld. Het is verantwoordelijk voor het initialiseren van de splitser taak, het aanroepen van de splitser taak en tijdens het verzenden van de taken die zijn geretourneerd door de taak splitser naar de aanvrager taak.
+* `JobManagerException.cs`: Hiermee geeft u een fout is van de manager van de taak is beëindigd. JobManagerException wordt laten teruglopen 'verwachte' fouten waarin specifieke diagnostische informatie kan worden opgegeven als onderdeel van de beëindiging gebruikt.
+* `TaskSubmitter.cs`: Deze klasse is die verantwoordelijk zijn voor het toevoegen van taken die zijn geretourneerd door de splitser taak op de batchverwerking. De aggregaties van de klasse Taakbeheer heeft de volgorde van de taken in batches efficiënt, maar tijdig toegevoegd aan de taak vervolgens roept TaskSubmitter.SubmitTasks in een achtergrondthread voor elke batch.
 
 **Taak splitsen**
 
-`JobSplitter.cs`: Deze klasse bevat toepassingsspecifieke logica voor het splitsen van Hallo taak in taken. Hallo framework roept Hallo JobSplitter.Split methode tooobtain een reeks van taken, die wordt toegevoegd toohello taak als Hallo-methode retourneert ze. Dit is Hallo klasse waarop u Hallo logica van de taak wordt invoeren. Hallo gesplitste methode tooreturn een reeks CloudTask-exemplaren die Hallo taken waarin u toopartition Hallo taak wilt implementeren.
+`JobSplitter.cs`: Met deze klasse bevat toepassingsspecifieke logica voor het verdelen van de taak in de taken. Het framework roept de methode JobSplitter.Split voor het verkrijgen van een reeks van taken, die wordt toegevoegd aan het project als de methode ze retourneert. Dit is de klasse waarop u de logica van de taak wordt invoeren. De Split-methode om een reeks CloudTask-exemplaren die de taken in die u wilt dat voor het partitioneren van de taak vertegenwoordigt terug te implementeren.
 
 **Standaard projectbestanden voor .NET-opdrachtregel**
 
 * `App.config`: De standaard .NET toepassingsconfiguratiebestand.
 * `Packages.config`: Standaard bestand NuGet-pakket voor afhankelijkheid.
-* `Program.cs`: Bevat Hallo programma toegangspunt en uitzonderingsverwerking op het hoogste niveau.
+* `Program.cs`: De programma-toegangspunt en op het hoogste niveau uitzonderingsverwerking bevat.
 
-### <a name="implementing-hello-job-splitter"></a>Hallo taak splitser implementeren
-Wanneer u Hallo Job Manager sjabloonproject opent, hebben Hallo project Hallo JobSplitter.cs bestand standaard geopend. U kunt implementeren Hallo splitsen logica voor Hallo taken in uw workload met Hallo Split() methode weergeven hieronder:
+### <a name="implementing-the-job-splitter"></a>Implementatie van de splitser taak
+Wanneer u het sjabloonproject Taakbeheer opent, wordt in het project het standaard geopend JobSplitter.cs-bestand hebben. U kunt de split-logica voor de taken in uw werkbelasting implementeren met behulp van het onderstaande Split() methode weergeven:
 
 ```csharp
 /// <summary>
-/// Gets hello tasks into which toosplit hello job. This is where you inject
-/// your application-specific logic for decomposing hello job into tasks.
+/// Gets the tasks into which to split the job. This is where you inject
+/// your application-specific logic for decomposing the job into tasks.
 ///
-/// hello job manager framework invokes hello Split method for you; you need
-/// only tooimplement it, not toocall it yourself. Typically, your
+/// The job manager framework invokes the Split method for you; you need
+/// only to implement it, not to call it yourself. Typically, your
 /// implementation should return tasks lazily, for example using a C#
-/// iterator and hello "yield return" statement; this allows tasks toobe added
-/// and toostart running while splitting is still in progress.
+/// iterator and the "yield return" statement; this allows tasks to be added
+/// and to start running while splitting is still in progress.
 /// </summary>
-/// <returns>hello tasks toobe added toohello job. Tasks are added automatically
-/// by hello job manager framework as they are returned by this method.</returns>
+/// <returns>The tasks to be added to the job. Tasks are added automatically
+/// by the job manager framework as they are returned by this method.</returns>
 public IEnumerable<CloudTask> Split()
 {
-    // Your code for hello split logic goes here.
+    // Your code for the split logic goes here.
     int startFrame = Convert.ToInt32(_parameters["StartFrame"]);
     int endFrame = Convert.ToInt32(_parameters["EndFrame"]);
 
@@ -156,56 +156,56 @@ public IEnumerable<CloudTask> Split()
 ```
 
 > [!NOTE]
-> Hallo aangetekend sectie in Hallo `Split()` methode is alleen-lezen gedeelte Hallo Hallo Job Manager sjablooncode die is bedoeld voor u toomodify door Hallo logica toosplit uw taken toe te voegen in verschillende taken. Als u een andere sectie van de sjabloon Hallo toomodify wilt, zorg ervoor dat u met Batch werking, zijn familiarized en probeer uit een aantal Hallo [Batch-codevoorbeelden][github_samples].
+> De sectie aantekeningen in de `Split()` methode is het alleen-lezen gedeelte van de sjablooncode van de Job Manager-die is bedoeld voor u om te wijzigen door de logica toe te voegen aan uw taken splitsen in verschillende taken. Als u een andere sectie van de sjabloon wijzigt wilt, zorg ervoor dat u met Batch werking, zijn familiarized en probeer uit slechts enkele van de [Batch-codevoorbeelden][github_samples].
 > 
 > 
 
 Uw implementatie Split() heeft toegang tot:
 
-* Hallo taakparameters via Hallo `_parameters` veld.
-* Hallo CloudJob object dat Hallo-taak, via Hallo `_job` veld.
-* Hallo CloudTask object dat Hallo jobbeheertaak, via Hallo `_jobManagerTask` veld.
+* De taakparameters via de `_parameters` veld.
+* Het CloudJob-object dat de taak vertegenwoordigt de `_job` veld.
+* Het CloudTask-object dat de jobbeheertaak vertegenwoordigt de `_jobManagerTask` veld.
 
-Uw `Split()` implementatie hoeft tooadd taken toohello taak niet rechtstreeks. In plaats daarvan een reeks CloudTask objecten in uw code moet worden geretourneerd en worden deze toegevoegd toohello taak automatisch door Hallo framework klassen die Hallo taak splitser aanroepen. Het algemene toouse C# iterator is (`yield return`) functie tooimplement taak splitsbalken omdat hierdoor Hallo taken toostart zo snel mogelijk worden uitgevoerd in plaats van alle taken toobe wachten berekend.
+Uw `Split()` implementatie hoeft niet rechtstreeks taken toevoegen aan de taak. In plaats daarvan een reeks CloudTask objecten in uw code moet worden geretourneerd en worden deze toegevoegd aan de job automatisch door de framework-klassen die gebruikmaken van de splitser taak. Wordt meestal gebruik van C# iterator (`yield return`) functie taak splitsbalken implementeren, zoals Hierdoor kan de taken te starten in zo snel mogelijk worden uitgevoerd in plaats van wachten tot alle taken moet worden berekend.
 
 **Taak splitser is mislukt**
 
 Als de splitser taak er een fout optreedt, moet deze ofwel het volgende doen:
 
-* Hallo-reeks met behulp van Hallo C# beëindigen `yield break` -instructie waarin case Hallo Taakbeheer wordt beschouwd als geslaagd; of
-* Veroorzaak een uitzondering, waarbij case Hallo Taakbeheer wordt beschouwd als mislukt en mogelijk opnieuw worden geprobeerd, afhankelijk van hoe Hallo client deze heeft geconfigureerd).
+* Beëindigen van de reeks met de C# `yield break` -instructie waarin geval de manager van de taak wordt beschouwd als geslaagd; of
+* Veroorzaak een uitzondering, waarin de taak manager case wordt beschouwd als mislukt en mogelijk opnieuw worden geprobeerd, afhankelijk van hoe de client deze heeft geconfigureerd).
 
-In beide gevallen taken al geretourneerd door Hallo taak splitser en batchverwerking toegevoegde toohello worden in aanmerking komende toorun. Als u niet dat deze toohappen wilt, klikt u vervolgens kunt u:
+In beide gevallen worden alle taken die al worden geretourneerd door de splitser taak en toegevoegd aan de batchverwerking kunnen worden uitgevoerd. Als u niet wilt dat dit gebeurt, klikt u vervolgens kunt u:
 
-* Hallo taak beëindigen voordat u terugkeert uit Hallo taak splitsen
-* Hallo gehele taak in de verzameling voordat deze wordt teruggezonden formuleren (dat wil zeggen, retourneren een `ICollection<CloudTask>` of `IList<CloudTask>` in plaats van de implementatie van uw taak splitser met behulp van een iterator C#)
-* Taak afhankelijkheden toomake die alle taken is afhankelijk van Hallo is gelukt Hallo job manager gebruiken
+* De taak beëindigen voordat u terugkeert uit de splitser taak
+* De verzameling gehele taak voordat deze wordt teruggezonden formuleren (dat wil zeggen, retourneren een `ICollection<CloudTask>` of `IList<CloudTask>` in plaats van de implementatie van uw taak splitser met behulp van een iterator C#)
+* Taakafhankelijkheden zouden gebruiken om alle taken die afhankelijk zijn van de voltooiing van de job manager
 
 **Nieuwe pogingen van Job manager**
 
-Als Hallo job manager is mislukt, wordt deze opnieuw uitgevoerd door de Batch-service, afhankelijk van de clientinstellingen voor opnieuw proberen Hallo Hallo. Dit is in het algemeen veilig, omdat het als Hallo framework taken toohello taak toevoegt, worden alle taken die al bestaan genegeerd. Echter, als het berekenen van taken dure is, niet kunt u tooincur Hallo kosten voor het berekenen van de taken die al zijn toegevoegd toohello taak; Als u daarentegen als Hallo opnieuw uitvoeren is niet gegarandeerd toogenerate Hallo dezelfde taak-id's en vervolgens Hallo negeren van duplicaten gedrag wordt niet starten. In dergelijke gevallen moet u uw taak splitser toodetect Hallo werk die al is uitgevoerd en wordt niet herhaald, bijvoorbeeld door het uitvoeren van een CloudJob.ListTasks voordat u begint tooyield taken ontwerpen.
+Als de manager van de taak is mislukt, mogelijk opnieuw door de Batch-service, afhankelijk van de instellingen van de client opnieuw worden uitgevoerd. Dit is in het algemeen veilig, omdat wanneer het framework taken aan de taak toevoegt, worden alle taken die al bestaan genegeerd. Echter, als het berekenen van taken dure is, mogelijk niet wilt u de kosten van de taken die al zijn toegevoegd aan de taak; herberekenen in rekening gebracht Als u daarentegen als het opnieuw uitvoeren kan niet worden gegarandeerd voor het genereren van de dezelfde taak-id's wordt vervolgens het negeren van duplicaten gedrag niet starten. In dergelijke gevallen moet u uw splitser taak voor het detecteren van het werk dat al is uitgevoerd en wordt niet herhaald, bijvoorbeeld door het uitvoeren van een CloudJob.ListTasks voordat u begint met het rendement van taken ontwerpen.
 
-### <a name="exit-codes-and-exceptions-in-hello-job-manager-template"></a>Sluit codes en uitzonderingen in Hallo Job Manager-sjabloon
-Afsluitcodes en uitzonderingen bieden een mechanisme toodetermine Hallo resultaat van het uitvoeren van een programma, en ze kunt tooidentify Hallo uitvoering van programma Hallo-problemen. Hallo Job Manager sjabloon implementeert Hallo afsluitcodes en uitzonderingen in deze sectie beschreven.
+### <a name="exit-codes-and-exceptions-in-the-job-manager-template"></a>Afsluitcodes en uitzonderingen in de sjabloon Job Manager
+Afsluitcodes en uitzonderingen bieden een mechanisme om te bepalen van het resultaat van het programma uitvoeren en ze kunnen helpen bij het identificeren van problemen met de uitvoering van het programma. De sjabloon Job Manager implementeert de afsluitcodes en uitzonderingen in deze sectie beschreven.
 
-Een jobbeheertaak die wordt geïmplementeerd met Hallo Job Manager-sjabloon kunt drie mogelijke afsluitcodes retourneren:
+Een jobbeheertaak die wordt geïmplementeerd met de Job Manager-sjabloon kunt drie mogelijke afsluitcodes retourneren:
 
 | Code | Beschrijving |
 | --- | --- |
-| 0 |Hallo job manager is voltooid. De code van de splitser taak toocompletion uitgevoerd en alle taken zijn toohello taak toegevoegd. |
-| 1 |Hallo jobbeheertaak is mislukt met een uitzondering in een 'verwachte' onderdeel van het Hallo-programma. Hallo-uitzondering was vertaalde tooa JobManagerException met diagnostische gegevens en, indien mogelijk, suggesties voor het oplossen van Hallo is mislukt. |
-| 2 |Hallo jobbeheertaak is mislukt met een 'onverwachte'-uitzondering. Hallo uitzondering is vastgelegd toostandard uitvoer, maar Hallo job manager kan geen tooadd eventuele aanvullende informatie voor diagnose of herstel. |
+| 0 |De taak manager is voltooid. De code van de splitser taak uitgevoerd worden voltooid en alle taken zijn toegevoegd aan de taak. |
+| 1 |De jobbeheertaak is mislukt met een uitzondering in een 'verwachte' deel van het programma. De uitzondering is vertaald naar een JobManagerException met diagnostische gegevens en, indien mogelijk, suggesties voor het oplossen van de fout. |
+| 2 |De jobbeheertaak is mislukt met een 'onverwachte'-uitzondering. De uitzondering is vastgelegd in het logboek voor standaarduitvoer, maar de manager van de taak is niet toegevoegd eventuele aanvullende informatie voor diagnose of herstel. |
 
-In geval van job manager taakfout Hallo sommige taken zijn mogelijk nog steeds toegevoegd toohello service voordat het Hallo-fout is opgetreden. Deze taken worden uitgevoerd die normaal werken. Zie 'Splitser taakfout' hierboven voor bespreking van dit codepad.
+In het geval van een taak manager taak is mislukt, kunnen sommige taken nog steeds zijn toegevoegd aan de service voordat de fout is opgetreden. Deze taken worden uitgevoerd die normaal werken. Zie 'Splitser taakfout' hierboven voor bespreking van dit codepad.
 
-Alle Hallo-gegevens geretourneerd door de uitzonderingen worden geschreven in stdout.txt en stderr.txt-bestanden. Zie voor meer informatie [fouten afhandelen](batch-api-basics.md#error-handling).
+Alle informatie die wordt geretourneerd door uitzonderingen is geschreven in stdout.txt en stderr.txt-bestanden. Zie voor meer informatie [fouten afhandelen](batch-api-basics.md#error-handling).
 
 ### <a name="client-considerations"></a>Overwegingen voor clients
-Deze sectie beschrijft de vereisten voor een implementatie van de client wanneer een job manager op basis van deze sjabloon wordt aangeroepen. Zie [hoe toopass parameters en variabelen van clientcode Hallo](#pass-environment-settings) voor meer informatie over parameters en omgevingsinstellingen wordt doorgegeven.
+Deze sectie beschrijft de vereisten voor een implementatie van de client wanneer een job manager op basis van deze sjabloon wordt aangeroepen. Zie [parameters en variabelen doorgeven van de clientcode](#pass-environment-settings) voor meer informatie over parameters en omgevingsinstellingen wordt doorgegeven.
 
 **Verplichte referenties**
 
-In de volgorde tooadd taken toohello Azure Batch-job vereist jobbeheertaak Hallo de URL van de Azure Batch-account en -sleutel. U moet deze in de omgevingsvariabelen met de naam YOUR_BATCH_URL en YOUR_BATCH_KEY doorgeven. U kunt deze in Hallo Job Manager instellen omgevingsinstellingen voor taken. Bijvoorbeeld in een C#-client:
+De jobbeheertaak vereist om de taken toevoegen aan de Azure Batch-taak, de URL van de Azure Batch-account en -sleutel. U moet deze in de omgevingsvariabelen met de naam YOUR_BATCH_URL en YOUR_BATCH_KEY doorgeven. U kunt deze Job Manager instellen omgevingsinstellingen voor taken. Bijvoorbeeld in een C#-client:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -215,7 +215,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 ```
 **Storage-referenties**
 
-Normaal gesproken Hallo client hoeft niet tooprovide Hallo gekoppelde storage-account referenties toohello jobbeheertaak omdat (a) meeste taak managers geen tooexplicitly toegang Hallo gekoppelde storage-account hoeven en (b) hello gekoppelde storage-account is vaak opgegeven tooall taken als een algemene omgevingsinstelling voor Hallo-taak. Als u niet aanbiedt Hallo gekoppelde storage-account via het algemene omgevingsinstellingen Hallo, Taakbeheer Hallo toegang toolinked opslag vereist en moet u als volgt Hallo gekoppelde storage-referenties opgeven:
+De client hoeft normaal gesproken niet te bieden de referenties van gekoppelde opslagaccount naar de jobbeheertaak omdat (a) meeste taak managers niet hoeven te expliciet toegang tot het gekoppelde opslagaccount en (b) het gekoppelde opslagaccount vaak is opgegeven voor alle taken als een algemene omgevingsinstelling voor de taak. Als u de gekoppelde storage-account via de algemene omgevingsinstellingen voor de niet opgeeft, en de manager van de taak toegang tot de gekoppelde opslag vereist, moet u opgeven de referenties van de gekoppelde opslag als volgt:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -227,99 +227,99 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 **Instellingen voor de taken van Job manager**
 
-Hallo-client moet Hallo Taakbeheer ingesteld *killJobOnCompletion* te markeren**false**.
+De client moet de manager van de taak ingesteld *killJobOnCompletion* markering **false**.
 
-Het is doorgaans veilig voor Hallo client tooset *runExclusive* te**false**.
+Het is doorgaans veilig voor de client in te stellen *runExclusive* naar **false**.
 
-Hallo-client moet gebruiken Hallo *resourceFiles* of *applicationPackageReferences* verzameling toohave Hallo Taakbeheer uitvoerbare (en de vereiste DLL-bestanden) toohello rekenknooppunt geïmplementeerd.
+De client moet gebruiken de *resourceFiles* of *applicationPackageReferences* verzameling om te zorgen dat de taak manager uitvoerbare (en de vereiste DLL's) naar het rekenknooppunt wordt geïmplementeerd.
 
-Standaard Hallo job manager wordt niet opnieuw worden uitgevoerd als deze uitvalt. Afhankelijk van de logica van de manager taak wil Hallo client tooenable pogingen via *beperkingen*/*maxTaskRetryCount*.
+Standaard de manager van de taak wordt niet opnieuw worden uitgevoerd als deze uitvalt. Afhankelijk van uw job manager logica, de client mogelijk wilt inschakelen pogingen via *beperkingen*/*maxTaskRetryCount*.
 
 **Instellingen van de taak**
 
-Als Hallo taak splitser taken met afhankelijkheden verzendt, moet Hallo client Hallo-taak usesTaskDependencies tootrue instellen.
+Als de splitser taak taken met afhankelijkheden verzendt, moet de client van de taak usesTaskDependencies ingesteld op true.
 
-In Hallo taak splitser model is ongebruikelijk voor clients toowish tooadd taken toojobs naast welke taak Hallo splitser wordt gemaakt. Hallo-taak moet daarom normaal ingesteld door Hallo client *onAllTasksComplete* te**terminatejob**.
+In het model van de splitser taak is het ongebruikelijk voor clients wilt taken toevoegen aan taken dan wat de splitser taak maakt. De taak moet daarom normaal ingesteld door de client *onAllTasksComplete* naar **terminatejob**.
 
 ## <a name="task-processor-template"></a>Sjabloon voor taak-Processor
-Een taak Processor-sjabloon kunt u tooimplement een taak processor Hallo van de volgende activiteiten kunt uitvoeren:
+Een sjabloon taak Processor helpt u bij het implementeren van een taak processor die u kunt de volgende acties uitvoeren:
 
-* Hallo-informatie die vereist zijn voor elke Batch-taak toorun instellen.
+* Instellen van de informatie die door elke Batch-taak moet uitvoeren.
 * Alle acties die zijn vereist voor elke Batch-taak uitgevoerd.
-* Opslaan van taak uitvoer toopersistent opslag.
+* Sla taak uitvoer naar de permanente opslag.
 
-Hoewel een processor van de taak niet vereist toorun taken in Batch is, is Hallo groot voordeel van het gebruik van een processor van de taak dat deze een wrapper-tooimplement alle acties in de taak kan worden uitgevoerd op één locatie levert. Bijvoorbeeld, als u meerdere toepassingen in de context van Hallo van elke taak toorun moet of als u moet toocopy gegevensopslag toopersistent na het voltooien van elke taak.
+Hoewel een processor van de taak niet vereist is voor het uitvoeren van taken in Batch, is het belangrijkste voordeel van een processor van de taak dat deze een wrapper biedt voor het implementeren van alle acties van de taak kan worden uitgevoerd op één locatie. Bijvoorbeeld, moet u meerdere toepassingen in de context van de afzonderlijke taken uitvoeren of als u wilt kopiëren van gegevens naar de permanente opslag na het voltooien van elke taak.
 
-Hallo-bewerkingen worden uitgevoerd door Hallo taak processor mag zijn als eenvoudig of complex zijn, en zo veel of weinig, zoals vereist door uw workload. Bovendien door het implementeren van alle acties in de taak in één taak processor, kunt u direct bijwerken of toevoegen op basis van wijzigingen tooapplications of werkbelasting vereisten acties. Echter, in sommige gevallen een processor van de taak mogelijk geen Hallo optimale oplossing voor uw implementatie zoals deze onnodige complexiteit, bijvoorbeeld wanneer de uitvoering van taken die snel kunnen worden gestart vanaf een opdrachtregel eenvoudig kunt toevoegen.
+De acties die worden uitgevoerd door de processor van de taak kunnen worden als eenvoudig of complex zijn, en zo veel of weinig, zoals vereist door uw workload. Bovendien door het implementeren van alle acties in de taak in één taak processor, kunt u direct bijwerken of toevoegen acties op basis van wijzigingen naar toepassingen of werklastvereisten. Echter, in sommige gevallen een processor van de taak mogelijk niet de optimale oplossing voor uw implementatie als deze onnodige complexiteit, bijvoorbeeld wanneer de uitvoering van taken die snel kunnen worden gestart vanaf een opdrachtregel eenvoudig kunt toevoegen.
 
-### <a name="create-a-task-processor-using-hello-template"></a>Een taak Processor met Hallo-sjabloon maken
-tooadd een taak processor toohello oplossing die u eerder hebt gemaakt, als volgt te werk:
+### <a name="create-a-task-processor-using-the-template"></a>De Processor van een taak met de sjabloon maken
+Als de processor van een taak toevoegen aan de oplossing die u eerder hebt gemaakt, de volgende stappen uit:
 
 1. Open uw bestaande oplossing in Visual Studio.
-2. Klik in Solution Explorer met de rechtermuisknop op Hallo-oplossing, klikt u op **toevoegen**, en klik vervolgens op **nieuw Project**.
+2. Klik in Solution Explorer met de rechtermuisknop op de oplossing, klikt u op **toevoegen**, en klik vervolgens op **nieuw Project**.
 3. Onder **Visual C#**, klikt u op **Cloud**, en klik vervolgens op **Azure Batch-taak Processor**.
-4. Typ een naam waarmee u een beschrijving van uw toepassing en dit project wordt aangemerkt als taak processor (bijvoorbeeld Hallo 'LitwareTaskProcessor').
-5. toocreate Hallo-project, klik op **OK**.
-6. Ten slotte build Hallo project tooforce Visual Studio tooload alle waarnaar wordt verwezen NuGet-pakketten en tooverify die Hallo project geldig is voordat u begint met het wijzigen van deze.
+4. Typ een naam waarmee u een beschrijving van uw toepassing en geeft aan dit project (bijvoorbeeld als de taak-processor 'LitwareTaskProcessor').
+5. Klik op om het project **OK**.
+6. Bouw ten slotte het project om af te dwingen van Visual Studio laden alle waarnaar wordt verwezen NuGet-pakketten en om te controleren of het project geldig is voordat u begint met het wijzigen van deze.
 
 ### <a name="task-processor-template-files-and-their-purpose"></a>Taak Processor sjabloonbestanden en hun doel
-Wanneer u een project met behulp van Hallo taak processor sjabloon maakt, genereert het codebestanden drie groepen:
+Wanneer u een project met de taak processor-sjabloon maakt, genereert het codebestanden drie groepen:
 
-* Hallo belangrijkste programmabestand (Program.cs). Dit bevat toegangspunt Hallo-programma en op het hoogste niveau uitzonderingsverwerking. U mag niet normaal gesproken deze toomodify nodig.
-* Hallo Framework-map. Dit document bevat Hallo-bestanden die verantwoordelijk is voor Hallo 'standaard' werk dat door Hallo taak programma manager – uitpakken van de parameters, toe te voegen taken toohello batchverwerking, enzovoort. U mag niet toomodify normaal gesproken moet deze bestanden.
-* Hallo-processor-bestand (TaskProcessor.cs). Dit is waar u uw toepassingsspecifieke logica voor het uitvoeren van een taak (doorgaans door het aanroepen van tooan bestaande uitvoerbare bestand) wordt geplaatst. Vóór en na verwerking komt, zoals aanvullende gegevens te downloaden of uploaden van bestanden met resultaten, ook hier code.
+* Het belangrijkste programmabestand (Program.cs). Dit document bevat de programma-ingangspunt en uitzonderingsverwerking op het hoogste niveau. U mag niet normaal gesproken moet dit wijzigen.
+* De Framework-map. Dit bevat de bestanden die verantwoordelijk is voor het 'standaard'-werk dat door het programma job manager – uitpakken van de parameters, taken toe te voegen aan de Batch-job, enzovoort. U mag niet normaal gesproken moet deze bestanden wijzigen.
+* De taak processor-bestand (TaskProcessor.cs). Dit is waar u uw toepassingsspecifieke logica voor het uitvoeren van een taak (doorgaans door bellen naar een bestaand uitvoerbaar bestand) wordt geplaatst. Vóór en na verwerking komt, zoals aanvullende gegevens te downloaden of uploaden van bestanden met resultaten, ook hier code.
 
-Natuurlijk kunt u aanvullende bestanden toevoegen als vereiste toosupport uw taak processor code, afhankelijk van de complexiteit Hallo van Hallo taak logica splitsen.
+Natuurlijk kunt u aanvullende bestanden toevoegen als vereist ter ondersteuning van uw taak processor code, afhankelijk van de complexiteit van de taak logica splitsen.
 
-Hallo sjabloon genereert ook standaard .NET projectbestanden zoals een .csproj-bestand, app.config, packages.config, enz.
+De sjabloon genereert ook standaard .NET projectbestanden zoals een .csproj-bestand, app.config, packages.config, enz.
 
-Hallo rest van deze sectie beschrijft Hallo verschillende bestanden en de codestructuur en wordt uitgelegd wat elke klasse doet.
+De rest van deze sectie beschrijft de verschillende bestanden en de codestructuur en wordt uitgelegd wat elke klasse doet.
 
-![Visual Studio Solution Explorer toont van Hallo taak Processor sjabloonoplossing][solution_explorer02]
+![Visual Studio Solution Explorer met de sjabloon-oplossing taak-Processor][solution_explorer02]
 
 **Framework-bestanden**
 
-* `Configuration.cs`: Ingekapseld Hallo laden van gegevens van de taak configuratie zoals Batch accountdetails, gekoppelde opslagaccountreferenties taak en informatie en taakparameters. Het bevat ook toegang tooBatch gedefinieerde omgevingsvariabelen (Zie omgevingsinstellingen voor taken in Batch-documentatie voor Hallo) via Hallo Configuration.EnvironmentVariable klasse.
-* `IConfiguration.cs`: Samenvattingen Hallo-implementatie van Hallo Configuration-klasse, zodat u kunt eenheid testen uw taak splitser met behulp van een valse of mock configuration-object.
-* `TaskProcessorException.cs`: Vertegenwoordigt een fout die Hallo job manager tooterminate vereist. TaskProcessorException is gebruikte toowrap 'verwacht' fouten waarin specifieke diagnostische informatie kan worden opgegeven als onderdeel van de beëindiging.
+* `Configuration.cs`: Het laden van gegevens van de taak configuratie zoals details van de Batch-account, gekoppelde opslagaccountreferenties taak en taakgegevens en taakparameters ingekapseld. Bovendien wordt toegang tot Batch gedefinieerde omgevingsvariabelen (Zie omgevingsinstellingen voor taken in de documentatie van de Batch) via de Configuration.EnvironmentVariable-klasse.
+* `IConfiguration.cs`: Hiermee isoleert de implementatie van de Configuration-klasse, zodat u kunt testen van eenheden uw taak splitser met behulp van een valse of mock configuration-object.
+* `TaskProcessorException.cs`: Hiermee geeft u een fout is van de manager van de taak is beëindigd. TaskProcessorException wordt laten teruglopen 'verwachte' fouten waarin specifieke diagnostische informatie kan worden opgegeven als onderdeel van de beëindiging gebruikt.
 
 **Taak-Processor**
 
-* `TaskProcessor.cs`: Hallo-taak wordt uitgevoerd. Hallo framework aanroept Hallo TaskProcessor.Run methode. Dit is Hallo klasse waarop u Hallo toepassingsspecifieke logica van de taak wordt invoeren. Hallo Run-methode om te implementeren:
+* `TaskProcessor.cs`: De taak wordt uitgevoerd. Het framework roept de methode TaskProcessor.Run. Dit is de klasse waarop u de toepassingsspecifieke logica van de taak wordt invoeren. De methode uitvoeren om te implementeren:
   * Parseren en valideer de taakparameters van een
-  * Hallo-opdrachtregel opstellen voor alle externe programma's die u wilt tooinvoke
+  * De opdrachtregel voor een extern programma dat u wilt aanroepen opstellen
   * Meld u diagnostische informatie die hebt u mogelijk nodig voor foutopsporing
   * Een proces starten met deze opdrachtregel
-  * Wachten op Hallo proces tooexit
-  * Hallo afsluitcode Hallo proces toodetermine vastleggen als deze is geslaagd of mislukt
-  * Tookeep toopersistent opslag van uitvoerbestanden die u wilt opslaan
+  * Wacht totdat het proces om af te sluiten
+  * Vastleggen van de afsluitcode van het proces om te bepalen of deze is geslaagd of mislukt
+  * Sla alle uitvoerbestanden die u wilt behouden voor permanente opslag
 
 **Standaard projectbestanden voor .NET-opdrachtregel**
 
 * `App.config`: De standaard .NET toepassingsconfiguratiebestand.
 * `Packages.config`: Standaard bestand NuGet-pakket voor afhankelijkheid.
-* `Program.cs`: Bevat Hallo programma toegangspunt en uitzonderingsverwerking op het hoogste niveau.
+* `Program.cs`: De programma-toegangspunt en op het hoogste niveau uitzonderingsverwerking bevat.
 
-## <a name="implementing-hello-task-processor"></a>Hallo taak processor implementeren
-Wanneer u Hallo taak Processor sjabloonproject opent, hebben Hallo project Hallo TaskProcessor.cs bestand standaard geopend. U kunt uitvoeren Hallo logica voor Hallo taken in uw werkbelasting implementeren met behulp van Hallo Run() methode hieronder weergegeven:
+## <a name="implementing-the-task-processor"></a>Implementatie van de taak-processor
+Wanneer u de taak Processor sjabloonproject opent, wordt in het project het standaard geopend TaskProcessor.cs-bestand hebben. De uitvoering logica voor de taken kunt u implementeren in uw werkbelasting met behulp van de methode Run() hieronder wordt weergegeven:
 
 ```csharp
 /// <summary>
-/// Runs hello task processing logic. This is where you inject
-/// your application-specific logic for decomposing hello job into tasks.
+/// Runs the task processing logic. This is where you inject
+/// your application-specific logic for decomposing the job into tasks.
 ///
-/// hello task processor framework invokes hello Run method for you; you need
-/// only tooimplement it, not toocall it yourself. Typically, your
+/// The task processor framework invokes the Run method for you; you need
+/// only to implement it, not to call it yourself. Typically, your
 /// implementation will execute an external program (from resource files or
-/// an application package), check hello exit code of that program and
-/// save output files toopersistent storage.
+/// an application package), check the exit code of that program and
+/// save output files to persistent storage.
 /// </summary>
 public async Task<int> Run()
 
 {
     try
     {
-        //Your code for hello task processor goes here.
+        //Your code for the task processor goes here.
         var command = $"compare {_parameters["Frame1"]} {_parameters["Frame2"]} compare.gif";
         using (var process = Process.Start($"cmd /c {command}"))
         {
@@ -347,44 +347,44 @@ public async Task<int> Run()
 }
 ```
 > [!NOTE]
-> Hallo is aantekeningen sectie in Hallo Run() methode alleen-lezen gedeelte Hallo van Hallo taak Processor sjablooncode die is bedoeld voor u toomodify door Hallo uitvoeren logica voor Hallo taken toe te voegen in uw werkbelasting. Als u een andere sectie van de sjabloon Hallo toomodify wilt, moet eerst raken met de werking van Batch door Hallo Batch documentatie controleren en enkele van de Batch-codevoorbeelden Hallo uitprobeert.
+> De sectie aantekeningen in de methode Run() is het alleen-lezen gedeelte van de taak Processor sjabloon-code die is bedoeld voor u door het toevoegen van de uitgevoerde instructies voor de taken in uw werkbelasting te wijzigen. Als u wijzigen van een andere sectie van de sjabloon wilt, moet eerst raken met de werking van Batch door de documentatie van de Batch controleren en enkele van de Batch-codevoorbeelden uitprobeert.
 > 
 > 
 
-Hallo methode Run() is verantwoordelijk voor het starten vanaf de opdrachtregel hello, vanaf een of meer processen, alle proces toocomplete wachten, Hallo resultaten worden opgeslagen en ten slotte terug met de afsluitcode. Hallo methode Run() is waar u Hallo verwerking logica voor uw taken implementeren. Hallo taak processor framework aanroept Hallo Run() methode. u hoeft geen toocall deze zelf.
+De methode Run() is verantwoordelijk voor het starten van de opdrachtregel voor het starten van een of meer processen, wacht tot alle proces te voltooien, de resultaten worden opgeslagen en ten slotte te retourneren met de afsluitcode. De methode Run() is waar u de verwerking van logica implementeren voor uw taken. De taak processor framework roept de methode Run() voor u; u hoeft niet zelf aanroepen.
 
 Uw implementatie Run() heeft toegang tot:
 
-* de taakparameters via Hallo Hallo `_parameters` veld.
-* taak en taak-id's, via Hallo Hallo `_jobId` en `_taskId` velden.
-* de taakconfiguratie Hallo via Hallo `_configuration` veld.
+* De taakparameters via de `_parameters` veld.
+* De taak en taak-id's, via de `_jobId` en `_taskId` velden.
+* De taakconfiguratie via de `_configuration` veld.
 
 **Taak mislukt**
 
-In geval van storing, kunt u de methode Run() Hallo afsluiten door er een uitzondering is opgetreden, maar dit Hallo bovenste niveau uitzonderings-handler voor de controle op Hallo taak afsluitcode verlaat. Als u toocontrol Hallo afsluitcode nodig zodat u kunt verschillende soorten mislukt, bijvoorbeeld voor diagnostische doeleinden onderscheiden of omdat een aantal fout-modi moeten worden beëindigd Hallo taak en andere beter niet en vervolgens moet u Hallo Run() methode afsluiten door te retourneren een de afsluitcode dan nul. Dit wordt de afsluitcode Hallo-taak.
+In geval van storing, kunt u de methode Run() afsluiten door er een uitzondering is opgetreden, maar dit laat het bovenste niveau uitzonderings-handler de controle over de afsluitcode van de taak. Als u de afsluitcode beheren wilt zodat u verschillende soorten mislukt, bijvoorbeeld voor diagnostische doeleinden onderscheiden kunt is of omdat de taak moeten worden beëindigd door een aantal fout-modi en anderen mag niet, moet u sluit de methode Run() door te retourneren van een niet-nul afsluitcode. Dit wordt de afsluitcode van de taak.
 
-### <a name="exit-codes-and-exceptions-in-hello-task-processor-template"></a>Codes en uitzonderingen in Hallo taak Processor sjabloon sluiten
-Bieden een mechanisme toodetermine Hallo resultaat van het uitvoeren van een programma afsluitcodes en uitzonderingen en ze Hallo uitvoering van programma Hallo-problemen kunnen identificeren. Hallo taak Processor sjabloon implementeert Hallo afsluitcodes en uitzonderingen in deze sectie beschreven.
+### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>Afsluitcodes en uitzonderingen in de sjabloon taak Processor
+Afsluitcodes en uitzonderingen bieden een mechanisme om te bepalen van het resultaat van het programma uitvoeren en deze kunt identificeren van problemen met de uitvoering van het programma. De taak Processor sjabloon implementeert de afsluitcodes en uitzonderingen in deze sectie beschreven.
 
-Processor met een taak die is geïmplementeerd met Hallo taak Processor sjabloon kunt drie mogelijke afsluitcodes retourneren:
+Processor met een taak die is geïmplementeerd met de taak Processor-sjabloon kunt drie mogelijke afsluitcodes retourneren:
 
 | Code | Beschrijving |
 | --- | --- |
-| [Process.ExitCode][process_exitcode] |Hallo taak processor toocompletion hebt uitgevoerd. Houd er rekening mee dat dit impliceert niet dat u aangeroepen Hallo-programma is gelukt – alleen Hallo taak processor is aangeroepen en uitgevoerd na verwerking zonder uitzonderingen. Hallo betekenis van de afsluitcode Hallo Hallo aangeroepen programma afhangt – doorgaans afsluitcode 0 betekent Hallo programma is voltooid en andere afsluitcode Hallo programma is mislukt. |
-| 1 |Hallo taak processor is mislukt met een uitzondering in een 'verwachte' onderdeel van het Hallo-programma. Hallo uitzondering was vertaalde tooa `TaskProcessorException` met diagnostische gegevens en, indien mogelijk, suggesties voor het oplossen van Hallo is mislukt. |
-| 2 |Hallo taak processor is mislukt met een 'onverwachte'-uitzondering. Hallo uitzondering is vastgelegd toostandard uitvoer, maar Hallo taak processor kan geen tooadd eventuele aanvullende informatie voor diagnose of herstel. |
+| [Process.ExitCode][process_exitcode] |De processor van de taak uitgevoerd worden voltooid. Let op: dit niet impliceert dat het programma dat u aangeroepen geslaagd – alleen dat de processor van de taak met succes gestart en uitgevoerd na verwerking zonder uitzonderingen. De betekenis van de afsluitcode is afhankelijk van het aangeroepen programma – doorgaans afsluitcode 0 betekent dat het programma is voltooid en andere afsluitcode betekent dat het programma is mislukt. |
+| 1 |De processor van de taak is mislukt met een uitzondering in een 'verwachte' deel van het programma. De uitzondering is vertaald naar een `TaskProcessorException` met diagnostische gegevens en, indien mogelijk, suggesties voor het oplossen van de fout. |
+| 2 |De processor van de taak is mislukt met een 'onverwachte'-uitzondering. De uitzondering is vastgelegd in het logboek voor standaarduitvoer, maar de processor van de taak is niet toegevoegd eventuele aanvullende informatie voor diagnose of herstel. |
 
 > [!NOTE]
-> Als u aanroept Hallo-programma afsluiten codes 1 en 2 tooindicate specifieke fout modi gebruikt, is vervolgens met afsluitcodes 1 en 2 voor taak processor fouten dubbelzinnig. U kunt deze taak processor codes toodistinctive afsluiten foutcodes wijzigen door het Hallo uitzondering aanvragen in het bestand Program.cs Hallo bewerken.
+> Als het programma dat u aanroept afsluitcodes 1 en 2 gebruikt om aan te geven van de specifieke fout modi, is vervolgens met afsluitcodes 1 en 2 voor taak processor fouten dubbelzinnig. U kunt deze taak processor-foutcodes onderscheidende afsluitcodes wijzigen door de uitzondering aanvragen in het bestand Program.cs te bewerken.
 > 
 > 
 
-Alle Hallo-gegevens geretourneerd door de uitzonderingen worden geschreven in stdout.txt en stderr.txt-bestanden. Zie de sectie afhandeling van de fout in Hallo Batch-documentatie voor meer informatie.
+Alle informatie die wordt geretourneerd door uitzonderingen is geschreven in stdout.txt en stderr.txt-bestanden. Zie de afhandeling van de fout in de Batch-documentatie voor meer informatie.
 
 ### <a name="client-considerations"></a>Overwegingen voor clients
 **Storage-referenties**
 
-Als de processor taak gebruikmaakt van Azure blob storage toopersist uitvoer, bijvoorbeeld met behulp van Hallo bestand conventies hulpbibliotheek en vervolgens te toegang moet*beide* Hallo cloud opslagaccountreferenties *of* een URL van de blob-container die een shared access signature (SAS) bevat. Hallo-sjabloon biedt ondersteuning voor het opgeven van de referenties via algemene omgevingsvariabelen. De client kan doorgeven Hallo storage-referenties als volgt:
+Als uw taak processor Azure blob storage gebruikt om vast te leggen uitvoer, bijvoorbeeld met behulp van het bestand conventies hulpbibliotheek, dan toegang tot moet *beide* de cloud opslagaccountreferenties *of* een blob container-URL met een shared access signature (SAS). De sjabloon biedt ondersteuning voor het opgeven van de referenties via algemene omgevingsvariabelen. De client kan doorgeven de storage-referenties als volgt:
 
 ```csharp
 job.CommonEnvironmentSettings = new [] {
@@ -393,53 +393,53 @@ job.CommonEnvironmentSettings = new [] {
 };
 ```
 
-Hallo storage-account is beschikbaar in Hallo TaskProcessor klasse via Hallo `_configuration.StorageAccount` eigenschap.
+Het opslagaccount is beschikbaar in de klasse TaskProcessor via de `_configuration.StorageAccount` eigenschap.
 
-Als u liever een container-URL met SAS toouse, u kunt dit ook doorgeven via een gemeenschappelijke omgevingsinstelling van taak, maar Hallo taak processor sjabloon omvat ingebouwde ondersteuning voor dit niet op dit moment.
+Als u liever een container-URL met SAS gebruiken, kunt u dit ook doorgeven via een gemeenschappelijke omgevingsinstelling van taak, maar de taak processor sjabloon omvat ingebouwde ondersteuning voor dit niet op dit moment.
 
 **Setup van opslag**
 
-Het wordt aanbevolen dat Hallo-client of de taak manager-taak maken geen containers die voor de taken vereist voordat het Hallo taken toohello taak toe te voegen. Dit is verplicht dat als u de URL van een container met SAS, als zodanig een URL bevat geen machtiging toocreate Hallo container. Het verdient aanbeveling zelfs als u opslagaccountreferenties, zoals elke taak toocall CloudBlobContainer.CreateIfNotExistsAsync op Hallo-container die wordt opgeslagen.
+Het wordt aanbevolen dat de taak van de manager-client of de taak geen containers die voor de taken vereist voordat de taken toe te voegen aan de taak maken. Dit is verplicht dat als u de URL van een container met SAS, als zodanig een URL bevat geen machtiging voor het maken van de container. Het verdient aanbeveling zelfs als u opslagaccountreferenties, zoals bespaart u elke taak hoeven CloudBlobContainer.CreateIfNotExistsAsync aanroepen voor de container.
 
 ## <a name="pass-parameters-and-environment-variables"></a>Pass-parameters en variabelen
 ### <a name="pass-environment-settings"></a>Omgevingsinstellingen doorgeven
-Een client kan informatie toohello jobbeheertaak in de vorm Hallo van omgevingsinstellingen worden doorgegeven. Deze informatie kan vervolgens worden gebruikt door Hallo jobbeheertaak wanneer genereren Hallo taak processor taken die worden uitgevoerd als onderdeel van Hallo-taak COMPUTE. Voorbeelden van Hallo-informatie die u als omgevingsinstellingen doorgeven kunt zijn:
+Een client kan informatie doorgeven aan de jobbeheertaak in de vorm van omgevingsinstellingen. Deze informatie kan vervolgens worden gebruikt door de jobbeheertaak bij het genereren van de taak processor-taken die wordt uitgevoerd als onderdeel van de compute-taak. Voorbeelden van de informatie die u als omgevingsinstellingen doorgeven kunt zijn:
 
 * Naam en het account toegangscodes voor opslag
 * URL van de batch-account
 * De sleutel van de batch-account
 
-Hallo Batch-service heeft een eenvoudig mechanisme toopass omgeving instellingen tooa jobbeheertaak met behulp van Hallo `EnvironmentSettings` eigenschap in [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
+De Batch-service heeft een eenvoudig mechanisme omgevingsinstellingen doorgeven aan een jobbeheertaak met behulp van de `EnvironmentSettings` eigenschap in [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
 
-Bijvoorbeeld: tooget hello `BatchClient` exemplaar voor een Batch-account, kunt u als omgevingsvariabelen van client Hallo Hallo URL code en sleutel referenties voor de Batch-account Hallo gedeelde doorgeven. Evenzo tooaccess Hallo storage-account dat is gekoppeld toohello Batch-account, kunt u de opslagaccountnaam hello en Hallo opslagaccountsleutel doorgeven als omgevingsvariabelen.
+Bijvoorbeeld, om op te halen de `BatchClient` exemplaar voor een Batch-account, kunt u als omgevingsvariabelen van de client de URL en de gedeelde sleutel referenties voor het Batch-account code doorgeven. Evenzo voor toegang tot het opslagaccount dat is gekoppeld aan het Batch-account, kunt u de opslagaccountnaam en doorgeven de opslagaccountsleutel als omgevingsvariabelen.
 
-### <a name="pass-parameters-toohello-job-manager-template"></a>Doorgegeven parameters toohello Job Manager-sjabloon
-In veel gevallen is nuttig toopass per taak parameters toohello jobbeheertaak, ofwel toocontrol Hallo taak proces splitsen of tooconfigure Hallo taken voor het Hallo-taak. U kunt dit doen door het uploaden van een JSON-bestand parameters.json met de naam als een bronbestand voor Hallo jobbeheertaak. Hallo-parameters kunnen vervolgens beschikbaar gesteld in Hallo `JobSplitter._parameters` veld in Hallo Job Manager-sjabloon.
+### <a name="pass-parameters-to-the-job-manager-template"></a>Parameters doorgeven aan de Job Manager-sjabloon
+In veel gevallen is het handig voor de per taak parameters doorgeven aan de jobbeheertaak om te bepalen van de taak proces splitsen of voor het configureren van de taken voor de taak. U kunt dit doen door het uploaden van een JSON-bestand parameters.json met de naam als een bronbestand voor de jobbeheertaak. De parameters kunnen vervolgens beschikbaar gesteld in de `JobSplitter._parameters` veld in de Job Manager-sjabloon.
 
 > [!NOTE]
-> Hallo ingebouwde parameter handler ondersteunt alleen string-naar-tekenreeks woordenlijsten. Als u toopass complexe JSON-waarden als parameterwaarden wilt, u wordt toopass deze als tekenreeksen nodig en ze in Hallo taak splitser parseert of wijzigen van het framework Hallo `Configuration.GetJobParameters` methode.
+> De ingebouwde parameter handler ondersteunt alleen string-naar-tekenreeks woordenlijsten. Als u complexe JSON-waarden als parameterwaarden doorgeven wilt, moet u deze poorten als tekenreeksen doorgeven en ze in de splitser taak parseert of te wijzigen van het framework `Configuration.GetJobParameters` methode.
 > 
 > 
 
-### <a name="pass-parameters-toohello-task-processor-template"></a>Parameters toohello taak Processor sjabloon doorgeven
-U kunt parameters ook doorgeven tooindividual taken geïmplementeerd met behulp van Hallo taak Processor sjabloon. Net zoals met Hallo job manager-sjabloon zoekt Hallo taak processor sjabloon naar een resource-bestand met de naam
+### <a name="pass-parameters-to-the-task-processor-template"></a>Parameters doorgeven aan de sjabloon taak Processor
+U kunt ook parameters doorgeven aan de afzonderlijke taken die zijn geïmplementeerd met behulp van de taak Processor-sjabloon. Net zoals met de taak manager-sjabloon de sjabloon voor de taak-processor wordt gezocht naar een resource-bestand met de naam
 
-parameters.JSON, en, indien deze gevonden als Hallo parameters woordenlijst laadt. Er zijn een aantal opties voor hoe toopass parameters toohello task processor-taken:
+parameters.JSON, en, indien deze gevonden geladen als de parameters-woordenlijst. Er zijn een aantal opties voor het parameters doorgeven aan de taak processor taken:
 
-* Hallo taakparameters JSON hergebruiken. Dit werkt goed als Hallo alleen parameters taak wide (voor bijvoorbeeld een render hoogte en breedte zijn). toodo, wanneer u een CloudTask in Hallo taak splitser, een object van het bestand parameters.json resource van verwijzing toohello vanuit Hallo jobbeheertaak van ResourceFiles toevoegen (`JobSplitter._jobManagerTask.ResourceFiles`) van toohello CloudTask ResourceFiles verzameling.
-* Genereren en uploaden van een document taakspecifieke parameters.json als onderdeel van de splitser taakuitvoering en verwijzen naar blob in van de taak Hallo resource bestanden verzameling. Dit is nodig als u verschillende taken verschillende parameters hebben. Een voorbeeld is mogelijk een 3D-rendering scenario waarbij Hallo frame-index toohello taak is doorgegeven als parameter.
+* De taakparameters JSON hergebruiken. Dit werkt goed als de enige parameters taak wide (voor bijvoorbeeld een render hoogte en breedte zijn). U doet dit door bij het maken van een CloudTask in de splitser taak, Voeg een verwijzing naar het object parameters.json resource-bestand van de jobbeheertaak ResourceFiles (`JobSplitter._jobManagerTask.ResourceFiles`) aan de CloudTask ResourceFiles verzameling.
+* Genereren en uploaden van een document taakspecifieke parameters.json als onderdeel van de splitser taakuitvoering en verwijzen naar blob in verzameling voor de taak resource files. Dit is nodig als u verschillende taken verschillende parameters hebben. Een voorbeeld is mogelijk een 3D-rendering scenario waar de frame-index wordt doorgegeven aan de taak als parameter.
 
 > [!NOTE]
-> Hallo ingebouwde parameter handler ondersteunt alleen string-naar-tekenreeks woordenlijsten. Als u toopass complexe JSON-waarden als parameterwaarden wilt, u wordt toopass deze als tekenreeksen nodig in Hallo taak processor worden geparseerd en wijzigen van het framework Hallo `Configuration.GetTaskParameters` methode.
+> De ingebouwde parameter handler ondersteunt alleen string-naar-tekenreeks woordenlijsten. Als u complexe JSON-waarden als parameterwaarden doorgeven wilt, moet u deze poorten als tekenreeksen doorgeven en in de processor van de taak worden geparseerd of te wijzigen van het framework `Configuration.GetTaskParameters` methode.
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-### <a name="persist-job-and-task-output-tooazure-storage"></a>Taak behouden en de taak uitvoer tooAzure opslag
-Een ander handig hulpmiddel in ontwikkeling van de Batch-oplossingen is [Azure Batch-bestand conventies][nuget_package]. Deze klasse .NET-bibliotheek (momenteel in preview) te gebruiken in uw Batch .NET-toepassingen tooeasily store en taak uitvoer tooand ophalen uit Azure Storage. [Azure Batch-taak en uitvoer behouden](batch-task-output.md) bevat een volledige beschrijving van het Hallo-bibliotheek en het gebruik ervan.
+### <a name="persist-job-and-task-output-to-azure-storage"></a>Behouden van de taak en uitvoer naar Azure Storage
+Een ander handig hulpmiddel in ontwikkeling van de Batch-oplossingen is [Azure Batch-bestand conventies][nuget_package]. Gebruik deze bibliotheek van de .NET-klasse (momenteel in preview) in uw Batch .NET-toepassingen eenvoudig opslaan en ophalen van de taak uitvoer en naar Azure Storage. [Azure Batch-taak en uitvoer behouden](batch-task-output.md) bevat een volledige beschrijving van de tapewisselaar en het gebruik ervan.
 
 ### <a name="batch-forum"></a>Batch-Forum
-Hallo [Azure Batch-Forum] [ forum] is uitermate toodiscuss Batch plaats en vragen over Hallo-service op MSDN. Kop op via voor nuttige 'een tijdelijke' berichten, en stel uw vragen wanneer deze zich voordoen tijdens het bouwen van uw Batch-oplossingen.
+De [Azure Batch-Forum] [ forum] is een goede plaats om te bespreken Batch en vragen over de service op MSDN. Kop op via voor nuttige 'een tijdelijke' berichten, en stel uw vragen wanneer deze zich voordoen tijdens het bouwen van uw Batch-oplossingen.
 
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx

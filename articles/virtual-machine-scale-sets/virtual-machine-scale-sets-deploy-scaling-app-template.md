@@ -1,6 +1,6 @@
 ---
-title: een app op een virtuele machine van Azure-schaalset aaaDeploy | Microsoft Docs
-description: Meer informatie over toodeploy een toepassing eenvoudig automatisch schalen op een virtuele-machineschaalset ingesteld met een Azure Resource Manager-sjabloon.
+title: Een app implementeren op een virtuele-machineschaalset in Azure | Microsoft Docs
+description: Informatie over het implementeren van een eenvoudige, automatisch schalende toepassing op een virtuele-machineschaalset met een Azure Resource Manager-sjabloon.
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: rwike77
@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/24/2017
 ms.author: ryanwi
-ms.openlocfilehash: 6fccc310312cabfcdddfcbcd2d154fc5cc440417
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>Een automatisch schalende app implementeren met een sjabloon
 
-[Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) zijn een goede manier toodeploy groepen verwante resources. Deze zelfstudie bouwt voort op [implementeren van een eenvoudige schaalset](virtual-machine-scale-sets-mvss-start.md) en beschrijft hoe toodeploy een toepassing eenvoudig automatisch schalen op een schaal instelt met een Azure Resource Manager-sjabloon.  U kunt ook met behulp van PowerShell, CLI of Hallo portal automatisch schalen instellen. Zie het [overzicht van automatisch schalen](virtual-machine-scale-sets-autoscale-overview.md) voor meer informatie.
+[Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) zijn bijzonder handig om groepen gerelateerde resources te implementeren. In deze zelfstudie wordt verder ingegaan op [Een eenvoudige schaalset implementeren](virtual-machine-scale-sets-mvss-start.md) en wordt beschreven hoe u een eenvoudige, automatisch schalende toepassing kunt implementeren op een schaalset met een Azure Resource Manager-sjabloon.  U kunt automatisch schalen ook instellen met PowerShell, CLI of de portal. Zie het [overzicht van automatisch schalen](virtual-machine-scale-sets-autoscale-overview.md) voor meer informatie.
 
 ## <a name="two-quickstart-templates"></a>Twee snelstartsjablonen
-Wanneer u een schaalset implementeert, kunt u nieuwe software installeren op een platforminstallatiekopie met een [VM-extensie](../virtual-machines/virtual-machines-windows-extensions-features.md). Een VM-extensie is een kleine toepassing waarmee configuratie- en automatiseringstaken na de implementatie worden uitgevoerd op virtuele Azure-machines, zoals het implementeren van een app. Twee verschillende voorbeeldsjablonen vindt u in [Azure/azure-Quick Start-sjablonen](https://github.com/Azure/azure-quickstart-templates) die laten zien hoe een toepassing automatisch schalen op een schaal toodeploy instelt met behulp van de VM-extensies.
+Wanneer u een schaalset implementeert, kunt u nieuwe software installeren op een platforminstallatiekopie met een [VM-extensie](../virtual-machines/virtual-machines-windows-extensions-features.md). Een VM-extensie is een kleine toepassing waarmee configuratie- en automatiseringstaken na de implementatie worden uitgevoerd op virtuele Azure-machines, zoals het implementeren van een app. In [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) vindt u twee voorbeeldsjablonen waarin u kunt zien hoe u een automatisch schalende toepassing implementeert op een schaalset met VM-extensies.
 
 ### <a name="python-http-server-on-linux"></a>Python HTTP-server op Linux
-Hallo [Python HTTP-server op Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) voorbeeldsjabloon implementeert een eenvoudige automatisch schalen toepassing die wordt uitgevoerd op een Linux-schaalset.  [Bottle](http://bottlepy.org/docs/dev/), een Python-web framework en een eenvoudige HTTP-server zijn geïmplementeerd op elke virtuele machine in Hallo scale ingesteld met een aangepast script VM-extensie. Hallo schaal instellen schalen wanneer gemiddelde CPU-gebruik over alle VM's groter dan 60 is % en ingeschaald omlaag wanneer de gemiddelde CPU-gebruik Hallo minder dan 30 is %.
+Met de voorbeeldsjabloon [Python HTTP-server op Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) wordt een eenvoudige, automatisch schalende toepassing geïmplementeerd die wordt uitgevoerd op een Linux-schaalset.  Op elke VM in de schaalset worden [Bottle](http://bottlepy.org/docs/dev/), een Python-webframework, en een eenvoudige HTTP-server geïmplementeerd met behulp van een VM-extensie met een aangepast script. De schaalset schaalt omhoog wanneer gemiddeld CPU-gebruik over alle VM's hoger is dan 60% en schaalt omlaag wanneer het gemiddelde CPU-gebruik lager is dan 30%.
 
-Bovendien toohello schaalset resource hello *azuredeploy.json* voorbeeldsjabloon declareert ook virtueel netwerk, openbare IP-adres, load balancer en resources voor automatisch schalen-instellingen.  Zie [Linux-schaalset met automatisch schalen](virtual-machine-scale-sets-linux-autoscale.md) voor meer informatie over het maken van deze resources in een sjabloon.
+Naast de schaalsetresource worden met de voorbeeldsjabloon *azuredeploy.json* ook de resources voor het virtuele netwerk, het openbare IP-adres, de load balancer en instellingen voor automatisch schalen gedeclareerd.  Zie [Linux-schaalset met automatisch schalen](virtual-machine-scale-sets-linux-autoscale.md) voor meer informatie over het maken van deze resources in een sjabloon.
 
-In Hallo *azuredeploy.json* sjabloon, Hallo `extensionProfile` eigenschap Hallo `Microsoft.Compute/virtualMachineScaleSets` resource Hiermee geeft u een extensie voor aangepaste scripts. `fileUris`Hiermee geeft u Hallo script (s)-locatie. In dit geval twee bestanden: *workserver.py*, definieert een eenvoudige HTTP-server en *installserver.sh*, die Bottle wordt geïnstalleerd en gestart Hallo HTTP-server. `commandToExecute`Hiermee geeft u Hallo opdracht toorun na de implementatie van Hallo schaalset.
+In de sjabloon *azuredeploy.json* wordt met de eigenschap `extensionProfile` van de resource `Microsoft.Compute/virtualMachineScaleSets` een aangepaste scriptextensie opgegeven. `fileUris` geeft de locatie van het script/de scripts aan. Dat zijn in dit geval twee bestanden: *workserver.py*, waarmee een eenvoudige HTTP-server wordt gedefinieerd, en *installserver.sh*, waarmee Bottle wordt geïnstalleerd en de HTTP-server wordt gestart. `commandToExecute` geeft de opdracht aan die moet worden uitgevoerd nadat de schaalset is geïmplementeerd.
 
 ```json
           "extensionProfile": {
@@ -59,11 +59,11 @@ In Hallo *azuredeploy.json* sjabloon, Hallo `extensionProfile` eigenschap Hallo 
 ```
 
 ### <a name="aspnet-mvc-application-on-windows"></a>ASP.NET MVC-toepassing in Windows
-Hallo [ASP.NET MVC-toepassing op Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) voorbeeldsjabloon implementeert een eenvoudige ASP.NET MVC-app in IIS wordt uitgevoerd op Windows-schaalset.  IIS en Hallo MVC-app zijn geïmplementeerd met Hallo [PowerShell desired state configuration (DSC)](virtual-machine-scale-sets-dsc.md) VM-extensie.  Hallo schaal instellen schalen (op het exemplaar van de virtuele machine tegelijk) wanneer het CPU-gebruik is groter dan 50% gedurende vijf minuten. 
+Met de voorbeeldsjabloon [ASP.NET MVC-toepassing in Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) wordt een eenvoudige ASP.NET MVC-app geïmplementeerd die wordt uitgevoerd in IIS op een Windows-schaalset.  IIS en de MVC-app worden geïmplementeerd met de VM-extensie [PowerShell Desired State Configuration (DSC)](virtual-machine-scale-sets-dsc.md).  De schaalset schaalt omhoog (één VM-exemplaar tegelijk) wanneer het CPU-gebruik gedurende vijf minuten hoger is dan 50%. 
 
-Bovendien toohello schaalset resource hello *azuredeploy.json* voorbeeldsjabloon declareert ook virtueel netwerk, openbare IP-adres, load balancer en resources voor automatisch schalen-instellingen. In deze sjabloon kunt u ook een toepassingsupgrade bekijken.  Zie [Windows-schaalset met automatisch schalen](virtual-machine-scale-sets-windows-autoscale.md) voor meer informatie over het maken van deze resources in een sjabloon.
+Naast de schaalsetresource worden met de voorbeeldsjabloon *azuredeploy.json* ook de resources voor het virtuele netwerk, het openbare IP-adres, de load balancer en instellingen voor automatisch schalen gedeclareerd. In deze sjabloon kunt u ook een toepassingsupgrade bekijken.  Zie [Windows-schaalset met automatisch schalen](virtual-machine-scale-sets-windows-autoscale.md) voor meer informatie over het maken van deze resources in een sjabloon.
 
-In Hallo *azuredeploy.json* sjabloon, Hallo `extensionProfile` eigenschap Hallo `Microsoft.Compute/virtualMachineScaleSets` resource geeft een [desired state configuration (DSC)](virtual-machine-scale-sets-dsc.md) -extensie die wordt geïnstalleerd, IIS en een standaardbericht Web-app uit een web Deploy-pakket.  Hallo *IISInstall.ps1* script IIS op Hallo virtuele machine installeert en is gevonden in Hallo *DSC* map.  Hallo MVC-web-app is gevonden in Hallo *WebDeploy* map.  Hallo paden toohello installatiescript en Hallo web-app zijn gedefinieerd in Hallo `powershelldscZip` en `webDeployPackage` parameters in Hallo *azuredeploy.parameters.json* bestand. 
+In de sjabloon *azuredeploy.json* wordt met de eigenschap `extensionProfile` van de resource `Microsoft.Compute/virtualMachineScaleSets` een [Desired State Configuration](virtual-machine-scale-sets-dsc.md)-extensie (DSC) opgegeven waarmee IIS en een standaardweb-app worden geïnstalleerd vanuit een WebDeploy-pakket.  Met het script *IISInstall.ps1* wordt IIS geïnstalleerd op de virtuele machine. Dit script kunt u vinden in de map *DSC*.  De MVC-web-app bevindt zich in de map *WebDeploy*.  De paden naar het installatiescript en de web-app zijn gedefinieerd in de parameters `powershelldscZip` en `webDeployPackage` in het bestand *azuredeploy.parameters.json*. 
 
 ```json
           "extensionProfile": {
@@ -93,11 +93,11 @@ In Hallo *azuredeploy.json* sjabloon, Hallo `extensionProfile` eigenschap Hallo 
           }
 ```
 
-## <a name="deploy-hello-template"></a>Hallo-sjabloon implementeren
-Hallo eenvoudigste manier toodeploy hello [Python HTTP-server op Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) of [ASP.NET MVC-toepassing op Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) sjabloon is toouse hello **tooAzure implementeren** knop gevonden in Hallo in de Leesmij-bestanden Hallo in GitHub.  U kunt ook toodeploy Hallo voorbeeldsjablonen PowerShell of Azure CLI gebruiken.
+## <a name="deploy-the-template"></a>De sjabloon implementeren
+U kunt de sjabloon [Python HTTP-server op Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) of [ASP.NET MVC-toepassing in Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) het eenvoudigst implementeren met de knop **Implementeren in Azure** in de Leesmij-bestanden in GitHub.  U kunt ook PowerShell of Azure CLI gebruiken om de voorbeeldsjablonen te implementeren.
 
 ### <a name="powershell"></a>PowerShell
-Kopiëren Hallo [Python HTTP-server op Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) of [ASP.NET MVC-toepassing op Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) bestanden uit Hallo GitHub-repo-tooa map op uw lokale computer.  Open Hallo *azuredeploy.parameters.json* bestands- en update Hallo standaardwaarden Hallo `vmssName`, `adminUsername`, en `adminPassword` parameters. Hallo volgende PowerShell-script op te slaan*deploy.ps1* in Hallo dezelfde map als Hallo *azuredeploy.json* sjabloon. toodeploy hello voorbeeld sjabloon uitvoeren Hallo *deploy.ps1* script vanaf een PowerShell-opdrachtvenster.
+Kopieer de bestanden voor [Python HTTP-server op Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) of [ASP.NET MVC-toepassing in Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) van de GitHub-opslagplaats naar een map op uw lokale computer.  Open het bestand *azuredeploy.parameters.json* en werk de standaardwaarden van de parameters `vmssName`, `adminUsername` en `adminPassword` bij. Sla het volgende PowerShell-script op als *deploy.ps1*, in dezelfde map als de sjabloon *azuredeploy.json*. Als u de voorbeeldsjabloon wilt implementeren, voert u het script *deploy.ps1* uit vanuit een PowerShell-opdrachtvenster.
 
 ```powershell
 param(
@@ -163,7 +163,7 @@ if($resourceProviders.length) {
 $resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
 if(!$resourceGroup)
 {
-    Write-Host "Resource group '$resourceGroupName' does not exist. toocreate a new resource group, please enter a location.";
+    Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
     if(!$resourceGroupLocation) {
         $resourceGroupLocation = Read-Host "resourceGroupLocation";
     }
@@ -174,7 +174,7 @@ else{
     Write-Host "Using existing resource group '$resourceGroupName'";
 }
 
-# Start hello deployment
+# Start the deployment
 Write-Host "Starting deployment...";
 if(Test-Path $parametersFilePath) {
     New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
@@ -191,7 +191,7 @@ IFS=$'\n\t'
 
 # -e: immediately exit if any command has a non-zero exit status
 # -o: prevents errors in a pipeline from being masked
-# IFS new value is less likely toocause confusing bugs when looping arrays or arguments (e.g. $@)
+# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
 
 usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
 
@@ -238,12 +238,12 @@ if [[ -z "$deploymentName" ]]; then
 fi
 
 if [[ -z "$resourceGroupLocation" ]]; then
-    echo "Enter a location below toocreate a new resource group else skip this"
+    echo "Enter a location below to create a new resource group else skip this"
     echo "ResourceGroupLocation:"
     read resourceGroupLocation
 fi
 
-#templateFile Path - template file toobe used
+#templateFile Path - template file to be used
 templateFilePath="template.json"
 
 if [ ! -f "$templateFilePath" ]; then
@@ -264,7 +264,7 @@ if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentN
     usage
 fi
 
-#login tooazure using your credentials
+#login to azure using your credentials
 az account show 1> /dev/null
 
 if [ $? != 0 ];
@@ -272,7 +272,7 @@ then
     az login
 fi
 
-#set hello default subscription id
+#set the default subscription id
 az account set --name $subscriptionId
 
 set +e

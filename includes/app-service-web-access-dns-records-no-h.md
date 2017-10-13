@@ -1,14 +1,14 @@
-Meld u aan toohello website van uw domeinprovider.
+Meld u aan bij de website van uw domeinprovider.
 
-Hallo-pagina voor het beheren van DNS-records vinden. Elk domeinprovider heeft een eigen DNS-records interface, dus de documentatie van Hallo-provider. Zoek naar gebieden van Hallo site met het label **domeinnaam**, **DNS**, of **naam Serverbeheer**. 
+Ga naar de pagina voor het beheren van DNS-records. Elke domeinprovider heeft zijn eigen interface voor het beheren van DNS-records. Raadpleeg daarom de documentatie van de provider. Doorgaans heeft het sitegedeelte waar u moet zijn, een naam als **Domain Name**, **DNS** of **Name Server Management**. 
 
-U kunt vaak pagina Hallo DNS-records vinden door gegevens over uw account weer te geven en te zoeken naar een koppeling zoals **mijn domeinen**. Ga toothat pagina en zoek naar een koppeling met de naam ongeveer **zonebestand**, **DNS-Records**, of **geavanceerde configuratie**.
+Vaak kunt u de pagina met DNS-records vinden door uw accountgegevens te bekijken en te zoeken naar een link als **My domains** (of iets vergelijkbaars). Ga naar de betreffende pagina en kijk of u daar een link ziet zoals **Zone file**, **DNS Records** of **Advanced configuration**.
 
-Hallo is volgende schermafbeelding een voorbeeld van een DNS-records pagina:
+In de schermafbeelding hieronder wordt een voorbeeld van een pagina met DNS-records weergegeven:
 
 ![Voorbeeld van een pagina met DNS-records](./media/app-service-web-access-dns-records-no-h/example-record-ui.png)
 
-In de schermafbeelding Hallo voorbeeld, selecteert u **toevoegen** toocreate een record. Sommige providers hebben verschillende koppelingen tooadd verschillende recordtypen. Opnieuw documentatie Hallo-provider.
+In het getoonde voorbeeld selecteert u **Add** om een record te maken. Sommige providers hebben afzonderlijke links voor verschillende typen records. Raadpleeg ook hiervoor de documentatie van de provider.
 
 > [!NOTE]
-> Voor bepaalde providers, zoals GoDaddy, wijzigingen tooDNS records niet van kracht totdat u een afzonderlijke **wijzigingen opslaan** koppeling. 
+> Bij bepaalde providers, zoals GoDaddy, worden wijzigingen in DNS-records pas van kracht wanneer u op een afzonderlijke link **Save Changes** klikt. 

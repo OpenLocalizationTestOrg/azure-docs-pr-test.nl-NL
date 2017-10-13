@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met SAP Cloud voor klant | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en SAP Cloud voor de klant.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en SAP Cloud voor de klant.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,120 +13,120 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 0525ea81122458ab3ac24a5bdb0b5f628405dd05
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e4d945525a45704f34e1d9e742220928a516f341
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Zelfstudie: Azure Active Directory-integratie met SAP Cloud voor klant
 
-In deze zelfstudie leert u hoe toointegrate SAP Cloud voor klanten met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u SAP Cloud voor klanten met Azure Active Directory (Azure AD) integreren.
 
-Integratie van SAP Cloud voor klanten met Azure AD biedt Hallo volgende voordelen:
+Integratie van SAP Cloud voor klanten met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tooSAP Cloud voor de klant heeft
-- U kunt uw gebruikers tooautomatically get aangemelde tooSAP Cloud inschakelen voor de klant (Single Sign-On) met hun Azure AD-accounts
-- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren
+- U kunt beheren in Azure AD die toegang tot SAP Cloud voor klant heeft
+- U kunt uw gebruikers automatisch ophalen aangemeld bij SAP Cloud voor klant (Single Sign-On) met hun Azure AD-accounts inschakelen
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure AD-integratie met SAP Cloud voor klant tooconfigure, moet u Hallo volgende items:
+Azure AD-integratie met SAP Cloud configureren voor de klant, moet u de volgende items:
 
 - Een Azure AD-abonnement
 - Een Cloud SAP voor eenmalige aanmelding klant abonnement ingeschakeld
 
 > [!NOTE]
-> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand hier downloaden: [proefversie aanbieding](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. SAP Cloud toe te voegen voor de klant uit Hallo galerie
+1. SAP Cloud toe te voegen voor de klant uit de galerie
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-sap-cloud-for-customer-from-hello-gallery"></a>SAP Cloud toe te voegen voor de klant uit Hallo galerie
-tooconfigure hello integratie van SAP Cloud voor klanten met Azure AD, moet u tooadd SAP-Cloud van Hallo galerie tooyour lijst met beheerde SaaS-apps voor de klant.
+## <a name="adding-sap-cloud-for-customer-from-the-gallery"></a>SAP Cloud toe te voegen voor de klant uit de galerie
+Voor het configureren van de integratie van SAP Cloud voor klanten met Azure AD, moet u SAP Cloud voor klant uit de galerie toevoegt aan de lijst met beheerde SaaS-apps.
 
-**tooadd SAP Cloud voor klant via Hallo gallery uitvoeren Hallo stappen te volgen:**
+**Als u wilt toevoegen SAP Cloud voor klant uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak Hallo **SAP Cloud voor klant**.
+4. Typ in het zoekvak **SAP Cloud voor klant**.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_search.png)
 
-5. Selecteer in het deelvenster resultaten hello, **SAP Cloud voor klant**, en klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
+5. Selecteer in het deelvenster resultaten **SAP Cloud voor klant**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met SAP Cloud voor klant op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in de Cloud SAP voor de klant is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de verwante gebruiker in de Cloud voor klant SAP Hallo toobe tot stand gebracht.
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in de Cloud SAP voor de klant is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in de Cloud SAP voor klant tot stand worden gebracht.
 
-In de Cloud SAP voor de klant, wijs Hallo-waarde van Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** tooestablish Hallo koppeling relatie.
+In de Cloud SAP voor de klant, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-tooconfigure en test eenmalige aanmelding Azure AD met SAP Cloud voor de klant, moet u toocomplete Hallo bouwstenen te volgen:
+Om te configureren en testen van Azure AD eenmalige aanmelding met SAP Cloud voor de klant, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een Cloud SAP voor klant testgebruiker](#creating-a-sap-cloud-for-customer-test-user)**  -toohave een equivalent van Britta Simon in SAP Cloud voor de klant die is gekoppeld toohello Azure AD-weergave van de gebruiker.
-4. **[Toewijzen hello Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  -tooverify Hallo of configuratie werkt.
+1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maken van een Cloud SAP voor klant testgebruiker](#creating-a-sap-cloud-for-customer-test-user)**  - bevatten een equivalent van Britta Simon SAP Cloud voor klant die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding configureren in uw Cloud SAP voor toepassing van de klant.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw Cloud SAP voor toepassing van de klant.
 
-**tooconfigure eenmalige aanmelding Azure AD met SAP Cloud voor klant, voert u Hallo stappen te volgen:**
+**Voor het configureren van Azure AD eenmalige aanmelding met SAP Cloud voor de klant, moet u de volgende stappen uitvoeren:**
 
-1. In Azure-portal op Hallo Hallo **SAP Cloud voor klant** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **SAP Cloud voor klant** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_samlbase.png)
 
-3. Op Hallo **SAP Cloud voor domein van de klant en URL's** sectie, voert u Hallo stappen te volgen:
+3. Op de **SAP Cloud voor domein van de klant en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_url.png)
 
-    a. In Hallo **aanmeldings-URL** textbox, typ een URL met Hallo patroon volgen:`https://<server name>.crm.ondemand.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<server name>.crm.ondemand.com`
 
-    b. In Hallo **id** textbox, typ een URL met Hallo patroon volgen:`https://<server name>.crm.ondemand.com`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<server name>.crm.ondemand.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Bijwerken van deze waarden Hello werkelijke aanmeldings-URL en -id. Neem contact op met [SAP Cloud voor klant Client ondersteuningsteam](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) tooget deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [SAP Cloud voor klant Client ondersteuningsteam](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) ophalen van deze waarden. 
 
-4. Op Hallo **gebruikerskenmerken** sectie, voert u Hallo stappen te volgen:
+4. Op de **gebruikerskenmerken** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_attribute.png)
 
-    a. In **gebruikers-id** lijst, selecteer Hallo **ExtractMailPrefix()** functie.
+    a. In **gebruikers-id** lijst, selecteert de **ExtractMailPrefix()** functie.
 
-    b. Van Hallo **Mail** lijst, selecteer Hallo gebruikerskenmerk gewenste toouse voor uw implementatie.
-    Bijvoorbeeld, als u wilt dat toouse Hallo werknemer-id als unieke gebruikers-id en u Hallo-kenmerkwaarde in Hallo ExtensionAttribute2 hebt opgeslagen, selecteert u user.extensionattribute2.  
+    b. Van de **Mail** , selecteert u het gebruikerskenmerk die u wilt gebruiken voor uw implementatie.
+    Bijvoorbeeld, als u wilt gebruiken van de werknemer-id als unieke gebruikers-id en u de waarde van het kenmerk in de ExtensionAttribute2 hebt opgeslagen, selecteert u user.extensionattribute2.  
 
-5. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens Hallo op uw computer.
+5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_certificate.png) 
 
@@ -134,27 +134,27 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_400.png)
 
-7. Op Hallo **SAP Cloud voor de configuratie van de klant** sectie, klikt u op **SAP Cloud configureren voor de klant** tooopen **eenmalige aanmelding configureren** venster. Kopiëren Hallo **SAML Single Sign-On Service-URL** van Hallo **Naslaggids punt.**
+7. Op de **SAP Cloud voor de configuratie van de klant** sectie, klikt u op **SAP Cloud configureren voor de klant** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_configure.png) 
 
-8. tooget SSO is geconfigureerd, voert u Hallo stappen te volgen:
+8. Als u eenmalige aanmelding die zijn geconfigureerd, moet u de volgende stappen uitvoeren:
    
     a. De aanmelding in de Cloud SAP voor Customer portal met beheerdersrechten.
    
-    b. Navigeer toohello **toepassings- en algemene beheertaak gebruiker** en klik op Hallo **identiteitsprovider** tabblad.
+    b. Navigeer naar de **toepassings- en algemene beheertaak gebruiker** en klik op de **identiteitsprovider** tabblad.
    
-    c. Klik op **nieuwe identiteitsprovider** en selecteer Hallo metagegevens XML-bestand die u hebt gedownload van hello Azure-portal. Door het importeren van metagegevens Hallo uploadt Hallo systeem automatisch Hallo vereist handtekeningcertificaat en -versleutelingscertificaat.
+    c. Klik op **nieuwe identiteitsprovider** en selecteert u het XML-bestand voor metagegevens die u hebt gedownload vanuit de Azure-portal. U importeert de metagegevens, uploadt het systeem automatisch de vereiste handtekeningcertificaat en een versleutelingscertificaat.
    
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_54.png)
    
-    d. Azure Active Directory vereist Hallo element Assertion Consumer Service-URL in Hallo SAML-aanvraag, dus selecteer Hallo **Assertion Consumer Service-URL opnemen** selectievakje.
+    d. Azure Active Directory is vereist voor het element Assertion Consumer Service-URL in de SAML-aanvraag, dus selecteer de **Assertion Consumer Service-URL opnemen** selectievakje.
    
     e. Klik op **activeren Single Sign-On**.
    
     f. Sla uw wijzigingen op.
    
-    g. Klik op Hallo **mijn systeem** tabblad.
+    g. Klik op de **mijn systeem** tabblad.
    
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_52.png)
    
@@ -162,84 +162,84 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
    
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_53.png)
    
-    ik. Opgeven of Hallo werknemer handmatig kiezen kunt tussen het aanmelden met gebruikersnaam en wachtwoord of eenmalige aanmelding door het selecteren van Hallo **handmatige identiteit Provider selectie**.
+    ik. Opgeven of de werknemer handmatig kiezen kunt tussen het aanmelden met gebruikersnaam en wachtwoord of eenmalige aanmelding door het selecteren van de **handmatige identiteit Provider selectie**.
    
-    j. In Hallo **URL SSO** sectie Hallo URL opgeven die moet worden gebruikt door uw werknemers toosign op toohello systeem. 
-    In Hallo **tooEmployee URL verzonden** lijst, kunt u kiezen tussen Hallo volgende opties:
+    j. In de **URL SSO** sectie, de URL opgeven die moet worden gebruikt door uw werknemers zich aanmelden op het systeem. 
+    In de **URL verzonden naar werknemer** wilt weergeven, kunt u kiezen uit de volgende opties:
    
     **Niet-SSO-URL**
    
-    Hallo system verzendt alleen Hallo normale system URL toohello werknemer. Hallo werknemer kan niet aanmelden met eenmalige aanmelding, en moet gebruik wachtwoord of certificaat in plaats daarvan.
+    Het systeem wordt de URL van de normale system verzendt naar de werknemer. De werknemer kan niet aanmelden met eenmalige aanmelding, en moet gebruik wachtwoord of certificaat in plaats daarvan.
    
     **URL VOOR EENMALIGE AANMELDING** 
    
-    Hallo system verzendt alleen Hallo URL SSO toohello werknemer. Hallo werknemers kan zich aanmelden met behulp van eenmalige aanmelding. Authenticatie-aanvraag wordt omgeleid via Hallo IdP.
+    Het systeem verzendt alleen de SSO-URL naar de werknemer. De werknemer kunt aanmelden met behulp van eenmalige aanmelding. Authenticatie-aanvraag wordt via de IdP omgeleid.
    
     **Automatische selectie**
    
-    Als eenmalige aanmelding niet actief is, verzendt het afdruksysteem van Hallo Hallo normale system URL toohello werknemer. Als eenmalige aanmelding actief is, controleert Hallo system of Hallo werknemer een wachtwoord heeft. Als een wachtwoord beschikbaar is, worden zowel de URL van de SSO- en Non-SSO-toohello werknemer verzonden. Als Hallo werknemer geen wachtwoord heeft, is alleen Hallo URL SSO echter toohello werknemer verzonden.
+    Als eenmalige aanmelding niet actief is, wordt de URL van de normale systeem door het systeem verzonden naar de werknemer. Als eenmalige aanmelding actief is, controleert het systeem of de werknemer een wachtwoord heeft. Als een wachtwoord beschikbaar is, worden zowel de URL van de SSO- en Non-SSO-verzonden naar de werknemer. Als de werknemer geen wachtwoord heeft, wordt echter alleen de URL voor eenmalige aanmelding verzonden naar de werknemer.
    
     k. Sla uw wijzigingen op.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
 ![Azure AD-gebruiker maken][100]
 
-**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
+**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo **Azure-portal**, op Hallo navigatiedeelvenster links, klikt u op **Azure Active Directory** pictogram.
+1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen** en klik op **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
     
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_02.png) 
 
-3. Hallo tooopen **gebruiker** dialoogvenster, klikt u op **toevoegen** op Hallo Hallo dialoogvenster bovenaan.
+3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_03.png) 
 
-4. Op Hallo **gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:
+4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_04.png) 
 
-    a. In Hallo **naam** textbox type **BrittaSimon**.
+    a. In de **naam** textbox type **BrittaSimon**.
 
-    b. In Hallo **gebruikersnaam** textbox type Hallo **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
 
-    c. Selecteer **wachtwoord weergeven** en schrijf Hallo-waarde van Hallo **wachtwoord**.
+    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
  
 ### <a name="creating-a-sap-cloud-for-customer-test-user"></a>Maken van een Cloud SAP voor klant testgebruiker
 
-In deze sectie maakt u Britta Simon aangeroepen in SAP Cloud voor klant van een gebruiker. Neem contact op met [SAP Cloud voor afdeling Klantenondersteuning](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) tooadd Hallo gebruikers in Hallo SAP Cloud voor klant-platform. 
+In deze sectie maakt u Britta Simon aangeroepen in SAP Cloud voor klant van een gebruiker. Neem contact op met [SAP Cloud voor afdeling Klantenondersteuning](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) om toe te voegen de gebruikers in de Cloud SAP voor klant-platform. 
 
 > [!NOTE]
-> Zorg dat NameID waarde met de Hallo gebruikersnaam veld in Hallo SAP Cloud voor klant-platform overeenkomen moet.
+> Zorg dat NameID waarde met het veld username in de Cloud SAP voor klant-platform overeenkomen moet.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
 
-In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen door het verlenen van toegang tooSAP Cloud voor de klant.
+In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot SAP Cloud voor klant.
 
 ![Gebruiker toewijzen][200] 
 
-**tooassign Britta Simon tooSAP Cloud voor de klant, voert u Hallo stappen te volgen:**
+**Britta Simon om aan te wijzen SAP Cloud voor de klant, moet u de volgende stappen uitvoeren:**
 
-1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met de toepassingen van Hallo **SAP Cloud voor klant**.
+2. Selecteer in de lijst met toepassingen **SAP Cloud voor klant**.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_app.png) 
 
-3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
@@ -247,7 +247,7 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -255,14 +255,14 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
     
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van Hallo Toegangsvenster testen.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Als u op Hallo SAP Cloud voor klant-tegel in Hallo toegangsvenster klikt, krijgt u automatisch aangemelde tooyour SAP Cloud voor de toepassing van de klant.
-Zie voor meer informatie over Hallo Toegangspaneel [inleiding toohello Toegangspaneel](active-directory-saas-access-panel-introduction.md).
+Als u op de Cloud SAP voor klant-tegel in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw SAP-Cloud voor de toepassing van de klant.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

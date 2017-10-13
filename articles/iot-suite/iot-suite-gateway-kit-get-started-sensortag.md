@@ -1,6 +1,6 @@
 ---
-title: een gateway tooAzure IoT-Suite met een Intel NUC aaaConnect | Microsoft Docs
-description: "Gebruik Hallo Microsoft IoT commerciële Gateway Kit en Hallo vooraf geconfigureerde oplossing voor externe controle. Hallo rand van Azure IoT gateway tooenable gebruiken een oplossing voor externe controle van SensorTag apparaat tooconnect toohello, verzenden van telemetrie toohello cloud en toomethods aangeroepen vanuit het dashboard van de oplossing Hallo reageren."
+title: Verbinding maken met een gateway met een Intel NUC van Azure IoT Suite | Microsoft Docs
+description: "Gebruik de Microsoft IoT commerciële Gateway Kit en de vooraf geconfigureerde oplossing voor externe controle. De Azure IoT Edge-gateway gebruiken om in te schakelen van een SensorTag-apparaat verbinding maakt met de oplossing voor externe controle, verzenden van telemetrie naar de cloud en reageren op de methoden die worden aangeroepen vanuit het dashboard van oplossing."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
-ms.openlocfilehash: 6f98ee3c1e2311a8644da9d72d40e671e7cbcf00
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bda16be1094276fcecef1e708f9d7db307d94a89
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="connect-your-azure-iot-edge-gateway-toohello-remote-monitoring-preconfigured-solution-and-send-telemetry-from-a-sensortag"></a>Verbinding maken met uw vooraf geconfigureerde oplossing voor externe controle rand van Azure IoT gateway toohello en verzend telemetrie vanuit een SensorTag
+# <a name="connect-your-azure-iot-edge-gateway-to-the-remote-monitoring-preconfigured-solution-and-send-telemetry-from-a-sensortag"></a>Verbinding maken met uw Azure-IoT-Edge gateway naar de vooraf geconfigureerde oplossing voor externe controle en verzend telemetrie vanuit een SensorTag
 
 [!INCLUDE [iot-suite-gateway-kit-selector](../../includes/iot-suite-gateway-kit-selector.md)]
 
-Deze zelfstudie laat zien hoe Azure IoT rand toosend temperatuur en vochtigheid gegevens uit SensorTag apparaat toohello externe controle toouse vooraf geconfigureerde oplossing. Hallo SensorTag verbindt toohello Intel NUC gateway via Bluetooth. Hallo-zelfstudie wordt gebruikt:
+Deze zelfstudie laat zien hoe u met Azure IoT rand temperatuur en vochtigheid gegevens van SensorTag apparaat verzenden naar de vooraf geconfigureerde oplossing voor externe controle. De SensorTag verbindt met de Intel NUC gateway via Bluetooth. De zelfstudie wordt gebruikt:
 
-- Azure IoT rand tooimplement een voorbeeld-gateway.
-- Hallo IoT Suite remote monitoring vooraf geconfigureerde oplossing als Hallo cloud-gebaseerde back-end.
+- Azure IoT-rand voor het implementeren van een voorbeeld-gateway.
+- IoT Suite remote monitoring vooraf geconfigureerde oplossing als de cloud-gebaseerde back-end.
 
 ## <a name="overview"></a>Overzicht
 
-In deze zelfstudie maakt uitvoeren u Hallo stappen:
+In deze zelfstudie maakt uitvoeren u de volgende stappen:
 
-- Implementeer een exemplaar van Hallo externe controle vooraf geconfigureerde oplossing tooyour Azure-abonnement. Deze stap implementeert automatisch en meerdere Azure-services configureert.
-- Stel uw toocommunicate Intel NUC gateway-apparaat met de computer en het Hallo-oplossing voor externe controle.
-- Instellen van uw Intel NUC gateway tooreceive telemetrie vanaf een apparaat SensorTag en verzend het toohello voor externe controle dashboard.
+- Implementeer een exemplaar van de vooraf geconfigureerde oplossing voor externe controle op uw Azure-abonnement. Deze stap implementeert automatisch en meerdere Azure-services configureert.
+- Uw gatewayapparaat Intel NUC instellen om te communiceren met uw computer en de oplossing voor externe controle.
+- Instellen van uw gateway Intel NUC telemetrie van een apparaat SensorTag ontvangen en verzenden naar het dashboard voor externe controle.
 
 [!INCLUDE [iot-suite-gateway-kit-prerequisites](../../includes/iot-suite-gateway-kit-prerequisites.md)]
 
-[Texas instrumenten uitschakelen SensorTag][lnk-sensortag]. Deze zelfstudie haalt telemetrische gegevens via Bluetooth van Hallo SensorTag-apparaten.
+[Texas instrumenten uitschakelen SensorTag][lnk-sensortag]. Deze zelfstudie opgehaald telemetrische gegevens via Bluetooth uit het SensorTag-apparaat.
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> Hallo externe controle van de bepalingen van de oplossing voor een verzameling Azure-services in uw Azure-abonnement. Hallo implementatie duidt op een echte enterprise-architectuur. tooavoid onnodige Azure-verbruik kosten, verwijderen van uw exemplaar van Hallo vooraf geconfigureerde oplossing op azureiotsuite.com wanneer u klaar bent met het. Als u moet de vooraf geconfigureerde oplossing opnieuw hello, u kunt gemakkelijk het opnieuw maken. Zie voor meer informatie over het verminderen van verbruik tijdens het Hallo voor externe controle van de oplossing wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config].
+> De oplossing voor externe controle levert een set van Azure-services in uw Azure-abonnement. De implementatie duidt op een echte enterprise-architectuur. Om te voorkomen dat een Azure-verbruik onnodige kosten, verwijdert u uw exemplaar van de vooraf geconfigureerde oplossing op azureiotsuite.com wanneer u klaar bent met het. Als u de vooraf geconfigureerde oplossing meer nodig hebt, kunt u het eenvoudig opnieuw. Zie voor meer informatie over het verbruik verminderen terwijl de oplossing voor externe controle wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config].
 
 [!INCLUDE [iot-suite-gateway-kit-view-solution](../../includes/iot-suite-gateway-kit-view-solution.md)]
 
@@ -52,56 +52,56 @@ In deze zelfstudie maakt uitvoeren u Hallo stappen:
 
 ## <a name="configure-bluetooth-connectivity"></a>Bluetooth-connectiviteit configureren
 
-Configureren van Bluetooth op Hallo Intel NUC tooenable hello SensorTag apparaat tooconnect en verzenden van telemetrie.
+Bluetooth configureren op de Intel NUC zodat het apparaat SensorTag verbinding maken en verzenden van telemetrie.
 
-### <a name="find-hello-mac-address-of-hello-sensortag"></a>MAC-adres Hallo Hallo SensorTag zoeken
+### <a name="find-the-mac-address-of-the-sensortag"></a>Het MAC-adres van de SensorTag vinden
 
-1. Hallo-shell op Hallo Intel NUC, start Hallo opdracht toounblock Hallo Bluetooth-service te volgen:
+1. Voer de volgende opdracht om de blokkering van de Bluetooth-service in de shell op de Intel NUC:
 
     ```bash
     sudo rfkill unblock bluetooth
     ```
 
-1. Voer Hallo volgende toostart Hallo Bluetooth-service op Hallo Intel NUC opdrachten en Voer Hallo Bluetooth-shell:
+1. Voer de volgende opdrachten de Bluetooth-service starten op de Intel NUC en voer de Bluetooth-shell:
 
     ```bash
     sudo systemctl start bluetooth
     bluetoothctl
     ```
 
-1. Voer Hallo opdracht toopower op Hallo Bluetooth-domeincontroller te volgen:
+1. Voer de volgende opdracht met power op de Bluetooth-controller:
 
     ```bash
     power on
     ```
 
-    Als het Hallo-controller is ingeschakeld, ziet u een bericht **power wijzigen op geslaagd**.
+    Als de domeincontroller ingeschakeld is, ziet u een bericht **power wijzigen op geslaagd**.
 
-1. Voer Hallo opdracht tooscan voor Bluetooth-apparaten in de buurt te volgen:
+1. Voer de volgende opdracht om te scannen op in de buurt Bluetooth-apparaten:
 
     ```bash
     scan on
     ```
 
-1. Druk op Hallo power knop op Hallo SensorTag toomake deze kunnen worden gedetecteerd. Hallo groen LED knippert.
+1. Druk op de knop op de SensorTag detecteerbaar. De groene LED knippert.
 
-1. Wanneer er een bericht verschijnt in de shell Hallo Hallo controller Hallo SensorTag heeft gedetecteerd, noteer Hallo MAC-adres van het Hallo-apparaat. Hallo MAC-adres ziet eruit als **A0:E6:F8:B5:F6:00**. U moet Hallo MAC-adres verderop in de zelfstudie Hallo wanneer u Hallo gateway configureert.
+1. Wanneer er een bericht in de shell dat de controller de SensorTag heeft gedetecteerd, noteer het MAC-adres van het apparaat. Het MAC-adres ziet eruit als **A0:E6:F8:B5:F6:00**. U moet het MAC-adres verderop in de zelfstudie als u de gateway configureren.
 
-1. Voer Hallo opdracht tooturn Bluetooth scannen uit te volgen:
+1. Voer de volgende opdracht Bluetooth scannen uitschakelen:
 
     ```bash
     scan off
     ```
 
-1. Hallo na de opdracht tooverify of toohello SensorTag apparaat verbinding kan worden uitgevoerd:
+1. Voer de volgende opdracht om te controleren of u verbinding kunt maken met het SensorTag-apparaat:
 
     ```bash
     connect <SensorTag MAC address>
     ```
 
-    Als u verbinding met succes maakt, Hallo shell ziet u het Hallo-bericht **verbinding tot stand gebracht** en informatie over Hallo SensorTag-apparaat wordt afgedrukt. Als u geen verbinding maken, controleert u Hallo die sensortag nog steeds is ingeschakeld.
+    Als u verbinding is, ziet u het bericht de shell **verbinding tot stand gebracht** en informatie over het apparaat SensorTag afgedrukt. Als u geen verbinding maken, controleert u dat de SensorTag nog steeds is ingeschakeld.
 
-1. U kunt nu Hallo SensorTag verbreken en Hallo Bluetooth-shell afsluiten door te voeren Hallo volgende opdrachten:
+1. U kunt nu de SensorTag verbreken en de Bluetooth-shell afsluiten met de volgende opdrachten:
 
     ```bash
     disconnect
@@ -110,18 +110,18 @@ Configureren van Bluetooth op Hallo Intel NUC tooenable hello SensorTag apparaat
 
 [!INCLUDE [iot-suite-gateway-kit-prepare-nuc-software](../../includes/iot-suite-gateway-kit-prepare-nuc-software.md)]
 
-## <a name="build-hello-custom-iot-edge-module"></a>Hallo aangepaste IoT Edge-module maken
+## <a name="build-the-custom-iot-edge-module"></a>De aangepaste rand van de IoT-module maken
 
-U kunt nu Hallo aangepaste IoT Edge-module maken waarmee Hallo gateway toosend berichten toohello oplossing voor externe controle. Zie voor meer informatie over het configureren van een gateway en de rand van de IoT-modules [Azure IoT rand concepten][lnk-gateway-concepts].
+Nu kunt u de aangepaste module IoT rand waarmee de gateway om berichten te verzenden naar de oplossing voor externe controle. Zie voor meer informatie over het configureren van een gateway en de rand van de IoT-modules [Azure IoT rand concepten][lnk-gateway-concepts].
 
-Download de broncode Hallo voor aangepaste modules die IoT rand Hallo vanuit GitHub Hallo volgende opdrachten gebruiken:
+De broncode voor de aangepaste rand van de IoT-modules downloaden van GitHub met de volgende opdrachten:
 
 ```bash
 cd ~
 git clone https://github.com/Azure-Samples/iot-remote-monitoring-c-intel-nuc-gateway-getting-started.git
 ```
 
-Hallo aangepaste IoT Edge-module met behulp van de volgende opdrachten Hallo maken:
+De aangepaste rand van de IoT-module met de volgende opdrachten maken:
 
 ```bash
 cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
@@ -130,22 +130,22 @@ sed -i -e 's/\r$//' build.sh
 ./build.sh
 ```
 
-Hallo build script Hallo libsensor2remotemonitoring.so aangepaste IoT rand module in Hallo build-map geplaatst.
+Het script build libsensor2remotemonitoring.so aangepaste IoT Edge-module in de build-map geplaatst.
 
-## <a name="configure-and-run-hello-iot-edge-gateway"></a>Configureren en uitvoeren van Hallo rand IoT gateway
+## <a name="configure-and-run-the-iot-edge-gateway"></a>Configureren en uitvoeren van de rand van de IoT-gateway
 
-U kunt nu Hallo rand IoT gateway toosend telemetrie van uw externe controle dashboard SensorTag apparaat tooyour configureren. Zie voor meer informatie over het configureren van een gateway en de rand van de IoT-modules [Azure IoT rand concepten][lnk-gateway-concepts].
+U kunt nu de rand van de IoT-gateway voor het verzenden van telemetrie van uw apparaat SensorTag naar uw dashboard voor externe controle configureren. Zie voor meer informatie over het configureren van een gateway en de rand van de IoT-modules [Azure IoT rand concepten][lnk-gateway-concepts].
 
 > [!TIP]
-> In deze zelfstudie gebruikt u Hallo standaard `vi` teksteditor op Hallo Intel NUC. Als u niet hebt gebruikt `vi` , moet u een inleidende zelfstudie, zoals uitvoeren [Unix - Hallo vi zelfstudie Editor] [ lnk-vi-tutorial] toofamiliarize uzelf met deze editor. U kunt ook installeren Hallo gebruikersvriendelijker [nano](https://www.nano-editor.org/) editor met Hallo opdracht `smart install nano -y`.
+> In deze zelfstudie gebruikt u de standaard `vi` teksteditor op de Intel NUC. Als u niet hebt gebruikt `vi` , moet u een inleidende zelfstudie, zoals uitvoeren [Unix - de vi zelfstudie Editor] [ lnk-vi-tutorial] om vertrouwd te raken met deze editor. U kunt ook installeren de gebruikersvriendelijker [nano](https://www.nano-editor.org/) editor met de opdracht `smart install nano -y`.
 
-Open Hallo voorbeeldconfiguratiebestand in Hallo **vi** editor met behulp van de volgende opdracht Hallo:
+Open het voorbeeldconfiguratiebestand in de **vi** editor met de volgende opdracht:
 
 ```bash
 vi ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic/remote_monitoring.json
 ```
 
-Zoek de volgende regels in de configuratie voor Hallo IoTHub module Hallo Hallo:
+Zoek de volgende regels in de configuratie voor de IoTHub-module:
 
 ```json
 "args": {
@@ -155,9 +155,9 @@ Zoek de volgende regels in de configuratie voor Hallo IoTHub module Hallo Hallo:
 }
 ```
 
-Hallo-tijdelijke aanduiding voor waarden met IoT Hub informatie u gemaakt en opgeslagen op Hallo Hallo begin van deze zelfstudie wordt vervangen. Hallo-waarde voor IoTHubName eruit **yourrmsolution37e08**, en het Hallo-waarde voor IoTSuffix is doorgaans **azure devices.net**.
+Vervang de tijdelijke aanduiding voor waarden met de IoT Hub informatie u gemaakt en opgeslagen aan het begin van deze zelfstudie. De waarde voor IoTHubName eruit **yourrmsolution37e08**, en is meestal de waarde voor IoTSuffix **azure devices.net**.
 
-Zoek de volgende regels in de configuratie voor Hallo toewijzing module Hallo Hallo:
+Zoek de volgende regels in de configuratie voor de module toewijzing:
 
 ```json
 args": [
@@ -169,9 +169,9 @@ args": [
 ]
 ```
 
-Vervang Hallo **macAddress** aanduiding voor items met Hallo MAC-adres van uw SensorTag die u eerder hebt genoteerd. Vervang Hallo **deviceID** en **deviceKey** tijdelijke aanduidingen door Hallo-id's en sleutels voor Hallo twee apparaten die u eerder in het Hallo-oplossing voor externe controle hebt gemaakt.
+Vervang de **macAddress** aanduiding voor items met de MAC-adres van uw SensorTag die u eerder hebt genoteerd. Vervang de **deviceID** en **deviceKey** tijdelijke aanduidingen door de id's en sleutels voor de twee apparaten die u eerder in de oplossing voor externe controle hebt gemaakt.
 
-Zoek de volgende regels in de configuratie voor Hallo SensorTag module Hallo Hallo:
+Zoek de volgende regels in de configuratie voor de SensorTag-module:
 
 ```json
 "args": {
@@ -181,40 +181,40 @@ Zoek de volgende regels in de configuratie voor Hallo SensorTag module Hallo Hal
 }
 ```
 
-Vervang Hallo **apparaat\_mac\_adres** aanduiding voor items met Hallo MAC-adres van uw SensorTag die u eerder hebt genoteerd.
+Vervang de **apparaat\_mac\_adres** aanduiding voor items met de MAC-adres van uw SensorTag die u eerder hebt genoteerd.
 
 Sla uw wijzigingen op.
 
-U kunt nu uitvoeren met behulp van de volgende opdrachten Hallo Hallo-gateway:
+U kunt nu de gateway met de volgende opdrachten uitvoeren:
 
 ```bash
 cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
 /usr/share/azureiotgatewaysdk/samples/ble_gateway/ble_gateway remote_monitoring.json
 ```
 
-Hallo gateway aan de rand van IoT op Hallo Intel NUC gestart en verzendt telemetrie van Hallo SensorTag toohello oplossing voor externe controle:
+De gateway aan de rand van de IoT begint op de Intel NUC en verzendt telemetrie van de SensorTag naar de oplossing voor externe controle:
 
-![Rand IoT gateway verzendt telemetrie van Hallo SensorTag][img-telemetry]
+![Rand IoT gateway verzendt telemetrie van de SensorTag][img-telemetry]
 
-Druk op **Ctrl-C** tooexit Hallo programma op elk gewenst moment.
+Druk op **Ctrl-C** om af te sluiten van het programma op elk gewenst moment.
 
-## <a name="view-hello-telemetry"></a>Hallo telemetrie van paginaweergaven
+## <a name="view-the-telemetry"></a>De telemetrie weergeven
 
-Hallo gateway verzendt nu telemetrie vanaf Hallo SensorTag apparaat toohello oplossing voor externe controle. U kunt Hallo telemetrie weergeven op Hallo oplossing dashboard. U kunt ook opdrachten tooyour SensorTag-apparaten via de gateway Hallo verzenden vanuit Hallo oplossing dashboard.
+De gateway verzendt nu telemetrie vanaf het SensorTag-apparaat aan de oplossing voor externe controle. U kunt de telemetrie weergeven op het dashboard van oplossing. U kunt ook opdrachten verzenden naar uw SensorTag-apparaat via de gateway van het dashboard van de oplossing.
 
-- Navigeer toohello oplossing dashboard.
-- Selecteer Hallo apparaat u hebt geconfigureerd in het Hallo-gateway met Hallo SensorTag in Hallo **apparaat tooView** vervolgkeuzelijst.
-- Hallo telemetrie van Hallo SensorTag-apparaten wordt weergegeven op Hallo-dashboard.
+- Ga naar het dashboard van de oplossing.
+- Selecteer het apparaat dat u hebt geconfigureerd in de gateway die voor de SensorTag in vertegenwoordigt de **apparaat naar de weergave** vervolgkeuzelijst.
+- De telemetrie van het apparaat SensorTag wordt weergegeven op het dashboard.
 
-![Telemetrie weergegeven van Hallo SensorTag-apparaten][img-telemetry-display]
+![Telemetrie weergegeven van de SensorTag-apparaten][img-telemetry-display]
 
 > [!WARNING]
-> Als u Hallo oplossing uitgevoerd in uw Azure-account voor externe controle laat, wordt u gefactureerd voor Hallo keer die wordt uitgevoerd. Zie voor meer informatie over het verminderen van verbruik tijdens het Hallo voor externe controle van de oplossing wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config]. Hallo vooraf geconfigureerde oplossing uit uw Azure-account verwijderen wanneer u klaar bent met het gebruik van maken.
+> Als u de oplossing voor externe controle uitgevoerd in uw Azure-account laat, wordt u gefactureerd voor de tijd die wordt uitgevoerd. Zie voor meer informatie over het verbruik verminderen terwijl de oplossing voor externe controle wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config]. De vooraf geconfigureerde oplossing verwijderen uit uw Azure-account wanneer u klaar bent met het gebruik van maken.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar Hallo [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) voor meer voorbeelden en documentatie over Azure IoT.
+Ga naar de [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) voor meer voorbeelden en documentatie over Azure IoT.
 
 [img-telemetry]: ./media/iot-suite-gateway-kit-get-started-sensortag/appoutput.png
 

@@ -1,6 +1,6 @@
 ---
-title: aaaLoad gegevens uit SQL Server in Azure SQL Data Warehouse (bcp) | Microsoft Docs
-description: Voor kleine gegevenssets gebruikt bcp tooexport gegevens uit SQL Server tooflat bestanden en importeren Hallo rechtstreeks in Azure SQL Data Warehouse.
+title: Gegevens uit SQL Server laden in Azure SQL Data Warehouse (bcp) | Microsoft Docs
+description: Voor kleine gegevenssets gebruikt u BCP om gegevens uit SQL Server te exporteren naar platte bestanden en de gegevens rechtstreeks in Azure SQL Data Warehouse te importeren.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: a03b5403d123e8814ae73a7cce8e6851c8b264a6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: dae7b5f7456f4ec0daf60d55f9c38b780896ff83
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-flat-files"></a>Gegevens uit SQL Server laden in Azure SQL Data Warehouse (platte bestanden)
 > [!div class="op_single_selector"]
@@ -29,13 +29,13 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-U kunt voor kleine gegevenssets Hallo bcp opdrachtregelprogramma tooexport gegevens uit SQL Server gebruiken en deze direct tooAzure SQL Data Warehouse laden.
+Voor kleine gegevenssets kunt u het opdrachtregelprogramma BCP gebruiken om gegevens uit SQL Server te exporteren en deze vervolgens rechtstreeks in Azure SQL Data Warehouse te laden.
 
 In deze zelfstudie gebruikt u BCP voor het volgende:
 
-* Een tabel uit exporteren uit SQL Server met behulp van Hallo opdracht out in bcp (of een eenvoudig voorbeeldbestand maken)
-* Hallo tabel importeren uit een plat bestand-tooSQL Data Warehouse.
-* Statistieken maken voor Hallo geladen gegevens.
+* Een tabel uit SQL Server exporteren met behulp van de opdracht out in BCP (of een eenvoudig voorbeeldbestand maken)
+* De tabel uit een plat bestand importeren in SQL Data Warehouse.
+* Statistieken maken voor de geladen gegevens.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
@@ -43,23 +43,23 @@ In deze zelfstudie gebruikt u BCP voor het volgende:
 
 ## <a name="before-you-begin"></a>Voordat u begint
 ### <a name="prerequisites"></a>Vereisten
-toostep voor deze zelfstudie hebt u nodig:
+Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een SQL Data Warehouse-database
-* Hallo opdrachtregelprogramma bcp geïnstalleerd
-* Hallo sqlcmd-opdrachtregelprogramma geïnstalleerd
+* Het opdrachtregelprogramma BCP (moet zijn geïnstalleerd)
+* Het opdrachtregelprogramma SQLCMD (moet zijn geïnstalleerd)
 
-U kunt hulpprogramma's voor Hallo bcp en sqlcmd downloaden van Hallo [Microsoft Download Center][Microsoft Download Center].
+U kunt de opdrachtregelprogramma's BCP en SQLCMD downloaden van het [Microsoft Downloadcentrum][Microsoft Download Center].
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>Gegevens in ASCII- of UTF-16-indeling
-Als u deze zelfstudie met uw eigen gegevens probeert, moet uw gegevens toouse Hallo ASCII- of UTF-16 omdat bcp biedt geen ondersteuning voor UTF-8-codering. 
+Als u deze zelfstudie wilt uitvoeren met uw eigen gegevens, moeten deze zijn gecodeerd in de ASCII- of UTF-16-indeling, omdat de indeling UTF-8 niet wordt ondersteund in BCP. 
 
-UTF-8 wordt wel ondersteund in PolyBase, maar UTF-16 nog niet. Houd er rekening mee dat als u wilt dat toocombine bcp met PolyBase u tootransform Hallo gegevens tooUTF-8 moet na het exporteren uit SQL Server. 
+UTF-8 wordt wel ondersteund in PolyBase, maar UTF-16 nog niet. Als u BCP wilt gebruiken in combinatie met PolyBase, moet u de gegevens na het exporteren uit SQL Server transformeren naar UTF-8. 
 
 ## <a name="1-create-a-destination-table"></a>1. Een doeltabel maken
-Definieer een tabel in SQL Data Warehouse die Hallo doeltabel voor Hallo belasting. Hallo-kolommen in tabel Hallo moeten overeenkomen met toohello gegevens in elke rij van het gegevensbestand.
+Definieer een (doel)tabel in SQL Data Warehouse waarin u de gegevens wilt laden. De kolommen in de tabel moeten overeenkomen met de gegevens in elke rij van het gegevensbestand.
 
-toocreate een tabel, open een opdrachtprompt en sqlcmd.exe toorun Hallo volgende opdracht gebruiken:
+Open een opdrachtprompt en voer de volgende opdracht uit met sqlcmd.exe om een tabel te maken:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -79,7 +79,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 
 ## <a name="2-create-a-source-data-file"></a>2. Een brongegevensbestand maken
-Open Kladblok en kopieer Hallo volgende regels van gegevens naar een nieuw tekstbestand en sla dit bestand tooyour lokale tijdelijke map C:\Temp\DimDate2.txt. Dit zijn gegevens in ASCII-indeling.
+Open Kladblok, kopieer de volgende regels met gegevens naar een nieuw tekstbestand en sla dit bestand op in de lokale tijdelijke map C:\Temp\DimDate2.txt. Dit zijn gegevens in ASCII-indeling.
 
 ```
 20150301,1,3
@@ -96,7 +96,7 @@ Open Kladblok en kopieer Hallo volgende regels van gegevens naar een nieuw tekst
 20150101,1,3
 ```
 
-(Optioneel) tooexport uw eigen gegevens uit een SQL Server-database, open een opdrachtprompt en Voer Hallo opdracht te volgen. Vervang TableName, ServerName, DatabaseName, Username en Password door uw eigen waarden.
+(Optioneel) Open een opdrachtprompt en voer de volgende opdracht uit om uw eigen gegevens uit een SQL Server-database te exporteren. Vervang TableName, ServerName, DatabaseName, Username en Password door uw eigen waarden.
 
 ```sql
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
@@ -104,20 +104,20 @@ bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName
 
 
 
-## <a name="3-load-hello-data"></a>3. Hallo gegevens laden
-tooload hello gegevens, open een opdrachtprompt en Voer Hallo de volgende opdracht, Hallo waarden voor de servernaam, Database-naam, gebruikersnaam en wachtwoord worden vervangen door uw eigen gegevens.
+## <a name="3-load-the-data"></a>3. De gegevens laden
+Open een opdrachtprompt en voer de volgende opdracht uit om de gegevens te laden. Vervang de waarden voor ServerName, DatabaseName, Username en Password door uw eigen waarden.
 
 ```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
 ```
 
-Gebruik die deze opdracht tooverify Hallo gegevens correct zijn geladen
+Gebruik deze opdracht om te controleren of de gegevens correct zijn geladen
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-Hallo resultaten er als volgt uit:
+De resultaten horen er als volgt uit te zien:
 
 | DateId | CalendarQuarter | FiscalQuarter |
 | --- | --- | --- |
@@ -135,9 +135,9 @@ Hallo resultaten er als volgt uit:
 | 20151201 |4 |2 |
 
 ## <a name="4-create-statistics"></a>4. Statistieken maken
-SQL Data Warehouse bevat nog geen functionaliteit voor het automatisch maken of bijwerken van statistieken. tooget hello beste prestaties van query's, is belangrijk toocreate statistieken voor alle kolommen van alle tabellen na Hallo eerst zijn geladen of nadat belangrijke wijzigingen in Hallo-gegevens plaatsvinden. Zie voor een gedetailleerde uitleg van statistieken [statistieken][Statistics]. 
+SQL Data Warehouse bevat nog geen functionaliteit voor het automatisch maken of bijwerken van statistieken. Voor optimale resultaten van uw query's is het belangrijk dat u statistieken maakt voor alle kolommen van alle tabellen nadat de gegevens voor het eerst zijn geladen of wanneer de gegevens substantieel zijn gewijzigd. Zie voor een gedetailleerde uitleg van statistieken [statistieken][Statistics]. 
 
-Voer Hallo opdracht toocreate statistieken op uw zojuist geladen tabel te volgen.
+Voer de volgende opdracht uit om statistieken te maken voor uw zojuist geladen tabel.
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -148,17 +148,17 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 ## <a name="5-export-data-from-sql-data-warehouse"></a>5. Gegevens uit SQL Data Warehouse exporteren
-U kunt desgewenst Hallo-gegevens die u zojuist hebt geladen, weer uit SQL Data Warehouse exporteren.  Hallo opdracht tooexport is precies hetzelfde als het exporteren uit SQL Server Hallo.
+Desgewenst kunt u de gegevens die u zojuist hebt geladen, weer uit SQL Data Warehouse exporteren.  De opdracht voor het exporteren is exact hetzelfde als die voor het exporteren uit SQL Server.
 
-Er is echter een verschil in Hallo resultaten. Aangezien het Hallo-gegevens worden opgeslagen op gedistribueerde locaties in SQL Data Warehouse, wanneer u gegevens exporteren schrijft deze elk rekenknooppunt gegevens toohello-uitvoerbestand. Hallo-volgorde van Hallo-gegevens in het Hallo-uitvoerbestand is waarschijnlijk anders dan de volgorde van gegevens in het invoerbestand Hallo HALLO hallo toobe.
+De resultaten zijn echter verschillend. Omdat de gegevens zijn opgeslagen op gedistribueerde locaties in SQL Data Warehouse, worden de gegevens van elk rekenknooppunt bij het exporteren weggeschreven naar het uitvoerbestand. De volgorde van de gegevens in het uitvoerbestand is waarschijnlijk anders dan de volgorde van de gegevens in het invoerbestand.
 
 ### <a name="export-a-table-and-compare-exported-results"></a>Een tabel exporteren en exportresultaten vergelijken
-toosee Hallo geëxporteerde gegevens, open een opdrachtprompt en voer deze opdracht met uw eigen parameters. ServerName is Hallo-naam van uw logische Azure SQL-Server.
+Om de geëxporteerde gegevens te bekijken, opent u een opdrachtprompt en voert u deze opdracht uit met uw eigen parameters. ServerName is de naam van uw logische Azure SQL-server.
 
 ```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
-U kunt controleren of Hallo gegevens correct zijn geëxporteerd door nieuwe Hallo-bestand te openen. Hallo-gegevens in Hallo-bestand moet overeenkomen met de onderstaande Hallo tekst, maar waarschijnlijk in een andere volgorde worden gesorteerd:
+U kunt controleren of de gegevens correct zijn geëxporteerd door het nieuwe bestand te openen. De gegevens in het bestand moeten overeenkomen met de onderstaande tekst, maar staan waarschijnlijk in een andere volgorde:
 
 ```
 20150301,1,3
@@ -175,8 +175,8 @@ U kunt controleren of Hallo gegevens correct zijn geëxporteerd door nieuwe Hall
 20150101,1,3
 ```
 
-### <a name="export-hello-results-of-a-query"></a>Hallo-resultaten van een query exporteren
-U kunt Hallo **queryout** functie van bcp tooexport Hallo resultaten van een query in plaats van de gehele tabel Hallo exporteren. 
+### <a name="export-the-results-of-a-query"></a>De resultaten van een query exporteren
+U kunt de functie **queryout** van BCP gebruiken om de resultaten van een query te exporteren in plaats van de hele tabel te exporteren. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [Gegevens laden in SQL Data Warehouse][Load data into SQL Data Warehouse] voor een overzicht van het laden.

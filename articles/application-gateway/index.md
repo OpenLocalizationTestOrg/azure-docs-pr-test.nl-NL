@@ -1,8 +1,8 @@
 ---
-title: aaaAzure documentatie voor Application Gateway - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toodeploy een domeincontroller levering van cloud-toepassing. Documentatie ziet u hoe tooset omhoog op toepassingsniveau Routering en taakverdeling voor een webfront-end.
+title: Documentatie voor Azure Application Gateway - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over het implementeren van een controller voor cloudtoepassingslevering. Documentatie laat zien hoe u routering op toepassingsniveau en taakverdeling instelt voor een webfront-end.
 services: application-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 9351bbc5cf288fd4650e9edb89be5a601c2a13ce
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 18fdc11227a07e02df1a6b9f9711fd33c23eadb2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-gateway-documentation"></a>Documentatie over Application Gateway
 
-Meer informatie over hoe toodeploy Application Gateway, een toepassing levering controller (ADC) als een service. Zelfstudies, API-referenties en andere documentatie die laten zien u hoe tooset op toepassingsniveau Routering en taakverdeling services waarmee u een schaalbare en maximaal beschikbare webfront-end maken.
+Meer informatie over de implementatie van de Azure Application Gateway-ADC (application delivery controller) als een service. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u routering op toepassingsniveau en taakverdelingsservices kunt instellen om een schaalbaar en maximaal beschikbaar webfront-end te bouwen.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Meer informatie over hoe toodeploy Application Gateway, een toepassing levering 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Application Gateway met behulp van hello Azure-portal</h3>
+                        <h3>Aan de slag met Application Gateway met Azure Portal</h3>
                     </div>
                 </div>
             </div>

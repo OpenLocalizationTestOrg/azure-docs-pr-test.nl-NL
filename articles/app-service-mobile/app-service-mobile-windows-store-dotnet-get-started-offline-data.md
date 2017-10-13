@@ -1,6 +1,6 @@
 ---
-title: aaaEnable offlinesynchronisatie voor uw app Universal Windows Platform (UWP) met Mobile Apps | Microsoft Docs
-description: Meer informatie over hoe toouse een Azure Mobile Apps toocache en sync offline gegevens in uw app Universal Windows Platform (UWP).
+title: Offlinesynchronisatie voor uw app Universal Windows Platform (UWP) met Mobile Apps inschakelen | Microsoft Docs
+description: Informatie over het gebruik van een Azure Mobile Apps-cache en sync offline gegevens in uw app Universal Windows Platform (UWP).
 documentationcenter: windows
 author: ggailey777
 manager: syntaxc4
@@ -14,87 +14,87 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: a9f4ad02e92c2c423f10f07b7f1a4270aafd6c6f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4b0a57c3bab688487eb9a50461b406e1a6e477c6
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Offlinesynchronisatie voor uw Windows-app inschakelen
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie leert u hoe de offline tooadd tooa Universal Windows Platform (UWP)-app met behulp van een back-end voor mobiele Apps van Azure ondersteunen. Offlinesynchronisatie kunnen eindgebruikers gebruikers toointeract met een mobiele app--weergeven, toevoegen of wijzigen van gegevens -, zelfs wanneer er geen netwerkverbinding. Wijzigingen worden opgeslagen in een lokale database. Zodra Hallo apparaat weer online is, worden deze wijzigingen gesynchroniseerd met Hallo externe back-end.
+Deze zelfstudie laat zien hoe u offline ondersteuning toevoegen aan een Universal Windows Platform (UWP)-app met behulp van een back-end voor mobiele Apps van Azure. Offlinesynchronisatie kan eindgebruikers werken met een mobiele app--weergeven, toevoegen of wijzigen van gegevens -, zelfs wanneer er geen netwerkverbinding. Wijzigingen worden opgeslagen in een lokale database. Zodra het apparaat weer online is, worden deze wijzigingen gesynchroniseerd met de externe back-end.
 
-In deze zelfstudie maakt u Hallo UWP-appproject uit Hallo zelfstudie bijwerken [maken van een Windows-app] toosupport Hallo offline functies van Azure Mobile Apps. Als u geen gebruik Hallo snel starten-serverproject gedownload, moet u Hallo data access-extensie pakketten tooyour project toevoegen. Zie voor meer informatie over server extensiepakketten [werken met back-endserver voor Hallo .NET SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+In deze zelfstudie maakt u de UWP-app-project uit de handleiding bijwerken [maken van een Windows-app] ter ondersteuning van de offline functies van Azure Mobile Apps. Als u het gedownloade quick start-serverproject niet gebruikt, moet u de data access-extensiepakketten toevoegen aan uw project. Zie voor meer informatie over server extensiepakketten [werken met de .NET-back-endserver SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-toolearn meer informatie over Hallo offlinesynchronisatie functie, Zie Hallo onderwerp [Offline synchroniseren van gegevens in Azure Mobile Apps].
+Zie het onderwerp voor meer informatie over de functie offlinesynchronisatie [Offline synchroniseren van gegevens in Azure Mobile Apps].
 
 ## <a name="requirements"></a>Vereisten
-Deze zelfstudie vereist Hallo volgende vereisten:
+Deze zelfstudie vereist de volgende vereisten:
 
 * Visual Studio 2013 met Windows 8.1 of hoger.
 * Voltooiing van [maken van een Windows-app][een windows-app maken].
 * [Azure Mobile Services SQLite Store][sqlite store nuget]
 * [SQLite voor de ontwikkeling van universele Windows-Platform](http://www.sqlite.org/downloads)
 
-## <a name="update-hello-client-app-toosupport-offline-features"></a>Hallo app toosupport offline clientfuncties bijwerken
-Azure Mobile Apps offline-functies kunnen u toointeract met een lokale database als u zich in een offline-scenario. toouse deze functies in uw app initialiseren een [SyncContext] [ synccontext] tooa lokale archief. Vervolgens verwijzen naar de tabel via Hallo [IMobileServiceSyncTable][IMobileServiceSyncTable] interface. SQLite wordt gebruikt als het lokale archief Hallo op Hallo-apparaat.
+## <a name="update-the-client-app-to-support-offline-features"></a>De clientapp ter ondersteuning van offlinefuncties bijwerken
+Azure Mobile App offline functies kunt u communiceren met een lokale database als u zich in een offline-scenario. Als u deze functies in uw app, die u initialiseren een [SyncContext] [ synccontext] naar een lokale opslag. Vervolgens verwijzen naar de tabel via de [IMobileServiceSyncTable][IMobileServiceSyncTable] interface. SQLite wordt gebruikt als het lokale archief van het apparaat.
 
-1. Hallo installeren [SQLite-runtime voor Hallo universele Windows-Platform](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
-2. Open in Visual Studio Hallo NuGet package manager voor Hallo UWP-appproject die u in Hallo voltooid [maken van een Windows-app] zelfstudie.
-    Zoek en installeer Hallo **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet-pakket.
+1. Installeer de [SQLite-runtime voor het Universal Windows Platform](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
+2. Open in Visual Studio de NuGet package manager voor het UWP-app-project dat u voltooid in de [maken van een Windows-app] zelfstudie.
+    Zoek en installeer de **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet-pakket.
 3. Klik in Solution Explorer met de rechtermuisknop op **verwijzingen** > **verwijzing toevoegen...** >**Universeel Windows** > **extensies**, schakelt u beide **SQLite voor Universal Windows Platform** en **Visual C++-2015-Runtime voor universele Windows-Platform-apps**.
 
     ![SQLite UWP-verwijzing toevoegen][1]
-4. Hallo MainPage.xaml.cs bestand openen en de opmerking verwijderen Hallo `#define OFFLINE_SYNC_ENABLED` definitie.
-5. Druk in Visual Studio op Hallo **F5** belangrijke toorebuild en Voer Hallo client-app. Hallo-app werkt het Hallo dezelfde manier als toen u offlinesynchronisatie ingeschakeld. Hallo lokale database is echter nu gevuld met gegevens die kunnen worden gebruikt in een offline-scenario.
+4. Open het bestand MainPage.xaml.cs en opmerkingen bij de `#define OFFLINE_SYNC_ENABLED` definitie.
+5. Druk in Visual Studio op de **F5** sleutel om te bouwen en uitvoeren van de client-app. De app werkt op dezelfde manier als toen u offlinesynchronisatie ingeschakeld. De lokale database is echter nu gevuld met gegevens die kunnen worden gebruikt in een offline-scenario.
 
-## <a name="update-sync"></a>Hallo app toodisconnect vanuit Hallo back-end bijwerken
-In deze sectie verbreekt u Hallo verbinding tooyour mobiele App back-end toosimulate een offline situatie. Wanneer u gegevens toevoegt, uitzonderings-handler uitgelegd die Hallo-app in de offlinemodus. In deze status nieuwe items toegevoegd in lokale Hallo sla en worden gesynchroniseerd als u wilt back-end voor mobiele app Hallo wanneer push vervolgens in een verbonden status wordt uitgevoerd.
+## <a name="update-sync"></a>Update van de app verbreken van de back-end
+In deze sectie kunt u de verbinding verbreekt met uw mobiele App back-end om te simuleren een offline situatie. Wanneer u gegevens toevoegt, ziet uitzonderings-handler u dat de app in de offlinemodus is. In deze status nieuwe items toegevoegd in het lokale archief en de back-end van mobiele app worden gesynchroniseerd wanneer push wordt uitgevoerd in een verbonden status.
 
-1. App.xaml.cs in Hallo gedeeld project bewerken. Hallo-initialisatie van Hallo commentaar **MobileServiceClient** en Hallo volgt regel dat gebruikmaakt van een ongeldige mobiele app-URL toe te voegen:
+1. App.xaml.cs bewerken in de gedeelde-project. Uitcommentarieer de initialisatie van de **MobileServiceClient** en voeg de volgende regel, dat gebruikmaakt van een ongeldige mobiele app-URL:
 
          public static MobileServiceClient MobileService = new MobileServiceClient("https://your-service.azurewebsites.fail");
 
-    U kunt ook offline gedrag demonstreren door Wi-Fi- en mobiele netwerken op Hallo apparaat uit te schakelen of vliegtuigmodus gebruiken.
-2. Druk op **F5** toobuild en Voer Hallo-app. U ziet de synchronisatie is mislukt bij vernieuwen wanneer Hallo app gestart.
-3. Nieuwe items en Let op dat push is mislukt met een [CancelledByNetworkError] status telkens wanneer u klikt **opslaan**. Hallo nieuwe todo-items bestaan echter in het lokale archief Hallo totdat ze back-end van toohello mobiele app kunnen worden geactiveerd.  In een productie verbonden-app, als u deze uitzonderingen Hallo client-app gedraagt zich alsof deze nog steeds onderdrukken toohello mobiele app back-end.
-4. Hallo-app sluiten en opnieuw tooverify dat Hallo nieuwe items die u hebt gemaakt het lokale archief persistente toohello zijn.
-5. (Optioneel) Open in Visual Studio **Server Explorer**. Navigeer tooyour database in **Azure**->**SQL-Databases**. Met de rechtermuisknop op de database en selecteer **openen in SQL Server Object Explorer**. Nu kunt u de SQL-databasetabel tooyour en de bijbehorende inhoud bladeren. Controleer of dat Hallo-gegevens in Hallo back-end-database niet is gewijzigd.
-6. (Optioneel) Gebruik een REST-hulpprogramma zoals Fiddler of Postman tooquery uw mobiele back-end, met een GET-query in de vorm `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
+    U kunt ook offline gedrag demonstreren door Wi-Fi- en mobiele netwerken op het apparaat uit te schakelen of vliegtuigmodus gebruiken.
+2. Druk op **F5** het bouwen en uitvoeren van de app. U ziet de synchronisatie is mislukt bij vernieuwen wanneer de app gestart.
+3. Nieuwe items en Let op dat push is mislukt met een [CancelledByNetworkError] status telkens wanneer u klikt **opslaan**. De nieuwe todo-items bestaan echter in het lokale archief totdat ze naar de back-end voor de mobiele app kunnen worden geactiveerd.  In een productie-app als u deze uitzonderingen onderdrukken de client-app gedraagt zich alsof deze nog steeds verbonden met de back-end voor de mobiele app.
+4. De toepassing sluiten en opnieuw om te controleren dat de nieuwe items die u hebt gemaakt met het lokale archief worden doorgevoerd.
+5. (Optioneel) Open in Visual Studio **Server Explorer**. Navigeer naar de database in **Azure**->**SQL-Databases**. Met de rechtermuisknop op de database en selecteer **openen in SQL Server Object Explorer**. Nu kunt u bladeren naar de tabel van uw SQL-database en de inhoud ervan. Controleer of dat de gegevens in de back-end-database niet is gewijzigd.
+6. (Optioneel) Gebruik een REST-hulpprogramma zoals Fiddler of Postman query uitvoeren op uw mobiele back-end, met een GET-query in de vorm `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
 
-## <a name="update-online-app"></a>Hallo app tooreconnect backend voor mobiele Apps bijwerken
-In deze sectie maakt u opnieuw verbinding maakt Hallo app toohello mobiele app back-end. Deze wijzigingen simuleren opnieuw op Hallo app verbinden met een netwerk.
+## <a name="update-online-app"></a>Update de app opnieuw verbinding maken met uw back-end voor de mobiele App
+In deze sectie kunt u de app om de back-end voor de mobiele app te herstellen. Deze wijzigingen simuleren opnieuw verbinden met een netwerk op de app.
 
-Wanneer u Hallo-toepassing voor het eerst uitvoert, Hallo `OnNavigatedTo` aanroepen gebeurtenis-handler `InitLocalStoreAsync`. Deze methode aanroept op zijn beurt `SyncAsync` toosync uw lokale opslaan met Hallo back-end-database. Hallo app probeert toosync bij het opstarten.
+Wanneer u de toepassing voor het eerst uitvoert de `OnNavigatedTo` aanroepen gebeurtenis-handler `InitLocalStoreAsync`. Deze methode aanroept op zijn beurt `SyncAsync` synchroniseren van het lokale archief met de back-end-database. De app probeert te synchroniseren bij het opstarten.
 
-1. Open App.xaml.cs in Hallo gedeeld project en verwijder de opmerkingen in de vorige initialisatie van `MobileServiceClient` toouse Hallo juist Hallo mobiele app-URL.
-2. Druk op Hallo **F5** belangrijke toorebuild en Voer Hallo-app. Hallo app uw lokale worden wijzigingen gesynchroniseerd met Hallo mobiele Apps van Azure back-end push als pull-bewerkingen wanneer hello `OnNavigatedTo` gebeurtenis-handler wordt uitgevoerd.
-3. (Optioneel) Weergave Hallo bijgewerkte gegevens met behulp van SQL Server Object Explorer of een REST-hulpprogramma zoals Fiddler. Kennisgeving Hallo gegevens is tussen Hallo mobiele Apps van Azure back-end-database en het lokale archief Hallo gesynchroniseerd.
-4. Klik in Hallo-app op Hallo controleren vak naast enkele items toocomplete ze in het lokale archief Hallo.
+1. App.xaml.cs in het gedeelde project openen en verwijder de opmerkingen in de vorige initialisatie van `MobileServiceClient` de juiste de mobiele app-URL gebruiken.
+2. Druk op de **F5** sleutel om te bouwen en uitvoeren van de app. De app uw lokale wijzigingen gesynchroniseerd met de mobiele Apps van Azure back-end push als pull-bewerkingen wanneer de `OnNavigatedTo` gebeurtenis-handler wordt uitgevoerd.
+3. (Optioneel) De bijgewerkte gegevens met behulp van SQL Server Object Explorer of een REST-hulpprogramma zoals Fiddler weergeven. U ziet de gegevens is gesynchroniseerd tussen de database van de back-end voor mobiele Apps van Azure en het lokale archief.
+4. Klik in de app op het selectievakje naast enkele items uit te voeren in het lokale archief.
 
-   `UpdateCheckedTodoItem`aanroepen `SyncAsync` toosync elke voltooid item met de back-end van Hallo mobiele App. `SyncAsync`Zowel push als pull-aanroepen. Echter, **wanneer het uitvoeren van een pull op basis van een tabel die Hallo-client heeft wijzigingen aangebracht in, een push altijd automatisch wordt uitgevoerd**. Dit gedrag zorgt ervoor dat alle tabellen in het lokale archief Hallo samen met relaties consistent blijven. Dit gedrag kan resulteren in een onverwachte push.  Zie voor meer informatie over dit gedrag [Offline synchroniseren van gegevens in Azure Mobile Apps].
+   `UpdateCheckedTodoItem`aanroepen `SyncAsync` op synchronisatie elke voltooid object met de back-end voor de mobiele App. `SyncAsync`Zowel push als pull-aanroepen. Echter, **wanneer u een pull op basis van een tabel die de client heeft wijzigingen aangebracht in uitvoert, een push altijd automatisch wordt uitgevoerd**. Dit gedrag zorgt ervoor dat alle tabellen in het lokale archief samen met relaties consistent blijven. Dit gedrag kan resulteren in een onverwachte push.  Zie voor meer informatie over dit gedrag [Offline synchroniseren van gegevens in Azure Mobile Apps].
 
 ## <a name="api-summary"></a>API-overzicht
-toosupport hello offline functies van mobiele services, hebben we Hallo gebruikt [IMobileServiceSyncTable] interface en geïnitialiseerd [MobileServiceClient.SyncContext] [ synccontext] met een lokale SQLite-database. Als offline, Hallo normale CRUD-bewerkingen voor mobiele Apps werken alsof Hallo app nog steeds verbinding terwijl Hallo-bewerkingen op basis van het lokale archief Hallo plaatsvinden. Hallo volgende methoden zijn gebruikte toosynchronize Hallo lokale opslag met Hallo-server:
+Ter ondersteuning van de offline functies van mobiele services, hebben we gebruikt de [IMobileServiceSyncTable] interface en geïnitialiseerd [MobileServiceClient.SyncContext] [ synccontext] met een lokale SQLite-database. Wanneer u offline bent, wordt de normale CRUD-bewerkingen voor mobiele Apps werken alsof de app nog steeds verbinding heeft terwijl de bewerkingen op basis van het lokale archief plaatsvinden. De volgende methoden worden gebruikt voor het lokale archief synchroniseren met de server:
 
-* **[PushAsync]**  omdat deze methode deel uit van maakt [IMobileServicesSyncContext], wijzigingen in alle tabellen worden gepusht toohello back-end. Alleen records met lokale wijzigingen worden toohello server verzonden.
-* **[PullAsync]**  een pull wordt gestart vanuit een [IMobileServiceSyncTable]. Wanneer er wijzigingen in de tabel hello, is een impliciete push toomake u ervoor zorgen dat alle tabellen in het lokale archief Hallo samen met relaties consistent blijven uitvoeren. Hallo *pushOtherTables* parameter besturingselementen in een impliciete push of andere tabellen in de context van Hallo worden gepusht. Hallo *query* parameter heeft een [IMobileServiceTableQuery<T> ] [ IMobileServiceTableQuery] of OData-query-tekenreeks toofilter Hallo gegevens geretourneerd. Hallo *queryId* parameter wordt gebruikt toodefine incrementele synchronisatie. Zie voor meer informatie [Offline synchroniseren van gegevens in Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
-* **[PurgeAsync]**  uw app moet periodiek aanroepen van deze methode toopurge verouderde gegevens uit het lokale archief Hallo. Gebruik Hallo *forceren* parameter als u alle wijzigingen die nog niet zijn gesynchroniseerd toopurge nodig.
+* **[PushAsync]**  omdat deze methode deel uit van maakt [IMobileServicesSyncContext], wijzigingen in alle tabellen worden gepusht naar de back-end. Alleen records met lokale wijzigingen worden verzonden naar de server.
+* **[PullAsync]**  een pull wordt gestart vanuit een [IMobileServiceSyncTable]. Wanneer er bijgehouden wijzigingen in de tabel zijn, wordt een impliciete push uitvoeren om ervoor te zorgen dat alle tabellen in het lokale archief samen met relaties consistent blijven. De *pushOtherTables* parameter besturingselementen in een impliciete push of andere tabellen in de context worden gepusht. De *query* parameter heeft een [IMobileServiceTableQuery<T> ] [ IMobileServiceTableQuery] of OData-query-tekenreeks voor het filteren van de geretourneerde gegevens. De *queryId* parameter wordt gebruikt voor het definiëren van incrementele synchronisatie. Zie voor meer informatie [Offline synchroniseren van gegevens in Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
+* **[PurgeAsync]**  uw app moet deze methode als u wilt verwijderen van verouderde gegevens uit het lokale archief periodiek aanroepen. Gebruik de *forceren* parameter als u wilt verwijderen van alle wijzigingen die nog niet zijn gesynchroniseerd.
 
 Zie voor meer informatie over deze concepten [Offline synchroniseren van gegevens in Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
 
 ## <a name="more-info"></a>Meer informatie
-Hallo volgende onderwerpen bieden aanvullende achtergrondinformatie over Hallo offlinesynchronisatie functie van mobiele Apps:
+De volgende onderwerpen bevatten aanvullende achtergrondinformatie over de functie offline synchroniseren van Mobile Apps:
 
 * [Offline synchroniseren van gegevens in Azure Mobile Apps]
 * [Azure Mobile Apps .NET SDK procedure][8]
 
 <!-- Anchors. -->
-[Update hello app toosupport offline features]: #enable-offline-app
-[Update hello sync behavior of hello app]: #update-sync
-[Update hello app tooreconnect your Mobile Apps backend]: #update-online-app
+[Update the app to support offline features]: #enable-offline-app
+[Update the sync behavior of the app]: #update-sync
+[Update the app to reconnect your Mobile Apps backend]: #update-online-app
 [Next Steps]:#next-steps
 
 <!-- Images -->

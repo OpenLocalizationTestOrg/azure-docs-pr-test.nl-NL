@@ -1,6 +1,6 @@
 ---
-title: aaaManage Azure DC/OS-cluster met Marathon REST API | Microsoft Docs
-description: Containers tooan Azure Container Service DC/OS-cluster implementeren met behulp van Hallo Marathon REST API.
+title: Beheren van Azure DC/OS-cluster met Marathon REST API | Microsoft Docs
+description: Implementeer containers naar een Azure Container Service DC/OS-cluster met behulp van de Marathon REST API.
 services: container-service
 documentationcenter: 
 author: dlepow
@@ -17,35 +17,35 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: d926b9b90f5d4eda85a015d9ea0d96fea2c4b566
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 65f8e0170fa7b89162e811a1d5dd58775fd20d7b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="dcos-container-management-through-hello-marathon-rest-api"></a>DC/OS-containerbeheer via Hallo Marathon REST API
-DC/OS biedt een omgeving voor het implementeren en schalen van geclusterde werkbelastingen terwijl het Hallo onderliggende hardware wordt onttrokken. Op de DC/OS ligt een framework dat de planning en uitvoering van rekenworkloads regelt. Er zijn frameworks beschikbaar voor veel populaire werkbelastingen, wordt er in dit document helpt u op weg maken en schalen van containerimplementaties met behulp van Hallo Marathon REST API. 
+# <a name="dcos-container-management-through-the-marathon-rest-api"></a>DC/OS-containerbeheer via de Marathon REST API
+DC/OS biedt een omgeving voor het implementeren en schalen van geclusterde workloads terwijl de onderliggende hardware wordt onttrokken. Op de DC/OS ligt een framework dat de planning en uitvoering van rekenworkloads regelt. Er zijn frameworks beschikbaar voor veel populaire werkbelastingen, wordt er in dit document helpt u op weg maken en schalen van containerimplementaties met behulp van de Marathon REST API. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voer het uitvoeren van deze voorbeelden hebt u een DC/OS-cluster nodig dat is geconfigureerd in Azure Container Service. U moet ook toohave externe connectiviteit toothis cluster. Zie voor meer informatie over deze items Hallo artikelen te volgen:
+Voer het uitvoeren van deze voorbeelden hebt u een DC/OS-cluster nodig dat is geconfigureerd in Azure Container Service. U hebt ook een externe verbinding met dit cluster nodig. Zie de volgende artikelen voor meer informatie over deze items:
 
 * [Een Azure Container Service-cluster implementeren](container-service-deployment.md)
-* [Verbinding maken met tooan Azure Container Service-cluster](../container-service-connect.md)
+* [Verbinding maken met een Azure Container Service-cluster](../container-service-connect.md)
 
-## <a name="access-hello-dcos-apis"></a>Toegang tot Hallo DC/OS-API 's
-Nadat u verbonden toohello Azure Container Service-cluster bent, kunt u via http://localhost: Local-port Hallo DC/OS en gerelateerde REST-API's openen. Hallo-voorbeelden in dit document wordt ervan uitgegaan dat u via tunneling op poort 80. Bijvoorbeeld, Hallo Marathon-eindpunten op URI's kunnen worden bereikt vanaf `http://localhost/marathon/v2/`. 
+## <a name="access-the-dcos-apis"></a>Toegang tot de DC/OS-API 's
+Nadat u met het Azure Container Service-cluster bent verbonden, hebt u via http://localhost:local-port toegang tot DC/OS en gerelateerde REST API's. In de voorbeelden in dit document wordt ervan uitgegaan dat u poort 80 gebruikt. Bijvoorbeeld, de Marathon-eindpunten op URI's kunnen worden bereikt vanaf `http://localhost/marathon/v2/`. 
 
-Verschillende API's, Zie voor meer informatie op Hallo Hallo Mesosphere-documentatie voor Hallo [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) en de [Chronos API](https://mesos.github.io/chronos/docs/api.html), en de Apache-documentatie voor Hallo [Mesos Scheduler API ](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+Zie voor meer informatie over de verschillende API's de Mesosphere-documentatie voor de [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) en de [Chronos API](https://mesos.github.io/chronos/docs/api.html), en de Apache-documentatie voor de [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Informatie verzamelen van DC/OS en Marathon
-Voordat u containers toohello DC/OS-cluster implementeert, verzamelt u wat informatie over Hallo DC/OS-cluster, zoals Hallo namen en status van Hallo DC/OS-agents. toodo query dus Hallo `master/slaves` eindpunt Hallo DC/OS REST-API. Als alles goed gaat, retourneert Hallo query een lijst van DC/OS-agents en de verschillende eigenschappen voor elk.
+Voordat u containers naar het DC/OS-cluster implementeert, verzamelt u wat informatie over het DC/OS-cluster, zoals de namen en de status van de DC/OS-agents. U doet dit door een query uit te voeren op het `master/slaves`-eindpunt van de DC/OS REST API. Als alles goed gaat, wordt met de query een lijst geretourneerd van DC/OS-agents en de verschillende eigenschappen voor elke agent.
 
 ```bash
 curl http://localhost/mesos/master/slaves
 ```
 
-Nu gebruiken Hallo Marathon `/apps` toocheck eindpunt voor de huidige toepassing implementaties toohello DC/OS-cluster. Als dit een nieuw cluster is, ziet u een lege matrix voor apps.
+Gebruik nu het Marathon `/apps`-eindpunt om te controleren op huidige implementaties naar het DC/OS-cluster. Als dit een nieuw cluster is, ziet u een lege matrix voor apps.
 
 ```bash
 curl localhost/marathon/v2/apps
@@ -54,7 +54,7 @@ curl localhost/marathon/v2/apps
 ```
 
 ## <a name="deploy-a-docker-formatted-container"></a>Een met Docker ingedeelde container implementeren
-U kunt Docker ingedeelde containers via Marathon REST API Hallo implementeren met behulp van een JSON-bestand die Hallo bedoeld implementatie beschrijft. Hallo implementeert volgende voorbeeld een Nginx-container tooa persoonlijke agent in Hallo-cluster. 
+U kunt Docker ingedeelde containers via Marathon REST-API implementeren met behulp van een JSON-bestand dat het doel van de implementatie beschrijft. Het volgende voorbeeld wordt een Nginx-container geïmplementeerd naar een persoonlijke agent in het cluster. 
 
 ```json
 {
@@ -75,42 +75,42 @@ U kunt Docker ingedeelde containers via Marathon REST API Hallo implementeren me
 }
 ```
 
-Hallo JSON-bestand toodeploy een met Docker ingedeelde container, opslaan in een toegankelijke locatie. Vervolgens toodeploy Hallo-container, Hallo volgende opdracht uitvoeren. Hallo naam opgeven van Hallo JSON-bestand (`marathon.json` in dit voorbeeld).
+Sla het JSON-bestand op een toegankelijke locatie voor het implementeren van een met Docker ingedeelde container. Voer vervolgens de volgende opdracht uit om de container te implementeren Geef de naam van het JSON-bestand (`marathon.json` in dit voorbeeld).
 
 ```bash
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
-Hallo-uitvoer is vergelijkbaar toohello volgende:
+De uitvoer lijkt op het volgende:
 
 ```json
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-Nu, als u een query Marathon voor toepassingen uitvoert, deze nieuwe toepassing wordt weergegeven in Hallo uitvoer.
+Als u in Marathon toepassingen opvraagt via een query, wordt deze nieuwe toepassing in de uitvoer weergegeven.
 
 ```bash
 curl localhost/marathon/v2/apps
 ```
 
-## <a name="reach-hello-container"></a>Hallo-container bereiken
+## <a name="reach-the-container"></a>De container bereiken
 
-U kunt die Nginx wordt uitgevoerd in een container op een van de persoonlijke agents in het cluster Hallo HALLO hallo controleren. toofind hello host en poort waarop Hallo container wordt uitgevoerd, doorzoeken Marathon Hallo actieve taken: 
+U kunt controleren of de Nginx wordt uitgevoerd in een container op een van de persoonlijke agents in het cluster. Als u wilt zoeken op de host en de poort waarop de container wordt uitgevoerd, query Marathon voor actieve taken: 
 
 ```bash
 curl localhost/marathon/v2/tasks
 ```
 
-Hallo-waarde van zoeken `host` in Hallo uitvoer (een IP-adres te vergelijkbare`10.32.0.x`), en de waarde van Hallo `ports`.
+De waarde van zoeken `host` in de uitvoer (een IP-adres dat lijkt op `10.32.0.x`), en de waarde van `ports`.
 
 
-Maak nu een SSH terminal-verbinding (niet via een tunnel verbinding) toohello management FQDN-naam van Hallo cluster. Eenmaal zijn verbonden, zorg Hallo aanvraag te volgen, vervangen door de juiste waarden Hallo van `host` en `ports`:
+Nu een terminal SSH-verbinding (niet via een tunnel verbinding) aanbrengen in de management FQDN-naam van het cluster. Eenmaal zijn verbonden, maken de volgende aanvraag, vervangen door de juiste waarden van `host` en `ports`:
 
 ```bash
 curl http://host:ports
 ```
 
-Hallo Nginx server-uitvoer is vergelijkbaar toohello volgende:
+De uitvoer van de server Nginx is vergelijkbaar met het volgende:
 
 ![Nginx van container](./media/container-service-mesos-marathon-rest/nginx.png)
 
@@ -118,16 +118,16 @@ Hallo Nginx server-uitvoer is vergelijkbaar toohello volgende:
 
 
 ## <a name="scale-your-containers"></a>Uw containers schalen
-U kunt Hallo Marathon API tooscale out- of schaal gebruiken in implementaties van toepassingen. In het vorige voorbeeld hello, moet u een exemplaar van een toepassing geïmplementeerd. Schalen we dit uit toothree exemplaren van een toepassing. toodo dus een JSON-bestand maken met behulp van de volgende JSON-tekst hello en sla deze op een toegankelijke locatie.
+U kunt de Marathon API uitbreiden of schalen in implementaties van toepassingen. In het vorige voorbeeld hebt u één exemplaar van een toepassing geïmplementeerd. Laten we dit uitschalen naar drie exemplaren van een toepassing. Dit doet u door een JSON-bestand te maken met behulp van de volgende JSON-tekst en dit op een toegankelijke locatie op te slaan.
 
 ```json
 { "instances": 3 }
 ```
 
-Uitvoeren van uw verbinding via een tunnel, Hallo opdracht tooscale uit de toepassing hello te volgen.
+Voer de volgende opdracht uit de toepassing te schalen van uw via een tunnel verbinding.
 
 > [!NOTE]
-> Hallo-URI is http://localhost/marathon/v2/apps/ gevolgd door het Hallo-ID van Hallo toepassing tooscale. Als u van Hallo Nginx-voorbeeld gebruikt die is opgegeven hier gebruikmaakt, zou Hallo URI http://localhost/marathon/v2/apps/nginx zijn.
+> De URI is http://localhost/marathon/v2/apps/ gevolgd door de id van de toepassing die u wilt schalen. Als u het Nginx-voorbeeld gebruikt dat hier wordt besproken, zou de URI http://localhost/marathon/v2/apps/nginx zijn.
 > 
 > 
 
@@ -135,7 +135,7 @@ Uitvoeren van uw verbinding via een tunnel, Hallo opdracht tooscale uit de toepa
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-Voer tenslotte een query Hallo Marathon-eindpunt voor toepassingen. U zult zien dat er nu drie Nginx-containers zijn.
+Voer tenslotte een query voor toepassingen uit op het Marathon-eindpunt. U zult zien dat er nu drie Nginx-containers zijn.
 
 ```bash
 curl localhost/marathon/v2/apps
@@ -144,13 +144,13 @@ curl localhost/marathon/v2/apps
 ## <a name="equivalent-powershell-commands"></a>Vergelijkbare PowerShell-opdrachten
 U kunt dezelfde acties uitvoeren met behulp van PowerShell-opdrachten in een Windows-systeem.
 
-toogather informatie over Hallo DC/OS-cluster, zoals agentnamen en agentstatus, Hallo volgende opdracht uitvoeren:
+Voor het verzamelen van informatie over het DC/OS-cluster, zoals agentnamen en agentstatus, voer de volgende opdracht:
 
 ```powershell
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-U kunt Docker ingedeelde containers via Marathon implementeren met behulp van een JSON-bestand die Hallo bedoeld implementatie beschrijft. Hallo implementeert volgende voorbeeld Hallo Nginx-container, binding van poort 80 van Hallo DC/OS-agent tooport 80 van Hallo-container.
+U implementeert met Docker ingedeelde containers via Marathon met behulp van een JSON-bestand waarin het doel van de implementatie wordt beschreven. In het volgende voorbeeld wordt de Nginx-container geïmplementeerd, met een binding van poort 80 van de DC/OS-agent naar poort 80 van de container.
 
 ```json
 {
@@ -171,22 +171,22 @@ U kunt Docker ingedeelde containers via Marathon implementeren met behulp van ee
 }
 ```
 
-Hallo JSON-bestand toodeploy een met Docker ingedeelde container, opslaan in een toegankelijke locatie. Vervolgens toodeploy Hallo-container, Hallo volgende opdracht uitvoeren. Geef Hallo pad toohello JSON-bestand (`marathon.json` in dit voorbeeld).
+Sla het JSON-bestand op een toegankelijke locatie voor het implementeren van een met Docker ingedeelde container. Voer vervolgens de volgende opdracht uit om de container te implementeren Geef het pad naar het JSON-bestand (`marathon.json` in dit voorbeeld).
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
-U kunt ook Hallo Marathon API tooscale out- of schaal gebruiken in implementaties van toepassingen. In het vorige voorbeeld hello, moet u een exemplaar van een toepassing geïmplementeerd. Schalen we dit uit toothree exemplaren van een toepassing. toodo dus een JSON-bestand maken met behulp van de volgende JSON-tekst hello en sla deze op een toegankelijke locatie.
+U kunt ook de Marathon API gebruiken om in implementaties van toepassingen uit of in te schalen. In het vorige voorbeeld hebt u één exemplaar van een toepassing geïmplementeerd. Laten we dit uitschalen naar drie exemplaren van een toepassing. Dit doet u door een JSON-bestand te maken met behulp van de volgende JSON-tekst en dit op een toegankelijke locatie op te slaan.
 
 ```json
 { "instances": 3 }
 ```
 
-Voer Hallo opdracht tooscale uit de toepassing hello te volgen:
+Voer de volgende opdracht uit de toepassing te schalen:
 
 > [!NOTE]
-> Hallo-URI is http://localhost/marathon/v2/apps/ gevolgd door het Hallo-ID van Hallo toepassing tooscale. Als u van Hallo Nginx-voorbeeld opgegeven hier gebruikmaakt, zou Hallo URI http://localhost/marathon/v2/apps/nginx zijn.
+> De URI is http://localhost/marathon/v2/apps/ gevolgd door de id van de toepassing die u wilt schalen. Als u het Nginx-voorbeeld gebruikt dat hier wordt besproken, zou de URI http://localhost/marathon/v2/apps/nginx zijn.
 > 
 > 
 
@@ -195,6 +195,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Lees meer over Hallo Mesos HTTP-eindpunten](http://mesos.apache.org/documentation/latest/endpoints/)
-* [Lees meer over Hallo Marathon REST API](https://mesosphere.github.io/marathon/docs/rest-api.html)
+* [Lees meer over de Mesos HTTP-eindpunten](http://mesos.apache.org/documentation/latest/endpoints/)
+* [Lees meer over de Marathon REST API](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

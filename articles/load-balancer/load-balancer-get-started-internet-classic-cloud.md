@@ -1,9 +1,9 @@
 ---
-title: aaaCreate een internetgerichte load balancer voor Azure-cloudservices | Microsoft Docs
-description: Meer informatie over hoe een internetverbinding toocreate netwerktaakverdeler in het klassieke implementatiemodel voor cloudservices
+title: Een internetgerichte load balancer maken voor Azure Cloud Services | Microsoft Docs
+description: Meer informatie over het maken van een internetgerichte load balancer in het klassieke implementatiemodel voor cloudservices
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 0bb16f96-56a6-429f-88f5-0de2d0136756
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: d93cf76d417cbfc744cf07ba48c43a63cc14df69
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 52824d5c39bb821351650584c33f70e2e84749cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Aan de slag met het maken van een internetgerichte load balancer voor cloudservices
 
@@ -31,17 +31,17 @@ ms.lasthandoff: 10/06/2017
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Voordat u met Azure-resources werkt, is het belangrijk toounderstand dat Azure momenteel twee implementatiemodellen heeft: Azure Resource Manager en het klassieke model. Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-classic-rm.md) zijn voordat u met een Azure-resource gaat werken. U kunt Hallo-documentatie voor verschillende hulpprogramma's bekijken door te klikken op de tabbladen Hallo Hallo boven aan dit artikel. In dit artikel bevat informatie over Hallo klassieke implementatiemodel. U kunt ook [meer informatie over hoe een internetverbinding toocreate netwerktaakverdeler met Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> Voordat u met Azure-resources gaat werken, is het belangrijk om te weten dat Azure momenteel twee implementatiemodellen heeft: Azure Resource Manager en het klassieke model. Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-classic-rm.md) zijn voordat u met een Azure-resource gaat werken. U kunt de documentatie voor verschillende hulpprogramma's bekijken door op de tabbladen boven aan dit artikel te klikken. Dit artikel is van toepassing op het klassieke implementatiemodel. Hier vindt u [meer informatie over hoe u een internetgerichte load balancer maakt met Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
-Cloud-services worden automatisch geconfigureerd met een load balancer en kunnen worden aangepast via Hallo-ServiceModel.
+Cloudservices worden automatisch geconfigureerd met een load balancer en kunnen worden aangepast via het servicemodel.
 
-## <a name="create-a-load-balancer-using-hello-service-definition-file"></a>Een load balancer met behulp van het servicedefinitiebestand Hallo maken
+## <a name="create-a-load-balancer-using-the-service-definition-file"></a>Een load balancer maken met behulp van het servicedefinitiebestand
 
-U kunt hello Azure SDK voor .NET 2.5 tooupdate gebruikmaken van de cloudservice. Instellingen voor endpoint voor cloudservices zijn aangebracht in Hallo [definitie](https://msdn.microsoft.com/library/azure/gg557553.aspx) csdef-bestand.
+U kunt gebruikmaken van de Azure SDK voor .NET 2.5 om uw cloudservice bij te werken. Instellingen van eindpunten voor cloudservices kunnen worden aangebracht in het bestand [servicedefinition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
 
-Hallo volgende voorbeeld laat zien hoe een servicedefinition.csdef-bestand voor de implementatie van een cloud is geconfigureerd:
+In het volgende voorbeeld ziet u hoe het bestand servicedefinition.csdef voor de implementatie van een cloud is geconfigureerd:
 
-Hallo codefragment voor Hallo csdef-bestand is gegenereerd door de implementatie van een cloud te controleren, kunt u Hallo Extern eindpunt geconfigureerd toouse poorten HTTP op poort 10000, 10001 en 10002 zien.
+Als u het fragment voor het .csdef-bestand bekijkt dat is gegenereerd via een cloudimplementatie, kunt u zien dat het externe eindpunt is geconfigureerd voor het gebruik van HTTP-poorten op poort 10000, 10001 en 10002.
 
 ```xml
 <ServiceDefinition name=“Tenant“>
@@ -66,7 +66,7 @@ Hallo codefragment voor Hallo csdef-bestand is gegenereerd door de implementatie
 
 ## <a name="check-load-balancer-health-status-for-cloud-services"></a>De status van een load balancer voor cloudservices controleren
 
-Hallo Hieronder volgt een voorbeeld van een health test:
+Hier volgt een voorbeeld van een statustest:
 
 ```xml
 <LoadBalancerProbes>
@@ -74,13 +74,13 @@ Hallo Hieronder volgt een voorbeeld van een health test:
 </LoadBalancerProbes>
 ```
 
-Hallo load balancer combineert Hallo van Hallo eindpunt en Hallo informatie van Hallo test toocreate een URL in de vorm van Hallo `http://{DIP of VM}:80/Probe.aspx` die kunnen worden gebruikt tooquery Hallo status van Hallo-service.
+De load balancer combineert de gegevens van het eindpunt en de gegevens van de test om een URL te maken met de indeling `http://{DIP of VM}:80/Probe.aspx`. Deze kan worden gebruikt om de status van de service op te vragen.
 
-Hallo service detecteert periodieke tests uit Hallo hetzelfde IP-adres. Dit is Hallo health test aanvraag afkomstig is van de host van knooppunt Hallo Hallo waarop Hallo virtuele machine wordt uitgevoerd. Hallo-service heeft toorespond met een HTTP 200-statuscode voor Hallo load balancer tooassume Hallo-service is in orde. Andere HTTP-status code (bijvoorbeeld 503) rechtstreeks vergt Hallo virtuele machine uit de draaihoek.
+De service detecteert periodieke tests van hetzelfde IP-adres. Dit is de aanvraag voor een statustest die afkomstig is van de host van het knooppunt waarop de virtuele machine wordt uitgevoerd. Als de service reageert met een HTTP 200-statuscode, gaat de load balancer ervan uit dat de service in orde is. Bij een andere HTTP-statuscode (bijvoorbeeld 503) wordt de virtuele machine direct uitgeschakeld.
 
-Hallo test definitie bepaalt ook Hallo frequentie van Hallo test. In ons geval is Hallo load balancer scannen Hallo eindpunt elke 5 seconden. Als er geen positief antwoord wordt ontvangen voor 10 sec (twee test-intervallen), Hallo test wordt aangenomen dat omlaag en Hallo virtuele machine wordt uitgevoerd buiten de draaihoek. Op dezelfde manier als Hallo service buiten het wisselen valt en een positief antwoord wordt ontvangen, Hallo service geplaatst terug toorotation meteen. Als het Hallo-service tussen in orde en slecht veranderen is, besluiten Hallo load balancer toodelay Hallo binnengebracht van Hallo service back toorotation totdat deze is in orde voor een aantal tests.
+De definitie van de test bepaalt ook de frequentie waarmee de test wordt uitgevoerd. In ons geval test de load balancer het eindpunt elke 5 seconden. Als er 10 seconden lang geen positief antwoord wordt ontvangen (twee testintervallen), wordt aangenomen dat de test negatief is en wordt de virtuele machine uitgeschakeld. Als de service is uitgeschakeld en er een positief antwoord wordt ontvangen, wordt de service direct weer in gebruik genomen. Als de status van de service steeds wisselt tussen goed en slecht, kan de load balancer de service tijdelijk uitgeschakeld houden totdat de status gedurende een aantal tests goed blijkt.
 
-Controleer Hallo service definitie schema voor Hallo [health test](https://msdn.microsoft.com/library/azure/jj151530.aspx) voor meer informatie.
+Controleer het schema van de servicedefinitie voor de [statustest](https://msdn.microsoft.com/library/azure/jj151530.aspx) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

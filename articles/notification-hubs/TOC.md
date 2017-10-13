@@ -17,17 +17,17 @@
 ### [Hulp voor architectuur via pushmeldingen van het bedrijf](notification-hubs-enterprise-push-notification-architecture.md)
 
 ## Ontwikkelen
-### [Push notifications tooAndroid via GCM verzenden](notification-hubs-android-push-notification-google-gcm-get-started.md)
+### [Pushmeldingen naar Android verzenden met GCM](notification-hubs-android-push-notification-google-gcm-get-started.md)
 ### [Geo-fenced pushmeldingen met ruimtelijke Bing-gegevens](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
-### Push toospecific gebruikers
+### Pushen naar specifieke gebruikers
 #### [Android](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
 #### [iOS](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
-#### [De huidige gebruiker Hallo met ASP.NET registreren](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
+#### [De huidige gebruiker registreren met ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 ### [Platformonafhankelijke meldingen verzenden](notification-hubs-aspnet-cross-platform-notification.md)
 ### Werken met server-SDK's
-#### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)
+#### [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet)
 #### [Node.js](notification-hubs-nodejs-push-notification-tutorial.md)
 #### [Java](notification-hubs-java-push-notification-tutorial.md)
 #### [PHP](notification-hubs-php-push-notification-tutorial.md)
@@ -53,7 +53,7 @@
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
 ## Automatiseren
-### [Notification Hubs implementeren en beheren met PowerShell](notification-hubs-deploy-and-manage-powershell.md)
+### [Notification Hubs implementeren en beheren met Azure PowerShell](notification-hubs-deploy-and-manage-powershell.md)
 ### [Geplande meldingen verzenden](notification-hubs-send-push-notifications-scheduled.md)
 
 ## Problemen oplossen
@@ -61,7 +61,7 @@
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
-## [PowerShell](/powershell/module/azurerm.notificationhubs)
+## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
 

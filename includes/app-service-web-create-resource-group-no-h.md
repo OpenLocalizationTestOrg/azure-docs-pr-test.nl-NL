@@ -1,11 +1,11 @@
-Een resourcegroep maken met de Hallo [az groep maken](/cli/azure/group#create) opdracht.
+Maak een resourcegroep in de Cloud Shell met de opdracht [az group create](/cli/azure/group#create).
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 
-Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroup* in Hallo *westeurope* locatie.
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *West-Europa*.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westeurope
+az group create --name myResourceGroup --location "West Europe"
 ```
 
-In het algemeen u uw resource groep en Hallo resources in een regio in de buurt. toosee ondersteunde locaties voor Azure Web Apps, Voer Hallo `az appservice list-locations` opdracht. 
+In het algemeen maakt u een resourcegroep en resources in een regio bij u in de buurt. Als u alle ondersteunde locaties voor Azure Web Apps wilt zien, voert u de opdracht `az appservice list-locations` uit. 

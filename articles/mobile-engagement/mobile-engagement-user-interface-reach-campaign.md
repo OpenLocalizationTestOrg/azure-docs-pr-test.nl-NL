@@ -1,6 +1,6 @@
 ---
-title: aaaAzure gebruikersinterface van de Mobile Engagement - Reach-campagne
-description: Laern hoe toocreate en beheren met behulp van Azure Mobile Engagement campagnes met pushmeldingen
+title: Azure Mobile Engagement-gebruikersinterface - Reach-campagne
+description: Laern hoe campagnes maken en beheren van push-bericht met behulp van Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 825e550ace63a34d1a90b10fa976a61eb15a6d04
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toocreate-and-manage-push-notification-campaigns"></a>Hoe toocreate en beheren van campagnes met pushmeldingen
-Hallo Reach-sectie van Hallo UI toocreate een nieuwe pushcampagne kunt u met een complexe formule door te geven van alle benodigde toosend een push-melding Hallo-gegevens. Hallo opties van een pushcampagne enigszins afwijken, afhankelijk van Hallo vier campagne soorten: aankondigingen, Polls, gegevens-Pushes en tegels (alleen Windows Phone).
+# <a name="how-to-create-and-manage-push-notification-campaigns"></a>Het maken en beheren van campagnes met pushmeldingen
+Een nieuwe pushcampagne maken met een complexe formule door te geven van alle informatie die u nodig hebt voor het verzenden van een push-melding kunt u de Reach-sectie van de gebruikersinterface. De opties van een pushcampagne enigszins afwijken, afhankelijk van de soorten vier campagne: aankondigingen, Polls, gegevens-Pushes en tegels (alleen Windows Phone).
 
 ### <a name="option-applies-to"></a>Is van toepassing op:
 * Talen: Alle (aankondigingen, Polls, gegevens-Pushes, tegels)
@@ -35,18 +35,18 @@ Hallo Reach-sectie van Hallo UI toocreate een nieuwe pushcampagne kunt u met een
 ![Reach-Campaign1][20]
 
 ## <a name="languages"></a>Talen
-U kunt Hallo talen vervolgkeuzelijst menu toosend een andere versie van de Push-toodevices die zijn ingesteld in verschillende talen toouse gebruiken. Alle apparaten ontvangen standaard Hallo dezelfde Push ongeacht welke taal zijn ze toouse ingesteld. Hallo standaard taalversie van Hallo Push ontvangen gebruikers met hun apparaat set tooa andere taal. Veel van Hallo push campagne opties kunnen u alternatieve toospecify-inhoud voor elke Hallo extra talen die u selecteert. 
+De vervolgkeuzelijst talen kunt u een andere versie van uw Pushmeldingen verzenden naar apparaten die zijn ingesteld op het gebruik van verschillende talen. Alle apparaten ontvangen standaard de dezelfde Push ongeacht welke taal ze zijn ingesteld om te gebruiken. De versie van de standaardtaal van de push-bewerking ontvangt de gebruiker het apparaat dat is ingesteld op een andere taal. Veel van de opties voor de push-campagne kunnen u alternatieve inhoud opgeven voor elk van de extra talen die u selecteert. 
 
 ![Reach-Campaign2][21]
 
 ### <a name="language-differences-apply-to"></a>Taalverschillen van toepassing op:
-* Talen: Unieke talen worden geselecteerd in de standaardtaal voor toevoeging toohello
+* Talen: Unieke talen kunnen naast de standaardtaal worden geselecteerd
 * Campagne: Gelijk voor alle talen
-* Melding: Uniek voor elke taal bovendien toohello standaardtaal
-* Inhoud: Uniek voor elke taal bovendien toohello standaardtaal
+* Melding: Uniek voor elke taal naast de standaardtaal
+* Inhoud: Uniek voor elke taal naast de standaardtaal
 * Doelgroep: Kan worden gefilterd door het criterium van een afzonderlijke taal
 * Tijdsbestek: hetzelfde voor alle talen
-* Test: Kunnen tooeach taal worden verzonden op een tijdstip
+* Test: Voor elke taal tegelijk kunnen worden verzonden
 
 ### <a name="supported-languages"></a>Ondersteunde talen:
 * Arabisch (ar) 
@@ -89,27 +89,27 @@ U kunt Hallo talen vervolgkeuzelijst menu toosend een andere versie van de Push-
 * Vietnamees (vi) 
 
 ## <a name="campaign"></a>Campagne
-U kunt gebruiken Hallo campagne tooset Hallo sectienaam en categorie van uw campagne ook als tooignore Hallo doelgroep sectie van een pushcampagne te plannen en verzenden van deze campagne via Hallo Reach API (en een aantal elementen met geringe Hallo Push-API) in plaats daarvan. Categorieën kunnen worden gebruikt met een aangepaste melding sjabloon toocontrol in-app-meldingen op basis van vooraf gedefinieerde instellingen. U kunt een lijst met uw bestaande 'categorieën' via Hallo Reach API ophalen.
+De naam en categorie van uw campagne ook instellen als u van plan bent voor het negeren van de sectie doelgroep van een pushcampagne en verzend deze campagne via de Reach API (en een aantal elementen met de geringe Push-API) in plaats daarvan kunt u de sectie campagne. Categorieën kunnen worden gebruikt met een aangepaste meldingssjabloon op beheer in-app-meldingen op basis van vooraf gedefinieerde instellingen. U kunt een lijst met uw bestaande 'categorieën' via de Reach API ophalen.
 
 > [!WARNING]
-> Als u 'Doelgroep negeren, push wordt verzonden toousers via API Hallo' Hallo-optie gebruikt in 'Campagne' Hallo-sectie van een Reach-campagne Hallo campagne wordt niet automatisch verzenden, moet u toosend handmatig via Hallo Reach API.
+> Als u de optie 'Negeren doelgroep, push wordt naar gebruikers verzonden via de API' in de sectie "Campagne" van een Reach-campagne gebruiken, de campagne wordt niet automatisch verzenden, moet u handmatig verzenden via de Reach API.
 
 ![Reach-Campaign3][22]
 
 ### <a name="option-applies-to"></a>Is van toepassing op:
 * Naam: alle
 * Categorie: Aankondigingen, Polls
-* Doelgroep negeren, push toousers via Hallo API worden verzonden: alle
+* Doelgroep negeren, push wordt verzonden naar gebruikers via de API: alle
 
 ## <a name="notification"></a>Melding
-U kunt Hallo melding sectie tooset basisinstellingen voor het opnemen van uw push: Hallo titel Hallo-Push, het Hallo-bericht, de installatiekopie van een in-app of als deze worden weggeklikt. Veel meldingsinstellingen zijn platform-specifieke toohello van uw apparaat. U kunt aangeven of uw push 'in-app' of 'out of app' worden verzonden of beide. (Houd er rekening mee dat gebruikers kunnen 'opt-in' of 'opt-out' van 'buiten app' Pushes op Hallo besturingssysteem niveau op hun apparaten en Azure Mobile Engagement niet wordt kunnen toooverride worden deze instelling. Denk eraan dat Hallo Reach API 'in-app verwerkt' en 'out van app' duwt. Hallo Push API kan gebruikte toohandle 'buiten app' pushes te zijn.) Pushes kunnen worden aangepast met afbeeldingen of HTML-inhoud, inclusief dieptekoppelingen voor het koppelen van buiten uw App of tooanother locatie in uw App (Android SDK 2.1.0 of hoger opzet categorieën vereist). U kunt wijzigen Hallo-pictogram of iOS-badge en -tekst of web-inhoud (een pop-up met HTML-inhoud, URL koppeling tooanother locatie binnen of buiten de app Hallo) kunt verzenden. U kunt ook Android-apparaten beltoon laten horen of Trillen Hello Push. (Vergeet niet dat u juist SDK machtigingen in uw Android manifest tooring bestand of een apparaat laten Trillen Hallo wordt nodig.) Er is momenteel geen bedrijfstak standaard voor Android 'grote afbeelding' grootten, aangezien schermgrootte verschillen op elk apparaat maar 400 x 100 afbeeldingen op bijna elke schermgrootte werken.
+U kunt de sectie meldingen basisinstellingen voor het opnemen van uw push instellen: de titel van de push-bewerking, het bericht, de installatiekopie van een in-app, of als deze worden weggeklikt. Instellingen voor veel meldingen zijn specifiek voor het platform van uw apparaat. U kunt aangeven of uw push 'in-app' of 'out of app' worden verzonden of beide. (Houd er rekening mee dat gebruikers kunnen 'opt-in' of 'opt-out' van 'buiten app' Pushes op het besturingssysteem niveau op hun apparaten en Azure Mobile Engagement kan niet worden voor deze instelling overschrijven. Denk eraan dat de Reach API 'in-app verwerkt' en 'out van app' duwt. De Push-API kan worden gebruikt voor 'out of app' pushes te verwerken.) Pushes kunnen worden aangepast met afbeeldingen of HTML-inhoud, inclusief dieptekoppelingen voor het koppelen van buiten uw App of op een andere locatie in uw App (Android SDK 2.1.0 of hoger opzet categorieën vereist). U kunt de pictogram- of iOS-badge wijzigen en verzenden van tekst of web-inhoud (een pop-upvenster met de HTML-inhoud, URL koppeling naar een andere locatie binnen of buiten de app). U kunt ook Android-apparaten beltoon laten horen of Trillen met de push-bewerking. (Houd er rekening mee dat u de juiste moet machtigingen van de SDK in uw Android-manifestbestand ring of een apparaat laten trillen.) Er is momenteel geen bedrijfstak standaard voor Android 'grote afbeelding' grootten, aangezien schermgrootte verschillen op elk apparaat maar 400 x 100 afbeeldingen op bijna elke schermgrootte werken.
 
 ### <a name="delivery-types"></a>Levering typen:
-* Alleen buiten app: Hallo-melding worden geleverd wanneer gebruiker Hallo Hallo toepassing niet gebruikt.
-* Hallo buiten alleen appmelding vereist een certificaat van Apple of Google (APNS of GCM-certificaat).
-* In-app alleen: Hallo melding wordt weergegeven wanneer er op Hallo-toepassing wordt uitgevoerd.
-* Hallo melding Hallo Capptain levering tooreach Hallo systeemgebruiker gebruikt. U kunt volledig Hallo visuele lay-out/weergave van uw push aanpassen.
-* Op elk gewenst moment: Deze optie zorgt ervoor dat u een melding dat de toepassing hello wordt uitgevoerd of niet verzenden.
+* Alleen buiten app: wanneer de toepassing niet wordt gebruikt door de gebruiker de melding worden geleverd.
+* De out-of alleen appmelding vereist een certificaat van Apple of Google (APNS of GCM-certificaat).
+* In-app alleen: deze melding wordt weergegeven wanneer er op de toepassing wordt uitgevoerd.
+* De melding gebruikt het Capptain levering systeem voor het bereiken van de gebruiker. U kunt de visuele lay-out/weergave van uw push volledig aanpassen.
+* Op elk gewenst moment: Deze optie zorgt ervoor dat u een melding die van de toepassing wordt uitgevoerd of niet verzenden.
 
 ![Reach-Campaign4][23]
 
@@ -117,7 +117,7 @@ U kunt Hallo melding sectie tooset basisinstellingen voor het opnemen van uw pus
 * Melding: Aankondigingen, Polls
 
 ## <a name="content"></a>Inhoud
-U kunt Hallo sectie inhoud toomodify Hallo inhoud van uw aankondigingen, Polls, gegevens-Pushes en tegels (alleen Windows Phone) gebruiken. Hallo is inhoud deze instelling van pushcampagnes specifieke toohello type campagne. 
+De sectie inhoud kunt u de inhoud van uw aankondigingen, Polls, gegevens-Pushes en tegels (alleen Windows Phone) wijzigen. De instelling van de inhoud van pushcampagnes is specifiek voor het type campagne. 
 
 ### <a name="see-also"></a>Zie ook
 * [UI-documentatie - bereiken - Push-inhoud][Link 29]
@@ -125,15 +125,15 @@ U kunt Hallo sectie inhoud toomodify Hallo inhoud van uw aankondigingen, Polls, 
 ![Reach-Campaign5][24]
 
 ## <a name="audience"></a>Doelgroep
-U kunt Hallo doelgroep sectie toodefine een standaard lijst met items toolimit uw campagne of limieten uw campagne op basis van aangepaste criteria. Hallo standaardset opties tooLimit uw doelgroep kunt u toopush tooeither nieuwe of oude gebruikers of alleen voor gebruikers van native pushberichten. U kunt ook een quotum toolimit Hallo aantal gebruikers die Hallo push ontvangen instellen. U kunt handmatig bewerken Hallo-expressie voor hoe uw campagne gefilterde tooinclude is een of meer criterium tootarget gebruikers. U kunt handmatig een doelgroepexpressie typen. Een dergelijke expressie moet expliciet Hallo relatie tussen criteria definiëren. Een criterium is beschreven door een id die met een hoofdletter moet beginnen en mag geen spaties bevatten. relatie tussen criteria Hallo Hallo kan worden beschreven met behulp van 'en', 'of', 'not' operators, evenals '(',')'. Voorbeeld: 'Criterion1 of (Criterion1 en niet Criterion2)'.
+U kunt de sectie doelgroep gebruiken voor het definiëren van een standaard lijst met items om te beperken van uw campagne of limieten uw campagne op basis van aangepaste criteria. De standaard set opties voor het beperken van uw doelgroep kunt u om naar nieuwe of oude gebruikers of alleen de systeemeigen push-gebruikers te pushen. U kunt ook een quotum om te beperken het aantal gebruikers die de push-bewerking ontvangen instellen. U kunt handmatig de expressie voor het filteren van uw campagne om op te nemen van een of meer criterium voor Doelgebruikers bewerken. U kunt handmatig een doelgroepexpressie typen. Een dergelijke expressie moet expliciet definiëren voor de relatie tussen criteria. Een criterium is beschreven door een id die met een hoofdletter moet beginnen en mag geen spaties bevatten. De relatie tussen de criteria kan worden beschreven met behulp van 'en', 'of', 'not' operators, evenals '(',')'. Voorbeeld: 'Criterion1 of (Criterion1 en niet Criterion2)'.
 
 > [!NOTE]
-> Met een grote doelgroep opgenomen in de campagnes, Hallo serverzijde die gericht is op scan kan traag zijn, met name als u probeert toostart Hallo meerdere campagnes op hetzelfde moment.
+> Met een grote doelgroep opgenomen in de campagnes, mag de serverzijde die gericht is op scan traag is, met name als u probeert te starten meerdere campagnes op hetzelfde moment.
 
 * Alleen indien mogelijk een campagne start tegelijk.
-* Hallo maximaal vier campagnes alleen start op een tijdstip op.
-* Alleen actieve gebruikers met tooyour push (selectievakje ' alleen gebruikers benaderen die kunnen worden bereikt met behulp van Native Pushberichten' en 'Alleen actieve gebruikers benaderen') zodat alleen gebruikers die nog steeds Hallo-app hebt geïnstalleerd en deze gebruiken toobe gescand moet.
-  Als uw doelgroep is gedefinieerd, kunt u Hallo knop toofind uit hoeveel gebruikers deze Push ontvangt simuleren. Dit wilt aantal bekende gebruikers mogelijk doel voor deze doelgroep (dit is een schatting op basis van een steekproef van gebruikers) Hallo berekenen. Vergeet niet dat gebruikers die u hebt verwijderd van de toepassing hello eveneens deel van deze doelgroep uitmaken, maar kunnen niet worden bereikt.
+* Alleen de meest, vier campagnes starten op een tijdstip.
+* Push-alleen voor uw actieve gebruikers (selectievakje ' alleen gebruikers benaderen die kunnen worden bereikt met behulp van Native Pushberichten' en 'Alleen actieve gebruikers benaderen') zodat alleen uw gebruikers die nog steeds de app hebt geïnstalleerd en deze gebruiken, moeten worden gescand.
+  Als uw doelgroep is gedefinieerd, kunt u de knop simuleren om erachter te komen hoeveel gebruikers deze Push ontvangt. Hiermee wordt het aantal bekende gebruikers mogelijk doel voor deze doelgroep (dit is een schatting op basis van een steekproef van gebruikers) berekenen. Vergeet niet dat gebruikers die de toepassing hebben verwijderd eveneens deel van deze doelgroep uitmaken, maar kunnen niet worden bereikt.
 
 ### <a name="see-also"></a>Zie ook
 * [UI - Reach - documentatie nieuw Push criterium][Link 28]
@@ -152,10 +152,10 @@ U kunt Hallo doelgroep sectie toodefine een standaard lijst met items toolimit u
 * Alleen gebruikers benaderen die kunnen worden bereikt via een Native Pushbericht: aankondigingen, Polls
 
 ## <a name="time-frame"></a>Tijdsbestek
-U kunt Hallo tijdsbestek sectie tooset Hallo push wordt verzonden of u kunt Hallo tijdsbestek leeg toostart Hallo campagne onmiddellijk laten. Houd er rekening mee dat met behulp van de tijdzone Hallo eindgebruikers mogelijk Hallo campagne start een dag eerder dan u voor uw eindgebruikers in Azië verwacht en klein batches van pushes tegelijkertijd totdat alle tijdzones in hello world overeen Hallo-periode is ingesteld voor uw campagne te verzenden. Met behulp van de tijdzone Hallo eindgebruikers kan ook vertragingen veroorzaken bij campagnes omdat het toorequest Hallo actief zijn op Hallo telefoon voordat Hallo push heeft.
+U kunt de sectie tijdsbestek ingesteld wanneer de pushmelding wordt verzonden of u kunt het tijdsbestek onmiddellijk starten van de campagne leeg laten. Houd er rekening mee dat met behulp van de tijdzone van de eindgebruikers de campagne eerder start mogelijk dan u voor uw eindgebruikers in Azië verwacht en kleine batches van pushes tegelijkertijd verzendt totdat alle tijdzones in de hele wereld overeen met het tijdsbestek dat is ingesteld voor uw campagne een dag. Met behulp van de tijdzone van de eindgebruikers kan ook vertragingen veroorzaken bij campagnes worden gestart omdat het de tijd aanvragen via de telefoon voordat u begint de push-bewerking heeft.
 
 > [!NOTE]
-> Zonder een einddatum in cache campagnes pushes lokaal en nog steeds weergegeven nadat u handmatig voltooid campagnes. tooavoid dit gedrag, de specifieke eindtijd voor campagnes.
+> Zonder een einddatum in cache campagnes pushes lokaal en nog steeds weergegeven nadat u handmatig voltooid campagnes. Om te voorkomen dat dit gedrag, specifieke eindtijd voor campagnes.
 
 ### <a name="see-also"></a>Zie ook
 * [Bereiken - hoe Tos – plannen][Link 3] 
@@ -166,10 +166,10 @@ U kunt Hallo tijdsbestek sectie tooset Hallo push wordt verzonden of u kunt Hall
 * Tijdsbestek: aankondigingen, Polls, tegels
 
 ## <a name="test"></a>Test
-Kunt u Hallo Test sectie toosend dit apparaat push tooyour eigen test voordat u opslaat Hallo campagne. Als u de aangepaste talen voor deze campagne hebt geconfigureerd, kunt u Hallo push testen in elke taal. U kunt een testapparaat van 'Mijn Account' instellen.
+De sectie Test kunt u deze pushmelding wordt verzonden naar uw eigen testapparaat voordat u de campagne opslaat. Als u de aangepaste talen voor deze campagne hebt geconfigureerd, kunt u de push-bewerking testen in elke taal. U kunt een testapparaat van 'Mijn Account' instellen.
 
 > [!NOTE]
-> Er zijn geen gegevens worden geregistreerd wanneer u de knop Hallo serverzijde te 'test' pushes, gegevens alleen worden geregistreerd voor echte pushcampagnes.
+> Er zijn geen gegevens worden geregistreerd wanneer u met de knop 'test' serverzijde pushes, gegevens alleen worden geregistreerd voor echte pushcampagnes.
 
 ### <a name="see-also"></a>Zie ook
 * [UI-documentatie - Mijn Account][Link 14]

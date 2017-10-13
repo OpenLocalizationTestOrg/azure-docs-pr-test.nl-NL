@@ -7,20 +7,20 @@
 ## [Uw ontwikkelaarsomgeving instellen](media-services-set-up-computer.md)
 ### [.NET](media-services-dotnet-how-to-use.md)
 ### [REST](media-services-rest-how-to-use.md)  
-## [AAD auth tooaccess API gebruiken](media-services-use-aad-auth-to-access-ams-api.md)
-### [Portal toomanage AAD Authentication gebruiken](media-services-portal-get-started-with-aad.md)
+## [AAD-verificatie gebruiken voor toegang tot API](media-services-use-aad-auth-to-access-ams-api.md)
+### [Portal gebruiken voor het beheren van AAD-verificatie](media-services-portal-get-started-with-aad.md)
 ### [Toegang tot API met .NET](media-services-dotnet-get-started-with-aad.md)
 ### [Toegang tot API met REST](media-services-rest-connect-with-aad.md)
-### [Gebruik CLI toocreate en AAD-app configureren](media-services-cli-create-and-configure-aad-app.md)
-### [Gebruik PowerShell toocreate en AAD-app configureren](media-services-powershell-create-and-configure-aad-app.md)
+### [Azure CLI gebruiken om een AAD-app te maken en configureren](media-services-cli-create-and-configure-aad-app.md)
+### [Azure PowerShell gebruiken om een AAD-app te maken en configureren](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Video op aanvraag leveren
-### [Portal](media-services-portal-vod-get-started.md)
-### [.NET-SDK](media-services-dotnet-get-started.md)
+### [Azure Portal](media-services-portal-vod-get-started.md)
+### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Live streamen
-### [Portal](media-services-portal-live-passthrough-get-started.md)
+### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # Procedures
@@ -29,7 +29,7 @@
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
 ### [Streaming-eindpunten](media-services-streaming-endpoints-overview.md)
-#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [Azure Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### Storage
 #### [Media Services bijwerken na gebruik toegangssleutels voor opslag](media-services-roll-storage-access-keys.md)
@@ -38,7 +38,7 @@
 
 ## Inhoud uploaden
 ### Bestanden uploaden in een account
-#### [Portal](media-services-portal-upload-files.md)
+#### [Azure Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Grote bestanden uploaden met Aspera](media-services-upload-files-with-aspera.md)
@@ -50,14 +50,14 @@
 ### [De snelheid en gelijktijdigheid van uw codering beheren](media-services-manage-encoding-speed.md)
 ### Media Encoder Standard (MES)
 #### [Indelingen en codecs voor Media Encoder Standard](media-services-media-encoder-standard-formats.md)
-#### [Gebruik MES tooauto-een ladder bitrate genereren](media-services-autogen-bitrate-ladder-with-mes.md)
+#### [MES gebruiken om automatisch een bitrate ladder te genereren](media-services-autogen-bitrate-ladder-with-mes.md)
 #### Coderen met Media Encoder Standard
-##### [Portal](media-services-portal-encode.md)
+##### [Azure Portal](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST](media-services-rest-encode-asset.md)
 #### [Geavanceerde codering met MES](media-services-advanced-encoding-with-mes.md)
 ##### [Voorinstellingen van Media Encoder Standard aanpassen](media-services-custom-mes-presets-with-dotnet.md)
-##### [Hoe toogenerate miniaturen met Media Encoder Standard met .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Miniatuurweergaven genereren met Media Encoder Standard met .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 ##### [Video's bijsnijden met Media Encoder Standard](media-services-crop-video.md)
 #### MES-schema's
 ##### [Media Encoder Standard-schema](media-services-mes-schema.md)
@@ -109,7 +109,7 @@
 #### [Portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Live streamen met cloudcoderingsprogramma's](media-services-manage-live-encoder-enabled-channels.md)
-#### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [On-premises coderingsprogramma's configureren voor gebruik met cloudcoderingsprogramma's](media-services-live-encoders-overview.md)
 #### [Elemental Live-coderingsprogramma](media-services-configure-elemental-live-encoder.md)
@@ -120,15 +120,15 @@
 ### [Specificatie gefragmenteerde MP4-liveopname](media-services-fmp4-live-ingest-overview.md)
 
 ## [Beschermen](media-services-content-protection-overview.md)
-### [Beveiliging van inhoud in Hallo portal configureren](media-services-portal-protect-content.md)
+### [Beveiliging van inhoud configureren in Azure Portal](media-services-portal-protect-content.md)
 ### [AES-128 Clear Key voor uw stream configureren](media-services-protect-with-aes128.md)
-### [REST-tooencrypt van uw inhoud met storage encryption gebruiken](media-services-rest-storage-encryption.md)
+### [REST gebruiken voor het versleutelen van uw inhoud met opslagversleuteling](media-services-rest-storage-encryption.md)
 ### [Overzicht van sjablonen voor Media Services PlayReady-licentie](media-services-playready-license-template-overview.md)
 ### [Overzicht van Widevine-licentiesjablonen](media-services-widevine-license-template-overview.md)
 ### [Levering van DRM-licentie](media-services-deliver-keys-and-licenses.md)
-### [Met behulp van partners toodeliver Widevine licenties tooMedia Services](media-services-licenses-partner-integration.md)
-#### [Met behulp van Axinom Services toodeliver Widevine-licenties tooMedia](media-services-axinom-integration.md)
-#### [Met behulp van castLabs Services toodeliver Widevine-licenties tooMedia](media-services-castlabs-integration.md)
+### [Partners gebruiken om Widevine-licenties te leveren aan Media Services](media-services-licenses-partner-integration.md)
+#### [Axinom gebruiken om Widevine-licenties te leveren aan Media Services ](media-services-axinom-integration.md)
+#### [castLabs gebruiken om Widevine-licenties te leveren aan Media Services ](media-services-castlabs-integration.md)
 ### [PlayReady en/of Widevine Dynamic Common Encryption gebruiken](media-services-protect-with-drm.md)
 ### [Uw met Apple FairPlay beveiligde HLS-inhoud streamen](media-services-protect-hls-with-fairplay.md)
 ### [Hybride ontwerp van DRM-subsysteem](hybrid-design-drm-sybsystem.md)
@@ -140,12 +140,14 @@
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
 ### Autorisatiebeleid voor inhoudssleutels configureren
-#### [Portal](media-services-portal-configure-content-key-auth-policy.md)
+#### [Azure Portal](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
+### [Met AES versleutelde HLS afspelen in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
+### [Auth-tokens doorgeven](http://mingfeiy.com/how-client-pass-tokens-to-azure-media-services-key-delivery-services)
 
 ## [Analyseren](media-services-analytics-overview.md)
-### [Media met behulp van de portal Hallo analyseren](media-services-portal-analyze.md)
+### [Media analyseren met behulp van Azure Portal](media-services-portal-analyze.md)
 ### [Verwerken met Indexer 2](media-services-process-content-with-indexer2.md)
 ### [Verwerken met Indexer](media-services-index-content.md)
 #### [Taken vooraf instellen](indexer-task-preset.md)
@@ -163,10 +165,10 @@
 
 ## Schalen
 ### [Mediaverwerking](media-services-scale-media-processing-overview.md)
-#### [Portal](media-services-portal-scale-media-processing.md)
+#### [Azure Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
 ### Streaming-eindpunten
-#### [Portal](media-services-portal-scale-streaming-endpoints.md)
+#### [Azure Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Inhoud leveren](media-services-deliver-content-overview.md)
 ### [Dynamische pakketten](media-services-dynamic-packaging-overview.md)
@@ -175,7 +177,7 @@
 #### [Filters maken met REST](media-services-rest-dynamic-manifest.md)
 ### [CDN-beleid voor caching in Media Services-extensie](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Inhoud publiceren
-#### [Portal](media-services-portal-publish.md)
+#### [Azure Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
 ### [Leveren via download](media-services-deliver-asset-download.md)
@@ -188,9 +190,8 @@
 #### [Windows Store-toepassing met smooth streaming](media-services-build-smooth-streaming-apps.md)
 #### [HTML5-toepassing met DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Adobe Open Source Media Framework-spelers](media-services-use-osmf-smooth-streaming-client-plugin.md)
-### [Advertenties aan clientzijde Hallo invoegen](media-services-inserting-ads-on-client-side.md)
+### [Advertenties invoeren op de client](media-services-inserting-ads-on-client-side.md)
 ### [Licentieverlening Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
-### [Met AES versleutelde HLS afspelen in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## Integreren
 ### [Azure Functions gebruiken met Media Services](media-services-dotnet-how-to-use-azure-functions.md)
@@ -199,7 +200,7 @@
 ## Bewaken
 ### Taakvoortgang controleren
 #### [REST](media-services-rest-check-job-progress.md)
-#### [Portal](media-services-portal-check-job-progress.md)
+#### [Azure Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
 ### [Taakmeldingen bewaken met behulp van Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)
 ### [Taakmeldingen bewaken met behulp van webhooks](media-services-dotnet-check-job-progress-with-webhooks.md)
@@ -212,8 +213,8 @@
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
-## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
-## [PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
+## [Azure PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)  
 

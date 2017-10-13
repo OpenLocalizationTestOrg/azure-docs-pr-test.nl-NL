@@ -1,24 +1,24 @@
 ### <a name="troubleshoot-azure-diagnostics"></a>Problemen oplossen met Azure Diagnostics
 
-Als u Hallo volgende foutbericht wordt weergegeven ontvangt, is niet Hallo Microsoft.insights-resourceprovider geregistreerd:
+Als u het volgende foutbericht ontvangt, is de resourceprovider Microsoft.insights niet geregistreerd:
 
-`Failed tooupdate diagnostics for 'resource'. {"code":"Forbidden","message":"Please register hello subscription 'subscription id' with Microsoft.Insights."}`
+`Failed to update diagnostics for 'resource'. {"code":"Forbidden","message":"Please register the subscription 'subscription id' with Microsoft.Insights."}`
 
-tooregister hello resourceprovider uitvoeren Hallo stappen te volgen in hello Azure-portal:
+Voer de volgende stappen in Azure Portal uit om de resourceprovider te registreren:
 
-1.  Klik in het navigatievenster aan de linkerkant Hallo Hallo *abonnementen*
-2.  Selecteer geïdentificeerd in het foutbericht Hallo Hallo-abonnement
+1.  Klik in het navigatiedeelvenster aan de linkerkant op *Abonnementen*
+2.  Selecteer het abonnement dat wordt vermeld in het foutbericht
 3.  Klik op *Resourceproviders*
-4.  Hallo zoeken *Microsoft.insights* provider
-5.  Klik op Hallo *registreren* koppeling
+4.  Ga naar de *Microsoft.insights*-provider
+5.  Klik op de koppeling *Registreren*
 
 ![Registreer de resourceprovider Microsoft.insights](./media/log-analytics-troubleshoot-azure-diagnostics/log-analytics-register-microsoft-diagnostics-resource-provider.png)
 
-Eenmaal Hallo *Microsoft.insights* resourceprovider is geregistreerd, opnieuw proberen van configuratie van diagnostische gegevens.
+Nadat de *Microsoft.insights* resourceprovider is geregistreerd, configureert u Diagnostics opnieuw.
 
 
-In PowerShell, als het foutbericht Hallo volgende foutbericht wordt weergegeven, moet u tooupdate uw versie van PowerShell:
+Als u het volgende foutbericht ontvangt in PowerShell moet u werk uw versie van PowerShell:
 
 `Set-AzureRmDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 
-Werk uw versie van PowerShell toohello November 2016 (v2.3.0) of hoger, vrijgeven met Hallo-instructies in Hallo [aan de slag met Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) artikel.
+Werk uw versie van PowerShell naar de November 2016 (v2.3.0) of hoger, vrijgeven van de instructies in de [aan de slag met Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) artikel.

@@ -1,6 +1,6 @@
 ---
-title: ontwerpoverwegingen voor aaaAzure Active Directory hybride identiteit - bepalen vereisten voor multi-factor authentication-server
-description: "Met voorwaardelijk toegangsbeheer controleert de Azure Active Directory Hallo bepaalde voorwaarden die u bij het verifiëren van de gebruiker Hallo en alvorens deze toegang toohello toepassing kiezen. Als deze voorwaarden is voldaan, wordt Hallo gebruiker geverifieerd en toegang toohello toepassing toegestaan."
+title: Azure Active Directory hybride identiteit ontwerpoverwegingen - bepalen vereisten voor multi-factor authentication-server
+description: "Met voorwaardelijk toegangsbeheer controleert de Azure Active Directory de specifieke voorwaarden die u kiest bij het verifiëren van de gebruiker en alvorens deze toegang tot de toepassing. Als deze voorwaarden is voldaan, wordt de gebruiker geverifieerd en toegang te krijgen tot de toepassing."
 documentationcenter: 
 services: active-directory
 author: femila
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 49fa7b43772fb3a2d6664747477c60a34cddde2b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5b3a8ce6e4203dfb3700f324e32687dd910118af
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Vereisten multi-factor authentication voor uw oplossing voor hybride identiteit bepalen
-In deze wereld van mobility met gebruikers die toegang tot gegevens en toepassingen in de cloud Hallo en vanaf elk apparaat is voor het beveiligen van deze informatie geworden vooral gekeken naar.  Elke dag wordt er een nieuwe kop over een inbreuk op de beveiliging is.  Hoewel er is geen garantie tegen dergelijke schendingen, meervoudige verificatie biedt een extra laag van beveiliging toohelp te voorkomen dat deze inbreuk.
-Start Hallo organisaties vereisten voor multi-factor authentication evalueren. Wat is Hallo organisatie poging toosecure.  Deze evaluatie is belangrijk toodefine Hallo technische vereisten voor het instellen en inschakelen van Hallo organisaties gebruikers voor multi-factor authentication.
+In deze wereld van mobility met gebruikers die toegang tot gegevens en toepassingen in de cloud en vanaf elk apparaat is voor het beveiligen van deze informatie geworden vooral gekeken naar.  Elke dag wordt er een nieuwe kop over een inbreuk op de beveiliging is.  Hoewel er is geen garantie tegen dergelijke schendingen, biedt multi-factor authentication-server, een extra beveiligingslaag om te voorkomen dat deze inbreuk.
+Start de organisaties vereisten voor multi-factor authentication evalueren. Dat wil zeggen, wat is de organisatie probeert te beveiligen.  Deze evaluatie is belangrijk om te definiëren van de technische vereisten voor het instellen en inschakelen van de organisaties gebruikers voor multi-factor authentication.
 
 > [!NOTE]
-> Als u niet bekend met MFA en wat het doet bent, is het raadzaam dat u lees Hallo artikel [wat is Azure multi-factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) voorafgaande toocontinue lezen van deze sectie.
+> Als u niet bekend met MFA en wat het doet bent, is het raadzaam dat u lees het artikel [wat is Azure multi-factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) voorafgaande om door te gaan met het lezen van deze sectie.
 > 
 > 
 
-Zorg ervoor dat tooanswer Hallo volgende:
+Zorg ervoor dat het volgende antwoord:
 
-* Is uw bedrijf probeert toosecure Microsoft-apps? 
+* Is uw bedrijf bij het beveiligen van Microsoft-apps? 
 * Hoe deze apps worden gepubliceerd?
-* Uw bedrijf biedt externe toegang tooallow werknemers tooaccess lokale apps?
+* Biedt uw bedrijf externe toegang zodat werknemers toegang tot lokale apps?
 
-Zo ja, welk type externe toegang? U moet ook tooevaluate waar Hallo-gebruikers die toegang deze toepassingen tot geplaatst worden. Deze evaluatie is een andere belangrijke stap toodefine Hallo juiste multi-factor authentication-strategie. Zorg ervoor dat tooanswer Hallo vragen te volgen:
+Zo ja, welk type externe toegang? U moet ook evalueren waar de gebruikers die toegang deze toepassingen tot worden geplaatst. Deze evaluatie is een andere belangrijke stap voor het definiëren van de strategie voor de juiste multi-factor authentication-server. Zorg ervoor dat de volgende vragen beantwoorden:
 
-* Waar bevinden de Hallo gebruikers gaan toobe zich?
+* Waar de gebruikers gaat worden gevonden?
 * Ze zijn locatie overal?
-* Wil uw bedrijf tooestablish beperkingen op basis van de locatie van de gebruiker toohello?
+* Uw bedrijf tot stand wilt brengen beperkingen op basis van de locatie van de gebruiker?
 
-Als u weet dat deze vereisten voldoet, is het belangrijk tooalso evalueren van de gebruiker van het Hallo-vereisten voor multi-factor authentication. Deze evaluatie is belangrijk omdat het Hallo-vereisten definieert voor het implementeren van multi-factor authentication-server. Zorg ervoor dat tooanswer Hallo vragen te volgen:
+Zodra u deze vereisten begrijpt, is het belangrijk om te bepalen ook de vereisten van de gebruiker voor multi-factor authentication. Deze evaluatie is belangrijk, omdat de vereisten voor het implementeren van multi-factor authentication-server zal worden gedefinieerd. Zorg ervoor dat de volgende vragen beantwoorden:
 
-* Hallo gebruikers bekend bent met multi-factor authentication-server?
-* Enkele aanvullende authenticatie vereist tooprovide worden?  
-  * Zo ja, alle Hallo tijd, wanneer die afkomstig is van externe netwerken of toegang tot specifieke toepassingen of andere voorwaarden?
-* Hallo gebruikers training in nodig toosetup en implementeer multi-factor authentication-server?
-* Wat zijn Hallo belangrijke scenario's dat uw bedrijf wil tooenable multi-factor authentication voor hun gebruikers?
+* De gebruikers bekend bent met multi-factor authentication-server?
+* Enkele toepassingen is vereist voor aanvullende verificatie?  
+  * Zo ja, de tijd, wanneer die afkomstig is van externe netwerken of toegang tot specifieke toepassingen of andere voorwaarden?
+* De gebruikers training voor het instellen en implementeren van multi-factor authentication-server nodig?
+* Wat zijn de belangrijkste scenario's die uw bedrijf wil multi-factor authentication voor gebruikers inschakelen?
 
-Na het Hallo vorige vragen beantwoorden, kunt u zich kunt toounderstand als er meerdere factoren verificatie al geïmplementeerd op locatie. Deze evaluatie is belangrijk toodefine Hallo technische vereisten voor het instellen en inschakelen van Hallo organisaties gebruikers voor multi-factor authentication. Zorg ervoor dat tooanswer Hallo vragen te volgen:
+Na de vorige vragen te beantwoorden, zich u te bepalen of er meerdere factoren verificatie al geïmplementeerd op locatie zijn. Deze evaluatie is belangrijk om te definiëren van de technische vereisten voor het instellen en inschakelen van de organisaties gebruikers voor multi-factor authentication. Zorg ervoor dat de volgende vragen beantwoorden:
 
-* Heeft uw bedrijf behoefte aan tooprotect bevoegde accounts met MFA?
-* Heeft uw bedrijf behoefte tooenable MFA voor bepaalde toepassing om wettelijke redenen?
-* Heeft uw bedrijf tooenable MFA nodig voor alle in aanmerking komende gebruikers van deze toepassing of alleen beheerders
-* Hebt u nog moet MFA altijd ingeschakeld of alleen wanneer Hallo gebruikers zijn aangemeld buiten uw bedrijfsnetwerk?
+* Moet uw bedrijf beveiligen van bevoegde accounts met MFA?
+* Heeft uw bedrijf behoefte inschakelen van MFA voor bepaalde toepassing om wettelijke redenen?
+* Moet uw bedrijf MFA inschakelen voor alle in aanmerking komende gebruikers van deze toepassing of alleen beheerders?
+* Hebt u nog moet MFA altijd ingeschakeld of alleen wanneer de gebruikers zijn aangemeld buiten uw bedrijfsnetwerk?
 
 ## <a name="next-steps"></a>Volgende stappen
 [Een strategie voor hybride identiteit acceptatie definiëren](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)

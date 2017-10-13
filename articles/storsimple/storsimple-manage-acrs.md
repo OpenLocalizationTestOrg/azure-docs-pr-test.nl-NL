@@ -1,6 +1,6 @@
 ---
-title: aaaManage access control-records in StorSimple | Microsoft Docs
-description: Hierin wordt beschreven hoe toouse toegangsbeheer (ACRs) toodetermine welke hosts verbinding van volume tooa op Hallo StorSimple-apparaat maken kunnen registreert.
+title: Access control records in StorSimple beheren | Microsoft Docs
+description: Beschrijft hoe access control-records (ACRs) gebruiken om te bepalen welke hosts kunnen verbinding maken met een volume op het StorSimple-apparaat.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,76 +14,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
-ms.openlocfilehash: a1e718c2679301b34221a233557a1eaae869a94f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a87624b5706c1d9b8c2b9926e5580996a89ce984
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-storsimple-manager-service-toomanage-access-control-records"></a>Hallo StorSimple Manager-service toomanage access control records gebruiken
+# <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>De StorSimple Manager-service gebruiken om de access control records beheren
 ## <a name="overview"></a>Overzicht
-Access control-records (ACRs) kunnen u toospecify welke hosts verbinding van volume tooa op Hallo StorSimple-apparaat maken kunnen. ACRs tooa specifieke volume worden ingesteld en bevatten Hallo iSCSI gekwalificeerde namen (IQN's de gebruikershandleiding) Hallo-hosts. Wanneer een host tooconnect tooa volume probeert, controleert Hallo apparaat Hallo ACR die zijn gekoppeld aan dat volume voor Hallo IQN naam en als er een overeenkomst is, wordt hello verbinding tot stand is gebracht. Hallo-toegangsbeheer registreert sectie op Hallo **configureren** pagina alle Hallo access control records wordt weergegeven met Hallo IQN's de gebruikershandleiding Hallo hosts overeenkomt.
+Access control-records (ACRs) kunnen u opgeven welke hosts kunnen verbinding maken met een volume op het StorSimple-apparaat. ACRs zijn ingesteld op een bepaald volume en de iSCSI-gekwalificeerde namen bevatten (IQN's de gebruikershandleiding) van de hosts. Wanneer een host probeert verbinding maken met een volume bevindt, controleert het apparaat de ACR die zijn gekoppeld aan dat volume voor de naam IQN en als er een overeenkomst, klikt u vervolgens de verbinding tot stand is gebracht. Het toegangsbeheer sectie registreert op de **configureren** pagina wordt weergegeven voor alle access control records met de bijbehorende IQN's de gebruikershandleiding van de hosts.
 
-Deze zelfstudie wordt uitgelegd hoe Hallo algemene ACR-gerelateerde taken te volgen:
+Deze zelfstudie wordt uitgelegd hoe de volgende algemene ACR-gerelateerde taken:
 
 * Een record voor toegangscontrole toevoegen 
 * Een record voor toegangscontrole bewerken 
 * Een record voor toegangscontrole verwijderen 
 
 > [!IMPORTANT]
-> * Bij het toewijzen van een volume van de tooa ACR zorgt dat Hallo volume niet gelijktijdig toegankelijk is door meer dan één niet-geclusterde host omdat dit kan Hallo volume beschadigd. 
-> * Wanneer u een ACR verwijdert van een volume, zorg er dan voor dat die Hallo bijbehorende host geen toegang heeft tot Hallo volume omdat Hallo verwijderen tot een onderbreking van de alleen-lezen leiden kan.
+> * Wanneer u een ACR toewijst aan een volume, ervoor te zorgen dat het volume niet gelijktijdig toegankelijk is door meer dan één niet-geclusterde host omdat dit kan het volume beschadigd. 
+> * Wanneer u een ACR verwijdert van een volume, zorg dat de bijbehorende host geen toegang heeft tot het volume omdat de verwijdering tot een onderbreking van de alleen-lezen leiden kan.
 > 
 > 
 
 ## <a name="add-an-access-control-record"></a>Een record voor toegangscontrole toevoegen
-Gebruik van de StorSimple Manager-service Hallo **configureren** tooadd ACRs pagina. U koppelt doorgaans één ACR met één volume.
+Gebruik van de StorSimple Manager-service **configureren** pagina ACRs toevoegen. U koppelt doorgaans één ACR met één volume.
 
-Volgende stappen tooadd een ACR Hallo uitvoeren.
+Voer de volgende stappen uit om toe te voegen een ACR.
 
-#### <a name="tooadd-an-access-control-record"></a>een record voor toegangscontrole tooadd
-1. Op de startpagina van Hallo-service, selecteer uw service, dubbelklikt u op Hallo servicenaam en klik op Hallo **configureren** tabblad.
-2. In Hallo in tabelvorm aanbieding onder **Access control records**, supply een **naam** voor uw ACR.
-3. Hallo IQN naam van uw Windows-host onder **iSCSI-initiatornaam**. tooget hello IQN van Windows Server-host Hallo te volgen:
+#### <a name="to-add-an-access-control-record"></a>Een record voor toegangscontrole toevoegen
+1. Selecteer uw service op de startpagina van de service, dubbelklikt u op de servicenaam en klik op de **configureren** tabblad.
+2. In de lijst in tabelvorm onder **Access control records**, supply een **naam** voor uw ACR.
+3. Geef de naam van het IQN van uw Windows-host onder **iSCSI-initiatornaam**. Als u het IQN van uw Windows Server-host, het volgende doen:
    
-   * Start Hallo Microsoft iSCSI-initiator op uw Windows-host.
-   * In Hallo **eigenschappen iSCSI-Initiator** venster op Hallo **configuratie** tabblad Selecteer en kopieer Hallo tekenreeks van Hallo **initiatornaam** veld.
-   * Plak deze tekenreeks in Hallo **iSCSI-initiatornaam** op Hallo ACRs tabel in Hallo klassieke Azure-portal.
-4. Klik op **opslaan** toosave hello ACR van een nieuw gemaakt. Hallo in tabelvorm aanbieding zal worden bijgewerkte tooreflect deze toevoeging.
+   * Start de Microsoft iSCSI-initiator op uw Windows-host.
+   * Selecteer en kopieer in het venster **Eigenschappen iSCSI-initiator** op het tabblad **Configuratie** de tekenreeks in het veld **Naam van initiator**.
+   * Plak deze tekenreeks in de **iSCSI-initiatornaam** op de tabel ACRs in de klassieke Azure portal.
+4. Klik op **opslaan** de zojuist gemaakte ACR opslaan. In de lijst in tabelvorm worden bijgewerkt naar aanleiding van deze toevoeging.
 
 ## <a name="edit-an-access-control-record"></a>Een record voor toegangscontrole bewerken
-Gebruik van Hallo **configureren** pagina in hello Azure classic portal tooedit ACRs. 
+U gebruikt de **configureren** pagina in de klassieke Azure portal ACRs bewerken. 
 
 > [!NOTE]
-> U kunt alleen deze ACRs die zich momenteel niet in gebruik wijzigen. tooedit een ACR die zijn gekoppeld aan een volume dat wordt gebruikt, u moet eerst Hallo volume offline halen.
+> U kunt alleen deze ACRs die zich momenteel niet in gebruik wijzigen. Als u wilt bewerken een ACR die zijn gekoppeld aan een volume dat wordt gebruikt, moet u het volume eerst offline halen.
 > 
 > 
 
-Volgende stappen tooedit een ACR Hallo uitvoeren.
+De volgende stappen uitvoeren om te bewerken van een ACR.
 
-#### <a name="tooedit-an-access-control-record"></a>een record voor toegangscontrole tooedit
-1. Op de startpagina van Hallo-service, selecteer uw service, dubbelklikt u op Hallo servicenaam en klik op Hallo **configureren** tabblad.
-2. In tabelvorm aanbieding Hallo Hallo access control records, de muisaanwijzer op Hallo ACR gewenste toomodify.
-3. Geef een nieuwe naam en/of IQN voor Hallo ACR.
-4. Klik op **opslaan** toosave hello ACR gewijzigd. Hallo in tabelvorm aanbieding zal worden bijgewerkte tooreflect deze wijziging.
+#### <a name="to-edit-an-access-control-record"></a>Een record voor toegangscontrole bewerken
+1. Selecteer uw service op de startpagina van de service, dubbelklikt u op de servicenaam en klik op de **configureren** tabblad.
+2. In de lijst in tabelvorm van de access control-records de muisaanwijzer op de ACR die u wilt wijzigen.
+3. Geef een nieuwe naam en/of IQN voor de ACR.
+4. Klik op **opslaan** de gewijzigde ACR opslaan. In de lijst in tabelvorm worden bijgewerkt om deze wijziging weer te geven.
 
 ## <a name="delete-an-access-control-record"></a>Een record voor toegangscontrole verwijderen
-Gebruik van Hallo **configureren** pagina in hello Azure classic portal toodelete ACRs. 
+U gebruikt de **configureren** pagina in de klassieke Azure portal ACRs verwijderen. 
 
 > [!NOTE]
-> U kunt alleen deze ACRs die zich momenteel niet in gebruik verwijderen. toodelete een ACR die zijn gekoppeld aan een volume dat wordt gebruikt, u moet eerst Hallo volume offline halen.
+> U kunt alleen deze ACRs die zich momenteel niet in gebruik verwijderen. Als u wilt verwijderen een ACR die zijn gekoppeld aan een volume dat wordt gebruikt, moet u het volume eerst offline halen.
 > 
 > 
 
-Volgende stappen toodelete een record voor toegangscontrole Hallo uitvoeren.
+Voer de volgende stappen uit als u wilt verwijderen van een record voor toegangscontrole.
 
-#### <a name="toodelete-an-access-control-record"></a>een record voor toegangscontrole toodelete
-1. Op de startpagina van Hallo-service, selecteer uw service, dubbelklikt u op Hallo servicenaam en klik op Hallo **configureren** tabblad.
-2. In tabelvorm aanbieding Hallo van Hallo access control-records (ACRs), de muisaanwijzer op Hallo ACR gewenste toodelete.
-3. Een verwijderpictogram (**x**) wordt weergegeven in Hallo extreme rechterkolom voor Hallo ACR die u selecteert. Klik op Hallo **x** pictogram toodelete hello ACR.
-4. Wanneer u om bevestiging gevraagd, klikt u op **Ja** toocontinue met Hallo verwijderen. in de lijst in tabelvorm Hallo worden bijgewerkte tooreflect Hallo verwijderen.
+#### <a name="to-delete-an-access-control-record"></a>Een record voor toegangscontrole verwijderen
+1. Selecteer uw service op de startpagina van de service, dubbelklikt u op de servicenaam en klik op de **configureren** tabblad.
+2. In de lijst in tabelvorm access control records (ACRs), de muisaanwijzer op de ACR die u wilt verwijderen.
+3. Een verwijderpictogram (**x**) wordt weergegeven in de rechterkolom extreme voor de ACR die u selecteert. Klik op de **x** pictogram de ACR verwijderen.
+4. Wanneer u om bevestiging gevraagd, klikt u op **Ja** om door te gaan met het verwijderen. In de lijst in tabelvorm worden bijgewerkt naar aanleiding van de verwijdering.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [StorSimple-volumes beheren](storsimple-manage-volumes.md).
-* Meer informatie over [StorSimple Manager service tooadminister uw StorSimple-apparaat met behulp van Hallo](storsimple-manager-service-administration.md).
+* Meer informatie over [de StorSimple Manager-service gebruiken voor het beheer van uw StorSimple-apparaat](storsimple-manager-service-administration.md).
 

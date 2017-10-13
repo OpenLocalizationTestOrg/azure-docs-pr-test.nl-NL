@@ -1,6 +1,6 @@
 ---
-title: aaaESP8266 toocloud - verbinding Doezelaar HUZZAH ESP8266 tooAzure IoT Hub | Microsoft Docs
-description: Meer informatie over hoe toosetup en verbinding Adafruit Doezelaar HUZZAH ESP8266 tooAzure IoT Hub voor toosend gegevens toohello Azure cloud-platform in deze zelfstudie.
+title: ESP8266 naar cloud - Doezelaar HUZZAH ESP8266 verbinden met Azure IoT Hub | Microsoft Docs
+description: Informatie over het instellen en Adafruit Doezelaar HUZZAH ESP8266 verbinden met Azure IoT Hub voor gegevens verzenden naar het Azure-cloud-platform in deze zelfstudie.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: xshi
-ms.openlocfilehash: 44fd47232488948d21c7aa71bdd865397e41e63e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6a450579c848fe6030a328ddf410f139baae2324
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="connect-adafruit-feather-huzzah-esp8266-tooazure-iot-hub-in-hello-cloud"></a>Verbinding maken met Adafruit Doezelaar HUZZAH ESP8266 tooAzure IoT-Hub in de cloud Hallo
+# <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Doezelaar HUZZAH ESP8266 verbinden met Azure IoT Hub in de cloud
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
@@ -30,39 +30,39 @@ ms.lasthandoff: 10/06/2017
 ## <a name="what-you-do"></a>Wat u doet
 
 
-Verbinding maken met Adafruit Doezelaar HUZZAH ESP8266 tooan IoT-hub die u maakt. Vervolgens voert u een voorbeeld van toepassing op ESP8266 toocollect Hallo temperatuur en vochtigheid gegevens van een sensor DHT22. Ten slotte verzendt u Hallo sensor gegevens tooyour iothub.
+Verbinding maken met Adafruit Doezelaar HUZZAH ESP8266 naar een IoT-hub die u maakt. Vervolgens voert u een voorbeeld van toepassing op ESP8266 de temperatuur en vochtigheid om gegevens te verzamelen van een sensor DHT22. U kunt ten slotte de sensorgegevens verzendt naar uw IoT-hub.
 
 > [!NOTE]
-> Als u andere boards ESP8266 gebruikt, kunt u nog steeds de tooconnect van deze stappen volgen het tooyour IoT-hub. Afhankelijk van het mededelingenbord Hallo ESP8266 u gebruikt, moet u mogelijk tooreconfigure hello `LED_PIN`. Bijvoorbeeld, als u ESP8266 van AI-Thinker, u wijzigt in `0` te`2`. Heb je nog een kit? Het ophalen van Hallo [Azure-website](http://azure.com/iotstarterkits).
+> Als u andere boards ESP8266 gebruikt, kunt u deze stappen om te verbinden met uw IoT-hub nog steeds volgen. Afhankelijk van de ESP8266 bestuur u gebruikt, moet u mogelijk opnieuw configureren de `LED_PIN`. Bijvoorbeeld, als u ESP8266 van AI-Thinker, u wijzigt in `0` naar `2`. Heb je nog een kit? Ophalen van de [Azure-website](http://azure.com/iotstarterkits).
 
 
 
 
 ## <a name="what-you-learn"></a>Wat u leert
 
-* Hoe toocreate een IoT-hub en een apparaat registreren voor Doezelaar HUZZAH ESP8266
-* Hoe tooconnect Doezelaar HUZZAH ESP8266 met Hallo sensoren en uw computer
-* Hoe toocollect sensorgegevens door het uitvoeren van een voorbeeld van toepassing op Doezelaar HUZZAH ESP8266
-* Hoe toosend Hallo sensor gegevens tooyour IoT-hub
+* Het maken van een IoT-hub en een apparaat registreren voor Doezelaar HUZZAH ESP8266
+* Hoe Doezelaar HUZZAH ESP8266 verbinding met de sensor en uw computer
+* Het verzamelen van sensorgegevens door het uitvoeren van een voorbeeld van toepassing op Doezelaar HUZZAH ESP8266
+* Hoe de sensorgegevens verzendt naar uw IoT-hub
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
-![Onderdelen die nodig zijn voor Hallo-zelfstudie](media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
+![Onderdelen die nodig zijn voor de zelfstudie](media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
 
-toocomplete deze bewerking moet u volgende onderdelen van uw Doezelaar HUZZAH ESP8266 Starter Kit Hallo:
+Om deze bewerking niet voltooien, moet u de volgende onderdelen van uw Doezelaar HUZZAH ESP8266 Starter Kit:
 
-* Hallo Doezelaar HUZZAH ESP8266 mededelingenbord
-* Een USB-Micro tooType een USB-kabel
+* De doezelaar HUZZAH ESP8266-kaart
+* Een Micro USB-Type A USB-kabel
 
-U moet ook Hallo dingen voor uw ontwikkelomgeving te volgen:
+U moet ook de volgende bewerkingen voor uw ontwikkelomgeving:
 
 * Een actief Azure-abonnement. Als u een Azure-account geen [maken van een gratis Azure-proefaccount](https://azure.microsoft.com/free/) over een paar minuten.
 * Mac of PC met Windows of Ubuntu.
-* Doezelaar HUZZAH ESP8266 tooconnect voor draadloos netwerk.
-* Internet verbinding toodownload Hallo-configuratiehulpprogramma.
-* [Arduino IDE](https://www.arduino.cc/en/main/software) versie 1.6.8 of hoger. Eerdere versies werken niet met Hallo AzureIoT-bibliotheek.
+* Doezelaar HUZZAH ESP8266 verbinding maken met draadloze netwerk.
+* Internet-verbinding voor het downloaden van het hulpprogramma voor serverconfiguratie.
+* [Arduino IDE](https://www.arduino.cc/en/main/software) versie 1.6.8 of hoger. Eerdere versies werkt niet met de AzureIoT-bibliotheek.
 
-Hallo zijn volgende items optioneel als u een sensor geen hebt. U hebt ook Hallo-optie van het gebruik van gesimuleerde sensorgegevens.
+De volgende items zijn optioneel als u een sensor geen hebt. U hebt ook de optie van het gebruik van gesimuleerde sensorgegevens.
 
 * Een Adafruit DHT22 temperatuur en vochtigheid-temperatuursensor
 * Een breadboard
@@ -71,16 +71,16 @@ Hallo zijn volgende items optioneel als u een sensor geen hebt. U hebt ook Hallo
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-## <a name="connect-feather-huzzah-esp8266-with-hello-sensor-and-your-computer"></a>Verbinding maken met Doezelaar HUZZAH ESP8266 met Hallo sensoren en uw computer
-In deze sectie maakt verbinding u Hallo sensoren tooyour mededelingenbord. U sluit uw apparaat tooyour computer voor verdere gebruik.
-### <a name="connect-a-dht22-temperature-and-humidity-sensor-toofeather-huzzah-esp8266"></a>Verbinding maken met een DHT22 temperatuur en vochtigheid sensor tooFeather HUZZAH ESP8266
+## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>Doezelaar HUZZAH ESP8266 verbinden met de sensor en uw computer
+In deze sectie kunt u de sensoren verbinding met het mededelingenbord. Vervolgens aansluit u uw apparaat op uw computer voor gebruik.
+### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-huzzah-esp8266"></a>Verbinding maken met een DHT22 temperatuur en vochtigheid sensor Doezelaar HUZZAH ESP8266
 
-Hallo breadboard en meestal kabels toomake Hallo verbinding als volgt gebruiken. Als u geen een sensor, deze sectie overslaan omdat u gesimuleerde sensorgegevens in plaats daarvan kunt gebruiken.
+Gebruik de bedrading breadboard en meestal als volgt verbinding te maken. Als u geen een sensor, deze sectie overslaan omdat u gesimuleerde sensorgegevens in plaats daarvan kunt gebruiken.
 
 ![Verbindingen verwijzing](media/iot-hub-arduino-huzzah-esp8266-get-started/15_connections_on_breadboard.png)
 
 
-Gebruik voor pincodes sensor, Hallo bedrading te volgen:
+Gebruik de volgende bedrading voor sensor-pincodes:
 
 
 | Start (Sensor)           | Einde (BMC)           | Kleur van de kabel   |
@@ -97,86 +97,86 @@ Nu moeten uw Doezelaar Huzzah ESP8266 zijn verbonden met een sensor werken.
 
 ![DHT22 verbinden met Doezelaar Huzzah](media/iot-hub-arduino-huzzah-esp8266-get-started/8_connect-dht22-feather-huzzah.png)
 
-### <a name="connect-feather-huzzah-esp8266-tooyour-computer"></a>Verbind Doezelaar HUZZAH ESP8266 tooyour computer
+### <a name="connect-feather-huzzah-esp8266-to-your-computer"></a>Doezelaar HUZZAH ESP8266 aansluiten op uw computer
 
-Zoals u volgende, Hallo Micro USB tooType een USB-kabel tooconnect Doezelaar HUZZAH ESP8266 tooyour computer gebruiken.
+Zoals u volgende, gebruikt u de USB Micro naar Type een USB-kabel Doezelaar HUZZAH ESP8266 aansluiten op uw computer.
 
-![Verbind Doezelaar Huzzah tooyour computer](media/iot-hub-arduino-huzzah-esp8266-get-started/9_connect-feather-huzzah-computer.png)
+![Doezelaar Huzzah aansluiten op uw computer](media/iot-hub-arduino-huzzah-esp8266-get-started/9_connect-feather-huzzah-computer.png)
 
 ### <a name="add-serial-port-permissions-ubuntu-only"></a>Machtigingen van de seriële poort (alleen Ubuntu) toevoegen
 
 
-Als u Ubuntu gebruikt, moet u Hallo machtigingen toooperate op Hallo USB-poort van Doezelaar HUZZAH ESP8266. machtigingen van de seriële poort tooadd, als volgt te werk:
+Als u Ubuntu gebruikt, zorg er dan voor dat u gemachtigd bent om te werken op de USB-poort van Doezelaar HUZZAH ESP8266. Als u wilt toevoegen seriële poort machtigingen, de volgende stappen uit:
 
 
-1. Voer Hallo opdrachten op een terminal te volgen:
+1. Voer de volgende opdrachten in een terminal:
 
    ```bash
    ls -l /dev/ttyUSB*
    ls -l /dev/ttyACM*
    ```
 
-   Ophalen van een Hallo volgende uitvoer:
+   U kunt een van de volgende uitvoer:
 
    * CRW-rw---1 hoofdmap uucp xxxxxxxx
    * CRW-rw---1 hoofdmap bellen xxxxxxxx
 
-   U ziet dat in de uitvoer van Hallo `uucp` of `dialout` Hallo groepsnaam eigenaar Hallo USB-poort is.
+   U ziet dat in de uitvoer `uucp` of `dialout` is de naam van de eigenaar van de USB-poort.
 
-1. Hallo-gebruikersgroep toohello door het uitvoeren van de volgende opdracht Hallo toevoegen:
+1. De gebruiker toevoegen aan de groep met de volgende opdracht:
 
    ```bash
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>`Hallo eigenaar groepsnaam die u hebt verkregen is in de vorige stap Hallo. `<username>`uw gebruikersnaam Ubuntu is.
+   `<group-owner-name>`is de naam van de eigenaar die u in de vorige stap hebt verkregen. `<username>`uw gebruikersnaam Ubuntu is.
 
-1. Meld u af bij Ubuntu en vervolgens opnieuw aan te melden voor Hallo wijziging tooappear.
+1. Meld u af bij Ubuntu en vervolgens opnieuw aan te melden om de wijziging moet worden weergegeven.
 
-## <a name="collect-sensor-data-and-send-it-tooyour-iot-hub"></a>Sensorgegevens verzamelen en deze tooyour IoT-hub te verzenden
+## <a name="collect-sensor-data-and-send-it-to-your-iot-hub"></a>Sensorgegevens verzamelen en verzenden naar uw IoT-hub
 
-In deze sectie die u kunt implementeren en uitvoeren van een voorbeeld van toepassing op Doezelaar HUZZAH ESP8266. Hallo-voorbeeldtoepassing knippert Hallo LED Doezelaar HUZZAH ESP8266 en verzendt Hallo temperatuur en vochtigheid gegevens die worden verzameld van Hallo DHT22 sensor tooyour IoT-hub.
+In deze sectie die u kunt implementeren en uitvoeren van een voorbeeld van toepassing op Doezelaar HUZZAH ESP8266. De voorbeeldtoepassing de LED Doezelaar HUZZAH ESP8266 knippert en verzendt de temperatuur en vochtigheid gegevens verzameld van de sensor DHT22 naar uw IoT-hub.
 
-### <a name="get-hello-sample-application-from-github"></a>Hallo-voorbeeldtoepassing ophalen van GitHub
+### <a name="get-the-sample-application-from-github"></a>Ophalen van de voorbeeldtoepassing uit GitHub
 
-Hallo-voorbeeldtoepassing wordt gehost op GitHub. Kloon Hallo voorbeeld opslagplaats waarin de voorbeeldtoepassing Hallo vanuit GitHub. tooclone hello voorbeeld opslagplaats als volgt te werk:
+De voorbeeldtoepassing wordt gehost op GitHub. Kloon de opslagplaats voorbeeld waarin de voorbeeldtoepassing vanuit GitHub. De voorbeeld-opslagplaats klonen, de volgende stappen uit:
 
 1. Open een opdrachtprompt of een terminalvenster.
-1. Ga tooa map waarin u Hallo voorbeeld toepassing toobe opgeslagen.
-1. Hallo volgende opdracht uitvoeren:
+1. Ga naar een map waar u de voorbeeldtoepassing moet worden opgeslagen.
+1. Voer de volgende opdracht uit:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app.git
    ```
 
-Hallo-pakket voor Doezelaar HUZZAH ESP8266 op Hallo Arduino IDE installeren:
+Installeer het pakket voor Doezelaar HUZZAH ESP8266 in Arduino IDE:
 
-1. Open Hallo map waarin de voorbeeldtoepassing Hallo is opgeslagen.
-1. Hallo app.ino bestand openen in Hallo app map in Hallo Arduino IDE.
+1. Open de map waar de voorbeeldtoepassing wordt opgeslagen.
+1. Open het bestand app.ino in de map van de app in de Arduino IDE.
 
-   ![Hallo-voorbeeldtoepassing in Arduino IDE openen](media/iot-hub-arduino-huzzah-esp8266-get-started/10_arduino-ide-open-sample-app.png)
+   ![De voorbeeldtoepassing in Arduino IDE openen](media/iot-hub-arduino-huzzah-esp8266-get-started/10_arduino-ide-open-sample-app.png)
 
-1. Klik in het Hallo Arduino IDE, op **bestand** > **voorkeuren**.
-1. In Hallo **voorkeuren** dialoogvenster vak, klikt u op Hallo pictogram volgende toohello **extra Boards Manager-URL's** vak.
-1. Voer in het pop-upvenster hello, Hallo URL te volgen en klik vervolgens op **OK**.
+1. Klik in de IDE Arduino **bestand** > **voorkeuren**.
+1. In de **voorkeuren** dialoogvenster vak, klik op het pictogram naast de **extra Boards Manager-URL's** vak.
+1. Voer de volgende URL in het pop-upvenster en klik vervolgens op **OK**.
 
    `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
 
-   ![Url voor het pakket in Arduino IDE punt tooa](media/iot-hub-arduino-huzzah-esp8266-get-started/11_arduino-ide-package-url.png)
+   ![Wijs de url van een pakket in Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/11_arduino-ide-package-url.png)
 
-1. In Hallo **voorkeur** in het dialoogvenster, klikt u op **OK**.
+1. In de **voorkeur** in het dialoogvenster, klikt u op **OK**.
 1. Klik op **extra** > **mededelingenbord** > **Boards Manager**, en zoek vervolgens naar esp8266.
 
    Boards Manager geeft aan dat ESP8266 met een versie van 2.2.0 of hoger is geïnstalleerd.
 
-   ![Hallo esp8266 pakket is geïnstalleerd](media/iot-hub-arduino-huzzah-esp8266-get-started/12_arduino-ide-esp8266-installed.png)
+   ![Het pakket esp8266 is geïnstalleerd](media/iot-hub-arduino-huzzah-esp8266-get-started/12_arduino-ide-esp8266-installed.png)
 
 1. Klik op **extra** > **mededelingenbord** > **Adafruit HUZZAH ESP8266**.
 
 ### <a name="install-necessary-libraries"></a>Vereiste bibliotheken installeren
 
-1. In Hallo Arduino IDE, klikt u op **schema** > **bibliotheek omvatten** > **bibliotheken beheren**.
-1. Zoeken naar Hallo bibliotheeknamen, één voor één te volgen. Voor elke bibliotheek die u vindt, klikt u op **installeren**.
+1. Klik in de IDE Arduino **schema** > **bibliotheek omvatten** > **bibliotheken beheren**.
+1. Zoeken naar de volgende bibliotheek benoemt één voor één. Voor elke bibliotheek die u vindt, klikt u op **installeren**.
    * `AzureIoTHub`
    * `AzureIoTUtility`
    * `AzureIoTProtocol_MQTT`
@@ -186,47 +186,47 @@ Hallo-pakket voor Doezelaar HUZZAH ESP8266 op Hallo Arduino IDE installeren:
 
 ### <a name="dont-have-a-real-dht22-sensor"></a>Geen een echte DHT22 sensor?
 
-Hallo-voorbeeldtoepassing kunt temperatuur en vochtigheid gegevens simuleren als u een echte DHT22 sensor geen hebt. tooset up Hallo toepassing toouse gesimuleerde voorbeeldgegevens, als volgt te werk:
+De voorbeeldtoepassing kunt temperatuur en vochtigheid gegevens simuleren als u een echte DHT22 sensor geen hebt. U stelt de voorbeeldtoepassing gesimuleerde gegevens gebruiken door de volgende stappen uit:
 
-1. Open Hallo `config.h` bestand in Hallo `app` map.
-1. Zoek Hallo coderegel na en wijzig Hallo-waarde van `false` te`true`:
+1. Open de `config.h` bestand de `app` map.
+1. Zoek de volgende regel code en wijzig de waarde van `false` naar `true`:
    ```c
    define SIMULATED_DATA true
    ```
-   ![Toepassing hello-toouse gesimuleerde Voorbeeldgegevens configureren](media/iot-hub-arduino-huzzah-esp8266-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
+   ![Configureren van de voorbeeldtoepassing gesimuleerde gegevens gebruiken](media/iot-hub-arduino-huzzah-esp8266-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
 
-1. Hallo opslaan met `Control-s`.
+1. Sla het bestand met `Control-s`.
 
-### <a name="deploy-hello-sample-application-toofeather-huzzah-esp8266"></a>Hallo voorbeeld toepassing tooFeather HUZZAH ESP8266 implementeren
+### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>De voorbeeldtoepassing voor Doezelaar HUZZAH ESP8266 implementeren
 
-1. Klik in het Hallo Arduino IDE, op **hulpprogramma** > **poort**, en klik vervolgens op de seriële poort Hallo voor Doezelaar HUZZAH ESP8266.
-1. Klik op **schema** > **uploaden** toobuild en Hallo voorbeeld toepassing tooFeather HUZZAH ESP8266 implementeren.
+1. Klik in de IDE Arduino **hulpprogramma** > **poort**, en klik vervolgens op de seriële poort voor Doezelaar HUZZAH ESP8266.
+1. Klik op **schema** > **uploaden** kunnen bouwen en implementeren van de voorbeeldtoepassing voor Doezelaar HUZZAH ESP8266.
 
 ### <a name="enter-your-credentials"></a>Voer uw referenties in
 
-Nadat het Hallo uploaden is voltooid, volgt u deze stappen tooenter uw referenties:
+Nadat het uploaden voltooid is, voert u deze stappen om uw referenties invoeren:
 
-1. In Hallo Arduino IDE, klikt u op **extra** > **seriële Monitor**.
-1. Let op Hallo twee vervolgkeuzelijsten in de rechterbenedenhoek Hallo in Hallo seriële monitor-venster.
-1. Selecteer **er is geen afsluitende regel** voor Hallo links vervolgkeuzelijst.
-1. Selecteer **115200 baud** voor Hallo rechts vervolgkeuzelijst.
-1. Voer in Hallo-invoervak Hallo boven aan het venster seriële monitor Hallo Hallo volgende informatie als u wordt gevraagd tooprovide, en klik vervolgens op **verzenden**.
+1. Klik in de IDE Arduino **extra** > **seriële Monitor**.
+1. In het venster seriële monitor ziet u de twee lijsten in de vervolgkeuzelijst in de rechterbenedenhoek.
+1. Selecteer **er is geen afsluitende regel** voor de linker vervolgkeuzelijst.
+1. Selecteer **115200 baud** voor de lijst rechts vervolgkeuzelijst.
+1. Voer de volgende gegevens in het invoervak zich boven aan het venster seriële monitor, als u wordt gevraagd om ze en klik vervolgens op **verzenden**.
    * Wi-Fi-SSID
    * Wi-Fi-wachtwoord
    * Apparaat-verbindingsreeks
 
 > [!Note]
-> Hallo referentie-informatie wordt opgeslagen in Hallo EEPROM Doezelaar HUZZAH ESP8266. Als u op de herstelknop Hallo op Hallo Doezelaar HUZZAH ESP8266 mededelingenbord, desgewenst Hallo voorbeeldtoepassing tooerase Hallo informatie. Voer `Y` toohave Hallo informatie gewist. U wordt gevraagd tooprovide Hallo informatie een tweede keer.
+> De referentie-informatie wordt opgeslagen in de EEPROM van Doezelaar HUZZAH ESP8266. Als u op de knop herstellen op het mededelingenbord Doezelaar HUZZAH ESP8266 klikt, wordt de voorbeeldtoepassing gevraagd als u wilt de gegevens wissen. Voer `Y` te beschikken over de gegevens gewist. U wordt gevraagd om de informatie van een tweede keer te geven.
 
-### <a name="verify-hello-sample-application-is-running-successfully"></a>Controleer of de voorbeeldtoepassing Hallo correct wordt uitgevoerd
+### <a name="verify-the-sample-application-is-running-successfully"></a>Controleer of dat de voorbeeldtoepassing met succes wordt uitgevoerd
 
-Als u ziet Hallo volgende de uitvoer van het venster seriële monitor Hallo en Hallo knipperende LED Doezelaar HUZZAH ESP8266, Hallo voorbeeldtoepassing correct wordt uitgevoerd.
+Als u de volgende uitvoer van het monitorvenster seriële en de knipperende LED op Doezelaar HUZZAH ESP8266 ziet, wordt de voorbeeldtoepassing met succes uitgevoerd.
 
 ![Uiteindelijke uitvoer Arduino IDE](media/iot-hub-arduino-huzzah-esp8266-get-started/14_arduino-ide-final-output.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt een Doezelaar HUZZAH ESP8266 tooyour IoT-hub verbonden, en verzonden hello vastgelegd sensor gegevens tooyour IoT-hub. 
+U hebt een Doezelaar HUZZAH ESP8266 verbonden met uw IoT-hub, en de vastgelegde sensorgegevens verzonden naar uw IoT-hub. 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

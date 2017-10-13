@@ -1,12 +1,12 @@
-Met Azure Resource Manager u parameters definiëren voor waarden gewenste toospecify wanneer Hallo sjabloon wordt geïmplementeerd. Hallo-sjabloon bevat een sectie met de naam van de Parameters die alle Hallo parameterwaarden bevat.
-U moet een parameter voor de waarden die variëren op basis van Hallo-project die u implementeert of op basis van Hallo-omgeving die u om te implementeert definiëren. Definieer parameters niet voor waarden die altijd blijft dezelfde Hallo. De waarde van elke parameter wordt gebruikt in Hallo sjabloon toodefine Hallo implementeren van resources die zijn. 
+Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam van de Parameters die alle van de parameterwaarden bevat.
+U moet een parameter voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving die u om te implementeert definiëren. Geen parameters op voor waarden die u altijd hetzelfde gedefinieerd. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die zijn implementeren. 
 
-Bij het definiëren van parameters gebruiken Hallo **allowedValues** veld toospecify die de waarden van een gebruiker kunt opgeven tijdens de implementatie. Gebruik Hallo **defaultValue** tooassign veld een waarde toohello parameter, als geen waarde is opgegeven tijdens de implementatie.
+Bij het definiëren van parameters, gebruiken de **allowedValues** aan te geven op welke waarden van een gebruiker kunt opgeven tijdens de implementatie. Gebruik de **defaultValue** veld een waarde toewijzen aan de parameter als u geen waarde is opgegeven tijdens de implementatie.
 
-Er wordt elke parameter in de sjabloon Hallo beschreven.
+Elke parameter in de sjabloon wordt beschreven.
 
 ### <a name="logicappname"></a>logicAppName
-Hallo-naam van Hallo logic app toocreate.
+De naam van de logische app maken.
 
     "logicAppName": {
         "type": "string"

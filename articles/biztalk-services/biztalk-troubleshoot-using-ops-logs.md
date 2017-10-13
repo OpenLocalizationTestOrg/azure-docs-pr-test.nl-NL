@@ -1,5 +1,5 @@
 ---
-title: aaaTroubleshoot BizTalk Services met behulp van bewerkingslogboeken | Microsoft Docs
+title: BizTalk Services met behulp van bewerkingslogboeken oplossen | Microsoft Docs
 description: Problemen oplossen met bewerkingslogboeken BizTalk-Services. MABS, WABS
 services: biztalk-services
 documentationcenter: 
@@ -14,51 +14,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 102779ed6e29784f190c28e4102a7d9670614914
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c0c83361f94ffd9c30d7fcc551ff4b85ad7d6fa5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: Problemen oplossen met bewerkingslogboeken
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-## <a name="what-are-hello-operation-logs"></a>Wat zijn de Bewerkingslogboeken Hallo
-Bewerkingslogboeken is een beschikbaar in de klassieke Azure-portal kunt u historische logboeken van de bewerkingen die worden uitgevoerd op uw Azure-services, met inbegrip van BizTalk Services tooview Hallo Management Services-functie. Hiermee kunt u historische gegevens tooview gerelateerde toomanagement bewerkingen voor uw BizTalk Service-abonnement tot 180 dagen.
+## <a name="what-are-the-operation-logs"></a>Wat zijn de logboeken van de bewerking
+Bewerkingslogboeken is een beschikbaar in de klassieke Azure portal waarmee u historische logboeken van de bewerkingen die worden uitgevoerd op uw Azure-services, met inbegrip van BizTalk Services Management Services-functie. Hiermee kunt u historische gegevens met betrekking tot beheerbewerkingen op uw BizTalk Service-abonnement tot 180 dagen weergeven.
 
 > [!NOTE]
-> Deze functie bevat alleen de logboeken voor beheerbewerkingen op BizTalk Services, zoals wanneer Hallo-service is gestart, een back-up, enzovoort gemaakt. Deze bewerkingen worden bijgehouden ongeacht of ze worden uitgevoerd vanuit Hallo klassieke Azure-portal of met behulp van Hallo [BizTalk Service REST-API's](http://msdn.microsoft.com/library/azure/dn232347.aspx). Zie voor een volledige lijst van bewerkingen die worden bijgehouden met beheerservices [bewerkingen bijgehouden met behulp van Azure Management Services](#bizops).<br/><br/>
-> Dit wordt niet vastgelegd Hallo-logboeken voor activiteiten, gerelateerde tooBizTalk Service runtime (zoals bericht verwerkt door bruggen, enzovoort.). tooview deze zich aanmeldt, gebruik Hallo bijhouden weergave van Hallo BizTalk Services-portal. Zie voor meer informatie [berichten bijhouden](http://msdn.microsoft.com/library/azure/hh949805.aspx).
+> Deze functie bevat alleen de logboeken voor beheerbewerkingen op BizTalk Services, zoals wanneer de service is gestart, een back-up, enzovoort gemaakt. Deze bewerkingen worden bijgehouden, ongeacht of ze worden uitgevoerd vanuit de klassieke Azure portal of met behulp van de [BizTalk Service REST-API's](http://msdn.microsoft.com/library/azure/dn232347.aspx). Zie voor een volledige lijst van bewerkingen die worden bijgehouden met beheerservices [bewerkingen bijgehouden met behulp van Azure Management Services](#bizops).<br/><br/>
+> De logboeken voor activiteiten met betrekking tot de BizTalk Service-runtime (zoals bericht verwerkt door bruggen, enzovoort.), wordt dit niet vastgelegd. Gebruik deze om Logboeken te raadplegen, de weergave van het bijhouden van de BizTalk Services-portal. Zie voor meer informatie [berichten bijhouden](http://msdn.microsoft.com/library/azure/hh949805.aspx).
 > 
 > 
 
 ## <a name="view-biztalk-services-operation-logs"></a>BizTalk Services Bewerkingslogboeken weergeven
-1. Selecteer in de klassieke Azure-portal hello, **beheerservices**, en selecteer vervolgens Hallo **Bewerkingslogboeken** tabblad.
-2. U kunt filteren Hallo logboeken op basis van verschillende parameters zoals abonnement, datumbereik, servicetype (bijvoorbeeld BizTalk Services), servicenaam of status van Hallo-bewerking (geslaagd, mislukt).
-3. Selecteer Hallo vinkje tooview Hallo gefilterde lijst. Hallo volgende afbeelding toont activiteiten, gerelateerde tootestbiztalkservice: ![bewerkingslogboeken weergeven][ViewLogs] 
-4. tooview meer informatie over een specifieke bewerking Hallo rij selecteren en op **Details** in de taakbalk Hallo Hallo onderaan.
+1. Selecteer in de klassieke Azure portal **beheerservices**, en selecteer vervolgens de **Bewerkingslogboeken** tabblad.
+2. U kunt de logboeken op basis van verschillende parameters zoals abonnement, datumbereik, servicetype (bijvoorbeeld BizTalk Services), servicenaam of status van de bewerking (geslaagd, mislukt) filteren.
+3. Selecteer het vinkje om de gefilterde lijst weer te geven. De volgende afbeelding toont activiteiten met betrekking tot testbiztalkservice: ![bewerkingslogboeken weergeven][ViewLogs] 
+4. Als u wilt bekijken over een specifieke bewerking, selecteer de rij en klikt u op **Details** in de taakbalk onder.
 
 ## <a name="bizops"></a>Bewerkingen bijgehouden met Azure Management-Services
-Hallo bevat volgende tabel Hallo-bewerkingen die worden bijgehouden met hello Azure Management Services:
+De volgende tabel bevat de bewerkingen die worden bijgehouden met de Azure Management-Services:
 
 | De naam van bewerking | Taak |
 | --- | --- |
-| CreateBizTalkService |Bewerking toocreate een nieuwe BizTalk Service |
-| DeleteBizTalkService |Bewerking toodelete een BizTalk Service |
-| RestartBizTalkService |Bewerking toorestart een BizTalk Service |
-| StartBizTalkService |Bewerking toostart een BizTalk Service |
-| StopBizTalkService |Bewerking toostop een BizTalk Service |
-| DisableBizTalkService |Bewerking toodisable een BizTalk Service |
-| EnableBizTalkService |Bewerking tooenable een BizTalk Service |
-| BackupBizTalkService |Bewerking tooback van een BizTalk Service |
-| RestoreBizTalkService |Bewerking toorestore een BizTalk Service van de opgegeven back-up |
-| SuspendBizTalkService |Bewerking toosuspend een BizTalk Service |
-| ResumeBizTalkService |Bewerking tooresume een BizTalk Service |
-| ScaleBizTalkService |Bewerking tooscale een BizTalk Service omhoog of omlaag |
-| ConfigUpdateBizTalkService |Bewerking tooupdate Hallo configuratie van een BizTalk Service |
-| ServiceUpdateBizTalkService |Bewerking tooupgrade of een downgrade van een andere versie van BizTalk Service tooa |
-| PurgeBackupBizTalkService |Bewerking toopurge back-ups van Hallo BizTalk Service buiten de bewaarperiode Hallo |
+| CreateBizTalkService |Bewerking is een nieuwe BizTalk Service maken |
+| DeleteBizTalkService |Bewerking is een BizTalk Service verwijderen |
+| RestartBizTalkService |Om een BizTalk Service opnieuw te starten |
+| StartBizTalkService |Bewerking is een BizTalk Service starten |
+| StopBizTalkService |Bewerking is een BizTalk Service stoppen |
+| DisableBizTalkService |Bewerking uit te schakelen van een BizTalk Service |
+| EnableBizTalkService |Bewerking is een BizTalk Service inschakelen |
+| BackupBizTalkService |Bewerking back-up een BizTalk Service maken |
+| RestoreBizTalkService |De bewerking een BizTalk Service van de opgegeven back-up herstellen |
+| SuspendBizTalkService |Bewerking voor het onderbreken van een BizTalk Service |
+| ResumeBizTalkService |Bewerking is een BizTalk Service hervatten |
+| ScaleBizTalkService |Bewerking is een BizTalk Service omhoog of omlaag schalen |
+| ConfigUpdateBizTalkService |Bewerking voor het bijwerken van de configuratie van een BizTalk Service |
+| ServiceUpdateBizTalkService |Bewerking bij te werken of een BizTalk Service naar een andere versie downgraden |
+| PurgeBackupBizTalkService |Bewerking voor het opschonen van de back-ups van de BizTalk Service buiten de bewaarperiode |
 
 ## <a name="see-also"></a>Zie ook
 * [Back-up van BizTalk-Service](http://go.microsoft.com/fwlink/p/?LinkID=325584)
@@ -69,7 +69,7 @@ Hallo bevat volgende tabel Hallo-bewerkingen die worden bijgehouden met hello Az
 * [BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: beperking](http://go.microsoft.com/fwlink/p/?LinkID=302282)
 * [BizTalk Services: naam en sleutel van verlener](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [Hoe gaan gebruiken Azure BizTalk Services SDK Hallo](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [De Azure BizTalk Services SDK gaan gebruiken](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
 

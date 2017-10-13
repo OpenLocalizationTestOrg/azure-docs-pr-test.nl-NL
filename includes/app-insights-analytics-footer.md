@@ -2,13 +2,13 @@
 ## <a name="analytics"></a>Analytische gegevens
 * [Overzicht](../articles/application-insights/app-insights-analytics.md)
 * [Rondleiding door analytische gegevens](../articles/application-insights/app-insights-analytics-tour.md)
-  * Begin hier. Een zelfstudie die betrekking hebben op de belangrijkste functies Hallo.
+  * Begin hier. Een zelfstudie over de belangrijkste functies.
 * [Query's](../articles/application-insights/app-insights-analytics-reference.md)
-  * Gebruik, zoals de operators `where` en `count` toobuild query's.
+  * Gebruik operators zoals `where` en `count` om query's samen te stellen.
 * [Aggregatie](../articles/application-insights/app-insights-analytics-reference.md)
-  * Toocompute statistieken over groepen records gebruikt
+  * Wordt gebruikt om de statistieken voor groepen records te berekenen
 * [Scalaire waarden](../articles/application-insights/app-insights-analytics-reference.md)
-  * Gebruikt de queryparameters tooform getallen, tekenreeksen en andere expressies.
+  * Getallen, tekenreeksen en andere expressies die worden gebruikt om queryparameters te vormen.
 * [Analytische gegevens gebruiken](../articles/application-insights/app-insights-analytics-using.md)
   * Analytische gegevens gebruiken.
 * [Taalverwijzing](../articles/application-insights/app-insights-analytics-reference.md)

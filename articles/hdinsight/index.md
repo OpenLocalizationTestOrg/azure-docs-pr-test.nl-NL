@@ -1,8 +1,8 @@
 ---
-title: aaaAzure HDInsight-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Ontdek Hadoop op HDInsight. Documentatie ziet u hoe toouse Hadoop, Spark, HBase, R Server meer tooprocess analyseren en inzicht in grote gegevens krijgen.
+title: Documentatie voor Azure HDInsight - zelfstudies, API-verwijzing | Microsoft Docs
+description: Ontdek Hadoop op HDInsight. Documentatie laat zien hoe u Hadoop, Spark, HBase, R-Server en meer kunt gebruiken om big data te verwerken en te analyseren en hieruit inzichten te verkrijgen.
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 592c31863df2e90886c9e9596b1a24edea79e990
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7d639ca03261f3a9cad537dd92103c5aa6cd0af9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="azure-hdinsight-documentation"></a>Documentatie voor Azure HDInsight
 
-Informatie over de manier waarop cloudservices van toouse Hadoop in Hallo op HDInsight tooanalyze streaming of historische gegevens. Zelfstudies en andere documentatie wordt uitgelegd hoe toocreate clusters, verwerken en analyseren big data, en ontwikkelen van oplossingen met Hadoop, Spark, HBase, R-Server, Storm en andere technologieën in Hallo Hadoop-ecosysteem.
+Leer hoe u Hadoop in de cloud op HDInsight kunt gebruiken om streaming of historische gegevens te analyseren. Zelfstudies en andere documentatie laten zien hoe u clusters maakt, big data verwerkt en analyseert en oplossingen ontwikkelt met Hadoop, Spark, HBase, R-Server, Storm en andere technologieën in het Hadoop-ecosysteem.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -125,6 +125,24 @@ Informatie over de manier waarop cloudservices van toouse Hadoop in Hallo op HDI
                     </div>
                     <div class="cardText">
                         <h3>Aan de slag met HDInsight met een Apache Storm-cluster</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<li>
+        <a href="https://github.com/hdinsight/hdinsight-dev-guide/blob/master/HDInsight%20Developer%20Guide.pdf">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Ontwikkelaarshandleiding voor HDInsight</h3>
                     </div>
                 </div>
             </div>

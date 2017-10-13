@@ -1,5 +1,5 @@
 ---
-title: beleid voor het Hive in HDInsight domein - Azure aaaConfigure | Microsoft Docs
+title: Hive-beleid configureren in het domein HDInsight - Azure | Microsoft Docs
 description: Meer informatie...
 services: hdinsight
 documentationcenter: 
@@ -16,45 +16,45 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 56f2bf9d872abc5f772b886fcf91c2e2422092f4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: de537d5e39dd0d3f75ff802948c7372e4d65d127
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight-preview"></a>Hive-beleidsregels configureren in HDInsight dat is gekoppeld aan een domein (voorbeeld)
-Meer informatie over hoe tooconfigure Apache Zwerver beleidsregels voor Hive. In dit artikel maakt u twee Zwerver beleid toorestrict toegang toohello hivesampletable. Hallo hivesampletable wordt geleverd met HDInsight-clusters. Nadat u Hallo beleidsregels hebt geconfigureerd, gebruikt u Excel en ODBC-stuurprogramma tooconnect tooHive tabellen in HDInsight.
+Hier leert u hoe u Apache Ranger-beleidsregels voor Hive configureert. In dit artikel maakt u twee Ranger-beleidsregels om toegang tot de hivesampletable te beperken. De hivesampletable wordt geleverd met HDInsight-clusters. Nadat u de beleidsregels hebt geconfigureerd, gebruikt u Excel en het ODBC-stuurprogramma om verbinding te maken met Hive-tabellen in HDInsight.
 
 ## <a name="prerequisites"></a>Vereisten
 * Een HDInsight-cluster dat is gekoppeld aan een domein. Zie [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Aan een domein gekoppelde HDInsight-clusters configureren).
 * Een werkstation met Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, een zelfstandige versie van Excel 2013 of Office 2010 Professional Plus.
 
-## <a name="connect-tooapache-ranger-admin-ui"></a>Verbinding maken met tooApache Zwerver Admin-gebruikersinterface
-**tooconnect tooRanger Admin UI**
+## <a name="connect-to-apache-ranger-admin-ui"></a>Verbinding maken met de beheerinterface van Apache Ranger
+**Verbinding maken met de beheerinterface van Ranger**
 
-1. Verbinding via een browser tooRanger Admin UI. Hallo-URL is https://&lt;ClusterName >.azurehdinsight.net/Ranger/.
+1. Maak vanuit een browser verbinding met de beheerinterface van Ranger. De URL is https://&lt;ClusterName>.azurehdinsight.net/Ranger/.
 
    > [!NOTE]
-   > Ranger maakt gebruik van andere referenties dan het Hadoop-cluster. tooprevent browsers referenties uit de cache Hadoop, met nieuwe InPrivate-browser venster tooconnect toohello Zwerver Admin gebruikersinterface gebruiken.
+   > Ranger maakt gebruik van andere referenties dan het Hadoop-cluster. Gebruik een nieuw InPrivate-browservenster om verbinding te maken met de beheerinterface van Ranger om te voorkomen dat browsers Hadoop-referenties in de cache gebruiken.
    >
    >
-2. Meld u aan met Hallo cluster administrator domeingebruikersnaam en wachtwoord:
+2. Meld u aan met de gebruikersnaam en het wachtwoord van het clusterbeheerdomein:
 
     ![Ranger-startpagina van HDInsight dat is gekoppeld aan een domein](./media/hdinsight-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
 
     Op dit moment werkt Ranger alleen met Yarn en Hive.
 
 ## <a name="create-domain-users"></a>Domeingebruikers maken
-In [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad) (Aan een domein gekoppelde HDInsight-clusters configureren) hebt u hiveruser1 en hiveuser2 gemaakt. U gebruikt twee Hallo-gebruikersaccount in deze zelfstudie.
+In [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad) (Aan een domein gekoppelde HDInsight-clusters configureren) hebt u hiveruser1 en hiveuser2 gemaakt. U gebruikt de twee gebruikersaccounts in deze zelfstudie.
 
 ## <a name="create-ranger-policies"></a>Ranger-beleidsregels maken
-In deze sectie maakt u twee Ranger-beleidsregels voor toegang tot de hivesampletable. U geeft de machtiging SELECT op voor verschillende sets kolommen. Beide gebruikers zijn gemaakt in [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad) (Aan een domein gekoppelde HDInsight-clusters configureren).  In de volgende sectie hello, wordt u testen Hallo twee beleidsregels in Excel.
+In deze sectie maakt u twee Ranger-beleidsregels voor toegang tot de hivesampletable. U geeft de machtiging SELECT op voor verschillende sets kolommen. Beide gebruikers zijn gemaakt in [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad) (Aan een domein gekoppelde HDInsight-clusters configureren).  In de volgende sectie test u de twee beleidsregels in Excel.
 
-**toocreate Zwerver beleid**
+**Ranger-beleidsregels maken**
 
-1. Open de beheerinterface van Ranger. Zie [tooApache Zwerver Admin gebruikersinterface verbinding](#connect-to-apache-ranager-admin-ui).
+1. Open de beheerinterface van Ranger. Zie [Verbinding maken met de beheerinterface van Apache Ranger](#connect-to-apache-ranager-admin-ui).
 2. Klik op **&lt;ClusterName>_hive** onder **Hive**. Er worden twee vooraf geconfigureerde beleidsregels weergegeven.
-3. Klik op **nieuw beleid toevoegen**, en voer vervolgens Hallo volgende waarden:
+3. Klik op **Nieuw beleid toevoegen** en voer de volgende waarden in:
 
    * Beleidsnaam: read-hivesampletable-all
    * Hive-database: standaard
@@ -66,11 +66,11 @@ In deze sectie maakt u twee Ranger-beleidsregels voor toegang tot de hivesamplet
      ![Ranger Hive-beleidsregels van HDInsight dat is gekoppeld aan een domein configureren](./media/hdinsight-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
      > [!NOTE]
-     > Als een domeingebruiker niet is ingevuld in Select User, wacht u enkele ogenblikken voor Zwerver toosync bij AAD.
+     > Als een domeingebruiker niet is ingevuld in Gebruiker selecteren, wacht u even, zodat Ranger met AAD kan synchroniseren.
      >
      >
-4. Klik op **toevoegen** toosave Hallo beleid.
-5. Hallo laatste twee stappen toocreate een ander beleid met de volgende eigenschappen Hallo herhalen:
+4. Klik op **Toevoegen** om het beleid op te slaan.
+5. Herhaal de laatste twee stappen, zodat u een ander beleid kunt maken met de volgende eigenschappen:
 
    * Beleidsnaam: read-hivesampletable-devicemake
    * Hive-database: standaard
@@ -80,54 +80,54 @@ In deze sectie maakt u twee Ranger-beleidsregels voor toegang tot de hivesamplet
    * Machtigingen: SELECT
 
 ## <a name="create-hive-odbc-data-source"></a>Hive ODBC-gegevensbron maken
-Hallo-instructies vindt u in [maken Hive ODBC-gegevensbron](hdinsight-connect-excel-hive-odbc-driver.md).  
+De instructies vindt u in [Hive ODBC-gegevensbron maken](hdinsight-connect-excel-hive-odbc-driver.md).  
 
     Eigenschap|Beschrijving
     ---|---
-    Naam van de gegevensbron|Geef een naam tooyour-gegevensbron
+    Naam van de gegevensbron|Geef uw gegevensbron een naam
     Host|Voer &lt;HDInsightClusterName>.azurehdinsight.net in. Bijvoorbeeld: myHDICluster.azurehdinsight.net
-    Poort|Gebruik <strong>443</strong>. (Deze poort is gewijzigd van 563 too443.)
+    Poort|Gebruik <strong>443</strong>. (Deze poort is gewijzigd van 563 in 443.)
     Database|Gebruik <strong>Standaard</strong>.
     Type Hive-server|Selecteer <strong>Hive Server 2</strong>
     Mechanisme|Selecteer <strong>Azure HDInsight Service</strong>
     HTTP-pad|Laat dit leeg.
-    Gebruikersnaam|Voer hiveuser1@contoso158.onmicrosoft.com. Hallo-domeinnaam bijwerken als deze verschilt.
-    Wachtwoord|Hallo wachtwoord opgeven voor hiveuser1.
+    Gebruikersnaam|Voer hiveuser1@contoso158.onmicrosoft.com. Werk de domeinnaam als deze verschilt.
+    Wachtwoord|Voer het wachtwoord van hiveuser1 in.
     </table>
 
-Zorg ervoor dat tooclick **Test** voordat u opslaat Hallo-gegevensbron.
+Zorg ervoor dat u op **Test** klikt voordat u de gegevensbron opslaat.
 
 ## <a name="import-data-into-excel-from-hdinsight"></a>Gegevens in Excel importeren vanuit HDInsight
-In de laatste sectie hello, kunt u twee beleidsregels hebt geconfigureerd.  hiveuser1 heeft Hallo machtiging voor alle Hallo kolommen te selecteren en hiveuser2 Hallo machtiging op twee kolommen te selecteren. In deze sectie imiteren u Hallo twee gebruikers tooimport gegevens in Excel.
+In de laatste sectie hebt u twee beleidsregels geconfigureerd.  hiveuser1 heeft de machtiging SELECT voor alle kolommen en hiveuser2 heeft de machtiging SELECT voor twee kolommen. In deze sectie imiteert u de twee gebruikers, zodat u gegevens kunt importeren in Excel.
 
 1. Open een nieuwe of bestaande werkmap in Excel.
-2. Van Hallo **gegevens** tabblad **van andere gegevensbronnen**, en klik vervolgens op **van Wizard Gegevensverbinding** toolaunch hello **Wizard Gegevensverbinding**.
+2. Klik op het tabblad **Gegevens** op de optie **Van andere gegevensbronnen** en klik vervolgens op **Van wizard Gegevensverbinding** om de **Wizard Gegevensverbinding** te starten.
 
     ![Open de Wizard Gegevensverbinding][img hdi simbahiveodbc.excel.dataconnection]
-3. Selecteer **ODBC DSN** als Hallo gegevensbron en klik op **volgende**.
-4. Van ODBC-gegevensbronnen, selecteer Hallo gegevensbron naam die u hebt gemaakt in de vorige stap Hallo en klik vervolgens op **volgende**.
-5. Wachtwoord voor Hallo-cluster in de wizard Hallo Hallo opnieuw invoeren en klik vervolgens op **OK**. Wachten op Hallo **Database en tabel selecteren** dialoogvenster tooopen. Dit kan een paar seconden duren.
+3. Selecteer **ODBC DSN** als de gegevensbron en klik op **Volgende**.
+4. Selecteer uit ODBC-gegevensbronnen de naam van de gegevensbron die u in de vorige stap hebt gemaakt en klik op **Volgende**.
+5. Voer het wachtwoord voor de cluster in de wizard opnieuw in en klik vervolgens op **OK**. Wacht totdat het dialoogvenster **Database en tabel selecteren** wordt geopend. Dit kan een paar seconden duren.
 6. Selecteer **hivesampletable** en klik op **Volgende**.
 7. Klik op **Voltooien**.
-8. In Hallo **importgegevens** dialoogvenster kunt u wijzigen of Hallo query opgeven. toodo hiervoor, klikt u op **eigenschappen**. Dit kan een paar seconden duren.
-9. Klik op Hallo **definitie** tabblad Hallo opdrachttekst is:
+8. In het dialoogvenster **Gegevens importeren** kunt u de query wijzigen of opgeven. Als u dit wilt doen, klikt u op **Eigenschappen**. Dit kan een paar seconden duren.
+9. Klik op het tabblad **Definitie**. De opdrachttekst is:
 
        SELECT * FROM "HIVE"."default"."hivesampletable"
 
-   Hallo Zwerver beleid dat u hebt gedefinieerd, heeft hiveuser1 machtiging select voor alle Hallo-kolommen.  Deze query werkt dus met de referenties van hiveuser1, maar niet met de referenties van hiveuser2.
+   Bij de Ranger-beleidsregels hebt u gedefinieerd dat hiveuser1 de machtiging SELECT heeft voor alle kolommen.  Deze query werkt dus met de referenties van hiveuser1, maar niet met de referenties van hiveuser2.
 
    ![Verbindingseigenschappen][img-hdi-simbahiveodbc-excel-connectionproperties]
-10. Klik op **OK** tooclose Hallo verbindingseigenschappen dialoogvenster.
-11. Klik op **OK** tooclose hello **importgegevens** dialoogvenster.  
-12. Hallo-wachtwoord voor hiveuser1 opnieuw op en klik vervolgens op **OK**. Het duurt een paar seconden voordat gegevens geïmporteerde tooExcel opgehaald. Wanneer dit is voltooid, worden er 11 kolommen met gegevens weergegeven.
+10. Klik op **OK** om het dialoogvenster Verbindingseigenschappen te sluiten.
+11. Klik op **OK** om het dialoogvenster **Gegevens importeren** te sluiten.  
+12. Voer het wachtwoord van hiveuser1 opnieuw in en klik op **OK**. Het duurt een paar seconden voordat de gegevens naar Excel worden geïmporteerd. Wanneer dit is voltooid, worden er 11 kolommen met gegevens weergegeven.
 
-tootest hello tweede beleid (lezen hivesampletable devicemake) die u hebt gemaakt in de laatste sectie Hallo
+De tweede beleidsregel (read-hivesampletable-devicemake) testen die u in de laatste sectie hebt gemaakt
 
 1. Voeg een nieuw blad in Excel toe.
-2. Ga als volgt Hallo laatste procedure tooimport Hallo gegevens.  Hallo enige wijziging die u neemt is toouse hiveuser2 van referenties in plaats van hiveuser1 van. Dit zal mislukken omdat hiveuser2 alleen machtiging toosee twee kolommen heeft. U moet ophalen Hallo volgende fout:
+2. Voer de vorige procedure uit om de gegevens te importeren.  De enige wijziging die u aanbrengt, is dat u de referenties van hiveuser2 gebruikt in plaats van die van hiveuser1. Dit mislukt, omdat hiveuser2 alleen gemachtigd is om twee kolommen te zien. De volgende fout wordt weergegeven:
 
         [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
-3. Volg dezelfde Hallo procedure tooimport gegevens. Deze tijd gebruik hiveuser2 van referenties en Hallo select-instructie uit te wijzigen:
+3. Voer dezelfde procedure uit om gegevens te importeren. Gebruik deze keer de referenties van hiveuser2 en wijzig ook de SELECT-instructie van:
 
         SELECT * FROM "HIVE"."default"."hivesampletable"
 
@@ -141,6 +141,6 @@ tootest hello tweede beleid (lezen hivesampletable devicemake) die u hebt gemaak
 * Zie [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Aan een domein gekoppelde HDInsight-clusters configureren) om een HDInsight-cluster te configureren dat is gekoppeld aan een domein.
 * Zie [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md) (Aan een domein gekoppelde HDInsight-clusters beheren) om HDInsight-clusters te beheren die zijn gekoppeld aan een domein.
 * Zie voor het uitvoeren van Hive-query's met SSH op domein HDInsight-clusters [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-* Zie voor Hive-verbinding te maken met behulp van Hive JDBC, [verbinding tooHive in Azure HDInsight met behulp van Hallo Hive JDBC-stuurprogramma](hdinsight-connect-hive-jdbc-driver.md)
-* Zie voor verbindende Excel tooHadoop met behulp van Hive ODBC [tooHadoop Excel verbinding maken met de Hallo Microsoft Hive ODBC-station](hdinsight-connect-excel-hive-odbc-driver.md)
-* Zie voor verbindende Excel tooHadoop met Power Query [tooHadoop Excel verbinding maken met Power Query](hdinsight-connect-excel-power-query.md)
+* Zie [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md) (Verbinding maken met Hive op Azure HDInsight met het Hive JDBC-stuurprogramma) om Hive te verbinden met behulp van Hive JDBC.
+* Zie [Connect Excel to Hadoop with the Microsoft Hive ODBC drive](hdinsight-connect-excel-hive-odbc-driver.md) (Excel verbinden met Hadoop met het Microsoft Hive ODBC-station) om Excel te verbinden met Hadoop met behulp van Hive ODBC.
+* Zie [Connect Excel to Hadoop by using Power Query](hdinsight-connect-excel-power-query.md) (Excel verbinden met Hadoop via Power Query) om Excel te verbinden met Hadoop met behulp van Power Query.

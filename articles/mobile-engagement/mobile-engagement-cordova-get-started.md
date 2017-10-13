@@ -1,6 +1,6 @@
 ---
-title: aaaGet gestart met Azure Mobile Engagement voor Cordova/Phonegap
-description: Meer informatie over hoe toouse Azure Mobile Engagement met analyses en Pushmeldingen voor Cordova/Phonegap-apps.
+title: Aan de slag met Azure Mobile Engagement voor Cordova/Phonegap
+description: Informatie over het gebruik van Azure Mobile Engagement met analyses en pushmeldingen voor Cordova-/Phonegap-apps.
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
@@ -14,66 +14,66 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: e67dabbdf7886802bb058f38964e558d5ae6854c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d7a761310782faab1dda023785f93cf90742e2ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-cordovaphonegap"></a>Aan de slag met Azure Mobile Engagement voor Cordova/Phonegap
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Dit onderwerp leest u hoe toouse Azure Mobile Engagement toounderstand uw app gebruiks- en verzenden push notifications toosegmented gebruikers van een mobiele toepassing ontwikkeld met Cordova.
+In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te krijgen in het gebruik van uw apps en het verzenden van pushmeldingen aan gesegmenteerde gebruikers van een mobiele toepassing die is ontwikkeld met Cordova.
 
-In deze zelfstudie maken we een lege Cordova-app met een Mac en integreren we vervolgens de Mobile Engagement SDK. Deze app verzamelt analytische basisgegevens en ontvangt pushmeldingen via Apple Push Notification System (APNS) voor iOS en Google Cloud Messaging (GCM) voor Android. We implementeert deze tooan iOS of Android-apparaat voor het testen van. 
+In deze zelfstudie maken we een lege Cordova-app met een Mac en integreren we vervolgens de Mobile Engagement SDK. Deze app verzamelt analytische basisgegevens en ontvangt pushmeldingen via Apple Push Notification System (APNS) voor iOS en Google Cloud Messaging (GCM) voor Android. We implementeren de app op een iOS- of Android-apparaat voor testdoeleinden. 
 
 > [!NOTE]
-> toocomplete deze zelfstudie maakt u een actief Azure-account moet hebben. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started) voor meer informatie.
+> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started) voor meer informatie.
 > 
 > 
 
-Deze zelfstudie vereist de volgende Hallo:
+Voor deze zelfstudie hebt u het volgende nodig:
 
-* XCode, dat u vanaf de Mac App Store installeren kunt (voor implementatie tooiOS)
-* [Android SDK & Emulator](http://developer.android.com/sdk/installing/index.html) (voor implementatie tooAndroid)
+* XCode, dat u vanuit de Mac App Store kunt installeren (voor de iOS-implementatie)
+* [Android SDK & Emulator](http://developer.android.com/sdk/installing/index.html) (voor de Android-implementatie)
 * Pushmeldingscertificaat (.p12), dat u kunt verkrijgen via Apple Dev Center voor APNS
 * GCM-projectnummer, dat u kunt vinden in uw Google Developer-Console voor GCM
 * [Cordova-invoegtoepassing voor Mobile Engagement](https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-engagement)
 
 > [!NOTE]
-> U kunt vinden Hallo broncode en hello Leesmij-bestand voor Hallo Cordova-invoegtoepassing op [GitHub](https://github.com/Azure/azure-mobile-engagement-cordova)
+> U vindt de broncode en het Leesmij-bestand voor de Cordova-invoegtoepassing in [GitHub](https://github.com/Azure/azure-mobile-engagement-cordova)
 > 
 > 
 
 ## <a id="setup-azme"></a>Mobile Engagement instellen voor uw Cordova-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Verbinding maken met uw app toohello Mobile Engagement-back-end
-Deze zelfstudie toont een 'basisintegratie' hello minimale vereiste toocollect gegevens instellen en een pushmelding verzenden. 
+## <a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
+Deze zelfstudie toont een ‘basisintegratie’, de minimale set die vereist is voor het verzamelen van gegevens en verzenden van een pushmelding. 
 
-We gaan een eenvoudige app maken met Cordova toodemonstrate Hallo integratie:
+We gaan een eenvoudige app maken met Cordova ter illustratie van de integratie.
 
 ### <a name="create-a-new-cordova-project"></a>Nieuw Cordova-project maken
-1. Start *Terminal* -venster op uw Mac-computer en typ Hallo maakt u een nieuw Cordova-project uit Hallo standaardsjabloon te volgen. Zorg ervoor dat Hallo publicatie profiel u uiteindelijk gebruik toodeploy uw iOS-app 'com.mycompany.myapp' gebruikt als Hallo van App-ID. 
+1. Start het *Terminal*-venster op uw Mac-computer en typ het volgende, waarmee een nieuw Cordova-project wordt gemaakt op basis van de standaardsjabloon. Zorg ervoor dat het publicatieprofiel waarmee u de iOS-app uiteindelijk zult implementeren 'com.mycompany.myapp' gebruikt als de App ID. 
    
         $ cordova create azme-cordova com.mycompany.myapp
         $ cd azme-cordova
-2. Hallo tooconfigure na uw project voor uitvoeren **iOS** en voer deze in Hallo iOS-Simulator:
+2. Voer het volgende uit om uw project te configureren voor **iOS** en voer het uit in de iOS-simulator:
    
         $ cordova platform add ios 
         $ cordova run ios
-3. Hallo tooconfigure na uw project voor uitvoeren **Android** en voer deze in Hallo Android-emulator. Zorg ervoor dat de instellingen van uw Android SDK Emulator het doel als Google APIs (Google Inc.) met Hallo CPU / ABI als Google APIs ARM.  
+3. Voer het volgende uit om uw project te configureren voor **Android** en voer het uit in de Android-emulator: Zorg ervoor dat in de instellingen van uw Android SDK Emulator Google API's (Google Inc.) wordt gebruikt als Target, met de CPU/ABI als Google API's ARM.  
    
         $ cordova platform add android
         $ cordova run android
-4. Hallo invoegtoepassing Cordova Console toevoegen. 
+4. Voeg de invoegtoepassing Cordova Console toe. 
 
     ```
     $ cordova plugin add cordova-plugin-console
     ``` 
 
-### <a name="connect-your-app-toomobile-engagement-backend"></a>Verbinding maken met uw app tooMobile Engagement back-end
-1. Hello Azure Mobile Engagement Cordova-invoegtoepassing installeren en tegelijkertijd Hallo waarden van variabelen tooconfigure Hallo-invoegtoepassing:
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Uw app verbinden met de back-end van Mobile Engagement
+1. Installeer de Cordova-invoegtoepassing voor Azure Mobile Engagement en geef de volgende waarden van variabelen op voor het configureren van de invoegtoepassing:
    
         cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
              --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
@@ -81,33 +81,33 @@ We gaan een eenvoudige app maken met Cordova toodemonstrate Hallo integratie:
             --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
             --variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
             --variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=... (From your Google Cloud console for sending push notifications) 
-            --variable AZME_ACTION_URL =... (URL scheme which triggers hello app for deep linking)
+            --variable AZME_ACTION_URL =... (URL scheme which triggers the app for deep linking)
             --variable AZME_ENABLE_NATIVE_LOG=true|false
             --variable AZME_ENABLE_PLUGIN_LOG=true|false
 
-*Android Reach Icon* : moet Hallo-naam van de resource Hallo zonder een extensie of drawable voorvoegsel (voorbeeld: mynotificationicon), en het Hallo-pictogrambestand moet worden gekopieerd naar uw android-project (platforms/android/res/drawable)
+*Android Reach Icon*: dit moet de naam van de resource zijn zonder een extensie of drawable voorvoegsel (voorbeeld: mynotificationicon), en het pictogrambestand moet worden gekopieerd naar uw Android-project (platforms/android/res/drawable)
 
-*iOS Reach Icon* : Hallo-naam van het Hallo-resource met de extensie moet zijn (bijvoorbeeld: mynotificationicon.png), en het Hallo-pictogrambestand moet worden toegevoegd aan uw iOS-project met XCode (via Hallo Menu toevoegen-bestanden)
+*iOS Reach Icon*: dit moet de naam van de resource zijn met de extensie (bijvoorbeeld: mynotificationicon.png), en het pictogrambestand moet worden toegevoegd aan uw iOS-project met XCode (via het menu Add Files)
 
 ## <a id="monitor"></a>Realtime-bewaking inschakelen
-1. Bewerk in Hallo Cordova-project - **www/js/index.js** tooadd Hallo aanroep tooMobile Engagement toodeclare een nieuwe activiteit eenmaal Hallo *deviceReady* gebeurtenis is ontvangen.
+1. Ga naar het Cordova-project, bewerk **www/js/index.js** en voeg de aanroep van Mobile Engagement toe om een nieuwe activiteit te declareren zodra de gebeurtenis *deviceReady* is ontvangen.
    
          onDeviceReady: function() {
                 Engagement.startActivity("myPage",{});
             }
-2. Hallo-toepassing uitvoeren:
+2. Voer de toepassing uit:
    
    * **Voor iOS**
      
-       In `Terminal` venster start u uw app in een nieuw exemplaar van de Simulator door het uitvoeren van de volgende Hallo:
+       In het venster `Terminal` start u uw app in een nieuw exemplaar van de simulator door het volgende uit te voeren:
      
            cordova run ios
    * **Voor Android**
      
-       In `Terminal` venster start u uw app in een nieuw exemplaar van de emulator door het uitvoeren van de volgende Hallo:
+       In het venster `Terminal` start u uw app in een nieuw exemplaar van de emulator door het volgende uit te voeren:
      
            cordova run android
-3. U kunt in de logboeken van de console Hallo Hallo volgende zien:
+3. U ziet het volgende in de logboeken van de console:
    
         [Engagement] Agent: Session started
         [Engagement] Agent: Activity 'myPage' started
@@ -120,16 +120,16 @@ We gaan een eenvoudige app maken met Cordova toodemonstrate Hallo integratie:
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>Pushmeldingen en in-app-berichten inschakelen
-Mobile Engagement kunt u toointeract met uw gebruikers via Pushmeldingen en in-app-berichten in Hallo context van campagnes. Deze module heet REACH in Hallo Mobile Engagement-portal.
-Hallo volgende secties stelt u uw app tooreceive ze.
+Met Mobile Engagement kunt u communiceren met uw gebruikers via pushmeldingen en in-app-berichten in de context van campagnes. Deze module heet REACH in de Mobile Engagement-portal.
+In de volgende secties stelt u de app in om die te ontvangen.
 
 ### <a name="configure-push-credentials-for-mobile-engagement"></a>Pushreferenties configureren voor Mobile Engagement
-tooallow Mobile Engagement toosend Pushmeldingen namens u, moet u deze toegang hebben tot tooyour certificaat voor Apple iOS of API-sleutel van GCM Server toogrant. 
+Om Mobile Engagement pushmeldingen te laten verzenden namens u, moet u het toegang geven tot uw certificaat voor Apple iOS of de API-sleutel van GCM Server. 
 
-1. Navigeer tooyour Mobile Engagement-portal. Zorg ervoor dat het Hallo-App wordt gebruikt voor dit project en klik vervolgens op Hallo **Engage** knop Hallo onderaan:
+1. Navigeer naar uw Mobile Engagement-portal. Zorg ervoor dat u zich bevindt in de app die we gebruiken voor dit project en klik vervolgens op de knop **Engage** onderaan:
    
     ![][1]
-2. U komt dan uit op de pagina instellingen Hallo in de Engagement-Portal. Klik op Hallo **Native Pushbericht** sectie:
+2. U gaat naar de instellingenpagina van de Engagement-portal. Klik op de sectie **Native pushbericht**:
    
     ![][2]
 3. iOS-certificaat/API-sleutel GCM Server configureren
@@ -142,12 +142,12 @@ tooallow Mobile Engagement toosend Pushmeldingen namens u, moet u deze toegang h
    
     **[Android]**
    
-    a. Klik op Hallo bewerkingspictogram vóór **API-sleutel** in Hallo sectie GCM-instellingen in Hallo pop-up dat weergegeven wordt, Hallo GCM-serversleutel plakken en klikt u op **OK**. 
+    a. Klik op het bewerkingspictogram vóór **API-sleutel** in de sectie GCM-instellingen. In het pop-upvenster dat wordt weergegeven, plakt u de GCM Server-sleutel. Klik vervolgens op **OK**. 
    
     ![][4]
 
-### <a name="enable-push-notifications-in-hello-cordova-app"></a>Pushmeldingen inschakelen in Hallo Cordova-app
-Bewerken **www/js/index.js** tooadd Hallo aanroep tooMobile Engagement toorequest pushmeldingen en een handler te declareren:
+### <a name="enable-push-notifications-in-the-cordova-app"></a>Pushmeldingen inschakelen in de Cordova-app
+Bewerk **www/js/index.js** om de aanroep van Mobile Engagement voor het aanvragen van pushmeldingen toe te voegen en een handler te declareren:
 
      onDeviceReady: function() {
            Engagement.initializeReach(  
@@ -158,48 +158,48 @@ Bewerken **www/js/index.js** tooadd Hallo aanroep tooMobile Engagement tooreques
             Engagement.startActivity("myPage",{});  
         }
 
-### <a name="run-hello-app"></a>Hallo-app uitvoeren
+### <a name="run-the-app"></a>De app uitvoeren
 **[iOS]**
 
-1. We gebruiken XCode toobuild en Hallo-app op Hallo apparaat tootest pushmeldingen implementeren omdat iOS alleen push notifications tooan daadwerkelijk apparaat toestaat. Ga toohello locatie waar uw Cordova-project wordt gemaakt en te navigeren**...\platforms\ios** locatie. Open Hallo systeemeigen .xcodeproj-bestand in XCode. 
-2. Bouw en implementeer Hallo Cordova-app toohello iOS-apparaat met Hallo account Hallo inrichtingsprofiel die u zojuist hebt geüpload toohello Mobile Engagement-portal en App-Id die overeenkomt met de Hallo een die u hebt opgegeven tijdens het maken van Hallo Hallo-certificaat bevat met Hallo Cordova-app. U kunt Hallo uitchecken *bundel-id* in uw **Resources\*-info.plist** bestand in XCode toomatch deze. 
-3. U ziet Hallo standaard iOS-pop op uw apparaat weergegeven die Hallo app vraagt toestemming toosend meldingen. Hallo-machtiging verlenen. 
+1. We gebruiken XCode voor het bouwen en implementeren van de app op het apparaat om pushmeldingen te testen, omdat iOS alleen pushmeldingen naar een daadwerkelijk apparaat toestaat. Ga naar de locatie waar uw Cordova-project is gemaakt en navigeer naar de locatie **...\platforms\ios**. Open het systeemeigen .xcodeproj-bestand in XCode. 
+2. Bouw en implementeer de Cordova-app op het iOS-apparaat met het account dat beschikt over het inrichtingsprofiel met het certificaat dat u zojuist hebt geüpload en de app-id die overeenkomt met de id die u hebt opgegeven bij het maken van de Cordova-app. Raadpleeg de *Bundle identifier* in het bestand **Resources\*-info.plist** in XCode om te zorgen dat ze overeenkomen. 
+3. U krijgt de standaard iOS-pop-up te zien op uw apparaat, waarin wordt gemeld dat de app verzoekt om machtigingen voor het verzenden van meldingen Geef toestemming. 
 
 **[Android]**
 
-U kunt gewoon Hallo emulator toorun hello Android app gebruiken als GCM-meldingen op Hallo Android-emulator worden ondersteund. 
+U kunt eenvoudigweg de emulator gebruiken om de Android-app uit te voeren, omdat GCM-meldingen door de Android-emulator worden ondersteund. 
 
     cordova run android
 
-## <a id="send"></a>Een melding tooyour app verzenden
-We gaan nu een eenvoudige pushmeldingcampagne die stuurt een push-tooyour app uitgevoerd op Hallo apparaat maken:
+## <a id="send"></a>Een melding verzenden naar uw app
+We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding wordt verzonden naar uw app op het apparaat:
 
-1. Navigeer toohello **bereiken** tabblad in uw Mobile Engagement-portal
-2. Klik op **nieuwe aankondiging** toocreate uw pushcampagne
+1. Navigeer naar het tabblad **Reach** in uw Mobile Engagement-portal.
+2. Klik op **Nieuwe aankondiging** om uw pushcampagne te maken.
    
     ![][6]
-3. Invoer toocreate Geef uw campagne **[Android]**
+3. Informatie invoeren voor het maken van uw campagne **[Android]**
    
    * Geef uw campagne een **naam**. 
-   * Selecteer Hallo **Bezorgingstype** als *Systeemmelding* *eenvoudige*
-   * Selecteer Hallo **leveringstijd** als *'Elke keer'*
-   * Geef een **titel** voor de melding die als eerste regel in Hallo push Hallo.
-   * Geef een **bericht** voor de melding die als de berichttekst Hallo fungeert. 
+   * Selecteer als **Bezorgingstype**  *Systeemmelding* *Eenvoudig*.
+   * Selecteer als **Leveringstijd** *Elk tijdstip*.
+   * Geef een **titel** op voor de melding die als eerste zal worden verzonden.
+   * Geef een **bericht** op als de berichttekst van de melding. 
      
      ![][11]
-4. Invoer toocreate Geef uw campagne **[iOS]**
+4. Informatie invoeren voor het maken van uw campagne **[iOS]**
    
    * Geef uw campagne een **naam**. 
-   * Selecteer Hallo **leveringstijd** als *'alleen buiten app'*
-   * Geef een **titel** voor de melding die als eerste regel in Hallo push Hallo.
-   * Geef een **bericht** voor de melding die als de berichttekst Hallo fungeert. 
+   * Selecteer als **Leveringstijd** *Alleen buiten app*.
+   * Geef een **titel** op voor de melding die als eerste zal worden verzonden.
+   * Geef een **bericht** op als de berichttekst van de melding. 
      
      ![][12]
-5. Schuif naar beneden en selecteer in de Hallo sectie inhoud **alleen melding**
+5. Blader naar beneden en selecteer in het gedeelte inhoud **Alleen melding**.
    
     ![][8]
-6. [Optioneel] U kunt ook een actie-URL opgeven. Zorg ervoor dat deze gebruikmaakt van een URL-schema dat is opgegeven tijdens het Hallo-invoegtoepassing configureren **AZME\_OMLEIDEN\_URL** variabele bijvoorbeeld *myapp://test*.  
-7. Instelling Hallo meest elementaire campagne mogelijk kunt u klaar bent. Nu Blader nogmaals naar beneden en klik op Hallo **maken** knop toosave uw campagne.
+6. [Optioneel] U kunt ook een actie-URL opgeven. Zorg ervoor dat die gebruikmaakt van een URL-schema dat wordt opgegeven bij het configureren van de variabele **AZME\_REDIRECT\_URL** van de invoegtoepassing, bijvoorbeeld *myapp://test*.  
+7. U hebt nu een campagne gemaakt die zo eenvoudig mogelijk is. Blader nogmaals naar beneden en klik op de knop **Maken** om uw campagne op te slaan.
 8. Ten slotte moet u uw campagne **activeren**.
    
     ![][10]

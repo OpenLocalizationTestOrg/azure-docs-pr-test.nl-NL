@@ -1,4 +1,4 @@
-Hallo bevat volgende tabel Hallo-limieten die zijn gekoppeld aan verschillende Servicelagen hello (S1, S2, S3, F1). Voor informatie over Hallo kosten van elk *eenheid* in elke laag Zie [IoT Hub prijzen](https://azure.microsoft.com/pricing/details/iot-hub/).
+De volgende tabel bevat de limieten die aan de verschillende servicelagen (S1, S2, S3, F1) zijn gekoppeld. Voor informatie over de kosten van elke *eenheid* in elke laag raadpleegt u [Prijzen van IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Resource | S1 Standard | S2 Standard | S3 Standard | F1 Free |
 | --- | --- | --- | --- | --- |
@@ -10,7 +10,7 @@ Hallo bevat volgende tabel Hallo-limieten die zijn gekoppeld aan verschillende S
 > 
 > 
 
-Hallo bevat volgende tabel Hallo-limieten die van toepassing zijn tooIoT Hub bronnen:
+De volgende tabel bevat de limieten die van toepassing zijn op IoT Hub-resources:
 
 | Resource | Limiet |
 | --- | --- |
@@ -24,8 +24,8 @@ Hallo bevat volgende tabel Hallo-limieten die van toepassing zijn tooIoT Hub bro
 | Maximale grootte van cloud-naar-apparaat bericht |64 kB |
 | Maximale TTL voor cloud-naar-apparaat berichten |2 dagen |
 | Maximumaantal leveringen voor cloud-naar-apparaat <br/> berichten |100 |
-| Maximumaantal leveringen voor feedbackberichten <br/> in het antwoordbericht tooa cloud-naar-apparaat |100 |
-| Maximale TTL voor feedbackberichten <br/> antwoordbericht tooa cloud-naar-apparaat |2 dagen |
+| Maximumaantal leveringen voor feedbackberichten <br/> als antwoord op een cloud-naar-apparaat bericht |100 |
+| Maximale TTL voor feedbackberichten <br/> als antwoord op een cloud-naar-apparaat bericht |2 dagen |
 | Maximale grootte van apparaatdubbel <br/> (tags, gerapporteerde eigenschappen en gewenste eigenschappen) | 8 kB |
 | Maximale grootte van tekenreekswaarde van apparaatdubbel | 512 bytes |
 | Maximale diepte van object in apparaatdubbel | 5 |
@@ -41,9 +41,9 @@ Hallo bevat volgende tabel Hallo-limieten die van toepassing zijn tooIoT Hub bro
 
 
 > [!NOTE]
-> Op dit moment Hallo maximum aantal apparaten dat u verbinding kunt maken tooa één IoT-hub 500.000 is. Als u deze limiet tooincrease wilt, neem dan contact op met [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+> Het maximum aantal apparaten dat u verbinding met een enkele IoT-hub maken kunt is momenteel 500.000. Als u deze limiet verhogen wilt, neem dan contact op met [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
 
-Hallo service IoT Hub bandbreedte aanvragen wanneer Hallo na quota worden overschreden:
+De IoT Hub-service vertraagt aanvragen wanneer de volgende quota worden overschreden:
 
 | Vertragen | Waarde per hub |
 | --- | --- |

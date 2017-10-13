@@ -1,6 +1,6 @@
 ---
-title: aaaGuide toocreating een gegevensservice voor Hallo Marketplace | Microsoft Docs
-description: Gedetailleerde instructies waarmee toocreate, certificeren en implementeren van een Service voor gegevens aanschaffen op Hallo Azure Marketplace.
+title: Handleiding voor het maken van een Service van gegevens voor de Marketplace | Microsoft Docs
+description: Gedetailleerde instructies voor het maken, certificeren en implementeren van een Service voor gegevens aanschaffen op Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-ms.openlocfilehash: 8917a43959834d15f70866297f98d24bb83e217f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2ab624941fc385f14b62bb5d743927f157955845
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="examples-of-mapping-an-existing-web-service-tooodata-through-csdls"></a>Voorbeelden van het toewijzen van een bestaande web service tooOData via CSDLs
+# <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>Voorbeelden voor het toewijzen van een bestaande webservice aan OData via CSDLs
 > [!IMPORTANT]
-> **Op dit moment wordt niet langer zijn voorbereiden op alle nieuwe gegevensservice uitgevers. Nieuwe dataservices wordt niet goedgekeurd voor de aanbieding.** Als u een SaaS-business-toepassing hebt wilt toopublish op AppSource vindt u meer informatie [hier](https://appsource.microsoft.com/partners). Als u beschikt over een IaaS-toepassingen of developer-service dat u zou zoals toopublish op Azure Marketplace vindt u meer informatie [hier](https://azure.microsoft.com/marketplace/programs/certified/).
+> **Op dit moment wordt niet langer zijn voorbereiden op alle nieuwe gegevensservice uitgevers. Nieuwe dataservices wordt niet goedgekeurd voor de aanbieding.** Als u een SaaS business-toepassing die u wilt publiceren op AppSource hebt u meer informatie vindt [hier](https://appsource.microsoft.com/partners). Als u beschikt over een IaaS-toepassingen of developer-service die u wilt publiceren op Azure Marketplace u meer informatie vindt [hier](https://azure.microsoft.com/marketplace/programs/certified/).
 > 
 > 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-post"></a>Voorbeeld: FunctionImport voor 'Raw'-gegevens geretourneerd met "POST"
-Gebruik POST onbewerkte gegevens toocreate een nieuwe onderliggende en retourneren van de server URL(location) of tooupdate onderdeel van de onderliggende op Hallo server Hallo URL gedefinieerd.  Waarbij Hallo ondergeschikte is een stream, dat wil zeggen ongestructureerde ex. een tekstbestand.  Houd er rekening mee POST in niet idempotent zonder een locatie.
+Gebruik POST onbewerkte gegevens voor het maken van een nieuwe onderliggende en retourneren van de server URL(location) of gedefinieerd URL voor het bijwerken van onderdeel van de onderliggende op de server.  Waar is de onderliggende een stream, dat wil zeggen niet-gestructureerde, ex. een tekstbestand.  Houd er rekening mee POST in niet idempotent zonder een locatie.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="AddUsageEvent" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -45,7 +45,7 @@ Gebruik POST onbewerkte gegevens toocreate een nieuwe onderliggende en retourner
         </FunctionImport>
 
 ## <a name="example-functionimport-using-delete"></a>Voorbeeld: FunctionImport met 'Verwijderen'
-DELETE tooremove een opgegeven URI gebruiken.
+Gebruik verwijderen om te verwijderen van een opgegeven URI.
 
         <EntitySet Name="DeleteUsageFileEntitySet" EntityType="MyOffer.DeleteUsageFileEntity" />
         <FunctionImport Name="DeleteUsageFile" EntitySet="DeleteUsageFileEntitySet" ReturnType="Collection(MyOffer.DeleteUsageFileEntity)"  d:AllowedHttpMethods="DELETE" d:EncodeParameterValues="true” d:BaseUri=”http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643" >
@@ -66,7 +66,7 @@ DELETE tooremove een opgegeven URI gebruiken.
         </EntityType>
 
 ## <a name="example-functionimport-using-post"></a>Voorbeeld: FunctionImport met 'Posten'
-Gebruik POST onbewerkte gegevens toocreate een nieuwe onderliggende en retourneren van de server URL(location) of tooupdate onderdeel van de onderliggende op Hallo server Hallo URL gedefinieerd.  Hallo ondergeschikte is waar een structuur. Houd er rekening mee POST is niet de idempotent zonder een locatie.
+Gebruik POST onbewerkte gegevens voor het maken van een nieuwe onderliggende en retourneren van de server URL(location) of gedefinieerd URL voor het bijwerken van onderdeel van de onderliggende op de server.  De onderliggende is waar een structuur. Houd er rekening mee POST is niet de idempotent zonder een locatie.
 
         <EntitySet Name="CreateANewModelEntitySet2" EntityType=" MyOffer.CreateANewModelEntity2" />
         <FunctionImport Name="CreateModel" EntitySet="CreateANewModelEntitySet2" ReturnType="Collection(MyOffer.CreateANewModelEntity2)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri=”http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -84,7 +84,7 @@ Gebruik POST onbewerkte gegevens toocreate een nieuwe onderliggende en retourner
         </FunctionImport>
 
 ## <a name="example-functionimport-using-put"></a>Voorbeeld: FunctionImport met behulp van 'Geplaatst'
-Gebruik PUT toocreate een nieuwe onderliggende of tooupdate Hallo gehele ondergeschikte op een server URL gedefinieerd.  Wanneer een structuur is Hallo onderliggend niveau, PUT idempotent is zodat meerdere exemplaren leidt ertoe dat Hallo dezelfde status, Internet Explorer x = 5.  Opslag moet worden gebruikt met de volledige inhoud van de opgegeven Hallo Hallo resource.
+OPSLAG gebruiken voor het maken van een nieuwe onderliggende of gedefinieerd voor het bijwerken van de hele ondergeschikte op een server URL.  Wanneer de onderliggende een structuur is, PUT idempotent is zodat meerdere exemplaren in dezelfde staat resulteert, Internet Explorer x = 5.  Opslag moet worden gebruikt met de volledige inhoud van de opgegeven resource.
 
         <EntitySet Name="UpdateAnExistingModelEntitySet" EntityType="MyOffer.UpdateAnExistingModelEntity" />
         <FunctionImport Name="UpdateModel" EntitySet="UpdateAnExistingModelEntitySet" ReturnType="Collection(MyOffer.UpdateAnExistingModelEntity)" d:EncodeParameterValues="true" d:AllowedHttpMethods="PUT" d:BaseUri=”http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -106,7 +106,7 @@ Gebruik PUT toocreate een nieuwe onderliggende of tooupdate Hallo gehele onderge
 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-put"></a>Voorbeeld: FunctionImport voor 'Raw'-gegevens geretourneerd met 'Geplaatst'
-Gebruik plaatsen onbewerkte gegevens toocreate een nieuwe onderliggende of tooupdate Hallo hele onderliggende URL van een server die zijn gedefinieerd.  Waarbij Hallo ondergeschikte is een stream, dat wil zeggen ongestructureerde ex. een tekstbestand.  Idempotent PUT is meerdere keren plaatsvinden leidt ertoe dat Hallo dezelfde status, Internet Explorer x = 5.  Opslag moet worden gebruikt met de volledige inhoud van de opgegeven Hallo Hallo resource.
+Gebruik plaatsen onbewerkte gegevens voor het maken van een nieuwe onderliggende of bijwerken van de hele onderliggend niveau in de URL van een server is gedefinieerd.  Waar is de onderliggende een stream, dat wil zeggen niet-gestructureerde, ex. een tekstbestand.  Idempotent PUT is meerdere keren plaatsvinden resulteert in dezelfde staat, Internet Explorer x = 5.  Opslag moet worden gebruikt met de volledige inhoud van de opgegeven resource.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="CancelBuild” ReturnType="Raw(text/plain)" d:AllowedHttpMethods="PUT" d:EncodeParameterValues="true" d:BaseUri=” http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -125,7 +125,7 @@ Gebruik plaatsen onbewerkte gegevens toocreate een nieuwe onderliggende of tooup
 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-get"></a>Voorbeeld: FunctionImport voor 'Raw'-gegevens geretourneerd met 'Ophalen'
-OPHALEN van onbewerkte gegevens tooreturn onderliggend niveau dat niet-gestructureerde, dat wil zeggen tekst gebruiken.
+OPHALEN van onbewerkte gegevens om te retourneren van een onderliggend niveau dat niet-gestructureerde, dat wil zeggen tekst gebruiken.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="GetModelUsageFile" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="GET" d:BaseUri="https://cmla.cloudapp.net/api2/model/builder/build?buildId={buildId}&amp;apiVersion={apiVersion}">
@@ -144,7 +144,7 @@ OPHALEN van onbewerkte gegevens tooreturn onderliggend niveau dat niet-gestructu
         </FunctionImport>
 
 ## <a name="example-functionimport-for-paging-through-returned-data"></a>Voorbeeld: FunctionImport voor 'Paging"via geretourneerde gegevens
-Implementeer RESTful paging via uw gegevens met GET gebruiken.  Standaard paginering ingesteld too100 gegevensrij per pagina.
+Implementeer RESTful paging via uw gegevens met GET gebruiken.  Standaard paginering is ingesteld op 100 gegevensrij per pagina.
 
         <EntitySet Name=”CropEntitySet" EntityType="MyOffer.CropEntity" />
         <FunctionImport    Name="GetCropReport" EntitySet="CropEntitySet” ReturnType="Collection(MyOffer.CropEntity)" d:EmitSelfLink="false" d:EncodeParameterValues="true" d:Paging="SkipTake" d:MaxPageSize="100" d:BaseUri="http://api.mydata.org/Crop? report={report}&amp;series={series}&amp;start={$skip}&amp;size=100">
@@ -159,7 +159,7 @@ Implementeer RESTful paging via uw gegevens met GET gebruiken.  Standaard pagine
         </FunctionImport>
 
 ## <a name="see-also"></a>Zie ook
-* Als u geïnteresseerd bent in kennis Hallo algehele proces voor OData-toewijzing en het doel, Lees dit artikel [gegevens Service OData-toewijzing](marketplace-publishing-data-service-creation-odata-mapping.md) tooreview definities, structuren en instructies.
-* Als u geïnteresseerd in learning en de specifieke kennis Hallo-knooppunten en de bijbehorende parameters bent, Lees dit artikel [Service OData toewijzing gegevensknooppunten](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) voor definities en uitleg, voorbeelden en gebruik case-context.
-* tooreturn toohello pad voor het publiceren van een gegevensservice toohello Azure Marketplace Lees dit artikel voorgeschreven [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
+* Als u geïnteresseerd bent in het algehele proces voor OData-toewijzing en het doel te begrijpen, Lees dit artikel [gegevens Service OData-toewijzing](marketplace-publishing-data-service-creation-odata-mapping.md) bekijken definities, structuren en instructies.
+* Als u geïnteresseerd bent in het leren van en inzicht in de specifieke knooppunten en de bijbehorende parameters, Lees dit artikel [Service OData toewijzing gegevensknooppunten](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) voor definities en uitleg, voorbeelden en gebruik case-context.
+* Lees dit artikel om terug te keren naar de voorgeschreven pad voor het publiceren van een Service van gegevens naar Azure Marketplace, [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
 

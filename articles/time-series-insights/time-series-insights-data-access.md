@@ -1,6 +1,6 @@
 ---
-title: aaaData-beleid in Azure Time Series Insights | Microsoft Docs
-description: In deze zelfstudie leert u toomanage gegevenstoegangsbeleid in tijd reeks inzichten
+title: Beleid voor gegevenstoegang in Azure Time Series Insights | Microsoft Docs
+description: In deze zelfstudie leert u hoe u beleid voor gegevenstoegang kunt beheren in Time Series Insights
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -8,68 +8,68 @@ author: op-ravi
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: f286d26c8c5c851c523e9384760dc4b10711fa3f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 5258bf5de6f7aa1ea246f1235e7d362b1b7d0181
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="grant-data-access-tooa-time-series-insights-environment-using-azure-portal"></a>Data access tooa Time Series Insights-omgeving met Azure portal verlenen
+# <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Gegevenstoegang verlenen tot een Time Series Insights-omgeving met Azure Portal
 
 Time Series Insights-omgevingen hebben twee onafhankelijke typen toegangsbeleid:
 
 * Beleid voor beheertoegang
 * Beleid voor gegevenstoegang
 
-Beide soorten beleid verlenen Azure Active Directory-principals (gebruikers en apps) verschillende machtigingen voor een specifieke omgeving. Hallo principals (gebruikers en apps) moeten behoren toohello active directory (of 'Azure-tenant') die zijn gekoppeld aan het Hallo-abonnement met Hallo-omgeving.
+Beide soorten beleid verlenen Azure Active Directory-principals (gebruikers en apps) verschillende machtigingen voor een specifieke omgeving. De principals (gebruikers en apps) moeten behoren tot de Active Directory (of Azure-tenant) die is gekoppeld aan het abonnement dat de omgeving bevat.
 
-Beheerbeleid toegang verlenen machtigingen gerelateerde toohello configuratie van Hallo-omgeving, zoals
-*   Verwijzen naar gegevenssets, maken en verwijderen van Hallo-omgeving, bronnen van gebeurtenissen en
-*   Beheer van Hallo gegevenstoegangsbeleid.
+Beleid voor beheertoegang verleent machtigingen die betrekking hebben op de configuratie van de omgeving, zoals
+*   maken en verwijderen van de omgeving, gebeurtenisbronnen, referentiegegevenssets, en
+*   beheer van het beleid voor gegevenstoegang.
 
-Gegevenstoegangsbeleid machtigingen verlenen gegevensquery's tooissue, referentiegegevens in Hallo omgeving bewerkt en opgeslagen query's en perspectieven die zijn gekoppeld aan de omgeving Hallo delen.
+Beleid voor gegevenstoegang verleent machtigingen voor het uitvoeren van gegevensquery's, het bewerken van referentiegegevens in de omgeving en het delen van opgeslagen query's en perspectieven die aan de omgeving zijn gekoppeld.
 
-Hallo twee soorten beleid toestaan duidelijke scheiding tussen toohello toegangsbeheer van Hallo-omgeving en toegang tot toohello gegevens binnen Hallo-omgeving. Het is bijvoorbeeld mogelijk toosetup een omgeving zodat Hallo eigenaar/maker van Hallo omgeving uit Hallo gegevenstoegang wordt verwijderd. En de gebruikers en services die zijn toegestaan tooread gegevens van Hallo-omgeving kan worden verleend geen toegang tot toohello configuratie van Hallo-omgeving.
+De twee typen beleid maken een duidelijke scheiding mogelijk tussen toegang tot het beheer van de omgeving en toegang tot de gegevens in de omgeving. Het is bijvoorbeeld mogelijk om een omgeving zo in te stellen dat de eigenaar/maker van de omgeving geen toegang tot de gegevens heeft. Ook kan aan gebruikers en services die vanuit de omgeving gegevens kunnen lezen, geen toegang worden verleend tot de configuratie van de omgeving.
 
 ## <a name="grant-data-access"></a>Gegevenstoegang verlenen
-Hallo volgende stappen laten zien hoe toogrant toegang tot de gegevens voor de principal van een gebruiker:
+De volgende stappen laten zien hoe gegevenstoegang wordt verleend aan een gebruiker-principal:
 
-1.  Meld u aan toohello [Azure-portal](https://portal.azure.com).
-2.  Klik op 'Alle resources' in hello menu aan de linkerkant Hallo Hallo Azure-portal.
+1.  Meld u aan bij [Azure Portal](https://portal.azure.com).
+2.  Klik op Alle resources in het menu aan de linkerkant van Azure Portal.
 3.  Selecteer uw Time Series Insights-omgeving.
 
-  ![Beheren van Hallo Time Series Insights-bron - omgeving](media/data-access/getstarted-grant-data-access1.png)
+  ![Beheren van de Time Series Insights-bron - omgeving](media/data-access/getstarted-grant-data-access1.png)
 
 4.  Selecteer Toegang gegevenslaag en klik op Toevoegen
 
-  ![Hallo Time Series Insights bron beheren: toevoegen](media/data-access/getstarted-grant-data-access2.png)
+  ![Beheren van de Time Series Insights-bron - toevoegen](media/data-access/getstarted-grant-data-access2.png)
 
 5.  Klik op Gebruiker selecteren.
-6.  Zoek en selecteer gebruiker via e-mail Hallo.
+6.  Zoek en selecteer de gebruiker aan de hand van zijn e-mailadres.
 7.  Klik op de blade Gebruiker selecteren op Selecteren.
 
-  ![Hallo Time Series Insights-bron - Selecteer de gebruiker beheren](media/data-access/getstarted-grant-data-access3.png)
+  ![Beheren van de Time Series Insights-bron - gebruiker selecteren](media/data-access/getstarted-grant-data-access3.png)
 
 8.  Klik op Rol selecteren.
-9.  Selecteer 'Inzender' als u tooallow gebruiker toochange referentiegegevens wilt en opgeslagen query's en perspectieven met andere gebruikers van Hallo-omgeving delen. Anders 'Lezer' tooallow gebruikersgegevens query selecteren in Hallo-omgeving en persoonlijke (niet-gedeelde) query's opslaan in Hallo-omgeving.
-10. Klik op 'Ok' Hallo 'Rol selecteren' blade.
+9.  Selecteer Bijdrager als u wilt toestaan dat de gebruiker referentiegegevens mag wijzigen en opgeslagen query's en perspectieven mag delen met andere gebruikers van de omgeving. Selecteer anders Lezer. Hiermee staat u de gebruiker toe om gegevens in de omgeving op te vragen en persoonlijke (niet-gedeelde) query's op te slaan in de omgeving.
+10. Klik op de blade Rol selecteren op OK.
 
-  ![Hallo Time Series Insights-bron - Functieservices selecteren beheren](media/data-access/getstarted-grant-data-access4.png)
+  ![Beheren van de Time Series Insights-bron - rol selecteren](media/data-access/getstarted-grant-data-access4.png)
 
-11. Klik op 'Ok' Hallo 'Gebruikersrol selecteren' blade.
+11. Klik op de blade Gebruikersrol selecteren op OK.
 12. U ziet het volgende:
 
-  ![Hallo Time Series Insights-bron - resultaten beheren](media/data-access/getstarted-grant-data-access5.png)
+  ![Beheren van de Time Series Insights-bron - resultaten](media/data-access/getstarted-grant-data-access5.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Een gebeurtenisbron maken](time-series-insights-add-event-source.md)
-* [Verzenden van gebeurtenissen](time-series-insights-send-events.md) toohello gebeurtenisbron
+* [Gebeurtenissen verzenden](time-series-insights-send-events.md) naar de gebeurtenisbron
 * Uw omgeving bekijken in de [Time Series Insights-portal](https://insights.timeseries.azure.com)

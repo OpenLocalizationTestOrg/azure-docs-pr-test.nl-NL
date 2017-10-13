@@ -1,6 +1,6 @@
 ---
-title: aaaRestrict toegang via internetgerichte eindpunten in Azure Security Center | Microsoft Docs
-description: Dit document leest u hoe tooimplement hello Azure Security Center aanbeveling ** toegang via Internetgericht eindpunt ** beperken.
+title: Beperken van toegang via internetgerichte eindpunten in Azure Security Center | Microsoft Docs
+description: Dit document ziet u hoe de aanbeveling Azure Security Center implementeren ** toegang via Internetgericht eindpunt ** beperken.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-ms.openlocfilehash: ee72497088618d4db29b5ae4183f4fe77b498423
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Beperken van toegang via internetgerichte eindpunten in Azure Security Center
-Azure Security Center wordt aanbevolen dat u de toegang via internetgerichte eindpunten beperken als een van uw Netwerkbeveiligingsgroepen (nsg's) heeft een of meer regels voor binnenkomende verbindingen die toegankelijk is vanaf 'alle' IP-bronadressen. Openstellen te 'any' mogelijkheid aanvallers tooaccess uw resources. Security Center beveelt aan dat u deze regels voor binnenkomende verbindingen toorestrict toegang toosource IP-adressen die daadwerkelijk toegang nodig bewerken.
+Azure Security Center wordt aanbevolen dat u de toegang via internetgerichte eindpunten beperken als een van uw Netwerkbeveiligingsgroepen (nsg's) heeft een of meer regels voor binnenkomende verbindingen die toegankelijk is vanaf 'alle' IP-bronadressen. Toegang tot 'een' te openen, is het mogelijk maken aanvallers voor toegang tot uw resources. Security Center beveelt aan dat u deze regels voor binnenkomende verbindingen om toegang te beperken in bron-IP-adressen die daadwerkelijk toegang nodig bewerken.
 
 Deze aanbeveling is voor elke niet--poort dat 'een' als bron gegenereerd.
 
 > [!NOTE]
-> Dit document bevat Hallo service met behulp van een voorbeeldimplementatie. Dit is geen stapsgewijze handleiding.
+> In dit document wordt de service geïntroduceerd aan de hand van een voorbeeldimplementatie. Dit is geen stapsgewijze handleiding.
 >
 >
 
-## <a name="implement-hello-recommendation"></a>Hallo aanbeveling implementeren
-1. In Hallo **blade aanbevelingen**, selecteer **beperken van toegang via Internetgericht eindpunt**.
+## <a name="implement-the-recommendation"></a>De aanbeveling implementeren
+1. In de **blade aanbevelingen**, selecteer **beperken van toegang via Internetgericht eindpunt**.
 
    ![Toegang via een internetgericht eindpunt beperken][1]
-2. Hiermee opent u de blade Hallo **beperken van toegang via Internetgericht eindpunt**. Deze blade bevat Hallo virtuele machines (VM's) met regels voor binnenkomende verbindingen die een mogelijk beveiligingsprobleem te maken. Selecteer een virtuele machine.
+2. Hiermee opent u de blade **beperken van toegang via Internetgericht eindpunt**. Deze blade bevat de virtuele machines (VM's) met regels voor binnenkomende verbindingen die een mogelijk beveiligingsprobleem te maken. Selecteer een virtuele machine.
 
    ![Selecteer een virtuele machine][2]
-3. Hallo **NSG** blade Netwerkbeveiligingsgroep wordt informatie weergegeven, gerelateerde binnenkomende regels en Hallo VM gekoppeld. Selecteer **binnenkomende regels bewerken** tooproceed met een inkomende regel bewerken.
+3. De **NSG** blade geeft Netwerkbeveiligingsgroep informatie, gerelateerde regels voor binnenkomende verbindingen, en de bijbehorende virtuele machine. Selecteer **binnenkomende regels bewerken** om door te gaan met het bewerken van een inkomende regel.
 
    ![Netwerkbeveiligingsgroep-blade][3]
-4. Op Hallo **inkomende beveiligingsregels** blade Selecteer Hallo binnenkomende regel tooedit. In dit voorbeeld gaan we selecteren **AllowWeb**.
+4. Op de **inkomende beveiligingsregels** blade selecteert u de inkomende regel om te bewerken. In dit voorbeeld gaan we selecteren **AllowWeb**.
 
    ![Inkomende beveiligingsregels][4]
 
-   Opmerking: u kunt ook selecteren **regels standaard** toosee Hallo set met standaardregels die zijn opgenomen in alle nsg's. Hallo-standaardregels kunnen niet worden verwijderd, maar omdat ze een lagere prioriteit worden toegewezen, kunnen ze worden overschreven door het Hallo-regels die u maakt. Meer informatie over [regels standaard](../virtual-network/virtual-networks-nsg.md#default-rules).
+   Opmerking: u kunt ook selecteren **regels standaard** om te zien van de set met standaardregels die zijn opgenomen in alle nsg's. De standaardregels kunnen niet worden verwijderd, maar omdat ze een lagere prioriteit worden toegewezen, kunnen ze worden overschreven door de regels die u maakt. Meer informatie over [regels standaard](../virtual-network/virtual-networks-nsg.md#default-rules).
 
    ![Standaardregels][5]
-5. Op Hallo **AllowWeb** blade Hallo-eigenschappen bewerken van Hallo binnenkomende regel zodat die Hallo **bron** is een IP-adres of een blok IP-adressen. Zie toolearn meer informatie over het Hallo-eigenschappen van inkomende hello-regel [NSG-regels](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+5. Op de **AllowWeb** blade, bewerk de eigenschappen van de binnenkomende regel zodat de **bron** is een IP-adres of een blok IP-adressen. Zie voor meer informatie over de eigenschappen van de binnenkomende regel, [NSG-regels](../virtual-network/virtual-networks-nsg.md#nsg-rules).
 
    ![Regel voor binnenkomende bewerken][6]
 
 ## <a name="see-also"></a>Zie ook
-In dit artikel hebt u geleerd hoe tooimplement Hallo Security Center aanbeveling 'toegang beperken tot en met een Internetgericht eindpunt." toolearn meer informatie over het inschakelen van regels, en nsg's ziet Hallo:
+In dit artikel hebt u geleerd hoe u implementeert de aanbeveling Security Center 'Toegang beperken tot en met een internetgericht eindpunt'. Zie de volgende onderwerpen voor meer informatie over het inschakelen van regels en nsg's:
 
 * [Wat is een netwerkbeveiligingsgroep (NSG)?](../virtual-network/virtual-networks-nsg.md)
-* [Hoe toomanage nsg's met behulp van Azure-portal Hallo](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Het nsg's met de Azure portal beheren](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 
-toolearn meer informatie over Security Center Hallo ziet:
+Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md)--meer informatie over hoe tooconfigure beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
+* [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md): leer hoe aanbevelingen u helpen uw Azure-resources te beveiligen.
-* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md)--meer informatie over hoe toomonitor Hallo status van uw Azure-resources.
-* [Het beheer van is en reageert toosecurity waarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md)--meer informatie over hoe toomanage en gereageerd had toosecurity waarschuwingen.
-* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md) --meer informatie over hoe toomonitor gezondheidsstatus van uw partneroplossingen Hallo.
-* [Veelgestelde vragen over Azure Security Center](security-center-faq.md)--Raadpleeg Veelgestelde vragen over het gebruik van Hallo-service.
-* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/)--Hallo nieuwste Azure-beveiliging nieuws en informatie.
+* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): meer informatie over het bewaken van de status van uw Azure-resources.
+* [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): leer hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
+* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
+* [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
+* [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) (Azure-beveiligingsblog): hier vindt u het laatste nieuws over Azure-beveiliging en andere informatie.
 
 <!--Image references-->
 [1]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/restrict-access-thru-internet-facing-endpoint.png

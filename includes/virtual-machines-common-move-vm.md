@@ -1,29 +1,29 @@
 
 
-## <a name="use-hello-portal-toomove-a-vm-tooa-different-subscription"></a>Hallo portal toomove een VM tooa ander abonnement gebruiken
-U kunt een virtuele machine verplaatsen en de bijbehorende resources tooa ander abonnement met Hallo-portal.
+## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>De portal voor het verplaatsen van een virtuele machine naar een ander abonnement gebruiken
+U kunt een virtuele machine verplaatsen en de bijbehorende bronnen naar een ander abonnement via de portal.
 
-1. Open Hallo [Azure-portal](https://portal.azure.com).
-2. Klik op **Bladeren** > **virtuele machines** en Hallo VM die u wilt dat toomove uit Hallo lijst selecteert.
+1. Open de [Azure Portal](https://portal.azure.com).
+2. Klik op **Bladeren** > **virtuele machines** en selecteer de virtuele machine die u wilt verplaatsen uit de lijst.
    
-    ![Schermopname van de sectie Essentials Hallo waarbij u klikken op Hallo pen pictogram tooopen Hallo verplaatsen resources blade.](./media/virtual-machines-common-move-vm/move-button.png)
-3. In Hallo **Essentials** sectie, klikt u op Hallo **abonnement wijzigen** pen pictogram naam volgende toohello abonnement. Hallo **verplaatsen van resources** blade wordt geopend.
+    ![Schermopname van de sectie Essentials waarbij u klikken op het potloodpictogram om de verplaatsing resources blade te openen.](./media/virtual-machines-common-move-vm/move-button.png)
+3. In de **Essentials** sectie, klikt u op de **abonnement wijzigen** potloodpictogram naast de naam van het abonnement. De **verplaatsen van resources** blade wordt geopend.
    
-    ![Schermopname van Hallo verplaatsen resources blade.](./media/virtual-machines-common-move-vm/move.png)
-4. Selecteer elke Hallo resources toomove. In de meeste gevallen moet u overstappen dat alle Hallo optionele resources weergegeven.
-5. Selecteer Hallo **abonnement** waar u Hallo VM toobe verplaatst.
-6. Selecteer een bestaande **resourcegroep** of typ een naam toohave gemaakt van een nieuwe resourcegroep.
-7. Wanneer u klaar bent, aangeven dat u begrijpt dat nieuwe resource id's worden gemaakt en die toobe gebruikt Hello VM moeten nadat deze is verplaatst, klik vervolgens op **OK**.
+    ![Schermopname van de blade van de resources verplaatsen.](./media/virtual-machines-common-move-vm/move.png)
+4. Selecteer elk van de resources te verplaatsen. In de meeste gevallen moet u alle vermelde optionele resources verplaatsen.
+5. Selecteer de **abonnement** waar u de virtuele machine worden verplaatst.
+6. Selecteer een bestaande **resourcegroep** of typ een naam te hebben van een nieuwe resourcegroep gemaakt.
+7. Wanneer u klaar bent, aangeven dat u begrijpt dat nieuwe resource id's worden gemaakt en die worden gebruikt met de virtuele machine moeten nadat deze is verplaatst, vervolgens klikt u op **OK**.
 
-## <a name="use-hello-portal-toomove-a-vm-tooanother-resource-group"></a>Hallo portal toomove een resourcegroep van de VM-tooanother gebruiken
-U kunt een virtuele machine verplaatsen en de bijbehorende resources tooanother-resourcegroep met Hallo-portal.
+## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>De portal gebruiken voor het verplaatsen van een virtuele machine naar een andere resourcegroep
+U kunt een virtuele machine verplaatsen en de bijbehorende resources aan een andere resourcegroep via de portal.
 
-1. Open Hallo [Azure-portal](https://portal.azure.com).
-2. Klik op **Bladeren** > **resourcegroepen** en selecteer Hallo resourcegroep die Hallo VM bevat.
-3. In Hallo **resourcegroep** blade Selecteer **verplaatsen** in Hallo-menu.
+1. Open de [Azure Portal](https://portal.azure.com).
+2. Klik op **Bladeren** > **resourcegroepen** en selecteert u de resourcegroep met de virtuele machine.
+3. In de **resourcegroep** blade Selecteer **verplaatsen** in het menu.
    
-    ![Schermopname van de knop voor het verplaatsen op Hallo Resource groepen menu Hallo.](./media/virtual-machines-common-move-vm/move-rg.png)
-4. In Hallo **verplaatsen van resources** blade Hallo resources toobe verplaatst selecteren en vervolgens typt u een bestaande resourcenaam van de groep of toocreate kiest u een nieuwe resourcegroep. Wanneer u klaar bent, aangeven dat u begrijpt dat nieuwe resource id's worden gemaakt en die toobe gebruikt Hello VM moeten nadat deze is verplaatst, klik vervolgens op **OK**
+    ![Schermopname van de knop verplaatsen in het menu van de groepen Resource.](./media/virtual-machines-common-move-vm/move-rg.png)
+4. In de **verplaatsen van resources** blade, selecteer de bronnen worden verplaatst en typ vervolgens een bestaande resource naam van de groep of maak een nieuwe resourcegroep. Wanneer u klaar bent, aangeven dat u begrijpt dat nieuwe resource id's worden gemaakt en die worden gebruikt met de virtuele machine moeten nadat deze is verplaatst, vervolgens klikt u op **OK**
    
-    ![Schermopname van Hallo verplaatsen resources blade.](./media/virtual-machines-common-move-vm/move-rg-list.png)
+    ![Schermopname van de blade van de resources verplaatsen.](./media/virtual-machines-common-move-vm/move-rg-list.png)
 

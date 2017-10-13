@@ -1,59 +1,76 @@
 ---
-titel: aaa "Azure Analysis Services-zelfstudie les 13: implementeren | Microsoft Docs' Beschrijving: hierin wordt beschreven hoe toodeploy Hallo zelfstudie project tooAzure Analysis Services.
-Services: analysis services-documentationcenter: '' auteur: minewiskan manager: erikre-editor: '' tags: ''
-
-MS.AssetID: ms.service: ms.devlang analysis services: N.V.T. ms.topic:-slag-artikel ms.tgt_pltfrm: N.V.T. ms.workload: n.v.t. ms.date: 17-07/2017 ms.author: owend
+title: 'Azure Analysis Services-zelfstudie - Les 13: Implementeren | Microsoft Docs'
+description: In deze les wordt beschreven hoe u het zelfstudieproject implementeert in Azure Analysis Services.
+services: analysis-services
+documentationcenter: 
+author: Minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 09/20/2017
+ms.author: owend
+ms.openlocfilehash: 9594582419c716a37a1010e2410e7b2b199df04c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-13-deploy"></a>Les 13: Implementeren
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In deze les configureert u de eigenschappen van implementatie; een Azure Analysis Services server toodeploy tooand een naam voor het Hallo-model op te geven. Vervolgens implementeert u Hallo model toothat exemplaar. Nadat uw model is geïmplementeerd, kunnen gebruikers verbinding maken tooit met behulp van een reporting clienttoepassing. toolearn meer, Zie [tooAzure Analysis Services implementeren](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
+In deze les gaat u eigenschappen voor de implementatie configureren. U gaat een Azure Analysis Services-server voor implementatie en een naam voor het model opgeven. Vervolgens implementeert u het model naar dat exemplaar. Na de implementatie van het model kunnen gebruikers er via een rapportageclienttoepassing verbinding mee maken. Zie [Implementeren naar Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy) voor meer informatie.  
   
-Geschatte tijd toocomplete deze les: **5 minuten**  
+Geschatte tijd voor het voltooien van deze les: **5 minuten**  
   
 ## <a name="prerequisites"></a>Vereisten  
-Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u Hallo taken uitvoert in deze les, u moet voltooid Hallo vorige les: [les 12: analyseren in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 12: Analyseren in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
-> U moet hebben [beheerdersmachtigingen](../analysis-services-server-admins.md) op Hallo externe Analysis Services-server in de volgorde toodeploy tooit.  
+> U hebt [beheerdersmachtigingen](../analysis-services-server-admins.md) nodig voor de externe Analysis Services-server om hiernaar te kunnen implementeren.  
 
 > [!IMPORTANT]  
-> Als u de voorbeelddatabase Hallo AdventureWorksDW2014 geïnstalleerd op een lokale SQL Server en u bij het implementeren van uw model tooan Azure Analysis Services-server een [On-premises gegevensgateway](../analysis-services-gateway.md) is vereist.
+> Als u de voorbeelddatabase AdventureWorksDW2014 hebt geïnstalleerd op een on-premises SQL Server en u uw model implementeert naar een Azure Analysis Services-server, is een [on-premises gegevensgateway](../analysis-services-gateway.md) vereist.
   
-## <a name="deploy-hello-model"></a>Hallo model implementeren  
+## <a name="deploy-the-model"></a>Het model implementeren  
   
-#### <a name="tooconfigure-deployment-properties"></a>tooconfigure implementatie-eigenschappen  
+#### <a name="to-configure-deployment-properties"></a>Implementatie-eigenschappen configureren:  
 
   
-1.  In **Solution Explorer**, klik met de rechtermuisknop Hallo **AW Internet verkoop** project en klik vervolgens op **eigenschappen**.  
+1.  Klik in **Solution Explorer** met de rechtermuisknop op het project **AW Internet Sales** en klik vervolgens op **Properties**.  
   
-2.  In Hallo **AW Internet verkoop eigenschappenpagina's** dialoogvenster onder **implementatieserver**, in Hallo **Server** -eigenschap geeft u de volledige server Hallo.  
+2.  Voer bij de eigenschap **Server** onder **Deployment Server** in het dialoogvenster **AW Internet Sales Property Pages** de volledige server in.  
 
     ![aas-lesson13-deploy-property](../tutorials/media/aas-lesson13-deploy-property.png)
   
-3.  In Hallo **Database** eigenschap, type **Adventure Works Internet verkoop**.  
+3.  Typ **Adventure Works Internet Sales** voor de eigenschap **Database**.  
   
-4.  In Hallo **modelnaam** eigenschap, type **Adventure Works Internet verkoopmodel**.  
+4.  Typ **Adventure Works Internet Sales Model** voor de eigenschap **Model Name**.  
   
 5.  Controleer de invoer en klik vervolgens op **OK**.  
   
-#### <a name="toodeploy-hello-adventure-works-internet-sales"></a>toodeploy hello Adventure Works Internet verkoop
+#### <a name="to-deploy-the-adventure-works-internet-sales"></a>Het model Adventure Works Internet Sales implementeren:
   
-1.  In **Solution Explorer**, klik met de rechtermuisknop Hallo **AW Internet verkoop** project > **bouwen**.  
+1.  Klik in **Solution Explorer** met de rechtermuisknop op het project **AW Internet Sales** > **Build**.  
 
-2.  Klik met de rechtermuisknop Hallo **AW Internet verkoop** project > **implementeren**.
+2.  Klik met de rechtermuisknop op het project **AW Internet Sales** > **Deploy**.
 
-    Bij het implementeren van tooAzure Analysis Services kan worden na vragen aan gebruiker tooenter uw account. Voer in dat geval uw organisatieaccount en het bijbehorende wachtwoord in, zoals nancy@adventureworks.com. Dit account moet zich in beheerders op Hallo-server.
+    Als u implementeert naar Azure Analysis Services, wordt u mogelijk gevraagd om uw account. Voer in dat geval uw organisatieaccount en het bijbehorende wachtwoord in, zoals nancy@adventureworks.com. Dit account moet een beheerdersaccount zijn op de server.
   
-    Hallo implementeren dialoogvenster wordt weergegeven en toont de implementatiestatus Hallo Hallo metagegevens en elke tabel die is opgenomen in het Hallo-model.  
+    Het dialoogvenster Deploy wordt weergegeven en toont de implementatiestatus van de metagegevens en tabellen die zijn opgenomen in het model.  
     
     ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
   
 3. Als de implementatie is voltooid, kunt u op **Close** klikken.  
   
 ## <a name="conclusion"></a>Conclusie  
-Gefeliciteerd. U bent klaar met het ontwerpen en implementeren van uw eerste tabellaire model van Analysis Services. Deze zelfstudie heeft geholpen helpt u bij het voltooien van de meest algemene taken Hallo bij het maken van een model in tabelvorm. Nu dat uw Adventure Works Internet verkoop-model is geïmplementeerd, kunt u SQL Server Management Studio toomanage Hallo model; proces-scripts en een back-upplan maken. Gebruikers kunnen nu ook verbinding maken met behulp van een reporting clienttoepassing, zoals Microsoft Excel of Power BI toohello-model.  
+Gefeliciteerd. U bent klaar met het ontwerpen en implementeren van uw eerste tabellaire model van Analysis Services. Deze zelfstudie heeft u stapsgewijs begeleid bij het uitvoeren van de algemene taken voor het maken van een tabellair model. Het model Adventure Works Internet Sales is nu geïmplementeerd. U kunt nu SQL Server Management Studio gebruiken om het model te beheren, en processcripts en een back-upplan te maken. Gebruikers kunnen nu ook verbinding maken met het model met behulp van een rapportageclienttoepassing zoals Microsoft Excel of Power BI.  
 
 ![aas-lesson13-ssms](../tutorials/media/aas-lesson13-ssms.png)
   

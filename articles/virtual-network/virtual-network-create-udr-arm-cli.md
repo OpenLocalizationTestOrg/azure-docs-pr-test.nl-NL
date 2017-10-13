@@ -1,6 +1,6 @@
 ---
-title: aaaControl Routering en virtuele apparaten via Azure CLI 2.0 Hallo | Microsoft Docs
-description: Meer informatie over hoe toocontrol Routering en virtuele apparaten via Azure CLI 2.0 Hallo.
+title: Beheren van Routering en virtuele apparaten met behulp van de Azure CLI 2.0 | Microsoft Docs
+description: Informatie over het beheren van Routering en virtuele apparaten met behulp van de Azure CLI 2.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2017
 ms.author: jdial
-ms.openlocfilehash: 79b908848932a4365dab1b7497b6a0dbf44bbaf8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e5d9519998346619093f443b740c8904283f76e8
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="create-user-defined-routes-udr-using-hello-azure-cli-20"></a>Door de gebruiker gedefinieerde Routes (UDR) met behulp van Azure CLI 2.0 Hallo maken
+# <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>Door de gebruiker gedefinieerde Routes (UDR) met behulp van de Azure CLI 2.0 maken
 
 > [!div class="op_single_selector"]
 > * [PowerShell](virtual-network-create-udr-arm-ps.md)
@@ -30,12 +30,12 @@ ms.lasthandoff: 10/06/2017
 > * [PowerShell (klassieke implementatie)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (klassieke implementatie)](virtual-network-create-udr-classic-cli.md)
 
-## <a name="cli-versions-toocomplete-hello-task"></a>CLI-versies toocomplete Hallo taak 
+## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren 
 
-U kunt met een van de volgende versies van de CLI Hallo Hallo-taak uitvoeren: 
+U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies: 
 
-- [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md) – onze CLI voor Hallo klassieke en resource management implementatiemodellen 
-- [Azure CLI 2.0](#Create-the-UDR-for-the-front-end-subnet) -onze volgende generatie CLI voor Hallo resource management-implementatiemodel (in dit artikel)
+- [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md): onze CLI voor het klassieke implementatiemodel en het Resource Manager-implementatiemodel 
+- [Azure CLI 2.0](#Create-the-UDR-for-the-front-end-subnet) -onze volgende generatie CLI voor de resource management-implementatiemodel (in dit artikel)
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
@@ -45,13 +45,13 @@ U kunt met een van de volgende versies van de CLI Hallo Hallo-taak uitvoeren:
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-Hello Azure CLI Voorbeeldopdrachten onderstaande verwacht een eenvoudige omgeving al gemaakt op basis van Hallo bovenstaande scenario. Als u toorun Hallo opdrachten wilt zoals ze worden weergegeven in dit document, moet u eerst Hallo testomgeving verder door de implementatie [deze sjabloon](http://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR-Before), klikt u op **tooAzure implementeren**, standaardparameterwaarden Hallo vervangen indien nodig, en volg de instructies in Hallo in Hallo portal.
+De Azure CLI Voorbeeldopdrachten onderstaande verwacht een eenvoudige omgeving al gemaakt op basis van het bovenstaande scenario. Als u wilt de opdrachten uitvoeren zoals ze worden weergegeven in dit document, moet u eerst de testomgeving verder door de implementatie [deze sjabloon](http://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR-Before), klikt u op **implementeren in Azure**, vervangt u de standaardwaarden voor parameters indien nodig en volg de instructies in de portal.
 
 
-## <a name="create-hello-udr-for-hello-front-end-subnet"></a>Hallo UDR voor Hallo front-end-subnet maken
-toocreate hello routetabel en route die nodig zijn voor Hallo front-end-subnet op basis van Hallo scenario bovenstaande stappen Hallo hieronder.
+## <a name="create-the-udr-for-the-front-end-subnet"></a>De UDR voor de front-end-subnet maken
+Volg de onderstaande stappen voor het maken van de routetabel en de route die nodig zijn voor de front-end-subnet op basis van de bovenstaande scenario.
 
-1. Een routetabel voor Hallo front-end-subnet maken met de Hallo [az netwerk routetabel maken](/cli/azure/network/route-table#create) opdracht:
+1. Maken van een routetabel voor het front-end-subnet met de [az netwerk routetabel maken](/cli/azure/network/route-table#create) opdracht:
 
     ```azurecli
     az network route-table create \
@@ -77,7 +77,7 @@ toocreate hello routetabel en route die nodig zijn voor Hallo front-end-subnet o
     }
     ```
 
-2. Maken van een route die alle verkeer dat is bestemd toohello back-end-subnet (192.168.2.0/24) toohello verzendt **FW1** VM (192.168.0.4) met behulp van Hallo [az routetabel netwerkroute maken](/cli/azure/network/route-table/route#create) opdracht:
+2. Maken van een route dat al het verkeer naar de back-end-subnet (192.168.2.0/24) verzendt naar de **FW1** VM (192.168.0.4) met behulp van de [az routetabel netwerkroute maken](/cli/azure/network/route-table/route#create) opdracht:
 
     ```azurecli 
     az network route-table route create \
@@ -105,12 +105,12 @@ toocreate hello routetabel en route die nodig zijn voor Hallo front-end-subnet o
     ```
     Parameters:
 
-    * **--route tabelnaam**. Naam van de routetabel Hallo waar Hallo route wordt toegevoegd. In ons scenario *UDR FrontEnd*.
-    * **--adresvoorvoegsel**. Het adresvoorvoegsel voor Hallo subnet waar pakketten zijn bestemd voor. In ons scenario *192.168.2.0/24*.
+    * **--route tabelnaam**. Naam van de routetabel waar de route wordt toegevoegd. In ons scenario *UDR FrontEnd*.
+    * **--adresvoorvoegsel**. Het adresvoorvoegsel voor het subnet waarin pakketten naar. In ons scenario *192.168.2.0/24*.
     * **--volgende hoptype**. Type object verkeer ontvangt. Mogelijke waarden zijn *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, of *geen*.
     * **--volgende hop-ip-adressen**. IP-adres voor de volgende hop. In ons scenario *192.168.0.4*.
 
-3. Voer Hallo [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) opdracht tooassociate Hallo routetabel die eerder is gemaakt met de Hallo **FrontEnd** subnet:
+3. Voer de [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) opdracht voor het koppelen van de routetabel die eerder is gemaakt met de **FrontEnd** subnet:
 
     ```azurecli
     az network vnet subnet update \
@@ -150,13 +150,13 @@ toocreate hello routetabel en route die nodig zijn voor Hallo front-end-subnet o
 
     Parameters:
     
-    * **--vnet naam**. Naam van Hallo VNet waar Hallo subnet bevindt. In ons scenario *TestVNet*.
+    * **--vnet naam**. De naam van de VNet waar het subnet bevindt. In ons scenario *TestVNet*.
 
-## <a name="create-hello-udr-for-hello-back-end-subnet"></a>Hallo UDR voor Hallo back-end subnet maken
+## <a name="create-the-udr-for-the-back-end-subnet"></a>De UDR voor de back-end-subnet maken
 
-toocreate hello routetabel en te routeren die nodig zijn voor Hallo back-end-subnet op basis van Hallo scenario hierboven voltooid Hallo stappen te volgen:
+Voor het maken van de routetabel en de route die nodig zijn voor de back-end-subnet op basis van het bovenstaande scenario, moet u de volgende stappen uitvoeren:
 
-1. Voer Hallo opdracht toocreate na een routetabel voor Hallo back-end-subnet:
+1. Voer de volgende opdracht voor het maken van een routetabel voor de back-end-subnet:
 
     ```azurecli
     az network route-table create \
@@ -165,7 +165,7 @@ toocreate hello routetabel en te routeren die nodig zijn voor Hallo back-end-sub
     --location centralus
     ```
 
-2. Uitvoeren na de opdracht toocreate een route in Hallo route tabel toosend Hallo alle verkeer dat is bestemd toohello front-end-subnet (192.168.1.0/24) toohello **FW1** VM (192.168.0.4):
+2. Voer de volgende opdracht voor het maken van een route in de routetabel alle verkeer dat is bestemd voor het front-end-subnet (192.168.1.0/24) te verzenden naar de **FW1** VM (192.168.0.4):
 
     ```azurecli
     az network route-table route create \
@@ -177,7 +177,7 @@ toocreate hello routetabel en te routeren die nodig zijn voor Hallo back-end-sub
     --next-hop-ip-address 192.168.0.4
     ```
 
-3. Voer hello na de opdracht tooassociate Hallo routetabel Hello **back-end** subnet:
+3. Voer de volgende opdracht om te koppelen van de routetabel met de **back-end** subnet:
 
     ```azurecli
     az network vnet subnet update \
@@ -189,9 +189,9 @@ toocreate hello routetabel en te routeren die nodig zijn voor Hallo back-end-sub
 
 ## <a name="enable-ip-forwarding-on-fw1"></a>Doorsturen via IP op FW1 inschakelen
 
-doorsturen via IP in Hallo NIC die wordt gebruikt door tooenable **FW1**, volledige Hallo volgende stappen:
+Om in te schakelen doorsturen via IP in de NIC die wordt gebruikt door **FW1**, de volgende stappen uit:
 
-1. Voer Hallo [az netwerk nic weergeven](/cli/azure/network/nic#show) opdracht met een huidige van JMESPATH filter toodisplay hello **enable--doorsturen via ip** waarde voor **doorsturen via IP inschakelen**. Deze dient te worden ingesteld*false*.
+1. Voer de [az netwerk nic weergeven](/cli/azure/network/nic#show) opdracht met een filter JMESPATH om weer te geven van de huidige **enable--doorsturen via ip** waarde voor **doorsturen via IP inschakelen**. Moet worden ingesteld op *false*.
 
     ```azurecli
     az network nic show \
@@ -204,7 +204,7 @@ doorsturen via IP in Hallo NIC die wordt gebruikt door tooenable **FW1**, volled
 
         false
 
-2. Voer Hallo doorsturen via IP van opdracht tooenable te volgen:
+2. Voer de volgende opdracht doorsturen via IP inschakelen:
 
     ```azurecli
     az network nic update \
@@ -213,7 +213,7 @@ doorsturen via IP in Hallo NIC die wordt gebruikt door tooenable **FW1**, volled
     --ip-forwarding true
     ```
 
-    Hallo uitvoer gestreamde toohello console controleren of alleen voor specifieke Hallo testen **enableIpForwarding** waarde:
+    Bekijk de uitvoer naar de console gestreamd of alleen testen voor de specifieke **enableIpForwarding** waarde:
 
     ```azurecli
     az network nic show -g testrg -n nicfw1 --query 'enableIpForwarding' -o tsv

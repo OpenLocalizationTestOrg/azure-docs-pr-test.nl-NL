@@ -1,6 +1,6 @@
 ---
-title: aaaAzure Active Directory-rapportage latenties | Microsoft Docs
-description: Meer informatie over Hallo hoeveelheid tijd die nodig is voor het melden van gebeurtenissen tooshow up in uw Azure-portal
+title: Azure Active Directory-rapportage latenties | Microsoft Docs
+description: Meer informatie over de hoeveelheid tijd die nodig is voor rapportage gebeurtenissen worden weergegeven in uw Azure-portal
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,27 +15,27 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: eee959331262ba59b313dd038cb54699dbef48a4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 93cb0baeab8f13f81257ed1bd32ed08561c54b72
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory-rapportage latenties
 
-Met [reporting](active-directory-preview-explainer.md) hello Azure Active Directory, u alle benodigde toodetermine hoe uw omgeving doet Hallo gegevens opvragen. Hallo hoeveelheid tijd die nodig is voor het melden van gegevens tooshow omhoog in hello Azure-portal wordt ook wel latentie. 
+Met [reporting](active-directory-preview-explainer.md) in Azure Active Directory, dat u alle informatie die u nodig hebt om te bepalen hoe uw omgeving doet. De hoeveelheid tijd die nodig is voor het melden van gegevens worden weergegeven in de Azure-portal wordt ook wel latentie. 
 
-Dit onderwerp staan Hallo latentiegegevens Hallo alle reporting categorieën in hello Azure-portal. 
+Dit onderwerp worden de latentie-informatie voor de categorieën alle rapportage in Azure portal. 
 
 
 ## <a name="activity-reports"></a>Activiteitsrapporten
 
 Er zijn twee gebieden van de activiteit reporting:
 
-- **Aanmelden activiteiten** – informatie over het gebruik van Hallo van beheerde toepassingen en gebruikersactiviteiten aanmelden
+- **Aanmeldactiviteiten**: informatie over het gebruik van beheerde toepassingen en aanmeldactiviteiten van gebruikers
 - **Controlelogboeken**: informatie over systeemactiviteit van gebruikers, groepsbeheer, uw beheerde toepassingen en directory-activiteiten
 
-Hallo volgende tabel vindt u Hallo latentiegegevens voor activiteitsrapporten.
+De volgende tabel bevat de latentie-informatie voor activiteitsrapporten.
 
 | Rapport | Minimum | Gemiddelde | Maximum |
 | :-- | --- | --- | --- |
@@ -43,17 +43,17 @@ Hallo volgende tabel vindt u Hallo latentiegegevens voor activiteitsrapporten.
 | Aanmeldingen               | 15 minuten  | 15 minuten | 2 uur *   |
 
 >[!NOTE]
-> Voor sommige activiteitsgegevens voor aanmeldingen afkomstig is van de oudere office-toepassingen, kan het Hallo gegevens tooshow rapporteert too8 uur duren voordat. 
+> Als de aanmeldactiviteitgegevens afkomstig zijn van verouderde Office-toepassingen, kan het tot acht uur duren voor de rapportagegegevens worden weergegeven. 
 
 
 ## <a name="security-reports"></a>Beveiligingsrapporten
 
 Er zijn twee soorten beveiliging reporting:
 
-- **Riskant aanmeldingen** -een riskante aanmelden is een indicator voor een aanmeldingspoging die mogelijk zijn uitgevoerd door iemand die niet Hallo legitieme eigenaar van een gebruikersaccount. 
+- **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. 
 - **Gebruikers voor wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. 
 
-Hallo volgende tabel geeft een lijst Hallo latentiegegevens beveiligingsrapporten.
+De volgende tabel bevat de latentie-informatie voor beveiligingsrapporten.
 
 | Rapport | Minimum | Gemiddelde | Maximum |
 | :-- | --- | --- | --- |
@@ -62,31 +62,31 @@ Hallo volgende tabel geeft een lijst Hallo latentiegegevens beveiligingsrapporte
 
 ## <a name="risk-events"></a>Risico 's
 
-Azure Active Directory maakt gebruik van geavanceerde machine learning-algoritmen en methodiek toodetect verdachte acties die gerelateerd tooyour gebruikersaccounts zijn. Elke verdachte actie wordt opgeslagen in een gebeurtenis vastleggen genoemd risico gedetecteerd.
+Azure Active Directory maakt gebruik van geavanceerde machine learning-algoritmen en methodiek voor het detecteren van verdachte acties die zijn gekoppeld aan uw gebruikersaccounts. Elke verdachte actie wordt opgeslagen in een gebeurtenis vastleggen genoemd risico gedetecteerd.
 
-Hallo volgende tabel geeft een lijst Hallo latentiegegevens risico's.
+De volgende tabel bevat de latentie-informatie voor risico's.
 
 | Rapport | Minimum | Gemiddelde | Maximum |
 | :-- | --- | --- | --- |
 | Aanmeldingen vanaf anonieme IP-adressen |5 minuten |15 minuten |2 uur |
 | Aanmeldingen vanaf onbekende locaties |5 minuten |15 minuten |2 uur |
 | Gebruikers van wie de referenties zijn gelekt |2 uur |4 uur |8 uur |
-| Onmogelijke reis tooatypical locaties |5 minuten |1 uur |8 uur  |
+| Onmogelijke reis naar ongewone locaties |5 minuten |1 uur |8 uur  |
 | Aanmeldingen vanaf geïnfecteerde apparaten |2 uur |4 uur |8 uur  |
-| Aanmeldingen van IP-adressen met verdachte activiteit |2 uur |4 uur |8 uur  |
+| Aanmeldingen vanaf IP-adressen met verdachte activiteiten |2 uur |4 uur |8 uur  |
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u meer over Hallo activiteitsrapporten in Azure-portal Hallo tooknow wilt, Zie:
+Als u meer weten over de activiteitsrapporten in de Azure portal wilt, raadpleegt u:
 
-- [Rapporten in Azure Active Directory-beheerportal Hallo aanmeldingsactiviteiten](active-directory-reporting-activity-sign-ins.md)
-- [Activiteitsrapporten in Azure Active Directory-beheerportal Hallo controleren](active-directory-reporting-activity-audit-logs.md)
+- [Aanmeldingsactiviteiten rapporten in de Azure Active Directory-portal](active-directory-reporting-activity-sign-ins.md)
+- [Controlerapporten van activiteit in de Azure Active Directory-portal](active-directory-reporting-activity-audit-logs.md)
 
-Als u meer informatie over de beveiligingsrapporten Hallo in hello Azure-portal tooknow wilt, Zie:
+Als u meer weten over de beveiligingsrapporten in de Azure portal wilt, raadpleegt u:
 
-- [Gebruikers op risico beveiligingsrapport in hello Azure Active Directory-portal](active-directory-reporting-security-user-at-risk.md)
-- [Rapport van riskante aanmeldingen in hello Azure Active Directory-portal](active-directory-reporting-security-risky-sign-ins.md)
+- [Gebruikers op beveiligingsrapport risico's in de Azure Active Directory-portal](active-directory-reporting-security-user-at-risk.md)
+- [Riskant aanmeldingen rapport in de Azure Active Directory-portal](active-directory-reporting-security-risky-sign-ins.md)
 
-Als u meer informatie over de risico's tooknow wilt, Zie [Azure Active Directory-risicogebeurtenissen](active-directory-reporting-risk-events.md).
+Als u meer weten over de risico's wilt, Zie [Azure Active Directory-risicogebeurtenissen](active-directory-reporting-risk-events.md).

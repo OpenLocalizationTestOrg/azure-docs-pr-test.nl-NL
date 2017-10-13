@@ -1,4 +1,4 @@
-Gebruik Hallo [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) forum tooprovide feedback en maak suggesties over hoe tooimprove Azure Media Services. U kunt ook gaan rechtstreeks tooone Hallo volgende categorieën:
+Geef via het forum [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) uw feedback en suggesties om Azure Media Services te verbeteren. U kunt ook meteen naar een van de volgende categorieën gaan:
 
 * [Azure Media Player](https://feedback.azure.com/forums/169396-media-services/category/109320-azure-media-player/)
 * [SDK-clientbibliotheken](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)
@@ -7,4 +7,4 @@ Gebruik Hallo [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0
 * [Media Analytics](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
 * [Azure Portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 * [REST API en platform](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
-* [VOD streamen](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
+* [Videostreaming on demand](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)

@@ -1,6 +1,6 @@
 ---
-title: apps in een lokale Docker-container aaaDebugging | Microsoft Docs
-description: Meer informatie over hoe toomodify een app die wordt uitgevoerd in een lokale Docker-container Hallo-container met Edit- and vernieuwen vernieuwen en foutopsporing onderbrekingspunten instellen
+title: Apps in een lokale Docker-container foutopsporing | Microsoft Docs
+description: Informatie over het aanpassen van een app die wordt uitgevoerd in een lokale Docker-container, het vernieuwen van de container met Edit- and vernieuwen en foutopsporing onderbrekingspunten instellen
 services: azure-container-service
 documentationcenter: na
 author: mlearned
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: ff64e62fbb93901a29b5496bd5e17d2c4ea5ca99
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Fouten in apps in een lokale Docker-container opsporen
 ## <a name="overview"></a>Overzicht
-Hallo Visual Studio Tools voor Docker biedt een consistente manier toodevelop in en valideren van uw toepassing lokaal in een Linux-Docker-container.
-U hebt geen toorestart Hallo container telkens wanneer u een code wijzigen.
-In dit artikel ziet u hoe toouse Hallo 'Bewerken en vernieuwen' functie toostart een ASP.NET Core Web-app in een lokale Docker-container, breng eventueel benodigde wijzigingen en vernieuw vervolgens Hallo browser toosee deze wijzigingen.
-Dit artikel leest u hoe tooset onderbrekingspunten voor foutopsporing.
+Visual Studio Tools for Docker biedt een consistente manier te ontwikkelen en uw toepassing lokaal in een Linux-Docker-container te valideren.
+U moet niet opnieuw starten van de container telkens wanneer u een code wijzigen.
+In dit artikel ziet u hoe u met de functie 'Bewerken en vernieuwen' een ASP.NET Core Web-app te starten in een lokale Docker-container, breng eventueel benodigde wijzigingen en vernieuw de browser om deze wijzigingen te bekijken.
+Dit artikel ziet u ook het instellen van onderbrekingspunten voor foutopsporing.
 
 > [!NOTE]
 > Ondersteuning voor Windows-Container wordt binnenkort in een toekomstige release
@@ -33,15 +33,15 @@ Dit artikel leest u hoe tooset onderbrekingspunten voor foutopsporing.
 >
 
 ## <a name="prerequisites"></a>Vereisten
-Hallo volgende hulpprogramma's moet worden geïnstalleerd.
+De volgende hulpprogramma's moeten worden geïnstalleerd.
 
 * [Meest recente versie van Visual Studio](https://www.visualstudio.com/downloads/)
 * [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 
-lokaal toorun Docker containers, moet u een lokale docker-client.
-Kunt u Hallo [Docker-werkset](https://www.docker.com/products/docker-toolbox), hiervoor Hyper-V-toobe uitgeschakeld of kunt u [Docker voor Windows](https://www.docker.com/get-docker), die gebruikmaakt van Hyper-V en Windows 10 is vereist.
+Als u wilt uitvoeren, Docker-containers lokaal, moet u een lokale docker-client.
+U kunt de [Docker-werkset](https://www.docker.com/products/docker-toolbox), die vereist dat Hyper-V moet worden uitgeschakeld of kunt u [Docker voor Windows](https://www.docker.com/get-docker), die gebruikmaakt van Hyper-V en Windows 10 is vereist.
 
-Als u Docker-werkset gebruikt, moet u te[hello Docker-client configureren](vs-azure-tools-docker-setup.md)
+Als Docker-werkset wordt gebruikt, moet u [de Docker-client configureren](vs-azure-tools-docker-setup.md)
 
 ## <a name="1-create-a-web-app"></a>1. Een webtoepassing maken
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
@@ -50,46 +50,46 @@ Als u Docker-werkset gebruikt, moet u te[hello Docker-client configureren](vs-az
 [!INCLUDE [Add docker support](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
 ## <a name="3-edit-your-code-and-refresh"></a>3. Bewerken van uw code en vernieuwen
-tooquickly wijzigingen herhalen, kunt u uw toepassing binnen een container starten en toomake wijzigingen, gaan ze weer te geven u net als bij IIS Express.
+Als u wilt herhalen snel wijzigingen, kunt u uw toepassing binnen een container start en wijzigingen aanbrengen, gaan ze weer te geven u net als bij IIS Express.
 
-1. Hallo oplossingsconfiguratie te ingesteld`Debug` en druk op  **&lt;CTRL + F5 >** toobuild uw docker installatiekopie en het lokaal uitvoeren.
+1. Stel de oplossing op `Debug` en druk op  **&lt;CTRL + F5 >** naar uw docker-installatiekopie bouwen en lokaal uitvoeren.
 
-    Zodra Hallo container installatiekopie is gemaakt en wordt uitgevoerd in een Docker-container, wordt in Visual Studio Hallo Web-app in de browser start.
-    Als u van Microsoft Edge-browser Hallo gebruikmaakt of anders fouten hebben, Zie [probleemoplossing](vs-azure-tools-docker-troubleshooting-docker-errors.md) sectie.
-2. Ga toohello over pagina, waar we zullen toomake wijzigingen.
-3. TooVisual Studio retourneren en open `Views\Home\About.cshtml`.
-4. Toevoegen van de volgende HTML-inhoud toohello einde van bestand Hallo Hallo en Hallo wijzigingen opslaan.
+    Nadat de container-installatiekopie is gemaakt en wordt uitgevoerd in een Docker-container, wordt in Visual Studio de Web-app in de browser start.
+    Als u van de browser Microsoft Edge gebruikmaakt of anders fouten hebben, Zie [probleemoplossing](vs-azure-tools-docker-troubleshooting-docker-errors.md) sectie.
+2. Ga naar de pagina over die we willen waar onze wijzigingen aanbrengen.
+3. Ga terug naar Visual Studio en open `Views\Home\About.cshtml`.
+4. De volgende HTML-inhoud toevoegen aan het einde van het bestand en sla de wijzigingen.
 
     ```
     <h1>Hello from a Docker Container!</h1>
     ```
-5. Bekijkt hello uitvoervenster, wanneer Hallo build van .NET is voltooid en u deze regels zien, gaat u terug tooyour browser en Hallo over pagina te vernieuwen.
+5. Het uitvoervenster weergeven wanneer de build .NET is voltooid en u deze regels bekijken, gaat u terug naar uw browser en vernieuw de pagina over.
 
    ```
    Now listening on: http://*:80
-   Application started. Press Ctrl+C tooshut down
+   Application started. Press Ctrl+C to shut down
    ```
 6. Uw wijzigingen zijn toegepast.
 
 ## <a name="4-debug-with-breakpoints"></a>4. Foutopsporing met onderbrekingspunten
-Vaak moet wijzigingen meer gebruik van functies van Visual Studio-foutopsporing Hallo-inspectie.
+Vaak moet wijzigingen meer controle, gebruik van de functies voor foutopsporing van Visual Studio.
 
-1. TooVisual Studio terug en openen`Controllers\HomeController.cs`
-2. Hallo-inhoud van Hallo About() methode vervangen door de volgende Hallo:
+1. Ga terug naar Visual Studio en openen`Controllers\HomeController.cs`
+2. De inhoud van de methode About() vervangen door het volgende:
 
    ```
    string message = "Your application description page from within a Container";
    ViewData["Message"] = message;
    ````
-3. Stel een onderbrekingspunt toohello links van de Hallo `string message`... regel.
-4. Klik op  **&lt;F5 >** toostart foutopsporing.
-5. Navigeer toohello over pagina toohit uw onderbrekingspunt.
-6. Ga tooVisual Studio tooview Hallo onderbrekingspunt en inspecteren Hallo-waarde van het bericht.
+3. Stel een onderbrekingspunt in aan de linkerkant van de `string message`... regel.
+4. Klik op  **&lt;F5 >** foutopsporing te starten.
+5. Navigeer naar de pagina over naar uw onderbrekingspunt.
+6. Overschakelen naar Visual Studio om het onderbrekingspunt weer te geven en controleren van de waarde van het bericht.
 
    ![][2]
 
 ## <a name="summary"></a>Samenvatting
-Met [Visual Studio 2015-Tools voor Docker](https://aka.ms/DockerToolsForVS), krijgt u de productiviteit Hallo lokaal te werken met Hallo productie realisme van het ontwikkelen van binnen een Docker-container.
+Met [Visual Studio 2015-Tools voor Docker](https://aka.ms/DockerToolsForVS), krijgt u de productiviteit van lokaal werkt met de productie realisme van het ontwikkelen van binnen een Docker-container.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 [Het oplossen van Visual Studio Docker-ontwikkeling](vs-azure-tools-docker-troubleshooting-docker-errors.md)
@@ -100,17 +100,17 @@ Met [Visual Studio 2015-Tools voor Docker](https://aka.ms/DockerToolsForVS), kri
 * [Docker-Tools voor Visual Studio Code](http://aka.ms/dockertoolsforvscode) -taal services voor het bewerken van docker-bestanden met meer e2e-scenario's, afkomstig is
 * [Informatie over Windows-Container](http://aka.ms/containers)-informatie voor Windows Server en Nano Server
 * [Azure Containerservice](https://azure.microsoft.com/services/container-service/) - [Azure Container Service-inhoud](http://aka.ms/AzureContainerService)
-* Zie voor meer voorbeelden van het werken met Docker [werken met Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) van Hallo [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Zie voor meer snelstartgidsen van Hallo HealthClinic.biz demo [Azure Developer Tools snelstartgidsen](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+* Zie voor meer voorbeelden van het werken met Docker [werken met Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) van de [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Voor meer introductiehandleidingen van de demo van HealthClinic.biz, verwijzen wij u naar [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 ## <a name="various-docker-tools"></a>Diverse Docker-hulpprogramma 's
 [Sommige hulpmiddelen geweldige docker (blog van Steve Lasker)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)
 
 ## <a name="good-articles"></a>Goede artikelen
-[Inleiding tooMicroservices van NGINX](https://www.nginx.com/blog/introduction-to-microservices/)
+[Inleiding tot Microservices van NGINX](https://www.nginx.com/blog/introduction-to-microservices/)
 
 ## <a name="presentations"></a>Presentaties
 * [Steve Lasker: VS Live Las Vegas 2016 - Docker e2e](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
-* [Inleiding tooASP.NET Core @ build 2016 - waar u op Demo](https://channel9.msdn.com/Events/Build/2016/B810)
+* [Inleiding tot ASP.NET Core @ build 2016 - waar u op Demo](https://channel9.msdn.com/Events/Build/2016/B810)
 * [.NET-toepassingen in containers Channel 9 ontwikkelen](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png

@@ -1,6 +1,6 @@
 ---
-title: aaaSet van MySQL op een Linux VM in Azure | Microsoft Docs
-description: Meer informatie over hoe tooinstall Hallo MySQL stack is op een virtuele Linux-machine (Ubuntu of RedHat familie OS) in Azure
+title: Instellen van MySQL op een Linux VM in Azure | Microsoft Docs
+description: Informatie over het installeren van de MySQL-stack op een virtuele Linux-machine (Ubuntu of RedHat familie OS) in Azure
 services: virtual-machines-linux
 documentationcenter: 
 author: SuperScottz
@@ -15,33 +15,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 ms.author: mingzhan
-ms.openlocfilehash: e47d0de7f0eb5bb873ad20e4bc35f1b5f8d33bdb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0ee70bda954cf0a193d43b5b47702e7b2c37844d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooinstall-mysql-on-azure"></a>Hoe tooinstall MySQL in Azure
-In dit artikel leert u hoe tooinstall en MySQL configureren op een virtuele machine van Azure waarop Linux wordt uitgevoerd.
+# <a name="how-to-install-mysql-on-azure"></a>MySQL installeren op Azure
+In dit artikel leert u hoe installeren en configureren van MySQL in Azure een virtuele machine waarop Linux wordt uitgevoerd.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="install-mysql-on-your-virtual-machine"></a>MySQL installeren op de virtuele machine
 > [!NOTE]
-> U moet al een Microsoft Azure virtuele machine waarop Linux wordt uitgevoerd in de volgorde toocomplete in deze zelfstudie hebben. Zie de [Azure Linux VM-zelfstudie](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) toocreate en instellen van een Linux-VM met `mysqlnode` als Hallo VM-naam en `azureuser` als gebruiker voordat u doorgaat.
+> U moet al een Microsoft Azure virtuele machine waarop Linux wordt uitgevoerd om te kunnen voltooien van deze zelfstudie hebben. Zie de [Azure Linux VM-zelfstudie](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) maken en instellen van een Linux-VM met `mysqlnode` als naam van de VM en `azureuser` als gebruiker voordat u doorgaat.
 > 
 > 
 
-In dit geval 3306 poort gebruiken als Hallo MySQL-poort.  
+In dit geval 3306 poort gebruiken als de MySQL-poort.  
 
-Verbinding maken met toohello Linux VM u via de putty hebt gemaakt. Als dit Hallo eerste keer dat u Azure Linux VM gebruikt, Zie hoe toouse putty verbinding tooa Linux VM [hier](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Verbinding maken met de Linux VM die u hebt gemaakt via de putty. Als dit de eerste keer dat u Azure Linux VM gebruikt, ziet u hoe u met putty verbinding maken met een Linux-VM [hier](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-We gebruiken opslagplaats pakket tooinstall MySQL5.6 als voorbeeld in dit artikel. MySQL5.6 heeft eigenlijk meer verbetering in prestaties dan MySQL5.5.  Meer informatie [hier](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
+We gebruiken opslagplaats pakket MySQL5.6 installeren als een voorbeeld in dit artikel. MySQL5.6 heeft eigenlijk meer verbetering in prestaties dan MySQL5.5.  Meer informatie [hier](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
 
-### <a name="how-tooinstall-mysql56-on-ubuntu"></a>Hoe tooinstall MySQL5.6 op Ubuntu
+### <a name="how-to-install-mysql56-on-ubuntu"></a>MySQL5.6 op Ubuntu installeren
 We gebruiken Linux VM hier met Ubuntu van Azure.
 
-* Stap 1: Installeer MySQL Server 5.6 te schakelen`root` gebruiker:
+* Stap 1: Installeer MySQL Server 5.6 overschakelen naar `root` gebruiker:
   
             #[azureuser@mysqlnode:~]sudo su -
   
@@ -50,21 +50,21 @@ We gebruiken Linux VM hier met Ubuntu van Azure.
             #[root@mysqlnode ~]# apt-get update
             #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
   
-    Tijdens de installatie, ziet u een dialoogvenster venster poping up tooask u tooset MySQL hoofdwachtwoord hieronder, en u moet Hallo hier wachtwoord instelt.
+    Tijdens de installatie ziet u een dialoogvenster venster poping tot vragen u hieronder MySQL root-wachtwoord instellen, en u moet de hier wachtwoord instelt.
   
     ![Afbeelding](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 
-    Invoer Hallo wachtwoord opnieuw tooconfirm.
+    Voer het wachtwoord ter bevestiging nogmaals op.
 
     ![Afbeelding](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
 
 * Stap 2: Aanmelding MySQL-Server
   
     Wanneer de installatie van de MySQL-server is voltooid, wordt MySQL-service automatisch gestart. U kunt zich aanmelden MySQL-Server met `root` gebruiker.
-    Hallo onderstaande opdracht toologin en invoer wachtwoord gebruiken.
+    Gebruik de onderstaande opdracht voor het wachtwoord voor aanmelding en invoer.
   
              #[root@mysqlnode ~]# mysql -uroot -p
-* Stap 3: Beheren Hallo MySQL-service wordt uitgevoerd
+* Stap 3: De MySQL service beheren
   
     (a) de status van MySQL-service ophalen
   
@@ -78,28 +78,28 @@ We gebruiken Linux VM hier met Ubuntu van Azure.
   
              #[root@mysqlnode ~]# service mysql stop
   
-    (d) Hallo MySQL-service opnieuw starten
+    (d) de MySQL-service opnieuw starten
   
              #[root@mysqlnode ~]# service mysql restart
 
-### <a name="how-tooinstall-mysql-on-red-hat-os-family-like-centos-oracle-linux"></a>Hoe tooinstall MySQL op Red Hat OS-familie, zoals CentOS, Oracle Linux
+### <a name="how-to-install-mysql-on-red-hat-os-family-like-centos-oracle-linux"></a>Het installeren van MySQL op Red Hat OS-familie zoals CentOS, Oracle Linux
 We gebruiken Linux VM hier met de CentOS, Oracle Linux.
 
-* Stap 1: Toevoegen Hallo MySQL Yum opslagplaats Switch te`root` gebruiker:
+* Stap 1: De opslagplaats MySQL Yum Switch toevoegen aan `root` gebruiker:
   
             #[azureuser@mysqlnode:~]sudo su -
   
-    Download en installeer Hallo MySQL releasepakket:
+    Download en installeer het releasepakket van MySQL:
   
             #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
             #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
-* Stap 2: Hieronder bestand tooenable Hallo MySQL opslagplaats voor het downloaden van het Hallo MySQL5.6 pakket bewerken
+* Stap 2: Bewerken hieronder bestand zodat de MySQL-opslagplaats voor het downloaden van het pakket MySQL5.6.
   
             #[root@mysqlnode ~]# vim /etc/yum.repos.d/mysql-community.repo
   
-    Elke waarde van dit bestand toobelow bijwerken:
+    Update voor elke waarde van dit bestand hieronder:
   
-        \# *Enable toouse MySQL 5.6*
+        \# *Enable to use MySQL 5.6*
   
         [mysql56-community]
         name=MySQL 5.6 Community Server
@@ -116,35 +116,35 @@ We gebruiken Linux VM hier met de CentOS, Oracle Linux.
            #[root@mysqlnode ~]#yum install mysql-community-server
   
     MySQL-RPM-pakket en alle gerelateerde pakketten worden geïnstalleerd.
-* Stap 4: Beheren Hallo MySQL-service wordt uitgevoerd
+* Stap 4: De MySQL service beheren
   
-    (a) Controleer de servicestatus Hallo van Hallo MySQL-server:
+    (a) Controleer de servicestatus van de MySQL-server:
   
            #[root@mysqlnode ~]#service mysqld status
   
-    (b) Controleer of de poort van MySQL standaardserver Hallo actief is:
+    (b) Controleer of de standaard poort van MySQL-server actief is:
   
            #[root@mysqlnode ~]#netstat  –tunlp|grep 3306
 
-    (c) Hallo MySQL-server niet starten:
+    (c) de MySQL-server niet starten:
 
            #[root@mysqlnode ~]#service mysqld start
 
-    (d) stoppen Hallo MySQL-server:
+    (d) stoppen van de MySQL-server:
 
            #[root@mysqlnode ~]#service mysqld stop
 
-    (e) MySQL toostart instellen als Hallo system boot-up:
+    (e) MySQL ingesteld om te starten wanneer het systeem boot-up:
 
            #[root@mysqlnode ~]#chkconfig mysqld on
 
 
-### <a name="how-tooinstall-mysql-on-suse-linux"></a>Hoe tooinstall MySQL in SUSE Linux
+### <a name="how-to-install-mysql-on-suse-linux"></a>MySQL op SUSE Linux installeren
 We gebruiken Linux VM hier met OpenSUSE.
 
 * Stap 1: Download en installeer MySQL-Server
   
-    Switch te`root` gebruiker via de onderstaande opdracht:  
+    Overschakelen naar `root` gebruiker via de onderstaande opdracht:  
   
            #sudo su -
   
@@ -153,25 +153,25 @@ We gebruiken Linux VM hier met OpenSUSE.
            #[root@mysqlnode ~]# zypper update
   
            #[root@mysqlnode ~]# zypper install mysql-server mysql-devel mysql
-* Stap 2: Beheren Hallo MySQL-service wordt uitgevoerd
+* Stap 2: De MySQL service beheren
   
-    (a) Hallo status controleren van Hallo MySQL-server:
+    (a) Controleer de status van de MySQL-server:
   
            #[root@mysqlnode ~]# rcmysql status
   
-    (b) Controleer of Hallo standaardpoort Hallo MySQL-server:
+    (b) Controleer of de standaardpoort van de MySQL-server:
   
            #[root@mysqlnode ~]# netstat  –tunlp|grep 3306
 
-    (c) Hallo MySQL-server niet starten:
+    (c) de MySQL-server niet starten:
 
            #[root@mysqlnode ~]# rcmysql start
 
-    (d) stoppen Hallo MySQL-server:
+    (d) stoppen van de MySQL-server:
 
            #[root@mysqlnode ~]# rcmysql stop
 
-    (e) MySQL toostart instellen als Hallo system boot-up:
+    (e) MySQL ingesteld om te starten wanneer het systeem boot-up:
 
            #[root@mysqlnode ~]# insserv mysql
 

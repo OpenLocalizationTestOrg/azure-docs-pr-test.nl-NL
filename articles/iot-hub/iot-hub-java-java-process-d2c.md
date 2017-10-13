@@ -1,6 +1,6 @@
 ---
-title: aaaProcess Azure IoT Hub apparaat-naar-cloud-berichten (Java) | Microsoft Docs
-description: Hoe berichten tooprocess IoT Hub apparaat-naar-cloud-berichten met behulp van regels voor het doorsturen en aangepaste eindpunten toodispatch tooother back-end-services.
+title: Azure IoT Hub apparaat-naar-cloud-berichten (Java) | Microsoft Docs
+description: Klik hier voor meer informatie over het verwerken van IoT Hub apparaat-naar-cloud-berichten met behulp van regels voor het doorsturen en aangepaste eindpunten verzending van berichten naar andere back-end-services.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: 084e84e721ca4297c4d7d6cb06a43b0bed9bce85
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d1aca8f39e305105d4ec9f63fbe7bee95487e294
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-java"></a>Verwerken van Iothub apparaat-naar-cloud-berichten (Java)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-Azure IoT Hub is een volledig beheerde service waarmee betrouwbare en veilige tweerichtingscommunicatie tussen miljoenen apparaten en een oplossing voor back-end. Andere zelfstudies ([aan de slag met IoT Hub] en [cloud naar apparaat verzenden met IoT Hub][lnk-c2d]) ziet u hoe toouse Hallo basic apparaat-naar-cloud- en cloud-naar-apparaat Messaging-functionaliteit van IoT Hub.
+Azure IoT Hub is een volledig beheerde service waarmee betrouwbare en veilige tweerichtingscommunicatie tussen miljoenen apparaten en een oplossing voor back-end. Andere zelfstudies ([aan de slag met IoT Hub] en [cloud naar apparaat verzenden met IoT Hub][lnk-c2d]) hoe u het basic apparaat-naar-cloud- en cloud-naar-apparaat gebruiken Messaging-functionaliteit van IoT Hub.
 
-Deze zelfstudie bouwt voort op Hallo-code die wordt weergegeven in Hallo [aan de slag met IoT Hub] zelfstudie en toont u hoe toouse routering tooprocess apparaat-naar-cloud-berichten in een schaalbare manier bericht. Hallo-zelfstudie ziet u hoe tooprocess berichten waarvoor onmiddellijke actie van de oplossing Hallo back-end. Een apparaat kan bijvoorbeeld een waarschuwing weergegeven dat activeert een ticket in een CRM-systeem invoegen verzenden. Gegevenspunt berichten feed daarentegen alleen in een analyse-engine. Telemetrie van de temperatuur van een apparaat dat is opgeslagen voor latere analyse toobe is bijvoorbeeld een gegevenspunt bericht.
+Deze zelfstudie bouwt voort op de code die wordt weergegeven de [aan de slag met IoT Hub] zelfstudie, en hoe u berichtroutering gebruiken voor het verwerken van apparaat-naar-cloud-berichten in een schaalbare manier. De zelfstudie laat zien hoe berichten waarvoor onmiddellijke actie van de back-end oplossing te verwerken. Een apparaat kan bijvoorbeeld een waarschuwing weergegeven dat activeert een ticket in een CRM-systeem invoegen verzenden. Gegevenspunt berichten feed daarentegen alleen in een analyse-engine. Telemetrie van de temperatuur van een apparaat dat moet worden opgeslagen voor latere analyse is bijvoorbeeld een gegevenspunt bericht.
 
-Aan het einde van de Hallo van deze zelfstudie, moet u drie Java-apps die console uitvoeren:
+Aan het einde van deze zelfstudie, moet u drie Java-apps die console uitvoeren:
 
-* **simulated-device**, een aangepaste versie van het Hallo-app gemaakt in Hallo [aan de slag met IoT Hub] zelfstudie verzendt gegevenspunt apparaat-naar-cloud-berichten per seconde en interactieve apparaat-naar-cloud met berichten voor elke 10 seconden. Deze app gebruikt Hallo AMQP-protocol toocommunicate met IoT Hub.
-* **Read-d2c-messages** Hallo telemetrie verzonden door de app op uw apparaat weergegeven.
-* **alleen kritieke wachtrij** ongedaan kritieke Hallo-berichten van Hallo Service Bus-wachtrij gekoppeld toohello IoT-hub in de wachtrij geplaatst.
+* **simulated-device**, een aangepaste versie van de app gemaakt in de [aan de slag met IoT Hub] zelfstudie verzendt gegevenspunt apparaat-naar-cloud-berichten per seconde en interactieve apparaat-naar-cloud met berichten voor elke 10 seconden . Deze app gebruikt het AMQP-protocol om te communiceren met IoT Hub.
+* **Read-d2c-messages** geeft de telemetrie die is verzonden door de app op uw apparaat weer.
+* **alleen kritieke wachtrij** ongedaan de kritieke berichten uit de Service Bus-wachtrij gekoppeld aan de IoT-hub in de wachtrij geplaatst.
 
 > [!NOTE]
-> IoT Hub heeft ondersteuning voor veel apparaatplatforms en talen, waaronder C, Java en JavaScript SDK. Voor instructies over hoe tooreplace apparaat Hallo in deze zelfstudie met een fysiek apparaat en hoe tooconnect apparaten tooan IoT Hub Hallo zien [Azure IoT Developer Center].
+> IoT Hub heeft ondersteuning voor veel apparaatplatforms en talen, waaronder C, Java en JavaScript SDK. Zie voor instructies over hoe het apparaat in deze zelfstudie vervangen door een fysiek apparaat en hoe apparaten verbinden met een IoT-Hub, de [Azure IoT Developer Center].
 
-toocomplete in deze zelfstudie, moet u hello te volgen:
+Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Een volledige werkende versie van Hallo [aan de slag met IoT Hub] zelfstudie.
-* meest recente Hallo [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* Een volledige werkende versie van de [aan de slag met IoT Hub] zelfstudie.
+* De meest recente [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 * Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis account] [lnk-free-trial] binnen een paar minuten.)
 
 Er is enige basiskennis van [Azure Storage] en [Azure Service Bus].
 
 ## <a name="send-interactive-messages-from-a-device-app"></a>Interactieve berichten verzenden vanuit een apparaat-app
-In deze sectie maakt u Hallo apparaattoepassing u hebt gemaakt in Hallo wijzigen [aan de slag met IoT Hub] zelfstudie toooccasionally berichten verzenden die direct verwerking vereist.
+In deze sectie die u wijzigt de apparaat-app die u hebt gemaakt in de [aan de slag met IoT Hub] zelfstudie af en toe om berichten te verzenden waarvoor onmiddellijke verwerking.
 
-1. Gebruik een editor tooopen hello simulated-device\src\main\java\com\mycompany\app\App.java tekstbestand. Dit bestand bevat de code voor Hallo Hallo **simulated-device** app die u hebt gemaakt in Hallo [aan de slag met IoT Hub] zelfstudie.
+1. Gebruik een teksteditor te openen van het bestand simulated-device\src\main\java\com\mycompany\app\App.java. Dit bestand bevat de code voor de **simulated-device** app die u hebt gemaakt in de [aan de slag met IoT Hub] zelfstudie.
 
-2. Vervang Hallo **MessageSender** klasse Hello code te volgen:
+2. Vervang de **MessageSender** klasse met de volgende code:
 
     ```java
     private static class MessageSender implements Runnable {
@@ -99,53 +99,53 @@ In deze sectie maakt u Hallo apparaattoepassing u hebt gemaakt in Hallo wijzigen
     }
     ```
    
-    Met deze methode wordt willekeurig Hallo eigenschap `"level": "critical"` toomessages verzonden door het Hallo apparaat simuleert een bericht dat directe actie is vereist door Hallo toepassing back-end. Hallo-toepassing geeft deze informatie in de eigenschappen van Hallo-bericht, in plaats van in de hoofdtekst van Hallo-bericht, zodat deze IoT-Hub Hallo-bericht toohello juiste berichtenbestemming versturen kunt.
+    Deze methode wordt willekeurig toegevoegd voor de eigenschap `"level": "critical"` op berichten die door het apparaat verzonden, die een bericht dat directe actie is vereist door de toepassing van de back-end simuleert. De toepassing geeft deze informatie in de berichteigenschappen in plaats van in de hoofdtekst van het bericht, zodat deze IoT Hub het bericht naar de juiste bestemming sturen kan.
    
    > [!NOTE]
-   > U kunt bericht eigenschappen tooroute berichten gebruiken voor verschillende scenario's, met inbegrip van koude pad verwerken bovendien toohello hot pad voorbeeld hier weergegeven.
+   > U kunt de berichteigenschappen om berichten te routeren voor verschillende scenario's, inclusief de verwerking van koude pad, naast het hot pad voorbeeld dat hier wordt weergegeven.
 
-2. Opslaan en sluiten van de bestand simulated-device\src\main\java\com\mycompany\app\App.java Hallo.
+2. Sla en sluit het bestand simulated-device\src\main\java\com\mycompany\app\App.java.
 
     > [!NOTE]
-    > Deze zelfstudie implementeert voor Hallo mogelijk te houden van eenvoud, niet een beleid voor opnieuw proberen. In productiecode moet u een beleid voor opnieuw proberen zoals exponentieel uitstel, zoals voorgesteld in de MSDN-artikel Hallo implementeren [afhandeling van tijdelijke fout].
+    > Omwille van de eenvoud in deze zelfstudie niet geïmplementeerd voor een beleid voor opnieuw proberen. In productiecode moet u een beleid voor opnieuw proberen zoals exponentieel uitstel, zoals voorgesteld in het MSDN-artikel implementeren [afhandeling van tijdelijke fout].
 
-3. Hallo toobuild **simulated-device** app met behulp van Maven, uitvoeren van de volgende opdracht achter de opdrachtprompt Hallo in de map simulated-device Hallo Hallo:
+3. Als u de app **simulated-device** wilt maken met behulp van Maven, geeft u de volgende opdracht op in het opdrachtvenster in de map simulated-device:
 
     ```cmd/sh
     mvn clean package -DskipTests
     ```
 
-## <a name="add-a-queue-tooyour-iot-hub-and-route-messages-tooit"></a>IoT een tooyour wachtrij hub en route u het tooit berichten toevoegen
+## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>Een wachtrij toevoegen aan uw IoT hub en route-berichten naar het
 
-In deze sectie maakt een Service Bus-wachtrij, verbindt u deze tooyour IoT-hub en configureren van uw IoT hub toosend berichten toohello wachtrij op basis van Hallo aanwezigheid van een eigenschap van het Hallo-bericht. Zie voor meer informatie over hoe tooprocess van van Service Bus-wachtrijen berichten [aan de slag met wachtrijen][lnk-sb-queues-java].
+In deze sectie maakt een Service Bus-wachtrij, verbinden met uw IoT-hub en configureren van uw IoT-hub om berichten te verzenden naar de wachtrij op basis van de aanwezigheid van een eigenschap van het bericht. Zie voor meer informatie over het verwerken van berichten van Service Bus-wachtrijen [aan de slag met wachtrijen][lnk-sb-queues-java].
 
-1. Een Service Bus-wachtrij maakt, zoals beschreven in [aan de slag met wachtrijen][lnk-sb-queues-java]. Maak een notitie van Hallo naamruimte en de wachtrij.
+1. Een Service Bus-wachtrij maakt, zoals beschreven in [aan de slag met wachtrijen][lnk-sb-queues-java]. Noteer de naam van de naamruimte en de wachtrij.
 
-2. In Azure-portal hello, opent u uw IoT-hub en klik op **eindpunten**.
+2. Open uw IoT-hub in de Azure-portal en klikt u op **eindpunten**.
 
     ![Eindpunten van IoT-hub][30]
 
-3. In Hallo **eindpunten** blade, klikt u op **toevoegen** op Hallo bovenste tooadd uw wachtrij tooyour IoT-hub. Naam Hallo eindpunt **CriticalQueue** en gebruik Hallo-keuzelijsten tooselect **Service Bus-wachtrij**Hallo Service Bus-naamruimte waarin de wachtrij zich bevindt en de naam van uw wachtrij Hallo. Wanneer u klaar bent, klikt u op **opslaan** Hallo onderaan.
+3. In de **eindpunten** blade, klikt u op **toevoegen** boven uw wachtrij toevoegen aan uw IoT-hub. Naam van het eindpunt **CriticalQueue** en selecteer met de vervolgkeuzelijsten **Service Bus-wachtrij**, de Service Bus-naamruimte waarin de wachtrij zich bevindt en de naam van de wachtrij. Wanneer u klaar bent, klikt u op **opslaan** onderaan.
 
     ![Een eindpunt toevoegen][31]
 
-4. Klik nu op **Routes** in uw IoT-Hub. Klik op **toevoegen** bovenaan Hallo Hallo blade toocreate een regel voor doorsturen die routeert berichten toohello wachtrij u zojuist hebt toegevoegd. Selecteer **DeviceTelemetry** als Hallo gegevensbron. Voer `level="critical"` als Hallo voorwaarde, en kies Hallo wachtrij die u zojuist hebt toegevoegd als een aangepaste eindpunt als Hallo regel eindpunt routering. Wanneer u klaar bent, klikt u op **opslaan** Hallo onderaan.
+4. Klik nu op **Routes** in uw IoT-Hub. Klik op **toevoegen** boven aan de blade voor het maken van een regel voor doorsturen waarmee berichten worden doorgestuurd naar de wachtrij die u zojuist hebt toegevoegd. Selecteer **DeviceTelemetry** als de bron van gegevens. Voer `level="critical"` als de voorwaarde, en kies de wachtrij die u zojuist hebt toegevoegd als een aangepaste eindpunt als de routering eindpunt van de regel. Wanneer u klaar bent, klikt u op **opslaan** onderaan.
 
     ![Toevoegen van een route][32]
 
-    Zorg ervoor dat Hallo terugval route is ingesteld, te**ON**. Deze instelling is de standaardconfiguratie Hallo van een IoT-hub.
+    Zorg ervoor dat de terugval route is ingesteld op **ON**. Deze instelling is de standaardconfiguratie van een IoT-hub.
 
     ![Route voor terugval][33]
 
-## <a name="optional-read-from-hello-queue-endpoint"></a>(Optioneel) Lezen van Hallo wachtrij eindpunt
+## <a name="optional-read-from-the-queue-endpoint"></a>(Optioneel) Lezen van het eindpunt van de wachtrij
 
-U kunt eventueel Hallo-berichten lezen van Hallo wachtrij eindpunt door het Hallo-instructies in [aan de slag met wachtrijen][lnk-sb-queues-java]. Naam Hallo app **lezen kritieke wachtrij**.
+U kunt eventueel de berichten van het eindpunt van de wachtrij lezen door de instructies in [aan de slag met wachtrijen][lnk-sb-queues-java]. Naam van de app **lezen kritieke wachtrij**.
 
-## <a name="run-hello-applications"></a>Hallo-toepassingen uitvoeren
+## <a name="run-the-applications"></a>De toepassingen uitvoeren
 
-U bent nu klaar toorun Hallo drie toepassingen.
+U bent nu klaar om uit te voeren van de drie toepassingen.
 
-1. Hallo toorun **read-d2c-messages** toepassing in een opdrachtprompt of een shell toohello read-d2c-map te navigeren en Hallo volgende opdracht uitvoeren:
+1. Om uit te voeren de **read-d2c-messages** toepassing in een opdrachtprompt of een shell Navigeer naar de map read-d2c en voer de volgende opdracht:
 
    ```cmd/sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -153,7 +153,7 @@ U bent nu klaar toorun Hallo drie toepassingen.
 
    ![Read-d2c-messages uitvoeren][readd2c]
 
-2. Hallo toorun **lezen kritieke wachtrij** toepassing in een opdrachtprompt of een shell toohello lezen kritieke wachtrij map te navigeren en Hallo volgende opdracht uitvoeren:
+2. Om uit te voeren de **lezen kritieke wachtrij** toepassing in een opdrachtprompt of een shell Navigeer naar de map lezen kritieke wachtrij en de volgende opdracht:
 
    ```cmd/sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -161,7 +161,7 @@ U bent nu klaar toorun Hallo drie toepassingen.
    
    ![Alleen kritieke berichten uitgevoerd][readqueue]
 
-3. Hallo toorun **simulated-device** app in een opdrachtprompt of een shell gaat u de map simulated-device toohello en Hallo volgende opdracht uitvoeren:
+3. Om uit te voeren de **simulated-device** app in een opdrachtprompt of een shell gaat u naar de map simulated-device en de volgende opdracht:
 
    ```cmd/sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -171,15 +171,15 @@ U bent nu klaar toorun Hallo drie toepassingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe tooreliably apparaat-naar-cloud-berichten verzenden met behulp van Hallo-bericht routeringsfunctionaliteit van IoT Hub.
+In deze zelfstudie hebt u geleerd hoe betrouwbaar apparaat-naar-cloud-berichten verzenden met behulp van de berichtroutering van IoT Hub.
 
-Hallo [hoe toosend cloud-naar-apparaat met IoT Hub berichten] [ lnk-c2d] ziet u hoe toosend tooyour apparaten uit de back-end van uw oplossing berichten.
+De [het verzenden van berichten van de cloud-naar-apparaat met IoT Hub] [ lnk-c2d] ziet u hoe u berichten verzenden naar uw apparaten vanuit de back-end van uw oplossing.
 
-Voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub toosee Zie [Azure IoT Suite][lnk-suite].
+Zie voor voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub [Azure IoT Suite][lnk-suite].
 
-toolearn meer informatie over het ontwikkelen van oplossingen met IoT Hub, Zie Hallo [Ontwikkelaarshandleiding voor IoT Hub].
+Zie voor meer informatie over het ontwikkelen van oplossingen met IoT Hub, de [Ontwikkelaarshandleiding voor IoT Hub].
 
-Zie toolearn meer informatie over het routeren van berichten van IoT-Hub [berichten verzenden en ontvangen met IoT Hub][lnk-devguide-messaging].
+Zie voor meer informatie over het routeren van berichten van IoT-Hub, [berichten verzenden en ontvangen met IoT Hub][lnk-devguide-messaging].
 
 <!-- Images. -->
 <!-- TODO: UPDATE PICTURES -->

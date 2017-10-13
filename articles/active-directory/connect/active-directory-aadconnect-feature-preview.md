@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: bcfc710861b19d8f86f094ced0d1c691e0911f08
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cbf8f729d0ebfb271bb0d8702ac043442b42c262
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="more-details-about-features-in-preview"></a>Meer informatie over functies in preview
-Dit onderwerp wordt beschreven hoe toouse functies die momenteel in preview.
+Dit onderwerp wordt beschreven hoe u functies die momenteel in preview.
 
 ## <a name="group-writeback"></a>Groep terugschrijven
-Hallo-optie voor write-back van groep in optionele functies kunt u toowriteback **Office 365-groepen** tooa forest met Exchange geïnstalleerd. Dit is een groep die altijd in de cloud Hallo is gemaakt. Als u Exchange lokale hebt, kunt klikt u vervolgens u schrijven terug deze groepen tooon-premises zodat gebruikers met een lokale Exchange-postvak kunnen verzenden en ontvangen van e-mailberichten van deze groepen.
+De optie voor write-back van groep in optionele functies kunt u Write-back van **Office 365-groepen** naar een forest met Exchange geïnstalleerd. Dit is een groep die altijd is gemaakt in de cloud. Als u Exchange lokale hebt, kunt klikt u vervolgens u schrijven terug deze groepen met on-premises zodat gebruikers met een lokale Exchange-postvak kunnen verzenden en ontvangen van e-mailberichten van deze groepen.
 
-Meer informatie over Office 365-groepen en hoe toouse ze kunnen worden gevonden [hier](http://aka.ms/O365g).
+Meer informatie over Office 365-groepen en het gebruik ervan vindt [hier](http://aka.ms/O365g).
 
-Een Office 365-groep wordt weergegeven als een distributiegroep op on-premises AD DS. Uw lokale Exchange-server moet zich op Exchange 2013 cumulatieve update 8 (uitgebracht in maart 2015) of Exchange 2016 toorecognize dit nieuwe groepstype.
+Een Office 365-groep wordt weergegeven als een distributiegroep op on-premises AD DS. Uw lokale Exchange-server moet zich op Exchange 2013 cumulatieve update 8 (uitgebracht in maart 2015) of Exchange 2016 dit nieuwe groepstype kan herkennen.
 
-**Opmerkingen bij de tijdens Hallo preview**
+**Opmerkingen bij de tijdens de preview**
 
-* Hallo-book mailadreskenmerk momenteel niet is ingevuld in Hallo preview. Hallo groep is niet zichtbaar in Hallo GAL zonder dit kenmerk. Hallo gemakkelijkste manier toopopulate dit kenmerk is toouse Hallo Exchange PowerShell-cmdlet `update-recipient`.
-* Alleen-forests met Hallo Exchange schema zijn geldige doelen voor groepen. Er zijn geen Exchange is gedetecteerd, vervolgens is Write-back van groep niet als mogelijke tooenable.
-* Alleen één forest Exchange organisatie implementaties worden momenteel ondersteund. Als u meer dan één Exchange organisatie lokale hebt, moet u een on-premises GALSync oplossing voor deze tooappear groepen in uw andere forests.
-* beveiligingsgroepen of distributiegroepen verwerkt Hallo groep Write-back-functie niet.
+* Het kenmerk van het adresboek adres momenteel niet is ingevuld in het voorbeeld. De groep is niet zichtbaar in de algemene Adreslijst zonder dit kenmerk. De eenvoudigste manier om het vullen van dit kenmerk is met de Exchange-PowerShell-cmdlet `update-recipient`.
+* Alleen-forests met het Exchange-schema zijn geldige doelen voor groepen. Als er geen Exchange is gedetecteerd, vervolgens is Write-back van groep niet mogelijk om in te schakelen.
+* Alleen één forest Exchange organisatie implementaties worden momenteel ondersteund. Als u meer dan één Exchange organisatie lokale hebt, moet u een on-premises GALSync oplossing voor deze groepen worden weergegeven in de andere forests.
+* Het onderdeel van de Write-back van groep verwerkt beveiligingsgroepen of distributiegroepen niet.
 
 > [!NOTE]
-> Een abonnement tooAzure AD Premium is vereist voor write-back van groep.
+> Een abonnement op Azure AD Premium is vereist voor write-back van groep.
 > 
 >
 
 ## <a name="user-writeback"></a>Write-back van gebruiker
 > [!IMPORTANT]
-> Hallo gebruiker terugschrijven preview-functie in was verwijderd Hallo augustus 2015 update tooAzure AD Connect. Als u deze hebt ingeschakeld, moet u deze functie uitschakelen.
+> De gebruiker terugschrijven preview-functie is verwijderd in de update augustus 2015 naar Azure AD Connect. Als u deze hebt ingeschakeld, moet u deze functie uitschakelen.
 >
 >
 

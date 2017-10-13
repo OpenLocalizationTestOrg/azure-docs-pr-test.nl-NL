@@ -1,6 +1,6 @@
 ---
-title: aaaAgent Health oplossing in OMS | Microsoft Docs
-description: Dit artikel is bedoeld toohelp u begrijpt hoe toouse deze oplossing toomonitor Hallo status van de agents rechtstreeks reporting tooOMS of System Center Operations Manager.
+title: Oplossing Status van agent in OMS | Microsoft Docs
+description: In dit artikel wordt uitgelegd hoe u deze oplossing kunt gebruiken om de status te controleren van agents die rechtstreeks aan OMS of System Center Operations Manager rapporteren.
 services: operations-management-suite
 documentationcenter: 
 author: MGoedtel
@@ -14,65 +14,65 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: 071b14b4ab7af6680ae458eaa331246755c5bb56
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>De oplossing Status van agent in OMS
-Hallo Health Agent-oplossing in OMS helpt u begrijpen, voor alle reporting rechtstreeks toohello OMS-werkruimte of een tooOMS groep verbonden van System Center Operations Manager management Hallo-agents die niet reageert en verzenden van operationele gegevens.  U kunt ook van bijhouden hoeveel agents zijn geïmplementeerd, waar ze geografisch worden gedistribueerd en andere query's toomaintain bewustzijn van Hallo verdeling van agents die zijn geïmplementeerd in Azure, andere cloudomgevingen of on-premises uitvoeren.    
+De oplossing Status van agent in OMS geeft inzicht in de agents die niet reageren en de agents die wel operationele gegevens versturen. Het betreft alle agents die rechtstreeks aan de OMS-werkruimte rapporteren of aan een beheergroep van System Center Operations Manager die is verbonden met OMS.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u deze oplossing implementeren, moet u bevestigen op dit moment ondersteund [Windows-agents](../log-analytics/log-analytics-windows-agents.md) toohello OMS-werkruimte rapportage of rapportages tooan [Operations Manager-beheergroep](../log-analytics/log-analytics-om-agents.md) geïntegreerd met uw OMS-werkruimte.    
+U kunt deze oplossing alleen implementeren als u beschikt over ondersteunde [Windows-agents](../log-analytics/log-analytics-windows-agents.md) die rapporteren aan de OMS-werkruimte of aan een [Operations Manager-beheergroep](../log-analytics/log-analytics-om-agents.md) die is geïntegreerd met de OMS-werkruimte.    
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
-Deze oplossing bestaat uit Hallo resources die zijn toegevoegd tooyour werkruimte en rechtstreeks verbonden zijn met agents of verbonden beheergroep van Operations Manager te volgen.
+Deze oplossing bestaat uit de volgende resources die worden toegevoegd aan uw werkruimte en rechtstreeks verbonden agents of verbonden Operations Manager-beheergroepen.
 
 ### <a name="management-packs"></a>Management packs
-Als uw System Center Operations Manager-beheergroep verbonden tooan OMS-werkruimte is, worden volgende management packs Hallo in Operations Manager geïnstalleerd.  Deze management packs worden na het toevoegen van deze oplossing ook op rechtstreeks verbonden Windows-computers geïnstalleerd. Er is niets tooconfigure of beheren met deze management packs.
+Als de beheergroep van uw System Center Operations Manager is verbonden met een OMS-werkruimte, worden de volgende management packs geïnstalleerd in Operations Manager.  Deze management packs worden na het toevoegen van deze oplossing ook op rechtstreeks verbonden Windows-computers geïnstalleerd. Met deze management packs hoeft u niets te configureren of te beheren.
 
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack  (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-Zie voor meer informatie over hoe de oplossing management packs worden bijgewerkt, [verbinding maken met Operations Manager tooLog Analytics](../log-analytics/log-analytics-om-agents.md).
+Zie [Operations Manager koppelen aan Log Analytics](../log-analytics/log-analytics-om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
 
 ## <a name="configuration"></a>Configuratie
-Hallo agentstatus oplossing tooyour OMS-werkruimte met behulp van Hallo proces dat wordt beschreven in toevoegen [oplossingen toevoegen](../log-analytics/log-analytics-add-solutions.md). Er is geen verdere configuratie nodig.
+U kunt de oplossing Status van agent toevoegen aan uw OMS-werkruimte met behulp van de procedure die wordt beschreven in [Oplossingen toevoegen](../log-analytics/log-analytics-add-solutions.md). Er is geen verdere configuratie nodig.
 
 
 ## <a name="data-collection"></a>Gegevensverzameling
 ### <a name="supported-agents"></a>Ondersteunde agents
-Hallo volgende tabel beschrijft Hallo verbonden gegevensbronnen die worden ondersteund door deze oplossing.
+De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door deze oplossing.
 
 | Verbonden bron | Ondersteund | Beschrijving |
 | --- | --- | --- |
 | Windows-agents | Ja | Er worden heartbeat-gebeurtenissen verzameld van direct verbonden Windows-agents.|
-| Beheergroep System Center Operations Manager | Ja | Heartbeat-gebeurtenissen worden verzameld van agents reporting toohello beheergroep elke 60 seconden en vervolgens doorgestuurd tooLog Analytics. Een rechtstreekse verbinding tussen Operations Manager-agents tooLog Analytics is niet vereist. Heartbeat-gebeurtenisgegevens doorgestuurd vanuit Hallo management groep toohello logboekanalyse opslagplaats.|
+| Beheergroep System Center Operations Manager | Ja | Er worden elke 60 seconden heartbeat-gebeurtenissen verzameld van agents die rapporteren aan de beheergroep en deze worden vervolgens doorgestuurd naar Log Analytics. Er is geen directe verbinding tussen Operations Manager-agents en Log Analytics vereist. Gegevens van heartbeat-gebeurtenissen worden vanuit de beheergroep doorgestuurd naar de opslagplaats van Log Analytics.|
 
-## <a name="using-hello-solution"></a>Met behulp van Hallo-oplossing
-Wanneer u Hallo oplossing tooyour OMS-werkruimte toevoegt, Hallo **agentstatus** tegel tooyour OMS dashboard worden toegevoegd. Deze tegel ziet u Hallo kunt u het totale aantal agents en het aantal niet-reagerende agents Hallo in Hallo afgelopen 24 uur.<br><br> ![De tegel Status van agent in het dashboard](./media/oms-solution-agenthealth/agenthealth-solution-tile-homepage.png)
+## <a name="using-the-solution"></a>De oplossing gebruiken
+Wanneer u de oplossing toevoegt aan uw OMS-werkruimte, wordt de tegel **Status van agent** toegevoegd aan uw OMS-dashboard. Op deze tegel ziet u het totale aantal agents en het aantal agents dat de afgelopen 24 uur niet heeft gereageerd.<br><br> ![De tegel Status van agent in het dashboard](./media/oms-solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
-Klik op Hallo **agentstatus** tegel tooopen hello **agentstatus** dashboard.  Hallo dashboard bevat Hallo kolommen in de volgende tabel Hallo. Elke kolom bevat Hallo top tien gebeurtenissen op het aantal die overeenkomen met die van de kolom criteria voor Hallo tijdbereik opgegeven. U kunt een zoekopdracht logboek waarmee de volledige lijst Hallo door te selecteren uitvoeren **alle** onderin Hallo rechts van elke kolom, of door te klikken op de kolomkop Hallo.
+Klik op de tegel **Status van agent** om het **gelijknamige** dashboard te openen.  Het dashboard bevat de kolommen in de volgende tabel. Elke kolom bevat de tien belangrijkste gebeurtenissen naar aantal die overeenkomen met de criteria van die kolom voor de opgegeven periode. U kunt de volledige lijst met gebeurtenissen weergeven door linksonder elke kolom **Alles weergeven** te selecteren. Dit kan overigens ook door op de kolomkop te klikken.
 
 | Kolom | Beschrijving |
 |--------|-------------|
 | Agent count over time | Een trend van het aantal agents gedurende een periode van zeven dagen voor Linux- en Windows-agents.|
-| Count of unresponsive agents | Een lijst met agents die nog niet als een heartbeat Hallo afgelopen 24 uur verzonden.|
+| Count of unresponsive agents | Een lijst met agents die in de afgelopen 24 uur geen heartbeat hebben verzonden.|
 | Distribution by OS Type | Een visualisatie van het aantal Windows- en Linux-agents in uw omgeving.|
-| Verdeling naar agent-versie | Een partitie van Hallo andere agent-versies geïnstalleerd in uw omgeving en een telling van elkaar.|
-| Verdeling naar agent-catgeorie | Een partitie van verschillende categorieën van agents die heartbeat gebeurtenissen verzendt Hallo: directe agents, OpsMgr agents of Hallo OpsMgr Management Server.|
-| Verdeling naar beheergroep | Een partitie Hallo verschillende SCOM beheergroepen in uw omgeving.|
-| Geo-location of Agents | Een partitie van Hallo verschillende landen waar u de agents en het totale aantal Hallo van agents die zijn geïnstalleerd in elk land hebt.|
-| Count of Gateways Installed | het aantal servers waarop Hallo Hallo OMS-Gateway is geïnstalleerd en een lijst van deze servers.|
+| Distribution by Agent Version | Een visualisatie van de verschillende agentversies die zijn geïnstalleerd in uw omgeving en het aantal van elke versie.|
+| Distribution by Agent Category | Een visualisatie van de verschillende categorieën agents die heartbeat-gebeurtenissen verzenden: directe agents, OpsMgr-agents of OpsMgr Management Server.|
+| Distribution by Management Group | Een visualisatie van de verschillende SCOM-beheergroepen in uw omgeving.|
+| Geo-location of Agents | Een visualisatie van de verschillende landen waarin zich agents bevinden en het totale aantal agents dat in elk land is geïnstalleerd.|
+| Count of Gateways Installed | Het aantal servers waarop de OMS-gateway is geïnstalleerd en een lijst van deze servers.|
 
 ![Voorbeeld van het dashboard van de oplossing Status van agent](./media/oms-solution-agenthealth/agenthealth-solution-dashboard.png)  
 
 ## <a name="log-analytics-records"></a>Log Analytics-records
-Hallo-oplossing maakt een type record in Hallo OMS-opslagplaats.  
+De oplossing voegt één type record toe aan de OMS-opslagplaats.  
 
 ### <a name="heartbeat-records"></a>Heartbeat-records
-Er wordt een record van het type **Heartbeat** gemaakt.  Deze records hebben Hallo eigenschappen in de volgende tabel Hallo.  
+Er wordt een record van het type **Heartbeat** gemaakt.  Deze records hebben de eigenschappen uit de volgende tabel.  
 
 | Eigenschap | Beschrijving |
 | --- | --- |
@@ -85,25 +85,25 @@ Er wordt een record van het type **Heartbeat** gemaakt.  Deze records hebben Hal
 | Versie | De versie van de OMS-agent of Operations Manager-agent.|
 | SCAgentChannel | De waarde is *Direct* en/of *SCManagementServer*.|
 | IsGatewayInstalled | Als de OMS-gateway is geïnstalleerd, is de waarde *true*, anders is de waarde *false*.|
-| ComputerIP | IP-adres van Hallo-computer.|
+| ComputerIP | Het IP-adres van de computer.|
 | RemoteIPCountry | De geografische locatie waar de computer is geïmplementeerd.|
 | ManagementGroupName | De naam van de beheergroep van Operations Manager.|
 | SourceComputerId | De unieke ID van de computer.|
 | RemoteIPLongitude | De lengtegraad van geografische locatie van de computer.|
 | RemoteIPLatitude | De breedtegraad van de geografische locatie van de computer.|
 
-Elke agent rapporten tooan Operations Manager-beheerserver stuurt twee heartbeats en de waarde van de eigenschap SCAgentChannel bevat zowel **Direct** en **SCManagementServer** , afhankelijk van wat Log Analytics-gegevensbronnen en oplossingen die u hebt ingeschakeld in uw abonnement OMS. Als u intrekt, zijn gegevens van oplossingen die rechtstreeks van een Operations Manager management server toohello OMS webservice, of vanwege Hallo hoeveelheid gegevens die worden verzameld op Hallo-agent, rechtstreeks vanuit Hallo agent tooOMS webservice worden verzonden. Heartbeat gebeurtenissen zijn die Hallo waarde hebben **SCManagementServer**, Hallo ComputerIP waarde is Hallo IP-adres van beheerserver Hallo omdat Hallo gegevens daadwerkelijk erdoor wordt geüpload.  Voor heartbeats waar SCAgentChannel te is ingesteld**Direct**, het openbare IP-adres van de agent Hallo Hallo is.  
+Elke agent die rapporteert aan een Operations Manager-beheerserver stuurt twee heartbeats, en de waarde van de eigenschap SCAgentChannel bevat zowel **Direct** als **SCManagementServer**, afhankelijk van de gegevensbronnen van Log Analytics en de oplossingen die zijn ingeschakeld in uw OMS-abonnement. Zoals eerder vermeld, worden gegevens van oplossingen rechtstreeks verzonden vanaf een Operations Manager-beheerserver naar de OMS-webservice of, vanwege de grote hoeveelheid gegevens die wordt verzameld op de agent, rechtstreeks vanaf de agent naar de OMS-webservice. Voor heartbeat-gebeurtenissen met de waarde **SCManagementServer** bestaat de waarde van ComputerIP uit het IP-adres van de beheerserver, aangezien de gegevens door deze server worden geüpload.  Voor heartbeats waarvan de eigenschap SCAgentChannel is ingesteld op **Direct**, is de waarde het openbare IP-adres van de agent.  
 
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
-Hallo bevat volgende tabel voorbeelden logboek zoekt records die door deze oplossing worden verzameld.
+De volgende tabel bevat voorbeelden van zoekopdrachten in logboeken voor records die zijn verzameld met deze oplossing.
 
 | Query’s uitvoeren | Beschrijving |
 | --- | --- |
 | Type=Heartbeat &#124; distinct Computer |Het totale aantal agents |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Aantal niet-reagerende agents in Hallo afgelopen 24 uur |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Aantal niet-reagerende agents in de afgelopen 15 minuten Hallo |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Online computers (in de afgelopen 24 uur Hallo) |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Totaal aantal Agents Offline in de afgelopen 30 minuten (voor Hallo afgelopen 24 uur) |
+| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Het aantal agents dat de afgelopen 24 uur niet heeft gereageerd |
+| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Het aantal agents dat de afgelopen 15 minuten niet heeft gereageerd |
+| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Computers die online waren (in de afgelopen 24 uur) |
+| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Het totale aantal agents dat offline was in de afgelopen 30 minuten (voor de afgelopen 24 uur) |
 | Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |Een trend van het aantal agents in de tijd per type besturingssysteem|
 | Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |Distribution by OS Type |
 | Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Verdeling naar agent-versie |
@@ -114,15 +114,15 @@ Hallo bevat volgende tabel voorbeelden logboek zoekt records die door deze oplos
 
 
 >[!NOTE]
-> Als uw werkruimte bijgewerkte toohello is [nieuwe logboekanalyse querytaal](../log-analytics/log-analytics-log-search-upgrade.md), Hallo hierboven query's toohello volgende wilt wijzigen.
+> Als uw werkruimte is bijgewerkt naar de [nieuwe querytaal van Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), worden bovenstaande query's gewijzigd in het volgende.
 >
 >| Query’s uitvoeren | Beschrijving |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Het totale aantal agents |
-| Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Aantal niet-reagerende agents in Hallo afgelopen 24 uur |
-| Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(15m) |Aantal niet-reagerende agents in de afgelopen 15 minuten Hallo |
-| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer in ((Heartbeat &#124; where TimeGenerated > ago(24h) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Online computers (in de afgelopen 24 uur Hallo) |
-| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer !in ((Heartbeat &#124; where TimeGenerated > ago(30m) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Totaal aantal Agents Offline in de afgelopen 30 minuten (voor Hallo afgelopen 24 uur) |
+| Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Het aantal agents dat de afgelopen 24 uur niet heeft gereageerd |
+| Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(15m) |Het aantal agents dat de afgelopen 15 minuten niet heeft gereageerd |
+| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer in ((Heartbeat &#124; where TimeGenerated > ago(24h) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Computers die online waren (in de afgelopen 24 uur) |
+| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer !in ((Heartbeat &#124; where TimeGenerated > ago(30m) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Het totale aantal agents dat offline was in de afgelopen 30 minuten (voor de afgelopen 24 uur) |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by OSType |Een trend van het aantal agents in de tijd per type besturingssysteem|
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by OSType |Distribution by OS Type |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by Version |Verdeling naar agent-versie |

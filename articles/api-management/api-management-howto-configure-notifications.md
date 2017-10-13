@@ -1,6 +1,6 @@
 ---
-title: aaaConfigure meldingen en e-mailsjablonen in Azure API Management | Microsoft Docs
-description: Meer informatie over hoe tooconfigure meldingen en e-mailsjablonen in Azure API Management.
+title: Meldingen configureren en e-mailsjablonen in Azure API Management | Microsoft Docs
+description: Informatie over het configureren van meldingen en e-mailsjablonen in Azure API Management.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,63 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: dc23289c25a1641992b73cb955099b3f207b6968
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3d8b74e32059cfc1a4c3a8fc7d3bd04676ee80c8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooconfigure-notifications-and-email-templates-in-azure-api-management"></a>Hoe tooconfigure meldingen en e-mailsjablonen in Azure API Management
-API Management biedt de mogelijkheid Hallo tooconfigure meldingen voor specifieke gebeurtenissen en tooconfigure Hallo e-mailsjablonen die zijn gebruikt toocommunicate met Hallo-beheerders en ontwikkelaars van exemplaar van API Management. Dit onderwerp wordt beschreven hoe tooconfigure meldingen voor beschikbare gebeurtenissen hello, en biedt een overzicht van het configureren van e-mailsjablonen Hallo gebruikt deze gebeurtenissen.
+# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Meldingen en e-mailsjablonen configureren in Azure API Management
+API Management biedt de mogelijkheid voor het configureren van meldingen voor specifieke gebeurtenissen en de e-mailsjablonen die worden gebruikt om te communiceren met de beheerders en ontwikkelaars van exemplaar van API Management configureren. Dit onderwerp wordt beschreven hoe u meldingen configureren voor de gebeurtenissen beschikbaar en biedt een overzicht van de configuratie van de e-mailsjablonen gebruikt deze gebeurtenissen.
 
 ## <a name="publisher-notifications"></a>Publisher meldingen configureren
-tooconfigure meldingen, klikt u op **publicatieportal** in hello Azure-Portal voor uw API Management-service. Hiermee gaat u toohello API Management-publicatieportal.
+Meldingen configureren, klikt u op **publicatieportal** in de Azure-Portal voor uw API Management-service. Hiermee gaat u naar de publicatieportal van API Management.
 
 ![Publicatieportal][api-management-management-console]
 
 > [!NOTE] 
-> Als u nog geen exemplaar van API Management-service hebt gemaakt, raadpleegt u [API Management service-exemplaar maken] [ Create an API Management service instance] in Hallo [aan de slag met Azure API Management] [ Get started with Azure API Management] zelfstudie.
+> Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Create an API Management service instance] in de zelfstudie [Aan de slag met Azure API Management][Get started with Azure API Management].
 
-Klik op **meldingen** van Hallo **API Management** menu op Hallo links tooview Hallo beschikbare meldingen.
+Klik op **meldingen** van de **API Management** menu aan de linkerkant om de beschikbare meldingen weer te geven.
 
 ![Meldingen van de uitgever][api-management-publisher-notifications]
 
-Hallo kan volgende lijst van gebeurtenissen die worden geconfigureerd voor meldingen.
+De volgende lijst met gebeurtenissen kan worden geconfigureerd voor meldingen.
 
-* **Verzoeken om abonnementen (goedkeuring wordt vereist)** - Hallo opgegeven e-mailontvangers en ontvangen gebruikers e-mailmeldingen over verzoeken om abonnementen voor API-producten goedkeuring wordt vereist.
-* **Nieuwe abonnementen** - Hallo opgegeven e-mailontvangers en e-mailmeldingen over nieuwe abonnementen voor API-product ontvangt de gebruiker.
-* **Galerie toepassingsaanvragen** - Hallo opgegeven e-mailontvangers en gebruikers e-mailmeldingen ontvangen wanneer nieuwe toepassingen ingediend toohello-toepassingsgalerie zijn.
-* **BCC** - Hallo opgegeven e-mailontvangers en blind kopie van alle e-mailberichten verzonden toodevelopers e-mailbericht ontvangt de gebruiker.
-* **Nieuwe probleem of opmerking** - Hallo opgegeven e-mailontvangers en e-mailmeldingen wanneer een nieuw probleem ontvangt de gebruiker of opmerking wordt ingediend op Hallo-portal voor ontwikkelaars.
-* **Account sluiten bericht** - Hallo opgegeven e-mailontvangers en gebruikers e-mailmeldingen ontvangen wanneer een account wordt gesloten.
-* **Bijna abonnement quotumlimiet** - Hallo e-mailontvangers te volgen en ontvangen gebruikers e-mailmeldingen wanneer abonnement gebruik sluiten toousage quotum opgehaald.
+* **Verzoeken om abonnementen (goedkeuring wordt vereist)** -ontvangt de opgegeven e-mailontvangers en gebruikers e-mailmeldingen over verzoeken om abonnementen voor API-producten goedkeuring wordt vereist.
+* **Nieuwe abonnementen** -ontvangt de opgegeven e-mailontvangers en gebruikers e-mailmeldingen over nieuwe abonnementen voor API-product.
+* **Galerie toepassingsaanvragen** -de opgegeven e-mailontvangers en gebruikers worden e-mailmeldingen ontvangen wanneer nieuwe toepassingen worden verzonden naar de galerie met toepassingen.
+* **BCC** -ontvangt de opgegeven e-mailontvangers en gebruikers e-mailbericht blind kopie van alle e-mails worden verzonden voor ontwikkelaars.
+* **Nieuwe probleem of opmerking** : het opgegeven e-mailontvangers en gebruikers e-mailmeldingen wanneer een nieuw actie-item ontvangen of opmerking wordt ingediend op de portal voor ontwikkelaars.
+* **Account sluiten bericht** -de opgegeven e-mailontvangers en gebruikers worden e-mailmeldingen ontvangen wanneer een account wordt gesloten.
+* **Bijna abonnement quotumlimiet** -de volgende e-mailontvangers en gebruikers worden e-mailmeldingen ontvangen wanneer abonnement gebruik bijna gebruiksquotum opgehaald.
 
-Voor elke gebeurtenis kunt u e-mailontvangers Hallo e-mailadres tekstvak met opgeven of u gebruikers kunt kiezen uit een lijst.
+Voor elke gebeurtenis, kunt u e-mailontvangers in het tekstvak voor e-mailadres opgeven of u gebruikers kunt kiezen uit een lijst.
 
-toospecify Hallo e-mailadressen toobe gewaarschuwd, ze in het tekstvak voor Hallo e-mailadres invoeren. Als er meerdere e-mailadressen, scheiden met komma's.
+Als u de e-mailadressen moeten ontvangen, moet u deze in het tekstvak e-mailadres invoeren. Als er meerdere e-mailadressen, scheiden met komma's.
 
 ![Geadresseerden voor meldingen][api-management-email-addresses]
 
-toospecify hello gebruikers toobe melding ontvangt, klikt u op **ontvanger toevoegen**Hallo selectievakje naast Hallo gebruikers toobe gewaarschuwd en klikt u op **OK**.
+Geef de gebruikers om te worden geïnformeerd, klikt u op **ontvanger toevoegen**, schakel het selectievakje in naast de gebruikers een melding en klikt u op **OK**.
 
 > [!NOTE] 
-> Alleen beheerders worden in Hallo lijst weergegeven.
+> Alleen beheerders worden weergegeven in de lijst.
 
 
-Klik na het configureren van de ontvangers van meldingen Hallo **opslaan** tooapply Hallo bijgewerkt geadresseerden voor meldingen.
+Klik na het configureren van de ontvangers van meldingen op **opslaan** om toe te passen de bijgewerkte melding geadresseerden.
 
 > [!NOTE] 
-> Als u Hallo verlaat **Publisher meldingen** tabblad Hallo publicatieportal waarschuwt u als er niet-opgeslagen wijzigingen.
+> Als u de navigatiefunctie weg van de **Publisher meldingen** tabblad de publicatieportal waarschuwt u als er niet-opgeslagen wijzigingen.
 
 
 ## <a name="email-templates"></a>E-mailsjablonen configureren
-API Management biedt e-mailsjablonen voor Hallo e-mailberichten die worden verzonden in Hallo verloop van beheer en Hallo-service. Hallo volgende e-mailsjablonen worden geleverd.
+E-mailsjablonen biedt API Management voor de e-mailberichten die worden verzonden in de loop van beheer en het gebruik van de service. De volgende e-mailsjablonen worden geleverd.
 
 * Toepassing galerie inzending is goedgekeurd
 * Ontwikkelaars afscheidstekst letter
 * Ontwikkelaars quotalimiet bijna melding
 * Gebruiker uitnodigen
-* Nieuwe opmerking toegevoegd tooan probleem
+* Nieuwe opmerking toegevoegd aan een probleem
 * Nieuwe probleem ontvangen
 * Nieuw abonnement geactiveerd
 * Abonnement wordt verlengd bevestigen
@@ -79,11 +79,11 @@ API Management biedt e-mailsjablonen voor Hallo e-mailberichten die worden verzo
 
 Deze sjablonen kunnen worden gewijzigd naar wens.
 
-tooview en e-mailsjablonen Hallo voor uw exemplaar van API Management configureren, klikt u op **meldingen** van Hallo **API Management** menu op Hallo links en selecteer Hallo **e-mailsjablonen**  tabblad.
+Als u wilt weergeven en configureren van de e-mailsjablonen voor uw API Management-exemplaar, klikt u op **meldingen** van de **API Management** menu aan de linkerkant en selecteer de **e-mailsjablonen** tabblad.
 
 ![E-mailsjablonen][api-management-email-templates]
 
-tooview of een specifieke sjabloon niet wijzigen, selecteert u deze in Hallo **sjablonen** vervolgkeuzelijst.
+Als u wilt bekijken of wijzigen van een specifieke sjabloon, selecteert u dit in de **sjablonen** vervolgkeuzelijst.
 
 ![E-Sjabloonlijst][api-management-email-templates-list]
 
@@ -91,14 +91,14 @@ Elk e-mailsjabloon heeft een onderwerp als tekst zonder opmaak en de definitie v
 
 ![Editor voor e-sjabloon][api-management-email-template]
 
-Hallo **Parameters** lijst bevat een lijst met parameters, die tijdens ingevoegd in Hallo onderwerp of de hoofdtekst, vervangen Hallo aangewezen waarde wanneer Hallo e-mailbericht verzonden. een parameter tooinsert Hallo cursor waarin u wilt Hallo parameter toogo en klikt u op Hallo pijl toohello links van de parameternaam Hallo plaatsen.
+De **Parameters** lijst bevat een lijst met parameters, die tijdens ingevoegd in het onderwerp of de hoofdtekst, worden de opgegeven waarde wordt vervangen als het e-mailbericht wordt verzonden. Als u wilt invoegen een parameter, plaats de cursor waar u wilt dat de parameter om te gaan en klik op de pijl naar links van de parameternaam van de.
 
-Klik op **Preview** of **een test verzenden** toosee hoe Hallo e wordt zoeken of een testbericht verzenden.
+Klik op **Preview** of **een test verzenden** om te zien hoe het e-mailbericht wordt zoeken of een testbericht verzenden.
 
 > [!NOTE] 
-> Hallo-parameters zijn niet vervangen door feitelijke waarden wanneer een voorbeeldweergave of een test verzenden.
+> De parameters worden niet vervangen door feitelijke waarden wanneer een voorbeeldweergave of verzenden van een test.
 
-toosave hello wijzigingen toohello e-mailsjabloon, klikt u op **opslaan**, of toocancel Hallo wijzigingen, klikt u op **annuleren**.
+Sla de wijzigingen in het e-mailsjabloon, klikt u op **opslaan**, of het wijzigingen klikt u op Annuleren **annuleren**.
  
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
@@ -114,8 +114,8 @@ toosave hello wijzigingen toohello e-mailsjabloon, klikt u op **opslaan**, of to
 [Configure publisher notifications]: #publisher-notifications
 [Configure email templates]: #email-templates
 
-[How toocreate and use groups]: api-management-howto-create-groups.md
-[How tooassociate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance

@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> U geen toepassingen die zijn geregistreerd in hello gebruiken **toepassingen** tabblad op Hallo klassieke [Azure Management Portal](https://manage.windowsazure.com/) voor deze.
+> U kunt hiervoor geen toepassingen gebruiken die zijn geregistreerd op het tabblad **Toepassingen** van de klassieke [Azure Management Portal](https://manage.windowsazure.com/).
 > 
 > 
 

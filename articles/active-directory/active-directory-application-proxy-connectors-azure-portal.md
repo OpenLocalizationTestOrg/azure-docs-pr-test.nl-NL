@@ -1,6 +1,6 @@
 ---
-title: aaaPublishing toepassingen op afzonderlijke netwerken en locaties met behulp van groepen van de connector in Azure AD-toepassingsproxy | Microsoft Docs
-description: Dekt hoe toocreate en beheren van groepen van connectors in Azure AD-toepassingsproxy.
+title: Publicatie van toepassingen op afzonderlijke netwerken en locaties met behulp van groepen van de connector in Azure AD-toepassingsproxy | Microsoft Docs
+description: Bevat informatie over het maken en beheren van groepen van connectors in Azure AD-toepassingsproxy.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 8c9a84b365eab28eaaeb343d4d1e2e6990537fec
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1b08a0b376cbcae8522364c9b6ef22e9c0176438
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publiceren van toepassingen op afzonderlijke netwerken en locaties met groepen van de connector
 > [!div class="op_single_selector"]
@@ -27,36 +27,36 @@ ms.lasthandoff: 10/06/2017
 > * [Klassieke Azure Portal](active-directory-application-proxy-connectors.md)
 >
 
-Klanten gebruikmaken van Azure AD-toepassingsproxy voor meer scenario's en toepassingen. Dus hebben we aangebracht toepassingsproxy zelfs flexibelere doordat meer topologieën. U kunt Application Proxy connector groepen maken, zodat u specifieke connectors tooserve specifieke toepassingen kunt toewijzen. Deze mogelijkheid biedt u meer controle en manieren toooptimize uw toepassingsproxy-implementatie. 
+Klanten gebruikmaken van Azure AD-toepassingsproxy voor meer scenario's en toepassingen. Dus hebben we aangebracht toepassingsproxy zelfs flexibelere doordat meer topologieën. U kunt Application Proxy connector groepen maken, zodat u specifieke connectors voor specifieke toepassingen kunt toewijzen. Deze mogelijkheid biedt u meer controle en manieren om uw Application Proxy-implementatie te optimaliseren. 
 
-Elke Application Proxy connector is tooa connector groep toegewezen. Alle Hallo connectors die deel uitmaken van dezelfde groep van de connector fungeert als een eenheid voor hoge beschikbaarheid en taakverdeling toohello. Alle connectors behoren tooa connector groep. Als u geen groepen maakt, vervolgens zijn alle verbindingslijnen in een standaard-groep. Uw beheerder kunt nieuwe groepen maken en toewijzen van connectors toothem in hello Azure-portal. 
+Elke Application Proxy connector is toegewezen aan een groep connector. Alle connectors die deel uitmaken van dezelfde groep verbindingslijn fungeren als een eenheid voor hoge beschikbaarheid en taakverdeling. Alle connectors deel uitmaken van de groep van een connector. Als u geen groepen maakt, vervolgens zijn alle verbindingslijnen in een standaard-groep. De beheerder kan nieuwe groepen maken en connectors aan ze toewijzen in Azure portal. 
 
-Alle toepassingen zijn tooa connector groep toegewezen. Als u geen groepen maakt, worden al uw toepassingen tooa standaardgroep toegewezen. Maar als u uw connectors in groepen indelen, kunt u elke toepassing toowork instellen met een specifieke connector-groep. In dit geval dienen alleen Hallo connectors in die groep Hallo-toepassing op verzoek. Deze functie is handig als uw toepassingen worden gehost op verschillende locaties. U kunt connector groepen op basis van locatie, maken, zodat toepassingen altijd door de connectors die fysiek sluiten toothem worden behandeld.
+Alle toepassingen zijn toegewezen aan de groep van een connector. Als u geen groepen maakt, zijn al uw toepassingen toegewezen aan een standaard-groep. Maar als u uw connectors in groepen indelen, kunt u elke toepassing werkt met een specifieke connector groep instellen. In dit geval wordt fungeren alleen de connectors in die groep voor de toepassing op verzoek. Deze functie is handig als uw toepassingen worden gehost op verschillende locaties. Kunt u connector groepen op basis van locatie, zodat toepassingen altijd door de connectors die fysiek dicht bij hen worden behandeld.
 
 >[!TIP] 
->Als u een grote Application Proxy-implementatie hebt, niet toewijzen voor een groep toepassingen toohello standaard connector. Op die manier nieuwe connectors niet live verkeer niet ontvangen totdat u ze tooan active-connector groep toewijst. Deze configuratie kunt u ook tooput connectors in een niet-actieve modus door ze te verplaatsen back toohello standaardgroep, zodat u onderhoud zonder enige impact op uw gebruikers kunt uitvoeren.
+>Als u een grote Application Proxy-implementatie hebt, niet alle toepassingen aan de standaardgroep connector toewijzen. Op die manier nieuwe connectors niet live verkeer niet ontvangen totdat u ze aan een groep active-connector toewijzen. Deze configuratie kunt u connectors plaatsen in een niet-actieve modus door te terug verplaatsen naar de standaardgroep, zodat voor het uitvoeren van onderhoud zonder enige impact op uw gebruikers.
 
 ## <a name="prerequisites"></a>Vereisten
-toogroup uw connectors hebt toomake zeker dat u [geïnstalleerd meerdere connectors](active-directory-application-proxy-enable.md). Wanneer u een nieuwe connector installeert, het Hallo automatisch lid wordt **standaard** connector groep.
+Als u wilt groeperen uw connectors, die u hebt om te controleren of u [geïnstalleerd meerdere connectors](active-directory-application-proxy-enable.md). Wanneer u een nieuwe connector installeert, wordt automatisch lid wordt van de **standaard** connector groep.
 
 ## <a name="create-connector-groups"></a>Connector-groepen maken
-Deze stappen toocreate zoveel connector-groepen als u wilt gebruiken. 
+Volg deze stappen om net zoveel connector groepen als u wilt maken. 
 
-1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 1. Selecteer **Azure Active Directory** > **bedrijfstoepassingen** > **toepassingsproxy**.
-2. Selecteer **nieuwe connector groep**. Hallo nieuwe Connector groep blade wordt weergegeven.
+2. Selecteer **nieuwe connector groep**. De blade nieuwe Connector groep wordt weergegeven.
 
    ![Selecteer de nieuwe connector-groep](./media/active-directory-application-proxy-connectors-azure-portal/new-group.png)
 
-3. De nieuwe connector-groep een naam geven en gebruik vervolgens Hallo dropdown menu tooselect die deel uitmaken van connectors in deze groep.
+3. Geef een naam op voor de nieuwe connector-groep en vervolgens het vervolgkeuzemenu gebruiken om te selecteren welke connectors in deze groep behoren.
 4. Selecteer **Opslaan**.
 
-## <a name="assign-applications-tooyour-connector-groups"></a>Toepassingen tooyour connector groepen toewijzen
-Volg deze stappen voor elke toepassing die u hebt gepubliceerd met toepassingsproxy. Wanneer u deze publiceren of kunt u deze stappen toochange Hallo toewijzing gewenst, kunt u een groep van toepassingen tooa connector toewijzen.   
+## <a name="assign-applications-to-your-connector-groups"></a>Toepassingen voor de connector-groepen toewijzen
+Volg deze stappen voor elke toepassing die u hebt gepubliceerd met toepassingsproxy. Wanneer u deze publiceren of kunt u deze stappen om te wijzigen van de toewijzing wanneer u wilt, kunt u een toepassing aan een groep connector toewijzen.   
 
-1. Selecteer in het dashboard met Hallo management voor uw directory, **bedrijfstoepassingen** > **alle toepassingen** > Hallo toepassing die u wilt dat tooassign tooa connector groep >  **Toepassingsproxy**.
-2. Gebruik Hallo **Connector groep** dropdown menu tooselect Hallo gewenste groep Hallo toouse van toepassing.
-3. Selecteer **opslaan** tooapply Hallo wijzigen.
+1. Selecteer in het dashboard management voor uw directory **bedrijfstoepassingen** > **alle toepassingen** > de toepassing die u wilt toewijzen aan een groep connector > **Toepassingsproxy**.
+2. Gebruik de **Connector groep** vervolgkeuzemenu selecteren de groep die u wilt dat de toepassing te gebruiken.
+3. Selecteer **opslaan** de wijziging toepassen.
 
 ## <a name="use-cases-for-connector-groups"></a>Gebruiksvoorbeelden voor connector-groepen 
 
@@ -64,46 +64,46 @@ Connector-groepen zijn handig voor verschillende scenario's, waaronder:
 
 ### <a name="sites-with-multiple-interconnected-datacenters"></a>Sites met meerdere onderling verbonden datacenters
 
-Veel organisaties hebben een aantal onderling verbonden datacenters. In dit geval u tookeep zoveel verkeer binnen Hallo datacenter mogelijk omdat cross-datacenter koppelingen dure en traag zijn. U kunt connectoren in elk datacenter tooserve alleen Hallo toepassingen die zich bevinden in Hallo datacenter kunt implementeren. Deze aanpak minimaliseert cross-datacenter koppelingen en biedt een volledig transparant ervaring tooyour gebruikers.
+Veel organisaties hebben een aantal onderling verbonden datacenters. In dit geval u zoveel verkeer binnen het datacenter mogelijk behouden omdat cross-datacenter koppelingen dure en traag zijn. U kunt implementeren connectors in elk datacenter te bedienen alleen de toepassingen die zich in het datacenter bevinden. Deze aanpak cross-datacenter koppelingen wordt geminimaliseerd en een volledig transparant ervaring voor uw gebruikers.
 
 ### <a name="applications-installed-on-isolated-networks"></a>Toepassingen die zijn geïnstalleerd op de geïsoleerde netwerken
 
-Toepassingen kunnen worden gehost in netwerken die geen deel uitmaken van de belangrijkste bedrijfsnetwerk Hallo. U kunt connector groepen tooinstall dedicated connectors in geïsoleerde netwerken tooalso isoleren toepassingen toohello netwerk gebruiken. Dit gebeurt meestal wanneer de leverancier van een derde partij een bepaalde toepassing is voor uw organisatie onderhoudt. 
+Toepassingen kunnen worden gehost in netwerken die geen deel uitmaken van de belangrijkste bedrijfsnetwerk. Connector-groepen kunt u specifieke connectors installeren op geïsoleerde netwerken ook om toepassingen te isoleren met het netwerk. Dit gebeurt meestal wanneer de leverancier van een derde partij een bepaalde toepassing is voor uw organisatie onderhoudt. 
 
-Connector-groepen kunnen u tooinstall dedicated connectors voor netwerken die alleen specifieke toepassingen, waardoor het gemakkelijker publiceren en veiliger toooutsource Toepassingsbeheer toothird leveranciers.
+Connector groepen kunnen u voor het installeren van speciale connectors voor netwerken die alleen specifieke toepassingen publiceren gemakkelijker en veiliger dan uitbesteden Toepassingsbeheer van externe leveranciers.
 
 ### <a name="applications-installed-on-iaas"></a>Toepassingen die op IaaS geïnstalleerd 
 
-Toepassingen die zijn geïnstalleerd op IaaS voor toegang tot de cloud, bieden connector groepen een algemene service toosecure Hallo toegang tooall Hallo-apps. Groepen van de connector geen extra afhankelijkheid in uw bedrijfsnetwerk maken of fragment Hallo van apps. Connectors kunnen worden geïnstalleerd op elke clouddatacenter en dienen alleen toepassingen die zich op dat netwerk bevinden. U kunt verschillende connectors tooachieve hoge beschikbaarheid installeren.
+Toepassingen die zijn geïnstalleerd op IaaS voor toegang tot de cloud, bieden connector groepen een algemene service de toegang tot alle apps beveiligen. Groepen van de connector geen extra afhankelijkheid in uw bedrijfsnetwerk maken of fragment van de appervaring. Connectors kunnen worden geïnstalleerd op elke clouddatacenter en dienen alleen toepassingen die zich op dat netwerk bevinden. U kunt verschillende connectors om te zorgen voor hoge beschikbaarheid installeren.
 
-Neem bijvoorbeeld een organisatie met verschillende virtuele machines verbonden tootheir eigen gehost IaaS virtuele netwerk. tooallow werknemers toouse deze toepassingen deze particuliere netwerken zijn verbonden toohello bedrijfsnetwerk via VPN van site-naar-site. Dit biedt een goede ervaring voor werknemers die zich op locatie zijn. Maar deze mogelijk niet ideaal voor externe werknemers, omdat hiervoor extra on-premises infrastructuur tooroute toegang, zoals u in Hallo diagram hieronder ziet:
+Neem bijvoorbeeld een organisatie met verschillende virtuele machines die zijn verbonden met hun eigen IaaS gehost virtueel netwerk. Zodat werknemers van het gebruik van deze toepassingen worden deze particuliere netwerken zijn verbonden met het bedrijfsnetwerk via VPN van site-naar-site. Dit biedt een goede ervaring voor werknemers die zich op locatie zijn. Maar deze mogelijk niet ideaal voor externe werknemers, omdat hiervoor extra on-premises infrastructuur voor het routeren van toegang, zoals u in het onderstaande diagram kunt zien:
 
 ![AzureAD Iaas-netwerk](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   
-Met groepen van Azure AD-toepassingsproxy-connector, kunt u een algemene service toosecure Hallo toegang tooall toepassingen inschakelen zonder aanvullende afhankelijkheid in uw bedrijfsnetwerk maken:
+Met groepen van Azure AD-toepassingsproxy-connector, kunt u een algemene service de toegang tot alle toepassingen beveiligen zonder aanvullende afhankelijkheid in uw bedrijfsnetwerk inschakelen:
 
 ![AzureAD Iaas meerdere Cloud leveranciers](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Meerdere forests – verschillende connector groepen voor elke forest
 
-De meeste klanten die hebben geïmplementeerd toepassingsproxy gebruikt de eenmalige aanmelding (SSO) mogelijk door het uitvoeren van Kerberos-beperkt delegatie (KCD). tooachieve dit Hallo-connector machines nodig toobe gekoppelde tooa domein dat Hallo gebruikers naar Hallo toepassing kan delegeren. KCD ondersteunt interforest-mogelijkheden. Maar voor de bedrijven die beschikken over verschillende omgevingen voor meerdere forests zonder vertrouwensrelatie tussen deze twee, één connector kan niet worden gebruikt voor alle forests. 
+De meeste klanten die hebben geïmplementeerd toepassingsproxy gebruikt de eenmalige aanmelding (SSO) mogelijk door het uitvoeren van Kerberos-beperkt delegatie (KCD). Om dit te bereiken, moeten de connector-machines worden gekoppeld aan een domein of de gebruikers naar de toepassing kan delegeren. KCD ondersteunt interforest-mogelijkheden. Maar voor de bedrijven die beschikken over verschillende omgevingen voor meerdere forests zonder vertrouwensrelatie tussen deze twee, één connector kan niet worden gebruikt voor alle forests. 
 
-In dit geval specifieke connectors per forest kunnen worden geïmplementeerd en set tooserve toepassingen die gepubliceerd tooserve zijn Hallo alleen gebruikers van dat specifieke forest. Elke groep connector vertegenwoordigt een ander forest. Tijdens het Hallo-tenant en de meeste ervaring Hallo is unified voor alle forests, kunnen gebruikers tootheir forest toepassingen met behulp van Azure AD-groepen worden toegewezen.
+In dit geval kunnen specifieke connectors worden geïmplementeerd per forest en instellen voor toepassingen die zijn gepubliceerd om alleen de gebruikers van dat specifieke forest. Elke groep connector vertegenwoordigt een ander forest. Terwijl de tenant en het merendeel van de gebruikerservaring is unified voor alle forests, kunnen gebruikers worden toegewezen aan hun forest-toepassingen met behulp van Azure AD-groepen.
  
 ### <a name="disaster-recovery-sites"></a>Noodherstelsites
 
 Er zijn twee verschillende methoden die u met een site disaster recovery (DR uitvoeren kunt), afhankelijk van hoe uw sites worden geïmplementeerd:
 
-* Als uw site DR is ingebouwd in de actieve-actieve modus waarin het is net als de primaire site Hallo en heeft dezelfde Hallo netwerk- en AD-instellingen kunt u Hallo connectors op Hallo DR-site in Hallo dezelfde connector groep als belangrijkste Hallo-site. Hierdoor kunnen Azure AD toodetect failovers voor u.
-* Als uw DR-site gescheiden van de belangrijkste site hello is, u een andere connector-groep op Hallo DR-site maken kunt en 1) back-uptoepassingen laat of 2) handmatig Hallo bestaande toohello DR connector toepassingsgroep omleiden naar behoefte.
+* Als uw site DR is ingebouwd in de actieve-actieve modus waar het is net als de primaire site en heeft de dezelfde netwerken en de AD-instellingen, kunt u de connectors op de site DR in dezelfde groep connector als de primaire site. Dit kan Azure AD failovers voor u gedetecteerd.
+* Als uw site DR gescheiden van de primaire site is, u een andere connector-groep in de DR-site maken kunt en 1) back-uptoepassingen laat of 2) handmatig de bestaande toepassing aan de groep van de connector DR omleiden naar behoefte.
  
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>Meerdere bedrijven leveren van een enkele tenant
 
-Er zijn veel verschillende manieren tooimplement een model waarin een één-provider worden geïmplementeerd en onderhoudt Azure AD-services voor meerdere bedrijven gerelateerde. Hallo beheerder scheiden Hallo connectors en verschillende groepen van toepassingen kunt connector groepen gebruiken. Een manier die geschikt voor kleine bedrijven, toohave is één Azure AD-tenant, terwijl andere bedrijven Hallo hun eigen domeinnaam en netwerken hebben. Dit geldt ook voor fusies en scenario's en situaties waarbij een enkel IT-afdeling verschillende bedrijven vanwege regelgeving of zakelijke redenen fungeert. 
+Er zijn veel verschillende manieren voor het implementeren van een model waarin een één-provider worden geïmplementeerd en onderhoudt Azure AD-gerelateerde services voor meerdere bedrijven. Connector-groepen zodat de beheerder scheiden connectors en verschillende groepen van toepassingen. Een manier die geschikt voor kleine bedrijven, is een enkel Azure AD-tenant, terwijl de andere bedrijven hun eigen domeinnaam en netwerken hebben te beschikken. Dit geldt ook voor fusies en scenario's en situaties waarbij een enkel IT-afdeling verschillende bedrijven vanwege regelgeving of zakelijke redenen fungeert. 
 
 ## <a name="sample-configurations"></a>Voorbeelden van configuraties
 
-Enkele voorbeelden die u kunt implementeren, zijn Hallo connector groepen te volgen.
+Enkele voorbeelden die u kunt implementeren, zijn de volgende connector-groepen.
  
 ### <a name="default-configuration--no-use-for-connector-groups"></a>Standaard-configuratie geen nut voor connector-groepen
 
@@ -115,15 +115,15 @@ Deze configuratie is geschikt voor kleine implementaties en tests. Werkt ook goe
  
 ### <a name="default-configuration-and-an-isolated-network"></a>Standaardconfiguratie en een geïsoleerd netwerk
 
-Deze configuratie is een evolutie van Hallo standaard één, waarin een specifieke app die wordt uitgevoerd in een geïsoleerd netwerk zoals IaaS virtuele netwerk is: 
+Deze configuratie is een van de standaard één, waarin een specifieke app die wordt uitgevoerd in een geïsoleerd netwerk zoals IaaS virtuele netwerk is: 
 
 ![AzureAD geen Connector-groepen](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-2.png)
  
 ### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>Aanbevolen configuratie – enkele specifieke groepen en een standaardgroep voor inactiviteit
 
-aanbevolen configuratie voor organisaties met grotere, complexe Hallo is toohave Hallo standaardgroep connector als een groep die geen nut heeft voor alle toepassingen en wordt gebruikt voor niet-actief of geïnstalleerde connectors. Alle toepassingen worden geleverd met aangepaste connector groepen. Hierdoor kunnen alle Hallo complexiteit van het Hallo-scenario's die hierboven worden beschreven.
+De aanbevolen configuratie voor organisaties met grotere, complexe is om de connector standaardgroep als een groep die geen nut heeft voor alle toepassingen en wordt gebruikt voor niet-actief of geïnstalleerde connectors. Alle toepassingen worden geleverd met aangepaste connector groepen. Hierdoor kan de complexiteit van de scenario's die hierboven worden beschreven.
 
-In Hallo onderstaand voorbeeld heeft Hallo bedrijf twee datacentra, A en B, met twee connectors die dienen van elke site. Elke site heeft verschillende toepassingen die worden uitgevoerd op deze. 
+In het onderstaande voorbeeld van heeft het bedrijf twee datacentra, A en B, met twee connectors die dienen van elke site. Elke site heeft verschillende toepassingen die worden uitgevoerd op deze. 
 
 ![AzureAD geen Connector-groepen](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  

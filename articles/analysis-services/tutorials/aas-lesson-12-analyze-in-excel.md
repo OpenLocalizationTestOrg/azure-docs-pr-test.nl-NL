@@ -1,65 +1,83 @@
 ---
-titel: aaa "Azure Analysis Services-zelfstudie les 12: analyseren in Excel | Microsoft Docs' Beschrijving: hierin wordt beschreven hoe toouse analyseren in Excel in hello Azure Analysis Services-zelfstudie project. Services: analysis services-documentationcenter: '' auteur: minewiskan manager: erikre-editor: '' tags: ''
-
-MS.AssetID: ms.service: ms.devlang analysis services: N.V.T. ms.topic:-slag-artikel ms.tgt_pltfrm: N.V.T. ms.workload: na ms.date: 05/26/2017 ms.author: owend
+title: 'Azure Analysis Services-zelfstudie - Les 12: Analyseren in Excel | Microsoft Docs'
+description: In deze les wordt beschreven hoe u de analysefunctie van Excel gebruikt in de zelfstudie over Azure Analysis Services.
+services: analysis-services
+documentationcenter: 
+author: Minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 09/20/2017
+ms.author: owend
+ms.openlocfilehash: e257862a88d39b96360703117f544c43e82b0e3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-12-analyze-in-excel"></a>Les 12: Analyseren in Excel
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In deze les Hallo analyseren in Excel functie tooopen Microsoft Excel gebruiken, automatisch een verbinding toohello model-werkruimte maken en een draaitabel toohello werkblad automatisch worden toegevoegd. Hallo analyseren in Excel-functie tooprovide is bedoeld als een snelle en gemakkelijke manier tootest Hallo effectiviteit van uw model ontwerpen voorafgaande toodeploying uw model. U gaat geen gegevensanalyse uitvoeren in deze les. Hallo-doel van deze les is toofamiliarize, Hallo-model te ontwerpen, met Hallo-hulpprogramma's kunt u tootest uw modelontwerp gebruiken.   
+In deze les gaat u de functie Analyse in Excel gebruiken om Microsoft Excel te openen, automatisch een verbinding tot stand te brengen met de modelwerkruimte en automatisch een draaitabel toe te voegen aan het werkblad. De functie Analyse in Excel is bedoeld om op een snelle en gemakkelijke manier de effectiviteit van uw modelontwerp te testen voordat u het model gaat implementeren. U gaat geen gegevensanalyse uitvoeren in deze les. Het doel van deze les is om u, de maker van het model, vertrouwd te maken met de hulpprogramma's die u kunt gebruiken om het modelontwerp te testen.   
   
-deze les Excel moet zijn geïnstalleerd op Hallo toocomplete dezelfde computer als SSDT.
+U kunt deze les alleen voltooien als Excel is geïnstalleerd op dezelfde computer als SSDT.
   
-Geschatte tijd toocomplete deze les: **vijf minuten**  
+Geschatte tijd voor het voltooien van deze les: **5 minuten**  
   
 ## <a name="prerequisites"></a>Vereisten  
-Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u Hallo taken uitvoert in deze les, u moet voltooid Hallo vorige les: [les 11: rollen maken](../tutorials/aas-lesson-11-create-roles.md).  
+Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 11: Rollen maken](../tutorials/aas-lesson-11-create-roles.md).  
   
-## <a name="browse-using-hello-default-and-internet-sales-perspectives"></a>Bladeren met behulp van de standaard- en Internet verkoop perspectieven Hallo  
-In deze eerste taken u uw model zoeken met behulp van beide standaardperspectief hello, die alle modelobjecten bevat, en met behulp van Hallo Internet verkoop perspectief u eerder. Hallo Internet verkoop perspectief sluit Hallo klant table-object.  
+## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Bladeren met behulp van de perspectieven Default en Internet Sales  
+In deze eerste taken gaat u door het model bladeren met behulp van zowel het perspectief Default, dat alle modelobjecten bevat, als het perspectief Internet Sales dat u eerder hebt gemaakt. Het perspectief Internet Sales zorgt ervoor dat het tabelobject DimCustomer wordt uitgesloten van weergave.  
   
-#### <a name="toobrowse-by-using-hello-default-perspective"></a>toobrowse met behulp van het standaardperspectief Hallo  
+#### <a name="to-browse-by-using-the-default-perspective"></a>Bladeren met behulp van het perspectief Default:  
   
-1.  Klik op Hallo **Model** menu > **analyseren in Excel**.  
+1.  Klik op het menu **Model** > **Analyze in Excel**.  
   
-2.  In Hallo **analyseren in Excel** in het dialoogvenster, klikt u op **OK**.  
+2.  Klik in het dialoogvenster **Analyze in Excel** op **OK**.  
   
-    Excel wordt geopend met een nieuwe werkmap. Een gegevensbronverbinding wordt gemaakt met het huidige gebruikersaccount Hallo en Hallo standaardperspectief is gebruikte toodefine bekeken velden. Een draaitabel toohello werkblad automatisch toegevoegd.  
+    Excel wordt geopend met een nieuwe werkmap. Er wordt met behulp van het huidige gebruikersaccount verbinding gemaakt met de gegevensbron en het perspectief Default wordt gebruikt om te bepalen welke velden worden weergegeven. Er wordt automatisch een draaitabel toegevoegd aan het werkblad.  
   
-3.  In Excel in Hallo **PivotTable-veldlijst**, kennisgeving Hallo **DimDate** en **heeft** meetgroepen worden weergegeven. Hallo **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory**, en **heeft** tabellen met hun respectieve kolommen worden ook weergegeven.  
+3.  U ziet dat in**de lijst met** draaitabellen in Excel de metinggroepen **DimDate** en **FactInternetSales** worden weergegeven. De tabellen **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** en **FactInternetSales** met de bijbehorende kolommen worden ook weergegeven.  
   
-4.  Excel sluiten zonder op te slaan Hallo werkmap.  
+4.  Sluit Excel af zonder de werkmap op te slaan.  
   
-#### <a name="toobrowse-by-using-hello-internet-sales-perspective"></a>toobrowse met behulp van Hallo Internet verkoop perspectief  
+#### <a name="to-browse-by-using-the-internet-sales-perspective"></a>Bladeren met behulp van het perspectief Internet Sales:  
   
-1.  Klik op Hallo **Model** menu en klik vervolgens op **analyseren in Excel**.  
+1.  Klik op het menu **Model** en klik vervolgens op **Analyze in Excel**.  
   
-2.  In Hallo **analyseren in Excel** in het dialoogvenster laat **huidige Windows-gebruiker** geselecteerd, klikt u vervolgens in Hallo **perspectief** vervolgkeuzelijst, selecteer **Internet verkoop** , en klik vervolgens op **OK**. 
+2.  Laat in het dialoogvenster **Analyze in Excel** de optie **Current Windows User** geselecteerd en selecteer vervolgens **Internet Sales** in de vervolgkeuzelijst **Perspective** en klik op **OK**. 
     
     ![aas-lesson12-perspective](../tutorials/media/aas-lesson12-perspective.png)
     
-3.  In Excel in **PivotTable-Fields**, zoals u ziet, Hallo DimCustomer tabel is uitgesloten van de veldenlijst Hallo.  
+3.  In Excel ziet u dat bij **Draaitabelvelden** de tabel DimCustomer niet wordt vermeld.  
     
     ![aas-lesson12-fields](../tutorials/media/aas-lesson12-fields.png)
     
-4.  Excel sluiten zonder op te slaan Hallo werkmap.  
+4.  Sluit Excel af zonder de werkmap op te slaan.  
   
 ## <a name="browse-by-using-roles"></a>Bladeren met behulp van rollen  
-Rollen zijn een belangrijk onderdeel van elke tabellair model. Zonder ten minste één rol worden toowhich gebruikers als leden toegevoegd, gebruikers geen toegang krijgen tot gegevens te analyseren met het model. Hallo analyseren in Excel-functie biedt een manier voor u tootest Hallo functies die u hebt gedefinieerd.  
+Rollen zijn een belangrijk onderdeel van elke tabellair model. Gebruikers kunnen alleen gegevens raadplegen en analyseren met behulp van het model als ze ten minste één rol hebben. De functie Analyse in Excel is een manier om de rollen te testen die u hebt gedefinieerd.  
   
-#### <a name="toobrowse-by-using-hello-sales-manager-user-role"></a>toobrowse met behulp van Hallo Sales Manager-gebruikersrol  
+#### <a name="to-browse-by-using-the-sales-manager-user-role"></a>Bladeren met behulp van de gebruikersrol Sales Manager:  
   
-1.  In SSDT, klikt u op Hallo **Model** menu en klik vervolgens op **analyseren in Excel**.  
+1.  Klik in SSDT op het menu **Model** en klik vervolgens op **Analyze in Excel**.  
   
-2.  In **Geef Hallo naam of rol toouse tooconnect toohello gebruikersmodel**, selecteer **rol**, en selecteer vervolgens in de vervolgkeuzelijst hello, **Sales Manager**, en klik vervolgens op  **OK**.  
+2.  Selecteer **Role** bij **Specify the user name or role to use to connect to the model**, selecteer **Sales Manager** in de vervolgkeuzelijst en klik ten slotte op **OK**.  
   
-    Excel wordt geopend met een nieuwe werkmap. Er wordt automatisch een draaitabel gemaakt. Hallo veldenlijst Pivot-tabel bevat alle Hallo gegevensvelden beschikbaar in het nieuwe model.  
+    Excel wordt geopend met een nieuwe werkmap. Er wordt automatisch een draaitabel gemaakt. De lijst met draaitabelvelden bevat alle gegevensvelden die beschikbaar zijn in het nieuwe model.  
       
-3.  Excel sluiten zonder op te slaan Hallo werkmap.  
+3.  Sluit Excel af zonder de werkmap op te slaan.  
   
 ## <a name="whats-next"></a>Volgende stappen
-De volgende les Ga toohello: [les 13: implementeren](../tutorials/aas-lesson-13-deploy.md).
+Ga naar de volgende les: [Les 13: Implementeren](../tutorials/aas-lesson-13-deploy.md).
 
   
   

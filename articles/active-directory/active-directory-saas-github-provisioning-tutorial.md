@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: GitHub configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure Azure Active Directory tooautomatically leveren en intrekken gebruikersaccounts tooGitHub.
+description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en gebruikersaccounts met GitHub ongedaan in te richten.
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
@@ -14,89 +14,89 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: c1f0f7a42e4f8a94db3f409cd463e13bb1bc13bc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3cc70273e95dbf4913e7bbcd8a37bd9a52987b60
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-configuring-github-for-automatic-user-provisioning"></a>Zelfstudie: GitHub configureren voor het automatisch gebruikers inrichten
 
 
-Hallo-doel van deze zelfstudie is tooshow u stappen die u moet tooperform in GitHub en Azure AD tooautomatically leveren en intrekken gebruikersaccounts vanuit Azure AD tooGitHub Hallo. 
+Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in GitHub en Azure AD wilt om automatisch inrichten en de gebruikersaccounts van Azure AD met GitHub ongedaan in te richten. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Hallo scenario beschreven in deze zelfstudie wordt ervan uitgegaan dat u al hebt Hallo volgende items:
+Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
 *   Een Azure Active directory-tenant
-*   Een tenant Github Hello [bedrijfsplan](https://help.github.com/articles/organization-billing-plans/#business-plan) of beter ingeschakeld 
+*   Een Github-tenant met de [bedrijfsplan](https://help.github.com/articles/organization-billing-plans/#business-plan) of beter ingeschakeld 
 *   Een gebruikersaccount in GitHub met beheerdersmachtigingen 
 
 > [!NOTE]
-> Hello Azure AD integratie inrichting is afhankelijk van Hallo [GitHub SCIM API](https://developer.github.com/v3/scim/), die beschikbaar tooGithub teams op Hallo bedrijfsplan of hoger is.
+> De Azure AD integratie inrichting is afhankelijk van de [GitHub SCIM API](https://developer.github.com/v3/scim/), die beschikbaar zijn voor Github teams op het bedrijfsplan of hoger is.
 
-## <a name="assigning-users-toogithub"></a>Gebruikers tooGitHub toewijzen
+## <a name="assigning-users-to-github"></a>Gebruikers toewijzen aan GitHub
 
-Azure Active Directory gebruikt een concept 'toewijzingen' toodetermine welke gebruikers toegang tooselected apps krijgen genoemd. In de context van de Hallo van automatische gebruikers account inrichten, alleen Hallo-gebruikers en groepen die '' tooan toepassing in Azure AD toegewezen zijn gesynchroniseerd. 
+Azure Active Directory gebruikt een concept 'toewijzingen' genoemd om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van automatische gebruikers account inrichten, alleen de gebruikers en groepen die '' tot een toepassing in Azure AD toegewezen zijn gesynchroniseerd. 
 
-Voordat u configureren en inschakelen van Hallo-service inricht, moet u toodecide welke gebruikers en/of groepen in Azure AD vertegenwoordigen Hallo-gebruikers die toegang moeten hebben tot tooyour GitHub-app. Als besloten, kunt u deze app-gebruikers tooyour GitHub toewijzen door hier Hallo-instructies te volgen:
+Voordat u configureren en inschakelen van de inrichting service, moet u om te bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang nodig tot uw app in GitHub. Als besloten, kunt u deze gebruikers toewijzen aan uw GitHub-app door de volgende instructies te volgen:
 
-[Toewijzen van een gebruiker of groep tooan enterprise-app](active-directory-coreapps-assign-user-azure-portal.md)
+[Een gebruiker of groep toewijzen aan een enterprise-app](active-directory-coreapps-assign-user-azure-portal.md)
 
-### <a name="important-tips-for-assigning-users-toogithub"></a>Belangrijke tips voor het toewijzen van gebruikers tooGitHub
+### <a name="important-tips-for-assigning-users-to-github"></a>Belangrijke tips voor het toewijzen van gebruikers met GitHub
 
-*   Het is raadzaam om één tooGitHub tootest Hallo inrichting configuratie door Azure AD-gebruiker is toegewezen. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+*   Het is raadzaam om één Azure AD-gebruiker is toegewezen aan GitHub voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-*   Wanneer u een gebruiker tooGitHub toewijst, moet u beide Hallo **gebruiker** functie of een andere geldige toepassingsspecifieke-rol (indien beschikbaar) in het dialoogvenster voor Hallo-toewijzing. Hallo **standaardtoegang** rol werkt niet voor het inrichten en deze gebruikers worden overgeslagen.
+*   Bij het toewijzen van een gebruiker met GitHub, moet u ofwel de **gebruiker** functie of een andere geldige toepassingsspecifieke-rol (indien beschikbaar) in het dialoogvenster toewijzing. De **standaardtoegang** rol werkt niet voor het inrichten en deze gebruikers worden overgeslagen.
 
 
-## <a name="configuring-user-provisioning-toogithub"></a>Gebruikers inrichten tooGitHub configureren 
+## <a name="configuring-user-provisioning-to-github"></a>Configuratie van gebruikers inrichten met GitHub 
 
-In deze sectie helpt u bij het verbinden van uw Azure AD-tooGitHub gebruikersaccount inrichten API en Hallo service toocreate inrichting configureren, bijwerken en uitschakelen van toegewezen gebruikersaccounts in GitHub op basis van gebruikers en groepen toewijzen in Azure AD.
+Deze sectie helpt u bij uw Azure AD verbinden met de GitHub-gebruikersaccount inrichten API en configureren van de inrichting service te maken, bijwerken en uitschakelen van toegewezen gebruikersaccounts in GitHub op basis van gebruikers en groepen toewijzen in Azure AD.
 
 > [!TIP]
-> U kunt ook tooenabled op basis van SAML eenmalige aanmelding voor GitHub, in het Hallo-instructies te volgen [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
+> U kunt ook op basis van SAML eenmalige aanmelding is ingeschakeld voor GitHub, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
 
 
-### <a name="configure-automatic-user-account-provisioning-toogithub-in-azure-ad"></a>Automatische gebruikersaccount tooGitHub ingericht in Azure AD configureren
+### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Automatisch gebruikers account inrichten met GitHub in Azure AD configureren
 
 
-1. In Hallo [Azure-portal](https://portal.azure.com), bladeren toohello **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
+1. In de [Azure-portal](https://portal.azure.com), blader naar de **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
 
-2. Als u al GitHub hebt geconfigureerd voor eenmalige aanmelding, zoeken naar uw exemplaar van GitHub met Hallo zoekveld opgegeven. Selecteer anders **toevoegen** en zoek naar **GitHub** in Hallo-toepassingsgalerie. Selecteer GitHub in zoekresultaten hello, en voeg deze tooyour lijst met toepassingen.
+2. Als u al GitHub voor eenmalige aanmelding hebt geconfigureerd, kunt u zoeken naar uw exemplaar van het zoekveld met GitHub. Selecteer anders **toevoegen** en zoek naar **GitHub** in de galerie met toepassingen. GitHub selecteert in de zoekresultaten en toe te voegen aan uw lijst met toepassingen.
 
-3. Selecteer uw exemplaar van GitHub en vervolgens Hallo **inrichten** tabblad.
+3. Selecteer uw exemplaar van GitHub en selecteer vervolgens de **inrichten** tabblad.
 
-4. Set Hallo **modus inrichting** te**automatische**.
+4. Stel de **Inrichtingsmodus** naar **automatische**.
 
     ![Het inrichten van GitHub](./media/active-directory-saas-github-provisioning-tutorial/GitHub1.png)
 
-5. Onder Hallo **beheerdersreferenties** sectie, klikt u op **autoriseren**. Deze bewerking wordt een dialoogvenster met GitHub autorisatie in een nieuw browservenster geopend. 
+5. Onder de **beheerdersreferenties** sectie, klikt u op **autoriseren**. Deze bewerking wordt een dialoogvenster met GitHub autorisatie in een nieuw browservenster geopend. 
 
-6. In nieuw venster hello, je aanmelden bij uw beheerdersaccount met GitHub. Selecteer in de resulterende autorisatie dialoogvenster Hallo Hallo GitHub team dat u wilt tooenable voor inrichting en selecteer vervolgens **autoriseren**. Voltooid door terug te gaan toohello Azure portal toocomplete hello configuratie inrichten.
+6. Aanmelden bij uw beheerdersaccount met GitHub in het nieuwe venster. Selecteer in de resulterende autorisatie dialoogvenster de GitHub-team dat u inschakelen wilt voor inrichting en selecteer vervolgens **autoriseren**. Als voltooid, terug naar de Azure-portal om het inrichtingsproces configuratie te voltooien.
 
     ![Dialoogvenster autorisatie](./media/active-directory-saas-github-provisioning-tutorial/GitHub2.png)
 
-7. Invoer in hello Azure-portal, **Tenant-URL** en klik op **testverbinding** tooensure Azure AD tooyour GitHub-app kunt verbinden. Als Hallo verbinding mislukt, zorg ervoor dat uw GitHub-account beheerdersmachtigingen heeft en **Tenant-URl** is opgegeven correct en probeer het vervolgens opnieuw 'Autoriseren' stap Hallo (u kunt vormen **Tenant-URL** door regel: 'https : //api.github.com/scim/v2/organizations/ + < Organizations_name > ', kunt u uw organisaties vinden onder uw GitHub-account: **instellingen** > **organisaties**).
+7. Voer in de Azure portal **Tenant-URL** en klik op **testverbinding** om te controleren of Azure AD, kan verbinding maken met uw GitHub-app. Als de verbinding is mislukt, zorg ervoor dat uw GitHub-account beheerdersmachtigingen heeft en **Tenant-URl** is opgegeven correct en probeer het opnieuw de stap 'Autoriseren' (u kunt vormen **Tenant-URL** door regel: 'https://api.github.com/scim/v2/organizations/ + < Organizations_name >', kunt u uw organisaties vinden onder uw GitHub-account: **instellingen** > **organisaties**).
 
     ![Dialoogvenster autorisatie](./media/active-directory-saas-github-provisioning-tutorial/GitHub3.png)
 
-8. Voer e-mailadres van een persoon of groep die inrichting fout meldingen in Hallo ontvangen moet Hallo **e-mailmelding** veld en controleer Hallo selectievakje ' een e-mailmelding verzenden wanneer een fout optreedt."
+8. Voer het e-mailadres van een persoon of groep die in inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het selectievakje "Een e-mailmelding verzenden wanneer een fout optreedt."
 
 9. Klik op **Opslaan**. 
 
-10. Selecteer onder Hallo toewijzingen sectie, **synchroniseren Azure Active Directory: gebruikers tooGitHub**.
+10. Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory-gebruikers met GitHub**.
 
-11. In Hallo **kenmerktoewijzingen** sectie, bekijkt hello gebruikerskenmerken die worden gesynchroniseerd vanuit Azure AD-tooGitHub. kenmerken die zijn geselecteerd als Hallo **overeenkomend** eigenschappen zijn gebruikte toomatch Hallo gebruikersaccounts in GitHub voor update-bewerkingen. Selecteer Hallo knop toocommit wijzigingen zijn opgeslagen.
+11. In de **kenmerktoewijzingen** sectie, controleert u de kenmerken van de gebruiker die zijn gesynchroniseerd vanuit Azure AD met GitHub. De kenmerken die zijn geselecteerd als **overeenkomend** eigenschappen overeenkomen met de gebruikersaccounts in GitHub voor update-bewerkingen worden gebruikt. Selecteer de knop Opslaan eventuele wijzigingen doorvoeren.
 
-12. tooenable Hallo inrichting Azure AD-service voor GitHub, wijziging Hallo **inrichting Status** te**op** in Hallo **instellingen** sectie
+12. Om de Azure AD-service voor GitHub inricht, wijzigen de **inrichting Status** naar **op** in de **instellingen** sectie
 
 13. Klik op **Opslaan**. 
 
-Deze bewerking begint Hallo initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen tooGitHub in Hallo gebruikers en groepen sectie. de initiële synchronisatie Hallo duurt langer tooperform dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden, zolang het Hallo-service wordt uitgevoerd. U kunt Hallo **synchronisatiedetails** sectie toomonitor uitgevoerd en volgt u koppelingen tooprovisioning activiteitsrapporten, waarin alle bewerkingen die worden uitgevoerd door het Hallo-service inricht.
+Deze bewerking begint de initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan GitHub in de sectie gebruikers en groepen. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service beschrijven.
 
-Zie voor meer informatie over hoe tooread hello Azure AD-inrichting registreert, [rapportage over automatische account gebruikersaanvragen](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
@@ -106,4 +106,4 @@ Zie voor meer informatie over hoe tooread hello Azure AD-inrichting registreert,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Informatie over hoe tooreview registreert en het ophalen van rapporten over het inrichten van activiteit](active-directory-saas-provisioning-reporting.md)
+* [Informatie over het bekijken van Logboeken en rapporten over het inrichten van de activiteit ophalen](active-directory-saas-provisioning-reporting.md)

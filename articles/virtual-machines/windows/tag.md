@@ -1,6 +1,6 @@
 ---
-title: aaaHow tootag een virtuele machine van Windows-resource in Azure | Microsoft Docs
-description: Meer informatie over virtuele Windows-machine gemaakt in Azure met Resource Manager-implementatiemodel Hallo-tagging
+title: Het label van een virtuele machine van Windows-resource in Azure | Microsoft Docs
+description: Meer informatie over virtuele Windows-machine gemaakt in Azure met het implementatiemodel van Resource Manager-tagging
 services: virtual-machines-windows
 documentationcenter: 
 author: mmccrory
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 160416ddc35998b3c98c6e579668a6a5eb6de6e4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5f00c4265cea3db02dbb09a7f81be636a3fdd3d1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tootag-a-windows-virtual-machine-in-azure"></a>Hoe tootag virtuele Windows-machine in Azure
-In dit artikel beschrijft de verschillende manieren tootag virtuele Windows-machine in Azure via Hallo Resource Manager-implementatiemodel. Labels zijn de gebruiker gedefinieerde sleutel/waarde-paren die rechtstreeks op een resource of een resourcegroep kunnen worden geplaatst. Azure biedt momenteel ondersteuning voor maximaal too15 labels per resource en resourcegroep. Labels van een resource kunnen worden geplaatst op Hallo moment gemaakt of bestaande resource tooan toegevoegd. Houd er rekening mee dat de labels voor resources die zijn gemaakt via Hallo Resource Manager-implementatiemodel alleen worden ondersteund. Als u een virtuele Linux-machine tootag wilt, Zie [hoe een virtuele Linux-machine in Azure tootag](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Het label van een virtuele Windows-machine in Azure
+In dit artikel beschrijft de verschillende manieren voor het taggen van een virtuele Windows-machine in Azure via het Resource Manager-implementatiemodel. Labels zijn de gebruiker gedefinieerde sleutel/waarde-paren die rechtstreeks op een resource of een resourcegroep kunnen worden geplaatst. Azure ondersteunt momenteel maximaal 15 tags per resource en resourcegroep. Labels kunnen worden geplaatst op een bron op het moment van maken of toegevoegd aan een bestaande resource. Houd er rekening mee dat de labels voor resources die zijn gemaakt via het Resource Manager-implementatiemodel alleen worden ondersteund. Als u wilt voor het taggen van een virtuele Linux-machine, Zie [hoe het labelen van een virtuele Linux-machine in Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-powershell"></a>Labels met PowerShell
-toocreate, toevoegen en verwijderen van de labels via PowerShell, moet u eerst tooset van uw [PowerShell-omgeving met Azure Resource Manager][PowerShell environment with Azure Resource Manager]. Nadat u Hallo-installatie hebt voltooid, kunt u labels kunt plaatsen op Compute, netwerk en opslag bronnen bij het maken of nadat het Hallo-resource is gemaakt via PowerShell. In dit artikel zal zich concentreren op weergeven/bewerken labels geplaatst op virtuele Machines.
+Als u wilt maken, toevoegen en verwijderen van de labels via PowerShell, moet u eerst voor het instellen van uw [PowerShell-omgeving met Azure Resource Manager][PowerShell environment with Azure Resource Manager]. Nadat u de installatie hebt voltooid, kunt u labels kunt plaatsen op Compute, netwerk en opslag bronnen bij het maken of nadat de resource is gemaakt via PowerShell. In dit artikel zal zich concentreren op weergeven/bewerken labels geplaatst op virtuele Machines.
 
-Ga eerst tooa virtuele Machine via Hallo `Get-AzureRmVM` cmdlet.
+Eerst, gaat u naar een virtuele Machine via de `Get-AzureRmVM` cmdlet.
 
         PS C:\> Get-AzureRmVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
 
-Als uw virtuele Machine al labels bevat, klikt u vervolgens ziet u alle Hallo-tags van uw resources:
+Als uw virtuele Machine al labels bevat, klikt u vervolgens ziet u de labels van uw resources:
 
         Tags : {
                 "Application": "MyApp1",
@@ -42,13 +42,13 @@ Als uw virtuele Machine al labels bevat, klikt u vervolgens ziet u alle Hallo-ta
                 "Environment": "Production"
                }
 
-Als u de labels tooadd via PowerShell dat wilt, kunt u Hallo `Set-AzureRmResource` opdracht. Houd er rekening mee bij het bijwerken van labels via PowerShell, tags worden bijgewerkt als geheel. Dus als u een bron van de tag tooa waarvoor al labels toevoegt, moet u tooinclude alle Hallo-labels die u wilt dat toobe op Hallo resource geplaatst. Hieronder volgt een voorbeeld van hoe extra tooadd tags tooa resource via PowerShell-Cmdlets.
+Als u toevoegen labels via PowerShell wilt, kunt u de `Set-AzureRmResource` opdracht. Houd er rekening mee bij het bijwerken van labels via PowerShell, tags worden bijgewerkt als geheel. Dus als u één label aan een resource die al labels toevoegt is, moet u om op te nemen van de labels die u wilt worden geplaatst op de bron. Hieronder volgt een voorbeeld van andere labels toevoegen aan een resource via PowerShell-Cmdlets.
 
-Deze eerste cmdlet worden alle Hallo labels op geplaatst *MyTestVM* toohello *$tags* variabele, met behulp van Hallo `Get-AzureRmResource` en `Tags` eigenschap.
+Deze eerste cmdlet stelt alle labels op geplaatst *MyTestVM* naar de *$tags* variabele, met behulp van de `Get-AzureRmResource` en `Tags` eigenschap.
 
         PS C:\> $tags = (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-Hallo tweede opdracht geeft Hallo labels voor Hallo variabele opgegeven.
+De tweede opdracht geeft de labels voor de opgegeven variabele.
 
         PS C:\> $tags
 
@@ -63,15 +63,15 @@ Hallo tweede opdracht geeft Hallo labels voor Hallo variabele opgegeven.
         Value        Production
         Name        Environment
 
-Hallo derde opdracht voegt een extra tag toohello *$tags* variabele. Houd er rekening mee Hallo gebruik van Hallo  **+=**  tooappend Hallo nieuwe sleutel/waarde-paar toohello *$tags* lijst.
+De derde opdracht voegt een extra tag voor de *$tags* variabele. Let op het gebruik van de  **+=**  toe te voegen van de nieuwe sleutel-waardepaar voor de *$tags* lijst.
 
         PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 
-Hallo vierde opdracht worden alle Hallo codes, gedefinieerd in Hallo *$tags* variabele toohello resource opgegeven. In dit geval is het MyTestVM.
+De vierde opdracht stelt alle labels gedefinieerd in de *$tags* variabele met de opgegeven bron. In dit geval is het MyTestVM.
 
         PS C:\> Set-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 
-Hallo vijfde opdracht geeft alle Hallo labels op Hallo resource. Zoals u ziet, *locatie* is nu gedefinieerd als een label met *MyLocation* Hallo-waarde.
+De vijfde opdracht geeft alle labels op de bron. Zoals u ziet, *locatie* is nu gedefinieerd als een label met *MyLocation* als de waarde.
 
         PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
@@ -88,17 +88,17 @@ Hallo vijfde opdracht geeft alle Hallo labels op Hallo resource. Zoals u ziet, *
         Value        MyLocation
         Name        Location
 
-informatie over toolearn Hallo tagging via PowerShell, Bekijk [Azure Resource Cmdlets][Azure Resource Cmdlets].
+Bekijk voor meer informatie over labels via PowerShell, de [Azure Resource Cmdlets][Azure Resource Cmdlets].
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie toolearn meer informatie over uw Azure-resources te labelen [overzicht van Azure Resource Manager] [ Azure Resource Manager Overview] en [tooorganize labels met behulp van uw Azure-Resources] [ Using Tags tooorganize your Azure Resources].
-* toosee hoe labels kunt u uw gebruik van Azure-resources beheren raadpleegt [inzicht in uw Azure-factuur] [ Understanding your Azure Bill] en [inzicht in uw Microsoft Azure-brongebruik] [Gain insights into your Microsoft Azure resource consumption].
+* Zie voor meer informatie over uw Azure-resources te labelen, [overzicht van Azure Resource Manager] [ Azure Resource Manager Overview] en [Tags gebruiken om uw Azure-Resources te organiseren][Using Tags to organize your Azure Resources].
+* Zie hoe labels kunnen u helpen uw gebruik van Azure-resources beheren [inzicht in uw Azure-factuur] [ Understanding your Azure Bill] en [inzicht in uw Microsoft Azure-brongebruik][Gain insights into your Microsoft Azure resource consumption].
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/powershell-azure-resource-manager.md
 [Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
-[Using Tags tooorganize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
+[Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md
 [Gain insights into your Microsoft Azure resource consumption]: ../../billing/billing-usage-rate-card-overview.md

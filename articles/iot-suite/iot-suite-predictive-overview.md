@@ -1,6 +1,6 @@
 ---
-title: aaaPredictive onderhoud vooraf geconfigureerde oplossing | Microsoft Docs
-description: Een beschrijving van hello Azure IoT Suite voorspeld onderhoud vooraf geconfigureerde oplossing.
+title: Voorspeld onderhoud vooraf geconfigureerde oplossing | Microsoft Docs
+description: Een beschrijving van de vooraf geconfigureerde oplossing van Azure IoT Suite voor voorspeld onderhoud.
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,125 +15,125 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 2d09801467d33db6b7d6333fa071aea2bf573f20
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 8bad198488c4940a83eb32ec02122a91d47ca86c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Overzicht van de vooraf geconfigureerde oplossing voor voorspeld onderhoud
 
-Hallo *voorspeld onderhoud* [vooraf geconfigureerde oplossing] [ lnk_preconfigured_solutions] is een Hallo [Microsoft Azure IoT Suite] [ lnk_iot_suite] vooraf geconfigureerde oplossingen. Deze oplossing integreert het in realtime verzamelen van telemetriegegevens met een voorspellend model dat is gemaakt met behulp van [Azure Machine Learning][lnk-machine-learning].
+De [vooraf geconfigureerde oplossing][lnk_preconfigured_solutions] voor *voorspellend onderhoud* is een van de vooraf geconfigureerde oplossingen van [Microsoft Azure IoT Suite][lnk_iot_suite]. Deze oplossing integreert het in realtime verzamelen van telemetriegegevens met een voorspellend model dat is gemaakt met behulp van [Azure Machine Learning][lnk-machine-learning].
 
-Met Azure IoT Suite u snel en eenvoudig verbinding kunt tooand monitor activa, en analyseren van telemetrie in realtime in dashboards en visualisaties. In de oplossing voor voorspeld onderhoud hello bieden Hallo dashboards en visualisaties u nieuwe bedrijfsinformatie die kan efficiënter en meer inkomsten kunnen genereren.
+Met Azure IoT Suite kunt u snel en eenvoudig verbinding maken met assets en deze controleren, en telemetriegegevens in realtime analyseren in dashboards en visualisaties. De oplossing voor predictief onderhoud bevat dashboards en visualisaties om u nieuwe bedrijfsinformatie te bieden waardoor u efficiënter kunt werken en meer inkomsten kunt genereren.
 
-## <a name="hello-scenario"></a>Hallo Scenario
+## <a name="the-scenario"></a>Het scenario
 
-Fabrikam is een regionale luchtvaartmaatschappij die zich toelegt op het leveren van een uitstekende klantervaring tegen concurrerende prijzen. Een oorzaak van vertragingen zijn onderhoudsproblemen, waarbij het onderhoud van vliegtuigmotoren een bijzondere uitdaging vormt. Fabrikam moet voorkomen motoren ontstaan tijdens de vlucht ten koste wat kost dus regelmatig de motoren inspecteert en gepland onderhoud op basis van tooa plan. Vliegtuig engines niet slijten Hallo echter hetzelfde. Soms wordt er onnodig onderhoud uitgevoerd op motoren. En wat belangrijker is, er doen zich soms problemen voor die ervoor zorgen dat een vliegtuig aan de grond moet blijven totdat het onderhoud is uitgevoerd. Als een vliegtuig zich op een locatie kunnen waar Hallo juiste technici of onderdelen zijn niet beschikbaar, deze problemen bijzonder kostbaar.
+Fabrikam is een regionale luchtvaartmaatschappij die zich toelegt op het leveren van een uitstekende klantervaring tegen concurrerende prijzen. Een oorzaak van vertragingen zijn onderhoudsproblemen, waarbij het onderhoud van vliegtuigmotoren een bijzondere uitdaging vormt. Motorproblemen tijdens de vlucht moeten koste wat kost worden voorkomen. Fabrikam inspecteert om die reden regelmatig de motoren en volgt een planning voor het plegen van onderhoud. Vliegtuigmotoren slijten echter niet allemaal even snel. Soms wordt er onnodig onderhoud uitgevoerd op motoren. En wat belangrijker is, er doen zich soms problemen voor die ervoor zorgen dat een vliegtuig aan de grond moet blijven totdat het onderhoud is uitgevoerd. Deze problemen kunnen erg kostbaar zijn, in het bijzonder als een vliegtuig zich op een locatie bevindt waar de juiste technici of onderdelen niet beschikbaar zijn.
 
-Hallo-engines van de vliegtuigen van Fabrikam zijn uitgerust met sensoren die motor tijdens de vlucht bewaken. Fabrikam gebruikt Hallo voorspeld onderhoud oplossing toocollect Hallo sensorgegevens die zijn verzameld tijdens de vlucht Hallo. Na jarenlang van operationele-engine en gegevens hebt verzameld van Fabrikam een manier toopredict Hallo resterende levensduur (resterende Levensduur) van een vliegtuigmotor gemodelleerd. Hallo-model maakt gebruik van een correlatie tussen gegevens van vier hello motorsensoren en de slijtage engine die tooeventual fout leidt. Terwijl Fabrikam tooperform regelmatige inspecties tooensure veiligheid doorgaat, kan nu gebruikmaken van Hallo modellen toocompute Hallo resterende Levensduur van elke motor na elke vlucht. Hallo model Hallo verzamelen van telemetriegegevens van Hallo-engines tijdens de vlucht Hallo gebruikt. Fabrikam is nu in staat om toekomstige probleempunten te voorspellen en om van tevoren onderhoud en reparatiewerkzaamheden te plannen.
+De motoren van de vliegtuigen van Fabrikam zijn uitgerust met sensoren die de toestand van de motor tijdens de vlucht in de gaten houden. Fabrikam maakt gebruik van de oplossing voor predictief onderhoud voor het verzamelen van de sensorgegevens die tijdens de vlucht worden verzameld. Na jarenlang operationele gegevens van engines te hebben verzameld, hebben de gegevensanalisten van Fabrikam een model samengesteld waarmee ze de nog resterende bruikbare levensduur van een vliegtuigmotor kunnen voorspellen. Het model gebruikt een correlatie tussen gegevens van vier van de motorsensoren en de slijtage van de motor die uiteindelijk tot problemen leidt. Hoewel Fabrikam doorgaat met het uitvoeren van regelmatige inspecties om de veiligheid te garanderen, kan het bedrijf nu de modellen gebruiken om na elke vlucht de resterende bruikbare levensduur van elke motor te berekenen. Het model gebruikt de telemetrie die tijdens de vlucht vanuit de machines is verzameld. Fabrikam is nu in staat om toekomstige probleempunten te voorspellen en om van tevoren onderhoud en reparatiewerkzaamheden te plannen.
 
 > [!NOTE]
-> Hallo oplossing model reële slijtagegegevens gebruikt.
+> Het model van de oplossing maakt gebruik van de reële slijtagegegevens van de motor.
 
-Door het Hallo-punt voorspellen waarop onderhoud vereist, kan Fabrikam zijn bewerkingen tooreduce kosten optimaliseren.
+Door het punt te voorspellen waarop onderhoud vereist is, kan Fabrikam zijn activiteiten zo optimaliseren dat de kosten worden verminderd.
 
 Onderhoudscoördinatoren werken met planners:
 
-- Plan onderhoud toocoincide een vliegtuig stoppen op een bepaalde locatie.
-- Zorg ervoor dat voldoende tijd is beschikbaar voor Hallo vliegtuig toobe buiten de service zonder onderbreking van de planning.
-- tooschedule technici tooensure vliegtuig efficiënt worden verwerkt zonder wachttijd.
+- Om onderhoud zo te plannen dat dit samenvalt met een moment waarop een vliegtuig op een bepaalde locatie aan de grond staat.
+- Om ervoor te zorgen dat er voldoende tijd is om het vliegtuig buiten bedrijf te stellen zonder het vliegschema te verstoren.
+- Om technici zo in te plannen dat het onderhoud van het vliegtuig efficiënt en wordt uitgevoerd zonder dat er vertragingen ontstaan.
 
 Magazijnbeheerders ontvangen de onderhoudsplannen zodat zij hun bestelproces en hun voorraad met reserveonderdelen kunnen optimaliseren.
 
-Deze activiteiten Fabrikam toominimize vliegtuig compleet tijd inschakelen en de operationele kosten verlagen terwijl de veiligheid van passagiers en bemanning Hallo.
+Door deze activiteiten is Fabrikam in staat om de tijd die vliegtuigen aan de grond staan te minimaliseren, de operationele kosten te verlagen en kan het bedrijf de veiligheid van de passagiers en bemanning garanderen.
 
-toounderstand hoe [Azure IoT Suite] [ lnk_iot_suite] biedt Hallo mogelijkheden klanten nodig toorealize Hallo potentieel van voorspeld onderhoud controleert dit [infographic] [lnk_infographic].
+Als u beter wilt begrijpen welke mogelijkheden [Azure IoT Suite][lnk_iot_suite] biedt die klanten nodig hebben om het potentieel van voorspellend onderhoud te realiseren, bekijkt u deze [infographic][lnk_infographic].
 
-## <a name="how-hello-predictive-maintenance-solution-is-built"></a>Hoe Hallo-oplossing voor voorspeld onderhoud is gebouwd
+## <a name="how-the-predictive-maintenance-solution-is-built"></a>Hoe de oplossing voor voorspeld onderhoud is gebouwd
 
-Hallo oplossing maakt gebruik van een bestaand Azure Machine Learning-model beschikbaar als een sjabloon tooshow deze mogelijkheden werken op basis van telemetriegegevens die zijn verzameld via IoT Suite-services. Microsoft heeft ontwikkeld een [regressiemodel] [ lnk_regression_model] van een vliegtuigmotor op basis van openbaar beschikbare gegevens<sup>\[1\]</sup>, en stapsgewijze hulp bij hoe toouse Hallo model.
+De oplossing gebruikt een bestaand Azure Machine Learning-model dat als sjabloon beschikbaar is om te laten zien hoe deze mogelijkheden werken op basis van telemetriegegevens die zijn verzameld via IoT Suite-services. Microsoft heeft een [regressiemodel][lnk_regression_model] van een vliegtuigmotor ontwikkeld op basis van algemeen beschikbare gegevens<sup>\[1\]</sup>, evenals richtlijnen met stappen voor het gebruik van het model.
 
-Hallo-regressiemodel dat is gemaakt met deze sjabloon maakt gebruik van Hello Azure IoT-oplossing voor voorspeld onderhoud. Hallo-model is geïmplementeerd in uw Azure-abonnement en toegankelijk zijn via een automatisch gegenereerde API. Hallo-oplossing omvat een subset van Hallo testen van gegevens voor 4 (van in totaal 100) motoren en Hallo 4 (van in totaal 21) gegevensstromen. Deze gegevens zijn voldoende tooprovide een accuraat resultaat opleveren van Hallo getrainde model.
+De Azure IoT-oplossing voor predictief onderhoud maakt gebruik van het regressiemodel dat op basis van deze sjabloon is gemaakt. Het model is geïmplementeerd in uw Azure-abonnement en is toegankelijk via een automatisch gegenereerde API. De oplossing omvat een subset met de testgegevens voor 4 (van in totaal 100) motoren en de 4 (van in totaal 21) gegevensstromen van sensoren. Deze gegevens leveren een accuraat resultaat op van het getrainde model.
 
 *\[1\] A. Saxena en K. Goebel (2008). 'Turbofan Engine Degradation Simulation Data Set', NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="get-started-with-predictive-maintenance"></a>Aan de slag met voorspellend onderhoud
 
-Deze zelfstudie leert u hoe tooprovision Hallo oplossing voor voorspeld onderhoud. Ook wordt u begeleid Hallo basisfuncties van Hallo-oplossing voor voorspeld onderhoud. Veel van deze functies kunt u openen via het dashboard van de oplossing Hallo die samen met de Hallo vooraf geconfigureerde oplossing implementeert.
+In deze zelfstudie ziet u hoe u de oplossing voor voorspellend onderhoud inricht. U maakt u kennis met de basisfuncties van de oplossing voor voorspellend onderhoud. U krijgt toegang tot deze functies via het oplossingsdashboard dat samen met de vooraf geconfigureerde oplossing het volgende implementeert.
 
-toocomplete in deze zelfstudie, moet u een actief Azure-abonnement.
+U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
 
 > [!NOTE]
 > Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure][lnk_free_trial] voor meer informatie.
 
-1. Meld u aan te[azureiotsuite.com] [ lnk-azureiotsuite] met behulp van uw Azure accountreferenties en klikt u op  **+**  toocreate een oplossing.
-1. Klik op **Selecteer** hello **voorspeld onderhoud** tegel.
+1. Meld u aan bij [azureiotsuite.com][lnk-azureiotsuite] met de referenties van uw Azure-account en klik op **+** om een oplossing te maken.
+1. Klik in de tegel **Voorspellend onderhoud** op **Selecteren**.
 1. Voer een **Naam van oplossing** in voor uw vooraf geconfigureerde oplossing voor voorspellend onderhoud.
-1. Selecteer Hallo **regio** en **abonnement** toouse tooprovision Hallo oplossing.
-1. Klik op **oplossing maken** toobegin Hallo inrichtingsproces. Dit proces duurt gewoonlijk enkele minuten toorun.
+1. Selecteer de **regio** die en het **abonnement** dat u wilt gebruiken voor het inrichten van de oplossing.
+1. Klik op **Oplossing maken** om het inrichtingsproces te starten. Doorgaans duurt het enkele minuten om dit proces uit te voeren.
 
-### <a name="wait-for-hello-provisioning-process-toocomplete"></a>Wachten op Hallo proces toocomplete inrichten
+### <a name="wait-for-the-provisioning-process-to-complete"></a>Wacht tot het inrichtingsproces is voltooid.
 
-1. Klik op de tegel Hallo voor uw oplossing met **inrichten** status.
-1. Kennisgeving Hallo **Inrichtingstatuswaarden** wanneer Azure-services worden geïmplementeerd in uw Azure-abonnement.
-1. Nadat het inrichten is voltooid, Hallo u statuswijzigingen te**gereed**.
-1. Klik op Hallo tegel toosee Hallo details van uw oplossing in het rechterdeelvenster Hallo. U kunt dit deelvenster Hallo oplossing dashboard en toegang Hallo Machine Learning-werkruimte starten.
+1. Klik op de tegel voor uw oplossing met de status **Inrichten**.
+1. Tijdens de implementatie van Azure-services in uw Azure-abonnement verschijnen verschillende **inrichtingstatuswaarden**.
+1. Nadat het inrichten is voltooid, verandert de status in **Gereed**.
+1. Klik op de tegel om de details van uw oplossing in het rechterdeelvenster weer te geven. In dit deelvenster kunt u het oplossingsdashboard starten en toegang krijgen tot de Machine Learning-werkruimte.
 
 > [!NOTE]
-> Als u problemen Hallo vooraf geconfigureerde oplossing implementeren, controleren [machtigingen op Hallo azureiotsuite.com site] [ lnk-permissions] en Hallo [Veelgestelde vragen over] [ lnk-faq]. Als Hallo problemen zich blijven voordoen, maakt u een serviceticket op Hallo [portal][lnk-portal].
+> Als er problemen zijn met de implementatie van de vooraf geconfigureerde oplossing, leest u [Machtigingen op azureiotsuite.com][lnk-permissions] en de [veelgestelde vragen][lnk-faq]. Als de problemen zich blijven voordoen, maakt u een serviceticket aan in de [portal][lnk-portal].
 
-Zijn er details u mag verwachten toosee die voor uw oplossing niet vermeld? Geef ons suggesties voor functies op [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
+Zijn er voor uw oplossing bepaalde details niet vermeld, die u wel verwacht had te zien? Geef ons suggesties voor functies op [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
-## <a name="view-hello-solution"></a>Hallo-oplossing weergeven
+## <a name="view-the-solution"></a>De oplossing bekijken
 
-Deze sectie helpt u bij Hallo oplossing gebruikersinterface.
+Deze sectie helpt u bij de gebruikersinterface van de oplossing.
 
 ### <a name="predictive-maintenance-dashboard"></a>Dashboard voorspeld onderhoud
 
-Deze pagina in Hallo-webtoepassing maakt gebruik van PowerBI JavaScript-besturingselementen (Zie Hallo [PowerBI-visuals repository][lnk-powerbi]) toovisualize:
+Voor deze pagina in de webtoepassing wordt gebruikgemaakt van PowerBI JavaScript-besturingselementen (zie de [PowerBI-opslagplaats voor visualisaties][lnk-powerbi]) voor het visualiseren van:
 
-* Hallo uitvoergegevens van Hallo Stream Analytics-taken in de blob-opslag.
-* Hallo resterende Levensduur en aantal cycli per vliegtuigmotor.
+* De uitvoergegevens van de Stream Analytics-jobs in Blob Storage.
+* De resterende levensduur en aantal cycli per vliegtuigmotor.
 
-### <a name="observing-hello-behavior-of-hello-cloud-solution"></a>Hallo-gedrag van Hallo cloudoplossing observeren
+### <a name="observing-the-behavior-of-the-cloud-solution"></a>Het gedrag van de cloudoplossing observeren
 
-In Azure-portal hello, navigeert u toohello resourcegroep met de naam van de oplossing Hallo u hebt gekozen tooview uw ingerichte resources.
+Navigeer in Azure Portal naar de resourcegroep met de naam van de oplossing die u hebt gekozen om de ingerichte resources weer te geven.
 
 ![][img-resource-group]
 
-Wanneer u Hallo vooraf geconfigureerde oplossing inricht, krijgt u een e-mail met een koppeling toohello Machine Learning-werkruimte. U kunt ook toohello Machine Learning-werkruimte van Hallo navigeren [azureiotsuite.com] [ lnk-azureiotsuite] pagina voor de ingerichte oplossing. Een tegel is beschikbaar op deze pagina wanneer Hallo oplossing Hallo wordt **gereed** status.
+Wanneer u de vooraf geconfigureerde oplossing inricht, krijgt u een e-mailbericht met een koppeling naar de Machine Learning-werkruimte. U kunt ook naar de Machine Learning-werkruimte navigeren vanaf de [azureiotsuite.com][lnk-azureiotsuite]-pagina voor de ingerichte oplossing. Op deze pagina is een tegel beschikbaar wanneer de oplossing de status **Gereed** heeft.
 
 ![][img-machine-learning]
 
-In de oplossingsportal hello ziet u dat Hallo-voorbeeld is ingericht met vier gesimuleerde apparaten toorepresent twee vliegtuig met twee motoren per vliegtuig, elk met vier sensoren. Wanneer u eerst toohello oplossingsportal navigeert, wordt Hallo simulatie gestopt.
+In de oplossingsportal kunt u zien dat het voorbeeld is ingericht met vier gesimuleerde apparaten die twee vliegtuigen met twee motoren per vliegtuig vertegenwoordigen, elk met vier sensoren. Wanneer u voor het eerst naar de oplossingsportal navigeert, wordt de simulatie gestopt.
 
 ![][img-simulation-stopped]
 
-Klik op **simulatie starten** toobegin Hallo simulatie. Hallo sensor geschiedenis, resterende Levensduur, cycli en de resterende Levensduur geschiedenis vullen Hallo-dashboard.
+Klik op **Simulatie starten** om te beginnen met de simulatie. Het dashboard wordt ingevuld met de sensorgeschiedenis, de resterende levensduur, de cycli en de geschiedenis van de resterende levensduur.
 
 ![][img-simulation-running]
 
-Wanneer de resterende Levensduur minder dan 160 is (een willekeurige drempel gekozen ter illustratie), wordt een waarschuwing symbool volgende toohello weergegeven resterende Levensduur in Hallo oplossingsportal weergegeven. Hallo oplossingsportal ook Hallo vliegtuigmotor geel gemarkeerd. U ziet hoe Hallo resterende Levensduur waarden hebben voor een algemene neerwaartse trend, maar vaak toobounce omhoog en omlaag. Dit probleem wordt veroorzaakt door verschillende lengten Hallo en Hallo model nauwkeurig.
+Wanneer de resterende levensduur minder dan 160 is (een willekeurige drempelwaarde gekozen ter illustratie), verschijnt in de oplossingsportal een waarschuwingssymbool naast de weergegeven resterende levensduur. De oplossingsportal geeft ook de vliegtuigmotor geel gemarkeerd weer. Zoals u merkt, vertonen de waarden van de resterende levensduur een algemene neerwaartse trend, maar stijgen en dalen die waarden vaak. Dit gedrag wordt veroorzaakt door de verschillende lengten van de cycli en de nauwkeurigheid van het model.
 
 ![][img-simulation-warning]
 
-de volledige simulatie Hallo duurt ongeveer 35 minuten toocomplete 148 cycli. Hallo 160 resterende Levensduur drempelwaarde wordt voldaan voor Hallo eerst na ongeveer 5 minuten en beide motoren Hallo drempelwaarde na ongeveer 8 minuten bereikt.
+Het duurt ongeveer 35 minuten voordat de volledige simulatie 148 cycli heeft voltooid. Na ongeveer 5 minuten wordt voor het eerst de drempelwaarde van 160 voor de resterende levensduur bereikt. De drempelwaarde voor beide motoren wordt na ongeveer 8 minuten bereikt.
 
-Hallo simulatie wordt uitgevoerd via Hallo volledige gegevensset voor 148 cycli en bepaalt dan het eindresultaat van laatste resterende Levensduur en waarden.
+De simulatie wordt uitgevoerd voor de volledige gegevensset voor 148 cycli en bepaalt dan het eindresultaat voor de resterende levensduur en het aantal cycli.
 
-U kunt stoppen Hallo simulatie op elk punt, maar te klikken op **simulatie starten** replays Hallo simulatie van Hallo begin van Hallo gegevensset.
+U kunt de simulatie op elk punt stoppen, maar wanneer u op **Simulatie starten** klikt, wordt de simulatie opnieuw vanaf het begin van de gegevensset uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-meer informatie over hoe Azure IoT maakt voor voorspeld onderhoud-scenario's, lezen toolearn [vastleggen van de waarde van het Internet der dingen Hallo][lnk_capture_value].
+Meer informatie hoe Azure IoT werkt in scenario's voor voorspellend onderhoud vindt u in [Capture value from the Internet of Things][lnk_capture_value] (Waarde toevoegen via het Internet of Things).
 
-Duren voordat een [scenario] [ lnk-predictive-walkthrough] van Hallo-oplossing voor voorspeld onderhoud.
+Volg een [walkthrough][lnk-predictive-walkthrough] over de oplossing voor predictief onderhoud.
 
-U kunt ook verkennen van Hallo andere functies en mogelijkheden van Hallo vooraf geconfigureerde IoT Suite-oplossingen:
+U kunt ook enkele van de andere functies en mogelijkheden van de vooraf geconfigureerde IoT Suite-oplossingen verkennen:
 
 * [Veelgestelde vragen over IoT Suite][lnk-faq]
-* [Beveiliging van de IoT van Hallo gemalen][lnk-security-groundup]
+* [Fundamentele IoT-beveiliging][lnk-security-groundup]
 
 [img-resource-group]: media/iot-suite-predictive-overview/resource-group.png
 [img-simulation-stopped]: media/iot-suite-predictive-overview/simulation-stopped.png

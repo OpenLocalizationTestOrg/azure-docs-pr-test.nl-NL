@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met voorzijde | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en de voorgrond.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en de voorgrond.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,114 +14,114 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 4be363a3d338ec9268f3324daab4a80346ec3131
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d936bc50a66ac2a3c17038ff08351edf9902c99f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Zelfstudie: Azure Active Directory-integratie met voorzijde
 
-In deze zelfstudie leert u hoe toointegrate voorzijde met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe voorzijde integreren met Azure Active Directory (Azure AD).
 
-Begin integreren met Azure AD biedt Hallo volgende voordelen:
+Begin integreren met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD die tooFront toegang heeft.
-- U kunt uw gebruikers tooautomatically get aangemelde tooFront (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
-- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren.
+- U kunt beheren in Azure AD die toegang tot de voorgrond heeft.
+- U kunt uw gebruikers automatisch ophalen aangemelde naar voorgrond (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-tooconfigure Azure AD-integratie met voorgrond, moet u Hallo volgende items:
+Voor het configureren van Azure AD-integratie met voorgrond, moet u de volgende items:
 
 - Een Azure AD-abonnement
 - Een begin eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Het toevoegen van voorzijde van Hallo-galerie
+1. Vooraan in de galerie toevoegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-front-from-hello-gallery"></a>Het toevoegen van voorzijde van Hallo-galerie
-tooconfigure hello integratie van vooraan in Azure AD, moet u tooadd vooraan in Hallo galerie tooyour lijst met beheerde SaaS-apps.
+## <a name="adding-front-from-the-gallery"></a>Vooraan in de galerie toevoegen
+Voor het configureren van de integratie van vooraan in Azure AD, moet u voorgrond uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-**tooadd voorzijde via Hallo gallery uitvoeren Hallo stappen te volgen:**
+**Als u wilt toevoegen voor uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
-    ![Hello Azure Active Directory-knop][1]
+    ![De Azure Active Directory-knop][1]
 
-2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Hallo Enterprise toepassingen blade][2]
+    ![De blade Enterprise-toepassingen][2]
     
-3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![knop voor nieuwe toepassing Hello][3]
+    ![De knop Nieuw toepassing][3]
 
-4. Typ in het zoekvak Hallo **Front**, selecteer **Front** van resultaat deelvenster klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
+4. Typ in het zoekvak **Front**, selecteer **Front** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Vooraan in de lijst met resultaten Hallo](./media/active-directory-saas-front-tutorial/tutorial_front_addfromgallery.png)
+    ![Vooraan in de lijst met resultaten](./media/active-directory-saas-front-tutorial/tutorial_front_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 
 In deze sectie configureert en test eenmalige aanmelding Azure AD met voorzijde op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent op de voorgrond is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en het Hallo gerelateerde gebruiker op de voorgrond toobe tot stand gebracht.
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat het equivalent van de gebruiker op de voorgrond is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gebruiker op de voorgrond tot stand worden gebracht.
 
-Op de voorgrond, wijs Hallo-waarde van Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** tooestablish Hallo koppeling relatie.
+Op de voorgrond, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-tooconfigure en eenmalige aanmelding Azure AD-test met voorgrond, moet u toocomplete Hallo bouwstenen te volgen:
+Als u wilt configureren en testen Azure AD eenmalige aanmelding met voorgrond, moet u voltooien van de volgende elementen:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker voorzijde](#create-a-front-test-user)**  -toohave een equivalent van Britta Simon op de voorgrond is gekoppelde toohello Azure AD-weergave van de gebruiker.
-4. **[Toewijzen van de testgebruiker hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  -tooverify Hallo of configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker voorzijde](#create-a-front-test-user)**  - hebben een equivalent van Britta Simon op de voorgrond die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding configureren in uw toepassing voorgrond.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing voorgrond.
 
-**tooconfigure eenmalige aanmelding Azure AD met voorgrond, Voer Hallo stappen te volgen:**
+**Voor het configureren van Azure AD eenmalige aanmelding met voorgrond, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op Hallo Hallo **Front** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **Front** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-front-tutorial/tutorial_front_samlbase.png)
 
-3. Op Hallo **Front-domein en de URL's** sectie, indien gewenst tooconfigure Hallo toepassing in **IDP** modus gestart:
+3. Op de **Front-domein en de URL's** sectie als u wilt configureren van de toepassing in **IDP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
-    a. In Hallo **id** textbox, typ een URL met Hallo patroon volgen:`https://<companyname>.frontapp.com`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.frontapp.com`
 
-    b. In Hallo **antwoord-URL** textbox, typ een URL met Hallo patroon volgen:`https://<companyname>.frontapp.com/sso/saml/callback`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.frontapp.com/sso/saml/callback`
 
-4. Controleer **weergeven geavanceerde instellingen voor URL**, indien gewenst tooconfigure Hallo toepassing in **SP** modus gestart:
+4. Controleer **weergeven geavanceerde instellingen voor URL**, als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-front-tutorial/tutorial_front_url2.png)
 
-    In Hallo **aanmeldings-URL** textbox, typ een URL met Hallo patroon volgen:`https://<companyname>.frontapp.com`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.frontapp.com`
      
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden met Hallo werkelijke id antwoord-URL en aanmeldings-URL die worden beschreven verderop in de zelfstudie of neem contact op met update [Front Client ondersteuningsteam](mailto:support@frontapp.com) tooget deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, het antwoord-URL en de aanmeldings-URL die worden beschreven verderop in de zelfstudie of neem contact op met [Front Client ondersteuningsteam](mailto:support@frontapp.com) ophalen van deze waarden. 
 
-5. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het Hallo-certificaatbestand op uw computer.
+5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
 
@@ -129,13 +129,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
     
-7. Op Hallo **Front configuratie** sectie, klikt u op **Front configureren** tooopen **eenmalige aanmelding configureren** venster. Kopiëren Hallo **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van Hallo **Naslaggids punt.**
+7. Op de **Front configuratie** sectie, klikt u op **Front configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
 
-8. Eenmalige aanmelding tooyour voorzijde tenant als beheerder.
+8. Eenmalige aanmelding voor uw tenant voorzijde als beheerder.
 
-9. Ga te**instellingen (tandwiel pictogram onderaan Hallo Hallo links zijbalk) > Voorkeuren**.
+9. Ga naar **instellingen (tandwiel pictogram onder aan de linkerkant zijbalk) > Voorkeuren**.
    
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-front-tutorial/tutorial_front_000.png)
 
@@ -143,93 +143,93 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
    
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-front-tutorial/tutorial_front_001.png)
 
-11. Selecteer **SAML** in Hallo vervolgkeuzelijst van **eenmalige aanmelding**.
+11. Selecteer **SAML** in de vervolgkeuzelijst van **eenmalige aanmelding**.
    
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-front-tutorial/tutorial_front_002.png)
 
-12. In Hallo **toegangspunt** textbox plaatsen Hallo-waarde van **één Service-URL aanmelding** van de configuratiewizard voor Azure AD-toepassing.
+12. In de **toegangspunt** textbox plaatsen de waarde van **één Service-URL aanmelding** van de configuratiewizard voor Azure AD-toepassing.
     
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-front-tutorial/tutorial_front_003.png)
 
-13. Open uw gedownloade **Certificate(Base64)** -bestand in Kladblok, kopieer Hallo inhoud ervan naar het Klembord en plak deze toohello **handtekeningcertificaat** textbox.
+13. Open uw gedownloade **Certificate(Base64)** bestand in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **handtekeningcertificaat** textbox.
     
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-front-tutorial/tutorial_front_004.png)
 
-14. Op Hallo **Service-Providerinstellingen** sectie, voert u Hallo stappen te volgen:
+14. Op de **Service-Providerinstellingen** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
 
-    a. Hallo-waarde van kopiëren **entiteit-ID** en plak deze in Hallo **id** textbox in **Front-domein en de URL's** sectie in Azure-portal.
+    a. Kopieer de waarde van **entiteit-ID** en plak deze in de **id** textbox in **Front-domein en de URL's** sectie in Azure-portal.
 
-    b. Hallo-waarde van kopiëren **ACS URL** en plak deze in Hallo **aanmeldings-URL** textbox in **Front-domein en de URL's** sectie in Azure-portal.
+    b. Kopieer de waarde van **ACS URL** en plak deze in de **aanmeldings-URL** textbox in **Front-domein en de URL's** sectie in Azure-portal.
     
 15. Klik op **opslaan** knop.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
    ![Een Azure AD-testgebruiker maken][100]
 
-**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
+**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in Azure-portal in het linkerdeelvenster Hallo Hallo op Hallo **Azure Active Directory** knop.
+1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
 
-    ![Hello Azure Active Directory-knop](./media/active-directory-saas-front-tutorial/create_aaduser_01.png)
+    ![De Azure Active Directory-knop](./media/active-directory-saas-front-tutorial/create_aaduser_01.png)
 
-2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
-    ![Hallo 'Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-front-tutorial/create_aaduser_02.png)
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-front-tutorial/create_aaduser_02.png)
 
-3. tooopen hello **gebruiker** in het dialoogvenster, klikt u op **toevoegen** Hallo boven aan het Hallo **alle gebruikers** in het dialoogvenster.
+3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
 
-    ![knop voor Hallo toevoegen](./media/active-directory-saas-front-tutorial/create_aaduser_03.png)
+    ![De knop toevoegen](./media/active-directory-saas-front-tutorial/create_aaduser_03.png)
 
-4. In Hallo **gebruiker** dialoogvenster Voer Hallo stappen te volgen:
+4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
 
-    ![het dialoogvenster Hallo-gebruiker](./media/active-directory-saas-front-tutorial/create_aaduser_04.png)
+    ![Het dialoogvenster gebruiker](./media/active-directory-saas-front-tutorial/create_aaduser_04.png)
 
-    a. In Hallo **naam** in het vak **BrittaSimon**.
+    a. In de **naam** in het vak **BrittaSimon**.
 
-    b. In Hallo **gebruikersnaam** type Hallo e-mailadres van de gebruiker Britta Simon vak.
+    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer Hallo **wachtwoord weergeven** selectievakje en schrijf Hallo-waarde die wordt weergegeven in Hallo **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
  
 ### <a name="create-a-front-test-user"></a>Een Front-testgebruiker maken
 
-In deze sectie maakt u een gebruiker op de voorgrond Britta Simon aangeroepen. Werken met [Front Client ondersteuningsteam](mailto:support@frontapp.com) Hallo gebruikers toevoegen in Hallo Front-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+In deze sectie maakt u een gebruiker op de voorgrond Britta Simon aangeroepen. Werken met [Front Client ondersteuningsteam](mailto:support@frontapp.com) toevoegen van de gebruikers in het Front-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen tooFront toegang verleent.
+In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang aan de voorzijde.
 
-![Hallo-gebruikersrollen toewijzen][200] 
+![Toewijzen van de gebruikersrol][200] 
 
-**tooassign Britta Simon tooFront, Voer Hallo stappen te volgen:**
+**Als u wilt toewijzen Britta Simon naar voorgrond, moet u de volgende stappen uitvoeren:**
 
-1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met de toepassingen van Hallo **Front**.
+2. Selecteer in de lijst met toepassingen **Front**.
 
-    ![Hallo Front-koppeling in de lijst met Hallo-toepassingen](./media/active-directory-saas-front-tutorial/tutorial_front_app.png)  
+    ![De Front-koppeling in de lijst met toepassingen](./media/active-directory-saas-front-tutorial/tutorial_front_app.png)  
 
-3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
-    ![de koppeling 'Gebruikers en groepen' Hallo][202]
+    ![De koppeling 'Gebruikers en groepen'][202]
 
 4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
-    ![Hallo toevoegen toewijzing deelvenster][203]
+    ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -237,13 +237,13 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
     
 ### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
-Hallo-doel van deze sectie is tootest uw Azure AD SSOconfiguration met Toegangspaneel Hallo.
+Het doel van deze sectie is het testen van uw Azure AD-SSOconfiguration met behulp van het toegangsvenster.
 
-Als u op Hallo Front-tegel in Hallo Toegangsvenster, krijgt u automatisch aangemelde tooyour Front-toepassing. 
+Als u op de Front-tegel in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw Front-toepassing. 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

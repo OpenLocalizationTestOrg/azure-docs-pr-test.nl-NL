@@ -1,6 +1,6 @@
 ---
-title: aaaEmbedding MPEG-DASH adaptieve Streaming Video in een toepassing HTML5 met DASH.js | Microsoft Docs
-description: Dit onderwerp wordt beschreven hoe een MPEG-DASH adaptieve Streaming Video in een toepassing HTML5 met DASH.js tooembed.
+title: Een MPEG-DASH adaptieve Streaming Video insluiten in een toepassing HTML5 met DASH.js | Microsoft Docs
+description: Dit onderwerp wordt beschreven hoe u een MPEG-DASH adaptieve Streaming Video in een toepassing HTML5 met DASH.js insluiten.
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: a73713d20f95262654532b94576ae9669d829354
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 27ce6325773ba1f9fd9cd9ab9e07ea9f5e2488ac
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Een MPEG-DASH adaptieve Streaming Video insluiten in een toepassing HTML5 met DASH.js
 ## <a name="overview"></a>Overzicht
-MPEG-DASH is een ISO-norm voor adaptief streamen van video-inhoud, die biedt aanzienlijke voordelen voor gebruikers die toodeliver hoogwaardige, adaptief videostreaming uitvoer wilt Hallo. Met MPEG-DASH wordt Hallo videostream automatisch tooa lagere definitie verwijderen als Hallo netwerk wordt overbelast. Dit vermindert de kans op Hallo van Hallo viewer 'onderbroken' video bekijken terwijl Hallo player gedownload Hallo naast enkele seconden tooplay (aka buffer). Zoals opstoppingen in het netwerk wordt beperkt, wordt Hallo-speler op zijn beurt tooa hogere quality-stroom geretourneerd. Deze mogelijkheid tooadapt Hallo bandbreedte vereist resulteert ook in een snellere begintijd voor video. Betekent dat de eerste paar seconden Hallo kunnen worden afgespeeld in een lagere quality-segment van fast te downloaden en doeltreffendere tooa hogere kwaliteit zodra voldoende inhoud zijn gebufferd.
+MPEG-DASH is een ISO-norm voor adaptief streamen van video-inhoud, die biedt aanzienlijke voordelen voor gebruikers die u wilt leveren van hoge kwaliteit, adaptief videostreaming-uitvoer. Met MPEG-DASH wordt de video-stream automatisch verwijderen voor de definitie van een lagere wanneer het netwerk overbelast raakt. Dit vermindert de kans van de viewer 'onderbroken' video zien terwijl de speler wordt gedownload de volgende enkele seconden om af te spelen (aka buffer). Zoals opstoppingen in het netwerk wordt beperkt, wordt op zijn beurt de video speler naar een hogere quality-stroom geretourneerd. Deze mogelijkheid aan te passen aan de vereiste bandbreedte resulteert ook in een snellere begintijd voor video. Dat betekent dat de eerste paar seconden kunnen worden afgespeeld in een lagere quality-segment van fast te downloaden en vervolgens de buffer van stap tot een hogere eenmaal voldoende kwaliteit-inhoud is opgeslagen.
 
-Dash.js is een open-source MPEG-DASH-speler geschreven in JavaScript. Het doel is tooprovide een robuuste, platformoverschrijdende-speler vrijelijk in toepassingen waarvoor afspelen van video's kan worden gebruikt. Het biedt MPEG-DASH afspelen in browsers die ondersteuning biedt voor Hallo W3C Media bron extensies (muis) vandaag zijn Chrome, Microsoft Edge en IE11 (andere browsers hebt aangegeven dat hun opzet toosupport muis). Js Zie voor meer informatie over DASH.js hello GitHub dash.js-opslagplaats.
+Dash.js is een open-source MPEG-DASH-speler geschreven in JavaScript. Het doel is te bieden een robuuste, platformoverschrijdende-speler vrijelijk in toepassingen waarvoor afspelen van video's kan worden gebruikt. Het biedt MPEG-DASH afspelen in browsers die ondersteuning biedt voor W3C Media bron extensies (muis) vandaag Chrome, Microsoft Edge en IE11 (andere browsers hebt aangegeven dat hun bedoeld ter ondersteuning van de muis). Js Zie voor meer informatie over DASH.js de GitHub-opslagplaats dash.js.
 
 ## <a name="creating-a-browser-based-streaming-video-player"></a>Maken van een browser gebaseerde streaming video-speler
-een eenvoudige pagina die wordt weergegeven een video-speler met Hallo verwacht toocreate besturingselementen dergelijke een play, onderbreken, terugspoelen enz., moet u:
+Besturingselementen voor het maken van een eenvoudige pagina die wordt weergegeven een video-speler met de verwachte dergelijke een play, onderbreken, terugspoelen enz., moet u:
 
 1. Maken van een HTML-pagina
-2. Hallo video-tag toevoegen
-3. Hallo dash.js player toevoegen
-4. Hallo player initialiseren
+2. De video-tag toevoegen
+3. Windows media player dash.js toevoegen
+4. Windows media player initialiseren
 5. Sommige CSS-stijl toevoegen
-6. Hallo-resultaten weergeven in een browser die u, muis implementeert
+6. Bekijk de resultaten in een browser die u, muis implementeert
 
-Bij het initialiseren Hallo player kan worden voltooid in slechts een handvol regels van JavaScript-code. Met dash.js echt is het dat eenvoudige tooembed MPEG-DASH-video in uw browser gebaseerde toepassingen.
+Tijdens de initialisatie van de speler kan worden voltooid in slechts een handvol regels van JavaScript-code. Met dash.js echt is het eenvoudig voor het insluiten van video MPEG-DASH in uw browser gebaseerde toepassingen.
 
-## <a name="creating-hello-html-page"></a>Hallo HTML-pagina maken
-de eerste stap Hallo is toocreate een standaard-HTML-pagina met Hallo **video** element Sla dit bestand als basicPlayer.html als Hallo volgende voorbeeld laat zien:
+## <a name="creating-the-html-page"></a>Maken van de HTML-pagina
+De eerste stap is het maken van een standaard HTML-pagina met de **video** element Sla dit bestand als basicPlayer.html, zoals het volgende voorbeeld laat zien:
 
     <!DOCTYPE html>
     <html>
@@ -50,19 +50,19 @@ de eerste stap Hallo is toocreate een standaard-HTML-pagina met Hallo **video** 
       </body>
     </html>
 
-## <a name="adding-hello-dashjs-player"></a>Toe te voegen Hallo DASH.js Player
-tooadd hello dash.js verwijzing implementatie toohello toepassing, moet u toograb hello dash.all.js bestand van Hallo 1.0 release van dash.js project. Dit moet worden opgeslagen in Hallo JavaScript-map van uw toepassing. Dit bestand is een gemak-bestand dat alle Hallo nodig dash.js code tot één bestand verzamelt. Hebt u een kijkje rond Hallo dash.js opslagplaats, wordt u Hallo afzonderlijke bestanden zoeken, testen van code en nog veel meer, maar als alle toodo gewenste is gebruik dash.js en Hallo dash.all.js bestand is wat u nodig hebt.
+## <a name="adding-the-dashjs-player"></a>Windows Media Player DASH.js toevoegen
+Voor de implementatie van dash.js verwijzing toevoegen aan de toepassing, moet u het bestand dash.all.js van versie 1.0 van dash.js project halen. Dit moet worden opgeslagen in de JavaScript-map van uw toepassing. Dit bestand is een gemak-bestand dat alle benodigde dash.js code tot één bestand verzamelt. Als u een kijkje rond de opslagplaats dash.js hebt, u de afzonderlijke bestanden niet vinden, testen code en nog veel meer, maar als u wilt doen gebruik dash.js, wordt het bestand dash.all.js is wat u nodig hebt.
 
-tooadd hello dash.js player tooyour toepassingen, toevoegen een script toohello head tagsectie van basicPlayer.html:
+Toevoegen als u wilt de speler dash.js toevoegen aan uw toepassingen, scriptcode naar de sectie head van basicPlayer.html:
 
     <!-- DASH-AVC/265 reference implementation -->
     < script src="js/dash.all.js"></script>
 
 
-Maak vervolgens een functie tooinitialize Hallo speler wanneer Hallo pagina wordt geladen. Hallo script volgen na Hallo regel waarin u dash.all.js laden toevoegen:
+Maak vervolgens een functie voor het initialiseren van de speler als de pagina wordt geladen. Het volgende script toevoegen na de regel waar u dash.all.js laden:
 
     <script>
-    // setup hello video element and attach it toohello Dash player
+    // setup the video element and attach it to the Dash player
     function setupVideo() {
       var url = "http://wams.edgesuite.net/media/MPTExpressionData02/BigBuckBunny_1080p24_IYUV_2ch.ism/manifest(format=mpd-time-csf)";
       var context = new Dash.di.DashContext();
@@ -73,17 +73,17 @@ Maak vervolgens een functie tooinitialize Hallo speler wanneer Hallo pagina word
     }
     </script>
 
-Deze functie maakt eerst een DashContext. Dit is de gebruikte tooconfigure Hallo-toepassing voor een specifieke runtime-omgeving. Vanuit technisch oogpunt definieert het Hallo-klassen die Hallo afhankelijkheid injectie framework gebruiken moeten tijdens het construeren van de toepassing hello. In de meeste gevallen gebruikt u Dash.di.DashContext.
+Deze functie maakt eerst een DashContext. Dit wordt gebruikt voor het configureren van de toepassing voor een specifieke runtime-omgeving. Vanuit technisch oogpunt Hiermee definieert u de klassen die voor de afhankelijkheid injectie framework wordt gebruikt bij het maken van de toepassing. In de meeste gevallen gebruikt u Dash.di.DashContext.
 
-Vervolgens exemplaar te maken van de primaire klasse Hallo van Hallo dash.js framework, Media Player. Deze klasse bevat Hallo core methoden die nodig zijn, zoals afspelen en onderbreken, beheert Hallo relatie met video Hallo-element en ook beheert Hallo interpretatie van Hallo Media presentatie beschrijving (MPD)-bestand waarin wordt beschreven Hallo video toobe afgespeeld.
+Vervolgens exemplaar maken van de primaire klasse van het framework dash.js, Media Player. Deze klasse bevat de belangrijkste methoden die nodig zijn, zoals afspelen en onderbreken, beheert de relatie met de video-element en beheert ook de interpretatie van het bestand Media presentatie beschrijving (MPD) waarin de video wordt afgespeeld.
 
-Hallo startup() functie Hallo Media Player-klasse wordt aangeroepen tooensure die player Hallo is gereed tooplay video. Onder andere deze functie zorgt ervoor dat alle benodigde Hallo-klassen (zoals gedefinieerd door de Hallo context) zijn geladen. Zodra Hallo player gereed is, kunt u Hallo video element tooit met Hallo attachView() functie koppelen. Dit kunt Hallo Media Player tooinject Hallo videostream in Hallo-element en ook het afspelen indien nodig.
+De functie startup() van de Media Player-klasse wordt aangeroepen om ervoor te zorgen dat Windows media player gereed is voor het afspelen van video. Onder andere deze functie zorgt ervoor dat alle benodigde klassen (zoals gedefinieerd door de context) zijn geladen. Zodra de speler gereed is, kunt u de video element aan met behulp van de functie attachView() koppelen. Hierdoor kunnen de Media Player naar de videostream invoeren in het element en ook het afspelen indien nodig.
 
-Hallo-URL van Hallo MPD bestand toohello Media Player doorgeven zodat deze op de hoogte van Hallo video wordt verwacht tooplay.hello setupVideo() functie gemaakte moet toobe uitgevoerd nadat Hallo pagina volledig is geladen. Dit doen met behulp van de gebeurtenisonLoad Hallo van Hallo body-element. Wijzig uw <body> element op:
+De URL van het bestand MPD doorgeven aan de Media Player, zodat deze op de hoogte van de video dat naar verwachting af te spelen. De zojuist gemaakte setupVideo()-functie moet worden uitgevoerd nadat de pagina volledig is geladen. Dit doen met behulp van de gebeurtenis onload van het body-element. Wijzig uw <body> element op:
 
     <body onload="setupVideo()">
 
-Tot slot stelt Hallo-grootte van video Hallo-element met CSS. In een omgeving met adaptieve streaming is dit vooral belangrijk omdat Hallo grootte van de video wordt afgespeeld Hallo veranderen kan als afspelen toochanging netwerkomstandigheden aanpast. In deze eenvoudige demo gewoon afdwingen Hallo video element toobe 80% van de beschikbare browservenster Hallo door toe te voegen Hallo CSS toohello head-sectie van de pagina hello te volgen:
+Tot slot stelt u de grootte van de video-element met CSS. In een omgeving met adaptieve streaming is dit vooral belangrijk omdat de grootte van de video wordt afgespeeld veranderen kan als afspelen aanpast aan veranderende netwerkomstandigheden. In deze eenvoudige demo gewoon de video-element moet 80% van de beschikbare browservenster door de volgende CSS toe te voegen aan de head-sectie van de pagina afdwingen:
 
     <style>
     video {
@@ -93,7 +93,7 @@ Tot slot stelt Hallo-grootte van video Hallo-element met CSS. In een omgeving me
     </style>
 
 ## <a name="playing-a-video"></a>Het afspelen van Video
-tooplay video in uw browser naar Hallo basicPlayback.html bestand en klik op afspelen op Hallo-speler weergegeven.
+Als u wilt afspelen van video, wijst u in uw browser naar het bestand basicPlayback.html en op afspelen op de video player weergegeven.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

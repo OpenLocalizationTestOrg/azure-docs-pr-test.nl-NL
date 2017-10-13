@@ -1,6 +1,6 @@
 ---
-title: installatie van Azure Backup-Server v2 aaaSilent | Microsoft Docs
-description: Gebruik een PowerShell-script toosilently v2 voor Azure Backup-Server installeren. Dit soort installatie is een afkorting van een installatie zonder toezicht.
+title: Installatie op de achtergrond van Azure Backup-Server v2 | Microsoft Docs
+description: Gebruik een PowerShell-script op de achtergrond installeert v2 voor Azure Backup-Server. Dit soort installatie is een afkorting van een installatie zonder toezicht.
 services: backup
 documentationcenter: " "
 author: markgalioto
@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/30/2017
 ms.author: markgal;masaran
-ms.openlocfilehash: 6b94b4a278bfcd5f8c5c363cb811bd8eec984243
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 91778a67f9ef523aa87b7918197e0d0ded0f5702
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Voer een installatie zonder toezicht van Azure Backup-Server v2
 
-Meer informatie over hoe toorun een installatie zonder toezicht van v2 voor Azure Backup-Server. 
+Informatie over het uitvoeren van een installatie zonder toezicht van v2 voor Azure Backup-Server. 
 
 Deze stappen zijn niet van toepassing als u v1 Azure Backup-Server installeert.
 
 ## <a name="install-backup-server-v2"></a>Back-upserver v2 installeren
 
-1. Maak een tekstbestand op Hallo-server die als host fungeert voor v2 voor Azure Backup-Server. (U kunt maken Hallo-bestand in Kladblok of in een andere tekst editor.) Hallo-bestand opslaan als MABSSetup.ini. 
+1. Op de server die als host fungeert voor Azure Backup-Server v2, maak een tekstbestand. (U kunt het bestand maken in Kladblok of in een andere teksteditor.) Sla het bestand als MABSSetup.ini. 
 
-2. Hallo na de code in Hallo MABSSetup.ini bestand plakken. Vervang de tekst hello binnen Hallo vierkante haken (\< \>) met waarden uit uw omgeving. na de tekst Hello volgt een voorbeeld:
+2. Plak de volgende code in het bestand MABSSetup.ini. Vervang de tekst tussen de vierkante haken (\< \>) met waarden uit uw omgeving. De volgende tekst is een voorbeeld:
 
   ```
   [OPTIONS]
@@ -51,22 +51,22 @@ Deze stappen zijn niet van toepassing als u v1 Azure Backup-Server installeert.
   UseExistingSQL=<1/0 use or do not use existing SQL>
   ```
 
-3. Hallo-bestand opslaan. Bij een opdrachtprompt met verhoogde bevoegdheid op de server voor installatie op Hallo Voer deze opdracht:
+3. Sla het bestand op. Voer vervolgens bij een opdrachtprompt met verhoogde bevoegdheid op de server voor installatie met deze opdracht:
 
   ```
   start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
   ```
 
-U kunt deze vlaggen gebruiken voor de installatie van Hallo:</br>
+U kunt deze vlaggen gebruiken voor de installatie:</br>
 **/f**: pad naar INI-bestand</br>
 **/ l**: logboekpad</br>
 **/i**: installatiepad</br>
 **/x**: pad verwijderen</br>
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u de back-up-Server hebt geïnstalleerd, informatie over hoe tooprepare uw server, of met het beveiligen van een werkbelasting beginnen.
+Nadat u de back-up-Server hebt geïnstalleerd, informatie over het voorbereiden van uw server of met het beveiligen van een werkbelasting beginnen.
 
 - [Back-upserver van werkbelastingen voorbereiden](backup-azure-microsoft-azure-backup.md)
-- [Back-upserver tooback van een VMware-server gebruiken](backup-azure-backup-server-vmware.md)
-- [Back-upserver tooback van SQL Server gebruiken](backup-azure-sql-mabs.md)
-- [Moderne Backup Storage tooBackup Server toevoegen](backup-mabs-add-storage.md)
+- [Back-up-Server gebruiken om back-up van een VMware-server](backup-azure-backup-server-vmware.md)
+- [Back-up-Server gebruiken om back-up van SQL Server](backup-azure-sql-mabs.md)
+- [Moderne back-up naar back-upserver toevoegen](backup-mabs-add-storage.md)

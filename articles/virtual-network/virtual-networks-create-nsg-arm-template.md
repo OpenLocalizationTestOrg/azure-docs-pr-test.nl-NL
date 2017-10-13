@@ -1,6 +1,6 @@
 ---
-title: aaaCreate netwerkbeveiligingsgroepen - Azure Resource Manager-sjabloon | Microsoft Docs
-description: Meer informatie over hoe toocreate en netwerkbeveiligingsgroepen met een Azure Resource Manager-sjabloon implementeren.
+title: Maken van netwerkbeveiligingsgroepen - Azure Resource Manager-sjabloon | Microsoft Docs
+description: Informatie over het maken en implementeren van netwerkbeveiligingsgroepen met een Azure Resource Manager-sjabloon.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3750168284fea7b41c8c0f908b0d31a9da5e38ce
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 88f7e5b2144daee7bf1c8e7312ba98e6fa967899
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Netwerk beveiligingsgroepen met een Azure Resource Manager-sjabloon maken
 
@@ -30,14 +30,14 @@ ms.lasthandoff: 10/06/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-In dit artikel bevat informatie over Hallo Resource Manager-implementatiemodel. U kunt ook [nsg's maken in het klassieke implementatiemodel Hallo](virtual-networks-create-nsg-classic-ps.md).
+Dit artikel is van toepassing op het Resource Manager-implementatiemodel. U kunt ook [nsg's maken in het klassieke implementatiemodel](virtual-networks-create-nsg-classic-ps.md).
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
 ## <a name="nsg-resources-in-a-template-file"></a>NSG-resources in een sjabloonbestand
-U kunt weergeven en downloaden Hallo [voorbeeldsjabloon](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/NSGs.json).
+U kunt bekijken en download de [voorbeeldsjabloon](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/NSGs.json).
 
-Hallo volgende sectie wordt uitgelegd Hallo definitie van Hallo front-NSG, op basis van Hallo scenario.
+De volgende sectie bevat de definitie van de front-NSG, op basis van het scenario.
 
 ```json
 "apiVersion": "2015-06-15",
@@ -80,7 +80,7 @@ Hallo volgende sectie wordt uitgelegd Hallo definitie van Hallo front-NSG, op ba
   ]
 }
 ```
-tooassociate hello NSG toohello front-end-subnet, hebt u toochange Hallo subnetdefinitie in Hallo sjabloon en gebruik Hallo Verwijzings-id voor Hallo NSG.
+Als u wilt het NSG aan de front-end-subnet koppelt, die u moet de subnetdefinitie in de sjabloon wijzigen en de Verwijzings-id gebruiken voor het NSG.
 
 ```json
 "subnets": [
@@ -95,16 +95,16 @@ tooassociate hello NSG toohello front-end-subnet, hebt u toochange Hallo subnetd
   }, 
 ```
 
-U ziet Hallo dezelfde voor Hallo back-end NSG- en Hallo back-end in de sjabloon Hallo werd uitgevoerd.
+U ziet dezelfde wordt uitgevoerd als de back-end-NSG en het subnet van de back-end in de sjabloon.
 
-## <a name="deploy-hello-arm-template-by-using-click-toodeploy"></a>Hallo ARM-sjabloon implementeren met behulp van toodeploy klikt u op
-Hallo voorbeeldsjabloon beschikbaar in de openbare opslagplaats Hallo maakt gebruik van een parameterbestand met Hallo standaard waarden gebruikt toogenerate Hallo scenario die hierboven worden beschreven. toodeploy toodeploy, het gebruik van deze sjabloon Klik Volg [deze koppeling](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), klikt u op **tooAzure implementeren**, vervang Hallo standaardparameterwaarden indien nodig en volg de instructies Hallo in Hallo-portal.
+## <a name="deploy-the-arm-template-by-using-click-to-deploy"></a>De ARM-sjabloon implementeren met klik om te implementeren
+De voorbeeldsjabloon in de openbare opslagplaats maakt gebruik van een parameterbestand dat de standaardwaarden bevat voor het genereren van het hierboven beschreven scenario. Als u deze sjabloon wilt implementeren met behulp van Klik om te implementeren, volgt u [deze koppeling](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG). Klik op **Distribueren naar Azure**, vervang indien nodig de standaardparameterwaarden en volg de instructies in de portal.
 
-## <a name="deploy-hello-arm-template-by-using-powershell"></a>Hallo ARM-sjabloon implementeren met behulp van PowerShell
-toodeploy hello ARM-sjabloon die u hebt gedownload met behulp van PowerShell, Hallo volgende stappen.
+## <a name="deploy-the-arm-template-by-using-powershell"></a>De ARM-sjabloon implementeren met PowerShell
+Volg de onderstaande stappen voor het implementeren van de ARM-sjabloon die u hebt gedownload met PowerShell.
 
-1. Als u Azure PowerShell nog nooit hebt gebruikt, volgt u de instructies Hallo in Hallo [hoe tooInstall en configureer Azure PowerShell](/powershell/azure/overview) tooinstall en configureer deze.
-2. Voer Hallo  **`New-AzureRmResourceGroup`**  cmdlet toocreate een resource-groep met Hallo sjabloon.
+1. Als u Azure PowerShell nog nooit hebt gebruikt, volg de instructies in de [hoe voor het installeren en configureren van Azure PowerShell](/powershell/azure/overview) te installeren en configureren.
+2. Voer de  **`New-AzureRmResourceGroup`**  cmdlet om een resourcegroep met de sjabloon te maken.
 
     ```powershell
     New-AzureRmResourceGroup -Name TestRG -Location uswest `
@@ -148,21 +148,21 @@ toodeploy hello ARM-sjabloon die u hebt gedownload met behulp van PowerShell, Ha
    
         ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG
 
-## <a name="deploy-hello-arm-template-by-using-hello-azure-cli"></a>Hallo ARM-sjabloon implementeren met behulp van hello Azure CLI
-toodeploy hello ARM-sjabloon met behulp van Azure CLI Hallo Hallo volgende stappen.
+## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>De ARM-sjabloon implementeren met Azure CLI
+Als u wilt de ARM-sjabloon implementeren met behulp van de Azure CLI, de volgende stappen uit te voeren.
 
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [installeren en configureren van Azure CLI Hallo](../cli-install-nodejs.md) en volg de instructies Hallo toohello punt waar u uw Azure-account en abonnement selecteren.
-2. Voer Hallo  **`azure config mode`**  opdracht tooswitch tooResource modus Manager, zoals hieronder wordt weergegeven.
+1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
+2. Voer de opdracht **`azure config mode`** uit om over te schakelen naar de modus Resource Manager, zoals hieronder weergegeven.
 
     ```azurecli
     azure config mode arm
     ```
 
-    Hallo volgt Hallo verwachte uitvoer voor Hallo-opdracht:
+    Hier volgt de verwachte uitvoer voor de opdracht:
 
         info:    New mode is arm
 
-3. Voer Hallo  **`azure group deployment create`**  cmdlet toodeploy Hallo nieuwe VNet met behulp van Hallo sjabloon en de parameterbestanden die u hebt gedownload en hierboven zijn gewijzigd. Hallo-lijst die wordt weergegeven na Hallo uitvoer wordt uitgelegd Hallo parameters die worden gebruikt.
+3. Voer de **`azure group deployment create`** cmdlet uit om de nieuwe VNet te implementeren met behulp van de sjabloon en de parameterbestanden die u hebt gedownload en hierboven zijn gewijzigd. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
 
     ```azurecli
     azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
@@ -185,8 +185,8 @@ toodeploy hello ARM-sjabloon met behulp van Azure CLI Hallo Hallo volgende stapp
         data:    
         info:    group create command OK
    
-   * **-n (of --naam)**. Naam van Hallo resource groep toobe gemaakt.
-   * **-l (of --locatie)**. Azure-regio waar Hallo resourcegroep wordt gemaakt.
-   * **-f (of--sjabloonbestand)**. Pad tooyour ARM-sjabloonbestand.
-   * **-e (of--parametersbestand)**. Pad tooyour parametersbestand.
+   * **-n (of --naam)**. Naam van de resourcegroep worden gemaakt.
+   * **-l (of --locatie)**. Azure-regio waar de resourcegroep wordt gemaakt.
+   * **-f (of--sjabloonbestand)**. Pad naar het sjabloonbestand ARM.
+   * **-e (of--parametersbestand)**. Pad naar uw parametersbestand ARM.
 

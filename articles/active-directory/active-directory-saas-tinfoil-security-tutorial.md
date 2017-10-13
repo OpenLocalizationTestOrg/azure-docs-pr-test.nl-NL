@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met TINFOIL SECURITY | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en TINFOIL SECURITY.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en TINFOIL SECURITY.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,105 +14,105 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 1a3fa9880d9e026c2d6d6548188df2269ff69139
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 614e4de3335574f4b56c7d641af4fcfafdb17d12
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Zelfstudie: Azure Active Directory-integratie met TINFOIL SECURITY
 
-In deze zelfstudie leert u hoe toointegrate TINFOIL SECURITY met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe TINFOIL SECURITY integreren met Azure Active Directory (Azure AD).
 
-TINFOIL SECURITY integreren met Azure AD biedt Hallo volgende voordelen:
+TINFOIL SECURITY integreren met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD wie toegang tot tooTINFOIL beveiliging heeft
-- U kunt uw gebruikers tooautomatically get aangemelde tooTINFOIL beveiliging (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren
+- U kunt beheren in Azure AD die toegang tot TINFOIL SECURITY heeft
+- U kunt uw gebruikers automatisch ophalen aangemeld bij TINFOIL SECURITY (Single Sign-On) inschakelen met hun Azure AD-accounts
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure AD-integratie met TINFOIL SECURITY tooconfigure, moet u Hallo volgende items:
+Voor het configureren van Azure AD-integratie met TINFOIL SECURITY, moet u de volgende items:
 
 - Een Azure AD-abonnement
 - Een TINFOIL SECURITY eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. TINFOIL SECURITY van Hallo galerie toevoegen
+1. TINFOIL SECURITY uit de galerie toevoegen
 2. Configureren en testen eenmalige aanmelding Azure AD
 
-## <a name="add-tinfoil-security-from-hello-gallery"></a>TINFOIL SECURITY van Hallo galerie toevoegen
-tooconfigure hello integratie van TINFOIL SECURITY in Azure AD, moet u tooadd TINFOIL SECURITY uit Hallo galerie tooyour lijst met beheerde SaaS-apps.
+## <a name="add-tinfoil-security-from-the-gallery"></a>TINFOIL SECURITY uit de galerie toevoegen
+Voor het configureren van de integratie van TINFOIL SECURITY in Azure AD, moet u TINFOIL SECURITY uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-**TINFOIL SECURITY via Hallo gallery tooadd uitvoeren Hallo stappen te volgen:**
+**Als u wilt toevoegen TINFOIL SECURITY uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak Hallo **TINFOIL SECURITY**, selecteer **TINFOIL SECURITY** van resultaat deelvenster klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
+4. Typ in het zoekvak **TINFOIL SECURITY**, selecteer **TINFOIL SECURITY** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![TINFOIL SECURITY vanuit galerie](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 In deze sectie configureert en test eenmalige aanmelding Azure AD met TINFOIL SECURITY op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in TINFOIL SECURITY is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker Hallo in TINFOIL SECURITY toobe tot stand gebracht.
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in TINFOIL SECURITY is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de verwante TINFOIL SECURITY-gebruiker worden gemaakt.
 
-Wijs in TINFOIL SECURITY Hallo-waarde van Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** tooestablish Hallo koppeling relatie.
+Wijs in TINFOIL SECURITY de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-tooconfigure en test eenmalige aanmelding Azure AD met behulp van TINFOIL SECURITY, moet u toocomplete Hallo bouwstenen te volgen:
+Om te configureren en testen van Azure AD eenmalige aanmelding met TINFOIL SECURITY, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker TINFOIL SECURITY](#create-a-tinfoil-security-test-user)**  -toohave een equivalent van Britta Simon in TINFOIL SECURITY die gekoppelde toohello Azure AD-weergave van de gebruiker.
-4. **[Toewijzen van de testgebruiker hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  -tooverify Hallo of configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker TINFOIL SECURITY](#create-a-tinfoil-security-test-user)**  - TINFOIL SECURITY die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding in uw toepassing TINFOIL SECURITY configureren.
+In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing TINFOIL SECURITY.
 
-**Voer tooconfigure Azure AD eenmalige aanmelding met TINFOIL SECURITY Hallo stappen te volgen:**
+**Voor het configureren van Azure AD eenmalige aanmelding met TINFOIL SECURITY, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op Hallo Hallo **TINFOIL SECURITY** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **TINFOIL SECURITY** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
     ![SAML op basis van eenmalige aanmelding](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_samlbase.png)
 
-3. Op Hallo **TINFOIL SECURITY domein en de URL's** sectie, hello gebruiker beschikt niet over tooperform eventuele stappen zoals Hallo app al vooraf is geïntegreerd met Azure.
+3. Op de **TINFOIL SECURITY domein en de URL's** sectie, de gebruiker heeft geen alle stappen uitvoeren als de app al vooraf is geïntegreerd met Azure.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_url.png)
 
 
-4. Op Hallo **SAML-certificaat voor ondertekening van** sectie, kopie Hallo **VINGERAFDRUK** waarde.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, Kopieer de **VINGERAFDRUK** waarde.
 
     ![Certificaat voor ondertekening van SAML-sectie](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_certificate.png) 
 
-5. Kenmerktoewijzingen tooadd Hallo vereist, voert u Hallo stappen te volgen:
+5. Als u wilt de vereiste kenmerktoewijzingen toevoegen, moet u de volgende stappen uitvoeren:
     
     ![Kenmerken](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_attribute1.png "kenmerken")
     
@@ -126,9 +126,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
     
     ![Kenmerk toevoegen](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_addatt.png "kenmerken")
     
-    b. In Hallo **kenmerknaam** textbox type **accountid**.
+    b. In de **kenmerknaam** textbox type **accountid**.
     
-    c. In Hallo **kenmerkwaarde** textbox plakken Hallo account id-waarde die u later op Hallo zelfstudie krijgt.
+    c. In de **kenmerkwaarde** textbox, plak de account-ID-waarde die u later in de zelfstudie krijgt.
     
     d. Klik op **OK**.    
 
@@ -136,13 +136,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
 
     ![knop Opslaan](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_400.png)
 
-7. Op Hallo **TINFOIL SECURITY Configuration** sectie, klikt u op **TINFOIL SECURITY configureren** tooopen **eenmalige aanmelding configureren** venster. Kopiëren Hallo **SAML Single Sign-On Service-URL** van Hallo **Naslaggids punt.**
+7. Op de **TINFOIL SECURITY Configuration** sectie, klikt u op **TINFOIL SECURITY configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
     ![TINFOIL SECURITY Configuration](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_configure.png) 
 
 8. In een ander browservenster, meld u bij uw bedrijf TINFOIL SECURITY site als beheerder.
 
-9. Klik in de werkbalk bovenaan Hallo Hallo op **Mijn Account**.
+9. Klik in de werkbalk bovenaan op **Mijn Account**.
    
     ![Dashboard](./media/active-directory-saas-tinfoil-security-tutorial/ic798971.png "Dashboard")
 
@@ -150,7 +150,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
    
     ![Beveiliging](./media/active-directory-saas-tinfoil-security-tutorial/ic798972.png "beveiliging")
 
-11. Op Hallo **Single Sign-On** configuratie pagina, voert u Hallo stappen te volgen:
+11. Op de **Single Sign-On** configuratie pagina, voert u de volgende stappen uit:
    
     ![Eenmalige aanmelding](./media/active-directory-saas-tinfoil-security-tutorial/ic798973.png "eenmalige aanmelding")
    
@@ -158,81 +158,81 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
    
     b. Klik op **handmatige configuratie**.
    
-    c. In **SAML Post URL** textbox plakken Hallo-waarde van **SAML Single Sign-On Service-URL** die u hebt gekopieerd vanuit Azure-portal
+    c. In **SAML Post URL** textbox, plak de waarde van **SAML Single Sign-On Service-URL** die u hebt gekopieerd vanuit Azure-portal
    
-    d. In **SAML certificaat vingerafdruk** textbox plakken Hallo-waarde van **vingerafdruk** die u hebt gekopieerd uit **certificaat voor ondertekening van SAML** sectie.
+    d. In **SAML certificaat vingerafdruk** textbox, plak de waarde van **vingerafdruk** die u hebt gekopieerd uit **certificaat voor ondertekening van SAML** sectie.
   
-    e. Kopiëren **uw Account-ID** waarde en plak Hallo-waarde in **kenmerkwaarde** textbox onder **kenmerk toevoegen** sectie in Azure-portal.
+    e. Kopiëren **uw Account-ID** waarde en plak de waarde in **kenmerkwaarde** textbox onder **kenmerk toevoegen** sectie in Azure-portal.
    
     f. Klik op **Opslaan**.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
 ![Azure AD-gebruiker maken][100]
 
-**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
+**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo **Azure-portal**, op Hallo navigatiedeelvenster links, klikt u op **Azure Active Directory** pictogram.
+1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-tinfoil-security-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen** en klik op **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
     
     ![Gebruikers en groepen -> alle gebruikers ](./media/active-directory-saas-tinfoil-security-tutorial/create_aaduser_02.png) 
 
-3. Hallo tooopen **gebruiker** dialoogvenster, klikt u op **toevoegen** op Hallo Hallo dialoogvenster bovenaan.
+3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Gebruiker](./media/active-directory-saas-tinfoil-security-tutorial/create_aaduser_03.png) 
 
-4. Op Hallo **gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:
+4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-tinfoil-security-tutorial/create_aaduser_04.png) 
 
-    a. In Hallo **naam** textbox type **BrittaSimon**.
+    a. In de **naam** textbox type **BrittaSimon**.
 
-    b. In Hallo **gebruikersnaam** textbox type Hallo **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
 
-    c. Selecteer **wachtwoord weergeven** en schrijf Hallo-waarde van Hallo **wachtwoord**.
+    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
  
 ### <a name="create-a-tinfoil-security-test-user"></a>Een testgebruiker TINFOIL SECURITY maken
 
-In volgorde tooenable Azure AD gebruikers toolog in TINFOIL SECURITY, moeten ze worden ingericht in TINFOIL SECURITY. In geval van TINFOIL SECURITY Hallo is inrichting een handmatige taak.
+Om in te schakelen gebruikers van Azure AD aan te melden bij TINFOIL SECURITY, moeten ze worden ingericht in TINFOIL SECURITY. In het geval van TINFOIL SECURITY is inrichting een handmatige taak.
 
-**een gebruiker die zijn ingericht, tooget uitvoeren Hallo stappen te volgen:**
+**Als u een gebruiker die zijn ingericht, kunt u de volgende stappen uitvoeren:**
 
-1. Als het Hallo-gebruiker deel uitmaakt van een Enterprise-account, moet u deze te[Neem contact op met het ondersteuningsteam van Hallo TINFOIL SECURITY](https://www.tinfoilsecurity.com/contact) tooget Hallo-gebruikersaccount is gemaakt.
+1. Als de gebruiker deel van een Enterprise-account uitmaakt, moet u [Neem contact op met het ondersteuningsteam TINFOIL SECURITY](https://www.tinfoilsecurity.com/contact) ophalen van het gebruikersaccount dat is gemaakt.
 
-2. Als Hallo gebruiker een gewone TINFOIL SECURITY SaaS-gebruiker, kan Hallo gebruiker een tooany medewerker van de gebruiker van het Hallo-sites toevoegen. Deze triggers een proces toosend een uitnodiging toohello opgegeven e-toocreate een nieuw TINFOIL SECURITY-gebruikersaccount.
+2. Als de gebruiker een gewone TINFOIL SECURITY SaaS-gebruiker is, kunnen de gebruiker kan een samenwerker toevoegen aan een van de sites van de gebruiker. Dit activeert een proces voor het verzenden van een uitnodiging voor het opgegeven e-mailbericht voor het maken van een nieuw TINFOIL SECURITY-gebruikersaccount.
 
 > [!NOTE]
-> U kunt andere TINFOIL SECURITY gebruiker account hulpmiddelen voor het maken of API's die worden geleverd door TINFOIL SECURITY tooprovision Azure AD-gebruikersaccounts.
+> U kunt geen andere hulpprogramma's van TINFOIL SECURITY gebruiker-account maken of API's die worden geleverd door TINFOIL SECURITY voor het inrichten van Azure AD-gebruikersaccounts gebruiken.
 > 
 > 
 
-### <a name="assign-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen door het verlenen van toegang tooTINFOIL beveiliging.
+In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan TINFOIL SECURITY.
 
 ![Gebruiker toewijzen][200] 
 
-**tooassign Britta Simon tooTINFOIL beveiliging, Voer Hallo stappen te volgen:**
+**Britta Simon om aan te wijzen TINFOIL SECURITY, moet u de volgende stappen uitvoeren:**
 
-1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met de toepassingen van Hallo **TINFOIL SECURITY**.
+2. Selecteer in de lijst met toepassingen **TINFOIL SECURITY**.
 
     ![TINFOIL SECURITY selecteren](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_app.png) 
 
-3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
@@ -240,7 +240,7 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -248,13 +248,13 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
     
 ### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van Hallo Toegangsvenster testen.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Als u op Hallo TINFOIL SECURITY-tegel in Hallo Toegangsvenster, krijgt u automatisch aangemelde tooyour TINFOIL SECURITY-toepassing. Zie voor meer informatie over Hallo Toegangspaneel [inleiding toohello Toegangspaneel](active-directory-saas-access-panel-introduction.md).
+Als u op de tegel TINFOIL SECURITY in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing TINFOIL SECURITY. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

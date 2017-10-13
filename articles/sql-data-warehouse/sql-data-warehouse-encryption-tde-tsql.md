@@ -1,5 +1,5 @@
 ---
-title: aaaTransparent gegevensversleuteling in SQL Data Warehouse (T-SQL) | Microsoft Docs
+title: Transparante gegevensversleuteling in SQL datawarehouse (T-SQL) | Microsoft Docs
 description: Transparante gegevensversleuteling (TDE) in SQL datawarehouse (T-SQL)
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 3894431c76f14b217f3a6b9a42dbf2f4d216bad6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 74c9032aababdce91ed617cd7a4c628915b42504
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Aan de slag met Transparent Data Encryption (TDE)
 > [!div class="op_single_selector"]
@@ -31,38 +31,38 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="required-permssions"></a>Vereiste bevoegdheden
-tooenable Transparent Data Encryption (TDE), moet u een beheerder of lid zijn van Hallo dbmanager rol.
+U moet een beheerder of als lid van de rol dbmanager zijn zodat Transparent Data Encryption (TDE).
 
 ## <a name="enabling-encryption"></a>Codering inschakelen
-Volg deze stappen tooenable TDE voor een SQL Data Warehouse:
+Volg deze stappen voor het inschakelen van TDE voor een SQL Data Warehouse:
 
-1. Verbinding maken met toohello *master* database op Hallo-server die als host fungeert voor Hallo-database met behulp van een aanmelding die een beheerder of als lid van Hallo **dbmanager** rol in de hoofddatabase Hallo
-2. Hallo volgende instructie tooencrypt Hallo database uitvoeren.
+1. Verbinding maken met de *master* database op de server die als host fungeert voor de database met een aanmelding die een beheerder of als lid van de **dbmanager** rol in de database master
+2. Voer de volgende instructie voor het versleutelen van de database.
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
 ## <a name="disabling-encryption"></a>Codering uitschakelen
-Volg deze stappen toodisable TDE voor een SQL Data Warehouse:
+Volg deze stappen voor het uitschakelen van TDE voor een SQL Data Warehouse:
 
-1. Verbinding maken met toohello *master* database met een aanmelding die een beheerder of als lid van Hallo **dbmanager** rol in de hoofddatabase Hallo
-2. Hallo volgende instructie tooencrypt Hallo database uitvoeren.
+1. Verbinding maken met de *master* database met een aanmelding die een beheerder of als lid van de **dbmanager** rol in de database master
+2. Voer de volgende instructie voor het versleutelen van de database.
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> Een onderbroken SQL Data Warehouse moet voordat u wijzigingen aanbrengt toohello TDE instellingen worden hervat.
+> Een onderbroken SQL Data Warehouse moet voordat u wijzigingen aanbrengt in de instellingen van TDE worden hervat.
 > 
 > 
 
 ## <a name="verifying-encryption"></a>Versleuteling controleren
-de coderingsstatus tooverify voor een SQL Data Warehouse Hallo volgende stappen:
+Om te controleren coderingsstatus voor een SQL Data Warehouse, de volgende stappen uit te voeren:
 
-1. Verbinding maken met toohello *master* of exemplaar in de database met behulp van een aanmelding die een beheerder of als lid van Hallo **dbmanager** rol in de hoofddatabase Hallo
-2. Hallo volgende instructie tooencrypt Hallo database uitvoeren.
+1. Verbinding maken met de *master* of exemplaar in de database met behulp van een aanmelding die een beheerder of als lid van de **dbmanager** rol in de database master
+2. Voer de volgende instructie voor het versleutelen van de database.
 
 ```sql
 SELECT

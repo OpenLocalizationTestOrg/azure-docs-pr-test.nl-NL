@@ -1,5 +1,5 @@
 ---
-title: aaaLoad saldo containers in Azure DC/OS-cluster | Microsoft Docs
+title: Laden van saldo containers in Azure DC/OS-cluster | Microsoft Docs
 description: Verdelen over meerdere containers in een Azure Container Service DC/OS-cluster.
 services: container-service
 documentationcenter: 
@@ -16,23 +16,23 @@ ms.workload: na
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 2249cb06880cdb7e9a3aa94c0750c6a27316d349
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 78725c9d23e13d307821a188028ef573d1def038
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Load balance containers in een Azure Container Service DC/OS-cluster
-In dit artikel wordt besproken hoe toocreate een interne load balancer in een DC/OS beheerd Azure Container Service met behulp van Marathon-Taakverdeling. Deze configuratie kunt u tooscale uw toepassingen horizontaal. U kunt er ook tootake profiteren van Hallo openbare en persoonlijke agent clusters door het plaatsen van uw netwerktaakverdelers op Hallo openbare als uw toepassingscontainers op Hallo persoonlijke cluster. In deze zelfstudie hebt u:
+In dit artikel wordt besproken voor het maken van een interne load balancer in een DC/OS beheerd-Azure Containerservice met behulp van Marathon-Taakverdeling. Deze configuratie kunt u uw toepassingen horizontaal schalen. Ook kunt u profiteren van de openbare en persoonlijke agent clusters door het plaatsen van uw netwerktaakverdelers op het openbare als uw toepassingscontainers op het persoonlijke cluster. In deze zelfstudie hebt u:
 
 > [!div class="checklist"]
 > * Een Load Balancer van Marathon configureren
-> * Implementeer een toepassing met Hallo load balancer
+> * Implementeer een toepassing met behulp van de load balancer
 > * Configureren en de Azure load balancer
 
-U moet een ACS DC/OS cluster toocomplete Hallo in deze zelfstudie stappen. Indien nodig, [dit voorbeeldscript](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) kunt maken voor u.
+U moet een ACS-DC/OS-cluster de stappen in deze zelfstudie. Indien nodig, [dit voorbeeldscript](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) kunt maken voor u.
 
-Deze zelfstudie vereist hello Azure CLI versie 2.0.4 of hoger. Voer `az --version` toofind Hallo versie. Als u tooupgrade moet, Zie [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
+Voor deze zelfstudie is versie 2.0.4 of hoger van de Azure CLI vereist. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -40,15 +40,15 @@ Deze zelfstudie vereist hello Azure CLI versie 2.0.4 of hoger. Voer `az --versio
 
 Er zijn twee lagen voor taakverdeling in een Azure Container Service DC/OS-cluster: 
 
-**Azure Load Balancer** biedt openbare invoerpunten (hello toepassingsgroepen dat eindgebruikers toegang). Een Azure LB automatisch wordt geleverd met Azure Container Service en is standaard geconfigureerd tooexpose poort 80 en 443 van 8080.
+**Azure Load Balancer** biedt openbare invoerpunten (de waarden die eindgebruikers toegang). Een Azure LB automatisch wordt geleverd met Azure Container Service en is standaard geconfigureerd om poort 80 en 443 van 8080 weer te geven.
 
-**Hallo Marathon-taakverdeling (marathon-taakverdeling)** routes inkomende aanvragen toocontainer instanties die deze aanvragen. Hallo marathon-taakverdeling wordt dynamisch aangepast geschaald Hallo containers bieden onze webservice. Deze load balancer is niet opgegeven in uw Containerservice standaard, maar het is gemakkelijk tooinstall.
+**De Marathon-taakverdeling (marathon-taakverdeling)** routes binnenkomende aanvragen naar containerexemplaren die aanvragen voor deze service. De marathon-taakverdeling wordt dynamisch aangepast geschaald de containers bieden onze webservice. Deze load balancer is niet opgegeven in uw Containerservice standaard, maar het is eenvoudig te installeren.
 
 ## <a name="configure-marathon-load-balancer"></a>Marathon-taakverdeling configureren
 
-Marathon-taakverdeling opnieuw dynamisch geconfigureerd op basis van de Hallo-containers die u hebt geïmplementeerd. Het is ook robuuste toohello verlies van een container of agent - als dit het geval is, Apache Mesos elders Hallo container opnieuw is opgestart en marathon-taakverdeling past zich.
+Marathon Load Balancer herconfigureert zichzelf dynamisch op basis van de containers die u hebt geïmplementeerd. Het is ook aan het verlies van een container of agent - als dit het geval is, Apache Mesos elders in de container opnieuw is opgestart en marathon-taakverdeling past zich.
 
-Hallo opdracht tooinstall Hallo marathon-taakverdeling te volgen op Hallo openbare agent cluster worden uitgevoerd.
+Voer de volgende opdracht voor het installeren van de marathon-taakverdeling op de openbare agent-cluster.
 
 ```azurecli-interactive
 dcos package install marathon-lb
@@ -56,15 +56,15 @@ dcos package install marathon-lb
 
 ## <a name="deploy-load-balanced-application"></a>Taakverdeling toepassing implementeren
 
-Nu dat we Hallo marathon-taakverdeling pakket hebben, kunnen we een toepassingscontainer dat we tooload saldo wilt implementeren. 
+Nu we het Marathon-LB-pakket hebben, kunnen we een toepassingscontainer implementeren waarvan we de taken willen verdelen. 
 
-Eerst ophalen Hallo FQDN-naam van de agents Hallo openbaar beschikbaar gesteld.
+De FQDN-naam van de agents die openbaar blootgestelde eerst worden opgehaald.
 
 ```azurecli-interactive
 az acs list --resource-group myResourceGroup --query "[0].agentPoolProfiles[0].fqdn" --output tsv
 ```
 
-Maak vervolgens een bestand met de naam *hello web.json* en de kopie in Hallo de volgende inhoud. Hallo `HAPROXY_0_VHOST` label moet toobe bijgewerkt met de FQDN-naam van de DC/OS-agents Hallo Hallo. 
+Maak vervolgens een bestand met de naam *hello web.json* en kopieer de volgende inhoud. De `HAPROXY_0_VHOST` label moet worden bijgewerkt met de FQDN van de DC/OS-agents. 
 
 ```json
 {
@@ -100,32 +100,32 @@ Maak vervolgens een bestand met de naam *hello web.json* en de kopie in Hallo de
 }
 ```
 
-Hallo DC/OS CLI toorun Hallo toepassing gebruiken. Standaard implementeert Marathon Hallo Hallo toepassing toohello persoonlijke cluster. Dit betekent dat Hallo hierboven implementatie is alleen toegankelijk via de load balancer, meestal Hallo gewenst gedrag.
+Gebruik de DC/OS CLI de toepassing uit te voeren. Standaard Marathon implementeert het de toepassing naar de persoonlijke cluster. Dit betekent dat de bovenstaande implementatie alleen toegankelijk via de load balancer is, dit is meestal het gewenste gedrag.
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json
 ```
 
-Zodra het Hallo-toepassing is geïmplementeerd, blader toohello FQDN-naam van Hallo agent cluster tooview taakverdeling toepassing.
+Zodra de toepassing is geïmplementeerd, blader naar de FQDN-naam van het cluster agent taakverdeling toepassing weergeven.
 
 ![Afbeelding van taakverdeling toepassing](./media/container-service-load-balancing/lb-app.png)
 
 ## <a name="configure-azure-load-balancer"></a>Azure Load Balancer configureren
 
-Standaard stelt de Azure Load Balancer poorten 80, 8080 en 443 open. Als u een van deze drie poorten (zoals in Hallo bovenstaande voorbeeld) en er is niets moet u toodo op. U kunt toohit moet de agent load balancer FQDN en telkens wanneer u vernieuwt u een van de drie webservers op een wijze round robin hebt bereikt. 
+Standaard stelt de Azure Load Balancer poorten 80, 8080 en 443 open. Als u een van deze drie poorten gebruikt (zoals we dit in het bovenstaande voorbeeld doen), dan hoeft u niets te doen. U moet kunnen om de load balancer-uw agent FQDN en telkens wanneer die u vernieuwt u een van de drie webservers op een wijze round robin hebt bereikt. 
 
-Als u een andere poort gebruikt, moet u een round-robin tooadd regel en een test op Hallo load balancer voor Hallo-poort die u gebruikt. U kunt dit doen vanuit Hallo [Azure CLI](../../azure-resource-manager/xplat-cli-azure-resource-manager.md), met Hallo opdrachten `azure network lb rule create` en `azure network lb probe create`.
+Als u een andere poort gebruikt, moet u een round-robinregel en een test toevoegen op de load balancer voor de poort die u gebruikt. Dit kan vanuit de [Azure CLI](../../azure-resource-manager/xplat-cli-azure-resource-manager.md), met de opdrachten `azure network lb rule create` en `azure network lb probe create`.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd over taakverdeling in ACS met zowel Hallo Marathon en Azure load balancers met inbegrip van Hallo van de volgende activiteiten:
+In deze zelfstudie hebt u geleerd over taakverdeling in ACS aan het Marathon- en Azure load balancers met inbegrip van de volgende acties:
 
 > [!div class="checklist"]
 > * Een Load Balancer van Marathon configureren
-> * Implementeer een toepassing met Hallo load balancer
+> * Implementeer een toepassing met behulp van de load balancer
 > * Configureren en de Azure load balancer
 
-Ga toohello volgende zelfstudie toolearn over de integratie van Azure-opslag met DC/OS in Azure.
+Ga naar de volgende zelfstudie voor meer informatie over de integratie van Azure-opslag met DC/OS in Azure.
 
 > [!div class="nextstepaction"]
 > [De bestandsshare koppelen Azure in DC/OS-cluster](container-service-dcos-fileshare.md)

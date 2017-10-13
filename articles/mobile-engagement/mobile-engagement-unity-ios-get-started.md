@@ -1,6 +1,6 @@
 ---
-title: aaaGet gestart met Azure Mobile Engagement voor Unity iOS-implementatie
-description: Meer informatie over hoe toouse Azure Mobile Engagement met analyses en Pushmeldingen voor Unity-apps tooiOS apparaten implementeren.
+title: Aan de slag met Azure Mobile Engagement voor Unity iOS-implementatie
+description: Informatie over het gebruik van Azure Mobile Engagement met analyses en pushmeldingen voor implementaties van Unity-apps op iOS-apparaten.
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
@@ -14,63 +14,63 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: f4247b0a9240cbe2bf1a6618388919d3554c07fb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: c8f50404771965ec636065346ac04e059d264c3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-unity-ios-deployment"></a>Aan de slag met Azure Mobile Engagement voor Unity iOS-implementatie
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Dit onderwerp leest u hoe toouse Azure Mobile Engagement toounderstand gebruik van uw Apps en hoe toosend push-meldingen toosegmented gebruikers van een Unity-toepassing bij het implementeren van tooan iOS-apparaat.
-Deze zelfstudie maakt gebruik van Hallo klassieke Unity draaien een zelfstudie bDe volledige als Hallo beginpunt. U moet Hallo stappen in deze [zelfstudie](mobile-engagement-unity-roll-a-ball.md) voordat u doorgaat met de Hallo Mobile Engagement-integratie die we in Hallo onderstaande zelfstudie presenteren. 
+In dit onderwerp leest u hoe u Azure Mobile Engagement gebruikt om inzicht te krijgen in het gebruik van uw apps, en om pushmeldingen te verzenden aan gesegmenteerde gebruikers van een Unity-toepassing bij implementatie op een iOS-apparaat.
+Deze zelfstudie maakt gebruik van de bekende Unity-zelfstudie ‘Roll a Ball’ als uitgangspunt. Volg de stappen in deze [zelfstudie](mobile-engagement-unity-roll-a-ball.md) voordat u doorgaat met de Mobile Engagement-integratie die we in de onderstaande zelfstudie presenteren. 
 
-Deze zelfstudie vereist de volgende Hallo:
+Voor deze zelfstudie hebt u het volgende nodig:
 
 * [Unity Editor](http://unity3d.com/get-unity)
 * [Mobile Engagement Unity SDK](https://aka.ms/azmeunitysdk)
 * XCode Editor
 
 > [!NOTE]
-> toocomplete deze zelfstudie maakt u een actief Azure-account moet hebben. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-ios-get-started) voor meer informatie.
+> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-ios-get-started) voor meer informatie.
 > 
 > 
 
 ## <a id="setup-azme"></a>Mobile Engagement instellen voor uw iOS-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Verbinding maken met uw app toohello Mobile Engagement-back-end
-### <a name="import-hello-unity-package"></a>Hallo Unity-pakket importeren
-1. Hallo downloaden [Mobile Engagement Unity-pakket](https://aka.ms/azmeunitysdk) en sla het tooyour lokale computer. 
-2. Ga te**Assets -> Import Package -> Custom Package** en u hebt gedownload in Hallo hierboven stap Selecteer Hallo-pakket. 
+## <a id="connecting-app"></a>Uw app verbinden met de back-end van Mobile Engagement
+### <a name="import-the-unity-package"></a>Het Unity-pakket importeren
+1. Download het [Mobile Engagement Unity-pakket](https://aka.ms/azmeunitysdk) en sla het op uw lokale computer op. 
+2. Ga naar **Assets -> Import Package -> Custom Package** en selecteer het pakket dat u in de vorige stap hebt gedownload. 
    
     ![][70] 
 3. Zorg dat alle bestanden zijn geselecteerd en klik op de knop **Import**. 
    
     ![][71] 
-4. Nadat het importeren is voltooid, ziet u Hallo geïmporteerd SDK-bestanden in uw project.  
+4. Wanneer het importeren is voltooid, ziet u de geïmporteerde SDK-bestanden in het project.  
    
     ![][72] 
 
-### <a name="update-hello-engagementconfiguration"></a>Hallo EngagementConfiguration bijwerken
-1. Open Hallo **EngagementConfiguration** scriptbestand uit het SDK-map en werk Hallo Hallo **IOS\_verbinding\_tekenreeks** met Hallo-verbindingsreeks die u eerder hebt verkregen. van hello Azure-portal.  
+### <a name="update-the-engagementconfiguration"></a>De EngagementConfiguration bijwerken
+1. Open het scriptbestand **EngagementConfiguration** in de SDK-map en werk **IOS\_CONNECTION\_STRING** bij met de verbindingsreeks die u eerder hebt verkregen van de Azure-portal.  
    
     ![][73]
-2. Hallo-bestand opslaan. 
+2. Sla het bestand op. 
 
-### <a name="configure-hello-app-for-basic-tracking"></a>Hallo-app voor eenvoudig bijhouden configureren
-1. Open Hallo **PlayerController** script gekoppeld toohello Player object bewerken. 
-2. Voeg de volgende Hallo met de instructie:
+### <a name="configure-the-app-for-basic-tracking"></a>De app voor eenvoudig bijhouden configureren
+1. Open het script **PlayerController** dat is  gekoppeld aan het object Player om het te bewerken. 
+2. Voeg het volgende toe met de instructie:
    
         using Microsoft.Azure.Engagement.Unity;
-3. Hallo na toohello toevoegen `Start()` methode
+3. Het volgende toevoegen aan de methode `Start()`
    
         EngagementAgent.Initialize();
         EngagementAgent.StartActivity("Home");
 
-### <a name="deploy-and-run-hello-app"></a>Implementeren en het Hallo-app uitvoeren
-1. Verbinding maken met een iOS-apparaat tooyour machine. 
+### <a name="deploy-and-run-the-app"></a>De app implementeren en uitvoeren
+1. Sluit een iOS-apparaat aan op de computer. 
 2. Open **File -> Build Settings**. 
    
     ![][40]
@@ -85,21 +85,21 @@ Deze zelfstudie vereist de volgende Hallo:
 5. Klik tot slot op **Build And Run**.
    
     ![][54]
-6. Hebt u mogelijk gevraagd tooprovide een map naam toostore Hallo iOS-pakket. 
+6. U wordt mogelijk gevraagd een mapnaam op te geven voor het opslaan van het iOS-pakket. 
    
     ![][43]
-7. Als alles goed gaat, Hallo project gecompileerd en u moet openen in uw XCode-toepassing. 
-8. Zorg ervoor dat Hallo **bundel-id** in Hallo project juist is.  
+7. Als alles goed gaat, wordt het project gecompileerd en moet u het kunnen openen in XCode. 
+8. Zorg ervoor dat de **Bundel-id** juist is in het project.  
    
     ![][75]
-9. Nu Hallo app uitvoeren in XCode, zodat het Hallo-pakket geïmplementeerde tooyour aangesloten apparaat en ziet u de Unity-game op uw telefoon! 
+9. Voer nu de app uit in XCode, zodat het pakket wordt geïmplementeerd op het aangesloten apparaat. Nu moet u de Unity-game zien op uw telefoon. 
 
 ## <a id="monitor"></a>App verbinden met realtime-bewaking
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>Pushmeldingen en in-app-berichten inschakelen
-Mobile Engagement kunt u toointeract met uw gebruikers- en bereiken met pushmeldingen en in-app-berichten in Hallo context van campagnes. Deze module heet REACH in Hallo Mobile Engagement-portal.
-U hoeft toodo extra configuratie in uw app-meldingen tooreceive en is al ingesteld voor het.
+Met Mobile Engagement kunt u communiceren met uw gebruikers en ze bereiken met pushmeldingen en in-app-berichten in de context van campagnes. Deze module heet REACH in de Mobile Engagement-portal.
+U hoeft verder niets te configureren in uw app als deze is al ingesteld voor het ontvangen van meldingen.
 
 [!INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 

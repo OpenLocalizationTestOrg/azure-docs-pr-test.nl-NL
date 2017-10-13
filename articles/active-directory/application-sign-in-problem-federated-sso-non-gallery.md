@@ -1,6 +1,6 @@
 ---
-title: aaaProblems aanmelden tooa niet galerie toepassing is geconfigureerd voor federatieve eenmalige aanmelding | Microsoft Docs
-description: Richtlijnen voor specifieke problemen Hallo u mogelijk mee te maken tijdens het aanmelden tooan toepassing is geconfigureerd voor op basis van SAML federatieve eenmalige aanmelding met Azure AD
+title: Problemen met aanmelden bij een niet-galerie-toepassing is geconfigureerd voor federatieve eenmalige aanmelding | Microsoft Docs
+description: Richtlijnen voor de specifieke problemen die u mee te maken mogelijk tijdens het aanmelden bij een toepassing die is geconfigureerd voor op basis van SAML federatieve eenmalige aanmelding met Azure AD
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,189 +13,189 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 1243456695c097f404a66fc89893efa2afdaaf22
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3afc7bca878caef424d3fa3c64aa17df0fda7de5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="problems-signing-in-tooa-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden tooa niet galerie toepassing is geconfigureerd voor federatieve eenmalige aanmelding
+# <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemen met aanmelden bij een niet-galerie-toepassing die is geconfigureerd voor federatieve eenmalige aanmelding
 
-tootroubleshoot uw probleem, moet u tooverify Hallo Toepassingsconfiguratie in Azure AD als volgt:
+Om het probleem kunt oplossen, moet u controleren of de configuratie van de toepassing in Azure AD als volgt:
 
--   U kunt alle Hallo configuratiestappen voor Azure AD-galerie toepassing hello hebt gevolgd.
+-   U kunt de configuratiestappen voor de toepassing van de galerie van Azure AD hebt gevolgd.
 
--   Hallo-id en de antwoord-URL is geconfigureerd in AAD overeenkomen ze verwachte waarden in de toepassing hello
+-   De id en de antwoord-URL geconfigureerd in AAD overeen ze verwachte waarden in de toepassing
 
--   U hebt toegewezen gebruikers toohello toepassing
+-   U hebt gebruikers toegewezen aan de toepassing
 
 ## <a name="application-not-found-in-directory"></a>Toepassing is niet gevonden in map
 
-*Fout AADSTS70001: Toepassing met id 'https://contoso.com' is niet gevonden in de directory Hallo*.
+*Fout AADSTS70001: Toepassing met id 'https://contoso.com' is niet gevonden in de map*.
 
 **Mogelijke oorzaak**
 
-Hallo verlener kenmerk verzendt van Hallo toepassing tooAzure AD in Hallo SAML-aanvraag komt niet overeen met de id-waarde Hallo geconfigureerd in de toepassing hello Azure AD.
+De verlener kenmerk uit de toepassing naar Azure AD in de SAML-aanvraag verzendt komt niet overeen met de id-waarde die is geconfigureerd in de Azure AD-toepassing.
 
 **Naamomzetting**
 
-Zorg ervoor dat kenmerk Hallo verlener in Hallo SAML-aanvraag dat deze komt overeen met de Hallo id waarde die is geconfigureerd in Azure AD:
+Zorg ervoor dat het kenmerk uitgever in de SAML-aanvraag die deze komt overeen met de id die is geconfigureerd in Azure AD:
 
-1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
+5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-   * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
 
-6.  Selecteer Hallo-toepassing die u wilt dat eenmalige aanmelding tooconfigure.
+6.  Selecteer de toepassing die u wilt configureren eenmalige aanmelding.
 
-7.  Nadat de toepassing hello wordt geladen, klikt u op Hallo **eenmalige aanmelding** uit van de toepassing hello linkerkant navigatiemenu.
+7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** van navigatiemenu links aan de van de toepassing.
 
-8.  <span id="_Hlk477190042" class="anchor"></span>Ga te**domein en de URL's** sectie. Controleer of u die waarde Hallo in Hallo id textbox is die overeenkomt met Hallo-waarde voor Hallo id-waarde weergegeven in het Hallo-fout.
+8.  <span id="_Hlk477190042" class="anchor"></span>Ga naar **domein en de URL's** sectie. Controleer of dat wordt de waarde in het tekstvak voor de id die overeenkomt met de waarde voor de id-waarde in de volgende fout weergegeven.
 
-Nadat u de id-waarde Hallo hebt bijgewerkt in Azure AD en de overeenkomende Hallo waarde door de toepassing hello in Hallo SAML-aanvraag verzendt, moet u kunnen toosign in toohello toepassing.
+Nadat u de id-waarde hebben bijgewerkt in Azure AD en deze met de waarde verzendt door de toepassing in de SAML-aanvraag overeen komt, moet u mogelijk zijn aan te melden bij de toepassing.
 
-## <a name="hello-reply-address-does-not-match-hello-reply-addresses-configured-for-hello-application"></a>Hallo antwoordadres komt niet overeen met de Hallo antwoordadressen is geconfigureerd voor de toepassing hello. 
+## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Het antwoordadres komt niet overeen met de antwoordadressen geconfigureerd voor de toepassing. 
 
-*Fout AADSTS50011: antwoordadres Hallo 'https://contoso.com' komt niet overeen met de Hallo antwoordadressen is geconfigureerd voor de toepassing hello* 
+*Fout AADSTS50011: Het antwoordadres 'https://contoso.com' komt niet overeen met de antwoordadressen geconfigureerd voor de toepassing* 
 
 **Mogelijke oorzaak** 
 
-Hallo AssertionConsumerServiceURL waarde in Hallo SAML-aanvraag komt niet overeen met de Hallo antwoord-URL-waarde of patroon dat is geconfigureerd in Azure AD. Hallo AssertionConsumerServiceURL waarde in Hallo SAML-aanvraag is Hallo-URL die u in Hallo-fout ziet. 
+De waarde AssertionConsumerServiceURL in de SAML-aanvraag komt niet overeen met de antwoord-URL-waarde of patroon dat is geconfigureerd in Azure AD. De waarde AssertionConsumerServiceURL in de SAML-aanvraag is de URL die u in de fout ziet. 
 
 **Naamomzetting** 
 
-Zorg ervoor dat Hallo AssertionConsumerServiceURL de waarde in Hallo SAML-aanvraag de overeenkomende Hallo antwoord-URL-waarde die is geconfigureerd in Azure AD. 
+Zorg ervoor dat de waarde AssertionConsumerServiceURL in de SAML-aanvraag die deze komt overeen met de antwoord-URL die is geconfigureerd in Azure AD. 
  
-1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.** 
+1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.** 
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in. 
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant. 
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item. 
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item. 
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo. 
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie. 
 
-5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen. 
+5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven. 
 
-  * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
   
-6.  Hallo-toepassing die u wilt dat eenmalige aanmelding tooconfigure selecteren
+6.  Selecteer de toepassing die u wilt configureren eenmalige aanmelding
 
-7.  Nadat de toepassing hello wordt geladen, klikt u op Hallo **eenmalige aanmelding** uit van de toepassing hello linkerkant navigatiemenu.
+7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** van navigatiemenu links aan de van de toepassing.
 
-8.  Ga te**domein en de URL's** sectie. Controleren of bijwerken van Hallo-waarde in Hallo antwoord-URL textbox toomatch hello AssertionConsumerServiceURL waarde in Hallo SAML-aanvraag.
+8.  Ga naar **domein en de URL's** sectie. Controleer of de waarde in het tekstvak voor de antwoord-URL overeenkomt met de waarde AssertionConsumerServiceURL in de SAML-aanvraag bijwerken.
 
-  * Als u Hallo antwoord-URL textbox niet ziet, selecteert u Hallo **weergeven geavanceerde instellingen voor URL** selectievakje. 
+  * Als u het tekstvak voor de antwoord-URL niet ziet, selecteert u de **weergeven geavanceerde instellingen voor URL** selectievakje. 
 
-Nadat u Hallo antwoord-URL-waarde hebben bijgewerkt in Azure AD en het Hallo-waarde die overeenkomt met verzendt door toepassing hello in Hallo SAML-aanvraag, moet u kunnen toosign in toohello toepassing.
+Nadat u de antwoord-URL-waarde hebben bijgewerkt in Azure AD en deze met de waarde verzendt door de toepassing in de SAML-aanvraag overeen komt, moet u mogelijk zijn aan te melden bij de toepassing.
 
 ## <a name="user-not-assigned-a-role"></a>Gebruiker met een niet toegewezen
 
-*Fout AADSTS50105: Hallo aangemelde gebruiker 'brian@contoso.com' tooa-rol voor de toepassing hello is niet toegewezen*
+*Fout AADSTS50105: De aangemelde gebruiker 'brian@contoso.com' is niet toegewezen aan een rol voor de toepassing*
 
 **Mogelijke oorzaak**
 
-Hallo-gebruiker is niet verleend access toohello-toepassing in Azure AD.
+De gebruiker heeft geen toegang gekregen tot de toepassing in Azure AD.
 
 **Naamomzetting**
 
-tooassign een of meer gebruikers tooan toepassing rechtstreeks Hallo volgende stappen:
+Als u wilt toewijzen een of meer gebruikers rechtstreeks naar een toepassing, de volgende stappen uit te voeren:
 
-1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
+5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
 
-6.  Hallo-toepassing die u wilt dat een lijst met gebruikers toofrom hello tooassign selecteren.
+6.  Selecteer de toepassing die u wilt toewijzen van een gebruiker in de lijst.
 
-7.  Nadat de toepassing hello wordt geladen, klikt u op **gebruikers en groepen** uit van de toepassing hello linkerkant navigatiemenu.
+7.  Nadat de toepassing wordt geladen, klikt u op **gebruikers en groepen** van navigatiemenu links aan de van de toepassing.
 
-8.  Klik op Hallo **toevoegen** knop boven op Hallo **gebruikers en groepen** lijst tooopen hello **toevoegen toewijzing** blade.
+8.  Klik op de **toevoegen** knop boven de **gebruikers en groepen** lijst openen de **toevoegen toewijzing** blade.
 
-9.  Klik op Hallo **gebruikers en groepen** selector van Hallo **toevoegen toewijzing** blade.
+9.  Klik op de **gebruikers en groepen** selector van de **toevoegen toewijzing** blade.
 
-10. Type in Hallo **volledige naam** of **e-mailadres** van Hallo gebruiker u geïnteresseerd bent in het toewijzen van Hallo **zoeken op naam of e-mailadres** zoekvak.
+10. Typ in het **volledige naam** of **e-mailadres** van de gebruiker die u geïnteresseerd bent in toewijzen in de **zoeken op naam of e-mailadres** zoekvak.
 
-11. Beweeg de muisaanwijzer over Hallo **gebruiker** in Hallo lijst tooreveal een **selectievakje**. Klik op het profiel foto of een logo tooadd Hallo selectievakje volgende toohello van gebruiker uw gebruiker toohello **geselecteerde** lijst.
+11. Beweeg de muisaanwijzer over de **gebruiker** in de lijst om weer te geven een **selectievakje**. Klik op het selectievakje naast de profielfoto van de gebruiker of het logo voor uw gebruiker toevoegen aan de **geselecteerde** lijst.
 
-12. **Optioneel:** indien te gewenst**toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in Hallo **zoeken op naam of e-mailadres** zoekvak en klikt u op Hallo selectievakje tooadd voor deze gebruiker toohello **geselecteerde** lijst.
+12. **Optioneel:** als u wilt **toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in de **zoeken op naam of e-mailadres** zoekvak en klik op het selectievakje voor deze gebruiker toevoegen aan de **geselecteerde** lijst.
 
-13. Wanneer u klaar bent met het selecteren van gebruikers, klikt u op Hallo **Selecteer** knop tooadd ze toohello lijst met gebruikers en groepen toobe toegewezen toohello toepassing.
+13. Wanneer u klaar bent met het selecteren van gebruikers, klikt u op de **Selecteer** om toe te voegen aan de lijst met gebruikers en groepen kunnen worden toegewezen aan de toepassing.
 
-14. **Optioneel:** klikt u op Hallo **rol selecteren** selector in Hallo **toevoegen toewijzing** blade tooselect een rol tooassign toohello gebruikers die u hebt geselecteerd.
+14. **Optioneel:** klikt u op de **rol selecteren** selector in de **toevoegen toewijzing** blade te selecteren van een rol toewijzen aan de gebruikers die u hebt geselecteerd.
 
-15. Klik op Hallo **toewijzen** knop tooassign Hallo toepassing toohello gebruikers geselecteerd.
+15. Klik op de **toewijzen** knop de toepassing toewijzen aan de geselecteerde gebruikers.
 
-Hallo-gebruikers die u hebt geselecteerd worden na een korte periode, kunnen toolaunch deze toepassingen met behulp van methoden die worden beschreven in Hallo oplossing beschrijving sectie Hallo.
+Na een korte periode, de gebruikers die u hebt geselecteerd mogelijk om deze toepassingen met behulp van de methoden die worden beschreven in de sectie oplossing beschrijving te starten.
 
 ## <a name="not-a-valid-saml-request"></a>Geen een geldige SAML aanvragen
 
-*Fout AADSTS75005: Hallo-aanvraag is niet een geldig Saml2-protocolbericht.*
+*Fout AADSTS75005: De aanvraag is niet een geldig Saml2-protocolbericht.*
 
 **Mogelijke oorzaak**
 
-Hallo SAML-aanvraag verzonden door de toepassing hello voor eenmalige aanmelding biedt geen ondersteuning voor Azure AD. Enkele veelvoorkomende problemen zijn:
+Azure AD biedt geen ondersteuning voor SAML Request verzonden door de toepassing voor eenmalige aanmelding. Enkele veelvoorkomende problemen zijn:
 
--   Ontbrekende vereiste velden in Hallo SAML-aanvraag
+-   Ontbrekende vereiste velden in de SAML-aanvraag
 
 -   SAML gecodeerd aanvraagmethode
 
 **Naamomzetting**
 
-1.  Vastleggen van SAML-aanvraag. Volg Hallo-zelfstudie op [hoe toodebug op basis van SAML eenmalige aanmelding tooapplications in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging) toolearn hoe toocapture Hallo SAML aanvragen.
+1.  Vastleggen van SAML-aanvraag. Volg de zelfstudie op [fouten opsporen in op basis van SAML eenmalige aanmelding tot toepassingen in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging) voor informatie over het vastleggen van de SAML-aanvraag.
 
-2.  Neem contact op met de leverancier van de toepassing hello en -share:
+2.  Neem contact op met de leverancier van toepassing en -share:
 
     -   SAML-aanvraag
 
     -   [Vereisten voor Azure AD Single Sign-on SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
 
-Ze moeten valideren hello Azure AD SAML-implementatie voor eenmalige aanmelding ondersteund.
+Ze moeten valideren deze ondersteuning bieden voor de implementatie van de Azure AD SAML voor eenmalige aanmelding.
 
 ## <a name="no-resource-in-requiredresourceaccess-list"></a>Er is geen resource in de lijst requiredResourceAccess
 
-*Fout AADSTS65005: Hallo clienttoepassing heeft aangevraagd toegang tooresource ' 00000002-0000-0000-c000-000000000000'. Deze aanvraag is mislukt omdat het Hallo-client is niet opgegeven voor deze bron in de lijst met requiredResourceAccess*.
+*Fout AADSTS65005: De clienttoepassing heeft aangevraagd toegang tot de resource ' 00000002-0000-0000-c000-000000000000'. Deze aanvraag is mislukt omdat de client niet voor deze bron in de lijst met requiredResourceAccess opgegeven is*.
 
 **Mogelijke oorzaak**
 
-Hallo application-object is beschadigd.
+Het toepassingsobject is beschadigd.
 
 **Naamomzetting**
 
-toosolve hello probleem verwijderen Hallo toepassing hello directory. Vervolgens toevoegen en configureren van de toepassing hello, volg onderstaande stappen voor Hallo:
+Verwijder de toepassing van de map om het probleem kunt oplossen. Vervolgens toevoegen en configureren van de toepassing, volgt u de volgende stappen uit:
 
-1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
+5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
 
-6.  Selecteer Hallo-toepassing die u wilt dat eenmalige aanmelding tooconfigure.
+6.  Selecteer de toepassing die u wilt configureren eenmalige aanmelding.
 
-7.  Klik op **verwijderen** op Hallo linksboven van de toepassing hello **overzicht** blade.
+7.  Klik op **verwijderen** op de linkerbovenhoek van de toepassing **overzicht** blade.
 
-8.  Vernieuwen van Azure AD en voegt u de toepassing hello van Hallo-galerie van Azure AD. Configureer vervolgens Hallo toepassing opnieuw.
+8.  Vernieuwen van Azure AD en voegt u de toepassing van de galerie van Azure AD. Configureer vervolgens de toepassing opnieuw.
 
-Na het opnieuw configureren van de toepassing hello, moet u kunnen toosign in toohello toepassing.
+Na het opnieuw configureren van de toepassing, moet u het volgende kunnen aanmelden bij de toepassing.
 
 ## <a name="certificate-or-key-not-configured"></a>Certificaat of de sleutel niet geconfigureerd
 
@@ -203,39 +203,39 @@ Fout AADSTS50003: Er is geen ondertekeningssleutel geconfigureerd.
 
 **Mogelijke oorzaak**
 
-Hallo application-object is beschadigd en Azure AD geconfigureerd voor de toepassing hello Hallo-certificaat niet wordt herkend.
+Het toepassingsobject is beschadigd en Azure AD niet wordt herkend door het certificaat dat is geconfigureerd voor de toepassing.
 
 **Naamomzetting**
 
-toodelete en maak een nieuw certificaat, volgt u onderstaande Hallo stappen:
+Als u wilt verwijderen en maak een nieuw certificaat, de volgende stappen uit te voeren:
 
-1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
+5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
 
-6.  Selecteer Hallo-toepassing die u wilt dat eenmalige aanmelding tooconfigure.
+6.  Selecteer de toepassing die u wilt configureren eenmalige aanmelding.
 
-7.  Nadat de toepassing hello wordt geladen, klikt u op Hallo **eenmalige aanmelding** uit van de toepassing hello linkerkant navigatiemenu.
+7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** van navigatiemenu links aan de van de toepassing.
 
-8.  Klik op **nieuw certificaat maken** onder Hallo **SAML handtekeningcertificaat** sectie.
+8.  Klik op **nieuw certificaat maken** onder de **SAML handtekeningcertificaat** sectie.
 
 9.  Selecteer de vervaldatum. Klik vervolgens op **opslaan.**
 
-10. Controleer **nieuwe certificaat activeren** toooverride Hallo actieve certificaat. Klik vervolgens op **opslaan** Hallo boven aan het Hallo-blade tooactivate Hallo rollovercertificaat en accepteren.
+10. Controleer **nieuwe certificaat activeren** voor het onderdrukken van het actieve certificaat. Klik vervolgens op **opslaan** boven aan de blade en voor het activeren van de rollovercertificaat accepteren.
 
-11. Onder Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **verwijderen** tooremove hello **ongebruikt** certificaat.
+11. Onder de **SAML-certificaat voor ondertekening van** sectie, klikt u op **verwijderen** verwijderen van de **ongebruikt** certificaat.
 
-## <a name="problem-when-customizing-hello-saml-claims-sent-tooan-application"></a>Probleem bij het aanpassen van Hallo SAML claims verzonden tooan toepassing
+## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Probleem bij het aanpassen van de SAML-claims verzonden naar een toepassing
 
-toolearn hoe toocustomize Hallo SAML kenmerk claims verzonden tooyour toepassing, Zie [toewijzen in Azure Active Directory-Claims](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) voor meer informatie.
+Zie voor meer informatie over het aanpassen van de SAML-kenmerk claims verzonden naar uw toepassing, [toewijzen in Azure Active Directory-Claims](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Vereisten voor Azure AD Single Sign-on SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)

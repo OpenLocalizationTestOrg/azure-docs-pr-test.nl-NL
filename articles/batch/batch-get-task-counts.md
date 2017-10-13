@@ -1,6 +1,6 @@
 ---
-title: de voortgang van een taak door te tellen taken instellen door status - Azure Batch aaaMonitor | Microsoft Docs
-description: Hallo voortgang van een taak controleren door het aanroepen van Hallo ophalen taak telt bewerking toocount taken voor een taak. U krijgt een telling van actieve, uitgevoerd en voltooide taken en door de taken die u hebt is geslaagd of mislukt.
+title: Voortgang van een taak door de taken op status - Azure Batch worden geteld | Microsoft Docs
+description: De voortgang van een taak door het aanroepen van de bewerking taak telt ophalen om te tellen van taken voor een job. U krijgt een telling van actieve, uitgevoerd en voltooide taken en door de taken die u hebt is geslaagd of mislukt.
 services: batch
 author: tamram
 manager: timlt
@@ -8,37 +8,37 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: tamram
-ms.openlocfilehash: 03957d8a3d678bf44587f3bc7f988a76885c2af0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ceff59d7063b60a1344a47489d3d73e0e8ee07df
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="count-tasks-by-state-toomonitor-a-jobs-progress-preview"></a>Aantal taken instellen door status toomonitor de voortgang van een taak (Preview)
+# <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>Aantal taken per status voor het bewaken van de voortgang van een taak (Preview)
 
-Azure Batch biedt een efficiënte manier toomonitor Hallo voortgang van een taak als het bijbehorende taken wordt uitgevoerd. U kunt aanroepen Hallo [ophalen taak telt] [ rest_get_task_counts] bewerking toofind hoeveel taken in een status actief, actief of voltooid zijn en hoeveel hebt is geslaagd of mislukt. Door te tellen Hallo aantal taken in elke staat, kunt u gemakkelijker Hallo-taak uitgevoerd tooa gebruiker weergeven of onverwachte vertragingen of fouten die mogelijk gevolgen hebben voor de Hallo detecteren.
+Azure Batch biedt een efficiënte manier om de voortgang van een taak als het bijbehorende taken wordt uitgevoerd. U kunt aanroepen de [ophalen taak telt] [ rest_get_task_counts] bewerking om erachter te komen hoeveel taken in een status actief, actief of voltooid zijn en hoeveel hebt is geslaagd of mislukt. Door telt het aantal taken in elke staat, kunt u gemakkelijker voortgang van de taak weergeven voor een gebruiker of onverwachte vertragingen of fouten die mogelijk van invloed zijn op de taak niet detecteren.
 
 > [!IMPORTANT]
-> Hallo ophalen taak telt bewerking is momenteel in preview en is nog niet beschikbaar in Azure Government, Azure China en Duitse Azure. 
+> De taak telt ophalen-bewerking is momenteel in preview en is nog niet beschikbaar in Azure Government, Azure China en Duitse Azure. 
 >
 >
 
 ## <a name="how-tasks-are-counted"></a>Hoe taken worden geteld
 
-Hallo bewerking ophalen taak telt telt taken op status, als volgt:
+De bewerking ophalen taak telt telt taken op status, als volgt:
 
-- Een taak wordt beschouwd als **active** wanneer het in de wachtrij en kunnen toorun is, maar het rekenknooppunt tooa momenteel niet is toegewezen. Een taak ook wordt beschouwd als **active** als dit is afhankelijk van een bovenliggende taak die nog niet is voltooid. Zie voor meer informatie over taakafhankelijkheden [taakafhankelijkheden toorun taken maken die afhankelijk van andere taken zijn](batch-task-dependencies.md). 
-- Een taak wordt beschouwd als **met** wanneer het rekenknooppunt tooa is toegewezen, maar is nog niet voltooid. Een taak wordt beschouwd als **met** wanneer de status is `preparing` of `running`, zoals aangegeven door Hallo [informatie ophalen over een taak] [ rest_get_task] bewerking.
-- Een taak wordt beschouwd als **voltooid** wanneer het is niet meer in aanmerking komende toorun. Een taak geteld als **voltooid** heeft meestal is voltooid, of succes is voltooid en heeft de limiet voor opnieuw proberen ook uitgeput. 
+- Een taak wordt beschouwd als **active** wanneer deze is in de wachtrij en kunnen uitvoeren, maar momenteel niet aan een rekenknooppunt is toegewezen. Een taak ook wordt beschouwd als **active** als dit is afhankelijk van een bovenliggende taak die nog niet is voltooid. Zie voor meer informatie over taakafhankelijkheden [Maak taakafhankelijkheden taken die afhankelijk van andere taken zijn uitvoeren](batch-task-dependencies.md). 
+- Een taak wordt beschouwd als **met** wanneer deze is toegewezen aan een rekenknooppunt, maar is nog niet voltooid. Een taak wordt beschouwd als **met** wanneer de status is `preparing` of `running`, zoals aangegeven door de [informatie ophalen over een taak] [ rest_get_task] bewerking.
+- Een taak wordt beschouwd als **voltooid** wanneer het is niet meer kunnen worden uitgevoerd. Een taak geteld als **voltooid** heeft meestal is voltooid, of succes is voltooid en heeft de limiet voor opnieuw proberen ook uitgeput. 
 
-Hallo bewerking ophalen taak telt rapporten ook hoeveel taken hebt voltooid of mislukt. Batch bepaalt of een taak is geslaagd of mislukt door te controleren Hallo **resultaat** eigenschap Hallo [executionInfo] [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] eigenschap:
+De bewerking ophalen taak telt rapporten ook hoeveel taken hebt voltooid of mislukt. Batch bepaalt of een taak is geslaagd of door het controleren van mislukt de **resultaat** eigenschap van de eigenschap [executionInfo] [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo]:
 
-    - Een taak wordt beschouwd als **geslaagd** als resultaat van uitvoering van de taak Hallo `success`.
-    - Een taak wordt beschouwd als **mislukt** als resultaat van uitvoering van de taak Hallo `failure`.
+    - Een taak wordt beschouwd als **geslaagd** als het resultaat van uitvoering van de taak is `success`.
+    - Een taak wordt beschouwd als **mislukt** als het resultaat van uitvoering van de taak is `failure`.
 
 Zie voor meer informatie over taakstatuswaarden [informatie ophalen over een taak][rest_get_task].
 
-Hallo ziet .NET codevoorbeeld u hoe tooretrieve taak geteld met status: 
+Het volgende .NET-codevoorbeeld ziet u hoe taak aantallen per status ophalen: 
 
 ```csharp
 var taskCounts = await batchClient.JobOperations.GetTaskCountsAsync("job-1");
@@ -52,28 +52,28 @@ Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 ```
 
 > [!NOTE]
-> U kunt een vergelijkbaar patroon voor REST en andere ondersteunde talen tooget taak voor een taak telt. 
+> U kunt een vergelijkbaar patroon voor REST en andere ondersteunde talen taak tellingen voor een taak ophalen. 
 > 
 > 
 
 ## <a name="consistency-checking-for-task-counts"></a>Consistentiecontroles op taak aantallen
 
-Hallo Batch-service aggregeert taak aantallen door het verzamelen van gegevens uit meerdere delen van een asynchrone gedistribueerde systeem. tooensure die taak aantallen correct zijn, Batch biedt een aanvullende verificatie voor status telt door het uitvoeren van consistentiecontroles uit op basis van meerdere onderdelen van Hallo-systeem. Batch voert deze consistentiecontroles, zolang er minder dan 200.000 taken in Hallo-taak zijn. In Hallo onwaarschijnlijke geval dat de consistentiecontrole Hallo fouten vindt, corrigeert Batch Hallo resultaat van Hallo taken telt ophalen bewerking is gebaseerd op Hallo resultaten van Hallo consistentiecontrole uit. Hallo is consistentiecontrole een extra beveiligingsmaatregel tooensure die klanten die afhankelijk van Hallo bewerking ophalen taak telt zijn Hallo juiste informatie die ze nodig hebben om hun oplossing ophalen.
+De Batch-service aggregeert taak aantallen door het verzamelen van gegevens uit meerdere delen van een asynchrone gedistribueerde systeem. Gecontroleerd om ervoor te zorgen dat de taak aantallen juist zijn, Batch biedt een extra validatie voor status aantallen door het uitvoeren van consistentiecontrole op basis van meerdere onderdelen van het systeem. Batch voert deze consistentiecontroles, zolang er minder dan 200.000 taken in de taak zijn. In het onwaarschijnlijke geval dat de consistentiecontrole zoeken naar fouten, corrigeert Batch het resultaat van de bewerking taken telt ophalen op basis van de resultaten van de consistentiecontrole. De consistentiecontrole is een extra beveiligingsmaatregel om ervoor te zorgen dat klanten die afhankelijk van de bewerking ophalen taak telt zijn de juiste informatie die ze nodig hebben om hun oplossing krijgen.
 
-Hallo **validationStatus** eigenschap Hallo antwoord geeft aan of Batch Hallo consistentiecontrole is uitgevoerd. Als Batch kunnen toocheck status aantallen tegen Hallo werkelijke statussen ondergebracht in Hallo systeem niet is Hallo **validationStatus** eigenschap is ingesteld, te`unvalidated`. Voor betere prestaties Batch wordt niet uitgevoerd Hallo consistentiecontrole als Hallo taak bevat meer dan 200.000 taken, in dat geval Hallo **validationStatus** eigenschap te kan worden ingesteld`unvalidated` in dit geval. Aantal van de taak Hallo is echter niet per se verkeerde in dit geval zelfs zeer beperkt gegevensverlies is zeer onwaarschijnlijk. 
+De **validationStatus** eigenschap in het antwoord geeft aan of Batch de consistentiecontrole is uitgevoerd. Als Batch is niet controleren van de status in mindering gebracht op de werkelijke statussen ondergebracht in het systeem, wordt de **validationStatus** eigenschap is ingesteld op `unvalidated`. Uit prestatieoverwegingen Batch wordt geen consistentiecontrole uitvoeren als de taak meer dan 200.000 taken bevat, zodat de **validationStatus** eigenschap kan worden ingesteld op `unvalidated` in dit geval. Het aantal taken is echter niet per se verkeerde in dit geval zelfs zeer beperkt gegevensverlies is zeer onwaarschijnlijk. 
 
-Wanneer een taak de status verandert, verwerkt Hallo aggregatie pijplijn Hallo wijzigen binnen enkele seconden. Hallo bewerking ophalen taak telt weerspiegelt Hallo bijgewerkt taak aantallen binnen die periode. Echter als Hallo aggregatie pijplijn Cachemissers een wijziging in de taakstatus van een, klikt u vervolgens wijziging is niet geregistreerd tot de volgende validatie pass Hallo. Gedurende deze tijd taak tellingen kunnen onnauwkeurig enigszins vanwege toohello gemiste gebeurtenis, maar ze op de volgende validatie pass Hallo worden gecorrigeerd.
+Wanneer een taak de status verandert, verwerkt de pijplijn aggregatie van de wijziging binnen enkele seconden. De bewerking ophalen taak telt reflecteert het aantal bijgewerkte taak binnen die periode. Echter, als de pijplijn aggregatie Cachemissers een wijziging in de taakstatus van een, vervolgens die wijziging is niet geregistreerd totdat de volgende validatie op te geven. Gedurende deze tijd taak tellingen kunnen onnauwkeurig enigszins vanwege de gemiste gebeurtenis, maar ze zijn gecorrigeerd in de volgende stap van de validatie.
 
 ## <a name="best-practices-for-counting-a-jobs-tasks"></a>Aanbevolen procedures voor een job taken worden geteld
 
-Hallo ophalen taak telt bewerking aanroepen is Hallo meest efficiënte manier tooreturn basic aantal taken van een taak op status. Als u een versie van de service Batch 2017-06-01.5.1 gebruikt, raden wij schrijven of bijwerken van uw code toouse ophalen voor de taak wordt geteld.
+Aanroepen van de taak telt ophalen-bewerking is de meest efficiënte manier om terug te keren basic aantal taken van een taak op status. Als u een versie van de service Batch 2017-06-01.5.1 gebruikt, raden wij schrijven of bijwerken van uw code voor het gebruik van de taak telt ophalen.
 
-Hallo bewerking taak telt ophalen is niet beschikbaar in Batch-versies eerder dan 2017-06-01.5.1. Als u een oudere versie van het Hallo-service gebruikt, gebruikt u een lijst met query toocount taken in een taak in plaats daarvan. Zie voor meer informatie [maken van query's toolist Batch-resources efficiënt](batch-efficient-list-queries.md).
+De bewerking taak telt ophalen is niet beschikbaar in Batch-versies eerder dan 2017-06-01.5.1. Als u van een oudere versie van de service gebruikmaakt, gebruikt u een lijst met query voor het tellen van taken in een job in plaats daarvan. Zie voor meer informatie [query's maken voor een lijst met Batch-resources efficiënt](batch-efficient-list-queries.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie Hallo [overzicht Batch-functies](batch-api-basics.md) toolearn meer over de concepten van de Batch-service en -functies. Hallo artikel Hallo primaire Batch-resources zoals pools, rekenknooppunten, jobs en taken besproken en biedt een overzicht van functies Hallo-service.
-* Leer de basisbeginselen Hallo van het ontwikkelen van een Batch-toepassing hello met [clientbibliotheek Batch .NET](batch-dotnet-get-started.md) of [Python](batch-python-tutorial.md). Deze inleidende artikelen helpen u bij een werkende toepassing die gebruikmaakt van Hallo Batch-service tooexecute een workload op meerdere rekenknooppunten.
+* Zie [Overzicht van Batch-functies](batch-api-basics.md) voor meer informatie over de concepten en functies van de Batch-service. Het artikel worden de primaire Batch-resources zoals pools, rekenknooppunten, jobs en taken besproken en biedt een overzicht van de functies van de service.
+* Lees de basisbeginselen van het ontwikkelen van een voor Batch geschikte toepassing met behulp van de [clientbibliotheek Batch .NET](batch-dotnet-get-started.md) of [Python](batch-python-tutorial.md). Deze inleidende artikelen helpen u bij een werkende toepassing die gebruikmaakt van de Batch-service voor het uitvoeren van een workload op meerdere rekenknooppunten.
 
 
 [rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job

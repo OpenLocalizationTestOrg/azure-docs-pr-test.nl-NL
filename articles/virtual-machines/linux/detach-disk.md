@@ -1,6 +1,6 @@
 ---
-title: een gegevensschijf van een Linux-VM - Azure aaaDetach | Microsoft Docs
-description: Meer informatie over toodetach een gegevensschijf van een virtuele machine in Azure met behulp van de CLI 2.0 of hello Azure-portal.
+title: Een gegevensschijf loskoppelen van een Linux-VM - Azure | Microsoft Docs
+description: Meer informatie naar een gegevensschijf loskoppelen van een virtuele machine in Azure met behulp van de CLI 2.0 of de Azure-portal.
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,22 +15,22 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: cynthn
-ms.openlocfilehash: 1c6145fc97f13179457225e93e0fb7adc261a65b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3f29547e1da6028b1e4b91d9e29fd3bcdfe08d50
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-toodetach-a-data-disk-from-a-linux-virtual-machine"></a>Hoe toodetach een schijf van een virtuele Linux-machine
+# <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Hoe u een gegevensschijf loskoppelen van een virtuele Linux-machine
 
-Wanneer u een gegevensschijf die is aangesloten tooa virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Deze taak verwijdert Hallo schijf uit de Hallo virtuele machine, maar niet verwijderd uit de opslag. 
+Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Hiermee verwijdert u de schijf van de virtuele machine, maar niet verwijderd uit de opslag. 
 
 > [!WARNING]
-> Als u een schijf die wordt niet automatisch verwijderd loskoppelen. Als u tooPremium opslag hebt geabonneerd, blijft u tooincur opslagkosten voor Hallo schijf. Voor meer informatie raadpleegt u te[prijzen en facturering wanneer u Premium-opslag](../../storage/common/storage-premium-storage.md#pricing-and-billing). 
+> Als u een schijf die wordt niet automatisch verwijderd loskoppelen. Als u bent geabonneerd op Premium-opslag, moet u blijft kosten voor opslag voor de schijf. Raadpleeg voor meer informatie [prijzen en facturering wanneer u Premium-opslag](../../storage/common/storage-premium-storage.md#pricing-and-billing). 
 > 
 > 
 
-Als u toouse Hallo bestaande gegevens op Hallo schijf opnieuw wilt, u kunt opnieuw het toohello dezelfde virtuele machine of een andere naam.  
+Als u de bestaande gegevens op de schijf opnieuw wilt gebruiken, kunt u de schijf opnieuw koppelen aan dezelfde of een andere virtuele machine.  
 
 ## <a name="detach-a-data-disk-using-cli-20"></a>Een gegevensschijf met CLI 2.0 loskoppelen
 
@@ -38,19 +38,19 @@ Als u toouse Hallo bestaande gegevens op Hallo schijf opnieuw wilt, u kunt opnie
 az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
 ```
 
-Hallo schijf blijft in de opslag, maar is niet langer gekoppelde tooa virtuele machine.
+De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.
 
 
-## <a name="detach-a-data-disk-using-hello-portal"></a>Een gegevensschijf met Hallo portal loskoppelen
-1. Selecteer in de portal hub hello, **virtuele Machines**.
-2. Selecteer Hallo virtuele machine met Hallo gegevensschijf toodetach en klik op **stoppen** toodeallocate Hallo VM.
-3. Selecteer in de blade van de virtuele machine hello, **schijven**.
-4. Hallo boven aan het Hallo **schijven** blade Selecteer **bewerken**.
-5. In Hallo **schijven** blade toohello uiterst rechts in Hallo gegevensschijf dat u toodetach wilt, klikt u op Hallo ![Detach knopafbeelding](./media/detach-disk/detach.png) knop loskoppelen.
-5. Nadat het Hallo-schijf is verwijderd, klikt u op opslaan op Hallo Hallo blade bovenaan.
-6. In de blade van de virtuele machine hello, klikt u op **overzicht** en klik vervolgens op Hallo **Start** knop bovenaan Hallo Hallo blade toorestart Hallo VM.
+## <a name="detach-a-data-disk-using-the-portal"></a>Een gegevensschijf ontkoppelen via de portal
+1. Selecteer in de portal hub **virtuele Machines**.
+2. Selecteer de virtuele machine met de gegevensschijf die u wilt loskoppelen en klik op **stoppen** toewijzing van de virtuele machine.
+3. Selecteer in de virtuele machineblade **schijven**.
+4. Aan de bovenkant van de **schijven** blade Selecteer **bewerken**.
+5. In de **schijven** blade, aan de rechterkant van de gegevensschijf die u wilt loskoppelen, klikt u op de ![Detach knopafbeelding](./media/detach-disk/detach.png) knop loskoppelen.
+5. Nadat de schijf is verwijderd, klikt u op opslaan boven aan de blade.
+6. Klik op de blade virtuele machine **overzicht** en klik vervolgens op de **Start** knop aan de bovenkant van de blade opnieuw opstarten van de virtuele machine.
 
-Hallo schijf blijft in de opslag, maar is niet langer gekoppelde tooa virtuele machine.
+De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.
 
 
 
@@ -60,5 +60,5 @@ Hallo schijf blijft in de opslag, maar is niet langer gekoppelde tooa virtuele m
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u tooreuse Hallo gegevensschijf wilt, kunt u zojuist hebt [koppelt u dit tooanother VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Als u de gegevensschijf gebruiken wilt, kunt u zojuist hebt [koppelen aan een andere virtuele machine](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

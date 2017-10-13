@@ -1,6 +1,6 @@
 ---
-title: aaaUsing hello Azure-hulpprogramma voor importeren/exporteren - v1 | Microsoft Docs
-description: Meer informatie over hoe toouse Hallo hulpprogramma voor importeren/exporteren tooprepare harde schijven voor een import-taak een import-taak repareren of herstellen van een taak voor het exporteren.
+title: Met het hulpprogramma Azure Import/Export - v1 | Microsoft Docs
+description: Informatie over het gebruik van het hulpprogramma voor importeren/exporteren voor het voorbereiden van harde schijven voor een import-taak, een import-taak herstellen of herstellen van een taak voor het exporteren.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 030dbad403cae76799c9ddf3cb8d2ced7cd41911
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4ce2273cc0dcc456c2edc8c5dd2fc22496f20380
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="using-hello-azure-importexport-tool-classic-deployment-model"></a>Met behulp van hello Azure-hulpprogramma voor importeren/exporteren (klassieke implementatiemodel)
+# <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Hulpprogramma voor het Azure Import/Export (klassieke implementatiemodel)
 
-Hello Azure-hulpprogramma voor importeren/exporteren (WAImportExport.exe) is gebruikte toocreate en beheren van taken voor hello Azure Import/Export-service, zodat u grote hoeveelheden gegevens tootransfer van of naar Azure Blob Storage.
+Het Azure Import/Export-hulpprogramma (WAImportExport.exe) wordt gebruikt voor het maken en beheren van taken voor de Azure Import/Export-service, zodat u kunt brengen grote hoeveelheden gegevens van of naar Azure Blob Storage.
 
-Deze documentatie is voor het klassieke implementatiemodel Hallo Hallo Azure-hulpprogramma voor importeren/exporteren. Zie voor meer informatie over het gebruik van de meest recente versie van Hallo hulpprogramma Hallo [Using hello Azure-hulpprogramma voor importeren/exporteren](../storage-import-export-tool-how-to.md).
+Deze documentatie is voor het klassieke implementatiemodel van het Azure Import/Export-hulpprogramma. Zie voor meer informatie over het gebruik van de meest recente versie van het hulpprogramma [hulpprogramma voor het Azure Import/Export](../storage-import-export-tool-how-to.md).
 
-Hallo volgende artikelen laten zien hoe u naar:
+De volgende artikelen laten zien hoe u naar:
 
-- Installeren en instellen Hallo hulpprogramma voor importeren/exporteren.
-- Bereid uw harde schijven voor een taak waar u gegevens uit uw stations tooAzure Blob Storage importeren.
-- Hallo-status van een taak met kopie logboekbestanden bekijken. 
+- Installeren en instellen van het hulpprogramma voor importeren/exporteren.
+- Bereid uw harde schijven voor een taak waar u gegevens van uw schijven naar Azure Blob Storage importeren.
+- Controleer de status van een taak met logboekbestanden kopiëren. 
 - Herstellen van een import-taak. 
 - Een exporttaak herstellen. 
-- Problemen met de Hallo Azure-hulpprogramma voor importeren/exporteren, geval u een probleem opgetreden tijdens het proces moest. 
+- Problemen met het Azure Import/Export-hulpprogramma voor het geval er een probleem opgetreden tijdens het. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Hallo WAImportExport hulpprogramma instellen](../storage-import-export-tool-how-to.md)
+* [Instellen van het hulpprogramma WAImportExport](../storage-import-export-tool-how-to.md)

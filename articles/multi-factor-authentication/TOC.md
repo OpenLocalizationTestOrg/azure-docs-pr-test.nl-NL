@@ -1,11 +1,11 @@
 # Overzicht
 ## [Wat is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 ## [Hoe werkt het?](multi-factor-authentication-how-it-works.md)
-## [Hoe tooget Azure MFA](multi-factor-authentication-versions-plans.md)
+## [Hoe kan ik Azure MFA verkrijgen?](multi-factor-authentication-versions-plans.md)
 
 # Aan de slag
-## [Kies waar toodeploy](multi-factor-authentication-get-started.md)
-## [MFA in de cloud Hallo](multi-factor-authentication-get-started-cloud.md)
+## [Implementatielocatie selecteren](multi-factor-authentication-get-started.md)
+## [MFA in de cloud](multi-factor-authentication-get-started-cloud.md)
 ## [MFA on-premises](multi-factor-authentication-get-started-server.md)
 ## [MFA voor O365-gebruikers](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [Aanbevolen procedures voor beveiliging](multi-factor-authentication-security-best-practices.md)
@@ -18,7 +18,7 @@
 #### [Geavanceerde configuratie voor NPS-extensie](nps-extension-advanced-configuration.md)
 ### [Een verificatieprovider maken](multi-factor-authentication-get-started-auth-provider.md)
 ### MFA on-premises implementeren
-#### [Hallo-gebruikersportal installeren](multi-factor-authentication-get-started-portal.md)
+#### [De gebruikersportal installeren](multi-factor-authentication-get-started-portal.md)
 #### [Geavanceerde VPN-configuraties](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Webservice voor mobiele apps](multi-factor-authentication-get-started-server-webservice.md)
 #### [Hoge beschikbaarheid configureren](mfa-server-high-availability.md)

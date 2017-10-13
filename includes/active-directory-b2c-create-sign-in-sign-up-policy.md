@@ -1,28 +1,28 @@
-tooenable aanmelden op uw toepassing, moet u toocreate een aanmeldingspagina beleid. Dit beleid wordt Hallo ervaringen die consumenten doorlopen tijdens het aanmelden en het Hallo-inhoud van de tokens die toepassing hello ontvangt op geslaagde aanmeldingen beschreven.
+U moet een aanmeldingsbeleid maken om aanmelden in te schakelen op uw toepassing. In dit beleid wordt de ervaring van consumenten bij het aanmelden beschreven en de inhoud van tokens die de toepassing ontvangt nadat aanmeldingen zijn voltooid.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Hallo beleidsregels sectie van de instellingen en selecteer **registreren of aanmelden beleid** en klik op **+ toevoegen**.
+Selecteer bij instellingen in de sectie Beleid de optie **Registratie- of aanmeldingsbeleid** en klik op **+Toevoegen**.
 
 ![Beleid voor registreren of aanmelden selecteren en op de knop Toevoegen klikken](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-policy.png)
 
-Voer een beleid **naam** voor uw toepassing tooreference. Geef bijvoorbeeld `SiUpIn` op.
+Geef een**** naam op voor het beleid waarnaar de toepassing kan verwijzen. Geef bijvoorbeeld `SiUpIn` op.
 
 Selecteer **Id-providers** en schakel **Registreren met e-mailadres** in. U kunt er ook voor kiezen om sociale id-providers te selecteren als dit al is geconfigureerd. Klik op **OK**.
 
-![E-aanmelding als een id-provider en klik op de knop OK Hallo](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-identity-providers.png)
+![Selecteer Registreren met e-mailadres als id-provider en klik op de knop OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-identity-providers.png)
 
-Selecteer **Registratiekenmerken**. Kenmerken kiezen gewenste toocollect van Hallo consumer tijdens de registratie. Schakel bijvoorbeeld **Land/regio**, **Weergavenaam** en **Postcode** in. Klik op **OK**.
+Selecteer **Registratiekenmerken**. Kies de kenmerken van de consument die u wilt verzamelen tijdens de registratie. Schakel bijvoorbeeld **Land/regio**, **Weergavenaam** en **Postcode** in. Klik op **OK**.
 
-![Selecteer enkele kenmerken en klik op OK Hallo](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-attributes.png)
+![Selecteer enkele kenmerken en klik op de knop OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-attributes.png)
 
-Selecteer **Toepassingsclaims**. Kies claims opvragen in Hallo autorisatie tokens wilt verzonden back tooyour toepassing na een geslaagde aanmelding of aanmelden ervaring. Selecteer bijvoorbeeld **Weergavenaam**, **Id-provider**, **Postcode**, **Gebruiker is nieuw** en **Object-id van gebruiker**.
+Selecteer **Toepassingsclaims**. Kies de claims die u wilt laten retourneren in de autorisatietokens die, na een geslaagde aanmelding, terug worden gestuurd naar de toepassing . Selecteer bijvoorbeeld **Weergavenaam**, **Id-provider**, **Postcode**, **Gebruiker is nieuw** en **Object-id van gebruiker**.
 
 ![Selecteer enkele toepassingsclaims en klik op de knop OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-application-claims.png)
 
-Klik op **maken** tooadd Hallo beleid. Hallo-beleid wordt vermeld als **B2C_1_SiUpIn**. Hallo **B2C_1_** voorvoegsel is de naam van de toegevoegde toohello.
+Klik op **Maken** om het beleid toe te voegen. Het beleid wordt vermeld als **B2C_1_SiUpln**. Het voorvoegsel **B2C_1_** wordt toegevoegd aan de naam.
 
-Hallo beleid openen door te selecteren **B2C_1_SiUpIn**. Hallo-instellingen die zijn opgegeven in de tabel Hallo controleren en klik vervolgens op **nu uitvoeren**.
+Open het beleid door **B2C_1_SiUpln** te selecteren. Controleer de instellingen die zijn opgegeven in de tabel en klik vervolgens op **Nu uitvoeren**.
 
 ![Selecteer het beleid en voer dit uit](media/active-directory-b2c-create-sign-in-sign-up-policy/run-b2c-signup-signin-policy.png)
 
@@ -31,8 +31,8 @@ Hallo beleid openen door te selecteren **B2C_1_SiUpIn**. Hallo-instellingen die 
 | **Toepassingen** | Contoso B2C-app |
 | **Antwoord-URL selecteren** | `https://localhost:44316/` |
 
-Een nieuw browsertabblad wordt geopend en u kunt controleren of Hallo registreren of aanmelden consumer ervaring zoals geconfigureerd.
+Er wordt een nieuw browsertabblad geopend. Hier kunt u controleren of het registreren of aanmelden voor consumenten werkt zoals geconfigureerd.
 
 > [!NOTE]
-> Het tooa minuut voor het maken van beleid in beslag en updates van kracht tootake.
+> Het duurt maximaal één minuut voordat het gemaakte beleid en de updates van kracht worden.
 >

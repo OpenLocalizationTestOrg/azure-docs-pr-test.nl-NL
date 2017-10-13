@@ -1,6 +1,6 @@
 ---
-title: activiteit aaaSign in rapporten in Azure Active Directory-beheerportal Hallo | Microsoft Docs
-description: Inleiding activiteit toosign in rapporten in hello Azure Active Directory-portal
+title: Aanmeldactiviteitenrapporten in Azure Active Directory Portal | Microsoft Docs
+description: Ontdek de aanmeldactiviteitenrapporten in de Azure Active Directory Portal
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,47 +15,47 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 49590d625a08d7dc189a629b89bab2261c2b4780
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b9e61950654ba427b09dd608d354589a0804aaa5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="sign-in-activity-reports-in-hello-azure-active-directory-portal"></a>Rapporten in Azure Active Directory-beheerportal Hallo aanmeldingsactiviteiten
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
-Met Azure Active Directory (Azure AD) rapportage in Hallo [Azure-portal](https://portal.azure.com), krijgt u Hallo-informatie die u nodig hebt toodetermine hoe uw omgeving doet.
+Met Azure AD-rapporten (Azure Active Directory) in [Azure Portal](https://portal.azure.com) ontvangt u alle informatie die nodig is om te bepalen hoe het gaat met uw omgeving.
 
-Hallo-architectuur in Azure Active Directory reporting bestaat uit Hallo volgende onderdelen:
+De rapportstructuur in Azure Active Directory bestaat uit de volgende onderdelen:
 
 - **Activiteit** 
-    - **Aanmelden activiteiten** – informatie over het gebruik van Hallo van beheerde toepassingen en gebruikersactiviteiten aanmelden
+    - **Aanmeldactiviteiten**: informatie over het gebruik van beheerde toepassingen en aanmeldactiviteiten van gebruikers
     - **Controlelogboeken**: informatie over systeemactiviteit van gebruikers, groepsbeheer, uw beheerde toepassingen en directory-activiteiten.
 - **Beveiliging** 
-    - **Riskant aanmeldingen** -een riskante aanmelden is een indicator voor een aanmeldingspoging die mogelijk zijn uitgevoerd door iemand die niet Hallo legitieme eigenaar van een gebruikersaccount. Zie Riskante aanmeldingen voor meer informatie.
+    - **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. Zie Riskante aanmeldingen voor meer informatie.
     - **Gebruikers van wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. Zie Gebruikers van wie wordt aangegeven dat ze risico lopen voor meer informatie.
 
-In dit onderwerp biedt een overzicht van Hallo aanmelden activiteiten.
+In dit onderwerp vindt u meer informatie over de aanmeldactiviteiten.
 
 ## <a name="pre-requisite"></a>Vereiste
 
-### <a name="who-can-access-hello-data"></a>Wie toegang heeft tot Hallo gegevens?
-* Gebruikers met de rol beheerder beveiliging of beveiliging Reader Hallo
+### <a name="who-can-access-the-data"></a>Wie heeft er toegang tot de gegevens?
+* Gebruikers met de rol Beveiligingsbeheerder of Beveiligingslezer
 * Globale beheerders
 * Alle gebruiker (niet-beheerders) hebben toegang tot hun eigen aanmeldingen 
 
-### <a name="what-azure-ad-license-do-you-need-tooaccess-sign-in-activity"></a>Welke Azure AD-licentie moet u de aanmeldingsactiviteiten tooaccess?
-* Uw tenant moet beschikken over een Azure AD Premium-licentie gekoppeld toosee Hallo alles op aanmeldingsactiviteiten rapport
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Welke Azure AD-licentie heb ik nodig voor toegang tot aanmeldingsactiviteiten?
+* Uw tenant moet beschikken over een Azure AD Premium-licentie om het rapport met alle aanmeldingsactiviteiten te kunnen raadplegen
 
 
 ## <a name="signs-in-activities"></a>Aanmeldactiviteiten
 
-Hallo informatie verstrekt door de gebruiker aanmelden rapport hello, ziet u de antwoorden tooquestions zoals:
+In de informatie die wordt aangeboden in het rapport over aanmeldactiviteiten van gebruikers, vindt u antwoord op vragen zoals:
 
-* Wat is Hallo aanmelden patroon van een gebruiker?
+* Wat is het aanmeldingspatroon van een gebruiker?
 * Hoeveel keer hebben gebruikers zich aangemeld gedurende een week?
-* Wat is de status van deze aanmeldingen Hallo?
+* Wat is de status van deze aanmeldingen?
 
-Uw eerste vermelding punt tooall aanmelden activiteiten gegevens **aanmeldingen** in Hallo activiteit sectie van **Azure Active**.
+Uw eerste ingangspunt voor alle aanmeldingsactiviteitgegevens is **Aanmeldingen** in het gedeelte activiteit van **Azure Active**.
 
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/61.png "Aanmeldingsactiviteit")
@@ -63,29 +63,29 @@ Uw eerste vermelding punt tooall aanmelden activiteiten gegevens **aanmeldingen*
 
 Een controlelogboek heeft een standaardlijstweergave die het volgende laat zien:
 
-- Hallo gerelateerde gebruiker
-- Hallo toepassing hello gebruiker is aangemeld bij
-- Hallo-in status
-- tijd van aanmelden Hallo
+- de gerelateerde gebruiker
+- de toepassing waarbij de gebruiker is aangemeld
+- de aanmeldingsstatus
+- de aanmeldingstijd
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/41.png "Aanmeldingsactiviteit")
 
-U kunt de lijstweergave Hallo aanpassen door te klikken op **kolommen** op Hallo-werkbalk.
+U kunt de lijstweergave aanpassen door te klikken op **Kolommen** op de werkbalk.
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/19.png "Aanmeldingsactiviteit")
 
-Dit kunt u aanvullende velden toodisplay of verwijderen van de velden die al worden weergegeven.
+Hiermee kunt u extra velden weergeven of velden verwijderen die al worden weergegeven.
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/42.png "Aanmeldingsactiviteit")
 
-Door te klikken op een item in de lijstweergave hello, moet u alle beschikbare details over het ophalen.
+Wanneer u op een item in de lijstweergave klikt, krijgt u er alle beschikbare informatie over te zien.
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/43.png "Aanmeldingsactiviteit")
 
 
 ## <a name="filtering-sign-in-activities"></a>Aanmeldingsactiviteiten filteren
 
-toonarrow omlaag Hallo tooa gegevensniveau dat geldt voor u, kunt u Hallo aanmeldingen gegevens filteren met behulp van de volgende velden Hallo gerapporteerd:
+Als u de gerapporteerde gegevens wilt beperken tot een bepaald niveau, kunt u de aanmeldingsgegevens filteren met de volgende velden:
 
 - Tijdsinterval
 - Gebruiker
@@ -96,7 +96,7 @@ toonarrow omlaag Hallo tooa gegevensniveau dat geldt voor u, kunt u Hallo aanmel
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/44.png "Aanmeldingsactiviteit")
 
 
-Hallo **tijdsinterval** filter schakelt tooyou toodefine een tijdsspanne voor Hallo gegevens geretourneerd.  
+Met het filter **tijdsinterval** kunt u een tijdsbestek opgeven voor de geretourneerde gegevens.  
 Mogelijke waarden zijn:
 
 - 1 maand
@@ -106,13 +106,13 @@ Mogelijke waarden zijn:
 
 Wanneer u een aangepast tijdsbestek selecteert, kunt u een begintijd en eindtijd configureren.
 
-Hallo **gebruiker** filter kunt u toospecify Hallo naam of het Hallo UPN (user Principal name) van Hallo-gebruiker die u interesseren.
+Met het filter **gebruiker** kunt u de naam of de UPN (User Principal Name) van de gewenste gebruiker opgeven.
 
-Hallo **toepassing** filter kunt u de naam van de toospecify Hallo van Hallo-toepassing die u interesseren.
+Met het filter **toepassing** kunt u de naam van de gewenste toepassing opgeven.
 
-Hallo **client** filter kunt u toospecify informatie over het Hallo-apparaat die u interesseren.
+Met het filter **client** kunt u informatie over het gewenste apparaat opgeven.
 
-Hallo **aanmeldingsstatus** filter kunt u tooselect Hallo filter te volgen:
+Met het filter **aanmeldingsstatus** kunt u een van de volgende filters selecteren:
 
 - Alle
 - Geslaagd
@@ -121,7 +121,7 @@ Hallo **aanmeldingsstatus** filter kunt u tooselect Hallo filter te volgen:
 
 ## <a name="sign-in-activities-shortcuts"></a>Snelkoppelingen voor aanmeldingsactiviteiten
 
-Bovendien tooAzure Active Directory, hello Azure-portal biedt twee extra post punten toosign in activiteiten gegevens:
+Naast Azure Active Directory biedt de Azure Portal twee extra toegangspunten voor aanmeldingsactiviteitgegevens:
 
 - Gebruikers en groepen
 - Bedrijfstoepassingen
@@ -129,35 +129,35 @@ Bovendien tooAzure Active Directory, hello Azure-portal biedt twee extra post pu
 
 ### <a name="users-and-groups-sign-ins-activities"></a>Aanmeldingsactiviteiten van gebruikers en groepen
 
-Hallo informatie verstrekt door de gebruiker aanmelden rapport hello, ziet u de antwoorden tooquestions zoals:
+In de informatie die wordt aangeboden in het rapport over aanmeldingsactiviteiten van gebruikers, vindt u antwoord op vragen zoals:
 
-- Wat is Hallo aanmelden patroon van een gebruiker?
+- Wat is het aanmeldingspatroon van een gebruiker?
 - Hoeveel keer hebben gebruikers zich aangemeld gedurende een week?
-- Wat is de status van deze aanmeldingen Hallo?
+- Wat is de status van deze aanmeldingen?
 
 
 
-Punt toothis postgegevens is gebruiker aanmelden grafiek Hallo in Hallo **overzicht** onder sectie **gebruikers en groepen**.
+Uw beginpunt voor deze gegevens is de aanmeldingsgrafiek van gebruikers in het gedeelte **Overzicht** onder **Gebruikers en groepen**.
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/45.png "Aanmeldingsactiviteit")
 
-Hallo gebruiker aanmelden grafiek toont wekelijkse aggregaties van de registratie-modules voor alle gebruikers in een bepaalde periode. Hallo-standaardwaarde voor Hallo is periode 30 dagen.
+In de aanmeldingsgrafiek van gebruikers ziet u alle aanmeldingen van alle gebruikers gedurende een bepaalde periode. De standaard ingestelde periode is 30 dagen.
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/46.png "Aanmeldingsactiviteit")
 
-Als u op een dag in Hallo aanmelden grafiek klikt, krijgt u een gedetailleerde lijst met Hallo aanmelden activiteiten voor deze dag.
+Als u in de aanmeldingsgrafiek op een dag klikt, ziet u een gedetailleerd overzicht van de aanmeldingsactiviteiten voor die dag.
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/41.png "Aanmeldingsactiviteit")
 
-Elke rij in Hallo aanmelden activiteiten lijst kunt die u gedetailleerde informatie over Hallo geselecteerd aanmelden zoals Hallo:
+Elke rij in de lijst met aanmeldingsactiviteiten bevat gedetailleerde informatie over de geselecteerde aanmelding, zoals:
 
 * Wie heeft zich aangemeld?
-* Wat was Hallo gerelateerde UPN?
-* Welke toepassing hello doel van de aanmeldingspagina Hallo was?
-* Wat is Hallo IP-adres van de aanmeldingspagina Hallo?
-* Wat is Hallo status van Hallo aanmelden?
+* Wat was de gerelateerde UPN?
+* Welke toepassing was het aanmeldingsdoel?
+* Wat is het IP-adres van de persoon die zich heeft aangemeld?
+* Wat is de status van de aanmelding?
 
-Hallo **aanmeldingen** optie biedt u een volledig overzicht van alle gebruikersaanmeldingen.
+Met de optie **Aanmeldingen** krijgt u een volledig overzicht van alle gebruikersaanmeldingen.
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/51.png "Aanmeldingsactiviteit")
 
@@ -168,29 +168,29 @@ Hallo **aanmeldingen** optie biedt u een volledig overzicht van alle gebruikersa
 Met een toepassingsgerichte weergave van uw aanmeldingsgegevens kunt u antwoord vinden op vragen zoals:
 
 * Wie gebruikt mijn toepassingen?
-* Wat zijn de eerste Hallo 3 toepassingen in uw organisatie?
+* Wat zijn de drie meest gebruikte toepassingen in uw organisatie?
 * Ik heb onlangs een toepassing geïmplementeerd. Hoe gaat het ermee?
 
-Punt toothis postgegevens is Hallo eerste 3 toepassingen in uw organisatie binnen de laatste 30 dagen rapport in Hallo Hallo **overzicht** onder sectie **bedrijfstoepassingen**.
+Uw beginpunt voor deze gegevens is het overzicht van de drie populairste toepassingen in uw organisatie volgens het rapport van de laatste 30 dagen. Het overzicht vindt u in het gedeelte **Overzicht** onder **Bedrijfstoepassingen**.
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/64.png "Aanmeldingsactiviteit")
 
-Hallo-app-gebruik grafiek wekelijkse aggregaties van aanmeldingen voor uw top-3-toepassingen in een bepaalde periode. Hallo-standaardwaarde voor Hallo is periode 30 dagen.
+In de grafiek over appgebruik staat een wekelijks overzicht van alle aanmeldingen bij de drie populairste toepassingen gedurende een bepaalde periode. De standaard ingestelde periode is 30 dagen.
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/47.png "Aanmeldingsactiviteit")
 
-Als u wilt, kunt u Hallo focus instellen op een specifieke toepassing.
+Als u wilt, kunt u de focus instellen op een specifieke toepassing.
 
 
 ![Rapportage](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Rapportage")
 
-Als u op een dag in Hallo app gebruiksgrafiek klikt, krijgt u een gedetailleerde lijst met Hallo aanmelden activiteiten.
+Als u op een dag in de appgebruikgrafiek klikt, ziet u een gedetailleerd overzicht van de aanmeldactiviteiten.
 
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/48.png "Aanmeldingsactiviteit")
 
 
-Hallo **aanmeldingen** optie biedt u een volledig overzicht van alle gebeurtenissen aanmelden tooyour toepassingen.
+Met de optie **Aanmeldingen** krijgt u een volledig overzicht van alle aanmeldingsgebeurtenissen voor uw toepassingen.
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/49.png "Aanmeldingsactiviteit")
 
@@ -198,5 +198,5 @@ Hallo **aanmeldingen** optie biedt u een volledig overzicht van alle gebeurtenis
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u meer informatie over foutcodes aanmeldingsactiviteiten tooknow wilt, raadpleegt u Hallo [aanmelden activiteit rapport-foutcodes in Azure Active Directory-beheerportal Hallo](active-directory-reporting-activity-sign-ins-errors.md).
+Als u meer wilt weten over foutcodes voor aanmeldingsactiviteiten, raadpleegt u [Foutcodes voor aanmeldactiviteitenrapporten in Azure Active Directory Portal](active-directory-reporting-activity-sign-ins-errors.md).
 

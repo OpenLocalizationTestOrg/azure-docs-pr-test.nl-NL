@@ -1,6 +1,6 @@
 ---
-title: aaaOverview van Azure zonder server | Microsoft Docs
-description: Krachtige oplossingen maken in de cloud Hallo zonder toothink over infrastructuur.
+title: Overzicht van Azure zonder server | Microsoft Docs
+description: Krachtige oplossingen in de cloud maken zonder om na te denken over de infrastructuur.
 keywords: 
 services: logic-apps
 author: jeffhollan
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 7c9c09d96e472edd1631892982ac60aae97342a3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6803e22a78e27c15ff4fec301cd5bdd55aacd3e3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Overzicht van Azure zonder server met functies en Logic Apps
 
-Zonder server toepassingen bieden voordelen van een toename van de snelheid van de ontwikkeling van, vermindering van de vereiste code en eenvoud binnen de schaal.  In dit artikel wordt in verschillende kenmerken Hallo zonder server oplossingen en Azure zonder server-producten.
+Zonder server toepassingen bieden voordelen van een toename van de snelheid van de ontwikkeling van, vermindering van de vereiste code en eenvoud binnen de schaal.  In dit artikel gaat naar de andere kenmerken van zonder server oplossingen en Azure zonder server-producten.
 
 ## <a name="what-is-serverless"></a>Wat is zonder server?
 
-Zonder server betekent niet dat er zijn geen servers: het betekent Hallo developer geen tooworry over servers.  Een groot deel van de traditionele toepassingsontwikkeling is beantwoorden van vragen rond schalen, hosting en controle van oplossingen toomeet Hallo eisen van de toepassing hello.  Met zonder server, worden deze vragen afgehandeld als onderdeel van Hallo-oplossing.  Bovendien worden zonder server toepassingen gefactureerd op een plan op basis van verbruik.  Als de toepassing hello nooit gebruikt wordt, is nooit kosten met zich mee ontstaan.  Deze functies kunnen ontwikkelaars toofocus uitsluitend op Hallo zakelijke logica van Hallo-oplossing.
+Zonder server betekent niet dat er zijn geen servers: het betekent dat de ontwikkelaar heeft geen zorgen te hoeven maken over servers.  Een groot deel van de traditionele toepassingsontwikkeling is beantwoorden van vragen rond schalen, hosten en bewakingsoplossingen om te voldoen aan de vereisten van de toepassing.  Met zonder server, worden deze vragen afgehandeld als onderdeel van de oplossing.  Bovendien worden zonder server toepassingen gefactureerd op een plan op basis van verbruik.  Als de toepassing nooit gebruikt wordt, is nooit kosten met zich mee ontstaan.  Deze functies kunnen ontwikkelaars zich richten op het de zakelijke logica van de oplossing.
 
-Hallo core services in Azure rond zonder server zijn [Azure Functions](https://azure.microsoft.com/services/functions/) en [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).  Beide oplossingen Hallo principes van de bovenstaande Volg en kunnen ontwikkelaars toobuild robuuste cloud-toepassingen met minimale code.
+De core services in Azure rond zonder server zijn [Azure Functions](https://azure.microsoft.com/services/functions/) en [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).  Beide oplossingen Volg de bovenstaande beginselen en kunnen ontwikkelaars robuuste cloudtoepassingen met minimale code te bouwen.
 
 ## <a name="what-are-azure-functions"></a>Wat zijn de Azure Functions?
 
-Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code of 'functies' in de cloud Hallo. U kunt alleen Hallo code schrijven dat u nodig hebt voor Hallo probleem bij de hand, zonder dat u een hele toepassing of Hallo infrastructuur toorun deze. Functies kunnen aanbrengen ontwikkelen nog efficiënter en kunt u de gewenste programmeertaal, zoals C#, F #, Node.js, Python of PHP. Betaalt alleen voor Hallo tijd die uw code wordt uitgevoerd en Azure schaalt naar behoefte.
+Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code, ofwel ‘functies’, in de cloud. U hoeft alleen de code te schrijven die u op dat moment nodig hebt, zonder dat u een complete toepassing of de bijbehorende infrastructuur nodig hebt. Functies kunnen aanbrengen ontwikkelen nog efficiënter en kunt u de gewenste programmeertaal, zoals C#, F #, Node.js, Python of PHP. Betaalt alleen voor de tijd dat uw code wordt uitgevoerd en Azure schaalt naar behoefte.
 
-Als u wilt toojump rechts in en aan de slag met Azure Functions, beginnen met een [uw eerste Azure-functie maken](../azure-functions/functions-create-first-azure-function.md). Als u meer technische informatie over functies zoekt, raadpleegt u Hallo [referentie voor ontwikkelaars](../azure-functions/functions-reference.md).
+Als u meteen aan de slag wilt met Azure Functions, kunt u beginnen met [Uw eerste Azure-functie maken](../azure-functions/functions-create-first-azure-function.md). Als u behoefte hebt aan meer technische informatie over Functions, raadpleegt u de [naslaginformatie voor ontwikkelaars](../azure-functions/functions-reference.md).
 
 ## <a name="what-are-azure-logic-apps"></a>Wat zijn Azure Logic Apps?
 
-Logische Apps van Azure biedt een manier toosimplify en schaalbare integraties en werkstromen in Hallo cloud implementeren. Het biedt een visuele ontwerpfunctie toomodel en automatiseren als een reeks stappen een werkstroom wordt aangeroepen.  Er zijn [veel connectors](../connectors/apis-list.md) via cloud en on-premises services tooquickly verbinding maken met een app zonder server tooother API's.  Een logische app begint met een trigger (like "wanneer een account is toegevoegd tooDynamics CRM') en nadat starten kunt beginnen met veel combinaties acties, conversies en voorwaarde logica.  Logic Apps is een uitstekende keuze wanneer verschillende Azure-functies in een proces - organiseren, vooral wanneer Hallo proces vereist interactie met een extern systeem of de API.
+Logische Apps van Azure biedt een manier om te vereenvoudigen en implementeren van schaalbare integraties en werkstromen in de cloud. Het biedt een visuele ontwerper voor model en het automatiseren van uw proces als een reeks stappen een werkstroom wordt aangeroepen.  Er zijn [veel connectors](../connectors/apis-list.md) via cloud en on-premises services snel een app zonder server verbinding te maken met andere API's.  Een logic app begint met een trigger (zoals “Wanneer is een account toegevoegd aan Dynamics CRM”) en na het starten kunnen vele combinaties, acties, conversies en voorwaardelijke logica beginnen.  Logic Apps is een uitstekende keuze wanneer verschillende Azure-functies in een proces - organiseren, vooral wanneer het proces vereist interactie met een extern systeem of de API.
 
-tooget gestart met Logic Apps, te beginnen met [maken van uw eerste logische app](logic-apps-create-a-logic-app.md).  Als u meer technische informatie over Logic Apps zoekt, raadpleegt u Hallo [referentie voor ontwikkelaars](logic-apps-workflow-actions-triggers.md).
+Om te beginnen met Logic Apps beginnen met [maken van uw eerste logische app](logic-apps-create-a-logic-app.md).  Als u meer technische informatie over Logic Apps zoekt, raadpleegt u de [referentie voor ontwikkelaars](logic-apps-workflow-actions-triggers.md).
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Hoe kan ik bouwen en implementeren zonder server-toepassingen in Azure?
 
-Azure biedt een uitgebreide set hulpprogramma's voor ontwikkeling, implementatie en beheer van apps zonder server.  Apps kunnen worden gebouwd rechtstreeks in hello Azure-portal of met [tooling vanuit Visual Studio](logic-apps-serverless-get-started-vs.md).  Wanneer een toepassing ontwikkeld deze kan worden [onmiddellijk geïmplementeerd](logic-apps-create-deploy-template.md).  Azure biedt ook bewaking voor zonder server apps.  Deze controle kan worden geopend vanuit hello Azure-portal via Hallo API SDK's of met geïntegreerde tooling tooOMS en Application Insights.
+Azure biedt een uitgebreide set hulpprogramma's voor ontwikkeling, implementatie en beheer van apps zonder server.  Apps kunnen worden gebouwd rechtstreeks in de Azure portal of met [tooling vanuit Visual Studio](logic-apps-serverless-get-started-vs.md).  Wanneer een toepassing ontwikkeld deze kan worden [onmiddellijk geïmplementeerd](logic-apps-create-deploy-template.md).  Azure biedt ook bewaking voor zonder server apps.  Deze bewaking toegankelijk zijn vanuit de Azure-portal via de API SDK's of met geïntegreerde tooling OMS en Application Insights.
 
 ## <a name="next-steps"></a>Volgende stappen
 

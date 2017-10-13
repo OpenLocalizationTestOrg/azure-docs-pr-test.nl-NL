@@ -1,5 +1,5 @@
 ---
-title: aaaAzure PowerShell-voorbeeldscript - een virtuele machine maken door het koppelen van een beheerde schijf als besturingssysteemschijf | Microsoft Docs
+title: 'Azure PowerShell-Script voorbeeld: een virtuele machine maken door het koppelen van een beheerde schijf als besturingssysteemschijf | Microsoft Docs'
 description: 'Azure PowerShell-Script voorbeeld: een virtuele machine maken door het koppelen van een beheerde schijf als besturingssysteemschijf'
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 8ae5b14df3977a4af91b92692cb925199cfb8058
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ec532811e94647c8a04b9faf9474f6749969f83e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>Maak een virtuele machine met behulp van een bestaande beheerde OS-schijf met PowerShell
 
@@ -35,11 +35,11 @@ Dit script maakt een virtuele machine door het koppelen van een bestaande beheer
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.ps1 "Create VM from snapshot")]
+[!code-powershell[belangrijkste](../../../powershell_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.ps1 "VM maken vanuit een momentopname.")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 
-Hallo na de opdracht tooremove Hallo-resourcegroep, VM en alle gerelateerde resources worden uitgevoerd.
+Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -47,13 +47,13 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Dit script maakt gebruik van Hallo opdrachten tooget beheerd schijfeigenschappen te volgen, een tooa beheerde schijf koppelen nieuwe virtuele machine en een virtuele machine maken. Elk item in de tabel Hallo koppelingen toocommand specifieke documentatie.
+Dit script gebruikt de volgende opdrachten voor het ophalen van beheerde schijfeigenschappen, een beheerde schijf koppelen met een nieuwe virtuele machine en een virtuele machine maken. Elk item in de tabel is gekoppeld aan de specifieke documentatie opdracht.
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Get-AzureRmDisk](/powershell/module/azurerm.compute/Get-AzureRmDisk) | Schijfobject op basis van Hallo naam en het Hallo-resourcegroep van een schijf opgehaald. De eigenschap id van Hallo geretourneerd schijfobject is gebruikte tooattach Hallo schijf tooa nieuwe virtuele machine |
-| [Nieuwe AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Maakt een VM-configuratie. Deze configuratie bevat informatie zoals de naam, het besturingssysteem en de beheerdersreferenties VM. Hallo-configuratie wordt gebruikt tijdens het maken van VM. |
-| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) | Een beheerde schijf met een Id-eigenschap Hallo van Hallo schijf als OS schijf tooa nieuwe virtuele machine gekoppeld |
+| [Get-AzureRmDisk](/powershell/module/azurerm.compute/Get-AzureRmDisk) | Schijfobject op basis van de naam en de resourcegroep van een schijf opgehaald. Id-eigenschap van het object geretourneerde schijf wordt gebruikt om de schijf koppelen aan een nieuwe virtuele machine |
+| [Nieuwe AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Maakt een VM-configuratie. Deze configuratie bevat informatie zoals de naam, het besturingssysteem en de beheerdersreferenties VM. De configuratie wordt gebruikt tijdens het maken van VM. |
+| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) | Een beheerde schijf met behulp van de eigenschap Id van de schijf als de besturingssysteemschijf voor een nieuwe virtuele machine gekoppeld |
 | [Nieuwe AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Hiermee maakt u een openbaar IP-adres. |
 | [Nieuwe AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Maakt een netwerkinterface. |
 | [Nieuwe-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Maak een virtuele machine. |
@@ -61,6 +61,6 @@ Dit script maakt gebruik van Hallo opdrachten tooget beheerd schijfeigenschappen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over hello Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).
+Zie voor meer informatie over de Azure PowerShell-module [documentatie van Azure PowerShell](/powershell/azure/overview).
 
-Voorbeelden van extra virtuele machine PowerShell-script kunnen u vinden in Hallo [virtuele machine van Windows Azure-documentatie](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Voorbeelden van extra virtuele machine PowerShell-script kunnen worden gevonden in de [virtuele machine van Windows Azure-documentatie](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

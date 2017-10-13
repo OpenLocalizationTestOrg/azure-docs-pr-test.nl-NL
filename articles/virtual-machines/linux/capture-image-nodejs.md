@@ -1,6 +1,6 @@
 ---
-title: een Azure Linux VM toouse als sjabloon aaaCapture | Microsoft Docs
-description: Meer informatie over hoe toocapture en een installatiekopie van een Linux-gebaseerde Azure virtuele machine (VM) gemaakt met Azure Resource Manager-implementatiemodel Hallo generalize.
+title: Vastleggen van een Azure Linux VM te gebruiken als sjabloon | Microsoft Docs
+description: Informatie over het vastleggen en een installatiekopie van een Linux-gebaseerde Azure virtuele machine (VM) gemaakt met het Azure Resource Manager-implementatiemodel generalize.
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,84 +15,84 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 877eee5c842bebe80e755c2240cdaaef4ade6ff5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b1164fbd816eea5189786850f096438e32f8f802
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Vastleggen van een virtuele Linux-machine uitgevoerd op Azure
-Hallo-stappen in dit artikel toogeneralize en vastleggen van uw Azure Linux virtuele machine (VM) in Hallo Resource Manager-implementatiemodel. Wanneer u generalize Hallo VM, kunt u persoonlijke gegevens te verwijderen en Hallo VM toobe gebruikt als een installatiekopie van het voorbereiden. U vervolgens een installatiekopie van een gegeneraliseerde virtuele harde schijf (VHD) voor Hallo OS VHD's voor bijgesloten gegevensschijven, vastleggen en een [Resource Manager-sjabloon](../../azure-resource-manager/resource-group-overview.md) voor nieuwe VM-implementaties. Dit artikel wordt uitgelegd hoe toocapture een virtuele machine de installatiekopie met de Azure CLI 1.0 Hallo voor een virtuele machine met niet-beheerde schijven. U kunt ook [vastleggen van een VM die gebruikmaakt van Azure beheerd schijven Hello Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Beheerde schijven worden afgehandeld door hello Azure-platform en hoeven niet alle toostore voorbereidings- of locatie ze. Zie [Azure Managed Disks overview](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Overzicht van Azure Managed Disks) voor meer informatie. 
+Volg de stappen in dit artikel generaliseren en vastleggen van uw Azure Linux virtuele machine (VM) in het Resource Manager-implementatiemodel. Wanneer u de virtuele machine generalize, kunt u persoonlijke gegevens te verwijderen en voorbereiden van de virtuele machine moet worden gebruikt als een afbeelding. U vervolgens een installatiekopie van een gegeneraliseerde virtuele harde schijf (VHD) voor het besturingssysteem, virtuele harde schijven voor bijgesloten gegevensschijven, vastleggen en een [Resource Manager-sjabloon](../../azure-resource-manager/resource-group-overview.md) voor nieuwe VM-implementaties. Dit artikel wordt uitgelegd hoe u een VM-installatiekopie met de Azure CLI 1.0 vastleggen voor een virtuele machine met niet-beheerde schijven. U kunt ook [vastleggen van een VM die gebruikmaakt van Azure beheerd schijven met de Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Beheerde schijven worden verwerkt door de Azure-platform en hoeven niet de voorbereidings- of locatie om op te slaan. Zie [Azure Managed Disks overview](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Overzicht van Azure Managed Disks) voor meer informatie. 
 
-toocreate VM's met behulp van de installatiekopie hello, netwerkbronnen instellen voor elke nieuwe virtuele machine en gebruik Hallo sjabloon (een JavaScript Object Notation of JSON,-bestand) toodeploy op Hallo VHD-installatiekopieën vastgelegd. Op deze manier kunt u een virtuele machine met de huidige softwareconfiguratie kan vergelijkbare toohello manier als u installatiekopieën gebruiken in Azure Marketplace Hallo repliceren.
+Netwerkbronnen voor elke nieuwe virtuele machine instellen voor het maken van virtuele machines met behulp van de installatiekopie en de sjabloon (een JavaScript Object Notation of JSON,-bestand) gebruiken voor het implementeren van de vastgelegde VHD-installatiekopieën. Op deze manier kunt u een virtuele machine met de huidige softwareconfiguratie, worden dezelfde manier als die u installatiekopieën in Azure Marketplace gebruiken repliceren.
 
 > [!TIP]
-> Als u een kopie van uw bestaande Linux-VM met de speciale status toocreate voor back-up of foutopsporing wilt, Zie [een kopie maken van een virtuele Linux-machine uitgevoerd op Azure](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). En als u een VHD van een lokale virtuele machine met Linux tooupload wilt, Zie [uploaden en Linux-VM te maken van aangepaste schijfimage](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
+> Als u wilt maken van een kopie van uw bestaande Linux-VM met de speciale staat voor de back-up of foutopsporing, Zie [een kopie maken van een virtuele Linux-machine uitgevoerd op Azure](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). En als u een Linux VHD uploaden van een lokale virtuele machine wilt, Zie [uploaden en Linux-VM te maken van aangepaste schijfimage](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="cli-versions-toocomplete-hello-task"></a>CLI-versies toocomplete Hallo taak
-U kunt met een van de volgende versies van de CLI Hallo Hallo-taak uitvoeren:
+## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren
+U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 
-- [Azure CLI 1.0](#before-you-begin) – onze CLI voor Hallo klassieke en resource management implementatiemodellen (in dit artikel)
-- [Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -onze volgende generatie CLI voor Hallo resource management-implementatiemodel
+- [Azure CLI 1.0](#before-you-begin) – onze CLI voor het klassieke en resource management-implementatiemodel (in dit artikel)
+- [Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Zorg ervoor dat u voldoet aan de Hallo volgende vereisten:
+Zorg ervoor dat u voldoet aan de volgende vereisten:
 
-* **Azure virtuele machine gemaakt in de Resource Manager-implementatiemodel Hallo** -als u een Linux-VM nog niet hebt gemaakt, kunt u Hallo [portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), Hallo [Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), of [Resource Manager sjablonen](create-ssh-secured-vm-from-template.md). 
+* **Azure virtuele machine gemaakt in het Resource Manager-implementatiemodel** -als u een Linux-VM nog niet hebt gemaakt, kunt u de [portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), wordt de [Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), of [Resource Manager-sjablonen](create-ssh-secured-vm-from-template.md). 
   
-    Configureer Hallo VM indien nodig. Bijvoorbeeld: [gegevensschijven toevoegen](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), toepassen van updates en toepassingen te installeren. 
-* **Azure CLI** -installatie Hallo [Azure CLI](../../cli-install-nodejs.md) op een lokale computer.
+    De virtuele machine naar wens configureren. Bijvoorbeeld: [gegevensschijven toevoegen](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), toepassen van updates en toepassingen te installeren. 
+* **Azure CLI** -installeren van de [Azure CLI](../../cli-install-nodejs.md) op een lokale computer.
 
-## <a name="step-1-remove-hello-azure-linux-agent"></a>Stap 1: Hello Azure Linux-agent verwijderen
-Voer eerst Hallo **waagent** opdracht Hello **deprovision** parameter op Hallo Linux VM. Deze opdracht verwijdert u bestanden en gegevens toomake Hallo VM gereed is voor het generaliseren. Zie voor meer informatie, Hallo [gebruikershandleiding voor Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="step-1-remove-the-azure-linux-agent"></a>Stap 1: De Azure Linux-agent verwijderen
+Voer eerst de **waagent** opdracht met de **deprovision** parameter voor de Linux-VM. Deze opdracht verwijdert u bestanden en gegevens om de virtuele machine gereed is voor het generaliseren. Zie voor meer informatie de [gebruikershandleiding voor Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-1. Verbinding maken met behulp van een SSH-client voor Linux-VM tooyour.
-2. Typ in Hallo SSH venster Hallo volgende opdracht:
+1. Verbinding maken met uw Linux-VM met behulp van een SSH-client.
+2. Typ de volgende opdracht in het venster SSH:
    
     ```bash
     sudo waagent -deprovision+user
     ```
    > [!NOTE]
-   > Alleen worden uitgevoerd met deze opdracht op een virtuele machine die u van plan toocapture als afbeelding bent. Het is geen die installatiekopie Hallo van alle gevoelige informatie is uitgeschakeld of geschikt is voor de herdistributie van garantie.
+   > Deze opdracht alleen uitvoeren op een virtuele machine die u van plan bent om vast te leggen als afbeelding. Er is geen garantie dat de installatiekopie wordt gewist van alle gevoelige informatie of geschikt is voor de herdistributie.
  
-3. Type **y** toocontinue. U kunt Hallo toevoegen **-afdwingen** parameter tooavoid deze bevestigingsstap.
-4. Nadat het Hallo-opdracht is voltooid, typt u **sluiten**. Deze stap wordt gesloten Hallo SSH-client.
+3. Type **y** om door te gaan. U kunt toevoegen de **-force** parameter om te voorkomen dat deze bevestigingsstap.
+4. Nadat u de opdracht is voltooid, typt u **sluiten**. Deze stap wordt gesloten voor de SSH-client.
 
-## <a name="step-2-capture-hello-vm"></a>Stap 2: Hallo VM vastleggen
-Gebruik hello Azure CLI toogeneralize en Hallo VM vastleggen. In Hallo vervangen volgende voorbeelden parameternamen voorbeeld door uw eigen waarden. De namen van de voorbeeld-parameter **myResourceGroup**, **myVnet**, en **myVM**.
+## <a name="step-2-capture-the-vm"></a>Stap 2: De virtuele machine vastleggen
+Gebruik de Azure CLI generaliseren en vastleggen van de virtuele machine. In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter **myResourceGroup**, **myVnet**, en **myVM**.
 
-1. Open in uw lokale computer hello Azure CLI en [aanmelding tooyour Azure-abonnement](../../xplat-cli-connect.md). 
+1. Open in uw lokale computer, de Azure CLI en [Meld u aan bij uw Azure-abonnement](../../xplat-cli-connect.md). 
 2. Zorg ervoor dat u in de modus Resource Manager.
    
     ```azurecli
     azure config mode arm
     ```
-3. Virtuele machine die u al gemaakt met behulp van de volgende opdracht Hallo Hallo afsluiten:
+3. Sluit de virtuele machine die u al gemaakt met behulp van de volgende opdracht:
    
     ```azurecli
     azure vm deallocate -g myResourceGroup -n myVM
     ```
-4. Generalize Hallo VM Hello volgende opdracht:
+4. Generaliseer de virtuele machine met de volgende opdracht:
    
     ```azurecli
     azure vm generalize -g myResourceGroup -n myVM
     ```
-5. Voer nu Hallo **azure vm vastleggen** opdracht, welke opnamen Hallo VM. In Hallo voorbeeld te volgen, Hallo installatiekopie van VHD's met vastleggen namen die beginnen met **MyVHDNamePrefix**, en Hallo **-t** optie geeft u een pad toohello sjabloon **MyTemplate.json**. 
+5. Voer nu de **azure vm vastleggen** opdracht, waarmee de virtuele machine worden vastgelegd. In het volgende voorbeeld wordt de installatiekopie van het vastleggen van VHD's met namen die begint met **MyVHDNamePrefix**, en de **-t** optie geeft u een pad naar de sjabloon **MyTemplate.json**. 
    
     ```azurecli
     azure vm capture -g myResourceGroup -n myVM -p myVHDNamePrefix -t myTemplate.json
     ```
    
    > [!IMPORTANT]
-   > Hallo installatiekopie VHD-bestanden gemaakt in hetzelfde opslagaccount die oorspronkelijke VM Hallo gebruikt Hallo standaard. Gebruik Hallo *hetzelfde opslagaccount* toostore Hallo VHD's voor een nieuwe virtuele machines die u uit Hallo installatiekopie maken. 
+   > De VHD-bestanden van de installatiekopie gemaakt in hetzelfde opslagaccount die de oorspronkelijke VM gebruikt standaard. Gebruik de *hetzelfde opslagaccount* voor het opslaan van de VHD's voor nieuwe VM's u van de installatiekopie maken. 
 
-6. toofind hello locatie van een vastgelegde installatiekopie open Hallo JSON-sjabloon in een teksteditor. In Hallo **storageProfile**, Hallo zoeken **uri** Hallo **installatiekopie** zich in Hallo **system** container. Bijvoorbeeld: hello URI Hallo OS schijfkopie lijkt te`https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
+6. Als u wilt zoeken naar de locatie van een vastgelegde installatiekopie, opent u het JSON-sjabloon in een teksteditor. In de **storageProfile**, vinden de **uri** van de **installatiekopie** zich in de **system** container. Bijvoorbeeld: de URI van de installatiekopie van de OS-schijf is vergelijkbaar met`https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
 
-## <a name="step-3-create-a-vm-from-hello-captured-image"></a>Stap 3: Een virtuele machine maken vanuit Hallo vastgelegde installatiekopie
-Nu Hallo installatiekopie gebruiken met een sjabloon toocreate een Linux-VM. Deze stappen ziet u hoe toouse hello Azure CLI en Hallo JSON-bestandssjabloon vastgelegd van toocreate Hallo VM in een nieuw virtueel netwerk.
+## <a name="step-3-create-a-vm-from-the-captured-image"></a>Stap 3: Een virtuele machine van de vastgelegde installatiekopie maken
+De afbeelding met een sjabloon nu gebruiken voor het maken van een Linux-VM. Deze stappen ziet u hoe u de Azure CLI en het JSON-bestand-sjabloon die u hebt vastgelegd voor het maken van de virtuele machine in een nieuw virtueel netwerk.
 
 ### <a name="create-network-resources"></a>Maken van netwerkbronnen
-toouse hello sjabloon, moet u eerst tooset van een virtueel netwerk en de NIC voor uw nieuwe virtuele machine. U wordt aangeraden maken van een resourcegroep voor deze resources op Hallo-locatie waar uw VM-installatiekopie is opgeslagen. Voer de opdrachten vergelijkbare toohello te volgen, vervangen door namen voor uw resources en juiste Azure locatie ('centralus' in deze opdrachten):
+De sjabloon wilt gebruiken, moet u eerst een virtueel netwerk en NIC instellen voor uw nieuwe virtuele machine. Het is raadzaam om dat het maken van een resourcegroep voor deze bronnen op de locatie waar uw VM-installatiekopie is opgeslagen. De opdrachten uitvoeren is vergelijkbaar met de volgende, waarbij namen voor uw resources en juiste Azure locatie ('centralus' in deze opdrachten):
 
 ```azurecli
 azure group create myResourceGroup1 -l "centralus"
@@ -106,40 +106,40 @@ azure network public-ip create myResourceGroup1 myPublicIP -l "centralus"
 azure network nic create myResourceGroup1 myNIC -k mySubnet -m myVnet -p myPublicIP -l "centralus"
 ```
 
-### <a name="get-hello-id-of-hello-nic"></a>Hallo Hallo NIC-Id ophalen
-toodeploy een virtuele machine uit Hallo installatiekopie met behulp van Hallo JSON die u hebt opgeslagen tijdens het vastleggen, moet u Hallo-Id van Hallo NIC. Het door het uitvoeren van de volgende opdracht Hallo verkrijgen:
+### <a name="get-the-id-of-the-nic"></a>De Id van de NIC verkrijgen
+Voor het implementeren van een virtuele machine van de installatiekopie met behulp van de JSON die u hebt opgeslagen tijdens het vastleggen, moet u de Id van de NIC. U ontvangt deze met de volgende opdracht:
 
 ```azurecli
 azure network nic show myResourceGroup1 myNIC
 ```
 
-Hallo **Id** in Hallo uitvoer ziet er ongeveer te`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic`
+De **Id** in de uitvoer is vergelijkbaar met`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic`
 
 ### <a name="create-a-vm"></a>Een virtuele machine maken
-Nu uitvoeren Hallo volgende toocreate opdracht vastgelegd uw VM van Hallo VM-installatiekopie. Gebruik Hallo **-f** parameter toospecify Hallo pad toohello sjabloon JSON bestand opgeslagen.
+Voer nu de volgende opdracht voor het maken van uw virtuele machine van de vastgelegde installatiekopie van de virtuele machine. Gebruik de **-f** parameter om het pad naar het sjabloon JSON-bestand die u hebt opgeslagen.
 
 ```azurecli
 azure group deployment create myResourceGroup1 MyDeployment -f MyTemplate.json
 ```
 
-In de opdrachtuitvoer hello, vraag toosupply zijn een nieuwe VM-naam, Hallo beheerdersgebruikersnaam en wachtwoord en Hallo-Id van Hallo NIC die u eerder hebt gemaakt.
+In de opdrachtuitvoer wordt u gevraagd om op te geven van een nieuwe VM-naam, de admin-gebruikersnaam en wachtwoord en de Id van de NIC die u eerder hebt gemaakt.
 
 ```bash
 info:    Executing command group deployment create
-info:    Supply values for hello following parameters
+info:    Supply values for the following parameters
 vmName: myNewVM
 adminUserName: myAdminuser
 adminPassword: ********
 networkInterfaceId: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resource Groups/myResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic
 ```
 
-Hallo volgende voorbeeld ziet u wat u voor een geslaagde implementatie zien:
+Het volgende voorbeeld ziet u wat u voor een geslaagde implementatie zien:
 
 ```bash
 + Initializing template configurations and parameters
 + Creating a deployment
 info:    Created template deployment xxxxxxx
-+ Waiting for deployment toocomplete
++ Waiting for deployment to complete
 data:    DeploymentName     : MyDeployment
 data:    ResourceGroupName  : MyResourceGroup1
 data:    ProvisioningState  : Succeeded
@@ -161,38 +161,38 @@ data:    networkInterfaceId  String        /subscriptions/xxxxxxxx-xxxx-xxxx-xxx
 info:    group deployment create command OK
 ```
 
-### <a name="verify-hello-deployment"></a>Hallo-implementatie controleren
-Nu SSH toohello virtuele machine u tooverify Hallo implementatie en begin met behulp van gemaakt Hallo nieuwe virtuele machine. tooconnect via SSH, Hallo IP-adres van de virtuele machine die u hebt gemaakt door het uitvoeren van de volgende opdracht Hallo Hallo vinden:
+### <a name="verify-the-deployment"></a>De implementatie controleren
+Nu SSH aan de virtuele machine die u hebt gemaakt om te controleren of de implementatie en begin met behulp van de nieuwe virtuele machine. Als u wilt verbinding maken via SSH, vinden de IP-adres van de virtuele machine die u hebt gemaakt met de volgende opdracht uit te voeren:
 
 ```azurecli
 azure network public-ip show myResourceGroup1 myPublicIP
 ```
 
-Hallo openbaar IP-adres wordt vermeld in de opdrachtuitvoer Hallo. U maken standaard verbinding toohello Linux-VM met SSH op poort 22.
+Het openbare IP-adres wordt vermeld in de opdrachtuitvoer. Standaard verbinding u met de Linux-VM met SSH op poort 22.
 
 ## <a name="create-additional-vms"></a>Aanvullende virtuele machines maken
-Gebruik Hallo vastgelegde installatiekopie en de sjabloon toodeploy extra virtuele machines met Hallo stappen in de voorgaande sectie Hallo. Andere opties toocreate virtuele machines van de installatiekopie van het Hallo opnemen met behulp van een sjabloon Quick Start of Hallo uitgevoerd **azure vm maken** opdracht.
+Gebruik de vastgelegde installatiekopie en de sjabloon voor het implementeren van extra virtuele machines met de stappen in de vorige sectie. Andere opties voor het maken van virtuele machines van de installatiekopie met behulp van een sjabloon Quick Start of uitgevoerd zijn de **azure vm maken** opdracht.
 
-### <a name="use-hello-captured-template"></a>Vastgelegde Hallo-sjabloon gebruiken
-Hallo toouse vastgelegde installatiekopie en de sjabloon, als volgt te werk (beschreven in voorgaande sectie Hallo):
+### <a name="use-the-captured-template"></a>De vastgelegde sjabloon gebruiken
+Als u de vastgelegde installatiekopie en de sjabloon, volgt (gespecificeerd in de vorige sectie):
 
-* Zorg ervoor dat uw VM-installatiekopie Hallo hetzelfde opslagaccount die als host fungeert voor uw VM VHD.
-* Hallo sjabloon JSON-bestand kopiëren en geef een unieke naam voor de besturingssysteemschijf Hallo Hallo nieuwe VM VHD (of VHD's). Bijvoorbeeld in Hallo **storageProfile**onder **vhd**in **uri**, Geef een unieke naam voor Hallo **osDisk** VHD vergelijkbaar te`https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
-* Maak een NIC in beide Hallo dezelfde of een ander virtueel netwerk.
-* Hallo gewijzigd sjabloon JSON-bestand gebruikt, maakt u een implementatie in de resourcegroep Hallo in waarmee u een virtueel netwerk Hallo instellen.
+* Zorg ervoor dat uw VM-installatiekopie in hetzelfde opslagaccount die als host fungeert voor uw VM VHD.
+* Kopieer het JSON-bestand van het sjabloon en geef een unieke naam voor de besturingssysteemschijf van de nieuwe VM VHD (of VHD's). Bijvoorbeeld, in de **storageProfile**onder **vhd**in **uri**, Geef een unieke naam voor de **osDisk** VHD, vergelijkbaar met`https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
+* Maak een NIC in dezelfde of een ander virtueel netwerk.
+* Maak een implementatie met de gewijzigde sjabloon JSON-bestand in de resourcegroep waarin u het virtuele netwerk hebt ingesteld.
 
 ### <a name="use-a-quickstart-template"></a>Een Quick Start-sjabloon gebruiken
-Als u instellen automatisch wanneer u een virtuele machine van de installatiekopie van het Hallo maakt Hallo-netwerk wilt, kunt u deze resources in een sjabloon. Zie bijvoorbeeld Hallo [101-vm-van-gebruiker-image sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) vanuit GitHub. Deze sjabloon maakt een virtuele machine van uw aangepaste installatiekopie en Hallo nodig virtueel netwerk, openbare IP-adres en NIC-resources. Zie voor een overzicht van het gebruik van de sjabloon Hallo in hello Azure-portal [hoe een virtuele machine van een aangepaste installatiekopie met Resource Manager-sjabloon toocreate](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/).
+Als u het instellen van het automatisch wanneer u een virtuele machine van de installatiekopie van het maakt netwerk wilt, kunt u deze resources in een sjabloon. Zie bijvoorbeeld de [101-vm-van-gebruiker-image sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) vanuit GitHub. Deze sjabloon maakt een virtuele machine van uw aangepaste installatiekopie en de benodigde virtueel netwerk, openbare IP-adres en NIC-bronnen. Zie voor een overzicht van het gebruik van de sjabloon in de Azure portal [maken van een virtuele machine uit een aangepaste installatiekopie met Resource Manager-sjabloon](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/).
 
-### <a name="use-hello-azure-vm-create-command"></a>Gebruik hello azure vm-opdracht maken
-Meestal is het eenvoudigste toouse een Resource Manager-sjabloon toocreate een virtuele machine uit Hallo-installatiekopie. U kunt echter Hallo VM maken *imperatively* met behulp van Hallo **azure vm maken** opdracht Hello **-Q** (**--installatiekopie urn**) parameter . Als u deze methode gebruikt, u ook Hallo doorgeven **-d** (**--os-schijf-vhd**) parameter toospecify Hallo locatie van de VHD-bestand voor Hallo OS Hallo nieuwe virtuele machine. Dit bestand moet zich in Hallo VHD's container van Hallo opslagaccount waar Hallo installatiekopie VHD-bestand wordt opgeslagen. opdracht kopieën hello VHD voor Hallo Hallo nieuwe virtuele machine automatisch toohello **VHD's** container.
+### <a name="use-the-azure-vm-create-command"></a>Gebruik de azure vm-opdracht maken
+Meestal is het eenvoudigste Resource Manager-sjabloon gebruiken om te maken van een virtuele machine uit de afbeelding. U kunt echter de virtuele machine maken *imperatively* met behulp van de **azure vm maken** opdracht met de **-Q** (**--installatiekopie urn**) parameter. Als u deze methode gebruikt, geeft u ook de **-d** (**--os-schijf-vhd**) parameter om de locatie van het besturingssysteem-VHD-bestand voor de nieuwe virtuele machine. Dit bestand moet zich in de container VHD's van het opslagaccount waar het VHD-bestand wordt opgeslagen. De opdracht kopieert u de VHD voor de nieuwe virtuele machine automatisch omgeleid naar de **VHD's** container.
 
-Voordat u **azure vm maken** voltooien met installatiekopie van het Hallo Hallo stappen te volgen:
+Voordat u **azure vm maken** met de installatiekopie, de volgende stappen uitvoeren:
 
-1. Een resourcegroep maken of een bestaande resourcegroep voor Hallo implementatie identificeren.
-2. Maken van een openbare IP-adres resource en een NIC-resource voor Hallo nieuwe virtuele machine. Zie eerder in dit artikel voor stappen toocreate de een virtueel netwerk, openbare IP-adres en NIC met behulp van Hallo CLI. (**azure vm maken** kunt ook een NIC maken, maar moet u extra parameters toopass voor een virtueel netwerk en subnet.)
+1. Een resourcegroep maken of een bestaande resourcegroep voor de implementatie identificeren.
+2. De bron van een openbare IP-adres en een NIC-resource maken voor de nieuwe virtuele machine. Zie voor stappen voor het maken van een virtueel netwerk, het openbare IP-adres en de NIC met behulp van de CLI, eerder in dit artikel. (**azure vm maken** ook een NIC kunt maken, maar u moet extra parameters voor een virtueel netwerk en subnet doorgeven.)
 
-Voer vervolgens een opdracht die wordt doorgegeven URI's tooboth Hallo nieuwe OS-VHD-bestand en Hallo bestaande installatiekopie. In dit voorbeeld wordt een grootte Standard_A1 VM wordt gemaakt in de regio VS-Oost Hallo.
+Voer vervolgens een opdracht die wordt doorgegeven URI's op het nieuwe besturingssysteem-VHD-bestand en de bestaande installatiekopie. In dit voorbeeld wordt een grootte Standard_A1 VM wordt gemaakt in de regio VS-Oost.
 
 ```azurecli
 azure vm create -g myResourceGroup1 -n myNewVM -l eastus -y Linux \
@@ -204,5 +204,5 @@ azure vm create -g myResourceGroup1 -n myNewVM -l eastus -y Linux \
 Voor extra opdrachtopties, voert u `azure help vm create`.
 
 ## <a name="next-steps"></a>Volgende stappen
-toomanage uw virtuele machines met Hallo CLI, Zie Hallo taken in [implementeren en beheren van virtuele machines met behulp van Azure Resource Manager-sjablonen en Azure CLI Hallo](create-ssh-secured-vm-from-template.md).
+Zie de taken in voor het beheren van uw virtuele machines met de CLI [implementeren en beheren van virtuele machines met behulp van Azure Resource Manager-sjablonen en de Azure CLI](create-ssh-secured-vm-from-template.md).
 

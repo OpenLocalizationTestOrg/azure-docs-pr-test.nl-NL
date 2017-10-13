@@ -1,118 +1,118 @@
 
 
-## <a name="generate-hello-certificate-signing-request-file"></a>Aanvraag voor Certificaatondertekening Hallo-bestand genereren
-Hallo Apple Push Notification Service (APNS) gebruikt certificaten tooauthenticate uw pushmeldingen. Volg deze instructies toocreate Hallo nodig push-certificaat toosend en meldingen ontvangen. Zie voor meer informatie over deze begrippen Hallo officiële [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584) documentatie.
+## <a name="generate-the-certificate-signing-request-file"></a>Het bestand met de aanvraag voor certificaatondertekening genereren
+De Apple Push Notification Service (APNS) gebruikt certificaten om uw pushmeldingen te verifiëren. Volg deze instructies om het pushcertificaat te maken dat vereist is om meldingen te verzenden en te ontvangen. Zie de officiële documentatie van de [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584) voor meer informatie over deze concepten.
 
-Hallo Certificate Signing Request (CSR)-bestand genereren die worden gebruikt door Apple toogenerate een ondertekend pushcertificaat.
+Genereer het bestand met de aanvraag voor certificaatondertekening dat door Apple wordt gebruikt om een ondertekend pushcertificaat te genereren.
 
-1. Voer op uw Mac Hallo hulpprogramma Sleutelhangertoegang uit. Het kan worden geopend vanuit Hallo **hulpprogramma's** map of Hallo **andere** map op Hallo launchpad.
+1. Voer op uw Mac het hulpprogramma Sleutelhangertoegang uit. Dit kan worden gestart vanuit de map **Hulpprogramma's** of de map **Overige** in Launchpad.
 2. Klik op **Toegang tot sleutelhanger**, vouw **Certificaatassistent** uit, klik vervolgens op **Een certificaat bij een certificaatautoriteit aanvragen...**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
-3. Selecteer uw **e-mailadres gebruiker** en **algemene naam** , zorg ervoor dat **opgeslagen toodisk** is geselecteerd en klik vervolgens op **doorgaan**. Hallo laat **e-mailadres CA** veld leeg als dit niet vereist is.
+3. Selecteer uw **gebruikers-e-mailadres** en **algemene naam**, controleer of **Opgeslagen op schijf** is geselecteerd en klik vervolgens op **Doorgaan**. Laat het veld **E-mailadres CA** leeg omdat dit niet is vereist.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-csr-info.png)
-4. Typ een naam voor Hallo Certificate Signing Request (CSR) bestand in **OpslaanAls**, selecteert u de locatie Hallo in **waar**, klikt u vervolgens op **opslaan**.
+4. Typ een naam voor het bestand met de aanvraag voor certificaatondertekening in **Opslaan als**, selecteer de locatie in **Waar**, klik vervolgens op **Opslaan**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-save-csr.png)
    
-      Dit bespaart Hallo CSR-bestand in Hallo geselecteerd location; de standaardlocatie Hallo is Hallo bureaublad. Onthoud Hallo-locatie voor dit bestand hebt gekozen.
+      Het bestand met de aanvraag voor certificaatondertekening wordt opgeslagen op de geselecteerde locatie; de standaardlocatie is op het Bureaublad. Onthoud de locatie die u voor dit bestand hebt gekozen.
 
-U wordt vervolgens uw app registreren bij Apple, pushmeldingen inschakelen en dit geëxporteerde CSR toocreate een push-certificaat uploaden.
+Vervolgens gaat u uw app registreren bij Apple, pushmeldingen inschakelen en dit geëxporteerde bestand met de aanvraag voor certificaatondertekening uploaden om een pushcertificaat te maken.
 
 ## <a name="register-your-app-for-push-notifications"></a>Uw app voor pushmeldingen registreren
-toobe kunnen toosend push notifications tooan iOS-app, moet u uw toepassing registreren bij Apple, en ook registreren voor pushmeldingen.  
+U moet u app bij Apple registreren en u voor pushmeldingen registeren om pushmeldingen te kunnen verzenden naar een iOS-app.  
 
-1. Als u uw app nog niet hebt geregistreerd, gaat u toohello <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS-Inrichtingsportal</a> Hallo Apple Developer Center, meld u aan met uw Apple-ID, klikt u op **id's**, klikt u vervolgens op **App-id's** , en klik tot slot op Hallo  **+**  tooregister een nieuwe app te ondertekenen.
+1. Als u uw app nog niet hebt geregistreerd, gaat u naar de <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS-inrichtingsportal</a>, meldt u zich aan bij het Apple Developer Center met uw Apple ID, klikt u op **Id's**, klikt u vervolgens op **App-id's** en ten slotte op het **+**-teken om een nieuwe app te registreren.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
       
-2. Hallo na drie velden voor uw nieuwe app bijwerken en klik vervolgens op **doorgaan**:
+2. Werk de volgende drie velden voor uw nieuwe app bij en klik vervolgens op **Doorgaan**:
    
-   * **Naam**: Typ een beschrijvende naam voor uw app in Hallo **naam** veld Hallo **beschrijving App-ID** sectie.
-   * **Bundel-id**: onder Hallo **expliciete App-ID** sectie, voert u een **bundel-id** Hallo vorm `<Organization Identifier>.<Product Name>` zoals vermeld in Hallo [distributie Handleiding](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). Hallo *organisatie-id* en *Productnaam* u gebruikt, moet overeenkomen met Hallo organisatie-id en productnaam die u gebruikt wanneer u uw XCode-project maken. In onderstaande Hallo schermopname wordt *NotificationHubs* wordt gebruikt als de organisatie-id en *GetStarted* wordt gebruikt als Hallo productnaam. Zorg dat dit overeenkomt met Hallo-waarden die u in uw XCode-project gebruiken wilt kunt u toouse Hallo juiste publicatieprofiel met XCode. 
-   * **Pushmeldingen**: selectievakje Hallo **Pushmeldingen** optie in Hallo **App Services** sectie.
+   * **Naam**: typ een beschrijvende naam voor uw app in het veld **Naam** in de sectie **Beschrijving app-id**.
+   * **Bundel-id**: onder de sectie **Expliciete app-id** typt u een **bundel-id** in het formulier `<Organization Identifier>.<Product Name>` zoals vermeld in de [App Distribution Guide](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8) (Gids voor apps-distributie). De *organisatie-id* en *productnaam* die u gebruikt, moet overeenkomen met de organisatie-id en productnaam die u gebruikt als u een XCode-project gaat maken. In de onderstaande schermopname wordt *NotificationHubs* gebruikt als de organisatie-id en *GetStarted* als de productnaam. Door ervoor te zorgen dat deze overeenkomen met waarden die u gaat gebruiken in uw XCode-project, is het mogelijk om het juiste publicatieprofiel met XCode te gebruiken. 
+   * **Pushmeldingen**: selecteer de optie **Pushmeldingen** in de sectie **App Services**.
      
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
      
-      Dit genereert de App-ID en vraagt u tooconfirm Hallo informatie. Klik op **registreren** tooconfirm Hallo nieuwe App-ID.
+      Hiermee wordt uw app-id gegenereerd en wordt u gevraagd de gegevens te bevestigen. Klik op **Registreren** om de nieuwe app-id te bevestigen.
      
-      Nadat u op **registreren**, ziet u Hallo **registratie is voltooid** scherm, zoals hieronder wordt weergegeven. Klik op **Gereed**.
+      Nadat u op **Registreren** hebt geklikt, wordt het scherm **Registratie voltooid** weergegeven, zoals u hieronder ziet. Klik op **Gereed**.
       
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 
-1. Zoek in Hallo Developer Center onder de App-id's Hallo app-ID die u zojuist hebt gemaakt en klik op de rij.
+1. Ga in het Developer Center onder de app-id’s naar de app-id die u zojuist hebt gemaakt en klik op de rij van die id.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
    
-      Te klikken op Hallo app-ID weergegeven Hallo app-gegevens. Klik op Hallo **bewerken** knop Hallo onder aan.
+      Door op de app-id te klikken, worden de gegevens van de app weergegeven. Klik op de knop **Bewerken** onderaan.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
       
-2. Schuif toohello onderaan welkomstscherm en klikt u op Hallo **certificaat maken...**  knop onder sectie Hallo **ontwikkeling Push-SSL-certificaat**.
+2. Ga naar de onderkant van het scherm en klik op de knop **Certificaat maken** onder de sectie **Ontwikkeling push-SSL-certificaat**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
    
-      Hallo-assistent iOS-certificaat toevoegen' worden weergegeven.
+      Nu wordt de assistent IOS-certificaat toevoegen weergegeven.
    
    > [!NOTE]
-   > In deze zelfstudie wordt een ontwikkelingscertificaat gebruikt. Hallo hetzelfde proces wordt gebruikt bij het registreren van een productiecertificaat. Zorg ervoor dat u Hallo met dezelfde certificaattype bij het verzenden van meldingen.
+   > In deze zelfstudie wordt een ontwikkelingscertificaat gebruikt. Hetzelfde proces wordt gebruikt bij het registreren van een productiecertificaat. Zorg er wel voor dat u hetzelfde certificaattype gebruikt als u meldingen verzendt.
    > 
    > 
-3. Klik op **bestand kiezen**, bladeren toohello-locatie waar u Hallo CSR-bestand dat u hebt gemaakt in de eerste taak Hallo hebt opgeslagen en klik vervolgens op **genereren**.
+3. Klik op **Bestand kiezen**, blader naar de locatie waar u het bestand met de aanvraag voor certificaatondertekening hebt opgeslagen dat u in de eerste taak hebt gemaakt, en klik vervolgens op **Genereren**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-cert-choose-csr.png)
-4. Nadat het Hallo-certificaat is gemaakt door Hallo-portal, klikt u op Hallo **downloaden** en klik op **gedaan**.
+4. Nadat het certificaat met de portal is gemaakt, klikt u op de knop **Downloaden** en klikt u vervolgens op **Gereed**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
    
-      Dit certificaat Hallo downloadt en tooyour computer in de map Downloads opgeslagen.
+      Het certificaat wordt nu gedownload en op uw computer in de map Downloads opgeslagen.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
    
    > [!NOTE]
-   > Standaard, Hallo gedownload bestand een ontwikkelingscertificaat heet **aps_development.cer**.
+   > Standaard krijgt het gedownloade bestand, een ontwikkelingscertificaat, de naam **aps_development.cer**.
    > 
    > 
-5. Dubbelklik op het gedownloade pushcertificaat hello **aps_development.cer**.
+5. Dubbelklik op het gedownloade pushcertificaat **aps_development.cer**.
    
-      Hiermee installeert u nieuw certificaat Hallo in Hallo sleutelhanger, zoals hieronder wordt weergegeven:
+      Nu wordt het nieuwe certificaat in de sleutelhanger geïnstalleerd, zoals hieronder wordt weergegeven:
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
    
    > [!NOTE]
-   > Hallo-naam in uw certificaat kan afwijken, maar deze worden voorafgegaan door **Apple Development iOS Push Services:**.
+   > De naam in uw certificaat kan afwijken, maar wordt voorafgegaan door **Apple Development iOS Push Services:**.
    > 
    > 
-6. In Sleutelhangertoegang met de rechtermuisknop op Hallo nieuwe pushcertificaat dat u hebt gemaakt in Hallo **certificaten** categorie. Klik op **exporteren**, Hallo-bestand een naam, selecteer Hallo **.p12** formatteren, en klik vervolgens op **opslaan**.
+6. In Sleutelhangertoegang klikt u met de rechtermuisknop op het nieuwe pushcertificaat dat u hebt gemaakt in de categorie **Certificaten**. Klik op **Exporteer**, geef het bestand een naam, selecteer de **.p12**-indeling en klik vervolgens op **Bewaar**.
    
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
    
-    Een notitie van Hallo bestandsnaam en locatie van Hallo geëxporteerde .p12-certificaat maken. Gebruikte tooenable verificatie met APNS zal zijn.
+    Noteer de bestandsnaam en locatie van het geëxporteerde .p12-certificaat. Dit wordt gebruikt om verificatie met APNS mogelijk te maken.
    
    > [!NOTE]
    > Tijdens deze zelfstudie wordt een QuickStart.p12-bestand gemaakt. De naam en locatie van uw bestand kunnen afwijken.
    > 
    > 
 
-## <a name="create-a-provisioning-profile-for-hello-app"></a>Maak een inrichtingsprofiel voor Hallo-app
-1. Terug in Hallo <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS-Inrichtingsportal</a>, selecteer **Inrichtingsprofielen**, selecteer **alle**, en klik vervolgens op Hallo  **+**  knop toocreate een nieuw profiel. Dit start Hallo **iOS-Inrichtingsprofielen toevoegen** Wizard
+## <a name="create-a-provisioning-profile-for-the-app"></a>Een inrichtingsprofiel voor de app maken
+1. Terug in de <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS-inrichtingsportal</a> selecteert u **Inrichtingsprofielen**, selecteert u **Alle** en klikt u vervolgens op de knop met het **+**-teken om een nieuw profiel te maken. Nu wordt de wizard **iOS-inrichtingsprofielen toevoegen** gestart.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
-2. Selecteer **ontwikkeling iOS-App** onder **ontwikkeling** als Hallo inrichtingsprofieltype en klik op **doorgaan**. 
-3. Selecteer vervolgens Hallo app-ID die u zojuist hebt gemaakt van Hallo **App-ID** vervolgkeuzelijst en klik op **doorgaan**
+2. Selecteer **Ontwikkeling iOS-app** onder **Ontwikkeling** als het inrichtingsprofieltype en klik vervolgens op **Doorgaan**. 
+3. Selecteer vervolgens in de vervolgkeuzelijst **App-id** de app-id die u zojuist hebt gemaakt en klik op **Doorgaan**
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
-4. In Hallo **Selecteer certificaten** scherm, selecteert u het ontwikkelingscertificaat gebruikt voor ondertekening van programmacode en klikt u op **doorgaan**. Dit is geen Hallo push-certificaat die u zojuist hebt gemaakt.
+4. In het scherm **Certificaten selecteren** selecteert u het ontwikkelingscertificaat dat u doorgaans gebruikt voor het ondertekenen van programmacode en klikt u op **Doorgaan**. Dit is niet het pushcertificaat dat u zojuist hebt gemaakt.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
-5. Selecteer vervolgens Hallo **apparaten** toouse voor testen en klik op **doorgaan**
+5. Selecteer vervolgens de **apparaten** die u voor de tests wilt gebruiken en klik op **Doorgaan**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
-6. Kies tot slot een naam voor het Hallo-profiel in **profielnaam**, klikt u op **genereren**.
+6. Kies tot slot een naam voor het profiel in **Profielnaam** en klik op **Genereren**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
-7. Tijdens het maken van nieuwe profiel voor inrichting Hallo Ga toodownload deze en installeer deze op uw ontwikkelcomputer Xcode. Klik vervolgens op **Gereed**.
+7. Als het nieuwe inrichtingsprofiel is gemaakt, klikt u erop om het te downloaden en op uw machine met de Xcode-ontwikkelcode te installeren. Klik vervolgens op **Gereed**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)

@@ -1,6 +1,6 @@
 ---
-title: aaaHow toouse hello Azure slave invoegtoepassing met Hudson continue integratie | Microsoft Docs
-description: Hierin wordt beschreven hoe toouse hello Azure slave invoegtoepassing met Hudson continue integratie.
+title: Het gebruik van de invoegtoepassing Azure slave met Hudson continue integratie | Microsoft Docs
+description: Beschrijft hoe u de invoegtoepassing Azure slave met Hudson continue integratie.
 services: virtual-machines-linux
 documentationcenter: 
 author: rmcmurray
@@ -14,30 +14,30 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: cd6e67ad71c208aa56746aa8b70ba507da20bee9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toouse-hello-azure-slave-plug-in-with-hudson-continuous-integration"></a>Hoe toouse hello Azure slave invoegtoepassing met Hudson continue integratie
-Hello Azure slave invoegtoepassing voor Hudson kunt u tooprovision slave knooppunten op Azure bij het uitvoeren van gedistribueerde bouwt.
+# <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Het gebruik van de invoegtoepassing Azure slave met Hudson continue integratie
+De invoegtoepassing voor Hudson Azure slave kunt u knooppunten van de slave op Azure inrichten bij het uitvoeren van gedistribueerde bouwt.
 
-## <a name="install-hello-azure-slave-plug-in"></a>Hello Azure Slave invoegtoepassing installeren
-1. In Hallo Hudson dashboard, klikt u op **Hudson beheren**.
-2. In Hallo **beheren Hudson** pagina, klikt u op **invoegtoepassingen beheren**.
-3. Klik op Hallo **beschikbaar** tabblad.
-4. Klik op **Search** en het type **Azure** toolimit Hallo lijst toorelevant invoegtoepassingen.
+## <a name="install-the-azure-slave-plug-in"></a>De Azure-Slave invoegtoepassing installeren
+1. Klik in het dashboard Hudson **Hudson beheren**.
+2. In de **beheren Hudson** pagina, klikt u op **invoegtoepassingen beheren**.
+3. Klik op de **beschikbaar** tabblad.
+4. Klik op **Search** en het type **Azure** te beperken van de lijst om de relevante invoegtoepassingen.
    
-    Als u ervoor tooscroll door Hallo lijst met beschikbare invoegtoepassingen kiezen, vindt u hello Azure slave invoegtoepassing onder Hallo **Clusterbeheer en gedistribueerd bouwen** sectie in Hallo **anderen** tabblad.
-5. Schakel dit selectievakje in Hallo voor **Azure Slave invoegtoepassing**.
+    Als u ervoor kiezen om te bladeren door de lijst met beschikbare invoegtoepassingen, vindt u de Azure slave invoegtoepassing onder de **Clusterbeheer en gedistribueerd bouwen** sectie het **anderen** tabblad.
+5. Schakel het selectievakje voor **Azure Slave invoegtoepassing**.
 6. Klik op **Install**.
 7. Opnieuw opstarten Hudson.
 
-Nu die Hallo invoegtoepassing is geïnstalleerd, zou de volgende stappen Hallo tooconfigure Hallo invoegtoepassing met uw Azure-abonnement profiel en een sjabloon die wordt gebruikt bij het maken van Hallo VM voor Hallo slave knooppunt toocreate zijn.
+Nu dat de invoegtoepassing is geïnstalleerd, worden de volgende stappen voor het configureren van de invoegtoepassing met het profiel van uw Azure-abonnement en een sjabloon die wordt gebruikt bij het maken van de virtuele machine voor het knooppunt slave maken.
 
-## <a name="configure-hello-azure-slave-plug-in-with-your-subscription-profile"></a>Hello Azure Slave invoegtoepassing configureren met het profiel van uw abonnement
-Een profiel abonnement ook waarnaar wordt verwezen tooas publicatie-instellingen, is een XML-bestand met beveiligde referenties en aanvullende informatie moet u toowork met Azure in uw ontwikkelomgeving. tooconfigure hello Azure slave invoegtoepassing, moet u de:
+## <a name="configure-the-azure-slave-plug-in-with-your-subscription-profile"></a>De Azure-Slave invoegtoepassing configureren met het profiel van uw abonnement
+Een abonnement-profiel, ook bekend als de publicatie-instellingen, is een XML-bestand met beveiligde referenties en wat extra informatie die u wilt werken met Azure in uw ontwikkelomgeving. Voor het configureren van de invoegtoepassing Azure slave, hebt u het volgende nodig:
 
 * Uw abonnements-id
 * Een beheercertificaat voor uw abonnement
@@ -63,56 +63,56 @@ Deze vindt u in uw [abonnement profiel]. Hieronder volgt een voorbeeld van een p
 
     </PublishData>
 
-Zodra u het profiel van uw abonnement hebt, volgt u deze stappen tooconfigure hello Azure slave invoegtoepassing.
+Zodra u het profiel van uw abonnement hebt, volg deze stappen voor het configureren van de invoegtoepassing Azure slave.
 
-1. In Hallo Hudson dashboard, klikt u op **Hudson beheren**.
+1. Klik in het dashboard Hudson **Hudson beheren**.
 2. Klik op **systeem configureren**.
-3. Schuif omlaag Hallo pagina toofind hello **Cloud** sectie.
+3. Schuif omlaag in de pagina naar de **Cloud** sectie.
 4. Klik op **toevoegen van nieuwe cloud > Microsoft Azure**.
    
     ![toevoegen van nieuwe cloud][add new cloud]
    
-    Hier ziet uw abonnementsgegevens Hallo velden waar u tooenter nodig.
+    Hier ziet de velden waarop u moet uw abonnementsgegevens invoeren.
    
     ![profiel configureren][configure profile]
-5. Kopiëren Hallo abonnements-id en het beheer van het certificaat uit het profiel van uw abonnement en plak deze in de juiste velden Hallo.
+5. Het abonnement-id en het beheer certificaat uit het profiel van uw abonnement Kopieer en plak deze in de juiste velden.
    
-    Bij het kopiëren van Hallo abonnement-id en het beheer certificaat **niet** Hallo aanhalingstekens die Hallo-waarden insluiten bevatten.
+    Bij het kopiëren van het abonnement-id en de management-certificaat **niet** de aanhalingstekens die plaatst u de waarden.
 6. Klik op **controleren configuratie**.
-7. Wanneer het Hallo-configuratie is geverifieerd, klikt u op **opslaan**.
+7. Wanneer de configuratie is geverifieerd, klikt u op **opslaan**.
 
-## <a name="set-up-a-virtual-machine-template-for-hello-azure-slave-plug-in"></a>Een virtuele machine-sjabloon voor hello Azure Slave invoegtoepassing instellen
-Een sjabloon voor virtuele machines Hallo parameters definieert Hallo invoegtoepassing gebruikt toocreate een knooppunt slave op Azure. In de volgende stappen uit Hallo maakt we sjabloon voor een Ubuntu VM.
+## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plug-in"></a>Een virtuele machine-sjabloon instellen voor de Azure-Slave invoegtoepassing
+Een VM-sjabloon definieert de parameters die de invoegtoepassing wordt gebruikt voor het maken van een knooppunt slave op Azure. In de volgende stappen maakt we sjabloon voor een Ubuntu VM.
 
-1. In Hallo Hudson dashboard, klikt u op **Hudson beheren**.
+1. Klik in het dashboard Hudson **Hudson beheren**.
 2. Klik op **systeem configureren**.
-3. Schuif omlaag Hallo pagina toofind hello **Cloud** sectie.
-4. Binnen Hallo **Cloud** sectie, zoeken **Azure virtuele Machine-sjabloon toevoegen** en klik op Hallo **toevoegen** knop.
+3. Schuif omlaag in de pagina naar de **Cloud** sectie.
+4. Binnen de **Cloud** sectie, zoeken **Azure virtuele Machine-sjabloon toevoegen** en klik op de **toevoegen** knop.
    
     ![vm-sjabloon toevoegen][add vm template]
-5. Geef de naam van een cloudservice in Hallo **naam** veld. Als Hallo-naam die u opgeeft tooan bestaande cloudservice verwijst, worden Hallo VM ingericht in die service. Azure wordt anders maakt u een nieuwe.
-6. In Hallo **beschrijving** en voer de tekst die beschrijft Hallo-sjabloon die u maakt. Deze informatie wordt alleen gebruikt voor administratieve doeleinden en wordt niet gebruikt in een VM-inrichting.
-7. In Hallo **Labels** veld **linux**. Dit label is gebruikte tooidentify Hallo sjabloon die u maakt en vervolgens gebruikte tooreference Hallo sjabloon bij het maken van een taak Hudson.
-8. Selecteer een regio waar Hallo VM wordt gemaakt.
-9. Selecteer de relevante VM-grootte Hallo.
-10. Geef een opslagaccount waar Hallo VM wordt gemaakt. Zorg ervoor dat deze zich in Hallo dezelfde regio als Hallo cloudservice die u wilt gebruiken. Als u nieuwe opslag toobe gemaakt wilt, kunt u dit veld leeg laten.
-11. Bewaartijd geeft het aantal minuten op voordat Hudson wordt verwijderd als een niet-actieve slave Hallo. Dit laat de standaardwaarde Hallo van 60.
-12. In **gebruik**, selecteer welke voorwaarde Hallo wanneer dit knooppunt slave wordt gebruikt. Selecteer nu **gebruikmaken van dit knooppunt zo veel mogelijk**.
+5. Geef de naam van een cloudservice in de **naam** veld. Als de opgegeven naam naar een bestaande cloudservice verwijst, dat de virtuele machine wordt ingericht in die service. Azure wordt anders maakt u een nieuwe.
+6. In de **beschrijving** en voer de tekst die beschrijft de sjabloon die u maakt. Deze informatie wordt alleen gebruikt voor administratieve doeleinden en wordt niet gebruikt in een VM-inrichting.
+7. In de **Labels** veld **linux**. Dit label wordt gebruikt voor het identificeren van de sjabloon die u maakt en vervolgens worden gebruikt om te verwijzen naar de sjabloon bij het maken van een taak Hudson.
+8. Selecteer een regio waar de virtuele machine wordt gemaakt.
+9. Selecteer de relevante VM-grootte.
+10. Geef een opslagaccount waar de virtuele machine wordt gemaakt. Zorg ervoor dat deze zich in dezelfde regio bevinden als de cloudservice die u wilt gebruiken. Als u wilt dat nieuwe opslag worden gemaakt, kunt u dit veld leeg laten.
+11. Bewaartijd geeft het aantal minuten voordat Hudson wordt een niet-actieve slave verwijderd. Dit laat de standaardwaarde van 60.
+12. In **gebruik**, selecteert u de juiste voorwaarde wanneer dit knooppunt slave wordt gebruikt. Selecteer nu **gebruikmaken van dit knooppunt zo veel mogelijk**.
     
-     Op dit moment eruit uw formulier enigszins vergelijkbaar toothis:
+     Op dit moment eruit uw formulier enigszins vergelijkbaar met het volgende:
     
      ![De sjabloonconfiguratie][template config]
-13. In **installatiekopie familie-Id of** hebt toospecify welke installatiekopie wordt geïnstalleerd op de virtuele machine. U kunt selecteren in een lijst van families van de afbeelding of geef een aangepaste installatiekopie.
+13. In **installatiekopie familie-Id of** u moet opgeven welke installatiekopie wordt geïnstalleerd op de virtuele machine. U kunt selecteren in een lijst van families van de afbeelding of geef een aangepaste installatiekopie.
     
-     Als u tooselect uit een lijst met installatiekopie families wilt, Voer Hallo eerste teken (hoofdlettergevoelig) van familienaam Hallo-installatiekopie. Voor het exemplaar typen **U** verschijnt nu een lijst met Ubuntu Server families. Wanneer u in de lijst hello selecteert, Jenkins Hallo meest recente versie van deze installatiekopie van die familie gebruikt bij het inrichten van uw virtuele machine.
+     Als u selecteren in een lijst van families van de installatiekopie wilt, voert u het eerste teken (hoofdlettergevoelig) van de naam van de installatiekopie-serie. Voor het exemplaar typen **U** verschijnt nu een lijst met Ubuntu Server families. Wanneer u in de lijst selecteert, wordt Jenkins de nieuwste versie van deze installatiekopie van die familie gebruiken bij het inrichten van uw virtuele machine.
     
      ![Lijst met familie van besturingssystemen][OS family list]
     
-     Als u een aangepaste installatiekopie dat u wilt dat toouse in plaats daarvan hebt, Voer Hallo-naam van de aangepaste installatiekopie. Afbeelding van aangepaste namen worden niet weergegeven in een lijst zodat u tooensure die Hallo naam correct is ingevoerd.    
+     Als u een aangepaste installatiekopie die u wilt gebruiken in plaats daarvan hebt, voer de naam van de aangepaste installatiekopie. Afbeelding van aangepaste namen worden niet weergegeven in een lijst zodat u ervoor te zorgen dat de naam correct worden ingevoerd.    
     
-     Typ voor deze zelfstudie **U** toobring een lijst weergegeven van Ubuntu-installatiekopieën en selecteer **Ubuntu Server 14.04 TNS**.
+     Typ voor deze zelfstudie **U** online zetten van een lijst met afbeeldingen Ubuntu en selecteer **Ubuntu Server 14.04 TNS**.
 14. Voor **methode starten**, selecteer **SSH**.
-15. Hallo onderstaande script kopiëren en plakken op Hallo **Init script** veld.
+15. Het onderstaande script kopiëren en plakken in de **Init script** veld.
     
          # Install Java
     
@@ -136,22 +136,22 @@ Een sjabloon voor virtuele machines Hallo parameters definieert Hallo invoegtoep
     
          sudo apt-get install -y ant
     
-     Hallo **Init script** worden uitgevoerd na Hallo virtuele machine wordt gemaakt. In dit voorbeeld installeert Hallo script Java, git en ant.
-16. In Hallo **gebruikersnaam** en **wachtwoord** velden, voert u de gewenste waarden voor Hallo administrator-account dat wordt gemaakt op de virtuele machine.
-17. Klik op **sjabloon controleren** toocheck als Hallo-parameters die u hebt opgegeven geldig zijn.
+     De **Init script** worden uitgevoerd nadat de virtuele machine is gemaakt. In dit voorbeeld installeert het script Java, git en ant.
+16. In de **gebruikersnaam** en **wachtwoord** velden, voert u de gewenste waarden voor de administrator-account dat wordt gemaakt op de virtuele machine.
+17. Klik op **sjabloon controleren** om te controleren of de parameters die u hebt opgegeven ongeldig zijn.
 18. Klik op **Opslaan**.
 
 ## <a name="create-a-hudson-job-that-runs-on-a-slave-node-on-azure"></a>Een taak Hudson die wordt uitgevoerd op een lager niveau bevindende-knooppunt in Azure maken
 In deze sectie maakt u een Hudson-taak die wordt uitgevoerd op een knooppunt slave op Azure.
 
-1. In Hallo Hudson dashboard, klikt u op **nieuwe taak**.
-2. Voer een naam voor de Hallo-taak die u maakt.
-3. Selecteer Hallo taaktype **bouwen van een taak vrije-stijl software**.
+1. Klik in het dashboard Hudson **nieuwe taak**.
+2. Voer een naam voor de taak die u maakt.
+3. Selecteer voor het taaktype **bouwen van een taak vrije-stijl software**.
 4. Klik op **OK**.
-5. Selecteer in de taak configuratiepagina Hallo **beperken waar dit project kan worden uitgevoerd**.
-6. Selecteer **knooppunt en label menu** en selecteer **linux** (we opgegeven dit label bij het maken van virtuele-machinesjabloon Hallo in de vorige sectie Hallo).
-7. In Hallo **bouwen** sectie, klikt u op **toevoegen build stap** en selecteer **shell uitvoeren**.
-8. Hallo script volgen en vervangt bewerken **{uw github-accountnaam}**, **{projectnaam van uw}**, en **{uw projectmap}** met waarden nodig en Hallo plakken bewerkt script Hallo tekst in die wordt weergegeven.
+5. Selecteer in de configuratiepagina van de taak **beperken waar dit project kan worden uitgevoerd**.
+6. Selecteer **knooppunt en label menu** en selecteer **linux** (we opgegeven dit label bij het maken van de virtuele machine-sjabloon in de vorige sectie).
+7. In de **bouwen** sectie, klikt u op **toevoegen build stap** en selecteer **shell uitvoeren**.
+8. Bewerken van het volgende script, vervangen **{uw github-accountnaam}**, **{projectnaam van uw}**, en **{uw projectmap}** met waarden nodig en plak het bewerkte het script in het tekstgebied die wordt weergegeven.
    
         # Clone from git repo
    
@@ -169,7 +169,7 @@ In deze sectie maakt u een Hudson-taak die wordt uitgevoerd op een knooppunt sla
    
         fi
    
-        # change directory tooproject
+        # change directory to project
    
         cd $currentDir/{your project directory}
    
@@ -177,12 +177,12 @@ In deze sectie maakt u een Hudson-taak die wordt uitgevoerd op een knooppunt sla
    
         ant
 9. Klik op **Opslaan**.
-10. In Hallo Hudson dashboard, zoek de Hallo-taak die u zojuist hebt gemaakt en klik op Hallo **plannen van een build** pictogram.
+10. Zoek in het dashboard Hudson de taak die u zojuist hebt gemaakt en klik op de **plannen van een build** pictogram.
 
-Hudson vervolgens maakt u een lager niveau bevindende knooppunt met Hallo-sjabloon is gemaakt in de vorige sectie Hallo en Hallo-script die u hebt opgegeven in Hallo build stap voor deze taak uitvoeren.
+Hudson vervolgens maakt u een lager niveau bevindende knooppunt met behulp van de sjabloon in de vorige sectie hebt gemaakt en voer het script dat u hebt opgegeven in de stap build voor deze taak.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het gebruik van Azure met Java Hallo [Azure Java Developer Center].
+In het [Azure Java Developer Center] vindt u meer informatie over het gebruik van Azure met Java.
 
 <!-- URL List -->
 

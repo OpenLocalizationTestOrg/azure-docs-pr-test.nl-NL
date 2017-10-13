@@ -1,5 +1,5 @@
 ---
-title: aaaManage integratie artefact metagegevens - account Azure Logic Apps | Microsoft Docs
+title: Integratie account artefact metagegevens - Azure Logic Apps beheren | Microsoft Docs
 description: Toevoegen of artefact metagegevens ophalen uit integratieaccounts voor Azure Logic Apps
 author: padmavc
 manager: anneta
@@ -15,23 +15,23 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 8de71bffa9f9975d5409716b2208fa6c3a9545d8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>De metagegevens van de artefacten in integratieaccounts voor logic apps beheren
 
-U kunt aangepaste metagegevens voor artefacten in integratieaccounts definiëren en ophalen van metagegevens tijdens de runtime voor uw logische app. Bijvoorbeeld, kunt u metagegevens voor artefacten zoals partners, overeenkomsten, schema's en maps - alle sleutelwaarde-paren met metagegevens opslaan. Momenteel artefacten metagegevens via de gebruikersinterface kunnen niet worden gemaakt, maar u kunt met behulp van REST-API's toocreate metagegevens. tooadd metagegevens wanneer u maakt of selecteert u een partner, een overeenkomst of een schema in hello Azure-portal, kies **bewerken als JSON**. tooretrieve artefact metagegevens in logic apps, kunt u Hallo integratie Account artefact Lookup-functie.
+U kunt aangepaste metagegevens voor artefacten in integratieaccounts definiëren en ophalen van metagegevens tijdens de runtime voor uw logische app. Bijvoorbeeld, kunt u metagegevens voor artefacten zoals partners, overeenkomsten, schema's en maps - alle sleutelwaarde-paren met metagegevens opslaan. Op dit moment artefacten metagegevens via de gebruikersinterface kunnen niet worden gemaakt, maar u kunt REST-API's gebruiken voor het maken van metagegevens. Om toe te voegen metagegevens wanneer u maakt of selecteert u een partner, een overeenkomst of een schema in de Azure-portal, kies **bewerken als JSON**. Voor het ophalen van metagegevens van het artefact in logic apps, kunt u de functie Integratie Account artefact opzoeken.
 
-## <a name="add-metadata-tooartifacts-in-integration-accounts"></a>Metagegevens tooartifacts in integratieaccounts toevoegen
+## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>Metagegevens toevoegen aan artefacten in integratieaccounts
 
 1. Maak een [integratie account](logic-apps-enterprise-integration-create-integration-account.md).
 
-2. Toevoegen van een artefact tooyour integratie-account, bijvoorbeeld, een [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), [overeenkomst](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements), of [schema](logic-apps-enterprise-integration-schemas.md).
+2. Voeg bijvoorbeeld een artefact toe aan uw account integratie, een [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), [overeenkomst](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements), of [schema](logic-apps-enterprise-integration-schemas.md).
 
-3.  Hallo artefact selecteert, kiest u **bewerken als JSON**, en voer de details van de metagegevens.
+3.  Selecteer het artefact, kies **bewerken als JSON**, en voer de details van de metagegevens.
 
     ![Voer de metagegevens](media/logic-apps-enterprise-integration-metadata/image1.png)
 
@@ -39,15 +39,15 @@ U kunt aangepaste metagegevens voor artefacten in integratieaccounts definiëren
 
 1. Maak een [logische app](logic-apps-create-a-logic-app.md).
 
-2. Maak een [koppeling van uw logische app tooyour integratie account](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app). 
+2. Maak een [koppeling van uw logische app naar uw account integratie](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app). 
 
-3. In Logic App-ontwerper, voegt u een trigger zoals *aanvragen* of *HTTP* tooyour logische app.
+3. In Logic App-ontwerper, voegt u een trigger zoals *aanvragen* of *HTTP* aan uw logische app.
 
 4.  Kies **doornemen** > **een actie toevoegen**. Zoeken naar *integratie* zodat u kunt zoeken naar en selecteer vervolgens **integratie Account - integratie Account artefact Lookup**.
 
     ![Selecteer integratie Account artefact Lookup](media/logic-apps-enterprise-integration-metadata/image2.png)
 
-5. Selecteer Hallo **artefact Type**, en geef Hallo **artefact naam**.
+5. Selecteer de **artefact Type**, en geef de **artefact naam**.
 
     ![Selecteer artefact type en geef de naam van het artefact](media/logic-apps-enterprise-integration-metadata/image3.png)
 
@@ -59,9 +59,9 @@ Partner metagegevens bevat deze `routingUrl` details:
 
 1. Voeg de trigger in uw logische app, een **integratie Account - integratie Account artefact Lookup** actie voor uw partner en een **HTTP**.
 
-    ![Trigger, artefacten opzoeken en 'HTTP' tooyour logische app toevoegen](media/logic-apps-enterprise-integration-metadata/image4.png)
+    ![Trigger, artefacten opzoeken en 'HTTP' toevoegen aan uw logische app](media/logic-apps-enterprise-integration-metadata/image4.png)
 
-2. tooretrieve hello URI, gaat u tooCode weergeven voor uw logische app. De definitie van de logische app moet eruitzien als in dit voorbeeld:
+2. Voor het ophalen van de URI, gaat u naar de codeweergave voor uw logische app. De definitie van de logische app moet eruitzien als in dit voorbeeld:
 
     ![Zoeken zoeken](media/logic-apps-enterprise-integration-metadata/image5.png)
 

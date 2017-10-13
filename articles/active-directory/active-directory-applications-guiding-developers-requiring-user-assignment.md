@@ -1,6 +1,6 @@
 ---
-title: Gebruikerstoewijzing aaaRequire - Azure AD | Microsoft-Docs
-description: Hoe toorequire Gebruikerstoewijzing voor Azure-toepassingen.
+title: Gebruikerstoewijzing - Azure AD vereisen | Microsoft-Docs
+description: Klik hier voor meer informatie over het vereisen van de gebruiker is toegewezen voor Azure-toepassingen.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: kgremban
 robots: noindex
-ms.openlocfilehash: b72037cb2321fe03a8ecbbefb568029ce903a126
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 079b806c041a4a21e9350342867aee581c57bf45
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD en toepassingen: Gebruikerstoewijzing vereisen
 ## <a name="requiring-user-assignment"></a>Toewijzing van gebruiker vereisen
-1. Meld u bij toohello Azure-portal met een administratoraccount.
-2. Klik op Hallo **alle Items** item in het hoofdmenu Hallo.
-3. Hallo-map die u voor de toepassing hello gebruikt te kiezen.
-4. Klik op Hallo **toepassingen** tabblad.
-5. Selecteer Hallo-toepassing uit het Hallo-lijst met toepassingen die zijn gekoppeld aan deze map.
-6. Klik op Hallo **configureren** tabblad.
-7. Wijziging Hallo **gebruiker toewijzing vereist tooAccess App** tooYes in-of uitschakelen.
-8. Klik op Hallo **opslaan** knop Hallo onder welkomstscherm aan.
+1. Aanmelden bij de Azure-portal met een administratoraccount.
+2. Klik op de **alle Items** item in het hoofdmenu.
+3. Kies de map die u voor de toepassing gebruikt.
+4. Klik op de **toepassingen** tabblad.
+5. Selecteer de toepassing uit de lijst met toepassingen die zijn gekoppeld aan deze map.
+6. Klik op de **configureren** tabblad.
+7. Wijzig de **gebruiker toewijzing vereist voor toegang tot App** in-of uitschakelen op Ja.
+8. Klik op de **opslaan** knop aan de onderkant van het scherm.
 
-U hebt nu tooassign gebruikers en/of groepen toohello toepassing. Zie [toewijzen van gebruikers tooan toepassing](active-directory-applications-guiding-developers-assigning-users.md) en [toewijzen groepen tooan toepassing](active-directory-applications-guiding-developers-assigning-groups.md).
+U hebt nu gebruikers en/of groepen toewijzen aan de toepassing. Zie [gebruikers toewijzen aan een toepassing](active-directory-applications-guiding-developers-assigning-users.md) en [groepen toewijzen aan een toepassing](active-directory-applications-guiding-developers-assigning-groups.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]

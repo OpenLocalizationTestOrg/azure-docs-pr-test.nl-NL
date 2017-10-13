@@ -1,19 +1,19 @@
-1. Meld u aan toohello [Azure-portal].
+1. Meld u aan bij [Azure Portal].
 
 2. Klik op **Nieuw**.
 
-3. Typ in het zoekvak Hallo **Mobile Apps**.
+3. Typ **Mobile Apps** in het zoekvak.
 
     ![Azure Portal met Mobile Apps Quickstart gemarkeerd][quickstart]
 
-4. Selecteer in de lijst met resultaten Hallo **Mobile Apps-Quick Start**, en selecteer vervolgens **maken**.
+4. Selecteer **Mobile Apps Quickstart** in de lijst met resultaten en selecteer vervolgens **Maken**.
  
-5. Onder **resourcegroep**, selecteer een bestaande resourcegroep of maak een nieuwe (Gebruik dezelfde naam als uw app Hallo).
+5. Selecteer onder **Resourcegroep** een bestaande resourcegroep of maak een nieuwe (gebruik dezelfde naam als uw app).
 
-6. Klik op **Create**. Wacht enkele minuten tot Hallo service toobe is geïmplementeerd voordat u doorgaat.
+6. Klik op **Create**. Wacht enkele minuten tot de service is geïmplementeerd voordat u doorgaat.
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png
 
 <!-- URLs. -->
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

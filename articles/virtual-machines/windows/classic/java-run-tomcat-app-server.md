@@ -1,6 +1,6 @@
 ---
-title: aaaRun Java-toepassingsserver op een klassieke Azure-virtuele machine | Microsoft Docs
-description: Deze zelfstudie maakt gebruik van bronnen die zijn gemaakt met het klassieke implementatiemodel Hallo en toont hoe toocreate een Windows-virtuele machine en configureer deze toorun Apache Tomcat-toepassingsserver.
+title: Java-toepassingsserver uitgevoerd op een klassieke Azure-virtuele machine | Microsoft Docs
+description: Deze zelfstudie maakt gebruik van resources die zijn gemaakt met het klassieke implementatiemodel en laat zien hoe een virtuele Windows-machine maken en configureren voor het uitvoeren van de Apache Tomcat-toepassingsserver.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
@@ -15,123 +15,123 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 2d9f586c9f628d3738522b320996b95b078d7454
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toorun-a-java-application-server-on-a-virtual-machine-created-with-hello-classic-deployment-model"></a>Hoe toorun Java-toepassingsserver op een virtuele machine gemaakt met het klassieke implementatiemodel Hallo
+# <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Een Java-toepassingsserver uitvoeren op een virtuele machine die is gemaakt volgens het klassieke implementatiemodel
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van Hallo klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken. Zie voor toodeploy een webapp met Java 8 en Tomcat van een Resource Manager-sjabloon [hier](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/).
+> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Zie voor een Resource Manager-sjabloon voor het implementeren van een webapp met Java 8 en Tomcat [hier](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/).
 
-U kunt een virtuele machine tooprovide server mogelijkheden kunt gebruiken met Azure. Als u bijvoorbeeld mag een virtuele machine uitgevoerd op Azure geconfigureerde toohost Java-toepassingsserver, zoals Apache Tomcat.
+Met Azure, kunt u een virtuele machine zodat u de server gebruiken. Als u bijvoorbeeld kunt een virtuele machine uitgevoerd op Azure worden geconfigureerd voor het hosten van Java-toepassingsserver, zoals Apache Tomcat.
 
-Na het voltooien van deze handleiding hebt u een goed begrip van hoe u een virtuele machine toocreate uitgevoerd op Azure en configureer deze toorun Java-toepassingsserver. U leert en Hallo volgende taken uitvoeren:
+Na het voltooien van deze handleiding hebt u een goed begrip van hoe u een virtuele machine uitgevoerd op Azure maken en configureren voor het uitvoeren van Java-toepassingsserver. U leert en de volgende taken uitvoeren:
 
-* Hoe toocreate een virtuele machine die heeft een Java Development Kit (JDK) al is geïnstalleerd.
-* Hoe tooremotely log in tooyour virtuele machine.
-* Hoe tooinstall Java-toepassingsserver--Apache Tomcat--op de virtuele machine.
-* Hoe toocreate een eindpunt voor uw virtuele machine.
-* Hoe een poort in Hallo tooopen firewall voor de toepassingsserver.
+* Het maken van een virtuele machine waarvoor een Java Development Kit (JDK) al is geïnstalleerd.
+* Klik hier voor meer informatie over het extern aanmelden met uw virtuele machine.
+* Klik hier voor meer informatie over het installeren van een Java-toepassingsserver--Apache Tomcat--op de virtuele machine.
+* Het maken van een eindpunt voor uw virtuele machine.
+* Klik hier voor meer informatie over het openen van een poort in de firewall voor de toepassingsserver.
 
-Hallo voltooid Installatieresultaten in Tomcat uitgevoerd op een virtuele machine.
+De resultaten van de installatie is voltooid in Tomcat uitgevoerd op een virtuele machine.
 
 ![Virtuele machine met Apache Tomcat][virtual_machine_tomcat]
 
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
-## <a name="toocreate-a-virtual-machine"></a>toocreate een virtuele machine
-1. Meld u aan toohello [Azure-portal](https://portal.azure.com).  
-2. Klik op **nieuw**, klikt u op **Compute**, klikt u vervolgens op **alle** in Hallo **aanbevolen apps**.
-3. Klik op **JDK**, klikt u op **JDK 8** in Hallo **JDK** deelvenster.  
-   Installatiekopieën van virtuele machine die ondersteuning bieden voor **JDK 6** en **JDK 7** beschikbaar zijn als u oudere toepassingen die niet gereed toorun in JDK 8.
-4. Selecteer in het deelvenster Hallo JDK 8 **klassieke**, klikt u vervolgens op **maken**.
-5. In Hallo **basisbeginselen** blade:
-   1. Geef een naam voor de Hallo virtuele machine.
-   2. Voer een naam voor Hallo beheerder in Hallo **gebruikersnaam** veld. Houd er rekening mee deze naam en bijbehorende wachtwoord dat volgt op in het volgende veld Hallo Hallo. U moet deze als u zich extern toohello virtuele machine aanmelden.
-   3. Voer een wachtwoord in Hallo **nieuw wachtwoord** veld en voer deze opnieuw in Hallo **wachtwoord bevestigen** veld. Dit wachtwoord is voor Hallo Administrator-account.
-   4. Selecteer Hallo juiste **abonnement**.
-   5. Voor Hallo **resourcegroep**, klikt u op **nieuw** en Voer Hallo-naam van een nieuwe resourcegroep. Of klik op **gebruik bestaande** en selecteer een van de beschikbare resourcegroepen Hallo.
-   6. Selecteer een locatie waarin Hallo virtuele machine zich, zoals bevindt **Zuid-centraal VS**.
+## <a name="to-create-a-virtual-machine"></a>Een virtuele machine maken
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).  
+2. Klik op **nieuw**, klikt u op **Compute**, klikt u vervolgens op **alle** in de **aanbevolen apps**.
+3. Klik op **JDK**, klikt u op **JDK 8** in de **JDK** deelvenster.  
+   Installatiekopieën van virtuele machine die ondersteuning bieden voor **JDK 6** en **JDK 7** beschikbaar zijn als u oudere toepassingen die niet gereed in JDK 8 uit te voeren.
+4. Selecteer in het deelvenster JDK 8 **klassieke**, klikt u vervolgens op **maken**.
+5. In de **basisbeginselen** blade:
+   1. Geef een naam voor de virtuele machine.
+   2. Voer een naam voor de beheerder in de **gebruikersnaam** veld. Houd er rekening mee deze naam en het bijbehorende wachtwoord dat volgt op in het volgende veld. U moet ze wanneer u extern op de virtuele machine aanmelden.
+   3. Voer een wachtwoord in de **nieuw wachtwoord** veld en Bevestig het in de **wachtwoord bevestigen** veld. Dit wachtwoord is voor de Administrator-account.
+   4. Selecteer de relevante **abonnement**.
+   5. Voor de **resourcegroep**, klikt u op **nieuw** en voer de naam van een nieuwe resourcegroep. Of klik op **gebruik bestaande** en selecteer een van de beschikbare resourcegroepen.
+   6. Selecteer een locatie waarin de virtuele machine zich, zoals bevindt **Zuid-centraal VS**.
 6. Klik op **Volgende**.
-7. In Hallo **de grootte van de virtuele machine-installatiekopie** blade Selecteer **A1 standaard** of een andere juiste installatiekopie.
+7. In de **de grootte van de virtuele machine-installatiekopie** blade Selecteer **A1 standaard** of een andere juiste installatiekopie.
 8. Klik op **Selecteren**.
 
-9. In Hallo **instellingen** blade, klikt u op **OK**. U kunt de standaardwaarden Hallo verstrekt door Azure gebruiken.  
-10. In Hallo **samenvatting** blade, klikt u op **OK**.
+9. In de **instellingen** blade, klikt u op **OK**. U kunt de standaardwaarden die is verstrekt door Azure gebruiken.  
+10. In de **samenvatting** blade, klikt u op **OK**.
 
-## <a name="tooremotely-sign-in-tooyour-virtual-machine"></a>tooremotely aanmelden tooyour virtuele machine
-1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
-2. Klik op **virtuele machines (klassiek)**. Klik indien nodig op **meer services** in linkerbenedenhoek onder servicecategorieën Hallo Hallo. Hallo **virtuele machines (klassiek)** vermelding wordt vermeld in Hallo **Compute** groep.
-3. Klik op de naam Hallo van Hallo virtuele machine die u wilt toosign in.
-4. Nadat Hallo virtuele machine is gestart, kunt een menu bovenaan Hallo Hallo deelvenster verbindingen.
+## <a name="to-remotely-sign-in-to-your-virtual-machine"></a>Extern aanmelden bij uw virtuele machine
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Klik op **virtuele machines (klassiek)**. Klik indien nodig op **meer services** in de linkerbenedenhoek onder de servicecategorieën. De **virtuele machines (klassiek)** vermelding wordt vermeld in de **Compute** groep.
+3. Klik op de naam van de virtuele machine die u aanmelden wilt bij.
+4. Nadat de virtuele machine is gestart, wordt in een menu aan de bovenkant van het deelvenster verbindingen toestaat.
 5. Klik op **Verbinden**.
-6. Reageren op toohello prompts als benodigde tooconnect toohello virtuele machine. Normaal gesproken opslaan of Hallo RDP-bestand met de Hallo verbindingsgegevens openen. U kunt toocopy Hallo url: poort als Hallo laatste deel van de eerste regel Hallo van Hallo RDP-bestand hebben en plak deze in een toepassing voor externe aanmelding.
+6. Reageren op de vragen naar behoefte verbinding maken met de virtuele machine. Normaal gesproken opslaan of open het RDP-bestand dat de verbindingsgegevens bevat. Mogelijk moet de url: poort als het laatste deel van de eerste regel van het RDP-bestand kopiëren en plakken in een toepassing voor externe aanmelding.
 
-## <a name="tooinstall-a-java-application-server-on-your-virtual-machine"></a>tooinstall Java-toepassingsserver op de virtuele machine
-U kunt een virtuele machine voor Java application server tooyour kopiëren of kunt u een Java-toepassingsserver via een installatieprogramma installeren.
+## <a name="to-install-a-java-application-server-on-your-virtual-machine"></a>Java-toepassingsserver installeren op uw virtuele machine
+U kunt een Java-toepassingsserver kopiëren naar uw virtuele machine of kunt u een Java-toepassingsserver via een installatieprogramma installeren.
 
-Deze zelfstudie wordt Tomcat als Hallo Java application server tooinstall.
+Deze zelfstudie wordt Tomcat als de Java-toepassingsserver installeren.
 
-1. Wanneer u bent aangemeld in tooyour virtuele machine, opent u een browsersessie te[Apache Tomcat](http://tomcat.apache.org/download-80.cgi).
-2. Dubbelklik op de koppeling Hallo voor **32-bits/64-bits Windows-Service Installer**. Met deze techniek kunnen installeert Tomcat als een Windows-service.
-3. Wanneer u wordt gevraagd, kiest u toorun Hallo installatieprogramma.
-4. Binnen Hallo **Apache Tomcat Setup** , volg Hallo gevraagd tooinstall Tomcat. Voor Hallo doel van deze zelfstudie is het fijn Hallo standaardinstellingen accepteren. Wanneer u Hallo bereikt **voltooien Hallo Apache Tomcat-installatiewizard** in het dialoogvenster kunt u eventueel controleren **uitvoeren Apache Tomcat** toohave nu Tomcat start. Klik op **voltooien** toocomplete Hallo Tomcat-installatieproces.
+1. Wanneer u bent aangemeld met uw virtuele machine, open een browsersessie op [Apache Tomcat](http://tomcat.apache.org/download-80.cgi).
+2. Dubbelklik op de koppeling voor **32-bits/64-bits Windows-Service Installer**. Met deze techniek kunnen installeert Tomcat als een Windows-service.
+3. Wanneer u wordt gevraagd, kiest u het installatieprogramma uitvoeren.
+4. Binnen de **Apache Tomcat Setup** wizard, volg de aanwijzingen voor het installeren van Tomcat. Voor de doeleinden van deze zelfstudie is het fijn accepteer de standaardwaarden. Wanneer u bereikt de **voltooien van de Wizard Setup van Apache Tomcat** in het dialoogvenster kunt u eventueel controleren **uitvoeren Apache Tomcat** hebben Tomcat nu starten. Klik op **voltooien** de Tomcat-installatieproces te voltooien.
 
-## <a name="toostart-tomcat"></a>toostart Tomcat
+## <a name="to-start-tomcat"></a>Tomcat starten
 
-U kunt Tomcat handmatig starten via een opdrachtprompt op de virtuele machine en de actieve Hallo opdracht **net&nbsp;start&nbsp;Tomcat8**.
+U kunt Tomcat handmatig starten door te openen vanaf de opdrachtprompt op de virtuele machine en de opdracht uit te voeren **net&nbsp;start&nbsp;Tomcat8**.
 
-Wanneer Tomcat wordt uitgevoerd, kunt u Tomcat openen door te voeren Hallo URL <http://localhost: 8080> in de browser Hallo virtuele machine.
+Wanneer Tomcat wordt uitgevoerd, kunt u Tomcat openen door te voeren van de URL <http://localhost: 8080> in de browser van de virtuele machine.
 
-toosee Tomcat vanaf externe computers wordt uitgevoerd, u toocreate een eindpunt nodig hebt en een poort openen.
+Om te zien Tomcat vanaf externe computers wordt uitgevoerd, moet u een eindpunt worden gemaakt en een poort openen.
 
-## <a name="toocreate-an-endpoint-for-your-virtual-machine"></a>toocreate een eindpunt voor uw virtuele machine
-1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
+## <a name="to-create-an-endpoint-for-your-virtual-machine"></a>Een eindpunt voor uw virtuele machine maken
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **virtuele machines (klassiek)**.
-3. Klik op de naam Hallo van Hallo virtuele machine waarop uw Java-toepassingsserver wordt uitgevoerd.
+3. Klik op de naam van de virtuele machine die uw Java-toepassingsserver wordt uitgevoerd.
 4. Klik op **Eindpunten**.
 5. Klik op **Add**.
-6. In Hallo **eindpunt toevoegen** in het dialoogvenster:
-   1. Geef een naam voor het eindpunt Hallo; bijvoorbeeld: **HttpIn**.
-   2. Selecteer **TCP** voor het Hallo-protocol.
-   3. Geef **80** voor Hallo openbare poort.
-   4. Geef **8080** voor Hallo particuliere poort.
-   5. Selecteer **uitgeschakelde** voor Hallo zwevend IP-adres.
-   6. Laat Hallo toegangsbeheerlijst is.
-   7. Klik op Hallo **OK** tooclose Hallo dialoogvenster knop en Hallo-eindpunt worden gemaakt.
+6. In de **eindpunt toevoegen** in het dialoogvenster:
+   1. Geef een naam voor het eindpunt; bijvoorbeeld: **HttpIn**.
+   2. Selecteer **TCP** voor het protocol.
+   3. Geef **80** voor de openbare poort.
+   4. Geef **8080** voor de particuliere poort.
+   5. Selecteer **uitgeschakelde** zwevend IP-adres.
+   6. Laat de toegangsbeheerlijst is.
+   7. Klik op de **OK** om het dialoogvenster sluiten en het eindpunt te maken.
 
-## <a name="tooopen-a-port-in-hello-firewall-for-your-virtual-machine"></a>tooopen een poort in de firewall Hallo voor uw virtuele machine
-1. Meld u aan tooyour virtuele machine.
+## <a name="to-open-a-port-in-the-firewall-for-your-virtual-machine"></a>Een poort openen in de firewall voor uw virtuele machine
+1. Meld u aan met uw virtuele machine.
 2. Klik op **Windows Start**.
 3. Klik op **Configuratiescherm**.
 4. Klik op **systeem en beveiliging**, klikt u op **Windows Firewall**, en klik vervolgens op **geavanceerde instellingen**.
 5. Klik op **regels voor binnenkomende verbindingen**, en klik vervolgens op **nieuwe regel**.  
    ![Nieuwe regel binnenkomende verbindingen][NewIBRule]
-6. Voor Hallo **regeltype**, selecteer **poort**, en klik vervolgens op **volgende**.  
+6. Voor de **regeltype**, selecteer **poort**, en klik vervolgens op **volgende**.  
    ![Nieuwe regel voor binnenkomende verbindingen poort][NewRulePort]
-7. Op Hallo **protocollen en poorten** Schakel in het scherm **TCP**, geef **8080** als Hallo **specifieke lokale poort**, en klik vervolgens op **Volgende**.  
+7. Op de **protocollen en poorten** Schakel in het scherm **TCP**, geef **8080** als de **specifieke lokale poort**, en klik vervolgens op  **Volgende**.  
   ![Nieuwe regel binnenkomende verbindingen][NewRuleProtocol]
-8. Op Hallo **actie** Schakel in het scherm **Hallo verbinding toestaan**, en klik vervolgens op **volgende**.
+8. Op de **actie** Schakel in het scherm **de verbinding toestaan**, en klik vervolgens op **volgende**.
    ![Nieuwe regel voor binnenkomende verbindingen actie][NewRuleAction]
-9. Op Hallo **profiel** scherm **domein**, **persoonlijke**, en **openbare** zijn geselecteerd en klik vervolgens op **volgende** .
+9. Op de **profiel** scherm **domein**, **persoonlijke**, en **openbare** zijn geselecteerd en klik vervolgens op **volgende**.
    ![Nieuwe regel voor binnenkomende verbindingen profiel][NewRuleProfile]
-10. Op Hallo **naam** scherm, Geef een naam voor de regel hello, zoals **HttpIn** (Hallo regelnaam is niet vereist toomatch Hallo eindpuntnaam, echter), en klik vervolgens op **voltooien**.  
+10. Op de **naam** scherm, Geef een naam voor de regel, zoals **HttpIn** (naam van de regel is niet vereist echter aan de naam van het eindpunt), en klik vervolgens op **voltooien**.  
     ![De naam van een nieuwe regel voor binnenkomende verbindingen][NewRuleName]
 
-Op dit moment uw website Tomcat worden weergegeven op een externe browser. Typ in het venster van de webbrowser van het Hallo-adres met Hallo URL  **http://*uw\_DNS\_naam*. cloudapp.net**, waarbij ***uw\_DNS\_naam*** Hallo DNS-naam die u hebt opgegeven toen u Hallo virtuele machine hebt gemaakt.
+Op dit moment uw website Tomcat worden weergegeven op een externe browser. Typ een URL van het formulier in de browser adres venster  **http://*uw\_DNS\_naam*. cloudapp.net**, waarbij ***uw\_DNS\_naam*** de DNS-naam die u hebt opgegeven toen u de virtuele machine hebt gemaakt.
 
 ## <a name="application-lifecycle-considerations"></a>Toepassing lifecycle overwegingen
-* Kan u uw eigen toepassing webarchief (WAR) maken en toe te voegen toohello **webapps** map. Bijvoorbeeld, een elementaire Java Service pagina (JSP) dynamic webproject maken en exporteren als een WAR-bestand. Kopieer vervolgens Hallo WAR toohello Apache Tomcat **webapps** map Hallo voor virtuele machines vervolgens uit te voeren in een browser.
-* Wanneer Hallo Tomcat-service is geïnstalleerd, is deze standaard ingesteld toostart handmatig. U kunt schakelen deze toostart automatisch via Hallo-module Services. Hallo-module Services starten door te klikken op **Start Windows**, **Systeembeheer**, en vervolgens **Services**. Dubbelklik op Hallo **Apache Tomcat** service en stel **opstarttype** te**automatische**.
+* Kan u uw eigen toepassing webarchief (WAR) maken en toe te voegen aan de **webapps** map. Bijvoorbeeld, een elementaire Java Service pagina (JSP) dynamic webproject maken en exporteren als een WAR-bestand. Kopieer vervolgens het WAR naar de Apache Tomcat **webapps** map op de virtuele machine en vervolgens uit te voeren in een browser.
+* Wanneer de Tomcat-service is geïnstalleerd, is deze standaard ingesteld om handmatig te starten. U kunt deze automatisch wordt gestart met behulp van de module Services in te schakelen. Start de Services-module door te klikken op **Start Windows**, **Systeembeheer**, en vervolgens **Services**. Dubbelklik op de **Apache Tomcat** service en stel **opstarttype** naar **automatische**.
 
-    ![Een service toostart instellen automatisch][service_automatic_startup]
+    ![Instellen van een service op automatisch starten][service_automatic_startup]
 
-    Hallo is voordeel van Tomcat automatisch wordt gestart met dat het wordt gestart wanneer Hallo virtuele machine opnieuw wordt opgestart (bijvoorbeeld nadat software-updates waarvoor opnieuw opstarten zijn geïnstalleerd).
+    Het voordeel dat automatisch wordt gestart Tomcat is dat het wordt gestart wanneer de virtuele machine opnieuw wordt opgestart (bijvoorbeeld nadat software-updates waarvoor opnieuw opstarten zijn geïnstalleerd).
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt meer informatie over andere services (zoals Azure Storage, servicebus en SQL-Database) die u kunt tooinclude met uw Java-toepassingen. Hallo beschikbare informatie bekijken op Hallo [Java Developer Center](https://azure.microsoft.com/develop/java/).
+U kunt meer informatie over andere services die u wilt opnemen met uw Java-toepassingen (zoals Azure Storage, servicebus en SQL-Database). Bekijk de informatie die beschikbaar zijn op de [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]:media/java-run-tomcat-app-server/WA_VirtualMachineRunningApacheTomcat.png
 
@@ -153,8 +153,8 @@ U kunt meer informatie over andere services (zoals Azure Storage, servicebus en 
 [NewRuleProfile]:media/java-run-tomcat-app-server/NewRuleProfile.png
 
 
-<!-- Deleted from hello "toocreate an ednpoint for your virtual mache" 3/17/2017,
-     toouse hello new portal.
-6. In hello **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
-7. In hello **New endpoint details** dialog box:
+<!-- Deleted from the "To create an ednpoint for your virtual mache" 3/17/2017,
+     to use the new portal.
+6. In the **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
+7. In the **New endpoint details** dialog box:
 -->

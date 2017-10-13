@@ -1,18 +1,18 @@
-Voordat u deze configuratie, moet u zich aanmeldt tooyour Azure-account. Hallo-cmdlet wordt u gevraagd om de aanmeldingsreferenties Hallo voor uw Azure-account. Na het aanmelden, downloadt het instellingen van uw account, zodat ze beschikbaar tooAzure PowerShell. Zie [Using Windows PowerShell with Resource Manager](../articles/powershell-azure-resource-manager.md) (Windows PowerShell gebruiken met Resource Manager) voor meer informatie.
+Voordat u begint met deze configuratie, moet u zich aanmelden bij uw Azure-account. De cmdlet vraagt u om de aanmeldingsreferenties voor uw Azure-account. Na het aanmelden, worden de instellingen van uw account gedownload zodat ze beschikbaar zijn voor Azure PowerShell. Zie [Using Windows PowerShell with Resource Manager](../articles/powershell-azure-resource-manager.md) (Windows PowerShell gebruiken met Resource Manager) voor meer informatie.
 
-toolog, open de PowerShell-console met verhoogde bevoegdheden en tooyour-account koppelen. Gebruik Hallo voorbeeld toohelp die u verbinding maakt te volgen:
+Open de PowerShell-console met verhoogde rechten en maak verbinding met uw account om u aan te melden. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-Als u meerdere Azure-abonnementen hebt, controleert u Hallo abonnementen voor Hallo-account.
+Als u meerdere Azure-abonnementen hebt, controleert u de abonnementen voor het account.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Hallo-abonnement dat u wilt dat toouse opgeven.
+Geef het abonnement op dat u wilt gebruiken.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"

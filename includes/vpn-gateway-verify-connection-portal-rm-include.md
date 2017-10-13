@@ -1,7 +1,7 @@
-U kunt in hello Azure-portal, de verbindingsstatus Hallo van een Resource Manager VPN-Gateway weergeven door te navigeren toohello verbinding. Hallo volgt eenrichtingssessie toonavigate tooyour verbinding weergeven en controleren.
+U kunt de verbindingsstatus voor een Resource Manager VPN Gateway weergeven door in Azure Portal naar de verbinding te navigeren. De volgende stappen tonen één manier om te navigeren naar uw verbinding en deze te controleren.
 
-1. In Hallo [Azure-portal](http://portal.azure.com), klikt u op **alle resources** en navigeer tooyour virtuele netwerkgateway.
-2. Klik op de blade voor uw virtuele netwerkgateway Hallo **verbindingen**. U ziet Hallo status van elke verbinding.
-3. Klik op de naam van Hallo verbinding dat u wilt dat tooverify tooopen Hallo **Essentials**. In Essentials kunt u meer informatie weergeven over de verbinding. Hallo **Status** is 'Geslaagd' en 'Verbonden' wanneer u een verbinding hebt gemaakt.
+1. Klik in [Azure Portal](http://portal.azure.com) op **Alle resources** en navigeer naar de virtuele netwerkgateway.
+2. Klik op de blade voor uw virtuele netwerkgateway op **Verbindingen**. U ziet de status van elke verbinding.
+3. Klik op de naam van de verbinding die u wilt controleren om **Essentials** te openen. In Essentials kunt u meer informatie weergeven over de verbinding. Wanneer u verbinding hebt gemaakt, is de **status** Geslaagd en Verbonden.
 
   ![Controleer of de VPN-gateway verbinding heeft met Azure Portal](./media/vpn-gateway-verify-connection-portal-rm-include/connectionsucceeded.png)

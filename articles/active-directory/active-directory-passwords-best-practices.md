@@ -6,50 +6,50 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 73d31679b38ff009a767335adaebc49fbc5a75b9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 4cfc1652377f0cfd059e336aec6994b40d32c559
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="roll-out-password-reset-for-users"></a>Wachtwoordherstel implementeren voor gebruikers
 
-De meeste klanten stappen Hallo Volg tooensure een smooth rollout van SSPR-functionaliteit.
+De meeste klanten volgen de onderstaande stappen voor een soepel verloop van de implementatie van de functionaliteit voor self-service voor wachtwoordherstel.
 
 1. [Wachtwoordherstel inschakelen in uw directory](active-directory-passwords-getting-started.md)
 2. [On-premises AD-machtigingen configureren voor write-back van wachtwoord](active-directory-passwords-how-it-works.md#active-directory-permissions)
-3. [Wachtwoord terugschrijven configureren](active-directory-passwords-writeback.md#configuring-password-writeback) toowrite wachtwoorden van Azure AD back tooyour on-premises adreslijst
+3. [Configureer write-back van wachtwoord](active-directory-passwords-writeback.md#configuring-password-writeback) om wachtwoorden van Azure AD terug te schrijven naar uw on-premises directory
 4. [Vereiste licenties toewijzen en verifiëren](active-directory-passwords-licensing.md)
-5. Als u wilt dat tooroll uit geleidelijk, u kunt eventueel limiet wachtwoordherstel tooa groep gebruikers tooroll uit Hallo functie langzaam gedurende een bepaalde periode. toodo deze Hallo ingesteld **Self Service wachtwoord opnieuw instellen ingeschakeld** in-of uitschakelen van **iedereen** te**een groep** en selecteert u een security group tooenable voor wachtwoordherstel. Hallo leden van deze groep moet alle licenties die zijn toegewezen toothem en is een uitstekende manier tooenable [groep op basis van licentieverlening](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
-6. Hallo minimale set van vullen [verificatiegegevens](active-directory-passwords-data.md), op basis van uw beleid.
-7. Leer uw gebruikers hoe toouse SSPR, door ze te verzenden instructies tooshow ze hoe tooregister en hoe tooreset.
+5. Als u geleidelijk wilt implementeren, kunt u eventueel wachtwoordherstel beperken tot een groep van gebruikers om de functionaliteit in de loop van de tijd langzaamaan te implementeren. Wijzig hiervoor de schakeloptie **Self-service voor wachtwoord opnieuw instellen is ingeschakeld** van **Iedereen** in **Een groep** en selecteer de beveiligingsgroep die u wilt inschakelen voor wachtwoordherstel. Aan alle leden van deze groep moet een licentie zijn toegewezen. Dit is een goede manier om [licentieverlening op basis van groepen](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing) in te schakelen.
+6. Vul het minimale aantal [verificatiegegevens](active-directory-passwords-data.md) in, op basis van uw beleid.
+7. Instrueer uw gebruikers over het gebruik van self-service voor wachtwoordherstel door hen instructies te sturen om hen te laten zien hoe ze zich kunnen registreren en het wachtwoord opnieuw kunnen instellen.
     > [!NOTE]
-    > Test self-service voor wachtwoordherstel met een gebruiker en niet als beheerder, aangezien Microsoft sterke verificatievereisten afdwingt voor Azure-accounts van beheerders. Zie voor meer informatie over Hallo beheerder wachtwoordbeleid onze [diepgaand artikel](active-directory-passwords-how-it-works.md).
+    > Test self-service voor wachtwoordherstel met een gebruiker en niet als beheerder, aangezien Microsoft sterke verificatievereisten afdwingt voor Azure-accounts van beheerders. Zie ons [artikel met gedetailleerde informatie](active-directory-passwords-how-it-works.md) voor meer informatie over het wachtwoordbeleid voor beheerders.
 
-8. U kunt kiezen tooenforce registratie op elk gewenst moment en vereisen tooreconfirm gebruikers hun verificatiegegevens na een bepaalde periode. Als u niet dat uw gebruikers toohave tooregister wilt, kunt u [implementeren zonder registratie door eindgebruikers voor wachtwoordherstel](active-directory-passwords-data.md).
-9. Bekijk na verloop van tijd gebruikers registreren en gebruiken van door het bekijken van Hallo [reporting verstrekt door Azure AD](active-directory-passwords-reporting.md).
+8. U kunt ervoor kiezen registratie op elk gewenst moment af te dwingen en gebruikers te vereisen hun verificatiegegevens na een bepaalde periode opnieuw te bevestigen. Als u niet wilt dat uw gebruikers zich moeten registreren, kunt u [wachtwoordherstel implementeren zonder registratie door eindgebruikers te vereisen](active-directory-passwords-data.md).
+9. Controleer in de loop van de tijd gebruikers die zich hebben geregistreerd en gebruikmaken van de service door de [rapporten die worden verstrekt door Azure AD](active-directory-passwords-reporting.md) te bekijken.
 
 ## <a name="email-based-rollout"></a>Implementatie op basis van e-mail
 
-Veel klanten vinden dat een campagne e-mailbericht met instructies voor eenvoudige toouse is Hallo gemakkelijkste manier tooget gebruikers toouse SSPR. [We hebt drie eenvoudige e-mailberichten die u als sjablonen toohelp in uw implementatie gebruiken kunt gemaakt.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
+Veel klanten vinden een e-mailcampagne, met eenvoudig te gebruiken instructies, de eenvoudigste manier om gebruikers self-service voor wachtwoordherstel te laten gebruiken. [We hebben drie eenvoudige e-mailberichten gemaakt die u als sjabloon kunt gebruiken om te helpen bij uw implementatie.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
 
-* **Binnenkort beschikbaar** e-sjabloon toobe gebruikt in Hallo weken of dagen vóór implementatie toolet gebruikers weten dat ze iets toodo nodig.
-* **Nu beschikbaar** e-sjabloon gebruikt toobe Hallo dag van starten toodrive gebruikers tooregister en bevestigt u hun verificatiegegevens zodat ze SSPR gebruiken kunnen wanneer ze deze nodig hebt.
-* **Herinnering aanmelden** e-mailsjabloon voor een paar dagen tooweeks na implementatie tooremind gebruikers tooregister en controleer de verificatiegegevens.
+* De e-mailsjabloon **Binnenkort beschikbaar** die in de weken of dagen vóór implementatie moet worden gebruikt om gebruikers te laten weten dat ze iets moeten gaan doen.
+* De e-mailsjabloon **Nu beschikbaar** die moet worden gebruikt op de dag van de lancering om gebruikers ertoe te zetten zich te registreren en hun verificatiegegevens te bevestigen, zodat ze self-service voor wachtwoordherstel kunnen gebruiken als ze het nodig hebben.
+* De e-mailsjabloon **Herinnering voor aanmelding** die enkele dagen tot weken na implementatie moet worden gebruikt om gebruikers eraan te herinneren zich te registreren hun verificatiegegevens te bevestigen.
 
 ## <a name="creating-your-own-password-portal"></a>Uw eigen wachtwoordportal maken
 
-Veel van onze klanten met grotere toohost webpagina kiezen en maken van een basis-DNS-vermelding, zoals https://passwords.contoso.com. Vullen van deze pagina met koppelingen toohello Azure AD-wachtwoord opnieuw instellen, wachtwoord opnieuw instellen voor registratie, portals voor wachtwoord wijzigen en andere organisatie-specifieke informatie. In een e-mailberichten of Folders u verstuurt, kunt u vervolgens opnemen een huisstijl gemakkelijk te onthouden, URL dat gebruikers toowhen moeten toouse Hallo services kunnen gaan.
+Veel van onze klanten kiezen ervoor een webpagina te hosten en een DNS-basisvermelding te maken, zoals https://passwords.contoso.com. Ze vullen deze pagina met koppelingen naar de functionaliteit van Azure AD voor wachtwoordherstel, registratie voor wachtwoordherstel, portals voor het wijzigen van het wachtwoord en andere organisatiespecifieke informatie. In e-mailberichten of flyers die u verstuurt, kunt u een in huisstijl opgemaakte, gemakkelijk te onthouden URL opnemen die gebruikers kunnen raadplegen wanneer ze de services moeten gebruiken.
 
 * Portal voor wachtwoordherstel: https://passwordreset.microsoftonline.com/
 * Portal voor registratie voor wachtwoordherstel: http://aka.ms/ssprsetup
@@ -57,31 +57,31 @@ Veel van onze klanten met grotere toohost webpagina kiezen en maken van een basi
 
 ## <a name="using-enforced-registration"></a>Gedwongen registratie gebruiken
 
-Als u uw gebruikers tooregister voor wachtwoordherstel wilt, kunt u ze afdwingen als tooregister wanneer ze zich aanmelden met behulp van Azure AD. U kunt deze optie inschakelen via uw directory **wachtwoordherstel** blade doordat Hallo **gebruikers vereisen tooRegister tijdens het aanmelden** optie op Hallo **registratie** tabblad.
+Als u wilt dat uw gebruikers zich registreren voor wachtwoordherstel, kunt u hen dwingen zich te registreren wanneer ze zich aanmelden via Azure AD. U kunt deze optie inschakelen via de blade **Wachtwoordherstel** van uw directory door de optie **Vereisen dat gebruikers zich bij aanmelding registreren?** te kiezen op het tabblad **Registratie**.
 
-Beheerders kunnen gebruikers de toore registratie vereisen na een bepaalde periode door Hallo instelling **aantal dagen voordat gebruikers worden gevraagd tooreconfirm hun verificatiegegevens** tussen 0-730 dagen.
+Beheerders kunnen gebruikers verplichten om zich na een bepaalde periode opnieuw te registreren door **Aantal dagen waarna gebruikers wordt gevraagd om hun verificatiegegevens te bevestigen** tussen 0-730 dagen in te stellen.
 
-Nadat u deze optie inschakelt, gebruikers die zich ziet een bericht dat hen informeert de beheerder heeft vereist dat ze tooverify hun verificatiegegevens.
+Nadat u deze optie hebt ingeschakeld, zien gebruikers een bericht dat hen informeert dat de beheerder vereist dat ze hun verificatiegegevens controleren.
 
 ## <a name="populate-authentication-data"></a>Verificatiegegevens invullen
 
-Als u [verificatiegegevens voor uw gebruikers vullen](active-directory-passwords-data.md), en vervolgens gebruikers niet tooregister voor wachtwoord opnieuw instellen hoeven voordat deze kunnen toouse SSPR. Als gebruikers Hallo verificatiegegevens gedefinieerd die voldoet aan Hallo beleid voor wachtwoordherstel voor u hebt gedefinieerd hebben, gebruikers kunnen tooreset zijn hun wachtwoorden.
+Als u [verificatiegegevens voor uw gebruikers invult](active-directory-passwords-data.md), hoeven gebruikers zich niet te registreren voor wachtwoordherstel om gebruik te kunnen maken van self-service voor wachtwoordherstel. Zolang gebruikers de verificatiegegevens hebben gedefinieerd die voldoen aan het beleid voor wachtwoordherstel dat u hebt gedefinieerd hebben, kunnen gebruikers hun wachtwoord opnieuw instellen.
 
-## <a name="disabling-self-service-password-reset"></a>Selfservice voor wachtwoordherstel uitschakelen
+## <a name="disabling-self-service-password-reset"></a>Self-service voor wachtwoordherstel uitschakelen
 
-Het uitschakelen van de selfservice voor wachtwoordherstel is net zo eenvoudig als uw Azure AD-tenant openen en te gaan**wachtwoordherstel**, **eigenschappen**, en het kiezen van **niemand** onder  **Selfservice voor wachtwoordherstel ingeschakeld**
+Het uitschakelen van self-service voor wachtwoordherstel is heel eenvoudig. Open uw Azure AD-tenant en ga naar **Wachtwoordherstel**, **Eigenschappen**. Kies **Niemand** onder **Self-service voor wachtwoord opnieuw instellen is ingeschakeld**
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Hallo volgende koppelingen vindt u aanvullende informatie met betrekking tot het wachtwoord opnieuw instellen met behulp van Azure AD
+De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD
 
 * [**Snel starten**](active-directory-passwords-getting-started.md): aan de slag met self-service wachtwoordbeheer van Azure AD 
 * [**Licentieverlening**](active-directory-passwords-licensing.md): uw Azure AD-licentieverlening configureren
-* [**Gegevens** ](active-directory-passwords-data.md) - begrijpen Hallo-gegevens die nodig is en hoe deze wordt gebruikt voor wachtwoordbeheer
-* [**Aanpassen** ](active-directory-passwords-customize.md) -Hallo uiterlijk Hallo SSPR ervaring voor uw bedrijf aanpassen.
+* [**Gegevens**](active-directory-passwords-data.md): informatie over de gegevens die nodig zijn en hoe deze worden gebruikt voor wachtwoordbeheer
+* [**Aanpassen**](active-directory-passwords-customize.md): het uiterlijk van de ervaring van self-service voor wachtwoordherstel aanpassen voor uw bedrijf.
 * [**Beleid**](active-directory-passwords-policy.md): Azure AD-wachtwoordbeleid begrijpen en instellen
 * [**Write-back van wachtwoord**](active-directory-passwords-writeback.md): hoe werkt write-back van wachtwoord met uw on-premises directory
 * [**Rapportage**](active-directory-passwords-reporting.md): detecteren of, waar en wanneer uw gebruikers de functionaliteit voor self-service voor wachtwoordherstel gebruiken
-* [**Technische diepgaand** ](active-directory-passwords-how-it-works.md) -Ga achter Hallo gordijn toounderstand hoe het werkt
-* [**Veelgestelde vragen**](active-directory-passwords-faq.md): hoe? Hoe komt dat? Wat? Waar? Wie? Wanneer? -Beantwoordt tooquestions gewenste altijd tooask
-* [**Problemen met** ](active-directory-passwords-troubleshoot.md) -informatie over hoe tooresolve algemene problemen zien we met SSPR
+* [**Gedetailleerde technische informatie**](active-directory-passwords-how-it-works.md): neem een kijkje achter de schermen om te begrijpen hoe het werkt
+* [**Veelgestelde vragen**](active-directory-passwords-faq.md): hoe? Hoe komt dat? Wat? Waar? Wie? Wanneer? - Antwoorden op vragen die u altijd wilde stellen
+* [**Probleemoplossing**](active-directory-passwords-troubleshoot.md): informatie over het oplossen van algemene problemen die optreden bij de self-service voor wachtwoordherstel

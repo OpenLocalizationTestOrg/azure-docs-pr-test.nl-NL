@@ -1,5 +1,5 @@
 ---
-title: aaaAdd Hallo-connector voor Office 365-gebruikers in Logic Apps | Microsoft Docs
+title: De connector voor Office 365-gebruikers toevoegen in Logic Apps | Microsoft Docs
 description: Overzicht van de connector voor Office 365-gebruikers met de parameters van de REST-API
 services: 
 documentationcenter: 
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 2fae1c80d195a368b5f6c1ad650905a0d6e94c83
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 330f733440932a769eb0fe6031cd0d947a820080
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-office-365-users-connector"></a>Aan de slag met Hallo-connector voor Office 365-gebruikers
-Verbinding maken met tooOffice 365 tooget gebruikersprofielen en gebruikers van de zoekfunctie. Met Office 365-gebruikers, kunt u het volgende doen:
+# <a name="get-started-with-the-office-365-users-connector"></a>Aan de slag met de connector voor Office 365-gebruikers
+Verbinding maken met Office 365-gebruikers om op te halen van profielen en gebruikers van de zoekfunctie. Met Office 365-gebruikers, kunt u het volgende doen:
 
-* Bouw uw zakelijke flow op basis van Hallo gegevens die u via Office 365-gebruikers krijgen. 
-* Gebruik acties die directe ondergeschikten ophalen ophalen van een manager gebruikersprofiel en meer. Deze acties reageert en breng Hallo uitvoer beschikbaar voor andere acties. Bijvoorbeeld, ophalen van een persoon directe ondergeschikten, nemen deze informatie en een Azure SQL-database bijwerken. 
+* Bouw uw zakelijke flow op basis van de gegevens die u van Office 365-gebruikers krijgt. 
+* Gebruik acties die directe ondergeschikten ophalen ophalen van een manager gebruikersprofiel en meer. Deze acties reageert en vervolgens de uitvoer beschikbaar maken voor andere acties. Bijvoorbeeld, ophalen van een persoon directe ondergeschikten, nemen deze informatie en een Azure SQL-database bijwerken. 
 
 U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="create-a-connection-toooffice-365-users"></a>Maak een verbinding tooOffice 365-gebruikers
-Wanneer u deze connector tooyour logische apps toevoegt, u moet aanmelden tooyour Office 365-gebruikers account en logische apps tooconnect tooyour-account toestaan.
+## <a name="create-a-connection-to-office-365-users"></a>Maak een verbinding met Office 365-gebruikers
+Wanneer u deze connector aan uw logische apps toevoegen, moet u aanmelden bij uw account Office 365-gebruikers en toestaan dat logic apps verbinding maken met uw account.
 
-> [!INCLUDE [Steps toocreate a connection tooOffice 365 Users](../../includes/connectors-create-api-office365users.md)]
+> [!INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
 > 
 > 
 
-Nadat u Hallo verbinding maakt, invoeren u Hallo Office 365-gebruikers eigenschappen, zoals gebruikers-ID. Hallo Hallo **naslaginformatie over REST API** in dit onderwerp beschrijft deze eigenschappen.
+Nadat u de verbinding hebt gemaakt, voert u de eigenschappen van de Office 365-gebruikers, zoals de gebruikers-ID. De **naslaginformatie over REST API** in dit onderwerp beschrijft deze eigenschappen.
 
 ## <a name="connector-specific-details"></a>Connector-specifieke details
 
-Alle triggers en acties die zijn gedefinieerd in swagger Hallo bekijken en ook bekijken in Hallo beperkingen [connector details](/connectors/officeusers/).
+Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/officeusers/).
 
 ## <a name="more-connectors"></a>Meer connectors
-Ga terug toohello [API's lijst](apis-list.md).
+Ga terug naar de [API's lijst](apis-list.md).

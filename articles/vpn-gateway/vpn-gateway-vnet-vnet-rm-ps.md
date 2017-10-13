@@ -1,5 +1,5 @@
 ---
-title: 'Verbinding maken met een virtuele Azure-netwerk tooanother VNet: PowerShell | Microsoft Docs'
+title: 'Een virtueel Azure-netwerk verbinden met een ander VNet: Powershell | Microsoft Docs'
 description: Dit artikel helpt u bij het met elkaar verbinden van virtuele netwerken met behulp van Azure Resource Manager en PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2da30c76867cc3f71d040e63e0dd15d153e15c10
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 537e80937289d6b46283843c2ee0725e7e08fefc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van PowerShell
 
-Dit artikel ziet u hoe toocreate een VPN-gatewayverbinding tussen virtuele netwerken. Hallo virtuele netwerken kunnen zich in dezelfde of verschillende regio's Hallo en Hallo van dezelfde of verschillende abonnementen behoren. Bij het maken van verbinding VNets uit verschillende abonnementen behoren, Hallo abonnementen hoeft geen toobe die zijn gekoppeld aan Hallo dezelfde Active Directory-tenant. 
+In dit artikel wordt beschreven hoe u een VPN-gatewayverbinding tussen virtuele netwerken maakt. De virtuele netwerken kunnen zich in dezelfde of verschillende regio's bevinden en tot dezelfde of verschillende abonnementen behoren. Wanneer u VNets uit verschillende abonnementen koppelt, hoeven de abonnementen niet aan dezelfde Active Directory-tenant gekoppeld te zijn. 
 
-Hallo stappen in dit artikel toepassing toohello Resource Manager-implementatiemodel en PowerShell gebruiken. Ook kunt u deze configuratie met behulp van verschillende hulpprogramma's of implementatiemodel door een andere optie kiezen in Hallo volgende lijst:
+De stappen in dit artikel zijn van toepassing op het Resource Manager-implementatiemodel. Er wordt gebruikgemaakt van PowerShell. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -37,45 +37,45 @@ Hallo stappen in dit artikel toepassing toohello Resource Manager-implementatiem
 >
 >
 
-Verbinding maken met een virtueel netwerk tooanother virtueel netwerk (VNet-naar-VNet) is vergelijkbaar tooconnecting een VNet tooan on-premises-locatie. Beide connectiviteitstypen wordt een VPN-gateway tooprovide een beveiligde tunnel met IPsec/IKE. Als uw vnet's in Hallo zijn dezelfde regio, kunt u tooconsider deze met behulp van VNet-Peering te verbinden. Bij VNet-peering wordt geen VPN-gateway gebruikt. Zie het artikel [VNet-peering](../virtual-network/virtual-network-peering-overview.md) voor meer informatie.
+Het verbinden van een virtueel netwerk met een ander virtueel netwerk (VNet-naar-VNet) lijkt op het verbinden van een VNet met een on-premises locatie. Voor beide connectiviteitstypen wordt een VPN-gateway gebruikt om een beveiligde tunnel met IPsec/IKE te bieden. Als uw VNET's zich in dezelfde regio bevinden, kunt u daarmee verbinding maken met behulp van VNet-peering. Bij VNet-peering wordt geen VPN-gateway gebruikt. Zie het artikel [VNet-peering](../virtual-network/virtual-network-peering-overview.md) voor meer informatie.
 
-VNet-naar-VNet-communicatie kan worden gecombineerd met configuraties voor meerdere locaties. Hiermee kunt u netwerktopologieën maken waarin cross-premises-connectiviteit met connectiviteit tussen virtuele netwerken, zoals wordt weergegeven in het volgende diagram Hallo:
+VNet-naar-VNet-communicatie kan worden gecombineerd met configuraties voor meerdere locaties. Zoals u in het volgende diagram kunt zien, kunt u netwerktopologieën maken waarin cross-premises connectiviteit wordt gecombineerd met connectiviteit tussen virtuele netwerken:
 
 ![Over verbindingen](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
 
 ### <a name="why-connect-virtual-networks"></a>Waarom virtuele netwerken koppelen?
 
-U kunt virtuele netwerken tooconnect voor Hallo volgende redenen:
+U wilt virtuele netwerken wellicht koppelen om de volgende redenen:
 
 * **Geografische redundantie en aanwezigheid tussen regio's**
 
   * U kunt uw eigen geo-replicatie of synchronisatie met beveiligde connectiviteit instellen zonder gebruik te maken van internetgerichte eindpunten.
-  * Met Azure Traffic Manager en Load Balancer kunt u workloads met maximale beschikbaarheid instellen met behulp van geografische redundantie over meerdere Azure-regio's. Een belangrijk voorbeeld hiervan is tooset van SQL Always On met beschikbaarheidsgroepen verspreid over meerdere Azure-regio's.
+  * Met Azure Traffic Manager en Load Balancer kunt u workloads met maximale beschikbaarheid instellen met behulp van geografische redundantie over meerdere Azure-regio's. Een belangrijk voorbeeld hiervan is het instellen van SQL Always On met beschikbaarheidsgroepen verspreid over meerdere Azure-regio's.
 * **Regionale toepassingen met meerdere lagen met isolatie- of beheergrenzen**
 
-  * Hallo binnen dezelfde regio, kunt u toepassingen met meerdere lagen instellen met meerdere virtuele netwerken met elkaar verbonden vervaldatum tooisolation of beheervereisten.
+  * Binnen dezelfde regio kunt u vanwege isolatie- of beheervereisten toepassingen met meerdere lagen instellen met meerdere virtuele netwerken die met elkaar zijn verbonden.
 
-Zie voor meer informatie over VNet-naar-VNet-verbindingen Hallo [Veelgestelde vragen over VNet-naar-VNet](#faq) aan Hallo einde van dit artikel.
+Zie voor meer informatie over verbindingen tussen VNets de [Veelgestelde vragen over VNet-naar-VNet](#faq) aan het einde van dit artikel.
 
 ## <a name="which-set-of-steps-should-i-use"></a>Welke stappen moet ik gebruiken?
 
-In dit artikel ziet u twee verschillende reeksen stappen. Een reeks stappen voor het [VNets die tot hetzelfde abonnement Hallo](#samesub), en een andere voor [VNets die tot verschillende abonnementen](#difsub). Hallo belangrijkste verschil tussen Hallo sets is of u kunt maken en configureren van alle virtuele netwerk en gateway bronnen binnen Hallo dezelfde PowerShell-sessie.
+In dit artikel ziet u twee verschillende reeksen stappen. Een reeks stappen voor [VNets die zich in hetzelfde abonnement bevinden](#samesub) en een andere voor [VNets die zich in verschillende abonnementen bevinden](#difsub). Het belangrijkste verschil tussen de reeksen is of u alle resources van het virtuele netwerk en de gateway kunt maken en configureren binnen dezelfde PowerShell-sessie.
 
-Hallo stappen in dit artikel variabelen gebruiken die zijn gedeclareerd op Hallo begin van elke sectie. Als u al met bestaande vnet's werkt, kunt u Hallo variabelen tooreflect Hallo instellingen in uw eigen omgeving aanpassen. Zie [Naamomzetting](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) als u naamomzetting voor uw virtuele netwerken wilt.
+In de stappen in dit artikel worden variabelen gebruikt die aan het begin van elke sectie zijn gedeclareerd. Als u al met bestaande VNets werkt, wijzigt u de variabelen zo dat ze overeenkomen met de instellingen in uw eigen omgeving. Zie [Naamomzetting](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) als u naamomzetting voor uw virtuele netwerken wilt.
 
-## <a name="samesub"></a>Hoe tooconnect VNets die zijn opgenomen in Hallo hetzelfde abonnement
+## <a name="samesub"></a>VNets verbinden die tot hetzelfde abonnement behoren
 
 ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>Voordat u begint
 
-Voordat u begint moet u de meest recente versie van tooinstall Hallo van hello Azure Resource Manager PowerShell-cmdlets, ten minste 4.0 of hoger. Zie voor meer informatie over het installeren van de PowerShell-cmdlets Hallo [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview).
+Installeer eerst de meest recente versie van de Azure Resource Manager PowerShell-cmdlets (versie 4.0 of hoger). Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie over het installeren van de PowerShell-cmdlets.
 
 ### <a name="Step1"></a>Stap 1: De IP-adresbereiken plannen
 
-In de Hallo stappen te volgen, maken we twee virtuele netwerken en hun bijbehorende gatewaysubnetten en configuraties. We vervolgens een VPN-verbinding maken tussen Hallo twee VNets. Het is belangrijk tooplan Hallo IP-adresbereiken voor uw netwerkconfiguratie. De VNet-bereiken of de bereiken van het lokale netwerk mogen elkaar niet overlappen. In deze voorbeelden behandelen we geen DNS-server. Zie [Naamomzetting](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) als u naamomzetting voor uw virtuele netwerken wilt.
+In de volgende stappen maakt u twee virtuele netwerken en hun bijbehorende gatewaysubnetten en configuraties. Vervolgens maakt u een VPN-verbinding tussen de twee VNets. Het is belangrijk dat u de IP-adresbereiken voor uw netwerkconfiguratie plant. De VNet-bereiken of de bereiken van het lokale netwerk mogen elkaar niet overlappen. In deze voorbeelden behandelen we geen DNS-server. Zie [Naamomzetting](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) als u naamomzetting voor uw virtuele netwerken wilt.
 
-We gebruiken de volgende waarden in de voorbeelden Hallo Hallo:
+In de voorbeelden worden de volgende waarden gebruikt:
 
 **Waarden voor TestVNet1:**
 
@@ -111,7 +111,7 @@ We gebruiken de volgende waarden in de voorbeelden Hallo Hallo:
 
 ### <a name="Step2"></a>Stap 2: TestVNet1 maken en configureren
 
-1. Declareer uw variabelen. In dit voorbeeld declareert Hallo variabelen met Hallo waarden voor deze oefening. In de meeste gevallen moet u waarden Hallo vervangen door uw eigen. U kunt deze variabelen echter gebruiken als u via Hallo stappen toobecome bekend zijn met dit type configuratie uitvoert. Wijzig variabelen Hallo indien nodig, en vervolgens Kopieer en plak ze in de PowerShell-console.
+1. Declareer uw variabelen. In dit voorbeeld worden de variabelen gedeclareerd met de waarden voor deze oefening. In de meeste gevallen moet u de waarden vervangen door uw eigen waarden. U kunt deze variabelen echter gebruiken als u de stappen alleen wilt doorlopen om vertrouwd te raken met dit type configuratie. Wijzig de variabelen als dat nodig is en kopieer en plak ze vervolgens in uw PowerShell-console.
 
   ```powershell
   $Sub1 = "Replace_With_Your_Subcription_Name"
@@ -133,19 +133,19 @@ We gebruiken de volgende waarden in de voorbeelden Hallo Hallo:
   $Connection15 = "VNet1toVNet5"
   ```
 
-2. Tooyour-account koppelen. Gebruik Hallo voorbeeld toohelp die u verbinding maakt te volgen:
+2. Maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 
   ```powershell
   Login-AzureRmAccount
   ```
 
-  Controleer de abonnementen Hallo voor Hallo-account.
+  Controleer de abonnementen voor het account.
 
   ```powershell
   Get-AzureRmSubscription
   ```
 
-  Hallo-abonnement dat u wilt dat toouse opgeven.
+  Geef het abonnement op dat u wilt gebruiken.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName $Sub1
@@ -155,9 +155,9 @@ We gebruiken de volgende waarden in de voorbeelden Hallo Hallo:
   ```powershell
   New-AzureRmResourceGroup -Name $RG1 -Location $Location1
   ```
-4. Hallo subnetconfiguraties maken voor TestVNet1. In dit voorbeeld wordt een virtueel netwerk gemaakt met de naam TestVNet1. Er worden ook drie subnetten gemaakt, GatewaySubnet, FrontEnd en BackEnd. Wanneer u de waarden vervangt, is het belangrijk dat u de juiste namen voor de gatewaysubnets gebruikt, in het bijzonder GatewaySubnet. Als u een andere naam kiest, mislukt het maken van de gateway.
+4. Maak de subnetconfiguraties voor TestVNet1. In dit voorbeeld wordt een virtueel netwerk gemaakt met de naam TestVNet1. Er worden ook drie subnetten gemaakt, GatewaySubnet, FrontEnd en BackEnd. Wanneer u de waarden vervangt, is het belangrijk dat u de juiste namen voor de gatewaysubnets gebruikt, in het bijzonder GatewaySubnet. Als u een andere naam kiest, mislukt het maken van de gateway.
 
-  Hallo wordt volgende voorbeeld Hallo variabelen die u eerder hebt ingesteld. In dit voorbeeld maakt Hallo gatewaysubnet gebruik van een/27. Het is mogelijk toocreate een gatewaysubnet van slechts/29, wordt u aangeraden dat u een groter subnet met meer adressen maakt door ten minste/28 of /27 selecteren. Hierdoor kunt voldoende adressen tooaccommodate mogelijk aanvullende configuraties die u kunt Hallo toekomstige.
+  In het volgende voorbeeld worden de variabelen gebruikt die u eerder hebt ingesteld. In dit voorbeeld maakt het gatewaysubnet gebruik van een /27. Het is mogelijk om een klein gatewaysubnet van /29 te maken, maar we raden u aan een groter subnet met meer adressen te maken door ten minste /28 of /27 te selecteren. Hierdoor hebt u genoeg adressen voor mogelijke aanvullende toekomstige configuraties.
 
   ```powershell
   $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -170,13 +170,13 @@ We gebruiken de volgende waarden in de voorbeelden Hallo Hallo:
   New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
   ```
-6. Aanvragen van een openbare IP-adres toobe toegewezen toohello gateway u voor uw VNet maakt. U ziet dat Hallo AllocationMethod is dynamische. U kunt Hallo IP-adres dat u wilt dat toouse niet opgeven. Is dynamisch toegewezen tooyour gateway. 
+6. Vraag om een openbaar IP-adres toe te wijzen aan de gateway die u voor uw VNet gaat maken. De toewijzingsmethode is Dynamisch. U kunt het IP-adres dat u wilt gebruiken niet zelf opgeven. Het wordt dynamisch toegewezen aan uw gateway. 
 
   ```powershell
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
   ```
-7. Hallo gatewayconfiguratie maken. Hallo-gatewayconfiguratie bepaalt Hallo subnet en Hallo openbare IP-adres toouse. Hallo voorbeeld toocreate uw gatewayconfiguratie gebruiken.
+7. Maak de gatewayconfiguratie. De gatewayconfiguratie bepaalt welk subnet en openbaar IP-adres moeten worden gebruikt. Gebruik het voorbeeld om de gatewayconfiguratie te maken.
 
   ```powershell
   $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
@@ -184,7 +184,7 @@ We gebruiken de volgende waarden in de voorbeelden Hallo Hallo:
   $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
-8. Hallo-gateway voor TestVNet1 maken. In deze stap maakt u de virtuele netwerkgateway Hallo voor TestVNet1. VNet-naar-VNet-configuraties vereisen een op route gebaseerd VpnType. Maken van een gateway kunt vaak 45 minuten of langer duren, afhankelijk van de geselecteerde Hallo-gateway SKU.
+8. Maak de gateway voor TestVNet1. In deze stap maakt u de virtuele netwerkgateway TestVNet1. VNet-naar-VNet-configuraties vereisen een op route gebaseerd VpnType. Het maken van een gateway duurt vaak 45 minuten of langer, afhankelijk van de geselecteerde gateway-SKU.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
@@ -194,9 +194,9 @@ We gebruiken de volgende waarden in de voorbeelden Hallo Hallo:
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>Stap 3: TestVNet4 maken en configureren
 
-Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Hallo stappen hieronder en vervang Hallo waarden door uw eigen wanneer deze nodig is. Deze stap kan worden uitgevoerd binnen Hallo dezelfde PowerShell-sessie omdat deze zich in Hallo hetzelfde abonnement.
+Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Volg de stappen hieronder en vervang de waarden door uw eigen waarden wanneer dat nodig is. Deze stap kan worden uitgevoerd binnen dezelfde PowerShell-sessie omdat deze tot hetzelfde abonnement behoort.
 
-1. Declareer uw variabelen. Worden ervoor tooreplace Hallo waarden Hello groepen wilt u toouse voor uw configuratie.
+1. Declareer uw variabelen. Zorg ervoor dat u de waarden vervangt door de waarden die u voor uw configuratie wilt gebruiken.
 
   ```powershell
   $RG4 = "TestRG4"
@@ -220,7 +220,7 @@ Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Hallo stappen hieron
   ```powershell
   New-AzureRmResourceGroup -Name $RG4 -Location $Location4
   ```
-3. Hallo subnetconfiguraties maken voor TestVNet4.
+3. Maak de subnetconfiguraties voor TestVNet4.
 
   ```powershell
   $fesub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
@@ -239,14 +239,14 @@ Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Hallo stappen hieron
   $gwpip4 = New-AzureRmPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AllocationMethod Dynamic
   ```
-6. Hallo gatewayconfiguratie maken.
+6. Maak de gatewayconfiguratie.
 
   ```powershell
   $vnet4 = Get-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4
   $subnet4 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet4
   $gwipconf4 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName4 -Subnet $subnet4 -PublicIpAddress $gwpip4
   ```
-7. Hallo TestVNet4-gateway maken. Maken van een gateway kunt vaak 45 minuten of langer duren, afhankelijk van de geselecteerde Hallo-gateway SKU.
+7. Maak de TestVNet4-gateway. Het maken van een gateway duurt vaak 45 minuten of langer, afhankelijk van de geselecteerde gateway-SKU.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
@@ -254,43 +254,43 @@ Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Hallo stappen hieron
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
-### <a name="step-4---create-hello-connections"></a>Stap 4: Hallo verbindingen maken
+### <a name="step-4---create-the-connections"></a>Stap 4: de verbindingen maken
 
-1. Verkrijg beide gateways van het virtuele netwerk. Als beide Hallo gateways in Hallo hetzelfde abonnement behoren, zoals in het Hallo-voorbeeld, kunt u deze stap bij het Hallo voltooien dezelfde PowerShell-sessie.
+1. Verkrijg beide gateways van het virtuele netwerk. Als beide gateways tot hetzelfde abonnement behoren, zoals in het voorbeeld, kunt u deze stap in dezelfde PowerShell-sessie voltooien.
 
   ```powershell
   $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   $vnet4gw = Get-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
   ```
-2. Hallo TestVNet1 tooTestVNet4 verbinding maken. In deze stap maakt u Hallo verbinding van TestVNet1 tooTestVNet4. Hier ziet u een gedeelde sleutel waarnaar wordt verwezen in Hallo voorbeelden. U kunt uw eigen waarden voor Hallo gedeelde sleutel gebruiken. Hallo belangrijk wat, is deze Hallo gedeelde sleutel moet voor beide verbindingen overeenkomen. Maken van een verbinding kan duren voordat een korte tijd toocomplete.
+2. Maak de verbinding tussen TestVNet1 en TestVNet4. In deze stap maakt u de verbinding van TestVNet1 naar TestVNet4. Hier ziet u een gedeelde sleutel waarnaar wordt verwezen in de voorbeelden. U kunt uw eigen waarden voor de gedeelde sleutel gebruiken. Het belangrijkste is dat de gedeelde sleutel voor beide verbindingen moet overeenkomen. Het kan even duren voordat de verbinding is gemaakt.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
   -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet4gw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-3. Hallo TestVNet4 tooTestVNet1 verbinding maken. Deze stap is vergelijkbaar toohello hierboven, alleen u Hallo verbinding nu vanuit TestVNet4 tooTestVNet1 maakt. Zorg ervoor dat Hallo gedeelde sleutels overeenkomen. Hallo verbinding zal worden gemaakt na een paar minuten.
+3. Maak de verbinding tussen TestVNet4 en TestVNet1. Deze stap is vergelijkbaar met die hierboven, alleen maakt u de verbinding nu vanuit TestVNet4 naar TestVNet1. Zorg dat de gedeelde sleutels overeenkomen. De verbinding wordt na enkele minuten tot stand gebracht.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
   -VirtualNetworkGateway1 $vnet4gw -VirtualNetworkGateway2 $vnet1gw -Location $Location4 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-4. Controleer de verbinding. Zie de sectie Hallo [hoe tooverify uw verbinding](#verify).
+4. Controleer de verbinding. Raadpleeg de sectie [De verbinding controleren](#verify).
 
-## <a name="difsub"></a>Hoe tooconnect VNets die zijn opgenomen in verschillende abonnementen
+## <a name="difsub"></a>VNets verbinden die tot verschillende abonnement behoren
 
 ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-In dit scenario worden TestVNet1 en TestVNet5 met elkaar verbonden. TestVNet1 en TestVNet5 bevinden zich in een verschillend abonnement. Hallo abonnementen hoeft geen toobe die zijn gekoppeld aan Hallo dezelfde Active Directory-tenant. Hallo verschil tussen deze stappen en de vorige set Hallo is dat een aantal configuratiestappen Hallo toobe uitgevoerd in een aparte PowerShell-sessie in de context van de tweede abonnement Hallo Hallo moet. Met name wanneer twee Hallo abonnementen behoren toodifferent organisaties.
+In dit scenario worden TestVNet1 en TestVNet5 met elkaar verbonden. TestVNet1 en TestVNet5 bevinden zich in een verschillend abonnement. De abonnementen hoeven niet aan dezelfde Active Directory-tenant gekoppeld te zijn. Het verschil tussen deze stappen en de eerste set is dat een deel van de configuratiestappen moet worden uitgevoerd in een aparte PowerShell-sessie in de context van het tweede abonnement. Dit geldt met name wanneer de twee abonnementen tot verschillende organisaties behoren.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>Stap 5: TestVNet1 maken en configureren
 
-U moet voltooien [stap 1](#Step1) en [stap 2](#Step2) van Hallo vorige sectie toocreate en TestVNet1 configureren en hello VPN-Gateway voor TestVNet1. Voor deze configuratie moet zijn u niet vereist toocreate TestVNet4 uit de vorige sectie hello, hoewel als u deze maakt, wordt dit niet conflicteert met de volgende stappen uit. Nadat u stap 1 en stap 2 hebt voltooid, kunt u doorgaan met stap 6 toocreate TestVNet5. 
+U moet [Stap 1](#Step1) en [Stap 2](#Step2) van de vorige sessie uitvoeren om TestVNet1 en de VPN-gateway voor TestVNet1 te maken en te configureren. Voor deze configuratie is het niet vereist TestVNet4 uit de vorige sectie te maken. Als u deze wel maakt, levert dit geen problemen op met de volgende stappen. Nadat u stap 1 en stap 2 hebt voltooid, gaat u verder met stap 6 om TestVNet5 te maken. 
 
-### <a name="step-6---verify-hello-ip-address-ranges"></a>Stap 6: Hallo IP-adresbereiken controleren
+### <a name="step-6---verify-the-ip-address-ranges"></a>Stap 6: de IP-adresbereiken controleren
 
-Het is belangrijk toomake ervoor dat Hallo IP-adresruimte van Hallo nieuw virtueel netwerk, TestVNet5, niet met een van uw VNet-bereiken of de gatewaybereiken van lokale netwerk overlapt. In dit voorbeeld kunnen de virtuele netwerken Hallo toodifferent organisaties behoren. Voor deze oefening kunt u de volgende waarden voor TestVNet5 Hallo hello gebruiken:
+Het is belangrijk dat u controleert of de IP-adresruimte van het nieuwe virtuele netwerk, TestVNet5, niet overlapt met een van de VNet-bereiken of de gatewaybereiken van het lokale netwerk. In dit voorbeeld kunnen de virtuele netwerken tot verschillende organisaties behoren. Voor deze oefening kunt u de volgende waarden voor TestVNet5 gebruiken:
 
 **Waarden voor TestVNet5:**
 
@@ -309,9 +309,9 @@ Het is belangrijk toomake ervoor dat Hallo IP-adresruimte van Hallo nieuw virtue
 
 ### <a name="step-7---create-and-configure-testvnet5"></a>Stap 7: TestVNet5 maken en configureren
 
-Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement Hallo Hallo. Dit onderdeel kan worden uitgevoerd door Hallo beheerder in een andere organisatie die eigenaar is van Hallo-abonnement.
+Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement. Dit deel kan worden uitgevoerd door de beheerder in een andere organisatie die eigenaar is van het abonnement.
 
-1. Declareer uw variabelen. Worden ervoor tooreplace Hallo waarden Hello groepen wilt u toouse voor uw configuratie.
+1. Declareer uw variabelen. Zorg ervoor dat u de waarden vervangt door de waarden die u voor uw configuratie wilt gebruiken.
 
   ```powershell
   $Sub5 = "Replace_With_the_New_Subcription_Name"
@@ -331,19 +331,19 @@ Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement Hallo H
   $GWIPconfName5 = "gwipconf5"
   $Connection51 = "VNet5toVNet1"
   ```
-2. Verbinding maken met toosubscription 5. Open de PowerShell-console en tooyour-account koppelen. Gebruik Hallo volgende steekproef toohelp die u verbinding kunt maken:
+2. Maak verbinding met abonnement 5. Open de PowerShell-console en maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 
   ```powershell
   Login-AzureRmAccount
   ```
 
-  Controleer de abonnementen Hallo voor Hallo-account.
+  Controleer de abonnementen voor het account.
 
   ```powershell
   Get-AzureRmSubscription
   ```
 
-  Hallo-abonnement dat u wilt dat toouse opgeven.
+  Geef het abonnement op dat u wilt gebruiken.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName $Sub5
@@ -353,7 +353,7 @@ Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement Hallo H
   ```powershell
   New-AzureRmResourceGroup -Name $RG5 -Location $Location5
   ```
-4. Hallo subnetconfiguraties maken voor TestVNet5.
+4. Maak de subnetconfiguraties voor TestVNet5.
 
   ```powershell
   $fesub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
@@ -372,38 +372,38 @@ Deze stap moet worden uitgevoerd in de context van het nieuwe abonnement Hallo H
   $gwpip5 = New-AzureRmPublicIpAddress -Name $GWIPName5 -ResourceGroupName $RG5 `
   -Location $Location5 -AllocationMethod Dynamic
   ```
-7. Hallo gatewayconfiguratie maken.
+7. Maak de gatewayconfiguratie.
 
   ```powershell
   $vnet5 = Get-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
   $subnet5  = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
   $gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
   ```
-8. Hallo TestVNet5-gateway maken.
+8. Maak de TestVNet5-gateway.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
   -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
-### <a name="step-8---create-hello-connections"></a>Stap 8: Maak Hallo-verbindingen
+### <a name="step-8---create-the-connections"></a>Stap 8: de verbindingen maken
 
-In dit voorbeeld omdat Hallo gateways Hallo verschillende abonnementen behoren, wordt deze stap opgesplitst in twee PowerShell-sessies die zijn gemarkeerd als [abonnement 1] en [abonnement 5].
+Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is deze stap opgesplitst in twee PowerShell-sessies, aangeduid als [Abonnement 1] en [Abonnement 5].
 
-1. **[Abonnement 1]**  Get Hallo virtuele netwerkgateway voor abonnement 1. Meld u bij en verbinding tooSubscription 1 voordat Hallo volgende voorbeeld wordt uitgevoerd:
+1. **[Abonnement 1]** Verkrijg de gateway van het virtuele netwerk voor abonnement 1. Meld u aan bij en maak verbinding met abonnement 1 voordat u het volgende voorbeeld uitvoert:
 
   ```powershell
   $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   ```
 
-  Hallo-uitvoer van de volgende elementen Hallo kopiëren en verzenden van deze toohello beheerder van abonnement 5 via e-mail of een andere methode.
+  Kopieer de uitvoer van de volgende elementen en stuur deze via e-mail of een andere manier naar de beheerder van abonnement 5.
 
   ```powershell
   $vnet1gw.Name
   $vnet1gw.Id
   ```
 
-  Deze twee elementen hebben waarden vergelijkbare toohello voorbeelduitvoer te volgen:
+  De waarden van deze twee elementen lijken op die in het volgende voorbeeld:
 
   ```
   PS D:\> $vnet1gw.Name
@@ -411,20 +411,20 @@ In dit voorbeeld omdat Hallo gateways Hallo verschillende abonnementen behoren, 
   PS D:\> $vnet1gw.Id
   /subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
   ```
-2. **[Abonnement 5]**  Get Hallo virtuele netwerkgateway voor abonnement 5. Meld u bij en verbinding tooSubscription 5 voordat Hallo volgende voorbeeld wordt uitgevoerd:
+2. **[Abonnement 5]** Verkrijg de gateway van het virtuele netwerk voor abonnement 5. Meld u aan bij en maak verbinding met abonnement 5 voordat u het volgende voorbeeld uitvoert:
 
   ```powershell
   $vnet5gw = Get-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
   ```
 
-  Hallo-uitvoer van de volgende elementen Hallo kopiëren en verzenden van deze toohello beheerder van abonnement 1 via e-mail of een andere methode.
+  Kopieer de uitvoer van de volgende elementen en stuur deze via e-mail of een andere manier naar de beheerder van Abonnement 1.
 
   ```powershell
   $vnet5gw.Name
   $vnet5gw.Id
   ```
 
-  Deze twee elementen hebben waarden vergelijkbare toohello voorbeelduitvoer te volgen:
+  De waarden van deze twee elementen lijken op die in het volgende voorbeeld:
 
   ```
   PS C:\> $vnet5gw.Name
@@ -432,9 +432,9 @@ In dit voorbeeld omdat Hallo gateways Hallo verschillende abonnementen behoren, 
   PS C:\> $vnet5gw.Id
   /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
   ```
-3. **[Abonnement 1]**  Hello TestVNet1 tooTestVNet5 verbinding maken. In deze stap maakt u Hallo verbinding van TestVNet1 tooTestVNet5. Hallo verschil is hier is $vnet5gw rechtstreeks kan worden verkregen omdat deze zich in een ander abonnement. U moet toocreate een nieuw PowerShell-object met Hallo waarden gecommuniceerd vanuit abonnement 1 in bovenstaande Hallo stappen. Gebruik onderstaande Hallo-voorbeeld. Hallo naam-Id en gedeelde sleutel vervangen door uw eigen waarden. Hallo belangrijk wat, is deze Hallo gedeelde sleutel moet voor beide verbindingen overeenkomen. Maken van een verbinding kan duren voordat een korte tijd toocomplete.
+3. **[Abonnement 1]** Maak de verbinding tussen TestVNet1 en TestVNet5. In deze stap maakt u de verbinding van TestVNet1 naar TestVNet5. Het verschil is hier dat $vnet5gw niet rechtstreeks kan worden verkregen omdat het zich in een ander abonnement bevindt. U moet een nieuw PowerShell-object maken met de waarden die in de bovenstaande stappen zijn gecommuniceerd vanuit Abonnement 1. Gebruik onderstaand voorbeeld. Vervang de naam, de id en de gedeelde sleutel door uw eigen waarden. Het belangrijkste is dat de gedeelde sleutel voor beide verbindingen moet overeenkomen. Het kan even duren voordat de verbinding is gemaakt.
 
-  Verbind tooSubscription 1 voordat Hallo volgt uitgevoerd:
+  Maak verbinding met abonnement 1 voordat u het volgende voorbeeld uitvoert:
 
   ```powershell
   $vnet5gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -443,9 +443,9 @@ In dit voorbeeld omdat Hallo gateways Hallo verschillende abonnementen behoren, 
   $Connection15 = "VNet1toVNet5"
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-4. **[Abonnement 5]**  Hello TestVNet5 tooTestVNet1 verbinding maken. Deze stap is vergelijkbaar toohello hierboven, alleen u Hallo verbinding nu vanuit TestVNet5 tooTestVNet1 maakt. Hallo hetzelfde proces voor het maken van een PowerShell-object op basis van waarden van Hallo verkregen van abonnement 1 ook hier geldt. In deze stap overeenkomen moet u ervoor zorgen dat Hallo gedeelde sleutels.
+4. **[Abonnement 5]** Maak de verbinding tussen TestVNet5 en TestVNet1. Deze stap is vergelijkbaar met die hierboven, alleen maakt u de verbinding nu vanuit TestVNet5 naar TestVNet1. Hier moet op dezelfde manier een PowerShell-object worden gemaakt op basis van de waarden die zijn verkregen van Abonnement 1. Zorg in deze stap dat de gedeelde sleutels overeenkomen.
 
-  Verbind tooSubscription 5 voordat Hallo volgt uitgevoerd:
+  Maak verbinding met abonnement 5 voordat u het volgende voorbeeld uitvoert:
 
   ```powershell
   $vnet1gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -454,7 +454,7 @@ In dit voorbeeld omdat Hallo gateways Hallo verschillende abonnementen behoren, 
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 
-## <a name="verify"></a>Hoe tooverify een verbinding
+## <a name="verify"></a>Een verbinding controleren
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -462,9 +462,9 @@ In dit voorbeeld omdat Hallo gateways Hallo verschillende abonnementen behoren, 
 
 ## <a name="faq"></a>Veelgestelde vragen over VNet-naar-VNet
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zodra de verbinding voltooid is, kunt u virtuele netwerken van virtuele machines tooyour kunt toevoegen. Zie Hallo [documentatie Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
-* Zie voor meer informatie over BGP Hallo [BGP-overzicht](vpn-gateway-bgp-overview.md) en [hoe tooconfigure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+* Wanneer de verbinding is voltooid, kunt u virtuele machines aan uw virtuele netwerken toevoegen. Raadpleeg de [documentatie over Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) voor meer informatie.
+* Voor meer informatie over BGP raadpleegt u [BGP Overview](vpn-gateway-bgp-overview.md) (BGP-overzicht) en [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (BGP configureren).

@@ -2,46 +2,46 @@
 
 U wordt in deze procedure:
 
-1. [Uitvoerbaar bestand toorun Hallo Maintainer voorbereiden](#to-prepare-to-run-the-maintainer) .
-2. [Hallo inhoud van de database en de Prullenbak voorbereiden voor onmiddellijke verwijdering van zwevende BLOBs](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs).
+1. [Voorbereiden om uit te voeren uitvoerbare bestand van de Maintainer](#to-prepare-to-run-the-maintainer) .
+2. [De inhoud van de database en de Prullenbak voorbereiden voor onmiddellijke verwijdering van zwevende BLOBs](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs).
 3. [Voer Maintainer.exe](#to-run-the-maintainer).
-4. [Hallo inhoud van de database en de Prullenbak-instellingen herstellen](#to-revert-the-content-database-and-recycle-bin-settings).
+4. [Herstellen van de inhoud van de database en de instellingen van de Prullenbak](#to-revert-the-content-database-and-recycle-bin-settings).
 
-#### <a name="tooprepare-toorun-hello-maintainer"></a>tooprepare toorun Hallo Maintainer
-1. Open op de front-endwebserver hello, Hallo SharePoint 2013-beheershell als beheerder.
-2. Navigeer toohello map *opstartschijf*: \Program Files\Microsoft 10.50\Maintainer SQL externe Blob-opslag\.
-3. Wijzig de naam van **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** te**web.config**.
-4. Gebruik `aspnet_regiis -pdf connectionStrings` toodecrypt Hallo web.config-bestand.
-5. In Hallo ontsleutelde web.config-bestand, onder Hallo `connectionStrings` knooppunt toevoegen Hallo-verbindingsreeks voor de SQL server-exemplaar en Hallo de naam van de inhoud van de database. Zie Hallo voorbeeld te volgen.
+#### <a name="to-prepare-to-run-the-maintainer"></a>Voorbereiden om uit te voeren de Maintainer
+1. Open de SharePoint 2013-beheershell als beheerder op de front-end-webserver.
+2. Navigeer naar de map *opstartschijf*: \Program Files\Microsoft 10.50\Maintainer SQL externe Blob-opslag\.
+3. Wijzig de naam van **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** naar **web.config**.
+4. Gebruik `aspnet_regiis -pdf connectionStrings` voor het ontsleutelen van het bestand web.config.
+5. In het bestand web.config te ontsleutelen onder de `connectionStrings` knooppunt toevoegen van de verbindingsreeks voor de SQL server-exemplaar en de naam van de inhoud van de database. Zie het volgende voorbeeld
    
     `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
-6. Gebruik `aspnet_regiis –pef connectionStrings` toore-versleutelen Hallo web.config-bestand. 
-7. Wijzig de naam van web.config tooMicrosoft.Data.SqlRemoteBlobs.Maintainer.exe.config. 
+6. Gebruik `aspnet_regiis –pef connectionStrings` opnieuw versleutelen van het bestand web.config. 
+7. De naam van web.config Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config. 
 
-#### <a name="tooprepare-hello-content-database-and-recycle-bin-tooimmediately-delete-orphaned-blobs"></a>tooprepare hello inhoud van de database en de Prullenbak tooimmediately verwijderen zwevende BLOBs
-1. Voer op Hallo SQL-Server in SQL Management Studio Hallo update query's voor Hallo doel inhoudsdatabase te volgen: 
+#### <a name="to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs"></a>Als u wilt de inhoud voorbereiden zwevende database en de Prullenbak worden onmiddellijk verwijderd BLOBs
+1. Voer op de SQL-Server in SQL Management Studio de volgende update-query's voor de doel-inhoudsdatabase: 
    
        `use WSS_Content`
    
        `exec mssqlrbs.rbs_sp_set_config_value ‘garbage_collection_time_window’ , ’time 00:00:00’`
    
        `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
-2. Op Hallo van web-front-endserver onder **Centraal beheer**, Hallo bewerken **algemene instellingen van webtoepassing** voor Hallo inhoudsdatabase tootemporarily uitschakelen Hallo Prullenbak gewenst. Deze actie wordt ook leeg Hallo Prullenbak voor een verzameling verwante site. toodo, klikt u op **Centraal beheer** -> **Toepassingsbeheer** -> **webtoepassingen (web-apps beheren)**  ->  **SharePoint - 80** -> **algemene toepassingsinstellingen**. Set Hallo **Status van de Prullenbak** te**OFF**.
+2. Op de front-endwebserver onder **Centraal beheer**, bewerk de **algemene instellingen van webtoepassing** voor de gewenste inhoudsdatabase tijdelijk uitschakelen van de Prullenbak. Deze actie wordt ook de Prullenbak voor alle siteverzamelingen verwante. Om dit te doen, klikt u op **Centraal beheer** -> **Toepassingsbeheer** -> **webtoepassingen (web-apps beheren)**  ->  **SharePoint - 80** -> **algemene toepassingsinstellingen**. Stel de **Status van de Prullenbak** naar **OFF**.
    
     ![Algemene instellingen van webtoepassing](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
-#### <a name="toorun-hello-maintainer"></a>toorun hello Maintainer
-* Op de front-endwebserver hello, in SharePoint 2013-beheershell Hallo Hallo Maintainer als volgt uitvoeren:
+#### <a name="to-run-the-maintainer"></a>De Maintainer uitvoeren
+* Op de front-endwebserver in SharePoint 2013-beheershell de Maintainer als volgt uitvoeren:
   
       `Microsoft.Data.SqlRemoteBlobs.Maintainer.exe -ConnectionStringName RBSMaintainerConnectionWSSContent -Operation GarbageCollection -GarbageCollectionPhases rdo`
   
   > [!NOTE]
-  > Alleen Hallo `GarbageCollection` bewerking voor StorSimple wordt ondersteund op dit moment. Let ook op Hallo-parameters die zijn uitgegeven voor Microsoft.Data.SqlRemoteBlobs.Maintainer.exe zijn hoofdlettergevoelig. 
+  > Alleen de `GarbageCollection` bewerking voor StorSimple wordt ondersteund op dit moment. Let ook op dat de parameters die zijn uitgegeven voor Microsoft.Data.SqlRemoteBlobs.Maintainer.exe hoofdlettergevoelig zijn. 
   > 
   > 
 
-#### <a name="toorevert-hello-content-database-and-recycle-bin-settings"></a>toorevert hello inhoud van de database en de Prullenbak-instellingen
-1. Voer op Hallo SQL-Server in SQL Management Studio Hallo update query's voor Hallo doel inhoudsdatabase te volgen:
+#### <a name="to-revert-the-content-database-and-recycle-bin-settings"></a>De inhoud van de database en de Prullenbak-instellingen herstellen
+1. Voer op de SQL-Server in SQL Management Studio de volgende update-query's voor de doel-inhoudsdatabase:
    
       `use WSS_Content`
    
@@ -50,5 +50,5 @@ U wordt in deze procedure:
       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’days 30’`
    
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
-2. Op de front-endwebserver hello, in **Centraal beheer**, Hallo bewerken **algemene instellingen van webtoepassing** voor Hallo inhoudsdatabase toore inschakelen Hallo Prullenbak gewenst. toodo, klikt u op **Centraal beheer** -> **Toepassingsbeheer** -> **webtoepassingen (web-apps beheren)**  ->  **SharePoint - 80** -> **algemene toepassingsinstellingen**. Hallo Status van de Prullenbak te ingesteld**ON**.
+2. Op de front-endwebserver in **Centraal beheer**, bewerk de **algemene instellingen van webtoepassing** voor de gewenste inhoud van de database opnieuw inschakelen van de Prullenbak. Om dit te doen, klikt u op **Centraal beheer** -> **Toepassingsbeheer** -> **webtoepassingen (web-apps beheren)**  ->  **SharePoint - 80** -> **algemene toepassingsinstellingen**. De Status van Recycle Bin instellen op **ON**.
 

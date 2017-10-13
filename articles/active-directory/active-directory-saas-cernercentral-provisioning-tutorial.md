@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Cerner centraal configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
-description: Meer informatie over hoe Azure Active Directory-tooautomatically tooconfigure gebruikers tooa schema in Cerner centrale inrichten.
+description: Informatie over het configureren van Azure Active Directory automatisch inrichten-beheerders kunnen een schema in Cerner centraal.
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: e96da98e783d24e7f34ae924824f909eead75f54
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 84613b7f8d7bd031d492a62da0bc53be96ac45a3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>Zelfstudie: Cerner centraal configureren voor het automatisch gebruikers inrichten
 
-Hallo-doel van deze zelfstudie is tooshow u stappen die u moet tooperform in Cerner centraal en Azure AD tooautomatically leveren en intrekken gebruikersaccounts vanuit Azure AD tooa gebruiker schema in Cerner centrale Hallo. 
+Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in Cerner centraal en Azure AD wilt om automatisch in te richten en inrichten van gebruikersaccounts vanuit Azure AD naar een schema van de gebruiker in Cerner centrale ongedaan. 
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Hallo scenario beschreven in deze zelfstudie wordt ervan uitgegaan dat u al hebt Hallo volgende items:
+Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
 *   Een Azure Active Directory-tenant
 *   Een tenant Cerner-centraal 
 
 > [!NOTE]
-> Azure Active Directory is geïntegreerd met Cerner centraal Hallo met [SCIM](http://www.simplecloud.info/) protocol.
+> Azure Active Directory is geïntegreerd met Cerner centraal met behulp van de [SCIM](http://www.simplecloud.info/) protocol.
 
-## <a name="assigning-users-toocerner-central"></a>Toewijzen van gebruikers tooCerner centraal
+## <a name="assigning-users-to-cerner-central"></a>Gebruikers toewijzen aan Cerner-centraal
 
-Azure Active Directory gebruikt een concept 'toewijzingen' toodetermine welke gebruikers toegang tooselected apps krijgen genoemd. In de context van de Hallo van automatische gebruikers account inrichten, worden alleen Hallo-gebruikers en groepen die '' tooan toepassing in Azure AD toegewezen zijn gesynchroniseerd. 
+Azure Active Directory gebruikt een concept 'toewijzingen' genoemd om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van automatische gebruikers account inrichten, worden alleen de gebruikers en groepen die '' tot een toepassing in Azure AD toegewezen zijn gesynchroniseerd. 
 
-Voordat u configureren en inschakelen van Hallo-service inricht, moet u bepalen welke gebruikers en/of groepen in Azure AD Hallo-gebruikers die toegang moeten hebben tot tooCerner centraal vertegenwoordigen. Als besloten, kunt u deze gebruikers tooCerner centraal kunt toewijzen door hier Hallo-instructies te volgen:
+Voordat u configureren en inschakelen van de inrichting service, moet u bepalen welke gebruikers en/of groepen in Azure AD de gebruikers die toegang nodig tot Cerner centraal vertegenwoordigen. Als besloten, kunt u deze gebruikers toewijzen aan Cerner centraal door de volgende instructies te volgen:
 
-[Toewijzen van een gebruiker of groep tooan enterprise-app](active-directory-coreapps-assign-user-azure-portal.md)
+[Een gebruiker of groep toewijzen aan een enterprise-app](active-directory-coreapps-assign-user-azure-portal.md)
 
-### <a name="important-tips-for-assigning-users-toocerner-central"></a>Belangrijke tips voor het toewijzen van gebruikers tooCerner centraal
+### <a name="important-tips-for-assigning-users-to-cerner-central"></a>Belangrijke tips voor het toewijzen van gebruikers aan Cerner-centraal
 
-*   Het is raadzaam om één Azure AD-gebruiker tooCerner centrale tootest Hallo inrichting configuratie worden toegewezen. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+*   Het is raadzaam om één Azure AD-gebruiker worden toegewezen aan Cerner centraal voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-* Zodra de eerste testen is voltooid voor één gebruiker, raadt Cerner centraal Hallo volledige lijst met gebruikers die zijn bedoeld tooaccess gebruikerslijst alle Cerner oplossing (niet alleen Cerner centraal) toobe ingericht tooCerner toewijzen.  Andere oplossingen Cerner gebruikmaken van deze lijst van gebruikers in de gebruikerslijst Hallo.
+* Zodra het eerste testen is voltooid voor één gebruiker Cerner centraal raadt aan om de volledige lijst met gebruikers die bestemd zijn voor toegang tot een Cerner-oplossing (niet alleen Cerner centraal) om te worden ingericht op de gebruikerslijst van Cerner toewijzen.  Andere oplossingen Cerner gebruikmaken van deze lijst van gebruikers in de gebruikerslijst.
 
-*   Wanneer u een gebruiker tooCerner centraal toewijst, moet u Hallo **gebruiker** rol in het dialoogvenster voor Hallo-toewijzing. Gebruikers met Hallo 'Default toegang' rol worden uitgesloten van de inrichting.
+*   Wanneer een gebruiker aan Cerner centraal toewijzen, moet u de **gebruiker** rol in het dialoogvenster toewijzing. Gebruikers met de rol 'Default toegang' zijn uitgesloten van de inrichting.
 
 
-## <a name="configuring-user-provisioning-toocerner-central"></a>Gebruikers inrichten tooCerner centraal configureren
+## <a name="configuring-user-provisioning-to-cerner-central"></a>Gebruikersaanvragen voor Cerner centraal configureren
 
-In deze sectie helpt u bij het verbinden van uw Azure AD tooCerner centraal gebruiker schema van Cerner SCIM gebruikersaccount gebruikt API-inrichting en Hallo service toocreate inrichting configureren, bijwerken en toegewezen gebruiker op basis van accounts in Cerner centrale uitschakelen op de toewijzing van gebruikers en groepen in Azure AD.
+Deze sectie helpt u bij het verbinding maken met uw Azure AD Cerner centraal van gebruiker schema van Cerner SCIM gebruikersaccount gebruikt API-inrichting, en configureren van de inrichting service te maken, bijwerken en uitschakelen van de toegewezen gebruiker accounts in Cerner centrale op basis van toewijzing van gebruikers en groepen in Azure AD.
 
 > [!TIP]
-> U kunt ook tooenabled op basis van SAML eenmalige aanmelding voor Cerner centraal, Hallo-instructies die zijn opgegeven in [Azure-portal (https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies elkaar aanvullen. Zie voor meer informatie, Hallo [één centrale Cerner aanmelding zelfstudie](active-directory-saas-cernercentral-tutorial.md).
+> U kunt ook op basis van SAML eenmalige aanmelding is ingeschakeld voor Cerner centraal, volgt de instructies in [Azure-portal (https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies elkaar aanvullen. Zie voor meer informatie de [één centrale Cerner aanmelding zelfstudie](active-directory-saas-cernercentral-tutorial.md).
 
 
-### <a name="tooconfigure-automatic-user-account-provisioning-toocerner-central-in-azure-ad"></a>tooconfigure automatische gebruikersaccount tooCerner centraal ingericht in Azure AD:
+### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Voor het configureren van automatische account gebruikersaanvragen naar Cerner centraal in Azure AD:
 
 
-In de volgorde tooprovision gebruiker accounts tooCerner centraal, u moet een Cerner centraal system-account van Cerner toorequest, en genereren van een OAuth-bearer-token die Azure AD van tooconnect tooCerner SCIM eindpunt kunt gebruiken. Het wordt ook aanbevolen Hallo integratie worden uitgevoerd in een Cerner sandbox-omgeving voordat u tooproduction implementeert.
+Gebruikersaccounts aan Cerner centraal inricht, hebt u nodig voor een systeemaccount Cerner centraal aanvragen bij Cerner en het genereren van een OAuth bearer-token die Azure AD gebruiken kunt voor het verbinding maken met de Cerner SCIM eindpunt. Het is ook raadzaam de integratie worden uitgevoerd in een Cerner sandbox-omgeving voordat u implementeert naar productie.
 
-1.  Hallo eerste stap is tooensure Hallo mensen Hallo Cerner beheren en Azure AD-integratie hebben een CernerCare-account is vereist tooaccess Hallo documentatie nodig toocomplete Hallo instructies. Gebruik indien nodig Hallo-URL's onder toocreate CernerCare accounts in elke omgeving van toepassing.
+1.  De eerste stap is om te controleren of de mensen die het beheer van de Cerner en Azure AD-integratie hebben een CernerCare-account is vereist voor toegang tot de documentatie die nodig zijn voor de instructies. Gebruik de onderstaande URL's CernerCare accounts maken in elke omgeving van toepassing, indien nodig.
 
    * Sandbox: https://sandboxcernercare.com/accounts/create
 
    * Productie: https://cernercare.com/accounts/create  
 
-2.  Vervolgens moet een systeem-account worden gemaakt voor Azure AD. Hallo instructies hieronder toorequest een systeemaccount gebruiken voor uw sandbox en productie-omgevingen.
+2.  Vervolgens moet een systeem-account worden gemaakt voor Azure AD. Volg de onderstaande instructies om aan te vragen van een systeem-Account voor uw sandbox en productie-omgevingen.
 
    * Instructies: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
@@ -79,7 +79,7 @@ In de volgorde tooprovision gebruiker accounts tooCerner centraal, u moet een Ce
 
    * Productie: https://cernercentral.com/system-accounts/
 
-3.  Vervolgens een OAuth bearer-token genereren voor elk van uw systeemaccounts. toodo deze, Hallo instructies hieronder.
+3.  Vervolgens een OAuth bearer-token genereren voor elk van uw systeemaccounts. U doet dit door de onderstaande instructies uit te voeren.
 
    * Instructies: https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
@@ -87,43 +87,43 @@ In de volgorde tooprovision gebruiker accounts tooCerner centraal, u moet een Ce
 
    * Productie: https://cernercentral.com/system-accounts/
 
-4. Tot slot moet u tooacquire gebruikers schema Realm-id's voor beide Hallo sandbox en productie-omgevingen in Cerner toocomplete Hallo configuratie. Voor meer informatie over tooacquire deze, Zie: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
+4. Tot slot moet u aan te schaffen gebruikersnamen schema Realm voor de sandbox en de productie-omgevingen in Cerner om de configuratie te voltooien. Zie voor meer informatie over het verkrijgen van dit: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
-5. Nu kunt u Azure AD tooprovision gebruiker accounts tooCerner configureren. Meld u aan toohello [Azure-portal](https://portal.azure.com), en blader toohello **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
+5. Nu kunt u Azure AD om gebruikersaccounts in inrichten op Cerner te configureren. Aanmelden bij de [Azure-portal](https://portal.azure.com), en blader naar de **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
 
-6. Als u Cerner centraal al hebt geconfigureerd voor eenmalige aanmelding, zoekt u uw exemplaar van Cerner centraal met Hallo zoekveld opgegeven. Selecteer anders **toevoegen** en zoek naar **Cerner centraal** in Hallo-toepassingsgalerie. Selecteer Cerner centraal in zoekresultaten hello, en voeg deze tooyour lijst met toepassingen.
+6. Als u al Cerner centraal hebt geconfigureerd voor eenmalige aanmelding, zoekt u uw exemplaar van Cerner centraal met behulp van het zoekveld. Selecteer anders **toevoegen** en zoek naar **Cerner centraal** in de galerie met toepassingen. Cerner centraal selecteert in de zoekresultaten en toe te voegen aan uw lijst met toepassingen.
 
-7.  Selecteer uw exemplaar van de centrale Cerner en vervolgens Hallo **inrichten** tabblad.
+7.  Selecteer uw exemplaar van de centrale Cerner en selecteer vervolgens de **inrichten** tabblad.
 
-8.  Set Hallo **modus inrichting** te**automatische**.
+8.  Stel de **Inrichtingsmodus** naar **automatische**.
 
    ![Cerner centraal inrichten](./media/active-directory-saas-cernercentral-provisioning-tutorial/Cerner.PNG)
 
-9.  Hallo volgen onder velden invullen **beheerdersreferenties**:
+9.  Vul de volgende velden onder **beheerdersreferenties**:
 
-   * In Hallo **Tenant-URL** veld, voer een URL in de indeling Hallo hieronder, "Gebruiker-schema-Realm-ID" vervangen door een Hallo realm ID die u hebt verkregen in stap &#4;.
+   * In de **Tenant-URL** en voer een URL in de notatie, "Gebruiker-schema-Realm-ID" vervangen door de realm-ID die u hebt verkregen in stap &#4;.
 
 > Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
 > Productie: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-   * In Hallo **geheim Token** veld Hallo OAuth bearer-token die u in stap &#3; gegenereerd en op **testverbinding**.
+   * In de **geheim Token** veld, voert u het OAuth bearer-token die u in stap &#3; gegenereerd en klikt u op **testverbinding**.
 
-   * U ziet een melding geslaagd Hallo upperright zijde van de portal.
+   * U ziet een melding met succes de upperright-zijde van de portal.
 
-10. Voer e-mailadres van een persoon of groep die inrichting fout meldingen in Hallo ontvangen moet Hallo **e-mailmelding** veld en controleer de onderstaande Hallo selectievakje.
+10. Voer het e-mailadres van een persoon of groep die in inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het selectievakje hieronder in.
 
 11. Klik op **Opslaan**. 
 
-12. In Hallo **kenmerktoewijzingen** sectie, bekijkt hello gebruiker en groep kenmerken toobe gesynchroniseerd met Azure AD tooCerner centraal. kenmerken die zijn geselecteerd als Hallo **overeenkomend** eigenschappen zijn gebruikte toomatch Hallo gebruikersaccounts en groepen in de centrale Cerner voor update-bewerkingen. Selecteer Hallo knop toocommit wijzigingen zijn opgeslagen.
+12. In de **kenmerktoewijzingen** sectie, moet u de gebruikers- en groepskenmerken moeten worden gesynchroniseerd vanuit Azure AD naar Cerner centraal controleren. De kenmerken die zijn geselecteerd als **overeenkomend** eigenschappen overeenkomen met de gebruikersaccounts en groepen in de centrale Cerner voor update-bewerkingen worden gebruikt. Selecteer de knop Opslaan eventuele wijzigingen doorvoeren.
 
-13. tooenable Hallo inrichting Azure AD-service voor het hoofdkantoor Cerner, wijziging Hallo **inrichting Status** te**op** in Hallo **instellingen** sectie
+13. Om de Azure AD-service voor het hoofdkantoor Cerner inricht, wijzigen de **inrichting Status** naar **op** in de **instellingen** sectie
 
 14. Klik op **Opslaan**. 
 
-Hiermee start u de initiële synchronisatie Hallo van alle gebruikers en/of groepen tooCerner centraal in de sectie gebruikers en groepen Hallo toegewezen. de initiële synchronisatie Hallo duurt langer tooperform dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden, zolang Hallo inrichting Azure AD-service wordt uitgevoerd. U kunt Hallo **synchronisatiedetails** sectie toomonitor uitgevoerd en volgt u koppelingen tooprovisioning activiteitsrapporten, waarin alle bewerkingen die worden uitgevoerd door het Hallo-service op uw app Cerner centraal inrichting beschrijven.
+Hiermee start u de initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan de centrale Cerner in de sectie gebruikers en groepen. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de Azure AD-service inricht wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service op uw app Cerner centraal beschrijven.
 
-Zie voor meer informatie over hoe tooread hello Azure AD-inrichting registreert, [rapportage over automatische account gebruikersaanvragen](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
@@ -133,4 +133,4 @@ Zie voor meer informatie over hoe tooread hello Azure AD-inrichting registreert,
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over hoe tooreview registreert en get rapporten over het inrichten van de activiteit](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+* [Informatie over het bekijken van Logboeken en rapporten over het inrichten van de activiteit](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).

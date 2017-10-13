@@ -13,7 +13,7 @@
 | Time-out voor inactiviteit |4 uur |
 | Niet-verbonden time-out |4 uur |
 
-Hallo aantal gebruikers wordt bepaald door het aantal virtuele machines die worden gebruikt voor uw verzameling Hallo:
+Het aantal gebruikers wordt bepaald door het aantal virtuele machines die worden gebruikt voor uw verzameling:
 
 * Basic = 16 gebruikers per VM
 * Standaard = 10 gebruikers per VM

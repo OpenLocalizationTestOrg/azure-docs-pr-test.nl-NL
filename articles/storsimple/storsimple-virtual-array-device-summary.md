@@ -1,6 +1,6 @@
 ---
-title: aaaStorSimple virtuele matrix apparaat samenvatting blade | Microsoft Docs
-description: Beschrijving Hallo apparaat samenvatting blade voor StorSimple Apparaatbeheer en wordt uitgelegd hoe toouse het toomonitor Hallo status van uw virtuele StorSimple-matrix.
+title: Virtuele StorSimple-matrix apparaat samenvatting blade | Microsoft Docs
+description: Beschrijft de samenvatting blade apparaat voor StorSimple Apparaatbeheer en wordt uitgelegd hoe u hiermee de status van uw virtuele StorSimple-matrix.
 services: storsimple
 documentationcenter: 
 author: manuaery
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
-ms.openlocfilehash: 3649eaac8a924a772f310a809ddf9706e912157a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 35413d597c3b6b1c7600241a78572b63f982d175
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-device-summary-blade-for-storsimple-device-manager-connected-toostorsimple-virtual-array"></a>Gebruik Hallo apparaat samenvatting blade voor StorSimple Apparaatbeheer verbonden tooStorSimple virtuele matrix
+# <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Gebruik de samenvatting blade apparaat voor StorSimple Apparaatbeheer verbonden met virtuele StorSimple-matrix
 
 ## <a name="overview"></a>Overzicht
 
-Hallo Apparaatbeheer StorSimple-apparaat blade geeft een overzicht van een virtueel StorSimple-matrix die is geregistreerd met een bepaalde StorSimple Apparaatbeheer markeren die apparaat-problemen die aandacht vereisen een systeembeheerder. Deze zelfstudie Hallo apparaat samenvatting blade introduceert, wordt uitgelegd Hallo inhoud en de functie en Hallo worden taken beschreven die u vanuit deze blade uitvoeren kunt.
+De blade Apparaatbeheer StorSimple-apparaat wordt een samenvatting weergegeven van een virtueel StorSimple-matrix die is geregistreerd met een bepaalde StorSimple Apparaatbeheer markeren die apparaat-problemen die aandacht vereisen een systeembeheerder. In deze zelfstudie maakt u kennis met de samenvatting blade apparaat, wordt de inhoud en de functie wordt uitgelegd en beschrijft de taken die u vanuit deze blade uitvoeren kunt.
 
-Hallo apparaat samenvatting blade geeft Hallo volgende informatie weer:
+De samenvatting apparaat-blade bevat de volgende informatie:
 
 ![Apparaat-dashboard](./media/storsimple-virtual-array-device-summary/device-blade.png)
 
@@ -34,21 +34,21 @@ Hallo apparaat samenvatting blade geeft Hallo volgende informatie weer:
 
 ## <a name="management"></a>Beheer
 
-In de blade voor Hallo StorSimple-apparaat ziet u Hallo opties voor het beheren van uw StorSimple-apparaat. Opdrachten voor het beheer van Hallo ziet u aan de bovenkant Hallo van Hallo blade en aan de linkerkant Hallo. Gebruikmaken van deze opties tooadd shares of volumes, bijwerken of failover van uw virtuele matrix.
+In de blade StorSimple-apparaat ziet u de opties voor het beheren van uw StorSimple-apparaat. Ziet u de opdrachten voor het beheer aan de bovenkant van de blade en aan de linkerkant. Gebruik deze opties shares of volumes, toevoegen of bijwerken of failover van uw virtuele matrix.
 
-Hallo essentials gebied bevat enkele belangrijke eigenschappen zoals hello, Hallo status, model, softwareversie, evenals een link toohello van **Webgebruikersinterface** van Hallo matrix. Als u zich op een intern netwerk, kunt u rechtstreeks Hallo starten [lokale webgebruikersinterface](storsimple-ova-web-ui-admin.md) tooadminister uw virtuele matrix.
+Het gebied essentials bevat enkele belangrijke eigenschappen zoals de status, model, versie, evenals een koppeling naar de **Webgebruikersinterface** van de matrix. Als u zich op een intern netwerk, kunt u rechtstreeks starten de [lokale webgebruikersinterface](storsimple-ova-web-ui-admin.md) voor het beheren van uw virtuele matrix.
 
 ![Apparaat essentials](./media/storsimple-virtual-array-device-summary/device-essentials.png)
 
 ## <a name="storsimple-device-summary"></a>Samenvatting StorSimple-apparaat
 
-* Hallo **waarschuwingen** tegel biedt een momentopname van alle Hallo actieve waarschuwingen voor uw virtuele matrix gegroepeerd op de ernst van waarschuwing. Klik op Hallo tegel tooopen hello **waarschuwingen** blade en klik vervolgens op een afzonderlijke een waarschuwing tooview aanvullende details over deze waarschuwing, inclusief alle aanbevolen acties. U kunt ook een waarschuwing Hallo wissen als Hallo probleem is opgelost.
+* De **waarschuwingen** tegel biedt een momentopname van de actieve waarschuwingen voor uw virtuele matrix gegroepeerd op de ernst van waarschuwing. Klik op de tegel openen de **waarschuwingen** blade en klik vervolgens op een afzonderlijke waarschuwing u meer details over deze waarschuwing, inclusief alle aanbevolen acties. U kunt ook de waarschuwing wissen als het probleem is opgelost.
 
-* Hallo **capaciteit** tegel geeft Hallo primaire opslag die is ingericht en de resterende over Hallo virtueel apparaat relatieve toohello totale opslag beschikbaar voor dezelfde Hallo. **Ingericht** toohello en de hoeveelheid opslagruimte die is voorbereid en toegewezen voor gebruik, verwijst **resterend** verwijst toohello resterende capaciteit die kan worden ingericht op dit apparaat. Hallo **resterende gelaagde** capaciteit is Hallo beschikbare capaciteit die kan worden ingericht met inbegrip van de cloud, tijdens het Hallo **resterende lokale** is toothis virtuele Hallo resterende capaciteit op Hallo schijven is gekoppeld matrix.
+* De **capaciteit** tegel worden weergegeven voor de primaire opslag die is ingericht en resterende in het virtuele apparaat ten opzichte van de totale opslag beschikbaar voor dezelfde. **Ingericht** verwijst naar de hoeveelheid opslagruimte die is voorbereid en toegewezen voor gebruik, **resterend** verwijst naar de resterende capaciteit die kan worden ingericht op dit apparaat. De **resterende gelaagde** capaciteit is de beschikbare capaciteit die kan worden ingericht met inbegrip van de cloud, terwijl de **resterende lokale** is de resterende capaciteit op de schijven die aan deze virtuele matrix is gekoppeld.
 
-* In Hallo **gebruik** grafiek, kunt u Hallo primaire opslag gebruikt via uw virtuele matrix, evenals de Hallo cloud-opslag verbruikt Hallo afgelopen 7 dagen, Hallo standaard periode bekijken. Gebruik Hallo **bewerken** optie in Hallo rechtsboven van Hallo grafiek toochoose de schaal van een andere tijd.
+* In de **gebruik** grafiek, vindt u de primaire opslag in uw virtuele matrix gebruikt, evenals de cloudopslag verbruikt gedurende de afgelopen 7 dagen, de standaard time-outperiode. Gebruik de **bewerken** optie in de rechterbovenhoek van de grafiek naar een ander tijdstip schaal kiezen.
 
-* Hallo **Shares** of **Volumes** tegel bevat een samenvatting van Hallo aantal shares of volumes op uw apparaat op status gegroepeerd. Klik op Hallo tegel tooopen hello **Shares** of **Volumes** blade lijst en klikt u op een afzonderlijke share of het volume tooview of de eigenschappen wijzigen. Voor meer informatie Zie hoe te[shares kunt beheren](storsimple-virtual-array-manage-shares.md) of [volumes beheren](storsimple-virtual-array-manage-volumes.md).
+* De **Shares** of **Volumes** tegel bevat een samenvatting van het aantal shares of volumes op uw apparaat op status gegroepeerd. Klik op de tegel openen de **Shares** of **Volumes** blade lijst en klik vervolgens op een afzonderlijke share of het volume weergeven of wijzigen van de eigenschappen ervan. Zie voor meer informatie hoe [shares kunt beheren](storsimple-virtual-array-manage-shares.md) of [volumes beheren](storsimple-virtual-array-manage-volumes.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Leer hoe u het volgende doet:

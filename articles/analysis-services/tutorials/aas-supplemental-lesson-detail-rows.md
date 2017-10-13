@@ -1,46 +1,63 @@
 ---
-titel: aaa "zelfstudie aanvullende les Azure Analysis Services: detailrijen | Microsoft Docs' Beschrijving: hierin wordt beschreven hoe toocreate een Detail rijen expressie in Azure analyseservices-zelfstudie Hallo.
-Services: analysis services-documentationcenter: '' auteur: minewiskan manager: erikre-editor: '' tags: ''
-
-MS.AssetID: ms.service: ms.devlang analysis services: N.V.T. ms.topic:-slag-artikel ms.tgt_pltfrm: N.V.T. ms.workload: na ms.date: 05/26/2017 ms.author: owend
+title: 'Azure Analysis Services-zelfstudie - Aanvullende les: Detailrijen | Microsoft Docs'
+description: In deze les wordt beschreven hoe u een detailrijenexpressie maakt in de zelfstudie over Azure Analysis Services.
+services: analysis-services
+documentationcenter: 
+author: Minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 05/26/2017
+ms.author: owend
+ms.openlocfilehash: 9995ad39d9e3fd1a211c513d4097398e99eefc54
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Aanvullende les: Detailrijen
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In deze aanvullende les u Hallo DAX-Editor toodefine een aangepaste Detail rijen expressie. Een expressie van de rijen Detail is een eigenschap van een meting biedt eindgebruikers meer informatie over de resultaten van een meting Hallo geaggregeerd. 
+In deze aanvullende les gaat u DAX Editor gebruiken voor het definiëren van een aangepaste detailrijenexpressie. Een detailrijenexpressie is een eigenschap van een meting die eindgebruikers meer informatie biedt over de cumulatieve resultaten van een meting. 
   
-Geschatte tijd toocomplete deze les: **10 minuten**  
+Geschatte tijd voor het voltooien van deze les: **10 minuten**  
   
 ## <a name="prerequisites"></a>Vereisten  
-Deze aanvullende les maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. Voordat u Hallo taken uitvoert in deze aanvullende les, u moet voltooid alle vorige uitkomsten of een voltooide Adventure Works Internet verkoop model voorbeeldproject hebben.  
+Deze aanvullende les maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. U kunt de taken in deze aanvullende les pas uitvoeren nadat u alle voorgaande lessen hebt afgerond of het voorbeeldproject Adventure Works Internet Sales hebt voltooid.  
   
-## <a name="what-do-we-need-toosolve"></a>Wat doen we toosolve nodig?
-We bekijken Hallo details van de meting van onze InternetTotalSales, voordat u een expressie van de rijen Detail toevoegt.
+## <a name="what-do-we-need-to-solve"></a>Wat moeten we oplossen?
+Laten we eens kijken naar de details van onze meting InternetTotalSales, voordat we een detailrijenexpressie gaan toevoegen.
 
-1.  In SSDT, klikt u op Hallo **Model** menu > **analyseren in Excel** tooopen Excel en maak een lege draaitabel.
+1.  Klik in SSDT op het menu **Model** > **Analyze in Excel** om Excel te openen met een lege draaitabel.
   
-2.  In **PivotTable-Fields**, Hallo toevoegen **InternetTotalSales** te meten uit Hallo heeft tabel**waarden**, **kalenderjaar**van Hallo DimDate tabel te**kolommen**, en **EnglishCountryRegionName** te**rijen**. Onze draaitabel biedt nu ons cumulatieve resultaten van Hallo InternetTotalSales meting door regio's en het jaar. 
+2.  Ga naar **Draaitabelvelden** en voeg de meting **InternetTotalSales** uit de tabel FactInternetSales toe aan **Waarden**, **CalendarYear** uit de tabel DimDate aan **Kolommen** en **EnglishCountryRegionName** aan **Rijen**. Onze draaitabel toont nu geaggregeerde resultaten van de meting InternetTotalSales per regio en per jaar. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. In de draaitabel Hallo, dubbelklikt u op een cumulatieve waarde voor een jaar en de regionaam van een. Hier we op gedubbelklikt Hallo-waarde voor Australië en Hallo jaar 2014. Er wordt een nieuw blad geopend met gegevens, maar dit zijn niet echt nuttige gegevens.
+3. Dubbelklik in de draaitabel op een geaggregeerde waarde voor een jaar en een regionaam. In dit voorbeeld hebben we gedubbelklikt op de waarde voor Australië en het jaar 2014. Er wordt een nieuw blad geopend met gegevens, maar dit zijn niet echt nuttige gegevens.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-Resultaat van de meting van onze InternetTotalSales we zou toosee hier is een tabel met kolommen en rijen met gegevens die toohello bijdragen worden geaggregeerd. toodo dat we een expressie van de rijen Detail als een eigenschap van Hallo meting kunt toevoegen.
+Wat we graag willen zien is een tabel met kolommen en rijen met gegevens die bijdragen aan het geaggregeerde resultaat van onze meting InternetTotalSales. Dit kan door een detailrijenexpressie toe te voegen als een eigenschap van de meting.
 
 ## <a name="add-a-detail-rows-expression"></a>Een detailrijenexpressie maken
 
-#### <a name="toocreate-a-detail-rows-expression"></a>een expressie van de rijen Detail toocreate 
+#### <a name="to-create-a-detail-rows-expression"></a>Een detailrijenexpressie maken: 
   
-1. Klik in SSDT, in Hallo heeft tabel maat raster op Hallo **InternetTotalSales** meting. 
+1. Klik in SSDT, in het metingenraster van de tabel FactInternetSales, op de meting **InternetTotalSales**. 
 
-2. In **eigenschappen** > **Detail rijen expressie**, klikt u op Hallo editor knop tooopen Hallo DAX-Editor.
+2. Ga naar **Properties** > **Detail Rows Expression** en klik op de knop hieronder om DAX Editor te openen.
 
     ![aas-lesson-detail-rows-ellipse](../tutorials/media/aas-lesson-detail-rows-ellipse.png)
 
-3. DAX-Editor, Voer Hallo expressie te volgen:
+3. Voer in DAX Editor de volgende expressie in:
 
     ```
     SELECTCOLUMNS(
@@ -55,9 +72,9 @@ Resultaat van de meting van onze InternetTotalSales we zou toosee hier is een ta
 
     ```
 
-    Deze expressie geeft de namen van kolommen en meting resultaten uit Hallo heeft tabel en gerelateerde tabellen die worden geretourneerd wanneer een gebruiker dubbelklikt op een samengevoegde resultaat in een draaitabel of -rapport.
+    Deze expressie bevat namen, kolommen en meetresultaten uit de tabel FactInternetSales en er worden gerelateerde tabellen geretourneerd wanneer een gebruiker dubbelklikt op een geaggregeerd resultaat in een draaitabel of -rapport.
 
-4. Terug in Excel Hallo blad gemaakt in stap 3 verwijderen en dubbelklik op een cumulatieve waarde. Deze tijd met een eigenschap Detail rijen expressie is gedefinieerd voor de meting hello, een nieuw blad wordt geopend met veel meer bruikbare gegevens.
+4. Ga terug naar Excel, verwijder van het blad dat we hebben gemaakt in stap 3 en dubbelklik op een geaggregeerde waarde. Nu we een detailrijenexpressie hebben gedefinieerd voor de meting, wordt er een nieuw blad geopend met gegevens waar we heel veel aan hebben.
 
     ![aas-lesson-detail-rows-detailsheet](../tutorials/media/aas-lesson-detail-rows-detailsheet.png)
 

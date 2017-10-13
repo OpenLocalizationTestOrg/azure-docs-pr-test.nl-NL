@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Hoe DocumentDB API met behulp van tooquery Hallo? | Microsoft Docs'
-description: Meer informatie over tooquery Hello DocumentDB-API voor Azure Cosmos-DB
+title: 'Azure Cosmos DB: Hoe kan ik query uitvoert met behulp van de API DocumentDB? | Microsoft Docs'
+description: Meer informatie over query met de DocumentDB-API voor Azure Cosmos-DB
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: e3e5a49f7510942bcfb15330e5f86c5dd8b1e5d9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: feffc553a9aa931d96cec71c101674fce08a466b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="azure-cosmos-db-how-tooquery-with-api-for-mongodb"></a>Azure Cosmos DB: Hoe tooquery met API voor MongoDB?
+# <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: Hoe kan ik query met de API voor MongoDB?
 
-Hello Azure Cosmos DB [API voor MongoDB](mongodb-introduction.md) ondersteunt [MongoDB shell-query's](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+De Azure DB die Cosmos [API voor MongoDB](mongodb-introduction.md) ondersteunt [MongoDB shell-query's](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
-Dit artikel behandelt Hallo taken te volgen: 
+In dit artikel bevat informatie over de volgende taken: 
 
 > [!div class="checklist"]
 > * Een query met MongoDB
 
 ## <a name="sample-document"></a>Voorbeelddocument
 
-Hallo-query's in dit artikel gebruiken Hallo voorbeelddocument te volgen.
+De query's in dit artikel gebruikt het volgende voorbeelddocument.
 
 ```json
 {
@@ -64,7 +64,7 @@ Hallo-query's in dit artikel gebruiken Hallo voorbeelddocument te volgen.
 ```
 ## <a id="examplequery1"></a>Voorbeeldquery 1 
 
-Hallo voorbeeld familie document bovenstaande gegeven, Hallo volgende retourneert Hallo documenten waarbij veld Hallo-id overeenkomt met opvragen `WakefieldFamily`.
+Het voorbeeld familie document bovenstaande gegeven, de volgende query retourneert de documenten waarbij het veld id overeenkomt met `WakefieldFamily`.
 
 **Query**
     
@@ -114,7 +114,7 @@ Hallo voorbeeld familie document bovenstaande gegeven, Hallo volgende retourneer
 
 ## <a id="examplequery2"></a>Voorbeeldquery 2 
 
-de volgende query Hallo retourneert alle Hallo onderliggende in Hallo-familie. 
+De volgende query retourneert alle onderliggende objecten in de familie. 
 
 **Query**
     
@@ -147,7 +147,7 @@ de volgende query Hallo retourneert alle Hallo onderliggende in Hallo-familie.
 
 ## <a id="examplequery3"></a>Voorbeeldquery 3 
 
-de volgende query Hallo retourneert alle Hallo families die zijn geregistreerd. 
+De volgende query retourneert alle families die zijn geregistreerd. 
 
 **Query**
     
@@ -156,7 +156,7 @@ de volgende query Hallo retourneert alle Hallo families die zijn geregistreerd.
 
 ## <a id="examplequery4"></a>Voorbeeldquery 4
 
-de volgende query Hallo retourneert alle Hallo families die niet zijn geregistreerd. 
+De volgende query retourneert alle families die niet zijn geregistreerd. 
 
 **Query**
     
@@ -200,7 +200,7 @@ de volgende query Hallo retourneert alle Hallo families die niet zijn geregistre
 
 ## <a id="examplequery5"></a>Voorbeeldquery 5
 
-de volgende query Hallo retourneert alle Hallo families die niet zijn geregistreerd en de status is NY. 
+De volgende query retourneert de families die niet zijn geregistreerd en status NY. 
 
 **Query**
     
@@ -246,7 +246,7 @@ de volgende query Hallo retourneert alle Hallo families die niet zijn geregistre
 
 ## <a id="examplequery6"></a>Voorbeeldquery 6
 
-de volgende query Hallo retourneert alle Hallo families waar kinderen cijfers 8 zijn.
+De volgende query retourneert alle families waar kinderen cijfers 8 zijn.
 
 **Query**
   
@@ -291,7 +291,7 @@ de volgende query Hallo retourneert alle Hallo families waar kinderen cijfers 8 
 
 ## <a id="examplequery7"></a>Voorbeeldquery 7
 
-de volgende query Hallo retourneert alle Hallo families waarbij de grootte van onderliggende matrix 3 is.
+De volgende query retourneert alle families waarbij de grootte van onderliggende matrix 3 is.
 
 **Query**
   
@@ -299,16 +299,16 @@ de volgende query Hallo retourneert alle Hallo families waarbij de grootte van o
 
 **Resultaten**
 
-Er zijn geen resultaten geretourneerd als er geen meer dan 2 onderliggende elementen. Alleen gebruikt als parameter 2 wordt deze query mislukt en wordt het volledige document Hallo retourneren.
+Er zijn geen resultaten geretourneerd als er geen meer dan 2 onderliggende elementen. Alleen gebruikt als parameter 2 wordt deze query mislukt en wordt het volledige document retourneren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u Hallo volgende gedaan:
+In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * Geleerd hoe tooquery met MongoDB 
+> * Hebt geleerd hoe u een query uitvoert met behulp van MongoDB 
 
-U kunt nu de volgende zelfstudie toolearn toohello hoe doorgaan toodistribute uw gegevens globaal.
+U kunt nu doorgaan met de volgende zelfstudie voor informatie over het distribueren van uw gegevens globaal.
 
 > [!div class="nextstepaction"]
 > [Uw gegevens globaal distribueren](tutorial-global-distribution-documentdb.md)

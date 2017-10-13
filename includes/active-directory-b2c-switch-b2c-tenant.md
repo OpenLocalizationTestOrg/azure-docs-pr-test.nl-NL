@@ -1,5 +1,3 @@
-Door Sipi bewerkt.
+Als u wilt overschakelen naar de Azure AD B2C-tenant, selecteert u de B2C-directory in de rechterbovenhoek van de portal.
 
-tooswitch tooyour Azure AD B2C-tenant, selecteer Hallo B2C-directory in Hallo rechtsboven van Hallo-portal.
-
-![Overschakelen van tooyour Azure AD B2C-tenant](./media/active-directory-b2c-switch-b2c-tenant/switch-to-b2c-tenant.png)
+![Overschakelen naar de Azure AD B2C-tenant](./media/active-directory-b2c-switch-b2c-tenant/switch-to-b2c-tenant.png)

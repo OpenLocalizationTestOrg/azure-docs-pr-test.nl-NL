@@ -1,6 +1,6 @@
 ---
-title: cloudresources aaaSecure met Azure MFA en AD FS | Microsoft Docs
-description: Dit is hello Azure multi-factor authentication-pagina waarop wordt beschreven hoe tooget de slag met Azure MFA en AD FS in Hallo cloud.
+title: Cloudresources beveiligen met Azure MFA en AD FS | Microsoft Docs
+description: Dit is de pagina Azure Multi-Factor Authentication waarop wordt beschreven hoe u aan de slag kunt met Azure MFA en AD FS in de cloud.
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: kgremban
-ms.openlocfilehash: 8d38d6a4af63ddcaf0fefded0b73d82d5178aa36
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6cf4ec4f777ea1f2b852945ab82da2547946f378
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Cloudresources beveiligen met Azure Multi-Factor Authentication en AD FS
-Als uw organisatie is gefedereerd met Azure Active Directory, gebruikt u Azure multi-factor Authentication of Active Directory Federation Services (AD FS) toosecure resources die worden gebruikt door Azure AD. Hallo volgende procedures toosecure Azure Active Directory-resources met Azure multi-factor Authentication of Active Directory Federation Services gebruiken.
+Als uw organisatie is gefedereerd met behulp van Azure Active Directory, kunt u Azure Multi-Factor Authentication of Active Directory Federation Services (AD FS) gebruiken om resources te beveiligen die door Azure AD worden gebruikt. Gebruik de volgende procedures voor het beveiligen van Azure Active Directory-resources met ofwel Azure Multi-Factor Authentication of Active Directory Federation Services.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Azure AD-resources beveiligen met behulp van AD FS
-toosecure uw cloudresource, instellen van een regel voor claims zodat Active Directory Federation Services Hallo multipleauthn claim verzendt wanneer een gebruiker wordt verificatie in twee stappen is uitgevoerd. Deze claim is tooAzure AD doorgegeven. Volg deze procedure toowalk Hallo stappen:
+Voor de beveiliging van uw cloudresource stelt u een claimregel in die ervoor zorgt dat Active Directory Federation Services de multipleauthn-claim verstuurt wanneer een gebruiker de verificatie in twee stappen voltooit. Deze claim wordt doorgegeven aan Azure AD. Volg deze procedure om de stappen te doorlopen:
 
 
 1. Open AD FS-beheer.
-2. Selecteer aan de linkerkant Hallo **Relying Party-vertrouwensrelaties**.
+2. Selecteer **Relying Party-vertrouwensrelaties** aan de linkerkant.
 3. Klik met de rechtermuisknop op **Identiteitsplatform van Microsoft Office 365** en selecteer **Claimregels bewerken**.
 
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
@@ -37,40 +37,40 @@ toosecure uw cloudresource, instellen van een regel voor claims zodat Active Dir
 
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
 
-5. Op Hallo transformeren Wizard Claimregel voor toevoegen, selecteert u **doorgeven of filteren van een binnenkomende Claim** in Hallo vervolgkeuzelijst en klik op **volgende**.
+5. Selecteer in de wizard Transformatieclaimregels toevoegen **Passthrough of Een binnenkomende claim filteren** in de vervolgkeuzelijst en klik op **Volgende**.
 
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
 
 6. Geef de regel een naam. 
-7. Selecteer **Verwijdingen verificatiemethode** als Hallo binnenkomende claimtype.
+7. Selecteer **Authenticatiemethodereferenties** als het type voor binnenkomende claims.
 8. Selecteer **Alle claimwaarden doorgeven**.
     ![Wizard Claimregel voor transformatie toevoegen](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
-9. Klik op **Voltooien**. Sluit Hallo AD FS-beheerconsole.
+9. Klik op **Voltooien**. Sluit de AD FS-beheerconsole.
 
 ## <a name="trusted-ips-for-federated-users"></a>Goedgekeurde IP-adressen voor federatieve gebruikers
-Goedgekeurde IP-adressen kunnen beheerders de verificatie in twee stappen tooby pass voor specifieke IP-adressen of voor federatieve gebruikers met verzoeken die afkomstig zijn van hun eigen intranet. Hallo volgende secties wordt beschreven hoe tooconfigure Azure multi-factor Authentication goedgekeurde IP-adressen met federatieve gebruikers en de verificatie in twee stappen overslaan wanneer een aanvraag afkomstig van een federatieve gebruikers het intranet is. Dit wordt bereikt door het configureren van AD FS toouse doorgangsschijf of filteren van een binnenkomende claimsjabloon Hello claimtype binnen bedrijfsnetwerk.
+Met goedgekeurde IP-adressen zijn beheerders in staat om verificatie in twee stappen te omzeilen voor bepaalde IP-adressen of voor federatieve gebruikers met verzoeken die afkomstig zijn uit hun eigen intranet. In de volgende secties wordt beschreven hoe goedgekeurde IP-adressen van Azure Multi-Factor Authentication bij federatieve gebruikers moeten worden geconfigureerd en hoe verificatie in twee stappen kan worden omzeild als een verzoek afkomstig is uit het intranet van een federatieve gebruiker. Dit wordt bereikt door AD FS zo te configureren dat deze gebruikmaakt van een passthrough of een binnenkomende claimsjabloon filtert met het claimtype Binnen bedrijfsnetwerk.
 
 In dit voorbeeld wordt Office 365 gebruikt voor onze Relying Party-vertrouwensrelaties.
 
-### <a name="configure-hello-ad-fs-claims-rules"></a>Regels voor Hallo AD FS-claims configureren
-Hallo eerst moet toodo is tooconfigure Hallo AD FS-claims. Twee claimregels maken, één voor Hallo binnen bedrijfsnetwerk claimtype en een extra regel om onze gebruikers aangemeld te houden.
+### <a name="configure-the-ad-fs-claims-rules"></a>De claimregels van AD FS configureren
+Het eerste wat we moeten doen is de AD FS-claims configureren. U maakt twee claimregels: één voor het claimtype Binnen bedrijfsnetwerk en een extra regel om de gebruikers aangemeld te houden.
 
 1. Open AD FS-beheer.
-2. Selecteer aan de linkerkant Hallo **Relying Party-vertrouwensrelaties**.
+2. Selecteer **Relying Party-vertrouwensrelaties** aan de linkerkant.
 3. Klik met de rechtermuisknop op het **identiteitsplatform van Microsoft Office 365** en selecteer **Claimregels bewerken...**
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 4. Klik bij Uitgifte transformatieregels op**Regel toevoegen.**
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
-5. Op Hallo transformeren Wizard Claimregel voor toevoegen, selecteert u **doorgeven of filteren van een binnenkomende Claim** in Hallo vervolgkeuzelijst en klik op **volgende**.
+5. Selecteer in de wizard Transformatieclaimregels toevoegen **Passthrough of Een binnenkomende claim filteren** in de vervolgkeuzelijst en klik op **Volgende**.
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
-6. Hallo vak volgende tooClaim regelnaam de regel een naam geven. Bijvoorbeeld: BinnenBedrijfsNet.
-7. Uit de vervolgkeuzelijst hello, volgende tooIncoming claimtype, selecteert **binnen bedrijfsnetwerk**.
+6. Geef de claimregel een naam in het vak bij Naam claimregel. Bijvoorbeeld: BinnenBedrijfsNet.
+7. In de vervolgkeuzelijst naast Binnenkomend claimtype, selecteert u **Binnen bedrijfsnetwerk**.
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
 8. Klik op **Voltooien**.
 9. Klik bij Uitgifte transformatieregels op**Regel toevoegen**.
-10. Op Hallo transformeren Wizard Claimregel voor toevoegen, selecteert u **Claims verzenden met een aangepaste regel** in Hallo vervolgkeuzelijst en klik op **volgende**.
-11. In het vak onder naam Claimregel Hallo: Voer *gebruikers aangemeld houden*.
-12. Voer in het vak van het Hallo aangepaste regel:
+10. Selecteer in de wizard Transformatieclaimregels toevoegen **Claim verzenden met een aangepaste regel** in de vervolgkeuzelijst en klik op **Volgende**.
+11. In het vak onder Naam claimregel typt u *Gebruikers aangemeld houden*.
+12. In het vak Aangepaste regel typt u:
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
@@ -81,18 +81,18 @@ Hallo eerst moet toodo is tooconfigure Hallo AD FS-claims. Twee claimregels make
 16. Sluit AD FS-beheer.
 
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Goedgekeurde IP-adressen van Azure Multi-Factor Authentication configureren bij federatieve gebruikers
-Nu dat Hallo claims gemaakt zijn, kunnen we goedgekeurde IP-adressen configureren.
+Nu de claims zijn gemaakt, kunnen we goedgekeurde IP-adressen gaan configureren.
 
-1. Meld u aan toohello [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Klik aan de linkerkant Hallo op **Active Directory**.
-3. Selecteer onder adreslijst Hallo directory waar u tooset van goedgekeurde IP-adressen.
-4. Op Hallo Directory die u hebt geselecteerd, klikt u op **configureren**.
-5. Klik in de sectie multi-factor authentication hello, **service-instellingen beheren**.
-6. Selecteer op Hallo pagina Service-instellingen onder goedgekeurde IP-adressen, **meerdere-multi-factor-verificatie overslaan voor aanvragen van federatieve gebruikers op mijn intranet**.  
+1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
+2. Klik aan de linkerkant op **Active Directory**.
+3. Selecteer onder Adreslijst de adreslijst waar u de goedgekeurde IP-adressen wilt instellen.
+4. Klik op **Configureren** op de Adreslijst die u hebt geselecteerd.
+5. Klik in de sectie Multi-Factor Authentication op **Service-instellingen beheren**.
+6. Selecteer op de pagina Service-instellingen onder Goedgekeurde IP-adressen, **Meervoudige verificatie overslaan voor aanvragen van federatieve gebruikers op mijn intranet**.  
 
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
    
 7. Klik op **Opslaan**.
-8. Zodra het Hallo-updates zijn toegepast, klikt u op **sluiten**.
+8. Nadat de updates zijn toegepast, klikt u op **Sluiten**.
 
-Dat is alles. Federatieve gebruikers van Office 365 mag op dit moment alleen toouse MFA hebben wanneer een claim afkomstig van buiten Hallo bedrijfsintranet is.
+Dat is alles. Vanaf dit moment hoeven Office 365-gebruikers alleen MFA te gebruiken wanneer een claim afkomstig is van buiten het bedrijfsintranet.

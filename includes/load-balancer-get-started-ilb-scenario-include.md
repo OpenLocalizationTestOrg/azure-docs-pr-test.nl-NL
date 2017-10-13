@@ -1,6 +1,6 @@
 ## <a name="scenario"></a>Scenario
 
-U maakt een interne load balancer volgens de volgende scenario toohello
+U maakt een interne load balancer volgens het volgende scenario
 
 ![BESCHRIJVING VAN AFBEELDING](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 

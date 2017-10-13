@@ -1,6 +1,6 @@
 ---
-title: aaaDiagnostics hulpprogramma tootroubleshoot StorSimple 8000 apparaat | Microsoft Docs
-description: Beschrijving van de modi van Hallo StorSimple-apparaat en wordt uitgelegd hoe toouse Windows PowerShell voor StorSimple toochange Hallo apparaatmodus.
+title: Diagnostische hulpprogramma om op te lossen StorSimple 8000 apparaat | Microsoft Docs
+description: Beschrijft de modus voor de StorSimple-apparaat en wordt uitgelegd hoe u Windows PowerShell voor StorSimple om de apparatuurmodus te wijzigen.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,86 +14,86 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: e8b7fdbc44d2533973b63da841335ba73ba0014b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="use-hello-storsimple-diagnostics-tool-tootroubleshoot-8000-series-device-issues"></a>Hallo StorSimple diagnostische hulpprogramma tootroubleshoot 8000 series problemen apparaten gebruiken
+# <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Gebruik het diagnostisch hulpprogramma van StorSimple 8000 series apparaat problemen kunt oplossen
 
 ## <a name="overview"></a>Overzicht
 
-Hallo StorSimple diagnostische hulpprogramma diagnoses gerelateerde toosystem problemen, prestaties, netwerk en status van de hardware-onderdeel voor een StorSimple-apparaat. Hallo diagnostische hulpprogramma kan worden gebruikt in verschillende scenario's. Deze scenario's omvatten werkbelasting planning, implementatie van een StorSimple-apparaat, beoordeling van de netwerkomgeving Hallo en Hallo prestaties van een operationeel apparaat bepalen. In dit artikel biedt een overzicht van diagnostische Hallo en beschrijft hoe Hallo-hulpprogramma kan worden gebruikt met een StorSimple-apparaat.
+Het hulpprogramma StorSimple diagnostische gegevens diagnoses problemen met de status van de onderdeel-systeem, prestaties, netwerk en hardware voor een StorSimple-apparaat. Het diagnostisch hulpprogramma kan worden gebruikt in verschillende scenario's. Deze scenario's omvatten werkbelasting planning, implementatie van een StorSimple-apparaat, beoordeling van de netwerkomgeving en bepalen van de prestaties van een operationeel apparaat. In dit artikel biedt een overzicht van het hulpprogramma Diagnostische gegevens en beschrijft hoe het hulpprogramma kan worden gebruikt met een StorSimple-apparaat.
 
-Hallo diagnostische hulpprogramma is voornamelijk bedoeld voor StorSimple 8000 series on-premises apparaten (8100 en 8600).
+Het diagnostisch hulpprogramma is voornamelijk bedoeld voor StorSimple 8000 series on-premises apparaten (8100 en 8600).
 
 ## <a name="run-diagnostics-tool"></a>Diagnostische hulpprogramma uitvoeren
 
-Dit hulpprogramma kan worden uitgevoerd via Windows PowerShell-interface Hallo van uw StorSimple-apparaat. Er zijn twee manieren tooaccess Hallo lokale interface van uw apparaat:
+Dit hulpprogramma kan worden uitgevoerd via de Windows PowerShell-interface van uw StorSimple-apparaat. Er zijn twee manieren toegang krijgen tot de lokale interface van uw apparaat:
 
-* [Gebruik PuTTY tooconnect toohello de seriële console apparaat](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [Externe toegang tot Hallo-hulpprogramma via Hallo Windows PowerShell voor StorSimple](storsimple-remote-connect.md).
+* [PuTTY gebruiken om verbinding maken met de seriële console van het apparaat](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Externe toegang tot het hulpprogramma via de Windows PowerShell voor StorSimple](storsimple-remote-connect.md).
 
-In dit artikel gaan we ervan uit dat u de seriële console van toohello apparaat via de PuTTY hebt verbonden.
+In dit artikel gaan we ervan uit dat u hebt verbonden met de seriële console van het apparaat via de PuTTY.
 
-#### <a name="toorun-hello-diagnostics-tool"></a>toorun hello diagnostische hulpprogramma
+#### <a name="to-run-the-diagnostics-tool"></a>Het diagnostisch hulpprogramma uitvoeren
 
-Wanneer u toohello Windows PowerShell-interface van Hallo-apparaat hebt gekoppeld, worden uitgevoerd Hallo stappen toorun Hallo cmdlet te volgen.
-1. Meld u bij de seriële console van toohello apparaat Hallo stappen in [PuTTY gebruiken tooconnect toohello de seriële console apparaat](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+Zodra u hebt gekoppeld aan de Windows PowerShell-interface van het apparaat, moet u de volgende stappen om te worden uitgevoerd van de cmdlet uitvoeren.
+1. Meld u aan bij de seriële console van het apparaat door de stappen in [PuTTY gebruiken om verbinding maken met de seriële console van het apparaat](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
-2. Type Hallo volgende opdracht:
+2. Typ de volgende opdracht:
 
     `Invoke-HcsDiagnostics`
 
-    Als de bereikparameter Hallo niet is opgegeven, voert Hallo cmdlet alle Hallo diagnostische tests. Deze tests omvatten system, status voor hardware-onderdeel, netwerk en prestaties. 
+    Als de scope-parameter niet is opgegeven, wordt de diagnostische tests uitgevoerd door de cmdlet. Deze tests omvatten system, status voor hardware-onderdeel, netwerk en prestaties. 
     
-    alleen een specifieke test toorun Hallo scope-parameter opgeven. Bijvoorbeeld: toorun alleen Hallo Netwerktest, type
+    Geef voor het uitvoeren van alleen specifieke test, de scope-parameter. Bijvoorbeeld, u alleen de Netwerktest uitvoeren te typen
 
     `Invoke-HcsDiagnostics -Scope Network`
 
-3. Selecteer en kopieer Hallo uitvoer van Hallo PuTTY venster in een tekstbestand voor verdere analyse.
+3. Selecteer en kopieer de uitvoer van het venster PuTTY naar een tekstbestand voor verdere analyse.
 
-## <a name="scenarios-toouse-hello-diagnostics-tool"></a>Scenario's toouse Hallo diagnostische hulpprogramma
+## <a name="scenarios-to-use-the-diagnostics-tool"></a>Scenario's met het hulpprogramma voor diagnostische gegevens
 
-Hallo diagnostische hulpprogramma tootroubleshoot Hallo netwerk, prestaties, systeem en hardware status van Hallo system gebruiken. Hier volgen enkele mogelijke scenario's:
+Gebruik het diagnostisch hulpprogramma oplossen van problemen met de status van het netwerk, prestaties, systeem en hardware van het systeem. Hier volgen enkele mogelijke scenario's:
 
-* **Apparaat offline** -uw StorSimple 8000 series apparaat offline is. Echter van Windows PowerShell-interface hello, het lijkt erop dat beide domeincontrollers Hallo actief zijn.
-    * U kunt dit hulpprogramma toothen Hallo netwerk status bepalen.
+* **Apparaat offline** -uw StorSimple 8000 series apparaat offline is. Echter, uit de Windows PowerShell-interface het lijkt erop dat beide domeincontrollers actief en werkend zijn.
+    * Dit hulpprogramma kunt u vervolgens de netwerk-status te bepalen.
          
          > [!NOTE]
-         > Gebruik dit hulpprogramma tooassess prestatie- en netwerkinstellingen niet op een apparaat voordat het Hallo-registratie (of configureren via de wizard setup). Een geldig IP-adres wordt toohello apparaat tijdens de wizard setup en de registratie toegewezen. U kunt deze cmdlet uitvoeren op een apparaat dat niet is geregistreerd voor de status van de hardware- en systeem. Gebruik bereikparameter hello, bijvoorbeeld:
+         > Gebruik dit hulpprogramma niet om u te evalueren prestatie- en instellingen op een apparaat voordat u de registratie (of configureren via de wizard setup). Een geldig IP-adres is toegewezen aan het apparaat tijdens de wizard setup en registratie. U kunt deze cmdlet uitvoeren op een apparaat dat niet is geregistreerd voor de status van de hardware- en systeem. Gebruik bijvoorbeeld de bereikparameter:
          >
          > `Invoke-HcsDiagnostics -Scope Hardware`
          >
          > `Invoke-HcsDiagnostics -Scope System`
 
-* **Problemen met de permanente apparaat** -apparaat problemen die toopersist lijken zich voordoen. Bijvoorbeeld, de registratie is mislukt. U kan ook worden ondervindt problemen met apparaat nadat het Hallo-apparaat is geregistreerd en operationele voor even wordt.
-    * In dit geval moet u dit hulpprogramma gebruiken voor voorlopige probleemoplossing voordat u zich een serviceaanvraag met Microsoft Support aanmeldt. Het is raadzaam dat u deze hulpprogramma's en vastleggen Hallo-uitvoer van dit hulpprogramma uitvoert. Vervolgens kunt u bieden deze uitvoer tooSupport tooexpedite probleemoplossing.
+* **Problemen met de permanente apparaat** -u ondervindt problemen met apparaten die goed lijken te behouden. Bijvoorbeeld, de registratie is mislukt. U kan ook worden ondervindt problemen met apparaat nadat het apparaat is geregistreerd en operationeel een tijdje is.
+    * In dit geval moet u dit hulpprogramma gebruiken voor voorlopige probleemoplossing voordat u zich een serviceaanvraag met Microsoft Support aanmeldt. U wordt aangeraden dat u dit hulpprogramma uitvoeren en vastleggen van de uitvoer van dit hulpprogramma. U kunt vervolgens deze uitvoer bieden ondersteuning voor snellere het oplossen van problemen.
     * Als er een onderdeel of het cluster hardwarefouten, moet u een ondersteuningsaanvraag aanmelden.
 
 * **Lage Apparaatprestaties** -uw StorSimple-apparaat traag is.
-    * In dit geval moet u deze cmdlet uitvoeren met de scope-parameter set tooperformance. Analyseer het Hallo-uitvoer. U krijgt Hallo cloud lezen-schrijven latenties. Gebruik Hallo gerapporteerd latenties maximale haalbare TARGET rekening te houden in enige overhead voor interne gegevensverwerking Hallo en vervolgens implementeren Hallo werkbelastingen op Hallo-systeem. Voor meer informatie gaat te[Hallo test tootroubleshoot apparaat netwerkprestaties gebruiken](#network-test).
+    * In dit geval moet u deze cmdlet uitvoeren met bereikparameter ingesteld op prestaties. Analyseer de uitvoer. Krijgt u de cloud lezen-schrijven latenties. De gerapporteerde latenties gebruiken als het doel van maximale haalbare, rekening te houden in enige overhead voor het verwerken van de interne gegevens en vervolgens implementeert u de werkbelasting op het systeem. Ga voor meer informatie naar [de Netwerktest gebruiken om op te lossen Apparaatprestaties](#network-test).
 
 
 ## <a name="diagnostics-test-and-sample-outputs"></a>Diagnostische test en voorbeeld-uitvoer
 
 ### <a name="hardware-test"></a>Hardwaretest
 
-Deze test bepaalt Hallo status van de hardwareonderdelen hello, Hallo USM firmware en Hallo schijf firmware die wordt uitgevoerd op uw systeem.
+Deze test bepaalt de status van de hardware-onderdelen, het USM firmware en de firmware van de schijf op het systeem uitgevoerd.
 
-* Hallo hardwareonderdelen gerapporteerd mislukte Hallo test van deze onderdelen zijn of zijn niet aanwezig in het Hallo-systeem.
-* Hallo USM firmware- en firmware-versies zijn gerapporteerd voor Hallo Controller 0, 1 van de domeincontroller, en gedeelde onderdelen in uw systeem. Voor een volledige lijst van hardware-onderdelen, gaat u naar:
+* De hardwareonderdelen die zijn gerapporteerd, zijn deze onderdelen die de test mislukt of zijn niet aanwezig in het systeem.
+* De USM firmware- en firmware-versies worden gerapporteerd voor de Controller 0, 1 van de domeincontroller, en gedeelde onderdelen in uw systeem. Voor een volledige lijst van hardware-onderdelen, gaat u naar:
 
     * [Primaire behuizing-onderdelen](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
     * [EBOD behuizing-onderdelen](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> Als Hallo hardwaretest niet functionerende onderdelen, rapporteert [Meld u bij een serviceaanvraag met Microsoft Support](storsimple-contact-microsoft-support.md).
+> Als de hardwaretest niet functionerende onderdelen, rapporteert [Meld u bij een serviceaanvraag met Microsoft Support](storsimple-contact-microsoft-support.md).
 
 #### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>Voorbeeld van uitvoer van de hardwaretest uitgevoerd op een 8100-apparaat
 
-Hier volgt een voorbeeld van uitvoer van een StorSimple 8100-apparaat. Hallo EBOD behuizing is niet aanwezig in Hallo 8100 model-apparaat. Hallo EBOD controller onderdelen worden daarom niet gemeld.
+Hier volgt een voorbeeld van uitvoer van een StorSimple 8100-apparaat. De behuizing EBOD is niet aanwezig in het model 8100-apparaat. Daarom worden de onderdelen van de domeincontroller EBOD niet gemeld.
 
 ```
 Controller0>Invoke-HcsDiagnostics -Scope Hardware
@@ -205,17 +205,17 @@ DisksFirmware       : SmrtStor:TXA2D20400GA6XYR:KZ50
 
 ### <a name="system-test"></a>Systeem-test
 
-Deze test rapporten systeemgegevens hello, Hallo updates die beschikbaar zijn, Hallo clustergegevens en Hallo service-informatie voor uw apparaat.
+Deze test rapporteert de systeeminformatie, de updates die beschikbaar zijn, de clustergegevens en de gegevens van de service voor uw apparaat.
 
-* Hallo systeemgegevens bevat Hallo model, apparaatserienummer tijdzone, status van de domeincontroller en gedetailleerde softwareversie Hallo Hallo systeem waarop. toounderstand hello verschillende parameters voor het gerapporteerd als Hallo-uitvoer te gaan[systeemgegevens interpreteren](#appendix-interpreting-system-information).
+* De systeeminformatie omvat het model, apparaatserienummer tijdzone, status van de domeincontroller en de versie van de gedetailleerde software op het systeem. Voor informatie over de verschillende parameters voor het gerapporteerd als de uitvoer, gaat u naar [systeemgegevens interpreteren](#appendix-interpreting-system-information).
 
-* beschikbaarheid van de Hallo rapporten of Hallo regular en onderhoud modi beschikbaar zijn en de namen van de bijbehorende pakket. Als `RegularUpdates` en `MaintenanceModeUpdates` zijn `false`, wordt hiermee Hallo updates zijn niet beschikbaar. Uw apparaat is bijgewerkt.
-* Hallo clustergegevens bevat Hallo informatie over verschillende logische onderdelen van de Hallo HCS clustergroepen en hun respectieve statussen. Als u een offline clustergroep in deze sectie van het Hallo-rapport ziet [contact op met Microsoft Support](storsimple-contact-microsoft-support.md).
-* Hallo service informatie omvat Hallo namen en status van alle Hallo HCS en CiS services die worden uitgevoerd op uw apparaat. Deze informatie is nuttig voor Hallo Microsoft Support op Hallo apparaat probleem op te lossen.
+* De beschikbaarheid van de rapporten of de reguliere en onderhoud modi beschikbaar zijn en de namen van de bijbehorende pakket. Als `RegularUpdates` en `MaintenanceModeUpdates` zijn `false`, dit geeft aan dat de updates niet beschikbaar zijn. Uw apparaat is bijgewerkt.
+* De cluster-informatie bevat de informatie over de verschillende logische onderdelen van de groepen voor de cluster HCS en hun respectieve statussen. Als u een offline clustergroep in deze sectie van het rapport ziet [contact op met Microsoft Support](storsimple-contact-microsoft-support.md).
+* De service-informatie bevat de namen en de status van alle HCS en CiS services uitgevoerd op uw apparaat. Deze informatie is nuttig voor het Microsoft Support bij het oplossen van het probleem van het apparaat.
 
 #### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Voorbeeld van uitvoer van systeem test uitgevoerd op een 8100-apparaat
 
-Hier volgt een voorbeeld van uitvoer van Hallo system test uitgevoerd op een 8100-apparaat.
+Hier volgt een voorbeeld van uitvoer van de systeem-test uitvoeren op een 8100-apparaat.
 
 ```
 Controller0>Invoke-HcsDiagnostics -Scope System
@@ -322,20 +322,20 @@ hcs_startup                                   Stopped hcs_startup
 
 ### <a name="network-test"></a>Netwerktest
 
-Deze test valideert Hallo status van netwerkinterfaces hello, poorten, DNS- en NTP serververbindingen, SSL-certificaat, opslagaccountreferenties, connectiviteit toohello Update-servers en web proxy connectiviteit op uw StorSimple-apparaat.
+Deze test controleert de status van de netwerkinterfaces, poorten, DNS- en NTP serververbindingen, SSL-certificaat, opslagaccountreferenties, verbinding met de Update-servers en web proxy connectiviteit op uw StorSimple-apparaat.
 
 #### <a name="sample-output-of-network-test-when-only-data0-is-enabled"></a>Voorbeeld van uitvoer van het netwerk testen wanneer alleen DATA0 is ingeschakeld
 
-Hier volgt een voorbeeld van uitvoer van Hallo 8100-apparaat. U kunt zien in de uitvoer Hallo die:
+Hier volgt een voorbeeld van uitvoer van het 8100-apparaat. U kunt zien in de uitvoer die:
 * Alleen DATA 0 en 1 gegevens netwerkinterfaces zijn ingeschakeld en geconfigureerd.
-* GEGEVENS-2-5 zijn niet ingeschakeld in Hallo-portal.
-* configuratie van Hallo DNS-server is geldig en Hallo apparaat verbinding kan maken via Hallo DNS-server.
-* Hallo NTP-serververbindingen is ook geen probleem.
-* Poorten 80 en 443 zijn geopend. Poort 9354 is geblokkeerd. Op basis van Hallo [netwerk systeemvereisten](storsimple-system-requirements.md), moet u tooopen deze poort voor Hallo service bus-communicatie.
-* Hallo SSL-certificaat is geldig.
-* Hallo apparaat verbinding kan maken toohello storage-account: _myss8000storageacct_.
-* Hallo connectiviteit tooUpdate servers is ongeldig.
-* Hallo webproxy is niet geconfigureerd op dit apparaat.
+* GEGEVENS-2-5 zijn niet ingeschakeld in de portal.
+* De configuratie van DNS-server is geldig en het apparaat verbinding kan maken via de DNS-server.
+* De connectiviteit NTP-server is ook geen probleem.
+* Poorten 80 en 443 zijn geopend. Poort 9354 is geblokkeerd. Op basis van de [netwerk systeemvereisten](storsimple-system-requirements.md), moet u deze poort voor de service bus-communicatie te openen.
+* Het SSL-certificaat is ongeldig.
+* Het apparaat verbinding kan maken met de opslagaccount: _myss8000storageacct_.
+* De verbinding met de Update-servers is ongeldig.
+* De webproxy is niet geconfigureerd op dit apparaat.
 
 #### <a name="sample-output-of-network-test-when-data0-and-data1-are-enabled"></a>Voorbeeld van uitvoer van Netwerktest wanneer DATA0 en bestand1 zijn ingeschakeld
 
@@ -367,29 +367,29 @@ Web proxy                               Not enabled         Web proxy is not...
 
 ### <a name="performance-test"></a>Prestatietest
 
-Deze test rapporten Hallo cloud prestaties via Hallo cloud lezen-schrijven latenties voor uw apparaat. Dit hulpprogramma kan worden gebruikt tooestablish een basislijn van prestaties van een Hallo cloud die u met StorSimple bereiken kunt. Hallo hulpprogramma rapporten Hallo maximale prestaties (beste scenario voor lezen-schrijven latenties) die u voor de verbinding ophalen kunt.
+Deze test rapporteert de prestaties van de cloud via de cloud lezen-schrijven latenties voor uw apparaat. Dit hulpprogramma kan worden gebruikt om een basislijn voor de prestaties van de cloud die u met StorSimple bereiken kunt stand te brengen. Het hulpprogramma rapporteert de maximale prestaties (beste scenario voor lezen-schrijven latenties) die u voor de verbinding ophalen kunt.
 
-Als Hallo hulpprogramma Hallo maximale haalbare prestaties meldt, gebruiken we Hallo lezen-schrijven latenties als doelen bij het implementeren van Hallo werkbelastingen gerapporteerd.
+Als het hulpprogramma de maximale haalbare prestaties meldt, kunnen we de gerapporteerde latenties voor lezen-schrijven gebruiken als doelen bij het implementeren van de werkbelastingen.
 
-Hallo test simuleert Hallo blob grootten Hallo ander volumetypen op Hallo apparaat gekoppeld. Gewone lagen en back-ups van lokaal vastgemaakte volumes met een blob-grootte van 64 KB. Gelaagde volumes met archief-optie ingeschakeld gebruiken blob-gegevensgrootte 512 KB. Als het apparaat heeft gelaagde en lokaal vastgemaakte volumes geconfigureerd, alleen Hallo test bijbehorende too64 KB blob gegevensgrootte wordt uitgevoerd.
+De test simuleert de grootte van de blob die is gekoppeld aan de typen ander volume op het apparaat. Gewone lagen en back-ups van lokaal vastgemaakte volumes met een blob-grootte van 64 KB. Gelaagde volumes met archief-optie ingeschakeld gebruiken blob-gegevensgrootte 512 KB. Als het apparaat heeft gelaagde en lokaal vastgemaakte volumes geconfigureerd, alleen de test die overeenkomt met de blob van 64 KB gegevensgrootte wordt uitgevoerd.
 
-toouse dit hulpprogramma uitvoeren Hallo stappen te volgen:
+Om dit hulpprogramma, moet u de volgende stappen uitvoeren:
 
-1.  Maak eerst een combinatie van gelaagde volumes en gelaagde volumes met gearchiveerde optie ingeschakeld. Deze actie zorgt ervoor dat hulpprogramma Hallo Hallo tests voor 64 KB en 512 KB grootten van de blob.
+1.  Maak eerst een combinatie van gelaagde volumes en gelaagde volumes met gearchiveerde optie ingeschakeld. Deze actie zorgt ervoor dat het hulpprogramma voor de tests voor 64 KB en 512 KB grootten van de blob.
 
-2. Hallo-cmdlet uitvoeren nadat u hebt gemaakt en geconfigureerd Hallo volumes. Type:
+2. De cmdlet uitvoeren nadat u hebt gemaakt en de volumes geconfigureerd. Type:
 
     `Invoke-HcsDiagnostics -Scope Performance`
 
-3. Noteer Hallo lezen-schrijven latenties gemeld door het Hallo-hulpprogramma. Deze test kunt toorun van enkele minuten duren voordat Hallo resultaten gerapporteerd.
+3. Noteer de latenties lezen-schrijven is gemeld door het hulpprogramma. Deze test kan enige tijd duren om uit te voeren voordat het rapporteert de resultaten.
 
-4. Als Hallo verbinding latenties zijn onder Hallo verwacht bereik en hello latenties gemeld door het Hallo-hulpprogramma kunnen worden gebruikt als maximale haalbare doel bij het implementeren van Hallo werkbelastingen. Rekening te houden in enige overhead voor interne gegevensverwerking.
+4. Als de verbinding latenties allemaal onder het verwachte bereik zijn, kunnen klikt u vervolgens de latenties gemeld door het hulpprogramma worden gebruikt als maximale haalbare doel bij het implementeren van de werkbelastingen. Rekening te houden in enige overhead voor interne gegevensverwerking.
 
-    Als Hallo lezen-schrijven latenties gerapporteerd door Hallo diagnostische hulpprogramma hoog zijn:
+    Als de latenties lezen-schrijven is gemeld door het diagnostisch hulpprogramma hoog zijn:
 
-    1. Storage Analytics voor blob-services configureren en analyseren van Hallo uitvoer toounderstand Hallo latenties voor hello Azure storage-account. Voor gedetailleerde instructies gaat te[inschakelen en configureren van opslag Analytics](../storage/common/storage-enable-and-view-metrics.md). Als deze latenties ook hoge en vergelijkbare toohello cijfers die u hebt ontvangen van Hallo StorSimple diagnostische hulpprogramma, moet u toolog een serviceaanvraag met Azure storage.
+    1. Storage Analytics voor blob-services configureren en analyseren van de uitvoer voor inzicht in de latenties voor de Azure storage-account. Ga voor gedetailleerde instructies naar [inschakelen en configureren van opslag Analytics](../storage/common/storage-enable-and-view-metrics.md). Als deze latenties ook hoge en vergelijkbaar is met de getallen die u hebt ontvangen van het hulpprogramma StorSimple diagnostische gegevens, moet u een serviceaanvraag registreren met Azure storage.
 
-    2. Hallo storage account latenties lage neemt contact op met uw netwerk beheerder tooinvestigate eventuele latentie in uw netwerk problemen.
+    2. De storage-account latenties lage neemt contact op met de netwerkbeheerder om te onderzoeken latentieproblemen in uw netwerk.
 
 #### <a name="sample-output-of-performance-test-run-on-an-8100-device"></a>Voorbeeld van uitvoer van de prestatietest uitvoeren op een 8100-apparaat
 
@@ -411,34 +411,34 @@ Controller0>
 
 ## <a name="appendix-interpreting-system-information"></a>Bijlage: systeemgegevens interpreteren
 
-Hier volgt een tabel met een beschrijving van wat Hallo verschillende Windows PowerShell-parameters in Hallo systeemgegevens toewijzen aan. 
+Hier volgt een tabel met een beschrijving van wat de verschillende Windows PowerShell-parameters in het systeem informatie toegewezen aan. 
 
 | PowerShell-Parameter    | Beschrijving  |
 |-------------------------|------------------|
 | Exemplaar-id             | Elke domeincontroller heeft een unieke id of een GUID die is gekoppeld aan.|
-| Naam                    | Hallo beschrijvende naam van Hallo apparaat zoals geconfigureerd via hello Azure-portal tijdens de implementatie van het apparaat. Hallo standaard beschrijvende naam is serienummer Hallo-apparaat. |
-| Model                   | Hallo-model van uw StorSimple 8000 serie-apparaat. Hallo-model is 8100 of 8600.|
-| Serienummer            | Hallo apparaatserienummer op Hallo factory is toegewezen en 15 tekens lang is. Bijvoorbeeld: 8600 SHX0991003G44HT Hiermee wordt aangegeven:<br> 8600 – is Hallo-Apparaatmodel.<br>SHX – Is Hallo productie-site.<br> 0991003 - is een specifiek product. <br> Laatste 5 cijfers zijn G44HT-Hallo toocreate unieke serienummers verhoogd. Dit kan niet een sequentiële set zijn.|
-| Tijdzone                | Hallo apparaat tijdzone zoals geconfigureerd in hello Azure-portal tijdens de implementatie van het apparaat.|
-| CurrentController       | Hallo-controller dat u verbonden toothrough Hallo Windows PowerShell-interface van uw StorSimple-apparaat bent.|
-| ActiveController        | Hallo-controller die actief is op uw apparaat en alle bewerkingen van Hallo netwerk- en beheerd. Dit kan zijn Controller 0 of 1 van de domeincontroller.  |
-| Controller0Status       | Hallo-status van de Controller 0 op uw apparaat. Hallo controller status kan worden normaal uitgevoerd in de herstelmodus of niet bereikbaar.|
-| Controller1Status       | Hallo de status van de Controller 1 op uw apparaat.  Hallo controller status kan worden normaal uitgevoerd in de herstelmodus of niet bereikbaar.|
-| SystemMode              | Hallo algehele status van uw StorSimple-apparaat. de apparaatstatus Hallo normaal, kan worden onderhoud, of buiten gebruik gestelde (komt overeen toodeactivated in hello Azure-portal).|
-| FriendlySoftwareVersion | Hallo beschrijvende tekenreeks die overeenkomt met softwareversie toohello-apparaat. Voor een systeem met Update 4, is de beschrijvende softwareversie Hallo StorSimple 8000 Series Update 4.0.|
-| HcsSoftwareVersion      | Hallo HCS software-versie is uitgevoerd op uw apparaat. Bijvoorbeeld: Hallo HCS software versie bijbehorende tooStorSimple 8000 Series Update versie 4.0 is 6.3.9600.17820. |
-| ApiVersion              | Hallo softwareversie van Windows PowerShell-API van Hallo HCS apparaat Hallo.|
-| VhdVersion              | Hallo softwareversie van Hallo fabrieksimage die Hallo apparaat is bij geleverd. Als u de standaardinstellingen van uw apparaat toofactory opnieuw instelt, voert deze de softwareversie van deze.|
-| OSVersion               | Hallo softwareversie van Hallo besturingssysteem Windows Server op Hallo apparaat uitgevoerd. Hallo StorSimple-apparaat is gebaseerd op Windows Server 2012 R2 die overeenkomt met too6.3.9600 Hallo.|
-| CisAgentVersion         | Hallo-versie voor uw configuratie-items agent wordt uitgevoerd op uw StorSimple-apparaat. Deze agent kan communiceren met de Hallo StorSimple Manager-service worden uitgevoerd in Azure.|
-| MdsAgentVersion         | Hallo versie bijbehorende toohello Mds agent wordt uitgevoerd op uw StorSimple-apparaat. Deze agent wordt verplaatst gegevens toohello controle en diagnostische gegevens Service (MDS).|
-| Lsisas2Version          | Hallo versie overeenkomstige toohello LSI stuurprogramma's op uw StorSimple-apparaat.|
-| Capaciteit                | Hallo totale capaciteit van Hallo-apparaat in bytes.|
-| RemoteManagementMode    | Hiermee wordt aangegeven of Hallo apparaat op afstand worden beheerd via de Windows PowerShell-interface. |
-| FipsMode                | Hiermee wordt aangegeven of de Hallo Verenigde Staten Federal Information Processing Standard (FIPS) modus is ingeschakeld op uw apparaat. Hallo FIPS 140-standaard definieert cryptografische algoritmen die zijn goedgekeurd voor gebruik door ons Federal government computersystemen voor Hallo bescherming van gevoelige gegevens. FIPS-modus is standaard ingeschakeld voor apparaten met Update 4 of hoger is. |
+| Naam                    | De beschrijvende naam van het apparaat zoals geconfigureerd via de Azure portal tijdens de implementatie van het apparaat. De beschrijvende naam van de standaard is het serienummer van het apparaat. |
+| Model                   | Het model van uw StorSimple 8000 serie-apparaat. Het model is 8100 of 8600.|
+| Serienummer            | Het serienummer van het apparaat in de fabriek is toegewezen en 15 tekens lang is. Bijvoorbeeld: 8600 SHX0991003G44HT Hiermee wordt aangegeven:<br> 8600 – is het model.<br>SHX – Is de productie-site.<br> 0991003 - is een specifiek product. <br> G44HT--de laatste 5 cijfers voor het maken van unieke serienummers worden verhoogd. Dit kan niet een sequentiële set zijn.|
+| Tijdzone                | De apparaat-tijdzone zoals geconfigureerd in de Azure-portal tijdens de implementatie van het apparaat.|
+| CurrentController       | De controller waaraan u via de Windows PowerShell-interface van uw StorSimple-apparaat verbonden bent.|
+| ActiveController        | De domeincontroller die actief is op uw apparaat en alle bewerkingen van de netwerk- en beheerd. Dit kan zijn Controller 0 of 1 van de domeincontroller.  |
+| Controller0Status       | De status van de Controller 0 op uw apparaat. De status van de domeincontroller kan normale in herstelmodus is of niet bereikbaar zijn.|
+| Controller1Status       | De status van de Controller 1 op uw apparaat.  De status van de domeincontroller kan normale in herstelmodus is of niet bereikbaar zijn.|
+| SystemMode              | De algehele status van uw StorSimple-apparaat. Status van het apparaat kan worden normaal, onderhoud, of buiten gebruik gestelde (komt overeen met gedeactiveerd in de Azure portal).|
+| FriendlySoftwareVersion | De beschrijvende tekenreeks die overeenkomt met de versie van de software apparaat. Voor een systeem met Update 4, is de beschrijvende softwareversie StorSimple 8000 Series Update 4.0.|
+| HcsSoftwareVersion      | De versie van de HCS software is uitgevoerd op uw apparaat. Bijvoorbeeld, wordt de softwareversie HCS die overeenkomt met de StorSimple 8000 Series Update 4.0 6.3.9600.17820. |
+| ApiVersion              | De softwareversie van de Windows PowerShell-API van het apparaat HCS.|
+| VhdVersion              | De softwareversie van de factory-installatiekopie die met het apparaat is verzonden. Als u uw apparaat opnieuw op de standaardwaarden, voert deze de softwareversie van deze.|
+| OSVersion               | De softwareversie van het besturingssysteem Windows Server wordt uitgevoerd op het apparaat. Het StorSimple-apparaat is gebaseerd op Windows Server 2012 R2 die overeenkomt met 6.3.9600.|
+| CisAgentVersion         | De versie voor uw configuratie-items agent wordt uitgevoerd op uw StorSimple-apparaat. Deze agent kan communiceren met de StorSimple Manager-service worden uitgevoerd in Azure.|
+| MdsAgentVersion         | De versie die overeenkomt met de Mds-agent uitgevoerd op uw StorSimple-apparaat. Deze agent verplaatst gegevens naar de controle en diagnostische gegevens Service (MDS).|
+| Lsisas2Version          | De versie die overeenkomt met de LSI stuurprogramma's op uw StorSimple-apparaat.|
+| Capaciteit                | De totale capaciteit van het apparaat in bytes.|
+| RemoteManagementMode    | Hiermee wordt aangegeven of het apparaat kan extern worden beheerd via de Windows PowerShell-interface. |
+| FipsMode                | Hiermee wordt aangegeven of de Verenigde Staten Federal Information Processing Standard (FIPS)-modus is ingeschakeld op uw apparaat. De FIPS 140-standaard definieert cryptografische algoritmen die zijn goedgekeurd voor gebruik door ons Federal government computersystemen voor de bescherming van gevoelige gegevens. FIPS-modus is standaard ingeschakeld voor apparaten met Update 4 of hoger is. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over Hallo [syntaxis van de cmdlet Invoke-HcsDiagnostics hello](https://technet.microsoft.com/library/mt795371.aspx).
+* Meer informatie over de [syntaxis van de cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 
-* Meer informatie over het te[implementatieproblemen oplossen](storsimple-troubleshoot-deployment.md) op uw StorSimple-apparaat.
+* Meer informatie over het [implementatieproblemen oplossen](storsimple-troubleshoot-deployment.md) op uw StorSimple-apparaat.

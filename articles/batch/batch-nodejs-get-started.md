@@ -1,6 +1,6 @@
 ---
-title: aaaTutorial - gebruik hello Azure Batch-clientbibliotheek voor Node.js | Microsoft Docs
-description: Leer de basisconcepten Hallo van Azure Batch en bouwen van een eenvoudige oplossing met behulp van Node.js.
+title: Zelfstudie - De Azure Batch-clientbibliotheek voor Node.js gebruiken | Microsoft Docs
+description: Leer de basisconcepten van Azure Batch en bouw een eenvoudige oplossing met behulp van Node.js.
 services: batch
 author: shwetams
 manager: timlt
@@ -11,11 +11,11 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: d2b0ecbe764e7100affd7b02839aef3077b073cc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Aan de slag met de Batch-SDK voor Node.js
 
@@ -26,58 +26,58 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Leer de basisbeginselen Hallo van het bouwen van een batchclient in met behulp van Node.js [Node.js-SDK van Azure Batch](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). Er wordt een stapsgewijze benadering gebruikt om inzicht te krijgen in een scenario voor een Batch-toepassing. Daarna wordt de toepassing met een Node.js-client ingesteld.  
+Ontdek de basis voor het bouwen van een Batch-client in Node.js met behulp van de [Azure Batch Node.js-SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). Er wordt een stapsgewijze benadering gebruikt om inzicht te krijgen in een scenario voor een Batch-toepassing. Daarna wordt de toepassing met een Node.js-client ingesteld.  
 
 ## <a name="prerequisites"></a>Vereisten
-In dit artikel wordt ervan uitgegaan dat u praktische kennis hebt van Node.js en vertrouwd bent met Linux. Ook wordt ervan uitgegaan dat u een Azure-account-installatie met toegang rechten toocreate Batch- en Storage-services hebt.
+In dit artikel wordt ervan uitgegaan dat u praktische kennis hebt van Node.js en vertrouwd bent met Linux. Er wordt ook van uitgegaan dat u een Azure-account hebt ingesteld met toegangsrechten voor het maken van Batch- en Storage-services.
 
-Lezen wordt aangeraden [technisch overzicht van Azure Batch](batch-technical-overview.md) voordat u doorloopt Hallo stappen die worden beschreven in dit artikel.
+Het wordt aangeraden om [Technisch overzicht van Azure Batch](batch-technical-overview.md) door te nemen voordat u de stappen uit dit artikel doorloopt.
 
-## <a name="hello-tutorial-scenario"></a>Hallo zelfstudie scenario
-Laat het ons weten Hallo batch-werkstroom scenario. We hebben een eenvoudig script geschreven in Python die downloadt alle csv-bestanden van een Azure Blob storage-container en zet deze tooJSON. tooprocess meerdere storage account containers parallel, we Hallo script als een Azure Batch-taak kunt implementeren.
+## <a name="the-tutorial-scenario"></a>Het zelfstudiescenario
+U krijgt eerst meer informatie over het Batch-werkstroomscenario. Er is een eenvoudig script geschreven in Python waarmee alle CSV-bestanden uit een Azure Blob Storage-container worden gedownload en waarmee ze naar JSON worden geconverteerd. Als u meerdere oplagaccountcontainers tegelijk wilt verwerken, kunt u het script als een Azure Batch-taak implementeren.
 
 ## <a name="azure-batch-architecture"></a>Azure Batch-architectuur
-Hallo volgende diagram illustreert hoe Hallo pythonscript met behulp van Azure Batch- en een Node.js-client kan worden geschaald.
+In het volgende diagram staat hoe u het Python-script kunt schalen met Azure Batch en een Node.js-client.
 
 ![Azure Batch-scenario](./media/batch-nodejs-get-started/BatchScenario.png)
 
-een batch-job implementeert Hallo node.js-client met een jobvoorbereidingstaak (uitvoerig besproken later) en een aantal taken, afhankelijk van het aantal containers in het opslagaccount Hallo Hallo. Hallo scripts kunt u downloaden van Hallo github-opslagplaats.
+De Node.js-client implementeert een Batch-taak met een voorbereidingstaak (dit wordt later in detail uitgelegd). Er wordt ook een reeks taken geïmplementeerd op basis van het aantal containers in het opslagaccount. U kunt de scripts downloaden via de GitHub-opslagplaats.
 
 * [Node.js-client](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
 * [Voorbereidingstaak voor Shell-scripts](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
-* [Python csv tooJSON processor](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
+* [Python-verwerker voor CSV naar JSON](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
 
 > [!TIP]
-> Hallo Node.js-client in Hallo koppeling opgegeven bevat geen specifieke code toobe geïmplementeerd als een Azure-functie-app. U kunt de volgende koppelingen voor instructies toocreate een toohello verwijzen.
+> De Node.js-client in de opgegeven koppeling bevat geen specifieke code om te implementeren als Azure-functie-app. U kunt de volgende koppelingen bekijken voor informatie over het maken van een Azure-functie-app.
 > - [Een functie-app maken](../azure-functions/functions-create-first-azure-function.md)
 > - [Een timertriggerfunctie maken](../azure-functions/functions-bindings-timer.md)
 >
 >
 
-## <a name="build-hello-application"></a>Hallo-toepassing bouwen
+## <a name="build-the-application"></a>De toepassing bouwen
 
-Laat het ons voert nu Hallo proces stap voor stap bij het bouwen van Hallo Node.js-client:
+U gaat nu het stapsgewijze proces volgen om de Node.js-client te bouwen:
 
 ### <a name="step-1-install-azure-batch-sdk"></a>Stap 1: de Azure Batch-SDK installeren
 
-U kunt Azure Batch-SDK voor Node.js hello npm installatieopdracht met installeren.
+U kunt de Azure Batch-SDK voor Node.js installeren met de installatieopdracht npm.
 
 `npm install azure-batch`
 
-Deze opdracht wordt de meest recente versie van azure batch-knooppunt SDK Hallo geïnstalleerd.
+Met deze opdracht wordt de meest recente versie van de Azure Batch Node-SDK geïnstalleerd.
 
 >[!Tip]
-> In een Azure-functie-app, kunt u gaan te 'Kudu-Console' in hello Azure functie de instellingen tabblad toorun hello npm opdrachten installeren. In dit geval tooinstall Azure Batch-SDK voor Node.js.
+> In een Azure-functie-app kunt u naar de Kudu-console gaan op het tabblad Instellingen om de npm-installatieopdrachten uit te voeren. In dit geval installeert u de Azure Batch-SDK voor Node.js.
 >
 >
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Stap 2: een Azure Batch-account maken
 
-U kunt het maken van Hallo [Azure-portal](batch-account-create-portal.md) of vanaf de opdrachtregel ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](https://docs.microsoft.com/cli/azure/overview)).
+U kunt het maken via [Azure Portal](batch-account-create-portal.md) of vanaf de opdrachtregel ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](https://docs.microsoft.com/cli/azure/overview)).
 
-Hieronder vindt u Hallo opdrachten toocreate een via Azure CLI.
+Nu volgende opdrachten om er een te maken via Azure CLI.
 
-Een resourcegroep maken, deze stap overslaan als u al een waar u toocreate Hallo Batch-Account:
+Maak een resourcegroep. Sla deze stap over als u er al een hebt waarin u het Batch-account wil maken:
 
 `az group create -n "<resource-group-name>" -l "<location>"`
 
@@ -85,14 +85,14 @@ Maak daarna een Azure Batch-account.
 
 `az batch account create -l "<location>"  -g "<resource-group-name>" -n "<batch-account-name>"`
 
-Elk Batch-account heeft bijbehorende toegangssleutels. Deze sleutels zijn benodigde toocreate meer resources in Azure batch-account. Een goede gewoonte voor productie-omgeving is toouse Azure Key Vault toostore deze sleutels. U kunt vervolgens een Service maken voor de toepassing hello principal. Met behulp van deze service-principal Hallo-toepassing, kunt een OAuth-token tooaccess-sleutels maken in Hallo sleutelkluis.
+Elk Batch-account heeft bijbehorende toegangssleutels. Deze sleutels zijn nodig om aanvullende resources te maken in het Azure Batch-account. Het is voor productieomgevingen een goed idee om Azure Key Vault te gebruiken om deze sleutels op te slaan. Vervolgens maakt u een service-principal voor de toepassing. Met deze service-principal kan de toepassing een OAuth-token maken voor toegangssleutels uit Key Vault.
 
 `az batch account keys list -g "<resource-group-name>" -n "<batch-account-name>"`
 
-Kopiëren en Hallo sleutel toobe gebruikt bij de volgende stappen Hallo op te slaan.
+Kopieer en bewaar de benodigde sleutel voor gebruik in de volgende stappen.
 
 ### <a name="step-3-create-an-azure-batch-service-client"></a>Stap 3: een Azure Batch-serviceclient maken
-Volgende codefragment eerst importeert hello azure batch Node.js-module en maakt vervolgens een Batch-Service-client. U moet toofirst een SharedKeyCredentials-object maken met Hallo Batch-accountsleutel is gekopieerd uit de vorige stap Hallo.
+Met de volgende codefragmenten wordt als eerste de Azure Batch Node.js-module geïmporteerd en daarna wordt een Batch-serviceclient gemaakt. U moet eerst een SharedKeyCredentials-object maken met de Batch-accountsleutel die u in de vorige stap hebt gekopieerd.
 
 ```nodejs
 // Initializing Azure Batch variables
@@ -115,64 +115,64 @@ var batch_client = new batch.ServiceClient(credentials,accountUrl);
 
 ```
 
-Hello Azure Batch URI vindt u in het tabblad Overzicht van Hallo Hallo Azure-portal. Het is Hallo-indeling:
+U kunt de Azure Batch-URI vinden op het tabblad Overzicht van Azure Portal. Deze heeft de volgende indeling:
 
 `https://accountname.location.batch.azure.com`
 
-Raadpleeg toohello schermafbeelding:
+Zie de schermafbeelding:
 
 ![Azure Batch-URI](./media/batch-nodejs-get-started/azurebatchuri.png)
 
 
 
 ### <a name="step-4-create-an-azure-batch-pool"></a>Stap 4: een Azure Batch-pool maken
-Een Azure Batch-pool bestaat uit meerdere virtuele machines (ook wel Batch-knooppunten genoemd). Azure Batch-service Hallo taken op die knooppunten implementeert en beheert deze. Hallo configuratieparameters voor uw pool te volgen, kunt u definiëren.
+Een Azure Batch-pool bestaat uit meerdere virtuele machines (ook wel Batch-knooppunten genoemd). De Azure Batch-service implementeert de taken op deze knooppunten en beheert ze. U kunt de volgende configuratieparameters definiëren voor uw pool.
 
 * Type VM-installatiekopie
 * Grootte van de VM-knooppunten
 * Aantal VM-knooppunten
 
 > [!Tip]
-> Hallo grootte en het aantal knooppunten van de virtuele Machine afhankelijk grotendeels van het aantal gewenste taken toorun in parallel en ook Hallo taak zelf Hallo. U kunt het beste testen toodetermine Hallo ideaal aantal en de grootte.
+> De grootte van en het aantal VM-knooppunten hangt in grote mate af van het aantal taken dat u tegelijk wilt uitvoeren en de taak zelf. Het wordt aangeraden om tests uit te voeren om het ideale aantal en de ideale grootte te bepalen.
 >
 >
 
-Hallo maakt volgende codefragment Hallo configuratieobjecten van de parameter.
+Met het volgende codefragment worden de objecten voor de configuratieparameters gemaakt.
 
 ```nodejs
 // Creating Image reference configuration for Ubuntu Linux VM
 var imgRef = {publisher:"Canonical",offer:"UbuntuServer",sku:"14.04.2-LTS",version:"latest"}
 
-// Creating hello VM configuration object with hello SKUID
+// Creating the VM configuration object with the SKUID
 var vmconfig = {imageReference:imgRef,nodeAgentSKUId:"batch.node.ubuntu 14.04"}
 
-// Setting hello VM size tooStandard F4
+// Setting the VM size to Standard F4
 var vmSize = "STANDARD_F4"
 
-//Setting number of VMs in hello pool too4
+//Setting number of VMs in the pool to 4
 var numVMs = 4
 ```
 
 > [!Tip]
-> Zie voor Hallo lijst met Linux VM-installatiekopieën beschikbaar voor Azure Batch en hun SKU-id, [lijst van installatiekopieën van virtuele machines](batch-linux-nodes.md#list-of-virtual-machine-images).
+> Zie de [lijst met VM-installatiekopieën](batch-linux-nodes.md#list-of-virtual-machine-images) voor een overzicht van welke virtuele Linux-machines er beschikbaar zijn voor Azure Batch en welke SKU-id's deze hebben.
 >
 >
 
-Zodra de configuratie van de groep Hallo is gedefinieerd, kunt u hello Azure Batch-pool maken. Hallo opdracht Batch-pool knooppunten Azure virtuele Machine maakt en bereidt ze toobe gereed tooreceive taken tooexecute. Elke pool moet een unieke id krijgen zodat er in volgende stappen naar kan worden verwezen.
+Wanneer de poolconfiguratie is gedefinieerd, kunt u de Azure Batch-pool maken. Met de Batch-poolopdracht maakt u Azure VM-knooppunten en bereidt u deze voor op het ontvangen van taken om uit te voeren. Elke pool moet een unieke id krijgen zodat er in volgende stappen naar kan worden verwezen.
 
-Hallo volgende codefragment maakt een Azure Batch-pool.
+Met het volgende codefragment wordt een Azure Batch-pool gemaakt.
 
 ```nodejs
 // Create a unique Azure Batch pool ID
 var poolid = "pool" + customerDetails.customerid;
 var poolConfig = {id:poolid, displayName:poolid,vmSize:vmSize,virtualMachineConfiguration:vmconfig,targetDedicatedComputeNodes:numVms,enableAutoScale:false };
-// Creating hello Pool for hello specific customer
+// Creating the Pool for the specific customer
 var pool = batch_client.pool.add(poolConfig,function(error,result){
     if(error!=null){console.log(error.response)};
 });
 ```
 
-U kunt Hallo status controleren van Hallo-toepassingen die zijn gemaakt en zorg ervoor dat Hallo status 'actief' voordat u wilt doorgaan met het verzenden van een taak toothat pool.
+U kunt de status van de gemaakte pool bekijken om te controleren of de status Actief is. Doe dit voordat u een taak opgeeft voor die pool.
 
 ```nodejs
 var cloudPool = batch_client.pool.get(poolid,function(error,result,request,response){
@@ -199,7 +199,7 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
         });
 ```
 
-Hier volgt een voorbeeld resultaatobject geretourneerd door Hallo pool.get functie.
+Hieronder staat een voorbeeldresultaatobject dat is geretourneerd door de functie pool.get.
 
 ```
 { id: 'processcsv_201721152',
@@ -261,46 +261,46 @@ Hier volgt een voorbeeld resultaatobject geretourneerd door Hallo pool.get funct
 
 
 ### <a name="step-4-submit-an-azure-batch-job"></a>Stap 4: een Azure Batch-taak verzenden
-Een Azure Batch-taak is een logische groep vergelijkbare taken. In ons scenario is het 'Proces csv tooJSON'. Bij elke taak worden er hier CSV-bestanden omgezet die aanwezig zijn in Azure Storage-containers.
+Een Azure Batch-taak is een logische groep vergelijkbare taken. In dit scenario is dit 'CSV omzetten in JSON'. Bij elke taak worden er hier CSV-bestanden omgezet die aanwezig zijn in Azure Storage-containers.
 
-Deze taken parallel uitgevoerd en geïmplementeerd op meerdere knooppunten, gedirigeerd door hello Azure Batch-service.
+Deze taken worden gelijktijdig uitgevoerd en op verschillende knooppunten geïmplementeerd, of ingedeeld door de Azure Batch-service.
 
 > [!Tip]
-> U kunt Hallo [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) eigenschap toospecify maximum aantal taken dat tegelijk op één knooppunt kan worden uitgevoerd.
+> U kunt de eigenschap [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) gebruiken om aan te geven hoeveel taken maximaal tegelijk mogen worden uitgevoerd op één knooppunt.
 >
 >
 
 #### <a name="preparation-task"></a>Voorbereidingstaak
 
-Hallo VM knooppunten die zijn gemaakt zijn leeg Ubuntu-knooppunten. Vaak, moet u een set programma's tooinstall als vereisten.
-U kunt gewoonlijk een shell-script waarmee Hallo vereisten voordat Hallo werkelijke taken uitgevoerd worden geïnstalleerd hebben voor Linux-knooppunten. Dit kunnen echter alle programmeerbare uitvoerbare bestanden zijn.
-Hallo [shell-script](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh) in dit voorbeeld installeert u Python pip en hello Azure-opslag-SDK voor Python.
+De VM-knooppunten die worden gemaakt, zijn lege Ubuntu-knooppunten. U moet als vereiste vaak een reeks programma's installeren.
+Normaal gesproken is er voor Linux-knooppunten een Shell-script waarmee de vereiste onderdelen worden geïnstalleerd voordat de eigenlijke taken worden uitgevoerd. Dit kunnen echter alle programmeerbare uitvoerbare bestanden zijn.
+Met het [Shell-script](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh) in dit voorbeeld installeert u Python-pip en de Azure Storage-SDK voor Python.
 
-U kunt uploaden Hallo-script op basis van een Azure Storage-Account en een SAS-URI tooaccess Hallo script genereren. Dit proces kan ook worden geautomatiseerd met Hallo Node.js-SDK van Azure Storage.
+U kunt het script uploaden naar een Azure Storage-account en een SAS-URI genereren om toegang tot het script te verkrijgen. Dit proces kan ook worden geautomatiseerd met de Azure Storage Node.js-SDK.
 
 > [!Tip]
-> Een taak voorbereiding voor een taak wordt alleen uitgevoerd op Hallo VM knooppunten waarin specifieke taak Hallo toorun moet. Als u wilt dat vereisten toobe geïnstalleerd op alle knooppunten ongeacht Hallo-taken die erop worden uitgevoerd, kunt u Hallo [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) eigenschap tijdens het toevoegen van een groep. U kunt na de taakdefinitie voorbereiding voor verwijzing Hallo gebruiken.
+> Er wordt alleen een voorbereidingstaak voor een taak uitgevoerd op de VM-knooppunten waarop de specifieke taak moet worden uitgevoerd. Als u wilt dat de vereiste onderdelen op alle knooppunten worden geïnstalleerd, ongeacht de taken die erop worden uitgevoerd, kunt u de eigenschap [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) gebruiken tijdens het toevoegen van een pool. Ter referentie kunt u de volgende voorbereidingstaakdefinitie gebruiken.
 >
 >
 
-Een jobvoorbereidingstaak wordt opgegeven tijdens de verzending van Hallo van Azure Batch-taak. Hieronder worden voorbereiding taak configuratieparameters Hallo:
+Er wordt tijdens het verzenden van een Azure Batch-taak een voorbereidingstaak opgegeven. Hieronder volgen de configuratieparameters voor de voorbereidingstaak:
 
-* **ID**: een unieke id voor de jobvoorbereidingstaak Hallo
-* **commandLine**: tooexecute hello opdrachtregeltaak uitvoerbare
-* **resourceFiles**: matrix met objecten die Geef details op van bestanden die nodig zijn voor deze taak toorun gedownload toobe.  Hieronder vindt u de bijbehorende opties
-    - blobSource: Hallo SAS-URI van Hallo-bestand
-    - filePath: lokaal pad toodownload en Hallo bestand opslaan
+* **ID**: de unieke id van de voorbereidingstaak
+* **commandLine**: de opdrachtregel voor het uitvoeren van het uitvoerbare taakbestand
+* **resourceFiles**: matrix met objecten die informatie bieden over welke bestanden moeten worden gedownload om deze taak te kunnen uitvoeren.  Hieronder vindt u de bijbehorende opties
+    - blobSource: de SAS-URI van het bestand
+    - filePath: het lokale pad voor het downloaden en opslaan van het bestand
     - fileMode: fileMode is alleen van toepassing op Linux-knooppunten en heeft een octale indeling met de standaardwaarde 0770
-* **waitForSuccess**: als set tootrue, Hallo taak kan niet worden uitgevoerd op voorbereiding taakfouten
-* **runElevated**: Stel deze tootrue als verhoogde bevoegdheden nodig toorun Hallo taak.
+* **waitForSuccess**: als deze optie is ingesteld op true, wordt de taak niet uitgevoerd wanneer er fouten optreden bij het uitvoeren van in de voorbereidingstaak
+* **runElevated**: deze optie wordt ingesteld op true als er verhoogde bevoegdheden nodig zijn om de taak te kunnen uitvoeren.
 
-Volgende codefragment toont Hallo voorbereiding taak voorbeeldscript-configuratie:
+Met het volgende codefragment wordt het configuratievoorbeeld weergegeven van het script van de voorbereidingstaak:
 
 ```nodejs
 var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prereq.sh > startup.log",resourceFiles:[{'blobSource':'Blob SAS URI','filePath':'startup_prereq.sh'}],waitForSuccess:true,runElevated:true}
 ```
 
-Als er geen vereisten toobe voor uw taken toorun geïnstalleerd, kunt u Hallo systeemvoorbereidingstaken overslaan. Met de volgende code wordt een taan aangemaakt met de weergavenaam 'process csv files'.
+Als er geen vereiste onderdelen hoeven te worden geïnstalleerd voor het uitvoeren van uw taken, kunt u de voorbereidingstaken overslaan. Met de volgende code wordt een taan aangemaakt met de weergavenaam 'process csv files'.
 
  ```nodejs
  // Setting up Batch pool configuration
@@ -308,7 +308,7 @@ Als er geen vereisten toobe voor uw taken toorun geïnstalleerd, kunt u Hallo sy
  // Setting up Job configuration along with preparation task
  var jobId = "processcsvjob"
  var job_config = {id:jobId,displayName:"process csv files",jobPreparationTask:job_prep_task_config,poolInfo:pool_config}
- // Adding Azure batch job toohello pool
+ // Adding Azure batch job to the pool
  var job = batch_client.job.add(job_config,function(error,result){
      if(error != null)
      {
@@ -319,14 +319,14 @@ Als er geen vereisten toobe voor uw taken toorun geïnstalleerd, kunt u Hallo sy
 
 ### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Stap 5: Azure Batch-taken voor een taak verzenden
 
-Nu de taak voor het verwerken van CSV-bestanden is gemaakt, maakt u taken voor die taak. Ervan uitgaande dat er vier containers, hebben we toocreate vier taken, één voor elke container.
+Nu de taak voor het verwerken van CSV-bestanden is gemaakt, maakt u taken voor die taak. Als u vier containers hebt, maakt u vier taken, één voor elke container.
 
-Als we hello bekijkt [pythonscript](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py), twee parameters accepteert:
+In het [Python-script](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py) ziet u dat er twee parameters worden geaccepteerd:
 
-* containernaam: Hallo container toodownload opslagbestanden uit
+* container name: de opslagcontainer waaruit de bestanden worden gedownload
 * pattern: een optionele parameter voor een bestandsnaampatroon
 
-Ervan uitgaande dat we hebben vier containers 'con1', 'con2', 'con3', code 'con4' volgende toont indienen voor taken toohello Azure batch-taak 'proces csv' we eerder hebben gemaakt.
+Als u vier containers hebt (con1, con2, con3 en con4) staat in de volgende code dat er taken worden verzonden naar de Azure Batch-taak voor het verwerken van CSV-bestanden die eerder is gemaakt.
 
 ```nodejs
 // storing container names in an array
@@ -353,12 +353,12 @@ var container_list = ["con1","con2","con3","con4"]
     });
 ```
 
-Hallo-code wordt meerdere taken toohello groep toegevoegd. En Hallo taken worden uitgevoerd op een knooppunt in de pool Hallo van virtuele machines die zijn gemaakt. Als het aantal taken Hallo Hallo aantal virtuele machines in een groep of Hallo maxTasksPerNode-eigenschap overschrijdt, wordt Hallo taken wacht totdat een knooppunt beschikbaar wordt gesteld. Azure Batch deelt alles automatisch in.
+Met de code worden meerdere taken aan de pool toegevoegd. Alle taken worden uitgevoerd op een knooppunt in de pool gemaakte VM's. Als het aantal taken het aantal VM's in een pool overschrijdt, of als de eigenschap maxTasksPerNode wordt overschreven, wordt er gewacht tot een aanvullend knooppunt beschikbaar is gemaakt. Azure Batch deelt alles automatisch in.
 
-Hallo portal heeft gedetailleerde weergaven op Hallo taken en status van een taak. U kunt ook gebruik Hallo lijst en functies in hello Azure knooppunt SDK ophalen. Details zijn beschikbaar in de documentatie van de Hallo [koppeling](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
+De portal biedt een gedetailleerd overzicht van de taken en de taakstatus. U kunt ook de lijst- en ophaalfuncties in de Azure Node-SDK gebruiken. U vindt meer informatie in de documentatie ([koppeling](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html)).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bekijk Hallo [overzicht van Azure Batch-functies](batch-api-basics.md) artikel, waarin het is raadzaam als je nieuwe toohello-service.
-- Zie Hallo [Batch Node.js verwijzing](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) tooexplore Hallo Batch-API.
+- Lees het artikel [Overzicht van Azure Batch-functies](batch-api-basics.md). Dit is raadzaam als u niet vertrouwd bent met de service.
+- Zie de [naslaginformatie voor Batch Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) voor informatie over de Batch-API.
 

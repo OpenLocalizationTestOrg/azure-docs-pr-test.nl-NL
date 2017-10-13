@@ -1,6 +1,6 @@
 ---
-title: overzicht van Azure IoT Suite aaaMicrosoft | Microsoft Docs
-description: Overzicht van hoe Azure IoT Suite biedt internet der dingen vooraf geconfigureerde oplossingen toocollect, analyseren en opslaan van gegevens, bieden van visualisaties en integreren met andere systemen.
+title: Overzicht van Microsoft Azure IoT Suite | Microsoft Docs
+description: Overzicht van hoe Azure IoT Suite vooraf geconfigureerde oplossingen voor het Internet of Things biedt voor het verzamelen, analyseren en opslaan van gegevens, voor het bieden van visualisaties en voor integratie met andere systemen.
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 385025c5ec0d37c74689a928bc09e85b33439634
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: bfa8dbbd0b1d943a9eb7a042df0bac25189d9ac9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-azure-iot-suite"></a>Overview of Azure IoT Suite (Engelstalig)
 
-Hello Azure internet der dingen (IoT)-services bieden een breed scala aan mogelijkheden. Met deze hoogwaardige services kunt u het volgende doen:
+De Azure Internet of Things-services (IoT) bieden een breed scala aan mogelijkheden. Met deze hoogwaardige services kunt u het volgende doen:
 
 * Gegevens van apparaten verzamelen
 * Gegevensstromen in beweging analyseren
@@ -33,37 +33,37 @@ Hello Azure internet der dingen (IoT)-services bieden een breed scala aan mogeli
 * Integraties met back-officesystemen uitvoeren
 * Uw apparaten beheren
 
-toodeliver deze mogelijkheden kunnen Azure IoT Suite-pakketten meerdere Azure-services met aangepaste extensies als *vooraf geconfigureerde oplossingen*. Deze vooraf geconfigureerde oplossingen zijn basisimplementaties van algemene patronen van IoT-oplossing waarmee tooreduce Hallo u tijd toodeliver uw IoT-oplossingen. Met behulp van Hallo [IoT-SDK's][lnk-sdks], u kunt aanpassen en uitbreiden van deze oplossingen toomeet uw eigen vereisten. U kunt deze oplossingen gebruiken als voorbeelden of sjablonen als u nieuwe IoT-oplossingen ontwikkelt.
+Om deze mogelijkheden te kunnen bieden, bevatten Azure IoT Suite-pakketten meerdere Azure-services met aangepaste extensies als *vooraf geconfigureerde oplossingen*. Deze vooraf geconfigureerde oplossingen zijn basisimplementaties van algemene patronen van IoT-oplossingen die u helpen de tijd voor het leveren van uw IoT-oplossingen te verkorten. Met de [IoT-SDK's (Software Development Kits)][lnk-sdks] kunt u deze oplossingen aanpassen en uitbreiden al naargelang uw eigen behoeften. U kunt deze oplossingen gebruiken als voorbeelden of sjablonen als u nieuwe IoT-oplossingen ontwikkelt.
 
-Hallo biedt volgende video een inleiding tooAzure IoT Suite:
+De volgende video toont een inleiding tot Azure IoT Suite:
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON309/player]
 > 
 > 
 
 ## <a name="azure-iot-services-in-azure-iot-suite"></a>Azure IoT-services in Azure IoT Suite
-Hallo vooraf geconfigureerde oplossingen gebruiken doorgaans Hallo volgende services:
+De vooraf geconfigureerde oplossingen gebruiken doorgaans de volgende services:
 
-* Core tooAzure IoT Suite is Hallo [Azure IoT Hub] [ lnk-iot-hub] service. Deze service bevat Hallo apparaat-naar-cloud en de mogelijkheden voor cloud-naar-apparaat messaging en besluiten als gateway toohello Hallo cloud Hallo andere belangrijke IoT Suite-services. Hallo-service kunt u berichten van uw apparaten op schaal tooreceive en opdrachten tooyour apparaten verzenden. Hallo-service kunt u ook te[beheren van uw apparaten][lnk-device-management]. U kunt bijvoorbeeld configureren, opnieuw starten of u de fabrieksinstellingen op een of meer apparaten verbonden toohello hub.
-* [Azure Stream Analytics][lnk-asa] biedt de mogelijkheid om gegevens in beweging te analyseren. IoT Suite maakt gebruik van deze service tooprocess binnenkomende telemetriegegevens, uitvoeren van aggregatiebewerkingen en detecteren van gebeurtenissen. Hallo vooraf geconfigureerde oplossingen gebruiken ook stream analytics tooprocess informatieve berichten met gegevens zoals metagegevens of opdracht reacties van apparaten. Hallo oplossingen gebruik Stream Analytics tooprocess Hallo-berichten van uw apparaten en deze berichten tooother services leveren.
-* [Azure Storage] [ lnk-azure-storage] en [Azure Cosmos DB] [ lnk-document-db] Hallo gegevens opslagmogelijkheden bevatten. Hallo vooraf geconfigureerde oplossingen gebruiken blob storage toostore Telemetrie en toomake deze beschikbaar voor analyse. Hallo oplossingen gebruik van metagegevens van de Cosmos-DB toostore apparaten en schakel mogelijkheden voor Apparaatbeheer Hallo van Hallo-oplossingen.
-* [Azure Web Apps] [ lnk-web-apps] en [Microsoft Power BI] [ lnk-power-bi] Hallo gegevensvisualisatie mogelijkheden bieden. Hallo flexibiliteit van Power BI kunt u tooquickly bouwen uw eigen interactieve dashboards die gebruikmaken van IoT Suite-gegevens.
+* De kern van Azure IoT Suite is de service [Azure IoT Hub][lnk-iot-hub]. Deze service verzorgt de berichtgeving van het apparaat naar de cloud en van de cloud naar het apparaat, en fungeert als toegangspoort tot de cloud en de andere belangrijke IoT Suite-services. Door deze service kunt u op grote schaal berichten ontvangen van uw apparaten en opdrachten naar uw apparaten verzenden. Met deze service kunt u ook [uw apparaten beheren][lnk-device-management]. U kunt bijvoorbeeld een of meer apparaten die zijn verbonden met de hub configureren, opnieuw opstarten of hierop de fabrieksinstellingen terugzetten.
+* [Azure Stream Analytics][lnk-asa] biedt de mogelijkheid om gegevens in beweging te analyseren. IoT Suite gebruikt deze service om binnenkomende telemetriegegevens te verwerken, aggregatiebewerkingen uit te voeren en gebeurtenissen te detecteren. De vooraf geconfigureerde maken ook gebruik van Stream Analytics voor het verwerken van informatieve berichten met gegevens, zoals metagegevens of reacties van apparaten op opdrachten. De oplossingen maken gebruik van Stream Analytics om de berichten van uw apparaten te verwerken en deze berichten bij andere services af te leveren.
+* [Azure Storage][lnk-azure-storage] en [Azure Cosmos DB][lnk-document-db] bieden de mogelijkheid om gegevens op te slaan. De vooraf geconfigureerde oplossingen gebruiken Blob Storage voor het opslaan van telemetriegegevens en om deze beschikbaar te maken voor analyse. De oplossingen gebruiken Cosmos DB om metagegevens van apparaten op te slaan. Cosmos DB zorgt er tevens voor dat de oplossingen gebruik kunnen maken van mogelijkheden voor apparaatbeheer.
+* [Azure Web Apps][lnk-web-apps] en [Microsoft Power BI][lnk-power-bi] bieden de mogelijkheden om gegevens te visualiseren. Door de flexibiliteit van Power BI kunt u snel uw eigen interactieve dashboards bouwen die gebruikmaken van de gegevens van IoT Suite.
 
-Zie voor een overzicht van Hallo-architectuur van een typische IoT-oplossing [Microsoft Azure en Internet der dingen (IoT) Hallo][iot-suite-what-is-azure-iot].
+Zie [Microsoft Azure en het Internet of Things (IoT)][iot-suite-what-is-azure-iot] voor een overzicht van de architectuur van een typische IoT-oplossing.
 
 ## <a name="preconfigured-solutions"></a>Vooraf geconfigureerde oplossingen
 
-IoT Suite bevat vooraf geconfigureerde oplossingen die u tooquickly aan de slag met inschakelen en tooexplore Hallo algemene IoT-scenario's, zoals:
+IoT Suite bevat vooraf geconfigureerde oplossingen zodat u algemene IoT-scenario's snel kunt gaan gebruiken en verkennen. Een aantal scenario's zijn:
 
 * Externe bewaking
 * Voorspellend onderhoud
 * Verbonden factory
 
-U kunt deze oplossingen tooyour Azure-abonnement implementeren en voer vervolgens een volledige, end-to-end-IoT-scenario.
+U kunt deze oplossingen implementeren in uw Azure-abonnement en vervolgens een volledig end-to-end-IoT-scenario uitvoeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u een overzicht van wat IoT Suite kan doen en wat zijn de belangrijkste componenten hebt, kunt u meer informatie over Hallo vooraf geconfigureerde oplossingen in IoT Suite. Zie voor meer informatie [wat hello Azure IoT zijn vooraf geconfigureerde oplossingen?][lnk-what-are-preconfig]
+Nu u een idee hebt van wat IoT Suite kan doen en wat de belangrijkste onderdelen zijn, kunt u zich verder gaan verdiepen in de vooraf geconfigureerde oplossingen in IoT Suite. Zie [Wat zijn de vooraf geconfigureerde Azure IoT Suite-oplossingen?][lnk-what-are-preconfig] voor meer informatie.
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/

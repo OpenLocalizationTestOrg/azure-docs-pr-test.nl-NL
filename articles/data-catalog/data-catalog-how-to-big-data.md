@@ -1,6 +1,6 @@
 ---
-title: aaaHow toowork met gegevensbronnen 'big data' | Microsoft Docs
-description: Hoe tooarticle markeren patronen voor het gebruik van Azure Data Catalog met 'big data' gegevensbronnen, waaronder Azure Blob Storage, Azure Data Lake en Hadoop HDFS.
+title: Werken met gegevensbronnen 'big data' | Microsoft Docs
+description: Hoe kan ik artikel patronen voor het gebruik van Azure Data Catalog met 'big data' gegevensbronnen, waaronder Azure Blob Storage, Azure Data Lake en Hadoop HDFS is gemarkeerd.
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: e478f71f26744975a7d7e1784b74bf50b424cf65
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 001d80ce42f0e87276e59d70dffb75eb561d96cd
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-toowork-with-big-data-sources-in-azure-data-catalog"></a>Hoe toowork met big data in Azure Data Catalog gegevensbronnen
+# <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Werken met big gegevensbronnen in Azure Data Catalog
 ## <a name="introduction"></a>Inleiding
-**Microsoft Azure Data Catalog** is een volledig beheerde cloudservice die als een systeem van registratie en systeem van detectie voor zakelijke gegevensbronnen fungeert. Het is over medewerkers detecteren, begrijpen en gebruiken van gegevensbronnen helpen en helpt organisaties tooget meerwaarde van hun bestaande gegevensbronnen, met inbegrip van big data.
+**Microsoft Azure Data Catalog** is een volledig beheerde cloudservice die als een systeem van registratie en systeem van detectie voor zakelijke gegevensbronnen fungeert. Het is alle over mensen helpen detecteren, begrijpen en gebruiken van gegevensbronnen en helpt organisaties meer waarde ophalen van hun bestaande gegevensbronnen, met inbegrip van big data.
 
-**Azure Data Catalog** ondersteunt Hallo registratie van Azure Blog van Storage-blobs en mappen alsook Hadoop HDFS-bestanden en mappen. Hallo semi-gestructureerde aard van deze gegevensbronnen biedt hoge mate van flexibiliteit. Echter tooget optimaal zich kunnen registreren met Hallo **Azure Data Catalog**, gebruikers moeten rekening houden met het Hallo-gegevensbronnen worden ingedeeld.
+**Azure Data Catalog** biedt ondersteuning voor de registratie van Azure Blog van Storage-blobs en mappen alsook Hadoop HDFS-bestanden en mappen. De semi-gestructureerde aard van deze gegevensbronnen biedt hoge mate van flexibiliteit. Echter, naar de meest waarde niet ophalen uit het registreren van deze met **Azure Data Catalog**, gebruikers moeten rekening houden met de rangschikking van de gegevensbronnen.
 
 ## <a name="directories-as-logical-data-sets"></a>Mappen als logische gegevenssets
-Een algemene patroon voor het ordenen van grote gegevensbronnen is tootreat mappen als logische gegevenssets. Op het hoogste niveau mappen zijn gebruikte toodefine een gegevensset terwijl submappen Definieer partities en Hallo-bestanden die ze bevatten opslaan Hallo gegevens zelf.
+Een algemene patroon voor het ordenen van grote gegevensbronnen is mappen behandelen als logische gegevenssets. Op het hoogste niveau mappen worden gebruikt voor het definiëren van een gegevensset terwijl submappen Definieer partities en de bestanden die ze bevatten de gegevens zelf worden opgeslagen.
 
 Een voorbeeld van dit patroon is mogelijk:
 
@@ -47,10 +47,10 @@ Een voorbeeld van dit patroon is mogelijk:
 
 In dit voorbeeld vertegenwoordigen vehicle_maintenance_events en location_tracking_events logische gegevenssets. Elk van deze mappen bevat gegevensbestanden die zijn ingedeeld op jaar en maand in submappen. Elk van deze mappen zich mogelijk honderden of duizenden bestanden.
 
-In dit patroon registratie van afzonderlijke bestanden met **Azure Data Catalog** waarschijnlijk niet logisch. In plaats daarvan registreert Hallo-mappen die Hallo gegevenssets die worden zinvolle toohello gebruikers werken met gegevens Hallo vertegenwoordigen.
+In dit patroon registratie van afzonderlijke bestanden met **Azure Data Catalog** waarschijnlijk niet logisch. In plaats daarvan de mappen met daarin de gegevenssets die relevant zijn voor de gebruikers die werken met de gegevens worden geregistreerd.
 
 ## <a name="reference-data-files"></a>Verwijzing naar gegevensbestanden
-Een aanvullende patroon is sets van verwijzingsgegevens toostore als afzonderlijke bestanden. Deze gegevenssets kunnen worden beschouwd als 'kleine' Hallo-zijde van big data en zijn vaak vergelijkbare toodimensions in een model analytische gegevens. Verwijzing naar gegevensbestanden bevatten records die gebruikt tooprovide context voor bulksgewijs Hallo van gegevensbestanden Hallo elders in Hallo big data-archief opgeslagen zijn.
+Er is een aanvullende patroon voor het opslaan van sets van verwijzingsgegevens als afzonderlijke bestanden. Deze gegevenssets kunnen worden beschouwd als de 'kleine'-zijde van big data en zijn vaak net als bij dimensies in een model analytische gegevens. Referentie-gegevensbestanden bevat records die worden gebruikt voor context voor het merendeel van de bestanden elders in de big data-archief opgeslagen.
 
 Een voorbeeld van dit patroon is mogelijk:
 
@@ -58,12 +58,12 @@ Een voorbeeld van dit patroon is mogelijk:
     \maintenance_facilities.csv
     \maintenance_types.csv
 
-Wanneer een analist of gegevens wetenschappelijk met gegevens in grotere mapstructuren Hallo hello werkt, kunnen Hallo-gegevens in deze bestanden verwijzing gebruikte tooprovide meer informatie gedetailleerde voor entiteiten die zijn bedoeld tooonly op naam of ID in grotere Hallo-gegevens worden set.
+Wanneer een analist of gegevens wetenschappelijk samen met de gegevens in de grotere directory-structuren werkt, kan de gegevens in deze verwijzing bestanden worden gebruikt om meer gedetailleerde informatie voor entiteiten die alleen door de naam of ID worden aangeduid in de grotere gegevensset te geven.
 
-In dit patroon is het zinvol tooregister Hallo afzonderlijke verwijzing gegevensbestanden met **Azure Data Catalog**. Elk bestand vertegenwoordigt een set gegevens en elkaar kan worden aangetekend en afzonderlijk gedetecteerd.
+In dit patroon is het verstandig om te registreren van de gegevensbestanden van de afzonderlijke verwijzing met **Azure Data Catalog**. Elk bestand vertegenwoordigt een set gegevens en elkaar kan worden aangetekend en afzonderlijk gedetecteerd.
 
 ## <a name="alternate-patterns"></a>Alternatieve patronen
-Hallo patronen die zijn beschreven in voorgaande sectie Hallo zijn twee manieren die een big data store kan worden georganiseerd, maar elke implementatie verschilt. Ongeacht hoe uw gegevensbronnen zijn gestructureerd, bij het registreren van gegevensbronnen met big **Azure Data Catalog**, ligt de nadruk op het registreren van Hallo bestanden en mappen die vertegenwoordigen gegevenssets Hallo van waarde tooothers binnen uw de organisatie. Registratie van alle bestanden en mappen kan bruikbaar blijft Hallo-catalogus, waardoor het moeilijker voor gebruikers toofind die ze nodig hebben.
+De patronen die zijn beschreven in de vorige sectie zijn twee manieren die een big data store kan worden georganiseerd, maar elke implementatie verschilt. Ongeacht hoe uw gegevensbronnen zijn gestructureerd, bij het registreren van gegevensbronnen met big **Azure Data Catalog**, ligt de nadruk op het registreren van de bestanden en mappen die vertegenwoordigen de gegevenssets van waarde naar anderen binnen uw de organisatie. Registratie van alle bestanden en mappen kan bruikbaar blijft de catalogus, waardoor het moeilijker voor gebruikers kunnen vinden die ze nodig hebben.
 
 ## <a name="summary"></a>Samenvatting
-Registreren van gegevensbronnen met **Azure Data Catalog** maakt u ze eenvoudiger toodiscover en begrijpen. Door te registreren en aantekeningen Hallo big data-bestanden en mappen die logische gegevenssets vertegenwoordigen, kunt u gebruikers zoeken en Hallo big-gegevensbronnen die ze nodig hebben.
+Registreren van gegevensbronnen met **Azure Data Catalog** zorgt ervoor dat ze eenvoudiger te detecteren en begrijpen. Door te registreren en aantekeningen maken van de big data-bestanden en mappen die logische gegevenssets vertegenwoordigen, kunt u gebruikers zoeken en gebruiken van de grote gegevensbronnen die ze nodig hebben.

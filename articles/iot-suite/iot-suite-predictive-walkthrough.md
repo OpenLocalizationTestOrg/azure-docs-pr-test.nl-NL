@@ -1,6 +1,6 @@
 ---
-title: leidraad voor aaaPredictive onderhoud | Microsoft Docs
-description: Een overzicht van hello Azure IoT voor voorspeld onderhoud vooraf geconfigureerde oplossing.
+title: Leidraad voor voorspeld onderhoud | Microsoft Docs
+description: Een leidraad voor de vooraf geconfigureerde Azure IoT-oplossing voor voorspeld onderhoud.
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,66 +15,66 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 900d6351019489a8e2f4b98908364e3bd14975c5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a68a8fdc3976ade0d1036d5ed58c8b2eb6d32a5d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Leidraad voor vooraf geconfigureerde oplossing voor voorspeld onderhoud
 
-Hallo voorspeld onderhoud vooraf geconfigureerde oplossing is een end-to-end-oplossing voor een bedrijfsscenario die voorspelt waarop een fout waarschijnlijk toooccur wordt Hallo-punt. U kunt deze vooraf geconfigureerde oplossing proactief gebruiken voor activiteiten zoals het optimaliseren van onderhoud. Hallo oplossing combineert belangrijke Azure IoT Suite-services, zoals IoT Hub, Stream analytics, en een [Azure Machine Learning] [ lnk-machine-learning] werkruimte. Deze werkruimte bevat een model, op basis van een verzameling openbare voorbeeldgegevens, toopredict Hallo resterende levensduur (resterende Levensduur) van een vliegtuigmotor. Hallo-oplossing implementeert Hallo IoT-bedrijfsscenario als een beginpunt voor u tooplan volledig en implementeren van een oplossing die voldoet aan uw eigen specifieke zakelijke vereisten.
+De vooraf geconfigureerde oplossing voor predictief onderhoud is een totaaloplossing voor een bedrijfsscenario die het punt voorspelt waarop naar verwachting een fout optreedt. U kunt deze vooraf geconfigureerde oplossing proactief gebruiken voor activiteiten zoals het optimaliseren van onderhoud. In de oplossing worden belangrijke Azure IoT Suite-services gecombineerd, zoals IoT Hub, Stream Analytics en een [Azure Machine Learning][lnk-machine-learning]-werkruimte. Deze werkruimte bevat een model, gebaseerd op een openbare verzameling voorbeeldgegevens, om de resterende bruikbare levensduur (RUL) van een vliegtuigmotor te voorspellen. De oplossing implementeert het IoT-bedrijfsscenario volledig als een beginpunt zodat u een oplossing kunt plannen en implementeren die voldoet aan uw eigen specifieke zakelijke vereisten.
 
 ## <a name="logical-architecture"></a>Logische architectuur
 
-Hallo volgende diagram geeft een overzicht van de logische onderdelen van de Hallo van Hallo vooraf geconfigureerde oplossing:
+Het volgende diagram geeft een overzicht van de logische onderdelen van de vooraf geconfigureerde oplossing:
 
 ![][img-architecture]
 
-Hallo blauwe items zijn Azure-services ingericht in Hallo regio waar u Hallo vooraf geconfigureerde oplossing hebt geïmplementeerd. Hallo-lijst met regio's waarin u Hallo vooraf geconfigureerde oplossing kunt implementeren op Hallo geeft [inrichting pagina][lnk-azureiotsuite].
+De blauwe items zijn Azure-services die zijn ingericht in de regio waar u de vooraf geconfigureerde oplossing hebt geïmplementeerd. De lijst met regio's waar u de vooraf geconfigureerde oplossing kunt implementeren, wordt weergegeven op de pagina [Inrichting][lnk-azureiotsuite].
 
-Hallo groene item is een gesimuleerd apparaat dat een vliegtuigmotor vertegenwoordigt. U kunt meer informatie over deze gesimuleerde apparaten in de volgende sectie Hallo.
+Het groene item is een gesimuleerd apparaat dat een vliegtuigmotor vertegenwoordigt. Meer informatie over deze gesimuleerde apparaten vindt u in het volgende gedeelte.
 
-Hallo grijze items vertegenwoordigen onderdelen die worden geïmplementeerd *Apparaatbeheer* mogelijkheden. de huidige release Hallo van Hallo voorspeld onderhoud vooraf geconfigureerde oplossing deze resources niet ingericht. toolearn meer informatie over Apparaatbeheer, raadpleegt u toohello [vooraf geconfigureerde oplossing voor externe controle][lnk-remote-monitoring].
+De grijze items vertegenwoordigen onderdelen waarmee mogelijkheden voor *apparaatbeheer* worden geïmplementeerd. In de huidige release van de vooraf geconfigureerde oplossing voor voorspeld onderhoud worden deze resources niet ingericht. Raadpleeg de [vooraf geconfigureerde oplossing voor externe controle][lnk-remote-monitoring] voor meer informatie over apparaatbeheer.
 
 ## <a name="simulated-devices"></a>Gesimuleerde apparaten
 
-In Hallo vooraf geconfigureerde oplossing voor een gesimuleerd apparaat een vliegtuigmotor vertegenwoordigt. Hallo-oplossing is ingericht met twee motoren die één vliegtuig tooa toewijzen. Elke motor verzendt vier typen telemetrie: Sensor 9, Sensor 11 Sensor 14 en Sensor 15 bieden Hallo gegevens die nodig zijn voor Hallo Machine Learning-model toocalculate Hallo resterende Levensduur voor Hallo-engine. Elk gesimuleerd apparaat verzendt Hallo telemetrie berichten tooIoT Hub te volgen:
+In de vooraf geconfigureerde oplossing vertegenwoordigt een gesimuleerd apparaat een vliegtuigmotor. De oplossing is ingericht met twee motoren die aan één vliegtuig zijn toegewezen. Elke motor verzendt vier typen telemetrie: Sensor 9, Sensor 11, Sensor 14 en Sensor 15 leveren de benodigde gegevens waarmee het Machine Learning-model de RUL voor de motor berekent. Elk gesimuleerd apparaat verzendt de volgende telemetrieberichten naar IoT Hub:
 
-*Aantal maal gebruikt*. Een cyclus vertegenwoordigt een voltooide vlucht met een duur van tussen de twee en de tien uur. Telemetriegegevens worden tijdens de vlucht hello, elk half uur worden vastgelegd.
+*Aantal maal gebruikt*. Een cyclus vertegenwoordigt een voltooide vlucht met een duur van tussen de twee en de tien uur. Tijdens de vlucht worden elk half uur telemetriegegevens vastgelegd.
 
-*Telemetrie*. Er zijn vier sensoren die motorkenmerken vertegenwoordigen. Hallo sensoren gelabeld algemeen Sensor 9, Sensor 11 Sensor 14 en Sensor 15. Deze vier sensoren vertegenwoordigen telemetrie voldoende tooobtain bruikbare resultaten uit Hallo resterende Levensduur model. Hallo-model in Hallo vooraf geconfigureerde oplossing gebruikt wordt gemaakt van een openbare gegevensset die echte motorsensorgegevens bevat. Zie voor meer informatie over hoe Hallo model is gemaakt vanaf de oorspronkelijke gegevensset Hallo Hallo [Cortana Intelligence Gallery Predictive Maintenance sjabloon][lnk-cortana-analytics].
+*Telemetrie*. Er zijn vier sensoren die motorkenmerken vertegenwoordigen. Deze sensoren worden doorgaans Sensor 9, Sensor 11 Sensor 14 en Sensor 15 genoemd. Deze vier sensoren leveren voldoende telemetrie om nuttige resultaten te verkrijgen van het RUL-model. Het model dat wordt gebruikt in de vooraf geconfigureerde oplossing, wordt gemaakt op basis van een openbare gegevensset die echte motorsensorgegevens bevat. Zie [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics] (Cortana Intelligence Gallery-sjabloon voor voorspellend onderhoud) voor meer informatie over hoe het model wordt gemaakt op basis van de oorspronkelijke gegevensset.
 
-Hallo gesimuleerde apparaten kunnen verwerken Hallo opdrachten verzonden uit Hallo iothub in Hallo oplossing te volgen:
+De gesimuleerde apparaten kunnen de volgende opdrachten verwerken die zijn verzonden vanaf de IoT Hub in de oplossing:
 
 | Opdracht | Beschrijving |
 | --- | --- |
-| StartTelemetry |Besturingselementen Hallo status van Hallo simulatie.<br/>Start Hallo apparaat verzenden van telemetrie |
-| StopTelemetry |Besturingselementen Hallo status van Hallo simulatie.<br/>Stopt Hallo apparaat verzenden van telemetrie |
+| StartTelemetry |Bepaalt de status van de simulatie.<br/>Start het verzenden van telemetrie vanaf het apparaat |
+| StopTelemetry |Bepaalt de status van de simulatie.<br/>Stopt het verzenden van telemetrie vanaf het apparaat |
 
 IoT Hub biedt een bevestiging van apparaatopdrachten.
 
 ## <a name="azure-stream-analytics-job"></a>Azure Stream Analytics-job
 
-**Job: Telemetrie** is van invloed op Hallo binnenkomende apparaat telemetriestroom met behulp van twee instructies:
+**Job: Telemetrie** verwerkt de inkomende telemetriestroom van het apparaat met behulp van twee instructies:
 
-* Hallo eerst selecteert alle telemetrie van Hallo apparaten en verzendt deze gegevens tooblob opslag. Hier wordt het weergegeven in Hallo web-app.
-* Hallo tweede berekent gemiddelde sensorwaarden gedurende een sliding window van twee minuten en verzendt deze gegevens via Hallo Event hub tooan **gebeurtenisprocessor**.
+* De eerste selecteert alle telemetrie van de apparaten en verzendt deze gegevens naar Blob Storage. Hier worden ze weergegeven in de webtoepassing.
+* De tweede instructie berekent de gemiddelde sensorwaarden gedurende een sliding window van twee minuten en verzendt deze gegevens via Event Hub naar een **gebeurtenisprocessor**.
 
 ## <a name="event-processor"></a>Gebeurtenisprocessor
-Hallo **gebeurtenisprocessorhost** in een Azure-Web-taak wordt uitgevoerd. Hallo **gebeurtenisprocessor** Hallo gemiddelde sensorwaarden duurt voordat een voltooide cyclus. Deze stuurt vervolgens deze waarden tooan API die het getrainde model toocalculate Hallo resterende Levensduur van een motor beschrijft. Hallo API wordt blootgelegd door een Machine Learning-werkruimte die als onderdeel van Hallo-oplossing is ingericht.
+De **gebeurtenisprocessorhost** wordt uitgevoerd in een Azure-webtaak. De **gebeurtenisverwerking** neemt de gemiddelde sensorwaarden voor een voltooide cyclus. Vervolgens worden deze waarden doorgegeven aan een API die het getrainde model de RUL voor een motor laat berekenen. De API wordt weergegeven met een Machine Learning-werkruimte die is ingericht als onderdeel van de oplossing.
 
 ## <a name="machine-learning"></a>Machine Learning
-Hallo Machine Learning-component gebruikt een model dat is afgeleid van gegevens van echte vliegtuigmotoren verzameld. U kunt navigeren toohello Machine Learning-werkruimte van de tegel Hallo op Hallo [azureiotsuite.com] [ lnk-azureiotsuite] pagina voor de ingerichte oplossing. Hallo tegel is beschikbaar als Hallo oplossing in Hallo **gereed** status.
+Het Machine Learning-onderdeel maakt gebruikt van een model dat is afgeleid van gegevens die zijn verzameld bij echte vliegtuigmotoren. U kunt naar de Machine Learning-werkruimte navigeren vanaf de tegel op de [azureiotsuite.com][lnk-azureiotsuite]-pagina voor de vooraf ingerichte oplossing. De tegel is beschikbaar wanneer de oplossing de status **Gereed** heeft.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u Hallo belangrijke onderdelen van Hallo voorspeld onderhoud vooraf geconfigureerde oplossing hebt gezien, kunt u toocustomize deze. Zie [Guidance on Customizing Preconfigured Solutions][lnk-customize] (Handleiding voor het aanpassen van vooraf geconfigureerde oplossingen).
+Nu u de belangrijke onderdelen van de oplossing voor voorspeld onderhoud hebt gezien, wilt u deze misschien aanpassen. Zie [Guidance on Customizing Preconfigured Solutions][lnk-customize] (Handleiding voor het aanpassen van vooraf geconfigureerde oplossingen).
 
-U kunt ook verkennen van Hallo andere functies en mogelijkheden van Hallo vooraf geconfigureerde IoT Suite-oplossingen:
+U kunt ook enkele van de andere functies en mogelijkheden van de vooraf geconfigureerde IoT Suite-oplossingen verkennen:
 
 * [Veelgestelde vragen over IoT Suite][lnk-faq]
-* [Beveiliging van de IoT van Hallo gemalen][lnk-security-groundup]
+* [Fundamentele IoT-beveiliging][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 

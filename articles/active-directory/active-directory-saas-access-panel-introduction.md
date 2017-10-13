@@ -1,6 +1,6 @@
 ---
-title: Hallo-Toegangsvenster aaaWhat is in Azure Active Directory? | Microsoft Docs
-description: Meer informatie over hoe toouse variaties van Hallo toegang krijgen tot Configuratiescherm (webbrowser, Android-app, app iPhone en iPad) tooaccess SaaS-apps.
+title: Wat is het toegangsvenster in Azure Active Directory? | Microsoft Docs
+description: Informatie over het gebruik van variaties van het toegangsvenster (webbrowser, Android-app, iPhone en iPad app) voor toegang tot SaaS-apps.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,83 +15,83 @@ ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 800be6a69f13978c5b88e2fe28a416d4b763656c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bd9066c251188c0f18fe1a9403baa2beaeeb987c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="what-is-hello-access-panel"></a>Wat is het toegangsvenster Hallo?
+# <a name="what-is-the-access-panel"></a>Wat is het toegangsvenster?
 
-Hallo toegangspaneel is een webportal. Dit kan een gebruiker met een werk of schoolaccount in Azure Active Directory tooview en start cloud-gebaseerde toepassingen een Azure AD-beheerder heeft verleend ze toegang hebben tot. U kunt ook groepsbeheer met Self-service en beheermogelijkheden van de app via het toegangsvenster hello gebruiken.
+Het toegangspaneel is een webportal. Dit kan een gebruiker met een werk of schoolaccount in Azure Active Directory om te bekijken en cloud-gebaseerde toepassingen start een Azure AD-beheerder heeft deze toegang verleend tot. U kunt ook groepsbeheer met Self-service en app-mogelijkheden voor beheer via het toegangsvenster gebruiken.
 
-Hallo toegangspaneel is gescheiden van hello Azure-portal en doet u dit niet toohave een Azure-abonnement.
+Het toegangspaneel is gescheiden van de Azure-portal en komt niet voor u om een Azure-abonnement.
 
 ![Toegangsvenster][1]
 
-Hallo-Toegangsvenster kunt u enkele van uw profielinstellingen, inclusief de mogelijkheid om te Hallo tooedit:
+Het toegangsvenster kunt u enkele van uw profielinstellingen, inclusief de mogelijkheid om te bewerken:
 
-- Hallo-wachtwoord wijzigen die zijn gekoppeld aan een account voor werk of school
+- Wijzig het wachtwoord die zijn gekoppeld aan een account voor werk of school
 
 - Bewerken van instellingen voor wachtwoord opnieuw instellen
 
-- Neem contact op met en voorkeur instellingen gerelateerde toomulti-factor authentication bewerken (voor accounts die vereist toouse zijn deze door een beheerder)
+- Bewerken en neem contact op met de prioriteit van instellingen in verband met multi-factor authentication (voor accounts die zijn vereist om deze te gebruiken door een beheerder)
 
 - Account details, zoals gebruikers-ID, alternatieve e-mailadres en mobile en office telefoonnummers en apparaten bekijken
 
-- Weergeven en start cloud-gebaseerde toepassingen die hello Azure AD-beheerder heeft deze toegang verleend tot. Zie voor meer informatie over Hallo Toegangsvenster vanuit Hallo gebruikers perspectief met behulp van het toegangsvenster Hallo. 
+- Weergeven en cloud-gebaseerde toepassingen die de Azure AD-beheerder heeft deze toegang verleend tot starten. Zie voor meer informatie over het toegangsvenster vanuit het perspectief van de gebruikers met behulp van het toegangsvenster. 
 
-- Groepen zelf beheren. Meer specifiek, kunt Hallo beheerder maken en beheren van beveiligingsgroepen en aanvraag beveiligingsgroepen in Azure AD. Zie voor meer informatie [groepsbeheer met Self-service voor gebruikers in Azure AD](active-directory-accessmanagement-self-service-group-management.md) en [groepen beheren](active-directory-manage-groups.md).
-
-
+- Groepen zelf beheren. Meer specifiek, kan de beheerder maken en beheren van beveiligingsgroepen en aanvragen beveiligingsgroepen in Azure AD. Zie voor meer informatie [groepsbeheer met Self-service voor gebruikers in Azure AD](active-directory-accessmanagement-self-service-group-management.md) en [groepen beheren](active-directory-manage-groups.md).
 
 
-## <a name="accessing-hello-access-panel"></a>Toegang tot het toegangsvenster Hallo
 
-U kunt Hallo Toegangsvenster openen via de volgende URL in een webbrowser Hallo:`http://myapps.microsoft.com`
 
-Als u aangepaste huisstijl is geconfigureerd voor de aanmeldingspagina hebt, kunt u deze huisstijl door uw organisatie domein toohello einde van Hallo-URL toe te voegen kunt laden:`http://myapps.microsoft.com/<your domain>.com`
+## <a name="accessing-the-access-panel"></a>Toegang tot het toegangsvenster
+
+U kunt toegang krijgen tot het toegangsvenster via de volgende URL in een webbrowser:`http://myapps.microsoft.com`
+
+Als u aangepaste huisstijl is geconfigureerd voor de aanmeldingspagina hebt, kunt u deze huisstijl door het domein van uw organisatie aan het einde van de URL toe te voegen kunt laden:`http://myapps.microsoft.com/<your domain>.com`
 
 In dit geval kunt u een actieve of een geverifieerde domeinnaam die is geconfigureerd in uw Azure-portal.
 
 ![Wingtip Toys domeinnaam][2]  
 
-U moet toodistribute Hallo URL tooall gebruikers die u ondertekent in tooapplications die zijn geïntegreerd met Azure AD.
+U moet de URL voor alle gebruikers die zullen zich aanmelden bij toepassingen die zijn geïntegreerd met Azure AD te verdelen.
 
 ## <a name="authentication"></a>Authentication
 
-toegangspaneel voor tooreach hello, u moet worden geverifieerd via een account voor werk of school in Azure AD. U kunt geverifieerde op tooAzure AD rechtstreeks zijn. U kunt ook als een organisatie heeft federation geconfigureerd met behulp van Active Directory Federation Services (AD FS) of andere technologieën, kan u worden geverifieerd door Windows Server Active Directory.
+Bereiken van het toegangsvenster, moet u worden geverifieerd via een account voor werk of school in Azure AD. U kunt naar rechtstreeks Azure AD zijn geverifieerd. U kunt ook als een organisatie heeft federation geconfigureerd met behulp van Active Directory Federation Services (AD FS) of andere technologieën, kan u worden geverifieerd door Windows Server Active Directory.
 
-Als u een abonnement voor Azure of Office 365 hebt en u hebt gebruikt hello Azure-portal of een Office 365-toepassing, ziet u Hallo lijst met toepassingen zonder aanmelden opnieuw. Als u niet bent geverifieerd u na vragen aan gebruiker toosign in met behulp van Hallo gebruikersnaam en wachtwoord voor uw account in Azure AD zijn. Als uw organisatie heeft federation geconfigureerd, is te typen Hallo gebruikersnaam voldoende.
+Als u een abonnement voor Azure of Office 365 hebt en u hebt gebruikt de Azure portal of een Office 365-toepassing, ziet u de lijst met toepassingen zonder aanmelden opnieuw. Als u niet bent geverifieerd u wordt gevraagd om aan te melden met behulp van de gebruikersnaam en het wachtwoord voor uw account in Azure AD. Als uw organisatie heeft federation geconfigureerd, is typt de gebruikersnaam voldoende.
 
-Wanneer u bent geverifieerd, kunt u samenwerken met Hallo-toepassingen die door uw beheerder is geïntegreerd met Hallo-directory. hoe toepassingen met Azure AD toointegrate zien toolearn [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Wanneer u bent geverifieerd, kunt u communiceren met de toepassingen die de beheerder heeft geïntegreerd in de map. Zie voor meer informatie over toepassingen integreren met Azure AD, [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="web-browser-requirements"></a>Vereisten voor webbrowsers
 
-Ten minste Hallo Toegangsvenster vereist een browser die JavaScript ondersteunt en CSS is ingeschakeld. Voor Hallo gebruiker toobe aangemeld tooapplications via op basis van wachtwoorden eenmalige aanmelding (SSO), moet de uitbreiding voor toegang tot Configuratiescherm Hallo in uw browser worden geïnstalleerd. Hallo-extensie wordt automatisch gedownload wanneer u een toepassing die is geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden selecteert.
+Ten minste het toegangsvenster vereist een browser die JavaScript ondersteunt en CSS is ingeschakeld. Voor de gebruiker zijn aangemeld via op basis van wachtwoorden eenmalige aanmelding (SSO) aan toepassingen, moet de extensie van het Configuratiescherm toegang in uw browser worden geïnstalleerd. De extensie wordt automatisch gedownload wanneer u een toepassing die is geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden selecteert.
 
-Hallo toegang Configuratiescherm-uitbreiding is momenteel beschikbaar voor Internet Explorer 8 en hoger, Microsoft Edge en Chrome Firefox browsers.
+De extensie van het Configuratiescherm toegang is momenteel beschikbaar voor Internet Explorer 8 en hoger, Microsoft Edge en Chrome Firefox browsers.
 
 ## <a name="mobile-app-support"></a>Ondersteuning voor mobiele Apps
 
-Hello Azure Active Directory-team publiceert Hallo mijn mobiele app van apps. Wanneer u Hallo-app installeert, kunt u zich aanmeldt toopassword gebaseerde SSO-toepassingen voor iOS en Android-apparaten.
+Het team van Azure Active Directory publiceert de mijn mobiele app van apps. Wanneer u de app installeert, kunt u zich aanmeldt bij de SSO-toepassingen op basis van wachtwoorden op iOS en Android-apparaten.
 
 > [!NOTE]
-> U kunt tooapplications die ondersteuning bieden voor federatie met Azure AD (inclusief Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 en meer dan 70 anderen) aanmelden op vrijwel elke webbrowser op elk apparaat zonder een invoegtoepassing of mobiele app. Alle andere [toegang tot Configuratiescherm ervaringen](https://myapps.microsoft.com/) ook vereisen geen Hallo mijn mobiele app apps toobe op een mobiel apparaat gebruikt.
+> U kunt aanmelden bij toepassingen die ondersteuning bieden voor federatie met Azure AD (inclusief Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 en meer dan 70 anderen) op vrijwel elke webbrowser op elk apparaat zonder een invoegtoepassing of mobiele app. Alle andere [toegang tot Configuratiescherm ervaringen](https://myapps.microsoft.com/) ook hoeven niet de mijn mobiele app van apps moet worden gebruikt op een mobiel apparaat.
 >
 >
 
 ### <a name="my-apps-for-android"></a>Mijn apps voor Android
 
 Mijn apps voor Android wordt ondersteund op een Android-apparaat met Android versie 4.1 en hoger.  
-Is beschikbaar in de Hallo [Google Play store](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
+Is beschikbaar in de [Google Play store](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
 
 ![Mijn apps voor Android][3]   
 
 ### <a name="my-apps-for-iphone-and-ipad"></a>Mijn apps voor iPhone en iPad
 
 Mijn apps voor iOS wordt ondersteund op een iPhone of iPad met versie voor iOS 7 en hoger.  
-Is beschikbaar in de Hallo [Apple App Store](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8).
+Is beschikbaar in de [Apple App Store](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8).
 
 ![Mijn apps voor iOS][4]    
 
@@ -99,10 +99,10 @@ Is beschikbaar in de Hallo [Apple App Store](https://itunes.apple.com/us/app/my-
 
 ## <a name="managed-browser-for-my-apps"></a>Beheerde browser voor mijn apps
 
-Mijn apps is ook geïntegreerd in Hallo Intune Managed Browser. Hallo Intune Managed Browser voor iOS en Android-apparaten speelt een belangrijke rol om ervoor te zorgen dat de gegevens op mobiele apparaten beveiligd blijven. Hiermee kunt u veilig kunt weergeven en webpagina's die mogelijk bedrijfsgegevens bevatten en biedt een veilige websurfervaring.  
-U vinden snel toegang toomy apps op uw startpagina van Managed Browser en in uw bladwijzers, zodat u minder tooreach klikt op elke gewenste tooaccess toepassing.
+Mijn apps is ook geïntegreerd in de Intune Managed Browser. De Intune Managed Browser voor iOS en Android-apparaten speelt een belangrijke rol om ervoor te zorgen dat de gegevens op mobiele apparaten beveiligd blijven. Hiermee kunt u veilig kunt weergeven en webpagina's die mogelijk bedrijfsgegevens bevatten en biedt een veilige websurfervaring.  
+U snel toegang tot mijn apps op uw startpagina van Managed Browser en in uw bladwijzers, zodat u minder klikken bereiken van elke toepassing die u wilt openen.
 
-Is beschikbaar in de Hallo [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) en [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
+Is beschikbaar in de [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) en [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
 
 ![Mananged browser voor mijn apps][5]    
 
@@ -110,81 +110,81 @@ Is beschikbaar in de Hallo [Apple App Store](https://itunes.apple.com/us/app/mic
 
 
 
-## <a name="tips-for-testing-hello-user-experience"></a>Tips voor het testen van het Hallo-gebruikerservaring
+## <a name="tips-for-testing-the-user-experience"></a>Tips voor het testen van de gebruikerservaring
 
-Als u een Azure-beheerder bent en u toohello Azure-portal bent aangemeld met een account in de map hello, bent u toohello Toegangsvenster automatisch aangemeld als uw huidige account gebruiken. In dit geval kunt u alle toepassingen die zijn toegewezen aan de tooyou zien.
+Als u een Azure-beheerder bent en u bent aangemeld bij de Azure-portal met behulp van een account in de directory, bent u automatisch aangemeld voor het toegangsvenster als uw huidige account gebruiken. In dit geval ziet u alle toepassingen die aan u zijn toegewezen.
 
-**tootest als een *verschillende* gebruikersaccount:**
+**Voor testen als een *verschillende* gebruikersaccount:**
 
-1. Klik op Hallo gebruikersmenu in Hallo rechterbovenhoek hello Azure-portal of Hallo Toegangsvenster en selecteer vervolgens **Afmelden**. 
-2. Ga toohello [toegangspaneel](http://myapps.microsoft.com).
-3. U wilt tootest op de aanmeldingspagina hello, type Hallo gebruikersnaam en wachtwoord voor account Hallo in uw directory.
+1. Klik op het gebruikersmenu in de rechterbovenhoek van de Azure-portal of in het deelvenster toegang en selecteer vervolgens **Afmelden**. 
+2. Ga naar de [toegangspaneel](http://myapps.microsoft.com).
+3. Typ de gebruikersnaam en het wachtwoord voor het account in uw directory die u wilt testen op de aanmeldingspagina.
 
 
 ## <a name="starting-applications"></a>Starten van toepassingen
 
-Verschillende soorten toepassingen kunnen worden weergegeven op het toegangsvenster Hallo.
+Verschillende soorten toepassingen kunnen worden weergegeven in het deelvenster toegang.
 
 ### <a name="office-365-applications"></a>Office 365-toepassingen
 
-Als u een licentie voor uw organisatie gebruikmaakt van Office 365-toepassingen weergegeven Hallo Office 365-toepassingen op uw Toegangsvenster.
+Als uw organisatie van Office 365-toepassingen gebruikmaakt en u een licentie voor Office 365-toepassingen worden weergegeven in het deelvenster toegang.
 
-Wanneer u klikt op de tegel van een toepassing voor een Office 365-toepassing, bent u omgeleide toohello toepassing en automatisch aangemeld.
+Als u op de tegel van een toepassing voor een Office 365-toepassing, wordt u omgeleid naar de toepassing en automatisch aangemeld.
 
 ### <a name="microsoft-and-third-party-applications-configured-with-federation-based-sso"></a>Microsoft en derden toepassingen die zijn geconfigureerd op basis van een federatieve aanmelding bij
 
-Uw beheerder kan toepassingen toevoegen in Active Directory-sectie van de Azure-portal Hallo HALLO hallo SSO-modus ingesteld te**Azure AD Single Sign-On**. U kunt deze toepassingen alleen zien als de beheerder heeft expliciet verleend voor het openen van toohello toepassingen.
+Uw beheerder kan toepassingen toevoegen in de sectie Active Directory van de Azure-portal met de SSO-modus ingesteld op **Azure AD Single Sign-On**. U kunt deze toepassingen alleen zien als de beheerder heeft u toegang tot de toepassingen expliciet verleend.
 
-Als u op een tegel voor een van deze toepassingen, kunt u bent omgeleid en toohello toepassing automatisch aangemeld.
+Als u op een tegel voor een van deze toepassingen, wordt u omgeleid en automatisch aangemeld bij de toepassing.
 
 ### <a name="password-based-sso-without-identity-provisioning"></a>Eenmalige aanmelding op basis van wachtwoorden zonder identiteit inrichten
 
-Uw beheerder kan toepassingen toevoegen in Active Directory-sectie van de Azure-portal Hallo HALLO hallo SSO-modus ingesteld te**op basis van wachtwoorden Single Sign-On**. Alle gebruikers in de directory Hallo ziet alle toepassingen die zijn geconfigureerd in deze modus.
+Uw beheerder kan toepassingen toevoegen in de sectie Active Directory van de Azure-portal met de SSO-modus ingesteld op **op basis van wachtwoorden Single Sign-On**. Alle gebruikers in de map ziet alle toepassingen die zijn geconfigureerd in deze modus.
 
-Hallo eerst u klikt op een tegel voor een van deze toepassingen, vraag tooinstall Hallo wachtwoord SSO-invoegtoepassing voor Internet Explorer of Chrome. Hallo-installatie mogelijk toorestart u uw webbrowser. Als u het toegangsvenster toohello retourneren en Hallo toepassing tegel opnieuw op u wordt gevraagd om een gebruikersnaam en wachtwoord voor de toepassing hello. Wanneer u uw gebruikersnaam en wachtwoord hebt ingevoerd, worden deze referenties zijn veilig opgeslagen en tooyour-account gekoppeld in Azure AD.
+De eerste keer u klikken op een tegel voor een van deze toepassingen u wordt gevraagd het wachtwoord SSO-invoegtoepassing voor Internet Explorer of Chrome installeren. De installatie moet u mogelijk opnieuw opstarten van uw webbrowser. Wanneer u naar het toegangspaneel terugkeert en klikt u nogmaals op de tegel toepassing, wordt u gevraagd om een gebruikersnaam en wachtwoord voor de toepassing. Wanneer u uw gebruikersnaam en wachtwoord hebt ingevoerd, worden deze referenties veilig opgeslagen en gekoppeld aan uw account in Azure AD.
 
-Wanneer u op Hallo toepassing tegel u automatisch aangemeld toohello toepassing Hello.  
-U geen tooenter opnieuw uw referenties hebt en of Hallo wachtwoord SSO-invoegtoepassing installeren.
+De volgende keer dat u op de tegel toepassing bent u automatisch aangemeld bij de toepassing.  
+U hoeft niet te uw referenties opnieuw invoeren en of het wachtwoord SSO-invoegtoepassing installeren.
 
-Als uw referenties in de doeltoepassing derde Hallo hebt gewijzigd, moet u ook de referenties die zijn opgeslagen in Azure AD bijwerken. 
+Als uw referenties in de derde partij doeltoepassing hebt gewijzigd, moet u ook de referenties die zijn opgeslagen in Azure AD bijwerken. 
 
-**tooupdate referenties:**
+**Referenties bijwerken:**
 
-1. Selecteer Hallo-pictogram op Hallo toepassing tegel.
-2. Selecteer **referenties bijwerken** tooreenter Hallo gebruikersnaam en wachtwoord voor de toepassing hello.
+1. Selecteer het pictogram op de tegel toepassing.
+2. Selecteer **referenties bijwerken** gebruikersnaam en wachtwoord voor de toepassing opnieuw in te voeren.
 
 
 ### <a name="password-based-sso-with-identity-provisioning"></a>Eenmalige aanmelding op basis van wachtwoorden met het leveren van identiteit
 
-Uw beheerder kan toepassingen toevoegen in Hallo **Active Directory** sectie Hallo Azure-portal met de Hallo SSO-modus ingesteld te**op basis van wachtwoorden Single Sign-On**, samen met het inrichten van de identiteit.
+Uw beheerder kan toevoegen toepassingen in de **Active Directory** sectie van de Azure-portal met de SSO-modus ingesteld op **op basis van wachtwoorden Single Sign-On**, samen met het inrichten van de identiteit.
 
-Hallo eerst u klikt op de tegel van een toepassing voor een van deze toepassingen, kunt u na vragen aan gebruiker tooinstall hello **wachtwoord SSO-invoegtoepassing voor Internet Explorer of Chrome**. Hallo-installatie mogelijk toorestart u uw webbrowser.  
-Als u toohello toegangspaneel retourneren en Hallo toepassing tegel opnieuw op in de toepassing toohello wordt u automatisch afgemeld.
+De eerste keer gebruikt, u klikt op de tegel van een toepassing voor een van deze toepassingen, wordt u gevraagd voor het installeren van de **wachtwoord SSO-invoegtoepassing voor Internet Explorer of Chrome**. De installatie moet u mogelijk opnieuw opstarten van uw webbrowser.  
+Wanneer u naar het toegangspaneel terugkeert en klikt u op de tegel toepassing opnieuw, bent u automatisch aangemeld bij de toepassing.
 
-Sommige toepassingen moet u toochange uw wachtwoord op Hallo eerste aanmeldingspagina. Als uw referenties in de doeltoepassing derde Hallo hebt gewijzigd, moet u ook Hallo-referenties die zijn opgeslagen in Azure AD bijwerken. 
+Sommige toepassingen moet u mogelijk uw wachtwoord op de eerste aanmeldingspagina te wijzigen. Als uw referenties in de derde partij doeltoepassing hebt gewijzigd, moet u ook de referenties die zijn opgeslagen in Azure AD bijwerken. 
 
-**tooupdate referenties:**
+**Referenties bijwerken:**
 
-1. Selecteer Hallo-pictogram op Hallo toepassing tegel.
-2. Selecteer **referenties bijwerken** tooreenter Hallo gebruikersnaam en wachtwoord voor de toepassing hello.
+1. Selecteer het pictogram op de tegel toepassing.
+2. Selecteer **referenties bijwerken** gebruikersnaam en wachtwoord voor de toepassing opnieuw in te voeren.
 
 
 ### <a name="application-with-existing-sso-solutions"></a>Toepassing met bestaande oplossingen voor eenmalige aanmelding
 
-tooconfigure eenmalige aanmelding voor een toepassing hello Azure-portal biedt een derde optie, genaamd **bestaande Single Sign-On**. Deze optie kunnen uw beheerder toocreate een koppeling tooan toepassing en plaats het op Hallo toegangspaneel voor geselecteerde gebruikers.
+Voor meer informatie over het configureren van eenmalige aanmelding voor een toepassing de Azure portal biedt een derde optie, genaamd **bestaande Single Sign-On**. Deze optie kunt de beheerder om een koppeling maken naar een toepassing op en plaats deze in het deelvenster toegang voor geselecteerde gebruikers.
 
-Bijvoorbeeld, als een toepassing geconfigureerde tooauthenticate gebruikers met behulp van AD FS 2.0, uw beheerder kan gebruiken Hallo **bestaande Single Sign-On** optie toocreate een koppeling tooit op Hallo Toegangsvenster. Wanneer u Hallo koppeling opent, kunt u bent geverifieerd via AD FS 2.0 of de bestaande SSO-oplossing Hallo toepassing biedt.
+Bijvoorbeeld, als een toepassing is geconfigureerd om gebruikers te verifiëren met behulp van AD FS 2.0, uw beheerder kan gebruiken de **bestaande Single Sign-On** optie voor het maken van een koppeling in het deelvenster toegang. Wanneer u de koppeling opent, kunt u bent geverifieerd via AD FS 2.0 of een andere bestaande oplossing voor eenmalige aanmelding biedt voor de toepassing.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- een lijst met alle onderwerpen die gerelateerd tooapplication management zijn, toosee Zie Hallo [artikel index voor Toepassingsbeheer in Azure Active Directory](active-directory-apps-index.md).
+- Zie voor een lijst met alle onderwerpen met betrekking tot Toepassingsbeheer de [artikel index voor Toepassingsbeheer in Azure Active Directory](active-directory-apps-index.md).
  
-- toolearn hoe toointegrate een SaaS-app met Azure AD Hallo zien [lijst met zelfstudies over het SaaS-apps toointegrate](active-directory-saas-tutorial-list.md).
+- Zie voor informatie over het integreren van een SaaS-app in Azure AD, de [lijst met zelfstudies over het integreren van SaaS-apps](active-directory-saas-tutorial-list.md).
  
-- toolearn meer informatie over het beheren van apps in Azure AD, Zie Hallo [inleiding toosingle aanmelding en het beheren van toegang tot de app met Azure Active Directory](active-directory-appssoaccess-whatis.md).
+- Zie voor meer informatie over het beheren van apps met Azure AD, de [Inleiding tot één aanmelding en beheren van app-toegang met Azure Active Directory](active-directory-appssoaccess-whatis.md).
  
-- toolearn meer informatie over gebruikers inrichten, Zie [gebruikers inrichten en opheffen van inrichting tooSaaS toepassingen automatiseren](active-directory-saas-app-provisioning.md).
+- Zie voor meer informatie over gebruikers inrichten, [gebruikers inrichten en opheffen van inrichting tot SaaS-toepassingen automatiseren](active-directory-saas-app-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/01.png

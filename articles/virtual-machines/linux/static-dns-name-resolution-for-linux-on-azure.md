@@ -1,6 +1,6 @@
 ---
-title: aaaUse interne DNS voor de virtuele machine naamomzetting Hello Azure CLI 2.0 | Microsoft Docs
-description: Hoe het virtuele netwerk toocreate netwerkinterfacekaarten en interne DNS gebruiken voor VM-naamomzetting in Azure met Azure CLI 2.0 Hallo
+title: Interne DNS gebruiken voor naamomzetting van de virtuele machine met de Azure CLI 2.0 | Microsoft Docs
+description: Het maken van virtueel netwerk netwerkinterfacekaarten en interne DNS gebruiken voor naamomzetting van de virtuele machine in Azure met de Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -15,27 +15,27 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: b3c4bfd3ab698f7b25d763ba9e60dd7984f6269d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 992920adb1ae3736d43cc5f0bbb2081a20a1674d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Maken van virtuele netwerkinterfacekaarten en interne DNS gebruiken voor naamomzetting van de virtuele machine in Azure
-Dit artikel laat zien hoe tooset statische interne DNS-namen voor virtuele Linux-machines met virtual network netwerkinterfacekaarten (vNics) en DNS-labelnamen Hello Azure CLI 2.0. U kunt ook uitvoeren met deze stappen Hello [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Statische DNS-namen worden gebruikt voor permanente infrastructuurservices zoals een Jenkins build-server, die wordt gebruikt voor dit document of een Git-server.
+Dit artikel ziet u het instellen van statische interne DNS-namen voor virtuele Linux-machines met virtuele netwerkinterfacekaarten (vNics) en DNS-labelnamen met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Statische DNS-namen worden gebruikt voor permanente infrastructuurservices zoals een Jenkins build-server, die wordt gebruikt voor dit document of een Git-server.
 
-Hallo-vereisten zijn:
+De vereisten zijn:
 
 * [een Azure-account.](https://azure.microsoft.com/pricing/free-trial/)
 * [bestanden voor openbare en persoonlijke SSH-sleutels](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Snelle opdrachten
-Als u moet tooquickly Hallo taak, Hallo sectie volgen details Hallo opdrachten die nodig zijn. Meer gedetailleerde informatie en context voor elke stap u in de rest Hallo van Hallo document vindt [vanaf hier](#detailed-walkthrough). tooperform deze stappen, moet u Hallo nieuwste [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in Azure-account met behulp van tooan [az aanmelding](/cli/azure/#login).
+Als u de taak snel uitvoeren moet, wordt de volgende sectie de opdrachten die nodig zijn. Meer gedetailleerde informatie en context voor elke stap u in de rest van het document vindt [vanaf hier](#detailed-walkthrough). Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#login).
 
 Randvoorwaarden voor: Resourcegroep, virtueel netwerk en subnet, Netwerkbeveiligingsgroep met SSH voor binnenkomend verkeer.
 
 ### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>Maken van een virtuele netwerkadapter met een statische interne DNS-naam
-Maken van Hallo vNic met [az netwerk nic maken](/cli/azure/network/nic#create). Hallo `--internal-dns-name` CLI-vlag is voor instelling Hallo DNS-label, waardoor Hallo statische DNS-naam voor Hallo virtuele netwerkinterfacekaart (vNic). Hallo volgende voorbeeld wordt een vNic met de naam `myNic`, verbonden toohello `myVnet` virtueel netwerk, en maakt een interne DNS-naam-record genoemd `jenkins`:
+Maken van de vNic met [az netwerk nic maken](/cli/azure/network/nic#create). De `--internal-dns-name` CLI-vlag is voor het instellen van de DNS-label, waardoor de statische DNS-naam voor de virtuele netwerkinterfacekaart (vNic). Het volgende voorbeeld wordt een vNic met de naam `myNic`, verbonden aan de `myVnet` virtueel netwerk, en maakt een interne DNS-naam-record genoemd `jenkins`:
 
 ```azurecli
 az network nic create \
@@ -46,8 +46,8 @@ az network nic create \
     --internal-dns-name jenkins
 ```
 
-### <a name="deploy-a-vm-and-connect-hello-vnic"></a>Een virtuele machine implementeert en verbinden van Hallo vNic
-Maak een VM met [az vm create](/cli/azure/vm#create). Hallo `--nics` vlag Hallo vNic toohello VM tijdens Hallo implementatie tooAzure verbindt. Hallo volgende voorbeeld wordt een virtuele machine met de naam `myVM` met Azure beheerd schijven en wordt Hallo vNic met de naam `myNic` van Hallo vóór stap:
+### <a name="deploy-a-vm-and-connect-the-vnic"></a>Een virtuele machine implementeren en verbinding maken met de vnic van.
+Maak een VM met [az vm create](/cli/azure/vm#create). De `--nics` vlag de vNic verbindt met de virtuele machine tijdens de implementatie naar Azure. Het volgende voorbeeld wordt een virtuele machine met de naam `myVM` met Azure beheerd schijven en wordt de vNic met de naam `myNic` uit de vorige stap:
 
 ```azurecli
 az vm create \
@@ -61,24 +61,24 @@ az vm create \
 
 ## <a name="detailed-walkthrough"></a>Gedetailleerd overzicht
 
-Een volledige continue integratie en continue implementatie (CiCd) infrastructuur in Azure bepaalde servers toobe statisch of lange levensduur hebben servers vereist. Het verdient aanbeveling dat Azure activa zoals Hallo virtuele netwerken en Netwerkbeveiligingsgroepen statisch zijn en resources die zelden zijn geïmplementeerd langer bewaard moeten blijven. Zodra een virtueel netwerk is geïmplementeerd, kan opnieuw door nieuwe implementaties zonder een nadelige invloed toohello infrastructuur worden gebruikt. U kunt later een Git-opslagplaatsserver toevoegen of een automatiseringsserver Jenkins biedt CiCd toothis virtueel netwerk voor uw ontwikkel- of testomgevingen.  
+Een volledige continue integratie en continue implementatie (CiCd) infrastructuur in Azure bepaalde servers statisch of lange levensduur hebben servers vereist. Het verdient aanbeveling dat Azure activa op de virtuele netwerken en Netwerkbeveiligingsgroepen statisch zijn en resources die zelden zijn geïmplementeerd langer bewaard moeten blijven. Zodra een virtueel netwerk is geïmplementeerd, kan dit opnieuw gebruikt door nieuwe implementaties zonder een ongewenst is van invloed op de infrastructuur. U kunt later een Git-opslagplaatsserver toevoegen of een automatiseringsserver Jenkins CiCd levert aan dit virtuele netwerk voor de ontwikkeling of testomgevingen.  
 
-Interne DNS-namen zijn alleen omgezet in een Azure-netwerk. Omdat Hallo DNS-namen interne zijn, zijn ze niet worden omgezet toohello buiten internet, zodat u extra beveiliging toohello infrastructuur.
+Interne DNS-namen zijn alleen omgezet in een Azure-netwerk. Omdat de DNS-namen interne zijn, zijn ze niet worden omgezet naar het internet, bieden van bijkomende beveiliging aan de infrastructuur.
 
-In Hallo vervangen volgende voorbeelden parameternamen voorbeeld door uw eigen waarden. De namen van de voorbeeld-parameter `myResourceGroup`, `myNic`, en `myVM`.
+In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter `myResourceGroup`, `myNic`, en `myVM`.
 
-## <a name="create-hello-resource-group"></a>Hallo resourcegroep maken
-Maak eerst de resourcegroep Hallo met [az groep maken](/cli/azure/group#create). Hallo volgende voorbeeld maakt u een resourcegroep met de naam `myResourceGroup` in Hallo `westus` locatie:
+## <a name="create-the-resource-group"></a>De resourcegroep maken
+Maak eerst de resourcegroep met [az groep maken](/cli/azure/group#create). Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in de `westus` locatie:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-## <a name="create-hello-virtual-network"></a>Hallo virtueel netwerk maken
+## <a name="create-the-virtual-network"></a>Het virtuele netwerk maken
 
-de volgende stap Hallo is toobuild een virtueel netwerk toolaunch Hallo VM's in. Hallo virtueel netwerk bevat één subnet voor dit scenario. Zie voor meer informatie over virtuele netwerken van Azure [een virtueel netwerk maken met behulp van Azure CLI Hallo](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+De volgende stap is het bouwen van een virtueel netwerk voor het starten van de virtuele machines in. Het virtuele netwerk bevat één subnet voor dit scenario. Zie voor meer informatie over virtuele netwerken van Azure [een virtueel netwerk maken met behulp van de Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-Virtueel netwerk met Hallo maken [az network vnet maken](/cli/azure/network/vnet#create). Hallo volgende voorbeeld wordt een virtueel netwerk met de naam `myVnet` en subnet met de naam `mySubnet`:
+Maken van het virtuele netwerk met [az network vnet maken](/cli/azure/network/vnet#create). Het volgende voorbeeld wordt een virtueel netwerk met de naam `myVnet` en subnet met de naam `mySubnet`:
 
 ```azurecli
 az network vnet create \
@@ -89,10 +89,10 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-## <a name="create-hello-network-security-group"></a>Hallo Netwerkbeveiligingsgroep maken
-Beveiligingsgroepen voor Azure-netwerk zijn equivalent tooa firewall op Hallo netwerklaag. Zie voor meer informatie over Netwerkbeveiligingsgroepen [hoe toocreate nsg's in Azure CLI Hallo](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+## <a name="create-the-network-security-group"></a>De Netwerkbeveiligingsgroep maken
+Beveiligingsgroepen voor Azure-netwerk zijn equivalent aan een firewall op de netwerklaag. Zie voor meer informatie over Netwerkbeveiligingsgroepen [het nsg's maken in de Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-Maken van de netwerkbeveiligingsgroep met Hallo [az netwerk nsg maken](/cli/azure/network/nsg#create). Hallo volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
+Maken van de netwerkbeveiligingsgroep met [az netwerk nsg maken](/cli/azure/network/nsg#create). Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
 
 ```azurecli
 az network nsg create \
@@ -100,8 +100,8 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-## <a name="add-an-inbound-rule-tooallow-ssh"></a>Een inkomende regel tooallow SSH toevoegen
-Toevoegen van een inkomende regel voor de netwerkbeveiligingsgroep Hallo met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#create). Hallo volgende voorbeeld maakt u een regel met naam `myRuleAllowSSH`:
+## <a name="add-an-inbound-rule-to-allow-ssh"></a>Een inkomende regel om toe te staan SSH toevoegen
+Toevoegen van een inkomende regel voor de netwerkbeveiligingsgroep met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#create). Het volgende voorbeeld wordt een regel met naam `myRuleAllowSSH`:
 
 ```azurecli
 az network nsg rule create \
@@ -118,8 +118,8 @@ az network nsg rule create \
     --access allow
 ```
 
-## <a name="associate-hello-subnet-with-hello-network-security-group"></a>Hallo subnet koppelen aan Hallo Netwerkbeveiligingsgroep
-tooassociate hello subnet Hello Netwerkbeveiligingsgroep, gebruiken [az network vnet subnet update](/cli/azure/network/vnet/subnet#update). Hallo volgende voorbeeld wordt de subnetnaam hello `mySubnet` Hello Netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
+## <a name="associate-the-subnet-with-the-network-security-group"></a>Het subnet koppelen aan de Netwerkbeveiligingsgroep
+Gebruiken om het subnet koppelen aan de Netwerkbeveiligingsgroep, [az network vnet subnet update](/cli/azure/network/vnet/subnet#update). Het volgende voorbeeld wordt de subnetnaam `mySubnet` met de netwerk-beveiligingsgroep met de naam `myNetworkSecurityGroup`:
 
 ```azurecli
 az network vnet subnet update \
@@ -130,10 +130,10 @@ az network vnet subnet update \
 ```
 
 
-## <a name="create-hello-virtual-network-interface-card-and-static-dns-names"></a>Hallo virtuele netwerkinterfacekaart en statische DNS-namen maken
-Azure is zeer flexibel, maar toouse DNS-namen voor naamomzetting van de virtuele machine, moet u toocreate virtuele netwerkinterfacekaarten (vNics) met een DNS-label. vNics zijn belangrijk omdat u deze hergebruiken kunt door deze te verbinden toodifferent VM's via Hallo infrastructuur levenscyclus. Deze aanpak houdt Hallo vNic als statische resource Hallo VMs tijdelijke kan zijn. Met behulp van DNS op Hallo vNic labels, zijn we kunnen tooenable eenvoudige naamomzetting van andere virtuele machines in Hallo VNet. Andere virtuele machines tooaccess Hallo-automatiseringsserver met Hallo DNS-naam met omgezette namen kan `Jenkins` of Hallo Git-server als `gitrepo`.  
+## <a name="create-the-virtual-network-interface-card-and-static-dns-names"></a>De virtuele netwerkinterfacekaart en statische DNS-namen maken
+Azure is zeer flexibel, maar voor het gebruik van DNS-namen voor naamomzetting van de virtuele machine, moet u netwerkinterfacekaarten (vNics) met een DNS-label voor virtueel netwerk maken. vNics zijn belangrijk omdat u ze hergebruiken kunt door deze te verbinden met andere virtuele machines gedurende de levenscyclus van de infrastructuur. Deze aanpak houdt de vNic als statische resource terwijl de virtuele machines kunnen tijdelijk zijn. Met behulp van DNS labels op de vNic, kunnen we eenvoudig naamomzetting van andere VM's in het VNet inschakelen. Andere VM's toegang tot de automatiseringsserver door de DNS-naam met behulp van omgezette namen kan `Jenkins` of de Git-server als `gitrepo`.  
 
-Maken van Hallo vNic met [az netwerk nic maken](/cli/azure/network/nic#create). Hallo volgende voorbeeld wordt een vNic met de naam `myNic`, verbonden toohello `myVnet` virtueel netwerk met de naam `myVnet`, en maakt een interne DNS-naam-record genoemd `jenkins`:
+Maken van de vNic met [az netwerk nic maken](/cli/azure/network/nic#create). Het volgende voorbeeld wordt een vNic met de naam `myNic`, verbonden aan de `myVnet` virtueel netwerk met de naam `myVnet`, en maakt een interne DNS-naam-record genoemd `jenkins`:
 
 ```azurecli
 az network nic create \
@@ -144,10 +144,10 @@ az network nic create \
     --internal-dns-name jenkins
 ```
 
-## <a name="deploy-hello-vm-into-hello-virtual-network-infrastructure"></a>Hallo VM in Hallo virtuele netwerkinfrastructuur implementeren
-We hebben nu een virtueel netwerk en subnet, een Netwerkbeveiligingsgroep fungeert als een firewall tooprotect onze subnet door alle binnenkomend verkeer behalve poort 22 voor SSH en een vNic blokkeren. U kunt nu een virtuele machine binnen deze bestaande netwerkinfrastructuur implementeren.
+## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Implementeer de virtuele machine in de infrastructuur van het virtuele netwerk
+We hebben nu een virtueel netwerk en subnet, een Netwerkbeveiligingsgroep fungeert als een firewall blokkeert al het binnenkomende verkeer behalve poort 22 voor SSH en een vNic voor het beveiligen van onze subnet. U kunt nu een virtuele machine binnen deze bestaande netwerkinfrastructuur implementeren.
 
-Maak een VM met [az vm create](/cli/azure/vm#create). Hallo volgende voorbeeld wordt een virtuele machine met de naam `myVM` met Azure beheerd schijven en wordt Hallo vNic met de naam `myNic` van Hallo vóór stap:
+Maak een VM met [az vm create](/cli/azure/vm#create). Het volgende voorbeeld wordt een virtuele machine met de naam `myVM` met Azure beheerd schijven en wordt de vNic met de naam `myNic` uit de vorige stap:
 
 ```azurecli
 az vm create \
@@ -159,7 +159,7 @@ az vm create \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-Met behulp van Hallo vlaggen CLI toocall uit bestaande resources we Azure toodeploy Hallo VM binnen de bestaande netwerk Hallo instrueren. tooreiterate, zodra een VNet en een subnet is geïmplementeerd, kunnen ze worden gelaten als statisch of permanente resources binnen uw Azure-regio.  
+Met behulp van de vlaggen CLI aan te roepen bestaande bronnen, zodat we Azure voor het implementeren van de virtuele machine binnen de bestaande netwerk. Om aan te wijzen er nogmaals zodra een VNet en het subnet zijn geïmplementeerd, kunnen ze blijven als statisch of permanente resources binnen uw Azure-regio.  
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Rechtstreeks uw eigen aangepaste omgeving maken voor een virtuele Linux-machine met Azure CLI-opdrachten](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

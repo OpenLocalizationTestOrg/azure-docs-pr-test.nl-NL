@@ -1,11 +1,11 @@
 # Overzicht
 ## [Azure en IoT](iot-suite-what-is-azure-iot.md)
 ## [Wat is IoT Suite?](iot-suite-overview.md)
-## [Wat zijn Hallo vooraf geconfigureerde oplossingen?](iot-suite-what-are-preconfigured-solutions.md)
+## [Wat zijn de vooraf geconfigureerde oplossingen?](iot-suite-what-are-preconfigured-solutions.md)
 
 
 # Aan de slag
-## [Aan de slag met Hallo vooraf geconfigureerde oplossingen](iot-suite-getstarted-preconfigured-solutions.md)
+## [Aan de slag met vooraf geconfigureerde oplossingen](iot-suite-getstarted-preconfigured-solutions.md)
 ## [Machtigingen op azureiotsuite.com](iot-suite-permissions.md)
 ## [Een overzicht van de oplossing voor voorspellend onderhoud](iot-suite-predictive-overview.md)
 ## [Overzicht van de oplossing voor verbonden bedrijven](iot-suite-connected-factory-overview.md)
@@ -30,11 +30,11 @@
 ### [C op Windows](iot-suite-connecting-devices.md)
 ### [C op Linux](iot-suite-connecting-devices-linux.md)
 ### [Node.js](iot-suite-connecting-devices-node.md)
-## [Verbinding maken met de oplossing voor externe controle van een logische App-toohello](iot-suite-logic-apps-tutorial.md)
+## [Een logische app aansluiten op de oplossing voor controle op afstand](iot-suite-logic-apps-tutorial.md)
 ## [Een vooraf geconfigureerde oplossing aanpassen](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
-## [Gebruik dynamische telemetrie Hello oplossing voor externe controle](iot-suite-dynamic-telemetry.md)
-## [Een aangepaste regel maken in het Hallo-oplossing voor externe controle](iot-suite-custom-rule.md)
-## [Gegevens van een apparaat in Hallo oplossing voor externe controle](iot-suite-remote-monitoring-device-info.md)
+## [Dynamische telemetrie gebruiken bij de oplossing voor controle op afstand](iot-suite-dynamic-telemetry.md)
+## [Een aangepaste regel maken in de oplossing voor controle op afstand](iot-suite-custom-rule.md)
+## [Apparaatgegevens in de oplossing voor controle op afstand](iot-suite-remote-monitoring-device-info.md)
 ## [Een gateway implementeren voor een verbonden bedrijf](iot-suite-connected-factory-gateway-deployment.md)
 ## [Een verbonden factory aanpassen](iot-suite-connected-factory-customize.md)
 
@@ -42,7 +42,7 @@
 ## [Beveiligingsarchitectuur](iot-security-architecture.md)
 ## [Best practices voor beveiliging](iot-security-best-practices.md)
 ## [Uw IoT-implementatie beveiligen](iot-suite-security-deployment.md)
-## [Beveiliging van Hallo gemalen](securing-iot-ground-up.md)
+## [Fundamentele beveiliging](securing-iot-ground-up.md)
 
 # Verwant
 ## [Stream Analytics](/azure/stream-analytics/)

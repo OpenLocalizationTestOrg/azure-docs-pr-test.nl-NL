@@ -1,6 +1,6 @@
 ---
-title: 'Application Insights: talen, platforms en integraties | Microsoft Docs'
-description: De talen, platforms en integraties die beschikbaar zijn voor Application Insights
+title: 'Application Insights: programmeertalen, platforms en integraties | Microsoft Docs'
+description: De programmeertalen, platforms en integraties die beschikbaar zijn voor Application Insights
 services: application-insights
 documentationcenter: 
 author: OlegAnaniev-MSFT
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: bwren
-ms.openlocfilehash: 14b363c934a018ce72be97d1a0b74a6c2210656e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d49ad2ff584f42c0e4732a5cff60d23cdf631512
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="developer-analytics-languages-platforms-and-integrations"></a>Analyses voor ontwikkelaars: talen, platforms en integraties
+# <a name="developer-analytics-languages-platforms-and-integrations"></a>Analyses voor ontwikkelaars: programmeertalen, platforms en integraties
 Deze items zijn implementaties van [Application Insights](app-insights-overview.md) die tot nu toe bij ons bekend zijn (inclusief implementaties door derden).
 
-## <a name="languages---officially-supported-by-application-insights-team"></a>Talen - officieel ondersteund door het team van Application Insights
+## <a name="languages---officially-supported-by-application-insights-team"></a>Programmeertalen - officieel ondersteund door het team van Application Insights
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [JavaScript-webpagina's](app-insights-javascript.md)
+* [Node.JS](app-insights-nodejs.md)
 
-## <a name="languages---community-supported"></a>Talen - ondersteund door de community
-* [Node.JS](https://github.com/Microsoft/ApplicationInsights-node.js)
+## <a name="languages---community-supported"></a>Programmeertalen - ondersteund door de community
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -82,4 +82,4 @@ Deze items zijn implementaties van [Application Insights](app-insights-overview.
 * [Stream Analytics](app-insights-export-power-bi.md)
 
 ## <a name="projects"></a> Uw eigen SDK bouwen
-Als er nog een SDK voor uw taal of platform, mogelijk gewenst toobuild een? Kijk eens naar de code van bestaande SDK's die worden vermeld in Hallo HALLO hallo [Application Insights-SDK-project op GitHub](https://github.com/Microsoft/AppInsights-Home).
+Als er nog geen SDK beschikbaar is voor uw programmeertaal of platform, kunt u er ook zelf een bouwen. Bekijk de code van de bestaande SDK's die worden beschreven in het [Application Insights SDK-project op GitHub](https://github.com/Microsoft/AppInsights-Home).

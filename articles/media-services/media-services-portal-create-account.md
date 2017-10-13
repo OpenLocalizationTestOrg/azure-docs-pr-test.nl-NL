@@ -1,6 +1,6 @@
 ---
-title: een Azure Media Services-account met hello Azure-portal aaaCreate | Microsoft Docs
-description: Deze zelfstudie wordt u begeleid Hallo stappen voor het maken van een Azure Media Services-account met hello Azure-portal.
+title: Een Azure Media Services-account maken via Azure Portal | Microsoft Docs
+description: In deze zelfstudie wordt stapsgewijs uitgelegd hoe u een Azure Media Services-account maakt via Azure Portal.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,43 +12,46 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 09/03/2017
 ms.author: juliako
-ms.openlocfilehash: fdad93d5d470fc08380670ec0f6c2d33468b1492
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 4e811dee81bfbd01b3cbe7f78a57b2ce92d1c0f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-an-azure-media-services-account-using-hello-azure-portal"></a>Een Azure Media Services-account maken met hello Azure-portal
+# <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Een Azure Media Services-account maken met Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]
-> toocomplete in deze zelfstudie, moet u een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
+> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
 > 
 > 
 
-Hello Azure-portal biedt een manier tooquickly account maken voor een Azure Media Services (AMS). U kunt uw account tooaccess Media Services die u toostore inschakelen, versleutelen, coderen, beheren en streamen van mediainhoud in Azure. Tijdens Hallo maken van een Media Services-account, u ook een gekoppeld opslagaccount maken (of gebruik een bestaande) in Hallo dezelfde geografische regio als Hallo Media Services-account.
+Azure Portal biedt een manier om snel een Azure Media Services-account (AMS) te maken. U kunt uw account gebruiken voor toegang tot Media Services waarmee u media-inhoud in Azure kunt opslaan, versleutelen, coderen, beheren en streamen. Op het moment dat u een Media Services-account maakt, maakt u ook een bijbehorend opslagaccount (of gebruikt u een bestaand account) in hetzelfde geografische gebied als het Media Services-account.
 
-Dit artikel worden enkele algemene concepten uitgelegd en ziet u hoe u een Media Services toocreate administratief Hello Azure-portal.
-
-## <a name="concepts"></a>Concepten
-Voor toegang tot Media Services zijn twee gekoppelde accounts vereist: 
-
-* Een Media Services-account. Uw account biedt u toegang tot tooa set van cloud-gebaseerde Media Services die beschikbaar zijn in Azure. Er wordt geen echte media-inhoud opgeslagen in een Media Services-account. In plaats daarvan worden metagegevens over Hallo media-inhoud en taken voor de verwerking media opgeslagen in uw account. Tijdens het Hallo die u Hallo-account maakt, moet u een beschikbare Media Services-regio selecteren. Hallo regio die u selecteert, is een datacenter waarin Hallo media en metagegevensrecords voor uw account wordt opgeslagen.
-  
-* Een Azure Storage-account. Storage-accounts moeten zich bevinden in Hallo dezelfde geografische regio als Hallo Media Services-account. Wanneer u een Media Services-account maakt, kunt u kiezen een bestaand opslagaccount in Hallo dezelfde regio, of u een nieuw opslagaccount in Hallo kunt maken dezelfde regio. Als u een Media Services-account verwijdert, worden de Hallo blobs in uw gerelateerde opslagaccount niet verwijderd.
+In dit artikel worden enkele algemene concepten toegelicht en wordt uitgelegd hoe u een Media Services-account maakt via Azure Portal.
 
 > [!NOTE]
 > Zie [Scenarios and availability of Media Services features across datacenters](scenarios-and-availability.md#availability) (Scenario's en beschikbaarheid van Media Services-functies via datacenters) voor meer informatie over de beschikbaarheid van Azure Media Services-functies in verschillende regio's.
 
-## <a name="create-an-ams-account"></a>Een AMS-account maken
-Hallo stappen in deze sectie tonen hoe toocreate een AMS-account.
+## <a name="concepts"></a>Concepten
+Voor toegang tot Media Services zijn twee gekoppelde accounts vereist: 
 
-1. Aanmelden op Hallo [Azure-portal](https://portal.azure.com/).
+* Een Media Services-account. Met uw account hebt u toegang tot een set Media Services in de cloud die beschikbaar zijn in Azure. Er wordt geen echte media-inhoud opgeslagen in een Media Services-account. In plaats daarvan worden de metagegevens over de media-inhoud en taken voor de verwerking van media opgeslagen in uw account. Op het moment dat u het account maakt, selecteert u een beschikbare Media Services-regio. De regio die u selecteert, is een datacenter waarin de records met metagegevens voor uw account worden opgeslagen.
+  
+* Een Azure Storage-account. Storage-accounts moeten zich in dezelfde geografische regio bevinden als het Media Services-account. Wanneer u een Media Services-account maakt, kunt u een bestaand opslagaccount in dezelfde regio kiezen. U kunt ook een nieuw opslagaccount maken in dezelfde regio. Als u een Media Services-account verwijdert, worden de blobs in uw gerelateerde opslagaccount niet verwijderd.
+
+  > [!NOTE]
+  > Media Services beperkt het primaire opslagaccount tot een **opslagaccount voor algemene doeleinden** met tabellen en wachtrijen. Zie [Azure-opslagaccounts](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) voor meer informatie over opslagtypen.
+
+## <a name="create-an-ams-account"></a>Een AMS-account maken
+In de stappen in deze sectie wordt uitgelegd hoe u een AMS-account maakt.
+
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
 2. Klik op **+Nieuw** > **Web en mobiel** > **Media Services**.
    
     ![Media Services-account maken](./media/media-services-create-account/media-services-new1.png)
@@ -56,31 +59,31 @@ Hallo stappen in deze sectie tonen hoe toocreate een AMS-account.
    
     ![Media Services-account maken](./media/media-services-create-account/media-services-new3.png)
    
-   1. In **accountnaam**, voer de naam Hallo van Hallo nieuwe AMS-account. De naam van een Media Services-account is alle kleine letters of cijfers zonder spaties en 3 too24 tekens lang is.
-   2. Selecteer in abonnement tussen Hallo verschillende Azure-abonnementen waartoe u toegang hebt.
-   3. In **resourcegroep**, selecteer Hallo nieuwe of bestaande resourcegroep.  Een resourcegroep is een verzameling resources met dezelfde levenscyclus, dezelfde machtigingen en hetzelfde beleid. Klik [hier](../azure-resource-manager/resource-group-overview.md#resource-groups) voor meer informatie.
-   4. In **locatie**, selecteer Hallo geografische regio die wordt gebruikt toostore Hallo media en metagegevensrecords voor uw Media Services-account. Dit gebied wordt gebruikt tooprocess en media streamen. Alleen Hallo beschikbare Media Services-regio's worden weergegeven in Hallo vervolgkeuzelijst. 
-   5. In **Opslagaccount**, selecteert u een storage account tooprovide blob storage van Hallo media-inhoud vanaf uw Media Services-account. U kunt een bestaand opslagaccount selecteren in Hallo dezelfde geografische regio als uw Media Services-account, of u kunt een opslagaccount maken. Een nieuw opslagaccount gemaakt in Hallo dezelfde regio. Hallo-regels voor het opslagaccount namen zijn Hallo dezelfde als voor Media Services-accounts.
+   1. Voer in **Accountnaam** de naam van het nieuwe AMS-account in. Voor de naam van een Media Services-account mogen alleen cijfers en kleine letters worden gebruikt. Spaties zijn niet toegestaan. De naam mag 3 tot 24 tekens lang zijn.
+   2. Selecteer in Abonnement een van de verschillende Azure-abonnementen waartoe u toegang hebt.
+   3. Selecteer in **Resourcegroep** de nieuwe of bestaande resource.  Een resourcegroep is een verzameling resources met dezelfde levenscyclus, dezelfde machtigingen en hetzelfde beleid. Klik [hier](../azure-resource-manager/resource-group-overview.md#resource-groups) voor meer informatie.
+   4. Selecteer in **Locatie** de geografische regio die wordt gebruikt om de media en metagegevensrecords voor uw Media Services-account op te slaan. Deze regio wordt gebruikt om uw media te verwerken en te streamen. Alleen de beschikbare Media Services-regio's worden in de vervolgkeuzelijst weergegeven. 
+   5. Selecteer bij **Opslagaccount** een opslagaccount om Blob Storage van de media-inhoud vanaf uw Media Services-account te leveren. U kunt een bestaand opslagaccount selecteren in dezelfde geografische regio als uw Media Services-account of u kunt een opslagaccount maken. Een nieuw opslagaccount wordt in dezelfde regio gemaakt. De regels voor opslagaccountnamen zijn hetzelfde als voor Media Services-accounts.
       
        Klik [hier](../storage/common/storage-introduction.md) voor meer informatie over opslag.
-   6. Selecteer **pincode toodashboard** toosee Hallo voortgang van de implementatie van Hallo-account.
-4. Klik op **maken** onderin Hallo Hallo vorm.
+   6. Selecteer **Vastmaken aan dashboard** om de voortgang van de implementatie van het account te bekijken.
+4. Klik op **Maken** onder in het formulier.
    
-    Zodra het Hallo-account is gemaakt, geladen overzichtspagina. In Hallo streaming-eindpunt tabel Hallo account heeft een standaard streaming-eindpunt in Hallo **gestopt** status. 
+    Wanneer het account is gemaakt, worden de overzichtspagina's geladen. In de tabel met het streaming-eindpunt heeft het account een standaardstreaming-eindpunt met de status **Gestopt**. 
 
     >[!NOTE]
-    >Wanneer uw AMS-account wordt gemaakt een **standaard** tooyour account streaming-eindpunt is toegevoegd in Hallo **gestopt** status. uw inhoud en los het voordeel van dynamische pakketten en dynamische versleuteling streaming toostart Hallo streaming-eindpunt van waaruit u wilt toostream inhoud heeft toobe in Hallo **met** status. 
+    >Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
    
-## <a name="toomanage-your-ams-account"></a>toomanage uw AMS-account
+## <a name="to-manage-your-ams-account"></a>Uw AMS-account beheren
 
-toomanage uw AMS-account (bijvoorbeeld verbinding maken via een programma met toohello AMS API, video's uploaden, assets coderen, configureren van beveiliging van inhoud, voortgang taak) Selecteer **instellingen** op Hallo linkerkant van Hallo-portal. Van Hallo **instellingen**, navigeer tooone Hallo beschikbaar bladen (bijvoorbeeld: **API-toegang**, **activa**, **taken**, **Content protection**).
+Selecteer **Instellingen** aan de linkerkant van de portal als u uw AMS-account wilt beheren, bijvoorbeeld om via programmacode verbinding te maken met de AMS-API, video's te uploaden, assets te coderen, beveiliging van inhoud te configureren of de taakvoortgang te bekijken). Ga vanuit **Instellingen** naar een van de beschikbare blades (zoals **API-toegang**, **Assets**, **Taken** of **Inhoudsbeveiliging**).
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 U kunt nu bestanden uploaden naar uw AMS-account. Zie [Bestanden uploaden](media-services-portal-upload-files.md) voor meer informatie.
 
-Als u van plan tooaccess AMS API programmatisch bent, Zie [toegang hello Azure Media Services-API met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
+Als u van plan bent om via programmacode toegang te krijgen tot de AMS-API, raadpleegt u [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md) (Toegang tot de API van Azure Media Services met Azure AD-verificatie).
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

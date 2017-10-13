@@ -1,9 +1,9 @@
-1. Navigeer in Hallo portal toohello virtueel netwerk waarvoor u een virtuele netwerkgateway toocreate wilt.
-2. In Hallo **instellingen** gedeelte van uw VNet-pagina, klikt u op **subnetten** tooexpand Hallo subnetten pagina.
-3. Op Hallo **subnetten** pagina, klikt u op **+ gatewaysubnet** op Hallo bovenste tooopen hello **subnet toevoegen** pagina.
+1. Navigeer in de portal naar het virtuele netwerk waarvoor u een virtuele netwerkgateway wilt maken.
+2. Klik in de sectie **Instellingen** van de pagina VNet op **Subnetten** om de pagina Subnetten uit te vouwen.
+3. Klik boven aan de pagina **Subnetten** op **+Gatewaysubnet** om de pagina **Subnet toevoegen** te openen.
 
-  ![Hallo gatewaysubnet toevoegen](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/add-gw-subnet.png "hello gatewaysubnet toevoegen")
-4. Hallo **naam** voor uw subnet wordt automatisch gevuld met Hallo waarde 'GatewaySubnet'. Hallo GatewaySubnet waarde is vereist om Azure toorecognize Hallo subnet als het Hallo-gateway-subnet. Hallo automatisch gevulde aanpassen **-adresbereik** waarden toomatch uw configuratievereisten.
+  ![Het gatewaysubnet toevoegen](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/add-gw-subnet.png "Het gatewaysubnet toevoegen")
+4. Als **naam** voor het subnet wordt automatisch de waarde GatewaySubnet ingevuld. De waarde 'GatewaySubnet' is vereist omdat Azure het subnet anders niet als het gatewaysubnet kan herkennen. Pas de automatisch ingevulde waarden voor de **Adressenreeks** aan overeenkomstig uw configuratievereisten.
 
-  ![Hallo gatewaysubnet toe te voegen](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/gwsubnetip.png "hello gatewaysubnet toe te voegen")
-5. toocreate Hallo subnet, klikt u op **OK** Hallo Hallo pagina onderaan in.
+  ![Het gatewaysubnet toevoegen](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/gwsubnetip.png "Het gatewaysubnet toevoegen")
+5. Klik onder aan de pagina op **OK** om het subnet te maken.

@@ -1,8 +1,8 @@
 ---
-title: aaaAzure IoT Suite-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+title: Documentatie voor Azure IoT Suite - zelfstudies, API-verwijzing | Microsoft Docs
 description: 
 services: iot-suite
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 83b006447e0d06d49ed7feace16b0db7d04d56f9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 9726304918cbbc85e32e2095d2f1d4701fb8a71e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-suite-documentation"></a>IoT Suite-documentatie
 
-Ga snel aan de slag met Microsoft Azure IoT Suite. Gebruik van vooraf geconfigureerde oplossingen en Hallo ontwikkeling van uw oplossing voor het Internet der dingen (IoT). Voeg nieuwe apparaten toe en verbind bestaande apparaten met behulp van apparaat-SDK's voor meerdere platformen, waaronder Linux, Windows en realtime besturingssystemen. Eenvoudig schalen van een paar sensoren toomillions van gelijktijdig verbonden apparaten en zijn afhankelijk van de algemene beschikbaarheid Hallo van Azure&mdash;ongeacht hoe groot of te klein uw project.
+Ga snel aan de slag met Microsoft Azure IoT Suite. Gebruik vooraf geconfigureerde oplossingen en versnel de ontwikkeling van uw IoT-oplossing (Internet of Things). Voeg nieuwe apparaten toe en verbind bestaande apparaten met behulp van apparaat-SDK's voor meerdere platformen, waaronder Linux, Windows en realtime besturingssystemen. Schaal eenvoudig van slechts een paar sensoren naar miljoenen apparaten die tegelijk zijn verbonden en vertrouw op de wereldwijde beschikbaarheid van Azure, hoe groot of klein uw project ook is.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -92,7 +92,7 @@ Ga snel aan de slag met Microsoft Azure IoT Suite. Gebruik van vooraf geconfigur
                         <p><a href="/azure/iot-suite/iot-security-architecture">Beveiligingsarchitectuur</a></p>
                         <p><a href="/azure/iot-suite/iot-security-best-practices">Best practices voor beveiliging</a></p>
                         <p><a href="/azure/iot-suite/iot-suite-security-deployment">Uw IoT-implementatie beveiligen</a></p>
-                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Beveiliging van Hallo gemalen</a></p>
+                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Fundamentele beveiliging</a></p>
                    </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 ---
 title: "Zelfstudie: Azure Active Directory-integratie met één Zscaler | Microsoft Docs"
-description: "Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en één Zscaler."
+description: "Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en één Zscaler."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,110 +13,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 5179cb2cc54482334d574951a1ac64e722e5f578
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d655c482a16c991a819eec84c84556d2f288a75
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Zelfstudie: Azure Active Directory-integratie met één Zscaler
 
-In deze zelfstudie leert u hoe toointegrate één Zscaler met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe een Zscaler integreren met Azure Active Directory (Azure AD).
 
-Een Zscaler integreren met Azure AD biedt Hallo volgende voordelen:
+Een Zscaler integreren met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD wie toegang tooZscaler een heeft
-- U kunt uw gebruikers tooautomatically get aangemelde tooZscaler een (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren
+- U kunt beheren in Azure AD die toegang tot één Zscaler heeft
+- U kunt uw gebruikers automatisch ophalen aangemeld bij een Zscaler (Single Sign-On) inschakelen met hun Azure AD-accounts
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure AD-integratie met één Zscaler tooconfigure, moet u Hallo volgende items:
+Voor het configureren van Azure AD-integratie met één Zscaler, moet u de volgende items:
 
 - Een Azure AD-abonnement
 - Een Zscaler een eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand hier downloaden: [proefversie aanbieding](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Het toevoegen van één Zscaler van Hallo-galerie
+1. Toevoegen van een Zscaler uit de galerie
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-zscaler-one-from-hello-gallery"></a>Het toevoegen van één Zscaler van Hallo-galerie
-tooconfigure hello integratie van één Zscaler in Azure AD, moet u één Zscaler tooadd uit Hallo galerie tooyour lijst met beheerde SaaS-apps.
+## <a name="adding-zscaler-one-from-the-gallery"></a>Toevoegen van een Zscaler uit de galerie
+Voor het configureren van de integratie van één Zscaler in Azure AD, moet u één Zscaler uit de galerie toevoegt aan de lijst met beheerde SaaS-apps.
 
-**tooadd Zscaler één via Hallo gallery uitvoeren Hallo stappen te volgen:**
+**Als u wilt toevoegen één Zscaler uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak Hallo **Zscaler één**.
+4. Typ in het zoekvak **Zscaler één**.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_search.png)
 
-5. Selecteer in het deelvenster resultaten hello, **Zscaler één**, en klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
+5. Selecteer in het deelvenster resultaten **Zscaler één**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie configureert en test eenmalige aanmelding Azure AD met Zscaler één, op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in één Zscaler is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de verwante Hallo-gebruiker in één Zscaler toobe tot stand gebracht.
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in één Zscaler is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in één Zscaler tot stand worden gebracht.
 
-In één Zscaler, wijs Hallo-waarde van Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** tooestablish Hallo koppeling relatie.
+In één Zscaler, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-tooconfigure en eenmalige aanmelding Azure AD-test met één Zscaler, moet u toocomplete Hallo bouwstenen te volgen:
+Om te configureren en testen van Azure AD eenmalige aanmelding met een Zscaler, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
-2. **[Proxy-instellingen configureren](#configuring-proxy-settings)**  -tooconfigure Hallo proxy-instellingen in Internet Explorer
-3. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
-4. **[Maken van een Zscaler een testgebruiker](#creating-a-zscaler-one-test-user)**  -toohave een equivalent van Britta Simon in Zscaler één die gekoppelde toohello Azure AD-weergave van de gebruiker.
-5. **[Toewijzen hello Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
-6. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  -tooverify Hallo of configuratie werkt.
+1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Proxy-instellingen configureren](#configuring-proxy-settings)**  : als u wilt de proxy-instellingen in Internet Explorer configureren
+3. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Maken van een Zscaler een testgebruiker](#creating-a-zscaler-one-test-user)**  - bevatten een equivalent van Britta Simon Zscaler één die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+5. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+6. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding configureren in uw Zscaler één toepassing.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw Zscaler één toepassing.
 
-**Voer tooconfigure Azure AD eenmalige aanmelding met een Zscaler, Hallo stappen te volgen:**
+**Voor het configureren van Azure AD eenmalige aanmelding met een Zscaler, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op Hallo Hallo **Zscaler één** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **Zscaler één** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_samlbase.png)
 
-3. Op Hallo **Zscaler één domein en URL's** sectie, voert u Hallo stappen te volgen:
+3. Op de **Zscaler één domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_url.png)
 
-    Typ in Hallo aanmeldings-URL textbox Hallo-URL die door uw gebruikers toosign op tooyour Zscaler één toepassing gebruikt.
+    Typ in het tekstvak aanmeldings-URL de URL die wordt gebruikt door uw gebruikers eenmalige aanmelding voor uw Zscaler één toepassing.
 
     > [!NOTE] 
-    > U hebt tooupdate deze waarde Hello werkelijke aanmeldings-URL. Neem contact op met [Zscaler één Client ondersteuningsteam](https://www.zscaler.com/company/contact) tooget deze waarden.
+    > U moet deze waarde bijwerken met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [Zscaler één Client ondersteuningsteam](https://www.zscaler.com/company/contact) ophalen van deze waarden.
 
-4. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het Hallo-certificaatbestand op uw computer.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_certificate.png) 
 
@@ -124,13 +124,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-zscaler-one-tutorial/tutorial_general_400.png)
 
-6. Op Hallo **Zscaler één configuratie** sectie, klikt u op **configureren met één Zscaler** tooopen **eenmalige aanmelding configureren** venster. Kopiëren Hallo **SAML Single Sign-On Service-URL** van Hallo **Naslaggids punt.**
+6. Op de **Zscaler één configuratie** sectie, klikt u op **configureren met één Zscaler** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_configure.png) 
 
-7. In een ander browservenster, meld u aan tooyour Zscaler één bedrijf site als een beheerder.
+7. In een ander browservenster, meld u aan bij uw site met één Zscaler bedrijf als beheerder.
 
-8. Klik in het menu bovenaan Hallo Hallo **beheer**.
+8. Klik in het menu bovenaan op **beheer**.
    
     ![Beheer](./media/active-directory-saas-zscaler-one-tutorial/ic800206.png "beheer")
 
@@ -138,7 +138,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
             
     ![Gebruikers & verificatie beheren](./media/active-directory-saas-zscaler-one-tutorial/ic800207.png "gebruikers & verificatie beheren")
 
-10. In Hallo **verificatie-opties kiezen voor uw organisatie** sectie, voert u Hallo stappen te volgen:   
+10. In de **verificatie-opties kiezen voor uw organisatie** sectie, voert u de volgende stappen uit:   
                 
     ![Verificatie](./media/active-directory-saas-zscaler-one-tutorial/ic800208.png "verificatie")
    
@@ -146,19 +146,19 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
 
     b. Klik op **één SAML aanmelding Parameters configureren**.
 
-11. Op Hallo **configureren SAML Single Sign-On Parameters** dialoogvenster pagina Hallo volgende stappen uit te voeren en klik vervolgens op **gedaan**
+11. Op de **configureren SAML Single Sign-On Parameters** dialoogvenster pagina de volgende stappen uit en klik vervolgens op **gedaan**
 
     ![Eenmalige aanmelding](./media/active-directory-saas-zscaler-one-tutorial/ic800209.png "eenmalige aanmelding")
     
-    a. Plakken Hallo **SAML Single Sign-On Service-URL** waarde, die u hebt gekopieerd uit hello Azure-portal in Hallo **URL Hallo SAML Portal toowhich gebruikers worden verzonden voor verificatie** textbox.
+    a. Plak de **SAML Single Sign-On Service-URL** waarde, die u hebt gekopieerd vanuit de Azure-portal in de **URL van de SAML-Portal waarmee gebruikers worden verzonden voor verificatie** textbox.
     
-    b. In Hallo **kenmerk met naam van de aanmelding** textbox type **NameID**.
+    b. In de **kenmerk met naam van de aanmelding** textbox type **NameID**.
     
-    c. tooupload uw gedownloade certificaat, klik op **Zscaler pem**.
+    c. Als u wilt uw gedownloade certificaat uploaden, klikt u op **Zscaler pem**.
     
     d. Selecteer **SAML automatische inrichting inschakelen**.
 
-12. Op Hallo **gebruikersverificatie configureren** dialoogvenster pagina, voert u Hallo stappen te volgen:
+12. Op de **gebruikersverificatie configureren** dialoogvenster pagina, voert u de volgende stappen uit:
 
     ![Beheer](./media/active-directory-saas-zscaler-one-tutorial/ic800210.png "beheer")
     
@@ -167,78 +167,78 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal 
     b. Klik op **nu activeren**.
 
 ## <a name="configuring-proxy-settings"></a>Proxy-instellingen configureren
-### <a name="tooconfigure-hello-proxy-settings-in-internet-explorer"></a>tooconfigure hello proxy-instellingen in Internet Explorer
+### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>De proxy-instellingen in Internet Explorer configureren
 
 1. Start **Internet Explorer**.
 
-2. Selecteer **Internetopties** van Hallo **extra** menu voor open Hallo **Internetopties** dialoogvenster.   
+2. Selecteer **Internetopties** van de **extra** menu voor open de **Internetopties** dialoogvenster.   
     
      ![Internetopties](./media/active-directory-saas-zscaler-one-tutorial/ic769492.png "Internetopties")
 
-3. Klik op Hallo **verbindingen** tabblad.   
+3. Klik op de **verbindingen** tabblad.   
   
      ![Verbindingen](./media/active-directory-saas-zscaler-one-tutorial/ic769493.png "verbindingen")
 
-4. Klik op **LAN-instellingen** tooopen hello **LAN-instellingen** dialoogvenster.
+4. Klik op **LAN-instellingen** openen de **LAN-instellingen** dialoogvenster.
 
-5. Voer in Hallo sectie Proxy-server, Hallo stappen te volgen:   
+5. Voer de volgende stappen uit in de sectie Proxy-server:   
    
     ![Proxyserver](./media/active-directory-saas-zscaler-one-tutorial/ic769494.png "proxyserver")
 
     a. Selecteer **een proxyserver gebruiken voor uw LAN**.
 
-    b. Typ in het tekstvak voor het adres van Hallo **gateway.zscalerone.net**.
+    b. Typ in het tekstvak adres **gateway.zscalerone.net**.
 
-    c. Typ in het tekstvak poort Hallo **80**.
+    c. Typ in het tekstvak poort **80**.
 
     d. Selecteer **proxyserver niet gebruiken voor lokale adressen**.
 
-    e. Klik op **OK** tooclose hello **Local Area Network (LAN)-instellingen** dialoogvenster.
+    e. Klik op **OK** sluiten de **Local Area Network (LAN)-instellingen** dialoogvenster.
 
-6. Klik op **OK** tooclose hello **Internetopties** dialoogvenster.
+6. Klik op **OK** sluiten de **Internetopties** dialoogvenster.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
 ![Azure AD-gebruiker maken][100]
 
-**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
+**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo **Azure-portal**, op Hallo navigatiedeelvenster links, klikt u op **Azure Active Directory** pictogram.
+1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-zscaler-one-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen** en klik op **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
     
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-zscaler-one-tutorial/create_aaduser_02.png) 
 
-3. Hallo tooopen **gebruiker** dialoogvenster, klikt u op **toevoegen** op Hallo Hallo dialoogvenster bovenaan.
+3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-zscaler-one-tutorial/create_aaduser_03.png) 
 
-4. Op Hallo **gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:
+4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-zscaler-one-tutorial/create_aaduser_04.png) 
 
-    a. In Hallo **naam** textbox type **BrittaSimon**.
+    a. In de **naam** textbox type **BrittaSimon**.
 
-    b. In Hallo **gebruikersnaam** textbox type Hallo **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
 
-    c. Selecteer **wachtwoord weergeven** en schrijf Hallo-waarde van Hallo **wachtwoord**.
+    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
  
 ### <a name="creating-a-zscaler-one-test-user"></a>Een Zscaler een testgebruiker maken
 
-Azure AD tooenable gebruikers toolog in één tooZscaler, moeten ze ingerichte tooZscaler een. In geval van een Zscaler Hallo is inrichting een handmatige taak.
+Om Azure AD-gebruikers zich aanmelden bij een Zscaler, moeten ze worden ingericht aan één Zscaler. In het geval van een Zscaler is inrichting een handmatige taak.
 
-### <a name="tooconfigure-user-provisioning-perform-hello-following-steps"></a>tooconfigure gebruikers inrichten, Voer Hallo stappen te volgen:
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Als u wilt configureren voor gebruikers inrichten, moet u de volgende stappen uitvoeren:
 
-1. Meld u bij tooyour **Zscaler één** tenant.
+1. Meld u aan bij uw **Zscaler één** tenant.
 
 2. Klik op **beheer**.   
    
@@ -248,38 +248,38 @@ Azure AD tooenable gebruikers toolog in één tooZscaler, moeten ze ingerichte t
         
      ![Voeg](./media/active-directory-saas-zscaler-one-tutorial/ic781036.png "toevoegen")
 
-4. In Hallo **gebruikers** tabblad **toevoegen**.
+4. In de **gebruikers** tabblad **toevoegen**.
       
     ![Voeg](./media/active-directory-saas-zscaler-one-tutorial/ic781037.png "toevoegen")
 
-5. Voer in Hallo sectie gebruiker toevoegen, Hallo stappen te volgen:
+5. Voer de volgende stappen uit in de sectie gebruiker toevoegen:
         
     ![Gebruiker toevoegen](./media/active-directory-saas-zscaler-one-tutorial/ic781038.png "gebruiker toevoegen")
    
-    a. Type Hallo **UserID**, **weergavenaam gebruiker**, **wachtwoord**, **wachtwoord bevestigen**, en selecteer vervolgens **groepen**en Hallo **afdeling** van een geldig Azure AD-account die u wilt dat tooprovision.
+    a. Typ de **UserID**, **weergavenaam gebruiker**, **wachtwoord**, **wachtwoord bevestigen**, en selecteer vervolgens **groepen** en de **afdeling** van een geldig Azure AD-account die u inrichten wilt.
 
     b. Klik op **Opslaan**.
 
 > [!NOTE]
-> U kunt andere Zscaler één gebruiker account hulpmiddelen voor het maken of API's die worden geleverd door een Zscaler tooprovision Azure AD-gebruikersaccounts.
+> U kunt geen andere Zscaler één hulpmiddelen voor het account maken gebruiker of API's die worden geleverd door een Zscaler voor het inrichten van Azure AD-gebruikersaccounts gebruiken.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
 
-In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen door het verlenen van toegang tooZscaler een.
+In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmelding toegang te verlenen aan één Zscaler.
 
 ![Gebruiker toewijzen][200] 
 
-**tooassign Britta Simon tooZscaler, Voer Hallo stappen te volgen:**
+**Als u wilt toewijzen Britta Simon aan één Zscaler, moet u de volgende stappen uitvoeren:**
 
-1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met de toepassingen van Hallo **Zscaler één**.
+2. Selecteer in de lijst met toepassingen **Zscaler één**.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_app.png) 
 
-3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
@@ -287,7 +287,7 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -295,14 +295,14 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
     
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van Hallo Toegangsvenster testen.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Als u op Hallo Zscaler een tegel in Hallo Toegangsvenster, krijgt u automatisch aangemelde tooyour Zscaler één toepassing.
-Zie voor meer informatie over Hallo Toegangspaneel [inleiding toohello Toegangspaneel](active-directory-saas-access-panel-introduction.md).
+Als u op de Zscaler een tegel in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw Zscaler één toepassing.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

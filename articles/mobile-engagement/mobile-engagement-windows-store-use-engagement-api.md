@@ -1,6 +1,6 @@
 ---
-title: aaaHow tooUse Hallo Engagement API op universele Windows-
-description: Hoe tooUse Engagement API op Universal Windows hello
+title: Het gebruik van de Engagement API op Universal Windows
+description: Het gebruik van de Engagement API op Universal Windows
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,40 +14,40 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0256b839c28e4ef6c530106408d744038fa711ac
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 75fc134a5535e6113331470cf61df9c06eb8e2ab
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toouse-hello-engagement-api-on-windows-universal"></a>Hoe tooUse Engagement API op Universal Windows hello
-Dit document is een invoegtoepassing toohello document [hoe tooIntegrate Engagement voor universele Windows-](mobile-engagement-windows-store-integrate-engagement.md): biedt diepte meer informatie over hoe toouse Hallo Engagement API tooreport de toepassingsstatistieken van uw.
+# <a name="how-to-use-the-engagement-api-on-windows-universal"></a>Het gebruik van de Engagement API op Universal Windows
+Dit document is een invoegtoepassing voor het document [hoe integreren Engagement voor universele Windows-](mobile-engagement-windows-store-integrate-engagement.md): biedt diepte meer informatie over het gebruik van de Engagement-API voor het rapporteren van de toepassingsstatistieken van uw.
 
-Houd er rekening mee dat als u Engagement tooreport van uw toepassing sessies, activiteiten, crashes en technische informatie wilt, hello eenvoudigste manier toomake alle is uw `Page` onderliggende klassen overnemen van Hallo `EngagementPage` klasse.
+Houd er rekening mee dat als u alleen Engagement voor het rapporteren van uw toepassing sessies, activiteiten, crashes en technische informatie wilt, klikt u vervolgens de eenvoudigste manier is om alle uw `Page` onderliggende klassen overnemen van de `EngagementPage` klasse.
 
-Als u wilt meer, bijvoorbeeld als u tooreport toepassing specifieke gebeurtenissen, fouten en taken moet toodo, of als er tooreport activiteiten van uw toepassing in een andere manier dan een geïmplementeerd in Hallo Hallo `EngagementPage` klassen, moet u toouse Hallo Engagement API.
+Als u wilt meer doen, bijvoorbeeld als u wilt rapporteren toepassing specifieke gebeurtenissen, fouten en taken, of als u hebt voor het rapporteren van activiteiten van uw toepassing op een andere manier dan de geïmplementeerd in de `EngagementPage` klassen, moet u de Engagement-API gebruiken.
 
-Hallo Engagement API geleverd door Hallo `EngagementAgent` klasse. U hebt toegang tot methoden toothose via `EngagementAgent.Instance`.
+De Engagement-API wordt geleverd door de `EngagementAgent` klasse. U kunt toegang tot deze methoden via `EngagementAgent.Instance`.
 
-Zelfs als Hallo agent-module is niet geïnitialiseerd, elke aanroep toohello API wordt uitgesteld en opnieuw worden uitgevoerd wanneer de Hallo agent beschikbaar is.
+Zelfs als de agent-module is niet geïnitialiseerd, wordt elke aanroep van de API wordt uitgesteld en weer worden uitgevoerd wanneer de agent beschikbaar is.
 
 ## <a name="engagement-concepts"></a>Engagement-concepten
-Hallo volgende delen verfijnen Hallo algemene [Mobile Engagement-concepten](mobile-engagement-concepts.md) voor Hallo Universal Windows platform.
+De volgende onderdelen verfijnen de algemene [Mobile Engagement-concepten](mobile-engagement-concepts.md) voor het Universal Windows platform.
 
 ### <a name="session-and-activity"></a>`Session` en `Activity`
-Een *activiteit* wordt meestal veroorzaakt door één pagina van de toepassing hello, die toosay hello *activiteit* wordt gestart wanneer het Hallo-pagina wordt weergegeven en stopt wanneer Hallo pagina is gesloten: dit is Hallo geval wanneer hello Engagement SDK is geïntegreerd met behulp van Hallo `EngagementPage` klasse.
+Een *activiteit* wordt meestal gekoppeld aan één pagina van de toepassing, dat wil zeggen de *activiteit* wordt gestart wanneer de pagina wordt weergegeven en stopt wanneer de pagina is gesloten: dit is het geval wanneer de Engagement SDK is geïntegreerd met behulp van de `EngagementPage` klasse.
 
-Maar *activiteiten* kunnen ook handmatig met behulp van Hallo Engagement API worden beheerd. Hiermee kunt u een bepaalde pagina in verschillende onderdelen tooget sub meer informatie over het gebruik van deze pagina (bijvoorbeeld hoe vaak tooknow en hoe lang dialoogvensters worden gebruikt binnen deze pagina) Hallo toosplit.
+Maar *activiteiten* kunnen ook handmatig met behulp van de Engagement-API worden beheerd. Hiermee kunt u het scheiden van een bepaalde pagina in verschillende sub-onderdelen voor meer informatie over het gebruik van deze pagina (bijvoorbeeld weten hoe vaak en hoe lang dialoogvensters worden gebruikt binnen deze pagina).
 
 ## <a name="reporting-activities"></a>Rapportage
 ### <a name="user-starts-a-new-activity"></a>Gebruiker start een nieuwe activiteit
 #### <a name="reference"></a>Naslaginformatie
             void StartActivity(string name, Dictionary<object, object> extras = null)
 
-U moet toocall `StartActivity()` elke activiteit tijd Hallo gebruiker wordt gewijzigd. Hallo eerste aanroep toothis functie wordt een nieuwe gebruikerssessie gestart.
+U moet aan te roepen `StartActivity()` elke keer dat de wijzigingen van de gebruiker-activiteit. De eerste aanroep van deze functie wordt een nieuwe gebruikerssessie gestart.
 
 > [!IMPORTANT]
-> Hallo EndActivity methode Hallo SDK automatisch aangeroepen wanneer de toepassing hello wordt gesloten. Dus is het raadzaam toocall hello StartActivity methode wanneer Hallo activiteit van de gebruiker hello wordt gewijzigd en tooNEVER oproep Hallo EndActivity-methode sinds het aanroepen van deze methode forceert toobe van Hallo huidige sessie is beëindigd.
+> De SDK worden automatisch de EndActivity-methode aangeroepen wanneer de toepassing wordt gesloten. Dus is het raadzaam de StartActivity-methode niet aanroepen wanneer de activiteit van de wijzigingen van de gebruiker en op nooit de EndActivity-methode niet aanroepen omdat de huidige sessie moet worden beëindigd zorgt ervoor dat u deze methode aanroept.
 > 
 > 
 
@@ -58,7 +58,7 @@ U moet toocall `StartActivity()` elke activiteit tijd Hallo gebruiker wordt gewi
 #### <a name="reference"></a>Naslaginformatie
             void EndActivity()
 
-Dit Hallo-activiteit en Hallo-sessie wordt beëindigd. U moet deze methode niet aanroepen, tenzij u zeker weet wat u doet.
+Hiermee wordt de activiteit en de sessie beëindigd. U moet deze methode niet aanroepen, tenzij u zeker weet wat u doet.
 
 #### <a name="example"></a>Voorbeeld
             EngagementAgent.Instance.EndActivity();
@@ -68,12 +68,12 @@ Dit Hallo-activiteit en Hallo-sessie wordt beëindigd. U moet deze methode niet 
 #### <a name="reference"></a>Naslaginformatie
             void StartJob(string name, Dictionary<object, object> extras = null)
 
-U kunt Hallo tootrack sommige taken gebruiken gedurende een periode.
+De taak kunt u sommige taken gedurende een periode bijhouden.
 
 #### <a name="example"></a>Voorbeeld
             // An upload begins...
 
-            // Set hello extras
+            // Set the extras
             var extras = new Dictionary<object, object>();
             extras.Add("title", "avatar");
             extras.Add("type", "image");
@@ -84,11 +84,11 @@ U kunt Hallo tootrack sommige taken gebruiken gedurende een periode.
 #### <a name="reference"></a>Naslaginformatie
             void EndJob(string name)
 
-Zodra een taak die wordt gevolgd door een taak is beëindigd, moet u Hallo EndJob methode aanroepen voor deze taak door het Hallo-taaknaam opgeven.
+Zodra een taak die wordt gevolgd door een taak is beëindigd, moet u de methode EndJob aanroepen voor deze taak door de taaknaam opgeven.
 
 #### <a name="example"></a>Voorbeeld
-            // In hello previous section, we started an upload tracking with a job
-            // Then, hello upload ends
+            // In the previous section, we started an upload tracking with a job
+            // Then, the upload ends
 
             EngagementAgent.Instance.EndJob("uploadData");
 
@@ -103,7 +103,7 @@ Er is drie soorten gebeurtenissen:
 #### <a name="reference"></a>Naslaginformatie
             void SendEvent(string name, Dictionary<object, object> extras = null)
 
-Er kunnen zelfstandige gebeurtenissen plaatsvinden buiten de context van een sessie Hallo.
+Er kunnen zelfstandige gebeurtenissen plaatsvinden buiten de context van een sessie.
 
 #### <a name="example"></a>Voorbeeld
             EngagementAgent.Instance.SendEvent("event", extra);
@@ -112,7 +112,7 @@ Er kunnen zelfstandige gebeurtenissen plaatsvinden buiten de context van een ses
 #### <a name="reference"></a>Naslaginformatie
             void SendSessionEvent(string name, Dictionary<object, object> extras = null)
 
-Sessiegebeurtenissen zijn meestal gebruikte tooreport Hallo bewerkingen worden uitgevoerd door een gebruiker tijdens de sessie.
+Sessiegebeurtenissen worden meestal gebruikt voor het rapporteren van de acties die worden uitgevoerd door een gebruiker tijdens de sessie.
 
 #### <a name="example"></a>Voorbeeld
 **Zonder gegevens:**
@@ -133,7 +133,7 @@ Sessiegebeurtenissen zijn meestal gebruikte tooreport Hallo bewerkingen worden u
 #### <a name="reference"></a>Naslaginformatie
             void SendJobEvent(string eventName, string jobName, Dictionary<object, object> extras = null)
 
-Gebeurtenissen van de taak zijn meestal gebruikte tooreport Hallo acties die door een gebruiker wordt uitgevoerd tijdens een taak.
+Taakgebeurtenissen worden meestal gebruikt voor het rapporteren van de acties die door een gebruiker tijdens een taak wordt uitgevoerd.
 
 #### <a name="example"></a>Voorbeeld
             EngagementAgent.Instance.SendJobEvent("eventName", "jobName", extras);
@@ -149,7 +149,7 @@ Er zijn drie soorten fouten:
 #### <a name="reference"></a>Naslaginformatie
             void SendError(string name, Dictionary<object, object> extras = null)
 
-Strijdig toosession fouten, zelfstandige fouten kunnen optreden buiten Hallo context van een sessie.
+Zelfstandige fouten kunnen strijd sessie-fouten optreden buiten de context van een sessie.
 
 #### <a name="example"></a>Voorbeeld
             EngagementAgent.Instance.SendError("errorName", extras);
@@ -158,7 +158,7 @@ Strijdig toosession fouten, zelfstandige fouten kunnen optreden buiten Hallo con
 #### <a name="reference"></a>Naslaginformatie
             void SendSessionError(string name, Dictionary<object, object> extras = null)
 
-Sessie-fouten worden gewoonlijk gebruikte tooreport Hallo fouten die invloed hebben op Hallo gebruiker tijdens de sessie.
+Sessie-fouten worden gewoonlijk gebruikt voor het rapporteren van de fouten die invloed hebben op de gebruiker tijdens de sessie.
 
 #### <a name="example"></a>Voorbeeld
             EngagementAgent.Instance.SendSessionError("errorName", extra);
@@ -167,13 +167,13 @@ Sessie-fouten worden gewoonlijk gebruikte tooreport Hallo fouten die invloed heb
 #### <a name="reference"></a>Naslaginformatie
             void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
 
-Fouten kunnen worden gerelateerde tooa taak in plaats van met de huidige gebruikerssessie toohello gerelateerd.
+Fouten kunnen zijn gerelateerd aan een actieve taak in plaats van te wijten aan de huidige gebruikerssessie.
 
 #### <a name="example"></a>Voorbeeld
             EngagementAgent.Instance.SendJobError("errorName", "jobname", extra);
 
 ## <a name="reporting-crashes"></a>Reporting Crashes
-Hallo agent biedt twee methoden toodeal crashes.
+De agent biedt twee methoden om te gaan met crashes.
 
 ### <a name="send-an-exception"></a>Een uitzondering verzenden
 #### <a name="reference"></a>Naslaginformatie
@@ -184,26 +184,26 @@ U kunt een uitzondering op elk gewenst moment kunt verzenden door aan te roepen:
 
             EngagementAgent.Instance.SendCrash(aCatchedException);
 
-U kunt ook een optionele parameter tooterminate Hallo engagement sessie op Hallo hetzelfde moment dan het Hallo-crash verzenden. toodo dus aanroepen:
+U kunt ook een optionele parameter gebruiken om de sessie engagement op hetzelfde moment dan het verzenden van de crash te beëindigen. Bellen om dit te doen:
 
             EngagementAgent.Instance.SendCrash(new Exception("example"), terminateSession: true);
 
-Als u dat doet, worden Hallo-sessie en taken gesloten na de Hallo crash verzenden.
+Als u dat doet, wordt de sessie en taken worden gesloten na het verzenden van de crash.
 
 ### <a name="send-an-unhandled-exception"></a>Verzenden van een onverwerkte uitzondering
 #### <a name="reference"></a>Naslaginformatie
             void SendCrash(Exception e)
 
-Engagement biedt ook een methode toosend niet-verwerkte uitzonderingen hebt u **UITGESCHAKELDE** Engagement automatisch **crash** reporting. Dit is vooral nuttig wanneer gebruikt in Hallo toepassing UnhandledException gebeurtenis-handler.
+Engagement biedt ook een methode voor het verzenden van niet-verwerkte uitzonderingen hebt u **UITGESCHAKELDE** Engagement automatisch **crash** reporting. Dit is vooral nuttig wanneer gebruikt in de toepassing UnhandledException gebeurtenis-handler.
 
-Deze methode wordt **altijd** Hallo engagement sessie en taken te beëindigen nadat deze is aangeroepen.
+Deze methode wordt **altijd** de engagement-sessie en taken te beëindigen nadat deze is aangeroepen.
 
 #### <a name="example"></a>Voorbeeld
-U kunt deze tooimplement uw eigen UnhandledExceptionEventArgs-handler. Bijvoorbeeld, voeg Hallo `Current_UnhandledException` methode Hallo `App.xaml.cs` bestand:
+U kunt deze gebruiken voor het implementeren van uw eigen UnhandledExceptionEventArgs-handler. Bijvoorbeeld, voeg de `Current_UnhandledException` methode van de `App.xaml.cs` bestand:
 
             // In your App.xaml.cs file
 
-            // Code tooexecute on Unhandled Exceptions
+            // Code to execute on Unhandled Exceptions
             void Current_UnhandledException(object sender, UnhandledExceptionEventArgs e)
             {
                EngagementAgent.Instance.SendCrash(e.Exception,false);
@@ -216,12 +216,12 @@ Voeg in App.xaml.cs in "Openbare App() {}" toe:
 ## <a name="device-id"></a>Apparaat-Id
             String EngagementAgent.Instance.GetDeviceId()
 
-U kunt Hallo engagement apparaat-id ophalen door deze methode aanroept.
+U kunt de engagement apparaat-id ophalen door deze methode aanroept.
 
 ## <a name="extras-parameters"></a>Parameters voor extra 's
-Willekeurige gegevens kunnen worden aangesloten tooan gebeurtenis, een fout, een activiteit of een taak. Deze gegevens kunnen worden onderverdeeld met behulp van een woordenboek. Sleutels en waarden kunnen van elk type zijn.
+Willekeurige gegevens kunnen worden gekoppeld aan een gebeurtenis, een fout, een activiteit of een taak. Deze gegevens kunnen worden onderverdeeld met behulp van een woordenboek. Sleutels en waarden kunnen van elk type zijn.
 
-Extra gegevens worden geserialiseerd als u uw eigen type in extra's tooinsert wilt u moet daarom tooadd een gegevenscontract voor dit type.
+Extra gegevens worden geserialiseerd, dus als u wilt uw eigen type invoegen in extra's u moet een gegevenscontract voor dit type toevoegen.
 
 ### <a name="example"></a>Voorbeeld
 We maken een nieuwe klasse 'Persoon'.
@@ -257,7 +257,7 @@ We maken een nieuwe klasse 'Persoon'.
               }
             }
 
-Vervolgens voegen we toe een `Person` exemplaar tooan extra.
+Vervolgens voegen we toe een `Person` een extra exemplaar.
 
             Person person = new Person("Engagement Haddock", 51);
             var extras = new Dictionary<object, object>();
@@ -266,28 +266,28 @@ Vervolgens voegen we toe een `Person` exemplaar tooan extra.
             EngagementAgent.Instance.SendEvent("Event", extras);
 
 > [!WARNING]
-> Als u andere typen objecten plaatst, zorg ervoor dat de methode ToString() geïmplementeerde tooreturn menselijke leesbare string.
+> Als u andere typen objecten plaatst, zorg er dan voor dat hun methode ToString() wordt geïmplementeerd om een menselijke leesbare tekenreeks geretourneerd.
 > 
 > 
 
 ### <a name="limits"></a>Limieten
 #### <a name="keys"></a>Sleutels
-Elke sleutel in het Hallo-object moet overeenkomen met de volgende reguliere expressie Hallo:
+Elke sleutel in het object moet overeenkomen met de volgende reguliere expressie:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
 Dit betekent dat sleutels met ten minste één letter beginnen moeten, gevolgd door letters, cijfers of onderstrepingstekens (\_).
 
 #### <a name="size"></a>Grootte
-Extra's zijn beperkt te**1024** tekens per aanroep.
+Extra's zijn beperkt tot **1024** tekens per aanroep.
 
 ## <a name="reporting-application-information"></a>Rapportage-toepassingsinformatie
 ### <a name="reference"></a>Naslaginformatie
             void SendAppInfo(Dictionary<object, object> appInfos)
 
-U kunt handmatig rapporteert informatie (of andere toepassing specifieke gegevens) met de functie SendAppInfo() Hallo bijhouden.
+U kunt handmatig bijhouden informatie (of andere toepassing specifieke gegevens) met behulp van de SendAppInfo() functie rapporteren.
 
-Merk op dat deze gegevens stapsgewijs kunnen worden verzonden: alleen Hallo meest recente waarde voor een bepaalde sleutel worden behouden voor een bepaald apparaat. Als gebeurtenis extra's, een woordenlijst gebruiken\<-object, object\> tooattach gegevens.
+Merk op dat deze gegevens stapsgewijs kunnen worden verzonden: alleen de meest recente waarde voor een opgegeven sleutel worden behouden voor een bepaald apparaat. Als gebeurtenis extra's, een woordenlijst gebruiken\<-object, object\> gegevens koppelen.
 
 ### <a name="example"></a>Voorbeeld
             Dictionary<object, object> appInfo = new Dictionary<object, object>()
@@ -300,23 +300,23 @@ Merk op dat deze gegevens stapsgewijs kunnen worden verzonden: alleen Hallo mees
 
 ### <a name="limits"></a>Limieten
 #### <a name="keys"></a>Sleutels
-Elke sleutel in het Hallo-object moet overeenkomen met de volgende reguliere expressie Hallo:
+Elke sleutel in het object moet overeenkomen met de volgende reguliere expressie:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
 Dit betekent dat sleutels met ten minste één letter beginnen moeten, gevolgd door letters, cijfers of onderstrepingstekens (\_).
 
 #### <a name="size"></a>Grootte
-Toepassingsinformatie is beperkt te**1024** tekens per aanroep.
+Toepassingsinformatie is beperkt tot **1024** tekens per aanroep.
 
-In Hallo is het vorige voorbeeld Hallo JSON toohello server verzonden 44 tekens bevatten:
+In het vorige voorbeeld is de JSON naar de server verzonden 44 tekens bevatten:
 
             {"birthdate":"1983-12-07","gender":"female"}
 
 ## <a name="logging"></a>Logboekregistratie
 ### <a name="enable-logging"></a>Logboekregistratie inschakelen
-Hallo SDK kan worden geconfigureerd tooproduce test Logboeken in Hallo IDE-console.
-Deze logboeken worden niet standaard geactiveerd. toocustomize deze, update Hallo eigenschap `EngagementAgent.Instance.TestLogEnabled` tooone van Hallo waarde in Hallo `EngagementTestLogLevel` opsomming, bijvoorbeeld:
+De SDK kan worden geconfigureerd voor het produceren van Logboeken van de test in de IDE-console.
+Deze logboeken worden niet standaard geactiveerd. Werk de eigenschap voor het aanpassen van dit `EngagementAgent.Instance.TestLogEnabled` op een van de waarde in de `EngagementTestLogLevel` opsomming, bijvoorbeeld:
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();

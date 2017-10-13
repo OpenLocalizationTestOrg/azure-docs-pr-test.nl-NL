@@ -1,35 +1,35 @@
-## <a name="view-device-telemetry-in-hello-dashboard"></a>De apparaattelemetrie weergave in Hallo-dashboard
-Hallo-dashboard in Hallo voor externe controle oplossing kunt u tooview Hallo telemetrie uw apparaten verzenden tooIoT Hub.
+## <a name="view-device-telemetry-in-the-dashboard"></a>Telemetrie van apparaten weergeven in het dashboard
+Via het dashboard van de oplossing voor externe controle kunt u de telemetrie bekijken die uw apparaten naar IoT Hub verzenden.
 
-1. In uw browser return toohello dashboard externe controle-oplossing, klikt u op **apparaten** in Hallo links Configuratiescherm toonavigate toohello **lijst met apparaten**.
-2. In Hallo **lijst met apparaten**, ziet u dat Hallo status van uw apparaat is **met**. Als dit niet het geval is, klikt u op **apparaat inschakelen** in Hallo **Apparaatdetails** Configuratiescherm.
+1. Ga in de browser terug naar het dashboard van de oplossing voor externe controle en klik in het linkerdeelvenster op **Apparaten** om naar de **Lijst met apparaten** te navigeren.
+2. In de **Lijst met apparaten** zou de status van uw apparaat nu **Wordt uitgevoerd** moeten zijn. Als dat niet zo is, klikt u in het deelvenster **Apparaatdetails** op **Apparaat inschakelen**.
    
     ![Apparaatstatus weergeven][18]
-3. Klik op **Dashboard** tooreturn toohello dashboard, selecteert u uw apparaat in Hallo **apparaat tooView** vervolgkeuzelijst tooview de telemetrie. Hallo telemetrie uit de voorbeeldtoepassing Hallo is 50 eenheden voor interne temperatuur, 55 eenheden voor de externe temperatuur en 50 eenheden voor vochtigheid.
+3. Klik op **Dashboard** om terug te keren naar het dashboard en selecteer het apparaat in de vervolgkeuzelijst **Weer te geven apparaat** om de telemetrie ervan weer te geven. De telemetrie uit de voorbeeldtoepassing is 50 eenheden voor de interne temperatuur, 55 eenheden voor de externe temperatuur en 50 eenheden voor de vochtigheid.
    
     ![Telemetrie van apparaten weergeven][img-telemetry]
 
 ## <a name="invoke-a-method-on-your-device"></a>Een methode op het apparaat aanroepen
-Hallo-dashboard in Hallo-oplossing voor externe controle kunt u tooinvoke methoden op uw apparaten via IoT Hub. U kunt bijvoorbeeld een methode toosimulate opnieuw wordt opgestart nadat een apparaat aanroepen in Hallo oplossing voor externe controle.
+Via het dashboard van de oplossing voor externe controle kunt u methoden op uw apparaten aanroepen via IoT Hub. U kunt in de oplossing voor externe controle bijvoorbeeld een methode aanroepen om het opnieuw opstarten van een apparaat te simuleren.
 
-1. In Hallo dashboard externe controle-oplossing, klikt u op **apparaten** in Hallo links Configuratiescherm toonavigate toohello **lijst met apparaten**.
-2. Klik op **apparaat-ID** voor uw apparaat in Hallo **lijst met apparaten**.
-3. In Hallo **Apparaatdetails** -scherm, klikt u op **methoden**.
+1. Klik op het dashboard van de oplossing voor externe controle in het linkerdeelvenster op **Apparaten** om naar de **Lijst met apparaten** te navigeren.
+2. Klik in de **Lijst met apparaten** op **Apparaat-id** voor uw apparaat.
+3. Klik in het deelvenster **Apparaatdetails** op **Methoden**.
    
     ![Apparaatmethoden][13]
-4. In Hallo **methode** vervolgkeuzelijst, selecteer **InitiateFirmwareUpdate**, en klik vervolgens in **FWPACKAGEURI** een dummy-URL opgeven. Klik op **methode Invoke** toocall Hallo methode op Hallo-apparaat.
+4. Selecteer in de vervolgkeuzelijst **Methode** de methode **InitiateFirmwareUpdate** en voer in **FWPACKAGEURI** een dummy URL in. Klik op **Methode aanroepen** om de methode op het apparaat aan te roepen.
    
     ![Een apparaatmethode aanroepen][14]
    
 
-5. U ziet een bericht in de apparaatcode van uw wordt uitgevoerd als Hallo apparaat Hallo methode verwerkt Hallo-console. Hallo-resultaten van Hallo-methode worden toohello geschiedenis in de oplossingsportal Hallo toegevoegd:
+5. In de console waarin de apparaatcode wordt uitgevoerd, wordt een bericht weergegeven wanneer het apparaat de methode afhandelt. De resultaten van de methode worden toegevoegd aan de geschiedenis in de portal van de oplossing:
 
     ![Geschiedenis van methoden weergeven][img-method-history]
 
 ## <a name="next-steps"></a>Volgende stappen
-Hallo artikel [aanpassen vooraf geconfigureerde oplossingen] [ lnk-customize] beschrijft enkele manieren waarop u dit voorbeeld kunt uitbreiden. Mogelijke uitbreidingen zijn het gebruik van echte sensoren en de implementatie van aanvullende opdrachten.
+In het artikel [Customizing preconfigured solutions][lnk-customize] (Vooraf geconfigureerde oplossingen aanpassen) worden enkele manieren beschreven waarop u dit voorbeeld kunt uitbreiden. Mogelijke uitbreidingen zijn het gebruik van echte sensoren en de implementatie van aanvullende opdrachten.
 
-U kunt meer informatie over Hallo [machtigingen op Hallo azureiotsuite.com site][lnk-permissions].
+Zie [Permissions on the azureiotsuite.com site][lnk-permissions] (Machtigingen op de site azureiotsuite.com) voor meer informatie.
 
 [13]: ./media/iot-suite-visualize-connecting/suite4.png
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png

@@ -42,8 +42,8 @@
 #### [Een functie en taken uitvoeren](./scripts/batch-cli-sample-run-job.md)
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
-## [PowerShell](/powershell/module/azurerm.batch)
-## [Azure CLI](/cli/azure/batch)
+## [Azure PowerShell](/powershell/module/azurerm.batch)
+## [Azure-CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
@@ -63,12 +63,11 @@
 
 # Verwant
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
-## [Gegevensverwerking met Batch en Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Batch- en HPC-oplossingen in hello Azure-cloud](batch-hpc-solutions.md)
+## [Gegevensverwerking met Batch en Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [Batch- en HPC-oplossingen in de Azure-cloud](batch-hpc-solutions.md)
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
-## [Big Compute-resource](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 ## [Codevoorbeelden voor C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)

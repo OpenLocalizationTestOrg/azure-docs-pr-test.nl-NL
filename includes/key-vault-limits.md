@@ -13,4 +13,4 @@ Geheimen, Opslagaccountsleutels beheerd en kluis transacties:
 | Alle transacties |2000 |
 |
 
-<sup>1</sup> er is een abonnement wide limiet voor alle transactietypen die 5 x per sleutelkluis limiet is. Bijvoorbeeld HSM - andere per abonnement zijn beperkt too5000 transacties in 10 seconden per abonnement.
+<sup>1</sup> er is een abonnement wide limiet voor alle transactietypen die 5 x per sleutelkluis limiet is. Bijvoorbeeld HSM - andere transacties per abonnement zijn beperkt tot 5000 transacties in 10 seconden per abonnement.

@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Salesforce Sandbox | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en Salesforce Sandbox.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Salesforce Sandbox.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,97 +13,97 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 06ff50050845383a602b0edd6fca953ddd37cebd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d3c655a754f83284c386d2007c604a731367814
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>Zelfstudie: Sandbox-Salesforce configureren voor het automatisch gebruikers inrichten
 
-Hallo-doel van deze zelfstudie is tooshow Hallo van stappen die u moet tooperform in Salesforce Sandbox en Azure AD tooautomatically leveren en intrekken gebruikersaccounts vanuit Azure AD tooSalesforce Sandbox.
+Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in Salesforce Sandbox en Azure AD wilt om automatisch inrichten en de gebruikersaccounts van Azure AD bij Salesforce Sandbox ongedaan in te richten.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Hallo scenario beschreven in deze zelfstudie wordt ervan uitgegaan dat u al hebt Hallo volgende items:
+Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
 *   Een Azure Active directory-tenant.
 *   U moet een geldige tenant voor Salesforce Sandbox voor werk of Salesforce Sandbox voor onderwijs hebben. U kunt een gratis proefaccount voor de service.
 *   Een gebruikersaccount in Salesforce Sandbox met beheerdersmachtigingen Team.
 
-## <a name="assigning-users-toosalesforce-sandbox"></a>Toewijzen van gebruikers tooSalesforce Sandbox
+## <a name="assigning-users-to-salesforce-sandbox"></a>Gebruikers toewijzen aan Salesforce Sandbox
 
-Azure Active Directory gebruikt een concept 'toewijzingen' toodetermine welke gebruikers toegang tooselected apps krijgen genoemd. In de context van de Hallo van automatische gebruikers account inrichten, worden alleen Hallo-gebruikers en groepen die '' tooan toepassing in Azure AD toegewezen zijn gesynchroniseerd.
+Azure Active Directory gebruikt een concept 'toewijzingen' genoemd om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van automatische gebruikers account inrichten, worden alleen de gebruikers en groepen die '' tot een toepassing in Azure AD toegewezen zijn gesynchroniseerd.
 
-Voordat u configureren en inschakelen van Hallo-service inricht, moet u toodecide welke gebruikers en/of groepen in Azure AD Hallo-gebruikers die toegang moeten hebben tot tooyour Salesforce Sandbox app vertegenwoordigen. Als besloten, kunt u deze gebruikers tooyour Salesforce Sandbox app toewijzen door hier Hallo-instructies te volgen:
+Voordat u configureren en inschakelen van de inrichting service, moet u bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang nodig tot uw Salesforce-Sandbox-app. Als besloten, kunt u deze gebruikers toewijzen aan uw Salesforce-Sandbox-app door de volgende instructies te volgen:
 
-[Toewijzen van een gebruiker of groep tooan enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-toosalesforce-sandbox"></a>Belangrijke tips voor het toewijzen van gebruikers tooSalesforce Sandbox
+### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Belangrijke tips voor het toewijzen van gebruikers aan de Salesforce Sandbox
 
-* Het is raadzaam om één tooSalesforce Sandbox tootest Hallo configuratie inrichten door Azure AD-gebruiker is toegewezen. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+* Het is raadzaam om één Azure AD-gebruiker is toegewezen aan de Salesforce Sandbox voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-* U moet een geldige gebruikersrol selecteren bij het toewijzen van een gebruiker tooSalesforce Sandbox. Hallo 'Default toegang' rol werkt niet voor het inrichten.
+* Wanneer een gebruiker aan de Salesforce Sandbox toewijzen, moet u een geldige gebruikersrol selecteren. De rol 'Default toegang' werkt niet voor het inrichten.
 
 > [!NOTE]
-> Deze app importeert aangepaste rollen van Salesforce Sandbox als onderdeel van Hallo inrichtingsproces, welke klant Hallo wil tooselect bij het toewijzen van gebruikers.
+> Deze app importeert aangepaste rollen van Salesforce Sandbox als onderdeel van het inrichtingsproces, de klant selecteren kunt bij het toewijzen van gebruikers.
 
 ## <a name="enable-automated-user-provisioning"></a>Geautomatiseerde Gebruikersinrichting inschakelen
 
-Deze sectie helpt u bij het verbinden van uw Azure AD tooSalesforce Sandbox gebruikersaccount inrichten API en Hallo service toocreate inrichting configureren, bijwerken en uitschakelen van de toegewezen gebruiker accounts in het Salesforce-Sandbox op basis van gebruikers en groepen toewijzing in Azure AD.
+Deze sectie helpt u bij het verbinding maken met uw Azure AD van Salesforce Sandbox gebruikersaccount inrichten API en configureren van de inrichting service te maken, bijwerken en uitschakelen van de toegewezen gebruiker accounts in het Salesforce-Sandbox op basis van gebruikers en groepen toewijzen in Azure AD.
 
 >[!Tip]
->U kunt ook tooenabled op basis van SAML eenmalige aanmelding voor Salesforce Sandbox, in het Hallo-instructies te volgen [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
+>U kunt ook op basis van SAML eenmalige aanmelding is ingeschakeld voor Salesforce Sandbox, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
 
-### <a name="tooconfigure-automatic-user-account-provisioning"></a>tooconfigure automatische account gebruikersaanvragen:
+### <a name="to-configure-automatic-user-account-provisioning"></a>Voor het configureren van automatische account gebruikersaanvragen:
 
-Hallo-doel van deze sectie is het toooutline hoe tooenable gebruikers inrichten van Active Directory-gebruiker accounts tooSalesforce Sandbox.
+Het doel van deze sectie is het inschakelen van de gebruiker het inrichten van Active Directory-gebruikersaccounts met Salesforce Sandbox overzicht.
 
-1. In Hallo [Azure-portal](https://portal.azure.com), bladeren toohello **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
+1. In de [Azure-portal](https://portal.azure.com), blader naar de **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
 
-2. Als u Salesforce Sandbox al hebt geconfigureerd voor eenmalige aanmelding, zoekt u uw exemplaar van Salesforce Sandbox met Hallo zoekveld opgegeven. Selecteer anders **toevoegen** en zoek naar **Salesforce Sandbox** in Hallo-toepassingsgalerie. Selecteer Salesforce Sandbox in zoekresultaten hello, en voeg deze tooyour lijst met toepassingen.
+2. Als u al Salesforce Sandbox voor eenmalige aanmelding hebt geconfigureerd, kunt u zoeken naar uw exemplaar van Salesforce Sandbox met behulp van het zoekveld. Selecteer anders **toevoegen** en zoek naar **Salesforce Sandbox** in de galerie met toepassingen. Salesforce Sandbox selecteert in de zoekresultaten en toe te voegen aan uw lijst met toepassingen.
 
-3. Selecteer uw exemplaar van Salesforce Sandbox en vervolgens Hallo **inrichten** tabblad.
+3. Selecteer uw exemplaar van Salesforce Sandbox en selecteer vervolgens de **inrichten** tabblad.
 
-4. Set Hallo **modus inrichting** te**automatische**. 
+4. Stel de **Inrichtingsmodus** naar **automatische**. 
     ![inrichting](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
-5. Onder Hallo **beheerdersreferenties** sectie, bieden Hallo na configuratie-instellingen:
+5. Onder de **beheerdersreferenties** sectie, bieden de volgende configuratie-instellingen:
    
-    a. In Hallo **Beheerdersgebruikersnaam** textbox type een Sandbox met Salesforce accountnaam die heeft Hallo **systeembeheerder** profiel in Salesforce.com toegewezen.
+    a. In de **Beheerdersgebruikersnaam** textbox type een Sandbox met Salesforce-accountnaam met de **systeembeheerder** profiel in Salesforce.com toegewezen.
    
-    b. In Hallo **beheerderswachtwoord** textbox Hallo een wachtwoord op voor dit account.
+    b. In de **beheerderswachtwoord** textbox, typt u het wachtwoord voor dit account.
 
-6. tooget het beveiligingstoken Salesforce Sandbox een nieuw tabblad openen en meld u aan bij Hallo dezelfde Salesforce Sandbox-beheeraccount. Op Hallo rechtsboven Hallo pagina, klikt u op uw naam en klik vervolgens op **Mijn instellingen**.
+6. Als u de beveiliging van uw Salesforce-sandbox-token, open een nieuw tabblad en meld u aan dezelfde Salesforce Sandbox admin-account. In de rechterbovenhoek van de pagina, klikt u op uw naam en klik vervolgens op **Mijn instellingen**.
 
      ![Schakel Automatische gebruikersaanvragen](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "automatische gebruikersinrichting inschakelen")
-7. Klik op Hallo navigatiedeelvenster links **persoonlijke** tooexpand Hallo bijbehorende sectie en klik vervolgens op **opnieuw mijn beveiligingstoken**.
+7. Klik in het navigatiedeelvenster links op **persoonlijke** Vouw de bijbehorende sectie en klik vervolgens op **opnieuw mijn beveiligingstoken**.
   
     ![Schakel Automatische gebruikersaanvragen](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "automatische gebruikersinrichting inschakelen")
-8. Op Hallo **opnieuw mijn beveiligingstoken** pagina, klikt u op Hallo **Security Token opnieuw** knop.
+8. Op de **opnieuw mijn beveiligingstoken** pagina, klikt u op de **Security Token opnieuw** knop.
 
     ![Schakel Automatische gebruikersaanvragen](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "automatische gebruikersinrichting inschakelen")
-9. Controleer Hallo postvak die zijn gekoppeld aan dit admin-account. Zoek naar een e-mailbericht van Salesforce Sandbox.com die nieuw beveiligingstoken Hallo bevat.
-10. Hallo token, gaat u tooyour Azure AD-venster Kopieer en plak deze in Hallo **Socket Token** veld.
+9. Controleer de Postvak die zijn gekoppeld aan dit admin-account. Zoek naar een e-mailbericht van Salesforce Sandbox.com waarin het nieuwe beveiligingstoken.
+10. Kopiëren van het token, Ga naar uw Azure AD-venster en plak deze in de **Socket Token** veld.
 
-11. In hello Azure-portal, klikt u op **testverbinding** tooensure Azure AD verbinding tooyour Salesforce sandbox-app kunt maken.
+11. Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD, kan verbinding maken met uw Salesforce-Sandbox-app.
 
-12. In Hallo **e-mailmelding** Voer Hallo e-mailadres van een persoon of groep die moet inrichting fout meldingen ontvangen en Hallo selectievakje.
+12. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet inrichting fout meldingen ontvangen en schakel het selectievakje in.
 
 13. Klik op **opslaan.**  
     
-14.  Selecteer onder Hallo toewijzingen sectie, **synchroniseren Azure Active Directory: gebruikers tooSalesforce Sandbox.**
+14.  Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory: gebruikers aan de Salesforce Sandbox.**
 
-15. In Hallo **kenmerktoewijzingen** sectie, bekijkt hello gebruikerskenmerken die worden gesynchroniseerd vanuit Azure AD tooSalesforce Sandbox. kenmerken die zijn geselecteerd als Hallo **overeenkomend** eigenschappen zijn gebruikte toomatch Hallo gebruikersaccounts in Salesforce Sandbox voor update-bewerkingen. Selecteer Hallo knop toocommit wijzigingen zijn opgeslagen.
+15. In de **kenmerktoewijzingen** sectie, controleert u de kenmerken van de gebruiker die zijn gesynchroniseerd vanuit Azure AD bij Salesforce Sandbox. De kenmerken die zijn geselecteerd als **overeenkomend** eigenschappen overeenkomen met de gebruikersaccounts in Salesforce Sandbox voor de update-bewerkingen worden gebruikt. Selecteer de knop Opslaan eventuele wijzigingen doorvoeren.
 
-16. tooenable Hallo inrichting Azure AD-service voor Salesforce Sandbox, wijziging Hallo **inrichting Status** te**op** in Hallo Zoekinstellingen
+16. Om de Azure AD-service voor Salesforce Sandbox inricht, wijzigen de **inrichting Status** naar **op** in de sectie instellingen
 
 17. Klik op **opslaan.**
 
 
-Deze begint de initiële synchronisatie Hallo van alle gebruikers en/of groepen tooSalesforce Sandbox in de sectie gebruikers en groepen Hallo toegewezen. de initiële synchronisatie Hallo duurt langer tooperform dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden, zolang het Hallo-service wordt uitgevoerd. U kunt Hallo **synchronisatiedetails** sectie toomonitor uitgevoerd en volgt u koppelingen tooprovisioning activiteitsrapporten, waarin alle acties die worden uitgevoerd door Salesforce Sandbox app-service inricht Hallo beschrijven.
+De initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan de Salesforce Sandbox in de sectie gebruikers en groepen wordt gestart. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service op de Salesforce Sandbox-app.
 
-U kunt nu een testaccount maken. Wacht tot up too20 minuten tooverify die Hallo-account is gesynchroniseerd toosalesforce.
+U kunt nu een testaccount maken. Wacht 20 minuten duren om te verifiëren dat het account is gesynchroniseerd met salesforce.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 

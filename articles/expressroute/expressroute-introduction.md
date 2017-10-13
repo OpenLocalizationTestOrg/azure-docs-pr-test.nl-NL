@@ -1,6 +1,6 @@
 ---
-title: 'Overzicht van ExpressRoute: Uw lokale netwerk tooAzure uitbreiden via een particuliere verbinding | Microsoft Docs'
-description: Dit technisch overzicht van ExpressRoute wordt uitgelegd hoe een ExpressRoute-verbinding werkt tooextend uw lokale netwerk tooAzure via een particuliere verbinding.
+title: 'Overzicht van ExpressRoute: uw on-premises netwerk uitbreiden naar Azure via een persoonlijke verbinding | Microsoft Docs'
+description: In dit technische overzicht van ExpressRoute wordt uitgelegd hoe een ExpressRoute-verbinding kan worden gebruikt om uw on-premises netwerk via een persoonlijke verbinding uit te breiden naar Azure.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -14,66 +14,66 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: cherylmc
-ms.openlocfilehash: 01301e1205c12ecdab34dc9d9b92bc7489e7826c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7390462d79506e63989baadac2b2cee00eef325d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-overview"></a>Overzicht van ExpressRoute
-Microsoft Azure ExpressRoute kunt u uw on-premises netwerken in Hallo Microsoft cloud uitbreiden via een persoonlijke verbinding die wordt gefaciliteerd door een connectiviteitsprovider. Met ExpressRoute kunt kunt u verbindingen tooMicrosoft cloudservices, zoals Microsoft Azure, Office 365 en Dynamics 365 maken.
+Met Microsoft Azure ExpressRoute kunt u uw on-premises netwerken in de Microsoft Cloud uitbreiden via een persoonlijke verbinding die wordt gefaciliteerd door een connectiviteitsprovider. Met ExpressRoute kunt u verbindingen tot stand brengen met Microsoft Cloud-services, zoals Microsoft Azure, Office 365 en Dynamics 365.
 
-Via een connectiviteitsprovider in een co-locatiefaciliteit is connectiviteit mogelijk vanuit een any-to-any (IP VPN) netwerk, een point-to-point Ethernet-netwerk of een virtuele overlappende verbinding. ExpressRoute-verbindingen gaan niet via Hallo openbare Internet. ExpressRoute-verbindingen toooffer kan dit meer betrouwbaarheid, sneller en hebben ze lagere latenties en betere beveiliging dan gewone verbindingen via Internet Hallo. Voor meer informatie over tooconnect de tooMicrosoft van uw netwerk met behulp van ExpressRoute, Zie [ExpressRoute connectiviteitsmodellen](expressroute-connectivity-models.md).
+Via een connectiviteitsprovider in een co-locatiefaciliteit is connectiviteit mogelijk vanuit een any-to-any (IP VPN) netwerk, een point-to-point Ethernet-netwerk of een virtuele overlappende verbinding. ExpressRoute-verbindingen gaan niet via het openbare internet. Daardoor zijn ExpressRoute-verbindingen betrouwbaarder en sneller en hebben ze lagere latenties en betere beveiliging dan gewone verbindingen via internet. Zie [ExpressRoute connectivity models](expressroute-connectivity-models.md) (ExpressRoute-connectiviteitsmodellen) voor meer informatie over verbinding maken tussen uw netwerk en Microsoft met behulp van ExpressRoute.
 
 ![](./media/expressroute-introduction/expressroute-connection-overview.png)
 
 ## <a name="key-benefits"></a>Belangrijkste voordelen
 
-* Layer 3-connectiviteit tussen uw on-premises netwerk en Microsoft Cloud Hallo via een connectiviteitsprovider. Connectiviteit is mogelijk van een any-to-any (IPVPN) netwerk, een point-to-point Ethernet-verbinding of langs een virtuele overlappende verbinding via een Ethernet-exchange.
-* Connectiviteit tooMicrosoft cloud-services tussen alle regio's in Hallo geopolitieke regio.
-* Globale connectiviteit tooMicrosoft-services tussen alle regio's met premium-invoegtoepassing voor ExpressRoute.
+* Laag-3-connectiviteit tussen uw on-premises netwerk en de Microsoft Cloud via een connectiviteitsprovider. Connectiviteit is mogelijk van een any-to-any (IPVPN) netwerk, een point-to-point Ethernet-verbinding of langs een virtuele overlappende verbinding via een Ethernet-exchange.
+* Connectiviteit met Microsoft Cloud-services tussen alle gebieden in de geopolitieke regio.
+* Globale connectiviteit met Microsoft-services tussen alle regio's met de ExpressRoute Premium-invoegtoepassing.
 * Dynamische routering tussen uw netwerk en Microsoft via standaardprotocollen (BGP).
 * Ingebouwde redundantie op elke peeringlocatie voor hogere betrouwbaarheid.
 * [SLA](https://azure.microsoft.com/support/legal/sla/) voor verbindingsbedrijfstijd.
 * QoS-ondersteuning voor Skype voor Bedrijven.
 
-Zie voor meer informatie, Hallo [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
+Zie de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) voor meer informatie.
 
 ## <a name="features"></a>Functies
 
 ### <a name="layer-3-connectivity"></a>Laag-3-connectiviteit
-Microsoft maakt gebruik van branche standard dynamische routering protocol (BGP) tooexchange van routes tussen uw on-premises netwerk, uw exemplaren in Azure en Microsoft openbare adressen.  We stellen meerdere BGP-sessies met uw netwerk in voor verschillende verkeersprofielen. Meer informatie vindt u in Hallo [ExpressRoute-circuit en -Routeringsdomeinen](expressroute-circuit-peerings.md) artikel.
+Microsoft maakt gebruik van een standaardprotocol voor dynamische routering (BGP) voor het uitwisselen van routes tussen uw on-premises netwerk, uw exemplaren in Azure en openbare Microsoft-adressen.  We stellen meerdere BGP-sessies met uw netwerk in voor verschillende verkeersprofielen. Meer informatie vindt u in het artikel [ExpressRoute circuit and routing domains](expressroute-circuit-peerings.md) (ExpressRoute-circuit en -routeringsdomeinen).
 
 ### <a name="redundancy"></a>Redundantie
-Elk ExpressRoute-circuit bestaat uit twee verbindingen tootwo Microsoft Enterprise-randrouters (msee's) van Hallo connectiviteitsprovider / uw netwerkrand. Microsoft vereist een dubbele BGP-verbinding van Hallo connectiviteitsprovider / uw kant één tooeach MSEE. U kunt ervoor kiezen geen toodeploy redundante apparaten / Ethernet-circuits aan uw kant. Connectiviteitsproviders gebruiken redundante apparaten tooensure die uw verbindingen op een redundante manier tooMicrosoft worden doorgegeven. Een redundante laag-3-connectiviteit is geconfigureerd, is een vereiste voor onze [SLA](https://azure.microsoft.com/support/legal/sla/) toobe is ongeldig.
+Elk ExpressRoute-circuit bestaat uit twee verbindingen met twee Microsoft Enterprise-randrouters (MSEE's) van de connectiviteitsprovider/uw netwerkrand. Microsoft vereist een dubbele BGP-verbinding van de connectiviteitsprovider/uw kant. Eén voor elke MSEE. U kunt ervoor kiezen om geen redundante apparaten/Ethernet-circuits aan uw kant te implementeren. Connectiviteitsproviders gebruiken redundante apparaten echter om ervoor te zorgen dat uw verbindingen op een redundante manier worden doorgegeven aan Microsoft. Onze [SLA](https://azure.microsoft.com/support/legal/sla/) is alleen geldig als er een redundante Laag-3-connectiviteit is geconfigureerd.
 
-### <a name="connectivity-toomicrosoft-cloud-services"></a>Connectiviteit tooMicrosoft cloudservices
+### <a name="connectivity-to-microsoft-cloud-services"></a>Connectiviteit met Microsoft Cloud-services
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-ExpressRoute-verbindingen inschakelen toegang toohello volgende services:
+ExpressRoute-verbindingen maken toegang mogelijk tot de volgende services:
 
 * Microsoft Azure-services
 * Microsoft Office 365-services
 * Microsoft Dynamics 365
 
-U kunt ook bezoeken Hallo [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) pagina voor een gedetailleerde lijst met services die via ExpressRoute worden ondersteund.
+Op de pagina [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) vindt u een gedetailleerde lijst met services die via ExpressRoute worden ondersteund.
 
-### <a name="connectivity-tooall-regions-within-a-geopolitical-region"></a>Connectiviteit tooall regio's binnen een geopolitieke regio
-U kunt verbinding maken tooMicrosoft in een van onze [peeringlocaties](expressroute-locations.md) en hebben toegang tot tooall regio's binnen de geopolitieke regio Hallo. 
+### <a name="connectivity-to-all-regions-within-a-geopolitical-region"></a>Connectiviteit met alle regio's binnen een geopolitieke regio
+U kunt verbinding maken met Microsoft op een van onze [peeringlocaties](expressroute-locations.md), zodat u toegang hebt tot alle regio's binnen de geopolitieke regio. 
 
-Bijvoorbeeld, als u tooMicrosoft in Amsterdam via ExpressRoute verbonden, hebt u toegang tooall Microsoft cloud-services die worden gehost in Noord-Europa en West-Europa. Zie Hallo [ExpressRoute-partners en peeringlocaties](expressroute-locations.md) artikel voor een overzicht van Hallo geopolitieke regio's, bijbehorende Microsoft cloud-regio en bijbehorende ExpressRoute-peeringlocaties.
+Als u bijvoorbeeld via ExpressRoute bent verbonden met Microsoft in Amsterdam, hebt u toegang tot alle Microsoft-cloudservices die worden gehost in Noord-Europa en West-Europa. Raadpleeg het artikel [Partners en peeringlocaties voor ExpressRoute](expressroute-locations.md) voor een overzicht van de geopolitieke regio's, bijbehorende Microsoft Cloud-regio's en bijbehorende ExpressRoute-peeringlocaties.
 
 ### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Globale connectiviteit met de Premium-invoegtoepassing voor ExpressRoute
-U kunt Hallo ExpressRoute premium-invoegtoepassing voor functie tooextend connectiviteit inschakelen buiten de geopolitieke grenzen. Bijvoorbeeld, als u verbonden tooMicrosoft in Amsterdam via ExpressRoute bent, hebt u toegang tooall Microsoft-cloudservices in alle regio's wordt gehost op Hallo wereld (uitgezonderd nationale clouds). U kunt toegang tot services die zijn geïmplementeerd in Zuid-Amerika of Australië Hallo dezelfde manier als u toegang tot Hallo Noord en West-Europa regio's.
+U kunt de Premium-invoegtoepassing voor ExpressRoute inschakelen om connectiviteit uit te breiden tot buiten de geopolitieke grenzen. Als u bijvoorbeeld via ExpressRoute bent verbonden met Microsoft in Amsterdam, hebt u toegang tot alle Microsoft Cloud-services die worden gehost in alle regio's van de wereld (uitgezonderd nationale clouds). U hebt toegang tot services die zijn geïmplementeerd in Zuid-Amerika of Australië op dezelfde manier als waarop u toegang hebt tot regio's in Noord- en West-Europa.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>Uitgebreid connectiviteitsecosysteem van partners
-ExpressRoute heeft een voortdurend groeiend ecosysteem van connectiviteitsproviders en SI-partners. U kunt verwijzen toohello [ExpressRoute-providers en -locaties](expressroute-locations.md) artikel voor Hallo meest recente informatie.
+ExpressRoute heeft een voortdurend groeiend ecosysteem van connectiviteitsproviders en SI-partners. Raadpleeg het artikel [ExpressRoute providers and locations](expressroute-locations.md) (Overzicht van ExpressRoute-providers en -locaties) voor de meest recente informatie.
 
-### <a name="connectivity-toonational-clouds"></a>Connectiviteit toonational clouds
-Microsoft stuurt geïsoleerde cloudomgevingen aan voor speciale geopolitieke regio's en klantsegmenten. Raadpleeg toohello [ExpressRoute-providers en -locaties](expressroute-locations.md) pagina voor een lijst van nationale clouds en providers.
+### <a name="connectivity-to-national-clouds"></a>Connectiviteit met nationale clouds
+Microsoft stuurt geïsoleerde cloudomgevingen aan voor speciale geopolitieke regio's en klantsegmenten. Raadpleeg de pagina [ExpressRoute providers and locations](expressroute-locations.md) (Overzicht van ExpressRoute-providers en -locaties) voor een lijst van nationale clouds en providers.
 
 ### <a name="bandwidth-options"></a>Bandbreedte-opties
-U kunt ExpressRoute-circuits aanschaffen voor een breed scala aan bandbreedten. Hieronder vindt u een lijst van ondersteunde bandbreedten. Ervoor toocheck worden met de connectiviteit provider toodetermine Hallo lijst met ondersteunde bandbreedten.
+U kunt ExpressRoute-circuits aanschaffen voor een breed scala aan bandbreedten. Hieronder vindt u een lijst van ondersteunde bandbreedten. Controleer ook de lijst met ondersteunde bandbreedten van uw connectiviteitsproviders.
 
 * 50 Mbps
 * 100 Mbps
@@ -85,21 +85,21 @@ U kunt ExpressRoute-circuits aanschaffen voor een breed scala aan bandbreedten. 
 * 10 Gbps
 
 ### <a name="dynamic-scaling-of-bandwidth"></a>Dynamische schaling van bandbreedte
-U kunt Hallo ExpressRoute circuit bandbreedte (best effort op basis van een) vergroten zonder tootear de verbindingen. 
+U kunt de bandbreedte van het ExpressRoute-circuit (zo goed mogelijk) vergroten zonder de verbindingen te moeten verbreken. 
 
 ### <a name="flexible-billing-models"></a>Flexibele factureringsmodellen
-U kunt een factureringsmodel selecteren dat voor u het meest geschikt is. Kiezen tussen de hieronder vermelde Hallo-factureringsmodellen. Zie voor meer informatie, Hallo [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
+U kunt een factureringsmodel selecteren dat voor u het meest geschikt is. Kies een van de hieronder vermelde factureringsmodellen. Zie de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) voor meer informatie.
 
-* **Onbeperkt gegevensverkeer**. Hallo ExpressRoute-circuit u betaalt maandelijks een vast bedrag en alle binnenkomende en uitgaande gegevensoverdracht is verder gratis. 
-* **Naar gebruik**. Hallo ExpressRoute-circuit u betaalt maandelijks een vast bedrag. Alle binnenkomende gegevensoverdracht is gratis. Uitgaande gegevensoverdracht wordt in rekening gebracht per GB aan gegevensoverdracht. De tarieven voor gegevensoverdracht verschillen per regio.
-* **Premium-invoegtoepassing voor ExpressRoute**. Hallo ExpressRoute premium is een invoegtoepassing via Hallo ExpressRoute-circuit. Hallo premium-invoegtoepassing voor ExpressRoute biedt Hallo volgende mogelijkheden: 
-  * Ruimere routelimieten voor openbare en Azure persoonlijke Azure-peering van 4000 routes too10, 000 routes.
-  * Globale connectiviteit voor services. Een ExpressRoute-circuit dat is gemaakt in een willekeurige regio (met uitzondering van nationale clouds) hebt in elke andere regio ter wereld Hallo tooresources toegang. Zo is een virtueel netwerk, gemaakt in West-Europa, toegankelijk via een ExpressRoute-circuit dat is ingericht in Silicon Valley.
-  * Verbeterde aantal VNet-koppelingen per ExpressRoute-circuit van 10 tooa hogere limiet, afhankelijk van de bandbreedte van het circuit Hallo Hallo.
+* **Onbeperkt gegevensverkeer**. U betaalt maandelijks een vast bedrag voor het ExpressRoute-circuit, en alle binnenkomende en uitgaande gegevensoverdracht is verder gratis. 
+* **Naar gebruik**. U betaalt maandelijks een vast bedrag voor het ExpressRoute-circuit. Alle binnenkomende gegevensoverdracht is gratis. Uitgaande gegevensoverdracht wordt in rekening gebracht per GB aan gegevensoverdracht. De tarieven voor gegevensoverdracht verschillen per regio.
+* **Premium-invoegtoepassing voor ExpressRoute**. De Premium-invoegtoepassing voor ExpressRoute is een invoegtoepassing via het ExpressRoute-circuit. De Premium-invoegtoepassing voor ExpressRoute biedt de volgende mogelijkheden: 
+  * Ruimere routelimieten voor openbare en persoonlijke Azure-peering van 4000 routes naar 10.000 routes.
+  * Globale connectiviteit voor services. Een ExpressRoute-circuit, gemaakt in een willekeurige regio (met uitzondering van nationale clouds), hebben toegang tot resources in elke andere regio ter wereld. Zo is een virtueel netwerk, gemaakt in West-Europa, toegankelijk via een ExpressRoute-circuit dat is ingericht in Silicon Valley.
+  * Aantal VNet-koppelingen per ExpressRoute-circuit verhoogd van 10 tot een hogere limiet, afhankelijk van de bandbreedte van het circuit.
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-Zie voor veelgestelde vragen over ExpressRoute hello [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
+Zie [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) voor veelgestelde vragen over ExpressRoute.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -107,9 +107,9 @@ Zie voor veelgestelde vragen over ExpressRoute hello [Veelgestelde vragen over E
 * Meer informatie over ExpressRoute-verbindingen en -routeringsdomeinen. Zie [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) (ExpressRoute-circuits en -routeringsdomeinen).
 * Zoek een serviceprovider Zie [ExpressRoute partners and peering locations](expressroute-locations.md) (ExpressRoute-partners en -peeringlocaties).
 * Controleer of aan alle vereisten is voldaan. Zie [ExpressRoute prerequisites](expressroute-prerequisites.md) (Vereisten voor ExpressRoute).
-* Raadpleeg de vereisten voor toohello [routering](expressroute-routing.md), [NAT](expressroute-nat.md), en [QoS](expressroute-qos.md).
+* Raadpleeg de vereisten voor [Routering](expressroute-routing.md), [NAT](expressroute-nat.md) en [QoS](expressroute-qos.md).
 * Configureer uw ExpressRoute-verbinding.
   * [Een ExpressRoute-circuit maken](expressroute-howto-circuit-portal-resource-manager.md)
   * [Peering configureren voor een ExpressRoute-circuit](expressroute-howto-routing-portal-resource-manager.md)
-  * [Verbinding maken met een virtueel netwerk tooan ExpressRoute-circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
-* Meer informatie over een aantal Hallo andere sleutel [netwerkmogelijkheden](../networking/networking-overview.md) van Azure.
+  * [Een virtueel netwerk verbinden met een ExpressRoute-circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
+* Informatie over enkele van de andere belangrijke [netwerkmogelijkheden](../networking/networking-overview.md) van Azure.

@@ -1,6 +1,6 @@
 ---
-title: aaaHow Azure-abonnementen worden gekoppeld aan Azure Active Directory | Microsoft Docs
-description: Aanmelden tooMicrosoft Azure en verwante problemen, zoals Hallo-relatie tussen een Azure-abonnement en Azure Active Directory.
+title: Hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory | Microsoft Docs
+description: Problemen met aanmelden bij Microsoft Azure en verwante problemen, zoals problemen met de relatie tussen een Azure-abonnement en de Azure Active Directory.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -16,62 +16,63 @@ ms.date: 08/24/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f831cfb972efec57083fcaa63adb43fde7b2faf
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>How Azure subscriptions are associated with Azure Active Directory (Hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory)
-In dit artikel bevat informatie over het Hallo-relatie tussen een Azure-abonnement en Azure Active Directory (Azure AD), en hoe tooadd een bestaand abonnement tooyour Azure AD-directory.
+In dit artikel vindt u informatie over de relatie tussen een Azure-abonnement en Azure Active Directory (Azure AD), en instructies voor het toevoegen van een bestaand abonnement aan uw Azure AD-directory.
 
-## <a name="your-azure-subscriptions-relationship-tooazure-ad"></a>Van uw Azure-abonnement relatie tooAzure AD
-Uw Azure-abonnement heeft een vertrouwensrelatie heeft met Azure AD, wat betekent dat wordt vertrouwd Hallo directory tooauthenticate gebruikers, services en apparaten. Meerdere abonnementen kunnen vertrouwen, Hallo dezelfde map, maar elk abonnement vertrouwt slechts één directory. 
+## <a name="your-azure-subscriptions-relationship-to-azure-ad"></a>De relatie tussen uw Azure-abonnement en Azure AD
+Uw Azure-abonnement heeft een vertrouwensrelatie met Azure AD, wat betekent dat de directory wordt vertrouwd voor de authenticatie van gebruikers, services en apparaten. Meerdere abonnementen kunnen dezelfde directory vertrouwen, maar een abonnement kan slechts één directory vertrouwen. 
 
-Hallo-vertrouwensrelatie die een abonnement met een directory heeft is in tegenstelling tot Hallo-relatie met andere resources in Azure (websites, databases, enzovoort heeft). Als u een abonnement is verlopen, toegang krijgen tot toohello andere resources zijn gekoppeld Hallo abonnement ook geblokkeerd. Maar een Azure AD-directory blijft in Azure, en kunt u een ander abonnement koppelen aan die directory en beheren met behulp van het nieuwe abonnement Hallo Hallo-directory.
+De vertrouwensrelatie die een abonnement heeft met een directory is anders dan de relatie die een abonnement heeft met andere resources in Azure (websites, databases, enzovoort). Als een abonnement is verlopen, wordt de toegang tot de andere resources die zijn gekoppeld aan het abonnement, ook geblokkeerd. Een Azure AD-directory blijft echter wel aanwezig in Azure, en u kunt er een ander abonnement aan koppelen om de directory te beheren met het nieuwe abonnement.
 
 ![diagram om te laten zien hoe abonnementen worden gekoppeld](./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png)
 
-Alle gebruikers hebben één basisdirectory waarmee ze worden geverifieerd, maar ze kunnen ook gasten zijn in andere directory’s. U ziet in Azure AD Hallo mappen waarvan uw gebruikersaccount een lid of Gast is.
+Alle gebruikers hebben één basisdirectory waarmee ze worden geverifieerd, maar ze kunnen ook gasten zijn in andere directory’s. In Azure AD kunt u de directory’s zien waarvan uw gebruikersaccount lid of gast is.
 
 ## <a name="azure-ad-and-cloud-service-subscriptions"></a>Azure AD en abonnementen voor cloudservices
-Azure AD levert Hallo core directory- en identiteitsbeheer identiteitsbeheermogelijkheden voor de meeste Microsoft cloud-services, waaronder:
+Azure AD levert de kerndirectory en identiteitsbeheermogelijkheden voor de meeste cloudservices van Microsoft, waaronder:
 
 * Azure
 * Microsoft Office 365
 * Microsoft Dynamics CRM Online
 * Microsoft Intune
 
-U krijgt hello Azure AD-service is gratis wanneer u zich aanmeldt voor een van deze Microsoft cloud-services. Als u een extra Azure-abonnement tooan Azure AD-directory tooadd wilt, moet u zijn ondertekend met een Microsoft-account. Als u tooAzure met een werk aanmelden- of schoolaccount, kunt u een Azure-abonnement tooan bestaande directory niet toevoegen omdat uw werk of school-account kan niet rechtstreeks door Azure worden geverifieerd. 
+U krijgt de Azure AD-service gratis wanneer u zich registreert voor een van deze Microsoft-cloudservices. Als u een extra Azure-abonnement wilt toevoegen aan een Azure AD-directory, moet u zijn aangemeld met een Microsoft-account. Als u bij Azure bent aangemeld met een werk- of schoolaccount, kunt u geen Azure-abonnement toevoegen aan een bestaande directory omdat uw werk- of schoolaccount niet rechtstreeks door Azure kan worden geverifieerd. 
 
-## <a name="tooadd-an-existing-subscription-tooyour-azure-ad-directory"></a>een bestaand abonnement tooyour Azure AD-directory tooadd
-U moet zich aanmelden met een account dat bestaat in zowel Hallo huidige map aan welke Hallo abonnement is gekoppeld en in de map Hallo gewenste tooadd naar. 
+## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>Een bestaand abonnement toevoegen aan uw Azure AD-directory
+U moet zich aanmelden met een account dat bestaat in zowel de huidige directory die aan het abonnement is gekoppeld als in de directory waaraan u het abonnement wilt toevoegen. 
 
-1. Meld u aan toohello [Azure-Accountcentrum](https://account.windowsazure.com/Home/Index) met een account dat Hallo accountbeheerder van Hallo abonnement waarvan eigendom gewenste tootransfer.
-2. Zorg ervoor dat Hallo-gebruiker die u eigenaar toobe Hallo-abonnement is in de map Hallo gericht.
+1. Meld u aan bij het [Azure-accountcentrum](https://account.azure.com/Subscriptions) met een account van de accountbeheerder voor het abonnement waarvan u het eigendom wilt overdragen.
+2. Zorg ervoor dat de gebruiker die u wilt instellen als de eigenaar van het abonnement, aanwezig is in de doeldirectory.
 3. Klik op **Abonnement overdragen**.
-4. Hallo ontvanger opgeven. Hallo geadresseerde ontvangt automatisch een e-mail met een koppeling acceptatie.
-5. Hallo-ontvanger op Hallo koppeling klikt en Hallo instructies gevolgd die zijn, met inbegrip van de betaalgegevens invoeren. Als de ontvanger Hallo is geslaagd, wordt Hallo abonnement overgedragen. 
-6. de standaardmap Hallo van Hallo abonnement wordt gewijzigd toohello map die gebruiker Hallo is in.
+4. Geef de ontvanger op. De ontvanger ontvangt automatisch een e-mail met een acceptatielink.
+5. De ontvanger klikt op de link en volgt de instructies, waaronder het invoeren van zijn of haar betaalgegevens. Als de ontvanger klaar is, wordt het abonnement overgedragen. 
+6. De standaarddirectory van het abonnement wordt gewijzigd in de directory waarin de gebruiker zich bevindt.
 
+Zie [Transfer Azure subscription ownership to another account](../billing/billing-subscription-transfer.md) (Het eigendom van een Azure-abonnement overdragen aan een ander account) voor meer informatie
 
-## <a name="suggestions-toomanage-both-a-subscription-and-a-directory"></a>Suggesties toomanage zowel een abonnement en een directory
-Hallo-beheerdersrollen voor een Azure-abonnement beheren bronnen gekoppeld toohello Azure-abonnement. Deze sectie wordt uitgelegd Hallo verschillen tussen Azure-abonnementbeheerders en Azure AD-directorybeheerders. Beheerdersrollen en andere suggesties voor het gebruik van uw abonnement worden besproken in toomanage [beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles.md).
+## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>Tips voor het beheren van zowel een abonnement als een directory
+Met de beheerdersrollen voor een Azure-abonnement worden de resources beheerd die zijn gekoppeld aan het Azure-abonnement. In deze sectie worden de verschillen uitgelegd tussen beheerders van Azure-abonnementen en beheerders van Azure AD-directory’s. Beheerdersrollen en andere tips voor het gebruiken van deze rollen om uw abonnement te beheren, vindt u in [Beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles.md).
 
-Standaard u de rol servicebeheerder Hallo toegewezen wanneer u zich aanmeldt. Als anderen moet toosign in en toegang tot services Hallo gebruik hetzelfde abonnement, kunt u deze toevoegen als medebeheerders. 
+De rol Servicebeheerder wordt standaard aan u toegewezen wanneer u zich registreert. Als anderen zich moeten aanmelden en services willen gebruiken met hetzelfde abonnement, kunt u hen toevoegen als medebeheerders. 
 
-Azure AD heeft een andere set beheerdersrollen toomanage Hallo directory en identiteitsgerelateerde functies. Hallo globale beheerder van een directory kan bijvoorbeeld gebruikers en groepen toohello directory toevoegen of multi-factor authentication vereisen voor gebruikers. Een gebruiker die een map maakt toohello globale beheerdersrol is toegewezen en ze beheerdersrollen tooother gebruikers kunnen toewijzen. Azure AD-beheerdersrollen worden ook gebruikt door andere services, zoals Office 365 en Microsoft Intune. 
+Azure AD heeft een andere set beheerdersrollen voor het beheren van de directory en identiteitsgerelateerde functies. De hoofdbeheerder van een directory kan bijvoorbeeld gebruikers en groepen toevoegen aan de directory, of Multi-Factor Authentication vereisen voor gebruikers. Wanneer een gebruiker een directory maakt, wordt deze automatisch de hoofdbeheerder. De hoofdbeheerder kan beheerdersrollen toewijzen aan andere gebruikers. Azure AD-beheerdersrollen worden ook gebruikt door andere services, zoals Office 365 en Microsoft Intune. 
 
 Azure-abonnementsbeheerders en Azure AD-directorybeheerders zijn twee verschillende rollen. 
-* Azure-abonnementsbeheerders kunnen resources in Azure beheren en Azure AD kan worden gebruikt in hello Azure-portal (omdat hello Azure-portal zelf een Azure-resource is). 
-* Directorybeheerders kunnen eigenschappen alleen in hello Azure AD-directory beheren.
+* Azure-abonnementsbeheerders kunnen resources in Azure beheren en kunnen Azure AD gebruiken in Azure Portal (omdat de portal zelf een Azure-resource is). 
+* Directorybeheerders kunnen alleen eigenschappen in de Azure AD-directory beheren.
 
-Een persoon kan beide rollen hebben, maar dit is niet vereist. De globale beheerder van een directory kan niet worden ingesteld als servicebeheerder of medebeheerder van een Azure-abonnement, of omgekeerd. Zonder een beheerder van abonnement hello, Hallo gebruiker toohello Azure-portal kunt aanmelden, maar niet Hallo mappen voor dat abonnement in Hallo portal beheren. Deze gebruiker kan echter de mappen met andere hulpprogramma's zoals Azure AD PowerShell of Office 365-beheercentrum Hallo beheren.
+Een persoon kan beide rollen hebben, maar dit is niet vereist. De globale beheerder van een directory kan niet worden ingesteld als servicebeheerder of medebeheerder van een Azure-abonnement, of omgekeerd. Als de gebruiker geen beheerder is van het abonnement, kan de gebruiker zich wel aanmelden bij Azure Portal, maar heeft dan niet de mogelijkheid om de directory’s voor dat abonnement te beheren in de portal. Deze gebruiker kan echter directory’s beheren met andere hulpprogramma's, zoals Azure AD PowerShell of het Office 365-beheercentrum.
 
 ## <a name="next-steps"></a>Volgende stappen
-* toolearn informatie over hoe beheerders voor een Azure-abonnement toochange zien [het eigendom overdraagt van een Azure-abonnement tooanother-account](../billing/billing-subscription-transfer.md)
-* Zie toolearn meer informatie over hoe de toegang tot resources wordt beheerd in Microsoft Azure [informatie over toegang tot bronnen in Azure](active-directory-understanding-resource-access.md)
-* Voor meer informatie over het tooassign rollen in Azure AD, Zie [beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
+* Zie [Eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md) voor meer informatie over het wijzigen van de beheerders voor een Azure-abonnement.
+* Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](active-directory-understanding-resource-access.md)
+* Zie [Beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) voor meer informatie over het toewijzen van rollen in Azure AD.
 
 <!--Image references-->
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png

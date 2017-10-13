@@ -1,70 +1,70 @@
 
-1. tooescalate bevoegdheden, type:
+1. Als u wilt escaleren bevoegdheden, typt u:
    
         sudo -s
    
     Voer uw wachtwoord in.
-2. tooinstall MySQL Community Server edition, typt u:
+2. Voor het installeren van MySQL-Community servereditie, typt u:
    
         zypper install mysql-community-server
    
     Een ogenblik geduld terwijl MySQL downloadt en installeert.
-3. tooset MySQL toostart wanneer Hallo-systeem wordt opgestart, type:
+3. Om in te stellen MySQL wordt gestart wanneer het systeem wordt opgestart, typt u:
    
         insserv mysql
-4. Hallo MySQL-daemon (mysqld) handmatig starten met deze opdracht:
+4. De MySQL-daemon (mysqld) handmatig starten met deze opdracht:
    
         rcmysql start
    
-    toocheck hello status Hallo MySQL-daemon, typt u:
+    Als u wilt de status van de MySQL-daemon controleren, typt u:
    
         rcmysql status
    
-    toostop hello MySQL-daemon, typt u:
+    Als u wilt de MySQL-daemon stoppen, typt u:
    
         rcmysql stop
    
    > [!IMPORTANT]
-   > Hallo MySQL hoofdwachtwoord is na de installatie standaard leeg. Het is raadzaam dat u uitvoert **mysql\_beveiligde\_installatie**, een script waarmee veilige MySQL. Hallo script toochange Hallo MySQL hoofdwachtwoord wordt u gevraagd, verwijdert anonieme gebruikersaccounts, externe hoofdmap aanmeldingen uitschakelen, test databases verwijderen en opnieuw laden Hallo bevoegdheden tabel. We raden u antwoord Ja tooall van deze opties en Hallo root-wachtwoord wijzigen.
+   > Na de installatie is het hoofdwachtwoord MySQL standaard leeg. Het is raadzaam dat u uitvoert **mysql\_beveiligde\_installatie**, een script waarmee veilige MySQL. Het script vraagt u om te wijzigen van het hoofdwachtwoord MySQL, verwijdert u anonieme gebruikersaccounts, externe hoofdmap aanmeldingen uitschakelen, test databases verwijderen en opnieuw laden van de tabel bevoegdheden. We raden u antwoord Ja op al deze opties en het root-wachtwoord wijzigen.
    > 
    > 
-5. Typ deze toorun Hallo script installatiescript MySQL:
+5. Typ dit script van MySQL voor installatie van het script uitgevoerd:
    
         mysql_secure_installation
-6. Meld u bij tooMySQL:
+6. Aanmelden bij MySQL:
    
         mysql -u root -p
    
-    Voer Hallo MySQL hoofdwachtwoord (die u in de vorige stap Hallo gewijzigd) en u moet worden gepresenteerd met een prompt waar kunt u SQL-instructies toointeract uitgeven met Hallo-database.
-7. toocreate een nieuwe MySQL-gebruiker, voert u Hallo volgende op Hallo **mysql >** prompt:
+    Voer het hoofdwachtwoord van MySQL (die u hebt gewijzigd in de vorige stap) en er moet worden weergegeven met een prompt waar SQL-instructies om te communiceren met de database kunnen worden verleend.
+7. Voor het maken van een nieuwe MySQL-gebruiker, voert u de volgende op de **mysql >** prompt:
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Opmerking: Hallo puntkomma's (;) aan einde Hallo Hallo regels zijn essentieel voor het Hallo-opdrachten beëindigen.
-8. een database en verleen Hallo toocreate `mysqluser` gebruikersmachtigingen voor het probleem Hallo volgende opdrachten:
+    Opmerking: de puntkomma (;) aan het einde van de regels zijn essentieel voor het beëindigen van de opdrachten.
+8. Een database maken en verlenen de `mysqluser` gebruikersmachtigingen voor het uitgeven van de volgende opdrachten:
    
         CREATE DATABASE testdatabase;
-        GRANT ALL ON testdatabase.* too'mysqluser'@'localhost' IDENTIFIED BY 'password';
+        GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Houd er rekening mee database gebruikersnamen en wachtwoorden alleen worden gebruikt door de scripts toohello database verbinding te maken.  Account voor database gebruikersnamen noodzakelijkerwijs niet werkelijke gebruikersaccounts op Hallo-systeem.
-9. toolog in van een andere computer, type:
+    Houd er rekening mee dat database gebruikersnamen en wachtwoorden alleen worden gebruikt door scripts verbinden met de database.  Account voor database gebruikersnamen noodzakelijkerwijs niet werkelijke gebruikersaccounts op het systeem.
+9. Als u wilt zich aanmelden vanaf een andere computer, typt u:
    
-        GRANT ALL ON testdatabase.* too'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
+        GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
    
-    waar `ip-address` Hallo IP-adres van Hallo computer van waaruit u tooMySQL verbinding.
-10. tooexit hello beheerprogramma MySQL-database, typt u:
+    waar `ip-address` het IP-adres van de computer van waaruit u verbinding met MySQL.
+10. Typ de MySQL-database-beheerprogramma om af te sluiten:
     
         quit
 
 ## <a name="add-an-endpoint"></a>Een eindpunt toevoegen
-1. Nadat de MySQL is geïnstalleerd, moet u een eindpunt tooaccess MySQL tooconfigure op afstand. Meld u bij toohello [klassieke Azure-portal][AzurePortal]. Klik op **virtuele Machines**Hallo-naam van uw nieuwe virtuele machine op en klik vervolgens op **eindpunten**.
-2. Klik op **toevoegen** Hallo Hallo pagina onderaan in.
-3. Toevoegen van een eindpunt met de naam 'MySQL' met protocol **TCP**, en **openbare** en **persoonlijke** poorten set te '3306'.
-4. tooremotely verbinding toohello virtuele machine maken van uw computer, type:
+1. Nadat de MySQL is geïnstalleerd, moet u een eindpunt voor MySQL op afstand toegang tot configureren. Meld u aan bij de [klassieke Azure-portal][AzurePortal]. Klik op **virtuele Machines**, klik op de naam van uw nieuwe virtuele machine en klik vervolgens op **eindpunten**.
+2. Klik op **toevoegen** aan de onderkant van de pagina.
+3. Toevoegen van een eindpunt met de naam 'MySQL' met protocol **TCP**, en **openbare** en **persoonlijke** poorten ingesteld op '3306'.
+4. Om extern verbinding maken met de virtuele machine van de computer, typt u:
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
    
-    Gebruik Hallo virtuele machine die we in deze zelfstudie hebt gemaakt, typ deze opdracht:
+    Met behulp van de virtuele machine die we in deze zelfstudie hebt gemaakt, typ deze opdracht:
    
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 

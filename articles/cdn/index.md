@@ -1,8 +1,8 @@
 ---
-title: aaaAzure CDN-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toouse inhoud Delivery Network (CDN) toodeliver inhoud van globale gegevens tooany apparaat draait. Zelfstudies, API-verwijzingen en andere documentatie.
+title: Documentatie voor Azure CDN - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over hoe u met het netwerk voor contentlevering (Content Delivery Network, CDN) op elk apparaat inhoud kunt leveren vanuit wereldwijde datacentra. Zelfstudies, API-verwijzingen en andere documentatie.
 services: cdn
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 9d1a26398369233d75f3647a5a68f3e7f8698eb9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: de858f5d3b9af7a36f2a8deab9105a4a61752cdb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cdn-documentation"></a>Documentatie voor CDN
 
-Meer informatie over hoe toouse inhoud Delivery Network (CDN) toodeliver hoge bandbreedte van inhoud die wordt gehost in Azure of ergens anders. Zelfstudies, API-referenties en andere documentatie die laten zien u hoe toouse CDN toodeliver inhoud van globale gegevens tooany apparaat draait.
+Meer informatie over hoe u met het netwerk voor contentlevering (Content Delivery Network, CDN) inhoud met hoge bandbreedte kunt leveren die in Azure of elders wordt gehost. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u met CDN op elk apparaat inhoud kunt leveren vanuit wereldwijde datacentra.
 
 <ul class="panelContent cardsFTitle">
     <li>

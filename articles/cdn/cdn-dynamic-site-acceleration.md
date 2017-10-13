@@ -1,5 +1,5 @@
 ---
-title: aaaDynamic Site versnelling via Azure CDN
+title: Dynamische Site-versnelling via Azure CDN
 description: Dynamische site-versnelling diepgaand
 services: cdn
 documentationcenter: 
@@ -14,45 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: v-semcev
-ms.openlocfilehash: 37e6312ae5e83448f2d87c95ef48c387355748bb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: be2719e0e02c8bc69800ef4a3e7da3c3164cb9dd
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Dynamische Site-versnelling via Azure CDN
 
-Met de Hallo explosie van sociale media, elektronische transacties en Hallo hyper persoonlijke web, snel toenemende percentage Hallo inhoud aangeboden tooend gebruikers gegenereerd in realtime. Gebruikers verwachten snelle, betrouwbare en gepersonaliseerde webervaringen, onafhankelijk van hun browser, locatie, apparaat of netwerk. Hallo zeer vernieuwingen waaruit deze dus ook bezighouden ervaringen trage pagina downloads en de kwaliteit Hallo Hallo consumer ervaring risico. 
+Met de explosie van sociale media, elektronische transacties en het web hyper persoonlijke snel toenemende percentage van de inhoud aangeboden aan eindgebruikers gegenereerd in realtime. Gebruikers verwachten snelle, betrouwbare en gepersonaliseerde webervaringen, onafhankelijk van hun browser, locatie, apparaat of netwerk. De zeer vernieuwingen waaruit deze dus ook bezighouden ervaringen trage pagina downloads en de risico voor de kwaliteit van de consumer-ervaring. 
 
-Standaard CDN-mogelijkheid geldt Hallo mogelijkheid toocache bestanden dichter tooend gebruikers toospeed up levering van statische bestanden. Echter met dynamische webtoepassingen die inhoud op rand locaties opslaan in cache is niet mogelijk omdat Hallo server Hallo inhoud in het antwoord toouser gedrag genereert. Hallo-levering van deze inhoud te versnellen is complexer dan traditionele edge cache en een end-to-end-oplossing die geoptimaliseerd voor elk element in de hele gegevenspad Hallo van begin toodelivery vereist. Met Azure CDN dynamische Site Acceleration (DSA), de prestaties van webpagina's met dynamische inhoud Hallo aantoonbaar verbeterd.
+Standaard CDN-mogelijkheid omvat de mogelijkheid om cachebestanden dichter voor eindgebruikers te versnellen levering van statische bestanden. Echter met dynamische webtoepassingen die inhoud op rand locaties opslaan in cache is niet mogelijk omdat de server de inhoud in reactie op gebruikersgedrag genereert. Versnellen van de levering van deze inhoud is complexer dan traditionele edge cache en een end-to-end-oplossing die geoptimaliseerd voor elk element in het hele gegevenspad van begin tot levering vereist. Met Azure CDN dynamische Site Acceleration (DSA), is de prestaties van webpagina's met dynamische inhoud aantoonbaar verbeterd.
 
-Azure CDN van Akamai en Verizon biedt DSA optimalisatie via Hallo **geoptimaliseerd voor** menu tijdens het maken van het eindpunt.
+Azure CDN van Akamai en Verizon biedt DSA optimalisatie via de **geoptimaliseerd voor** menu tijdens het maken van het eindpunt.
 
-## <a name="configuring-cdn-endpoint-tooaccelerate-delivery-of-dynamic-files"></a>Levering van CDN-eindpunt tooaccelerate van dynamische bestanden configureren
+## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>CDN-eindpunt om te versnellen levering van dynamische bestanden configureren
 
-U kunt de levering van CDN-eindpunt toooptimize van dynamische bestanden via Azure portal configureren met behulp van Hallo **dynamische site-versnelling** optie onder Hallo **geoptimaliseerd voor** eigenschap selecteren tijdens Hallo-eindpunt maken. U kunt ook onze REST-API's gebruiken of een van de Hallo client SDK's toodo hetzelfde programmatisch Hallo. 
+Uw CDN-eindpunt voor het optimaliseren van de levering van dynamische bestanden via Azure portal door te selecteren kunt u de **dynamische site-versnelling** optie onder de **geoptimaliseerd voor** eigenschap selecteren tijdens de maken van het eindpunt. U kunt ook onze REST-API's of een van de client-SDK's gebruiken hetzelfde programmatisch doen. 
 
 ### <a name="probe-path"></a>Pad van de test
-Test-pad is een functie specifieke tooDynamic versnelling Site en een geldig is vereist voor het maken van. DSA maakt gebruik van een klein *test pad* bestand op Hallo oorsprong toooptimize routering netwerkconfiguraties voor Hallo CDN geplaatst. Download en onze site voorbeeld bestand tooyour uploaden, of gebruik een bestaande asset op uw oorsprong is ongeveer 10 KB voor Hallo test pad in plaats daarvan als Hallo asset bestaat.
+Test-pad is een functie die specifiek zijn voor de dynamische Site-versnelling en een geldig is vereist voor het maken van. DSA maakt gebruik van een klein *test pad* bestand op de oorsprong optimaliseren van routering netwerkconfiguraties voor de CDN geplaatst. U kunt downloaden en onze voorbeeldbestand uploaden naar uw site of een bestaande asset gebruiken op uw oorsprong is ongeveer 10 KB voor de test-pad in plaats daarvan als de asset bestaat.
 
 > [!Note]
-> DSA extra kosten in rekening worden gebracht. Zie voor meer informatie, Hallo [pagina met prijzen](https://azure.microsoft.com/pricing/details/cdn/) voor meer informatie.
+> DSA extra kosten in rekening worden gebracht. Zie voor meer informatie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/cdn/) voor meer informatie.
 
-Hallo volgende schermafbeeldingen illustreren Hallo proces via de Azure-portal.
+De volgende schermafbeeldingen illustreren het proces via de Azure-portal.
  
 ![Een nieuw CDN-eindpunt toevoegen](./media/cdn-dynamic-site-acceleration/01_Endpoint_Profile.png) 
 
-*Afbeelding 1: Het toevoegen van een nieuw CDN-eindpunt van Hallo CDN-profiel*
+*Afbeelding 1: Het toevoegen van een nieuw CDN-eindpunt van het CDN-profiel*
  
 ![Het maken van een nieuw CDN-eindpunt met DSA](./media/cdn-dynamic-site-acceleration/02_Optimized_DSA.png)  
 
 *Afbeelding 2: Het maken van een CDN-eindpunt met dynamische site-versnelling optimalisatie geselecteerd*
 
-Zodra Hallo CDN-eindpunt is gemaakt, toepassing hello DSA optimalisaties voor alle bestanden die aan bepaalde criteria voldoen. Hallo volgende sectie wordt DSA optimalisatie in detail beschreven.
+Zodra het CDN-eindpunt is gemaakt, wordt het toegepast de DSA-optimalisaties voor alle bestanden die aan bepaalde criteria voldoen. De volgende sectie wordt de DSA-optimalisatie in detail beschreven.
 
 ## <a name="dsa-optimization-using-azure-cdn"></a>DSA optimalisatie met behulp van Azure CDN
 
-Dynamische Site-versnelling op Azure CDN wordt versneld levering van dynamische elementen Hallo volgende technieken gebruiken:
+Dynamische Site-versnelling op Azure CDN wordt versneld levering van dynamische elementen met behulp van de volgende technieken:
 
 -   Route optimalisatie
 -   Optimalisaties voor TCP
@@ -61,19 +61,19 @@ Dynamische Site-versnelling op Azure CDN wordt versneld levering van dynamische 
 
 ### <a name="route-optimization"></a>Route optimalisatie
 
-Optimalisatie van de route is belangrijk omdat Hallo Internet een dynamische plaats is, waar verkeer en tijdelijk uitval voortdurend Hallo netwerktopologie veranderen. Hallo Border Gateway Protocol (BGP) is Hallo routeringsprotocol Hallo Internet, maar er is mogelijk sneller routes via een tussenliggende punt aanwezigheid (PoP)-servers. 
+Optimalisatie van de route is belangrijk, omdat het Internet een dynamische plaats is, waar verkeer en tijdelijk storingen voortdurend de netwerktopologie verandert zijn. Het Border Gateway Protocol (BGP) is het routeringsprotocol van Internet, maar er is mogelijk sneller routes via een tussenliggende punt aanwezigheid (PoP)-servers. 
 
-Route optimalisatie kiest Hallo optimale pad toohello oorsprong zodat een site voortdurend toegankelijk en dynamische inhoud wordt wordt geleverd tooend gebruikers via Hallo snelste en betrouwbaarste route mogelijk. 
+Route optimalisatie kiest dat het meest optimale pad naar de oorsprong zodat een site voortdurend toegankelijk en dynamische inhoud wordt aan eindgebruikers via de snelste en betrouwbaarste route mogelijk wordt geleverd. 
 
-Hallo Akamai netwerk gebruikt technieken toocollect realtime gegevens en verschillende paden via andere knooppunten in het Hallo Akamai server, evenals de standaardroute BGP Hallo van Hallo open Internet toodetermine Hallo snelste route tussen Hallo oorsprong en Hallo met elkaar vergelijken CDN-rand. Deze technieken te voorkomen dat Internet congestie punten en lang routes. 
+Het netwerk Akamai gebruikt technieken voor het verzamelen van real-time gegevens en verschillende paden via andere knooppunten in de server Akamai, evenals de standaardroute BGP via het open Internet om te bepalen van de snelste manier tussen de oorsprong en de rand CDN vergelijken. Deze technieken te voorkomen dat Internet congestie punten en lang routes. 
 
-Op deze manier Hallo Hallo Verizon netwerk gebruikt een combinatie van Anycast DNS, hoge capaciteit ondersteunen POP's en statuscontroles, toodetermine Hallo best gateways toobest routegegevens van client toohello oorsprong.
+Op deze manier Verizon netwerk gebruikt een combinatie van Anycast DNS, hoge capaciteit ondersteuning POP's en statuscontroles, om te bepalen van de beste gateways voor de beste routegegevens van de client naar de oorsprong.
  
-Als gevolg hiervan volledig dynamische en transactionele inhoud wordt geleverd sneller en betrouwbaarder tooend gebruikers, zelfs wanneer het uncacheable. 
+Als gevolg hiervan volledig dynamische en transactionele leveren van inhoud sneller en betrouwbaarder aan eindgebruikers, zelfs wanneer het uncacheable. 
 
 ### <a name="tcp-optimizations"></a>Optimalisaties voor TCP
 
-Transmission Control Protocol (TCP) is standaard Hallo van Internet-protocolsuite Hallo gebruikt toodeliver informatie tussen toepassingen op een IP-netwerk.  Er zijn verschillende back standaard en weer aanvragen tooset van een TCP-verbinding, evenals limieten tooavoid netwerk congestions, waardoor het inefficiëntie op grote schaal vereist. Azure CDN van Akamai omgaat met dit probleem door te optimaliseren in drie gebieden: 
+Transmission Control Protocol (TCP) is de standaard van de Internet-protocolsuite gebruikt voor het leveren van gegevens tussen toepassingen op een IP-netwerk.  Er zijn standaard verschillende heen en weer aanvragen een TCP-verbinding, evenals de beperkingen instellen moeten om te voorkomen dat netwerk congestions, waardoor het inefficiëntie op grote schaal. Azure CDN van Akamai omgaat met dit probleem door te optimaliseren in drie gebieden: 
 
  - Trage start elimineren
  - Gebruik van permanente verbindingen
@@ -81,43 +81,43 @@ Transmission Control Protocol (TCP) is standaard Hallo van Internet-protocolsuit
 
 #### <a name="eliminating-slow-start"></a>Trage start elimineren
 
-*Trage start* deel uitmaakt van Hallo TCP-protocol waarmee wordt voorkomen opstoppingen in het netwerk dat door te beperken Hallo hoeveelheid gegevens die via Hallo-netwerk worden verzonden. Deze begint uitschakelen met kleine congestie venstergrootte tussen zender en ontvanger totdat Hallo maximum is bereikt of pakketverlies wordt gedetecteerd.
+*Trage start* deel uitmaakt van het TCP-protocol waarmee wordt voorkomen opstoppingen in het netwerk dat door het beperken van de hoeveelheid gegevens die via het netwerk worden verzonden. Deze begint uitschakelen met kleine congestie venstergrootte tussen zender en ontvanger totdat het maximum is bereikt of pakketverlies wordt gedetecteerd.
 
 Azure CDN van Akamai en Verizon elimineert trage start in drie stappen:
 
-1.  Zowel Akamai van Verizon netwerk health en bewaking toomeasure Hallo bandbreedte van de verbindingen tussen PoP randservers bandbreedte gebruiken.
-2. Hallo metrische gegevens worden gedeeld tussen edge PoP-servers, zodat elke server op de hoogte van Hallo netwerkomstandigheden is en serverstatus van andere POP's omheen Hallo.  
-3. Hallo CDN randservers zijn nu kunnen toomake veronderstellingen over sommige transmission-parameters, zoals welke Hallo optimale venstergrootte moet tijdens de communicatie met andere servers van de rand CDN in de buurt. Deze stap betekent Hallo initiële congestie venstergrootte kan worden verhoogd als Hallo-status van het Hallo-verbinding tussen Hallo CDN randservers hogere pakket gegevensoverdrachten staat is.  
+1.  Zowel Akamai van Verizon netwerk gebruiken status en de bewaking van de bandbreedte voor het meten van de bandbreedte van de verbindingen tussen randservers pop-server.
+2. De metrische gegevens worden gedeeld tussen edge PoP-servers, zodat elke server op de hoogte van de netwerk-voorwaarden en de serverstatus van de andere POP's omheen is.  
+3. De CDN edge-servers zijn nu kunnen aanbrengen veronderstellingen over sommige transmission-parameters, zoals de optimale venstergrootte moet tijdens de communicatie met andere servers van de rand CDN in de buurt. Deze stap betekent dat de grootte van het eerste opstoppingen in het venster kan worden verhoogd als de status van de verbinding tussen de servers van de rand CDN hoger pakket gegevensoverdrachten staat is.  
 
 #### <a name="leveraging-persistent-connections"></a>Gebruik van permanente verbindingen
 
-Met behulp van een CDN minder unieke computers verbinding maken met bronserver tooyour rechtstreeks vergeleken met gebruikers tooyour oorsprong rechtstreeks verbinding maken. Azure CDN van Akamai en Verizon ook aan de groep gebruikers aanvragen samen tooestablish minder verbindingen met Hallo oorsprong.
+Met behulp van een CDN minder unieke computers verbinding maken met uw oorsprong-server rechtstreeks wordt vergeleken met gebruikers direct verbinding maken met uw oorsprong. Azure CDN van Akamai en Verizon groep ook gebruikersaanvragen samen te stellen minder verbindingen met de oorsprong.
 
-Zoals eerder gezegd, netwerkverzoeken TCP-verbindingen verschillende heen en weer in een handshake tooestablish een nieuwe verbinding. Permanente verbindingen, ook wel bekend als ' HTTP Keep-Alive, ' bestaande TCP-verbindingen gebruiken voor HTTP-aanvragen toosave round trip meermaals en levering versnellen. 
+Zoals eerder gezegd, netwerkverzoeken TCP-verbindingen verschillende heen en weer in een handshake tot stand brengen van een nieuwe verbinding. Permanente verbindingen, ook wel bekend als ' HTTP Keep-Alive, ' opnieuw gebruiken van bestaande TCP-verbindingen naar meerdere HTTP-aanvragen op te slaan tijden geretourneerd versnellen levering. 
 
-Hallo Verizon netwerk verzendt ook periodieke keepalive-pakketten via Hallo TCP-verbinding tooprevent een open verbinding wordt afgesloten.
+Het netwerk Verizon verzendt ook periodieke keepalive-pakketten via de TCP-verbinding om te voorkomen dat een open verbinding wordt afgesloten.
 
 #### <a name="tuning-tcp-packet-parameters"></a>Afstemming van TCP-pakket parameters
 
-Azure CDN van Akamai ook Hallo-parameters die server naar server verbindingen van toepassing verbetert de prestatie en vermindert Hallo hoeveelheid lange afstand ronde reizen vereist tooretrieve inhoud ingesloten in Hallo site met behulp van Hallo technieken te volgen:
+Azure CDN van Akamai ook de nummers de parameters die betrekking op server-naar-server verbindingen en reduceert de hoeveelheid lange afstand retouren vereist voor het ophalen van inhoud is ingesloten in de site met behulp van de volgende technieken:
 
-1.  Hallo opstoppingen in het eerste venster vergroot zodat meer pakketten kunnen worden verzonden zonder te wachten op een bevestiging.
-2.  Hallo initiële retransmit time-out verlagen zodat een verlies wordt gedetecteerd en herverzending sneller vindt plaats.
-3.  Afnemende Hallo minimum en maximum opnieuw time-out tooreduce Hallo wachttijd voordat wordt aangenomen dat pakketten verloren zijn gegaan in verzending.
+1.  Vergroot het venster initiële congestie zodat meer pakketten kunnen worden verzonden zonder te wachten op een bevestiging.
+2.  De time-out voor de eerste retransmit verlagen zodat een verlies wordt gedetecteerd en herverzending sneller vindt plaats.
+3.  De time-out voor de minimale en maximale retransmit om te verminderen, de wachttijd voordat wordt aangenomen dat pakketten verloren zijn gegaan in overdracht verlagen.
 
 ### <a name="object-prefetch-akamai-only"></a>Object Prefetch (alleen Akamai)
 
-De meeste websites bestaan uit een HTML-pagina die verwijst naar diverse andere resources, zoals afbeeldingen en scripts. Normaal gesproken wanneer een client een webpagina aanvraagt, Hallo browser downloadt eerst Hallo HTML-object parseert en maakt vervolgens extra aanvragen toolinked assets die vereist toofully zijn Hallo pagina laden. 
+De meeste websites bestaan uit een HTML-pagina die verwijst naar diverse andere resources, zoals afbeeldingen en scripts. Normaal gesproken wanneer een client een webpagina aanvraagt, de browser downloadt eerst parseert de HTML-object en maakt vervolgens extra aanvragen tot gekoppelde bedrijfsmiddelen die nodig zijn voor de pagina volledig is geladen. 
 
-*Prefetch* is een techniek tooretrieve afbeeldingen en scripts ingesloten in Hallo HTML-pagina terwijl hello HTML wordt behandeld toohello browser voordat Hallo browser zelfs deze aanvragen object maakt. 
+*Prefetch* is een techniek voor het ophalen van afbeeldingen en scripts ingesloten in de HTML-pagina, terwijl u de HTML-code naar de browser wordt verzonden en voordat de browser zelfs deze aanvragen object maakt. 
 
-Hello **prefetch** optie is ingeschakeld tijdens het Hallo wanneer Hallo CDN fungeert Hallo HTML basispagina toohello clientbrowser, CDN Hallo Hallo HTML-bestand wordt geparseerd en aanvullende aanvragen voor alle gekoppelde resources maken en opslaan in de cache. Wanneer hello client Hallo aanvragen voor Hallo gekoppeld activa, Hallo CDN edge-server al heeft Hallo gevraagde objecten en kan dienen ze onmiddellijk zonder een round trip toohello oorsprong. Deze optimalisatie voordelen biedt voor caching geschikte en niet-caching geschikte inhoud.
+Met de **prefetch** optie ingeschakeld op het moment waarop de CDN fungeert de base HTML-pagina naar de clientbrowser, de CDN parseert het HTML-bestand en zorg aanvullende aanvragen voor alle gekoppelde resources en op te slaan in de cache. Wanneer de client de aanvragen voor de gekoppelde activa, wordt de CDN edge-server al heeft van de gevraagde objecten en kan fungeren ze onmiddellijk zonder een retouren naar de oorsprong. Deze optimalisatie voordelen biedt voor caching geschikte en niet-caching geschikte inhoud.
 
 ### <a name="adaptive-image-compression-akamai-only"></a>Adaptieve compressie (alleen Akamai)
 
-Op sommige apparaten, met name mobiele die ervaren tragere netwerksnelheden van tijd tootime. In deze scenario's, is het meer nuttig voor Hallo gebruiker tooreceive kleinere afbeeldingen in hun webpagina sneller in plaats van met een lange wachttijd voor installatiekopieën van de volledige resolutie.
+Op sommige apparaten, met name mobiele die ervaren tragere netwerksnelheden van tijd tot tijd. In deze scenario's is het meer nuttig zijn voor de gebruiker kleinere afbeeldingen sneller ontvangen in hun webpagina in plaats van een lange wachttijd voor installatiekopieën van de volledige resolutie.
 
-Deze functie automatisch bewaakt netwerk kwaliteit en JPEG-compressie standaardmethoden veiligheidsmaatregelen wanneer netwerksnelheden tragere tooimprove leveringstijd zijn.
+Deze functie automatisch bewaakt netwerk kwaliteit en JPEG-compressie standaardmethoden veiligheidsmaatregelen wanneer netwerksnelheden trager leveringstijd verbeteren.
 
 Adaptieve compressie | Bestandsextensies  
 --- | ---  
@@ -125,17 +125,17 @@ JPEG-compressie | JPG, JPEG, .jpe, .jig, .jgig, .jgi
 
 ## <a name="caching"></a>Caching
 
-Met DSA, is opslaan in cache standaard uitgeschakeld op Hallo CDN, zelfs wanneer Hallo oorsprong cache-control/verloopt kopteksten in Hallo antwoord bevat. Deze standaard is uitgeschakeld omdat DSA doorgaans voor dynamische activa dat mag niet worden opgeslagen gebruikt wordt omdat ze unieke tooeach client en cache standaard ingeschakeld op dit gedrag kunt verbreken.
+Met DSA, is opslaan in cache standaard uitgeschakeld op de CDN zelfs wanneer de oorsprong cache-control/verloopt kopteksten in het antwoord bevat. Deze standaard is uitgeschakeld omdat DSA doorgaans voor dynamische activa dat mag niet worden opgeslagen gebruikt wordt omdat ze uniek voor elke client zijn en cache standaard ingeschakeld op dit gedrag kunt verbreken.
 
-Hebt u een website met een combinatie van statische en dynamische activa, is het beste tootake een hybride benadering tooget Hallo optimale prestaties. 
+Als u een website met een combinatie van statische en dynamische activa hebt, is het beste een hybride-benadering voor de beste prestaties. 
 
-Als u van ADN met Premium van Verizon gebruikmaakt, kunt u opnieuw in de cache voor specifieke gevallen Hallo regels-Engine.  
+Als u van ADN met Premium van Verizon gebruikmaakt, kunt u opnieuw in de cache voor specifieke gevallen de regels-engine.  
 
-Een alternatief is toouse twee CDN-eindpunten. Met dynamische activa van DSA toodeliver en een ander eindpunt met een statische optimalisatie typt, zoals algemene web-levering toodelivery caching geschikte activa. In de volgorde tooaccomplish dit alternatieve wijzigt u uw toolink webpagina-URL's rechtstreeks toohello asset op Hallo u van plan bent toouse CDN-eindpunt. 
+Een alternatief is het gebruik van CDN-eindpunten. Een met DSA dynamische activa en een ander eindpunt met een statische optimalisatie-type, zoals de levering van algemene webtoepassingen voor caching geschikte bedrijfsmiddelen levering leveren. Om dit alternatief bereiken, wijzigt u de URL van uw webpagina directe koppeling naar de asset op het CDN-eindpunt dat u wilt gebruiken. 
 
-Bijvoorbeeld: `mydynamic.azureedge.net/index.html` is een dynamische pagina en is geladen vanuit Hallo DSA-eindpunt.  Hallo html-pagina verwijst naar meerdere statische elementen zoals JavaScript-bibliotheken of installatiekopieën die worden geladen vanuit Hallo statische CDN-eindpunt, zoals `mystatic.azureedge.net/banner.jpg` en `mystatic.azureedge.net/scripts.js`. 
+Bijvoorbeeld: `mydynamic.azureedge.net/index.html` is een dynamische pagina en is geladen vanuit het DSA-eindpunt.  De html-pagina verwijst naar meerdere statische elementen zoals JavaScript-bibliotheken of installatiekopieën die worden geladen vanuit het statische CDN-eindpunt, zoals `mystatic.azureedge.net/banner.jpg` en `mystatic.azureedge.net/scripts.js`. 
 
-U vindt een voorbeeld [hier](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller) op hoe web toouse domeincontrollers in een ASP.NET-toepassing tooserve inhoud via een specifieke CDN-URL.
+U vindt een voorbeeld [hier](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller) op het gebruik van domeincontrollers in een ASP.NET-webtoepassing voor het leveren van inhoud via een specifieke CDN-URL.
 
 
 

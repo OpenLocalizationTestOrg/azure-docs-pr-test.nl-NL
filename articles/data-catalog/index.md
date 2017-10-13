@@ -1,8 +1,8 @@
 ---
-title: aaaAzure Data Catalog documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Informatie over hoe tooset om een gegevenscatalogus waar uw organisatie vinden kan, begrijpen en gebruiken van gegevensbronnen. Zelfstudies, API-verwijzingen en andere documentatie.
+title: Documentatie voor Azure Data Catalog - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over het instellen van een gegevenscatalogus waar uw organisatie gegevensbronnen kan vinden, begrijpen en gebruiken. Zelfstudies, API-verwijzingen en andere documentatie.
 services: data-catalog
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/25/2017
 ms.author: carolz
-ms.openlocfilehash: eb2decd9e73531890b18497b5f39af77d6411a43
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: c901562753be86613ac4ca4dec1e727d1383e626
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="data-catalog-documentation"></a>Documentatie over Data Catalog
 
-Informatie over hoe toouse Data Catalog toohelp van uw organisatie en team detecteren, begrijpen en gebruiken van uw gegevensbronnen. Zelfstudies, naslaginformatie over REST API en andere documentatie die laten zien u hoe tooplan en stel uw data-opslagplaats, waar gebruikers van gegevens beschikbare gegevensbronnen detecteren en leren kennen hebben bijgedragen door deskundigen.
+Meer informatie over hoe u de gegevenscatalogus kunt gebruiken om uw organisatie en team te helpen uw gegevensbronnen te vinden, begrijpen en gebruiken. Zelfstudies, REST-API-referentiemateriaal en andere documentatie laten zien hoe u uw gegevensopslagplaats kunt plannen en instellen, waar gegevensgebruikers beschikbare gegevensbronnen kunnen vinden en kennis kunnen opdoen die ter beschikking is gesteld door deskundigen.
 
 <ul class="panelContent cardsFTitle">
     <li>

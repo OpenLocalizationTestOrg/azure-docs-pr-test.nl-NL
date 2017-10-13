@@ -1,5 +1,5 @@
 ---
-title: Transparent Data Encryption voor Stretch Database TSQL - Azure aaaEnable | Microsoft Docs
+title: Transparante gegevensversleuteling inschakelt voor Stretch-Database TSQL - Azure | Microsoft Docs
 description: Transparante gegevensversleuteling (TDE) voor SQL Server Stretch Database in Azure TSQL inschakelen
 services: sql-server-stretch-database
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: anvang
-ms.openlocfilehash: a9ba23649656fb344480d79438a1115f0eb353bd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ed26c2b386e08b76f78b4a05e12c46d2b97c20f2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Transparante gegevensversleuteling (TDE) inschakelen voor Stretch Database in Azure (Transact-SQL)
 > [!div class="op_single_selector"]
@@ -27,35 +27,35 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Transparent Data Encryption (TDE) beschermt tegen Hallo dreiging van schadelijke activiteiten door het uitvoeren van realtime versleuteling en ontsleuteling van Hallo-database, gekoppelde back-ups en transactielogboekbestanden in rust zonder wijzigingen toohello de toepassing.
+Transparent Data Encryption (TDE) beschermt tegen de dreiging van schadelijke activiteiten door realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden in rust in te voeren zonder dat wijzigingen in de toepassing.
 
-TDE versleutelt Hallo opslag van een volledige database met behulp van een symmetrische sleutel opgeroepen Hallo databaseversleutelingssleutel. Hallo databaseversleutelingssleutel is beveiligd met een ingebouwde servercertificaat. ingebouwde Hallo-servercertificaat is uniek voor elke Azure-server. Microsoft draait automatisch deze certificaten ten minste om de 90 dagen. Zie voor een algemene beschrijving van TDE [Transparent Data Encryption (TDE)].
+TDE versleutelt de opslag van een volledige database met behulp van een symmetrische sleutel, naam van de databaseversleutelingssleutel. De databaseversleutelingssleutel is beveiligd met een ingebouwde servercertificaat. Het ingebouwde servercertificaat is uniek voor elke Azure-server. Microsoft draait automatisch deze certificaten ten minste om de 90 dagen. Zie voor een algemene beschrijving van TDE [Transparent Data Encryption (TDE)].
 
 ## <a name="enabling-encryption"></a>Codering inschakelen
-tooenable TDE voor een Azure-database die wordt opgeslagen Hallo gegevens gemigreerd uit een database van SQL Server Stretch is ingeschakeld, Hallo dingen te volgen:
+Zodat TDE voor een Azure-database die de gegevens opslaat die zijn gemigreerd vanuit een Stretch geschikte SQL Server-database, het volgende doen:
 
-1. Verbinding maken met toohello *master* database op Hallo Azure server hosting Hallo-database met behulp van een aanmelding die een beheerder of als lid van Hallo **dbmanager** rol in de hoofddatabase Hallo
-2. Hallo volgende instructie tooencrypt Hallo database uitvoeren.
+1. Verbinding maken met de *master* database op de Azure-server die als host fungeert voor de database met een aanmelding die een beheerder of als lid van de **dbmanager** rol in de database master
+2. Voer de volgende instructie voor het versleutelen van de database.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION ON;
 ```
 
 ## <a name="disabling-encryption"></a>Codering uitschakelen
-toodisable TDE voor een Azure-database die wordt opgeslagen Hallo gegevens gemigreerd uit een database van SQL Server Stretch is ingeschakeld, Hallo dingen te volgen:
+Schakel TDE voor een Azure-database die de gegevens worden opgeslagen die zijn gemigreerd vanuit Stretch geschikte SQL Server-database, het volgende doen:
 
-1. Verbinding maken met toohello *master* database met een aanmelding die een beheerder of als lid van Hallo **dbmanager** rol in de hoofddatabase Hallo
-2. Hallo volgende instructie tooencrypt Hallo database uitvoeren.
+1. Verbinding maken met de *master* database met een aanmelding die een beheerder of als lid van de **dbmanager** rol in de database master
+2. Voer de volgende instructie voor het versleutelen van de database.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION OFF;
 ```
 
 ## <a name="verifying-encryption"></a>Versleuteling controleren
-de coderingsstatus tooverify voor een Azure-database die wordt opgeslagen Hallo gegevens gemigreerd uit een database van SQL Server Stretch is ingeschakeld, Hallo dingen te volgen:
+Om te controleren of coderingsstatus voor een Azure-database met opslaan van de gegevens gemigreerd vanuit een Stretch geschikte SQL Server-database, het volgende doen:
 
-1. Verbinding maken met toohello *master* of exemplaar in de database met behulp van een aanmelding die een beheerder of als lid van Hallo **dbmanager** rol in de hoofddatabase Hallo
-2. Hallo volgende instructie tooencrypt Hallo database uitvoeren.
+1. Verbinding maken met de *master* of exemplaar in de database met behulp van een aanmelding die een beheerder of als lid van de **dbmanager** rol in de database master
+2. Voer de volgende instructie voor het versleutelen van de database.
 
 ```sql
 SELECT

@@ -1,5 +1,5 @@
 ---
-title: aaaAzure Application Insights telemetrie Data Model - Afhankelijkheidstelemetrie | Microsoft Docs
+title: Azure Application Insights telemetrie gegevensmodel - Afhankelijkheidstelemetrie | Microsoft Docs
 description: Application Insights-gegevensmodel voor afhankelijkheidstelemetrie
 services: application-insights
 documentationcenter: .net
@@ -12,23 +12,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: bwren
-ms.openlocfilehash: cd5ab7c61d3498e4aa2a0aa0c8b0d106a92912e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2e97c3f951f46c32802aea543b93d5ab1bb76228
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Afhankelijkheidstelemetrie: Application Insights-gegevensmodel
 
-Afhankelijkheidstelemetrie (in [Application Insights](app-insights-overview.md)) vertegenwoordigt een interactie van Hallo bewaakt onderdeel met een externe component zoals SQL of een HTTP-eindpunt.
+Afhankelijkheidstelemetrie (in [Application Insights](app-insights-overview.md)) vertegenwoordigt een interactie van het bewaakte onderdeel met een externe component zoals SQL of een HTTP-eindpunt.
 
 ## <a name="name"></a>Naam
 
-Naam van Hallo-opdracht met deze afhankelijkheidsaanroep is gestart. De kardinaliteit van de lage waarde. Voorbeelden zijn opgeslagen procedurenaam en sjabloon voor URL-pad.
+De naam van de opdracht die is gestart met deze afhankelijkheidsaanroep. De kardinaliteit van de lage waarde. Voorbeelden zijn opgeslagen procedurenaam en sjabloon voor URL-pad.
 
 ## <a name="id"></a>Id
 
-Id van een exemplaar van de aanroep van afhankelijkheid. Gebruikt voor correlatie met Hallo telemetrie-item voor aanvraag toothis afhankelijkheidsaanroep dat overeenkomt. Zie voor meer informatie [correlatie](application-insights-correlation.md) pagina.
+Id van een exemplaar van de aanroep van afhankelijkheid. Gebruikt voor correlatie met de aanvraag telemetrie-item dat overeenkomt met deze afhankelijkheidsaanroep. Zie voor meer informatie [correlatie](application-insights-correlation.md) pagina.
 
 ## <a name="data"></a>Gegevens
 

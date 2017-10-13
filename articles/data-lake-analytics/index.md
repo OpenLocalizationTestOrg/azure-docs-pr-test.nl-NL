@@ -1,9 +1,9 @@
 ---
-title: aaaAzure Data Lake Analytics-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over de analyse van big data met Data Lake Analytics. Deze zelfstudies ziet u hoe toorun batch-, realtime en interactieve analyses, en hoe toowrite U-SQL-query's.
+title: Documentatie voor Azure Data Lake Analytics - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over de analyse van big data met Data Lake Analytics. Zelfstudies laten zien hoe u batch-, realtime en interactieve analyses uitvoert en U-SQL-query's schrijft.
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 515ad4c2a9023e970f1da05785bf3583d37cfccf
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 0cad8acb88494755522e0772c77afcc4793d8e74
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-lake-analytics-documentation"></a>Documentatie over Data Lake Analytics
 
-Meer informatie over hoe toouse Data Lake Analytics toorun big data-analyse die gegevenssets van de schaal toomassive taken. Zelfstudies en andere documentatie die laten zien hoe u toocreate batch, realtime en interactieve analytics-taken en hoe U-SQL-taal met behulp van tooquery Hallo en beheren.
+Meer informatie over hoe u Data Lake Analytics gebruikt voor het uitvoeren van analysetaken voor big data die schaalbaar zijn naar grote gegevenssets. Zelfstudies en andere documentatie laten zien hoe u batch-, realtime en interactieve analysetaken maakt en beheert, en query’s maakt in U-SQL.
 
 <ul class="panelContent cardsFTitle">
     <li>

@@ -1,6 +1,6 @@
 ---
-title: aaaAzure gebeurtenis raster abonnement schema
-description: Beschrijft eigenschappen Hallo voor geabonneerde tooan-gebeurtenis met gebeurtenis raster van Azure.
+title: Azure Event raster abonnement schema
+description: Beschrijft de eigenschappen voor het abonneren op een gebeurtenis met gebeurtenis raster van Azure.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,49 +8,49 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: babanisa
-ms.openlocfilehash: 6a96d67975a5a733c5ea3c56ea54501f94ea4cd2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: eff2352066a76010d6d882a7b7e1961870cd2d46
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="event-grid-subscription-schema"></a>Gebeurtenis raster abonnement schema
 
-een abonnement gebeurtenis raster toocreate, verzendt u een aanvraag toohello maken gebeurtenis abonnement opnieuw. Gebruik Hallo volgende indeling:
+Voor het maken van een gebeurtenis raster-abonnement, kunt u een aanvraag verzendt naar het maken van de gebeurtenis abonnement opnieuw. Gebruik de volgende notatie:
 
 ```
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2017-06-15-preview
 ``` 
 
-Bijvoorbeeld, een gebeurtenisabonnement voor een opslagaccount met de naam toocreate `examplestorage` in een resourcegroep met de naam `examplegroup`, gebruik Hallo volgende notatie:
+Bijvoorbeeld, een gebeurtenisabonnement voor een opslagaccount maken met de naam `examplestorage` in een resourcegroep met de naam `examplegroup`, gebruik de volgende notatie:
 
 ```
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2017-06-15-preview
 ``` 
 
-Hallo beschreven Hallo eigenschappen en het schema voor Hallo hoofdtekst van Hallo-aanvraag.
+Het artikel beschrijft de eigenschappen en het schema voor de hoofdtekst van de aanvraag.
  
 ## <a name="event-subscription-properties"></a>Eigenschappen van gebeurtenis abonnement
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| Bestemming | object | Hallo-object dat Hallo eindpunt definieert. |
-| Filter | object | Een optioneel veld voor het filteren van Hallo typen gebeurtenissen. |
+| Bestemming | object | Het object dat het eindpunt definieert. |
+| Filter | object | Een optioneel veld voor het filteren van de typen gebeurtenissen. |
 
 ### <a name="destination-object"></a>doelobject
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| endpointType | Tekenreeks | Hallo-type van het eindpunt voor Hallo-abonnement (webhook/HTTP, Event Hub of wachtrij). | 
+| endpointType | Tekenreeks | Het type van het eindpunt voor het abonnement (webhook/HTTP, Event Hub of wachtrij). | 
 | bij voor endpointUrl | Tekenreeks |  | 
 
 ### <a name="filter-object"></a>Filter-object
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| includedEventTypes | matrix | Komt overeen wanneer Hallo gebeurtenistype in gebeurtenis het Hallo-bericht een exacte overeenkomst tooone van deze gebeurtenis type-namen is. Er wordt een fout bij het gebeurtenisnaam komt niet overeen met de namen van gebeurtenis Hallo geregistreerd voor de gebeurtenisbron Hallo. Standaard komt overeen met alle types van gebeurtenissen. |
-| subjectBeginsWith | Tekenreeks | Een voorvoegsel-match toohello onderwerp filterveld in gebeurtenis het Hallo-bericht. Hallo standaardwaarde of een lege tekenreeks komt overeen met alle. | 
-| subjectEndsWith | Tekenreeks | Een achtervoegsel-match toohello onderwerp filterveld in gebeurtenis het Hallo-bericht. Hallo standaardwaarde of een lege tekenreeks komt overeen met alle. |
+| includedEventTypes | matrix | Treffer wanneer het gebeurtenistype bericht in de gebeurtenis is een exacte overeenkomst voor een van deze gebeurtenis type-namen. Er wordt een fout bij het gebeurtenisnaam komt niet overeen met de namen van het type geregistreerde gebeurtenis voor de gebeurtenisbron. Standaard komt overeen met alle types van gebeurtenissen. |
+| subjectBeginsWith | Tekenreeks | Een voorvoegsel-overeenkomst filteren op het onderwerpveld in de gebeurtenisstroom bericht. De standaard- of lege tekenreeks komt overeen met alle. | 
+| subjectEndsWith | Tekenreeks | Een achtervoegsel-overeenkomst filteren op het onderwerpveld in de gebeurtenisstroom bericht. De standaard- of lege tekenreeks komt overeen met alle. |
 | subjectIsCaseSensitive | Tekenreeks | Hoofdlettergevoelige die overeenkomt met filters voor besturingselementen. |
 
 
@@ -77,4 +77,4 @@ Hallo beschreven Hallo eigenschappen en het schema voor Hallo hoofdtekst van Hal
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding-tooEvent raster [wat gebeurtenis raster is?](overview.md)
+* Zie voor een inleiding tot gebeurtenis raster, [wat gebeurtenis raster is?](overview.md)

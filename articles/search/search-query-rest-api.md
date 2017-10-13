@@ -1,6 +1,6 @@
 ---
-title: aaa "query uitvoeren in een index (REST-API - Azure Search) | Microsoft Docs'
-description: Een zoekopdracht in Azure search samenstellen en gebruiken van parameters toofilter en sorteren search zoekresultaten.
+title: Een query uitvoeren voor een index (REST-API - Azure Search) | Microsoft Docs
+description: Een zoekquery samenstellen in Azure Search en gebruikmaken van zoekparameters om zoekresultaten te filteren en te sorteren.
 services: search
 documentationcenter: 
 manager: jhubbard
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-ms.openlocfilehash: 2f12238b8f4b045f536489cfc8766fb68307bbe2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="query-your-azure-search-index-using-hello-rest-api"></a>Query uitvoeren op uw Azure Search-index met behulp van Hallo REST-API
+# <a name="query-your-azure-search-index-using-the-rest-api"></a>Een query uitvoeren in uw Azure Search-index met behulp van de REST-API
 > [!div class="op_single_selector"]
 >
 > * [Overzicht](search-query-overview.md)
@@ -29,37 +29,37 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Dit artikel laat zien hoe uw index met behulp tooquery Hallo [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/).
+In dit artikel wordt beschreven hoe u een query uitvoert in uw index met behulp van de [Azure Search REST-API](https://docs.microsoft.com/rest/api/searchservice/).
 
 Voordat u deze procedure begint, moet u al [een Azure Search-index hebben gemaakt](search-what-is-an-index.md) en moet deze index [gevuld zijn met gegevens](search-what-is-data-import.md). Zie [How full text search works in Azure Search](search-lucene-query-architecture.md) (Hoe zoeken in volledige tekst werkt in Azure Search) voor achtergrondinformatie.
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>De query api-sleutel voor de Azure Search-service vaststellen
-Een belangrijk onderdeel van elke zoekbewerking in hello Azure Search REST API is Hallo *api-sleutel* die is gegenereerd voor Hallo-service die u hebt ingericht. Met een geldige sleutel stelt vertrouwensrelatie op basis van per aanvraag, tussen Hallo verzenden Hallo toepassingsaanvraag en Hallo-service die afhandelt.
+Een belangrijk onderdeel van elke zoekbewerking in de REST-API van Azure Search is de *api-sleutel* die is gegenereerd voor de service die u hebt ingericht. Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
-1. toofind van uw service api-sleutels, kunt u aanmelden toohello [Azure-portal](https://portal.azure.com/)
-2. Blade Ga tooyour Azure Search service
-3. Klik op het pictogram 'Sleutels' Hallo
+1. Als u de API-sleutels van uw service wilt opzoeken, kunt u zich aanmelden bij [Azure Portal](https://portal.azure.com/)
+2. Ga naar de blade van uw Azure Search-service
+3. Klik op het pictogram Sleutels
 
 Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
-* De primaire en secundaire *administratorsleutels* verlenen volledige rechten tooall bewerkingen, inclusief Hallo mogelijkheid toomanage Hallo-service, maken en verwijderen van indexen, Indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u verder kunt toouse Hallo secundaire sleutel als u tooregenerate Hallo primaire sleutel en vice versa besluit.
-* Uw *querysleutels* verlenen tooindexes alleen-lezen toegang en -documenten en zijn doorgaans gedistribueerde tooclient toepassingen die zoekaanvragen.
+* De primaire en secundaire *administratorsleutels* verlenen volledige rechten voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, het maken en verwijderen van indexen, indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u de secundaire sleutel kunt gebruiken als u de primaire sleutel opnieuw aan het genereren bent en vice versa.
+* Uw *querysleutels* geven alleen-lezentoegang tot indexen en documenten. Deze sleutels worden doorgaans verleend aan clienttoepassingen die zoekaanvragen verlenen.
 
-Voor de toepassing hello van query's op een index, kunt u een van de query-sleutel. De administratorsleutels kunnen ook worden gebruikt voor query's, maar moet u een querysleutel in uw toepassingscode als dit beter Hallo volgt [principe van minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
+U kunt gebruikmaken van een van de query-sleutel om een query in een index uit te voeren. De administratorsleutels kunnen ook worden gebruikt voor query's, maar u moet gebruikmaken van een querysleutel in de toepassingscode, aangezien dit het [principe van minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) volgt.
 
 ## <a name="formulate-your-query"></a>Uw query formuleren
-Er zijn twee manieren ook[zoeken in uw index met behulp van Hallo REST-API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Een manier is een HTTP POST-aanvraag tooissue waarbij uw queryparameters worden gedefinieerd in een JSON-object in de aanvraagtekst Hallo. Hallo andere manier is een HTTP GET-aanvraag tooissue waarbij uw queryparameters worden gedefinieerd binnen Hallo aanvraag-URL. POST heeft meer [versoepeld limieten](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) op Hallo grootte van de queryparameters dan GET. Daarom wordt u aangeraden POST te gebruiken, tenzij er speciale omstandigheden zijn waarin het gebruik van GET beter zou zijn.
+Er zijn twee manieren om [in de index te zoeken met behulp van de REST-API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). De ene manier is om een HTTP POST-aanvraag uit te geven waarbij uw queryparameters worden gedefinieerd in een JSON-object in de aanvraagtekst. De andere manier is om een HTTP GET-aanvraag uit te geven waarbij uw queryparameters worden gedefinieerd in de aanvraag-URL. POST heeft [soepelere limieten](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) met betrekking tot de grootte van queryparameters dan GET. Daarom wordt u aangeraden POST te gebruiken, tenzij er speciale omstandigheden zijn waarin het gebruik van GET beter zou zijn.
 
-Voor zowel POST als GET moet u tooprovide uw *servicenaam*, *indexnaam*, en de juiste Hallo *API-versie* (Hallo huidige API-versie is `2016-09-01` Hallo gelijktijdig van de publicatie van dit document) in Hallo aanvraag-URL. Voor GET, Hallo *querytekenreeks* Hallo einde van Hallo-URL is waarin u Hallo queryparameters opgeven. Hieronder vindt u Hallo URL-indeling:
+Voor zowel POST als GET moet u in de aanvraag-URL de *servicenaam*, de *indexnaam* en de juiste *API-versie* (de huidige API-versie is `2016-09-01` op het moment van publicatie van dit document) opgeven. Voor GET geeft u in de *querytekenreeks* aan het einde van de URL de queryparameters op. Hieronder vindt u de URL-indeling:
 
     https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2016-09-01
 
-Hallo-indeling voor POST is hetzelfde hello, maar met alleen api-versie in de queryreeksparameters Hallo.
+De indeling voor POST is hetzelfde, maar met alleen de api-versie in de queryreeksparameters.
 
 #### <a name="example-queries"></a>Voorbeelden van query 's
 Hier volgen een paar voorbeeldquery's op een index met de naam "hotels". Deze query's worden weergegeven in zowel de GET als POST-indeling.
 
-Hallo term 'budget' hello gehele index zoeken en alleen Hallo retourneren `hotelName` veld:
+Zoeken in de hele index op de term 'budget' en alleen het veld `hotelName` retourneren:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2016-09-01
@@ -71,7 +71,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Een filter toohello index toofind hotels goedkoper dan €150 per nachten toepassen en retourneren Hallo `hotelId` en `description`:
+Een filter toepassen op de index om te zoeken naar hotels goedkoper dan €150 per nachten de `hotelId` en `description` retourneren:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
@@ -84,7 +84,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Volledige zoekindex hello, volgorde op een bepaald veld (`lastRenovationDate`) Neem Hallo twee bovenste resultaten in aflopende volgorde, en alleen weergeven `hotelName` en `lastRenovationDate`:
+Zoeken in de gehele index, ordenen op een bepaald veld (`lastRenovationDate`) in aflopende volgorde, de twee bovenste resultaten selecteren en alleen `hotelName` and `lastRenovationDate` weergeven:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2016-09-01
@@ -104,11 +104,11 @@ Nu u uw query hebt geformuleerd als onderdeel van uw HTTP-aanvraag-URL (voor GET
 #### <a name="request-and-request-headers"></a>Aanvragen en aanvraagheaders
 U moet twee aanvraagheaders definiëren voor GET en drie voor POST:
 
-1. Hallo `api-key` header toohello querysleutel in stap I hierboven moet worden ingesteld. U kunt ook een administratorsleutel gebruiken als Hallo `api-key` header, maar het wordt aanbevolen dat u een querysleutel gebruikt, aangezien deze exclusieve alleen alleen-lezentoegang tooindexes en -documenten.
-2. Hallo `Accept` header moet worden ingesteld te`application/json`.
-3. Alleen voor POST, Hallo `Content-Type` header ook te worden ingesteld`application/json`.
+1. De `api-key`-header moet worden ingesteld op de querysleutel uit stap I hierboven. U kunt ook een administratorsleutel gebruiken voor de header `api-key`, maar het wordt aanbevolen de querysleutel te gebruiken aangezien deze exclusieve alleen-lezentoegang biedt tot indexen en documenten.
+2. De `Accept`-header moet worden ingesteld op `application/json`.
+3. Alleen voor POST moet de `Content-Type`-header ook worden ingesteld op `application/json`.
 
-Hieronder vindt u een HTTP GET-aanvraag toosearch Hallo index "hotels met behulp van Azure Search REST API, met een eenvoudige query waarin wordt gezocht naar Hallo term 'motel' hello":
+Hieronder vindt u een HTTP GET-aanvraag voor de index "hotels" met behulp van de Azure Search REST-API met een eenvoudige query waarin wordt gezocht naar de term "motel":
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2016-09-01
@@ -116,7 +116,7 @@ Accept: application/json
 api-key: [query key]
 ```
 
-Hier volgt Hallo dezelfde voorbeeldquery, met behulp van HTTP POST:
+Dit is dezelfde voorbeeldquery voor HTTP POST:
 
 ```
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
@@ -129,7 +129,7 @@ api-key: [query key]
 }
 ```
 
-Een queryaanvraag is gelukt resulteert in een statuscode van `200 OK` en Hallo zoekresultaten worden geretourneerd als JSON in Hallo antwoordtekst. Hier ziet u welke Hallo-resultaten voor Hallo hierboven query's eruit zien, ervan uitgaande dat index Hallo "hotels" is gevuld met de voorbeeldgegevens Hallo in [gegevens importeren in Azure Search met behulp van REST-API Hallo](search-import-data-rest-api.md) (Houd er rekening mee dat Hallo JSON is voor de duidelijkheid geformatteerd).
+Als een queryaanvraag is gelukt, wordt de statuscode `200 OK` weergegeven. De zoekresultaten worden geretourneerd als JSON in de hoofdtekst van het antwoord. Hier ziet u hoe de resultaten voor de bovenstaande query's eruit zien, ervan uitgaande dat de index "hotels" is gevuld met de voorbeeldgegevens in [Gegevens importeren in Azure Search met behulp van de REST-API](search-import-data-rest-api.md) (de JSON is voor de duidelijkheid geformatteerd).
 
 ```JSON
 {
@@ -162,4 +162,4 @@ Een queryaanvraag is gelukt resulteert in een statuscode van `200 OK` en Hallo z
 }
 ```
 
-toolearn meer, gaat u naar Hallo "Antwoord" sectie van [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Zie [HTTP-statuscodes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes) voor meer informatie over andere HTTP-statuscodes die kunnen worden geretourneerd in geval van storing.
+Ga naar de sectie "Antwoord" van [Documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) voor meer informatie. Zie [HTTP-statuscodes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes) voor meer informatie over andere HTTP-statuscodes die kunnen worden geretourneerd in geval van storing.

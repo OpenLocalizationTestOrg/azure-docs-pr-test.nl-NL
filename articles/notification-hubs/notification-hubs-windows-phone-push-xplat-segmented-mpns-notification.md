@@ -1,6 +1,6 @@
 ---
-title: aaaUse Notification Hubs toosend belangrijk nieuws (Windows Phone)
-description: Gebruik Azure Notification Hubs toouse tag in registraties toosend nieuws tooa Windows Phone-app op te splitsen.
+title: Notification Hubs gebruiken om belangrijk nieuws (Windows Phone) te verzenden
+description: Gebruik Azure Notification Hubs tag in registraties belangrijk nieuws verzenden naar een Windows Phone-app.
 services: notification-hubs
 documentationcenter: windows
 author: ysxu
@@ -14,27 +14,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 3519a8701105f88198afe288e59e9204420234db
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3a6a69bf555c7267d3fbeb03ff6c03054991960f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-notification-hubs-toosend-breaking-news"></a>Gebruik Notification Hubs toosend belangrijk nieuws
+# <a name="use-notification-hubs-to-send-breaking-news"></a>Notification Hubs gebruiken om belangrijk nieuws te verzenden
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Overzicht
-Dit onderwerp leest u hoe toouse Azure Notification Hubs toobroadcast belangrijk nieuws meldingen tooa Windows Phone 8.0/8.1 Silverlight-app. Als u voor Windows Store of Windows Phone 8.1-app ontwikkelt, raadpleegt u tootoohello [universele Windows-](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md) versie. Als u klaar gaat u kunnen tooregister voor nieuwscategorieën die u geïnteresseerd bent in op te splitsen en pushmeldingen voor deze categorieën ontvangen. Dit scenario is een algemene patroon voor veel apps waar meldingen hebt verzonden toobe toogroups van gebruikers die interesse in deze, zoals RSS-lezer, apps voor muziek ventilatoren, enzovoort eerder is gedeclareerd.
+Dit onderwerp leest u het gebruik van Azure Notification Hubs voor belangrijk nieuws meldingen naar een Windows Phone 8.0/8.1 Silverlight-app-broadcast. Als u voor Windows Store of Windows Phone 8.1-app ontwikkelt, Raadpleeg naar de [universele Windows-](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md) versie. Als u klaar gaat u kunnen registreren voor nieuwscategorieën die u geïnteresseerd bent in op te splitsen en pushmeldingen voor deze categorieën ontvangen. Dit scenario is een algemene patroon voor veel apps waarbij moeten meldingen worden verzonden naar groepen gebruikers die interesse in deze, zoals RSS-lezer, apps voor muziek ventilatoren, enzovoort eerder is gedeclareerd.
 
-Broadcast-scenario's zijn ingeschakeld door een of meer *labels* bij het maken van een registratie in Hallo notification hub. Wanneer meldingen worden verzonden tooa label, ontvangen alle apparaten die zijn geregistreerd voor de tag Hallo Hallo-bericht. Omdat tags gewoon tekenreeksen zijn, hebben geen toobe vooraf is ingericht. Raadpleeg te voor meer informatie over tags[Notification Hubs-Routering en code-expressies](notification-hubs-tags-segment-push-message.md).
+Broadcast-scenario's zijn ingeschakeld door een of meer *labels* bij het maken van een registratie in de notification hub. Wanneer u meldingen worden verzonden naar een label, ontvangen alle apparaten die zijn geregistreerd voor het label de melding. Omdat tags gewoon tekenreeksen zijn, hoeven niet vooraf zijn ingericht. Raadpleeg voor meer informatie over tags [Notification Hubs-Routering en code-expressies](notification-hubs-tags-segment-push-message.md).
 
 ## <a name="prerequisites"></a>Vereisten
-In dit onderwerp is gebaseerd op Hallo-app die u hebt gemaakt in [aan de slag met Notification Hubs]. Voordat u deze zelfstudie begint, u moet al hebt voltooid [aan de slag met Notification Hubs].
+In dit onderwerp is gebaseerd op de app die u hebt gemaakt in [aan de slag met Notification Hubs]. Voordat u deze zelfstudie begint, u moet al hebt voltooid [aan de slag met Notification Hubs].
 
-## <a name="add-category-selection-toohello-app"></a>Categorie selectie toohello app toevoegen
-de eerste stap Hallo is tooadd Hallo UI-elementen tooyour bestaande hoofdpagina waarmee Hallo gebruiker tooselect categorieën tooregister. Hallo categorieën geselecteerd door een gebruiker zijn op Hallo apparaat opgeslagen. Wanneer Hallo-app wordt gestart, wordt de apparaatregistratie van een in uw notification hub met Hallo geselecteerd categorieën gemaakt als labels.
+## <a name="add-category-selection-to-the-app"></a>Categorieselectie toevoegen aan de app.
+De eerste stap is het toevoegen van de UI-elementen naar uw bestaande hoofdpagina waarmee de gebruiker kan de categorieën selecteren om te registreren. De categorieën die door een gebruiker is geselecteerd worden op het apparaat opgeslagen. Wanneer de app wordt gestart, wordt de apparaatregistratie van een in uw notification hub met de geselecteerde categorieën gemaakt als labels.
 
-1. Hallo MainPage.xaml projectbestand openen en vervolgens vervangen Hallo **raster** elementen met de naam `TitlePanel` en `ContentPanel` Hello code te volgen:
+1. Open het projectbestand MainPage.xaml en vervang de **raster** elementen met de naam `TitlePanel` en `ContentPanel` met de volgende code:
    
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="Breaking News" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
@@ -60,17 +60,17 @@ de eerste stap Hallo is tooadd Hallo UI-elementen tooyour bestaande hoofdpagina 
             <CheckBox Name="SportsCheckBox" Grid.Row="2" Grid.Column="1">Sports</CheckBox>
             <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
         </Grid>
-2. In Hallo-project maakt u een nieuwe klasse met de naam **meldingen**, Hallo toevoegen **openbare** aanpassingsfunctie toohello definitie klasse, voeg dan Hallo volgende **met** instructies nieuwe codebestand toohello:
+2. In het project, maakt u een nieuwe klasse met de naam **meldingen**, toevoegen de **openbare** aanpassingsfunctie naar de klassendefinitie, voegt u de volgende **met** instructies op het nieuwe codebestand :
    
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
         using System.IO.IsolatedStorage;
         using System.Windows;
-3. Kopiëren Hallo volgende code in nieuwe Hallo **meldingen** klasse:
+3. Kopieer de volgende code naar de nieuwe **meldingen** klasse:
    
         private NotificationHub hub;
    
-        // Registration task toocomplete registration in hello ChannelUriUpdated event handler
+        // Registration task to complete registration in the ChannelUriUpdated event handler
         private TaskCompletionSource<Registration> registrationTask;
    
         public Notifications(string hubName, string listenConnectionString)
@@ -114,12 +114,12 @@ de eerste stap Hallo is tooadd Hallo UI-elementen tooyour bestaande hoofdpagina 
                 channel.BindToShellToast();
                 channel.ChannelUriUpdated += channel_ChannelUriUpdated;
    
-                // This is optional, used tooreceive notifications while hello app is running.
+                // This is optional, used to receive notifications while the app is running.
                 channel.ShellToastNotificationReceived += channel_ShellToastNotificationReceived;
             }
    
-            // If channel.ChannelUri is not null, we will complete hello registrationTask here.  
-            // If it is null, hello registrationTask will be completed in hello ChannelUriUpdated event handler.
+            // If channel.ChannelUri is not null, we will complete the registrationTask here.  
+            // If it is null, the registrationTask will be completed in the ChannelUriUpdated event handler.
             if (channel.ChannelUri != null)
             {
                 await RegisterTemplate(channel.ChannelUri);
@@ -135,7 +135,7 @@ de eerste stap Hallo is tooadd Hallo UI-elementen tooyour bestaande hoofdpagina 
    
         async Task<Registration> RegisterTemplate(Uri channelUri)
         {
-            // Using a template registration toosupport notifications across platforms.
+            // Using a template registration to support notifications across platforms.
             // Any template notifications that contain messageParam and a corresponding tag expression
             // will be delivered for this registration.
    
@@ -145,7 +145,7 @@ de eerste stap Hallo is tooadd Hallo UI-elementen tooyour bestaande hoofdpagina 
                                                 "</wp:Toast>" +
                                             "</wp:Notification>";
    
-            // hello stored categories tags are passed with hello template registration.
+            // The stored categories tags are passed with the template registration.
    
             registrationTask.SetResult(await hub.RegisterTemplateAsync(channelUri.ToString(), 
                 templateBodyMPNS, "simpleMPNSTemplateExample", this.RetrieveCategories()));
@@ -153,7 +153,7 @@ de eerste stap Hallo is tooadd Hallo UI-elementen tooyour bestaande hoofdpagina 
             return await registrationTask.Task;
         }
    
-        // This is optional. It is used tooreceive notifications while hello app is running.
+        // This is optional. It is used to receive notifications while the app is running.
         void channel_ShellToastNotificationReceived(object sender, NotificationEventArgs e)
         {
             StringBuilder message = new StringBuilder();
@@ -161,7 +161,7 @@ de eerste stap Hallo is tooadd Hallo UI-elementen tooyour bestaande hoofdpagina 
    
             message.AppendFormat("Received Toast {0}:\n", DateTime.Now.ToShortTimeString());
    
-            // Parse out hello information that was part of hello message.
+            // Parse out the information that was part of the message.
             foreach (string key in e.Collection.Keys)
             {
                 message.AppendFormat("{0}: {1}\n", key, e.Collection[key]);
@@ -176,28 +176,28 @@ de eerste stap Hallo is tooadd Hallo UI-elementen tooyour bestaande hoofdpagina 
                 }
             }
    
-            // Display a dialog of all hello fields in hello toast.
+            // Display a dialog of all the fields in the toast.
             System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() => 
             { 
                 MessageBox.Show(message.ToString()); 
             });
         }
 
-    Hallo geïsoleerde opslag toostore Hallo categorieën van nieuws dat dit apparaat tooreceive is maakt gebruik van deze klasse. Het bevat ook methoden tooregister voor deze categorieën met behulp van een [sjabloon](notification-hubs-templates-cross-platform-push-messages.md) registratie.
+    Deze klasse maakt gebruik van geïsoleerde opslag voor het opslaan van de categorieën van nieuws die dit apparaat moet ontvangen. Het bevat ook methoden om te registreren voor deze categorieën met behulp van een [sjabloon](notification-hubs-templates-cross-platform-push-messages.md) registratie.
 
 
-1. Hallo projectbestand App.XAML.cs, voeg Hallo eigenschap toohello na **App** klasse. Vervang Hallo `<hub name>` en `<connection string with listen access>` tijdelijke aanduidingen door uw notification hub naam en het Hallo verbindingsreeks voor *DefaultListenSharedAccessSignature* die u eerder hebt verkregen.
+1. In het projectbestand App.xaml.cs de volgende eigenschap toevoegen aan de **App** klasse. Vervang de `<hub name>` en `<connection string with listen access>` tijdelijke aanduidingen door de naam van uw notification hub en de verbindingsreeks voor *DefaultListenSharedAccessSignature* die u eerder hebt verkregen.
    
         public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
    
    > [!NOTE]
-   > Omdat de referenties die worden gedistribueerd met een client-app niet over het algemeen veilig, moet u alleen Hallo-sleutel voor listen toegang distribueren met uw clientapp. Luisteren toegang kunnen die uw app tooregister voor meldingen, maar bestaande registraties kan niet worden gewijzigd en kunnen niet worden meldingen verzonden. Hallo volledige toegang tot de sleutel wordt gebruikt in een beveiligde back endservice voor het verzenden van meldingen en bestaande registraties wijzigen.
+   > Omdat de referenties die worden gedistribueerd met een client-app niet over het algemeen veilig, moet u de sleutel voor listen toegang alleen distribueren met uw clientapp. Luisteren toegang kunnen uw app registreren voor meldingen, maar bestaande registraties kan niet worden gewijzigd en kunnen niet worden meldingen verzonden. De volledige toegang tot de sleutel wordt gebruikt in een beveiligde back-endservice voor het verzenden van meldingen en bestaande registraties wijzigen.
    > 
    > 
-2. Voeg in uw MainPage.xaml.cs Hallo volgt regel:
+2. Voeg de volgende regel in uw MainPage.xaml.cs:
    
         using Windows.UI.Popups;
-3. Voeg Hallo volgende methode in Hallo MainPage.xaml.cs project-bestand:
+3. In het projectbestand MainPage.xaml.cs voegt u de volgende methode toe:
    
         private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -215,19 +215,19 @@ de eerste stap Hallo is tooadd Hallo UI-elementen tooyour bestaande hoofdpagina 
              result.RegistrationId);
         }
    
-    Deze methode maakt u een lijst met categorieën en maakt gebruik van Hallo **meldingen** toostore Hallo lijst in de lokale opslag Hallo klasse en bijbehorende labels Hallo registreren voor uw notification hub. Wanneer categorieën worden gewijzigd, wordt met de nieuwe categorieën Hallo Hallo registratie nagemaakt.
+    Deze methode maakt u een lijst met categorieën en gebruikt de **meldingen** klasse voor het opslaan van de lijst in de lokale opslag en registreren van de bijbehorende tags voor uw notification hub. Wanneer categorieën worden gewijzigd, wordt de registratie opnieuw gemaakt met de nieuwe categorieën.
 
-Uw app is nu kunnen toostore een aantal categorieën in lokale opslag op Hallo-apparaat en registreren bij Hallo notification hub wanneer gebruikerswijzigingen Hallo Hallo selectie van categorieën.
+Uw app is nu in staat een aantal categorieën opslaan in lokale opslag op het apparaat en registreren bij de notification hub wanneer de gebruiker de selectie van categorieën wijzigt.
 
 ## <a name="register-for-notifications"></a>Registreren voor meldingen
-Deze stappen registreren bij Hallo notification hub bij het opstarten met behulp van Hallo categorieën die zijn opgeslagen in de lokale opslag.
+Deze stappen registreren bij de notification hub bij het opstarten met behulp van de categorieën die zijn opgeslagen in de lokale opslag.
 
 > [!NOTE]
-> Omdat Hallo kanaal-URI toegewezen door Hallo Microsoft Push Notification Service (MPNS) op elk gewenst moment wijzigen kunt, moet u registreren voor meldingen vaak tooavoid melding fouten. In dit voorbeeld registreert voor meldingen telkens wanneer die Hallo-app wordt gestart. Voor apps die vaak worden uitgevoerd, kunt meer dan één keer per dag, u waarschijnlijk overslaan registratie toopreserve bandbreedte als minder dan een dag is verstreken sinds de vorige registratie Hallo.
+> Omdat de kanaal-URI is toegewezen door de Microsoft Push Notification Service (MPNS) op elk gewenst moment wijzigen kunt, kunt u moet registreren voor meldingen vaak ter voorkoming van fouten van de melding. In dit voorbeeld wordt elke keer dat de app wordt gestart voor meldingen die worden geregistreerd. Voor apps die vaak worden uitgevoerd, kunt meer dan één keer per dag, u waarschijnlijk overslaan registratie om bandbreedte te besparen als minder dan een dag is verstreken sinds de vorige registratie.
 > 
 > 
 
-1. Hallo App.xaml.cs bestand openen en het toevoegen van Hallo **asynchrone** aanpassingsfunctie te**Application_Launching** methode en vervang Hallo Notification Hubs registratiecode die u hebt toegevoegd in [aan de slag met Notification Hubs] Hello code te volgen:
+1. Open het bestand App.xaml.cs en voeg de **asynchrone** wijzigingsfunctie voor **Application_Launching** methode en vervang de registratie van Notification Hubs code die u hebt toegevoegd in [aan de slag met Notification Hubs] met de volgende code:
    
         private async void Application_Launching(object sender, LaunchingEventArgs e)
         {
@@ -240,8 +240,8 @@ Deze stappen registreren bij Hallo notification hub bij het opstarten met behulp
                 });
         }
    
-    Dit zorgt ervoor dat telkens wanneer Hallo-app wordt gestart het Hallo-categorieën opgehaald uit de lokale opslag en een registratie voor deze categorieën vraagt.
-2. In Hallo MainPage.xaml.cs project-bestand toevoegen na de code die wordt geïmplementeerd Hallo Hallo **OnNavigatedTo** methode:
+    Dit zorgt ervoor dat telkens wanneer de app wordt gestart de categorieën van lokale opslag haalt en een registratie voor deze categorieën vraagt.
+2. Voeg in het projectbestand MainPage.xaml.cs de volgende code waarmee de **OnNavigatedTo** methode:
    
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -255,25 +255,25 @@ Deze stappen registreren bij Hallo notification hub bij het opstarten met behulp
             if (categories.Contains("Sports")) SportsCheckBox.IsChecked = true;
         }
    
-    Deze updates Hallo hoofdpagina op basis van Hallo status van de eerder opgeslagen categorieën.
+    Hiermee wordt de hoofdpagina op basis van de status van de eerder opgeslagen categorieën bijgewerkt.
 
-Hallo-app is nu voltooid en kan een set van categorieën worden opgeslagen in Hallo apparaat gebruikt voor lokale opslag tooregister bij Hallo notification hub wanneer gebruikerswijzigingen Hallo Hallo selectie van categorieën. Vervolgens definiëren we een back-end die categorie meldingen toothis app kunt verzenden.
+De app is nu voltooid en een set categorieën kunt opslaan in de lokale opslag gebruikt om u te registreren bij de notification hub wanneer de gebruiker de selectie van categorieën wijzigt van apparaat. Vervolgens definiëren we een back-end die categorie meldingen naar deze app kunt verzenden.
 
 ## <a name="sending-tagged-notifications"></a>Verzenden van meldingen met tags
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="run-hello-app-and-generate-notifications"></a>Hallo-app uitvoeren en meldingen genereren
-1. Druk op F5 toocompile in Visual Studio en Hallo-app te starten.
+## <a name="run-the-app-and-generate-notifications"></a>Voer de app en meldingen genereren
+1. Druk in Visual Studio op F5 om te compileren en de app te starten.
    
     ![][1]
    
-    Opmerking die Hallo app die gebruikersinterface een set biedt-of kunt u Hallo categorieën toosubscribe te kiezen.
+    Opmerking dat de UI-app biedt een reeks Schakelknoppen waarmee u kunt kiezen uit de categorieën om u te abonneren op.
 2. Een of meer categorieën Schakelknoppen inschakelen en klik vervolgens op **abonneren**.
    
-    Hallo-app geselecteerd Hallo categorieën converteert naar labels en vraagt een nieuwe apparaatregistratie voor Hallo geselecteerd tags van Hallo notification hub. Hallo geregistreerde categorieën worden geretourneerd en in een dialoogvenster weergegeven.
+    De app de geselecteerde categorieën converteert naar labels en een nieuwe apparaatregistratie voor de geselecteerde codes aanvragen van de notification hub. De geregistreerde categorieën worden geretourneerd en in een dialoogvenster weergegeven.
    
     ![][2]
-3. Voer na de ontvangst van een bevestiging dat uw categorieën abonnement voltooid zijn, Hallo console app toosend meldingen voor elke categorieën. Controleer of er alleen een melding voor Hallo categorieën die u bent geabonneerd.
+3. Na de ontvangst van een bevestiging dat uw categorieën abonnement voltooid zijn, moet u de console-app voor het verzenden van meldingen voor elke categorieën uitvoeren. Controleer of er alleen een melding voor de categorieën die u bent geabonneerd.
    
     ![][3]
 
@@ -281,22 +281,22 @@ U kunt in dit onderwerp hebt voltooid.
 
 <!--##Next steps
 
-In this tutorial we learned how toobroadcast breaking news by category. Consider completing one of hello following tutorials that highlight other advanced Notification Hubs scenarios:
+In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:
 
-+ [Use Notification Hubs toobroadcast localized breaking news]
++ [Use Notification Hubs to broadcast localized breaking news]
 
-    Learn how tooexpand hello breaking news app tooenable sending localized notifications.
+    Learn how to expand the breaking news app to enable sending localized notifications.
 
 + [Notify users with Notification Hubs]
 
-    Learn how toopush notifications toospecific authenticated users. This is a good solution for sending notifications only toospecific users.
+    Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users.
 -->
 
 <!-- Anchors. -->
-[Add category selection toohello app]: #adding-categories
+[Add category selection to the app]: #adding-categories
 [Register for notifications]: #register
 [Send notifications from your back-end]: #send
-[Run hello app and generate notifications]: #test-app
+[Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -308,9 +308,9 @@ In this tutorial we learned how toobroadcast breaking news by category. Consider
 
 <!-- URLs.-->
 [aan de slag met Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[Use Notification Hubs toobroadcast localized breaking news]: ../breakingnews-localized-wp8.md
+[Use Notification Hubs to broadcast localized breaking news]: ../breakingnews-localized-wp8.md
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users/
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-toofor Windows Phone]: ??
+[Notification Hubs How-To for Windows Phone]: ??
 

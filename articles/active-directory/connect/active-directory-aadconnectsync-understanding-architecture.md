@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect-synchronisatie: inzicht in Hallo-architectuur | Microsoft Docs'
-description: In dit onderwerp beschrijft de architectuur Hallo van Azure AD Connect-synchronisatie en wordt uitgelegd Hallo termen die worden gebruikt.
+title: 'Azure AD Connect-synchronisatie: inzicht in de architectuur | Microsoft Docs'
+description: Dit onderwerp beschrijft de architectuur van Azure AD Connect-synchronisatie en verklaart de termen die worden gebruikt.
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -14,209 +14,209 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 9fb979fcf8feb7b4d406789102239480b0b4bc94
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 51082ad453d53f56f30f814b78578801c00f4827
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="azure-ad-connect-sync-understanding-hello-architecture"></a>Azure AD Connect-synchronisatie: inzicht in Hallo-architectuur
-Dit onderwerp worden de basisarchitectuur Hallo voor Azure AD Connect-synchronisatie. In veel aspecten is vergelijkbaar tooits voorgangers MIIS 2003, ILM 2007 en FIM 2010. Azure AD Connect-synchronisatie is Hallo evolutie van deze technologieën. Als u bekend met een van deze technologieën voor oudere bent, niet Hallo inhoud van dit onderwerp ook bekend tooyou. Als u nieuwe toosynchronization, wordt de in dit onderwerp voor u. Het is echter niet een vereiste tooknow Hallo details van dit onderwerp toobe geslaagde bij het maken van aanpassingen tooAzure AD Connect-synchronisatie (aangeroepen synchronisatie-engine in dit onderwerp).
+# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect-synchronisatie: inzicht in de architectuur
+Dit onderwerp worden de basisarchitectuur voor Azure AD Connect-synchronisatie. In veel aspecten is vergelijkbaar met de voorafgaande MIIS 2003, ILM 2007 en FIM 2010. Azure AD Connect-synchronisatie is de ontwikkeling van deze technologieën. Als u bekend met een van deze eerdere technologieën bent, wordt de inhoud van dit onderwerp ook vertrouwd aan u zijn. Als u niet bekend met synchronisatie bent, wordt de in dit onderwerp voor u. Het is echter niet vereist voor de details kennen van dit onderwerp te laten slagen bij het maken van aanpassingen van Azure AD Connect-synchronisatie (synchronisatie-engine in dit onderwerp genoemd).
 
 ## <a name="architecture"></a>Architectuur
-Hallo synchronisatie-engine maakt van een geïntegreerde weergave van objecten die zijn opgeslagen in meerdere verbonden gegevensbronnen en gegevens van identiteit in die gegevensbronnen beheert. Deze geïntegreerde weergave wordt bepaald door de identiteitsgegevens Hallo opgehaald uit verbonden gegevensbronnen en een reeks regels die bepalen hoe tooprocess deze informatie.
+De synchronisatie-engine maakt van een geïntegreerde weergave van objecten die zijn opgeslagen in meerdere verbonden gegevensbronnen en gegevens van identiteit in die gegevensbronnen beheert. Deze geïntegreerde weergave wordt bepaald door de gegevens van identiteit opgehaald uit verbonden gegevensbronnen en een reeks regels die bepalen hoe u kunt deze informatie niet verwerken.
 
 ### <a name="connected-data-sources-and-connectors"></a>Verbonden gegevensbronnen en -Connectors
-Hallo synchronisatie-engine verwerkt identiteitsgegevens van opslagplaatsen voor verschillende gegevens, zoals Active Directory of een SQL Server-database. Elke gegevensopslagplaats die de gegevens in de indeling van een database-achtige ordent en biedt standaard gegevenstoegang methoden is een mogelijke gegevensbron kandidaat voor Hallo synchronisatie-engine. Hallo-opslagplaatsen voor gegevens die worden gesynchroniseerd door de synchronisatie-engine heten **verbonden gegevensbronnen** of **mappen verbonden** (CD).
+De synchronisatie-engine verwerkt identiteitsgegevens van opslagplaatsen voor verschillende gegevens, zoals Active Directory of een SQL Server-database. Elke gegevensopslagplaats die de gegevens in de indeling van een database-achtige ordent en biedt methoden standaard gegevenstoegang is een mogelijke data source kandidaat voor de synchronisatie-engine. De opslagplaatsen voor gegevens die worden gesynchroniseerd door de synchronisatie-engine heten **verbonden gegevensbronnen** of **mappen verbonden** (CD).
 
-synchronisatie-engine Hallo ingekapseld interactie met een verbonden gegevensbron binnen een module met de naam een **Connector**. Elk type van de gekoppelde gegevensbron heeft een specifieke Connector. Hallo Connector een vereiste bewerking vertaalt naar Hallo-indeling die verbonden gegevens Hallo bron begrijpt.
+De synchronisatie-engine ingekapseld interactie met een verbonden gegevensbron binnen een module met de naam een **Connector**. Elk type van de gekoppelde gegevensbron heeft een specifieke Connector. De Connector kan het een vereiste bewerking in de indeling die de gekoppelde gegevensbron begrijpt.
 
-Met connectors kunt API-aanroepen tooexchange identiteitsgegevens (zowel lezen en schrijven) met een verbonden gegevensbron. Het is ook mogelijk tooadd een aangepaste Connector met Hallo extensible connectivity framework. Hallo volgende afbeelding ziet u hoe een Connector verbinding maakt met een verbonden data source toohello synchronisatie-engine.
+Connectors maken voor een verbonden gegevensbron API-aanroepen voor het uitwisselen van gegevens van identiteit (zowel lezen en schrijven). Het kan ook een aangepaste Connector met behulp van het framework extensible connectivity toevoegen. De volgende afbeelding ziet hoe een verbonden gegevensbron in een Connector maakt verbinding met de synchronisatie-engine.
 
 ![Arch1](./media/active-directory-aadconnectsync-understanding-architecture/arch1.png)
 
-Kan gegevensstroom in beide richtingen, maar deze kan niet tegelijkertijd doorlopen in beide richtingen. Met andere woorden, kan een Connector geconfigureerde tooallow gegevens tooflow van Hallo verbonden data source toosync engine of van synchronisatie-engine toohello verbonden gegevensbron, maar slechts één van deze bewerkingen kan optreden op elk gewenst moment voor een object en kenmerk. Hallo richting kan afwijken voor verschillende objecten en voor verschillende kenmerken.
+Kan gegevensstroom in beide richtingen, maar deze kan niet tegelijkertijd doorlopen in beide richtingen. Met andere woorden, een Connector om te kunnen gegevens van de gekoppelde gegevensbron om de synchronisatie-engine of van synchronisatie-engine op de gekoppelde gegevensbron kan worden geconfigureerd, maar slechts één van deze bewerkingen kan optreden op elk gewenst moment voor een object en kenmerk. De richting kan afwijken voor verschillende objecten en voor verschillende kenmerken.
 
-tooconfigure een Connector, die u opgeeft, Hallo objecttypen die u toosynchronize wilt. Hallo objecttypen geven definieert Hallo bereik van objecten die zijn opgenomen in het synchronisatieproces Hallo. de volgende stap Hallo is tooselect Hallo kenmerken toosynchronize, dat een kenmerk opnamelijst wordt genoemd. Deze instellingen kunnen op elk gewenst moment in antwoord toochanges tooyour bedrijfsregels worden gewijzigd. Wanneer u hello Azure AD Connect-installatiewizard gebruikt, worden deze instellingen voor u geconfigureerd.
+Als u wilt een Connector configureert, moet u de objecttypen die u wilt synchroniseren opgeven. Geven de objecttypen definieert het bereik van objecten die zijn opgenomen in het synchronisatieproces. De volgende stap is het selecteren van de kenmerken worden gesynchroniseerd, die een kenmerk opnamelijst wordt genoemd. Deze instellingen kunnen elk gewenst moment in reactie op wijzigingen aan uw bedrijfsregels worden gewijzigd. Wanneer u de Azure AD Connect-installatiewizard gebruikt, worden deze instellingen voor u geconfigureerd.
 
-tooexport objecten tooa verbonden gegevensbron, opnamelijst Hallo-kenmerk moet ten minste Hallo minimale vereiste toocreate typt u een specifiek object in een verbonden gegevensbron kenmerken. Bijvoorbeeld, Hallo **sAMAccountName** kenmerk moet worden opgenomen in Hallo kenmerk insluiting lijst tooexport een gebruiker object tooActive Directory omdat alle gebruikersobjecten in Active Directory moeten een **sAMAccountName**  kenmerk gedefinieerd. Hallo-installatiewizard wordt opnieuw, deze configuratie.
+Wanneer objecten wilt exporteren naar een verbonden gegevensbron, moet de opnamelijst kenmerk ten minste de kenmerken die zijn vereist voor het maken van een bepaald objecttype in een verbonden gegevensbron. Bijvoorbeeld, de **sAMAccountName** kenmerk moet worden opgenomen in de lijst met kenmerken opnemen voor het exporteren van een gebruikersobject naar Active Directory omdat alle gebruikersobjecten in Active Directory moeten hebben een **sAMAccountName** kenmerk gedefinieerd. De installatiewizard heeft opnieuw, deze configuratie.
 
-Als de gekoppelde gegevensbron Hallo gebruikmaakt van structurele onderdelen, zoals tooorganize-objecten, partities of containers, kunt u Hallo gebieden in de gekoppelde gegevensbron Hallo die worden gebruikt voor een bepaalde oplossing kunt beperken.
+Als de gekoppelde gegevensbron gebruikmaakt van structurele onderdelen, zoals partities of containers te organiseren objecten, kunt u de gebieden in de gekoppelde gegevensbron die worden gebruikt voor een bepaalde oplossing kunt beperken.
 
-### <a name="internal-structure-of-hello-sync-engine-namespace"></a>Interne structuur van Hallo sync engine naamruimte
-Hallo volledige synchronisatie-engine naamruimte bestaat uit twee naamruimten die voor het opslaan van identiteitsgegevens Hallo. Hallo twee naamruimten zijn:
+### <a name="internal-structure-of-the-sync-engine-namespace"></a>Interne structuur van de synchronisatie-engine-naamruimte
+De volledige synchronisatie-engine-naamruimte bestaat uit twee naamruimten die voor het opslaan van identiteitsgegevens. De twee naamruimten zijn:
 
-* connectorruimte hello (CS)
-* Hallo metaverse (MV)
+* De connectorruimte (CS)
+* De metaverse (MV)
 
-Hallo **connectorruimte** is een faseringsgebied dat representaties van objecten uit een bron- en Hallo kenmerken van verbonden gegevens opgegeven in de kenmerkenlijst insluiting Hallo aangewezen Hallo bevat. Hallo synchronisatie-engine gebruikt Hallo connector ruimte toodetermine wat is er gewijzigd in Hallo verbonden bron- en toostage binnenkomende gewijzigde gegevens. Hallo synchronisatie-engine gebruikt ook Hallo connector ruimte toostage uitgaande wijzigingen voor export toohello verbonden gegevensbron. Hallo synchronisatie-engine onderhoudt een afzonderlijke connectorruimte als een faseringsgebied voor elke Connector.
+De **connectorruimte** is een faseringsgebied dat weergaven van de aangewezen objecten van een verbonden gegevensbron en de kenmerken die zijn opgegeven in de lijst met kenmerken opnemen bevat. De synchronisatie-engine gebruikt het connectorgebied overgebracht om te bepalen wat er in de gekoppelde gegevensbron is gewijzigd en voor het Faseren van binnenkomende wijzigingen. De synchronisatie-engine gebruikt ook het connectorgebied overgebracht om voor te bereiden uitgaande wijzigingen voor het exporteren van de gekoppelde gegevensbron. De synchronisatie-engine heeft een afzonderlijke connectorruimte als een faseringsgebied voor elke Connector.
 
-Met behulp van een faseringsgebied Hallo synchronisatie-engine blijft onafhankelijk van Hallo verbonden gegevensbronnen en wordt niet beïnvloed door de beschikbaarheid en toegankelijkheid. Als gevolg hiervan kunt u gegevens van identiteit op elk gewenst moment door Hallo gegevens in faseringsgebied Hallo verwerken. Hallo synchronisatie-engine kan alleen Hallo wijzigingen aangebracht in de gekoppelde gegevensbron Hallo sinds Hallo laatste communicatie sessie beëindigd of push alleen Hallo wijzigingen tooidentity informatie die Hallo verbonden gegevensbron nog niet ontvangen, die beperkt aanvragen Hallo netwerkverkeer tussen Hallo synchronisatie-engine en de gekoppelde gegevensbron Hallo.
+Met behulp van een faseringsgebied de synchronisatie-engine blijft onafhankelijk van de verbonden gegevensbronnen en wordt niet beïnvloed door de beschikbaarheid en toegankelijkheid. Als gevolg hiervan kunt u gegevens van identiteit op elk gewenst moment verwerken met behulp van de gegevens in het faseringsgebied. De synchronisatie-engine kan alleen de wijzigingen in de gekoppelde gegevensbron sinds de laatste communicatie sessie beëindigd of push om alleen de wijzigingen aan de identiteitsgegevens die de gekoppelde gegevensbron nog niet ontvangen, waardoor het netwerk aanvragen verkeer tussen de synchronisatie-engine en de gekoppelde gegevensbron.
 
-Synchronisatie-engine slaat bovendien statusinformatie over alle objecten dat deze in Hallo connectorgebied overgebracht fasen. Wanneer nieuwe gegevens worden ontvangen, evalueert synchronisatie-engine altijd of Hallo gegevens al is gesynchroniseerd.
+Synchronisatie-engine slaat bovendien statusinformatie over alle objecten die deze in het connectorgebied overgebracht fasen. Wanneer nieuwe gegevens worden ontvangen, evalueert synchronisatie-engine altijd of de gegevens is gesynchroniseerd.
 
-Hallo **metaverse** is een opslagruimte die Hallo geaggregeerd identiteitsgegevens uit meerdere verbonden gegevensbronnen, zodat u één mondiale, geïntegreerde weergave van alle gecombineerde objecten bevat. Metaverse-objecten worden gemaakt op basis van gegevens van de Hallo-identiteit die is opgehaald uit Hallo verbonden gegevensbronnen en een reeks regels die u toelaten om toocustomize Hallo-synchronisatieproces.
+De **metaverse** is een opslagruimte met de samengevoegde identiteitsgegevens uit meerdere verbonden gegevensbronnen, zodat u één mondiale, geïntegreerde weergave van alle gecombineerde objecten. Metaverse-objecten worden gemaakt op basis van de gegevens van de identiteit die is opgehaald uit de verbonden gegevensbronnen en een reeks regels waarmee u het synchronisatieproces aanpassen.
 
-Hallo volgende afbeelding ziet u Hallo connector ruimte naamruimte en Hallo metaverse naamruimte binnen Hallo synchronisatie-engine.
+De volgende afbeelding ziet u de connector ruimte naamruimte en de naamruimte metaverse binnen de synchronisatie-engine.
 
 ![Arch2](./media/active-directory-aadconnectsync-understanding-architecture/arch2.png)
 
 ## <a name="sync-engine-identity-objects"></a>Synchronisatie-engine identity-objecten
-Hallo-objecten in de synchronisatie-engine Hallo zijn weergaven van de objecten in de gekoppelde gegevensbron Hallo of hello geïntegreerde weergave die engine voor het synchroniseren van die objecten. Elk synchronisatie-engine-object moet een globally unique identifier (GUID) hebben. GUID's bieden de integriteit van gegevens en snelle relaties tussen objecten.
+De objecten in de synchronisatie-engine zijn weergaven van de objecten in de gekoppelde gegevensbron, of de geïntegreerde weergave die engine voor het synchroniseren van die objecten. Elk synchronisatie-engine-object moet een globally unique identifier (GUID) hebben. GUID's bieden de integriteit van gegevens en snelle relaties tussen objecten.
 
 ### <a name="connector-space-objects"></a>Connector ruimteobjecten
-Wanneer synchronisatie-engine met een verbonden gegevensbron communiceert, Hallo identiteitsgegevens in de gekoppelde gegevensbron Hallo leest en die informatie toocreate een representatie van Hallo identiteit object gebruikt in Hallo connectorgebied overgebracht. U kunt maken of deze objecten afzonderlijk verwijderen. U kunt alle objecten in een connectorruimte echter handmatig verwijderen.
+Wanneer synchronisatie-engine met een verbonden gegevensbron communiceert, leest de gegevens van identiteit in de gekoppelde gegevensbron en die gegevens worden gebruikt voor het maken van een weergave van het object identiteit in het connectorgebied overgebracht. U kunt maken of deze objecten afzonderlijk verwijderen. U kunt alle objecten in een connectorruimte echter handmatig verwijderen.
 
-Alle objecten in Hallo connectorgebied overgebracht hebben twee kenmerken:
+Alle objecten in het connectorgebied overgebracht hebben twee kenmerken:
 
 * Een globally unique identifier (GUID)
 * Een DN-naam (Distinguished Name)
 
-Als Hallo verbonden gegevensbron wijst een uniek kenmerk toohello object en objecten in Hallo connectorgebied overgebracht kunnen ook geen ankerkenmerk hebben. Hallo ankerkenmerk identificatie unieke van een object in de gekoppelde gegevensbron Hallo. Hallo synchronisatie-engine gebruikt Hallo anker toolocate Hallo bijbehorende weergave van dit object in de gekoppelde gegevensbron Hallo. Synchronisatie-engine wordt ervan uitgegaan dat Hallo anker van een object nooit wijzigingen gedurende de levensduur Hallo van Hallo-object.
+Als de gekoppelde gegevensbron wijst een uniek kenmerk toe aan het object, kunnen klikt u vervolgens objecten in de connectorruimte ook hebben geen ankerkenmerk. Het ankerkenmerk identificatie unieke van een object in de gekoppelde gegevensbron. De synchronisatie-engine maakt gebruik van het anker naar de bijbehorende weergave van dit object niet vinden in de gekoppelde gegevensbron. Synchronisatie-engine wordt ervan uitgegaan dat het anker van een object nooit gedurende de levensduur van het object verandert.
 
-Veel van Hallo Connectors een bekende unieke id toogenerate een anker automatisch gebruikt voor elk object wanneer deze wordt geïmporteerd. Hallo Active Directory-Connector gebruikt bijvoorbeeld Hallo **objectGUID** kenmerk voor een anker. U kunt voor verbonden gegevensbronnen die niet in een duidelijk gedefinieerde unieke id voorzien, anker generatie opgeven als onderdeel van de configuratie van de Connector Hallo.
+Veel van de verbindingslijnen een bekende unieke id gebruiken voor het genereren van een anker automatisch voor elk object wanneer deze wordt geïmporteerd. De Active Directory-Connector gebruikt bijvoorbeeld de **objectGUID** kenmerk voor een anker. U kunt voor verbonden gegevensbronnen die niet in een duidelijk gedefinieerde unieke id voorzien, anker generatie opgeven als onderdeel van de Connector-configuratie.
 
-In dat geval Hallo anker wordt samengesteld uit een of meer unieke kenmerken van een object typt, noch van welke wijzigingen en die een unieke identificeert Hallo-object in Hallo connectorruimte (bijvoorbeeld een nummer of een gebruikers-ID).
+In dat geval het anker wordt samengesteld uit een of meer unieke kenmerken van een object, noch van welke wijzigingen, en de unieke identificeert het object in de connectorruimte (bijvoorbeeld een nummer of een gebruikers-ID).
 
-Een connector space-object kan een van de volgende Hallo zijn:
+Een connector space-object kan een van de volgende zijn:
 
 * Een gefaseerde installatie-object
 * Een tijdelijke aanduiding
 
 ### <a name="staging-objects"></a>Tijdelijke objecten
-Een gefaseerde installatie object vertegenwoordigt een exemplaar van het objecttype van de gekoppelde gegevensbron Hallo aangewezen Hallo. Bovendien toohello GUID en Hallo DN-naam, een staging-object heeft altijd een waarde die Hallo-objecttype aangeeft.
+Een gefaseerde installatie object vertegenwoordigt een exemplaar van de aangewezen objecttypen van de gekoppelde gegevensbron. Naast de GUID en de DN-naam heeft een gefaseerde installatie object altijd een waarde die welk objecttype aangeeft.
 
-Tijdelijke objecten die zijn geïmporteerd altijd hebben een waarde voor Hallo ankerkenmerk. Tijdelijke objecten die nieuw zijn ingericht met synchronisatie-engine en tijdens het Hallo van wordt gemaakt in de gekoppelde gegevensbron Hallo hebben niet een waarde voor Hallo ankerkenmerk.
+Tijdelijke objecten die zijn geïmporteerd altijd hebben een waarde voor het ankerkenmerk. Staging-objecten die nieuw zijn ingericht met synchronisatie-engine en zijn bezig met wordt gemaakt in de gekoppelde gegevensbron hebben niet een waarde voor het ankerkenmerk.
 
-Tijdelijke objecten ook uitvoeren huidige waarden van de kenmerken van bedrijven en operationele informatie die nodig is voor de synchronisatie-engine tooperform Hallo-synchronisatieproces. Operationele informatie bevat vlaggen die aangeven Hallo-type van updates die zijn voorbereid op Hallo staging-object. Als een staging-object heeft ontvangen van nieuwe identiteitsgegevens uit Hallo verbonden gegevensbron die nog niet zijn verwerkt, Hallo-object is gemarkeerd als **in behandeling zijnde importeren**. Als een gefaseerde installatie object nieuwe identiteitsgegevens die nog niet verbonden geëxporteerde toohello-gegevensbron is heeft, is gemarkeerd als **in behandeling zijnde uitvoer**.
+Tijdelijke objecten ook uitvoeren huidige waarden van de kenmerken van bedrijven en operationele informatie die nodig is voor synchronisatie-engine voor het uitvoeren van het synchronisatieproces. Operationele informatie bevat vlaggen die aangeven welke typen updates die zijn voorbereid voor de staging-object. Als een staging-object heeft ontvangen van nieuwe identiteitsgegevens van de gekoppelde gegevensbron die nog niet zijn verwerkt, het object is gemarkeerd als **in behandeling zijnde importeren**. Als een gefaseerde installatie object nieuwe identiteitsgegevens die nog niet is geëxporteerd naar de gekoppelde gegevensbron heeft, is gemarkeerd als **in behandeling zijnde uitvoer**.
 
-Een gefaseerde installatie object kan ook een importeren of exporteren object. Hallo synchronisatie-engine maakt een object importeren met behulp van objectgegevens van de gekoppelde gegevensbron Hallo ontvangen. Wanneer synchronisatie-engine informatie over Hallo bestaan van een nieuw object op dat overeenkomt met een Hallo objecttypen in Hallo verbindingslijn is geselecteerd ontvangt, maakt deze een object importeren in Hallo connectorgebied overgebracht als een representatie van Hallo-object in de gekoppelde gegevensbron Hallo.
+Een gefaseerde installatie object kan ook een importeren of exporteren object. De synchronisatie-engine maakt een object importeren met behulp van objectgegevens ontvangen van de gekoppelde gegevensbron. Wanneer synchronisatie-engine informatie over het bestaan van een nieuw object die met de objecttypen die in de Connector is geselecteerd ontvangt overeenkomt, wordt een object importeren in het connectorgebied overgebracht als een representatie van het object in de gekoppelde gegevensbron.
 
-Hallo volgende afbeelding ziet u een importobject dat een object in de gekoppelde gegevensbron Hallo vertegenwoordigt.
+De volgende afbeelding ziet een importobject dat een object in de gekoppelde gegevensbron vertegenwoordigt.
 
 ![Arch3](./media/active-directory-aadconnectsync-understanding-architecture/arch3.png)
 
-Hallo synchronisatie-engine maakt een object exporteren met behulp van de objectgegevens in Hallo metaverse. Objecten exporteren zijn geëxporteerde toohello verbonden gegevensbron tijdens Hallo volgende communicatie-sessie. Vanuit het perspectief van de Hallo van Hallo synchronisatie-engine wordt export objecten bestaan niet in de gekoppelde gegevensbron Hallo nog. Hallo ankerkenmerk voor een object exporteren is daarom niet beschikbaar. Nadat het Hallo-object van synchronisatie-engine ontvangt, maakt de gekoppelde gegevensbron Hallo een unieke waarde voor ankerkenmerk Hallo van Hallo-object.
+De synchronisatie-engine maakt een object exporteren met behulp van de objectinformatie in de metaverse. Objecten exporteren worden geëxporteerd naar de gekoppelde gegevensbron tijdens de volgende communicatie. Vanuit het perspectief van de synchronisatie-engine, export objecten bestaan niet in de gekoppelde gegevensbron nog. Het ankerkenmerk voor een object exporteren is daarom niet beschikbaar. Nadat het het object van synchronisatie-engine ontvangt, maakt de gekoppelde gegevensbron een unieke waarde voor het ankerkenmerk van het object.
 
-Hallo volgende afbeelding ziet u hoe een export-object is gemaakt met behulp van de gegevens van identiteit in Hallo metaverse.
+De volgende afbeelding ziet hoe een export-object is gemaakt met behulp van de gegevens van identiteit in de metaverse.
 
 ![Arch4](./media/active-directory-aadconnectsync-understanding-architecture/arch4.png)
 
-synchronisatie-engine Hallo bevestigt Hallo exporteren van het Hallo-object door het object van de gekoppelde gegevensbron Hallo Hallo opnieuw importeren. Objecten exporteren worden objecten importeren wanneer synchronisatie-engine deze tijdens het Hallo volgende importeren uit die verbonden gegevensbron ontvangt.
+De synchronisatie-engine wordt bevestigd dat het exporteren van het object door het object van de gekoppelde gegevensbron opnieuw importeren. Objecten exporteren worden objecten importeren wanneer synchronisatie-engine ze tijdens de volgende importeren uit die verbonden gegevensbron ontvangt.
 
 ### <a name="placeholders"></a>Tijdelijke aanduidingen
-Hallo synchronisatie-engine maakt gebruik van een platte naamruimte toostore-objecten. Sommige verbonden gegevensbronnen zoals Active Directory gebruiken, een hiërarchische naamruimte. tootransform informatie van een hiërarchische naamruimte in een platte naamruimte tijdelijke aanduidingen toopreserve Hallo hiërarchie maakt gebruik van synchronisatie-engine.
+De synchronisatie-engine gebruikt een platte naamruimte voor het opslaan van objecten. Sommige verbonden gegevensbronnen zoals Active Directory gebruiken, een hiërarchische naamruimte. Voor het transformeren van gegevens uit een hiërarchische naamruimte in een platte naamruimte, gebruikt synchronisatie-engine tijdelijke aanduidingen voor het behouden van de hiërarchie.
 
-Elke tijdelijke aanduiding vertegenwoordigt een onderdeel (bijvoorbeeld een organisatie-eenheid) van hiërarchische naam van een object dat niet is geïmporteerd in synchronisatie-engine, maar vereist tooconstruct Hallo hiërarchische naam is. Gemaakt door de verwijzingen in Hallo verbonden gegevensbron tooobjects die niet van objecten in Hallo connectorgebied overgebracht Faseren hiaten in te vullen.
+Elke tijdelijke aanduiding vertegenwoordigt een onderdeel (bijvoorbeeld een organisatie-eenheid) van een hiërarchische objectnaam die niet zijn geïmporteerd in synchronisatie-engine, maar is vereist om de naam van de hiërarchische samen te stellen. Gemaakt door verwijzingen naar objecten die niet zijn staging-objecten in het connectorgebied overgebracht in de gekoppelde gegevensbron hiaten in te vullen.
 
-Hallo synchronisatie-engine gebruikt ook de tijdelijke aanduidingen toostore verwijst naar objecten die nog niet is geïmporteerd. Bijvoorbeeld, als de synchronisatie is geconfigureerde tooinclude Hallo manager kenmerk voor Hallo *Abbie Spencer* object en hello ontvangen waarde is een object dat niet geïmporteerd, zoals is *CN Lee Sperry, CN = Users, DC = = fabrikam, DC = com*, Hallo manager informatie wordt opgeslagen als tijdelijke aanduidingen in Hallo connectorgebied overgebracht. Als het beheerobject hello later wordt geïmporteerd, wordt Hallo tijdelijke aanduiding voor object overschreven door Hallo staging-object dat Hallo manager vertegenwoordigt.
+De synchronisatie-engine gebruikt ook de tijdelijke aanduidingen voor het opslaan van objecten waarnaar wordt verwezen die nog niet is geïmporteerd. Bijvoorbeeld, als de synchronisatie is zodanig geconfigureerd dat deze het kenmerk manager voor de *Abbie Spencer* object en de ontvangen waarde is een object dat niet is geïmporteerd, zoals *CN Lee Sperry, CN = Users, DC = = fabrikam, DC = com* , de manager informatie wordt opgeslagen als tijdelijke aanduidingen in het connectorgebied overgebracht. Als het object manager later wordt geïmporteerd, wordt de tijdelijke aanduiding voor object overschreven door de staging-object dat de manager vertegenwoordigt.
 
 ### <a name="metaverse-objects"></a>Metaverse-objecten
-Metaverse-object Hallo geaggregeerd weergave bevat die synchronisatie-engine heeft Hallo staging-objecten in Hallo connectorgebied overgebracht. Synchronisatie-engine maakt metaverse-objecten met behulp van Hallo informatie in objecten importeren. Verschillende connector ruimteobjecten kunnen gekoppelde tooa één metaverse-object, maar een connector space-object mag geen gekoppelde toomore dan één metaverse-object.
+Metaverse-object bevat de samengevoegde weergave die synchronisatie-engine heeft van de staging-objecten in het connectorgebied overgebracht. Synchronisatie-engine maakt metaverse-objecten met behulp van de informatie in objecten importeren. Verschillende connector ruimteobjecten kunnen worden gekoppeld aan een enkele metaverse-object, maar een connector space-object kan niet worden gekoppeld aan meer dan één metaverse-object.
 
-Metaverse-objecten kunnen niet handmatig worden gemaakt of verwijderd. Hallo synchronisatie-engine wordt automatisch verwijderd metaverse-objecten die geen space-object voor een koppeling tooany-connector in Hallo connectorgebied overgebracht.
+Metaverse-objecten kunnen niet handmatig worden gemaakt of verwijderd. De synchronisatie-engine wordt automatisch verwijderd metaverse-objecten die een koppeling naar een object van de ruimte connector geen in het connectorgebied overgebracht hebben.
 
-toomap objecten binnen een verbonden tooa bijbehorende gegevensbronobjecttype binnen Hallo metaverse, synchronisatie-engine biedt een uitgebreid schema met een vooraf gedefinieerde set objecttypen en de bijbehorende kenmerken. U kunt nieuwe objecttypen en kenmerken voor metaverse-objecten maken. Kenmerken kunnen worden één waarde of meerdere waarden en Hallo kenmerktypen kunnen tekenreeksen, verwijzingen, cijfers en Boole-waarden zijn.
+Synchronisatie-engine biedt om objecten in een verbonden gegevensbron toewijzen aan een corresponderende objecttype binnen de metaverse, een uitgebreid schema met een vooraf gedefinieerde set objecttypen en de bijbehorende kenmerken. U kunt nieuwe objecttypen en kenmerken voor metaverse-objecten maken. Kenmerken kunnen worden één waarde of meerdere waarden en de kenmerktypen kunnen tekenreeksen, verwijzingen, cijfers en Boole-waarden zijn.
 
 ### <a name="relationships-between-staging-objects-and-metaverse-objects"></a>Relaties tussen fasering en metaverse-objecten
-Hallo-gegevensstroom wordt binnen Hallo sync engine naamruimte ingeschakeld door Hallo koppeling relatie tussen fasering en metaverse-objecten. Een gefaseerde installatie object die gekoppelde tooa metaverse-object heet een **gekoppelde object** (of **connectorobject**). Een gefaseerde installatie-object dat is geen gekoppelde tooa metaverse-object heet een **object niet langer lid** (of **disconnector object**). Hallo voorwaarden toegevoegd en geen lid meer zijn voorkeur toonot Verwar Hello Connectors die verantwoordelijk is voor het importeren en exporteren van gegevens uit een gekoppelde adreslijst.
+In de naamruimte van synchronisatie-engine, wordt de gegevensstroom ingeschakeld door de relatie van de koppeling tussen fasering en metaverse-objecten. Een gefaseerde installatie-object dat is gekoppeld aan een metaverse-object heet een **gekoppelde object** (of **connectorobject**). Een gefaseerde installatie-object dat niet is gekoppeld aan een metaverse-object heet een **object niet langer lid** (of **disconnector object**). De voorwaarden die lid is en niet langer lid zijn van voorkeur niet gehaald met de Connectors die verantwoordelijk is voor het importeren en exporteren van gegevens vanuit een verbonden map.
 
-Tijdelijke aanduidingen zijn nooit gekoppelde tooa metaverse-object
+Tijdelijke aanduidingen zijn nooit gekoppeld aan een metaverse-object
 
-Een gekoppelde object bestaat uit een gefaseerde installatie object en de gekoppelde relatie tooa één metaverse-object. Gekoppelde objecten zijn gebruikte toosynchronize kenmerkwaarden tussen een object van de ruimte connector en metaverse-object.
+Een gekoppelde object bestaat uit een gefaseerde installatie object en de gekoppelde relatie met een enkele metaverse-object. Gekoppelde objecten worden gebruikt voor het synchroniseren van kenmerkwaarden tussen een object van de ruimte connector en metaverse-object.
 
-Wanneer een gefaseerde installatie object verandert in een gekoppelde object tijdens de synchronisatie, kunnen de kenmerken vloeien tussen die Hallo staging-object en Hallo metaverse-object. Kenmerkstroom bidirectionele en is geconfigureerd met behulp van kenmerk importeren en exporteren kenmerk regels.
+Wanneer een gefaseerde installatie object verandert in een gekoppelde object tijdens de synchronisatie, kunnen kenmerken stromen tussen de staging-object en het metaverse-object. Kenmerkstroom bidirectionele en is geconfigureerd met behulp van kenmerk importeren en exporteren kenmerk regels.
 
-Een object van de ruimte één connector kan gekoppelde tooonly één metaverse-object zijn. Elke metaverse-object mag echter gekoppelde toomultiple connector ruimteobjecten in dezelfde Hallo of in verschillende connectorspaces, zoals wordt weergegeven in de volgende illustratie Hallo.
+Een object van de ruimte één connector kan worden gekoppeld aan slechts één metaverse-object. Elke metaverse-object kan echter worden gekoppeld aan meerdere connector ruimteobjecten in dezelfde of verschillende connectorspaces, zoals wordt weergegeven in de volgende afbeelding.
 
 ![Arch5](./media/active-directory-aadconnectsync-understanding-architecture/arch5.png)
 
-Hallo relatie tussen Hallo staging-object gekoppeld en metaverse-object is permanent en kan worden verwijderd door regels die u opgeeft.
+De gekoppelde relatie tussen de staging-object en metaverse-object is permanent en kan alleen door regels die u opgeeft worden verwijderd.
 
-Een object niet langer lid is een test-object dat is geen gekoppelde tooany metaverse-object. Hallo-kenmerk waarden van een object niet langer lid niet zijn verwerkt alle verdere binnen Hallo metaverse. Hallo kenmerk waarden van het bijbehorende object in de gekoppelde gegevensbron Hallo Hallo niet worden bijgewerkt door synchronisatie-engine.
+Een object niet langer lid is een test-object dat niet is gekoppeld aan een metaverse-object. Het kenmerk waarden van een object niet langer lid niet zijn verwerkt alle verdere binnen de metaverse. De waarden van het kenmerk van het bijbehorende object in de gekoppelde gegevensbron wordt niet bijgewerkt met de synchronisatie-engine.
 
-U kunt met behulp van afzonderlijke objecten opslaan van gegevens van identiteit in synchronisatie-engine en later verwerken. Een gefaseerde installatie object behouden als een object niet langer lid in Hallo connectorruimte heeft veel voordelen. Omdat het Hallo-systeem is al opgezet Hallo vereist informatie over dit object, maar het is niet nodig toocreate een weergave van dit object opnieuw tijdens Hallo naast importeren uit de gekoppelde gegevensbron Hallo. Op deze manier synchronisatie-engine heeft altijd een volledige momentopname van de gekoppelde gegevensbron hello, zelfs als er geen huidige verbinding toohello verbonden gegevensbron. Afzonderlijke objecten kunnen worden geconverteerd in gekoppelde objecten, en omgekeerd, afhankelijk van het Hallo-regels die u opgeeft.
+U kunt met behulp van afzonderlijke objecten opslaan van gegevens van identiteit in synchronisatie-engine en later verwerken. Een gefaseerde installatie object behouden als een afzonderlijke object in het connectorgebied overgebracht heeft veel voordelen. Omdat de vereiste informatie over dit object is al door het systeem worden opgezet, is het niet nodig voor het maken van een weergave van dit object opnieuw tijdens de volgende import van de gekoppelde gegevensbron. Op deze manier synchronisatie-engine heeft altijd een volledige momentopname van de gekoppelde gegevensbron, zelfs als er momenteel geen verbinding met de gekoppelde gegevensbron. Afzonderlijke objecten kunnen worden geconverteerd naar de gekoppelde objecten, en vice versa, afhankelijk van de regels die u opgeeft.
 
-Een object importeren wordt als een object niet langer lid gemaakt. Een export-object moet een gekoppelde object. Hallo system logische met deze regel wordt afgedwongen en wordt elke export-object is geen gekoppelde object verwijderd.
+Een object importeren wordt als een object niet langer lid gemaakt. Een export-object moet een gekoppelde object. De systeemlogica met deze regel wordt afgedwongen en verwijdert u elke export-object dat is geen gekoppelde object.
 
 ## <a name="sync-engine-identity-management-process"></a>Synchronisatieproces engine identity management
-Hallo identiteit beheerproces bepaalt hoe de gegevens van identiteit tussen verschillende verbonden gegevensbronnen wordt bijgewerkt. Identiteitsbeheer gebeurt in drie processen:
+Het proces van identiteit bepaalt hoe de gegevens van identiteit tussen verschillende verbonden gegevensbronnen wordt bijgewerkt. Identiteitsbeheer gebeurt in drie processen:
 
 * Importeren
 * Synchronisatie
 * Exporteren
 
-Tijdens het importproces hello evalueert de synchronisatie-engine Hallo binnenkomende gegevens van identiteit van een verbonden gegevensbron. Wanneer wijzigingen worden gedetecteerd, deze nieuwe tijdelijke objecten maakt of bestaande staging objecten in Hallo connectorruimte voor de synchronisatie bijgewerkt.
+Tijdens het importproces evalueert synchronisatie-engine de binnenkomende gegevens van de identiteit van een verbonden gegevensbron. Wanneer wijzigingen worden gedetecteerd, deze nieuwe tijdelijke objecten maakt of bestaande staging objecten in de connectorruimte voor synchronisatie van updates.
 
-Tijdens het synchronisatieproces hello, synchronisatie-engine Hallo metaverse tooreflect wijzigingen die zijn opgetreden in connectorruimte Hallo-updates en Hallo connector ruimte tooreflect wijzigingen die zijn opgetreden in Hallo metaverse-updates.
+Tijdens het synchronisatieproces synchronisatie-engine de metaverse zodat de wijzigingen die zijn opgetreden in de connectorruimte-updates en updates van het connectorgebied overgebracht naar aanleiding van wijzigingen die zijn opgetreden in de metaverse.
 
-Tijdens het exportproces hello duwt synchronisatie-engine om wijzigingen die zijn voorbereid op tijdelijke objecten en die zijn gemarkeerd als in behandeling zijnde uitvoer.
+Tijdens het exportproces duwt synchronisatie-engine om wijzigingen die zijn voorbereid op tijdelijke objecten en die zijn gemarkeerd als in behandeling zijnde uitvoer.
 
-Hallo volgende afbeelding toont waar elk van de processen Hallo optreedt als identiteit informatiestromen van één verbonden data source tooanother.
+De volgende afbeelding ziet u waar elk van de processen vindt plaats als identiteit informatiestromen van een verbonden gegevensbron naar een andere.
 
 ![Arch6](./media/active-directory-aadconnectsync-understanding-architecture/arch6.png)
 
 ### <a name="import-process"></a>Importeren
-Tijdens het importproces hello evalueert de synchronisatie-engine updates tooidentity informatie. Synchronisatie-engine Hallo identiteitsgegevens ontvangen van de gekoppelde gegevensbron Hallo Hallo identiteit informatie over een staging-object wordt vergeleken en bepaalt of updates voor Hallo staging-object is vereist. Als het benodigde tooupdate Hallo staging-object met nieuwe gegevens, worden Hallo staging-object is gemarkeerd als in behandeling zijnde importeren.
+Tijdens het importproces evalueert synchronisatie-engine updates voor gegevens van identiteit. Synchronisatie-engine vergelijkt de identiteitsgegevens van de gekoppelde gegevensbron met de id-informatie over een gefaseerde installatie object ontvangen en Hiermee bepaalt u of updates voor de staging-object is vereist. Als het bijwerken van de staging-object met nieuwe gegevens noodzakelijk is, wordt de staging-object is gemarkeerd als in behandeling zijnde importeren.
 
-Door objecten in Hallo connectorgebied overgebracht voordat de synchronisatie voor gefaseerde installatie, kan de synchronisatie-engine alleen Hallo identiteit informatie die gewijzigd verwerken. Deze procedure biedt Hallo volgende voordelen:
+Door objecten in het connectorgebied overgebracht voordat de synchronisatie voor fasering, kan synchronisatie-engine verwerken van alleen de gegevens van identiteit die is gewijzigd. Deze procedure biedt de volgende voordelen:
 
-* **Efficiënte synchronisatie**. Hallo en de hoeveelheid gegevens verwerkt tijdens de synchronisatie wordt geminimaliseerd.
-* **Efficiënte hersynchronisatie**. U kunt wijzigen hoe de synchronisatie-engine identiteitsgegevens zonder herstellen van verbindingen Hallo sync engine toohello gegevensbron worden verwerkt.
-* **Mogelijkheid toopreview synchronisatie**. U kunt synchronisatie tooverify uw veronderstellingen over Hallo identity management proces kloppen bekijken.
+* **Efficiënte synchronisatie**. De hoeveelheid gegevens verwerkt tijdens de synchronisatie wordt geminimaliseerd.
+* **Efficiënte hersynchronisatie**. U kunt wijzigen hoe de synchronisatie-engine identiteitsgegevens zonder opnieuw verbinding te maken met de gegevensbron in de synchronisatie-engine verwerkt.
+* **Mogelijkheid om een voorbeeld van de synchronisatie te**. U kunt een voorbeeld van synchronisatie om te controleren of uw veronderstellingen over het beheerproces identiteit juist zijn.
 
-Voor elk object dat is opgegeven in Hallo Connector, probeert de synchronisatie-engine Hallo eerst toolocate een representatie van Hallo-object in connectorruimte Hallo Hallo Connector. Synchronisatie-engine onderzoekt alle tijdelijke objecten in Hallo connectorgebied overgebracht en een bijbehorende staging-object met een overeenkomende ankerkenmerk toofind probeert. Als er geen bestaande staging-object een overeenkomende kenmerk verankeren heeft, synchronisatie-engine probeert toofind een bijbehorende test-object met Hallo DN dezelfde-naam.
+Voor elk object dat is opgegeven in de Connector, probeert de synchronisatie-engine eerst naar een weergave van het object niet vinden in het connectorgebied overgebracht van de Connector. Synchronisatie-engine alle tijdelijke objecten in de connectorruimte moet worden gecontroleerd en wordt geprobeerd een bijbehorende test-object met een overeenkomende ankerkenmerk niet vinden. Als er geen bestaande staging-object een overeenkomende ankerkenmerk heeft, wordt de synchronisatie-engine gezocht naar een overeenkomende staging-object met dezelfde DN-naam.
 
-Wanneer synchronisatie-engine een gefaseerde installatie object die overeenkomt met de door de DN-naam, maar niet door anker vindt, hello speciaal gedrag volgende gebeurt:
+Wanneer synchronisatie-engine vindt een test-object dat overeenkomt met de door de DN-naam, maar niet door anker, gebeurt het volgende speciale:
 
-* Als Hallo-object zich bevindt in Hallo connectorruimte heeft geen anker en vervolgens synchronisatie-engine dit object verwijdert uit Hallo connectorruimte en markeert Hallo metaverse-object is het gekoppelde tooas **opnieuw inrichten op de volgende synchronisatie uitvoeren**. Het maakt vervolgens Hallo nieuw import-object.
-* Als het Hallo-object in de Hallo connector schijfruimte gevonden met een anker heeft, vervolgens synchronisatie-engine wordt ervan uitgegaan dat dit object is gewijzigd of verwijderd uit Hallo verbonden directory. Een tijdelijke, nieuwe DN-naam voor Hallo connector ruimte object wilt toewijzen zodat deze inkomende hello-object kunt voorbereiden. Hallo oude object wordt vervolgens **tijdelijke**, wachten tot Hallo Connector tooimport Hallo hernoemen of verwijderen van een tooresolve Hallo situatie.
+* Als het object zich in de connectorruimte geen anker heeft, wordt synchronisatie-engine wordt dit object verwijderd uit het connectorgebied overgebracht en markeert de metaverse-object is gekoppeld aan een als **opnieuw inrichten op de volgende synchronisatie uitvoeren**. Vervolgens wordt de nieuwe importobject gemaakt.
+* Als het object zich in de connectorruimte met een anker heeft, klikt u vervolgens synchronisatie-engine wordt ervan uitgegaan dat dit object is gewijzigd of verwijderd uit de directory verbonden. Een tijdelijke, nieuwe DN-naam voor het object van de ruimte connector wilt toewijzen zodat deze het binnenkomende object kunt voorbereiden. Er wordt vervolgens het oude object **tijdelijke**, wachten tot de Connector voor het importeren van de hernoemen of verwijderen van de situatie oplossen.
 
-Als de synchronisatie-engine wordt gezocht naar een staging-object dat overeenkomt met toohello object opgegeven in het Hallo-Connector, bepaalt wat voor soort wijzigingen tooapply. Bijvoorbeeld, synchronisatie-engine kan hernoemen of verwijderen van Hallo-object in de gekoppelde gegevensbron Hallo of deze kenmerkwaarden Hallo-object kan alleen worden bijgewerkt.
+Als de synchronisatie-engine wordt gezocht naar een staging-object dat overeenkomt met het opgegeven object in de Connector, bepaalt welke wijzigingen toe te passen. Bijvoorbeeld, synchronisatie-engine kan hernoemen of verwijderen van het object in de gekoppelde gegevensbron of deze kenmerkwaarden van het object kan alleen worden bijgewerkt.
 
-Tijdelijke objecten met de bijgewerkte gegevens zijn gemarkeerd als in behandeling zijnde importeren. Er zijn verschillende typen wacht op invoer beschikbaar. Afhankelijk van Hallo resultaat van het importproces Hallo heeft een gefaseerde installatie-object in Hallo connectorgebied overgebracht een Hallo in behandeling zijnde importeren typen te volgen:
+Tijdelijke objecten met de bijgewerkte gegevens zijn gemarkeerd als in behandeling zijnde importeren. Er zijn verschillende typen wacht op invoer beschikbaar. Afhankelijk van het resultaat van het importproces heeft een gefaseerde installatie-object in het connectorgebied overgebracht een van de volgende opties in behandeling zijnde importeren typen:
 
-* **Geen**. Er zijn geen wijzigingen tooany van kenmerken Hallo Hallo staging-object zijn beschikbaar. Synchronisatie-engine vlag dit type niet als in behandeling zijnde importeren.
-* **Voeg**. Hallo staging-object is een nieuw object importeren in Hallo connectorgebied overgebracht. Dit type vlaggen synchronisatie-engine als in behandeling zijnde importeren voor verdere verwerking in Hallo metaverse.
-* **Update**. Synchronisatie-engine in Hallo connectorgebied overgebracht gevonden met een bijbehorende test-object en dit type als in behandeling zijnde importeren vlaggen zodat updates toohello kenmerken kunnen worden verwerkt in Hallo metaverse. Updates bevatten object wijzigen.
-* **Verwijder**. Synchronisatie-engine in Hallo connectorgebied overgebracht gevonden met een bijbehorende test-object en het markeren van dit type als in behandeling zijnde importeren zodat hello gekoppelde object kan worden verwijderd.
-* **Verwijderen/toevoegen**. Synchronisatie-engine in gevonden met een bijbehorende test-object Hallo connectorgebied overgebracht, maar Hallo objecttypen komen niet overeen. In dit geval een verwijderen toevoegen wijziging tijdelijk worden opgeslagen. Een delete-toevoegen wijziging geeft aan toohello synchronisatie-engine die een volledige hersynchronisatie van dit object moet worden uitgevoerd omdat verschillende sets van regels toothis object van toepassing wanneer Hallo objecttype wordt gewijzigd.
+* **Geen**. Er zijn geen wijzigingen aan een van de kenmerken van de staging-object beschikbaar. Synchronisatie-engine vlag dit type niet als in behandeling zijnde importeren.
+* **Voeg**. De staging-object is een nieuw object importeren in het connectorgebied overgebracht. Dit type vlaggen synchronisatie-engine als in behandeling zijnde importeren voor verdere verwerking in de metaverse.
+* **Update**. Synchronisatie-engine in het connectorgebied overgebracht gevonden met een bijbehorende test-object en het markeren van dit type als in behandeling zijnde importeren, zodat de updates voor de kenmerken kunnen worden verwerkt in de metaverse. Updates bevatten object wijzigen.
+* **Verwijder**. Synchronisatie-engine in het connectorgebied overgebracht gevonden met een bijbehorende test-object en het markeren van dit type als in behandeling zijnde importeren, zodat het gekoppelde object kan worden verwijderd.
+* **Verwijderen/toevoegen**. Synchronisatie-engine wordt een bijbehorende test-object gevonden in het connectorgebied overgebracht, maar de objecttypen komen niet overeen. In dit geval een verwijderen toevoegen wijziging tijdelijk worden opgeslagen. Een delete-toevoegen wijziging geeft aan dat de synchronisatie-engine dat een volledige hersynchronisatie van dit object omdat verschillende sets van regels op dit object toepassen wanneer de wijzigingen van het objecttype moet plaatsvinden.
 
-Hallo instelling in behandeling zijnde importeren status van een gefaseerde installatie object, is het mogelijk tooreduce Hallo aanzienlijke hoeveelheid gegevens verwerkt tijdens de synchronisatie omdat hierdoor kan Hallo system tooprocess alleen objecten die gegevens zijn bijgewerkt.
+Door de status in behandeling zijnde importeren van een gefaseerde installatie-object is ingesteld, is het mogelijk te verminderen aanzienlijk de hoeveelheid gegevens verwerkt tijdens de synchronisatie omdat hierdoor dus kan het systeem verwerkt alleen objecten die gegevens zijn bijgewerkt.
 
 ### <a name="synchronization-process"></a>Synchronisatieproces
 Synchronisatie bestaat uit twee verwante processen:
 
-* Inkomende synchronisatie, wanneer de inhoud Hallo van Hallo metaverse wordt bijgewerkt door Hallo gegevens in Hallo connectorgebied overgebracht.
-* Uitgaande synchronisatie, wanneer de inhoud Hallo Hallo connector ruimte wordt bijgewerkt met gegevens in Hallo metaverse.
+* Inkomende synchronisatie, wanneer de inhoud van de metaverse wordt bijgewerkt met behulp van de gegevens in het connectorgebied overgebracht.
+* Uitgaande synchronisatie, wanneer de inhoud van het connectorgebied overgebracht wordt bijgewerkt met gegevens in de metaverse.
 
-Met Hallo informatie gefaseerde in Hallo connectorruimte, maakt hello inkomende synchronisatie in Hallo metaverse Hallo geïntegreerd weergave van het Hallo-gegevens die zijn opgeslagen in Hallo verbonden gegevensbronnen. Alle tijdelijke objecten of alleen de met een in behandeling zijnde importeren informatie worden samengevoegd, afhankelijk van hoe Hallo regels zijn geconfigureerd.
+Met behulp van de informatie in het connectorgebied overgebracht voorbereid maakt tijdens de inkomende synchronisatie in de metaverse de geïntegreerde weergave van de gegevens die zijn opgeslagen in de verbonden gegevensbronnen. Alle tijdelijke objecten of alleen de met een in behandeling zijnde importeren informatie worden samengevoegd, afhankelijk van hoe de regels zijn geconfigureerd.
 
-Hallo uitgaande synchronisatie proces updates exporteren objecten als metaverse objecten wijzigen.
+De proces-updates voor uitgaande synchronisatie exporteren objecten als metaverse objecten wijzigen.
 
-Inkomende synchronisatie maakt Hallo geïntegreerd weergave in de metaverse Hallo Hallo identiteit informatie die wordt ontvangen van Hallo verbonden gegevensbronnen. Synchronisatie-engine kan op elk gewenst moment de identiteitsgegevens verwerken met behulp van Hallo meest recente gegevens van identiteit of deze van Hallo gegevensbron verbonden heeft.
+Inkomende synchronisatie maakt de geïntegreerde weergave in de metaverse van de gegevens van de identiteit die is ontvangen van de verbonden gegevensbronnen. Synchronisatie-engine kan op elk gewenst moment de identiteitsgegevens verwerken met behulp van de meest recente gegevens van identiteit die deze uit de gekoppelde gegevensbron.
 
 **Inkomende synchronisatie**
 
-Inkomende synchronisatie bevat Hallo processen te volgen:
+Inkomende synchronisatie omvat de volgende processen:
 
-* **Inrichten** (ook wel **projectie** als het is belangrijk toodistinguish dit proces van inrichting van de uitgaande synchronisatie). Hallo synchronisatie-engine maakt een nieuw metaverse-object op basis van een gefaseerde installatie object en deze koppelingen. Inrichten is een bewerking op objectniveau.
-* **Deelnemen aan**. Synchronisatie-engine Hallo koppelt u een gefaseerde installatie object tooan bestaande metaverse-object. Een join is een bewerking op objectniveau.
-* **Importeren van de kenmerkstroom**. Synchronisatie-engine-updates Hallo kenmerkwaarden, kenmerkstroom van Hallo-object in de metaverse Hallo aangeroepen. Kenmerkstroom importeren is een kenmerk niveau bewerking uitgevoerd waarvoor een koppeling tussen een gefaseerde installatie object en metaverse-object.
+* **Inrichten** (ook wel **projectie** als het is belangrijk om te onderscheiden van dit proces van het uitgaande synchronisatie inrichting). De synchronisatie-engine maakt een nieuw metaverse-object op basis van een gefaseerde installatie object en deze koppelingen. Inrichten is een bewerking op objectniveau.
+* **Deelnemen aan**. De synchronisatie-engine is een staging-object gekoppeld aan een bestaand metaverse-object. Een join is een bewerking op objectniveau.
+* **Importeren van de kenmerkstroom**. Synchronisatie-engine-updates de kenmerkwaarden aangeroepen kenmerkstroom van het object in de metaverse. Kenmerkstroom importeren is een kenmerk niveau bewerking uitgevoerd waarvoor een koppeling tussen een gefaseerde installatie object en metaverse-object.
 
-Inrichten is alleen Hallo-proces dat objecten in Hallo metaverse maakt. Inrichten van invloed op import alleen objecten die niet langer lid objecten. Synchronisatie-engine maakt tijdens het inrichten, een metaverse-object dat overeenkomt met de objecttype toohello van Hallo importeren object en er wordt een koppeling tussen beide objecten, waardoor het maken van een gekoppelde object.
+Inrichten is het proces voor alleen die objecten worden gemaakt in de metaverse. Inrichten van invloed op import alleen objecten die niet langer lid objecten. Synchronisatie-engine maakt tijdens het inrichten, een metaverse-object dat overeenkomt met het objecttype van het object importeren en er wordt een koppeling tussen beide objecten, waardoor het maken van een gekoppelde object.
 
-Hallo join proces stelt ook een koppeling tussen objecten importeren en metaverse-object. Hallo verschil tussen join en in te richten is dat Hallo join proces dat Hallo importeren object gekoppelde tooan bestaande metaverse-object vereist, waarbij Hallo inrichten proces maakt een nieuw metaverse-object zijn.
+Het join-proces stelt ook een koppeling tussen objecten importeren en metaverse-object. Het verschil tussen join en in te richten is dat de join-proces vereist dat het importobject zijn gekoppeld aan een bestaand metaverse-object, waarbij het inrichten proces maakt een nieuw metaverse-object.
 
-Synchronisatie-engine probeert toojoin een import object tooa metaverse-object op basis van criteria die is opgegeven in de configuratie van de Synchronisatieregel Hallo.
+Synchronisatie-engine wordt geprobeerd een object importeren koppelen aan een metaverse-object op basis van criteria die is opgegeven in de configuratie van de Synchronisatieregel.
 
-Tijdens het Hallo inrichten en join processen, synchronisatie-engine gekoppeld. een object niet langer lid tooa metaverse-object, waardoor ze lid zijn. Nadat deze op objectniveau bewerkingen zijn voltooid, kunt de synchronisatie-engine Hallo kenmerkwaarden van Hallo gekoppeld metaverse-object bijwerken. Dit proces heet kenmerkstroom importeren.
+Synchronisatie-engine bevat een object niet langer lid tijdens het inrichten en join koppelingen naar een metaverse-object, waardoor ze lid zijn. Nadat deze op objectniveau bewerkingen zijn voltooid, kunt de synchronisatie-engine de kenmerkwaarden van de bijbehorende metaverse-object bijwerken. Dit proces heet kenmerkstroom importeren.
 
-Kenmerkstroom importeren wordt uitgevoerd op alle objecten voor importeren die nieuwe gegevens bevatten en gekoppelde tooa metaverse-object.
+Kenmerkstroom importeren wordt uitgevoerd op alle objecten voor importeren die nieuwe gegevens bevatten en zijn gekoppeld aan een metaverse-object.
 
 **Uitgaande synchronisatie**
 
-Uitgaande synchronisatie updates exporteren objecten als een metaverse-object wijzigen, maar wordt niet verwijderd. Hallo-doel van de uitgaande synchronisatie is tooevaluate of wijzigingen toometaverse objecten updates toostaging objecten in Hallo-connectorspaces vereisen. In sommige gevallen worden Hallo wijzigingen vereisen kunnen dat tijdelijke in alle connectorspaces objecten bijgewerkt. Tijdelijke objecten die zijn gewijzigd, zijn gemarkeerd als in behandeling zijnde uitvoer, waardoor ze objecten exporteren. Deze objecten worden later gepusht toohello verbonden gegevensbron tijdens het exportproces Hallo exporteren.
+Uitgaande synchronisatie updates exporteren objecten als een metaverse-object wijzigen, maar wordt niet verwijderd. Het doel van de uitgaande synchronisatie is om te beoordelen of wijzigingen in de metaverse-objecten nodig updates staging objecten in de connector spaties. In sommige gevallen kunnen de wijzigingen die fasering vereisen. objecten in alle connectorspaces worden bijgewerkt. Tijdelijke objecten die zijn gewijzigd, zijn gemarkeerd als in behandeling zijnde uitvoer, waardoor ze objecten exporteren. Deze objecten worden later gepusht naar de gekoppelde gegevensbron tijdens het exportproces exporteren.
 
 Uitgaande synchronisatie heeft drie processen:
 
@@ -224,37 +224,37 @@ Uitgaande synchronisatie heeft drie processen:
 * **Opheffen van inrichting**
 * **Kenmerkstroom exporteren**
 
-Inrichting en het opheffen van inrichting zijn beide bewerkingen op objectniveau. Opheffen van inrichting, is afhankelijk van de inrichting omdat alleen inrichting kunt starten. Opheffen van inrichting wordt geactiveerd wanneer de inrichting verwijdert Hallo koppeling tussen een metaverse-object en een export-object.
+Inrichting en het opheffen van inrichting zijn beide bewerkingen op objectniveau. Opheffen van inrichting, is afhankelijk van de inrichting omdat alleen inrichting kunt starten. Opheffen van inrichting wordt geactiveerd wanneer de koppeling tussen een metaverse-object en een object exporteren inrichting verwijdert.
 
-Inrichting wordt altijd geactiveerd wanneer wijzigingen toegepast tooobjects in Hallo metaverse zijn. Wanneer wijzigingen worden aangebracht toometaverse objecten, kunt synchronisatie-engine uitvoeren na taken tijdens het inrichtingsproces Hallo Hallo:
+Inrichting wordt altijd geactiveerd wanneer wijzigingen worden toegepast op objecten in de metaverse. Wanneer wijzigingen worden aangebracht in de metaverse-objecten, kan synchronisatie-engine van de volgende taken uitvoeren als onderdeel van het inrichtingsproces:
 
-* Gekoppelde objecten, waarbij een metaverse-object gekoppelde tooa nieuwe export-object is gemaakt.
+* Gekoppelde objecten, waarbij een metaverse-object is gekoppeld aan een nieuwe export-object maken.
 * Wijzig de naam van een gekoppelde object.
 * Meld de koppelingen tussen een metaverse-object en staging-objecten, het maken van een object niet langer lid.
 
-Als inrichting sync engine toocreate een nieuw connectorobject is vereist, is Hallo staging-object toowhich hello metaverse-object is gekoppeld altijd een object exporteren, omdat Hallo object nog niet in de gekoppelde gegevensbron Hallo bestaat.
+Als inrichting synchronisatie-engine voor het maken van een nieuw connectorobject is vereist, de fasering object waaraan het metaverse-object is gekoppeld is altijd een object exporteren, omdat het object nog niet in de gekoppelde gegevensbron bestaat.
 
-Als de synchronisatie-engine toodisjoin een lid-object maken van een object niet langer lid, inrichten vereist wordt opheffen van inrichting geactiveerd. Hallo opheffen van inrichting proces verwijdert Hallo-object.
+Als de synchronisatie-engine een gekoppelde-object maken van een object niet langer lid, meld inrichten, vereist voor wordt opheffen van inrichting geactiveerd. Het proces van inrichting verwijdert het object.
 
-Tijdens het opheffen van inrichting verwijdert verwijderen van een object exporteren fysiek niet Hallo-object. Hallo is object gemarkeerd als **verwijderd**, wat betekent dat Hallo delete-bewerking is voorbereid op Hallo-object.
+Tijdens het opheffen van inrichting verwijdert verwijderen van een object exporteren fysiek niet het object. Het object is gemarkeerd als **verwijderd**, wat betekent dat de bewerking delete is voorbereid op het object.
 
-Kenmerkstroom exporteren vindt ook plaats tijdens Hallo uitgaande synchronisatieproces soortgelijke wijze als toohello dat importeren kenmerkstroom treedt op tijdens inkomende synchronisatie. Kenmerkstroom exporteren doet zich alleen tussen de metaverse en export-objecten die zijn gekoppeld.
+Kenmerkstroom exporteren vindt ook plaats tijdens het uitgaande synchronisatie wordt op dezelfde manier dat importeren kenmerkstroom tijdens de inkomende synchronisatie plaatsvindt. Kenmerkstroom exporteren doet zich alleen tussen de metaverse en export-objecten die zijn gekoppeld.
 
 ### <a name="export-process"></a>Exportproces
-Synchronisatie-engine onderzoekt alle export-objecten die zijn gemarkeerd als in behandeling zijnde uitvoer in Hallo connectorgebied overgebracht tijdens het exportproces hello, en vervolgens verzendt updates toohello verbonden gegevensbron.
+Synchronisatie-engine controleert tijdens het exporteren alle export-objecten die zijn gemarkeerd als in behandeling zijnde uitvoer van het connectorgebied overgebracht en stuurt vervolgens updates naar de gekoppelde gegevensbron.
 
-Hallo synchronisatie-engine kunt bepalen Hallo succes van het exporteren van een maar voldoende kan niet bepalen Hallo identity management-proces is voltooid. Objecten in de gekoppelde gegevensbron Hallo kunnen altijd worden gewijzigd door andere processen. Omdat de synchronisatie-engine heeft een permanente verbinding toohello verbonden gegevensbron geen, maar het is niet voldoende toomake veronderstellingen over Hallo eigenschappen van een object in de gekoppelde gegevensbron Hallo op basis van een succesvolle export-melding alleen.
+De synchronisatie-engine kunt bepalen het succes van het exporteren van een maar voldoende kan niet bepalen of het proces van identiteit voltooid is. Objecten in de gekoppelde gegevensbron kunnen altijd worden gewijzigd door andere processen. Omdat de synchronisatie-engine heeft geen een permanente verbinding met de gekoppelde gegevensbron, is het niet voldoende om veronderstellingen over de eigenschappen van een object in de gekoppelde gegevensbron op basis van een succesvolle export-melding alleen.
 
-Bijvoorbeeld een proces in Hallo zich verbonden gegevensbron kunnen de kenmerken wijzigen Hallo object back-tootheir oorspronkelijke waarden (dat wil zeggen, Hallo verbonden gegevensbron kan Hallo waarden overschrijven direct na het Hallo-gegevens wordt doorgeschoven, is uit door de synchronisatie-engine en heeft toegepast in de gekoppelde gegevensbron Hallo).
+Een proces in de gekoppelde gegevensbron kan bijvoorbeeld de kenmerken van het object wijzigen terug naar de oorspronkelijke waarden (dat wil zeggen, de gekoppelde gegevensbron kan de waarden overschrijven onmiddellijk nadat de gegevens worden gepusht door synchronisatie-engine en toegepast de gekoppelde gegevensbron).
 
-Hallo sync engine winkels exporteren en importeren van statusinformatie over elk staging-object. Als Hallo kenmerken die zijn opgegeven in de kenmerkenlijst insluiting Hallo zijn gewijzigd sinds de laatste export hello, Hallo opslag van importeren en exporteren status kunnen synchronisatie-engine tooreact op de juiste wijze. Synchronisatie-engine gebruikt Hallo importeren proces tooconfirm kenmerkwaarden die verbonden geëxporteerde toohello-gegevensbron zijn. Een vergelijking tussen Hallo geïmporteerd en de geëxporteerde gegevens zoals weergegeven in Hallo volgende afbeelding kunt sync engine toodetermine of Hallo exporteren geslaagd is of als moet worden herhaald toobe.
+De synchronisatie-engine winkels exporteren en importeren van statusinformatie over elk staging-object. Als de waarden van de kenmerken die zijn opgegeven in de lijst met kenmerken insluiting zijn gewijzigd sinds de laatste export, wordt de opslag van importeren en exporteren van de status Hiermee synchronisatie-engine om te reageren op de juiste wijze. Het importproces synchronisatie-engine gebruikt om te bevestigen dat de waarden van de kenmerken die zijn geëxporteerd naar de gekoppelde gegevensbron. Een vergelijking tussen de geïmporteerde en geëxporteerde gegevens, kunt zoals wordt weergegeven in de volgende afbeelding synchronisatie-engine om te bepalen of het exporteren is geslaagd is of als moet worden herhaald.
 
 ![Arch7](./media/active-directory-aadconnectsync-understanding-architecture/arch7.png)
 
-Als de synchronisatie-engine exporteert kenmerk C, die een waarde van 5 heeft, bijvoorbeeld tooa verbonden gegevensbron, C = 5 worden opgeslagen in het geheugen van de status exporteren. Elke aanvullende exporteren op dit object resulteert in een poging tooexport C = 5 toohello verbonden gegevensbron opnieuw omdat synchronisatie-engine wordt ervan uitgegaan dat deze waarde niet permanent toegepaste toohello object is (dat wil zeggen, tenzij een andere waarde onlangs is geïmporteerd van Hallo verbonden gegevensbron). Hallo export geheugen wordt gewist wanneer C = 5 tijdens een importbewerking op Hallo-object is ontvangen.
+Bijvoorbeeld, als de synchronisatie-engine exporteert kenmerk C, dat een waarde van 5, met een verbonden gegevensbron heeft, worden opgeslagen C = 5 in het geheugen van de status exporteren. Elke aanvullende exporteren op dit object resulteert in een poging tot opnieuw C = 5 worden geëxporteerd naar de gekoppelde gegevensbron omdat de synchronisatie-engine wordt ervan uitgegaan dat deze waarde niet permanent op het object toegepast is (dat wil zeggen, tenzij een andere waarde onlangs is geïmporteerd uit de gekoppelde gegevensbron). Het geheugen van de uitvoer wordt gewist wanneer C = 5 tijdens een importbewerking op het object is ontvangen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over Hallo [Azure AD Connect-synchronisatie](active-directory-aadconnectsync-whatis.md) configuratie.
+Meer informatie over de [Azure AD Connect-synchronisatie](active-directory-aadconnectsync-whatis.md) configuratie.
 
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](active-directory-aadconnect.md).
 

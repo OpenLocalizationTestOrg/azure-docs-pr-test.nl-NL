@@ -1,6 +1,6 @@
 ---
-title: aaaAzure-Import/Export metagegevens en eigenschappen bestandsindeling | Microsoft Docs
-description: Meer informatie over hoe toospecify metagegevens en eigenschappen van een of meer blobs die deel uitmaken van een importeren of exporteren van de taak.
+title: Azure Import/Export metagegevens en eigenschappen bestandsindeling | Microsoft Docs
+description: Informatie over het opgeven van metagegevens en eigenschappen voor een of meer blobs die deel uitmaken van een importeren of exporteren van de taak.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: bb13c1f1a27baea77298cb224970cd521d02d8c0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3f728ad94cdcbd32092b677f11a737ae91376720
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure Import/Export-service metagegevens en eigenschappen bestandsindeling
-U kunt de eigenschappen voor een of meer blobs en metagegevens als onderdeel van een import-taak of een taak voor exporteren opgeven. tooset metagegevens of eigenschappen voor blobs als onderdeel van een import-taak wordt gemaakt, kunt u een bestand met metagegevens of eigenschappen op de harde schijf Hallo Hallo gegevens toobe geïmporteerd met opgeven. Voor een exporttaak worden metagegevens en eigenschappen geschreven tooa eigenschappen van metagegevens of bestand dat is opgenomen op de harde schijf Hallo tooyou geretourneerd.  
+U kunt de eigenschappen voor een of meer blobs en metagegevens als onderdeel van een import-taak of een taak voor exporteren opgeven. Metagegevens of eigenschappen voor BLOB's worden gemaakt als onderdeel van een import-taak, stelt opgeven u een bestand eigenschappen of metagegevens op de harde schijf met de gegevens moeten worden geïmporteerd. Voor een exporttaak worden metagegevens en eigenschappen geschreven naar een bestand eigenschappen of metagegevens die is opgenomen op de harde schijf die aan u worden geretourneerd.  
   
 ## <a name="metadata-file-format"></a>Bestandsindeling voor metagegevens  
-Hallo-indeling van een bestand met metagegevens is als volgt:  
+De indeling van een bestand met metagegevens is als volgt:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -37,11 +37,11 @@ Hallo-indeling van een bestand met metagegevens is als volgt:
   
 |XML-Element|Type|Beschrijving|  
 |-----------------|----------|-----------------|  
-|`Metadata`|Hoofdelement|Hallo-hoofdelement van het metagegevensbestand Hallo.|  
-|`metadata-name`|Tekenreeks|Optioneel. Hallo XML-element Hallo-naam van Hallo metagegevens voor Hallo blob en de waarde geeft aan Hallo-waarde van de instelling voor Hallo-metagegevens.|  
+|`Metadata`|Hoofdelement|Het hoofdelement van het bestand met metagegevens.|  
+|`metadata-name`|Tekenreeks|Optioneel. Het XML-element bevat de naam van de metagegevens voor de blob en de waarde geeft de waarde van de instelling voor metagegevens.|  
   
 ## <a name="properties-file-format"></a>Eigenschappen-bestandsindeling  
-Hallo-indeling van een eigenschappenbestand is als volgt:  
+De indeling van een eigenschappenbestand is als volgt:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -59,15 +59,15 @@ Hallo-indeling van een eigenschappenbestand is als volgt:
   
 |XML-Element|Type|Beschrijving|  
 |-----------------|----------|-----------------|  
-|`Properties`|Hoofdelement|Hallo-hoofdelement van Hallo eigenschappenbestand.|  
-|`Last-Modified`|Tekenreeks|Optioneel. Hallo tijd laatste wijziging voor Hallo blob. Voor exporttaken.|  
-|`Etag`|Tekenreeks|Optioneel. Hallo ETag-waarde van de blob. Voor exporttaken.|  
-|`Content-Length`|Tekenreeks|Optioneel. Hallo grootte van de blob Hallo in bytes. Voor exporttaken.|  
-|`Content-Type`|Tekenreeks|Optioneel. Hallo-inhoudstype van Hallo blob.|  
-|`Content-MD5`|Tekenreeks|Optioneel. Hallo MD5-hash van de blob.|  
-|`Content-Encoding`|Tekenreeks|Optioneel. Hallo van blob-inhoud codering.|  
-|`Content-Language`|Tekenreeks|Optioneel. Hallo inhoud van de blob-taal.|  
-|`Cache-Control`|Tekenreeks|Optioneel. Hallo cache besturingselement tekenreeks voor Hallo blob.|  
+|`Properties`|Hoofdelement|Het hoofdelement van het eigenschappenbestand.|  
+|`Last-Modified`|Tekenreeks|Optioneel. Tijd laatste wijziging voor de blob. Voor exporttaken.|  
+|`Etag`|Tekenreeks|Optioneel. De ETag-waarde van de blob. Voor exporttaken.|  
+|`Content-Length`|Tekenreeks|Optioneel. De grootte van de blob in bytes. Voor exporttaken.|  
+|`Content-Type`|Tekenreeks|Optioneel. Het inhoudstype van de blob.|  
+|`Content-MD5`|Tekenreeks|Optioneel. De blob-MD5-hash.|  
+|`Content-Encoding`|Tekenreeks|Optioneel. De blob-inhoud codering.|  
+|`Content-Language`|Tekenreeks|Optioneel. Inhoud van de blob-taal.|  
+|`Cache-Control`|Tekenreeks|Optioneel. De cache-control-tekenreeks voor de blob.|  
 
 ## <a name="next-steps"></a>Volgende stappen
 

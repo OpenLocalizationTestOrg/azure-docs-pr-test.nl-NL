@@ -1,6 +1,6 @@
 ---
-title: een volledige Linux-omgeving Hello Azure CLI 1.0 aaaCreate | Microsoft Docs
-description: Opslag, een Linux-VM, een virtueel netwerk en subnet, een load balancer, een NIC, een openbare IP-adres en een netwerkbeveiligingsgroep maken via Hallo gemalen met behulp van hello Azure CLI 1.0.
+title: Een volledige Linux-omgeving maken met de Azure CLI 1.0 | Microsoft Docs
+description: Maken van opslag, een Linux-VM, een virtueel netwerk en subnet, een load balancer, een NIC, een openbare IP-adres en een netwerkbeveiligingsgroep via een compleet nieuwe met behulp van de Azure CLI 1.0.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -15,117 +15,117 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 7fe00e138704fe9c9a1c9b87a7dd1afd6174e527
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 201ccd523e49d638ace50fbc0ffdceb705b35473
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="create-a-complete-linux-environment-with-hello-azure-cli-10"></a>Een volledige Linux-omgeving maken met Azure CLI 1.0 Hallo
-In dit artikel verder gaan we met een eenvoudig netwerk met een combinatie van virtuele machines die gebruikt voor ontwikkeling en eenvoudige computing worden en een load balancer. We doorlopen Hallo proces door de opdracht, totdat u twee hebt, beveiligde virtuele Linux-machines toowhich die u verbinding van een willekeurige plaats op Hallo Internet maken kunt. Vervolgens kunt u op toomore complexe netwerken en omgevingen.
+# <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Een volledige Linux-omgeving maken met de Azure CLI 1.0
+In dit artikel verder gaan we met een eenvoudig netwerk met een combinatie van virtuele machines die gebruikt voor ontwikkeling en eenvoudige computing worden en een load balancer. We doorlopen het proces door opdracht totdat u twee werkt, beveiligde virtuele Linux-machines waarmee u verbinding hebt van een willekeurige plaats op het Internet maken kunt. Vervolgens kunt u op verplaatsen naar complexe netwerken en omgevingen.
 
-Langs Hallo manier u meer informatie over Hallo afhankelijkheidshiërarchie dat Hallo Resource Manager-implementatiemodel u biedt, en over hoeveel power biedt. Nadat u hoe Hallo systeem is gemaakt ziet, kunt u opnieuw bouwen het veel sneller met behulp van [Azure Resource Manager-sjablonen](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ook, nadat u leert hoe onderdelen van uw omgeving Hallo bij elkaar passen, sjablonen tooautomate maken ze eenvoudiger.
+Langs de manier u meer informatie over de afhankelijkheidshiërarchie of het implementatiemodel van Resource Manager u biedt en over hoeveel inschakelen biedt. Nadat u hoe het systeem is gemaakt ziet, kunt u opnieuw bouwen het veel sneller met behulp van [Azure Resource Manager-sjablonen](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Nadat u meer wilt hoe de onderdelen van uw omgeving bij elkaar passen weten, maken van sjablonen voor het automatiseren van hen wordt ook eenvoudiger.
 
-Hallo-omgeving bevat:
+De omgeving bevat:
 
 * Twee virtuele machines in een beschikbaarheidsset.
 * Een load balancer met een regel voor load balancing op poort 80.
-* Netwerkbeveiligingsgroep (NSG) regels tooprotect tegen ongewenste verkeer van de VM.
+* (NSG) netwerkbeveiligingsgroepen uw virtuele machine te beveiligen tegen ongewenste verkeer.
 
-toocreate deze aangepaste omgeving, moet u Hallo nieuwste [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in de modus Resource Manager (`azure config mode arm`). U moet ook een JSON hulpprogramma parseren. In dit voorbeeld wordt [jq](https://stedolan.github.io/jq/).
+Als u wilt deze aangepaste omgeving maken, moet u de meest recente [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in de modus Resource Manager (`azure config mode arm`). U moet ook een JSON hulpprogramma parseren. In dit voorbeeld wordt [jq](https://stedolan.github.io/jq/).
 
 
-## <a name="cli-versions-toocomplete-hello-task"></a>CLI-versies toocomplete Hallo taak
-U kunt met een van de volgende versies van de CLI Hallo Hallo-taak uitvoeren:
+## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren
+U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 
-- [Azure CLI 1.0](#quick-commands) – onze CLI voor Hallo klassieke en resource management implementatiemodellen (in dit artikel)
-- [Azure CLI 2.0](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -onze volgende generatie CLI voor Hallo resource management-implementatiemodel
+- [Azure CLI 1.0](#quick-commands) – onze CLI voor het klassieke en resource management-implementatiemodel (in dit artikel)
+- [Azure CLI 2.0](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
 
 
 ## <a name="quick-commands"></a>Snelle opdrachten
-Als u moet tooquickly Hallo taak, na de sectie details Hallo Hallo baseren opdrachten tooupload een tooAzure VM. Meer gedetailleerde informatie en context voor elke stap vindt u in de rest Hallo van Hallo document, te beginnen [hier](#detailed-walkthrough).
+Als u nodig hebt voor de taak, de volgende sectie details snel de base-opdrachten voor het uploaden van een virtuele machine in Azure. Meer gedetailleerde informatie en context voor elke stap vindt u in de rest van het document, te beginnen [hier](#detailed-walkthrough).
 
-Zorg ervoor dat u hebt [hello Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aangemeld en het gebruik van Resource Manager-modus:
+Zorg ervoor dat u hebt [de Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aangemeld en het gebruik van Resource Manager-modus:
 
 ```azurecli
 azure config mode arm
 ```
 
-In Hallo vervangen volgende voorbeelden parameternamen voorbeeld door uw eigen waarden. De namen van de voorbeeld-parameter `myResourceGroup`, `mystorageaccount`, en `myVM`.
+In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter `myResourceGroup`, `mystorageaccount`, en `myVM`.
 
-Hallo resourcegroep maken. Hallo volgende voorbeeld maakt u een resourcegroep met de naam `myResourceGroup` in Hallo `westeurope` locatie:
+De resourcegroep maken. Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in de `westeurope` locatie:
 
 ```azurecli
 azure group create -n myResourceGroup -l westeurope
 ```
 
-Hallo resourcegroep controleren met behulp van Hallo JSON-parser:
+Controleer of de resourcegroep met behulp van de JSON-parser:
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Hallo-opslagaccount maken. Hallo volgende voorbeeld wordt een opslagaccount met de naam `mystorageaccount`. (Hallo opslagaccountnaam moet uniek zijn, zodat uw eigen unieke naam opgeven.)
+Het opslagaccount maken. Het volgende voorbeeld wordt een opslagaccount met de naam `mystorageaccount`. (Naam van het opslagaccount moet uniek zijn, zodat uw eigen unieke naam opgeven.)
 
 ```azurecli
 azure storage account create -g myResourceGroup -l westeurope \
   --kind Storage --sku-name GRS mystorageaccount
 ```
 
-Hallo storage-account met behulp van de JSON-parser Hallo controleren:
+Controleer of het opslagaccount met behulp van de JSON-parser:
 
 ```azurecli
 azure storage account show -g myResourceGroup mystorageaccount --json | jq '.'
 ```
 
-Hallo virtueel netwerk maken. Hallo volgende voorbeeld wordt een virtueel netwerk met de naam `myVnet`:
+Maak het virtuele netwerk. Het volgende voorbeeld wordt een virtueel netwerk met de naam `myVnet`:
 
 ```azurecli
 azure network vnet create -g myResourceGroup -l westeurope\
   -n myVnet -a 192.168.0.0/16
 ```
 
-Een subnet maken. Hallo volgende voorbeeld wordt een subnet met de naam `mySubnet`:
+Een subnet maken. Het volgende voorbeeld wordt een subnet met de naam `mySubnet`:
 
 ```azurecli
 azure network vnet subnet create -g myResourceGroup \
   -e myVnet -n mySubnet -a 192.168.1.0/24
 ```
 
-Hallo virtueel netwerk en subnet controleren met behulp van Hallo JSON-parser:
+Controleer of het virtuele netwerk en subnet met behulp van de JSON-parser:
 
 ```azurecli
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-Maak een openbare IP-adres. Hallo volgende voorbeeld maakt u een openbaar IP-adres met de naam `myPublicIP` met Hallo DNS-naam van `mypublicdns`. (Hallo DNS-naam moet uniek zijn, zodat uw eigen unieke naam opgeven.)
+Maak een openbare IP-adres. Het volgende voorbeeld wordt een openbaar IP-adres met de naam `myPublicIP` met de DNS-naam van `mypublicdns`. (De DNS-naam moet uniek zijn, zodat uw eigen unieke naam opgeven.)
 
 ```azurecli
 azure network public-ip create -g myResourceGroup -l westeurope \
   -n myPublicIP  -d mypublicdns -a static -i 4
 ```
 
-Hallo load balancer maken. Hallo volgende voorbeeld maakt u een load balancer met de naam `myLoadBalancer`:
+De load balancer maken. Het volgende voorbeeld wordt een load balancer met de naam `myLoadBalancer`:
 
 ```azurecli
 azure network lb create -g myResourceGroup -l westeurope -n myLoadBalancer
 ```
 
-Maak een front-end-IP-adresgroep voor Hallo load balancer, en koppel Hallo openbare IP-adres. Hallo volgende voorbeeld wordt een front-end-IP-adresgroep met de naam `mySubnetPool`:
+Maak een front-end-IP-adresgroep voor de load balancer, en koppel het openbare IP-adres. Het volgende voorbeeld wordt een front-end-IP-adresgroep met de naam `mySubnetPool`:
 
 ```azurecli
 azure network lb frontend-ip create -g myResourceGroup -l myLoadBalancer \
   -i myPublicIP -n myFrontEndPool
 ```
 
-Hallo backend-IP-adresgroep voor Hallo load balancer maken. Hallo volgende voorbeeld wordt een back-end-IP-adresgroep met de naam `myBackEndPool`:
+Maak de back-end-IP-adresgroep voor de load balancer. Het volgende voorbeeld wordt een back-end-IP-adresgroep met de naam `myBackEndPool`:
 
 ```azurecli
 azure network lb address-pool create -g myResourceGroup -l myLoadBalancer \
   -n myBackEndPool
 ```
 
-SSH inkomende netwerk address translation (NAT) regels voor Hallo load balancer maken. Hallo volgende voorbeeld maakt u twee regels van load balancer, `myLoadBalancerRuleSSH1` en `myLoadBalancerRuleSSH2`:
+SSH inkomende network address translation (NAT) regels voor de load balancer maken. Het volgende voorbeeld maakt u twee regels van load balancer, `myLoadBalancerRuleSSH1` en `myLoadBalancerRuleSSH2`:
 
 ```azurecli
 azure network lb inbound-nat-rule create -g myResourceGroup -l myLoadBalancer \
@@ -134,7 +134,7 @@ azure network lb inbound-nat-rule create -g myResourceGroup -l myLoadBalancer \
   -n myLoadBalancerRuleSSH2 -p tcp -f 4223 -b 22
 ```
 
-Maken van webinhoud Hallo inkomende NAT-regels voor Hallo de load balancer. Hallo volgende voorbeeld maakt u een regel voor load balancer met de naam `myLoadBalancerRuleWeb`:
+Maken van het web inkomende NAT-regels voor de load balancer. Het volgende voorbeeld wordt een regel voor load balancer met de naam `myLoadBalancerRuleWeb`:
 
 ```azurecli
 azure network lb rule create -g myResourceGroup -l myLoadBalancer \
@@ -142,22 +142,22 @@ azure network lb rule create -g myResourceGroup -l myLoadBalancer \
   -t myFrontEndPool -o myBackEndPool
 ```
 
-Hallo health load balancer-test maken. Hallo volgende voorbeeld wordt een TCP-test met de naam `myHealthProbe`:
+De load balancer-test health maken. Het volgende voorbeeld wordt een TCP-test met de naam `myHealthProbe`:
 
 ```azurecli
 azure network lb probe create -g myResourceGroup -l myLoadBalancer \
   -n myHealthProbe -p "tcp" -i 15 -c 4
 ```
 
-Hallo load balancer, IP-adresgroepen en NAT-regels controleren met behulp van Hallo JSON-parser:
+Controleer of de load balancer, IP-adresgroepen en NAT-regels met behulp van de JSON-parser:
 
 ```azurecli
 azure network lb show -g myResourceGroup -n myLoadBalancer --json | jq '.'
 ```
 
-Hallo eerste netwerkinterfacekaart (NIC) maken. Vervang Hallo `#####-###-###` secties met uw eigen Azure-abonnement-ID. Uw abonnement ID wordt vermeld in de uitvoer van Hallo **jq** wanneer u bekijkt hello resources die u maakt. U kunt ook uw abonnements-ID met weergeven `azure account list`.
+De eerste netwerkinterfacekaart (NIC) maken. Vervang de `#####-###-###` secties met uw eigen Azure-abonnement-ID. Uw abonnement ID wordt vermeld in de uitvoer van **jq** wanneer u de resources die u maakt. U kunt ook uw abonnements-ID met weergeven `azure account list`.
 
-Hallo volgende voorbeeld wordt een NIC met de naam `myNic1`:
+Het volgende voorbeeld wordt een NIC met de naam `myNic1`:
 
 ```azurecli
 azure network nic create -g myResourceGroup -l westeurope \
@@ -166,7 +166,7 @@ azure network nic create -g myResourceGroup -l westeurope \
   -e "/subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1"
 ```
 
-De tweede NIC Hallo maken Hallo volgende voorbeeld wordt een NIC met de naam `myNic2`:
+Maken van de tweede netwerkadapter. Het volgende voorbeeld wordt een NIC met de naam `myNic2`:
 
 ```azurecli
 azure network nic create -g myResourceGroup -l westeurope \
@@ -175,21 +175,21 @@ azure network nic create -g myResourceGroup -l westeurope \
   -e "/subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH2"
 ```
 
-Controleer of u Hallo twee NIC's met behulp van de JSON-parser Hallo:
+Controleer of de twee NIC's met behulp van de JSON-parser:
 
 ```azurecli
 azure network nic show myResourceGroup myNic1 --json | jq '.'
 azure network nic show myResourceGroup myNic2 --json | jq '.'
 ```
 
-Hallo netwerkbeveiligingsgroep maken. Hallo volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
+De netwerkbeveiligingsgroep maken. Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
 
 ```azurecli
 azure network nsg create -g myResourceGroup -l westeurope \
   -n myNetworkSecurityGroup
 ```
 
-Twee regels voor binnenkomende verbindingen voor Hallo netwerkbeveiligingsgroep toevoegen. Hallo volgende voorbeeld maakt u twee regels `myNetworkSecurityGroupRuleSSH` en `myNetworkSecurityGroupRuleHTTP`:
+Twee regels voor binnenkomende verbindingen voor de netwerkbeveiligingsgroep toevoegen. Het volgende voorbeeld maakt u twee regels `myNetworkSecurityGroupRuleSSH` en `myNetworkSecurityGroupRuleHTTP`:
 
 ```azurecli
 azure network nsg rule create -p tcp -r inbound -y 1000 -u 22 -c allow \
@@ -198,26 +198,26 @@ azure network nsg rule create -p tcp -r inbound -y 1001 -u 80 -c allow \
   -g myResourceGroup -a myNetworkSecurityGroup -n myNetworkSecurityGroupRuleHTTP
 ```
 
-Controleer of u Hallo netwerkbeveiligingsgroep en regels voor binnenkomende verbindingen met behulp van de JSON-parser Hallo:
+Controleer of de netwerkbeveiligingsgroep en de regels voor binnenkomende verbindingen met behulp van de JSON-parser:
 
 ```azurecli
 azure network nsg show -g myResourceGroup -n myNetworkSecurityGroup --json | jq '.'
 ```
 
-Hallo netwerkbeveiliging binden groep toohello twee NIC's:
+De netwerkbeveiligingsgroep binden aan de twee NIC's:
 
 ```azurecli
 azure network nic set -g myResourceGroup -o myNetworkSecurityGroup -n myNic1
 azure network nic set -g myResourceGroup -o myNetworkSecurityGroup -n myNic2
 ```
 
-Hallo beschikbaarheidsset maken. Hallo volgende voorbeeld maakt u een beschikbaarheidsset benoemde `myAvailabilitySet`:
+De beschikbaarheidsset maken. Het volgende voorbeeld wordt een benoemde beschikbaarheidsset `myAvailabilitySet`:
 
 ```azurecli
 azure availset create -g myResourceGroup -l westeurope -n myAvailabilitySet
 ```
 
-Maak Hallo eerste Linux VM. Hallo volgende voorbeeld wordt een virtuele machine met de naam `myVM1`:
+De eerste Linux VM maken. Het volgende voorbeeld wordt een virtuele machine met de naam `myVM1`:
 
 ```azurecli
 azure vm create \
@@ -235,7 +235,7 @@ azure vm create \
     --admin-username azureuser
 ```
 
-Hallo maken tweede Linux VM. Hallo volgende voorbeeld wordt een virtuele machine met de naam `myVM2`:
+De tweede Linux VM maken. Het volgende voorbeeld wordt een virtuele machine met de naam `myVM2`:
 
 ```azurecli
 azure vm create \
@@ -253,32 +253,32 @@ azure vm create \
     --admin-username azureuser
 ```
 
-Hallo JSON-parser tooverify gebruiken die alles die is gemaakt:
+Gebruik de JSON-parser om te controleren of alles die is gemaakt:
 
 ```azurecli
 azure vm show -g myResourceGroup -n myVM1 --json | jq '.'
 azure vm show -g myResourceGroup -n myVM2 --json | jq '.'
 ```
 
-Uw nieuwe omgeving tooa sjabloon tooquickly opnieuw maken nieuwe exemplaren exporteren:
+Uw nieuwe omgeving exporteren naar een sjabloon om snel nieuwe exemplaren opnieuw te maken:
 
 ```azurecli
 azure group export myResourceGroup
 ```
 
 ## <a name="detailed-walkthrough"></a>Gedetailleerd overzicht
-Hallo gedetailleerde stappen volgen wordt uitgelegd wat elke opdracht doet tijdens het samenstellen van buiten uw omgeving. Deze begrippen zijn handig als u uw eigen aangepaste omgevingen voor ontwikkeling of productie bouwen.
+De gedetailleerde stappen volgen wordt uitgelegd wat elke opdracht doet tijdens het samenstellen van buiten uw omgeving. Deze begrippen zijn handig als u uw eigen aangepaste omgevingen voor ontwikkeling of productie bouwen.
 
-Zorg ervoor dat u hebt [hello Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aangemeld en het gebruik van Resource Manager-modus:
+Zorg ervoor dat u hebt [de Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aangemeld en het gebruik van Resource Manager-modus:
 
 ```azurecli
 azure config mode arm
 ```
 
-In Hallo vervangen volgende voorbeelden parameternamen voorbeeld door uw eigen waarden. De namen van de voorbeeld-parameter `myResourceGroup`, `mystorageaccount`, en `myVM`.
+In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter `myResourceGroup`, `mystorageaccount`, en `myVM`.
 
 ## <a name="create-resource-groups-and-choose-deployment-locations"></a>Maken van resourcegroepen en locaties implementatie kiezen
-Azure-resourcegroepen zijn logische implementatie entiteiten met gegevens en metagegevens tooenable Hallo logische beheer van de configuratie van de resource-implementaties. Hallo volgende voorbeeld maakt u een resourcegroep met de naam `myResourceGroup` in Hallo `westeurope` locatie:
+Azure-resourcegroepen zijn logische implementatie entiteiten die bevatten informatie over de configuratie en metagegevens inschakelen van de logische beheer van de resource-implementaties. Het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` in de `westeurope` locatie:
 
 ```azurecli
 azure group create --name myResourceGroup --location westeurope
@@ -301,9 +301,9 @@ info:    group create command OK
 ```
 
 ## <a name="create-a-storage-account"></a>Een opslagaccount maken
-U moet de storage-accounts voor de VM-schijven en eventuele extra gegevensschijven die u tooadd wilt. U kunt storage-accounts maken bijna onmiddellijk na het maken van resourcegroepen.
+Storage-accounts moet u voor uw VM-schijven en voor eventuele extra gegevensschijven die u wilt toevoegen. U kunt storage-accounts maken bijna onmiddellijk na het maken van resourcegroepen.
 
-Hier gebruiken we Hallo `azure storage account create` opdracht, en Hallo type opslagondersteuning gewenste Hallo-locatie van de resourcegroep Hallo Hallo account die wordt doorgegeven bepaalt. Hallo volgende voorbeeld wordt een opslagaccount met de naam `mystorageaccount`:
+Hier gebruiken we de `azure storage account create` opdracht, en het type opslagondersteuning die u wilt dat de locatie van het account, de resourcegroep die wordt doorgegeven bepaalt. Het volgende voorbeeld wordt een opslagaccount met de naam `mystorageaccount`:
 
 ```azurecli
 azure storage account create \  
@@ -321,7 +321,7 @@ info:    Executing command storage account create
 info:    storage account create command OK
 ```
 
-onze resourcegroep via Hallo tooexamine `azure group show` opdracht, gebruiken we Hallo [jq](https://stedolan.github.io/jq/) hulpprogramma samen met de Hallo `--json` Azure CLI-optie. (U kunt **jsawk** of enkele taal bibliotheek u liever tooparse Hallo JSON.)
+Onze resourcegroep controleren met behulp van de `azure group show` opdracht, gebruiken we de [jq](https://stedolan.github.io/jq/) hulpprogramma samen met de `--json` Azure CLI-optie. (U kunt **jsawk** of elke gewenste parseren van de JSON taal-bibliotheek.)
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -359,7 +359,7 @@ Uitvoer:
 }
 ```
 
-tooinvestigate hello storage-account met behulp van Hallo CLI, moet u eerst tooset Hallo accountnamen en sleutels. Hallo-naam van de storage-account in het volgende voorbeeld met een naam die u kiest Hallo Hallo vervangen:
+Voor het onderzoeken van het opslagaccount met behulp van de CLI, moet u eerst de accountnamen en sleutels ingesteld. Vervang de naam van het opslagaccount in het volgende voorbeeld met een naam die u kiest:
 
 ```bash
 export AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show mystorageaccount --resource-group myResourceGroup --json | jq -r '.string')"
@@ -383,7 +383,7 @@ info:    storage container list command OK
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Een virtueel netwerk en subnet maken
-Vervolgens gaat u tooneed toocreate een virtueel netwerk in Azure en een subnet van uw virtuele machines maken worden uitgevoerd. Hallo volgende voorbeeld wordt een virtueel netwerk met de naam `myVnet` Hello `192.168.0.0/16` adresvoorvoegsel:
+Vervolgens gaat u moet maken van een virtueel netwerk in Azure en een subnet van uw virtuele machines maken worden uitgevoerd. Het volgende voorbeeld wordt een virtueel netwerk met de naam `myVnet` met de `192.168.0.0/16` adresvoorvoegsel:
 
 ```azurecli
 azure network vnet create --resource-group myResourceGroup --location westeurope \
@@ -407,7 +407,7 @@ data:      192.168.0.0/16
 info:    network vnet create command OK
 ```
 
-We gebruiken opnieuw Hallo--json-optie van `azure group show` en `jq` toosee hoe we onze bronnen bouwen. Nu een `storageAccounts` resource en een `virtualNetworks` resource.  
+Opnieuw, Hiermee kunt u de optie--json gebruiken `azure group show` en `jq` om te zien hoe we onze bronnen bouwen. Nu een `storageAccounts` resource en een `virtualNetworks` resource.  
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -452,7 +452,7 @@ Uitvoer:
 }
 ```
 
-Nu gaan we een subnet maken in Hallo `myVnet` virtueel netwerk in welke Hallo virtuele machines zijn geïmplementeerd. We gebruiken Hallo `azure network vnet subnet create` opdracht samen met de Hallo resources we al hebt gemaakt: Hallo `myResourceGroup` resourcegroep en Hallo `myVnet` virtueel netwerk. In de Hallo voorbeeld te volgen, we Hallo subnet met de naam toevoegen `mySubnet` met Hallo subnet adresvoorvoegsel van `192.168.1.0/24`:
+Nu gaan we maken een subnet in de `myVnet` virtueel netwerk waarin de virtuele machines zijn geïmplementeerd. We gebruiken de `azure network vnet subnet create` opdracht samen met de resources die we al hebt gemaakt: de `myResourceGroup` resourcegroep en de `myVnet` virtueel netwerk. In het volgende voorbeeld voegen we het subnet met de naam `mySubnet` met het adres subnetvoorvoegsel van `192.168.1.0/24`:
 
 ```azurecli
 azure network vnet subnet create --resource-group myResourceGroup \
@@ -463,9 +463,9 @@ Uitvoer:
 
 ```azurecli
 info:    Executing command network vnet subnet create
-+ Looking up hello subnet "mySubnet"
++ Looking up the subnet "mySubnet"
 + Creating subnet "mySubnet"
-+ Looking up hello subnet "mySubnet"
++ Looking up the subnet "mySubnet"
 data:    Id                              : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet
 data:    Type                            : Microsoft.Network/virtualNetworks/subnets
 data:    ProvisioningState               : Succeeded
@@ -475,7 +475,7 @@ data:
 info:    network vnet subnet create command OK
 ```
 
-Omdat Hallo subnet logisch in het virtuele netwerk hello, zoekt we Hallo subnet met een iets andere opdracht. Hallo-opdracht we gebruiken is `azure network vnet show`, maar we verder tooexamine Hallo JSON-uitvoer met behulp van `jq`.
+Omdat het subnet logisch binnen het virtuele netwerk, zoeken we de informatie over het subnet met een iets andere opdracht. De opdracht we gebruiken is `azure network vnet show`, maar we verder te onderzoeken van de JSON-uitvoer met behulp van `jq`.
 
 ```azurecli
 azure network vnet show myResourceGroup myVnet --json | jq '.'
@@ -513,7 +513,7 @@ Uitvoer:
 ```
 
 ## <a name="create-a-public-ip-address"></a>Een openbaar IP-adres maken
-Nu gaan we maken Hallo openbaar IP-adres (PIP) dat we tooyour load balancer toewijzen. Hiermee kunt u tooconnect tooyour VM's van Hallo Internet met behulp van Hallo `azure network public-ip create` opdracht. Omdat Hallo standaardadres dynamisch is, maken we een benoemde DNS-vermelding in Hallo **cloudapp.azure.com** domein met behulp van Hallo `--domain-name-label` optie. Hallo volgende voorbeeld maakt u een openbaar IP-adres met de naam `myPublicIP` met Hallo DNS-naam van `mypublicdns`. Aangezien Hallo DNS-naam uniek zijn moet, kunt u uw eigen unieke DNS-naam opgeven:
+Nu gaan we het openbare IP-adres (PIP) die we aan de load balancer toewijzen maken. Hiermee kunt u verbinding maken met uw virtuele machines van het Internet met behulp van de `azure network public-ip create` opdracht. Omdat het standaardadres dynamisch is, maken we een benoemde DNS-vermelding in de **cloudapp.azure.com** domein met behulp van de `--domain-name-label` optie. Het volgende voorbeeld wordt een openbaar IP-adres met de naam `myPublicIP` met de DNS-naam van `mypublicdns`. Omdat de DNS-naam moet uniek zijn, kunt u uw eigen unieke DNS-naam opgeven:
 
 ```azurecli
 azure network public-ip create --resource-group myResourceGroup \
@@ -524,9 +524,9 @@ Uitvoer:
 
 ```azurecli
 info:    Executing command network public-ip create
-+ Looking up hello public ip "myPublicIP"
++ Looking up the public ip "myPublicIP"
 + Creating public ip address "myPublicIP"
-+ Looking up hello public ip "myPublicIP"
++ Looking up the public ip "myPublicIP"
 data:    Id                              : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP
 data:    Name                            : myPublicIP
 data:    Type                            : Microsoft.Network/publicIPAddresses
@@ -539,7 +539,7 @@ data:    FQDN                            : mypublicdns.westeurope.cloudapp.azure
 info:    network public-ip create command OK
 ```
 
-Hallo openbaar IP-adres is ook een bron op het hoogste niveau, zodat u deze met ziet `azure group show`.
+Het openbare IP-adres is ook een bron op het hoogste niveau, zodat u deze met ziet `azure group show`.
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -591,7 +591,7 @@ Uitvoer:
 }
 ```
 
-U kunt meer informatie over resource, zoals Hallo volledig gekwalificeerde domeinnaam (FQDN) van subdomein hello, met behulp van de volledige Hallo onderzoeken `azure network public-ip show` opdracht. Hallo openbare IP-adres resource logisch is toegewezen, maar een specifiek adres nog niet is toegewezen. een IP-adres tooobtain, gaat u tooneed een load balancer die we nog geen hebt gemaakt.
+U kunt meer informatie over resource, zoals de volledig gekwalificeerde domeinnaam (FQDN) van het subdomein, met behulp van de volledige onderzoeken `azure network public-ip show` opdracht. Het openbare IP-adres resource logisch is toegewezen, maar een specifiek adres nog niet is toegewezen. Als u een IP-adres, gaat u moet een load balancer die we nog geen hebt gemaakt.
 
 ```azurecli
 azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
@@ -617,7 +617,7 @@ Uitvoer:
 ```
 
 ## <a name="create-a-load-balancer-and-ip-pools"></a>Een load balancer en IP-adresgroepen maken
-Wanneer u een load balancer maakt, kunt u toodistribute verkeer over meerdere virtuele machines. Het bevat ook redundantie tooyour toepassing door het uitvoeren van meerdere virtuele machines die toouser aanvragen in Hallo-gebeurtenis van onderhoud of zware belasting reageren. Hallo volgende voorbeeld maakt u een load balancer met de naam `myLoadBalancer`:
+Wanneer u een load balancer maakt, kunt u verkeer verdelen over meerdere virtuele machines. Het biedt redundantie voor uw toepassingen ook door het uitvoeren van meerdere virtuele machines die op aanvragen van gebruikers in het geval van onderhoud of zware belasting reageren. Het volgende voorbeeld wordt een load balancer met de naam `myLoadBalancer`:
 
 ```azurecli
 azure network lb create --resource-group myResourceGroup --location westeurope \
@@ -628,7 +628,7 @@ Uitvoer:
 
 ```azurecli
 info:    Executing command network lb create
-+ Looking up hello load balancer "myLoadBalancer"
++ Looking up the load balancer "myLoadBalancer"
 + Creating load balancer "myLoadBalancer"
 data:    Id                              : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer
 data:    Name                            : myLoadBalancer
@@ -638,9 +638,9 @@ data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
 
-De load balancer is redelijk leeg, dus gaan we een aantal IP-adresgroepen maken. We willen toocreate twee IP-adresgroepen voor de load balancer, één voor Hallo-front-end en één voor de back-end Hallo. de front-end-IP-adresgroep Hallo is openbaar zichtbaar. Het is ook Hallo locatie toowhich die we toewijzen Hallo PIP die we eerder hebben gemaakt. Vervolgens gebruiken we Hallo back-end-pool als locatie voor onze tooconnect VM's aan. Op die manier Hallo-verkeer door Hallo load balancer toohello VMs kan stromen.
+De load balancer is redelijk leeg, dus gaan we een aantal IP-adresgroepen maken. We willen maken van twee IP-adresgroepen voor de load balancer, één voor de front-end en één voor de back-end. De front-end-IP-adresgroep is openbaar zichtbaar. Het is ook de locatie waarop we de PIP die we eerder hebben gemaakt toewijzen. Vervolgens gebruiken we de back-end-pool als locatie voor de virtuele machines verbinding maken met. Op die manier het verkeer door de load balancer naar de virtuele machines kan stromen.
 
-Eerst laten we onze front-end-IP-adresgroep maken. Hallo volgende voorbeeld wordt een front-groep met de naam `myFrontEndPool`:
+Eerst laten we onze front-end-IP-adresgroep maken. Het volgende voorbeeld wordt een front-groep met de naam `myFrontEndPool`:
 
 ```azurecli
 azure network lb frontend-ip create --resource-group myResourceGroup \
@@ -652,8 +652,8 @@ Uitvoer:
 
 ```azurecli
 info:    Executing command network lb frontend-ip create
-+ Looking up hello load balancer "myLoadBalancer"
-+ Looking up hello public ip "myPublicIP"
++ Looking up the load balancer "myLoadBalancer"
++ Looking up the public ip "myPublicIP"
 + Updating load balancer "myLoadBalancer"
 data:    Name                            : myFrontEndPool
 data:    Provisioning state              : Succeeded
@@ -662,9 +662,9 @@ data:    Public IP address id            : /subscriptions/guid/resourceGroups/my
 info:    network lb mySubnet-ip create command OK
 ```
 
-Houd er rekening mee hoe we Hallo gebruikt `--public-ip-name` toopass in Hallo switch `myPublicIP` die we eerder hebben gemaakt. Toewijzen van Hallo openbare IP-adres toohello load balancer kunt u tooreach uw virtuele machines via Hallo Internet.
+Houd er rekening mee hoe we gebruikt de `--public-ip-name` switch door te geven de `myPublicIP` die we eerder hebben gemaakt. Het openbare IP-adres toewijzen aan de load balancer, kunt u uw virtuele machines worden bereikt via Internet.
 
-Vervolgens maken we onze tweede IP-adresgroep voor de back-end-verkeer. Hallo volgende voorbeeld wordt een back-end-pool met de naam `myBackEndPool`:
+Vervolgens maken we onze tweede IP-adresgroep voor de back-end-verkeer. Het volgende voorbeeld wordt een back-end-pool met de naam `myBackEndPool`:
 
 ```azurecli
 azure network lb address-pool create --resource-group myResourceGroup \
@@ -675,14 +675,14 @@ Uitvoer:
 
 ```azurecli
 info:    Executing command network lb address-pool create
-+ Looking up hello load balancer "myLoadBalancer"
++ Looking up the load balancer "myLoadBalancer"
 + Updating load balancer "myLoadBalancer"
 data:    Name                            : myBackEndPool
 data:    Provisioning state              : Succeeded
 info:    network lb address-pool create command OK
 ```
 
-We zien hoe u onze load balancer doet door te zoeken met `azure network lb show` en onderzoeken Hallo JSON-uitvoer:
+We zien hoe u onze load balancer doet door te zoeken met `azure network lb show` en onderzoeken van de JSON-uitvoer:
 
 ```azurecli
 azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
@@ -728,7 +728,7 @@ Uitvoer:
 ```
 
 ## <a name="create-load-balancer-nat-rules"></a>NAT-regels van load balancer maken
-tooget verkeer via de load balancer moeten we toocreate netwerk address translation (NAT) regels die binnenkomend of uitgaand acties specificeren. U kunt opgeven Hallo protocol toouse vervolgens externe poorten toointernal poorten naar wens worden toegewezen. Voor onze omgeving gaan we een aantal regels maken die SSH toestaan via onze load balancer tooour virtuele machines. We instellen TCP-poorten 4222 en 4223 toodirect tooTCP poort 22 op de virtuele machines (die we later maken). Hallo volgende voorbeeld maakt u een regel met naam `myLoadBalancerRuleSSH1` 4222 tooport 22 toomap TCP-poort:
+Als u verkeer via de load balancer, moeten we network address translation (NAT) regels maken die binnenkomend of uitgaand acties opgeven. U kunt het te gebruiken protocol opgeven en vervolgens externe poorten naar interne poorten desgewenst toewijzen. Voor onze omgeving gaan we een aantal regels maken die SSH toestaan via onze load balancer naar de virtuele machines. We instellen TCP-poorten 4222 en 4223 om om te leiden TCP-poort 22 op onze virtuele machines (die we later maken). Het volgende voorbeeld wordt een regel met naam `myLoadBalancerRuleSSH1` TCP-poort 4222 toewijzen aan poort 22:
 
 ```azurecli
 azure network lb inbound-nat-rule create --resource-group myResourceGroup \
@@ -740,7 +740,7 @@ Uitvoer:
 
 ```azurecli
 info:    Executing command network lb inbound-nat-rule create
-+ Looking up hello load balancer "myLoadBalancer"
++ Looking up the load balancer "myLoadBalancer"
 warn:    Using default enable floating ip: false
 warn:    Using default idle timeout: 4
 warn:    Using default mySubnet IP configuration "myFrontEndPool"
@@ -756,7 +756,7 @@ data:    mySubnet IP configuration id    : /subscriptions/guid/resourceGroups/my
 info:    network lb inbound-nat-rule create command OK
 ```
 
-Herhaal Hallo procedure voor de tweede NAT-regel voor SSH. Hallo volgende voorbeeld maakt u een regel met naam `myLoadBalancerRuleSSH2` 4223 tooport 22 toomap TCP-poort:
+Herhaal de procedure voor de tweede NAT-regel voor SSH. Het volgende voorbeeld wordt een regel met naam `myLoadBalancerRuleSSH2` TCP-poort 4223 toewijzen aan poort 22:
 
 ```azurecli
 azure network lb inbound-nat-rule create --resource-group myResourceGroup \
@@ -764,7 +764,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --frontend-port 4223 --backend-port 22
 ```
 
-We gaan ook opwekken en maak een NAT-regel voor TCP-poort 80 voor internetverkeer, Hallo regel aansluiting up tooour IP-adresgroepen. Als we IP-adresgroep, in plaats van een afzonderlijk, up Hallo regel tooour VMs aansluiting aansluiten Hallo regel tooan kunnen we toevoegen of verwijderen van virtuele machines van Hallo IP-adresgroep. Hallo load balancer automatisch aangepast Hallo verkeersstroom. Hallo volgende voorbeeld maakt u een regel met naam `myLoadBalancerRuleWeb` toomap TCP-poort 80 tooport 80:
+We gaan ook opwekken en maak een NAT-regel voor TCP-poort 80 voor internetverkeer, de regel aansluiting tot onze IP-adresgroepen. Als we de regel moet een IP-adresgroep, in plaats van een afzonderlijk, een regel aan onze VMs aansluiting aansluiten kunt we toevoegen of verwijderen van virtuele machines van de IP-adresgroep. De load balancer wordt automatisch de verkeersstroom aangepast. Het volgende voorbeeld wordt een regel met naam `myLoadBalancerRuleWeb` TCP-poort 80 om toe te wijzen poort 80:
 
 ```azurecli
 azure network lb rule create --resource-group myResourceGroup \
@@ -777,7 +777,7 @@ Uitvoer:
 
 ```azurecli
 info:    Executing command network lb rule create
-+ Looking up hello load balancer "myLoadBalancer"
++ Looking up the load balancer "myLoadBalancer"
 warn:    Using default idle timeout: 4
 warn:    Using default enable floating ip: false
 warn:    Using default load distribution: Default
@@ -796,7 +796,7 @@ info:    network lb rule create command OK
 ```
 
 ## <a name="create-a-load-balancer-health-probe"></a>Een load balancer health test maken
-Een health test regelmatig controles op Hallo van virtuele machines die zich achter onze load balancer-toomake ervoor dat ze zijn het functioneren en toorequests reageert, zoals is gedefinieerd. Als u niet, ze verwijderd uit omgeleid bewerking tooensure dat gebruikers worden niet wordt toothem. U kunt aangepaste controles voor de Hallo health test, samen met intervallen en time-outwaarden definiëren. Zie voor meer informatie over statuscontroles [Load Balancer-tests](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Hallo volgende voorbeeld wordt een TCP health aangeduid met de naam `myHealthProbe`:
+Een health test regelmatig controles op de virtuele machines die zich achter de load balancer om te controleren of ze zijn het functioneren en reageren op aanvragen, zoals is gedefinieerd. Als dat niet het geval is, moet u ze zijn verwijderd uit de bewerking om ervoor te zorgen dat gebruikers worden niet omgeleid naar deze. U kunt aangepaste controles voor de health-test, samen met intervallen en time-outwaarden definiëren. Zie voor meer informatie over statuscontroles [Load Balancer-tests](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Het volgende voorbeeld wordt een TCP health aangeduid met de naam `myHealthProbe`:
 
 ```azurecli
 azure network lb probe create --resource-group myResourceGroup \
@@ -809,7 +809,7 @@ Uitvoer:
 ```azurecli
 info:    Executing command network lb probe create
 warn:    Using default probe port: 80
-+ Looking up hello load balancer "myLoadBalancer"
++ Looking up the load balancer "myLoadBalancer"
 + Updating load balancer "myLoadBalancer"
 data:    Name                            : myHealthProbe
 data:    Provisioning state              : Succeeded
@@ -820,16 +820,16 @@ data:    Number of probes                : 4
 info:    network lb probe create command OK
 ```
 
-Hier wordt een interval van 15 seconden voor onze statuscontroles opgegeven. We kunnen maximaal vier tests (één minuut) voordat Hallo load balancer overweegt dat die host Hallo werkt niet meer over het hoofd ziet.
+Hier wordt een interval van 15 seconden voor onze statuscontroles opgegeven. We kunnen maximaal vier tests (één minuut) voordat de load balancer van oordeel is dat de host niet meer werkt over het hoofd ziet.
 
-## <a name="verify-hello-load-balancer"></a>Controleer of Hallo load balancer
-Nu wordt Hallo load balancer-configuratie uitgevoerd. Hier volgen Hallo manier te werk:
+## <a name="verify-the-load-balancer"></a>Controleer of de load balancer
+Nu wordt de load balancer-configuratie gedaan. Hier volgen de stappen die u hebt gemaakt:
 
 1. U hebt gemaakt voor een load balancer.
-2. U een front-end-IP-adresgroep gemaakt en een openbare IP-tooit toegewezen.
+2. U een front-end-IP-adresgroep gemaakt en een openbare IP-adres toegewezen.
 3. U een back-end-IP-adresgroep die virtuele machines verbinding met maken kunnen gemaakt.
-4. U NAT-regels waarmee SSH toohello VM's voor beheer, samen met een regel waarmee u TCP-poort 80 voor de web-app hebt gemaakt.
-5. U hebt een health test tooperiodically selectievakje Hallo VM's toegevoegd. Deze test health zorgt ervoor dat gebruikers een virtuele machine die niet meer werkt of inhoud tooaccess niet proberen.
+4. U NAT-regels waarmee SSH kunt uitvoeren naar de virtuele machines voor beheer, samen met een regel waarmee u TCP-poort 80 voor de web-app hebt gemaakt.
+5. U hebt een health test geregeld wordt gecontroleerd of de virtuele machines toegevoegd. Deze test health zorgt ervoor dat gebruikers niet probeert te krijgen tot een virtuele machine die niet meer werkt of inhoud.
 
 We bekijken wat de load balancer er nu uit:
 
@@ -954,12 +954,12 @@ Uitvoer:
 }
 ```
 
-## <a name="create-an-nic-toouse-with-hello-linux-vm"></a>Maken van een NIC toouse Hello Linux VM
-NIC's zijn programmatisch beschikbaar, omdat u regels tootheir gebruik kunt toepassen. U kunt ook meer dan één hebben. In de volgende Hallo `azure network nic create` opdracht u aansluiten Hallo NIC toohello load back-end-IP-adresgroep en deze koppelen aan Hallo NAT-regel toopermit SSH-verkeer.
+## <a name="create-an-nic-to-use-with-the-linux-vm"></a>Maken van een NIC voor gebruik met de Linux-VM
+NIC's zijn programmatisch beschikbaar omdat u regels toepassen op het gebruik ervan kunt. U kunt ook meer dan één hebben. In de volgende `azure network nic create` opdracht u aansluiten op de NIC de belasting backend-IP-adresgroep en deze koppelen aan de NAT-regel SSH-verkeer toestaan.
 
-Vervang Hallo `#####-###-###` secties met uw eigen Azure-abonnement-ID. Uw abonnement ID wordt vermeld in de uitvoer van Hallo `jq` wanneer u bekijkt hello resources die u maakt. U kunt ook uw abonnements-ID met weergeven `azure account list`.
+Vervang de `#####-###-###` secties met uw eigen Azure-abonnement-ID. Uw abonnement ID wordt vermeld in de uitvoer van `jq` wanneer u de resources die u maakt. U kunt ook uw abonnements-ID met weergeven `azure account list`.
 
-Hallo volgende voorbeeld wordt een NIC met de naam `myNic1`:
+Het volgende voorbeeld wordt een NIC met de naam `myNic1`:
 
 ```azurecli
 azure network nic create --resource-group myResourceGroup --location westeurope \
@@ -972,8 +972,8 @@ Uitvoer:
 
 ```azurecli
 info:    Executing command network nic create
-+ Looking up hello subnet "mySubnet"
-+ Looking up hello network interface "myNic1"
++ Looking up the subnet "mySubnet"
++ Looking up the network interface "myNic1"
 + Creating network interface "myNic1"
 data:    Id                              : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic1
 data:    Name                            : myNic1
@@ -995,7 +995,7 @@ data:
 info:    network nic create command OK
 ```
 
-Hallo details kunt u zien door Hallo resource rechtstreeks in. U Hallo resource bestuderen met behulp van Hallo `azure network nic show` opdracht:
+U ziet de details vindt u rechtstreeks van de resource. Bestuderen van de resource met behulp van de `azure network nic show` opdracht:
 
 ```azurecli
 azure network nic show myResourceGroup myNic1 --json | jq '.'
@@ -1043,7 +1043,7 @@ Uitvoer:
 }
 ```
 
-Nu we maken Hallo tweede NIC, opnieuw koppelen in tooour backend-IP-adresgroep. Deze tijd Hallo tweede NAT-regel toestaat SSH verkeer. Hallo volgende voorbeeld wordt een NIC met de naam `myNic2`:
+Nu maken we de tweede Netwerkinterfacekaart, in aansluiting bij onze backend-IP-adresgroep opnieuw. Deze tijd de tweede NAT-regel toestaat SSH verkeer. Het volgende voorbeeld wordt een NIC met de naam `myNic2`:
 
 ```azurecli
 azure network nic create --resource-group myResourceGroup --location westeurope \
@@ -1053,14 +1053,14 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
 ```
 
 ## <a name="create-a-network-security-group-and-rules"></a>Een netwerkbeveiligingsgroep en regels maken
-Nu een netwerkbeveiligingsgroep maken en regels voor binnenkomende verbindingen die van toepassing hello toegang krijgen tot toohello NIC. Een netwerkbeveiligingsgroep kan worden toegepast tooa NIC of subnet. U definiëren regels toocontrol Hallo verkeersstroom in uw virtuele machines. Hallo volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
+We maken nu een netwerkbeveiligingsgroep en de regels voor binnenkomende verbindingen die voor de toegang tot de NIC. Een netwerkbeveiligingsgroep kan worden toegepast op een NIC of een subnet. Definieert u regels voor het beheren van de stroom van verkeer van en naar uw virtuele machines. Het volgende voorbeeld wordt een netwerkbeveiligingsgroep met de naam `myNetworkSecurityGroup`:
 
 ```azurecli
 azure network nsg create --resource-group myResourceGroup --location westeurope \
   --name myNetworkSecurityGroup
 ```
 
-We voegen inkomende hello-regel voor Hallo NSG tooallow binnenkomende verbindingen op poort 22 (toosupport SSH). Hallo volgende voorbeeld maakt u een regel met naam `myNetworkSecurityGroupRuleSSH` tooallow TCP op poort 22:
+Laten we de inkomende regel voor het NSG aan het toestaan van binnenkomende verbindingen op poort 22 (voor ondersteuning van SSH) toevoegen. Het volgende voorbeeld wordt een regel met naam `myNetworkSecurityGroupRuleSSH` om TCP op poort 22 te staan:
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
@@ -1069,7 +1069,7 @@ azure network nsg rule create --resource-group myResourceGroup \
   --name myNetworkSecurityGroupRuleSSH
 ```
 
-Nu gaan we voegen inkomende hello-regel voor Hallo NSG tooallow binnenkomende verbindingen op poort 80 (webverkeer toosupport). Hallo volgende voorbeeld maakt u een regel met naam `myNetworkSecurityGroupRuleHTTP` tooallow TCP op poort 80:
+Nu gaan we de binnenkomende regel voor het NSG aan het toestaan van binnenkomende verbindingen op poort 80 (voor ondersteuning webverkeer) toevoegen. Het volgende voorbeeld wordt een regel met naam `myNetworkSecurityGroupRuleHTTP` om TCP op poort 80 te staan:
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
@@ -1079,12 +1079,12 @@ azure network nsg rule create --resource-group myResourceGroup \
 ```
 
 > [!NOTE]
-> inkomende Hello-regel is een filter naar binnenkomende netwerkverbindingen. In dit voorbeeld binden we Hallo NSG toohello VMs virtuele NIC, wat betekent dat elke aanvraag tooport 22 wordt doorgegeven via toohello NIC op de virtuele machine. Deze regel binnenkomende over een netwerkverbinding is en niet over een eindpunt met dit is wat het normaal zou zijn over in klassieke implementaties. tooopen een poort, moet u Hallo laten `--source-port-range` instellen te '\*' (standaardwaarde Hallo) tooaccept inkomende aanvragen van **eventuele** poort aanvraagt. Poorten zijn meestal dynamisch zijn.
+> De binnenkomende regel is een filter naar binnenkomende netwerkverbindingen. In dit voorbeeld binden we het NSG aan de virtuele NIC van virtuele machines, wat betekent dat elk verzoek poort 22 wordt doorgegeven aan de NIC op de virtuele machine. Deze regel binnenkomende over een netwerkverbinding is en niet over een eindpunt met dit is wat het normaal zou zijn over in klassieke implementaties. Als u wilt een poort opent, moet u laat de `--source-port-range` ingesteld op '\*' (de standaardwaarde) te accepteren van binnenkomende aanvragen van **eventuele** poort aanvraagt. Poorten zijn meestal dynamisch zijn.
 >
 >
 
-## <a name="bind-toohello-nic"></a>BIND toohello NIC
-Hallo NSG toohello NIC's worden gebonden. We moeten tooconnect onze NIC's met onze netwerkbeveiligingsgroep. Voer beide opdrachten, toohook van beide onze NIC's:
+## <a name="bind-to-the-nic"></a>Verbinding maken met de NIC
+Het NSG binden aan de NIC's. Moeten we onze NIC's een verbinding maakt met onze netwerkbeveiligingsgroep. Voer beide opdrachten, koppelt u beide onze NIC's:
 
 ```azurecli
 azure network nic set --resource-group myResourceGroup --name myNic1 \
@@ -1097,32 +1097,32 @@ azure network nic set --resource-group myResourceGroup --name myNic2 \
 ```
 
 ## <a name="create-an-availability-set"></a>Een beschikbaarheidsset maken
-Beschikbaarheidssets help verspreiding uw virtuele machines in domeinen met fouten en upgradedomeinen. Laten we de beschikbaarheidsset voor uw virtuele machines maken. Hallo volgende voorbeeld maakt u een beschikbaarheidsset benoemde `myAvailabilitySet`:
+Beschikbaarheidssets help verspreiding uw virtuele machines in domeinen met fouten en upgradedomeinen. Laten we de beschikbaarheidsset voor uw virtuele machines maken. Het volgende voorbeeld wordt een benoemde beschikbaarheidsset `myAvailabilitySet`:
 
 ```azurecli
 azure availset create --resource-group myResourceGroup --location westeurope
   --name myAvailabilitySet
 ```
 
-Domeinen met fouten definiëren een groepering van virtuele machines die een gemeenschappelijk power-bron- en switch delen. Standaard zijn Hallo virtuele machines die zijn geconfigureerd in de beschikbaarheidsset gescheiden in up toothree domeinen met fouten. Hallo idee is een hardwareprobleem in een van deze domeinen met fouten heeft geen invloed op elke virtuele machine die uw app wordt uitgevoerd. Virtuele machines verdeelt Azure automatisch over Hallo foutdomeinen wanneer ze worden geplaatst in een beschikbaarheidsset.
+Domeinen met fouten definiëren een groepering van virtuele machines die een gemeenschappelijk power-bron- en switch delen. Standaard worden de virtuele machines die worden geconfigureerd in de beschikbaarheidsset gescheiden over maximaal drie domeinen met fouten. Het idee is een hardwareprobleem in een van deze domeinen met fouten heeft geen invloed op elke virtuele machine die uw app wordt uitgevoerd. Virtuele machines verdeelt Azure automatisch over de domeinen met fouten wanneer ze worden geplaatst in een beschikbaarheidsset.
 
-Upgradedomeinen groepen van virtuele machines en de onderliggende fysieke hardware die kan worden opgestart op Hallo duiden op hetzelfde moment. Hallo volgorde waarin upgradedomeinen worden opgestart mogelijk geen opeenvolgende tijdens gepland onderhoud, maar slechts één upgrade opnieuw wordt opgestart tegelijk. Opnieuw verdeelt Azure automatisch uw virtuele machines over upgradedomeinen wanneer ze worden geplaatst in een site beschikbaarheid.
+Upgradedomeinen duiden op groepen van virtuele machines en de onderliggende fysieke hardware die op hetzelfde moment kan worden opgestart. De volgorde waarin upgradedomeinen worden opgestart mogelijk geen opeenvolgende tijdens gepland onderhoud, maar slechts één upgrade opnieuw wordt opgestart tegelijk. Opnieuw verdeelt Azure automatisch uw virtuele machines over upgradedomeinen wanneer ze worden geplaatst in een site beschikbaarheid.
 
-Lees meer over [Hallo beschikbaarheid van virtuele machines beheren](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Lees meer over [het beheren van de beschikbaarheid van virtuele machines](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="create-hello-linux-vms"></a>Hallo Linux virtuele machines maken
-U hebt Hallo-opslag- en netwerkbronnen toosupport Internet toegankelijke VM's gemaakt. Nu gaan we die virtuele machines maken en ze zijn beveiligd met een SSH-sleutel die geen wachtwoord. In dit geval gaan we een Ubuntu VM op basis van Hallo toocreate meest recente TNS. We vinden die informatie van de installatiekopie met behulp van `azure vm image list`, zoals beschreven in [Azure VM-installatiekopieën vinden](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="create-the-linux-vms"></a>De virtuele Linux-machines maken
+U kunt de opslag- en netwerkbronnen ter ondersteuning van Internet toegankelijke VM's hebt gemaakt. Nu gaan we die virtuele machines maken en ze zijn beveiligd met een SSH-sleutel die geen wachtwoord. In dit geval gaan we een Ubuntu VM op basis van de meest recente TNS maken. We vinden die informatie van de installatiekopie met behulp van `azure vm image list`, zoals beschreven in [Azure VM-installatiekopieën vinden](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-We een installatiekopie van een geselecteerd met de opdracht Hallo `azure vm image list westeurope canonical | grep LTS`. In dit geval gebruiken we `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Voor het laatste veld hello, geven we `latest` zodat in de toekomst Hallo we altijd de meest recente build Hallo gaan. (we gebruiken Hallo-tekenreeks is `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
+We een installatiekopie van een geselecteerd met de opdracht `azure vm image list westeurope canonical | grep LTS`. In dit geval gebruiken we `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Voor het laatste veld, geven we `latest` zodat in de toekomst kunnen we de meest recente build altijd beschikken. (De tekenreeks we gebruiken `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
 
-Deze stap is bekend tooanyone die al is gemaakt door een ssh rsa openbare en persoonlijke sleutel koppelen op Linux- of Mac via **ssh-keygen - t rsa -b 2048**. Als u nog geen sleutelparen die een certificaat uw `~/.ssh` directory, kunt u deze maken:
+Deze stap is vertrouwd voor iedereen die al is gemaakt door een ssh rsa openbare en persoonlijke sleutel koppelen op Linux- of Mac via **ssh-keygen - t rsa -b 2048**. Als u nog geen sleutelparen die een certificaat uw `~/.ssh` directory, kunt u deze maken:
 
-* Automatisch via Hallo `azure vm create --generate-ssh-keys` optie.
-* Handmatig met behulp van [Hallo instructies toocreate ze zelf](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Automatisch, met behulp van de `azure vm create --generate-ssh-keys` optie.
+* Handmatig met behulp van [de instructies voor het zelf maken](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-U kunt ook hello gebruiken `--admin-password` methode tooauthenticate uw SSH-verbindingen na Hallo VM wordt gemaakt. Deze methode is meestal minder goed beveiligd.
+U kunt ook de `--admin-password` methode voor het verifiëren van uw SSH-verbindingen nadat de virtuele machine is gemaakt. Deze methode is meestal minder goed beveiligd.
 
-We Hallo VM maken door onze bronnen en informatie samen met de Hallo brengen `azure vm create` opdracht:
+We de virtuele machine maken door brengen onze bronnen en informatie samen met de `azure vm create` opdracht:
 
 ```azurecli
 azure vm create \
@@ -1144,22 +1144,22 @@ Uitvoer:
 
 ```azurecli
 info:    Executing command vm create
-+ Looking up hello VM "myVM1"
-info:    Verifying hello public key SSH file: /home/ahmet/.ssh/id_rsa.pub
-info:    Using hello VM Size "Standard_DS1"
-info:    hello [OS, Data] Disk or image configuration requires storage account
-+ Looking up hello storage account mystorageaccount
-+ Looking up hello availability set "myAvailabilitySet"
++ Looking up the VM "myVM1"
+info:    Verifying the public key SSH file: /home/ahmet/.ssh/id_rsa.pub
+info:    Using the VM Size "Standard_DS1"
+info:    The [OS, Data] Disk or image configuration requires storage account
++ Looking up the storage account mystorageaccount
++ Looking up the availability set "myAvailabilitySet"
 info:    Found an Availability set "myAvailabilitySet"
-+ Looking up hello NIC "myNic1"
++ Looking up the NIC "myNic1"
 info:    Found an existing NIC "myNic1"
-info:    Found an IP configuration with virtual network subnet id "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet" in hello NIC "myNic1"
+info:    Found an IP configuration with virtual network subnet id "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet" in the NIC "myNic1"
 info:    This is an NIC without publicIP configured
-info:    hello storage URI 'https://mystorageaccount.blob.core.windows.net/' will be used for boot diagnostics settings, and it can be overwritten by hello parameter input of '--boot-diagnostics-storage-uri'.
+info:    The storage URI 'https://mystorageaccount.blob.core.windows.net/' will be used for boot diagnostics settings, and it can be overwritten by the parameter input of '--boot-diagnostics-storage-uri'.
 info:    vm create command OK
 ```
 
-U kunt tooyour VM direct verbinding maken met behulp van uw standaard SSH-sleutels. Zorg ervoor dat u de juiste poort Hallo opgeeft omdat we via Hallo load balancer geven. (Voor onze eerste VM we ingesteld Hallo NAT regel tooforward poort 4222 tooour VM.)
+U kunt verbinding maken met uw virtuele machine onmiddellijk met behulp van uw standaard SSH-sleutels. Zorg ervoor dat u de juiste poort opgeeft omdat we via de load balancer geven. (Voor onze eerste VM we instellen de NAT-regel voor het doorsturen van poort 4222 voor onze VM.)
 
 ```bash
 ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
@@ -1168,11 +1168,11 @@ ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
 Uitvoer:
 
 ```bash
-hello authenticity of host '[mypublicdns.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
+The authenticity of host '[mypublicdns.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
 ECDSA key fingerprint is 94:2d:d0:ce:6b:fb:7f:ad:5b:3c:78:93:75:82:12:f9.
-Are you sure you want toocontinue connecting (yes/no)? yes
-Warning: Permanently added '[mypublicdns.westeurope.cloudapp.azure.com]:4222,[xx.xx.xx.xx]:4222' (ECDSA) toohello list of known hosts.
-Welcome tooUbuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '[mypublicdns.westeurope.cloudapp.azure.com]:4222,[xx.xx.xx.xx]:4222' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
@@ -1187,7 +1187,7 @@ Welcome tooUbuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
 ops@myVM1:~$
 ```
 
-Maak uw tweede VM in Hallo dezelfde manier:
+Opwekken en maak uw tweede virtuele machine op dezelfde manier:
 
 ```azurecli
 azure vm create \
@@ -1205,7 +1205,7 @@ azure vm create \
   --admin-username azureuser
 ```
 
-En u kunt nu Hallo `azure vm show myResourceGroup myVM1` opdracht tooexamine wat u hebt gemaakt. U uitvoert op dit moment uw Ubuntu VM's achter een load balancer in Azure die u aanmelden kunt bij alleen met uw SSH-sleutelpaar (omdat wachtwoorden zijn uitgeschakeld). U kunt installeren nginx of httpd, een web-app implementeren en Zie Hallo verkeer verloopt via Hallo load balancer tooboth Hallo VM's.
+En u kunt nu de `azure vm show myResourceGroup myVM1` opdracht om te onderzoeken wat u hebt gemaakt. U uitvoert op dit moment uw Ubuntu VM's achter een load balancer in Azure die u aanmelden kunt bij alleen met uw SSH-sleutelpaar (omdat wachtwoorden zijn uitgeschakeld). U kunt nginx of httpd installeren, een web-app implementeren en het verkeer verloopt via de load balancer op beide van de virtuele machines.
 
 ```azurecli
 azure vm show --resource-group myResourceGroup --name myVM1
@@ -1215,8 +1215,8 @@ Uitvoer:
 
 ```azurecli
 info:    Executing command vm show
-+ Looking up hello VM "TestVM1"
-+ Looking up hello NIC "myNic1"
++ Looking up the VM "TestVM1"
++ Looking up the NIC "myNic1"
 data:    Id                              :/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1
 data:    ProvisioningState               :Succeeded
 data:    Name                            :myVM1
@@ -1269,23 +1269,23 @@ info:    vm show command OK
 ```
 
 
-## <a name="export-hello-environment-as-a-template"></a>Hallo-omgeving exporteren als een sjabloon
-Nu dat u hebt gemaakt om een extra development environment Hello uit deze omgeving, wat gebeurt er als u wilt dat toocreate dezelfde parameters of een productie-omgeving die overeenkomt met het? Resource Manager JSON-sjablonen die alle Hallo parameters voor uw omgeving definiëren gebruikt. U maken uit de volledige omgeving door te verwijzen naar deze JSON-sjabloon. U kunt [handmatig JSON-sjablonen samenstellen](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of een bestaande omgeving toocreate Hallo JSON-sjabloon voor u te exporteren:
+## <a name="export-the-environment-as-a-template"></a>De omgeving exporteren als een sjabloon
+Nu dat u hebt gemaakt uit deze omgeving, wat gebeurt er als u wilt maken van een extra development environment met dezelfde parameters of een productie-omgeving die overeenkomt met het? Resource Manager gebruikt de JSON-sjablonen op dat de parameters voor uw omgeving definiëren. U maken uit de volledige omgeving door te verwijzen naar deze JSON-sjabloon. U kunt [handmatig JSON-sjablonen samenstellen](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of een bestaande omgeving voor het maken van het JSON-sjabloon voor u te exporteren:
 
 ```azurecli
 azure group export --name myResourceGroup
 ```
 
-Deze opdracht maakt u Hallo `myResourceGroup.json` bestand in de huidige werkmap. Wanneer u een omgeving met deze sjabloon maakt, wordt u gevraagd alle Hallo resourcenamen, inclusief Hallo namen voor Hallo load balancer, netwerkinterfaces of virtuele machines op te geven. U kunt deze namen in uw sjabloonbestand vullen door toe te voegen Hallo `-p` of `--includeParameterDefaultValue` parameter toohello `azure group export` opdracht die eerder is aangegeven. Uw JSON-sjabloon toospecify Hallo resourcenamen, bewerken of [maken van een bestand parameters.json](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) die Hallo resourcenamen aangeeft.
+Deze opdracht maakt u de `myResourceGroup.json` bestand in de huidige werkmap. Wanneer u een omgeving met deze sjabloon maakt, wordt u gevraagd alle de resourcenamen, met inbegrip van de namen voor de load balancer, netwerkinterfaces of virtuele machines. U kunt deze namen in uw sjabloonbestand vullen door toe te voegen de `-p` of `--includeParameterDefaultValue` -parameter voor de `azure group export` opdracht die eerder is aangegeven. Bewerk uw JSON-sjabloon om op te geven van de resourcenamen van de of [maken van een bestand parameters.json](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) die Hiermee worden de resourcenamen.
 
-een omgeving met de sjabloon toocreate:
+Een omgeving maken van uw sjabloon:
 
 ```azurecli
 azure group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-U kunt tooread [meer over hoe u toodeploy van sjablonen](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Meer informatie over hoe tooincrementally update omgevingen, parameterbestand hello gebruiken en sjablonen gebruiken vanaf een enkele opslaglocatie.
+U wilt lezen [meer over het implementeren van sjablonen](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Meer informatie over hoe u stapsgewijs omgevingen bijwerken, gebruikt u het parameterbestand en toegang tot sjablonen vanaf één locatie.
 
 ## <a name="next-steps"></a>Volgende stappen
-U bent nu klaar toobegin werken met meerdere netwerkonderdelen en virtuele machines. Kunt u dit voorbeeld omgeving toobuild out van uw toepassing met behulp van Hallo kernonderdelen geïntroduceerd hier.
+U nu kunt aan de slag met meerdere netwerkonderdelen en virtuele machines. Voor het bouwen van uw toepassing met behulp van de belangrijkste onderdelen die zijn geïntroduceerd hier kunt u deze Voorbeeldomgeving.

@@ -1,10 +1,10 @@
-U kunt virtuele machine die door het maken van een verbinding met extern bureaublad-tooyour VM geïmplementeerde tooyour VNet tooa verbinden. Hallo aanbevolen manier tooinitially controleren of u kunt verbinding maken tooyour VM is tooconnect door met de persoonlijke IP-adres in plaats van de computernaam. Op die manier u test toosee als u verbinding kunt maken, niet of naamomzetting correct is geconfigureerd.
+U kunt verbinding maken met een VM die op uw VNet is geïmplementeerd door een verbinding met extern bureaublad te maken voor uw VM. De beste manier om eerst te controleren of u verbinding met uw VM kunt maken is door verbinding te maken met behulp van het privé-IP-adres in plaats van de computernaam. Op die manier test u of u verbinding kunt maken, niet of naamomzetting correct is geconfigureerd.
 
-1. Hallo privé IP-adres vinden. U vindt Hallo privé IP-adres van een virtuele machine op verschillende manieren. Hieronder, laten we zien Hallo stappen voor hello Azure-portal en PowerShell.
+1. Zoek het privé-IP-adres. U kunt op meerdere manieren het privé-IP-adres van een VM achterhalen. Hieronder ziet u de benodigde stappen voor Azure Portal en PowerShell.
 
-  - Azure-portal - de virtuele machine niet vinden in hello Azure-portal. Hallo-eigenschappen voor Hallo VM weergeven. Hallo privé IP-adres wordt vermeld.
+  - Azure Portal: vind uw virtuele machine in Azure Portal. Bekijk de eigenschappen voor de VM. Het privé-IP-adres wordt vermeld.
 
-  - PowerShell - gebruik Hallo voorbeeld tooview een lijst met virtuele machines en privé IP-adressen van uw resourcegroepen. U hoeft niet toomodify in dit voorbeeld voordat u deze gebruikt.
+  - PowerShell: gebruik het voorbeeld om een lijst met VM's en privé-IP-adressen uit uw resourcegroepen weer te geven. U hoeft het voorbeeld niet te wijzigen voordat u het gebruikt.
 
     ```powershell
     $VMs = Get-AzureRmVM
@@ -19,15 +19,15 @@ U kunt virtuele machine die door het maken van een verbinding met extern bureaub
     }
     ```
 
-2. Controleer of u verbonden tooyour VNet met Hallo VPN-verbinding.
-3. Open **verbinding met extern bureaublad** getypt 'RDP' of 'Verbinding met extern bureaublad' in het zoekvak Hallo op Hallo taakbalk, selecteer vervolgens verbinding met extern bureaublad. U kunt ook de verbinding met extern bureaublad met behulp van de opdracht 'mstsc' hello in PowerShell openen. 
-4. Voer Hallo privé IP-adres van VM Hallo in verbinding met extern bureaublad. U kunt extra instellingen van 'Weergeven Options' tooadjust Klik op verbinding maken.
+2. Controleer of u met uw VNet bent verbonden met behulp van de VPN-verbinding.
+3. Open **Verbinding met extern bureaublad door** 'RDP' of 'Verbinding met extern bureaublad' te typen in het zoekvak in de taakbalk en selecteer vervolgens Verbinding met extern bureaublad. U kunt Verbinding met extern bureaublad ook openen met behulp van de opdracht 'mstsc' in PowerShell. 
+4. Voer het privé-IP-adres van de VM in Verbinding met extern bureaublad in. U kunt op Opties weergeven klikken om aanvullende instellingen aan te passen en vervolgens verbinding maken.
 
-### <a name="tootroubleshoot-an-rdp-connection-tooa-vm"></a>tootroubleshoot een RDP-verbinding tooa VM
+### <a name="to-troubleshoot-an-rdp-connection-to-a-vm"></a>Problemen met de RDP-verbinding met een VM oplossen
 
-Als u problemen bij het verbinden van tooa virtuele machine via de VPN-verbinding ondervindt, controleert u Hallo volgende:
+Als u problemen ondervindt bij het verbinding maken met een virtuele machine via de VPN-verbinding, controleert u het volgende:
 
 - Controleer of uw VPN-verbinding tot stand is gebracht.
-- Controleer of u verbinding maken met toohello privé IP-adres voor Hallo VM.
-- Als u verbinding met toohello VM maken kunt gebruik Hallo persoonlijke IP-adres, maar niet Hallo computernaam, Controleer of DNS juist geconfigureerd. Zie [Naamomzetting voor VM's](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) voor meer informatie over de werking van naamomzetting voor VM's.
-- Zie voor meer informatie over RDP-verbindingen [problemen met extern bureaublad-verbindingen tooa VM](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md).
+- Controleer of u verbinding maakt met het privé-IP-adres voor de VM.
+- Als u verbinding met de VM kunt maken met behulp van het privé-IP-adres, maar niet met de computernaam, controleert u of DNS correct is geconfigureerd. Zie [Naamomzetting voor VM's](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) voor meer informatie over de werking van naamomzetting voor VM's.
+- Zie [Problemen met Extern-bureaubladverbindingen met een VM oplossen](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md) voor meer informatie over Extern-bureaubladverbindingen.

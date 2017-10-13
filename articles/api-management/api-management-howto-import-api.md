@@ -1,6 +1,6 @@
 ---
-title: een API aaaImport in Azure API Management | Microsoft Docs
-description: Meer informatie over hoe tooimport een API en bewerkingen in Azure API Management.
+title: Een API importeren in Azure API Management | Microsoft Docs
+description: Informatie over het importeren van een API en bewerkingen in Azure API Management.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 20fbbb53243aecc24d72833ec0904ae8fab97863
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c851b88fc1067e65044266d07775717c028e75d9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooimport-hello-definition-of-an-api-with-operations-in-azure-api-management"></a>Hoe tooimport Hallo definitie van een API met bewerkingen in Azure API Management
-Nieuwe API's kunnen worden gemaakt in API Management en Hallo bewerkingen handmatig toegevoegd of Hallo API kan samen met de Hallo-bewerkingen in één stap worden geïmporteerd.
+# <a name="how-to-import-the-definition-of-an-api-with-operations-in-azure-api-management"></a>Het importeren van de definitie van een API met bewerkingen in Azure API Management
+Nieuwe API's kunnen worden gemaakt in API Management en de bewerkingen zijn handmatig toegevoegd of de API kan samen met de bewerkingen in één stap worden geïmporteerd.
 
-API's en hun bewerkingen kunnen worden geïmporteerd met behulp van de volgende indelingen Hallo.
+API's en hun bewerkingen kunnen worden geïmporteerd met de volgende indelingen.
 
 * WADL
 * Swagger
 
-Deze handleiding bevat een nieuwe API maken en importeren van bewerkingen in één stap. Zie voor informatie over het handmatig maken van een API en het toevoegen van bewerkingen, [hoe toocreate API's] [ How toocreate APIs] en [hoe tooadd operations tooan API] [ How tooadd operations tooan API].
+Deze handleiding bevat een nieuwe API maken en importeren van bewerkingen in één stap. Zie voor informatie over het handmatig maken van een API en het toevoegen van bewerkingen, [API's maken] [ How to create APIs] en [bewerkingen toevoegen aan een API][How to add operations to an API].
 
 ## <a name="import-api"> </a>Een API importeren
-API's zijn gemaakt en geconfigureerd in de publicatieportal Hallo. tooaccess publisher en klik op Hallo **publicatieportal** in hello Azure-Portal voor uw API Management-service. Als u nog geen exemplaar van API Management-service hebt gemaakt, raadpleegt u [API Management service-exemplaar maken] [ Create an API Management service instance] in Hallo [aan de slag met Azure API Management] [ Get started with Azure API Management] zelfstudie.
+API's zijn gemaakt en geconfigureerd in de publicatieportal. Voor toegang tot de publicatieportal bevindt, klikt u op **publicatieportal** in de Azure-Portal voor uw API Management-service. Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Create an API Management service instance] in de zelfstudie [Aan de slag met Azure API Management][Get started with Azure API Management].
 
 ![Publicatieportal][api-management-management-console]
 
-Klik op **API's** van Hallo **API Management** menu op Hallo links en klik vervolgens op **importeren API**.
+Klik op **API's** van de **API Management** menu aan de linkerkant en klik vervolgens op **importeren API**.
 
 ![API importeren][api-management-import-apis]
 
-Hallo **Import API** venster bestaat uit drie tabbladen die overeenkomen met toohello drie manieren tooprovide Hallo API-specificatie.
+De **Import API** venster bestaat uit drie tabbladen die met de drie manieren overeenkomen om de API-specificatie.
 
-* **Van Klembord** kunt u toopaste Hallo API-specificatie in aangewezen Hallo-tekstvak.
-* **Uit bestand** kunt u toobrowse tooand Selecteer Hallo-bestand met de Hallo API-specificatie.
-* **Van URL** kunt u toosupply Hallo URL toohello-specificatie voor Hallo API.
+* **Van Klembord** kunt u de API-specificatie plak in het tekstvak aangewezen.
+* **Uit bestand** kunt u bladeren naar en selecteer het bestand waarin de API-specificatie.
+* **Van URL** kunt u de URL de specificatie voor de API.
 
 ![Indeling van de API importeren][api-management-import-api-clipboard]
 
-Gebruik na het opgeven van Hallo API-specificatie Hallo keuzerondjes op Hallo rechts tooindicate Hallo specificatie indeling. Hallo volgende indelingen worden ondersteund.
+Gebruik de keuzerondjes aan de rechterkant om aan te geven van de indeling specificatie na het opgeven van de API-specificatie. De volgende indelingen worden ondersteund.
 
 * WADL
 * Swagger
 
-Geef vervolgens een **achtervoegsel URL Web-API**. Dit is de toegevoegde toohello basis-URL voor uw API management-service. Hallo basis-URL is gebruikelijk voor alle API's die worden gehost op elk exemplaar van API Management-service. API Management API's onderscheidt door hun achtervoegsel en daarom Hallo achtervoegsel moet uniek zijn voor elke API in een specifiek exemplaar van API management-service.
+Geef vervolgens een **achtervoegsel URL Web-API**. Dit wordt toegevoegd aan de basis-URL voor uw API management-service. De basis-URL is gemeenschappelijk voor alle API's die worden gehost op elk exemplaar van API Management-service. API Management API's onderscheidt door hun achtervoegsel en daarom het achtervoegsel moet uniek zijn voor elke API in een specifiek exemplaar van API management-service.
 
-Nadat alle waarden zijn ingevoerd, klikt u op **opslaan** toocreate Hallo API en Hallo operations gekoppeld. 
+Nadat alle waarden zijn ingevoerd, klikt u op **opslaan** voor het maken van de API en de gekoppelde bewerkingen. 
 
 > [!NOTE]
 > Zie voor een zelfstudie over het importeren van de basisrekenmachine API in Swagger-indeling, [uw eerste API beheren in Azure API Management](api-management-get-started.md).
@@ -62,19 +62,19 @@ Nadat alle waarden zijn ingevoerd, klikt u op **opslaan** toocreate Hallo API en
 > 
 
 ## <a name="export-api"></a> Exporteren van een API
-In aanvulling tooimporting nieuwe API's, kunt u Hallo definities van uw API's van de publicatieportal Hallo exporteren. toodo hiervoor, klikt u op **exporteren API** van Hallo **tabblad Samenvatting** van uw **API**.
+Naast de nieuwe API's importeert, kunt u de definities van uw API's exporteren in de publicatieportal. Om dit te doen, klikt u op **exporteren API** van de **tabblad Samenvatting** van uw **API**.
 
 ![API exporteren][api-management-export-api]
 
-API's kunnen worden geëxporteerd met WADL of Swagger. Selecteer de gewenste indeling hello, klikt u op **opslaan**, en Hallo locatie kiezen in welke toosave Hallo-bestand.
+API's kunnen worden geëxporteerd met WADL of Swagger. Selecteer de gewenste indeling, klikt u op **opslaan**, en kies de locatie op waar het bestand wilt opslaan.
 
 ![API-indeling voor exporteren][api-management-export-api-format]
 
 ## <a name="next-steps"> </a>Volgende stappen
-Nadat een API is gemaakt en Hallo-bewerkingen die zijn geïmporteerd, die u kunt bekijken en configureren van eventuele aanvullende instellingen Hallo API tooa Product toevoegen en publiceren zodat deze beschikbaar voor ontwikkelaars. Zie voor meer informatie Hallo handleidingen te volgen.
+Nadat een API is gemaakt en de bewerkingen die zijn geïmporteerd, die u kunt bekijken en configureren van eventuele aanvullende instellingen de API toevoegen aan een Product en publiceren zodat deze beschikbaar voor ontwikkelaars. Zie de volgende handleidingen voor meer informatie.
 
-* [Hoe tooconfigure API-instellingen][How tooconfigure API settings]
-* [Hoe toocreate en een product publiceren][How toocreate and publish a product]
+* [Het configureren van instellingen voor de API][How to configure API settings]
+* [Het maken en een product publiceren][How to create and publish a product]
 
 [api-management-management-console]: ./media/api-management-howto-import-api/api-management-management-console.png
 [api-management-import-apis]: ./media/api-management-howto-import-api/api-management-api-import-apis.png
@@ -90,7 +90,7 @@ Nadat een API is gemaakt en Hallo-bewerkingen die zijn geïmporteerd, die u kunt
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[How tooadd operations tooan API]: api-management-howto-add-operations.md
-[How toocreate and publish a product]: api-management-howto-add-products.md
-[How toocreate APIs]: api-management-howto-create-apis.md
-[How tooconfigure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create APIs]: api-management-howto-create-apis.md
+[How to configure API settings]: api-management-howto-create-apis.md#configure-api-settings

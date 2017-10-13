@@ -1,6 +1,6 @@
 ---
-title: aaaDownload hello sjabloon voor een virtuele machine in Azure | Microsoft Docs
-description: Hallo templatefor een VM-toohelp om implementaties van Resource Manager-implementatiemodel Hallo automatiseren downloaden
+title: Download de sjabloon voor een virtuele machine in Azure | Microsoft Docs
+description: Download de templatefor een virtuele machine om te helpen bij het automatiseren van implementaties in het Resource Manager-implementatiemodel
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 86fd05f67409019b5e5c9023881745047860eee1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9e4c0c3cf0e233447369a24b1d5fe27495abd1cf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="download-hello-template-for-a-vm"></a>Hallo-sjabloon downloaden voor een virtuele machine
-Wanneer u een virtuele machine in Azure maakt wordt via Hallo portal of PowerShell, een Resource Manager sjabloon automatisch voor u gemaakt. U kunt deze sjabloon tooquickly duplicaat een implementatie gebruiken. Hallo-sjabloon bevat informatie over alle Hallo resources in een resourcegroep. Voor een virtuele machine, betekent dit dat Hallo sjabloon bevat alles wat u ter ondersteuning van Hallo VM in die resourcegroep, met inbegrip van netwerkresources hello wordt gemaakt.
+# <a name="download-the-template-for-a-vm"></a>De sjabloon voor een VM downloaden
+Wanneer u een virtuele machine in Azure met behulp van de portal of PowerShell maakt, wordt een Resource Manager-sjabloon automatisch voor u gemaakt. Deze sjabloon kunt u snel dupliceren van een implementatie. De sjabloon bevat informatie over alle resources in een resourcegroep. Voor een virtuele machine, betekent dit dat de sjabloon bevat alles wat u ter ondersteuning van de virtuele machine in die resourcegroep, met inbegrip van de netwerkbronnen wordt gemaakt.
 
-## <a name="download-hello-template-using-hello-portal"></a>Met behulp van de portal Hallo Hallo-sjabloon downloaden
-1. Meld u bij toohello [Azure-portal](https://portal.azure.com/).
-2. Een Hallo hub-menu Selecteer **virtuele Machines**.
-3. Selecteer Hallo virtuele machine uit de lijst Hallo.
+## <a name="download-the-template-using-the-portal"></a>Download de sjabloon die via de portal
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+2. Een het hub-menu selecteren **virtuele Machines**.
+3. Selecteer de virtuele machine in de lijst.
 4. Selecteer **automatiseringsscript**.
-5. Selecteer **downloaden** en Hallo ZIP-bestand tooyour lokale computer op te slaan.
-6. Hallo ZIP-bestand openen en Hallo bestanden tooa map halen. Hallo ZIP-bestand bevat:
+5. Selecteer **downloaden** en sla het ZIP-bestand op uw lokale computer.
+6. Open het ZIP-bestand en pak de bestanden naar een map. Het ZIP-bestand bevat:
    
    * Deploy.ps1
    * Deploy.sh 
@@ -39,15 +39,15 @@ Wanneer u een virtuele machine in Azure maakt wordt via Hallo portal of PowerShe
    * parameters.JSON
    * Template.JSON
 
-Hallo template.json bestand is Hallo-sjabloon.
+Het bestand template.json is de sjabloon.
 
-## <a name="download-hello-template-using-powershell"></a>Met behulp van PowerShell Hallo-sjabloon downloaden
-U kunt ook downloaden Hallo .json-sjabloonbestand met Hallo [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx) cmdlet. U kunt Hallo `-path` parameter tooprovide Hallo bestandsnaam en het pad voor Hallo .json-bestand. Dit voorbeeld ziet u hoe de naam van toodownload Hallo sjabloon voor de resourcegroep Hallo **myResourceGroup** toohello **C:\users\public\downloads** map op uw lokale computer.
+## <a name="download-the-template-using-powershell"></a>Download de sjabloon die met behulp van PowerShell
+U kunt ook downloaden .json sjabloon bestand met de [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx) cmdlet. U kunt de `-path` -parameter voor de bestandsnaam en het pad opgeven voor de .json-bestand. Dit voorbeeld ziet u het downloaden van de sjabloon voor de resourcegroep met de naam **myResourceGroup** naar de **C:\users\public\downloads** map op uw lokale computer.
 
 ```powershell
     Export-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie toolearn meer informatie over het implementeren van resources met behulp van sjablonen [overzicht voor Resource Manager-sjabloon](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Zie voor meer informatie over het implementeren van resources met behulp van sjablonen, [overzicht voor Resource Manager-sjabloon](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 

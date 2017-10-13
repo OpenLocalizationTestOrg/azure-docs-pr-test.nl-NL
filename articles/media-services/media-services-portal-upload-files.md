@@ -1,6 +1,6 @@
 ---
-title: aaa"uploaden van bestanden naar een Media Services-account met behulp van hello Azure-portal | Microsoft Docs'
-description: "Deze zelfstudie leert u Hallo van bestanden zijn geüpload naar een Media Services-account met behulp van hello Azure-portal"
+title: Bestanden uploaden naar een Media Services-account via Azure Portal | Microsoft Docs
+description: In deze zelfstudie wordt stapsgewijs uitgelegd hoe u bestanden uploadt naar een Media Services-account via Azure Portal.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,58 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 4ce1e133c72854532735ba7c72a43c92a75bc240
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7ddfe44918b358a1749640d1c93dba490855cc5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="upload-files-into-a-media-services-account-using-hello-azure-portal"></a>Bestanden uploaden naar een Media Services-account met behulp van hello Azure-portal
+# <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Bestanden uploaden naar een Media Services-account via Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
 > 
 > [!NOTE]
-> toocomplete in deze zelfstudie, moet u een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
+> U hebt een Azure-account nodig om deze zelfstudie te voltooien. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
 > 
 
+In Azure Media Services uploadt u de digitale bestanden naar een asset. De asset kan video, audio, afbeeldingen, verzamelingen van miniaturen, tekstsporen en ondertitelingsbestanden (en de metagegevens voor deze bestanden) bevatten. Nadat de bestanden zijn geüpload, wordt uw inhoud veilig opgeslagen in de cloud voor verdere verwerking en streaming.
 
-In Media Services uploadt u de digitale bestanden naar (of neemt u deze op in) een asset. Hallo Asset kan bevatten, video, audio, afbeeldingen, verzamelingen miniaturen, tekst tekstsporen en ondertitelingsbestanden bestanden (en Hallo metagegevens over deze bestanden.) Zodra het Hallo-bestanden zijn geüpload, wordt uw inhoud veilig opgeslagen in Hallo cloud voor verdere verwerking en streaming.
-
-
-## <a name="upload-files"></a>Bestanden uploaden
-
->[!NOTE]
->Er is een limiet toohello maximale bestandsgrootte voor de verwerking van Media Services wordt ondersteund. Zie [dit](media-services-quotas-and-limitations.md) onderwerp voor meer informatie over Hallo beperking voor de bestandsgrootte.
+> [!NOTE]
+> Media Services heeft een maximale bestandsgrootte voor het verwerken van bestanden. Zie [Media Services quotas and limitations](media-services-quotas-and-limitations.md) (Quota en beperkingen voor Media Services) voor meer informatie over maximale bestandsgrootte.
 >
 
-1. In Hallo [Azure-portal](https://portal.azure.com/), selecteert u uw Azure Media Services-account.
-2. Op Hallo **instellingen** blade, klikt u op **activa**.
+## <a name="upload-files"></a>Bestanden uploaden
+1. Selecteer uw Azure Media Services-account in [Azure Portal](https://portal.azure.com/).
+2. Selecteer **Instellingen** > **Assets**. Selecteer de knop **Uploaden**.
    
     ![Bestanden uploaden](./media/media-services-portal-vod-get-started/media-services-upload.png)
-3. Klik op Hallo **uploaden** knop.
    
-    Hallo **videoasset uploaden** venster wordt weergegeven.
+    Het venster **Videoasset uploaden** wordt weergegeven.
    
    > [!NOTE]
-   > Er geldt geen beperking voor de bestandsgrootte.
-   > 
-   > 
-4. Blader toohello gewenste video op uw computer, selecteert u deze en klik op OK.  
+   > Media Services heeft geen maximale bestandsgrootte voor het uploaden van video's.
+ 
+3. Ga op uw computer naar de video die u wilt uploaden. Selecteer de video en selecteer vervolgens **OK**.  
    
-    Hallo uploaden wordt gestart en u kunt de voortgang Hallo onder Hallo bestandsnaam bekijken.  
+    Het uploaden wordt gestart. U kunt de voortgang onder de bestandsnaam bekijken.  
 
-Nadat het Hallo uploaden is voltooid, ziet u Hallo nieuwe asset weergegeven in Hallo **activa** venster. 
-
-## <a name="next-steps"></a>Volgende stappen
-U kunt nu de geüploade assets coderen. Zie [Assets coderen](media-services-portal-encode.md) voor meer informatie.
-
-U kunt ook Azure Functions tootrigger een codeertaak op basis van een bestand in container Hallo geconfigureerd die binnenkomen. Zie [dit voorbeeld](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ) voor meer informatie.
+Wanneer het uploaden is voltooid, wordt de nieuwe asset in het deelvenster **Assets** weergegeven. 
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+## <a name="next-steps"></a>Volgende stappen
+* Meer informatie over het [coderen van de geüploade assets](media-services-portal-encode.md).
+
+* U kunt ook Azure Functions gebruiken om een coderingstaak te activeren wanneer er een bestand binnenkomt in de geconfigureerde container. Bekijk voor meer informatie het voorbeeld in [Media Services: Integrating Azure Media Services with Azure Functions and Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/) (Media Services: Azure Media Services integreren met Azure Functions en Logic Apps).
+
 

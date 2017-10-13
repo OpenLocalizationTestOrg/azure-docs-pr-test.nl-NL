@@ -1,6 +1,6 @@
 ---
-title: aaaStorSimple failover en herstel na noodgevallen | Microsoft Docs
-description: Meer informatie over hoe toofail via uw tooitself StorSimple-apparaat, een ander fysiek apparaat of een virtueel apparaat.
+title: StorSimple failover en herstel na noodgevallen | Microsoft Docs
+description: Leer uw StorSimple-apparaat zelf, een ander fysiek apparaat of een virtueel apparaat failover.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,168 +14,168 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 00ce365f8a9095d1f0292e665d7f9eaa844b44ae
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bf92ffdb16b86c4033cc96ae2abb060d90f9505e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>Failover en herstel na noodgevallen voor uw StorSimple-apparaat
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie wordt beschreven Hallo stappen vereist toofail via een virtueel StorSimple-apparaat in de gebeurtenis Hallo van een noodgeval. Een failover kunt u toomigrate uw gegevens uit een Bronapparaat in Hallo datacenter tooanother fysieke of zelfs een virtueel apparaat zich in Hallo dezelfde of een andere geografische locatie. 
+Deze zelfstudie wordt beschreven hoe u een StorSimple-apparaat in het geval van een noodgeval failover. Een failover kunt u uw gegevens migreren vanaf een Bronapparaat in het datacenter naar het andere fysieke of zelfs een virtueel apparaat zich in hetzelfde of een andere geografische locatie. 
 
-Noodherstel (DR) wordt beheerd via failoverfunctie Hallo-apparaat en wordt gestart vanuit Hallo **apparaten** pagina. Deze pagina registreert alle Hallo StorSimple-apparaten verbonden tooyour StorSimple Manager-service. Voor elk apparaat, Hallo beschrijvende naam, status, ingericht en de maximale capaciteit, worden type en model weergegeven.
+Herstel na noodgeval (DR) wordt beheerd via de functie van de failover-apparaat en wordt gestart vanuit de **apparaten** pagina. Deze pagina registreert alle StorSimple-apparaten die worden verbonden met uw StorSimple Manager-service. Voor elk apparaat worden de beschrijvende naam, status, ingericht en de maximale capaciteit, type en model weergegeven.
 
 ![Pagina apparaten](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
-Hallo richtlijnen in deze zelfstudie geldt tooStorSimple fysieke en virtuele apparaten in alle softwareversies.
+De instructies in deze zelfstudie is van toepassing op StorSimple fysieke en virtuele apparaten in alle softwareversies.
 
 ## <a name="disaster-recovery-dr-and-device-failover"></a>Noodherstel (DR) en failover-apparaat
-In een (DR) noodherstelscenario Hallo primair apparaat niet meer werkt. In dit geval kunt u cloudgegevens Hallo Hallo mislukte apparaat tooanother apparaat gekoppeld met behulp van het primaire apparaat Hallo als Hallo *bron* en een ander apparaat op te geven als Hallo *doel*. U kunt een of meer volume containers toomigrate toohello doelapparaat selecteren. Dit proces is waarnaar wordt verwezen tooas hello *failover*. 
+In een (DR) noodherstelscenario, het primaire apparaat niet meer werkt. In dit geval kunt u de cloudgegevens die is gekoppeld aan het mislukte apparaat aan een ander apparaat met behulp van het primaire apparaat als de *bron* en een ander apparaat als op te geven de *doel*. U kunt een of meer volumecontainers om te migreren naar het doelapparaat selecteren. Dit proces wordt aangeduid als de *failover*. 
 
-Tijdens de failover van Hallo Hallo volumecontainers van het bronvolume Hallo eigendom wijzigen en worden overgedragen toohello doelapparaat. Zodra de volumecontainers Hallo eigendom wijzigen, wordt deze verwijderd van het bronvolume Hallo. Nadat Hallo verwijdering voltooid is, Hallo doelapparaat vervolgens terug failover.
+Tijdens de failover de volumecontainers van het bronapparaat eigendom wijzigen en worden overgedragen naar het doelapparaat. Zodra de volumecontainers eigendom wijzigen, wordt deze verwijderd van het bronapparaat. Nadat de verwijdering voltooid is, kan het doelapparaat vervolgens weer worden uitgevoerd.
 
-Doorgaans na een DR, de meest recente back-up van Hallo is gebruikte toorestore hello toohello doelapparaat. Echter als er meerdere back-upbeleid voor Hallo hetzelfde volume, vervolgens back-upbeleid met het grootste aantal volumes Hallo Hallo opgehaald verzameld en Hallo meest recente back-up van dat beleid gebruikte toorestore Hallo gegevens op het doelapparaat Hallo.
+De meest recente back-up is gewoonlijk na een DR gebruikt voor het herstellen van de gegevens naar het doelapparaat. Echter, als er meerdere back-upbeleid voor hetzelfde volume, vervolgens met het grootste aantal volumes een back-upbeleid opgehaald verzameld en de meest recente back-up van dit beleid wordt gebruikt om de gegevens op het doelapparaat te herstellen.
 
-Een voorbeeld: als er twee back-upbeleid (één standaard- en een aangepaste) *defaultPol*, *customPol* Hello volgende details:
+Een voorbeeld: als er twee back-upbeleid (één standaard- en een aangepaste) *defaultPol*, *customPol* met de volgende details:
 
 * *defaultPol* : één volume *vol1*, dagelijkse begint bij 10:30 uur uitgevoerd.
 * *customPol* : vier volumes *vol1*, *vol2*, *vol3*, *vol4*, dagelijkse begint bij 10:00 uur uitgevoerd.
 
-In dit geval *customPol* wordt gebruikt als er meerdere volumes en we voor crashconsistentie prioriteren. Hallo meest recente back-up van dit beleid is gebruikte toorestore gegevens.
+In dit geval *customPol* wordt gebruikt als er meerdere volumes en we voor crashconsistentie prioriteren. De meest recente back-up van dit beleid wordt gebruikt om gegevens te herstellen.
 
 ## <a name="considerations-for-device-failover"></a>Overwegingen voor het apparaat failover
-U kunt in geval van een noodgeval Hallo toofail kiezen via uw StorSimple-apparaat:
+U kunt kiezen in het geval van een noodgeval voor failover van uw StorSimple-apparaat:
 
-* het fysieke apparaat tooa 
-* tooitself
-* tooa virtueel apparaat
+* Naar een fysiek apparaat 
+* Op zichzelf
+* Naar een virtueel apparaat
 
-Houd er rekening mee Hallo volgende voor de failover van een apparaat:
+Voor de failover van een apparaat, houd rekening met het volgende:
 
-* Hallo vereisten voor herstel na Noodgevallen zijn dat alle Hallo volumes binnen Hallo volumecontainers offline zijn en Hallo volumecontainers een gekoppeld hebben cloudmomentopname. 
-* Hallo beschikbaar doelapparaten voor herstel na Noodgevallen zijn apparaten waarop voldoende ruimte tooaccommodate Hallo containers geselecteerde volume. 
-* Hallo apparaten die verbonden tooyour zijn service, maar niet voldoen aan de criteria Hallo van voldoende ruimte is alleen beschikbaar als doelapparaten.
-* Na een DR, voor een bepaalde duur Hallo data access-prestaties aanzienlijk kan worden beïnvloed, als Hallo-apparaat wordt moet tooaccess Hallo van gegevens van Hallo cloud en lokaal opslaan.
+* De vereisten voor herstel na Noodgevallen zijn dat alle volumes in de volumecontainers offline zijn en de volumecontainers een gekoppeld hebben cloudmomentopname. 
+* De beschikbare doelapparaten voor herstel na Noodgevallen zijn apparaten die voldoende ruimte voor de geselecteerde volumecontainers hebben. 
+* De apparaten die zijn verbonden met uw service, maar die niet voldoen aan de criteria van voldoende ruimte worden niet beschikbaar als doelapparaten.
+* Na een DR voor een beperkte duur, de prestaties van de toegang tot gegevens kan worden beïnvloed aanzienlijk, als het apparaat moet toegang tot de gegevens vanuit de cloud en lokaal opslaan.
 
 #### <a name="device-failover-across-software-versions"></a>Apparaat failover tussen softwareversies
-Een StorSimple Manager-service in een implementatie mogelijk op meerdere apparaten, fysieke en virtuele, alle actieve verschillende software-versies. Afhankelijk van de softwareversie hello, Hallo volumetypen op Hallo apparaten mogelijk ook andere. Bijvoorbeeld, een apparaat actieve Update 2 of hoger zou gelden lokaal vastgemaakt en gelaagde volumes (met archivering wordt een subset van gelaagd). Een apparaat vóór Update 2 op Hallo daarentegen kan hebben lagen en archivering volumes. 
+Een StorSimple Manager-service in een implementatie mogelijk op meerdere apparaten, fysieke en virtuele, alle actieve verschillende software-versies. Afhankelijk van de versie van de software, de volumetypen op de apparaten mogelijk ook andere. Bijvoorbeeld, een apparaat actieve Update 2 of hoger zou gelden lokaal vastgemaakt en gelaagde volumes (met archivering wordt een subset van gelaagd). Een vooraf Update 2-apparaat aan de andere kant kan hebben lagen en archivering volumes. 
 
-Hallo tabel toodetermine volgen als u failover uitvoeren van een ander software-versie en Hallo gedrag van volumetypen tijdens DR tooanother-apparaat gebruiken.
+Gebruik de volgende tabel om te bepalen als u een failover naar een ander apparaat voor het uitvoeren van een ander software-versie en het gedrag van volumetypen tijdens DR.
 
 | Failover van | Toegestaan voor het fysieke apparaat | Toegestaan voor het virtuele apparaat |
 | --- | --- | --- |
-| Update 2 toopre-Update 1 (Release, 0,1, 0,2, 0,3) |Nee |Nee |
-| Update 2 tooUpdate 1 (1, 1.1, 1.2) |Ja <br></br>Als u met behulp van lokaal vastgemaakt of gelaagde volumes of een combinatie van twee, Hallo volumes wordt altijd een failover uitgevoerd als lagen. |Ja<br></br>Als u lokaal vastgemaakte volumes, zijn deze dan gelaagde mislukt. |
-| Update 2 tooUpdate 2 (latere versie) |Ja<br></br>Als u lokaal vastgemaakte of gelaagde volumes of een combinatie van twee, Hallo volumes wordt altijd een failover uitgevoerd als Hallo volumetype; starten gelaagde als gelaagde en lokaal vastgemaakt als lokaal vastgemaakt. |Ja<br></br>Als u lokaal vastgemaakte volumes, zijn deze dan gelaagde mislukt. |
+| Update 2 voor het bijwerken van vooraf 1 (Release, 0,1, 0,2, 0,3) |Nee |Nee |
+| Update 2 voor het bijwerken van 1 (1, 1.1, 1.2) |Ja <br></br>Als lokaal vastgemaakt of volumes of een combinatie van twee gelaagde, de volumes wordt altijd een failover uitgevoerd als lagen. |Ja<br></br>Als u lokaal vastgemaakte volumes, zijn deze dan gelaagde mislukt. |
+| Update 2 voor Update 2 (latere versie) |Ja<br></br>Als u lokaal vastgemaakte of gelaagde volumes of een combinatie van twee, de volumes wordt altijd een failover uitgevoerd als het eerste volumetype; gelaagde als gelaagde en lokaal vastgemaakt als lokaal vastgemaakt. |Ja<br></br>Als u lokaal vastgemaakte volumes, zijn deze dan gelaagde mislukt. |
 
 #### <a name="partial-failover-across-software-versions"></a>Gedeeltelijke failover tussen softwareversies
-Volg deze richtlijnen als u van plan bent tooperform een gedeeltelijke failover met behulp van een StorSimple-bron-apparaat met vooraf Update 1 tooa doel met Update 1 of hoger. 
+Volg deze richtlijnen als u van plan bent om uit te voeren een gedeeltelijke failover met behulp van een StorSimple-bron-apparaat met 1 vóór het bijwerken naar een doel met Update 1 of hoger. 
 
 | Gedeeltelijke failover van | Toegestaan voor het fysieke apparaat | Toegestaan voor het virtuele apparaat |
 | --- | --- | --- |
-| Vooraf Update 1 (Release, 0,1, 0,2, 0,3) tooUpdate 1 of hoger |Ja, Zie hieronder voor Hallo best practice tip. |Ja, Zie hieronder voor Hallo best practice tip. |
+| Vooraf Update 1 (Release, 0,1, 0,2, 0,3) Update 1 of hoger |Ja, Zie hieronder voor de best practice-punt. |Ja, Zie hieronder voor de best practice-punt. |
 
 > [!TIP]
-> Er is een cloud metagegevens en gegevens indeling gewijzigd in Update 1 en latere versies. Daarom raden we niet een gedeeltelijke failover van vooraf Update 1 tooUpdate 1 of hoger in. Als u een gedeeltelijke failover tooperform nodig hebt, raden wij u eerst toepassen Update 1 of later op beide Hallo apparaten (bron en doel) en ga vervolgens verder met de Hallo failover. 
+> Er is een cloud metagegevens en gegevens indeling gewijzigd in Update 1 en latere versies. Daarom raadzaam niet een gedeeltelijke failover van vooraf Update 1 naar Update 1 of hoger. Als u een gedeeltelijke failover uitvoeren wilt, raden wij u eerst toepassen Update 1 of later op beide apparaten (bron en doel) en ga vervolgens verder met de failover. 
 > 
 > 
 
-## <a name="fail-over-tooanother-physical-device"></a>Het fysieke apparaat tooanother failover
-Volgende stappen toorestore Hallo uw apparaat tooa fysieke doelapparaat uitvoeren.
+## <a name="fail-over-to-another-physical-device"></a>Failover naar een andere fysieke apparaat
+De volgende stappen voor het herstellen van uw apparaat op een doelapparaat fysieke uitvoeren.
 
-1. Controleer of deze Hallo volumecontainer toofail via gewenste cloudmomentopnamen is gekoppeld.
-2. Op Hallo **apparaten** pagina, klikt u op Hallo **Volumecontainers** tabblad.
-3. Selecteer een volumecontainer dat u toofail via tooanother apparaat dat wilt. Klik op Hallo volume container toodisplay Hallo lijst van volumes in deze container. Selecteer een volume en klik op **Offline nemen** tootake Hallo volume offline. Herhaal dit proces voor alle Hallo volumes in de volumecontainer Hallo.
-4. De vorige stap herhalen Hallo voor alle volumecontainers Hallo gewenst toofail via tooanother apparaat.
-5. Op Hallo **apparaten** pagina, klikt u op **Failover**.
-6. In de wizard Hallo die wordt geopend, klikt u onder **volume container toofail kiezen via**:
+1. Controleer of dat de volumecontainer die u failover wilt uitvoeren cloudmomentopnamen is gekoppeld.
+2. Op de **apparaten** pagina, klikt u op de **Volumecontainers** tabblad.
+3. Selecteer een volumecontainer die u wilt een failover naar een ander apparaat. Klik op de volumecontainer lijst van volumes in deze container wilt weergeven. Selecteer een volume en klik op **Offline nemen** offline te nemen het volume. Herhaal dit proces voor de volumes in de volumecontainer.
+4. Herhaal de vorige stap voor alle volumecontainers die u wilt een failover naar een ander apparaat.
+5. Op de **apparaten** pagina, klikt u op **Failover**.
+6. In de wizard die wordt geopend, klikt u onder **volumecontainer Kies failover**:
    
-   1. Selecteer in de lijst van de Hallo met volumecontainers, Hallo volumecontainers toofail via gewenst.
-      **Alleen Hallo volumecontainers met momentopnamen van de gekoppelde cloud en offline volumes worden weergegeven.**
-   2. Onder **kiezen een doelapparaat** voor Hallo volumes in containers Hallo geselecteerd, selecteert u een doelapparaat van Hallo vervolgkeuzelijst met beschikbare apparaten. Alleen Hallo-apparaten waarvoor de beschikbare capaciteit Hallo worden weergegeven in de vervolgkeuzelijst Hallo.
-   3. Controleer ten slotte alle Hallo failover-instellingen onder **bevestigen failover**. Klik op het vinkje Hallo ![vinkje](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
-7. Een failover-taak gemaakt die kunnen worden bewaakt via Hallo **taken** pagina. Als het Hallo-volumecontainer waarvoor u failover lokale volumes heeft, ziet u het herstellen van de afzonderlijke taken voor alle lokale volumes (en niet voor gelaagde volumes) in Hallo-container. Deze taken herstelpunten geruime toocomplete tijd kan duren. Is het waarschijnlijk dat Hallo failover-taak mogelijk eerder voltooid. Houd er rekening mee dat deze volumes beschikken over lokale garanties alleen nadat Hallo hersteltaken voltooid zijn. Nadat het Hallo-failover is voltooid, gaat u toohello **apparaten** pagina.                                            
+   1. Selecteer in de lijst met volumecontainers, de volumecontainers die u wilt een failover.
+      **De volumecontainers met momentopnamen van de gekoppelde cloud en offline volumes worden weergegeven.**
+   2. Onder **kiezen een doelapparaat** voor de volumes in de geselecteerde containers, selecteert u een doelapparaat in de vervolgkeuzelijst met beschikbare apparaten. Alleen de apparaten waarvoor de beschikbare capaciteit worden in de vervolgkeuzelijst weergegeven.
+   3. Controleer ten slotte de failover-instellingen onder **bevestigen failover**. Klik op het vinkje ![vinkje](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+7. Een failover-taak gemaakt die kunnen worden bewaakt de **taken** pagina. Als de volumecontainer waarvoor u failover lokale volumes heeft, ziet u het herstellen van de afzonderlijke taken voor alle lokale volumes (en niet voor gelaagde volumes) in de container. Deze terugzetten taken kunnen geruime tijd duren om te voltooien. Is het waarschijnlijk dat de failover-taak eerder kan voltooien. Houd er rekening mee dat deze volumes beschikken over lokale garanties alleen nadat het herstellen van taken voltooid zijn. Nadat de failover is voltooid, gaat u naar de **apparaten** pagina.                                            
    
-   1. Selecteer Hallo-apparaat dat is gebruikt voor het doelapparaat Hallo voor Hallo failover-proces.
-   2. Ga toohello **Volumecontainers** pagina. Alle Hallo-volumecontainers, samen met de Hallo volumes van de oude apparaat hello, moeten worden vermeld.
+   1. Selecteer het apparaat dat is gebruikt voor het doelapparaat voor de failoverproces.
+   2. Ga naar de **Volumecontainers** pagina. Volumecontainers, samen met de volumes van het oude apparaat moeten worden vermeld.
 
 ## <a name="failover-using-a-single-device"></a>Failover via één apparaat
-Hallo volgende stappen uit als u slechts een enkele tooperform apparaat en moet een failover uitvoeren.
+Voer de volgende stappen uit als u slechts één apparaat hebben en moet een failover uitvoeren.
 
-1. Momentopnamen cloud van alle Hallo volumes in uw apparaat.
-2. De standaardinstellingen van uw apparaat toofactory opnieuw. Ga als volgt Hallo gedetailleerde instructies in [hoe de standaardinstellingen voor een StorSimple-apparaat toofactory tooreset](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+1. Momentopnamen cloud van alle volumes op uw apparaat.
+2. Uw apparaat terugzetten op fabrieksinstellingen. Volg de gedetailleerde instructies in [hoe een StorSimple-apparaat opnieuw instelt fabrieksinstellingen](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 3. Uw apparaat configureren en het opnieuw registreren met StorSimple Manager-service.
-4. Op Hallo **apparaten** pagina Hallo oude apparaat moet worden weergegeven als **Offline**. Hallo nieuw ingeschreven apparaat moet worden weergegeven als **Online**.
-5. Voor het nieuwe apparaat hello, Hallo minimale configuratie van Hallo apparaat eerst te voltooien. 
+4. Op de **apparaten** pagina het oude apparaat moet worden weergegeven als **Offline**. Het nieuw ingeschreven apparaat moet worden weergegeven als **Online**.
+5. Voor het nieuwe apparaat, de minimale configuratie van het apparaat eerst te voltooien. 
    
    > [!IMPORTANT]
-   > **Als de minimale configuratie Hallo niet eerst is voltooid, mislukt uw DR als gevolg van een fout in de huidige implementatie Hallo. Dit probleem wordt opgelost in een latere release.**
+   > **Als de minimale configuratie niet eerst is voltooid, wordt uw DR mislukt als gevolg van een fout in de huidige implementatie. Dit probleem wordt opgelost in een latere release.**
    > 
    > 
-6. Selecteer Hallo oude apparaat (offline status) en klik op **Failover**. In de wizard Hallo die wordt weergegeven, dit apparaat failover en Hallo doelapparaat opgeeft als Hallo nieuw ingeschreven apparaat. Voor gedetailleerde instructies te verwijzen[tooanother fysiek apparaat failover](#fail-over-to-another-physical-device).
-7. Een hersteltaak van het apparaat wordt gemaakt dat u vanaf Hallo bewaken kunt **taken** pagina.
-8. Nadat het Hallo-taak is voltooid, toegang tot Hallo nieuwe apparaat en navigeer toohello **Volumecontainers** pagina. Alle Hallo volumecontainers van het oude apparaat Hallo worden nu gemigreerde toohello nieuw apparaat.
+6. Selecteer het oude apparaat (offline status) en klik op **Failover**. Failover voor dit apparaat in de wizard wordt weergegeven, en het doelapparaat opgeven als het nieuw ingeschreven apparaat. Raadpleeg voor gedetailleerde instructies [failover naar een ander fysiek apparaat](#fail-over-to-another-physical-device).
+7. Een hersteltaak van het apparaat wordt gemaakt dat u vanaf bewaken kunt de **taken** pagina.
+8. Nadat de taak is voltooid, toegang tot het nieuwe apparaat en navigeer naar de **Volumecontainers** pagina. De volumecontainers van het oude apparaat moeten nu worden gemigreerd naar het nieuwe apparaat.
 
-## <a name="fail-over-tooa-storsimple-virtual-device"></a>Failover tooa virtuele StorSimple-apparaat
-U moet een StorSimple virtueel apparaat maken en configureren van eerdere toorunning hebben deze procedure. Als u Update 2 wordt uitgevoerd, kunt u overwegen een virtueel apparaat 8020 voor Hallo DR die is 64 TB en Premium-opslag gebruikt. 
+## <a name="fail-over-to-a-storsimple-virtual-device"></a>Failover naar een virtueel StorSimple-apparaat
+Een StorSimple-apparaat gemaakt en geconfigureerd voordat u deze procedure uitvoert, moet u hebben. Als u Update 2 wordt uitgevoerd, kunt u overwegen een virtueel apparaat 8020 voor de DR die is 64 TB en Premium-opslag gebruikt. 
 
-Volgende stappen toorestore Hallo apparaat tooa doel virtueel StorSimple-apparaat Hallo uitvoeren.
+Voer de volgende stappen uit voor het herstellen van het apparaat op een doel-virtuele StorSimple-apparaat.
 
-1. Controleer of deze Hallo volumecontainer toofail via gewenste cloudmomentopnamen is gekoppeld.
-2. Op Hallo **apparaten** pagina, klikt u op Hallo **Volumecontainers** tabblad.
-3. Selecteer een volumecontainer dat u toofail via tooanother apparaat dat wilt. Klik op Hallo volume container toodisplay Hallo lijst van volumes in deze container. Selecteer een volume en klik op **Offline nemen** tootake Hallo volume offline. Herhaal dit proces voor alle Hallo volumes in de volumecontainer Hallo.
-4. De vorige stap herhalen Hallo voor alle volumecontainers Hallo gewenst toofail via tooanother apparaat.
-5. Op Hallo **apparaten** pagina, klikt u op **Failover**.
-6. In de wizard Hallo die wordt geopend, klikt u onder **kiezen volume container toofailover**, Hallo volgende voltooien:
+1. Controleer of dat de volumecontainer die u failover wilt uitvoeren cloudmomentopnamen is gekoppeld.
+2. Op de **apparaten** pagina, klikt u op de **Volumecontainers** tabblad.
+3. Selecteer een volumecontainer die u wilt een failover naar een ander apparaat. Klik op de volumecontainer lijst van volumes in deze container wilt weergeven. Selecteer een volume en klik op **Offline nemen** offline te nemen het volume. Herhaal dit proces voor de volumes in de volumecontainer.
+4. Herhaal de vorige stap voor alle volumecontainers die u wilt een failover naar een ander apparaat.
+5. Op de **apparaten** pagina, klikt u op **Failover**.
+6. In de wizard die wordt geopend, klikt u onder **volumecontainer Kies failover**, vult u de volgende:
    
-    a. Selecteer in de lijst van de Hallo met volumecontainers, Hallo volumecontainers toofail via gewenst.
+    a. Selecteer in de lijst met volumecontainers, de volumecontainers die u wilt een failover.
    
-    **Alleen Hallo volumecontainers met momentopnamen van de gekoppelde cloud en offline volumes worden weergegeven.**
+    **De volumecontainers met momentopnamen van de gekoppelde cloud en offline volumes worden weergegeven.**
    
-    b. Onder **kiest u een doelapparaat voor Hallo volumes in containers Hallo geselecteerd**, selecteer Hallo virtueel StorSimple-apparaat uit Hallo vervolgkeuzelijst met beschikbare apparaten. **Hallo alleen apparaten die voldoende capaciteit hebben worden weergegeven in de vervolgkeuzelijst Hallo.**  
-7. Controleer ten slotte alle Hallo failover-instellingen onder **bevestigen failover**. Klik op het vinkje Hallo ![vinkje](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
-8. Nadat het Hallo-failover is voltooid, gaat u toohello **apparaten** pagina.
+    b. Onder **kiest u een apparaat voor de volumes in de geselecteerde containers**, selecteer het virtuele StorSimple-apparaat in de vervolgkeuzelijst met beschikbare apparaten. **Alleen de apparaten die voldoende capaciteit hebben worden weergegeven in de vervolgkeuzelijst.**  
+7. Controleer ten slotte de failover-instellingen onder **bevestigen failover**. Klik op het vinkje ![vinkje](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+8. Nadat de failover is voltooid, gaat u naar de **apparaten** pagina.
    
-    a. Selecteer Hallo virtueel StorSimple-apparaat dat is gebruikt als het doelapparaat Hallo voor Hallo failover-proces.
+    a. Selecteer het virtuele StorSimple-apparaat dat is gebruikt als het doelapparaat voor de failoverproces.
    
-    b. Ga toohello **Volumecontainers** pagina. Alle Hallo-volumecontainers, samen met de volumes van de oude apparaat Hallo Hallo zou nu moeten worden vermeld.
+    b. Ga naar de **Volumecontainers** pagina. Volumecontainers, samen met de volumes van het oude apparaat zou nu moeten worden vermeld.
 
 ![Video beschikbaar](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video beschikbaar**
 
-toowatch een video die u laat zien hoe u kunt een mislukte via fysieke apparaat tooa virtueel apparaat in de cloud hello, klikt u op [hier](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+Als u wilt een video die u laat zien hoe u kunt een failover via een fysiek apparaat met een virtueel apparaat in de cloud, klikt u op [hier](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## <a name="failback"></a>Failback
-Update 3 en hoger ondersteuning StorSimple ook voor failback. Nadat het Hallo-failover is voltooid, hello volgende acties uitgevoerd:
+Update 3 en hoger ondersteuning StorSimple ook voor failback. Nadat de failover voltooid is, wordt de volgende acties uitgevoerd:
 
-* Hallo volumecontainers die worden overgenomen worden van het bronvolume Hallo opgeschoond.
-* Een achtergrondtaak per volumecontainer (failover) wordt gestart op het bronvolume Hallo. Als u toofailback probeert tijdens het Hallo-taak wordt uitgevoerd, ontvangt u een melding toothat effect. U moet toowait totdat het Hallo-taak is voltooid toostart Hallo failback. 
+* De volumecontainers die worden overgenomen worden van het bronapparaat opgeschoond.
+* Een achtergrondtaak per volumecontainer (failover) wordt gestart op het bronapparaat. Als u te failback probeert terwijl de taak uitgevoerd wordt, ontvangt u een melding in die zin. U moet wachten totdat de taak is voltooid de failback starten. 
   
-    Hallo tijd toocomplete Hallo verwijdering van volumecontainers is afhankelijk van verschillende factoren zoals de hoeveelheid gegevens, de leeftijd van Hallo gegevens, het aantal back-ups en beschikbare Hallo netwerkbandbreedte voor Hallo-bewerking. Als u van plan bent test failovers/failbacks, raden wij volumecontainers met minder gegevens (GB) te testen. In de meeste gevallen kunt u Hallo failback starten 24 uur na het Hallo-failover is voltooid. 
+    De tijd voor het voltooien van de verwijdering van volumecontainers is afhankelijk van verschillende factoren zoals de hoeveelheid gegevens, de leeftijd van de gegevens, het aantal back-ups en de beschikbare netwerkbandbreedte voor de bewerking. Als u van plan bent test failovers/failbacks, raden wij volumecontainers met minder gegevens (GB) te testen. In de meeste gevallen kunt u de failback starten 24 uur na de failover voltooid is. 
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-Q. **Wat gebeurt er als Hallo DR mislukt of gedeeltelijk geslaagd is?**
+Q. **Wat gebeurt er als de DR mislukt of gedeeltelijk geslaagd is?**
 
-A. Als Hallo DR mislukt, wordt u aangeraden dat u het opnieuw proberen. Hallo tweede keer, DR weet wat alle werd uitgevoerd en wanneer Hallo proces tot stilstand gekomen Hallo eerst. Hallo DR-proces wordt gestart vanaf dat moment en hoger. 
+A. Als de DR mislukt, wordt u aangeraden dat u het opnieuw proberen. De tweede keer ongeveer, DR weet wat alle werd uitgevoerd en wanneer het proces de eerste keer vastgelopen. Het DR-proces wordt gestart vanaf dat moment en hoger. 
 
-Q. **Kan ik een apparaat verwijderen terwijl Hallo apparaat failover uitgevoerd wordt?**
+Q. **Kan ik een apparaat verwijderen terwijl de apparaat-failover uitgevoerd wordt?**
 
-A. U kunt een apparaat niet verwijderen, terwijl een DR uitgevoerd wordt. U kunt uw apparaat alleen verwijderen als Hallo DR voltooid is.
+A. U kunt een apparaat niet verwijderen, terwijl een DR uitgevoerd wordt. U kunt alleen het apparaat verwijderen nadat de DR voltooid is.
 
-Q.    **Wanneer Hallo garbagecollection begint op het bronvolume Hallo zodat Hallo lokale gegevens op het bronvolume is verwijderd?**
+Q.    **Wanneer de garbagecollection begint op het bronapparaat zodat de lokale gegevens op het bronvolume is verwijderd?**
 
-A. Garbagecollection wordt ingeschakeld op het bronvolume Hallo pas nadat Hallo apparaat volledig wordt opgeschoond. Hallo opschonen bevat objecten die failover van Hallo Bronapparaat zoals volumes, back-objecten (geen gegevens), volumecontainers en beleidsregels voor het opruimen.
+A. Garbagecollection wordt ingeschakeld op het bronapparaat pas nadat het apparaat volledig wordt opgeschoond. Het opruimen van de omvat het opruimen van objecten die zijn mislukt via van het bronapparaat zoals volumes, back-objecten (geen gegevens), volumecontainers en beleidsregels.
 
-Q. **Wat gebeurt er als Hallo taak die is gekoppeld aan Hallo volumecontainers in het bronvolume Hallo verwijderen mislukt?**
+Q. **Wat gebeurt er als de delete-taak die is gekoppeld aan de volumecontainers in het bronapparaat mislukt?**
 
-A.  Als Hallo verwijderen van taak mislukt, moet u toomanually trigger Hallo verwijdering van volumecontainers Hallo. In Hallo **apparaten** pagina, selecteer het bronapparaat en klik op **volumecontainers**. Selecteer Hallo volumecontainers die u niet via en in de onderste Hallo Hallo pagina, klikt u op **verwijderen**. Zodra u alle Hallo hebt verwijderd volumecontainers op het bronvolume Hallo failover, kunt u beginnen met Hallo failback.
+A.  Als de taak voor het verwijderen is mislukt, moet u de verwijdering van de volumecontainers handmatig opnieuw starten. In de **apparaten** pagina, selecteer het bronapparaat en klik op **volumecontainers**. Selecteer de volumecontainers die u niet over en in de onderkant van de pagina, klikt u op **verwijderen**. Zodra u alles hebt verwijderd de mislukte via volumecontainers op het bronapparaat, kunt u beginnen met de failback.
 
 ## <a name="business-continuity-disaster-recovery-bcdr"></a>Herstel van zakelijke continuïteit na noodgevallen (BCDR)
-Een zakelijke continuïteit (BCDR) noodherstelscenario treedt op wanneer Hallo volledige Azure-datacenter niet meer werkt. Dit kan invloed hebben op uw StorSimple Manager-service en Hallo bijbehorende StorSimple-apparaten.
+Een zakelijke continuïteit (BCDR) noodherstelscenario treedt op wanneer de volledige Azure-datacenter niet meer werkt. Dit kan van invloed op uw StorSimple Manager-service en de bijbehorende StorSimple-apparaten.
 
-Als er StorSimple-apparaten die zijn geregistreerd, net voordat een noodgeval is opgetreden, mogelijk een van de fabrieksinstellingen tooundergo moet op deze StorSimple-apparaten. Na noodgevallen Hallo wordt Hallo StorSimple-apparaat weergegeven als offline. Hallo StorSimple-apparaat moet worden verwijderd uit Hallo-portal en fabrieksinstellingen moet worden gedaan, gevolgd door een nieuwe registratie.
+Als er StorSimple-apparaten die zijn geregistreerd, net voordat een noodgeval is opgetreden, kunnen deze StorSimple-apparaten moet ondergaan fabrieksinstellingen terug te zetten. Na de sitedatabase, wordt het StorSimple-apparaat weergegeven als offline. Het StorSimple-apparaat moet worden verwijderd van de portal en fabrieksinstellingen moet worden gedaan, gevolgd door een nieuwe registratie.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Nadat u hebt een failover uitgevoerd, moet u wellicht te[deactiveren of verwijderen van uw StorSimple-apparaat](storsimple-deactivate-and-delete-device.md).
-* Voor informatie over hoe toouse Hallo StorSimple Manager-service, gaat u te[gebruik Hallo StorSimple Manager service tooadminister uw StorSimple-apparaat](storsimple-manager-service-administration.md).
+* Nadat u hebt een failover uitgevoerd, moet u mogelijk [deactiveren of verwijderen van uw StorSimple-apparaat](storsimple-deactivate-and-delete-device.md).
+* Ga voor informatie over het gebruik van de StorSimple Manager-service naar [de StorSimple Manager-service gebruiken voor het beheren van uw StorSimple-apparaat](storsimple-manager-service-administration.md).
 

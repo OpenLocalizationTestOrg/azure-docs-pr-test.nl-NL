@@ -1,6 +1,6 @@
 ---
-title: aaaInstall MongoDB op een Linux-VM met behulp van Azure CLI 1.0 Hallo | Microsoft Docs
-description: Meer informatie over hoe tooinstall en MongoDB configureren op een virtuele Linux-machine in Azure met behulp van Hallo Resource Manager-implementatiemodel.
+title: MongoDB installeren op een Linux-VM met behulp van de Azure CLI 1.0 | Microsoft Docs
+description: Informatie over het installeren en configureren van MongoDB op een virtuele Linux-machine in Azure met behulp van het Resource Manager-implementatiemodel.
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 4ce21a2c63da7d00a4422e0a6766e2103e7f12d7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c97ade0a3d95824f723aad55776de861fe49441f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooinstall-and-configure-mongodb-on-a-linux-vm-using-hello-azure-cli-10"></a>Hoe tooinstall en MongoDB configureren op een Linux-VM met hello Azure CLI 1.0
-[MongoDB](http://www.mongodb.org) is een populaire open-source, hoogwaardige NoSQL-database. Dit artikel ziet u hoe tooinstall en MongoDB configureren op een Linux VM in Azure met Hallo Resource Manager-implementatiemodel. Voorbeelden worden weergegeven dat detail hoe naar:
+# <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Het installeren en configureren van MongoDB op een Linux-VM met behulp van de Azure CLI 1.0
+[MongoDB](http://www.mongodb.org) is een populaire open-source, hoogwaardige NoSQL-database. In dit artikel leest u hoe installeren en configureren van MongoDB op een Linux VM in Azure met het implementatiemodel van Resource Manager. Voorbeelden worden weergegeven dat detail hoe naar:
 
 * [Handmatig installeren en configureren van een eenvoudige MongoDB-exemplaar](#manually-install-and-configure-mongodb-on-a-vm)
 * [Een basic MongoDB-exemplaar met een Resource Manager-sjabloon maken](#create-basic-mongodb-instance-on-centos-using-a-template)
 * [Een complexe MongoDB shard-cluster met de replica wordt ingesteld met een Resource Manager-sjabloon maken](#create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template)
 
 
-## <a name="cli-versions-toocomplete-hello-task"></a>CLI-versies toocomplete Hallo taak
-U kunt met een van de volgende versies van de CLI Hallo Hallo-taak uitvoeren:
+## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren
+U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 
-- Azure CLI 1.0 – onze CLI voor Hallo klassieke en resource management implementatiemodellen (in dit artikel)
-- [Azure CLI 2.0](create-cli-complete-nodejs.md) -onze volgende generatie CLI voor Hallo resource management-implementatiemodel
+- Azure CLI 1.0: onze CLI voor het klassieke implementatiemodel en het Resource Manager-implementatiemodel (dit artikel)
+- [Azure CLI 2.0](create-cli-complete-nodejs.md): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
 
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Handmatig installeren en configureren van MongoDB op een virtuele machine
-MongoDB [installatie-instructies](https://docs.mongodb.com/manual/administration/install-on-linux/) voor Linux-distributies met inbegrip van Red Hat / CentOS, SUSE, Ubuntu en Debian. Hallo volgende voorbeeld wordt een *CentOS* VM die gebruikmaakt van een SSH-sleutel die is opgeslagen op *~/.ssh/id_rsa.pub*. Antwoord Hallo vraagt om de naam van het opslagaccount, DNS-naam en -referenties:
+MongoDB [installatie-instructies](https://docs.mongodb.com/manual/administration/install-on-linux/) voor Linux-distributies met inbegrip van Red Hat / CentOS, SUSE, Ubuntu en Debian. Het volgende voorbeeld wordt een *CentOS* VM die gebruikmaakt van een SSH-sleutel die is opgeslagen op *~/.ssh/id_rsa.pub*. Beantwoord de aanwijzingen voor de opslagaccountnaam, DNS-naam en beheerdersreferenties:
 
 ```azurecli
 azure vm quick-create \
@@ -44,19 +44,19 @@ azure vm quick-create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub 
 ```
 
-Meld u aan toohello VM Hallo openbaar IP-adres weergegeven aan einde Hallo Hallo voorafgaand aan de virtuele machine maken stap met:
+Aanmelden bij de virtuele machine met behulp van het openbare IP-adres weergegeven aan het einde van de vorige stap van de VM-maken:
 
 ```bash
 ssh azureuser@40.78.23.145
 ```
 
-tooadd hello installatiebronnen voor MongoDB, maak een **yum** opslagplaatsbestand als volgt:
+Voor het toevoegen van de installatiebronnen voor MongoDB, maken een **yum** opslagplaatsbestand als volgt:
 
 ```bash
 sudo touch /etc/yum.repos.d/mongodb-org-3.4.repo
 ```
 
-Hallo MongoDB-repo-bestand voor het bewerken van openen. Hallo volgende regels toevoegen:
+Open het bestand van de opslagplaats MongoDB om te bewerken. Voeg de volgende regels:
 
 ```sh
 [mongodb-org-3.4]
@@ -73,26 +73,26 @@ Installeren met behulp van MongoDB **yum** als volgt:
 sudo yum install -y mongodb-org
 ```
 
-SELinux wordt standaard afgedwongen voor installatiekopieën van CentOS die voorkomen dat u toegang tot MongoDB. Beheerhulpprogramma's voor installeren en SELinux tooallow MongoDB toooperate als volgt op de standaard TCP-poort 27017 configureren. 
+SELinux wordt standaard afgedwongen voor installatiekopieën van CentOS die voorkomen dat u toegang tot MongoDB. Beheerhulpprogramma's voor installeren en configureren van SELinux zodat MongoDB bewerkingen uitvoeren op de standaard TCP-poort 27017 als volgt. 
 
 ```bash
 sudo yum install -y policycoreutils-python
 sudo semanage port -a -t mongod_port_t -p tcp 27017
 ```
 
-Start Hallo MongoDB-service als volgt:
+Start de MongoDB-service als volgt:
 
 ```bash
 sudo service mongod start
 ```
 
-Hallo MongoDB installatie controleren door verbinding te maken met behulp van de lokale Hallo `mongo` client:
+De MongoDB-installatie controleren door verbinding te maken met behulp van de lokale `mongo` client:
 
 ```bash
 mongo
 ```
 
-Hallo MongoDB-exemplaar nu testen door een aantal gegevens toe te voegen en vervolgens te zoeken:
+Test de MongoDB-exemplaar nu door sommige gegevens toe te voegen en vervolgens te zoeken:
 
 ```sh
 > db
@@ -103,7 +103,7 @@ test
 > exit
 ```
 
-Indien gewenst, MongoDB toostart automatisch configureren tijdens opstarten:
+Indien gewenst, configureert u MongoDB op automatisch starten tijdens het systeem opnieuw is opgestart:
 
 ```bash
 sudo chkconfig mongod on
@@ -111,11 +111,11 @@ sudo chkconfig mongod on
 
 
 ## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>Basic MongoDB-exemplaar op CentOS met een sjabloon maken
-U kunt basic MongoDB-exemplaar maken op een enkele CentOS virtuele machine met behulp van hello Azure snelstartsjabloon met de volgende uit GitHub. Deze sjabloon maakt gebruik van Hallo aangepaste scriptextensie voor Linux tooadd een `yum` tooyour opslagplaats nieuw gemaakte CentOS VM en installeer vervolgens MongoDB.
+U kunt een basic MongoDB-exemplaar maken op één CentOS VM van de volgende Azure quickstart-sjabloon vanuit GitHub. Deze sjabloon wordt de aangepaste scriptextensie voor Linux toe te voegen een `yum` opslagplaats naar de zojuist gemaakte CentOS VM en installeer MongoDB.
 
 * [Basic MongoDB-exemplaar op CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-Hallo volgende voorbeeld wordt een resourcegroep met de naam van de Hallo `myResourceGroup` in Hallo `eastus` regio. Voer uw eigen waarden als volgt:
+Het volgende voorbeeld maakt u een resourcegroep met de naam `myResourceGroup` in de `eastus` regio. Voer uw eigen waarden als volgt:
 
 ```azurecli
 azure group create \
@@ -125,27 +125,27 @@ azure group create \
 ```
 
 > [!NOTE]
-> Hello Azure CLI retourneert u tooa prompt binnen een paar seconden voor het maken van Hallo-implementatie, maar de Hallo-installatie en configuratie duurt een paar minuten toocomplete. Controleer de status van Hallo Hallo-implementatie met `azure group deployment show myResourceGroup`, Hallo-naam van de resourcegroep dienovereenkomstig in te voeren. Wachten tot Hallo **ProvisioningState** toont *geslaagd* voordat de poging tooSSH toohello VM.
+> De Azure CLI keert u terug naar een prompt binnen een paar seconden van de implementatie wordt gemaakt, maar de installatie en configuratie duurt een paar minuten. Controleer de status van de implementatie met de `azure group deployment show myResourceGroup`, de naam van de resourcegroep dienovereenkomstig in te voeren. Wacht totdat de **ProvisioningState** toont *geslaagd* voordat u probeert te SSH naar de virtuele machine.
 
-Als de Hallo-implementatie is voltooid, SSH toohello VM. Hallo IP-adres van uw virtuele machine met behulp van Hallo `azure vm show` opdracht zoals Hallo volgt in:
+Zodra de implementatie voltooid, SSH naar de virtuele machine is. Het IP-adres van uw virtuele machine met de `azure vm show` opdracht zoals in het volgende voorbeeld:
 
 ```azurecli
 azure vm show --resource-group myResourceGroup --name myLinuxVM
 ```
 
-In de buurt Hallo einde van Hallo-uitvoer, wordt Hallo openbaar IP-adres weergegeven. SSH tooyour VM met Hallo IP-adres van uw virtuele machine:
+Het openbare IP-adres wordt aan het einde van de uitvoer weergegeven. SSH met uw virtuele machine met het IP-adres van uw virtuele machine:
 
 ```bash
 ssh azureuser@138.91.149.74
 ```
 
-Hallo MongoDB installatie controleren door verbinding te maken met behulp van de lokale Hallo `mongo` client als volgt:
+De MongoDB-installatie controleren door verbinding te maken met behulp van de lokale `mongo` client als volgt:
 
 ```bash
 mongo
 ```
 
-Test nu Hallo exemplaar sommige gegevens toe te voegen en zoek het als volgt:
+Test nu het exemplaar door sommige gegevens toe te voegen en te zoeken als volgt:
 
 ```sh
 > db
@@ -158,14 +158,14 @@ test
 
 
 ## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Een complexe MongoDB Shard-Cluster op CentOS met een sjabloon maken
-U kunt een complexe MongoDB shard cluster met behulp van de volgende Azure quickstart-sjabloon uit GitHub Hallo maken. Deze sjabloon volgt Hallo [MongoDB shard cluster aanbevolen procedures](https://docs.mongodb.com/manual/core/sharded-cluster-components/) tooprovide redundantie en hoge beschikbaarheid. Hallo-sjabloon maakt twee shards met drie knooppunten replicaset. Een config server replicaset met drie knooppunten ook wordt gemaakt, plus twee **mongos** router servers tooprovide consistentie tooapplications uit via Hallo shards.
+U kunt een complexe MongoDB shard cluster met behulp van de volgende Azure quickstart-sjabloon vanuit GitHub maken. Deze sjabloon volgt de [MongoDB shard cluster aanbevolen procedures](https://docs.mongodb.com/manual/core/sharded-cluster-components/) voor redundantie en hoge beschikbaarheid. De sjabloon maakt twee shards met drie knooppunten replicaset. Een config server replicaset met drie knooppunten ook wordt gemaakt, plus twee **mongos** router servers om te voorzien in consistentie van toepassingen uit de shards.
 
 * [MongoDB Sharding-Cluster op CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-> Dit complexe MongoDB shard-cluster implementeren vereist meer dan 20 cores die meestal Hallo standaard core-telling per regio voor een abonnement. Open een Azure ondersteuningsverzoek tooincrease core-telling.
+> Dit complexe MongoDB shard-cluster moet de implementatie meer dan 20 kernen, dit is doorgaans de standaardinstelling core-telling per regio voor een abonnement. Open een aanvraag voor ondersteuning van Azure te verhogen van het aantal kernen.
 
-Hallo volgende voorbeeld wordt een resourcegroep met de naam van de Hallo *myResourceGroup* in Hallo *eastus* regio. Voer uw eigen waarden als volgt:
+Het volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroup* in de *eastus* regio. Voer uw eigen waarden als volgt:
 
 ```azurecli
 azure group create \
@@ -175,13 +175,13 @@ azure group create \
 ```
 
 > [!NOTE]
-> Hello Azure CLI retourneert u tooa prompt binnen een paar seconden na het Hallo-implementatie wordt gemaakt, maar hello installatie en configuratie overnemen een toocomplete uur. Controleer de status van Hallo Hallo-implementatie met `azure group deployment show myResourceGroup`, het Hallo-naam van de resourcegroep dienovereenkomstig aanpassen. Wachten tot Hallo **ProvisioningState** toont *geslaagd* voordat VMs toohello verbinding wordt gemaakt.
+> De Azure CLI keert u terug naar een prompt binnen een paar seconden van de implementatie wordt gemaakt, maar de installatie en configuratie kunnen ruim een uur duren voltooien. Controleer de status van de implementatie met de `azure group deployment show myResourceGroup`, de naam van de resourcegroep dienovereenkomstig aanpassen. Wacht totdat de **ProvisioningState** toont *geslaagd* voordat u verbinding maakt met de VM's.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze voorbeelden u lokaal verbinding maken met toohello MongoDB-exemplaar van Hallo VM. Als u tooconnect toohello MongoDB-exemplaar van een andere virtuele machine of een netwerk wilt, zorg ervoor dat de juiste Hallo [Netwerkbeveiligingsgroep regels zijn gemaakt](nsg-quickstart.md).
+In deze voorbeelden verbinding u met de MongoDB-exemplaar lokaal van de virtuele machine. Als u wilt verbinding maken met de MongoDB-exemplaar van een andere virtuele machine of een netwerk, zorg ervoor dat de juiste [Netwerkbeveiligingsgroep regels zijn gemaakt](nsg-quickstart.md).
 
-Zie voor meer informatie over het maken van sjablonen Hallo [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Zie voor meer informatie over het maken van sjablonen gebruiken de [overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
-Hello Azure Resource Manager-sjablonen gebruiken Hallo aangepaste Scriptextensie toodownload en scripts uitvoeren op uw virtuele machines. Zie voor meer informatie [Using hello Azure aangepaste Scriptextensie met virtuele Linux-Machines](extensions-customscript.md).
+De Azure Resource Manager-sjablonen gebruiken de aangepaste Scriptextensie om te downloaden en uitvoeren van scripts op uw virtuele machines. Zie voor meer informatie [met behulp van de Azure-extensie voor aangepaste scripts met virtuele Linux-Machines](extensions-customscript.md).
 

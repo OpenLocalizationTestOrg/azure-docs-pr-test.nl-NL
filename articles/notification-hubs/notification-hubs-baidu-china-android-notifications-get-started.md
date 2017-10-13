@@ -1,6 +1,6 @@
 ---
-title: aaaGet de slag met Azure Notification Hubs die gebruikmaken van Baidu | Microsoft Docs
-description: In deze zelfstudie leert u hoe toouse Azure Notification Hubs toopush meldingen tooAndroid apparaten gebruikmaken van Baidu.
+title: Aan de slag met Notification Hubs die gebruikmaken van Baidu | Microsoft Docs
+description: In deze zelfstudie leert u hoe u met Azure Notification Hubs pushmeldingen verzendt naar Android-apparaten die gebruikmaken van Baidu.
 services: notification-hubs
 documentationcenter: android
 author: ysxu
@@ -14,149 +14,149 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: yuaxu
-ms.openlocfilehash: 2767fdd3bb04674e7a531634237cc05cd8c21cb8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: df3bbda15e1245b6068c2b8290d0c96856051f1f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Aan de slag met Azure Notification Hubs die gebruikmaken van Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Overzicht
-Baidu cloud push is een Chinese cloudservice waarmee u toosend push notifications toomobile apparaten kunt. Deze service is handig in China, waar leveren van pushmeldingen tooAndroid is complex vanwege Hallo aanwezigheid van verschillende app stores en push services, Daarnaast toohello beschikbaarheid van Android-apparaten die niet doorgaans verbonden tooGCM (Google zijn Cloud Messaging).
+Baidu Cloud Push is een Chinese cloudservice waarmee u pushmeldingen naar mobiele apparaten kunt verzenden. Deze service is handig in China, omdat het leveren van pushmeldingen aan Android daar complex is vanwege de aanwezigheid van verschillende app stores en pushservices. Bovendien zijn er Android-apparaten die niet standaard verbonden zijn met GCM (Google Cloud Messaging).
 
 ## <a name="prerequisites"></a>Vereisten
 Voor deze zelfstudie hebt u het volgende nodig:
 
-* Android SDK (Aannemende dat u Eclipse gebruikt), die u via Hallo downloaden kunt <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android-site</a>
+* Android-SDK (aannemende dat u Eclipse gebruikt), die u kunt downloaden van de <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android-site</a>
 * [Android-SDK voor Mobile Services]
 * [Android SDK Baidu Push]
 
 > [!NOTE]
-> toocomplete deze zelfstudie maakt u een actief Azure-account moet hebben. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F) voor meer informatie.
+> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F) voor meer informatie.
 > 
 > 
 
 ## <a name="create-a-baidu-account"></a>Een Baidu-account maken
-toouse Baidu, moet u een Baidu-account hebben. Als u al hebt, meldt u zich in toohello [Baidu portal] en toohello volgende stap overslaan. Raadpleeg anders Hallo instructies te volgen over het toocreate een Baidu-account.  
+Voor het gebruik van Baidu moet u een Baidu-account hebben. Als u er al een hebt, meldt u zich aan bij de [Baidu Portal] en gaat u verder met de volgende stap. Als u nog geen account hebt, raadpleegt u de instructies hieronder voor het maken van een Baidu-account.  
 
-1. Ga toohello [Baidu portal] en klik op Hallo**登录**(**aanmelding**) koppelen. Klik op**立即注册**toostart Hallo account registratieproces.
+1. Ga naar de [Baidu Portal] en klik op de koppeling **登录** (**Aanmelden**). Klik op **立即注册** om de registratie van het account te starten.
    
    ![][1]
-2. Voer details voor Hallo vereist: telefoon, e-mailadres, wachtwoord en verificatiecode, en klik op **aanmelding**.
+2. Voer de vereiste gegevens in: telefoon, e-mailadres, wachtwoord en verificatiecode en klik vervolgens op **Registreren**.
    
    ![][2]
-3. U ontvangt een e-mailadres toohello e-mailadres dat u hebt ingevoerd met een koppeling tooactivate uw Baidu-account.
+3. U ontvangt een e-mailbericht op het e-mailadres dat u hebt ingevoerd met daarin een koppeling om uw Baidu-account te activeren.
    
    ![][3]
-4. Aanmelden tooyour e-mailaccount, open Hallo e-mailbericht en op Hallo activering koppeling tooactivate uw Baidu-account.
+4. Meld u aan bij uw e-mailaccount, open het e-mailbericht en klik op de activeringskoppeling om uw Baidu-account te activeren.
    
    ![][4]
 
-Zodra u een geactiveerde Baidu-account hebt, meld u bij toohello [Baidu portal].
+Als uw Baidu-account is geactiveerd, meldt u zich aan bij de [Baidu Portal].
 
 ## <a name="register-as-a-baidu-developer"></a>Registreer u als een Baidu-ontwikkelaar.
-1. Zodra u zich hebt aangemeld toohello [Baidu portal], klikt u op**更多 >>** (**meer**).
+1. Nadat u zich hebt aangemeld bij de [Baidu Portal], klikt u op **更多 >>** (**meer**).
    
       ![][5]
-2. Schuif omlaag in Hallo**站长与开发者服务 (webbeheerder en Ontwikkelaarsservices)** sectie en klik op**百度开放云平台**(**Baidu cloud-platform open**).
+2. Schuif omlaag in het gedeelte **站长与开发者服务 (Webmaster- en Ontwikkelaarsservices)** en klik op **百度开放云平台** (**Baidu-opencloudplatform**).
    
       ![][6]
-3. Klik op volgende pagina Hallo**开发者服务**(**Ontwikkelaarsservices**) in de rechterbovenhoek Hallo.
+3. Klik op de volgende pagina op **开发者服务** (**Ontwikkelaarsservices**) in de rechterbovenhoek.
    
       ![][7]
-4. Klik op volgende pagina Hallo**注册开发者**(**ontwikkelaars geregistreerd**) in Hallo-menu op Hallo rechterbovenhoek.
+4. Klik op de volgende pagina op **注册开发者** (**Geregistreerde ontwikkelaars**) in het menu in de rechterbovenhoek.
    
       ![][8]
-5. Voer uw naam, een beschrijving en een mobiel telefoonnummer in voor het ontvangen van een sms-bericht voor verificatie en klik vervolgens op **送验证码** (**Verificatiecode verzenden**). Internationaal telefoonnummer moet u tooenclose Hallo landcode tussen haakjes. Voor een nummer in de Verenigde Staten moet u bijvoorbeeld de volgende indeling gebruiken: **(1)1234567890**.
+5. Voer uw naam, een beschrijving en een mobiel telefoonnummer in voor het ontvangen van een sms-bericht voor verificatie en klik vervolgens op **送验证码** (**Verificatiecode verzenden**). Voor een internationaal telefoonnummer moet u de landcode tussen haakjes plaatsen. Voor een nummer in de Verenigde Staten moet u bijvoorbeeld de volgende indeling gebruiken: **(1)1234567890**.
    
       ![][9]
-6. U ontvangt vervolgens een SMS-bericht met een verificatiecode, zoals wordt weergegeven in Hallo voorbeeld te volgen:
+6. U ontvangt vervolgens een sms-bericht met een verificatiecode, zoals weergegeven in het volgende voorbeeld:
    
       ![][10]
-7. Voer de verificatiecode Hallo van Hallo-bericht in**验证码**(**bevestigingscode**).
-8. Voltooi ten slotte Hallo developer registratie door Hallo Baidu overeenkomst te accepteren en te klikken**提交**(**indienen**). Hier ziet u Hallo volgende pagina van de registratie is gelukt:
+7. Voer de verificatiecode uit het sms-bericht in **验证码** (**Bevestigingscode**) in.
+8. Voltooi de registratie voor ontwikkelaars door de Baidu-overeenkomst te accepteren en te klikken op **提交** (**Verzenden**). Als de registratie is gelukt, verschijnt de volgende pagina:
    
       ![][11]
 
 ## <a name="create-a-baidu-cloud-push-project"></a>Een Baidu-cloudpushproject maken
 Als u een Baidu-cloudpushproject maakt, ontvangt u uw app-id, API-sleutel en een geheime sleutel.
 
-1. Zodra u zich hebt aangemeld toohello [Baidu portal], klikt u op**更多 >>** (**meer**).
+1. Nadat u zich hebt aangemeld bij de [Baidu Portal], klikt u op **更多 >>** (**meer**).
    
       ![][5]
-2. Schuif omlaag in Hallo**站长与开发者服务**(**webbeheerder en Ontwikkelaarsservices**) sectie en klik op**百度开放云平台**(**Baidu cloud-platform open**).
+2. Schuif omlaag in het gedeelte **站长与开发者服务** (**Webmaster- en Ontwikkelaarsservices)** en klik op **百度开放云平台** (**Baidu-opencloudplatform**).
    
       ![][6]
-3. Klik op volgende pagina Hallo**开发者服务**(**Ontwikkelaarsservices**) in de rechterbovenhoek Hallo.
+3. Klik op de volgende pagina op **开发者服务** (**Ontwikkelaarsservices**) in de rechterbovenhoek.
    
       ![][7]
-4. Klik op volgende pagina Hallo**云推送**(**Cloud Push**) van Hallo**云服务**(**Cloudservices**) sectie.
+4. Klik op de volgende pagina op **云推送** (**Cloud Push**) in het gedeelte **云服务** (**Cloud Services**).
    
       ![][12]
-5. Nadat u een geregistreerde ontwikkelaar bent, ziet u**管理控制台**(**beheerconsole**) op het bovenste menu Hallo. Klik op **开发者服务管理** (**Beheer van ontwikkelaarsservices**).
+5. Als u zich hebt geregistreerd als ontwikkelaar, ziet u **管理控制台** (**Beheerconsole**) in het bovenste menu. Klik op **开发者服务管理** (**Beheer van ontwikkelaarsservices**).
    
       ![][13]
-6. Klik op volgende pagina Hallo**创建工程**(**Project maken**).
+6. Klik op de volgende pagina **创建工程** (**Project maken**).
    
       ![][14]
 7. Voer een toepassingsnaam in en klik op **创建** (**Maken**).
    
       ![][15]
-8. Als u een Baidu Cloud Push-project hebt gemaakt, ziet u een pagina met de **App-id**, de **API-sleutel** en een **geheime sleutel**. Maak een notitie van Hallo API-sleutel en geheime sleutel, die we later gebruiken.
+8. Als u een Baidu Cloud Push-project hebt gemaakt, ziet u een pagina met de **App-id**, de **API-sleutel** en een **geheime sleutel**. Noteer de API-sleutel en de geheime sleutel. U hebt deze later nodig.
    
       ![][16]
-9. Hallo-project voor pushmeldingen configureren door te klikken op**云推送**(**Cloud Push**) in het linkerdeelvenster Hallo.
+9. Configureer het project voor pushmeldingen door te klikken op **云推送** (**Cloud Push**) in het linkerdeelvenster.
    
       ![][31]
-10. Klik op volgende pagina Hallo Hallo**推送设置**(**Push instellingen**) knop.
+10. Klik op de volgende pagina op de knop **推送设置** (**Pushinstellingen**).
     
     ![][32]  
-11. Toevoegen op de configuratiepagina Hallo Hallo pakketnaam die u in uw Android-project in Hallo gebruiken wilt**应用包名**(**toepassingspakket**) en klik vervolgens op**保存设置**() **Opslaan**).  
+11. Voeg op de configuratiepagina de pakketnaam toe die u wilt gebruiken in uw Android-project in het veld **应用包名** (**Toepassingspakket**) en klik vervolgens op **保存设置** (**Opslaan**).  
     
     ![][33]
 
-U ziet Hallo**保存成功!** (**Opgeslagen!**).
+U ziet het bericht **保存成功！** (**Opgeslagen!**).
 
 ## <a name="configure-your-notification-hub"></a>Uw Notification Hub configureren
-1. Meld u aan toohello [klassieke Azure-Portal], en klik vervolgens op **+ nieuw** Hallo onder welkomstscherm aan.
+1. Meld u aan bij de [Klassieke Azure Portal] en klik op **+NIEUW** onder aan het scherm.
 2. Klik achtereenvolgens op **App Services**, **Service Bus**, **Notification Hub** en **Snelle invoer**.
-3. Geef een naam voor uw **Notification Hub**, selecteer Hallo **regio** en Hallo **Namespace** waar deze notification hub wordt gemaakt en klik vervolgens op  **Maak een nieuwe Notification Hub**.  
+3. Geef een naam op voor uw **Notification Hub**, selecteer de **regio** en de **naamruimte** waar deze Notification Hub wordt gemaakt en klik vervolgens op **Een nieuwe Notification Hub maken**.  
    
       ![][17]
-4. Klik op Hallo naamruimte waarin u uw notification hub hebt gemaakt en klik vervolgens op **Notification Hubs** Hallo bovenaan.
+4. Klik op de naamruimte waarin u de Notification Hub hebt gemaakt en klik vervolgens op **Notification Hubs** bovenin.
    
       ![][18]
-5. Selecteer Hallo notification hub die u gemaakt en klik vervolgens op **configureren** in het bovenste menu Hallo.
+5. Selecteer de Notification Hub die u hebt gemaakt en klik vervolgens op **Configureren** in het bovenste menu.
    
       ![][19]
-6. Schuif omlaag toohello **baidu meldingsinstellingen** sectie en Voer Hallo API-sleutel en geheime sleutel die u hebt verkregen via de Baidu-console Hallo eerder voor uw Baidu-cloudpushproject. Klik op **Opslaan**.
+6. Schuif omlaag naar het gedeelte **Baidu-instellingen voor meldingen** en voer voor uw Baidu-cloudpushproject de API-sleutel en de geheime sleutel in die u eerder van de Baidu-console hebt ontvangen. Klik op **Opslaan**.
    
       ![][20]
-7. Klik op Hallo **Dashboard** tabblad boven Hallo voor Hallo notification hub en klik vervolgens op **verbindingsreeks weergeven**.
+7. Klik op het tabblad **Dashboard** in de rechterbovenhoek van de Notification Hub en klik vervolgens op **Verbindingsreeks weergeven**.
    
       ![][21]
-8. Maak een notitie van Hallo **DefaultListenSharedAccessSignature** en **DefaultFullSharedAccessSignature** van Hallo **toegang tot verbindingsgegevens** venster.
+8. Noteer de **DefaultListenSharedAccessSignature** en **DefaultFullSharedAccessSignature** in het venster **Toegang tot de verbindingsgegevens**.
    
     ![][22]
 
-## <a name="connect-your-app-toohello-notification-hub"></a>Verbinding maken met uw app toohello notification hub
+## <a name="connect-your-app-to-the-notification-hub"></a>Uw app verbinden met de Notification Hub
 1. Maak in Eclipse ADT een nieuw Android-project (**Bestand** > **Nieuw** > **Android-toepassingsproject**).
    
     ![][23]
-2. Voer een **toepassingsnaam** en zorg ervoor dat Hallo **minimale vereiste SDK** -versie is ingesteld, te**API 16: Android 4.1**.
+2. Voer een **toepassingsnaam** in en zorg ervoor dat de **minimale vereiste SDK**-versie is ingesteld op **API 16: Android 4.1**.
    
     ![][24]
-3. Klik op **volgende** en doorgaan na Hallo wizard totdat Hallo **activiteit maken** venster wordt weergegeven. Zorg ervoor dat **Blank Activity** is geselecteerd en selecteer vervolgens **voltooien** toocreate een nieuwe Android-toepassing.
+3. Klik op **Volgende** en doorloop de wizard totdat het venster **Activiteit maken** wordt weergegeven. Zorg ervoor dat **Lege activiteit** is geselecteerd en selecteer vervolgens **Voltooien** om een nieuwe Android-toepassing te maken.
    
     ![][25]
-4. Zorg ervoor dat Hallo **doel van de Projectbuild** correct is ingesteld.
+4. Zorg ervoor dat het **doel van de projectbuild** juist is ingesteld.
    
     ![][26]
-5. Hallo notification-hubs-0.4.jar bestand downloaden van Hallo **bestanden** tabblad Hallo [Notification-Hubs-Android-SDK op Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Toevoegen van Hallo bestand toohello **bibliotheken** map van uw Eclipse-project en vernieuw Hallo *bibliotheken* map.
-6. Downloaden en uitpakken Hallo [Android SDK Baidu Push]Open Hallo **bibliotheken** map en kopieer Hallo **pushservice x.y.z** jar-bestand en Hallo **armeabi**  &  **mips** mappen in Hallo **bibliotheken** map van uw Android-toepassing.
-7. Open Hallo **AndroidManifest.xml** -bestand van uw Android-project en Hallo machtigingen die door Hallo SDK Baidu vereist zijn toevoegen.
+5. Download het bestand notification-hubs-0.4.jar van het tabblad **Bestanden** van de [Notification-Hubs-Android-SDK op Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Voeg het bestand toe aan de map **bibliotheken** van uw Eclipse-project en vernieuw de map *bibliotheken*.
+6. Download de [Android SDK Baidu Push] en pak deze uit. Open de map **bibliotheken** en kopieer het **pushservice x.y.z** jar-bestand en de **armeabi** & **mips**-mappen in de map **bibliotheken** van uw Android-toepassing.
+7. Open het bestand **AndroidManifest.xml** van uw Android-project en voeg de machtigingen toe die voor de SDK Baidu zijn vereist.
    
         <uses-permission android:name="android.permission.INTERNET" />
         <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -170,10 +170,10 @@ U ziet Hallo**保存成功!** (**Opgeslagen!**).
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
         <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
         <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
-8. Hallo toevoegen **android: name** eigenschap tooyour **toepassing** -element in **AndroidManifest.xml**en vervang *yourprojectname* (voor voorbeeld **com.example.BaiduTest**). Zorg ervoor dat deze naam overeenkomt met Hallo een die u hebt geconfigureerd in Hallo Baidu-console.
+8. Voeg de eigenschap **android:name** toe aan uw **toepassings**element in **AndroidManifest.xml**, waarbij u *yourprojectname* (bijvoorbeeld **com.example.BaiduTest**) vervangt. Zorg ervoor dat deze naam overeenkomt met de naam die u in de Baidu-console hebt geconfigureerd.
    
         <application android:name="yourprojectname.DemoApplication"
-9. Hallo na binnen Hallo toepassingselement na Hallo configuratie toevoegen **. MainActivity** activiteit element vervangen *yourprojectname* (bijvoorbeeld **com.example.BaiduTest**):
+9. Voeg de volgende configuratie toe aan het toepassingselement na het activiteitelement **.MainActivity**, waarbij u *yourprojectname* (bijvoorbeeld **com.example.BaiduTest**) vervangt:
    
         <receiver android:name="yourprojectname.MyPushMessageReceiver">
             <intent-filter>
@@ -212,12 +212,12 @@ U ziet Hallo**保存成功!** (**Opgeslagen!**).
                 <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE" />
             </intent-filter>
         </service>
-10. Voeg een nieuwe klasse aangeroepen **ConfigurationSettings.java** toohello project.
+10. Voeg een nieuwe klasse met de naam **ConfigurationSettings.java** toe aan het project.
     
      ![][28]
     
      ![][29]
-11. Hallo code tooit volgende toevoegen:
+11. Voeg de volgende code toe aan de klasse:
     
         public class ConfigurationSettings {
                 public static String API_KEY = "...";
@@ -225,8 +225,8 @@ U ziet Hallo**保存成功!** (**Opgeslagen!**).
                 public static String NotificationHubConnectionString = "...";
             }
     
-    Stel de waarde Hallo van **API_KEY** met wat u eerder hebt opgehaald uit de Baidu-cloudproject hello, **NotificationHubName** met de naam van uw notification hub van Hallo klassieke Azure-Portal en  **NotificationHubConnectionString** defaultlistensharedaccesssignature op van Hallo klassieke Azure-Portal.
-12. Voeg een nieuwe klasse aangeroepen **DemoApplication.java**, en voeg Hallo code tooit te volgen:
+    Stel de waarde van **API_KEY** in op de waarde die u eerder hebt opgehaald uit het Baidu-cloudproject, geef voor **NotificationHubName** de naam op van de Notification Hub van de klassieke Azure Portal en geef voor **NotificationHubConnectionString** DefaultListenSharedAccessSignature op van de klassieke Azure Portal.
+12. Voeg een nieuwe klasse toe met de naam **DemoApplication.java** en voeg de volgende code toe:
     
         import com.baidu.frontia.FrontiaApplication;
     
@@ -236,7 +236,7 @@ U ziet Hallo**保存成功!** (**Opgeslagen!**).
                 super.onCreate();
             }
         }
-13. Toevoegen van een andere nieuwe klasse met de naam **MyPushMessageReceiver.java**, en voeg Hallo code tooit te volgen. Het is Hallo-klasse die ingangen Hallo pushmeldingen die afkomstig zijn van Hallo Baidu push-server.
+13. Voeg nog een nieuwe klasse toe met de naam **MyPushMessageReceiver.java** en voeg de volgende code eraan toe. Dit is de klasse die verantwoordelijk is voor de pushmeldingen die worden ontvangen van de Baidu-pushserver.
     
         import java.util.List;
         import android.content.Context;
@@ -246,7 +246,7 @@ U ziet Hallo**保存成功!** (**Opgeslagen!**).
         import com.microsoft.windowsazure.messaging.NotificationHub;
     
         public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
-            /** TAG tooLog */
+            /** TAG to Log */
             public static NotificationHub hub = null;
             public static String mChannelId, mUserId;
             public static final String TAG = MyPushMessageReceiver.class
@@ -344,29 +344,29 @@ U ziet Hallo**保存成功!** (**Opgeslagen!**).
                 Log.d(TAG, messageString);
             }
         }
-14. Open **MainActivity.java**, en Voeg na toohello hello **onCreate** methode:
+14. Open **MainActivity.java** en voeg het volgende toe aan de methode **onCreate**:
     
             PushManager.startWork(getApplicationContext(),
                     PushConstants.LOGIN_TYPE_API_KEY, ConfigurationSettings.API_KEY);
-15. Open de volgende importinstructies boven Hallo Hallo:
+15. Open bovenin de volgende importinstructies:
     
             import com.baidu.android.pushservice.PushConstants;
             import com.baidu.android.pushservice.PushManager;
 
-## <a name="send-notifications-tooyour-app"></a>Meldingen tooyour app verzenden
-U kunt snel testen ontvangst van meldingen in uw app door meldingen te verzenden in Hallo [Azure-portal](https://portal.azure.com/) met Hallo **verzenden** knop op Hallo notification hub, zoals weergegeven in het volgende scherm Hallo:
+## <a name="send-notifications-to-your-app"></a>Pushmeldingen naar uw app verzenden
+U kunt de ontvangst van meldingen in uw app snel testen door in [Azure Portal](https://portal.azure.com/) meldingen te verzenden met behulp van de knop **Verzenden** in de Notification Hub, zoals in het volgende scherm wordt weergegeven:
 
 ![](./media/notification-hubs-baidu-get-started/notification-hub-test-send-baidu.png)
 
-Pushmeldingen worden gewoonlijk in een back-endservice zoals Mobile Services of ASP.NET verzonden met een compatibele bibliotheek. Als een bibliotheek niet beschikbaar voor uw back-end is, kunt u Hallo REST-API toosend meldingen worden rechtstreeks.
+Pushmeldingen worden gewoonlijk in een back-endservice zoals Mobile Services of ASP.NET verzonden met een compatibele bibliotheek. U kunt de REST API ook rechtstreeks gebruiken om meldingsberichten te verzenden als er geen bibliotheek beschikbaar is voor uw back-end.
 
-In deze zelfstudie we Houd het eenvoudig en alleen gedemonstreerd hoe u uw clientapp test door meldingen met behulp van Hallo .NET SDK voor notification hubs in een consoletoepassing in plaats van een back-endservice te verzenden. We raden aan Hallo [Notification Hubs gebruiken toopush meldingen toousers](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) Hallo volgende stap voor het verzenden van meldingen vanuit een ASP.NET-back-end zelfstudie. Hallo volgende methoden kan echter worden gebruikt voor het verzenden van meldingen:
+In deze zelfstudie houden we het eenvoudig en wordt alleen gedemonstreerd hoe u uw client-app test door meldingen te verzenden met de .NET SDK voor Notification Hubs in een consoletoepassing in plaats van een back-endservice. U kunt het beste de zelfstudie [Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) doornemen voor informatie over het verzenden van meldingen vanuit een ASP.NET-back-end. Voor het verzenden van meldingen kunt u echter de volgende methoden gebruiken:
 
-* **REST-Interface**: U kunt meldingen ondersteunen op elk back-end-platform Hallo met [REST-interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
-* **Microsoft Azure Notification Hubs .NET SDK**: In Hallo Nuget Package Manager voor Visual Studio, voert u [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
-* **Node.js**: [hoe toouse Notification Hubs met Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
-* **Mobile Apps**: voor een voorbeeld van hoe u meldingen vanuit een back-end voor een Azure App Service Mobile Apps die geïntegreerd met Notification Hubs toosend Zie [Add push notifications tooyour mobiele app](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
-* **Java / PHP**: Zie voor een voorbeeld van hoe toosend meldingen met REST-API's Hallo ' hoe toouse Notification Hubs vanuit Java/PHP ' ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
+* **REST-interface**: u kunt meldingen op elk back-endplatform ondersteunen met de [REST-interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+* **Microsoft Azure Notification Hubs .NET SDK**: in NuGet Package Manager voor Visual Studio voert u [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) uit.
+* **Node.js**: [Notification Hubs gebruiken vanuit Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
+* **Mobile Apps**: zie [Pushmeldingen toevoegen voor mobiele apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) voor een voorbeeld van hoe u meldingen verzendt vanuit een Azure App Service Mobile Apps-backend die is geïntegreerd met Notification Hubs.
+* **Java/PHP**: zie 'Notification Hubs gebruiken vanuit Java/PHP' voor een voorbeeld van hoe u meldingen verzendt met de REST API's ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
 ## <a name="optional-send-notifications-from-a-net-console-app"></a>(Optioneel) Meldingen verzenden vanuit een .NET-console-app
 In dit gedeelte behandelen we hoe u een melding vanuit een .NET-console-app kunt verzenden.
@@ -374,17 +374,17 @@ In dit gedeelte behandelen we hoe u een melding vanuit een .NET-console-app kunt
 1. Maak een nieuwe Visual C#-consoletoepassing:
    
     ![][30]
-2. In Hallo venster Package Manager-Console, stelt u Hallo **standaardproject** tooyour nieuwe console toepassingsproject en vervolgens in het consolevenster hello, Hallo volgende opdracht wordt uitgevoerd:
+2. Stel in het venster Package Manager-console het **standaardproject** in op uw nieuwe consoletoepassingsproject en voer vervolgens in het consolevenster de volgende opdracht uit:
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-    Deze instructie een verwijzing toohello Azure Notification Hubs SDK wordt toegevoegd met behulp van Hallo <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet-pakket</a>.
+    Hiermee wordt een verwijzing toegevoegd aan de Azure Notification Hubs-SDK met het <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet-pakket</a>.
    
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
-3. Open Hallo bestand **Program.cs** en voeg de volgende Hallo toe met de instructie:
+3. Open het bestand **Program.cs** en voeg de volgende gebruiksinstructie toe:
    
         using Microsoft.Azure.NotificationHubs;
-4. In uw `Program` klasse Hallo volgende methode toe en vervang *DefaultFullSharedAccessSignatureSASConnectionString* en *NotificationHubName* met Hallo-waarden die u hebt.
+4. Voeg in uw klasse `Program` de volgende methode toe en vervang *DefaultFullSharedAccessSignatureSASConnectionString* en *NotificationHubName* door de waarden die u hebt.
    
         private static async void SendNotificationAsync()
         {
@@ -392,19 +392,19 @@ In dit gedeelte behandelen we hoe u een melding vanuit een .NET-console-app kunt
             string message = "{\"title\":\"((Notification title))\",\"description\":\"Hello from Azure\"}";
             var result = await hub.SendBaiduNativeNotificationAsync(message);
         }
-5. Toevoegen van de volgende regels in Hallo uw **Main** methode:
+5. Voeg de volgende regels in de **Main**-methode toe:
    
          SendNotificationAsync();
          Console.ReadLine();
 
 ## <a name="test-your-app"></a>Uw app testen
-Deze app met een telefoon, alleen verbinding tootest Hallo phone tooyour computer via een USB-kabel. Deze actie wordt uw app naar Hallo gekoppelde telefoon geladen.
+Als u uw app met een telefoon wilt testen, sluit u de telefoon met een USB-kabel op uw computer aan. Met deze actie wordt uw app naar de gekoppelde telefoon geladen.
 
-tootest deze app met Hallo-emulator op de bovenste werkbalk van Hallo Eclipse, klikt u op **uitvoeren**, en selecteer vervolgens uw app: het Hallo-emulator is geladen wordt gestart en wordt uitgevoerd Hallo app.
+Als u deze app wilt testen met de emulator klikt u op de bovenste Eclipse-taakbalk op **Uitvoeren** en selecteert u uw app. De emulator wordt dan gestart en daarna wordt de app geladen en uitgevoerd.
 
-Hallo app Hallo 'userId' en 'channelId' opgehaald uit Hallo Baidu Push notification service en voor Hallo notification hub geregistreerd.
+De app haalt de gebruikers-id en de channelId op uit de Baidu Push Notification Service en registreert zich bij de Notification Hub.
 
-een Testmelding toosend, kunt u het foutopsporingstabblad Hallo Hallo klassieke Azure-Portal. Als u gebouwd Hallo .NET-consoletoepassing voor Visual Studio, druk op F5-toets Hallo in Visual Studio toorun Hallo toepassing. de toepassing Hello stuurt een melding die wordt weergegeven in de bovenste systeemvak Hallo van uw apparaat of emulator.
+U kunt vanaf het foutopsporingstabblad van de klassieke Azure-portal een testmelding verzenden. Als u de .Net-console-toepassing hebt gebouwd voor Visual Studio, drukt u in Visual Studio op F5 om de toepassing te starten. De toepassing verstuurt een melding. Deze verschijnt in het bovenste gedeelte voor meldingen op uw apparaat of in de emulator.
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-baidu-get-started/BaiduRegistration.png
@@ -444,5 +444,5 @@ een Testmelding toosend, kunt u het foutopsporingstabblad Hallo Hallo klassieke 
 <!-- URLs. -->
 [Android-SDK voor Mobile Services]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Android SDK Baidu Push]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
-[klassieke Azure-Portal]: https://manage.windowsazure.com/
-[Baidu portal]: http://www.baidu.com/
+[Klassieke Azure Portal]: https://manage.windowsazure.com/
+[Baidu Portal]: http://www.baidu.com/

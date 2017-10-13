@@ -1,6 +1,6 @@
 ---
-title: aaaManage Azure Data Lake Analytics met Azure SDK voor Node.js | Microsoft Docs
-description: Meer informatie over hoe toomanage Data Lake Analytics-accounts, gegevensbronnen, taken en gebruikers met Azure SDK voor Node.js
+title: Azure Data Lake Analytics beheren met Azure SDK voor Node.js | Microsoft Docs
+description: Informatie over het beheren van Data Lake Analytics-accounts, gegevensbronnen, taken en gebruikers met Azure SDK voor Node.js
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: 07acd058bf252af2fc98c4cfe87a135e0b79900f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 769cf9b09eecd204c8b5b944065dad57a6d73231
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Azure Data Lake Analytics beheren met Azure SDK voor Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Hello Azure SDK voor Node.js kan worden gebruikt voor het beheren van Azure Data Lake Analytics-accounts, -taken en -catalogussen. toosee management onderwerp met een ander hulpprogramma, klikt u op Hallo tabblad select bovenaan.
+U kunt de Azure SDK voor Node.js gebruiken voor het beheren van Azure Data Lake Analytics-accounts, taken en -catalogussen. Voor informatie over het beheer met andere hulpprogramma’s klikt u op het tabblad Select bovenaan.
 
 Momenteel wordt ondersteund:
 
@@ -37,7 +37,7 @@ Momenteel wordt ondersteund:
 * Taakbeheer: verzenden, ophalen, weergeven en annuleren.
 * Catalogusbeheer: ophalen en weergeven.
 
-## <a name="how-tooinstall"></a>Hoe tooInstall
+## <a name="how-to-install"></a>Installeren
 ```bash
 npm install azure-arm-datalake-analytics
 ```
@@ -51,7 +51,7 @@ npm install azure-arm-datalake-analytics
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-## <a name="create-hello-data-lake-analytics-client"></a>Hallo Data Lake Analytics-client maken
+## <a name="create-the-data-lake-analytics-client"></a>De Data Lake Analytics-client maken
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
 var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
@@ -66,12 +66,12 @@ var resourceGroupName = 'testrg';
 var accountName = 'testadlaacct';
 var location = 'eastus2';
 
-// A Data Lake Store account must already have been created toocreate
-// a Data Lake Analytics account. See hello Data Lake Store readme for
+// A Data Lake Store account must already have been created to create
+// a Data Lake Analytics account. See the Data Lake Store readme for
 // information on doing so. For now, we assume one exists already.
 var datalakeStoreAccountName = 'existingadlsaccount';
 
-// account object toocreate
+// account object to create
 var accountToCreate = {
   tags: {
     testtag1: 'testvalue1',
@@ -92,14 +92,14 @@ var accountToCreate = {
 client.account.create(resourceGroupName, accountName, accountToCreate, function (err, result, request, response) {
   if (err) {
     console.log(err);
-    /*err has reference toohello actual request and response, so you can see what was sent and received on hello wire.
-      hello structure of err looks like this:
+    /*err has reference to the actual request and response, so you can see what was sent and received on the wire.
+      The structure of err looks like this:
       err: {
         code: 'Error Code',
         message: 'Error Message',
-        body: 'hello response body if any',
-        request: reference tooa stripped version of http request
-        response: reference tooa stripped version of hello response
+        body: 'The response body if any',
+        request: reference to a stripped version of http request
+        response: reference to a stripped version of the response
       }
     */
   } else {
@@ -121,7 +121,7 @@ jobClient.job.list(accountName, function (err, result, request, response) {
 });
 ```
 
-## <a name="get-a-list-of-databases-in-hello-data-lake-analytics-catalog"></a>Een lijst met databases ophalen in Hallo Data Lake Analytics-catalogus
+## <a name="get-a-list-of-databases-in-the-data-lake-analytics-catalog"></a>Een lijst met databases ophalen in de Data Lake Analytics-catalogus ophalen
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';

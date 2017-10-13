@@ -16,7 +16,7 @@
 ### [Aangepaste instellingen](active-directory-aadconnect-get-started-custom.md)
 ### [Upgraden van DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Upgrade uitvoeren van een vorige versie](active-directory-aadconnect-upgrade-previous-version.md)
-
+### [Installeren met behulp van een bestaande ADSync-database](active-directory-aadconnect-existing-database.md)
 
 # Procedures
 ## Plannen en ontwerpen
@@ -27,6 +27,7 @@
 ### [Als u Azure AD al hebt](active-directory-aadconnect-existing-tenant.md)
 ## [Azure AD Connect beheren](active-directory-aadconnect-whats-next.md)
 ### [Certificaten vernieuwen voor O365 en Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Het SSL-certificaat voor een Active Directory Federation Services (AD FS)-farm bijwerken](active-directory-aadconnectfed-ssl-update.md)
 ### [Write-back van apparaat inschakelen](active-directory-aadconnect-feature-device-writeback.md)
 ### [Aanmeldingsopties voor gebruiker](active-directory-aadconnect-user-signin.md)
 #### [Naadloze eenmalige aanmelding](active-directory-aadconnect-sso.md)
@@ -42,6 +43,7 @@
 ##### [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Veelgestelde vragen](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Problemen oplossen](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
+##### [Grondig onderzoek van beveiliging](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
 ### [Ondersteuning van meerdere domeinen voor federeren](active-directory-aadconnect-multiple-domains.md)
 ### [Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Een SAML 2.0-id-provider (IdP) gebruiken voor eenmalige aanmelding](active-directory-aadconnect-federation-saml-idp.md)
@@ -53,13 +55,13 @@
 ### [Wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD-serviceaccount](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installatiewizard](active-directory-aadconnectsync-installation-wizard.md)
-### [Hallo standaard-configuratie wijzigen](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
+### [De standaardconfiguratie wijzigen](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Filteren configureren](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Uitbreidingen van de directory](active-directory-aadconnectsync-feature-directory-extensions.md)
 
-### [Het wijzigen van het wachtwoord hello Azure AD Sync-serviceaccount](active-directory-aadconnectsync-change-serviceacct-pass.md)
-### [Hallo AD DS accountwachtwoord wijzigen](active-directory-aadconnectsync-change-addsacct-pass.md)
+### [Het wachtwoord van het Azure AD Sync-serviceaccount wijzigen](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Het wachtwoord voor het AD DS-account wijzigen](active-directory-aadconnectsync-change-addsacct-pass.md)
 ### [AD-prullenbak inschakelen](active-directory-aadconnectsync-recycle-bin.md)
 
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
@@ -80,7 +82,7 @@
 ### [Object is niet gesynchroniseerd](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Wachtwoordsynchronisatie](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [LargeObject-fout veroorzaakt door userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
-### [Hoe toorecover van 10 GB-limiet LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
+### [Probleem met LocalDB met limiet van 10 GB oplossen](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
@@ -91,7 +93,7 @@
 ## [Accounts en machtigingen](active-directory-aadconnect-accounts-permissions.md)
 
 ## Azure AD Connect Sync
-### [Kenmerken gesynchroniseerd tooAzure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
+### [Kenmerken gesynchroniseerd naar Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
 ### [Releasegeschiedenis van connectorversie](active-directory-aadconnectsync-connector-version-history.md)
 ### [Functieverwijzing](active-directory-aadconnectsync-functions-reference.md)
 ### [Operationele taken en overwegingen](active-directory-aadconnectsync-operations.md)
@@ -103,7 +105,7 @@
 
 
 # Verwant
-## [Controleer uw lokale identiteit infrastructuur- en synchronisatieregels services in de cloud Hallo](../connect-health/active-directory-aadconnect-health.md)
+## [Uw on-premises infrastructuur voor identiteiten en synchronisatieservices in de cloud controleren](../connect-health/active-directory-aadconnect-health.md)
 ## [Ontwerphandleiding voor hybride identiteit](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 

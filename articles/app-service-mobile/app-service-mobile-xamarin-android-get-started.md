@@ -1,6 +1,6 @@
 ---
-title: aaaGet gestart met Azure Mobile Apps voor Xamarin.Android-apps
-description: Volg deze zelfstudie tooget de slag met Azure Mobile Apps voor Xamarin.android-ontwikkeling
+title: Aan de slag met Azure Mobile Apps voor Xamarin.Android-apps
+description: Volg deze zelfstudie om aan de slag te gaan met Azure Mobile Apps voor Xamarin.Android-ontwikkeling
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -14,61 +14,61 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 38710660d9328fe3c068efca972f76aa8b6e049b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6b41fd8090dd771fc40769c134bad258b3d4bd36
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-xamarinandroid-app"></a>Een Xamarin.Android-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie laat zien hoe een cloud-gebaseerde back-end tooadd tooa Xamarin.Android-app service. Zie [What are Mobile Apps](app-service-mobile-value-prop.md) (Wat zijn Mobile Apps?) voor meer informatie.
+Deze zelfstudie laat zien hoe u een back-endservice toevoegt aan een Xamarin.Android-app in de cloud. Zie [What are Mobile Apps](app-service-mobile-value-prop.md) (Wat zijn Mobile Apps?) voor meer informatie.
 
-Een schermafbeelding van de app Hallo voltooid lager is dan:
+Hieronder ziet u een schermafbeelding van de voltooide app:
 
 ![][0]
 
 Het voltooien van deze zelfstudie is een vereiste voor alle andere Mobile Apps-zelfstudies voor Xamarin.Android-apps.
 
 ## <a name="prerequisites"></a>Vereisten
-toocomplete in deze zelfstudie, moet u Hallo volgende vereisten:
+Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
-* Een actief Azure-account. Als u geen account hebt, zich aanmeldt voor een proefversie van Azure en krijg too10 gratis mobiele Apps. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+* Een actief Azure-account. Als u geen account hebt, meld u zich aan voor een proefversie van Azure en ontvangt u maximaal 10 gratis mobiele apps. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 * Visual Studio met Xamarin. Zie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Installeren en instellen voor Visual Studio en Xamarin) voor instructies.
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Een back-end voor mobiele apps van Azure maken
-Volg deze stappen toocreate een back-end voor de mobiele App.
+Volg deze stappen voor het maken van een back-end voor mobiele apps.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden gebruikt door uw mobiele-clienttoepassingen. Vervolgens een serverproject downloaden voor een eenvoudige 'todo list' back-end en deze tooAzure publiceren.
+U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden gebruikt door uw mobiele-clienttoepassingen. Download vervolgens een serverproject voor een eenvoudige back-end voor takenlijsten en publiceer deze naar Azure.
 
-## <a name="configure-hello-server-project"></a>Hallo serverproject configureren
+## <a name="configure-the-server-project"></a>Het serverproject configureren
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-hello-xamarinandroid-app"></a>Hallo Xamarin.Android-app downloaden en uitvoeren
-1. Onder **uw Xamarin.Android-project downloaden en uitvoeren**, klikt u op Hallo **downloaden** knop.
+## <a name="download-and-run-the-xamarinandroid-app"></a>De Xamarin.Android-app downloaden en uitvoeren
+1. Klik onder **Het Xamarin.Android-project downloaden en uitvoeren** op de knop **Downloaden**.
 
-      Hallo project gecomprimeerde bestand tooyour lokale computer opslaan en maak een notitie van de opslaglocatie.
-2. Druk op Hallo **F5** toobuild Hallo project sleutel en het Hallo-app te starten.
-3. Typ in het Hallo-app zinvolle tekst, zoals *voltooid Hallo zelfstudie* en klik vervolgens op Hallo **toevoegen** knop.
+      Sla het gecomprimeerde projectbestand op uw lokale computer op en noteer de opslaglocatie.
+2. Druk op de toets **F5** om het project te bouwen en de app te starten.
+3. Typ zinvolle tekst in de app, zoals *Voltooi de zelfstudie*, en klik vervolgens op de knop **Toevoegen**.
 
     ![][10]
 
-    De gegevens van Hallo-aanvraag is opgenomen in de takentabel Hallo. Items die zijn opgeslagen in de tabel Hallo zijn geretourneerd door de back-end van Hallo mobiele app en de gegevens worden weergegeven in de lijst Hallo.
+    Gegevens van de aanvraag worden opgenomen in de takentabel. Items die zijn opgeslagen in de tabel, worden geretourneerd door de back-end voor mobiele apps en de gegevens verschijnen in de lijst.
 
    > [!NOTE]
-   > U kunt Hallo-code die toegang heeft tot uw back-end voor mobiele app tooquery bekijken en gegevens vindt u in C#-bestand ToDoActivity.cs Hallo invoegen.
+   > U kunt de code die toegang heeft tot de back-end van uw mobiele app bekijken om gegevens op te vragen en in te voegen. Deze code vindt u in het C#-bestand ToDoActivity.cs.
    >
    >
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Offline synchronisatie tooyour app toevoegen](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [Verificatie tooyour app toevoegen](app-service-mobile-xamarin-android-get-started-users.md)
-* [Push notifications tooyour Xamarin.Android-app toevoegen](app-service-mobile-xamarin-android-get-started-push.md)
-* [Hoe toouse Hallo-client voor mobiele Apps van Azure beheerd](app-service-mobile-dotnet-how-to-use-client-library.md)
+* [Offlinesynchronisatie toevoegen aan uw app](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [Verificatie toevoegen aan uw app ](app-service-mobile-xamarin-android-get-started-users.md)
+* [Pushmeldingen toevoegen aan uw Xamarin.Android-app](app-service-mobile-xamarin-android-get-started-push.md)
+* [De beheerde client gebruiken voor Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Images. -->
 [0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png

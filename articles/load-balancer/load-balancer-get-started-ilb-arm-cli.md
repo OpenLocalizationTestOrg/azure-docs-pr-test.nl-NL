@@ -1,9 +1,9 @@
 ---
-title: aaaCreate een interne load balancer - Azure CLI | Microsoft Docs
-description: Meer informatie over hoe toocreate een interne load balancer met behulp van Azure CLI in Resource Manager Hallo
+title: Een interne load balancer maken - Azure CLI | Microsoft Docs
+description: Informatie over hoe u met Azure CLI een interne load balancer maakt in Resource Manager
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: c7a24e92-b4da-43c0-90f2-841c1b7ce489
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3aea6fdb07600f0d661ec6b8ffc784b03380a127
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 83cf027d95018de61ea906268d8f24700203e0c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-an-internal-load-balancer-by-using-hello-azure-cli"></a>Een interne load balancer maken met behulp van hello Azure CLI
+# <a name="create-an-internal-load-balancer-by-using-the-azure-cli"></a>Een interne load balancer maken met behulp van Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
@@ -28,31 +28,33 @@ ms.lasthandoff: 10/06/2017
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Sjabloon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!NOTE]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md).  In dit artikel wordt beschreven hoe u Hallo Resource Manager-implementatiemodel, die Microsoft voor de meeste nieuwe implementaties in plaats van Hallo aanbeveelt [klassieke implementatiemodel](load-balancer-get-started-ilb-classic-cli.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md).  Dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat door Microsoft wordt aanbevolen voor de meeste nieuwe implementaties in plaats van het [klassieke implementatiemodel](load-balancer-get-started-ilb-classic-cli.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## <a name="deploy-hello-solution-by-using-hello-azure-cli"></a>Hallo-oplossing implementeren met behulp van hello Azure CLI
+## <a name="deploy-the-solution-by-using-the-azure-cli"></a>De oplossing implementeren met Azure CLI
 
-Hallo stappen laten zien hoe toocreate een internetgerichte netwerktaakverdeler met behulp van Azure Resource Manager met CLI. Met Azure Resource Manager elke bron wordt gemaakt en afzonderlijk geconfigureerd en vervolgens samengesteld toocreate een resource.
+De volgende stappen laten zien hoe u Azure Resource Manager gebruikt om een internetgerichte load balancer te maken met behulp van CLI. Met Azure Resource Manager wordt elke resource afzonderlijk gemaakt en geconfigureerd, en vervolgens samengevoegd om een resource te maken.
 
-U moet toocreate en configureer Hallo objecten toodeploy een load balancer te volgen:
+U moet de volgende objecten maken en configureren om een load balancer te implementeren:
 
 * **Front-end-IP-configuratie**: bevat openbare IP-adressen voor inkomend netwerkverkeer
-* **Back-end-adresgroep**: netwerkinterfaces (NIC's) waarmee Hallo virtuele machines tooreceive netwerkverkeer van Hallo load balancer bevat
-* **Regels voor taakverdeling**: bevat regels die een openbare poort op Hallo load balancer tooport in Hallo back-end-adresgroep toewijzen
-* **NAT-regels voor binnenkomende verbindingen**: bevat regels die een openbare poort op Hallo load balancer tooa poort voor een specifieke virtuele machine in Hallo back-end-adresgroep toewijzen
-* **Tests**: statuscontroles die gebruikt toocheck Hallo beschikbaarheid van exemplaren van virtuele machines in het back-end-adresgroep Hallo zijn bevat
+* **Back-endadresgroep**: bevat netwerkinterfaces (NIC's) waardoor de virtuele machines netwerkverkeer kunnen ontvangen van de load balancer
+* **Regels voor taakverdeling**: bevat regels die een openbare poort op de load balancer toewijst aan een poort in de back-endadresgroep
+* **Inkomende NAT-regels**: bevat regels die een openbare poort op de load balancer toewijst aan een poort voor een specifieke virtuele machine in de back-endadresgroep
+* **Tests**: bevat statuscontroles die worden gebruikt om de beschikbaarheid van exemplaren van virtuele machines in de back-endadresgroep te controleren
 
 Zie [Azure Resource Manager-ondersteuning voor load balancer](load-balancer-arm.md) voor meer informatie.
 
-## <a name="set-up-cli-toouse-resource-manager"></a>CLI-toouse Resource Manager instellen
+## <a name="set-up-cli-to-use-resource-manager"></a>CLI instellen voor het gebruik van Resource Manager
 
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [installeren en configureren van Azure CLI Hallo](../cli-install-nodejs.md). Volg de instructies Hallo toohello punt waar u uw Azure-account en abonnement selecteren.
-2. Voer Hallo **azure config mode** opdracht tooswitch tooResource Manager-modus als volgt:
+1. Zie [Install and configure the Azure CLI](../cli-install-nodejs.md) (Azure CLI installeren en configureren) als u Azure CLI nog nooit hebt gebruikt. Volg de instructies tot het punt waar u uw Azure-account en -abonnement selecteert.
+2. Voer de opdracht **azure config mode** als volgt uit om over te schakelen naar de modus Resource Manager.
 
     ```azurecli
     azure config mode arm
@@ -64,7 +66,7 @@ Zie [Azure Resource Manager-ondersteuning voor load balancer](load-balancer-arm.
 
 ## <a name="create-an-internal-load-balancer-step-by-step"></a>Stapsgewijs een interne load balancer maken
 
-1. Meld u aan tooAzure.
+1. Meld u aan bij Azure.
 
     ```azurecli
     azure login
@@ -72,7 +74,7 @@ Zie [Azure Resource Manager-ondersteuning voor load balancer](load-balancer-arm.
 
     Voer uw Azure-referenties in wanneer dit wordt gevraagd.
 
-2. Hallo opdracht Extra tooAzure Resource Manager-modus wijzigen.
+2. Wijzig de opdrachthulpprogramma's in de modus Azure Resource Manager.
 
     ```azurecli
     azure config mode arm
@@ -90,24 +92,24 @@ azure group create <resource group name> <location>
 
 1. Een interne load balancer maken
 
-    In Hallo scenario te volgen, wordt een resourcegroep met de naam nrprg gemaakt in de regio VS-Oost.
+    In het volgende scenario wordt een resourcegroep met de naam nrprg gemaakt in de regio VS - oost.
 
     ```azurecli
     azure network lb create --name nrprg --location eastus
     ```
 
    > [!NOTE]
-   > Alle resources voor een interne load balancers, zoals virtuele netwerken en virtuele subnetten, moeten zich in dezelfde resourcegroep Hallo en Hallo in dezelfde regio.
+   > Alle resources voor een interne load balancer, zoals virtuele netwerken en virtuele subnetten van netwerken, moeten zich in dezelfde resourcegroep en in dezelfde regio bevinden.
 
-2. Maak een front-end-IP-adres voor Hallo interne load balancer.
+2. Maak een front-end-IP-adres voor de interne load balancer.
 
-    Hallo IP-adres dat u gebruikt moet binnen het bereik van de Hallo subnet van het virtuele netwerk.
+    Het IP-adres dat u gebruikt, moet zich binnen het subnetbereik van het virtuele netwerk bevinden.
 
     ```azurecli
     azure network lb frontend-ip create --resource-group nrprg --lb-name ilbset --name feilb --private-ip-address 10.0.0.7 --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet
     ```
 
-3. Hallo back-end-adresgroep maken.
+3. Maak de back-endadresgroep.
 
     ```azurecli
     azure network lb address-pool create --resource-group nrprg --lb-name ilbset --name beilb
@@ -115,9 +117,9 @@ azure group create <resource group name> <location>
 
     Nadat u een front-end-IP-adres en een back-endadresgroep hebt gedefinieerd, kunt u load balancer-regels, inkomende NAT-regels en aangepaste statuscontroles maken.
 
-4. Maak een load balancer-regel voor Hallo interne load balancer.
+4. Maak een load balancer-regel voor de interne load balancer.
 
-    Bij het uitvoeren van de vorige stappen Hallo Hallo opdracht maakt u een load balancer-regel voor luisteren tooport 1433 in Hallo front-endpool en verzenden taakverdeling netwerkverkeer toohello back-end-adresgroep, ook met behulp van poort 1433.
+    Wanneer u de vorige stappen hebt gevolgd, maakt de opdracht een load balancer-regel voor het luisteren naar poort 1433 in de front-endpool en verzendt deze netwerkverkeer met taakverdeling naar de back-endadresgroep, waarbij ook gebruik wordt gemaakt van poort 1433.
 
     ```azurecli
     azure network lb rule create --resource-group nrprg --lb-name ilbset --name ilbrule --protocol tcp --frontend-port 1433 --backend-port 1433 --frontend-ip-name feilb --backend-address-pool-name beilb
@@ -125,7 +127,7 @@ azure group create <resource group name> <location>
 
 5. Maak inkomende NAT-regels.
 
-    Binnenkomende NAT-regels zijn gebruikte toocreate-eindpunten in een load balancer die tooa specifieke virtuele machine exemplaar gaat. de vorige stappen Hallo gemaakt twee NAT-regels voor extern bureaublad.
+    Inkomende NAT-regels worden gebruikt om eindpunten in een load balancer te maken die naar een specifiek exemplaar van een virtuele machine gaan. Met de vorige stappen zijn twee NAT-regels voor een extern bureaublad gemaakt.
 
     ```azurecli
     azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule1 --protocol TCP --frontend-port 5432 --backend-port 3389
@@ -133,23 +135,23 @@ azure group create <resource group name> <location>
     azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule2 --protocol TCP --frontend-port 5433 --backend-port 3389
     ```
 
-6. Statuscontroles voor Hallo load balancer maken.
+6. Maak statuscontroles voor de load balancer.
 
-    Een health test controleert alle virtuele machine-exemplaren toomake zeker van te zijn dat ze netwerkverkeer kunnen verzenden. exemplaar van de virtuele machine Hallo met mislukte test controles wordt verwijderd van Hallo load balancer totdat deze weer online komt en een test-controle wordt bepaald of dit in orde is.
+    Een statuscontrole controleert alle exemplaren van de virtuele machines om ervoor te zorgen dat deze netwerkverkeer kunnen verzenden. Het exemplaar van een virtuele machine met mislukte testcontroles wordt uit de load balancer verwijderd totdat deze weer online komt en een testcontrole bepaalt of deze in orde is.
 
     ```azurecli
     azure network lb probe create --resource-group nrprg --lb-name ilbset --name ilbprobe --protocol tcp --interval 300 --count 4
     ```
 
     > [!NOTE]
-    > Hallo Microsoft Azure-platform gebruikt een statisch, openbaar routeerbare IPv4-adres voor een verscheidenheid aan scenario's voor beheer. Hallo IP-adres is 168.63.129.16. Dit IP-adres mag niet door firewalls worden geblokkeerd. Dit kan onverwacht gedrag veroorzaken.
-    > Met opzicht tooAzure interne load balancing, wordt dit IP-adres gebruikt door de bewaking van de tests uit Hallo load balancer toodetermine Hallo-status voor virtuele machines in een set met gelijke taakverdeling. Als een netwerkbeveiligingsgroep gebruikte toorestrict verkeer tooAzure virtuele machines in een set met gelijke taakverdeling intern is of toegepaste tooa virtueel netwerksubnet, zorg ervoor dat een netwerkbeveiligingsregel tooallow verkeer vanuit 168.63.129.16 wordt toegevoegd.
+    > Het Microsoft Azure-platform gebruikt een statisch, openbaar routeerbaar IPv4-adres voor diverse beheerscenario's. Het IP-adres is 168.63.129.16. Dit IP-adres mag niet door firewalls worden geblokkeerd. Dit kan onverwacht gedrag veroorzaken.
+    > Wat Azure interne taakverdeling betreft, wordt dit IP-adres gebruikt door bewakingstests van de load balancer om de status van virtuele machines in een set met gelijke taakverdeling te bepalen. Als er een netwerkbeveiligingsgroep wordt gebruikt om het verkeer naar virtuele Azure-machines in een set met intern gelijke taakverdeling te beperken of wordt toegepast op een subnet in een virtueel netwerk, zorg er dan voor dat er een netwerkbeveiligingsregel wordt toegevoegd om verkeer van 168.63.129.16 toe te staan.
 
 ## <a name="create-nics"></a>NIC's maken
 
-U moet toocreate NIC's (of bestaande wijzigen) en deze koppelt tooNAT regels, load balancer-regels en -tests.
+U moet NIC's maken (of bestaande wijzigen) en deze koppelen aan NAT-regels, load balancer-regels en tests.
 
-1. Maken van een NIC met de naam *lb nic1 worden*, en vervolgens te koppelen aan Hallo *rdp1* NAT regel en Hallo *beilb* back-end-adresgroep.
+1. Maak een NIC met de naam *lb-nic1-be*, en koppel deze vervolgens aan de NAT-regel *rdp1* en de back-endadresgroep *beilb*.
 
     ```azurecli
     azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" --location eastus
@@ -158,10 +160,10 @@ U moet toocreate NIC's (of bestaande wijzigen) en deze koppelt tooNAT regels, lo
     Verwachte uitvoer:
 
         info:    Executing command network nic create
-        + Looking up hello network interface "lb-nic1-be"
-        + Looking up hello subnet "nrpvnetsubnet"
+        + Looking up the network interface "lb-nic1-be"
+        + Looking up the subnet "nrpvnetsubnet"
         + Creating network interface "lb-nic1-be"
-        + Looking up hello network interface "lb-nic1-be"
+        + Looking up the network interface "lb-nic1-be"
         data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
         data:    Name                            : lb-nic1-be
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -181,21 +183,21 @@ U moet toocreate NIC's (of bestaande wijzigen) en deze koppelt tooNAT regels, lo
         data:
         info:    network nic create command OK
 
-2. Maken van een NIC met de naam *lb nic2 worden*, en vervolgens te koppelen aan Hallo *rdp2* NAT regel en Hallo *beilb* back-end-adresgroep.
+2. Maak een NIC met de naam *lb-nic2-be*, en koppel deze vervolgens aan de NAT-regel *rdp2* en de back-endadresgroep *beilb*.
 
     ```azurecli
     azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" --location eastus
     ```
 
-3. Maak een virtuele machine met de naam *DB1*, en vervolgens te koppelen aan Hallo NIC met de naam *lb nic1 worden*. Een opslagaccount aangeroepen *web1nrp* is gemaakt voordat Hallo na de opdracht is uitgevoerd:
+3. Maak een virtuele machine met de naam *DB1* en koppel deze vervolgens aan de NIC met de naam *lb-nic1-be*. Voordat onderstaande opdracht wordt uitgevoerd, wordt er een opslagaccount met de naam *web1nrp* gemaakt.
 
     ```azurecli
     azure vm create --resource--resource-grouproup nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
     ```
     > [!IMPORTANT]
-    > Virtuele machines in een load balancer moet toobe in Hallo dezelfde beschikbaarheidsset. Gebruik `azure availset create` toocreate een beschikbaarheidsset.
+    > Virtuele machines in een load balancer moeten zich in dezelfde beschikbaarheidsset bevinden. Gebruik `azure availset create` om een beschikbaarheidsset te maken.
 
-4. Maak een virtuele machine (VM) met de naam *DB2*, en vervolgens te koppelen aan Hallo NIC met de naam *lb nic2 worden*. Een opslagaccount aangeroepen *web1nrp* is gemaakt voordat Hallo volgende opdracht wordt uitgevoerd.
+4. Maak een virtuele machine (VM) met de naam *DB2* en koppel deze vervolgens aan de NIC met de naam *lb-nic2-be*. Voordat onderstaande opdracht wordt uitgevoerd, wordt er een opslagaccount met de naam *web1nrp* gemaakt.
 
     ```azurecli
     azure vm create --resource--resource-grouproup nrprg --name DB2 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
@@ -203,7 +205,7 @@ U moet toocreate NIC's (of bestaande wijzigen) en deze koppelt tooNAT regels, lo
 
 ## <a name="delete-a-load-balancer"></a>Een load balancer verwijderen
 
-tooremove een load balancer, Hallo volgende opdracht gebruiken:
+Gebruik de volgende opdracht om een load balancer te verwijderen:
 
 ```azurecli
 azure network lb delete --resource-group nrprg --name ilbset

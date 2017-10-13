@@ -1,6 +1,6 @@
 ---
-title: de slag met SQL Data Warehouse met detectie van dreigingen aaaGet
-description: Hoe tooget de slag met detectie van dreigingen
+title: Aan de slag met SQL Data Warehouse met detectie van dreigingen
+description: Hoe u aan de slag met detectie van dreigingen
 services: sql-data-warehouse
 documentationcenter: 
 author: ronortloff
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: dec0b734849e7f52434e099db0b38fbf0bf6ad53
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f4a2376fe4fb710d031c35ca7fdbf4c7bb0f3caa
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-threat-detection"></a>Aan de slag met detectie van dreigingen
 > [!div class="op_single_selector"]
@@ -29,49 +29,49 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="overview"></a>Overzicht
-Detectie van dreigingen detecteert afwijkende databaseactiviteiten die wijzen op mogelijke bedreigingen toohello database met. Detectie van dreigingen is Preview-versie en wordt ondersteund voor SQL Data Warehouse.
+Detectie van dreigingen detecteert afwijkende databaseactiviteiten die wijzen op beveiligingsdreigingen voor de database. Detectie van dreigingen is Preview-versie en wordt ondersteund voor SQL Data Warehouse.
 
-Detectie van dreigingen biedt een nieuwe laag van beveiliging, waarbij kan klanten toodetect en hierop reageren toopotential bedreigingen wanneer deze zich voordoen doordat beveiligingswaarschuwingen op vreemde activiteiten worden gedetecteerd. Gebruikers kunnen verkennen Hallo verdachte gebeurtenissen met [Azure SQL Data Warehouse Auditing](sql-data-warehouse-auditing-overview.md) toodetermine als ze het gevolg zijn van een tooaccess poging schenden of misbruik van gegevens in het datawarehouse Hallo.
-Detectie van dreigingen maakt het eenvoudig tooaddress mogelijke bedreigingen toohello gegevens datawarehouse zonder Hallo nodig toobe een expert beveiliging of systemen bewaking van de geavanceerde beveiliging te beheren.
+Detectie van dreigingen biedt een nieuwe laag van beveiliging, waarmee klanten om te detecteren en op mogelijke bedreigingen reageert wanneer deze zich voordoen doordat beveiligingswaarschuwingen op vreemde activiteiten worden gedetecteerd. Gebruikers kunnen de verdachte gebeurtenissen met verkennen [Azure SQL Data Warehouse Auditing](sql-data-warehouse-auditing-overview.md) om te bepalen of ze het gevolg zijn van een poging om te openen, inbreuk of misbruik van gegevens in het datawarehouse.
+Detectie van dreigingen kunt u eenvoudig op mogelijke bedreigingen adres naar het datawarehouse hoeft te worden van een deskundige beveiliging of systemen bewaking van de geavanceerde beveiliging te beheren.
 
-Detectie van dreigingen detecteert bijvoorbeeld bepaalde afwijkende databaseactiviteiten potentiële SQL-injectie pogingen die aangeeft. SQL-injectie is een van de Hallo algemene Web application beveiligingsproblemen op Hallo Internet, gebruikte tooattack gegevensgestuurde toepassingen. Aanvallers te profiteren van de toepassing beveiligingslekken tooinject schadelijke SQL-instructies in de invoervelden toepassing voor schendingen veroorzaken of wijzigen van gegevens in de database Hallo.
+Detectie van dreigingen detecteert bijvoorbeeld bepaalde afwijkende databaseactiviteiten potentiële SQL-injectie pogingen die aangeeft. SQL-injectie is een van de algemene Web application beveiligingsproblemen op het Internet worden gebruikt voor aanvallen op gegevensgestuurde toepassingen. Aanvallers te profiteren van de toepassing zwakke plekken in het injecteren schadelijke SQL-instructies in de invoervelden toepassing voor schendingen veroorzaken of wijzigen van gegevens in de database.
 
 ## <a name="set-up-threat-detection-for-your-database"></a>Detectie van dreigingen voor uw database instellen
-1. Start de Azure-Portal op Hallo [https://portal.azure.com](https://portal.azure.com).
-2. Navigeer toohello configuratie blade Hallo SQL Data Warehouse gewenste toomonitor. Selecteer in de blade beleidinstellingen Hallo **controle en detectie van dreigingen**.
+1. Starten van de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+2. Navigeer naar de blade van de configuratie van de SQL Data Warehouse die u wilt bewaken. Selecteer in de blade instellingen **controle en detectie van dreigingen**.
    
     ![Navigatiedeelvenster][1]
-3. In Hallo **controle en detectie van dreigingen** configuratie blade Schakel **ON** controle, wordt die Hallo Threat detectie-instellingen weergegeven.
+3. In de **controle en detectie van dreigingen** configuratie blade Schakel **ON** controle, wordt die de Threat detectie-instellingen weergegeven.
    
     ![Navigatiedeelvenster][2]
 4. Schakel **ON** Bedreigingendetectie.
-5. Hallo lijst configureren van e-mailberichten die beveiligingswaarschuwingen na detectie van afwijkende activiteiten datawarehouse ontvangt.
-6. Klik op **opslaan** in Hallo **controle en detectie van bedreigingen** configuratie blade toosave Hallo nieuwe of bijgewerkte controle en threat beleid.
+5. Configureer de lijst met e-mailberichten die beveiligingswaarschuwingen na detectie van afwijkende activiteiten datawarehouse ontvangt.
+6. Klik op **opslaan** in de **controle en detectie van bedreigingen** blade van de configuratie op te slaan de nieuwe of bijgewerkte controle dreiging van beleid.
    
     ![Navigatiedeelvenster][3]
 
 ## <a name="explore-anomalous-data-warehouse-activities-upon-detection-of-a-suspicious-event"></a>Verken afwijkende datawarehouse activiteiten na detectie van een verdachte activiteit
 1. U ontvangt een e-mailmelding na detectie van afwijkende databaseactiviteiten. <br/>
-   Hallo e bevatten informatie over verdachte beveiligingslogboek Hallo Hallo aard van Hallo afwijkende activiteiten, databasenaam, server-naam en het Hallo gebeurtenistijd inclusief. Bovendien bevatten informatie over mogelijke oorzaken en aanbevolen acties tooinvestigate en Hallo mogelijke bedreiging toohello database beperken.<br/>
+   Het e-mailadres bevatten informatie over de verdachte-gebeurtenis met inbegrip van de aard van de afwijkende activiteiten, databasenaam, de servernaam van de en de tijd van de gebeurtenis. Bovendien bevatten informatie over mogelijke oorzaken en aanbevolen acties te onderzoeken en de mogelijke bedreiging voor de database te verminderen.<br/>
    
     ![Navigatiedeelvenster][4]
-2. Hallo e-mail, klik op Hallo **Azure SQL-controle logboek** koppeling waarmee u Hallo klassieke Azure-Portal te starten en Hallo relevante controle records rond de tijd Hallo van Hallo verdachte activiteit weer te geven.
+2. Klik in de e-mail op de **Azure SQL-controle logboek** koppeling waarmee u de klassieke Azure Portal te starten en de relevante records controle rond de tijd van de verdachte gebeurtenis wilt weergeven.
    
     ![Navigatiedeelvenster][5]
-3. Klik op Hallo audit records tooview meer informatie over Hallo database verdachte activiteiten zoals SQL-instructie is mislukt reden en client-IP.
+3. Klik op de controlerecords naar meer details weergeven over de op verdachte databaseactiviteiten zoals SQL-instructie is mislukt reden en client-IP.
    
     ![Navigatiedeelvenster][6]
-4. Klik op Hallo controle Records blade **openen in Excel** tooopen een vooraf geconfigureerde excel sjabloon tooimport en uitvoeren diepgaande analyse van Hallo controlelogboek rond de tijd Hallo van verdachte Hallo-gebeurtenis.<br/>
-   **Opmerking:** In Excel 2010 of hoger, Power Query en Hallo **snel combineren** instelling is vereist
+4. Klik op de blade controle Records **openen in Excel** openen van een vooraf geconfigureerde excel sjabloon importeren en uitvoeren van de diepgaande analyse van het controlelogboek rond de tijd van de verdachte activiteit.<br/>
+   **Opmerking:** In Excel 2010 of hoger, Power Query en de **snel combineren** instelling is vereist
    
     ![Navigatiedeelvenster][7]
-5. Hallo tooconfigure **snel combineren** instelling - In Hallo **POWER QUERY** linttabblad, selecteer **opties** dialoogvenster toodisplay Hallo-opties. Selecteer Hallo privacysectie en kies Hallo tweede optie - 'Negeren Hallo privacyniveaus en mogelijk verbeterde prestaties':
+5. Voor het configureren van de **snel combineren** instellen - In de **POWER QUERY** linttabblad, selecteer **opties** om het dialoogvenster opties weer te geven. Selecteer de sectie Privacy en kiest u de tweede optie - 'Negeren van de privacyniveaus en mogelijk verbeterde prestaties':
    
     ![Navigatiedeelvenster][8]
-6. controlelogboeken tooload SQL, zorg ervoor dat Hallo-parameters in tabblad Hallo-instellingen juist zijn ingesteld en selecteer Hallo 'Data' lint en klikt u op Hallo Alles vernieuwen.
+6. Als u wilt laden controlelogboeken SQL, zorg ervoor dat de parameters in de instellingen juist zijn ingesteld en selecteer vervolgens het lint 'Data' en klik op de knop Alles vernieuwen tabblad.
    
     ![Navigatiedeelvenster][9]
-7. Hallo resultaten worden weergegeven in Hallo **SQL controlelogboeken** blad waarmee u toorun diepgaande analyse van Hallo afwijkende activiteiten die zijn gedetecteerd en verhelpen van Hallo gevolgen van het beveiligingslogboek Hallo in uw toepassing.
+7. De resultaten worden weergegeven de **SQL controlelogboeken** blad waarmee u meer gedetailleerde analyse van de afwijkende activiteiten die zijn gedetecteerd uitvoeren, en het effect van de beveiligingsgebeurtenis in uw toepassing.
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-security-threat-detection/1_td_click_on_settings.png

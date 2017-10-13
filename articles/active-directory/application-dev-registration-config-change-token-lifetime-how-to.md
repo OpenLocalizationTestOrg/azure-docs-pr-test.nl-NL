@@ -1,6 +1,6 @@
 ---
-title: aaaHow toochange Hallo token levensduur standaardwaarden voor een toepassing ontwikkelde aangepaste | Microsoft Docs
-description: Hoe tooupdate levensduur van Token beleidsregels voor uw toepassing die u voor Azure AD ontwikkelt
+title: Het wijzigen van de levensduur van token standaardinstellingen voor een toepassing ontwikkelde aangepaste | Microsoft Docs
+description: Het bijwerken van de levensduur van Token beleidsregels voor uw toepassing die u voor Azure AD ontwikkelt
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 6e1aa1f2a7c33c1f55c5fb619c618ad43cd96273
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a28eacd820ed28a6470992ce86b060e886c00bcb
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-toochange-hello-token-lifetime-defaults-for-a-custom-developed-application"></a>Hoe toochange Hallo levensduur van token voor een toepassing ontwikkelde aangepaste standaardinstellingen
+# <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Het wijzigen van de standaardinstellingen van de levensduur van token voor een toepassing ontwikkelde aangepaste
 
-Azure AD Premium kunt app-ontwikkelaars en tenant admins tooconfigure Hallo levensduur van tokens die zijn uitgegeven voor niet-vertrouwelijke clients. Levensduur van token beleidsregels zijn ingesteld op basis van de tenant wide of Hallo bronnen die worden geopend.
+Azure AD Premium kunt app-ontwikkelaars en tenantbeheerders voor het configureren van de levensduur van tokens die zijn uitgegeven voor niet-vertrouwelijke clients. Levensduur van token beleidsregels zijn ingesteld op basis van de tenant wide of de bronnen die worden geopend.
 
- * tooset een levensduur van token-beleid, moet u toodownload hello [Azure AD PowerShell-Module](https://www.powershellgallery.com/packages/AzureADPreview).
+ * Als u wilt een levensduur van token instellen, moet u voor het downloaden van de [Azure AD PowerShell-Module](https://www.powershellgallery.com/packages/AzureADPreview).
 
- * Voer Hallo **Connect-AzureAD-bevestigen** opdracht.
+ * Voer de **Connect-AzureAD-bevestigen** opdracht.
 
- * Hier volgt een voorbeeldbeleid dat Hallo maximale leeftijd één factor vernieuwingstoken ingesteld. Hallo-beleid maken:```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
+ * Hier volgt een voorbeeldbeleid dat het vernieuwingstoken dat maximale leeftijd één factor ingesteld. Het beleid maken:```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
- * Afhandeling Hallo [configureren levensduur van token](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes) toolearn hoe document toocreate andere aangepaste.
+ * Bekijk de [configureren levensduur van token](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes) document voor meer informatie over het maken van andere aangepaste.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Levensduur van Token configureren](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes)<br>

@@ -1,18 +1,18 @@
-In deze stap maakt u Hallo beschikbaarheidsgroep-listener testen met behulp van een clienttoepassing die wordt uitgevoerd op Hallo hetzelfde netwerk.
+In deze stap kunt u de beschikbaarheidsgroep-listener testen met behulp van een clienttoepassing die wordt uitgevoerd op hetzelfde netwerk.
 
-Clientconnectiviteit heeft Hallo volgens de vereisten:
+Clientverbinding heeft de volgende vereisten:
 
-* Client-verbindingen toohello listener moet afkomstig zijn van de machines die zich in een andere cloudservice dan Hallo een dat hosts Hallo altijd op de beschikbaarheidsreplica's bevinden.
-* Als zich in verschillende subnetten bevinden Hallo altijd op de replica's, moeten clients opgeven *MultisubnetFailover = True* in Hallo-verbindingsreeks. Dit resulteert in parallelle verbinding probeert tooreplicas in Hallo verschillende subnetten. Dit scenario bevat een regio-overschrijdende altijd op beschikbaarheid groep-implementatie.
+* Clientverbindingen met de listener moeten afkomstig zijn van de machines die zich bevinden in een andere cloudservice dan de versie die als host fungeert voor de beschikbaarheidsreplica's altijd op.
+* Als wordt altijd op replica's in verschillende subnetten, moeten clients opgeven *MultisubnetFailover = True* in de verbindingstekenreeks. Deze voorwaarde resulteert in parallelle verbindingspogingen met replica's in de verschillende subnetten. Dit scenario bevat een regio-overschrijdende altijd op beschikbaarheid groep-implementatie.
 
-Een voorbeeld hiervan is tooconnect toohello listener uit een Hallo virtuele machines in Hallo hetzelfde virtuele Azure-netwerk (maar niet een die als host fungeert voor een replica). Een eenvoudige manier toocomplete deze test tootry tooconnect SQL Server Management Studio toohello beschikbaarheidsgroep-listener is. Een andere eenvoudige methode is toorun [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx)als volgt:
+Een voorbeeld hiervan is verbinding maken met de listener voor een van de virtuele machines in hetzelfde virtuele netwerk van Azure (maar niet een die als host fungeert voor een replica). Er is een eenvoudige manier om te voltooien van deze test om te proberen verbinding maken met SQL Server Management Studio de beschikbaarheidsgroep-listener. Een andere eenvoudige methode is het uitvoeren van [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx)als volgt:
 
     sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 
 > [!NOTE]
-> Als Hallo EndpointPort waarde *1433*, u bent geen vereiste toospecify in Hallo-aanroep. Hallo vorige aanroep wordt ervan uitgegaan dat Hallo client-computer is lid toohello hetzelfde domein en die beller Hallo machtigingen heeft op Hallo-database met behulp van Windows-verificatie.
+> Als de waarde EndpointPort *1433*, u niet opgeven in de aanroep zijn vereist. De vorige aanroep wordt ervan uitgegaan dat de clientcomputer wordt gekoppeld aan hetzelfde domein en dat de aanroeper heeft machtigingen zijn toegekend op de database met behulp van Windows-verificatie.
 > 
 > 
 
-Wanneer u Hallo listener test, kunnen worden ervoor toofail via Hallo beschikbaarheid groep toomake ervoor dat clients toohello listener over failovers verbinding kunnen maken.
+Wanneer u de listener test, moet u de beschikbaarheidsgroep om ervoor te zorgen dat clients verbinding met de listener via failovers maken kunnen failover.
 

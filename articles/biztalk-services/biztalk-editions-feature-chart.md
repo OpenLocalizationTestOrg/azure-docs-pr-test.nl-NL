@@ -1,6 +1,6 @@
 ---
-title: aaaLearn over functies in de edities van BizTalk Services | Microsoft Docs
-description: 'Hallo-mogelijkheden van edities van BizTalk Services Hallo vergelijken: vrijmaken, Developer, Basic, Standard en Premium. MABS, WABS.'
+title: Meer informatie over de functies in de edities van BizTalk Services | Microsoft Docs
+description: 'Vergelijk de mogelijkheden van de edities van BizTalk Services: Free, Developer, Basic, Standard en Premium. MABS, WABS.'
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 81626fa743a7190e7c78a0fd90b3054a08982b02
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-editions-chart"></a>BizTalk Services: grafiek van edities
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Azure BizTalk Services is beschikbaar in verschillende edities. Gebruik dit artikel toodetermine welke editie geschikt voor uw scenario en zakelijke behoeften is.
+Azure BizTalk Services is beschikbaar in verschillende edities. Gebruik dit artikel om te bepalen welke editie geschikt is voor uw scenario en zakelijke behoeften.
 
-## <a name="compare-hello-editions"></a>Hallo-edities vergelijken
+## <a name="compare-the-editions"></a>De edities vergelijken
 **Free (Preview)**
 
-Kan hybride verbindingen maken en beheren. Een hybride verbinding is een eenvoudige manier tooconnect een Azure-website tooan on-premises systeem, zoals SQL Server.
+Kan hybride verbindingen maken en beheren. Een hybride verbinding is een eenvoudige manier om een Azure-website verbinding te laten maken met een on-premises systeem, zoals SQL Server.
 
 **Developer**
 
-Biedt hybride verbindingen, EAI- en EDI-berichtverwerking met een eenvoudig te gebruiken beheerportal voor handelspartners, ondersteuning voor algemene EDI-schema's en uitgebreide EDI-bewerking via X12 en AS2. Algemene EAI-scenario's verbinden van services in de cloud Hallo met een HTTP/S-, REST-, FTP-, WCF- en SFTP-protocollen tooread maakt en berichten schrijven.  Gebruikmaken van connectiviteit tooon-premises LOB-systemen met kant-en-klare SAP, Oracle eBusiness, Oracle DB, Siebel en SQL Server-netwerkadapters. Gebruik een op ontwikkelaars gerichte omgeving met Visual Studio-hulpprogramma’s, zodat u op een eenvoudige manier kunt ontwikkelen en implementeren. Beperkte toodevelopment- en testdoeleinden alleen met niets Service Level Agreement (SLA).
+Biedt hybride verbindingen, EAI- en EDI-berichtverwerking met een eenvoudig te gebruiken beheerportal voor handelspartners, ondersteuning voor algemene EDI-schema's en uitgebreide EDI-bewerking via X12 en AS2. U kunt algemene EAI-scenario's maken om verbinding te maken tussen services in de cloud en alle HTTP/S-, REST-, FTP-, WCF- en SFTP-protocollen om berichten te lezen en te schrijven.  U kunt gebruikmaken van de verbinding tussen on-premises LOB-systemen en kant-en-klare SAP-, Oracle eBusiness- Oracle DB-, Siebel- en SQL Server-adapters. Gebruik een op ontwikkelaars gerichte omgeving met Visual Studio-hulpprogramma’s, zodat u op een eenvoudige manier kunt ontwikkelen en implementeren. Alleen geschikt voor ontwikkelings- en testdoeleinden zonder Service Level Agreement (SLA).
 
 **Basic**
 
-Bevat de meeste mogelijkheden voor Hallo Developer met verbeterde hybride verbindingen, EAI-bruggen, EDI-overeenkomsten en BizTalk Adapter Pack-verbindingen. Biedt ook hoge beschikbaarheid en Hallo optie tooscale met een Service Level Agreement (SLA).
+Bevat het merendeel van de mogelijkheden van de editie Developer met verbeterde hybride verbindingen, EAI-bruggen, EDI-overeenkomsten en BizTalk Adapter Pack-verbindingen. Biedt ook hoge beschikbaarheid en de mogelijkheid om te schalen met een Service Level Agreement (SLA).
 
 **Standard**
 
-Bevat alle Hallo essentiële mogelijkheden met verbeterde hybride verbindingen, EAI-bruggen, EDI-overeenkomsten en BizTalk Adapter Pack-verbindingen. Biedt ook hoge beschikbaarheid en Hallo optie tooscale met een Service Level Agreement (SLA).
+Bevat alle mogelijkheden van de editie Basic met verbeterde hybride verbindingen, EAI-bruggen, EDI-overeenkomsten en BizTalk Adapter Pack-verbindingen. Biedt ook hoge beschikbaarheid en de mogelijkheid om te schalen met een Service Level Agreement (SLA).
 
 **Premium**
 
-Bevat alle Hallo standaard mogelijkheden met verbeterde hybride verbindingen, EAI-bruggen, EDI-overeenkomsten en BizTalk Adapter Pack-verbindingen. Omvat ook archivering, hoge beschikbaarheid en Hallo optie tooscale met een Service Level Agreement (SLA).
+Bevat alle mogelijkheden van de editie Standard met verbeterde hybride verbindingen, EAI-bruggen, EDI-overeenkomsten en BizTalk Adapter Pack-verbindingen. Biedt ook archivering, hoge beschikbaarheid en de mogelijkheid om te schalen met een Service Level Agreement (SLA).
 
 ## <a name="editions-chart"></a>Grafiek van edities
-Hallo bevat volgende tabel Hallo verschillen.
+In de volgende tabel kunt u de verschillen zien.
 
 <table border="1">
 <tr bgcolor="FAF9F9">
@@ -84,9 +84,9 @@ Hallo bevat volgende tabel Hallo verschillen.
 <td><strong>Maximaal toegestane uitschaling</strong></td>
 <td>Schalen niet mogelijk</td>
 <td>Schalen niet mogelijk</td>
-<td>Too8-eenheden</td>
-<td>Too8-eenheden</td>
-<td>Too8-eenheden</td>
+<td>Maximaal 8 eenheden</td>
+<td>Maximaal 8 eenheden</td>
+<td>Maximaal 8 eenheden</td>
 </tr>
 <tr>
 <td><strong>EAI-bruggen per eenheid</strong></td>
@@ -123,7 +123,7 @@ Inclusief TPM-overeenkomsten</td>
 <td>500</td>
 </tr>
 <tr>
-<td><strong>BizTalk Adapter Service verbindingen tooon-premises LOB-systemen</strong></td>
+<td><strong>BizTalk Adapter Service-verbindingen met on-premises LOB-systemen</strong></td>
 <td>Niet inbegrepen</td>
 <td>1 verbinding</td>
 <td>2 verbindingen</td>
@@ -210,48 +210,48 @@ Inclusief niet-afwijzing van ontvangst (NRR) en downloaden van getraceerde beric
 
 ## <a name="faqs"></a>Veelgestelde vragen
 #### <a name="what-is-a-biztalk-unit"></a>Wat is een BizTalk-eenheid?
-Een 'eenheid' is hello kern van de implementatie van een Azure BizTalk Services. Elke editie wordt geleverd met een eenheid met een andere rekencapaciteit en hoeveelheid geheugen. Een Basic-eenheid heeft bijvoorbeeld meer rekencapaciteit dan een Developer-eenheid, een Standard-eenheid heeft meer rekencapaciteit dan een Basic-eenheid, enzovoort. Wanneer u een BizTalk Service schaalt, schaalt u de eenheden.
+Een 'eenheid' is de kern van een Azure BizTalk Services-implementatie. Elke editie wordt geleverd met een eenheid met een andere rekencapaciteit en hoeveelheid geheugen. Een Basic-eenheid heeft bijvoorbeeld meer rekencapaciteit dan een Developer-eenheid, een Standard-eenheid heeft meer rekencapaciteit dan een Basic-eenheid, enzovoort. Wanneer u een BizTalk Service schaalt, schaalt u de eenheden.
 
-#### <a name="what-is-hello-difference-between-biztalk-services-and-azure-biztalk-vm"></a>Wat is Hallo verschil tussen BizTalk Services en virtuele machine van Azure BizTalk?
-BizTalk Services biedt een waar Platform-as-a-Service (PaaS)-architectuur voor het bouwen van integratieoplossingen in Hallo cloud. Met Hallo PaaS-model u volledig ligt de nadruk op Hallo toepassingslogica en laat alle Hallo infrastructuur management tooMicrosoft, met inbegrip van:
+#### <a name="what-is-the-difference-between-biztalk-services-and-azure-biztalk-vm"></a>Wat is het verschil tussen BizTalk Services en virtuele machines van Azure BizTalk?
+BizTalk Services biedt een echte PaaS-architectuur (Platform-as-a-Service) voor het bouwen van integratieoplossingen in de cloud. Met het PaaS-model richt u zich volledig op de toepassingslogica en laat u het volledige beheer van de infrastructuur over aan Microsoft. Hierbij profiteert u van de volgende zaken:
 
-* Er is geen noodzaak toomanage of patch virtuele machines.
+* U hoeft geen virtuele machines te beheren of te patchen.
 * Microsoft zorgt voor de beschikbaarheid.
-* U beheren schaal op aanvraag door te vragen meer of minder capaciteit via hello Azure-portal.
+* U bepaalt zelf wanneer u schaalt door meer of minder capaciteit aan te vragen via de Azure Portal.
 
-BizTalk Server op virtuele machines van Azure biedt een IaaS-architectuur (Infrastructure-as-a-Service). U virtuele machines maken en configureren zodat deze exact zoals uw on-premises-omgeving, waardoor het gemakkelijker toorun bestaande toepassingen in de cloud Hallo zonder wijzigingen code. Met IaaS bent u nog steeds verantwoordelijk voor het configureren van Hallo virtuele machines, het beheer van Hallo virtuele machines (bijvoorbeeld installeren van software en OS patches) en Hallo-toepassing voor hoge beschikbaarheid worden veranderd.
+BizTalk Server op virtuele machines van Azure biedt een IaaS-architectuur (Infrastructure-as-a-Service). U maakt virtuele machines en configureert ze, precies zoals u doet in uw on-premises omgeving. Hierdoor is het eenvoudiger om bestaande toepassingen uit te voeren in de cloud, zonder dat u code hoeft te wijzigen. Met IaaS bent u nog steeds zelf verantwoordelijk voor het configureren en beheren van de virtuele machines (u moet bijvoorbeeld patches voor software en het besturingssysteem installeren) en voor het ontwerpen van de toepassing voor hoge beschikbaarheid.
 
-Als u nieuwe integratieoplossingen wilt bouwen waarbij u zo weinig mogelijk tijd kwijt bent met het beheer van de infrastructuur, gebruikt u BizTalk Services. Als u op zoek bent tooquickly migreren van uw bestaande BizTalk-oplossingen of zoek naar een omgeving op aanvraag toodevelop en test BizTalk Server-toepassingen, gebruikt u BizTalk Server op een virtuele Machine van Azure.
+Als u nieuwe integratieoplossingen wilt bouwen waarbij u zo weinig mogelijk tijd kwijt bent met het beheer van de infrastructuur, gebruikt u BizTalk Services. Als u uw bestaande BizTalk-oplossingen snel wilt migreren of zoekt naar een omgeving op aanvraag waarin u BizTalk Server-toepassingen kunt ontwikkelen en testen, gebruikt u BizTalk Server op een virtuele machine van Azure.
 
-#### <a name="what-is-hello-difference-between-biztalk-adapter-service-and-hybrid-connections"></a>Wat is Hallo verschil tussen BizTalk Adapter Service en hybride verbindingen?
-Hallo BizTalk Adapter Service wordt gebruikt door een Azure BizTalk Service. Hallo BizTalk Adapter Service gebruikt Hallo BizTalk Adapter Pack tooconnect tooan on-premises regel van Business (LOB)-systeem. Een hybride verbinding biedt een eenvoudige en handige manier tooconnect Azure-toepassingen, zoals de functie van de Hallo Web Apps in Azure App Service en Azure Mobile Services, tooan on-premises resource.
+#### <a name="what-is-the-difference-between-biztalk-adapter-service-and-hybrid-connections"></a>Wat is het verschil tussen BizTalk Adapter Service en hybride verbindingen?
+De BizTalk Adapter Service wordt gebruikt door een Azure BizTalk Service. De BizTalk Adapter Service gebruikt het BizTalk Adapter Pack om verbinding te maken met een on-premises LOB-systeem (Line of Business). Een hybride verbinding biedt een eenvoudige en handige manier om verbinding maken tussen Azure-toepassingen, zoals de functie Web Apps in Azure App Service en Azure Mobile Services, en een on-premises resource.
 
-#### <a name="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-hello-limit-is-reached"></a>Wat houdt 'Gegevensoverdracht in hybride verbindingen (GB) per eenheid' in? Is dit per minuut/uur/dag/week/maand? Wat gebeurt er wanneer Hallo limiet is bereikt?
-Hallo hybride verbinding kosten per eenheid zijn afhankelijk van Hallo BizTalk Services edition. Met andere woorden: de kosten zijn afhankelijk van hoeveel gegevens u overdraagt. Als u bijvoorbeeld dagelijks 10 GB aan gegevens overdraagt, kost dit minder dan wanneer u dagelijks 100 GB overdraagt. Gebruik Hallo [Prijscalculator](https://azure.microsoft.com/pricing/calculator/?scenario=full) voor BizTalk Services toodetermine specifieke kosten. Doorgaans worden Hallo limieten dagelijks afgedwongen. Als u Hallo limiet overschrijdt, wordt er gebracht tegen Hallo tarief $ 1 per GB.
+#### <a name="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-the-limit-is-reached"></a>Wat houdt 'Gegevensoverdracht in hybride verbindingen (GB) per eenheid' in? Is dit per minuut/uur/dag/week/maand? Wat gebeurt er wanneer de limiet is bereikt?
+De kosten voor een hybride verbinding per eenheid zijn afhankelijk van de editie van BizTalk Services. Met andere woorden: de kosten zijn afhankelijk van hoeveel gegevens u overdraagt. Als u bijvoorbeeld dagelijks 10 GB aan gegevens overdraagt, kost dit minder dan wanneer u dagelijks 100 GB overdraagt. Gebruik de [Prijscalculator](https://azure.microsoft.com/pricing/calculator/?scenario=full) voor BizTalk Services om de specifieke kosten te bepalen. Doorgaans worden de limieten dagelijks afgedwongen. Als u de limiet overschrijdt, wordt er $ 1 per extra GB in rekening gebracht.
 
-#### <a name="when-i-create-an-agreement-in-biztalk-services-why-does-hello-number-of-bridges-go-up-by-two-instead-of-just-one"></a>Bij het maken van een overeenkomst in BizTalk Services waarom het aantal bruggen Hallo gaat omhoog door twee in plaats van slechts één?
+#### <a name="when-i-create-an-agreement-in-biztalk-services-why-does-the-number-of-bridges-go-up-by-two-instead-of-just-one"></a>Waarom gaat het aantal bruggen met twee omhoog in plaats van slechts één wanneer ik een overeenkomst maak in BizTalk Services? 
 Elke overeenkomst bestaat uit twee verschillende bruggen: een communicatiebrug aan de verzendkant en een communicatiebrug aan de ontvangstkant.
 
-#### <a name="what-happens-when-i-hit-hello-quota-limit-on-hello-number-of-bridges-or-agreements"></a>Wat gebeurt er wanneer ik de quotumlimiet Hallo op Hallo aantal bruggen of overeenkomsten bereikt?
-U toodeploy kan niet worden geen nieuwe bruggen of geen nieuwe overeenkomsten maken. meer toodeploy, moet u tooscale toomore eenheden Hallo BizTalk service- of upgrade tooa hogere editie.
+#### <a name="what-happens-when-i-hit-the-quota-limit-on-the-number-of-bridges-or-agreements"></a>Wat gebeurt er wanneer ik de quotumlimiet voor het aantal bruggen of overeenkomsten bereik?
+Dan kunt u geen nieuwe bruggen implementeren en geen nieuwe overeenkomsten maken. Als u meer wilt implementeren, moet u opschalen naar meer eenheden voor de BizTalk Service of upgraden naar een hogere editie.
 
-#### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-tooanother"></a>Hoe Migreer ik van één laag van BizTalk Services tooanother
-Hallo gratis editie kan niet worden gemigreerd of 'uitgebreide' tooanother laag, en kan niet een back-up en tooanother laag hersteld. Als u een andere laag nodig hebt, maakt u een nieuwe BizTalk Service met de nieuwe laag Hallo. Alle artefacten die zijn gemaakt met behulp van Hallo editie Free, inclusief hybride verbindingen, moeten toobe opnieuw gemaakt in Hallo nieuwe BizTalk Service. 
+#### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>Hoe migreer ik van één BizTalk Services-laag naar een andere?
+De editie Free kan niet worden gemigreerd of 'opgeschaald' naar een andere laag. Bovendien kunt u geen back-ups maken en herstellen naar een andere laag. Als u een andere laag nodig hebt, maakt u een nieuwe BizTalk Service met behulp van de nieuwe laag. Alle artefacten die zijn gemaakt met de editie Free, inclusief hybride verbindingen, moeten opnieuw worden gemaakt in de nieuwe BizTalk Service. 
 
-Voor Hallo andere edities kunt gebruik Hallo back-up en herstel voor het migreren van uw artefacten van één laag tooanother. Bijvoorbeeld: back-up van uw artefacten in Hallo Standard-laag en herstel deze toohello Premium-laag. [BizTalk Services: Back-up en herstel](biztalk-backup-restore.md) worden Hallo ondersteunde migratiepaden beschreven en geeft een lijst van welke artefacten back-up worden gemaakt. Houd er rekening mee dat er geen back-ups worden gemaakt van hybride verbindingen. Na een back-up en herstellen van de nieuwe laag tooa, u vervolgens opnieuw maken Hallo hybride verbindingen.  
+In de andere edities kunt u back-ups maken en deze herstellen om uw artefacten te migreren van één laag naar een andere. U kunt bijvoorbeeld een back-up maken van uw artefacten in de laag Standard en deze herstellen in de laag Premium. In [BizTalk Services: back-ups maken en herstellen](biztalk-backup-restore.md) worden de ondersteunde migratiepaden beschreven en ziet u van welke artefacten back-ups worden gemaakt. Houd er rekening mee dat er geen back-ups worden gemaakt van hybride verbindingen. Nadat u uw back-ups hebt hersteld in een nieuwe laag, kunt u de hybride verbindingen opnieuw maken.  
 
-#### <a name="is-hello-biztalk-adapter-service-included-in-hello-service-how-do-i-receive-hello-software"></a>Is Hallo BizTalk Adapter Service deel uitmaken van service Hallo? Hoe ontvang ik Hallo-software
-Ja, de BizTalk Adapter Service Hallo Hello BizTalk Adapter Pack zijn opgenomen in hello Azure BizTalk Services SDK [downloaden](http://www.microsoft.com/download/details.aspx?id=39087).
+#### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>Maakt de BizTalk Adapter Service deel uit van de service? Hoe ontvang ik de software?
+Ja, de BizTalk Adapter Service en het BizTalk Adapter Pack zijn opgenomen in de Azure BizTalk Services SDK-[download](http://www.microsoft.com/download/details.aspx?id=39087).
 
 ## <a name="next-steps"></a>Volgende stappen
-toocreate Azure BizTalk Services in Azure portal, ga te Hallo[BizTalk Services: inrichten met Azure-portal Hallo](biztalk-provision-services.md). toostart te maken van toepassingen, ga[Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Als u Azure BizTalk Services wilt maken in de Azure Portal, gaat u naar [BizTalk Services: inrichten met de Azure Portal](biztalk-provision-services.md). Ga naar [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197) om te beginnen met het maken van toepassingen.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
-* [BizTalk Services: Inrichten met hello Azure-portal](biztalk-provision-services.md)<br/>
+* [BizTalk Services: inrichten met de Azure Portal](biztalk-provision-services.md)<br/>
 * [BizTalk Services: statusgrafiek voor de inrichting](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 * [BizTalk Services: back-ups maken en herstellen](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: beperking](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: naam en sleutel van verlener](biztalk-issuer-name-issuer-key.md)<br/>
-* [Hoe gaan gebruiken Azure BizTalk Services SDK Hallo](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [De Azure BizTalk Services SDK gaan gebruiken](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

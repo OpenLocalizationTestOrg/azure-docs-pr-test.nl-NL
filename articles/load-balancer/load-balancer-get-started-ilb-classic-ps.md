@@ -1,9 +1,9 @@
 ---
-title: een Azure-interne aaaCreate de load balancer - klassieke PowerShell | Microsoft Docs
-description: Meer informatie over hoe toocreate een interne netwerktaakverdeler met PowerShell in het klassieke implementatiemodel Hallo
+title: Een interne load balancer in Azure maken - klassieke versie van PowerShell | Microsoft Docs
+description: Meer informatie over hoe u met PowerShell een interne load balancer maakt in het klassieke implementatiemodel
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: 382db80c42ffab09905513019b72e85a4f9dfeff
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 85fd757bdd6dd9906a23977b760f01bb1f85bf77
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Aan de slag met het maken van een interne load balancer (klassiek) met behulp van PowerShell
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/06/2017
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md).  In dit artikel wordt behandeld met het klassieke implementatiemodel Hallo. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken. Meer informatie over hoe te[u deze stappen uitvoert met behulp van de Resource Manager-model Hallo](load-balancer-get-started-ilb-arm-ps.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md).  Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Lees [meer informatie over het uitvoeren van deze stappen met het Resource Manager-model](load-balancer-get-started-ilb-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -39,28 +39,28 @@ ms.lasthandoff: 10/06/2017
 
 ## <a name="create-an-internal-load-balancer-set-for-virtual-machines"></a>Een interne load balancer-set maken voor virtuele machines
 
-toocreate een interne load balancer ingesteld en Hallo servers die hun tooit verkeer wordt verzonden, hebt u toodo Hallo volgende:
+Ga als volgt te werk om een interne load balancer-set te maken, evenals de servers die hun verkeer naar deze load balancer verzenden:
 
-1. Een instantie van de interne Load Balancing die Hallo-eindpunt van het binnenkomende verkeer toobe gelijkmatig verdeeld zijn over Hallo-servers van een set met gelijke taakverdeling maken.
-2. Het toevoegen van eindpunten overeenkomt toohello virtuele machines die Hallo binnenkomend verkeer ontvangt.
-3. Hallo-servers die worden verzonden hello verkeer toobe met gelijke taakverdeling toosend hun verkeer toohello virtuele IP-adres (VIP) van Hallo interne Load Balancing-exemplaar te configureren.
+1. Maak een exemplaar van Interne taakverdeling dat het eindpunt wordt van binnenkomend verkeer dat gelijkmatig moet worden verdeeld over de servers van een set met gelijke taakverdeling.
+2. Voeg eindpunten toe die overeenkomen met de virtuele machines die het binnenkomende verkeer ontvangen.
+3. Configureer de servers die het verkeer voor gelijke taakverdeling verzenden, zodanig dat het verkeer wordt verzonden naar het VIP-adres (virtuele IP) van het exemplaar van Interne taakverdeling.
 
 ### <a name="step-1-create-an-internal-load-balancing-instance"></a>Stap 1: Een exemplaar van Interne taakverdeling maken
 
-Voor een bestaande cloudservice of een cloudservice die onder een regionaal virtueel netwerk is geïmplementeerd, kunt u een interne Load Balancing-exemplaar met de volgende Windows PowerShell-opdrachten Hallo:
+Voor een bestaande cloudservice of een cloudservice die in een regionaal virtueel netwerk is geïmplementeerd, kunt u een exemplaar van Interne taakverdeling maken met de volgende Windows PowerShell-opdrachten:
 
 ```powershell
 $svc="<Cloud Service Name>"
 $ilb="<Name of your ILB instance>"
-$subnet="<Name of hello subnet within your virtual network>"
-$IP="<hello IPv4 address toouse on hello subnet-optional>"
+$subnet="<Name of the subnet within your virtual network>"
+$IP="<The IPv4 address to use on the subnet-optional>"
 
 Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
 ```
 
-Houd er rekening mee dat dit gebruik van Hallo [toevoegen AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) hello DefaultProbe parameterset maakt gebruik van Windows PowerShell-cmdlet. Zie [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) voor meer informatie over aanvullende parametersets.
+Als de Windows PowerShell-cmdlet [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) op deze manier wordt gebruikt, wordt de parameterset DefaultProbe gebruikt. Zie [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) voor meer informatie over aanvullende parametersets.
 
-### <a name="step-2-add-endpoints-toohello-internal-load-balancing-instance"></a>Stap 2: Eindpunten toohello interne Load Balancing exemplaar toevoegen
+### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Stap 2: Eindpunten toevoegen aan het exemplaar van Interne taakverdeling
 
 Hier volgt een voorbeeld:
 
@@ -76,47 +76,47 @@ $ilb="ilbset"
 Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 ```
 
-### <a name="step-3-configure-your-servers-toosend-their-traffic-toohello-new-internal-load-balancing-endpoint"></a>Stap 3: Uw servers toosend hun verkeer toohello nieuwe interne Load Balancing-eindpunt configureren
+### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Stap 3: De servers zo configureren dat ze hun verkeer naar het nieuwe eindpunt voor Interne taakverdeling verzenden
 
-U hebt Hallo-servers waarvan het verkeer is gaat toobe taakverdeling toouse Hallo nieuwe IP-adres (VIP hello) Hallo exemplaar interne Load Balancing te configureren. Dit is Hallo adres welke Hallo interne Load Balancing exemplaar luistert. In de meeste gevallen moet u toojust toevoegen of wijzigen van een DNS-record voor Hallo VIP van Hallo interne Load Balancing-exemplaar.
+U moet de servers waarvan het verkeer gelijkmatig moet worden verdeeld, zodanig configureren dat ze het nieuwe IP-adres (VIP) van het exemplaar van Interne taakverdeling gaan gebruiken. Dit is het adres waarop het exemplaar van Interne taakverdeling luistert. In de meeste gevallen hoeft u alleen een DNS-record voor het VIP van het exemplaar van Interne taakverdeling toe te voegen of aan te passen.
 
-Als u Hallo IP-adres tijdens het maken van interne Load Balancing Hallo-exemplaar hello opgegeven, hebt u al Hallo VIP. Anders kunt u het VIP van de volgende opdrachten Hallo Hallo zien:
+Als u het IP-adres tijdens het maken van het exemplaar van Interne taakverdeling hebt opgegeven, hebt u het VIP al. Anders kunt u het VIP met de volgende opdrachten zien:
 
 ```powershell
 $svc="<Cloud Service Name>"
 Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
-toouse deze opdrachten Hallo waarden en invullen verwijderen Hallo < en >. Hier volgt een voorbeeld:
+U gebruikt deze opdrachten door de waarden in te vullen en de < en > te verwijderen. Hier volgt een voorbeeld:
 
 ```powershell
 $svc="mytestcloud"
 Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
-Uit Hallo weergave van de opdracht Get-AzureInternalLoadBalancer hello, houd er rekening mee Hallo IP-adres en zorg Hallo noodzakelijke wijzigingen tooyour servers of DNS-records tooensure die verkeer toohello VIP wordt verzonden.
+Noteer het IP-adres in de weergave van de opdracht Get-AzureInternalLoadBalancer en breng de nodige wijzigingen aan op uw servers of DNS-records om ervoor te zorgen dat er verkeer naar het VIP wordt verzonden.
 
 > [!NOTE]
-> Hallo Microsoft Azure-platform gebruikt een statisch, openbaar routeerbare IPv4-adres voor een verscheidenheid aan scenario's voor beheer. Hallo IP-adres is 168.63.129.16. Dit IP-adres mag niet door firewalls worden geblokkeerd. Dit kan onverwacht gedrag veroorzaken.
-> Met de tooAzure ten opzichte van interne Load Balancing, wordt dit IP-adres gebruikt door de bewaking van de tests uit Hallo load balancer toodetermine Hallo-status voor virtuele machines in een set met gelijke taakverdeling. Als een Netwerkbeveiligingsgroep gebruikte toorestrict verkeer tooAzure virtuele machines in een set met gelijke taakverdeling intern is of toegepaste tooa virtueel netwerksubnet, zorg ervoor dat een Netwerkbeveiligingsregel tooallow verkeer vanuit 168.63.129.16 wordt toegevoegd.
+> Het Microsoft Azure-platform gebruikt een statisch, openbaar routeerbaar IPv4-adres voor diverse beheerscenario's. Het IP-adres is 168.63.129.16. Dit IP-adres mag niet door firewalls worden geblokkeerd. Dit kan onverwacht gedrag veroorzaken.
+> Wat Azure Interne taakverdeling betreft, wordt dit IP-adres gebruikt door bewakingstests van de load balancer om de status van virtuele machines in een set met gelijke taakverdeling te bepalen. Als er een netwerkbeveiligingsgroep wordt gebruikt om het verkeer naar virtuele Azure-machines in een set met intern gelijke taakverdeling te beperken of wordt toegepast op een subnet in een virtueel netwerk, zorg er dan voor dat er een netwerkbeveiligingsregel wordt toegevoegd om verkeer van 168.63.129.16 toe te staan.
 
 ## <a name="example-of-internal-load-balancing"></a>Voorbeeld van intern gelijke taakverdeling
 
-toostep die u via Hallo end tooend proces voor het maken van een set taakverdeling voor voorbeeldconfiguraties met twee zien Hallo volgende secties.
+In de volgende secties wordt het hele proces voor het maken van een set met gelijke taakverdeling voor twee voorbeeldconfiguraties stapsgewijs besproken.
 
 ### <a name="an-internet-facing-multi-tier-application"></a>Een internetgerichte toepassing met meerdere lagen
 
-Wilt u tooprovide een database-service voor taakverdeling voor een set van internetgerichte webservers. Beide serversets worden gehost in één Azure-cloudservice. Web server verkeer tooTCP poort 1433 moet worden verdeeld over twee virtuele machines in Hallo databaselaag. Afbeelding 1 toont Hallo-configuratie.
+U wilt een databaseservice met gelijke taakverdeling leveren voor een set internetgerichte webservers. Beide serversets worden gehost in één Azure-cloudservice. Webserververkeer op TCP-poort 1433 moet worden verdeeld over twee virtuele machines in de databaselaag. In afbeelding 1 ziet u de configuratie.
 
-![Interne set met taakverdeling voor Hallo databaselaag](./media/load-balancer-internal-getstarted/IC736321.png)
+![Set met intern gelijke taakverdeling voor de databaselaag](./media/load-balancer-internal-getstarted/IC736321.png)
 
-Hallo configuratie bestaat uit de volgende Hallo:
+De configuratie bestaat uit het volgende:
 
-* Hallo bestaande cloudservice hosten van virtuele machines van Hallo heet mytestcloud.
-* Hallo twee bestaande database-servers zijn benoemde DB1, DB2.
-* Webservers in de weblaag Hallo verbinding toohello databaseservers in Hallo databaselaag via Hallo privé IP-adres. Een andere optie toouse is uw eigen DNS voor Hallo virtueel netwerk en een A-record voor Hallo interne load balancer-set handmatig registreren.
+* De bestaande cloudservice die als host fungeert voor de virtuele machines is mytestcloud.
+* De twee bestaande databaseservers zijn DB1 en DB2.
+* Webservers in de weblaag maken verbinding met de databaseservers in de databaselaag met behulp van het particuliere IP-adres. U kunt ook uw eigen DNS voor het virtuele netwerk gebruiken en handmatig een A-record voor de interne load balancer-set registreren.
 
-Hallo volgende opdrachten een nieuwe interne taakverdeling exemplaar configureren met de naam **ILBset** en eindpunten toohello virtuele machines overeenkomt toohello twee databaseservers toevoegen:
+Met de volgende opdrachten configureert u een nieuw exemplaar van Interne taakverdeling met de naam **ILBset** en voegt u eindpunten aan de virtuele machines toe die overeenkomen met de twee databaseservers:
 
 ```powershell
 $svc="mytestcloud"
@@ -137,16 +137,16 @@ Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epnam
 
 ## <a name="remove-an-internal-load-balancing-configuration"></a>Een configuratie van Interne taakverdeling verwijderen
 
-tooremove een virtuele machine als een eindpunt van een interne load balancer-exemplaar gebruik Hallo volgende opdrachten:
+Gebruik de volgende opdrachten als u een virtuele machine als een eindpunt uit een exemplaar van een interne load balancer wilt verwijderen:
 
 ```powershell
 $svc="<Cloud service name>"
-$vmname="<Name of hello VM>"
-$epname="<Name of hello endpoint>"
+$vmname="<Name of the VM>"
+$epname="<Name of the endpoint>"
 Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 ```
 
-toouse vult u deze opdrachten Hallo waarden, verwijderen van Hallo < en >.
+U gebruikt deze opdrachten door de waarden in te vullen en de < en > te verwijderen.
 
 Hier volgt een voorbeeld:
 
@@ -157,14 +157,14 @@ $epname="TCP-1433-1433"
 Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 ```
 
-tooremove een exemplaar van de interne load balancer van een cloudservice, gebruik Hallo volgende opdrachten:
+Gebruik de volgende opdrachten als u een exemplaar van een interne load balancer uit een cloudservice wilt verwijderen:
 
 ```powershell
 $svc="<Cloud service name>"
 Remove-AzureInternalLoadBalancer -ServiceName $svc
 ```
 
-Deze opdrachten, toouse Hallo-waarde in te vullen en verwijder Hallo < en >.
+U gebruikt deze opdrachten door de waarde in te vullen en de < en > te verwijderen.
 
 Hier volgt een voorbeeld:
 
@@ -175,7 +175,7 @@ Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 ## <a name="additional-information-about-internal-load-balancer-cmdlets"></a>Meer informatie over cmdlets voor interne load balancers
 
-tooobtain meer informatie over de interne Load Balancing-cmdlets uitvoeren Hallo volgende opdrachten bij de opdrachtprompt van Windows PowerShell:
+Voor meer informatie over de cmdlets van Interne taakverdeling voert u de volgende opdrachten uit via een Windows PowerShell-prompt:
 
 ```powershell
 Get-Help New-AzureInternalLoadBalancerConfig -full

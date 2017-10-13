@@ -1,6 +1,6 @@
 ---
-title: aaaHow toouse AMQP 1.0 Hello Java Service Bus-API | Microsoft Docs
-description: Hoe Hallo toouse Java bericht Service (JMS) met Azure Service Bus en geavanceerde Message Queuing Protodol (AMQP) 1.0.
+title: AMQP 1.0 gebruiken met Java Service Bus-API | Microsoft Docs
+description: Klik hier voor meer informatie over het gebruik van de Java bericht Service (JMS) met Azure Service Bus en geavanceerde Message Queuing Protodol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -14,31 +14,31 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 3e1d0329f2675a2273e12bb7389d3ce38b156a5e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0848facd764c4fb0d7f95c1ae89ecb02a32257e1
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-toouse-hello-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Hoe toouse Hallo Java bericht Service (JMS) API met Service Bus en AMQP 1.0
-Hallo is geavanceerde Message Queuing-Protocol (AMQP) 1.0 een efficiënte, betrouwbare, wire-niveau messaging protocol waarmee u toobuild robuuste, platformoverschrijdende berichttoepassingen kunt.
+# <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Het gebruik van Java bericht Service (JMS) API met Service Bus en AMQP 1.0
+De geavanceerde Message Queuing-Protocol (AMQP) 1.0 is een efficiënte, betrouwbare, wire-niveau messaging protocol die u gebruiken kunt om robuuste, platformoverschrijdende messaging toepassingen te bouwen.
 
-Ondersteuning voor AMQP 1.0 in Service Bus houdt in dat u kunt Hallo queuing en publiceren/abonneren brokered messaging-onderdelen uit een reeks met behulp van een efficiënte binaire protocol platforms. Bovendien kunt u toepassingen bestaan uit de onderdelen die zijn gebouwd met behulp van een combinatie van talen en frameworks besturingssystemen maken.
+Ondersteuning voor AMQP 1.0 in Service Bus betekent dat u kunt het in de wachtrij gebruiken en publiceren/abonneren brokered messaging-onderdelen uit een reeks met behulp van een efficiënte binaire protocol platforms. Bovendien kunt u toepassingen bestaan uit de onderdelen die zijn gebouwd met behulp van een combinatie van talen en frameworks besturingssystemen maken.
 
-Dit artikel wordt uitgelegd hoe toouse Service Bus messaging-functies (wachtrijen en publiceren/abonneren onderwerpen) vanuit Java-toepassingen met populaire Java bericht Service (JMS) API standaard Hallo. Er is een [companion artikel](service-bus-amqp-dotnet.md) waarin wordt uitgelegd hoe toodo Hallo dezelfde met Hallo Service Bus-.NET API. U kunt deze twee hulplijnen samen toolearn over platformonafhankelijke berichten met AMQP 1.0.
+Dit artikel wordt uitgelegd hoe u Service Bus-berichtenservice functies (wachtrijen en onderwerpen publiceren/abonneren) gebruiken vanuit Java-toepassingen met behulp van de populaire Java bericht Service (JMS) API standaard. Er is een [companion artikel](service-bus-amqp-dotnet.md) waarin wordt uitgelegd hoe hetzelfde met de Service Bus .NET API. U kunt deze twee handleidingen samen gebruiken voor meer informatie over cross-platform messaging met AMQP 1.0.
 
 ## <a name="get-started-with-service-bus"></a>Aan de slag met Service Bus
-Deze handleiding wordt ervan uitgegaan dat er al een Service Bus-naamruimte met een wachtrij met de naam **Wachtrij1**. Als u dit niet doet, dan u kunt [Hallo-naamruimte en wachtrij maken](service-bus-create-namespace-portal.md) met Hallo [Azure-portal](https://portal.azure.com). Voor meer informatie over hoe toocreate Service Bus-naamruimten en -wachtrijen, Zie [aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md).
+Deze handleiding wordt ervan uitgegaan dat er al een Service Bus-naamruimte met een wachtrij met de naam **Wachtrij1**. Als u dit niet doet, dan u kunt [maken van de naamruimte en de wachtrij](service-bus-create-namespace-portal.md) met behulp van de [Azure-portal](https://portal.azure.com). Zie voor meer informatie over het maken van Service Bus-naamruimten en -wachtrijen [aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Gepartitioneerde wachtrijen en onderwerpen bieden ook ondersteuning voor AMQP. Zie voor meer informatie [gepartitioneerde berichtentiteiten](service-bus-partitioning.md) en [AMQP 1.0-ondersteuning voor Service Bus-wachtrijen en onderwerpen gepartitioneerd](service-bus-partitioned-queues-and-topics-amqp-overview.md).
 > 
 > 
 
-## <a name="downloading-hello-amqp-10-jms-client-library"></a>Hallo AMQP 1.0 JMS clientbibliotheek downloaden
-Voor informatie over waar toodownload meest recente versie van de clientbibliotheek Hallo Apache Qpid JMS AMQP 1.0 hello, gaat u naar [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
+## <a name="downloading-the-amqp-10-jms-client-library"></a>Downloaden van de clientbibliotheek AMQP 1.0 JMS
+Voor informatie over de nieuwste versie van de clientbibliotheek Apache Qpid JMS AMQP 1.0 te downloaden, gaat u naar [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
-Moet u de volgende vier JAR-bestanden uit Hallo Apache Qpid JMS AMQP 1.0 distributie archief toohello Java-KLASSENPAD bij het maken en uitvoeren van JMS toepassingen met Service Bus Hallo toevoegen:
+U moet de volgende vier JAR-bestanden uit het archief van de Apache Qpid JMS AMQP 1.0-distributiepunt toevoegen aan het Java-KLASSENPAD bij het maken en uitvoeren van JMS toepassingen met Service Bus:
 
 * geronimo jms\_1.1\_spec 1.0.jar
 * qpid-amqp-1-0-client-[Version].jar
@@ -47,51 +47,51 @@ Moet u de volgende vier JAR-bestanden uit Hallo Apache Qpid JMS AMQP 1.0 distrib
 
 ## <a name="coding-java-applications"></a>Codering van Java-toepassingen
 ### <a name="java-naming-and-directory-interface-jndi"></a>Naam van Java en de Directory-Interface (JNDI)
-JMS hello naamgeving van Java en Directory-Interface (JNDI) toocreate een scheiding tussen de namen van logische en fysieke gebruikt. Twee typen JMS objecten worden opgelost met JNDI: ConnectionFactory- en doelserver. JNDI maakt gebruik van een provider waarnaar u andere directory services toohandle name resolution rechten kunt aansluiten. Hallo Apache Qpid JMS AMQP 1.0 bibliotheek wordt geleverd met een eenvoudige eigenschappen op basis van bestanden JNDI Provider die is geconfigureerd met een eigenschappenbestand van de volgende Hallo opmaken:
+JMS gebruikt de naamgeving van Java en de Directory-Interface (JNDI) voor het maken van een scheiding tussen de namen van logische en fysieke. Twee typen JMS objecten worden opgelost met JNDI: ConnectionFactory- en doelserver. JNDI maakt gebruik van een provider waarnaar u andere directoryservices voor het afhandelen van name resolution rechten kunt aansluiten. De Apache Qpid JMS AMQP 1.0-bibliotheek wordt geleverd met een eenvoudige eigenschappen op basis van bestanden JNDI Provider die is geconfigureerd met behulp van een eigenschappenbestand van de volgende notatie:
 
 ```
 # servicebus.properties - sample JNDI configuration
 
-# Register a ConnectionFactory in JNDI using hello form:
+# Register a ConnectionFactory in JNDI using the form:
 # connectionfactory.[jndi_name] = [ConnectionURL]
 connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 
-# Register some queues in JNDI using hello form
+# Register some queues in JNDI using the form
 # queue.[jndi_name] = [physical_name]
 # topic.[jndi_name] = [physical_name]
 queue.QUEUE = queue1
 ```
 
-#### <a name="configure-hello-connectionfactory"></a>Hallo ConnectionFactory configureren
-Hallo toodefine post gebruikt een **ConnectionFactory** in Hallo Qpid eigenschappen bestand JNDI provider is Hallo volgende indeling:
+#### <a name="configure-the-connectionfactory"></a>De ConnectionFactory configureren
+De vermelding die wordt gebruikt voor het definiëren van een **ConnectionFactory** JNDI provider in het bestand van de eigenschappen Qpid is de volgende indeling:
 
 ```
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-Waar **[jndi_name]** en **[ConnectionURL]** Hallo na betekenis hebben:
+Waar **[jndi_name]** en **[ConnectionURL]** hebben de volgende betekenis:
 
-* **[jndi_name]** : logische naam Hallo Hallo ConnectionFactory. Dit is Hallo-naam die worden opgelost in Hallo Java-toepassing hello JNDI IntialContext.lookup() methode gebruikt.
-* **[ConnectionURL]** : Een URL die Hallo JMS bibliotheek Hallo informatie biedt vereist toohello AMQP broker.
+* **[jndi_name]** : De logische naam van de ConnectionFactory. Dit is de naam die in de Java-toepassing met de methode JNDI IntialContext.lookup() worden opgelost.
+* **[ConnectionURL]** : Een URL die de JMS-bibliotheek met de vereiste informatie aan de AMQP broker biedt.
 
-Hallo-indeling van Hallo **ConnectionURL** is als volgt:
+De indeling van de **ConnectionURL** is als volgt:
 
 ```
 amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 ```
-Waar **[namespace]**, **[SASPolicyName]** en **[SASPolicyKey]** Hallo na betekenis hebben:
+Waar **[namespace]**, **[SASPolicyName]** en **[SASPolicyKey]** hebben de volgende betekenis:
 
-* **[namespace]** : Hallo Service Bus-naamruimte.
-* **[SASPolicyName]** : Hallo wachtrij Shared Access Signature beleidsnaam.
-* **[SASPolicyKey]** : Hallo wachtrij Shared Access Signature beleidssleutel.
+* **[namespace]** : De Service Bus-naamruimte.
+* **[SASPolicyName]** : Naam van de wachtrij Shared Access Signature-beleid.
+* **[SASPolicyKey]** : Sleutel voor de wachtrij Shared Access Signature-beleid.
 
 > [!NOTE]
-> U moet handmatig URL coderen Hallo wachtwoord. Er is een nuttig URL-codering hulpprogramma beschikbaar op [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> Moet u URL coderen het wachtwoord handmatig. Er is een nuttig URL-codering hulpprogramma beschikbaar op [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 > 
 > 
 
 #### <a name="configure-destinations"></a>Doelen configureren
-Hallo-vermelding gebruikt toodefine die een bestemming in Hallo Qpid eigenschappen bestand JNDI provider Hallo na indeling is:
+De vermelding die wordt gebruikt voor het definiëren van een bestemming in de provider Qpid eigenschappen bestand JNDI is van de volgende indeling:
 
 ```
 queue.[jndi_name] = [physical_name]
@@ -103,21 +103,21 @@ of
 topic.[jndi_name] = [physical_name]
 ```
 
-Waar **[jndi\_name]** en **[fysieke\_name]** Hallo na betekenis hebben:
+Waar **[jndi\_name]** en **[fysieke\_name]** hebben de volgende betekenis:
 
-* **[jndi_name]** : Hallo logische naam van het Hallo-doel. Dit is Hallo-naam die worden opgelost in Hallo Java-toepassing hello JNDI IntialContext.lookup() methode gebruikt.
-* **[physical_name]** : Hallo-naam van Service Bus-entiteit toowhich Hallo toepassing hello worden verzonden of ontvangen van berichten.
+* **[jndi_name]** : De logische naam van de bestemming. Dit is de naam die in de Java-toepassing met de methode JNDI IntialContext.lookup() worden opgelost.
+* **[physical_name]** : De naam van de Service Bus-entiteit waarop de toepassing worden verzonden of ontvangen van berichten.
 
 > [!NOTE]
-> Bij de ontvangst van een Service Bus-onderwerpabonnement, moet Hallo fysieke naam opgegeven in JNDI Hallo-naam van Hallo onderwerp. naam van het abonnement Hello wordt verstrekt wanneer Hallo duurzame abonnement is gemaakt in Hallo JMS toepassingscode. Hallo [Service Bus AMQP 1.0 Developer's Guide](service-bus-amqp-dotnet.md) biedt meer details over het werken met Service Bus-onderwerpen van JMS.
+> Bij de ontvangst van een Service Bus-onderwerpabonnement, is de fysieke naam die is opgegeven in JNDI moet de naam van het onderwerp. Naam van het abonnement wordt verstrekt wanneer het duurzame abonnement is gemaakt in de toepassingscode JMS. De [Service Bus AMQP 1.0 Developer's Guide](service-bus-amqp-dotnet.md) biedt meer details over het werken met Service Bus-onderwerpen van JMS.
 > 
 > 
 
-### <a name="write-hello-jms-application"></a>Hallo JMS toepassing schrijven
-Er zijn geen speciale-API's of opties die vereist zijn wanneer u JMS met Service Bus. Er zijn echter enkele beperkingen die later aan bod. Zoals Hallo eerst te beginnen vereist voor elke toepassing JMS configuratie van Hallo JNDI omgeving, kunnen tooresolve toobe een **ConnectionFactory** en doelen.
+### <a name="write-the-jms-application"></a>De toepassing JMS schrijven
+Er zijn geen speciale-API's of opties die vereist zijn wanneer u JMS met Service Bus. Er zijn echter enkele beperkingen die later aan bod. Net als bij elke toepassing JMS eerst te beginnen de vereiste configuratie van de omgeving JNDI kunnen omzetten een **ConnectionFactory** en doelen.
 
-#### <a name="configure-hello-jndi-initialcontext"></a>Hallo JNDI InitialContext configureren
-Hallo JNDI omgeving wordt geconfigureerd met een hashtabel van configuratie-informatie wordt doorgegeven aan de constructor Hallo van Hallo javax.naming.InitialContext klasse. Hallo twee vereiste elementen in de hashtabel Hallo zijn klassenaam Hallo Hallo initiële Context Factory en Hallo URL van de Provider. Hallo volgende code toont hoe tooconfigure Hallo JNDI omgeving toouse hello Qpid eigenschappen op basis van bestanden JNDI Provider met een eigenschappenbestand met de naam **servicebus.properties**.
+#### <a name="configure-the-jndi-initialcontext"></a>De InitialContext JNDI configureren
+De omgeving JNDI wordt geconfigureerd met een hashtabel van configuratie-informatie wordt doorgegeven aan de constructor van de klasse javax.naming.InitialContext. De twee vereiste elementen in de hashtabel zijn de naam van de klasse van de eerste Context fabriek en de URL van de Provider. De volgende code toont hoe u configureert de JNDI-omgeving voor het gebruik van de Provider JNDI met een eigenschappenbestand met de naam op basis van eigenschappen bestanden Qpid **servicebus.properties**.
 
 ```java
 Hashtable<String, String> env = new Hashtable<String, String>(); 
@@ -127,7 +127,7 @@ InitialContext context = new InitialContext(env);
 ``` 
 
 ### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Een eenvoudige JMS-toepassing met behulp van een Service Bus-wachtrij
-Hallo volgende voorbeeld wordt JMS TextMessages tooa Service Bus-wachtrij met Hallo JNDI logische naam van de wachtrij verzendt en ontvangt terug Hallo-berichten.
+Het volgende voorbeeldprogramma JMS TextMessages naar een Service Bus-wachtrij met de logische naam JNDI van wachtrij verzendt en ontvangt de berichten terug.
 
 ```java
 // SimpleSenderReceiver.java
@@ -185,7 +185,7 @@ public class SimpleSenderReceiver implements MessageListener {
             }
 
             SimpleSenderReceiver simpleSenderReceiver = new SimpleSenderReceiver();
-            System.out.println("Press [enter] toosend a message. Type 'exit' + [enter] tooquit.");
+            System.out.println("Press [enter] to send a message. Type 'exit' + [enter] to quit.");
             BufferedReader commandLine = new java.io.BufferedReader(new InputStreamReader(System.in));
 
             while (true) {
@@ -226,12 +226,12 @@ public class SimpleSenderReceiver implements MessageListener {
 }    
 ```
 
-### <a name="run-hello-application"></a>Hallo-toepassing uitvoeren
-Hallo-toepassing, wordt de uitvoer van Hallo formulier:
+### <a name="run-the-application"></a>De toepassing uitvoeren
+De toepassing wordt uitgevoerd, wordt de uitvoer van het formulier:
 
 ```
 > java SimpleSenderReceiver
-Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 
 Sent message with JMSMessageID = ID:2867600614942270318
 Received message with JMSMessageID = ID:2867600614942270318
@@ -245,22 +245,22 @@ exit
 ```
 
 ## <a name="cross-platform-messaging-between-jms-and-net"></a>Cross-platform uitwisseling van berichten tussen JMS en .NET
-Deze handleiding hebt u geleerd hoe toosend en ontvangen berichten tooand van Service Bus JMS gebruiken. Een van de belangrijkste voordelen Hallo van AMQP 1.0 is echter dat deze toepassingen toobe gebouwd op basis van onderdelen die zijn geschreven in verschillende talen met berichten die worden uitgewisseld betrouwbaar en volledig betrouwbaar mogelijk maakt.
+Deze handleiding hebt u geleerd hoe verzenden en ontvangen van berichten naar en van Service Bus JMS gebruiken. Een van de belangrijkste voordelen van AMQP 1.0 is echter dat deze kan worden gebouwd van onderdelen die zijn geschreven in verschillende talen met berichten die worden uitgewisseld betrouwbaar en volledige fidelity-toepassingen.
 
-Met behulp van Hallo JMS voorbeeldtoepassing die hierboven worden beschreven en een vergelijkbare .NET-toepassing die afkomstig zijn uit een artikel companion [met behulp van Service Bus in .NET met AMQP 1.0](service-bus-amqp-dotnet.md), kunt u berichten tussen .NET en Java uitwisselen. Lees dit artikel voor meer informatie over Hallo van platformonafhankelijke berichten met behulp van Service Bus en AMQP 1.0.
+Met behulp van de voorbeeldtoepassing JMS die hierboven worden beschreven en een vergelijkbare .NET-toepassing die afkomstig zijn uit een artikel companion [met behulp van Service Bus in .NET met AMQP 1.0](service-bus-amqp-dotnet.md), kunt u berichten tussen .NET en Java uitwisselen. Lees dit artikel voor meer informatie over de details van platformonafhankelijke berichten met behulp van Service Bus en AMQP 1.0.
 
-### <a name="jms-toonet"></a>JMS too.NET
-toodemonstrate JMS too.NET messaging:
+### <a name="jms-to-net"></a>JMS naar .NET
+Ter illustratie van JMS .NET Messaging:
 
-* Start Hallo .NET-voorbeeldtoepassing zonder opdrachtregelargumenten.
-* Hallo Java-voorbeeldtoepassing beginnen met 'sendonly' Hallo-opdrachtregelargument. In deze modus wordt hello toepassing ontvangt geen berichten uit de wachtrij hello, alleen verzonden.
-* Druk op **Enter** een paar keer in Hallo Java-toepassing console waardoor berichten toobe verzonden.
-* Deze berichten worden ontvangen door Hallo .NET-toepassing.
+* Start de voorbeeldtoepassing .NET zonder opdrachtregelargumenten.
+* De Java-voorbeeldtoepassing beginnen met het opdrachtregelargument 'sendonly'. In deze modus kan de toepassing geen berichten ontvangen uit de wachtrij wordt alleen verzonden.
+* Druk op **Enter** een paar keer in de console van Java-toepassing, waardoor berichten worden verzonden.
+* Deze berichten worden ontvangen door de .NET-toepassing.
 
 #### <a name="output-from-jms-application"></a>Uitvoer van de toepassing JMS
 ```
 > java SimpleSenderReceiver sendonly
-Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Sent message with JMSMessageID = ID:4364096528752411591
 Sent message with JMSMessageID = ID:459252991689389983
 Sent message with JMSMessageID = ID:1565011046230456854
@@ -270,25 +270,25 @@ exit
 #### <a name="output-from-net-application"></a>De uitvoer van .NET-toepassing
 ```
 > SimpleSenderReceiver.exe    
-Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with MessageID = 4364096528752411591
 Received message with MessageID = 459252991689389983
 Received message with MessageID = 1565011046230456854
 exit
 ```
 
-### <a name="net-toojms"></a>.NET-tooJMS
-toodemonstrate .NET tooJMS messaging:
+### <a name="net-to-jms"></a>.NET naar JMS
+Ter illustratie van .NET JMS Messaging:
 
-* Hallo .NET-voorbeeldtoepassing beginnen met 'sendonly' Hallo-opdrachtregelargument. In deze modus wordt hello toepassing ontvangt geen berichten uit de wachtrij hello, alleen verzonden.
-* Start Hallo Java-voorbeeldtoepassing zonder opdrachtregelargumenten.
-* Druk op **Enter** een paar keer in Hallo-.NET console waardoor berichten toobe verzonden.
-* Deze berichten worden ontvangen door Hallo Java-toepassing.
+* De voorbeeldtoepassing .NET beginnen met het opdrachtregelargument 'sendonly'. In deze modus kan de toepassing geen berichten ontvangen uit de wachtrij wordt alleen verzonden.
+* Start de Java-voorbeeldtoepassing zonder opdrachtregelargumenten.
+* Druk op **Enter** een paar keer in de console van de toepassing .NET waardoor berichten worden verzonden.
+* Deze berichten worden ontvangen door de Java-toepassing.
 
 #### <a name="output-from-net-application"></a>De uitvoer van .NET-toepassing
 ```
 > SimpleSenderReceiver.exe sendonly
-Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3    
 Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
 Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
@@ -298,7 +298,7 @@ exit
 #### <a name="output-from-jms-application"></a>Uitvoer van de toepassing JMS
 ```
 > java SimpleSenderReceiver    
-Press [enter] toosend a message. Type 'exit' + [enter] tooquit.
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
 Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
 Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
@@ -306,22 +306,22 @@ exit
 ```
 
 ## <a name="unsupported-features-and-restrictions"></a>Niet-ondersteunde functies en -beperkingen
-Hallo volgen beperkingen bestaan wanneer deze met behulp van JMS via AMQP 1.0 met Service Bus weten:
+De volgende beperkingen bestaan wanneer deze met behulp van JMS via AMQP 1.0 met Service Bus weten:
 
-* Slechts één **MessageProducer** of **MessageConsumer** is toegestaan **sessie**. Als u toocreate moet meerdere **MessageProducers** of **MessageConsumers** in een toepassing, maakt u een speciaal **sessie** voor elk van deze.
+* Slechts één **MessageProducer** of **MessageConsumer** is toegestaan **sessie**. Als u wilt maken van meerdere **MessageProducers** of **MessageConsumers** in een toepassing, maakt u een speciaal **sessie** voor elk van deze.
 * Vluchtige onderwerpabonnementen worden momenteel niet ondersteund.
 * **MessageSelectors** worden momenteel niet ondersteund.
-* Tijdelijke bestemmingen; bijvoorbeeld: **TemporaryQueue**, **TemporaryTopic** worden momenteel niet ondersteund, samen met de Hallo **QueueRequestor** en **TopicRequestor**API's die ze gebruiken.
+* Tijdelijke bestemmingen; bijvoorbeeld: **TemporaryQueue**, **TemporaryTopic** worden momenteel niet ondersteund, samen met de **QueueRequestor** en **TopicRequestor** API's die ze gebruiken.
 * Transactionele sessies en gedistribueerde transacties worden niet ondersteund.
 
 ## <a name="summary"></a>Samenvatting
-Deze procedure-tooguide hebt u geleerd hoe toouse Service Bus brokered messaging-functies (wachtrijen en publiceren/abonneren onderwerpen) van het gebruik van Java Hallo populaire JMS API en AMQP 1.0.
+Deze handleiding instructies hebt u geleerd hoe u Service Bus brokered messaging functies (wachtrijen en onderwerpen publiceren/abonneren) met Java met behulp van de populaire JMS API en de AMQP 1.0.
 
-U kunt ook een Service Bus AMQP 1.0 gebruiken van andere talen, waaronder .NET, C, Python en PHP. Onderdelen die zijn gebouwd met behulp van deze andere talen kunnen berichten worden uitgewisseld betrouwbaar en volledige fidelity met Hallo AMQP 1.0-ondersteuning in Service Bus.
+U kunt ook een Service Bus AMQP 1.0 gebruiken van andere talen, waaronder .NET, C, Python en PHP. Onderdelen die zijn gebouwd met behulp van deze andere talen kunnen betrouwbaar berichten uitwisselen en ondersteuning op volledige fidelity met behulp van de AMQP 1.0 in Service Bus.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [AMQP 1.0-ondersteuning in Azure Service Bus](service-bus-amqp-overview.md)
-* [Hoe toouse AMQP 1.0 met Service Bus-.NET API Hallo](service-bus-dotnet-advanced-message-queuing.md)
+* [AMQP 1.0 gebruiken met de Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 * [Service Bus AMQP 1.0-handleiding voor ontwikkelaars](service-bus-amqp-dotnet.md)
 * [Aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md)
 * [Java Developer Center](https://azure.microsoft.com/develop/java/)

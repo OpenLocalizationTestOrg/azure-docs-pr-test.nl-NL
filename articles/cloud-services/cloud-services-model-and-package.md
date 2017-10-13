@@ -1,6 +1,6 @@
 ---
-title: aaaWhat is een Service in de Cloud-model en het pakket | Microsoft Docs
-description: Beschrijft Hallo cloudservicemodel (csdef, cscfg-bestand) en -pakket (.cspkg) in Azure
+title: Wat is er een Service in de Cloud-model en het pakket | Microsoft Docs
+description: Hierin worden de cloud-servicemodel (csdef, cscfg-bestand) en het pakket (.cspkg) in Azure
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 5280cdca4810859b6afdbbe1359fc2fabe871894
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 21fbdbc4c24440c6fbbd7487cfbb2e0a3140aa96
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="what-is-hello-cloud-service-model-and-how-do-i-package-it"></a>Wat is Hallo Cloud Service-model en hoe ik dit pakket?
-Een cloudservice is gemaakt op basis van drie onderdelen, Hallo servicedefinitie *(.csdef)*, van de serviceconfiguratie Hallo *(.cscfg)*, en een servicepakket *(.cspkg)*. Beide Hallo **ServiceDefinition.csdef** en **ServiceConfig.cscfg** bestanden zijn XML- en beschrijven Hallo-structuur van het Hallo-cloudservice en de manier waarop deze geconfigureerd; gezamenlijk Hallo-model genoemd. Hallo **ServicePackage.cspkg** is een zipbestand dat is gegenereerd op basis van Hallo **ServiceDefinition.csdef** en bevat onder andere alle Hallo vereist op basis van een binair afhankelijkheden. Azure maakt een cloudservice van beide Hallo **ServicePackage.cspkg** en Hallo **ServiceConfig.cscfg**.
+# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Wat is het Cloudservice-model en hoe ik dit pakket?
+Een cloudservice is gemaakt op basis van drie onderdelen, de servicedefinitie *(.csdef)*, de serviceconfiguratie *(.cscfg)*, en een servicepakket *(.cspkg)*. Zowel de **ServiceDefinition.csdef** en **ServiceConfig.cscfg** bestanden zijn XML- en beschrijven de structuur van de cloudservice en de manier waarop deze geconfigureerd; genoemd op het model. De **ServicePackage.cspkg** is een zipbestand dat is gegenereerd op basis van de **ServiceDefinition.csdef** en onder andere bevat alle vereiste binaire gebaseerde afhankelijkheden. Azure maakt een cloudservice van zowel de **ServicePackage.cspkg** en de **ServiceConfig.cscfg**.
 
-Zodra het Hallo-cloudservice wordt uitgevoerd in Azure, kunt u deze configureren via Hallo **ServiceConfig.cscfg** bestand, maar kan Hallo-definitie niet wijzigen.
+Zodra de cloudservice in Azure wordt uitgevoerd, kunt u het configureren via de **ServiceConfig.cscfg** bestand, maar kan de definitie niet wijzigen.
 
-## <a name="what-would-you-like-tooknow-more-about"></a>Wat wilt u meer informatie over tooknow?
-* Ik wil meer informatie over Hallo tooknow [ServiceDefinition.csdef](#csdef) en [ServiceConfig.cscfg](#cscfg) bestanden.
+## <a name="what-would-you-like-to-know-more-about"></a>Wat wilt u meer weten?
+* Ik wil meer informatie over de [ServiceDefinition.csdef](#csdef) en [ServiceConfig.cscfg](#cscfg) bestanden.
 * Ik heb al weet over die, geef me [enkele voorbeelden](#next-steps) op ik kunt configureren.
-* Ik wil toocreate hello [ServicePackage.cspkg](#cspkg).
+* Ik wil maken de [ServicePackage.cspkg](#cspkg).
 * Ik gebruik Visual Studio en ik wil...
   * [Maak een cloudservice][vs_create]
   * [Configureren van een bestaande cloudservice][vs_reconfigure]
@@ -38,7 +38,7 @@ Zodra het Hallo-cloudservice wordt uitgevoerd in Azure, kunt u deze configureren
 <a name="csdef"></a>
 
 ## <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
-Hallo **ServiceDefinition.csdef** bestand geeft Hallo-instellingen die worden gebruikt door Azure tooconfigure een cloudservice. Hallo [Azure Service definitie Schema (.csdef-bestand)](https://msdn.microsoft.com/library/azure/ee758711.aspx) Hallo toegestane indeling biedt voor een servicedefinitiebestand. Hallo toont volgende voorbeeld Hallo-instellingen die kunnen worden gedefinieerd voor hello Web- en werkrollen:
+De **ServiceDefinition.csdef** bestand geeft de instellingen die door Azure worden gebruikt om een cloudservice te configureren. De [Azure Service definitie Schema (.csdef-bestand)](https://msdn.microsoft.com/library/azure/ee758711.aspx) biedt de toegestane notatie voor een servicedefinitiebestand. Het volgende voorbeeld ziet u de instellingen die kunnen worden gedefinieerd voor de Web- en werkrollen rollen:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -89,38 +89,38 @@ Hallo **ServiceDefinition.csdef** bestand geeft Hallo-instellingen die worden ge
 </ServiceDefinition>
 ```
 
-U kunt verwijzen toohello [Service definitie Schema](https://msdn.microsoft.com/library/azure/ee758711.aspx) voor een beter begrip van XML-schema Hallo hier gebruikt, maar hier volgt een korte uitleg van een aantal Hallo elementen:
+U kunt verwijzen naar de [Service definitie Schema](https://msdn.microsoft.com/library/azure/ee758711.aspx) voor een beter inzicht in het XML-schema hier gebruikt, maar hier volgt een korte uitleg van enkele van de elementen:
 
 **Sites**  
-Bevat de definities Hallo voor websites of web-toepassingen die worden gehost in IIS7.
+Bevat de definities voor websites of web-toepassingen die worden gehost in IIS7.
 
 **InputEndpoints**  
-Bevat definities voor eindpunten die zijn Hallo toocontact hello cloudservice gebruikt.
+Bevat de definities voor eindpunten die worden gebruikt voor het contact op met de cloudservice.
 
 **InternalEndpoints**  
-Bevat de definities Hallo voor eindpunten die worden gebruikt door de functie instanties toocommunicate met elkaar.
+Bevat de definities voor eindpunten die worden gebruikt door de rolinstanties met elkaar communiceren.
 
 **ConfigurationSettings**  
-Hallo instellingsdefinities voor de functies van een specifieke functie bevat.
+Bevat de instellingsdefinities voor onderdelen van een specifieke rol.
 
 **Certificaten**  
-Bevat de definities Hallo voor certificaten die nodig zijn voor een rol. Hallo vorige codevoorbeeld ziet u een certificaat dat wordt gebruikt voor het Hallo-configuratie van de Azure-verbinding.
+Bevat de definities voor certificaten die nodig zijn voor een rol. Het vorige codevoorbeeld ziet u een certificaat dat wordt gebruikt voor de configuratie van de Azure-verbinding.
 
 **LocalResources**  
-Bevat de definities Hallo voor resources voor lokale opslag. Een lokale opslagbron is een gereserveerde map op het bestandssysteem Hallo van Hallo virtuele machine waarop een exemplaar van een rol wordt uitgevoerd.
+Bevat de definities voor resources voor lokale opslag. Een lokale opslagbron is een gereserveerde map op het bestandssysteem van de virtuele machine waarop een exemplaar van een rol wordt uitgevoerd.
 
 **Invoer**  
-Bevat de definities Hallo voor geïmporteerde modules. Hallo vorige codevoorbeeld toont Hallo-modules voor verbinding met extern bureaublad en Azure-verbinding.
+Bevat de definities voor geïmporteerde modules. Het vorige codevoorbeeld toont de modules voor verbinding met extern bureaublad en Azure-verbinding.
 
 **Opstarten**  
-Bevat taken die worden uitgevoerd wanneer het Hallo-rol wordt gestart. Hallo-taken zijn gedefinieerd in een .cmd of uitvoerbaar bestand.
+Bevat taken die worden uitgevoerd wanneer de functie wordt gestart. De taken zijn gedefinieerd in een .cmd of uitvoerbaar bestand.
 
 <a name="cscfg"></a>
 
 ## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration.cscfg
-Hallo-configuratie van Hallo-instellingen voor uw cloudservice wordt bepaald door de waarden Hallo in Hallo **ServiceConfiguration.cscfg** bestand. U opgeven Hallo aantal instanties dat u toodeploy voor elke rol in dit bestand wilt. Hallo-waarden voor Hallo configuratie-instellingen die u hebt gedefinieerd in het servicedefinitiebestand hello, toohello serviceconfiguratiebestand worden toegevoegd. Hallo vingerafdrukken instellen voor van beheercertificaten die gekoppeld aan de cloudservice Hallo zijn ook toohello bestand toegevoegd. Hallo [configuratieschema voor Azure-Service (.cscfg-bestand)](https://msdn.microsoft.com/library/azure/ee758710.aspx) Hallo toegestane indeling voorziet in een configuratiebestand voor de service.
+De configuratie van de instellingen voor uw cloudservice wordt bepaald door de waarden in de **ServiceConfiguration.cscfg** bestand. U opgeven het aantal exemplaren die u wilt implementeren voor elke rol in dit bestand. De waarden voor de configuratie-instellingen die u hebt gedefinieerd in het servicedefinitiebestand worden toegevoegd aan het configuratiebestand van de service. De vingerafdrukken instellen voor van beheercertificaten die gekoppeld aan de cloudservice zijn worden ook toegevoegd aan het bestand. De [configuratieschema voor Azure-Service (.cscfg-bestand)](https://msdn.microsoft.com/library/azure/ee758710.aspx) biedt de toegestane notatie voor een service-configuratiebestand.
 
-Hallo serviceconfiguratiebestand wordt niet geleverd met de toepassing hello, maar is geüploade tooAzure als een afzonderlijk bestand en wordt gebruikte tooconfigure hello cloudservice. U kunt een nieuwe service-configuratiebestand zonder uw cloudservice opnieuw uploaden. Hallo configuratiewaarden voor Hallo cloudservice kunnen worden gewijzigd terwijl Hallo cloudservice wordt uitgevoerd. Hallo toont volgende voorbeeld Hallo configuratie-instellingen die kunnen worden gedefinieerd voor hello Web- en werkrollen:
+Het configuratiebestand van de service niet wordt verpakt met de toepassing, maar is geüpload naar Azure als een afzonderlijk bestand en wordt gebruikt om de cloudservice te configureren. U kunt een nieuwe service-configuratiebestand zonder uw cloudservice opnieuw uploaden. De configuratiewaarden voor de cloudservice kunnen worden gewijzigd terwijl de cloudservice wordt uitgevoerd. Het volgende voorbeeld ziet u de configuratie-instellingen die kunnen worden gedefinieerd voor de Web- en werkrollen rollen:
 
 ```xml
 <?xml version="1.0"?>
@@ -140,28 +140,28 @@ Hallo serviceconfiguratiebestand wordt niet geleverd met de toepassing hello, ma
 </ServiceConfiguration>
 ```
 
-Raadpleegt u toohello [Service configuratieschema](https://msdn.microsoft.com/library/azure/ee758710.aspx) voor een beter begrip Hallo XML-schema hier gebruikt, hier is echter een korte uitleg van Hallo elementen:
+U kunt verwijzen naar de [Service configuratieschema](https://msdn.microsoft.com/library/azure/ee758710.aspx) voor een beter inzicht in het XML-schema hier gebruikt, maar hier volgt een korte uitleg van de elementen:
 
 **Exemplaren**  
-Hiermee configureert u Hallo aantal actieve exemplaren voor Hallo-rol. tooprevent uw cloud-service niet langer mogelijk niet beschikbaar tijdens upgrades, is het aanbevolen dat u meer dan één exemplaar van de functies van uw web gerichte implementeert. Door het implementeren van meer dan één exemplaar u toohello richtlijnen in Hallo voldoet [Azure Compute Service Level Agreement (SLA)](http://azure.microsoft.com/support/legal/sla/), die wordt gegarandeerd dat externe connectiviteit van 99,95% voor internetgerichte rollen wanneer twee of meer rol exemplaren worden geïmplementeerd voor een service.
+Hiermee configureert u het aantal actieve exemplaren voor de rol. Als u wilt voorkomen dat uw cloudservice mogelijk niet beschikbaar tijdens upgrades, wordt het aanbevolen dat u meer dan één exemplaar van de functies van uw web gerichte implementeert. Door het implementeren van meer dan één exemplaar u voldoet aan de richtlijnen in de [Azure Compute Service Level Agreement (SLA)](http://azure.microsoft.com/support/legal/sla/), die wordt gegarandeerd dat externe connectiviteit van 99,95% voor internetgerichte rollen wanneer twee of meer rolinstanties zijn geïmplementeerd voor een service.
 
 **ConfigurationSettings**  
-Hallo-instellingen voor Hallo actieve exemplaren voor een functie configureert. Hallo-naam van Hallo `<Setting>` elementen moeten overeenkomen met de definities in het servicedefinitiebestand Hallo Hallo.
+Hiermee configureert u de instellingen voor de exemplaren die worden uitgevoerd voor een rol. De naam van de `<Setting>` elementen moeten overeenkomen met de instellingsdefinities in het servicedefinitiebestand.
 
 **Certificaten**  
-Hallo-certificaten die worden gebruikt door Hallo service configureert. Hallo vorige codevoorbeeld ziet u hoe toodefine Hallo certificaat voor Hallo RemoteAccess-module. waarde van Hallo Hallo *vingerafdruk* kenmerk toohello vingerafdruk van Hallo certificaat toouse moet worden ingesteld.
+Hiermee configureert u de certificaten die worden gebruikt door de service. Het vorige codevoorbeeld toont het definiëren van het certificaat voor de Remote Access-module. De waarde van de *vingerafdruk* kenmerk moet worden ingesteld op de vingerafdruk van het certificaat te gebruiken.
 
 <p/>
 
 > [!NOTE]
-> Hallo vingerafdruk voor Hallo certificaat kan configuratiebestand toohello worden toegevoegd met een teksteditor. Of het Hallo-waarde kan worden toegevoegd op Hallo **certificaten** tabblad Hallo **eigenschappen** pagina van de rol Hallo in Visual Studio.
+> De vingerafdruk van het certificaat kan worden toegevoegd aan het configuratiebestand met een teksteditor. Of de waarde mag worden toegevoegd aan de **certificaten** tabblad van de **eigenschappen** pagina van de rol in Visual Studio.
 > 
 > 
 
 ## <a name="defining-ports-for-role-instances"></a>Poorten voor rolinstanties definiëren
-Azure kan slechts één vermelding punt tooa-Webrol. Dit betekent dat alle verkeer vindt plaats via één IP-adres. U kunt uw websites tooshare een poort configureren door Hallo host-header toodirect Hallo aanvraag toohello juiste locatie te configureren. U kunt ook uw toepassingen toolisten toowell bekende poorten op Hallo IP-adres configureren.
+Azure kan slechts één toegangspunt aan een Webrol. Dit betekent dat alle verkeer vindt plaats via één IP-adres. U kunt uw websites als u wilt een poort delen door het configureren van de host-header voor de aanvraag naar de juiste locatie configureren. U kunt ook uw toepassingen om te luisteren naar bekende poorten van het IP-adres configureren.
 
-Hallo toont volgende voorbeeld Hallo-configuratie voor een Webrol aan een toepassing website en webtoepassingen. Hallo-website is geconfigureerd als Hallo standaardlocatie vermelding op poort 80 en Hallo webtoepassingen zijn geconfigureerde tooreceive aanvragen van een andere host-header 'mail.mysite.cloudapp.net' wordt genoemd.
+Het volgende voorbeeld ziet u de configuratie voor een Webrol aan een toepassing website en webtoepassingen. De website is geconfigureerd als de standaardlocatie voor de vermelding op poort 80 en de webtoepassingen zijn geconfigureerd voor het ontvangen van aanvragen van een andere host-header 'mail.mysite.cloudapp.net' wordt genoemd.
 
 ```xml
 <WebRole>
@@ -196,55 +196,55 @@ Hallo toont volgende voorbeeld Hallo-configuratie voor een Webrol aan een toepas
 ```
 
 
-## <a name="changing-hello-configuration-of-a-role"></a>Hallo-configuratie van een rol wijzigen
-U kunt Hallo configuratie van uw cloudservice bijwerken terwijl deze wordt uitgevoerd in Azure, zonder Hallo service offline te halen. toochange configuratiegegevens, kunt u ofwel een nieuw configuratiebestand uploaden of het Hallo-configuratiebestand bewerken in plaatsen en dit toepassen tooyour waarop service wordt uitgevoerd. wijzigingen Hallo volgende kunnen worden aangebracht toohello configuratie van een service:
+## <a name="changing-the-configuration-of-a-role"></a>Wijzigen van de configuratie van een rol
+U kunt de configuratie van uw cloudservice bijwerken terwijl deze wordt uitgevoerd in Azure, zonder de service offline te halen. Om te wijzigen van configuratie-informatie, kunt u uploaden van een nieuw configuratiebestand of de configuratiebestand in-place bewerken en toepassen op uw actieve service. De volgende wijzigingen kunnen worden aangebracht in de configuratie van een service:
 
-* **Hallo-waarden van configuratie-instellingen wijzigen**  
-  Als er een configuratie kunt Instellingswijzigingen, een rolinstantie kiezen tooapply Hallo wijzigen tijdens het Hallo-exemplaar is online of toorecycle Hallo exemplaar probleemloos en Hallo wijziging toepassen tijdens het Hallo-exemplaar is offline.
-* **Hallo service topologie rolinstanties wijzigen**  
-  Wijzigingen in de netwerktopologie hebben geen invloed op de exemplaren die worden uitgevoerd, behalve wanneer een exemplaar wordt verwijderd. Alle overige exemplaren moeten in het algemeen niet toobe gerecycled; u kunt echter toorecycle rolinstanties antwoord tooa topologiewijziging in.
-* **Hallo certificaatvingerafdruk wijzigen**  
-  U kunt een certificaat alleen bijwerken wanneer een rolinstantie offline is. Als een certificaat is toegevoegd, verwijderd of gewijzigd terwijl een rolinstantie online is, wordt Azure probleemloos Hallo exemplaar offline tooupdate Hallo certificaat nodig en deze weer online brengen nadat Hallo wijziging is aangebracht.
+* **De waarden van configuratie-instellingen wijzigen**  
+  Wanneer een configuratie-instelling wijzigingen een rolinstantie kunt de wijziging toepassen terwijl het exemplaar online is of het exemplaar probleemloos recyclen en toepassen van de wijziging tijdens het exemplaar offline is.
+* **Het wijzigen van de service-topologie van de rolinstanties**  
+  Wijzigingen in de netwerktopologie hebben geen invloed op de exemplaren die worden uitgevoerd, behalve wanneer een exemplaar wordt verwijderd. Alle resterende exemplaren in het algemeen hoeft niet te worden gerecycled; u kunt echter recyclen rolinstanties in reactie op een topologiewijziging in de.
+* **Vingerafdruk van het certificaat wijzigen**  
+  U kunt een certificaat alleen bijwerken wanneer een rolinstantie offline is. Als een certificaat is toegevoegd, verwijderd of gewijzigd terwijl een rolinstantie online is, wordt Azure probleemloos het exemplaar offline voor het bijwerken van het certificaat en weer online brengen nadat de wijziging aangebracht is.
 
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>Wijzigingen in de configuratie met gebeurtenissen van de Runtime-Service verwerken
-Hallo [Azure-Runtime-bibliotheek](https://msdn.microsoft.com/library/azure/mt419365.aspx) Hallo omvat [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) naamruimte, waardoor de klassen voor interactie met hello Azure-omgeving van een rol. Hallo [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) klasse definieert Hallo gebeurtenissen die worden gegenereerd voor en na een wijziging in de configuratie te volgen:
+De [Azure-Runtime-bibliotheek](https://msdn.microsoft.com/library/azure/mt419365.aspx) bevat de [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) naamruimte, waardoor de klassen voor interactie met de Azure-omgeving van een rol. De [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) klasse definieert de volgende gebeurtenissen die worden gegenereerd voor en na een wijziging in de configuratie:
 
 * **[Het wijzigen van](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) gebeurtenis**  
-  Dit vindt plaats voordat de configuratiewijziging Hallo toegepaste tooa opgegeven exemplaar van een rol zodat u een kans tootake omlaag Hallo rolinstanties indien nodig.
+  Dit gebeurt voordat de wijziging in de configuratie wordt toegepast op een opgegeven exemplaar van een rol zodat u de kans te nemen de exemplaren van de rol, indien nodig.
 * **[Gewijzigd](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) gebeurtenis**  
-  Deze gebeurtenis treedt op nadat Hallo configuratiewijziging toegepaste tooa opgegeven exemplaar van een rol is.
+  Deze gebeurtenis treedt op nadat de wijziging in de configuratie is toegepast op een opgegeven exemplaar van een rol.
 
 > [!NOTE]
-> Omdat wijzigingen certificaat altijd Hallo exemplaren van een rol offline halen, beter ze Hallo RoleEnvironment.Changing of RoleEnvironment.Changed gebeurtenissen niet verhogen.
+> Omdat wijzigingen certificaat altijd de exemplaren van een functie offline halen, komen ze niet de gebeurtenissen RoleEnvironment.Changing of RoleEnvironment.Changed verhogen.
 > 
 > 
 
 <a name="cspkg"></a>
 
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
-toodeploy een toepassing als een cloudservice in Azure, moet u de eerste pakket Hallo-toepassing in de juiste notatie Hallo. Kunt u Hallo **CSPack** opdrachtregelprogramma (geïnstalleerd met Hallo [Azure SDK](https://azure.microsoft.com/downloads/)) toocreate Hallo pakketbestand als een alternatieve tooVisual Studio.
+Als u wilt een toepassing als een cloudservice in Azure implementeert, moet u eerst inpakken van de toepassing in de juiste indeling. U kunt de **CSPack** opdrachtregelprogramma (geïnstalleerd met de [Azure SDK](https://azure.microsoft.com/downloads/)) voor het maken van het pakketbestand als alternatief voor Visual Studio.
 
-**CSPack** gebruikt Hallo inhoud Hallo service definitie bestands- en configuratie toodefine Hallo bestandsinhoud van Hallo-pakket. **CSPack** genereert een toepassingspakketbestand (.cspkg) dat u tooAzure kunt uploaden via Hallo [Azure-portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Standaard Hallo pakket heet `[ServiceDefinitionFileName].cspkg`, maar u kunt een andere naam opgeven met behulp van Hallo `/out` optie **CSPack**.
+**CSPack** de inhoud van het servicedefinitiebestand en serviceconfiguratiebestand gebruikt voor het definiëren van de inhoud van het pakket. **CSPack** genereert een toepassingspakketbestand (.cspkg) die u uploaden naar Azure met behulp van kunt de [Azure-portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Standaard het pakket met de naam `[ServiceDefinitionFileName].cspkg`, maar u kunt een andere naam opgeven met behulp van de `/out` optie **CSPack**.
 
 **CSPack** bevindt zich op  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
 
 > [!NOTE]
-> CSPack.exe (op windows) is beschikbaar door het uitvoeren van Hallo **Microsoft Azure-opdrachtprompt** snelkoppeling die is geïnstalleerd met Hallo SDK.  
+> CSPack.exe (op windows) is beschikbaar door het uitvoeren van de **Microsoft Azure-opdrachtprompt** snelkoppeling die is geïnstalleerd met de SDK.  
 > 
-> Hallo CSPack.exe programma zelfstandig toosee documentatie over alle mogelijke Hallo-switches en opdrachten uitvoeren.
+> Voer het programma CSPack.exe zelfstandig Zie documentatie over de mogelijke switches en opdrachten.
 > 
 > 
 
 <p />
 
 > [!TIP]
-> Lokaal uitvoeren van de cloudservice in Hallo **Microsoft Azure Compute-Emulator**, gebruik Hallo **/copyonly** optie. Deze optie kopieert Hallo binaire bestanden voor Hallo tooa directory indeling van de toepassing waaruit ze kunnen worden uitgevoerd in Hallo rekenemulator.
+> Uitvoeren van uw cloudservice lokaal in de **Microsoft Azure Compute-Emulator**, gebruiken de **/copyonly** optie. Deze optie kopieert de binaire bestanden voor de toepassing aan de indeling van een directory waaruit ze kunnen worden uitgevoerd in de rekenemulator.
 > 
 > 
 
-### <a name="example-command-toopackage-a-cloud-service"></a>Voorbeeld van de opdracht toopackage een cloudservice
-Hallo wordt volgende voorbeeld een toepassingspakket met daarin Hallo-informatie voor een Webrol. Hallo-opdracht geeft Hallo service definitie bestand toouse, Hallo directory waar de binaire bestanden kunnen worden gevonden en de naam van het pakketbestand Hallo Hallo.
+### <a name="example-command-to-package-a-cloud-service"></a>Van de voorbeeldopdracht aan het pakket een cloudservice
+Het volgende voorbeeld wordt een toepassingspakket met de informatie voor een Webrol. De opdracht geeft u het servicedefinitiebestand moet worden gebruikt, de map waar de binaire bestanden kunnen worden gevonden, en de naam van het pakket.
 
 ```cmd
 cspack [DirectoryName]\[ServiceDefinition]
@@ -253,7 +253,7 @@ cspack [DirectoryName]\[ServiceDefinition]
        /out:[OutputFileName]
 ```
 
-Als de toepassing hello zowel een Webrol en een werkrol bevat, wordt hello volgende opdracht gebruikt:
+Als de toepassing zowel een Webrol en een werkrol bevat, worden de volgende opdracht wordt gebruikt:
 
 ```cmd
 cspack [DirectoryName]\[ServiceDefinition]
@@ -263,18 +263,18 @@ cspack [DirectoryName]\[ServiceDefinition]
        /role:[RoleName];[RoleBinariesDirectory];[RoleAssemblyName]
 ```
 
-Waar Hallo variabelen worden als volgt gedefinieerd:
+Waar worden de variabelen als volgt gedefinieerd:
 
 | Variabele | Waarde |
 | --- | --- |
-| \[DirectoryName\] |Hallo submap onder Hallo project hoofdmap die Hallo csdef-bestand van hello Azure-project bevat. |
-| \[ServiceDefinition\] |Hallo-naam van het servicedefinitiebestand Hallo. Standaard is dit bestand ServiceDefinition.csdef naam. |
-| \[OutputFileName\] |Hallo-naam voor Hallo gegenereerd pakketbestand. Dit is normaal gesproken toohello naam van de toepassing hello ingesteld. Als geen bestandsnaam is opgegeven, Hallo toepassingspakket is gemaakt als \[ApplicationName\].cspkg. |
-| \[Rolnaam\] |Hallo-naam van Hallo rol zoals gedefinieerd in het servicedefinitiebestand Hallo. |
-| \[RoleBinariesDirectory] |Hallo-locatie van de binaire bestanden voor de rol Hallo Hallo. |
-| \[VirtualPath\] |Hallo fysieke mappen voor elke virtuele pad gedefinieerd in Hallo sectie Sites van Hallo servicedefinitie. |
-| \[PhysicalPath\] |Hallo fysieke mappen van inhoud voor elke virtuele pad dat is gedefinieerd in Hallo siteknooppunt van de servicedefinitie Hallo Hallo. |
-| \[RoleAssemblyName\] |Hallo-naam van binair bestand voor de rol Hallo Hallo. |
+| \[DirectoryName\] |De submap onder de hoofdmap van het project die het csdef-bestand van de Azure-project bevat. |
+| \[ServiceDefinition\] |De naam van het servicedefinitiebestand. Standaard is dit bestand ServiceDefinition.csdef naam. |
+| \[OutputFileName\] |De naam van het gegenereerde pakketbestand. Dit is normaal gesproken ingesteld op de naam van de toepassing. Als er geen bestandsnaam is opgegeven, wordt het toepassingspakket gemaakt als \[ApplicationName\].cspkg. |
+| \[Rolnaam\] |De naam van de rol, zoals gedefinieerd in het servicedefinitiebestand. |
+| \[RoleBinariesDirectory] |De locatie van de binaire bestanden voor de rol. |
+| \[VirtualPath\] |De fysieke mappen voor elke virtuele pad dat is gedefinieerd in de sectie Sites van de definitie van de service. |
+| \[PhysicalPath\] |De fysieke mappen van de inhoud voor elke virtuele pad dat is gedefinieerd in het siteknooppunt van de definitie van de service. |
+| \[RoleAssemblyName\] |De naam van het binaire bestand voor de rol. |
 
 ## <a name="next-steps"></a>Volgende stappen
 Ik ben een cloud service-pakket maken en ik wil...

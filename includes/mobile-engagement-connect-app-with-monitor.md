@@ -1,11 +1,11 @@
-Deze sectie leest u hoe tooconnect uw app toohello Mobile Engagement back-end via Hallo Mobile Engagement de real-time bewaking functie. 
+In deze sectie wordt beschreven hoe u uw app kunt verbinden met de back-end van Mobile Engagement door gebruik te maken van de realtime-monitorfunctie van Mobile Engagement. 
 
-1. In uw **Azure Mobile Engagement** account, zorg ervoor dat u selecteert Hallo app u wenst dat toomonitor en beheren in Hallo **Mobile Engagement** portal. Navigeer tooyour Mobile Engagement-portal door te klikken op Hallo **Engage** knop Hallo onder aan. 
+1. In uw **Azure Mobile Engagement**-account, selecteert u de app die u wilt monitoren en beheren in de **Mobile Engagement**-portal. Navigeer naar de Mobile Engagement-portal door op de knop **Engage** onderaan te klikken. 
    
      ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
-2. U komt dan uit in Hallo Mobile Engagement-portal. Als tabblad van de Monitor Hallo niet is geselecteerd, klikt u op Hallo **Monitor**.
-3. Hallo-monitor is gereed tooshow u elk apparaat in realtime die uw app wordt gestart.
-4. Start nu uw app. U ziet één sessie in de Hallo-monitor als uw integratie juist wat betekent dat uw app is nu verbonden toohello Mobile Engagement back-end en verzendt gegevens tooit.  
+2. U komt dan uit bij de Mobile Engagement-portal. Als het tabblad Monitor niet is geselecteerd, klikt u op **Monitor**.
+3. De monitor is nu klaar om u in realtime elk apparaat te tonen waarop uw app wordt gestart.
+4. Start nu uw app. U zou een sessie in de monitor moeten kunnen zien als uw integratie juist is, wat inhoudt dat uw app nu is verbonden met de back-end van Mobile Engagement en er gegevens naartoe zendt.  
    
      ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 

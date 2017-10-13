@@ -2,20 +2,21 @@
 ## [Wat is Azure Analysis Services?](analysis-services-overview.md)
 ## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
 ## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
-## [Verbinding maken met tooon-premises gegevensbronnen](analysis-services-gateway.md)
+## [Verbinding maken met on-premises gegevensbronnen](analysis-services-gateway.md)
 ## [Compatibiliteitsniveau](analysis-services-compat-level.md)
 ## [Hoge beschikbaarheid](analysis-services-bcdr.md)
 
 # Aan de slag
 ## [Een server maken in Azure Portal](analysis-services-create-server.md)
-## [Een server maken met PowerShell](analysis-services-create-powershell.md)
+## [Een server maken met Azure PowerShell](analysis-services-create-powershell.md)
 ## [Een model implementeren vanuit Visual Studio](analysis-services-deploy.md)
 ## [Een model maken in Azure Portal (preview)](analysis-services-create-model-portal.md)
 
-# Hoe te
+# Uitleg 
 ## [Een server beheren](analysis-services-manage.md)
 ## [Databasegebruikers beheren](analysis-services-database-users.md)
 ## [Serverbeheerders beheren](analysis-services-server-admins.md)
+## [Metrische servergegevens bewaken](analysis-services-monitor.md)
 ## [Een on-premises gegevensgateway installeren en configureren](analysis-services-gateway-install.md)
 ## [Clientbibliotheken ophalen](analysis-services-data-providers.md)
 ## [Back-up en herstel](analysis-services-backup.md)
@@ -42,14 +43,14 @@
 ### [Aanvullende les: Onregelmatige hiërarchieën](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Naslaginformatie
-## [PowerShell](analysis-services-powershell.md)
+## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Resources
-## [Voorbeelden van Analysis Services-code op GitHub](https://github.com/Microsoft/Analysis-Services)
+## [Voorbeelden](analysis-services-samples.md)
 ## [Blog van Analysis Services-team](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)

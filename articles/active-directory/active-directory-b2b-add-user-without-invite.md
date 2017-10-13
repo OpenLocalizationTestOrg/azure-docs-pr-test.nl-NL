@@ -1,6 +1,6 @@
 ---
-title: aaaAdd B2B-samenwerking gebruikers tooAzure Active Directory zonder een uitnodiging | Microsoft Docs
-description: U kunt een andere gast gebruikers tooyour Azure AD toevoegen zonder een uitnodiging in Azure Active Directory B2B-samenwerking wisselt gastgebruiker.
+title: B2B-samenwerking gebruikers toevoegen aan Azure Active Directory zonder een uitnodiging | Microsoft Docs
+description: U kunt een andere gastgebruikers toevoegen aan uw Azure AD zonder een uitnodiging in Azure Active Directory B2B-samenwerking wisselt gastgebruiker.
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-ms.openlocfilehash: 459d99b9f856a35973d1b2cbfabdc23fe40c8f44
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 91b9477cdb679851e7d8d2942c06999a05f64e46
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>B2B-samenwerking gastgebruikers zonder een uitnodiging toevoegen
 
-U kunt een gebruiker, zoals een partner representatief, tooadd gebruikers van Hallo partnerorganisatie tooyour zonder uitnodigingen toobe ingewisseld toestaan. U moet hoeft alleen die gebruiker opsomming bevoegdheden in Hallo-directory die u voor Hallo partner org. gebruikt verlenen 
+U kunt een gebruiker, zoals een vertegenwoordiger partner gebruikers van de partner toevoegen aan uw organisatie zonder uitnodigingen worden ingewisseld toestaan. U moet doen, is verlenen die gebruiker opsomming bevoegdheden in de map die u voor bijzonder partner gebruikt 
 
 Verleen deze bevoegdheden beschikt wanneer:
 
-1. Een gebruiker in Hallo host organisatie (bijvoorbeeld WoodGrove) nodigt één gebruiker van de partnerorganisatie hello (bijvoorbeeld Sam@litware.com) als gast.
-2. Hallo beheerder in Hallo host organisatie stelt u de beleidsregels die van andere gebruikers van de partnerorganisatie hello (Litware) toevoegen en Sam tooidentify toestaan.
-3. Sam kan andere gebruikers nu toevoegen via Litware toohello WoodGrove directory, groepen of toepassingen zonder uitnodigingen toobe ingewisseld. Als bij Sam Hallo de opsomming van de juiste bevoegdheden Litware, wordt deze automatisch uitgevoerd.
+1. Een gebruiker in de organisatie van de host (bijvoorbeeld WoodGrove) nodigt één gebruiker van de andere organisatie (bijvoorbeeld Sam@litware.com) als gast.
+2. De beheerder in de organisatie van de host stelt u de beleidsregels waarmee Sam om te bepalen en andere gebruikers van de partnerorganisatie (Litware) toevoegen.
+3. Nu kunt Sam toevoegen andere gebruikers van Litware aan de directory WoodGrove, groepen of toepassingen zonder uitnodigingen die worden gebruikt. Als de juiste opsomming Sam in Litware bevoegdheden, wordt deze automatisch uitgevoerd.
 
 ### <a name="next-steps"></a>Volgende stappen
 
@@ -38,7 +38,7 @@ Lees ook onze andere artikelen over Azure AD B2B-samenwerking:
 * [Wat is Azure AD B2B-samenwerking?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Hoe voeg beheerders van Azure Active Directory B2B-samenwerking gebruikers?](active-directory-b2b-admin-add-users.md)
 * [Hoe kunnen IT-medewerkers B2B-samenwerking gebruikers toevoegen](active-directory-b2b-iw-add-users.md)
-* [Hallo-elementen van Hallo uitnodigingsmail voor B2B-samenwerking](active-directory-b2b-invitation-email.md)
+* [De elementen van de uitnodigingsmail voor B2B-samenwerking](active-directory-b2b-invitation-email.md)
 * [B2B-samenwerking uitnodiging inwisseling](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B-samenwerking licentieverlening](active-directory-b2b-licensing.md)
 * [Het oplossen van Azure Active Directory B2B-samenwerking](active-directory-b2b-troubleshooting.md)

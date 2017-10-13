@@ -1,6 +1,6 @@
 ---
-title: aaaAzure IoT vooraf geconfigureerde oplossingen | Microsoft Docs
-description: Een beschrijving van hello Azure IoT vooraf geconfigureerde oplossingen en hun architectuur, met koppelingen tooadditional resources.
+title: Vooraf geconfigureerde Azure IoT-oplossingen | Microsoft Docs
+description: Een beschrijving van de vooraf geconfigureerde IoT Azure-oplossingen en hun architectuur, met koppelingen naar aanvullende resources.
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: bd059d08ab458fdb0b6f49b3ac469db930dab09e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: e0e79cb3b4c71c5d424f3b46af72fcb8b2f63ead
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="what-are-hello-azure-iot-suite-preconfigured-solutions"></a>Wat zijn hello Azure IoT Suite vooraf geconfigureerde oplossingen?
+# <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Wat zijn de vooraf geconfigureerde Azure IoT Suite-oplossingen?
 
-Hello Azure IoT Suite vooraf geconfigureerde oplossingen zijn implementaties van algemene IoT-oplossingspatronen dat u uw abonnement te gebruiken tooAzure kunt implementeren. U kunt Hallo vooraf geconfigureerde oplossingen gebruiken:
+De vooraf geconfigureerde Azure IoT Suite-oplossingen zijn implementaties van algemene IoT-oplossingspatronen die u in Azure kunt implementeren met behulp van uw abonnement. U kunt de vooraf geconfigureerde oplossingen gebruiken:
 
 * Als een beginpunt voor uw eigen IoT-oplossingen.
-* toolearn over algemene patronen bij IoT-oplossing ontwerpen en ontwikkelen.
+* Voor meer informatie over algemene patronen bij het ontwerpen en ontwikkelen van IoT-oplossingen.
 
-Elke vooraf geconfigureerde oplossing is een volledige, end-to-end implementatie dat maakt gebruik van apparaten toogenerate telemetrie gesimuleerde.
+Elke vooraf geconfigureerde oplossing is een volledige totaalimplementatie die gesimuleerde apparaten gebruikt om telemetrie te genereren.
 
-U kunt Hallo volledige broncode code toocustomize downloaden en uw specifieke IoT-vereisten voor Hallo oplossing toomeet uitbreiden.
+U kunt de volledige broncode downloaden om de oplossing aan te passen en uit te breiden om te voldoen aan uw specifieke IoT-vereisten.
 
 > [!NOTE]
-> toodeploy Hallo vooraf geconfigureerde oplossingen, gaat u naar [Microsoft Azure IoT Suite][lnk-azureiotsuite]. Hallo artikel [aan de slag met vooraf geconfigureerde IoT-oplossingen Hallo] [ lnk-getstarted-preconfigured] vindt u meer informatie over hoe toodeploy en voer een van Hallo oplossingen.
+> Als u een van de vooraf geconfigureerde oplossingen wilt implementeren, gaat u naar [Microsoft Azure IoT Suite][lnk-azureiotsuite]. In het artikel [Get started with the IoT preconfigured solutions][lnk-getstarted-preconfigured] (Aan de slag met de vooraf geconfigureerde IoT-oplossingen) vindt u meer informatie over het implementeren en uitvoeren van een van de oplossingen.
 
-Hallo volgende tabel ziet u hoe Hallo oplossingen toegewezen toospecific IoT-functies:
+De volgende tabel toont u hoe de oplossingen aan specifieke IoT-functies zijn toegewezen:
 
 | Oplossing | Gegevensopname | Apparaat-id | Apparaatbeheer | Opdracht en controle | Regels en acties | Predictive analytics |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -43,64 +43,64 @@ Hallo volgende tabel ziet u hoe Hallo oplossingen toegewezen toospecific IoT-fun
 | [Voorspeld onderhoud][lnk-predictive-maintenance] |Ja |Ja |- |Ja |Ja |Ja |
 | [Verbonden factory][lnk-getstarted-factory] |Ja |Ja |Ja |Ja |Ja |- |
 
-* *Gegevensopname*: instroom van gegevens op schaal toohello cloud.
-* *Apparaat-id*: unieke apparaat-id's beheren en controleren van apparaat toegang toohello oplossing.
+* *Gegevensopname*: instroom van gegevens op de gewenste schaal in de cloud.
+* *Apparaat-id*: beheer unieke apparaat-id's en regel de toegang van apparaten tot de oplossing.
 * *Apparaatbeheer*: beheer metagegevens van apparaten en voer bewerkingen uit, zoals het opnieuw opstarten van apparaten en firmware-upgrades.
-* *Opdracht en controle*: toocause Hallo apparaat tootake een actie, verzendt berichten tooa apparaat vanuit Hallo cloud.
-* *Regels en acties*: tooact op specifieke apparaat-naar-cloud-gegevens, Hallo back-end oplossing gebruikt regels.
-* *Predictive analytics*: Hallo back-end oplossing analyseert apparaat-naar-cloudgegevens toopredict wanneer bepaalde acties moeten plaatsvinden. Bijvoorbeeld: vliegtuig engine telemetrie toodetermine analyseren wanneer motoronderhoud vereist is.
+* *Opdracht en controle*: verzend berichten naar een apparaat vanuit de cloud om het apparaat een actie te laten uitvoeren.
+* *Regels en acties*: de back-end van de oplossing gebruikt regels om te reageren op specifieke apparaat-naar-cloudgegevens.
+* *Predictive analytics*: de back-end van de oplossing analyseert apparaat-naar-cloudgegevens om te voorspellen wanneer bepaalde acties moeten plaatsvinden. Zo kan de telemetrie van vliegtuigmotoren worden geanalyseerd om te bepalen wanneer motoronderhoud is vereist.
 
 ## <a name="remote-monitoring-preconfigured-solution-overview"></a>Overzicht van vooraf geconfigureerde oplossing voor externe controle
 
-We hebben ervoor gekozen toodiscuss Hallo vooraf geconfigureerde oplossing voor externe controle in dit artikel omdat veel voorkomende ontwerpelementen die andere oplossingen share Hallo worden geïllustreerd.
+We hebben ervoor gekozen om in dit artikel de vooraf geconfigureerde oplossing voor externe controle te bespreken omdat dit veel voorkomende ontwerpelementen illustreert die de andere oplossingen ook gebruiken.
 
-Hallo illustreert volgende diagram de belangrijkste elementen Hallo Hallo oplossing voor externe controle. Hallo bevatten volgende secties meer informatie over deze elementen.
+Het volgende diagram illustreert de belangrijkste elementen van de oplossing voor externe controle. De volgende secties bevatten meer informatie over deze elementen.
 
 ![Architectuur van de vooraf geconfigureerde oplossing voor externe controle][img-remote-monitoring-arch]
 
 ## <a name="devices"></a>Apparaten
 
-Wanneer u Hallo vooraf geconfigureerde oplossing voor externe controle implementeert, zijn vier gesimuleerde apparaten vooraf is ingericht in Hallo-oplossing die een koelapparaat simuleren. Deze gesimuleerde apparaten hebben een ingebouwd temperatuur- en vochtigheidsmodel dat telemetrie verzendt. Deze gesimuleerde apparaten zijn opgenomen om:
+Wanneer u de vooraf geconfigureerde oplossing voor externe controle implementeert, zijn in de oplossing vooraf vier gesimuleerde apparaten ingericht die een koelapparaat simuleren. Deze gesimuleerde apparaten hebben een ingebouwd temperatuur- en vochtigheidsmodel dat telemetrie verzendt. Deze gesimuleerde apparaten zijn opgenomen om:
 
-- Hallo end-to-end-stroom van gegevens door Hallo oplossing illustreren.
+- De end-to-end-stroom van gegevens via de oplossing te illustreren.
 - Een handige bron van telemetrie te verstrekken.
-- Geef een doel voor methoden of opdrachten als u een back-end-ontwikkelaar met behulp van Hallo oplossing als uitgangspunt voor een aangepaste implementatie.
+- Een doel te verstrekken voor methoden of opdrachten als u een back-endontwikkelaar bent die de oplossing gebruikt als uitgangspunt om een aangepaste implementatie te maken.
 
-Hallo gesimuleerde apparaten in Hallo oplossing kunnen reageren toohello cloud-naar-apparaat communicatie te volgen:
+De gesimuleerde apparaten in de oplossing kunnen reageren op de volgende communicaties van cloud naar apparaat:
 
-- *Methoden ([methoden directe][lnk-direct-methods])*: een tweerichtingscommunicatie methode waarbij een verbonden apparaat verwachte toorespond onmiddellijk is.
-- *Opdrachten (cloud-naar-apparaat-berichten)*: een eenzijdige communicatiemethode waar een apparaat Hallo opdracht van een duurzame wachtrij ophaalt.
+- *Methoden ([directe methoden][lnk-direct-methods])*: een methode voor communicatie in twee richtingen, waarbij van een verbonden apparaat wordt verwacht dat het direct reageert.
+- *Opdrachten (berichten van cloud naar apparaat)*: een methode voor communicatie in één richting, waarbij een apparaat de opdracht ophaalt uit een duurzame wachtrij.
 
 Zie [Cloud-to-device communications guidance][lnk-c2d-guidance] (Richtlijnen voor communicatie tussen cloud en apparaat) voor een vergelijking van deze verschillende methoden.
 
-Wanneer een apparaat tooIoT Hub in Hallo vooraf geconfigureerde oplossing voor het eerst verbinding maakt, stuurt een apparaat informatie bericht toohello hub. Dit bericht inventariseren Hallo methoden Hallo apparaat kan reageren. In de vooraf geconfigureerde oplossing voor externe controle hello, ondersteunen gesimuleerde apparaten deze methoden:
+Wanneer een apparaat in de vooraf geconfigureerde oplossing voor het eerst verbinding maakt met IoT Hub, stuurt het apparaat een bericht met apparaatgegevens naar de hub. Dit bericht bevat met een opsomming van de methoden waarop het apparaat kan reageren. In de vooraf geconfigureerde oplossing voor externe controle ondersteunen gesimuleerde apparaten de volgende methoden:
 
-* *Starten van de Firmware bijwerken*: deze methode een asynchrone taak op Hallo apparaat tooperform een firmware-update wordt gestart. Hallo asynchrone taak maakt gebruik van gerapporteerde eigenschappen toodeliver status updates toohello dashboard van de oplossing.
-* *Opnieuw opstarten*: deze methode veroorzaakt Hallo gesimuleerd apparaat tooreboot.
-* *FactoryReset*: deze methode een fabrieksinstellingen op Hallo gesimuleerde apparaat wordt geactiveerd.
+* *InitiateFirmwareUpdate*: deze methode initieert een asynchrone taak op het apparaat om een firmware-update uit te voeren. De asynchrone taak gebruikt gerapporteerde eigenschappen om statusupdates aan het oplossingsdashboard te leveren.
+* *Reboot*: deze methode zorgt ervoor dat het gesimuleerde apparaat opnieuw wordt opgestart.
+* *FactoryReset*: deze methode zorgt ervoor dat de fabrieksinstellingen op het gesimuleerde apparaat worden teruggezet.
 
-Wanneer een apparaat tooIoT Hub in Hallo vooraf geconfigureerde oplossing voor het eerst verbinding maakt, stuurt een apparaat informatie bericht toohello hub. Dit bericht inventariseren Hallo opdrachten Hallo apparaat kan reageren. In de vooraf geconfigureerde oplossing voor externe controle hello, ondersteunen gesimuleerde apparaten deze opdrachten:
+Wanneer een apparaat in de vooraf geconfigureerde oplossing voor het eerst verbinding maakt met IoT Hub, stuurt het apparaat een bericht met apparaatgegevens naar de hub. Dit bericht bevat met een opsomming van de opdrachten waarop het apparaat kan reageren. In de vooraf geconfigureerde oplossing voor externe controle ondersteunen gesimuleerde apparaten de volgende opdrachten:
 
-* *Ping-apparaat*: Hallo apparaat reageert toothis opdracht met een bevestiging. Deze opdracht is handig om te controleren dat het Hallo-apparaat is nog steeds actief is en luistert.
-* *Starttelemetry*: Hiermee geeft u Hallo apparaat toostart verzenden van telemetrie.
-* *Geen telemetrie meer*: Hiermee geeft u Hallo apparaat toostop verzenden van telemetrie.
-* *Changesetpointtemperature*: besturingselementen Hallo gesimuleerde temperatuur telemetrie waarden Hallo apparaat verzendt. Deze opdracht is handig voor het testen van back-endlogica.
-* *Diagnostische telemetrie*: Hiermee wordt bepaald of het apparaat Hallo Hallo externe temperatuur als telemetrie moet verzenden.
-* *Changedevicestate*: Hallo apparaat status metagegevenseigenschap die Hallo apparaat rapporten ingesteld. Deze opdracht is handig voor het testen van back-endlogica.
+* *PingDevice*: Het apparaat reageert op deze opdracht met een bevestiging. Deze opdracht is handig om te controleren of het apparaat nog steeds actief is en luistert.
+* *StartTelemetry*: hiermee geeft u het apparaat de opdracht om te beginnen met het verzenden van telemetrie.
+* *StopTelemetry*: hiermee geeft u het apparaat de opdracht om te stoppen met het verzenden van telemetrie.
+* *ChangeSetPointTemperature*: bepaalt de telemetriewaarden van de gesimuleerde temperatuur die het apparaat verzendt. Deze opdracht is handig voor het testen van back-endlogica.
+* *DiagnosticTelemetry*: bepaalt of het apparaat de externe temperatuur als telemetrie moet verzenden.
+* *ChangeDeviceState*: stelt de eigenschap voor metagegevens van de apparaatstatus in die met het apparaat wordt gerapporteerd. Deze opdracht is handig voor het testen van back-endlogica.
 
-U kunt meer gesimuleerde apparaten toohello oplossing die Hallo verzenden toevoegen dezelfde Telemetrie en reageren toohello dezelfde methoden en opdrachten.
+U kunt aan de oplossing meer gesimuleerde apparaten toevoegen die dezelfde telemetrie verzenden en reageren op dezelfde methoden en opdrachten.
 
-Bovendien tooresponding toocommands en methoden Hallo oplossing maakt gebruik van [apparaat horende][lnk-device-twin]. Apparaten gebruiken apparaat horende tooreport eigenschap waarden toohello back-end oplossing. Hallo dashboard van de oplossing maakt gebruik van eigenschapswaarden voor apparaat horende tooset toonew gewenst op apparaten. Bijvoorbeeld tijdens het Hallo-firmware bijwerken proces Hallo gesimuleerd apparaat rapporten Hallo status Hallo bijwerken met behulp van gerapporteerde eigenschappen.
+Naast het reageren op opdrachten en methoden maakt de oplossing gebruik van [apparaatdubbels][lnk-device-twin]. Apparaten gebruiken apparaatdubbels om eigenschapswaarden aan de back-end van de oplossing te rapporteren. Het oplossingsdashboard maakt gebruik van apparaatdubbels om nieuwe gewenste eigenschapswaarden op apparaten in te stellen. Tijdens het firmware-updateproces meldt het gesimuleerde apparaat bijvoorbeeld de status van de update met behulp van gerapporteerde eigenschappen.
 
 ## <a name="iot-hub"></a>IoT Hub
 
-In deze vooraf geconfigureerde oplossing hello IoT Hub-instantie overeen toohello *Cloudgateway* in een typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
+In deze vooraf geconfigureerde oplossing komt de IoT Hub-instantie overeen met de *cloudgateway* in een typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
 
-Een IoT-hub ontvangt telemetrie van Hallo apparaten op één eindpunt. Een IoT-hub onderhoudt ook apparaatspecifieke eindpunten waar elk apparaat Hallo-opdrachten die worden verzonden tooit kunt terugvinden.
+IoT Hub ontvangt telemetrie van de apparaten op één eindpunt. IoT Hub onderhoudt ook apparaatspecifieke eindpunten waar met elk apparaat de verzonden opdrachten kunnen worden opgehaald.
 
-Hallo iothub stelt Hallo ontvangen telemetrie beschikbaar via de telemetrie aan servicezijde Hallo eindpunt voor het lezen.
+IoT Hub stelt de ontvangen telemetrie beschikbaar via het eindpunt voor het lezen van telemetrie aan servicezijde.
 
-Hallo apparaat management mogelijkheden van IoT-Hub kunt u toomanage de apparaateigenschappen van uw uit Hallo oplossing portal en planning taken die bewerkingen, zoals uitvoeren:
+Met de IoT Hub-functie voor apparaatbeheer kunt u de apparaateigenschappen beheren vanuit de oplossingsportal en taken plannen die bewerkingen uitvoeren, zoals:
 
 - Apparaten opnieuw opstarten
 - Apparaatstatussen wijzigen
@@ -108,64 +108,64 @@ Hallo apparaat management mogelijkheden van IoT-Hub kunt u toomanage de apparaat
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-Hallo vooraf geconfigureerde oplossing maakt gebruik van drie [Azure Stream Analytics] [ lnk-asa] (ASA) taken toofilter hello telemetriestroom vanaf Hallo apparaten:
+De vooraf geconfigureerde oplossing maakt gebruik van drie [Azure Stream Analytics][lnk-asa]-jobs (ASA) voor het filteren van de telemetriestroom vanaf de apparaten:
 
-* *De job DeviceInfo* -uitvoer gegevens tooan Event hub die apparaatregister van apparaat registratie-specifieke berichten toohello oplossing. Dit apparaatregister is een Azure Cosmos DB-database. Deze berichten worden verzonden wanneer een apparaat voor het eerst verbinding maakt of in het antwoord tooa **Changedevicestate** opdracht.
-* *Telemetrie-taak* - verzendt alle onbewerkte telemetrie tooAzure blob storage voor koude opslag en berekent telemetrieaggregaties die worden weergegeven in het dashboard van de oplossing Hallo.
-* *Job Rules* - filters Hallo telemetriestroom op waarden die groter zijn dan regeldrempelwaarden en uitvoer Hallo gegevens tooan Event hub. Wanneer een regel wordt gestart, wordt Hallo oplossing portal dashboardweergave deze gebeurtenis weergegeven als een nieuwe rij in de geschiedenistabel Hallo-waarschuwing. Deze regels kunnen ook een actie die op basis van Hallo-instellingen die zijn gedefinieerd op Hallo activeren **regels** en **acties** weergaven in de oplossingsportal Hallo.
+* *De job DeviceInfo* voert gegevens uit naar een Event Hub die apparaatregistratiespecifieke berichten doorstuurt naar het apparaatregister van de oplossing. Dit apparaatregister is een Azure Cosmos DB-database. Deze berichten worden verzonden wanneer een apparaat de eerste keer verbinding maakt of reageert op een opdracht voor het **wijzigen van de apparaatstatus**.
+* *De job Telemetry* verzendt alle onbewerkte telemetrie naar Azure Blob Storage voor koude opslag en berekent telemetrieaggregaties die op het dashboard van de oplossing worden weergegeven.
+* *De job Rules* filtert de telemetriestroom op waarden die groter zijn dan regeldrempelwaarden en voert de gegevens uit naar een Event Hub. Wanneer een regel wordt gestart, wordt deze gebeurtenis in het portaldashboard van de oplossing weergegeven als een nieuwe rij in de alarmhistorietabel. Deze regels kunnen ook een actie activeren op basis van de instellingen die zijn gedefinieerd in de weergaven **Regels** en **Acties** van de oplossingsportal.
 
-In deze vooraf geconfigureerde oplossing Hallo ASA taken die deel uitmaken van toohello **IoT back-end oplossing** in een typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
+In deze vooraf geconfigureerde oplossing maken de ASA-jobs deel uit van de **back-end van de IoT-oplossing** in een typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
 
 ## <a name="event-processor"></a>Gebeurtenisprocessor
 
-In deze vooraf geconfigureerde oplossing Hallo gebeurtenisprocessor deel uit van Hallo **IoT back-end oplossing** in een typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
+In deze vooraf geconfigureerde oplossing maakt de gebeurtenisprocessor deel uit van de **back-end van de IoT-oplossing** in een typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
 
-Hallo **DeviceInfo** en **regels** ASA-jobs verzenden hun uitvoer tooEvent hubs voor levering tooother back-end-services. Hallo-oplossing maakt gebruik van een [EventProcessorHost] [ lnk-event-processor] instantie, die in een [webtaak][lnk-web-job], tooread Hallo-berichten van deze Event hubs. Hallo **EventProcessorHost** gebruikt:
-- Hallo **DeviceInfo** gegevens tooupdate Hallo apparaatgegevens in Hallo Cosmos-DB-database.
-- Hallo **regels** gegevens tooinvoke Hallo Logic app en update Hallo waarschuwingen worden weergegeven in de oplossingsportal Hallo.
+De ASA-jobs **DeviceInfo** en **Rules** verzenden hun uitvoer naar Event Hubs voor levering aan andere back-endservices. De oplossing maakt gebruik van een [EventProcessorHost][lnk-event-processor]-instantie, die in een [WebJob][lnk-web-job] wordt uitgevoerd, om de berichten van deze Event Hubs te lezen. De **EventProcessorHost** gebruikt:
+- De gegevens in **DeviceInfo** om de apparaatgegevens in de Azure Cosmos DB-database bij te werken.
+- De gegevens in **Regels** om de logische app aan te roepen en de weergave Waarschuwingen in de portal van de oplossing bij te werken.
 
 ## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>Register voor apparaat-id's, apparaatdubbel en Cosmos DB
 
-Elke IoT Hub bevat een [register voor apparaat-id's][lnk-identity-registry] waarin apparaatsleutels worden opgeslagen. IoT Hub gebruikt deze informatie apparaten verifiëren op-een apparaat moet zijn geregistreerd en een geldige sleutel hebben voordat deze verbinding met toohello hub maken kan.
+Elke IoT Hub bevat een [register voor apparaat-id's][lnk-identity-registry] waarin apparaatsleutels worden opgeslagen. IoT Hub gebruikt deze informatie om apparaten te verifiëren; een apparaat moet zijn geregistreerd en over een geldige sleutel beschikken voordat het verbinding kan maken met de hub.
 
-Een [apparaat twin] [ lnk-device-twin] is een JSON-document beheerd door Hallo IoT Hub. Een apparaatdubbel voor een apparaat bevat:
+Een [apparaatdubbel][lnk-device-twin] is een JSON-document dat wordt beheerd door de IoT Hub. Een apparaatdubbel voor een apparaat bevat:
 
-- Gerapporteerde eigenschappen is verzonden door Hallo apparaat toohello hub. U kunt deze eigenschappen in de oplossingsportal Hallo weergeven.
-- Gewenste eigenschappen die u wilt dat toosend toohello apparaat. U kunt deze eigenschappen instellen in de oplossingsportal Hallo.
-- Labels die zich alleen in Hallo apparaat twin en niet op Hallo-apparaat. U kunt deze labels toofilter een lijst met apparaten in de oplossingsportal Hallo gebruiken.
+- Gerapporteerde eigenschappen die door het apparaat naar de hub zijn verzonden. U kunt deze eigenschappen in de oplossingsportal bekijken.
+- Gewenste eigenschappen die u naar het apparaat wilt verzenden. U kunt deze eigenschappen in de oplossingsportal instellen.
+- Tags die alleen in de apparaatdubbel bestaan en niet op het apparaat. U kunt deze tags gebruiken om lijsten van apparaten in de oplossingsportal te filteren.
 
-Deze oplossing maakt gebruik van metagegevens van apparaten horende toomanage apparaat. Hallo-oplossing gebruikt ook een Cosmos-DB database toostore extra oplossings-specifieke apparaatgegevens zoals Hallo-opdrachten die door de opdrachtgeschiedenis voor elk apparaat en Hallo ondersteund.
+Deze oplossing gebruikt apparaatdubbels om metagegevens van apparaten te beheren. De oplossing gebruikt ook een Cosmos DB-database. Hierin worden aanvullende oplossingsspecifieke apparaatgegevens opgeslagen, zoals de opdrachten die door elk apparaat worden ondersteund en de opdrachtgeschiedenis.
 
-Hallo-oplossing moet Houd er ook informatie Hallo Hallo register met apparaat-id's gesynchroniseerd met de Hallo inhoud van Hallo Cosmos-DB-database. Hallo **EventProcessorHost** maakt gebruik van gegevens van Hallo **DeviceInfo** stream analytics-taak toomanage Hallo synchronisatie.
+De oplossing moet ook de gegevens in het register voor apparaat-id's gesynchroniseerd houden met de inhoud van de Cosmos DB-database. **EventProcessorHost** gebruikt de gegevens uit de Stream Analytics-job **DeviceInfo** om de synchronisatie te beheren.
 
 ## <a name="solution-portal"></a>Oplossingsportal
 
 ![oplossingsportal][img-dashboard]
 
-Hallo oplossingsportal is een webgebaseerde gebruikersinterface die toohello cloud geïmplementeerd als onderdeel van Hallo vooraf geconfigureerde oplossing. Hiermee kunt u:
+De oplossingsportal is een webgebaseerde gebruikersinterface die naar de cloud wordt geïmplementeerd als onderdeel van de vooraf geconfigureerde oplossing. Hiermee kunt u:
 
 * De telemetrie- en waarschuwingsgeschiedenis weergeven in een dashboard.
 * Nieuwe apparaten inrichten.
 * Apparaten beheren en controleren.
-* Opdrachten toospecific apparaten verzenden.
+* Opdrachten naar specifieke apparaten verzenden.
 * Methoden aanroepen op specifieke apparaten.
 * Regels en acties beheren.
-* Plannen van taken toorun op een of meer apparaten.
+* Taken plannen die op een of meer apparaten moeten worden uitgevoerd.
 
-In deze vooraf geconfigureerde oplossing Hallo oplossingsportal deel uit van Hallo **IoT back-end oplossing** en deel van Hallo **verwerkings- en bedrijfsconnectiviteit** in Hallo typische [IoT-oplossing architectuur][lnk-what-is-azure-iot].
+In deze vooraf geconfigureerde oplossing maakt de oplossingsportal deel uit van de **back-end van de IoT-oplossing** en van de **verwerkings- en bedrijfsconnectiviteit** in de typische [IoT-oplossingsarchitectuur][lnk-what-is-azure-iot].
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie [Microsoft Azure IoT services: Reference Architecture][lnk-refarch] (Microsoft Azure IoT-services: referentiearchitectuur) voor meer informatie over IoT-oplossingsarchitecturen.
 
-Nu u welke vooraf geconfigureerde oplossing weet is, u kunt aan de slag door het implementeren van Hallo *externe controle* vooraf geconfigureerde oplossing: [aan de slag met Hallo vooraf geconfigureerde oplossingen] [ lnk-getstarted-preconfigured].
+Nu u weet wat een vooraf geconfigureerde oplossing is, kunt u aan de slag met het implementeren van de vooraf geconfigureerde *externe controle* als oplossing: [Aan de slag met de vooraf geconfigureerde oplossingen][lnk-getstarted-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
-[lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
+[lnk-web-job]: ../app-service/web-sites-create-web-jobs.md
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/

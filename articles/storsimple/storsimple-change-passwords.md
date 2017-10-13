@@ -1,6 +1,6 @@
 ---
-title: aaaChange wachtwoorden via StorSimple Apparaatbeheer | Microsoft Docs
-description: Hierin wordt beschreven hoe toouse Hallo StorSimple Manager service toochange uw administrator-wachtwoord StorSimple Snapshot Manager en het apparaat.
+title: Wijzigen van wachtwoorden via StorSimple Apparaatbeheer | Microsoft Docs
+description: Beschrijft hoe de StorSimple Manager-service gebruiken om te wijzigen van de administrator-wachtwoord StorSimple Snapshot Manager en het apparaat.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.openlocfilehash: b2836eb4d3a05e1d2a5eeeeefe66c75f63ba38ed
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d890b59595628ca3eeff1df258847c2bb54d29ff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-storsimple-manager-service-toochange-your-storsimple-passwords"></a>Hallo StorSimple Manager-service toochange uw StorSimple-wachtwoorden gebruiken
+# <a name="use-the-storsimple-manager-service-to-change-your-storsimple-passwords"></a>De StorSimple Manager-service gebruiken om uw StorSimple-wachtwoorden wijzigen
 ## <a name="overview"></a>Overzicht
-klassieke Azure-portal Hallo **configureren** pagina bevat alle parameters van de Hallo apparaat die u kunt opnieuw configureren op een StorSimple-apparaat dat wordt beheerd door een StorSimple Manager-service. Deze zelfstudie wordt uitgelegd hoe u kunt Hallo **configureren** toochange pagina de apparaatbeheerder van uw of het wachtwoord voor StorSimple Snapshot Manager.
+De klassieke Azure portal **configureren** pagina bevat alle apparaatparameters die u kunt opnieuw configureren op een StorSimple-apparaat dat wordt beheerd door een StorSimple Manager-service. Deze zelfstudie wordt uitgelegd hoe u kunt de **configureren** pagina om de apparaatbeheerder van uw of StorSimple Snapshot Manager-wachtwoord te wijzigen.
 
-## <a name="change-hello-device-administrator-password"></a>Wachtwoord apparaatbeheerder Hallo wijzigen
-Wanneer u Windows PowerShell-interface tooaccess hello StorSimple-apparaat gebruikt, bent u vereiste tooenter het beheerderswachtwoord voor een apparaat. Wanneer Hallo eerste StorSimple-apparaat is geregistreerd bij een service, is het standaardwachtwoord Hallo voor deze interface *Wachtwoord1*. Voor Hallo beveiliging van uw gegevens, zijn de vereiste toochange dit wachtwoord op Hallo einde van het registratieproces Hallo. U kunt niet afsluiten van het registratieproces Hallo zonder dat u dit wachtwoord wijzigt. Zie voor meer informatie [stap 3: apparaat configureren en registreren Hallo via Windows PowerShell voor StorSimple](storsimple-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+## <a name="change-the-device-administrator-password"></a>Het beheerderswachtwoord voor het apparaat wijzigen
+Wanneer u Windows PowerShell-interface gebruiken voor toegang tot het StorSimple-apparaat, hoeft u een apparaat administrator-wachtwoord moeten invoeren. Als de eerste StorSimple-apparaat is geregistreerd met een service, wordt het standaardwachtwoord voor deze interface is *Wachtwoord1*. Voor de beveiliging van uw gegevens moet u dit wachtwoord aan het einde van het registratieproces wijzigen. U kunt niet afsluiten van het registratieproces zonder dat u dit wachtwoord wijzigt. Zie voor meer informatie [stap 3: configureren en registreren van het apparaat via Windows PowerShell voor StorSimple](storsimple-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-Hallo-wachtwoord dat eerst via de Windows PowerShell-interface Hallo is ingesteld tijdens de registratie kan vervolgens worden gewijzigd via Hallo klassieke Azure-portal. Hallo te volgen stappen toochange Hallo wachtwoord apparaatbeheerder uitvoeren.
+Het wachtwoord dat u eerst via de Windows PowerShell-interface is ingesteld tijdens de registratie kan vervolgens worden gewijzigd via de klassieke Azure portal. De volgende stappen uitvoeren om te wijzigen van het beheerderswachtwoord van het apparaat.
 
-#### <a name="toochange-hello-device-administrator-password"></a>wachtwoord apparaatbeheerder hello toochange
-1. Klik in de klassieke portal Hallo op **apparaten** > **configureren** voor uw apparaat.
-2. Schuif omlaag toohello **apparaat beheerderswachtwoord** sectie. Geef een administrator-wachtwoord van 8 too15 tekens bevat. Hallo-wachtwoord moet een combinatie van 3 of meer van hoofdletters, kleine letters, numerieke en speciale tekens.
-3. Hallo wachtwoord bevestigen.
-4. Klik op **opslaan** Hallo Hallo pagina onderaan in.
+#### <a name="to-change-the-device-administrator-password"></a>Het beheerderswachtwoord van het apparaat wijzigen
+1. Klik in de klassieke portal **apparaten** > **configureren** voor uw apparaat.
+2. Schuif omlaag naar de **apparaat beheerderswachtwoord** sectie. Geef een administrator-wachtwoord tussen 8 en 15 tekens bevat. Het wachtwoord moet een combinatie van 3 of meer van hoofdletters, kleine letters, numerieke en speciale tekens.
+3. Bevestig het wachtwoord.
+4. Klik op **Opslaan** onder aan de pagina.
 
-wachtwoord apparaatbeheerder Hallo moet nu worden bijgewerkt. U kunt deze gewijzigde wachtwoord tooaccess Hallo Windows PowerShell-interface gebruiken.
+Het beheerderswachtwoord van het apparaat moet nu worden bijgewerkt. U kunt dit gewijzigde wachtwoord gebruiken voor toegang tot de Windows PowerShell-interface.
 
-## <a name="change-hello-storsimple-snapshot-manager-password"></a>Hallo StorSimple Snapshot Manager wachtwoord wijzigen
-StorSimple Snapshot Manager-software bevindt zich op uw Windows-host en kan beheerders toomanage back-ups van uw StorSimple-apparaat in Hallo vorm van lokale en cloudmomentopnamen.
+## <a name="change-the-storsimple-snapshot-manager-password"></a>Wijzig het wachtwoord voor StorSimple Snapshot Manager
+De StorSimple Snapshot Manager-software bevindt zich op uw Windows-host. Met deze software kunnen beheerders de back-ups van uw StorSimple-apparaat beheren. De back-ups zijn in feite momentopnamen die lokaal en in de cloud worden opgeslagen.
 
-Wanneer u een apparaat in StorSimple Snapshot Manager configureert, wordt u gevraagd tooprovide Hallo apparaat IP-adres en het wachtwoord tooauthenticate uw opslagapparaat. Dit wachtwoord wordt eerst worden geconfigureerd via Hallo Windows PowerShell-interface. Zie voor meer informatie [stap 3: apparaat configureren en registreren Hallo via Windows PowerShell voor StorSimple](storsimple-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Wanneer u een apparaat in StorSimple Snapshot Manager configureert, wordt u gevraagd de IP-adres en het wachtwoord voor verificatie van uw opslagapparaat opgeven. Dit wachtwoord wordt eerst worden geconfigureerd via de Windows PowerShell-interface. Zie voor meer informatie [stap 3: configureren en registreren van het apparaat via Windows PowerShell voor StorSimple](storsimple-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-Hallo-wachtwoord dat eerst via de Windows PowerShell-interface Hallo is ingesteld tijdens de registratie kan vervolgens worden gewijzigd via de klassieke portal Hallo. Volgende stappen toochange hello StorSimple Snapshot Manager wachtwoord Hallo uitvoeren.
+Het wachtwoord dat u eerst via de Windows PowerShell-interface is ingesteld tijdens de registratie kan vervolgens worden gewijzigd via de klassieke portal. Voer de volgende stappen uit om het StorSimple Snapshot Manager-wachtwoord te wijzigen.
 
-#### <a name="toochange-hello-storsimple-snapshot-manager-password"></a>toochange hello StorSimple Snapshot Manager-wachtwoord
-1. Klik in de klassieke portal Hallo op **apparaten** > **configureren** voor uw apparaat.
-2. Schuif omlaag toohello **StorSimple Snapshot Manager** sectie. Voer een wachtwoord 14 of 15 tekens. Zorg ervoor dat wachtwoord Hallo een combinatie van 3 of meer van hoofdletters, kleine letters, numerieke en speciale tekens bevat.
-3. Hallo wachtwoord bevestigen.
-4. Klik op **opslaan** Hallo Hallo pagina onderaan in.
+#### <a name="to-change-the-storsimple-snapshot-manager-password"></a>Wijzig het wachtwoord voor StorSimple Snapshot Manager
+1. Klik in de klassieke portal **apparaten** > **configureren** voor uw apparaat.
+2. Schuif omlaag naar de **StorSimple Snapshot Manager** sectie. Voer een wachtwoord 14 of 15 tekens. Zorg ervoor dat het wachtwoord een combinatie van 3 of meer van hoofdletters, kleine letters, numerieke en speciale tekens bevat.
+3. Bevestig het wachtwoord.
+4. Klik op **Opslaan** onder aan de pagina.
 
-wachtwoord voor StorSimple Snapshot Manager Hallo moet nu worden bijgewerkt.
+Het wachtwoord voor StorSimple Snapshot Manager moet nu worden bijgewerkt.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [StorSimple security](storsimple-security.md).
 * Meer informatie over [wijzigen van de configuratie van uw apparaat](storsimple-modify-device-config.md).
-* Meer informatie over [StorSimple Manager service tooadminister uw StorSimple-apparaat met behulp van Hallo](storsimple-manager-service-administration.md).
+* Meer informatie over [de StorSimple Manager-service gebruiken voor het beheer van uw StorSimple-apparaat](storsimple-manager-service-administration.md).
 

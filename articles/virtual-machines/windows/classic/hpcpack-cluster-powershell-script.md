@@ -1,6 +1,6 @@
 ---
-title: aaaPowerShell script toodeploy Windows HPC-cluster | Microsoft Docs
-description: Voer een PowerShell-script toodeploy een Windows HPC Pack 2012 R2-cluster in Azure virtuele machines
+title: PowerShell-script voor het implementeren van Windows HPC-cluster | Microsoft Docs
+description: Voer een PowerShell-script voor het implementeren van een Windows HPC Pack 2012 R2-cluster in Azure virtuele machines
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 10ce1e9bc4e98954b955549bd72aaaf6106c69fa
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 85b125ab19671b61d2541af6378c95feb88bf952
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="create-a-windows-high-performance-computing-hpc-cluster-with-hello-hpc-pack-iaas-deployment-script"></a>Een Windows high performance computing (HPC)-cluster maken met de Hallo HPC Pack IaaS-implementatiescript
-Hallo HPC Pack IaaS implementatie PowerShell script toodeploy een volledige HPC Pack 2012 R2-cluster voor Windows werkbelasting in virtuele Azure-machines uitgevoerd. Hallo cluster bestaat uit een op die lid zijn van Active Directory hoofdknooppunt met Windows Server en Microsoft HPC Pack en aanvullende Windows-rekenresources die u opgeeft. Als u een HPC Pack-cluster in Azure toodeploy voor Linux-werkbelastingen wilt, Zie [maken van een Linux-HPC-cluster met Hallo HPC Pack IaaS-implementatiescript](../../linux/classic/hpcpack-cluster-powershell-script.md). U kunt ook een Azure Resource Manager-sjabloon toodeploy een HPC Pack-cluster gebruiken. Zie voor voorbeelden [maken van een HPC-cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) en [een HPC-cluster maken met een installatiekopie van het knooppunt aangepaste rekenservice](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
+# <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Maken van een Windows cluster-high performance computing (HPC) met het implementatiescript HPC Pack IaaS
+De implementatie van HPC Pack IaaS PowerShell-script voor het implementeren van een volledige HPC Pack 2012 R2-cluster voor Windows werkbelasting in Azure virtuele machines worden uitgevoerd. Het cluster bestaat uit een op die lid zijn van Active Directory hoofdknooppunt met Windows Server en Microsoft HPC Pack en aanvullende Windows-rekenresources die u opgeeft. Als u een HPC Pack cluster in Azure voor Linux-werkbelastingen implementeren wilt, Zie [een Linux-HPC-cluster maken met het implementatiescript HPC Pack IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). U kunt ook een Azure Resource Manager-sjabloon gebruiken voor het implementeren van een cluster HPC Pack. Zie voor voorbeelden [maken van een HPC-cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) en [een HPC-cluster maken met een installatiekopie van het knooppunt aangepaste rekenservice](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
 
 > [!IMPORTANT] 
-> Hallo PowerShell-script dat wordt beschreven in dit artikel maakt een Microsoft HPC Pack 2012 R2-cluster in Azure met behulp van het klassieke implementatiemodel Hallo. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken.
-> Hallo-script dat wordt beschreven in dit artikel biedt bovendien geen ondersteuning voor HPC Pack 2016.
+> Het PowerShell-script dat wordt beschreven in dit artikel maakt een Microsoft HPC Pack 2012 R2-cluster in Azure met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
+> Het script dat wordt beschreven in dit artikel biedt bovendien geen ondersteuning voor HPC Pack 2016.
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
 ## <a name="example-configuration-files"></a>Voorbeeld van de configuratiebestanden
-In Hallo vervangt de volgende voorbeelden uw eigen waarden voor uw abonnements-Id of de naam en het Hallo-account en service namen.
+Vervangen door uw eigen waarden voor uw abonnements-Id of naam en de namen van de account en -service in de volgende voorbeelden.
 
 ### <a name="example-1"></a>Voorbeeld 1
-Hallo implementeert volgende configuratiebestand een HPC Pack-cluster met een hoofdknooppunt met lokale databases en vijf rekenknooppunten waarop Hallo Windows Server 2012 R2-besturingssysteem wordt uitgevoerd. Alle Hallo cloud-services worden rechtstreeks in de locatie VS-West Hallo gemaakt. Hallo-hoofdknooppunt fungeert als domeincontroller van Hallo domein-forest.
+Het volgende configuratiebestand implementeert een HPC Pack-cluster met een hoofdknooppunt met lokale databases en vijf rekenknooppunten waarop het besturingssysteem Windows Server 2012 R2. Alle cloud-services worden gemaakt rechtstreeks op de locatie VS-West. Het hoofdknooppunt fungeert als domeincontroller in het domein-forest.
 
 ```Xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -71,8 +71,8 @@ Hallo implementeert volgende configuratiebestand een HPC Pack-cluster met een ho
 ```
 
 ### <a name="example-2"></a>Voorbeeld 2
-Hallo volgende configuratiebestand implementeert een cluster HPC Pack in een bestaand domeinforest. Hallo-cluster heeft 1 hoofdknooppunt met lokale databases en 12 rekenknooppunten Hello BGInfo VM-extensie toegepast.
-Automatische installatie van Windows-updates is uitgeschakeld voor alle Hallo VM's in Hallo domein-forest. Alle Hallo cloud-services worden gemaakt rechtstreeks op de locatie Oost-Azië. Hallo-rekenknooppunten in drie cloudservices en drie storage-accounts worden gemaakt: *MyHPCCN 0001* te*MyHPCCN 0005* in *MyHPCCNService01* en  *mycnstorage01*; *MyHPCCN 0006* te*MyHPCCN0010* in *MyHPCCNService02* en *mycnstorage02*; en  *MyHPCCN-0011* te*MyHPCCN 0012* in *MyHPCCNService03* en *mycnstorage03*). Hallo rekenknooppunten worden gemaakt vanuit een bestaande persoonlijke installatiekopie vastgelegd vanaf een rekenknooppunt. Hallo automatisch vergroten of verkleinen-service is ingeschakeld met standaard vergroten of verkleinen intervallen.
+Het volgende configuratiebestand implementeert een cluster HPC Pack in een bestaand domeinforest. Het cluster heeft 1 hoofdknooppunt met lokale databases en 12 rekenknooppunten met de BGInfo-VM-extensie toegepast.
+Automatische installatie van Windows-updates is uitgeschakeld voor alle VM's in het domein-forest. Alle cloud-services worden gemaakt rechtstreeks op de locatie Oost-Azië. De compute nodes in drie cloudservices en drie storage-accounts worden gemaakt: *MyHPCCN 0001* naar *MyHPCCN 0005* in *MyHPCCNService01* en  *mycnstorage01*; *MyHPCCN 0006* naar *MyHPCCN0010* in *MyHPCCNService02* en *mycnstorage02*; en  *MyHPCCN-0011* naar *MyHPCCN 0012* in *MyHPCCNService03* en *mycnstorage03*). De rekenknooppunten worden gemaakt vanuit een bestaande persoonlijke installatiekopie vastgelegd vanaf een rekenknooppunt. Automatisch vergroten of verkleinen-service is ingeschakeld met standaard vergroten of verkleinen intervallen.
 
 ```Xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -135,7 +135,7 @@ Automatische installatie van Windows-updates is uitgeschakeld voor alle Hallo VM
 ```
 
 ### <a name="example-3"></a>Voorbeeld 3
-Hallo volgende configuratiebestand implementeert een cluster HPC Pack in een bestaand domeinforest. Hallo-cluster bevat één hoofdknooppunt, een databaseserver met een gegevensschijf 500 GB twee broker knooppunten Hallo Windows Server 2012 R2-besturingssysteem en vijf rekenknooppunten Hallo Windows Server 2012 R2-besturingssysteem uitgevoerd. cloudservice MyHPCCNService wordt gemaakt in de affiniteitsgroep Hallo Hallo *MyIBAffinityGroup*, en hello andere cloudservices gemaakt in de affiniteitsgroep hello *MyAffinityGroup*. Hallo HPC Job Scheduler REST API- en HPC-webportal zijn ingeschakeld op Hallo hoofdknooppunt.
+Het volgende configuratiebestand implementeert een cluster HPC Pack in een bestaand domeinforest. Het cluster bevat één hoofdknooppunt, een databaseserver met een gegevensschijf 500 GB, twee broker knooppunten waarop het besturingssysteem Windows Server 2012 R2 en vijf rekenknooppunten waarop het besturingssysteem Windows Server 2012 R2. De cloudservice MyHPCCNService wordt gemaakt in de affiniteitsgroep *MyIBAffinityGroup*, en de cloudservices worden gemaakt in de affiniteitsgroep *MyAffinityGroup*. De HPC Job Scheduler REST API- en HPC-webportal zijn ingeschakeld op het hoofdknooppunt.
 
 ```Xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -190,7 +190,7 @@ Hallo volgende configuratiebestand implementeert een cluster HPC Pack in een bes
 
 
 ### <a name="example-4"></a>Voorbeeld 4
-Hallo volgende configuratiebestand implementeert een cluster HPC Pack in een bestaand domeinforest. Hallo-cluster heeft twee hoofdknooppunt met lokale databases, twee Azure knooppunt sjablonen zijn gemaakt en drie grootte normaal Azure knooppunten worden gemaakt voor Azure knooppuntsjabloon *AzureTemplate1*. Een scriptbestand wordt uitgevoerd op het hoofdknooppunt Hallo nadat Hallo hoofdknooppunt is geconfigureerd.
+Het volgende configuratiebestand implementeert een cluster HPC Pack in een bestaand domeinforest. Het cluster heeft twee hoofdknooppunt met lokale databases, twee Azure knooppunt sjablonen zijn gemaakt en drie grootte normaal Azure knooppunten worden gemaakt voor Azure knooppuntsjabloon *AzureTemplate1*. Een scriptbestand wordt uitgevoerd op het hoofdknooppunt nadat het hoofdknooppunt is geconfigureerd.
 
 ```Xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -257,19 +257,19 @@ Hallo volgende configuratiebestand implementeert een cluster HPC Pack in een bes
 ```
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-* **Fout 'Bestaat niet VNet'** -als u Hallo script toodeploy meerdere clusters in Azure gelijktijdig uitgevoerd onder een abonnement, een of meer implementaties mislukken met fout Hallo ' VNet *VNet\_naam* niet 'bestaan.
-  Als deze fout optreedt, voert u Hallo script opnieuw voor de implementatie van Hallo is mislukt.
-* **Probleem bij toegang tot Internet Hallo van Hallo virtuele Azure-netwerk** : als u een cluster maken met een nieuwe domeincontroller met behulp van het implementatiescript hello, of u handmatig een hoofdknooppunt VM toodomain domeincontroller promoveren, er kunnen problemen optreden Hallo VMs toohello Internet verbinding. Dit probleem kan optreden als een DNS-doorstuurserver server automatisch geconfigureerd op de domeincontroller Hallo en deze doorstuurserver DNS-server kan niet correct worden omgezet.
+* **Fout 'Bestaat niet VNet'** -als u het script voor het implementeren van meerdere clusters in Azure gelijktijdig in één abonnement hebt uitgevoerd, een of meer implementaties mislukken mogelijk met de fout ' VNet *VNet\_naam* bestaat niet '.
+  Als deze fout optreedt, moet u het script opnieuw voor de mislukte implementatie uitvoeren.
+* **Probleem met het openen van het Internet van de virtuele Azure-netwerk** : als u een cluster met een nieuwe domeincontroller met behulp van het implementatiescript maakt of u handmatig een hoofdknooppunt VM naar domeincontroller promoveren, problemen kunnen verbinding maken met de Virtuele machines met het Internet. Dit probleem kan optreden als een DNS-doorstuurserver server automatisch geconfigureerd op de domeincontroller en deze server van de DNS-doorstuurserver kan niet correct worden omgezet.
   
-    toowork om dit probleem zich aanmelden op de domeincontroller toohello en beide verwijderen Hallo doorstuurserver configuratie-instelling of een geldige doorstuurserver DNS-server configureren. Deze instelling kan in Serverbeheer klikt u op tooconfigure **extra** >
-    **DNS** tooopen DNS-beheer en dubbelklik vervolgens op **doorstuurservers**.
-* **Geen toegang tot de RDMA-netwerk van virtuele machines rekenintensieve** : als u Windows Server compute toevoegen of broker knooppunt het formaat van virtuele machines met een RDMA-compatibel zoals A8 of A9, er doen zich problemen die virtuele machines toohello RDMA toepassingsnetwerk verbinden. Een reden dat dit probleem optreedt, is als Hallo HpcVmDrivers-extensie is niet juist geïnstalleerd wanneer Hallo VMs toohello cluster worden toegevoegd. Bijvoorbeeld: de extensie kan blijven steken in Hallo status installeren.
+    Dit probleem, meld u aan bij de domeincontroller en een verwijderen van de doorstuurserver configuratie-instelling omzeilen of een geldige doorstuurserver DNS-server configureren. Deze instelling configureren in Serverbeheer op **extra** >
+    **DNS** voor het openen van de DNS-beheer en dubbelklikt u vervolgens op **doorstuurservers**.
+* **Geen toegang tot de RDMA-netwerk van virtuele machines rekenintensieve** : als u Windows Server compute toevoegen of broker knooppunt het formaat van virtuele machines met een RDMA-compatibel zoals A8 of A9, u deze virtuele machines verbinding met het netwerk van de toepassing RDMA problemen ondervinden. Een reden dat dit probleem optreedt, is als de HpcVmDrivers-extensie is niet juist geïnstalleerd wanneer de virtuele machines worden toegevoegd aan het cluster. Bijvoorbeeld: de extensie kan blijven steken in de status van de installatie.
   
-    toowork om dit probleem, eerste Hallo status van de Hallo-uitbreiding in virtuele machines Hallo. Als het Hallo-extensie is niet juist is geïnstalleerd, probeert te verwijderen van knooppunten Hallo van Hallo HPC-cluster en voeg Hallo knooppunten opnieuw. U kunt bijvoorbeeld rekenknooppunt virtuele machines toevoegen met een Hallo toevoegen HpcIaaSNode.ps1 script op Hallo hoofdknooppunt.
+    U kunt dit probleem omzeilen, Controleer u eerst de status van de extensie in de virtuele machines. Als de extensie is niet juist is geïnstalleerd, verwijdert u de knooppunten van de HPC-cluster en voegt u de knooppunten opnieuw toe. U kunt bijvoorbeeld rekenknooppunt virtuele machines toevoegen door te voeren van het script toevoegen HpcIaaSNode.ps1 op het hoofdknooppunt.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Probeer een werkbelasting test uitgevoerd op Hallo-cluster. Zie voor een voorbeeld Hallo HPC Pack [instructiehandleiding](https://technet.microsoft.com/library/jj884144).
-* Zie voor een zelfstudie tooscript Hallo Clusterimplementatie en uitvoeren van een HPC-werkbelasting, [aan de slag met een cluster HPC Pack in de Excel- en SOA-werkbelastingen Azure toorun](../../virtual-machines-windows-excel-cluster-hpcpack.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Probeer van HPC Pack extra toostart, stoppen, toevoegen en verwijderen van rekenknooppunten uit een cluster dat u maakt. Zie [rekenknooppunten beheren in een Pack HPC-cluster in Azure](hpcpack-cluster-node-manage.md).
-* tooget toosubmit taken toohello cluster instellen op een lokale computer, Zie [taken van een lokale computer tooan HPC Pack indienen HPC-cluster in Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Probeer een werkbelasting test uit te voeren op het cluster. Zie voor een voorbeeld: de HPC Pack [instructiehandleiding](https://technet.microsoft.com/library/jj884144).
+* Zie voor een zelfstudie voor het script van de implementatie van het cluster en het uitvoeren van een HPC-werkbelasting [aan de slag met een HPC Pack-cluster in Azure uitvoeren van Excel- en SOA-werkbelastingen](../../virtual-machines-windows-excel-cluster-hpcpack.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Probeer HPC Pack van hulpprogramma's voor het starten, stoppen, toevoegen en verwijderen van rekenknooppunten uit een cluster dat u maakt. Zie [rekenknooppunten beheren in een Pack HPC-cluster in Azure](hpcpack-cluster-node-manage.md).
+* Als u wilt ophalen instellen om taken te verzenden naar het cluster van een lokale computer, Zie [indienen HPC-taken uit een on-premises computer naar een HPC Pack-cluster in Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

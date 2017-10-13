@@ -24,7 +24,7 @@
 
 ## Beveiligen
 ### [Resources bewaken](oms-security-monitoring-resources.md)
-### [Reageren toosecurity waarschuwingen](oms-security-responding-alerts.md)
+### [Reageren op beveiligingswaarschuwingen](oms-security-responding-alerts.md)
 ### [Basislijnevaluatie](oms-security-baseline.md)
 ### [Malware-evaluatie](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Systeemupdate-evaluatie](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)

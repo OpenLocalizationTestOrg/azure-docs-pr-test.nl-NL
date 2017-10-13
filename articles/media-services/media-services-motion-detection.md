@@ -1,6 +1,6 @@
 ---
-title: aaaDetect bewegingen met Azure Media Analytics | Microsoft Docs
-description: Hallo Azure Media beweging detectie media processor (MP) kunt u tooefficiently secties van belang zijn binnen een video anders lang en probleemloze identificeren.
+title: Detecteren bewegingen met Azure Media Analytics | Microsoft Docs
+description: "De processor voor Azure Media beweging detectie media (MP) kunt u secties van belang zijn binnen een video anders lang en probleemloze efficiënt te identificeren."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,38 +14,38 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: cb431375c92222053ed2239dd4e45767524dab68
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 115ad9dfd88062f23d5d17eed8897ce5d2ca8484
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Bewegingen met Azure Media Analytics detecteren
 ## <a name="overview"></a>Overzicht
-Hallo **Azure Media beweging detectie** media processor (MP) kunt u tooefficiently secties van belang zijn binnen een video anders lang en probleemloze identificeren. Bewegingsdetectie kan worden gebruikt voor statische camera beeldmateriaal tooidentify secties van Hallo video waar beweging optreedt. Er wordt een JSON-bestand met een metagegevens met tijdstempels en de regio waar Hallo gebeurtenis heeft plaatsgevonden voor begrenzingsvak Hallo gegenereerd.
+De **Azure Media beweging detectie** Mediaprocessor (MP) kunt u secties van belang zijn binnen een video anders lang en probleemloze efficiënt te identificeren. Bewegingsdetectie kan worden gebruikt voor statische camerabeelden identificeren secties van de video waar beweging optreedt. Er wordt een JSON-bestand met een metagegevens met tijdstempels en het selectiegebied waarop de gebeurtenis heeft plaatsgevonden gegenereerd.
 
-Gericht op beveiliging video feeds, is deze technologie kunnen toocategorize beweging in de relevante gebeurtenissen en fout-positieven zoals schaduwen en licht wijzigingen. Hiermee kunt u toogenerate beveiligingswaarschuwingen van de camera feeds zonder terwijl tooextract kunnen momenten van belang van zeer lange toezicht video's met oneindige irrelevante gebeurtenissen, spam.
+Deze technologie is gericht op beveiliging video-kanalen, kunnen beweging categoriseren in relevante gebeurtenissen en fout-positieven zoals schaduwen en licht wijzigingen. Hiermee kunt u voor het genereren van beveiligingswaarschuwingen van de camera feeds zonder kunnen momenten van belang extraheren van zeer lange toezicht video's met oneindige irrelevante gebeurtenissen, spam.
 
-Hallo **Azure Media beweging detectie** MP is momenteel in Preview.
+De **Azure Media beweging detectie** MP is momenteel in Preview.
 
-Dit onderwerp bevat informatie over **Azure Media beweging detectie** en ziet u hoe toouse met Media Services SDK voor .NET
+Dit onderwerp bevat informatie over **Azure Media beweging detectie** en laat zien hoe u deze gebruiken met Media Services SDK voor .NET
 
 ## <a name="motion-detector-input-files"></a>Beweging detectie invoerbestanden
-Videobestanden. Op dit moment Hallo volgende indelingen worden ondersteund: MP4 MOV en WMV.
+Videobestanden. Op dit moment wordt de volgende indelingen worden ondersteund: MP4 MOV en WMV.
 
 ## <a name="task-configuration-preset"></a>Taken configureren (standaardoptie)
 Bij het maken van een taak met **Azure Media beweging detectie**, moet u een configuratie-definitie opgeven. 
 
 ### <a name="parameters"></a>Parameters
-U kunt Hallo volgende parameters:
+U kunt de volgende parameters:
 
 | Naam | Opties | Beschrijving | Standaard |
 | --- | --- | --- | --- |
-| sensitivityLevel |Tekenreeks: 'laag', 'Gemiddeld', 'hoog' |Hiermee stelt Hallo gevoeligheid niveau op welke bewegingen wordt gerapporteerd. Deze fout-positieven tooadjust hoeveelheid aanpassen. |'Gemiddeld' |
-| frameSamplingValue |Positief geheel getal |Hiermee stelt u Hallo frequentie op waaronder de algoritme wordt uitgevoerd. elk frame gelijk aan-1, 2 betekent dat elke 2e frame, enzovoort. |1 |
-| detectLightChange |Boolean-waarde: 'true', 'onwaar' |Hiermee wordt ingesteld of lichte wijzigingen worden gerapporteerd in Hallo resultaten |'False' |
-| mergeTimeThreshold |Tijd voor xs:: Mm: ss<br/>Voorbeeld: 00:00:03 |Hiermee geeft u het tijdvenster Hallo tussen beweging gebeurtenissen waarbij 2 gebeurtenissen wordt gecombineerd en gerapporteerd als 1. |00:00:00 |
-| detectionZones |Een matrix van zones voor detectie:<br/>-Zone detectie is een matrix met punten 3 of meer<br/>-Punt is een x en y van 0 too1 coördinaat. |Hierin wordt beschreven Hallo lijst met detectie van veelhoekige zones toobe gebruikt.<br/>Resultaten met Hallo zones worden vermeld als een ID, eerst een wordt 'id' Hello: 0 |Enkele zone die de hele frame Hallo dekt. |
+| sensitivityLevel |Tekenreeks: 'laag', 'Gemiddeld', 'hoog' |Hiermee stelt u het gevoeligheidsniveau op welke bewegingen wordt gerapporteerd. Dit om aan te passen hoeveelheid valse positieven aanpassen. |'Gemiddeld' |
+| frameSamplingValue |Positief geheel getal |Hiermee stelt u de frequentie aan welk algoritme wordt uitgevoerd. elk frame gelijk aan-1, 2 betekent dat elke 2e frame, enzovoort. |1 |
+| detectLightChange |Boolean-waarde: 'true', 'onwaar' |Hiermee wordt ingesteld of lichte wijzigingen in de resultaten worden gemeld |'False' |
+| mergeTimeThreshold |Tijd voor xs:: Mm: ss<br/>Voorbeeld: 00:00:03 |Hiermee geeft u de periode tussen beweging gebeurtenissen waarbij 2 gebeurtenissen wordt gecombineerd en gerapporteerd als 1. |00:00:00 |
+| detectionZones |Een matrix van zones voor detectie:<br/>-Zone detectie is een matrix met punten 3 of meer<br/>-Punt is een x en y coördinaat tussen 0 en 1. |Hierin wordt beschreven in de lijst met detectie van veelhoekige zones moet worden gebruikt.<br/>Resultaten met de zones worden vermeld als een ID, met de eerste afbeelding wordt 'id': 0 |Enkele zone die wordt ingegaan op het gehele frame. |
 
 ### <a name="json-example"></a>JSON-voorbeeld
     {
@@ -78,37 +78,37 @@ U kunt Hallo volgende parameters:
 
 
 ## <a name="motion-detector-output-files"></a>Beweging detectie uitvoerbestanden
-Een motion detection-taak retourneren een JSON-bestand in Hallo uitvoerasset waarin Hallo beweging waarschuwingen en hun categorieën, binnen Hallo video worden beschreven. Hallo-bestand bevat informatie over het Hallo-tijd en de duur van gedetecteerd in Hallo video motion.
+Een motion detection-taak retourneren een JSON-bestand in de uitvoerasset waarin de beweging waarschuwingen en hun categorieën, binnen de video worden beschreven. Het bestand bevat informatie over de tijd en de duur van gedetecteerd in de video motion.
 
-Hallo beweging detectie API biedt indicatoren zodra er objecten in beweging in een vaste achtergrond video (bijvoorbeeld een toezicht video zijn). Hallo beweging detectie is getraind tooreduce gegeven, zoals licht en wijzigingen van de schaduwkopie. Huidige beperkingen van Hallo algoritmen zijn nacht visie video's, semi-transparante objecten en kleine objecten.
+De beweging detectie-API biedt indicatoren zodra er objecten in beweging in een vaste achtergrond video (bijvoorbeeld een toezicht video zijn). De detectie van de beweging wordt te verminderen gegeven, zoals licht en wijzigingen van de schaduw getraind. Huidige beperkingen van de algoritmen zijn nacht visie video's, semi-transparante objecten en kleine objecten.
 
-### <a id="output_elements"></a>Elementen van Hallo uitvoer JSON-bestand
+### <a id="output_elements"></a>Elementen van de JSON-bestand voor uitvoer
 > [!NOTE]
-> In de meest recente release Hallo Hallo uitvoer JSON-indeling is gewijzigd en een belangrijke wijziging voor sommige klanten kan vertegenwoordigen.
+> In de nieuwste versie, de uitvoer JSON-indeling is gewijzigd en een belangrijke wijziging voor sommige klanten kan vertegenwoordigen.
 > 
 > 
 
-Hallo beschrijft volgende tabel de elementen van Hallo uitvoer JSON-bestand.
+De volgende tabel beschrijft de elementen van de JSON-bestand voor uitvoer.
 
 | Element | Beschrijving |
 | --- | --- |
-| Versie |Dit verwijst toohello versie Hallo Video API. Er is een fout opgetreden in de huidige versie Hallo 2. |
-| Tijdschaal |'Maatstreepjes' per seconde van Hallo video. |
-| Offset |Hallo tijdverschil voor tijdstempels in 'maatstreepjes'. Versie 1.0 van Video-API's, zal dit altijd 0 zijn. In de toekomst scenario's die wordt ondersteund, deze waarde kan worden gewijzigd. |
-| framesnelheid |Frames per seconde van Hallo video. |
-| Breedte, hoogte |Verwijst toohello breedte en hoogte van Hallo video in pixels. |
-| Starten |Hallo start tijdstempel in 'maatstreepjes'. |
-| Duur |Hallo-lengte van Hallo-gebeurtenis in 'maatstreepjes'. |
-| Interval |elk item in het Hallo-gebeurtenis in 'maatstreepjes' Hello tijdsinterval. |
-| Gebeurtenissen |Elke gebeurtenis fragment bevat Hallo beweging binnen deze tijdsduur gedetecteerd. |
-| Type |In de huidige versie hello is dit altijd '2' voor algemene beweging. Dit label biedt Video-API's Hallo flexibiliteit toocategorize beweging in toekomstige versies. |
-| RegionID |Zoals hierboven vermeld, zal dit altijd 0 in deze versie zijn. Dit label biedt Video API Hallo flexibiliteit toofind beweging in verschillende regio's in toekomstige versies. |
-| Regio's |Gebied van de toohello in uw video waarin u het belangrijkst over beweging verwijst. <br/><br/>-Hallo regio gebied 'id' aangeeft: in deze versie er is slechts één ID 0. <br/>-'type' hello vorm van Hallo regio die u voor beweging interesseren vertegenwoordigt. Op dit moment worden 'rechthoek' en 'veelhoek' ondersteund.<br/> Als u 'rechthoek' hebt opgegeven, heeft Hallo regio dimensies in X, Y, Width en Height. Hallo X en Y-coördinaten vertegenwoordigen Hallo bovenste linkerkant Xyserver coördinaten van Hallo gebied in een genormaliseerde schaal van 0,0 too1.0. Hallo breedte en hoogte vertegenwoordigen Hallo grootte van Hallo gebied in een genormaliseerde schaal van 0,0 too1.0. In de huidige versie hello, zijn X, Y, Width en Height altijd vast op 0, 0 en 1, 1. <br/>Als u 'veelhoek' hebt opgegeven, heeft Hallo regio dimensies in punten. <br/> |
-| fragmenten |Hallo metagegevens is up chunked in verschillende segmenten fragmenten aangeroepen. Elke fragment bevat een start, duur, Intervalnummer en gebeurtenis(sen). Een fragment met er zijn geen gebeurtenissen betekent dat er geen beweging is aangetroffen tijdens die begintijd en duur. |
-| []-Haken |Elke accolade vertegenwoordigt één interval in Hallo-gebeurtenis. Lege haakjes voor dat interval betekent dat er geen beweging is gedetecteerd. |
-| Locaties |Deze nieuwe vermelding onder gebeurtenissen bevat Hallo-locatie waar Hallo beweging zich heeft voorgedaan. Dit is meer specifieke dan Hallo detectie zones. |
+| Versie |Dit verwijst naar de versie van de Video-API. De huidige versie is 2. |
+| Tijdschaal |'Maatstreepjes' per seconde van de video. |
+| Offset |De time-offset voor tijdstempels in 'maatstreepjes'. Versie 1.0 van Video-API's, zal dit altijd 0 zijn. In de toekomst scenario's die wordt ondersteund, deze waarde kan worden gewijzigd. |
+| framesnelheid |Frames per seconde van de video. |
+| Breedte, hoogte |Verwijst naar de breedte en hoogte van de video in pixels. |
+| Starten |De tijdstempel begin in 'maatstreepjes'. |
+| Duur |De lengte van de gebeurtenis, in 'maatstreepjes'. |
+| Interval |Het interval van elke vermelding in de gebeurtenis, in 'maatstreepjes'. |
+| Gebeurtenissen |Elke gebeurtenis fragment bevat de beweging binnen deze tijdsduur gedetecteerd. |
+| Type |In de huidige versie is dit altijd '2' voor algemene beweging. Hierdoor kunnen label Video-API's de flexibiliteit om te categoriseren beweging in toekomstige versies. |
+| RegionID |Zoals hierboven vermeld, zal dit altijd 0 in deze versie zijn. De dit label kunt API Video motion niet vinden in verschillende regio's in toekomstige versies. |
+| Regio's |Verwijst naar het gedeelte in uw video waarin u het belangrijkst over beweging. <br/><br/>-het gebied regio 'id' aangeeft: in deze versie er is slechts één ID 0. <br/>-'type' de vorm van de regio die u voor beweging interesseren vertegenwoordigt. Op dit moment worden 'rechthoek' en 'veelhoek' ondersteund.<br/> Als u 'rechthoek' hebt opgegeven, heeft de regio dimensies in X, Y, Width en Height. De X en Y-coördinaten vertegenwoordigen de bovenste linkerkant Xyserver coördinaten van het gebied in een genormaliseerde schaal van 0,0 en 1,0. De breedte en hoogte vertegenwoordigen de grootte van de regio in een genormaliseerde schaal van 0,0 en 1,0. In de huidige versie zijn X, Y, Width en Height altijd vast op 0, 0 en 1, 1. <br/>Als u 'veelhoek' hebt opgegeven, heeft de regio dimensies in punten. <br/> |
+| fragmenten |De metagegevens wordt gesegmenteerde in verschillende segmenten fragmenten aangeroepen. Elke fragment bevat een start, duur, Intervalnummer en gebeurtenis(sen). Een fragment met er zijn geen gebeurtenissen betekent dat er geen beweging is aangetroffen tijdens die begintijd en duur. |
+| []-Haken |Elke accolade vertegenwoordigt één interval in de gebeurtenis. Lege haakjes voor dat interval betekent dat er geen beweging is gedetecteerd. |
+| Locaties |Deze nieuwe vermelding onder gebeurtenissen vindt u de locatie waar de beweging zich heeft voorgedaan. Dit is een meer specifiek zijn dan de zones van de detectie. |
 
-Hallo Hier volgt een voorbeeld van een JSON-uitvoer
+Hier volgt een voorbeeld van een JSON-uitvoer
 
     {
       "version": 2,
@@ -154,16 +154,16 @@ Hallo Hier volgt een voorbeeld van een JSON-uitvoer
 
     …
 ## <a name="limitations"></a>Beperkingen
-* Hallo ondersteund video-invoerindelingen zijn MP4 MOV en WMV.
-* Bewegingsdetectie is geoptimaliseerd voor stilstaan achtergrond video's. Hallo-algoritme is gericht op het verminderen van gegeven, zoals licht wijzigingen en schaduwen.
-* Sommige beweging mogelijk niet gedetecteerd vanwege tootechnical uitdagingen; bijvoorbeeld 's avonds visie video's, semi-transparante objecten en kleine objecten.
+* De ondersteunde video-invoerindelingen zijn MP4 MOV en WMV.
+* Bewegingsdetectie is geoptimaliseerd voor stilstaan achtergrond video's. De algoritme is gericht op het verminderen van gegeven, zoals licht wijzigingen en schaduwen.
+* Sommige beweging kan niet worden herkend vanwege technische moeilijkheden; bijvoorbeeld 's avonds visie video's, semi-transparante objecten en kleine objecten.
 
 ## <a name="net-sample-code"></a>Voorbeeldcode voor .NET
 
-Hallo volgende programma toont hoe:
+De volgende programma toont hoe:
 
-1. Maak een asset en upload een mediabestand naar Hallo asset.
-2. Een taak maken met een video motion detection-taak op basis van een configuratiebestand met Hallo json-definitie te volgen. 
+1. Maak een asset en upload een mediabestand naar de asset.
+2. Een taak maken met een video motion detection-taak op basis van een configuratiebestand met de volgende json-definitie. 
    
         {
           "Version": "1.0",
@@ -192,11 +192,11 @@ Hallo volgende programma toont hoe:
             ]
           }
         }
-3. Hallo uitvoer JSON-bestanden downloaden. 
+3. De uitvoer JSON-bestanden downloaden. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
-Uw ontwikkelomgeving instellen en vullen Hallo app.config-bestand met de verbindingsinformatie, zoals beschreven in [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md). 
+Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Voorbeeld
 
@@ -213,7 +213,7 @@ Uw ontwikkelomgeving instellen en vullen Hallo app.config-bestand met de verbind
     {
         class Program
         {
-            // Read values from hello App.config file.
+            // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
                 ConfigurationManager.AppSettings["AADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
@@ -229,17 +229,17 @@ Uw ontwikkelomgeving instellen en vullen Hallo app.config-bestand met de verbind
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                // Run hello VideoMotionDetection job.
+                // Run the VideoMotionDetection job.
                 var asset = RunVideoMotionDetectionJob(@"C:\supportFiles\VideoMotionDetection\BigBuckBunny.mp4",
                                             @"C:\supportFiles\VideoMotionDetection\config.json");
 
-                // Download hello job output asset.
+                // Download the job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\VideoMotionDetection\Output");
             }
 
             static IAsset RunVideoMotionDetectionJob(string inputMediaFilePath, string configurationFile)
             {
-                // Create an asset and upload hello input media file toostorage.
+                // Create an asset and upload the input media file to storage.
                 IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
                     "My Video Motion Detection Input Asset",
                     AssetCreationOptions.None);
@@ -247,38 +247,38 @@ Uw ontwikkelomgeving instellen en vullen Hallo app.config-bestand met de verbind
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("My Video Motion Detection Job");
 
-                // Get a reference tooAzure Media Motion Detector.
+                // Get a reference to Azure Media Motion Detector.
                 string MediaProcessorName = "Azure Media Motion Detector";
 
                 var processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
-                // Read configuration from hello specified file.
+                // Read configuration from the specified file.
                 string configuration = File.ReadAllText(configurationFile);
 
-                // Create a task with hello encoding details, using a string preset.
+                // Create a task with the encoding details, using a string preset.
                 ITask task = job.Tasks.AddNew("My Video Motion Detection Task",
                     processor,
                     configuration,
                     TaskOptions.None);
 
-                // Specify hello input asset.
+                // Specify the input asset.
                 task.InputAssets.Add(asset);
 
-                // Add an output asset toocontain hello results of hello job.
+                // Add an output asset to contain the results of the job.
                 task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
 
-                // Use hello following event handler toocheck job progress.  
+                // Use the following event handler to check job progress.  
                 job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-                // Launch hello job.
+                // Launch the job.
                 job.Submit();
 
-                // Check job execution and wait for job toofinish.
+                // Check job execution and wait for job to finish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 
                 progressJobTask.Wait();
 
-                // If job state is Error, hello event handling
+                // If job state is Error, the event handling
                 // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)

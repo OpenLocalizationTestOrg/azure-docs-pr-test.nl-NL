@@ -1,66 +1,84 @@
 ---
-titel: aaa "Azure Analysis Services-zelfstudie les 1: Maak een nieuw model in tabelvorm project | Microsoft Docs' Beschrijving: hierin wordt beschreven hoe toocreate een nieuwe Azure Analysis Services-zelfstudie project. Services: analysis services-documentationcenter: '' auteur: minewiskan manager: erikre-editor: '' tags: ''
-
-MS.AssetID: ms.service: ms.devlang analysis services: N.V.T. ms.topic:-slag-artikel ms.tgt_pltfrm: N.V.T. ms.workload: n.v.t. ms.date: 01-06/2017 ms.author: owend
+title: 'Zelfstudie Azure Analysis Services - Les 1: Een nieuw project voor een tabellair model maken | Microsoft Docs'
+description: In deze les wordt beschreven hoe u een nieuw project voor een tabellair model in Azure Analysis Services maakt.
+services: analysis-services
+documentationcenter: 
+author: Minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 06/01/2017
+ms.author: owend
+ms.openlocfilehash: d523e3e103b4c351d01af6f1eb3c396f9a63016a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-1-create-a-tabular-model-project"></a>Les 1: Een nieuw modelproject maken in tabelvorm
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In deze les gebruikt u SQL Server Data Tools (SSDT) toocreate een nieuw model in tabelvorm-project op Hallo 1400 compatibiliteitsniveau. Zodra het nieuwe project is gemaakt, kunt u gegevens gaan toevoegen en het model gaan ontwerpen. Deze les kunt u ook een korte inleiding toohello model in tabelvorm ontwerpomgeving in SSDT.  
+In deze les gebruikt u SQL Server Data Tools (SSDT) om een nieuw project voor een tabellair model te maken op het compatibiliteitsniveau 1400. Zodra het nieuwe project is gemaakt, kunt u gegevens gaan toevoegen en het model gaan ontwerpen. In deze les krijgt u ook een korte inleiding op de omgeving in SSDT voor het ontwerpen van een tabellair model.  
   
-Geschatte tijd toocomplete deze les: **10 minuten**  
+Geschatte tijd voor het voltooien van deze les: **10 minuten**  
   
 ## <a name="prerequisites"></a>Vereisten  
-Dit onderwerp is Hallo eerste les in een model in tabelvorm zelfstudie ontwerpen. toocomplete dit les, moet u toohave in-place aan verschillende vereisten. toolearn meer, Zie [Azure Analysis Services - zelfstudie Adventure Works](../tutorials/aas-adventure-works-tutorial.md).  
+Dit is de eerste les in een zelfstudie over het ontwerpen van een tabellair model. U kunt deze les alleen voltooien als aan verschillende vereisten is voldaan. Zie [Azure Analysis Services - Adventure Works-zelfstudie](../tutorials/aas-adventure-works-tutorial.md) voor meer informatie.  
   
 ## <a name="create-a-new-tabular-model-project"></a>Een nieuw project voor een tabellair model maken  
   
-#### <a name="toocreate-a-new-tabular-model-project"></a>een nieuw model in tabelvorm project toocreate  
+#### <a name="to-create-a-new-tabular-model-project"></a>Een nieuw project voor een tabellair model maken:  
   
-1.  In SSDT op Hallo **bestand** menu, klikt u op **nieuw** > **Project**.  
+1.  Open in SSDT het menu **File** en klik op **New** > **Project**.  
   
-2.  In Hallo **nieuw Project** dialoogvenster Vouw **geïnstalleerde** > **Business Intelligence** > **Analysis Services**, en klik vervolgens op **Tabellair Project van Analysis Services**.  
+2.  Vouw in het dialoogvenster **New Project** **Installed** > **Business Intelligence** > **Analysis Services** uit en klik vervolgens op **Analysis Services Tabular Project**.  
   
-3.  In **naam**, type **AW Internet verkoop**, en geef vervolgens een locatie voor Hallo projectbestanden.  
+3.  Typ **AW Internet Sales** in het vak **Name** en geef vervolgens een locatie voor de projectbestanden op.  
   
-    Standaard **oplossingsnaam** is dezelfde als de naam van het project Hallo Hallo; u kunt echter een andere oplossingsnaam typen.  
+    De waarde voor **Solution Name** is standaard hetzelfde als de naam van het project, maar u kunt desgewenst een andere naam opgeven voor de oplossing.  
   
 4.  Klik op **OK**.  
   
-5.  In Hallo **model in tabelvorm designer** dialoogvenster, **geïntegreerde werkruimte**.  
+5.  Selecteer **Integrated workspace** in het dialoogvenster **Tabular model designer**.  
   
-    Hallo werkruimte als host fungeert voor een tabellaire modeldatabase Hello dezelfde naam als Hallo project tijdens het ontwerpen van het model. Geïntegreerde werkruimte betekent dat SSDT gebruikt een ingebouwde exemplaar elimineren Hallo nodig tooinstall een afzonderlijk exemplaar van Analysis Services-server alleen voor het ontwerpen van het model.
+    De werkruimte bevat tijdens het ontwerpen van het model een tabellaire modeldatabase met dezelfde naam als het project. De optie Integrated workspace betekent dat SSDT een ingebouwd exemplaar gebruikt, zodat u niet alleen voor het ontwerpen van het model een afzonderlijke Analysis Services-server hoeft te installeren.
       
 6.  Selecteer **SQL Server 2017 / Azure Analysis Services (1400)** bij **Compatibility level**.   
  
     ![aas-lesson1-tmd](../tutorials/media/aas-lesson1-tmd.png)
       
-    Als er geen SQL Server 2017 / Azure analyseservices (1400) in Hallo compatibiliteit niveau listbox, gebruikt u niet Hallo meest recente versie van SQL Server Data Tools. meest recente versie tooget hello, Zie [installeren SQL Server Data tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+    Als u SQL Server 2017 / Azure Analysis Services (1400) niet ziet staan in de vervolgkeuzelijst Compatibility level, gebruikt u niet de nieuwste versie van SQL Server Data Tools. Zie [SQL Server Data Tools installeren](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) om de nieuwste versie te downloaden.  
       
   
-## <a name="understanding-hello-ssdt-tabular-model-authoring-environment"></a>Understanding Hallo SSDT model in tabelvorm ontwerpomgeving  
-Nu dat u een nieuw model in tabelvorm-project hebt gemaakt, gaat u nu een moment tooexplore Hallo model in tabelvorm ontwerpomgeving in SSDT.  
+## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Overzicht van de SSDT-ontwerpomgeving voor tabellaire modellen  
+U hebt net een nieuw project voor een tabellair model gemaakt. Het is handig om nu eerst even de omgeving van SSDT voor het ontwerpen van tabellaire modellen te bekijken.  
   
-Nadat uw project is gemaakt, wordt het geopend in SSDT. Op Hallo rechts clientzijde in **Tabellaire Model Explorer**, er een structuurweergave van het Hallo-objecten in uw model. Aangezien u gegevens nog niet hebt geïmporteerd, zijn Hallo mappen leeg. U kunt met de rechtermuisknop op een object map tooperform acties, vergelijkbare toohello menubalk. Tijdens het doorlopen van deze zelfstudie gebruikt u Hallo Tabellaire Model Explorer toonavigate verschillende objecten in uw modelproject.
+Nadat uw project is gemaakt, wordt het geopend in SSDT. Aan de rechterkant, bij **Tabular Model Explorer**, ziet u een structuurweergave van de objecten in uw model. Aangezien u nog geen gegevens hebt geïmporteerd, zijn de mappen leeg. Klik met de rechtermuisknop op een objectmap om bewerkingen uit te voeren. De beschikbare opties zijn ook op te roepen via de menubalk. Tijdens het doorlopen van de stappen van deze zelfstudie, kunt u Tabular Model Explorer gebruiken om door verschillende objecten in uw modelproject te bladeren.
 
 ![aas-lesson1-tme](../tutorials/media/aas-lesson1-tme.png)
 
-Klik op Hallo **Solution Explorer** tabblad. Hier ziet u het bestand **Model.bim**. Als er geen Hallo ontwerpvenster toohello links (Hallo leeg venster met Hallo Model.bim tabblad), in **Solution Explorer**onder **AW Internet verkoop Project**, dubbelklikt u op Hallo  **Model.BIM** bestand. Hallo Model.bim bestand bevat Hallo metagegevens voor uw modelproject. 
+Klik op het tabblad **Solution Explorer**. Hier ziet u het bestand **Model.bim**. Als u het ontwerpvenster aan de linkerkant niet ziet (het lege venster met het tabblad Model.bim), gaat u in **Solution Explorer** naar **AW Internet Sales** en dubbelklikt u op het bestand **Model.bim**. Het bestand Model.bim bevat de metagegevens voor het modelproject. 
 
 ![aas-lesson1-se](../tutorials/media/aas-lesson1-se.png)
   
-Klik op **Model.bim**. In Hallo **eigenschappen** venster er belangrijkste waarvan is Hallo Hallo-modeleigenschappen **DirectQuery-modus** eigenschap. Deze eigenschap geeft als Hallo model wordt geïmplementeerd In het geheugen-modus (uit) of de DirectQuery-modus (aan). Voor deze zelfstudie gaat u het model ontwerpen en implementeren in de modus In-Memory.
+Klik op **Model.bim**. In het venster **Properties** ziet u de modeleigenschappen, met als belangrijkste eigenschap **DirectQuery Mode**. Deze eigenschap bepaalt of het model wordt geïmplementeerd in de modus In-Memory (Off) of de modus DirectQuery (On). Voor deze zelfstudie gaat u het model ontwerpen en implementeren in de modus In-Memory.
 
 ![aas-lesson1-properties](../tutorials/media/aas-lesson1-properties.png)
   
-Wanneer u een modelproject maakt, bepaalde modeleigenschappen van het zijn ingesteld automatisch gegevens modelleren instellingen die kunnen worden opgegeven in Hallo volgens toohello **extra** menu > **opties** in het dialoogvenster. Eigenschappen gegevensback-up, behoud van de werkruimte en Werkruimteserver opgeven hoe en waar Hallo werkruimtedatabase (uw model database ontwerpen) back-up is gemaakt, blijven in het geheugen behouden en gebouwd. U kunt deze instellingen later altijd nog wijzigen, maar voorlopig laten we deze eigenschappen even voor wat ze zijn.  
+Wanneer u een modelproject maakt, worden bepaalde eigenschappen van het model automatisch ingesteld volgens de instellingen voor het modelleren van gegevens (die kunnen worden opgegeven via **Tools** > **Options**). De eigenschappen Data Backup, Workspace Retention en Workspace Server bepalen hoe en waar er een back-up van de werkruimtedatabase (de database met het modelontwerp) wordt gemaakt, hoe de database in het geheugen wordt opgeslagen en hoe de database wordt gebouwd. U kunt deze instellingen later altijd nog wijzigen, maar voorlopig laten we deze eigenschappen even voor wat ze zijn.  
 
-Klik in **Solution Explorer** met de rechtermuisknop op **AW Internet Sales** (project) en klik vervolgens op **Properties**. Hallo **AW Internet verkoop eigenschappenpagina's** dialoogvenster wordt weergegeven. Enkele van deze eigenschappen gaat u later instellen, wanneer u het model implementeert.  
+Klik in **Solution Explorer** met de rechtermuisknop op **AW Internet Sales** (project) en klik vervolgens op **Properties**. Het dialoogvenster **AW Internet Sales Property Pages** wordt weergegeven. Enkele van deze eigenschappen gaat u later instellen, wanneer u het model implementeert.  
   
-Wanneer u SSDT hebt geïnstalleerd, zijn enkele nieuwe menuopdrachten toohello Visual Studio-omgeving toegevoegd. Klik op Hallo **Model** menu. Hier kunt kunt u gegevens importeren, vernieuwen van gegevens in de werkruimte, bladeren uw model in Excel, perspectieven en rollen, en selecteer Hallo model weergeven, maken en berekeningsopties ingesteld. Klik op Hallo **tabel** menu. Hier ziet u opdrachten voor het maken en beheren van relaties, het opgeven van instellingen voor gegevenstabellen, het maken van partities en het bewerken van tabeleigenschappen. Als u klikt op Hallo **kolom** menu toevoegen en verwijderen van kolommen in een tabel, kolommen blokkeert en sorteervolgorde opgeven. SSDT voegt ook enkele knoppen toohello-balk. Meest geschikt is Hallo AutoSom functie toocreate een meting standaard aggregatie voor een geselecteerde kolom. Andere werkbalkknoppen bieden snel toegang toofrequently functies en opdrachten gebruikt.  
+Tijdens de installatie van SSDT, zijn er een paar nieuwe menuopdrachten toegevoegd aan de Visual Studio-omgeving. Klik op het menu **Model**. Met de opdrachten in dit menu kunt u gegevens importeren, gegevens in de werkruimte vernieuwen, door het model bladeren in Excel, perspectieven en rollen maken, de modelweergave selecteren en berekeningsopties instellen. Klik op het menu **Table**. Hier ziet u opdrachten voor het maken en beheren van relaties, het opgeven van instellingen voor gegevenstabellen, het maken van partities en het bewerken van tabeleigenschappen. Als u op het menu **Column** klikt, kunt u kolommen toevoegen en verwijderen in een tabel, kolommen blokkeren en de sorteervolgorde opgeven. Er worden ook enkele knoppen door SSDT toegevoegd aan de werkbalk. De handigste functie is AutoSum. Hiermee kunt u een standaardaggregatiemeting maken voor een geselecteerde kolom. Andere knoppen op de werkbalk bieden snelle toegang tot veelgebruikte functies en opdrachten.  
   
-Verkennen van Hallo dialoogvensters en locaties voor verschillende functies specifieke tooauthoring tabellaire modellen. Als sommige items nog niet actief is, kunt u een goed idee van het model in tabelvorm Hallo ontwerpomgeving opvragen.  
+Bekijk enkele dialoogvensters en locaties voor verschillende functies die specifiek zijn voor het ontwerpen van tabellaire modellen. Hoewel sommige items nog niet actief zijn, kunt u zo toch een goed beeld krijgen de ontwerpomgeving voor tabellaire modellen.  
   
 
 ## <a name="whats-next"></a>Volgende stappen

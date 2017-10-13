@@ -1,6 +1,6 @@
 ---
-title: toepassingspakketten aaaInstall op rekenknooppunten - Azure Batch | Microsoft Docs
-description: Gebruik hello-pakketten toepassingsfunctie van Azure Batch tooeasily beheren meerdere toepassingen en versies voor de installatie van Batch-rekenknooppunten.
+title: Toepassingspakketten op rekenknooppunten - Azure Batch installeren | Microsoft Docs
+description: Gebruik de functie voor de toepassing-pakketten van Azure Batch eenvoudig beheren meerdere toepassingen en versies voor de installatie van Batch-rekenknooppunten.
 services: batch
 documentationcenter: .net
 author: tamram
@@ -15,197 +15,197 @@ ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 683be7b7f1bd5db7835332016f6dccb72f45c3b5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: afcc04c80ec15872a22de5d5969a7ef6a583562f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="deploy-applications-toocompute-nodes-with-batch-application-packages"></a>Implementeren van toepassingen toocompute knooppunten met Batch-toepassingspakketten
+# <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Toepassingen implementeren op rekenknooppunten met Batch-toepassingspakketten
 
-Hallo toepassingsfunctie pakketten van Azure Batch maakt eenvoudig beheer van toepassingen van de taak en hun implementatie toohello rekenknooppunten in uw groep. U kunt met toepassingspakketten kunt uploaden en beheren van meerdere versies van de taken worden uitgevoerd, met inbegrip van hun ondersteunende bestanden Hallo-toepassingen. Vervolgens kunt u automatisch implementeren een of meer van deze toepassingen toohello rekenknooppunten in uw groep.
+De functie voor de toepassing-pakketten van Azure Batch biedt eenvoudig beheer van toepassingen van de taak en de implementatie ervan in de rekenknooppunten in uw groep. U kunt met toepassingspakketten kunt uploaden en beheren van meerdere versies van de toepassingen die de taken worden uitgevoerd, met inbegrip van hun ondersteunende bestanden. U kunt vervolgens automatisch implementeren een of meer van deze toepassingen aan de rekenknooppunten in uw groep.
 
-In dit artikel leert u hoe tooupload en toepassingspakketten in hello Azure-portal beheren. Vervolgens leert u hoe tooinstall ze op een groep rekenknooppunten met Hallo [Batch .NET] [ api_net] bibliotheek.
+In dit artikel leert u hoe uploaden en beheren in de Azure portal-toepassingspakketten. Vervolgens leert u hoe u ze moet installeren op een pool van rekenknooppunten met de [Batch .NET] [ api_net] bibliotheek.
 
 > [!NOTE]
 > 
-> Toepassingspakketten worden ondersteund in alle Batch-pools die na 5 juli 2017 zijn gemaakt. Ze worden ondersteund in de Batch-pools tussen 10 maart 2016 en 5 juli 2017 alleen gemaakt als Hallo-groep is gemaakt met behulp van de configuratie van een Service in de Cloud. Batch-pools gemaakt voorafgaande too10 maart 2016 bieden geen ondersteuning voor toepassingspakketten.
+> Toepassingspakketten worden ondersteund in alle Batch-pools die na 5 juli 2017 zijn gemaakt. De pakketten worden ondersteund in Batch-pools die zijn gemaakt tussen 10 maart 2016 en 5 juli 2017, maar alleen als de pool is gemaakt met behulp van een cloudservice-configuratie. Batch-pools die zijn gemaakt vóór 10 maart 2016 bieden geen ondersteuning voor toepassingspakketten.
 >
-> Hallo-API's voor het maken en beheren van toepassingspakketten deel uitmaken van Hallo [Batch Management .NET] [[api_net_mgmt]] bibliotheek. Hallo-API's voor toepassingspakketten installeren op een rekenknooppunt deel uitmaken van Hallo [Batch .NET] [ api_net] bibliotheek.  
+> De API's voor het maken en beheren van toepassingspakketten deel uitmaken van de [Batch Management .NET] [[api_net_mgmt]] bibliotheek. De API's voor toepassingspakketten installeren op een rekenknooppunt deel uitmaken van de [Batch .NET] [ api_net] bibliotheek.  
 >
-> hello-pakketten toepassingsfunctie hier beschreven vervangt Hallo Batch Apps-functie die beschikbaar zijn in eerdere versies van het Hallo-service.
+> De toepassing pakketten functie hier beschreven vervangt de beschikbaar in eerdere versies van de service Batch Apps-functie.
 > 
 > 
 
 ## <a name="application-package-requirements"></a>Vereisten voor Application-pakket
-toepassingspakketten toouse, moet u te[een Azure Storage-account koppelen](#link-a-storage-account) tooyour Batch-account.
+Voor het gebruik van toepassingspakketten, moet u [een Azure Storage-account koppelen](#link-a-storage-account) aan uw Batch-account.
 
-Deze functie is geïntroduceerd [Batch REST-API] [ api_rest] versie 2015-12-01.2.2 en de bijbehorende van Hallo [Batch .NET] [ api_net] library-versie 3.1.0. Het is raadzaam de nieuwste API-versie Hallo altijd te gebruiken bij het werken met de Batch.
+Deze functie is geïntroduceerd [Batch REST-API] [ api_rest] versie 2015-12-01.2.2 en de bijbehorende [Batch .NET] [ api_net] library-versie 3.1.0. Het is raadzaam dat u de nieuwste API-versie altijd gebruiken bij het werken met de Batch.
 
 > [!NOTE]
-> Toepassingspakketten worden ondersteund in alle Batch-pools die na 5 juli 2017 zijn gemaakt. Ze worden ondersteund in de Batch-pools tussen 10 maart 2016 en 5 juli 2017 alleen gemaakt als Hallo-groep is gemaakt met behulp van de configuratie van een Service in de Cloud. Batch-pools gemaakt voorafgaande too10 maart 2016 bieden geen ondersteuning voor toepassingspakketten.
+> Toepassingspakketten worden ondersteund in alle Batch-pools die na 5 juli 2017 zijn gemaakt. De pakketten worden ondersteund in Batch-pools die zijn gemaakt tussen 10 maart 2016 en 5 juli 2017, maar alleen als de pool is gemaakt met behulp van een cloudservice-configuratie. Batch-pools die zijn gemaakt vóór 10 maart 2016 bieden geen ondersteuning voor toepassingspakketten.
 >
 >
 
 ## <a name="about-applications-and-application-packages"></a>Over de toepassingen en toepassingspakketten
-In Azure Batch een *toepassing* tooa set samengestelde binaire bestanden die automatisch gedownloade toohello rekenknooppunten in uw pool worden kunnen verwijst. Een *toepassingspakket* verwijst tooa *specifieke set* van deze binaire bestanden en vertegenwoordigt een gegeven *versie* van Hallo-toepassing.
+In Azure Batch een *toepassing* verwijst naar een set van samengestelde binaire bestanden gebruikt die automatisch kan worden gedownload op de rekenknooppunten in uw groep. Een *toepassingspakket* verwijst naar een *specifieke set* van deze binaire bestanden en vertegenwoordigt een gegeven *versie* van de toepassing.
 
 ![Op hoog niveau diagram van toepassingen en toepassingspakketten][1]
 
 ### <a name="applications"></a>Toepassingen
-Een toepassing in Batch bevat een of meer toepassingen, pakketten en configuratieopties voor de toepassing hello geeft. Een toepassing kan bijvoorbeeld Hallo standaard toepassing pakket versie tooinstall opgeven op de rekenknooppunten en of de pakketten kunnen worden bijgewerkt of verwijderd.
+Een toepassing in Batch bevat een of meer toepassingen, pakketten en configuratieopties voor de toepassing bevat. Een toepassing kunt bijvoorbeeld opgeven dat de standaardversie voor het pakket van toepassing te installeren op de rekenknooppunten en of de pakketten kunnen worden bijgewerkt of verwijderd.
 
 ### <a name="application-packages"></a>Toepassingspakketten
-Een toepassingspakket is een ZIP-bestand met Hallo toepassing binaire bestanden en ondersteunende bestanden die vereist voor uw taken toorun Hallo-toepassing zijn. Elke toepassingspakket vertegenwoordigt een specifieke versie van de toepassing hello.
+Een toepassingspakket is een ZIP-bestand met de binaire bestanden van de toepassing en de ondersteunende bestanden die vereist zijn voor uw taken de toepassing uit te voeren. Elke toepassingspakket vertegenwoordigt een specifieke versie van de toepassing.
 
-U kunt toepassingspakketten op Hallo van toepassingen en taak niveaus opgeven. U kunt een of meer van deze pakketten en (optioneel) een versie opgeven wanneer u een groep of een taak maakt.
+U kunt toepassingspakketten op het niveau van toepassingen en de taak opgeven. U kunt een of meer van deze pakketten en (optioneel) een versie opgeven wanneer u een groep of een taak maakt.
 
-* **Toepassingspakketten groep** te worden geïmplementeerd*elke* knooppunt in de pool Hallo. Toepassingen worden geïmplementeerd als een knooppunt aan een pool wordt toegevoegd en wanneer deze wordt opgestart of hersteld met een installatiekopie.
+* **Toepassingspakketten groep** zijn geïmplementeerd op *elke* knooppunt in de pool. Toepassingen worden geïmplementeerd als een knooppunt aan een pool wordt toegevoegd en wanneer deze wordt opgestart of hersteld met een installatiekopie.
   
-    Toepassingspakketten voor toepassingen zijn geschikt wanneer alle knooppunten in een pool van een taak taken uitvoeren. Een of meer toepassingspakketten kunt u opgeven wanneer u een pool maakt en u kunt toevoegen of bijwerken van een bestaande pool-pakketten. Als u een bestaande pool toepassingspakketten bijwerkt, moet u de knooppunten tooinstall Hallo nieuw pakket opnieuw.
-* **Taak toepassingspakketten** alleen tooa rekenknooppunt gepland toorun een taak, net voordat de opdrachtregel van Hallo taak uitgevoerd worden geïmplementeerd. Als Hallo opgegeven toepassingspakket en versie is al op Hallo knooppunt niet opnieuw gedistribueerd en Hallo bestaand pakket wordt gebruikt.
+    Toepassingspakketten voor toepassingen zijn geschikt wanneer alle knooppunten in een pool van een taak taken uitvoeren. Een of meer toepassingspakketten kunt u opgeven wanneer u een pool maakt en u kunt toevoegen of bijwerken van een bestaande pool-pakketten. Als u een bestaande pool toepassingspakketten bijwerkt, moet u de knooppunten voor de installatie van het nieuwe pakket opnieuw.
+* **Taak toepassingspakketten** zijn alleen geïmplementeerd op een rekenknooppunt uitgevoerd van een taak, net voordat de opdrachtregel van de taak wordt uitgevoerd. Als de opgegeven toepassingspakket en de versie is al op het knooppunt, niet opnieuw gedistribueerd en het bestaande pakket wordt gebruikt.
   
-    Taak toepassingspakketten zijn handig in gedeelde groep omgevingen, waarbij verschillende taken worden uitgevoerd op één groep en het Hallo-groep is niet verwijderd wanneer een taak is voltooid. Als uw project minder taken dan knooppunten in de groep hello heeft, minimaliseren taak toepassingspakketten gegevensoverdracht sinds de toepassing is geïmplementeerd alleen toohello knooppunten die taken uitvoeren.
+    Taak toepassingspakketten zijn handig in gedeelde groep omgevingen, waarbij verschillende taken worden uitgevoerd op één groep, en de groep is niet verwijderd wanneer een taak is voltooid. Als de job minder taken dan knooppunten in de groep heeft, kunnen toepassingspakketten van taken gegevensoverdracht minimaliseren omdat uw toepassing alleen wordt geïmplementeerd op de knooppunten die taken uitvoeren.
   
-    Andere scenario's waarin u van de taak toepassingspakketten profiteren kunnen zijn taken met een grote toepassing, maar voor alleen enkele taken. Een vooraf verwerken fase of een merge-taak, waarbij de toepassing vooraf verwerken of samenvoegen Hallo zware is, kan bijvoorbeeld profiteren van het gebruik van de taak toepassingspakketten.
+    Andere scenario's waarin u van de taak toepassingspakketten profiteren kunnen zijn taken met een grote toepassing, maar voor alleen enkele taken. Een vooraf verwerken fase of een merge-taak, waarbij de toepassing vooraf verwerken of het samenvoegen van zware is, kan bijvoorbeeld profiteren van het gebruik van de taak toepassingspakketten.
 
 > [!IMPORTANT]
-> Er gelden beperkingen op Hallo aantal toepassingen en toepassingspakketten in een Batch-account en op Hallo maximale pakketgrootte. Zie [quota en limieten voor hello Azure Batch-service](batch-quota-limit.md) voor meer informatie over deze limieten.
+> Er gelden beperkingen op het aantal toepassingen en toepassingspakketten in een Batch-account en de maximale grootte van pakket. Zie [quota en limieten voor de Azure Batch-service](batch-quota-limit.md) voor meer informatie over deze limieten.
 > 
 > 
 
 ### <a name="benefits-of-application-packages"></a>Voordelen van toepassingspakketten
-Toepassingspakketten kunnen vereenvoudigen Hallo-code in uw Batch-oplossing en de lagere Hallo overhead vereist toomanage Hallo toepassingen die de taken worden uitgevoerd.
+Toepassingspakketten kunnen vereenvoudigen de code in uw Batch-oplossing, en verlagen de overhead voor het beheren van de toepassingen die de taken worden uitgevoerd.
 
-Met toepassingspakketten kunt uw pool begintaak beschikt niet over toospecify een lange lijst met afzonderlijke resource bestanden tooinstall op Hallo knooppunten. U hebt geen toomanually beheer van meerdere versies van uw toepassingsbestanden in Azure Storage of op de knooppunten. En u hoeft niet tooworry over het genereren van [SAS-URL's](../storage/common/storage-dotnet-shared-access-signature-part-1.md) tooprovide access toohello-bestanden in uw opslagaccount. Batch-werkt op de achtergrond Hallo met Azure Storage toostore toepassingspakketten en deze toocompute knooppunten te implementeren.
+Met toepassingspakketten kunt geen begintaak uw pool een lange lijst met afzonderlijke bronbestanden installeren op de knooppunten opgeven. U hoeft niet te handmatig beheer van meerdere versies van uw toepassingsbestanden in Azure Storage of op de knooppunten. En u hoeft niet te hoeven maken over het genereren van [SAS-URL's](../storage/common/storage-dotnet-shared-access-signature-part-1.md) voor toegang tot de bestanden in uw opslagaccount. Batch werkt op de achtergrond met Azure Storage-toepassingspakketten opslaan en deze rekenknooppunten implementeren.
 
 > [!NOTE] 
-> Hallo totale grootte van een begintaak moet kleiner zijn dan of gelijk too32768 tekens, inclusief bronbestanden en omgevingsvariabelen. Als uw begintaak deze limiet overschrijdt, is met behulp van toepassingspakketten een andere optie. U kunt ook een ZIP-archief met de resource-bestanden maken, uploaden als een tooAzure blob Storage en pak deze vervolgens vanaf de opdrachtregel Hallo van de begintaak. 
+> De totale grootte van een begintaak moet kleiner zijn dan of gelijk zijn aan 32.768 tekens, inclusief bronbestanden en omgevingsvariabelen. Als uw begintaak deze limiet overschrijdt, is met behulp van toepassingspakketten een andere optie. U kunt ook maken een ZIP-archief met de bronbestanden, uploaden als een blob naar Azure Storage en pak deze vervolgens vanaf de opdrachtregel van de begintaak. 
 >
 >
 
 ## <a name="upload-and-manage-applications"></a>Uploaden en beheren van toepassingen
-U kunt Hallo [Azure-portal] [ portal] of Hallo [Batch Management .NET](batch-management-dotnet.md) bibliotheek toomanage Hallo-toepassingspakketten in uw Batch-account. In Hallo naast enkele secties, laten we eerst zien hoe toolink een opslagaccount worden besproken toe te voegen toepassingen en pakketten en het beheer ervan met Hallo portal.
+U kunt de [Azure-portal] [ portal] of de [Batch Management .NET](batch-management-dotnet.md) bibliotheek voor het beheren van de toepassingspakketten in uw Batch-account. In de volgende secties laten we eerst zien hoe een opslagaccount te koppelen en vervolgens bespreken toe te voegen toepassingen en pakketten en deze te beheren met de portal.
 
 ### <a name="link-a-storage-account"></a>Storage-account koppelen
-toepassingspakketten toouse, moet u eerst een Azure Storage-account tooyour Batch-account koppelen. Als u een opslagaccount nog niet hebt geconfigureerd, hello Azure-portal geeft een waarschuwing Hallo eerste keer dat u op Hallo **toepassingen** -tegel in Hallo **Batch-account** blade.
+Voor het gebruik van toepassingspakketten, moet u eerst een Azure Storage-account koppelen aan uw Batch-account. Als u een opslagaccount nog niet hebt geconfigureerd, de Azure-portal wordt weergegeven een waarschuwing de eerste keer dat u op de **toepassingen** -tegel in de **Batch-account** blade.
 
 > [!IMPORTANT]
-> Batch ondersteunt momenteel *alleen* hello **algemeen** opslagaccounttype zoals beschreven in stap 5, [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account)in [over Azure Storage-accounts](../storage/common/storage-create-storage-account.md). Als u een Azure Storage-account tooyour Batch-account koppelt, koppelt *alleen* een **algemeen** storage-account.
+> Batch ondersteunt momenteel *alleen* de **algemeen** opslagaccounttype zoals beschreven in stap 5, [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account)in [over Azure Storage-accounts](../storage/common/storage-create-storage-account.md). Wanneer u een Azure Storage-account aan uw Batch-account koppelt, een koppeling *alleen* een **algemeen** storage-account.
 > 
 > 
 
 !['Er is geen opslagaccount geconfigureerd' waarschuwing in Azure-portal][9]
 
-Hallo gekoppelde Batch-service gebruikt Hallo Storage-account toostore uw toepassingspakketten. Nadat u hebt twee accounts Hallo gekoppeld, kunt Batch hello-pakketten die zijn opgeslagen in tooyour rekenknooppunten voor Hallo gekoppelde Storage-account automatisch implementeren. toolink een Storage account tooyour Batch-account, klikt u op **instellingen voor de opslag** op Hallo **waarschuwing** blade en klik vervolgens op **Opslagaccount** op Hallo **Opslagaccount** blade.
+De Batch-service gebruikt het bijbehorende opslagaccount voor het opslaan van uw toepassingspakketten. Nadat u de twee accounts hebt gekoppeld, kan de pakketten die zijn opgeslagen in de gekoppelde Storage-account aan uw rekenknooppunten automatisch implementeren door Batch. Als u wilt een Storage-account koppelen aan uw Batch-account, klikt u op **instellingen voor de opslag** op de **waarschuwing** blade en klik vervolgens op **Opslagaccount** op de  **Storage-Account** blade.
 
 ![Kies de blade opslagaccount in Azure-portal][10]
 
-Het is raadzaam dat u een opslagaccount maken *specifiek* voor gebruik met uw Batch-account en selecteert u deze hier. Voor meer informatie over hoe u een opslagaccount toocreate Zie 'Een opslagaccount maken' in [over Azure Storage-accounts](../storage/common/storage-create-storage-account.md). Nadat u een opslagaccount hebt gemaakt, kunt u vervolgens deze koppelen tooyour Batch-account met behulp van Hallo **Opslagaccount** blade.
+Het is raadzaam dat u een opslagaccount maken *specifiek* voor gebruik met uw Batch-account en selecteert u deze hier. Zie voor meer informatie over het maken van een opslagaccount 'Een opslagaccount maken' [over Azure Storage-accounts](../storage/common/storage-create-storage-account.md). Nadat u een opslagaccount hebt gemaakt, kunt u vervolgens deze koppelen aan uw Batch-account met behulp van de **Opslagaccount** blade.
 
 > [!WARNING]
-> Hallo Batch-service gebruikt Azure Storage toostore uw toepassingspakketten als blok-blobs. U bent [in rekening gebracht als normale] [ storage_pricing] voor Hallo blok-blob-gegevens. Ervoor tooconsider Hallo grootte en het aantal van uw toepassingspakketten zijn en verwijderen periodiek verouderde pakketten toominimize kosten.
+> De Batch-service gebruikt Azure Storage voor het opslaan van uw toepassingspakketten als blok-blobs. U bent [in rekening gebracht als normale] [ storage_pricing] voor de blok-blob-gegevens. Moet u rekening met de grootte en het nummer van uw toepassingspakketten en verwijderen periodiek verouderde pakketten om de kosten kunt minimaliseren.
 > 
 > 
 
 ### <a name="view-current-applications"></a>De huidige toepassingen weergeven
-tooview hello toepassingen in uw Batch-account, klikt u op Hallo **toepassingen** menu-item in het menu aan de linkerkant Hallo terwijl u bekijkt hello **Batch-account** blade.
+U kunt de toepassingen in uw Batch-account op de **toepassingen** menu-item in het menu links tijdens weer te geven de **Batch-account** blade.
 
 ![Toepassingen-tegel][2]
 
-Met deze optie menu opent Hallo **toepassingen** blade:
+Met deze optie menu opent de **toepassingen** blade:
 
 ![Lijst met toepassingen][3]
 
-Hallo **toepassingen** blade geeft Hallo ID van elke toepassing in uw account en Hallo van de volgende eigenschappen:
+De **toepassingen** blade geeft de ID van elke toepassing in uw account en de volgende eigenschappen:
 
-* **Pakketten**: Hallo aantal versies die zijn gekoppeld aan deze toepassing.
-* **Standaardversie**: Hallo toepassingsversie geïnstalleerd als u niet een versie aangeven wanneer u Hallo-toepassing voor een groep opgeeft. Deze instelling is optioneel.
-* **Toestaan dat updates**: Hallo-waarde die aangeeft of het pakket updates, verwijderingen en toevoegingen zijn toegestaan. Als dit te is ingesteld**Nee**, pakket bijwerken en verwijderen voor de toepassing hello zijn uitgeschakeld. Alleen nieuwe toepassingspakketversies kunnen worden toegevoegd. Hallo standaardwaarde is **Ja**.
+* **Pakketten**: het aantal versies die zijn gekoppeld aan deze toepassing.
+* **Standaardversie**: de versie van de toepassing wordt geïnstalleerd als u niet een versie aangeven wanneer u de toepassing voor een groep opgeeft. Deze instelling is optioneel.
+* **Toestaan dat updates**: de waarde die aangeeft of het pakket updates, verwijderingen en toevoegingen zijn toegestaan. Als deze is ingesteld op **Nee**, pakket bijwerken en verwijderen zijn uitgeschakeld voor de toepassing. Alleen nieuwe toepassingspakketversies kunnen worden toegevoegd. De standaardwaarde is **Ja**.
 
 ### <a name="view-application-details"></a>Toepassingdetails weergeven
-tooopen hello blade met details voor een toepassing, selecteer Hallo-toepassing hello in Hallo **toepassingen** blade.
+Als de blade met de details voor een toepassing, schakelt u de toepassing in de **toepassingen** blade.
 
 ![App-details][4]
 
-Hallo toepassing details blade kunt u de volgende instellingen voor uw toepassing hello configureren.
+In de blade toepassing details kunt u de volgende instellingen configureren voor uw toepassing.
 
 * **Toestaan dat updates**: opgeven of de toepassingspakketten kunnen worden bijgewerkt of verwijderd. Zie 'Werken of te verwijderen van een toepassingspakket' verderop in dit artikel.
-* **Standaardversie**: een standaard application-pakket toodeploy toocompute-knooppunten opgeven.
-* **Weergavenaam**: Geef een beschrijvende naam die uw oplossing kunt gebruiken bij deze geeft informatie weer over toepassing hello, bijvoorbeeld in de gebruikersinterface van een service die u opgeeft dat klanten via Batch tooyour Hallo Batch.
+* **Standaardversie**: Geef een toepassingspakket standaard voor het implementeren van rekenknooppunten.
+* **Weergavenaam**: Geef een beschrijvende naam die uw Batch-oplossing gebruiken kunt wanneer er bijvoorbeeld informatie over de toepassing weergegeven in de gebruikersinterface van een service die u voor uw klanten via Batch opgeeft.
 
 ### <a name="add-a-new-application"></a>Een nieuwe toepassing toevoegen
-toocreate een nieuwe toepassing toevoegen van een toepassingspakket en geef een nieuwe, unieke toepassing-ID. Hallo eerste toepassingspakket dat u met de nieuwe toepassings-ID Hallo toevoegen maakt ook een nieuwe toepassing hello.
+Een nieuwe toepassing maken, toevoegen van een toepassingspakket en geef een nieuwe, unieke toepassing-ID. Het eerste toepassingspakket dat u met de nieuwe toepassings-ID toevoegen wordt ook de nieuwe toepassing gemaakt.
 
-Klik op **toevoegen** op Hallo **toepassingen** blade tooopen hello **nieuwe toepassing** blade.
+Klik op **toevoegen** op de **toepassingen** blade openen de **nieuwe toepassing** blade.
 
 ![Blade voor een nieuwe toepassing in Azure-portal][5]
 
-Hallo **nieuwe toepassing** blade biedt de volgende Hallo velden toospecify Hallo-instellingen van uw nieuwe toepassing en het application-pakket.
+De **nieuwe toepassing** blade biedt de volgende velden om op te geven van de instellingen van uw nieuwe toepassing en het application-pakket.
 
 **Toepassings-id**
 
-Dit veld bevat Hallo-ID van uw nieuwe toepassing, onderwerp toohello standaard Azure Batch-ID-validatieregels. Hallo-regels voor het ontwikkelen van een toepassings-ID zijn als volgt:
+Dit veld bevat de ID van uw nieuwe toepassing, onderworpen aan de standaardregels voor validatie van Azure Batch-ID is. De regels voor het ontwikkelen van een toepassings-ID zijn als volgt:
 
-* Op Windows-knooppunten kan Hallo-ID een combinatie van alfanumerieke tekens, afbreekstreepjes en onderstrepingstekens bevatten. Op Linux-knooppunten mogen alleen alfanumerieke tekens en onderstrepingstekens bevatten.
+* Op Windows-knooppunten, kan de ID een combinatie van alfanumerieke tekens, afbreekstreepjes en onderstrepingstekens bevatten. Op Linux-knooppunten mogen alleen alfanumerieke tekens en onderstrepingstekens bevatten.
 * Kan niet meer dan 64 tekens bevatten.
-* Moet uniek zijn binnen Hallo Batch-account.
+* Moet uniek zijn binnen het Batch-account.
 * Letters behouden blijven en hoofdlettergevoelig is.
 
 **Versie**
 
-Dit veld geeft Hallo-versie van Hallo-toepassingspakket die wordt geüpload. Versietekenreeksen zijn onderwerp toohello validatieregels te volgen:
+Dit veld geeft u de versie van het toepassingspakket dat u uploadt. Versietekenreeksen zijn onderworpen aan de volgende validatieregels:
 
-* Op Windows-knooppunten kan Hallo versietekenreeks een combinatie van alfanumerieke tekens, streepjes, onderstrepingstekens en punten bevatten. Op Linux-knooppunten mag Hallo versietekenreeks alleen alfanumerieke tekens en onderstrepingstekens bevatten.
+* Op Windows-knooppunten, kan de tekenreeks voor elke combinatie van alfanumerieke tekens, streepjes, onderstrepingstekens en punten bevatten. Op Linux-knooppunten mag de versietekenreeks alleen alfanumerieke tekens en onderstrepingstekens bevatten.
 * Kan niet meer dan 64 tekens bevatten.
-* Moet uniek zijn binnen het Hallo-toepassing.
+* Moet uniek zijn binnen de toepassing.
 * Letters behouden blijven en hoofdlettergevoelig zijn.
 
 **Application-pakket**
 
-Dit veld geeft Hallo ZIP-bestand met binaire waarden Hallo van toepassingen en ondersteunende bestanden die vereist tooexecute Hallo-toepassing zijn. Klik op Hallo **selecteert u een bestand** box of Hallo map pictogram toobrowse tooand Selecteer een ZIP-bestand met de bestanden van uw toepassing.
+Dit veld geeft de ZIP-bestand dat de binaire bestanden van de toepassing bevat en de ondersteunende bestanden die nodig zijn voor de toepassing uitvoeren. Klik op de **selecteert u een bestand** box of het pictogram van de map te bladeren naar en selecteer een ZIP-bestand met de bestanden van uw toepassing.
 
-Nadat u een bestand hebt geselecteerd, klikt u op **OK** toobegin Hallo uploaden tooAzure opslag. Wanneer Hallo uploaden voltooid is, wordt Hallo portal een melding weergegeven en wordt gesloten Hallo-blade. Deze bewerking kan enige tijd duren, afhankelijk van de grootte van de Hallo van Hallo-bestand dat u uploadt en Hallo snelheid van uw netwerkverbinding zijn.
+Nadat u een bestand hebt geselecteerd, klikt u op **OK** om te beginnen met het uploaden naar Azure Storage. Wanneer het uploaden voltooid is, wordt de portal een melding weergegeven en sluit u de blade. Deze bewerking kan enige tijd duren, afhankelijk van de grootte van het bestand dat u uploadt en de snelheid van uw netwerkverbinding.
 
 > [!WARNING]
-> Hallo niet sluiten **nieuwe toepassing** blade voordat Hallo uploaden voltooid is. In dat geval wordt het uploadproces Hallo gestopt.
+> Sluit niet de **nieuwe toepassing** blade voordat het uploaden voltooid is. In dat geval wordt het uploadproces gestopt.
 > 
 > 
 
 ### <a name="add-a-new-application-package"></a>Een nieuw toepassingspakket toevoegen
-een nieuwe Pakketversie voor de toepassing van een bestaande toepassing tooadd een toepassing selecteren in Hallo **toepassingen** blade, klikt u op **pakketten**, klikt u vervolgens op **toevoegen** tooopen Hallo **toevoegen pakket** blade.
+Selecteer een toepassing in om een nieuwe Pakketversie voor de toepassing van een bestaande toepassing toe de **toepassingen** blade, klikt u op **pakketten**, klikt u vervolgens op **toevoegen** openen de **Toevoegen pakket** blade.
 
 ![Toepassing pakket blade toevoegen in Azure-portal][8]
 
-Zoals u ziet, Hallo velden overeenkomen met de Hallo **nieuwe toepassing** blade, maar Hallo **toepassings-id** selectievakje is uitgeschakeld. Net als voor de nieuwe toepassing hello, geef Hallo **versie** bladeren voor het nieuwe pakket tooyour **toepassingspakket** ZIP-bestand en klik vervolgens op **OK** tooupload Hallo het pakket.
+Zoals u ziet de velden overeenkomen met die van de **nieuwe toepassing** blade, maar de **toepassings-id** selectievakje is uitgeschakeld. Net als voor de nieuwe toepassing, geef de **versie** voor het nieuwe pakket, blader naar uw **toepassingspakket** ZIP-bestand en klik vervolgens op **OK** voor het uploaden van het pakket.
 
 ### <a name="update-or-delete-an-application-package"></a>Bijwerken of verwijderen van een toepassingspakket
-tooupdate of verwijder een bestaande toepassingspakket, open Hallo details blade voor de toepassing hello, klikt u op **pakketten** tooopen hello **pakketten** blade, klikt u op Hallo **weglatingsteken**in de rij Hallo van Hallo toepassingspakket dat u toomodify wilt en Hallo-actie die u tooperform wilt selecteren.
+Als u wilt bijwerken of verwijderen van een bestaand toepassingspakket, open de blade met details voor de toepassing, klikt u op **pakketten** openen de **pakketten** blade, klikt u op de **weglatingsteken** in de rij van het toepassingspakket dat u wilt wijzigen, en selecteer de actie die u wilt uitvoeren.
 
 ![Bijwerken of verwijderen van pakket in Azure-portal][7]
 
 **Update**
 
-Wanneer u klikt op **Update**, Hallo *updatepakket* blade wordt weergegeven. Deze blade is vergelijkbaar toohello *nieuw toepassingspakket* blade echter alleen Hallo pakket selectie-veld is ingeschakeld, zodat u een nieuwe ZIP-bestand tooupload toospecify.
+Wanneer u klikt op **Update**, wordt de *updatepakket* blade wordt weergegeven. Deze blade is vergelijkbaar met de *nieuw toepassingspakket* blade echter alleen het veld pakket is ingeschakeld, zodat u kunt het opgeven van een nieuwe ZIP-bestand te uploaden.
 
 ![Blade voor update-pakket in Azure-portal][11]
 
 **Verwijderen**
 
-Wanneer u klikt op **verwijderen**tooconfirm Hallo verwijdering van de Pakketversie hello wordt u gevraagd en Batch Hallo pakket verwijderd uit Azure Storage. Als u de standaardversie Hallo van een toepassing verwijdert, Hallo **standaardversie** instelling voor de toepassing hello is verwijderd.
+Wanneer u klikt op **verwijderen**u wordt gevraagd om te bevestigen dat de verwijdering van de Pakketversie en Batch wordt het pakket verwijderd uit Azure Storage. Als u de standaardversie van een toepassing, verwijdert de **standaardversie** instelling voor de toepassing is verwijderd.
 
 ![Toepassing verwijderen][12]
 
 ## <a name="install-applications-on-compute-nodes"></a>Toepassingen installeren op rekenknooppunten
-Nu dat u hebt geleerd hoe toomanage toepassingspakketten Hello Azure-portal, bespreken we hoe toodeploy ze toocompute knooppunten en ze worden uitgevoerd met de Batch-taken.
+Nu dat u met de Azure portal-toepassingspakketten beheren hebt geleerd, kunt implementeren om de rekenknooppunten en ze worden uitgevoerd met Batch-taken besproken.
 
 ### <a name="install-pool-application-packages"></a>Toepassingspakketten voor toepassingen installeren
-tooinstall een toepassingspakket op alle rekenknooppunten in een pool, geeft u een of meer toepassingspakket *verwijzingen* voor Hallo van toepassingen. Hallo-toepassingspakketten die u voor een groep van toepassingen opgeeft zijn geïnstalleerd op elk rekenknooppunt wanneer dat knooppunt aan Hallo-pool wordt toegevoegd en wanneer het Hallo-knooppunt wordt opnieuw opgestart of hersteld met een installatiekopie.
+Geef een of meer toepassingspakket wilt installeren een toepassingspakket op alle rekenknooppunten in een pool, *verwijzingen* voor de pool. De toepassingspakketten die u voor een groep van toepassingen opgeeft zijn geïnstalleerd op elk rekenknooppunt wanneer dat knooppunt aan de pool wordt toegevoegd en wanneer het knooppunt is opnieuw opgestart of hersteld met een installatiekopie.
 
-Geef een of meer in Batch .NET [CloudPool][net_cloudpool].[ ApplicationPackageReferences] [ net_cloudpool_pkgref] wanneer u een nieuwe groep maakt of voor een bestaande toepassingen. Hallo [ApplicationPackageReference] [ net_pkgref] klasse geeft een toepassings-ID en versie tooinstall op een pool van rekenknooppunten.
+Geef een of meer in Batch .NET [CloudPool][net_cloudpool].[ ApplicationPackageReferences] [ net_cloudpool_pkgref] wanneer u een nieuwe groep maakt of voor een bestaande toepassingen. De [ApplicationPackageReference] [ net_pkgref] klasse wordt een toepassings-ID en versie te installeren op een pool van rekenknooppunten.
 
 ```csharp
-// Create hello unbound CloudPool
+// Create the unbound CloudPool
 CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(
         poolId: "myPool",
@@ -213,7 +213,7 @@ CloudPool myCloudPool =
         virtualMachineSize: "small",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
-// Specify hello application and version tooinstall on hello compute nodes
+// Specify the application and version to install on the compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 {
     new ApplicationPackageReference {
@@ -221,20 +221,20 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
         Version = "1.1001.2b" }
 };
 
-// Commit hello pool so that it's created in hello Batch service. As hello nodes join
-// hello pool, hello specified application package is installed on each.
+// Commit the pool so that it's created in the Batch service. As the nodes join
+// the pool, the specified application package is installed on each.
 await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Als de implementatie van een toepassing pakket om welke reden dan ook mislukt, Hallo Batch-service aanhalingstekens knooppunt Hallo [onbruikbaar][net_nodestate], en er zijn geen taken zijn gepland voor uitvoering op dat knooppunt. In dit geval moet u **opnieuw** Hallo knooppunt tooreinitiate Hallo pakketimplementatie. Opnieuw te starten Hallo knooppunt kan ook taakplanning opnieuw op Hallo-knooppunt.
+> Als de implementatie van een toepassing pakket om welke reden dan ook mislukt, de Batch-service het knooppunt markeert [onbruikbaar][net_nodestate], en er zijn geen taken zijn gepland voor uitvoering op dat knooppunt. In dit geval moet u **opnieuw** het knooppunt voor de pakketimplementatie van het opnieuw starten. Opnieuw opstarten van het knooppunt kan ook taakplanning opnieuw op het knooppunt.
 > 
 > 
 
 ### <a name="install-task-application-packages"></a>Taak toepassingspakketten installeren
-Vergelijkbare tooa groep, geef toepassingspakket *verwijzingen* voor een taak. Wanneer een taak geplande toorun op een knooppunt is, wordt Hallo pakket gedownload en uitgepakt vlak voordat de opdrachtregel van Hallo taak wordt uitgevoerd. Als u een specifiek pakket en de versie is al geïnstalleerd op Hallo-knooppunt, Hallo pakket wordt niet gedownload en Hallo bestaand pakket wordt gebruikt.
+Net als bij een groep kunt u opgeven toepassingspakket *verwijzingen* voor een taak. Wanneer een taak is gepland op een knooppunt worden uitgevoerd, wordt het pakket gedownload en uitgepakt vlak voordat de opdrachtregel van de taak wordt uitgevoerd. Als een opgegeven pakket en -versie is al geïnstalleerd op het knooppunt, wordt het pakket wordt niet gedownload en wordt het bestaande pakket wordt gebruikt.
 
-een toepassingspakket taak tooinstall configureren van de taak Hallo [CloudTask][net_cloudtask].[ ApplicationPackageReferences] [ net_cloudtask_pkgref] eigenschap:
+Configureren van de taak voor het installeren van een toepassingspakket taak [CloudTask][net_cloudtask].[ ApplicationPackageReferences] [ net_cloudtask_pkgref] eigenschap:
 
 ```csharp
 CloudTask task =
@@ -252,44 +252,44 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 };
 ```
 
-## <a name="execute-hello-installed-applications"></a>Hallo geïnstalleerd toepassingen uitvoeren
-hello-pakketten die u hebt opgegeven voor een groep of de taak zijn gedownload en uitgepakt tooa met de naam map binnen Hallo `AZ_BATCH_ROOT_DIR` van Hallo-knooppunt. Batch maakt ook een omgevingsvariabele die Hallo pad toohello map met de naam bevat. Uw taak opdrachtregels gebruikt deze omgevingsvariabele bij verwijzingen naar de toepassing hello op Hallo-knooppunt. 
+## <a name="execute-the-installed-applications"></a>De geïnstalleerde toepassingen uitvoeren
+De pakketten die u hebt opgegeven voor een groep of de taak worden gedownload en uitgepakt naar de map met een naam in de `AZ_BATCH_ROOT_DIR` van het knooppunt. Batch maakt ook een omgevingsvariabele die het pad naar de map met de naam bevat. Uw taak opdrachtregels gebruikt deze omgevingsvariabele bij verwijzingen naar de toepassing op het knooppunt. 
 
-Op Windows-knooppunten heeft Hallo variabele Hallo volgende indeling:
+De variabele is op Windows-knooppunten in de volgende indeling:
 
 ```
 Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Op Linux-knooppunten is Hallo indeling enigszins anders. Punten (.), afbreekstreepjes (-) en hekjes (#) zijn platte toounderscores in Hallo-omgevingsvariabele. Bijvoorbeeld:
+De indeling is enigszins verschillen op Linux-knooppunten. Punten (.), afbreekstreepjes (-) en hekjes (#) worden samengevoegd tot onderstrepingstekens in de omgevingsvariabele. Bijvoorbeeld:
 
 ```
 Linux:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID_version
 ```
 
-`APPLICATIONID`en `version` zijn waarden die overeenkomen met toohello toepassing en het Pakketversie u hebt opgegeven voor de implementatie. Bijvoorbeeld, als u die versie 2.7 van toepassing opgegeven *blender* moet worden geïnstalleerd op Windows-knooppunten, uw taak opdrachtregels gebruikt deze omgeving variabele tooaccess de bestanden:
+`APPLICATIONID`en `version` zijn waarden die overeenkomen met de toepassingen en pakketten versie die u hebt opgegeven voor de implementatie. Bijvoorbeeld, als u die versie 2.7 van toepassing opgegeven *blender* moet worden geïnstalleerd op Windows-knooppunten zou uw taak opdrachtregels deze omgevingsvariabele gebruiken voor toegang tot de bestanden:
 
 ```
 Windows:
 AZ_BATCH_APP_PACKAGE_BLENDER#2.7
 ```
 
-Geef op Linux-knooppunten Hallo omgevingsvariabele in deze indeling:
+Geef op Linux-knooppunten, de omgevingsvariabele in deze indeling:
 
 ```
 Linux:
 AZ_BATCH_APP_PACKAGE_BLENDER_2_7
 ``` 
 
-Wanneer u toepassingspakketten uploadt, geeft u een standaard versie toodeploy tooyour rekenknooppunten. Als u een standaardversie voor een toepassing hebt opgegeven, kunt u Hallo versieachtervoegsel weglaten wanneer u verwijst naar de toepassing hello. Kunt u de standaardversie toepassing hello opgeven in hello Azure-portal op de blade Hallo toepassingen, zoals wordt weergegeven in [uploaden en beheren van toepassingen](#upload-and-manage-applications).
+Wanneer u toepassingspakketten uploadt, kunt u een standaardversie voor het implementeren van uw rekenknooppunten. Als u een standaardversie voor een toepassing hebt opgegeven, kunt u het versieachtervoegsel weglaten wanneer u verwijst naar de toepassing. Geef de versie van de toepassing standaard in de Azure-portal op de blade toepassingen, zoals wordt weergegeven in [uploaden en beheren van toepassingen](#upload-and-manage-applications).
 
-Als u '2.7' ingesteld als de standaardversie Hallo voor toepassing bijvoorbeeld *blender*, en uw taken verwijzen naar Hallo volgende omgevingsvariabele, en vervolgens uw Windows-knooppunten versie 2.7 wordt uitgevoerd:
+Als u '2.7' instellen als de standaardversie voor toepassing bijvoorbeeld *blender*, en uw taken verwijzen naar de volgende omgevingsvariabele, en vervolgens uw Windows-knooppunten versie 2.7 wordt uitgevoerd:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
-Hallo volgende codefragment toont een voorbeeld van de taak vanaf de opdrachtregel waarmee wordt gestart Hallo standaardversie van Hallo *blender* toepassing:
+Het volgende codefragment toont een voorbeeld van de taak vanaf de opdrachtregel die wordt gestart van de standaardversie van de *blender* toepassing:
 
 ```csharp
 string taskId = "blendertask01";
@@ -299,18 +299,18 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 > [!TIP]
-> Zie [omgevingsinstellingen voor taken](batch-api-basics.md#environment-settings-for-tasks) in Hallo [overzicht Batch-functies](batch-api-basics.md) voor meer informatie over omgevingsinstellingen compute-knooppunt.
+> Zie [omgevingsinstellingen voor taken](batch-api-basics.md#environment-settings-for-tasks) in de [overzicht Batch-functies](batch-api-basics.md) voor meer informatie over omgevingsinstellingen compute-knooppunt.
 > 
 > 
 
 ## <a name="update-a-pools-application-packages"></a>De toepassingspakketten van een groep bijwerken
-Als een bestaande pool al is geconfigureerd met een pakket, kunt u een nieuw pakket voor Hallo van toepassingen opgeven. Als u een nieuw pakket verwijzing voor een groep opgeeft, wordt de volgende Hallo toepassen:
+Als een bestaande pool al is geconfigureerd met een pakket, kunt u een nieuw pakket voor de pool opgeven. Als u een nieuw pakket verwijzing voor een groep, de volgende van toepassing opgeven:
 
-* Hallo Batch-service installeert Hallo zojuist opgegeven pakket op alle nieuwe knooppunten die Hallo adresgroep toevoegen en op een bestaande knooppunt dat is opnieuw opgestart of hersteld met een installatiekopie.
-* COMPUTE knooppunten die al in de groep Hallo tijdens het bijwerken van Hallo pakket met verwijzingen niet automatisch nieuwe toepassingspakket Hallo geïnstalleerd. Deze berekenen knooppunten moeten opnieuw worden opgestart of hersteld met een installatiekopie tooreceive Hallo nieuw pakket.
-* Wanneer een nieuw pakket wordt geïmplementeerd, weerspiegelen Hallo omgevingsvariabelen gemaakt Hallo nieuwe toepassing pakket verwijzingen.
+* De Batch-service installeert het zojuist opgegeven pakket op alle nieuwe knooppunten die aan de pool worden toegevoegd en op een bestaande knooppunt dat is opnieuw opgestart of hersteld met een installatiekopie.
+* COMPUTE knooppunten die zich al in de groep tijdens het bijwerken van het pakket verwijst naar het nieuwe toepassingspakket niet automatisch installeert. Deze berekenen knooppunten moeten worden opgestart of hersteld met een installatiekopie voor het ontvangen van het nieuwe pakket.
+* Wanneer een nieuw pakket wordt geïmplementeerd, weerspiegelen de gemaakte omgevingsvariabelen in de nieuwe toepassing pakket verwijzingen.
 
-In dit voorbeeld heeft Hallo bestaande toepassingen versie 2.7 Hallo *blender* toepassing geconfigureerd als een van de [CloudPool][net_cloudpool].[ ApplicationPackageReferences][net_cloudpool_pkgref]. tooupdate hello groep knooppunten met versie 2.76b, Geef een nieuwe [ApplicationPackageReference] [ net_pkgref] met de nieuwe versie Hallo en doorvoeren Hallo wijzigen.
+In dit voorbeeld is de bestaande toepassingen versie 2.7 van de *blender* toepassing geconfigureerd als een van de [CloudPool][net_cloudpool].[ ApplicationPackageReferences][net_cloudpool_pkgref]. Voor het bijwerken van de pool knooppunten met versie 2.76b, Geef een nieuwe [ApplicationPackageReference] [ net_pkgref] met de nieuwe versie en de wijziging doorvoeren.
 
 ```csharp
 string newVersion = "2.76b";
@@ -324,13 +324,13 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Nu dat hello nieuwe versie is geconfigureerd, Hallo Batch-service wordt geïnstalleerd versie 2.76b tooany *nieuwe* knooppunt dat aan Hallo-pool wordt toegevoegd. tooinstall 2.76b op Hallo knooppunten die zijn *al* in de groep hello, opnieuw opstarten of deze installatiekopie. Houd er rekening mee dat opnieuw opgestart knooppunten Hallo-bestanden van eerdere implementaties van het pakket behouden.
+Nu dat de nieuwe versie is geconfigureerd, de Batch-service in een versie 2.76b geïnstalleerd *nieuwe* knooppunt dat aan de pool wordt toegevoegd. 2.76b installeren op de knooppunten die *al* starten in de groep of deze installatiekopie. Houd er rekening mee dat opnieuw opgestart knooppunten de bestanden van eerdere implementaties van het pakket behoudt.
 
-## <a name="list-hello-applications-in-a-batch-account"></a>Lijst Hallo toepassingen in een Batch-account
-U kunt Hallo toepassingen en hun pakketten in een Batch-account weergeven met behulp van Hallo [ApplicationOperations][net_appops].[ ListApplicationSummaries] [ net_appops_listappsummaries] methode.
+## <a name="list-the-applications-in-a-batch-account"></a>Lijst van de toepassingen in een Batch-account
+U kunt de toepassingen en hun pakketten in een Batch-account weergeven met behulp van de [ApplicationOperations][net_appops].[ ListApplicationSummaries] [ net_appops_listappsummaries] methode.
 
 ```csharp
-// List hello applications and their application packages in hello Batch account.
+// List the applications and their application packages in the Batch account.
 List<ApplicationSummary> applications = await batchClient.ApplicationOperations.ListApplicationSummaries().ToListAsync();
 foreach (ApplicationSummary app in applications)
 {
@@ -344,11 +344,11 @@ foreach (ApplicationSummary app in applications)
 ```
 
 ## <a name="wrap-up"></a>Inpakken
-Met toepassingspakketten kunt u uw klanten Hallo-toepassingen voor hun werk selecteert en Hallo exacte versie toouse opgeven bij het verwerken van taken met de service Batch is ingeschakeld. U kunt ook Hallo mogelijkheid bieden voor uw klanten tooupload en hun eigen toepassingen in uw service bijhouden.
+Met toepassingspakketten kunt u uw klanten, selecteer de toepassingen voor hun taken en geef de exacte versie moet worden gebruikt bij het verwerken van taken met de service Batch is ingeschakeld. U kunt ook de mogelijkheid voor uw klanten om te uploaden en bijhouden van hun eigen toepassingen in uw service opgeven.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Hallo [Batch REST-API] [ api_rest] biedt ook ondersteuning toowork toepassingspakketten. Zie bijvoorbeeld Hallo [applicationPackageReferences] [ rest_add_pool_with_packages] -element in [toevoegen van een account voor toepassingsgroep tooan] [ rest_add_pool] voor informatie over het toospecify tooinstall met behulp van REST-API hello-pakketten. Zie [toepassingen] [ rest_applications] voor meer informatie over hoe de toepassingsinformatie tooobtain met behulp van Batch REST-API Hallo.
-* Meer informatie over hoe tooprogrammatically [beheren van Azure Batch-accounts en quota's met Batch Management .NET](batch-management-dotnet.md). Hallo [Batch Management .NET][api_net_mgmt] bibliotheek account maken en verwijderen-functies voor uw Batch-toepassing of service kunt inschakelen.
+* De [Batch REST-API] [ api_rest] biedt ook ondersteuning voor gebruik met toepassingspakketten. Zie bijvoorbeeld de [applicationPackageReferences] [ rest_add_pool_with_packages] -element in [een groep toevoegen aan een account] [ rest_add_pool] voor informatie over het opgeven pakketten installeren met behulp van de REST-API. Zie [toepassingen] [ rest_applications] voor meer informatie over het verkrijgen van informatie over toepassingen met behulp van de Batch REST-API.
+* Meer informatie over hoe u programmatisch [beheren van Azure Batch-accounts en quota's met Batch Management .NET](batch-management-dotnet.md). De [Batch Management .NET][api_net_mgmt] bibliotheek account maken en verwijderen-functies voor uw Batch-toepassing of service kunt inschakelen.
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet
 [api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet

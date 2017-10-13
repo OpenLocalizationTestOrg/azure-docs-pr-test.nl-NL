@@ -2,7 +2,7 @@
 # Snelstartgidsen
 ## [OpenShift: communitysjabloon](https://azure.microsoft.com/en-us/resources/templates/openshift-origin-rhel/)
 # Zelfstudies
-## [TooAzure virtuele machines implementeren](/azure/virtual-machines/linux/openshift-get-started)
+## [Implementeren in Azure-VM's](/azure/virtual-machines/linux/openshift-get-started)
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [OpenShift Container-sjabloon](https://github.com/Microsoft/openshift-container-platform)

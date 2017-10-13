@@ -1,6 +1,6 @@
 ---
-title: de portal sneltoetsen aaaAzure | Microsoft Docs
-description: Meer informatie over Hallo sneltoetsen die in hello Azure-portal werken.
+title: Azure portal sneltoetsen | Microsoft Docs
+description: Meer informatie over de sneltoetsen die in de Azure-portal werken.
 services: azure-portal
 documentationcenter: 
 author: flanakin
@@ -15,35 +15,35 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: 7d0130e1d7175cef07038bef0a4c47a4c1291050
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d5f837d0017ca885144b91d35f489a6fc0e5670e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="keyboard-shortcuts-in-hello-azure-portal"></a>Sneltoetsen in hello Azure-portal
-In dit artikel vindt u sneltoetsen Hallo die in de gehele hello Azure-portal werken. Afzonderlijke services kunnen hun eigen sneltoetsen hebben.
+# <a name="keyboard-shortcuts-in-the-azure-portal"></a>Sneltoetsen in de Azure portal
+Dit artikel ziet de sneltoetsen die in de Azure-portal werken. Afzonderlijke services kunnen hun eigen sneltoetsen hebben.
 
 ## <a name="actions"></a>Acties
-|toodo dit |Druk op |
+|Om dit te doen |Druk op |
 | --- | --- |
 |Maak een nieuwe resource|G + N|
-|Open Hallo 'Wordt meer services' deelvenster|G + B|
+|Open het deelvenster 'Meer services'|G + B|
 |Zoeken in resources|G +/| 
 |Zoeken resource menu-items|CTRL +/ |
-|Hallo geselecteerde linkerdeelvenster item omhoog verplaatsen |ALT + Shift + pijl-omhoog|
-|Hallo geselecteerde linkerdeelvenster item omlaag verplaatsen |ALT + Shift + pijl-omlaag|
+|Het geselecteerde linkerdeelvenster item omhoog verplaatsen |ALT + Shift + pijl-omhoog|
+|Het geselecteerde linkerdeelvenster item omlaag verplaatsen |ALT + Shift + pijl-omlaag|
 
 ## <a name="navigation"></a>Navigatie
-|toodo dit |Druk op |
+|Om dit te doen |Druk op |
 | --- | --- |
-|Focus toocommand balk verplaatsen |G + |
+|Focus naar opdrachtbalk verplaatsen |G + |
 |De focus schakelen tussen de bovenste balk en de zijbalk | G +. |
 
 ## <a name="go-to"></a>Ga naar
-|toodo dit |Druk op |
+|Om dit te doen |Druk op |
 | --- | --- |
-|Ga toodashboard |G + D |
-|Ga tooall resources|G + A |
-|Ga tooresource groepen|G + R |
-|Open Hallo linkerdeelvenster item op deze positie |G + nummer|
+|Ga naar het dashboard |G + D |
+|Ga naar Alle resources|G + A |
+|Ga naar Resourcegroepen|G + R |
+|Open het item van het linkerdeelvenster op deze positie |G + nummer|

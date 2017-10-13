@@ -1,6 +1,6 @@
 ---
-title: aaaSet van een ontwikkelomgeving voor Azure microservices | Microsoft Docs
-description: Installeer Hallo runtime, SDK en hulpprogramma's en maak een lokaal ontwikkelcluster. Na het voltooien van deze installatie, kunt u zich gereed toobuild toepassingen.
+title: Een Windows-ontwikkelomgeving voor Azure-microservices instellen | Microsoft Docs
+description: Installeer de runtime, SDK en hulpprogramma's en maak een lokaal ontwikkelcluster. Zodra u dit hebt gedaan, kunt u toepassingen bouwen in Windows.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2017
+ms.date: 09/25/2017
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 9b0442778999d4c3d2b99adb98f6596dcbdc36d3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 0691f26168feacf290b732afd7dfd680a2537179
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="prepare-your-development-environment"></a>Uw ontwikkelomgeving voorbereiden
+# <a name="prepare-your-development-environment-on-windows"></a>Uw ontwikkelomgeving voorbereiden in Windows
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -28,11 +28,11 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
- toobuild en voer [Azure Service Fabric-toepassingen] [ 1] installeren op uw ontwikkelcomputer Hallo runtime, SDK en hulpprogramma's. U moet ook tooenable uitvoering van Windows PowerShell-scripts Hallo opgenomen in Hallo SDK.
+ Als u [Azure Service Fabric-toepassingen][1] wilt bouwen en uitvoeren op een Windows-ontwikkelmachine, moet u de runtime, SDK en hulpprogramma's installeren. U moet er ook voor zorgen dat de Windows PowerShell-scripts die in de SDK zijn opgenomen, kunnen worden uitgevoerd.
 
 ## <a name="prerequisites"></a>Vereisten
 ### <a name="supported-operating-system-versions"></a>Ondersteunde versies van besturingssystemen
-Hallo volgende versies van besturingssystemen worden ondersteund voor ontwikkeling:
+De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeling:
 
 * Windows 7
 * Windows 8/Windows 8.1
@@ -41,37 +41,37 @@ Hallo volgende versies van besturingssystemen worden ondersteund voor ontwikkeli
 * Windows 10
 
 > [!NOTE]
-> Windows 7 bevat standaard alleen Windows PowerShell 2.0. Voor Service Fabric PowerShell-cmdlets is PowerShell 3.0 of hoger vereist. U kunt [Windows PowerShell 5.0 downloaden] [ powershell5-download] van Hallo Microsoft Download Center.
+> Windows 7 bevat standaard alleen Windows PowerShell 2.0. Voor Service Fabric PowerShell-cmdlets is PowerShell 3.0 of hoger vereist. U kunt [Windows PowerShell 5.0 downloaden][powershell5-download] via het Microsoft Downloadcentrum.
 > 
 > 
 
-## <a name="install-hello-sdk-and-tools"></a>Hallo SDK en hulpprogramma's installeren
-### <a name="toouse-visual-studio-2017"></a>Visual Studio 2017 toouse
-Service Fabric-programma's maken deel uit van de Azure-ontwikkeling en het beheer werkbelasting Hallo in Visual Studio 2017. Schakel deze workload in als onderdeel van de Visual Studio-installatie.
-Bovendien moet u tooinstall Hallo Microsoft Azure Service Fabric SDK, met behulp van Web Platform Installer.
+## <a name="install-the-sdk-and-tools"></a>De SDK en hulpprogramma's installeren
+### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017 gebruiken
+De hulpprogramma's voor Service Fabric vormen een onderdeel van de Azure-workload voor ontwikkeling en beheer in Visual Studio 2017. Schakel deze workload in als onderdeel van de Visual Studio-installatie.
+Bovendien moet u de Microsoft Azure Service Fabric SDK installeren met behulp van het webplatforminstallatieprogramma.
 
-* [Hallo Microsoft Azure Service Fabric SDK installeren][core-sdk]
+* [Microsoft Azure Service Fabric SDK installeren][core-sdk]
 
-### <a name="toouse-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>toouse Visual Studio 2015 (Visual Studio 2015 Update 2 of hoger vereist)
-Service Fabric-hulpprogramma's zijn voor Visual Studio 2015 geïnstalleerd samen met de Hallo SDK, met behulp van Hallo Web Platform Installer:
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Visual Studio 2015 gebruiken (hiervoor is Visual Studio 2015 Update 2 of later vereist)
+Hulpprogramma's voor Service Fabric worden in Visual Studio 2015 geïnstalleerd samen met de SDK met behulp van het webplatforminstallatieprogramma:
 
-* [Hallo Microsoft Azure Service Fabric SDK en hulpprogramma's installeren][full-bundle-vs2015]
+* [De SDK en hulpprogramma's voor Microsoft Azure Service Fabric installeren][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>Alleen SDK-installatie
-Als u alleen Hallo SDK hoeft, kunt u dit pakket installeren:
-* [Hallo Microsoft Azure Service Fabric SDK installeren][core-sdk]
+Als u alleen de SDK nodig hebt, kunt u dit pakket installeren:
+* [Microsoft Azure Service Fabric SDK installeren][core-sdk]
 
-Hallo huidige versies zijn:
-* Service Fabric SDK 2.7.198
-* Service Fabric runtime 5.7.198
+De huidige versies zijn:
+* Service Fabric SDK 2.8.211
+* Service Fabric Runtime 6.0.211
 * Service Fabric Tools voor Visual Studio 2015 1.7.50721
-* Visual Studio 2017 Update 2 bevat Service Fabric Tools voor Visual Studio 1.6.20170504
-* Visual Studio 2017 Update 3 Preview 7 (15.3.0 Preview 7.0) bevat Service Fabric Tools voor Visual Studio 1.7.20170721
+* Visual Studio 2017 Update 3 bevat Service Fabric Tools voor Visual Studio 1.7.20170817
+* Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) bevat Service Fabric Tools voor Visual Studio 1.7.20170721
 
 Zie [Ondersteuning voor Service Fabric](service-fabric-support.md) voor een lijst met ondersteunde versies.
 
 ## <a name="enable-powershell-script-execution"></a>Uitvoering van PowerShell-script inschakelen
-Service Fabric gebruikt Windows PowerShell-scripts om een lokaal ontwikkelcluster te maken en om toepassingen vanuit Visual Studio te implementeren. Standaard worden deze scripts door Windows geblokkeerd zodat ze niet worden uitgevoerd. tooenable ze, moet u uw PowerShell-uitvoeringsbeleid wijzigen. Open PowerShell als beheerder en voert u Hallo volgende opdracht:
+Service Fabric gebruikt Windows PowerShell-scripts om een lokaal ontwikkelcluster te maken en om toepassingen vanuit Visual Studio te implementeren. Standaard worden deze scripts door Windows geblokkeerd zodat ze niet worden uitgevoerd. Als u ze wilt inschakelen, moet u het PowerShell-uitvoeringsbeleid wijzigen. Open PowerShell als een beheerder en voer de volgende opdracht in:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
@@ -81,11 +81,11 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 Nu u uw ontwikkelingsomgeving hebt ingesteld, kunt u apps ontwikkelen en uitvoeren.
 
 * [Uw eerste Service Fabric-toepassing in Visual Studio maken](service-fabric-create-your-first-application-in-visual-studio.md)
-* [Meer informatie over hoe toodeploy en beheren van toepassingen op uw lokale cluster](service-fabric-get-started-with-a-local-cluster.md)
-* [Meer informatie over Hallo programming modellen: Reliable Services en Reliable Actors](service-fabric-choose-framework.md)
-* [Bekijk Hallo Service Fabric-codevoorbeelden op GitHub](https://aka.ms/servicefabricsamples)
+* [Meer informatie over het implementeren en beheren van toepassingen op uw lokale cluster](service-fabric-get-started-with-a-local-cluster.md)
+* [Meer informatie over de programmeermodellen: Reliable Services en Reliable Actors](service-fabric-choose-framework.md)
+* [Voorbeelden van Service Fabric-code op GitHub bekijken](https://aka.ms/servicefabricsamples)
 * [Uw cluster visualiseren door gebruik te maken van Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
-* [Ga als volgt Hallo Service Fabric learning pad tooget een brede inleiding toohello platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+* [Het leertraject voor Service Fabric volgen voor een brede inleiding tot het platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * Meer informatie over [ondersteuningsopties voor Service Fabric](service-fabric-support.md)
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric-campagnepagina"

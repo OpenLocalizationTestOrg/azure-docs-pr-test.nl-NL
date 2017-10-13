@@ -1,6 +1,6 @@
 ---
-title: een Azure Analysis Services-server met behulp van PowerShell aaaCreate | Microsoft Docs
-description: Meer informatie over hoe toocreate een Azure Analysis Services-server met behulp van PowerShell
+title: Een Azure Analysis Services-server maken met behulp van PowerShell | Microsoft Docs
+description: Leer hoe u een Azure Analysis Services-server maakt met behulp van PowerShell
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,37 +15,37 @@ ms.topic: hero-article
 ms.date: 08/01/2017
 ms.author: owend
 ms.custom: mvc
-ms.openlocfilehash: 269b78983410f773d47c4cea34d6d353b19f9e91
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: cb42fd3ed51364cf478848cc51ebbb2f175e96d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>Een Azure Analysis Services-server maken met behulp van PowerShell
 
-Deze snelstartgids wordt beschreven met behulp van PowerShell van Hallo opdrachtregel toocreate een Azure Analysis Services-server in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) in uw Azure-abonnement.
+In deze snelstartgids wordt beschreven hoe u PowerShell in de opdrachtregel kunt gebruiken om een Azure Analysis Services-server te maken in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) in uw Azure-abonnement.
 
-Voor deze taak is Azure PowerShell-moduleversie 4.0 of hoger vereist. toofind hello versie, voer ` Get-Module -ListAvailable AzureRM`. tooinstall upgraden, raadpleegt u [Installeer Azure PowerShell-module](/powershell/azure/install-azurerm-ps). 
+Voor deze taak is Azure PowerShell-moduleversie 4.0 of hoger vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Zie [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps) om de module te installeren of te upgraden. 
 
 > [!NOTE]
-> Het maken van een server kan zorgen voor een nieuwe factureerbare service. toolearn meer, Zie [Analysis Services-prijzen](https://azure.microsoft.com/pricing/details/analysis-services/).
+> Het maken van een server kan zorgen voor een nieuwe factureerbare service. Zie [Prijzen van Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
-toocomplete deze snelstartgids die u nodig:
+U hebt het volgende nodig om deze snelstartgids te voltooien:
 
-* **Azure-abonnement**: Ga naar [gratis proefversie van Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) toocreate een account.
-* **Azure Active Directory**: uw abonnement moet worden gekoppeld aan een Azure Active Directory-tenant en u moet een account hebben in de betreffende map. toolearn meer, Zie [verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).
+* **Azure-abonnement**: ga naar [gratis proefversie van Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) om een account te maken.
+* **Azure Active Directory**: uw abonnement moet worden gekoppeld aan een Azure Active Directory-tenant en u moet een account hebben in de betreffende map. Raadpleeg voor meer informatie [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md).
 
 ## <a name="import-azurermanalysisservices-module"></a>AzureRm.AnalysisServices-module importeren
-een server in uw abonnement toocreate, gebruikt u Hallo [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) onderdeel module. Hallo AzureRm.AnalysisServices module in uw PowerShell-sessie laden.
+U gebruikt de  [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)-module om een server in het abonnement te maken. Laad de AzureRm.AnalysisServices-module in de PowerShell-sessie.
 
 ```powershell
 Import-Module AzureRM.AnalysisServices
 ```
 
-## <a name="sign-in-tooazure"></a>Meld u aan tooAzure
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Azure-abonnement tooyour aanmelden via Hallo [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) opdracht. Volg Hallo op het scherm-instructies.
+Meld u aan bij uw Azure-abonnement met behulp van de opdracht [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount). Volg de aanwijzingen op het scherm.
 
 ```powershell
 Add-AzureRmAccount
@@ -53,7 +53,7 @@ Add-AzureRmAccount
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
  
-Een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) is een logische container waarin Azure-resources worden geïmplementeerd en als groep beheerd. Wanneer u de server maakt, moet u een resourcegroep opgeven in uw abonnement. Als u nog geen een resourcegroep, kunt u een nieuwe met behulp van Hallo [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) opdracht. Hallo volgende voorbeeld maakt u een resourcegroep met de naam `myResourceGroup` in de regio VS-West Hallo.
+Een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) is een logische container waarin Azure-resources worden geïmplementeerd en als groep beheerd. Wanneer u de server maakt, moet u een resourcegroep opgeven in uw abonnement. Als u nog geen resourcegroep hebt, maakt u een nieuwe met behulp van de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt in de regio VS - West.
 
 ```powershell
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
 
 ## <a name="create-a-server"></a>Een server maken
 
-Maak een nieuwe server met behulp van Hallo [nieuw AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) opdracht. Hallo volgende voorbeeld maakt u een server met de naam MijnServer in myResourceGroup in Hallo VS-West regio op Hallo D1 laag, en geeft philipc@adventureworks.com als serverbeheerder.
+Maak een nieuwe server met behulp van de opdracht [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver). In het volgende voorbeeld wordt een server met de naam myServer gemaakt in myResourceGroup, in de regio VS - West, in de laag D1, en wordt philipc@adventureworks.com opgegeven als serverbeheerder.
 
 ```powershell
 New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location West US -Sku D1 -Administrator "philipc@adventure-works.com"
@@ -69,7 +69,7 @@ New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "my
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt Hallo server verwijderen uit uw abonnement via Hallo [verwijderen AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) opdracht. Verwijder de server niet als u met andere snelstartgidsen en zelfstudies in deze verzameling doorgaat. Hallo verwijdert volgende voorbeeld Hallo-server in de vorige stap Hallo gemaakt.
+U kunt de server uit het abonnement verwijderen met behulp van de opdracht [Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver). Verwijder de server niet als u met andere snelstartgidsen en zelfstudies in deze verzameling doorgaat. In het volgende voorbeeld wordt de server die u in de vorige stap hebt gemaakt, verwijderd.
 
 
 ```powershell

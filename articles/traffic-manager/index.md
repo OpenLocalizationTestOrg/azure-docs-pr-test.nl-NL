@@ -1,8 +1,8 @@
 ---
-title: aaaAzure Traffic Manager-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toomanage binnenkomend verkeer voor optimale toepassingsprestaties. Documentatie ziet u hoe toodistribute verkeer tooAzure of externe service-eindpunten.
+title: Documentatie voor Azure Traffic Manager - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over het beheren van inkomend verkeer voor optimale toepassingsprestaties. Documentatie laat zien hoe u verkeer naar Azure of externe service-eindpunten distribueert.
 services: traffic-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: bb547f220186c8db9020bcd61a7e4c4d47838107
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 10e7e7c95dc0dd614c7c01581cb746f1e854a9e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="traffic-manager-documentation"></a>Documentatie over Traffic Manager
 
-Meer informatie over hoe toouse Traffic Manager tooroute binnenkomend verkeer voor optimale toepassingsprestaties en betrouwbaarheid. Zelfstudies, API-referenties en andere documentatie die laten zien hoe toomanage verkeer tooAzure of externe service-eindpunten.
+Meer informatie over hoe u Traffic Manager gebruikt om inkomend verkeer te routeren voor optimale toepassingsprestaties en -betrouwbaarheid. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u verkeer naar Azure of externe service-eindpunten kunt beheren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Meer informatie over hoe toouse Traffic Manager tooroute binnenkomend verkeer vo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag hello Azure-portal met Traffic Manager-eindpunten beheren</h3>
+                        <h3>Traffic Manager-eindpunten beheren met behulp van Azure Portal</h3>
                     </div>
                 </div>
             </div>

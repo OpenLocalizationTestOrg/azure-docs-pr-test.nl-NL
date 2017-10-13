@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Concur | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en Concur.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Concur.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,110 +13,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 13ba364af26a5ce0f1d2b51aaa0f84a4c353b107
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cd35b6e2dc3171e9cffdb820bbc5b0d45ff58e07
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-concur-for-user-provisioning"></a>Zelfstudie: Configureren voor gebruikers inrichten instemming
 
-Hallo-doel van deze zelfstudie is tooshow u stappen die u moet tooperform in Concur en Azure AD tooautomatically leveren en intrekken gebruikersaccounts vanuit Azure AD tooConcur Hallo.
+Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in Concur en Azure AD wilt om automatisch in te richten en inrichten van gebruikersaccounts vanuit Azure AD naar Concur ongedaan.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Hallo scenario beschreven in deze zelfstudie wordt ervan uitgegaan dat u al hebt Hallo volgende items:
+Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
 *   Een Azure Active directory-tenant.
 *   Een Concur eenmalige aanmelding ingeschakeld abonnement.
 *   Een gebruikersaccount in Concur met beheerdersmachtigingen Team.
 
-## <a name="assigning-users-tooconcur"></a>Gebruikers tooConcur toewijzen
+## <a name="assigning-users-to-concur"></a>Gebruikers toewijzen aan Concur
 
-Azure Active Directory gebruikt een concept 'toewijzingen' toodetermine welke gebruikers toegang tooselected apps krijgen genoemd. In de context van de Hallo van automatische gebruikers account inrichten, alleen Hallo-gebruikers en groepen die '' tooan toepassing in Azure AD toegewezen zijn gesynchroniseerd.
+Azure Active Directory gebruikt een concept 'toewijzingen' genoemd om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van automatische gebruikers account inrichten, alleen de gebruikers en groepen die '' tot een toepassing in Azure AD toegewezen zijn gesynchroniseerd.
 
-Voordat u configureren en inschakelen van Hallo-service inricht, moet u toodecide welke gebruikers en/of groepen in Azure AD vertegenwoordigen Hallo-gebruikers die toegang moeten hebben tot tooyour Concur app. Als besloten, kunt u deze app-gebruikers tooyour Concur toewijzen door hier Hallo-instructies te volgen:
+Voordat u configureren en inschakelen van de inrichting service, moet u om te bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang tot uw app Concur nodig hebben. Als besloten, kunt u deze gebruikers toewijzen aan uw app Concur door de volgende instructies te volgen:
 
-[Toewijzen van een gebruiker of groep tooan enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-tooconcur"></a>Belangrijke tips voor het toewijzen van gebruikers tooConcur
+### <a name="important-tips-for-assigning-users-to-concur"></a>Belangrijke tips voor het toewijzen van gebruikers aan Concur
 
-*   Het is raadzaam om één Azure AD-gebruiker tooConcur tootest Hallo inrichting configuratie worden toegewezen. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+*   Het is raadzaam om één Azure AD-gebruiker worden toegewezen aan Concur voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-*   Wanneer u een gebruiker tooConcur toewijst, moet u een geldige gebruikersrol. Hallo 'Default toegang' rol werkt niet voor het inrichten.
+*   Wanneer een gebruiker aan Concur toewijzen, moet u een geldige gebruikersrol selecteren. De rol 'Default toegang' werkt niet voor het inrichten.
 
 ## <a name="enable-user-provisioning"></a>Gebruikersinrichting inschakelen
 
-Deze sectie helpt u bij het verbinden van uw Azure AD-tooConcur gebruikersaccount inrichten API en Hallo service toocreate inrichting configureren, bijwerken en uitschakelen toegewezen gebruikersaccounts in Concur op basis van gebruikers en groepen toewijzen in Azure AD.
+Deze sectie helpt u bij het verbinding maken met uw Azure AD Concur van gebruikersaccount inrichten API en configureren van de inrichting service te maken, bijwerken en uitschakelen van toegewezen gebruikersaccounts in Concur op basis van gebruikers en groepen toewijzen in Azure AD.
 
 > [!Tip] 
-> U kunt ook tooenabled op basis van SAML eenmalige aanmelding voor Concur, in het Hallo-instructies te volgen [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
+> U kunt ook op basis van SAML eenmalige aanmelding is ingeschakeld voor Concur, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
 
-### <a name="tooconfigure-user-account-provisioning"></a>tooconfigure account gebruikersaanvragen:
+### <a name="to-configure-user-account-provisioning"></a>Configureren voor het inrichten van het account:
 
-Hallo-doel van deze sectie is het toooutline hoe tooConcur tooenable het inrichten van Active Directory-gebruiker accounts.
+Het doel van deze sectie is het inschakelen van de inrichting van Active Directory-gebruikersaccounts met Concur overzicht.
 
-tooenable toepassingen in de Service onkosten Hallo, er is de juiste instelling toobe en het gebruik van een profiel voor een Web-servicebeheerder. Voeg niet Hallo WS Admin rol tooyour bestaande beheerdersprofiel dat u voor T & en beheerfuncties gebruikt.
+Heeft zodat apps in de Service onkosten, er moet een juiste installatie en het gebruik van een profiel voor een Web-servicebeheerder. Voeg de WS-beheerrol niet aan uw bestaande administrator-profiel dat u voor T & en beheerfuncties gebruikt.
 
-Instemming adviseurs of Hallo client beheerder moet een afzonderlijke Service webbeheerder-profiel maken en Hallo Client administrator moet dit profiel gebruiken voor Hallo Web Services-beheerder functies (bijvoorbeeld inschakelen apps). Deze profielen moeten gescheiden worden gehouden van Hallo client dagelijkse d & E admin beheerdersprofiel (Hallo T & E admin profiel mag geen Hallo WSAdmin rol toegewezen).
+Adviseurs instemming of de beheerder van de client moet een afzonderlijke Service webbeheerder-profiel maken en de beheerder van de Client Gebruik dit profiel voor de functies van de beheerder van de Web-Services (bijvoorbeeld inschakelen apps). Deze profielen moeten worden gescheiden gehouden van de client dagelijkse d & E admin beheerdersprofiel (het profiel van de beheerder T & en mag geen rol WSAdmin).
 
-Wanneer u Hallo profiel toobe gebruikt voor het inschakelen van Hallo-app maakt, aangaan Hallo client beheerder Hallo gebruiker profiel velden. Hiermee wijst eigendom toohello profiel toe. Zodra een of meer profielen is gemaakt, Hallo-client moet aanmelden met dit profiel tooclick Hallo '*inschakelen*' knop voor een App-Partner in het Hallo-webservices menu.
+Wanneer u het profiel moet worden gebruikt voor het inschakelen van de app maakt, voert u naam van de beheerder van de client naar de gebruiker profiel velden. Hiermee wijst u het eigendom toe aan het profiel. Zodra een of meer profielen is gemaakt, de client moet aanmelden met dit profiel te klikken op de '*inschakelen*' knop voor een App-Partner in het menu Web Services.
 
-Voor Hallo redenen te volgen, moet deze actie niet met Hallo profiel die ze voor normale T & en beheer gebruiken worden uitgevoerd.
+De volgende oorzaken hebben, moet deze actie niet aan het profiel dat ze voor het normale beheer van d & E gebruiken worden gedaan.
 
-* Hallo client heeft toobe Hallo die klikt op '*Ja*' hello dialoog venster dat wordt weergegeven nadat een app is ingeschakeld. Klikt u op bevestigt Hallo-client is bereid voor Hallo Partner toepassing tooaccess hun gegevens, zodat u of Hallo Partner kan niet klikt u op dat Ja knop.
+* De client moet zijn die klikt op '*Ja*' in het venster dialoog die wordt weergegeven nadat een app is ingeschakeld. Klikt u op bevestigt dat de client is bereid voor de Partner-toepassing voor toegang tot hun gegevens, zodat u of de Partner kan niet daarop Ja klikken.
 
-* Als de beheerder van een client die een app met Hallo T & E admin profiel heeft ingeschakeld achterlaat Hallo bedrijf (waardoor Hallo-profiel wordt uitgeschakeld), alle apps ingeschakeld met behulp van dit profiel werkt niet totdat het Hallo-app met een andere actieve WS-beheer is ingeschakeld profiel. Dit is de reden waarom u gewoonlijk toocreate distinct WS Admin profielen.
+* Als de beheerder van een client die een app is ingeschakeld met behulp van de beheerder d & E profiel het bedrijf verlaat (wat resulteert in het profiel wordt uitgeschakeld), alle apps die zijn ingeschakeld met dat profiel niet werkt totdat de app met een andere actieve WS-Admin-profiel is ingeschakeld. Dit is de reden waarom u moet afzonderlijke WS-beheerder om profielen te maken.
 
-* Als een beheerder Hallo bedrijf verlaat, gekoppelde Hallo naam toohello WS-beheerder kan profiel gewijzigde toohello vervanging beheerder zijn indien gewenst zonder enige impact op Hallo ingeschakeld app omdat dit profiel niet hoeft deactiveren.
+* Als een beheerder het bedrijf verlaat, kan de naam gekoppeld aan het profiel WS-beheer worden gewijzigd in de beheerder van de vervangende indien gewenst zonder enige impact op dat de ingeschakelde app omdat dit profiel niet hoeft deactiveren.
 
-**tooconfigure gebruikers inrichten, Voer Hallo stappen te volgen:**
+**Als u wilt configureren voor gebruikers inrichten, moet u de volgende stappen uitvoeren:**
 
-1. Meld u aan tooyour **Concur** tenant.
+1. Meld u aan bij uw **Concur** tenant.
 
-2. Van Hallo **beheer** selecteert u **webservices**.
+2. Van de **beheer** selecteert u **webservices**.
    
     ![Concur tenant](./media/active-directory-saas-concur-provisioning-tutorial/IC721729.png "Concur tenant")
 
-3. Op de linkerkant van Hallo Hallo **webservices** deelvenster **partnertoepassing inschakelen**.
+3. Aan de linkerkant van de **webservices** deelvenster **partnertoepassing inschakelen**.
    
     ![Partnertoepassing inschakelen](./media/active-directory-saas-concur-provisioning-tutorial/ic721730.png "partnertoepassing inschakelen")
 
-4. Van Hallo **toepassing inschakelen** selecteert **Azure Active Directory**, en klik vervolgens op **inschakelen**.
+4. Van de **toepassing inschakelen** selecteert **Azure Active Directory**, en klik vervolgens op **inschakelen**.
    
     ![Microsoft Azure Active Directory](./media/active-directory-saas-concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 
-5. Klik op **Ja** tooclose hello **bevestigen actie** dialoogvenster.
+5. Klik op **Ja** sluiten de **bevestigen actie** dialoogvenster.
    
     ![Bevestig de actie](./media/active-directory-saas-concur-provisioning-tutorial/ic721732.png "Bevestig de actie")
 
-6. In Hallo [Azure-portal](https://portal.azure.com), bladeren toohello **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
+6. In de [Azure-portal](https://portal.azure.com), blader naar de **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
 
-7. Als u Concur al hebt geconfigureerd voor eenmalige aanmelding, zoekt u uw exemplaar van Concur met Hallo zoekveld opgegeven. Selecteer anders **toevoegen** en zoek naar **Concur** in Hallo-toepassingsgalerie. Selecteer Concur in zoekresultaten hello, en voeg deze tooyour lijst met toepassingen.
+7. Als u al Concur voor eenmalige aanmelding hebt geconfigureerd, kunt u zoeken naar uw exemplaar van Concur met behulp van het zoekveld. Selecteer anders **toevoegen** en zoek naar **Concur** in de galerie met toepassingen. Concur selecteert in de zoekresultaten en toe te voegen aan uw lijst met toepassingen.
 
-8. Selecteer uw exemplaar van Concur en vervolgens Hallo **inrichten** tabblad.
+8. Selecteer uw exemplaar van Concur en selecteer vervolgens de **inrichten** tabblad.
 
-9. Set Hallo **modus inrichting** te**automatische**. 
+9. Stel de **Inrichtingsmodus** naar **automatische**. 
  
     ![Inrichting](./media/active-directory-saas-concur-provisioning-tutorial/provisioning.png)
 
-10. Onder Hallo **beheerdersreferenties** sectie, voert u Hallo **gebruikersnaam** en Hallo **wachtwoord** van uw beheerder Concur.
+10. Onder de **beheerdersreferenties** sectie, voert u de **gebruikersnaam** en de **wachtwoord** van uw beheerder Concur.
 
-11. Klik in hello Azure-portal, op **testverbinding** tooensure Azure AD tooyour Concur app kunt verbinden. Als Hallo verbinding mislukt, Controleer of uw account Concur Team beheerder machtigingen.
+11. Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD, kan verbinding maken met uw app Concur. Als de verbinding is mislukt, Controleer of uw account Concur Team beheerder machtigingen.
 
-12. Voer e-mailadres van een persoon of groep die inrichting fout meldingen in Hallo ontvangen moet Hallo **e-mailmelding** veld en Hallo selectievakje.
+12. Voer het e-mailadres van een persoon of groep die in inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het selectievakje in.
 
 13. Klik op **opslaan.**
 
-14. Selecteer onder Hallo toewijzingen sectie, **tooConcur synchroniseren Azure Active Directory-gebruikers.**
+14. Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory-gebruikers Concur.**
 
-15. In Hallo **kenmerktoewijzingen** sectie, bekijkt hello gebruikerskenmerken die worden gesynchroniseerd vanuit Azure AD-tooConcur. kenmerken die zijn geselecteerd als Hallo **overeenkomend** eigenschappen zijn gebruikte toomatch Hallo gebruikersaccounts in Concur voor update-bewerkingen. Selecteer Hallo knop toocommit wijzigingen zijn opgeslagen.
+15. In de **kenmerktoewijzingen** sectie, moet u de kenmerken van de gebruiker die gesynchroniseerd zijn van Azure AD naar Concur controleren. De kenmerken die zijn geselecteerd als **overeenkomend** eigenschappen overeenkomen met de gebruikersaccounts in Concur voor update-bewerkingen worden gebruikt. Selecteer de knop Opslaan eventuele wijzigingen doorvoeren.
 
-16. tooenable Hallo inrichting Azure AD-service voor Concur, wijziging Hallo **inrichting Status** te**op** in Hallo **instellingen** sectie
+16. Om de Azure AD-service voor Concur inricht, wijzigen de **inrichting Status** naar **op** in de **instellingen** sectie
 
 17. Klik op **opslaan.**
 
-U kunt nu een testaccount maken. Wacht tot up too20 minuten tooverify die Hallo-account is gesynchroniseerd tooConcur.
+U kunt nu een testaccount maken. Wacht 20 minuten duren om te verifiëren dat het account is gesynchroniseerd met Concur.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 

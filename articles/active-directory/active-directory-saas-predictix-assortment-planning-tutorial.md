@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met de Planning van Predictix assortiment | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en Predictix assortiment plannen.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Predictix assortiment plannen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,198 +14,198 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 1294b712caf12fdafaf65d70a02ee9fbdc3e84a8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cc7ad4aa5260276e26406b6b79c039372e5ee69f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Zelfstudie: Azure Active Directory-integratie met Predictix assortiment plannen
 
-In deze zelfstudie leert u hoe toointegrate Predictix assortiment plannen met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe Predictix assortimentplanning integreren met Azure Active Directory (Azure AD).
 
-Predictix assortimentplanning integreren met Azure AD biedt Hallo volgende voordelen:
+Predictix assortimentplanning integreren met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD wie toegang tot tooPredictix assortiment plannen heeft.
-- U kunt uw gebruikers tooautomatically get aangemelde tooPredictix assortiment plannen (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren.
+- U kunt beheren in Azure AD die toegang tot Predictix assortiment plannen heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Predictix assortiment plannen (Single Sign-On) inschakelen met hun Azure AD-accounts.
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure AD-integratie met de Planning van Predictix assortiment tooconfigure, moet u Hallo volgende items:
+Voor het configureren van Azure AD-integratie met de Predictix assortimentplanning, moet u de volgende items:
 
 - Een Azure AD-abonnement
 - Een Predictix assortimentplanning eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Het toevoegen van Predictix assortiment plannen van Hallo-galerie
+1. Het toevoegen van Predictix assortimentplanning van de galerie
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-predictix-assortment-planning-from-hello-gallery"></a>Het toevoegen van Predictix assortiment plannen van Hallo-galerie
-tooconfigure hello integratie van de Planning van Predictix assortiment in Azure AD, moet u tooadd Predictix assortiment plannen uit Hallo galerie tooyour lijst met beheerde SaaS-apps.
+## <a name="adding-predictix-assortment-planning-from-the-gallery"></a>Het toevoegen van Predictix assortimentplanning van de galerie
+U moet Predictix assortiment plannen uit de galerie aan de lijst met beheerde SaaS-apps toevoegen voor het configureren van de integratie van de Planning van Predictix assortiment in Azure AD.
 
-**tooadd Predictix assortimentplanning via Hallo gallery uitvoeren Hallo stappen te volgen:**
+**Als u wilt toevoegen Predictix assortiment plannen uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
-    ![Hello Azure Active Directory-knop][1]
+    ![De Azure Active Directory-knop][1]
 
-2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Hallo Enterprise toepassingen blade][2]
+    ![De blade Enterprise-toepassingen][2]
     
-3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![knop voor nieuwe toepassing Hello][3]
+    ![De knop Nieuw toepassing][3]
 
-4. Typ in het zoekvak Hallo **Predictix assortiment plannen**, selecteer **Predictix assortimentplanning** van resultaat deelvenster klik vervolgens op **toevoegen** knop tooadd Hallo toepassing.
+4. Typ in het zoekvak **Predictix assortimentplanning**, selecteer **Predictix assortimentplanning** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Predictix assortiment plannen in de lijst met resultaten Hallo](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_addfromgallery.png)
+    ![Predictix assortiment plannen in de lijst met resultaten](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 
 In deze sectie kunt u configureren en testen eenmalige aanmelding Azure AD met Predictix assortiment plannen op basis van een testgebruiker genaamd "Britta Simon."
 
-Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in de Planning van Predictix assortiment is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de verwante gebruiker bij het plannen van Predictix assortiment Hallo toobe tot stand gebracht.
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in de Planning van Predictix assortiment is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker bij het plannen van Predictix assortiment tot stand worden gebracht.
 
-Bij het plannen van Predictix assortiment, wijs Hallo-waarde van Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** tooestablish Hallo koppeling relatie.
+Wijs in het Predictix assortimentplanning, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-tooconfigure en test eenmalige aanmelding Azure AD met Predictix assortimentplanning, moet u toocomplete Hallo bouwstenen te volgen:
+Om te configureren en testen van Azure AD eenmalige aanmelding met de Predictix assortimentplanning, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Predictix assortimentplanning](#create-a-predictix-assortment-planning-test-user)**  -toohave een equivalent van Britta Simon Predictix assortiment plannen die gekoppelde toohello Azure AD-weergave van de gebruiker.
-4. **[Toewijzen van de testgebruiker hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  -tooverify Hallo of configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Predictix assortimentplanning](#create-a-predictix-assortment-planning-test-user)**  - Predictix assortimentplanning die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding configureren in uw toepassing Predictix assortiment plannen.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing Predictix assortiment plannen.
 
-**tooconfigure Azure AD eenmalige aanmelding met de Predictix assortimentplanning, Voer Hallo stappen te volgen:**
+**Voor het configureren van Azure AD eenmalige aanmelding met de Predictix assortimentplanning, moet u de volgende stappen uitvoeren:**
 
-1. In Azure-portal op Hallo Hallo **Predictix assortimentplanning** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **Predictix assortimentplanning** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_samlbase.png)
 
-3. Op Hallo **Predictix assortiment Planning domein en de URL's** sectie, voert u Hallo stappen te volgen:
+3. Op de **Predictix assortiment Planning domein en de URL's** sectie, voert u de volgende stappen uit:
 
     ![URL's en Predictix assortiment Planning domein eenmalige aanmelding informatie](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_url.png)
 
-    a. In Hallo **aanmeldings-URL** textbox, typ een URL met Hallo patroon volgen:
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:
     | |
     |--|--|
     | `https://<sub-domain>.ap.predictix.com/sso/request`|
     | `https://<sub-domain>.dev.ap.predictix.com/`|
 
-    b. In Hallo **id** textbox, typ een URL met Hallo patroon volgen:
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen:
     | |
     |--|--|
     | `https://<sub-domain>.ap.predictix.com`|
     | `https://<sub-domain>.dev.ap.predictix.com`|
     
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Bijwerken van deze waarden Hello werkelijke aanmeldings-URL en -id. Neem contact op met [Predictix assortiment Planning Client ondersteuningsteam](http://www.infor.com/support) tooget deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Predictix assortiment Planning Client ondersteuningsteam](http://www.infor.com/support) ophalen van deze waarden. 
  
 
 
-4. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het Hallo-certificaatbestand op uw computer.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
-    ![Hallo certificaat downloadkoppeling](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_certificate.png) 
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_certificate.png) 
 
 5. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_general_400.png)
 
-6. Op Hallo **Predictix assortiment Planning configuratie** sectie, klikt u op **configureren Predictix assortimentplanning** tooopen **eenmalige aanmelding configureren** venster. Kopiëren Hallo **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van Hallo **Naslaggids punt.**
+6. Op de **Predictix assortiment Planning configuratie** sectie, klikt u op **configureren Predictix assortimentplanning** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
     ![Predictix assortiment Planning configuratie](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_configure.png) 
 
-7. tooconfigure eenmalige aanmelding op **Predictix assortimentplanning** zijde, moet u toosend Hallo gedownload **Certificate(Base64)**, **SAML entiteit-ID**,  **SAML Single Sign-On Service-URL**, en **Sign-Out URL** te[ondersteuningsteam Predictix assortimentplanning](http://www.infor.com/support). Ze deze instelling toohave Hallo SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+7. Eenmalige aanmelding configureren op **Predictix assortimentplanning** zijde, moet u de gedownloade verzenden **Certificate(Base64)**, **SAML entiteit-ID**, **SAML Single Sign-On Service-URL**, en **Sign-Out URL** naar [ondersteuningsteam Predictix assortimentplanning](http://www.infor.com/support). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
    ![Een Azure AD-testgebruiker maken][100]
 
-**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
+**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in Azure-portal in het linkerdeelvenster Hallo Hallo op Hallo **Azure Active Directory** knop.
+1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
 
-    ![Hello Azure Active Directory-knop](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_01.png)
+    ![De Azure Active Directory-knop](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_01.png)
 
-2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
-    ![Hallo 'Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_02.png)
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_02.png)
 
-3. tooopen hello **gebruiker** in het dialoogvenster, klikt u op **toevoegen** Hallo boven aan het Hallo **alle gebruikers** in het dialoogvenster.
+3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
 
-    ![knop voor Hallo toevoegen](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_03.png)
+    ![De knop toevoegen](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_03.png)
 
-4. In Hallo **gebruiker** dialoogvenster Voer Hallo stappen te volgen:
+4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
 
-    ![het dialoogvenster Hallo-gebruiker](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_04.png)
+    ![Het dialoogvenster gebruiker](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_04.png)
 
-    a. In Hallo **naam** in het vak **BrittaSimon**.
+    a. In de **naam** in het vak **BrittaSimon**.
 
-    b. In Hallo **gebruikersnaam** type Hallo e-mailadres van de gebruiker Britta Simon vak.
+    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer Hallo **wachtwoord weergeven** selectievakje en schrijf Hallo-waarde die wordt weergegeven in Hallo **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
  
 ### <a name="create-a-predictix-assortment-planning-test-user"></a>Maak een testgebruiker Predictix assortiment plannen
 
-In deze sectie maakt u Britta Simon aangeroepen bij het plannen van Predictix assortiment van een gebruiker. Neem contact op met [ondersteuningsteam Predictix assortimentplanning](http://www.infor.com/contact/) tooadd Hallo gebruikers in Hallo Predictix assortimentplanning platform.
+In deze sectie maakt u Britta Simon aangeroepen bij het plannen van Predictix assortiment van een gebruiker. Neem contact op met [ondersteuningsteam Predictix assortimentplanning](http://www.infor.com/contact/) om toe te voegen de gebruikers van het platform Predictix assortiment plannen.
  > [!NOTE]
- > Hello Azure Active Directory-accounthouder ontvangt een e-mailbericht en een koppeling tooconfirm volgt hun account voordat deze geactiveerd wordt.
+ > De houder van Azure Active Directory-account ontvangt een e-mailbericht en volgt een koppeling om hun account te bevestigen voordat deze geactiveerd wordt.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen door het verlenen van toegang tooPredictix assortiment plannen.
+In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot de Predictix assortimentplanning.
 
-![Hallo-gebruikersrollen toewijzen][200] 
+![Toewijzen van de gebruikersrol][200] 
 
-**tooassign Britta Simon tooPredictix assortimentplanning, Voer Hallo stappen te volgen:**
+**Als u wilt toewijzen Britta Simon Predictix assortiment planning, moet u de volgende stappen uitvoeren:**
 
-1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met de toepassingen van Hallo **Predictix assortimentplanning**.
+2. Selecteer in de lijst met toepassingen **Predictix assortimentplanning**.
 
-    ![Hallo Predictix assortiment plannen koppeling in de lijst met Hallo-toepassingen](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_app.png)  
+    ![De koppeling Predictix assortiment plannen in de lijst met toepassingen](./media/active-directory-saas-predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_app.png)  
 
-3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
-    ![de koppeling 'Gebruikers en groepen' Hallo][202]
+    ![De koppeling 'Gebruikers en groepen'][202]
 
 4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
-    ![Hallo toevoegen toewijzing deelvenster][203]
+    ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -213,14 +213,14 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
     
 ### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van Hallo Toegangsvenster testen.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Als u op Hallo Predictix assortimentplanning tegel in Hallo Toegangsvenster, krijgt u automatisch aangemelde tooyour toepassing Predictix assortiment plannen.
-Zie voor meer informatie over het toegangsvenster [inleiding toohello Toegangspaneel](active-directory-saas-access-panel-introduction.md). 
+Als u op de tegel Predictix assortimentplanning in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Predictix assortiment plannen.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

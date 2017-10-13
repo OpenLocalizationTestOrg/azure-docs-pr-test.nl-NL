@@ -5,7 +5,7 @@
 ## [Aan de slag met de Cloud Partner-portal](./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md)
 ## [Ondersteunde producten](./Cloud-partner-portal-products-that-can-get-published-via-portal.md)
 
-# Hoe tooguides
+# Handleidingen
 ## Virtuele Linux-machines beheren
 ### [Auteur virtuele machine-aanbieding](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md)
 #### [Vereisten](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
@@ -21,7 +21,7 @@
 
 ### [Bestaande aanbieding bijwerken](./cloud-partner-portal-update-existing-offer.md)
 ### [Een VM-aanbieding/SKU verwijderen](./cloud-partner-portal-delete-an-offer.md)
-### [De Partnerportal toocloud migreren](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+### [Migreren naar Cloud Partner-portal](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 
 ## [Leads klant ophalen](./cloud-partner-portal-get-customer-leads.md)
 ### [Azure-tabel](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-azure-table.md)

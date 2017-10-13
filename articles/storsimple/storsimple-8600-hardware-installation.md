@@ -1,6 +1,6 @@
 ---
-title: aaaInstall Microsoft Azure StorSimple 8600-apparaat | Microsoft Docs
-description: Hierin wordt beschreven hoe toounpack, rek monteren en bekabelen uw StorSimple 8600-apparaat voordat u implementeert en Hallo software configureert.
+title: Microsoft Azure StorSimple 8600-apparaat installeert | Microsoft Docs
+description: Beschrijft hoe uitpakken, op rek monteren en bekabelen uw StorSimple 8600-apparaat voordat u implementeert en configureert de software.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/24/2016
 ms.author: alkohli
-ms.openlocfilehash: 0fc0ddf076725fededdde33a260b950b72edc8db
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Unpack, rack koppelen, en uw StorSimple 8600-apparaat bekabelen
 ## <a name="overview"></a>Overzicht
-Microsoft Azure StorSimple 8600 is een dubbele behuizing-apparaat en bestaat uit een primaire en een EBOD behuizing. Deze zelfstudie wordt uitgelegd hoe toounpack, rek monteren en bekabelen Hallo StorSimple 8600-apparaat hardware voordat u Hallo StorSimple software configureren.
+Microsoft Azure StorSimple 8600 is een dubbele behuizing-apparaat en bestaat uit een primaire en een EBOD behuizing. Deze zelfstudie wordt uitgelegd hoe u uitpakken, rek monteren en hardware van de kabel de 8600 StorSimple-apparaten voordat u de software StorSimple configureren.
 
 ## <a name="unpack-your-storsimple-8600-device"></a>Uw StorSimple 8600-apparaat uitpakken
-Hallo volgende stappen bevatten wissen, gedetailleerde instructies voor het toounpack uw StorSimple 8600-opslagapparaat. Dit apparaat wordt geleverd in twee vakken, één voor de primaire behuizing Hallo en één voor Hallo EBOD behuizing. Deze twee vakken worden vervolgens in één vak geplaatst.
+De volgende stappen bevatten duidelijke, gedetailleerde instructies voor het uitpakken van uw StorSimple 8600-opslagapparaat. Dit apparaat wordt geleverd in vakken, één voor de primaire behuizing en één voor de EBOD behuizing. Deze twee vakken worden vervolgens in één vak geplaatst.
 
-### <a name="prepare-toounpack-your-device"></a>Uw apparaat toounpack voorbereiden
-Voordat u uw apparaat uitpakken, controleert u Hallo informatie te volgen.
+### <a name="prepare-to-unpack-your-device"></a>Uitpakken van het apparaat voorbereiden
+Voordat u uw apparaat uitpakken, controleert u de volgende informatie.
 
 ![Waarschuwingspictogram](./media/storsimple-safety/IC740879.png)![zware gewicht pictogram](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **waarschuwing!**
 
-1. Zorg ervoor dat u hebt twee personen beschikbaar toomanage Hallo gewicht van Hallo-apparaat als u deze handmatig worden verwerkt. Een volledig geconfigureerde behuizing wegen up too32 kg (70 lbs.).
-2. Hallo vak op een plat niveau vlak plaatsen.
+1. Zorg ervoor dat u twee personen beschikbaar hebt voor het beheren van het gewicht van het apparaat als u deze handmatig worden verwerkt. Een volledig geconfigureerde behuizing wegen tot 32 kg (70 lbs.).
+2. Het selectievakje in op een plat niveau vlak plaatsen.
 
-Vervolgens voltooien Hallo toounpack stappen te volgen van uw apparaat.
+Vervolgens wordt de volgende stappen uit te pakken van uw apparaat.
 
-#### <a name="toounpack-your-device"></a>toounpack uw apparaat
-1. Hallo vak en Hallo verpakking schuimrubber voor crushes, delen, water schade of andere duidelijk schade te controleren. Open Hallo vak niet als Hallo box of verpakking ernstig is beschadigd. Neem [contact op met Microsoft Support](storsimple-contact-microsoft-support.md) toohelp u te beoordelen of apparaten Hallo in goede staat.
-2. Hallo buitenste het openen en los uit Hallo twee vakken tooprimary en EBOD behuizingen overeenkomt. U kunt nu Hallo primaire en behuizingen EBOD uitpakken. Hallo volgende afbeelding toont Hallo uitgepakt weergave van een Hallo insluitingen.
+#### <a name="to-unpack-your-device"></a>Uitpakken van het apparaat
+1. Controleer het en het schuim verpakking voor crushes, delen, water schade of andere duidelijk schade. Als het vak of verpakking ernstig is beschadigd, opent u het niet. Neem [contact op met Microsoft Support](storsimple-contact-microsoft-support.md) om te bepalen of het apparaat zich in goede staat.
+2. Open het buitenste en los van de twee selectievakjes die overeenkomt met de primaire en EBOD behuizingen. U kunt nu de primaire en behuizingen EBOD uitpakken. De volgende afbeelding ziet de uitgepakte weergave van een van de bijlagen.
    
     ![Uitpakken van uw opslagapparaat](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
    
@@ -53,27 +53,27 @@ Vervolgens voltooien Hallo toounpack stappen te volgen van uw apparaat.
    |   4 |Apparaat |
    |   5 |Bovenste schuim |
    |   6 |Accessoires vak |
-3. Na het Hallo twee vakken uitpakken, zorg ervoor dat u hebt:
+3. Zorg ervoor dat er na het uitpakken van de twee vakken:
    
-   * 1 primaire behuizing (Hallo primaire enclosure en EBOD behuizing zijn in twee afzonderlijke vakken)
+   * 1 primaire behuizing (de primaire behuizing en EBOD behuizing zijn in twee afzonderlijke vakken)
    * 1 EBOD behuizing
    * 4 stroomkabels, 2 in elk vak
-   * 2 SAS-kabels (tooconnect Hallo primaire behuizing tooEBOD behuizing)
+   * 2 SAS-kabels (met de primaire behuizing EBOD behuizing)
    * 1 crossover Ethernet-kabel
    * 2 seriële console kabels
    * 1 seriële USB converter voor de seriële toegang
    * 4 QSFP-naar-SFP + adapters voor gebruik met 10 GbE-netwerkinterfaces
-   * 2 rack mount kits (4 side rails met koppelen van de hardware, 2 voor de primaire behuizing Hallo en EBOD behuizing), 1 in elk vak
+   * 2 rack mount kits (4 side rails met koppelen van de hardware, 2 voor de primaire behuizing en EBOD behuizing), 1 in elk vak
    * Gestarte documentatie ophalen
      
-     Als u een van bovenstaande, Hallo-items niet ontvangen [contact op met Microsoft Support](storsimple-contact-microsoft-support.md).  
+     Als u een van de hierboven vermelde items niet ontvangen [contact op met Microsoft Support](storsimple-contact-microsoft-support.md).  
 
-de volgende stap Hallo toorack koppelen is uw apparaat.
+De volgende stap is het rack koppelen van uw apparaat.
 
 ## <a name="rack-mount-your-storsimple-8600-device"></a>Uw StorSimple 8600-apparaat rack koppelen
-Volg de volgende stappen tooinstall Hallo uw StorSimple 8600-opslagapparaat in een standaard 19-inch rack met vooraan en achteraan advertenties. Dit apparaat wordt geleverd met twee behuizingen: een primaire-behuizing en een EBOD behuizing. Deze moeten toobe rek.
+De volgende stappen voor het installeren van uw StorSimple 8600-opslagapparaat in een standaard 19-inch rek met vooraan en achteraan advertenties. Dit apparaat wordt geleverd met twee behuizingen: een primaire-behuizing en een EBOD behuizing. Deze moeten rack gekoppeld.
 
-Hallo-installatie bestaat uit meerdere stappen, die wordt besproken in Hallo procedures te volgen.
+De installatie bestaat uit meerdere stappen, die wordt besproken in de volgende procedures.
 
 > [!IMPORTANT]
 > StorSimple-apparaten moet rek wordt gemonteerd voor een juiste werking.
@@ -81,46 +81,46 @@ Hallo-installatie bestaat uit meerdere stappen, die wordt besproken in Hallo pro
 > 
 
 ### <a name="site-preparation"></a>Voorbereiding van de site
-Hallo-behuizingen moeten worden geïnstalleerd in een standaard 19-inch rack die front- en achterste advertenties. Hallo te volgen procedure tooprepare voor rackinstallatie gebruiken.
+De bijlagen moeten worden geïnstalleerd in een standaard 19-inch rack die front- en achterste advertenties. Gebruik de volgende procedure om voor te bereiden voor de rackinstallatie van.
 
-#### <a name="tooprepare-hello-site-for-rack-installation"></a>tooprepare hello site voor de rackinstallatie van
-1. Zorg ervoor dat Hallo primaire en EBOD behuizingen zijn veilig op een platte, stabiele en niveau werkoppervlak verwerken (of vergelijkbaar).
-2. Controleren die Hallo site waar u van plan bent tooset up heeft standaard AC macht van een onafhankelijke bron of een rek Power Distribution Unit (PDU) met een noodvoeding (UPS).
-3. Zorg ervoor dat één 4U (2 X 2U) sleuf is beschikbaar op Hallo rek waarin u van plan toomount Hallo behuizingen bent.
+#### <a name="to-prepare-the-site-for-rack-installation"></a>De site voor de rackinstallatie van voorbereiden
+1. Zorg ervoor dat de primaire en behuizingen EBOD verwerken veilig op een platte, stabiele en niveau werkoppervlak (of vergelijkbaar).
+2. Controleer of de site waar u van plan bent om in te stellen van een onafhankelijke bron of een rek Power Distribution Unit (PDU) met een noodvoeding (UPS) standaard Netstroom zijn aangesloten.
+3. Zorg ervoor dat één 4U (2 X 2U) sleuf is beschikbaar op het rek waarin u van plan bent de bijlagen koppelen.
 
 ![Waarschuwingspictogram](./media/storsimple-safety/IC740879.png)![zware gewicht pictogram](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **waarschuwing!**
 
- Zorg ervoor dat u hebt twee personen beschikbaar toomanage Hallo gewicht als u de Apparaatinstelling Hallo handmatig verwerkt. Een volledig geconfigureerde behuizing wegen up too32 kg (70 lbs.).
+ Zorg ervoor dat u twee personen beschikbaar hebt voor het beheren van het gewicht als u de Apparaatinstelling handmatig verwerkt. Een volledig geconfigureerde behuizing wegen tot 32 kg (70 lbs.).
 
 ### <a name="rack-prerequisites"></a>Rack-vereisten
-Hallo-behuizingen zijn ontworpen voor installatie in een standaard 19-inch rack cab met:
+De bijlagen zijn ontworpen voor installatie in een standaard 19-inch rack cab met:
 
-* Minimale diepte van 27.84 inches van rek boeken toopost
-* Maximale gewicht van 32 kg voor Hallo-apparaat
+* Minimale diepte van 27.84 inches van rek te boeken
+* Maximale gewicht van 32 kg voor het apparaat
 * Maximale back druk van 5 Pascal (0,5 mm water meter)
 
 ### <a name="rack-mounting-rail-kit"></a>Rek-montage spoor kit
-U krijgt een reeks rails koppelen voor gebruik met Hallo 19-inch rack CAB-bestand. Hallo rails zijn getest toohandle Hallo maximale behuizing gewicht. Deze rails wordt ook installatie van meerdere insluitingen zonder verlies van ruimte binnen Hallo rack toestaan. Installeer eerst Hallo EBOD behuizing.
+Een set koppelen rails krijgt voor gebruik met de 19-inch rack CAB-bestand. De spoorstaven zijn getest voor het afhandelen van het gewicht maximale behuizing. Deze rails wordt ook installatie van meerdere insluitingen zonder verlies van ruimte binnen het rack toestaan. Installeer eerst de EBOD behuizing.
 
-#### <a name="tooinstall-hello-ebod-enclosure-on-hello-rails"></a>tooinstall hello EBOD behuizing op Hallo rails
-1. Deze stap alleen uitvoeren als interne rails zijn niet geïnstalleerd op uw apparaat. Normaal gesproken zijn op Hallo factory Hallo binnenste rails geïnstalleerd. Als rails niet zijn geïnstalleerd, installeert u Hallo links-spoor en rechts spoor dia toohello zijden van Hallo behuizing chassis. Ze koppelen met behulp van zes metrische schroeven voor elke zijde. toohelp met afdrukstand Hallo spoor dia's zijn gemarkeerd **LH – voorzijde** en **RH – voorzijde**, en het Hallo-end die is aangebracht vanaf Hallo achterzijde van Hallo behuizing heeft een Tapse end.
+#### <a name="to-install-the-ebod-enclosure-on-the-rails"></a>De behuizing EBOD installeren op de spoorstaven
+1. Deze stap alleen uitvoeren als interne rails zijn niet geïnstalleerd op uw apparaat. Normaal gesproken zijn de binnenste spoorstaven geïnstalleerd in de fabriek. Als rails niet zijn geïnstalleerd, installeert u de links-spoor en rechts spoor dia aan de kant van het chassis behuizing. Ze koppelen met behulp van zes metrische schroeven voor elke zijde. Om te helpen met de afdrukstand, de dia spoor zijn gemarkeerd **LH – voorzijde** en **RH – voorzijde**, en het einde die is aangebracht vanaf de achterzijde van de behuizing heeft een Tapse end.
    
-    ![Koppelen spoor dia tooenclosure chassis](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    ![Spoor dia koppelen aan behuizing chassis](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
    
-    **Koppelen spoor dia toohello zijden van Hallo behuizing**
+    **Spoor dia koppelen aan welke zijden van de behuizing**
    
    | Label | Beschrijving |
    | --- | --- |
    |  1 |M 3 x 4 knop head schroeven |
    |  2 |Chassis dia |
-2. Hallo links spoor en rechterkant assembly's toohello rack cab verticale leden koppelen. Hallo vierkante haken zijn gemarkeerd **LH**, **RH**, en **deze kant up** tooguide u via de juiste richting.
-3. Zoek Hallo spoor pincodes op Hallo voor en achter van Hallo spoor assembly. Hallo spoor toofit tussen Hallo rack posts uitbreiden en Hallo pincodes invoegen in Hallo voor- en achterzijde rack post verticale lid gaten. Zorg ervoor dat Hallo spoor assembly niveau is.
-4. Beveilig Hallo spoor assembly toohello rack verticale leden met behulp van twee van de metrische schroeven Hallo opgegeven. Een installatie op Hallo vooraan en één op Hallo achterzijde gebruiken.
-5. Herhaal deze stappen voor Hallo andere spoor-assembly.
+2. Het linkerdeelvenster spoor en rechterkant assembly's koppelen aan de rack cab verticale leden. De vierkante haken zijn gemarkeerd **LH**, **RH**, en **deze kant up** om u te begeleiden juiste richting.
+3. Zoek de pincodes spoor op de voorgrond en de achterzijde van de assembly spoor. De spoor tussen de berichten rack passen en de pincodes invoegen in de voor- en achterzijde rack post verticale lid gaten uitbreiden. Zorg ervoor dat de assembly spoor niveau is.
+4. Beveilig de assembly spoor op het rek verticale leden met behulp van twee van de metrische schroeven opgegeven. Een installatie op de voorgrond en een op de achterzijde gebruiken.
+5. Herhaal deze stappen voor de andere spoor-assembly.
    
-     ![Cab dia toorack koppelen spoor](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+     ![Spoor dia rack cab koppelen](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
    
-    **Spoor assembly's toohello rack koppelen**
+    **Spoor assembly's op het rek koppelen**
    
    | Label | Beschrijving |
    | --- | --- |
@@ -130,83 +130,83 @@ U krijgt een reeks rails koppelen voor gebruik met Hallo 19-inch rack CAB-bestan
    |   4 |Installatie clamping |
    |   5 |Links achterste spoor locatie pincodes |
 
-### <a name="mounting-hello-ebod-enclosure-in-hello-rack"></a>Hallo EBOD behuizing in Hallo rek koppelen
-Gebruik Hallo rackrails die alleen zijn geïnstalleerd, uit te voeren Hallo stappen toomount hello EBOD behuizing in Hallo rek te volgen.
+### <a name="mounting-the-ebod-enclosure-in-the-rack"></a>Koppelen van de behuizing EBOD in het rek
+Gebruik de rackrails die alleen zijn geïnstalleerd, uit te voeren de volgende stappen uit om te koppelen van de behuizing EBOD in het rek.
 
-#### <a name="toomount-hello-ebod-enclosure"></a>toomount hello EBOD behuizing
-1. Met een helper lift-Hallo behuizing en met Hallo rackrails uitlijnen.
-2. Hallo behuizing zorgvuldig in Hallo rails plaatsen en vervolgens dit doorgeven volledig in Hallo rack cab.
+#### <a name="to-mount-the-ebod-enclosure"></a>De behuizing EBOD koppelen
+1. Met een helper lift-de behuizing en met de rackrails uitlijnen.
+2. Zorgvuldig de behuizing invoegen in de spoorstaven en vervolgens dit doorgeven volledig in het rack cab.
    
-    ![Apparaat invoegen in Hallo rek](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
+    ![Apparaat invoegen in het rek](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
    
-    **Hallo behuizing in Hallo rek koppelen**
-3. Hallo links en rechts front flens caps verwijderen met binnenhalen Hallo caps gratis. Hallo flens caps uitgelijnd gewoon op Hallo flenzen.
-4. Hallo behuizing in Hallo rack beveiligen door het installeren van een opgegeven kruiskopschroevendraaier head installatie via elke flens, linker- en.
-5. Hallo flens caps installeren door ze naar de gewenste positie en uitlijning ze naar de juiste plaats.
+    **Koppelen van de behuizing in het rek**
+3. Verwijder de linker- en rechts front flens caps door binnen te halen van de gratis caps. De caps flens uitgelijnd gewoon naar de flenzen.
+4. De behuizing in het rack beveiligen door een opgegeven kruiskopschroevendraaier head installatie via elke flens, linker- en installeren.
+5. Installeer de caps flens door ze naar de gewenste positie en uitlijning ze naar de juiste plaats.
    
      ![Flens caps installeren](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
    
-    **Hallo flens caps installeren**
+    **De caps flens installeren**
    
    | Label | Beschrijving |
    | --- | --- |
    |   1 |Behuizing fixeerpunt installatie |
 
-### <a name="mounting-hello-primary-enclosure-in-hello-rack"></a>Hallo primaire behuizing in Hallo rek koppelen
-Nadat u klaar bent met het Hallo EBOD behuizing koppelen, moet u toomount Hallo primaire behuizing volgende Hallo dezelfde stappen.
+### <a name="mounting-the-primary-enclosure-in-the-rack"></a>Koppelen van de primaire behuizing in het rek
+Nadat u klaar bent met het koppelen van de behuizing EBOD, moet u de primaire behuizing dezelfde stappen volgen koppelen.
 
 > [!NOTE]
-> * Het is mogelijk toohave enkele leeg sleuven in Hallo rack tussen de primaire behuizing Hallo en Hallo EBOD behuizing.
-> * Hallo opgegeven 2m SAS-kabel tooconnect Hallo primaire behuizing toohello EBOD behuizing gebruiken.
-> * Er zijn geen beperkingen op Hallo relatieve plaatsing van Hallo head eenheid toohello EBOD eenheid. Daarom Hallo primaire behuizing kan worden geplaatst in het bovenste sleuf Hallo en Hallo EBOD behuizing onderstaande — of vice versa.
+> * Het is mogelijk enkele leeg sleuven in het rek tussen de primaire behuizing en de behuizing EBOD hebben.
+> * Gebruik de SAS-kabel opgegeven 2m verbinding maken met de primaire behuizing de behuizing EBOD.
+> * Er zijn geen beperkingen op de relatieve plaatsing van de hoofd-eenheid in de eenheid EBOD. Daarom kan de primaire behuizing worden geplaatst in de bovenste sleuf en de onderstaande EBOD behuizing — of vice versa.
 > 
 > 
 
-de volgende stap Hallo toocable is uw apparaat voor voeding, netwerk- en seriële toegang.
+De volgende stap is uw apparaat voor voeding, netwerk- en seriële toegang bekabelen.
 
 ## <a name="cable-your-storsimple-8600-device"></a>Uw StorSimple 8600-apparaat bekabelen
-Hallo volgende procedures wordt uitgelegd hoe toocable uw StorSimple 8600-apparaat voor voeding, netwerk- en seriële verbindingen.
+De volgende procedures wordt uitgelegd hoe uw StorSimple 8600-apparaat voor voeding, netwerk- en seriële verbindingen bekabelen.
 
 ### <a name="prerequisites"></a>Vereisten
-Voordat u uw apparaat met toocable begint, moet u:
+Voordat u uw apparaat bekabelen, moet u:
 
-* Uw primaire behuizing en Hallo EBOD behuizing, volledig uitgepakt
-* 4 power kabels (2 elke voor primaire Hallo en Hallo EBOD behuizing) bij uw apparaat
-* 2 SAS-kabels geleverd met Hallo apparaat tooconnect hello EBOD behuizing toohello primaire behuizing
-* Toegang too2 Power Distribution Units (PDU's) (aanbevolen)
+* Uw primaire enclosure en de behuizing EBOD volledig uitgepakt
+* 4 power kabels (2 elke voor de primaire en de behuizing EBOD) bij uw apparaat
+* 2 SAS-kabels geleverd met het apparaat verbinding maken met de behuizing EBOD de primaire behuizing
+* Toegang tot 2 Power Distribution Units (PDU's) (aanbevolen)
 * Netwerkkabels
 * Seriële kabels opgegeven
-* Seriële USB converter met de juiste stuurprogramma Hallo op uw PC geïnstalleerd (indien nodig)
+* Seriële USB converter met het juiste stuurprogramma geïnstalleerd op uw PC (indien nodig)
 * Opgegeven 4 QSFP-naar-SFP + adapters voor gebruik met 10 GbE-netwerkinterfaces
-* [Ondersteunde hardware voor Hallo 10 GbE-netwerkinterfaces op uw StorSimple-apparaat](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+* [Ondersteunde hardware voor de 10 GbE-netwerkinterfaces op uw StorSimple-apparaat](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### <a name="sas-and-power-cabling"></a>SAS en Power bekabeling
-Uw apparaat heeft zowel een primaire-behuizing en een EBOD behuizing. U moet hiervoor Hallo eenheden toobe bekabeld samen voor seriële gekoppelde SCSI (SAS)-verbinding en geen stroom.
+Uw apparaat heeft zowel een primaire-behuizing en een EBOD behuizing. Hiervoor moet de eenheden op elkaar worden bekabeld voor seriële gekoppelde SCSI (SAS)-verbinding en geen stroom.
 
-Bij het instellen van dit apparaat voor Hallo eerst, Voer u Hallo stappen voor SAS eerst bekabeling en vervolgens voltooit Hallo stappen voor het power bekabeling.
+Bij het instellen van dit apparaat voor de eerste keer, voer de stappen voor het SAS-kabels eerst en voltooi de stappen voor het power bekabeling.
 
 [!INCLUDE [storsimple-cable-8600-for-SAS](../../includes/storsimple-sas-cable-8600.md)]
 
 [!INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
 ### <a name="network-cabling"></a>Netwerkkabels
-Het apparaat zich in een actief/stand-byconfiguratie: op elk gewenst één module van de domeincontroller actief is en andere controllermodule is verwerkingen alle schijven en het netwerk tijdens het Hallo op stand-by. Als een domeincontroller-fout optreedt, wordt de stand-by-controller Hallo onmiddellijk wordt geactiveerd en blijft alle Hallo-bewerkingen voor schijf- en -netwerken.
+Het apparaat zich in een actief/stand-byconfiguratie: op elk gewenst één module van de domeincontroller actief is en verwerking van alle bewerkingen voor de schijf en netwerk terwijl de domeincontroller-module is stand-by. Als een domeincontroller-fout optreedt, wordt de stand-by-controller onmiddellijk wordt geactiveerd en blijft alle bewerkingen van de schijf en netwerken.
 
-toosupport deze failover redundante domeincontroller, moet u uw apparaat netwerk zoals weergegeven in de volgende stappen uit Hallo toocable.
+Ter ondersteuning van deze failover redundante domeincontroller, moet u het netwerk van uw apparaat bekabelen zoals weergegeven in de volgende stappen uit.
 
-#### <a name="toocable-for-network-connection"></a>toocable voor netwerkverbinding
-1. Uw apparaat heeft zes netwerkinterfaces op elke domeincontroller: vier 1 Gbps en twee 10 Gbps Ethernet-poorten. Raadpleeg toohello afbeelding tooidentify Hallo gegevenspoorten op HALLO backplane van uw apparaat te volgen.
+#### <a name="to-cable-for-network-connection"></a>Op de kabel voor netwerkverbinding
+1. Uw apparaat heeft zes netwerkinterfaces op elke domeincontroller: vier 1 Gbps en twee 10 Gbps Ethernet-poorten. Raadpleeg de volgende afbeelding om de gegevenspoorten op het backplane van uw apparaat te identificeren.
    
      ![Backplane van 8600-apparaat](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
    
-    **Terug van uw apparaat weergegeven Hallo gegevenspoorten**
+    **De gegevenspoorten terug van uw apparaat wordt weergegeven**
    
    | Label | Beschrijving |
    | --- | --- |
    |   0,1,4,5 |1 GbE-netwerkinterfaces |
    |   2,3 |10 GbE-netwerkinterfaces |
    |   6 |Seriële poorten |
-2. Zie de volgende diagram voor netwerkkabels Hallo. (Hallo minimale configuratie wordt weergegeven door ononderbroken blauwe lijnen. Voor hoge beschikbaarheid en prestaties aanvullende configuratie vereist weergegeven door de stippellijn.)
+2. Zie het volgende diagram voor netwerkkabels. (De minimale configuratie wordt weergegeven door ononderbroken blauwe lijnen. Voor hoge beschikbaarheid en prestaties aanvullende configuratie vereist weergegeven door de stippellijn.)
 
 ![Uw apparaat 4U voor netwerk bekabelen](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
@@ -226,45 +226,45 @@ toosupport deze failover redundante domeincontroller, moet u uw apparaat netwerk
 | 6 |Primaire behuizing |
 | 7 |EBOD behuizing |
 
-Wanneer bekabeling Hallo-apparaat, wordt de minimale configuratie Hallo vereist:
+Wanneer het apparaat bekabeling, wordt de minimale configuratie vereist:
 
-* Ten minste twee netwerkinterfaces verbonden op elke domeincontroller met één voor toegang tot de cloud en één voor iSCSI. Hallo DATA 0 poort is automatisch ingeschakeld en geconfigureerd via de seriële console Hallo Hallo-apparaat. Naast de DATA 0 moet een andere gegevenspoort ook toobe geconfigureerd via Hallo klassieke Azure-portal. In dit geval verbinding maken met DATA 0-poort toohello primaire LAN (netwerk met internettoegang). Hallo andere gegevens poorten kunnen worden verbonden tooSAN/iSCSI-LAN (VLAN)-segment van Hallo netwerk, afhankelijk van de rol Hallo bedoeld.
-* Identieke interfaces op elke domeincontroller verbonden toohello netwerk tooensure beschikbaarheid als een domeincontroller failover plaatsvindt. Als u tooconnect DATA 0 en 3 van de gegevens voor een Hallo domeincontrollers, u tooconnect Hallo DATA 0- en DATA 3 overeenkomt moet op Hallo bijvoorbeeld andere domeincontroller.
+* Ten minste twee netwerkinterfaces verbonden op elke domeincontroller met één voor toegang tot de cloud en één voor iSCSI. De DATA 0 poort is automatisch ingeschakeld en geconfigureerd via de seriële console van het apparaat. Naast de DATA 0 moet een andere gegevenspoort ook worden geconfigureerd via de klassieke Azure portal. In dit geval verbinding maken met DATA 0 poort aan de primaire LAN (netwerk met internettoegang). De andere gegevenspoorten kunnen worden verbonden met SAN/iSCSI-LAN (VLAN)-segment van het netwerk, afhankelijk van de beoogde rol.
+* Identieke interfaces op elke domeincontroller verbonden met hetzelfde netwerk om beschikbaarheid te garanderen als een domeincontroller failover plaatsvindt. Als u verbinding maken met DATA 0 en 3 van de gegevens voor een van de domeincontrollers wilt, moet u bijvoorbeeld verbinding maken met de bijbehorende DATA 0 en 3 van de gegevens op de andere controller.
 
 Houd er rekening mee voor hoge beschikbaarheid en prestaties:
 
 * Indien mogelijk, configureert u een andere combinatie voor iSCSI (10 GbE aanbevolen) en een combinatie van netwerkinterface voor toegang tot de cloud (1 GbE) op elke domeincontroller.
-* Indien mogelijk, sluit u netwerkinterfaces van elke domeincontroller tootwo verschillende switches tooensure beschikbaarheid op basis van een switch-fout. Hallo-afbeelding ziet u Hallo twee 10 GbE netwerkinterfaces DATA 2 en DATA 3 uit elke domeincontroller verbonden tootwo verschillende switches. Raadpleeg voor meer informatie, toohello **netwerkinterfaces** onder Hallo [vereisten voor hoge beschikbaarheid voor uw StorSimple-apparaat](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+* Indien mogelijk verbinding met twee verschillende switches om ervoor te zorgen beschikbaarheid op basis van een storing van de switch netwerkinterfaces van elke domeincontroller. De afbeelding ziet u twee 10 GbE netwerkinterfaces, DATA 2 en DATA 3 uit elke domeincontroller die is verbonden met twee verschillende switches. Raadpleeg voor meer informatie de **netwerkinterfaces** onder de [vereisten voor hoge beschikbaarheid voor uw StorSimple-apparaat](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
-> Als u SFP + infraroodzenders met uw 10 GbE-netwerkinterfaces, gebruik Hallo QSFP opgegeven-SFP + adapters. Voor meer informatie gaat te[ondersteunde hardware voor Hallo 10 GbE-netwerkinterfaces op uw StorSimple-apparaat](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+> Als SFP + infraroodzenders met uw 10 GbE-netwerkinterfaces, gebruikt u de opgegeven QSFP-SFP + adapters. Ga voor meer informatie naar [ondersteunde hardware voor de 10 GbE-netwerkinterfaces op uw StorSimple-apparaat](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 > 
 > 
 
 ### <a name="serial-port-cabling"></a>Seriële poort bekabeling
-Hallo toocable stappen na de seriële poort uitvoeren.
+De volgende stappen uitvoeren om te kabel van de seriële poort.
 
-#### <a name="toocable-for-serial-connection"></a>toocable voor seriële verbinding
-1. Uw apparaat heeft een seriële poort van elke domeincontroller die wordt geïdentificeerd door een moersleutelpictogram. toolocate hello seriële poorten, Raadpleeg toohello-afbeelding die laat zien Hallo gegevenspoorten op Hallo achterzijde van het apparaat.
-2. Identificeer de actieve controller Hallo op uw apparaat-backplane. Een knipperende blauw LED geeft aan dat Hallo domeincontroller actief is.
-3. Hallo opgegeven in de seriële kabel (indien nodig, Hallo USB-seriële converter voor uw laptop), en koppel de console of de computer (met terminal emulatie toohello apparaat) toohello seriële poort van de actieve controller Hallo.
-4. Hallo serieel-USB-stuurprogramma's (geleverd bij Hallo apparaat) op uw computer installeren.
-5. Hallo seriële verbinding instellen als volgt:
+#### <a name="to-cable-for-serial-connection"></a>Op de kabel voor seriële verbinding
+1. Uw apparaat heeft een seriële poort van elke domeincontroller die wordt geïdentificeerd door een moersleutelpictogram. Als u wilt de seriële poorten vinden, raadpleegt u de afbeelding de gegevens poorten op de achterkant van het apparaat toont.
+2. Identificeer de actieve controller op uw apparaat-backplane. Een knipperende blauw LED geeft aan dat de domeincontroller actief is.
+3. De opgegeven seriële kabel (indien nodig, het USB-seriële conversieprogramma voor uw laptop), en koppel de console of de computer (met terminal emulatie van het apparaat) naar de seriële poort van de actieve controller.
+4. De serie USB-stuurprogramma's (met het apparaat verzonden) installeren op uw computer.
+5. Stel de seriële verbinding als volgt in:
    
    * 115.200 baud
    * 8 gegevensbits
    * 1 stop-bits
    * Geen pariteit
-   * Datatransportbesturing instellen te**geen**
-6. Controleren of verbinding Hallo werkt met ENTER op Hallo-console. Het menu van een seriële console moet worden weergegeven.
+   * Datatransportbesturing instellen op **None**
+6. Controleren of de verbinding werkt met ENTER op de console. Het menu van een seriële console moet worden weergegeven.
 
 > [!NOTE]
-> **Beheer van lights-Out:** wanneer Hallo-apparaat is geïnstalleerd in een externe datacenter of in een computerruimte met beperkte toegang, zorg ervoor dat Hallo seriële verbindingen tooboth domeincontrollers altijd verbonden tooa seriële consoleswitch of vergelijkbare apparatuur. Hierdoor kan out-of-band beheer op afstand en ondersteuning-bewerkingen in geval van een onderbreking van de netwerk- of onverwachte storingen.
+> **Beheer van lights-Out:** wanneer het apparaat is geïnstalleerd in een externe datacenter of in een computerruimte met beperkte toegang, moet u zorgen dat de seriële verbindingen met beide domeincontrollers altijd zijn verbonden met een switch van de seriële console of een vergelijkbare apparatuur. Hierdoor kan out-of-band beheer op afstand en ondersteuning-bewerkingen in geval van een onderbreking van de netwerk- of onverwachte storingen.
 > 
 > 
 
-U hebt uw apparaat voor voeding, toegang tot het netwerk, kabels en de volgende stap seriële connection.hello tooconfigure Hallo software op uw apparaat.
+U hebt uw apparaat voor voeding, toegang tot het netwerk en seriële verbinding bekabeling. De volgende stap is het configureren van de software op uw apparaat.
 
 ## <a name="next-steps"></a>Volgende stappen
-U bent gereed te[implementeren en configureren van uw on-premises StorSimple-apparaat](storsimple-deployment-walkthrough-u2.md).
+U bent nu klaar om [implementeren en configureren van uw on-premises StorSimple-apparaat](storsimple-deployment-walkthrough-u2.md).
 

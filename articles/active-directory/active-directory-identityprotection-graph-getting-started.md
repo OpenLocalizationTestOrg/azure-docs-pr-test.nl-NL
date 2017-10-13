@@ -1,6 +1,6 @@
 ---
-title: 'aaaGet de slag met Azure Active Directory: Identity Protection en Microsoft Graph | Microsoft Docs'
-description: Biedt een inleiding tooquery Microsoft Graph voor een lijst met risico's en bijbehorende gegevens van Azure Active Directory.
+title: 'Aan de slag met Azure Active Directory: Identity Protection en Microsoft Graph | Microsoft Docs'
+description: Biedt een inleiding tot Microsoft Graph query voor een lijst met risico's en bijbehorende gegevens van Azure Active Directory.
 services: active-directory
 keywords: beveiliging voor Azure active directory-identiteit, risicogebeurtenis, beveiligingsprobleem, beveiligingsbeleid, Microsoft Graph
 documentationcenter: 
@@ -15,60 +15,60 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 75b8b7629a0120d8101f6fde0d9163122503d276
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9b01ff86da6a1fd4a439a6ba59ea15ed6480cdad
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Aan de slag met Azure Active Directory: Identity Protection en Microsoft Graph
-Microsoft Graph is Hallo Microsoft unified API-eindpunt en thuis Hallo van [Azure Active Directory: Identity Protection](active-directory-identityprotection.md) API's. eerste Hallo-API, **identityRiskEvents**, kunt u Microsoft Graph tooquery voor een lijst van [bestaat de kans dat gebeurtenissen](active-directory-identityprotection-risk-events-types.md) en informatie die is gekoppeld. In dit artikel helpt u op weg met het opvragen van deze API. Zie voor een gedetailleerde inleiding, de volledige documentatie en de toegang toohello grafiek Explorer Hallo [Microsoft Graph site](https://graph.microsoft.io/).
+Microsoft Graph is de Microsoft unified API-eindpunt en het hart van [Azure Active Directory: Identity Protection](active-directory-identityprotection.md) API's. De eerste API **identityRiskEvents**, kunt u Microsoft Graph opvragen voor een lijst met [bestaat de kans dat gebeurtenissen](active-directory-identityprotection-risk-events-types.md) en informatie die is gekoppeld. In dit artikel helpt u op weg met het opvragen van deze API. Zie voor een gedetailleerde inleiding, volledige documentatie en toegang tot de grafiek Explorer, de [Microsoft Graph site](https://graph.microsoft.io/).
 
 > [!IMPORTANT]
-> Microsoft raadt aan dat u Azure AD beheren met Hallo [Azure AD-beheercentrum](https://aad.portal.azure.com) in Hallo hello Azure-portal in plaats van de klassieke Azure-portal waarnaar wordt verwezen in dit artikel.
+> Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure Portal in plaats van de klassieke Azure portal waarnaar in dit artikel wordt verwezen.
 
-Er zijn drie stappen tooaccessing Identity Protection gegevens via Microsoft Graph:
+Er zijn drie stappen voor het openen van Identity Protection gegevens via Microsoft Graph:
 
 1. Toevoegen van een toepassing met een clientgeheim. 
-2. Gebruik dit geheim en enkele andere stukjes informatie tooauthenticate tooMicrosoft grafiek, waarbij er geen verificatietoken. 
-3. Gebruik dit token toomake aanvragen toohello API-eindpunt en terughalen van gegevens voor de beveiliging van de identiteit.
+2. Gebruik dit geheim en enkele andere stukjes informatie om Microsoft Graph, waarbij er geen verificatietoken te verifiëren. 
+3. Gebruik dit token aanvragen in de API-eindpunt aanbrengen en terughalen van gegevens voor de beveiliging van de identiteit.
 
 Voordat u begint, hebt u nodig:
 
-* Administrator-bevoegdheden toocreate Hallo toepassing in Azure AD
-* Hallo-naam van uw tenant-domein (bijvoorbeeld: contoso.onmicrosoft.com)
+* Beheerdersrechten voor de toepassing in Azure AD maken
+* De naam van uw tenant-domein (bijvoorbeeld: contoso.onmicrosoft.com)
 
 ## <a name="add-an-application-with-a-client-secret"></a>Een toepassing met een clientgeheim toevoegen
-1. [Meld u aan](https://manage.windowsazure.com) tooyour klassieke Azure-portal als beheerder. 
-2. Klik op op Hallo navigatiedeelvenster links op **Active Directory**. 
+1. [Meld u aan](https://manage.windowsazure.com) bij de klassieke Azure portal als beheerder. 
+2. Klik op in het navigatiedeelvenster links op **Active Directory**. 
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_01.png)
-3. Van Hallo **Directory** lijst, selecteer Hallo map waarvoor u tooenable Active directory-integratie.
-4. Klik in het menu bovenaan Hallo Hallo **toepassingen**.
+3. Van de **Directory** , selecteert u de map waarvoor u wilt inschakelen van Active directory-integratie.
+4. Klik in het menu bovenaan op **toepassingen**.
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_02.png)
-5. Klik op **toevoegen** Hallo Hallo pagina onderaan in.
+5. Klik op **toevoegen** aan de onderkant van de pagina.
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_03.png)
-6. Op Hallo **wat wilt u wilt dat toodo** dialoogvenster, klikt u op **mijn organisatie ontwikkelt toepassing toevoegen**.
+6. Op de **wat wilt u doen** dialoogvenster, klikt u op **mijn organisatie ontwikkelt toepassing toevoegen**.
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_04.png)
-7. Op Hallo **Vertel ons over uw toepassing** dialoogvenster Hallo volgende stappen uit te voeren:
+7. Op de **Vertel ons over uw toepassing** dialoogvenster de volgende stappen uitvoeren:
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_05.png)
    
-    a. In Hallo **naam** textbox, typ een naam voor uw toepassing (bijvoorbeeld: AADIP risico gebeurtenis API toepassing).
+    a. In de **naam** textbox, typ een naam voor uw toepassing (bijvoorbeeld: AADIP risico gebeurtenis API toepassing).
    
     b. Als **Type**, selecteer **webtoepassing en / of Web-API**.
    
     c. Klik op **Volgende**.
-8. Op Hallo **App-eigenschappen** dialoogvenster Hallo volgende stappen uit te voeren:
+8. Op de **App-eigenschappen** dialoogvenster de volgende stappen uitvoeren:
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_06.png)
    
-    a. In Hallo **aanmeldings-URL** textbox type `http://localhost`.
+    a. In de **aanmeldings-URL** textbox type `http://localhost`.
    
-    b. In Hallo **App ID URI** textbox type `http://localhost`.
+    b. In de **App ID URI** textbox type `http://localhost`.
    
     c. Klik op **Voltooien**.
 
@@ -76,14 +76,14 @@ U kunt nu uw toepassing configureren.
 
 ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_07.png)
 
-## <a name="grant-your-application-permission-toouse-hello-api"></a>Uw toepassing machtiging toouse Hallo API verlenen
-1. Klik op de pagina van uw toepassing in het menu bovenaan Hallo Hallo op **configureren**. 
+## <a name="grant-your-application-permission-to-use-the-api"></a>Uw toepassing toestemming de API gebruiken
+1. Klik op de pagina van uw toepassing in het menu aan de bovenkant op **configureren**. 
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_08.png)
-2. In Hallo **machtigingen tooother toepassingen** sectie, klikt u op **toepassing toevoegen**.
+2. In de **machtigingen voor andere toepassingen** sectie, klikt u op **toepassing toevoegen**.
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_09.png)
-3. Op Hallo **machtigingen tooother toepassingen** dialoogvenster Hallo volgende stappen uit te voeren:
+3. Op de **machtigingen voor andere toepassingen** dialoogvenster de volgende stappen uitvoeren:
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_10.png)
    
@@ -93,35 +93,35 @@ U kunt nu uw toepassing configureren.
 4. Klik op **Toepassingsmachtigingen: 0**, en selecteer vervolgens **lezen van alle gegevens van identiteit risico gebeurtenis**.
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_11.png)
-5. Klik op **opslaan** Hallo Hallo pagina onderaan in.
+5. Klik op **Opslaan** onder aan de pagina.
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_12.png)
 
 ## <a name="get-an-access-key"></a>Een toegangssleutel opvragen
-1. Op de pagina van uw toepassing, in Hallo **sleutels** sectie, selecteert u 1 jaar als duur.
+1. Klik op de pagina van uw toepassing in de **sleutels** sectie, selecteert u 1 jaar als duur.
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_13.png)
-2. Klik op **opslaan** Hallo Hallo pagina onderaan in.
+2. Klik op **Opslaan** onder aan de pagina.
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_12.png)
-3. Hallo-waarde van de zojuist gemaakte sleutel kopiëren in Hallo sleutels sectie en plak deze in een veilige locatie.
+3. Kopieer de waarde van de zojuist gemaakte sleutel in de sectie sleutels en plak deze in een veilige locatie.
    
     ![Maken van een toepassing](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_14.png)
    
    > [!NOTE]
-   > Als u deze sleutel kwijtraakt, wordt u tooreturn toothis sectie en maak een nieuwe sleutel. Een geheim voor deze sleutel behouden: iedereen die deze heeft toegang tot uw gegevens.
+   > Als u deze sleutel kwijtraakt, wordt u terug naar deze sectie en maak een nieuwe sleutel hebben. Een geheim voor deze sleutel behouden: iedereen die deze heeft toegang tot uw gegevens.
    > 
    > 
-4. In Hallo **eigenschappen** sectie, kopie Hallo **Client-ID**, en plak deze in een veilige locatie. 
+4. In de **eigenschappen** sectie, Kopieer de **Client-ID**, en plak deze in een veilige locatie. 
 
-## <a name="authenticate-toomicrosoft-graph-and-query-hello-identity-risk-events-api"></a>TooMicrosoft grafiek en query Hallo identiteit risico gebeurtenissen API verifiëren
+## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Verifiëren naar Microsoft Graph en de identiteit risico gebeurtenissen API query
 Op dit moment dat u hebt:
 
-* Hallo client-ID u hierboven hebt gekopieerd
-* Hallo-sleutel die u hierboven hebt gekopieerd
-* Hallo-naam van uw tenant-domein
+* De client-ID die u hierboven hebt gekopieerd
+* De sleutel die u hierboven hebt gekopieerd
+* De naam van uw tenant-domein
 
-tooauthenticate, verzenden een post-aanvragen te`https://login.microsoft.com` Hello parameters in de hoofdtekst van het Hallo te volgen:
+Om te verifiëren, verzendt u een post-aanvraag voor `https://login.microsoft.com` met de volgende parameters in de hoofdtekst:
 
 * grant_type: '**client_credentials**'
 * resource: '**https://graph.microsoft.com**'
@@ -129,23 +129,23 @@ tooauthenticate, verzenden een post-aanvragen te`https://login.microsoft.com` He
 * client_secret:<your key>
 
 > [!NOTE]
-> Hebt u tooprovide waarden voor Hallo **client_id** en Hallo **client_secret** parameter.
+> U moet waarden opgeven voor de **client_id** en de **client_secret** parameter.
 > 
 > 
 
 Als dit lukt, retourneert deze geen verificatietoken.  
-een header toocall Hallo-API maken met de volgende parameter Hallo:
+Voor het aanroepen van de API maakt u een header met de volgende parameter:
 
     `Authorization`=”<token_type> <access_token>"
 
 
-Bij de verificatie, vindt u Hallo tokentype en toegangstoken in Hallo heeft een token geretourneerd.
+Bij de verificatie, vindt u het type token en het toegangstoken in het resulterende token.
 
-Deze header verzenden als een aanvraag toohello URL van de API te volgen:`https://graph.microsoft.com/beta/identityRiskEvents`
+Deze header als een aanvraag verzenden naar de volgende API-URL:`https://graph.microsoft.com/beta/identityRiskEvents`
 
-Hallo-antwoord als dit lukt, is een verzameling van identiteit risicogebeurtenissen en gegevens in Hallo OData-JSON-indeling, die kan worden geparseerd en verwerkt als naar eigen inzicht die zijn gekoppeld.
+Het antwoord, is als dit lukt, een verzameling van identiteit risico's en bijbehorende gegevens in de OData-JSON-indeling, die kan worden geparseerd en verwerkt als naar eigen inzicht.
 
-Hier volgt een voorbeeld van code voor verificatie en het aanroepen van Hallo-API met behulp van Powershell.  
+Hier volgt een voorbeeld van code voor verificatie en het aanroepen van de API met behulp van Powershell.  
 Alleen toe te voegen uw client-ID sleutel en tenant-domein.
 
     $ClientID       = "<your client ID here>"        # Should be a ~36 hex character string; insert your info here
@@ -178,10 +178,10 @@ Alleen toe te voegen uw client-ID sleutel en tenant-domein.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Gefeliciteerd, u uw eerste aanroep tooMicrosoft grafiek zojuist hebt gemaakt.  
-U kunt nu query identiteit risico's en Hallo gegevens gebruiken, maar naar eigen inzicht.
+Gefeliciteerd, u uw eerste aanroep naar Microsoft Graph zojuist hebt gemaakt.  
+U kunt nu query identiteit risico's en de gegevens echter naar eigen inzicht gebruiken.
 
-toolearn meer informatie over Microsoft Graph en hoe toobuild toepassingen die gebruikmaken van Graph API Hallo uitchecken Hallo [documentatie](https://graph.microsoft.io/docs) en nog veel meer op Hallo [Microsoft Graph site](https://graph.microsoft.io/). Zorg ervoor dat toobookmark Hallo ook [Azure AD Identity Protection API](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) pagina met een lijst met alle Hallo Identity Protection API's beschikbaar zijn in de grafiek. Als er nieuwe manieren toowork met Identity Protection via API toevoegt, ziet u ze op die pagina.
+Bekijk voor meer informatie over Microsoft Graph en het ontwikkelen van toepassingen met behulp van de Graph API de [documentatie](https://graph.microsoft.io/docs) en nog veel meer op de [Microsoft Graph site](https://graph.microsoft.io/). Zorg er ook bladwijzer voor de [Azure AD Identity Protection API](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) pagina met een lijst met alle van de identiteit beveiliging beschikbare API's in de grafiek. Als er nieuwe manieren om te werken met Identity Protection via API toevoegt, ziet u ze op die pagina.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)

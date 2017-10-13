@@ -1,6 +1,6 @@
 ---
-title: aaaUse hello toocreate met Azure portal een IoT Hub | Microsoft Docs
-description: "Hoe toocreate, beheren en verwijderen van Azure IoT hubs via hello Azure-portal. Bevat informatie over Prijscategorieën, schaalbaarheid, beveiliging en configuratie-berichten."
+title: De Azure portal gebruiken voor het maken van een IoT Hub | Microsoft Docs
+description: "Informatie over het maken, beheren en verwijderen van Azure IoT hubs via de Azure-portal. Bevat informatie over Prijscategorieën, schaalbaarheid, beveiliging en configuratie-berichten."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,52 +14,52 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
 ms.author: dobett
-ms.openlocfilehash: 383968c90ee7ef3bff85a6c90efbf5f0e8fbb208
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bca7eea5f44bbed3b784b56edaac235161b43e5e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="create-an-iot-hub-using-hello-azure-portal"></a>Een iothub met hello Azure-portal maken
+# <a name="create-an-iot-hub-using-the-azure-portal"></a>Een iothub met de Azure portal maken
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 Dit artikel wordt beschreven:
 
-* Hoe Hallo toofind service IoT Hub in hello Azure-portal.
-* Hoe toocreate en beheren van IoT hubs.
+* Hoe de IoT Hub-service niet vinden in de Azure portal.
+* Het maken en beheren van IoT hubs.
 
-## <a name="where-toofind-hello-iot-hub-service"></a>Waar toofind Hallo service IoT Hub
+## <a name="where-to-find-the-iot-hub-service"></a>Waar vind ik de IoT Hub-service
 
-U vindt Hallo service IoT Hub in de volgende locaties in de portal Hallo Hallo:
+U vindt de IoT Hub-service in de volgende locaties in de portal:
 
 * Kies **+ nieuw**, en kies vervolgens **Internet der dingen**.
-* Kies in Hallo Marketplace, **Internet der dingen**.
+* Kies in de Marketplace **Internet der dingen**.
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-U kunt een iothub met behulp van de volgende methoden Hallo maken:
+U kunt een iothub met behulp van de volgende manieren maken:
 
-* Hallo **+ nieuw** optie wordt weergegeven in de volgende schermopname Hallo Hallo-blade geopend. Hallo-stappen voor het maken van IoT-hub Hallo via deze methode en Hallo marketplace zijn identiek.
-* Kies in Hallo Marketplace, **maken** tooopen Hallo blade wordt weergegeven in de volgende schermopname Hallo.
+* De **+ nieuw** optie opent u de blade die wordt weergegeven in de volgende schermopname. De stappen voor het maken van de IoT-hub via deze methode en via de marketplace zijn identiek.
+* Kies in de Marketplace **maken** om de blade wordt weergegeven in de volgende schermopname te openen.
 
-Hallo volgende secties beschrijven Hallo verschillende stappen toocreate een IoT-hub:
+De volgende secties worden de verschillende stappen voor het maken van een IoT-hub:
 
-### <a name="choose-hello-name-of-hello-iot-hub"></a>Kies de naam Hallo van Hallo iothub
+### <a name="choose-the-name-of-the-iot-hub"></a>Kies de naam van de IoT-hub
 
-een IoT-hub toocreate, moet u een naam Hallo IoT-hub. Deze naam moet uniek zijn in alle IoT hubs.
+U moet de IoT-hub naam voor het maken van een IoT-hub. Deze naam moet uniek zijn in alle IoT hubs.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-### <a name="choose-hello-pricing-tier"></a>Hallo prijscategorie kiezen
+### <a name="choose-the-pricing-tier"></a>Kies de prijscategorie
 
-U kunt kiezen uit vier lagen: **vrije**, **Standard 1** en **standaard 2**, en **Standard-S3**. gratis laag Hallo kan alleen 500 apparaten toobe toohello IoT-hub verbonden en up too8, 000 berichten per dag.
+U kunt kiezen uit vier lagen: **vrije**, **Standard 1** en **standaard 2**, en **Standard-S3**. De gratis categorie kan alleen 500 apparaten zijn verbonden met de iothub en maximaal 8000 berichten per dag.
 
-**Standard-S1**: gebruik Hallo S1 edition voor IoT-oplossingen met een groot aantal apparaten dat elke kleine hoeveelheden gegevens genereren. Elke eenheid van Hallo S1 edition kunt up too400, 000 berichten per dag op alle verbonden apparaten.
+**Standard-S1**: Gebruik de editie S1 voor IoT-oplossingen met een groot aantal apparaten dat elke kleine hoeveelheden gegevens genereren. Met elke eenheid van de S1-versie kunt u in totaal maximaal 400.000 berichten per dag verzenden voor alle verbonden apparaten.
 
-**Standard S2**: gebruik Hallo S2 edition voor op waarin apparaten grote hoeveelheden gegevens genereren IoT-oplossingen. Elke eenheid van Hallo S2 edition kunt up too6 miljoen berichten per dag tussen alle verbonden apparaten.
+**Standard S2**: S2 versie gebruiken voor de IoT-oplossingen waarin apparaten grote hoeveelheden gegevens worden gegenereerd. Elke eenheid van de editie S2 kunt 6 miljoen berichten per dag tussen alle verbonden apparaten.
 
-**Standard-S3**: gebruik Hallo S3 edition voor IoT-oplossingen die grote hoeveelheden gegevens genereren. Elke eenheid van Hallo S3 edition kunt up too300 miljoen berichten per dag tussen alle verbonden apparaten.
+**Standard-S3**: S3 versie gebruiken voor de IoT-oplossingen die grote hoeveelheden gegevens genereren. Elke eenheid van de editie S3 kunt 300 miljoen berichten per dag tussen alle verbonden apparaten.
 
 ![][4]
 
@@ -68,77 +68,77 @@ U kunt kiezen uit vier lagen: **vrije**, **Standard 1** en **standaard 2**, en *
 
 ### <a name="iot-hub-units"></a>IoT hub-eenheden
 
-Hallo aantal berichten dat is toegestaan per eenheid per dag, is afhankelijk van uw hub prijscategorie. Als u Hallo IoT hub toosupport instroom van 700.000 berichten, kiest u bijvoorbeeld twee S1 laag eenheden.
+Het aantal berichten dat is toegestaan per eenheid per dag, is afhankelijk van uw hub prijscategorie. Als u iothub ter ondersteuning van inkomende berichten 700.000, kiest u bijvoorbeeld twee S1 laag eenheden.
 
-### <a name="device-toocloud-partitions-and-resource-group"></a>Apparaat toocloud partities en resourcegroep
+### <a name="device-to-cloud-partitions-and-resource-group"></a>Apparaat cloud partities en resourcegroep
 
-U kunt het aantal partities voor een IoT-hub Hallo wijzigen. Hallo standaardaantal partities is 4, u kunt een ander nummer kiezen uit de vervolgkeuzelijst Hallo.
+U kunt het aantal partities voor een IoT-hub kunt wijzigen. Het aantal partities is 4, u kunt een ander nummer kiezen uit de vervolgkeuzelijst.
 
-U hoeft geen tooexplicitly een lege resourcegroep maken. Wanneer u een resource maakt, kunt u beide toocreate een nieuwe kiezen of een bestaande resourcegroep gebruiken.
+U hoeft niet expliciet een lege resourcegroep te maken. Wanneer u een resource maakt, kunt u kiest u een nieuwe maken of een bestaande resourcegroep gebruiken.
 
 ![][5]
 
 ### <a name="choose-subscription"></a>Abonnement kiezen
 
-Azure IoT Hub automatisch een lijst met hello Azure-abonnementen Hallo-gebruikersaccount is gekoppeld aan. U kunt hello Azure-abonnement tooassociate Hallo iothub.
+Azure IoT Hub worden automatisch de Azure-abonnementen die aan het gebruikersaccount is gekoppeld. U kunt de Azure-abonnement om te koppelen van de iothub.
 
-### <a name="choose-hello-location"></a>Hallo locatie kiezen
+### <a name="choose-the-location"></a>Kies de locatie
 
-Hallo locatie optie biedt een lijst met Hallo regio's waar IoT Hub beschikbaar is.
+De optie locatie bevat een lijst van de regio's waar IoT Hub beschikbaar is.
 
-### <a name="create-hello-iot-hub"></a>Hallo iothub maken
+### <a name="create-the-iot-hub"></a>De IoT-hub maken
 
-Wanneer alle voorgaande stappen voltooid zijn, kunt u Hallo IoT-hub kunt maken. Klik op **maken** toostart Hallo back-endproces toocreate en implementeren van Hallo iothub met Hallo-opties die u hebt gekozen.
+Wanneer alle voorgaande stappen voltooid zijn, kunt u de IoT-hub kunt maken. Klik op **maken** starten van de back-end-proces voor het maken en implementeren van de iothub met de opties die u hebt gekozen.
 
-Het kan enkele minuten toocreate Hallo IoT-hub duren als het duurt voor Hallo back-end-implementatie toorun op Hallo juiste Locationservers.
+Het kan even duren voor het maken van de IoT-hub, omdat het duurt voor de back-end-implementatie uit te voeren op de juiste locatie-servers.
 
-## <a name="change-hello-settings-of-hello-iot-hub"></a>Hallo-instellingen van Hallo iothub wijzigen
+## <a name="change-the-settings-of-the-iot-hub"></a>Wijzig de instellingen van de IoT-hub
 
-U kunt Hallo-instellingen van een bestaande IoT-hub wijzigen nadat deze is gemaakt van Hallo blade IoT Hub.
+U kunt de instellingen van een bestaande IoT-hub wijzigen nadat deze is gemaakt op de blade IoT Hub.
 
 ![][8]
 
-**Gedeeld toegangsbeleid**: dit beleid definiëren Hallo machtigingen voor apparaten en services tooconnect tooIoT Hub. U kunt dit beleid openen door te klikken op **gedeeld toegangsbeleid** onder **algemene**. In deze blade kunt u bestaande beleidsregels wijzigen of toevoegen van een nieuw beleid.
+**Gedeeld toegangsbeleid**: dit beleid bepaalt de machtigingen voor apparaten en services om te verbinden met IoT Hub. U kunt dit beleid openen door te klikken op **gedeeld toegangsbeleid** onder **algemene**. In deze blade kunt u bestaande beleidsregels wijzigen of toevoegen van een nieuw beleid.
 
 ### <a name="create-a-policy"></a>Een beleid maken
 
-* Klik op **toevoegen** tooopen een blade. Hier kunt u nieuwe beleidsnaam Hallo en dat het gewenste tooassociate aan dit beleid, zoals wordt weergegeven in de volgende Hallo Hallo machtigingen afbeelding:
+* Klik op **toevoegen** om een blade te openen. Hier kunt u de naam van het nieuwe beleid en de machtigingen die u koppelen aan dit beleid, wilt zoals wordt weergegeven in de volgende afbeelding:
 
-    Er zijn enkele machtigingen die gekoppeld aan deze gedeelde beleidsregels worden kunnen. Hallo **register gelezen** en **register schrijven** beleid verlenen lees- en schrijftoegang rechten toohello id-register. Optie Hallo schrijven automatisch kiest Hallo optie lezen.
+    Er zijn enkele machtigingen die gekoppeld aan deze gedeelde beleidsregels worden kunnen. De **register gelezen** en **register schrijven** beleid verlenen van rechten voor lezen en schrijven in het identiteitsregister. Automatisch kiezen van de optie schrijven, kiest de optie voor lezen.
 
-    Hallo **Service verbinding** beleid verleent machtiging tooaccess service-eindpunten zoals **ontvangen van apparaat-naar-cloud**. Hallo **apparaat verbinding kan maken** beleid verleent machtigingen voor het verzenden en ontvangen van berichten met behulp van Hallo IoT Hub apparaat-side '-eindpunten.
+    De **Service verbinding** beleid verleent service-eindpunten, zoals toegang tot **ontvangen van apparaat-naar-cloud**. De **apparaat verbinding kan maken** beleid verleent machtigingen voor het verzenden en ontvangen van berichten met behulp van de IoT Hub apparaat-eindpunten.
 
-* Klik op **maken** tooadd dit nieuw beleid toohello bestaande lijst gemaakt.
+* Klik op **maken** deze nieuwe beleid aan de bestaande lijst toevoegen.
 
 ![][10]
 
 ## <a name="endpoints"></a>Eindpunten
 
-Klik op **eindpunten** toodisplay een lijst met eindpunten voor Hallo IoT-hub die u wilt wijzigen. Er zijn twee soorten eindpunten: eindpunten die zijn ingebouwd in Hallo IoT-hub en eindpunten u toohello IoT-hub toevoegen na het maken ervan.
+Klik op **eindpunten** om weer te geven een lijst met eindpunten voor de IoT-hub die u wilt wijzigen. Er zijn twee soorten eindpunten: eindpunten die zijn ingebouwd in de IoT-hub en eindpunten die u toevoegt aan de IoT-hub na het maken ervan.
 
 ![][11]
 
 ### <a name="built-in-endpoints"></a>Ingebouwde eindpunten
 
-Er zijn twee ingebouwde eindpunten: **toodevice feedback Cloud** en **gebeurtenissen**.
+Er zijn twee ingebouwde eindpunten: **Cloud naar apparaat feedback** en **gebeurtenissen**.
 
-* **Cloud toodevice feedback** instellingen: deze instelling heeft twee subsettings: **tooDevice TTL Cloud** (time-to-live) en **bewaartijd** (in uren) voor Hallo-berichten. Wanneer uw eerste een iothub maakt, hebben beide deze instellingen standaardwaarde Hallo van één uur. tooadjust deze instellingen Hallo schuifregelaars gebruiken of typ Hallo waarden.
-* **Gebeurtenissen** instellingen: deze instelling heeft verschillende subsettings, waarvan sommige alleen-lezen zijn. Hallo volgende lijst beschrijft deze instellingen:
+* **Cloud naar apparaat feedback** instellingen: deze instelling heeft twee subsettings: **Cloud naar apparaat TTL** (time-to-live) en **bewaartijd** (in uren) voor de berichten. Wanneer uw eerste een iothub maakt, zijn deze instellingen voor beide de standaardwaarde van één uur. Deze instellingen aanpassen, gebruikt u de schuifregelaars of typ de waarden.
+* **Gebeurtenissen** instellingen: deze instelling heeft verschillende subsettings, waarvan sommige alleen-lezen zijn. De volgende lijst beschrijft deze instellingen:
 
-  * **Partities**: een standaardwaarde is ingesteld wanneer Hallo IoT-hub is gemaakt. U kunt Hallo aantal partities via deze instelling wijzigen.
+  * **Partities**: een standaardwaarde is ingesteld wanneer de IoT-hub is gemaakt. U kunt het aantal partities via deze instelling wijzigen.
 
-  * **Event Hub-compatibele naam en een eindpunt**: wanneer Hallo IoT-hub is gemaakt, een Event Hub intern wordt gemaakt dat u mogelijk moet toegang hebben tot toounder bepaalde omstandigheden. Hallo Event Hub-compatibele naam en het eindpunt waarden kan niet worden aangepast, maar u kunt deze kopiëren door te klikken op **kopie**.
+  * **Event Hub-compatibele naam en een eindpunt**: wanneer de IoT-hub is gemaakt, wordt een Event Hub gemaakt intern mogelijk moet u toegang tot onder bepaalde omstandigheden. De waarden van de Event Hub-compatibele eindpunt en kan niet worden aangepast, maar u kunt deze kopiëren door te klikken op **kopie**.
 
-  * **Bewaartijd**: tooone dag standaard ingesteld, maar u kunt met behulp van de vervolgkeuzelijst Hallo wijzigen. Deze waarde is in dagen voor het Hallo-apparaat-naar-cloud-instelling.
+  * **Bewaartijd**: standaard ingesteld op één dag, maar u kunt wijzigen met behulp van de vervolgkeuzelijst. Deze waarde is in dagen voor de apparaat-naar-cloud-instelling.
 
-  * **Consumergroepen**: consumergroepen meerdere lezers tooread berichten onafhankelijk van de IoT-hub Hallo inschakelen. Elke iothub is gemaakt met een standaard consumergroep. U kunt echter toevoegen of verwijderen van de consument groepen tooyour IoT hubs die gebruikmaken van deze instelling.
+  * **Consumergroepen**: consumergroepen inschakelen meerdere lezers om berichten te lezen onafhankelijk van de IoT-hub. Elke iothub is gemaakt met een standaard consumergroep. U kunt echter toevoegen of verwijderen van consumergroepen naar uw IoT-hubs met deze instelling.
 
   > [!NOTE]
-  > Hallo standaard consumergroep kan niet worden bewerkt of verwijderd.
+  > De standaardgroep consumer kan niet worden bewerkt of verwijderd.
 
 ### <a name="custom-endpoints"></a>Aangepaste eindpunten
 
-U kunt aangepaste eindpunten toevoegen op uw IoT-hub met Hallo-portal. Van Hallo **eindpunten** blade, klikt u op **toevoegen** op Hallo bovenste tooopen hello **eindpunt toevoegen** blade. Geef informatie op Hallo vereist en klik vervolgens op **OK**. Uw aangepaste eindpunt wordt nu weergegeven in de belangrijkste Hallo **eindpunten** blade.
+U kunt aangepaste eindpunten toevoegen op uw IoT-hub met behulp van de portal. Van de **eindpunten** blade, klikt u op **toevoegen** boven openen de **eindpunt toevoegen** blade. Voer de vereiste gegevens en klik vervolgens op **OK**. Uw aangepaste eindpunt wordt nu weergegeven in het hoofdvenster **eindpunten** blade.
 
 ![][13]
 
@@ -146,42 +146,42 @@ Meer informatie over aangepaste eindpunten in [referentie - IoT-hubeindpunten][l
 
 ## <a name="routes"></a>Routes
 
-Klik op **Routes** toomanage hoe IoT Hub verzendt uw apparaat-naar-cloud-berichten.
+Klik op **Routes** beheren hoe IoT Hub verzendt uw apparaat-naar-cloud-berichten.
 
 ![][14]
 
-U kunt routes tooyour IoT-hub toevoegen door te klikken op **toevoegen** bovenaan Hallo Hallo **Routes*** blade Hallo vereist gegevens invoeren en op **OK**. Uw route wordt vervolgens weergegeven in de belangrijkste Hallo **Routes** blade. U kunt een route door erop te klikken in de lijst met routes Hallo bewerken. een route tooenable klikt u in de lijst met routes Hallo op en stel Hallo **ingeschakeld** te schakelen**uit**. toosave hello wijzigen, klikt u op **OK** Hallo Hallo blade onderaan in.
+U kunt routes toevoegen aan uw IoT-hub door te klikken op **toevoegen** boven aan de **Routes*** blade, voert u de vereiste gegevens en op **OK**. De route wordt vervolgens weergegeven in het hoofdvenster **Routes** blade. U kunt een route bewerken door erop te klikken in de lijst met routes. Om een route, klikt u in de lijst met routes op en stel de **ingeschakeld** in-of uitschakelen op **uit**. Klik op om de wijziging, **OK** onderaan de blade.
 
 ![][15]
 
 ## <a name="pricing-and-scale"></a>Prijzen en schaal
 
-Hallo prijzen van een iothub kan worden gewijzigd via Hallo **prijzen** instellingen Hello volgende uitzonderingen:
+De prijs van een iothub kan worden gewijzigd via de **prijzen** instellingen met de volgende uitzonderingen:
 
-* In de huidige implementatie hello, een iothub met een gratis SKU lagen tooone Hallo betaald SKU's, niet wijzigen of vice versa.
-* Er kan alleen worden één laag gratis IoT-hub in hello Azure-abonnement.
+* In de huidige implementatie een iothub met een gratis SKU lagen niet wijzigen in een van de betaalde SKU's, of vice versa.
+* Er kan alleen worden één laag gratis IoT-hub in de Azure-abonnement.
 
 ![][12]
 
-U kunt verplaatsen van een hogere toolower categorie alleen wanneer het aantal berichten die dag Hallo Hallo quotum voor de onderste laag Hallo overschrijden. Hallo bijvoorbeeld laag voor Hallo IoT hub kan worden gewijzigd op als het aantal berichten per dag Hallo 400.000 overschrijdt, vervolgens. Echter, als u toohello S1 laag wijzigt vervolgens Hallo IoT-hub is beperkt voor die dag.
+U kunt verplaatsen van een hogere naar lagere lagen alleen wanneer het aantal berichten die dag het quotum voor de onderste laag overschrijdt. Bijvoorbeeld, als het aantal berichten per dag 400.000 overschrijdt, kan klikt u vervolgens de laag voor de iothub worden gewijzigd. Echter, als u naar de laag S1 wijzigt vervolgens de IoT-hub is beperkt voor die dag.
 
-## <a name="delete-hello-iot-hub"></a>Hallo IoT-hub verwijderen
+## <a name="delete-the-iot-hub"></a>Verwijderen van de IoT-hub
 
-U kunt toohello IoT-hub gewenste toodelete door te klikken op Bladeren **Bladeren**, en vervolgens te kiezen Hallo juiste hub toodelete. toodelete Hallo IoT-hub, klikt u op Hallo **verwijderen** knop onder naam Hallo IoT-hub.
+U kunt bladeren naar de IoT-hub die u verwijderen wilt door te klikken op **Bladeren**, en vervolgens de juiste hub verwijderen te kiezen. Als u wilt verwijderen van de IoT-hub, klikt u op de **verwijderen** knop onder de naam van de IoT-hub.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Volg deze koppelingen toolearn meer over het beheren van Azure IoT Hub:
+Volg deze koppelingen voor meer informatie over het beheren van Azure IoT Hub:
 
 * [Bulksgewijs IoT-apparaten beheren][lnk-bulk]
 * [IoT Hub metrische gegevens][lnk-metrics]
 * [Bewerkingen controleren][lnk-monitor]
 
-toofurther verkennen Hallo-mogelijkheden van IoT Hub, Zie:
+Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 * [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]
 * [Een apparaat simuleren met IoT rand][lnk-iotedge]
-* [Uw IoT-oplossing van Hallo gemalen beveiligen][lnk-securing]
+* [Beveiligen van uw IoT-oplossing bouwen up][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png
 [5]: ./media/iot-hub-create-through-portal/location1.png

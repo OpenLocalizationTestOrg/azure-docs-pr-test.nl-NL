@@ -1,6 +1,6 @@
 ---
-title: aaaAdd push notifications tooyour Xamarin.iOS-app met Azure App Service
-description: Meer informatie over hoe Azure App Service-toosend toouse push-meldingen tooyour Xamarin.iOS-app
+title: Pushmeldingen toevoegen aan uw Xamarin.iOS-app met Azure App Service
+description: Informatie over het gebruik van Azure App Service om pushmeldingen te verzenden naar uw Xamarin.iOS-app
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -14,38 +14,38 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: glenga
-ms.openlocfilehash: 3e6439aee4f3fe0f60b9786d0bbfd74c4f5e52d1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bf922e49c4c92d0065817a5dd6c7d10a04737304
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="add-push-notifications-tooyour-xamarinios-app"></a>Push notifications tooyour Xamarin.iOS-App toevoegen
+# <a name="add-push-notifications-to-your-xamarinios-app"></a>Pushmeldingen toevoegen aan uw App voor Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Overzicht
-In deze zelfstudie maakt u een push notifications toohello toevoegen [Xamarin.iOS snel starten](app-service-mobile-xamarin-ios-get-started.md) project, zodat een push-melding toohello apparaat verzonden telkens wanneer een record wordt ingevoegd.
+In deze zelfstudie hebt u pushmeldingen toevoegen de [Xamarin.iOS snel starten](app-service-mobile-xamarin-ios-get-started.md) project, zodat een pushmelding wordt verzonden naar het apparaat telkens wanneer een record wordt ingevoegd.
 
-Als u geen gebruik Hallo snel starten-serverproject gedownload, u moet Hallo push notification-uitbreidingspakket. Zie [werken met back-endserver voor Hallo .NET SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) voor meer informatie.
+Als u het gedownloade quick start-serverproject niet gebruikt, moet u het push notification-uitbreidingspakket. Zie [werken met de .NET-back-endserver SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
-* Volledige Hallo [Xamarin.iOS Quick Start](app-service-mobile-xamarin-ios-get-started.md) zelfstudie.
-* Een fysiek iOS-apparaat. Pushmeldingen worden niet ondersteund door Hallo iOS-simulator.
+* Voltooi de [Xamarin.iOS Quick Start](app-service-mobile-xamarin-ios-get-started.md) zelfstudie.
+* Een fysiek iOS-apparaat. Pushmeldingen worden niet ondersteund door de iOS-simulator.
 
-## <a name="register-hello-app-for-push-notifications-on-apples-developer-portal"></a>Hallo-app voor pushmeldingen op Apple developer-portal te registreren
+## <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>De app voor pushmeldingen op Apple developer-portal te registreren
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## <a name="configure-your-mobile-app-toosend-push-notifications"></a>Uw mobiele App toosend-pushmeldingen configureren
+## <a name="configure-your-mobile-app-to-send-push-notifications"></a>Configureer uw mobiele App om pushmeldingen te verzenden
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-## <a name="update-hello-server-project-toosend-push-notifications"></a>Hallo server project toosend-pushmeldingen bijwerken
+## <a name="update-the-server-project-to-send-push-notifications"></a>Bijwerken van het serverproject om pushmeldingen te verzenden
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 ## <a name="configure-your-xamarinios-project"></a>Configureer uw Xamarin.iOS-project
 [!INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
-## <a name="add-push-notifications-tooyour-app"></a>Push notifications tooyour app toevoegen
-1. In **QSTodoService**, Hallo na eigenschap toevoegen zodat **AppDelegate** Hallo mobiele clients kunt verkrijgen:
+## <a name="add-push-notifications-to-your-app"></a>Pushmeldingen toevoegen aan uw app
+1. In **QSTodoService**, de volgende eigenschap toevoegen zodat **AppDelegate** mobiele clients kunt verkrijgen:
    
             public MobileServiceClient GetClient {
             get
@@ -57,11 +57,11 @@ Als u geen gebruik Hallo snel starten-serverproject gedownload, u moet Hallo pus
                 client = value;
             }
         }
-2. Voeg de volgende Hallo `using` instructie toohello bovenaan Hallo **AppDelegate.cs** bestand.
+2. Voeg de volgende `using` instructie boven aan de **AppDelegate.cs** bestand.
    
         using Microsoft.WindowsAzure.MobileServices;
         using Newtonsoft.Json.Linq;
-3. In **AppDelegate**, overschrijven Hallo **FinishedLaunching** gebeurtenis:
+3. In **AppDelegate**, overschrijven de **FinishedLaunching** gebeurtenis:
    
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -77,7 +77,7 @@ Als u geen gebruik Hallo snel starten-serverproject gedownload, u moet Hallo pus
    
             return true;
         }
-4. In hetzelfde bestand Hallo, overschrijven Hallo **RegisteredForRemoteNotifications** gebeurtenis. In deze code registreert u voor een eenvoudige sjabloon melding die door Hallo-server worden verzonden voor alle ondersteunde platforms.
+4. In hetzelfde bestand, overschrijven de **RegisteredForRemoteNotifications** gebeurtenis. In deze code registreert u voor een eenvoudige sjabloon melding die door de server worden verzonden voor alle ondersteunde platforms.
    
     Zie voor meer informatie over sjablonen met Notification Hubs [sjablonen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
@@ -99,7 +99,7 @@ Als u geen gebruik Hallo snel starten-serverproject gedownload, u moet Hallo pus
         }
 
 
-1. Vervolgens overschrijven Hallo **DidReceivedRemoteNotification** gebeurtenis:
+1. Vervolgens, overschrijven de **DidReceivedRemoteNotification** gebeurtenis:
    
         public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
@@ -117,18 +117,18 @@ Als u geen gebruik Hallo snel starten-serverproject gedownload, u moet Hallo pus
             }
         }
 
-Uw app is nu bijgewerkte toosupport pushmeldingen.
+Uw app is nu bijgewerkt ter ondersteuning van pushmeldingen.
 
 ## <a name="test"></a>Pushmeldingen testen in uw app
-1. Druk op Hallo **uitvoeren** toobuild Hallo project knop Hallo-app te starten in een compatibele iOS-apparaat, en klikt u op **OK** tooaccept pushmeldingen.
+1. Druk op de **uitvoeren** klikken om het project bouwen en starten van de app in een compatibele iOS-apparaat en klik vervolgens op **OK** pushmeldingen accepteren.
    
    > [!NOTE]
-   > U moet expliciet pushmeldingen accepteren van uw app. Deze aanvraag is alleen sprake Hallo eerste keer is dat Hallo app wordt uitgevoerd.
+   > U moet expliciet pushmeldingen accepteren van uw app. Deze aanvraag treedt alleen op de eerste keer dat de app wordt uitgevoerd.
    > 
    > 
-2. Typ een taak in Hallo-app en klik vervolgens op Hallo plus (**+**) pictogram.
-3. Controleer of een melding wordt ontvangen en klik op **OK** toodismiss Hallo melding.
-4. Herhaal stap 2 en onmiddellijk sluiten Hallo app en controleer of er een melding wordt weergegeven.
+2. Typ een taak in de app en klik vervolgens op het plusteken (**+**) pictogram.
+3. Controleer of een melding wordt ontvangen en klik op **OK** kunnen worden verwijderd van de melding.
+4. Herhaal stap 2 en onmiddellijk sluit de app en controleer of er een melding wordt weergegeven.
 
 Deze zelfstudie hebt voltooid.
 

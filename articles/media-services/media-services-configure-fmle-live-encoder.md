@@ -1,6 +1,6 @@
 ---
-title: aaaConfigure hello FMLE encoder toosend een single-bitrate live stream | Microsoft Docs
-description: Dit onderwerp leest hoe tooconfigure Hallo Flash Media Live coderingsprogramma (FMLE) encoder toosend een single-bitrate stream tooAMS kanalen die zijn ingeschakeld voor live codering.
+title: Configureren van het coderingsprogramma FMLE voor het verzenden van een single-bitrate live stream | Microsoft Docs
+description: Dit onderwerp leest hoe u configureert het coderingsprogramma Flash Media Live coderingsprogramma (FMLE) voor het verzenden van een single-bitrate stream AMS-kanalen die zijn ingeschakeld voor live codering.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,13 +14,13 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 780d911c5186ec09c784264f9a0d0c3f8059d305
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e831048f34ecf6e89595adc4bfd58b5977e04bdb
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="use-hello-fmle-encoder-toosend-a-single-bitrate-live-stream"></a>Hallo FMLE encoder toosend een single-bitrate live stream gebruiken
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Het coderingsprogramma FMLE gebruiken voor het verzenden van een single-bitrate live stream
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Live elemental](media-services-configure-elemental-live-encoder.md)
@@ -29,50 +29,50 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Dit onderwerp wordt beschreven hoe tooconfigure hello [Media Flash Live coderingsprogramma](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) encoder toosend een single-bitrate stream tooAMS kanalen die zijn ingeschakeld voor live codering. Zie voor meer informatie [werken met kanalen die zijn ingeschakeld tooPerform Live codering met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Dit onderwerp wordt beschreven hoe u configureert de [Media Flash Live coderingsprogramma](http://www.adobe.com/products/flash-media-encoder.html) (FMLE)-codering verzenden een single-bitrate stream naar AMS kanalen die zijn ingeschakeld voor live codering. Zie [Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
 
-Deze zelfstudie laat zien hoe toomanage Azure Media Services (AMS) met Azure Media Services Explorer (AMSE)-hulpprogramma. Dit hulpprogramma wordt alleen uitgevoerd op Windows-PC. Als u op Mac- of Linux, gebruikt u Azure portal toocreate hello [kanalen](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) en [programma's](media-services-portal-creating-live-encoder-enabled-channel.md).
+Deze zelfstudie laat zien hoe Azure Media Services (AMS) beheren met Azure Media Services Explorer (AMSE)-hulpprogramma. Dit hulpprogramma wordt alleen uitgevoerd op Windows-PC. Als u op Mac- of Linux, gebruikt u de Azure portal maken [kanalen](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) en [programma's](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Houd er rekening mee dat deze zelfstudie wordt beschreven hoe AAC. FMLE ondersteunt niet echter AAC standaard. U moet een invoegtoepassing voor het coderen van AAC toopurchase bijvoorbeeld van MainConcept: [AAC-invoegtoepassing](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Houd er rekening mee dat deze zelfstudie wordt beschreven hoe AAC. FMLE ondersteunt niet echter AAC standaard. U moet aanschaffen van een invoegtoepassing voor AAC codering bijvoorbeeld van MainConcept: [AAC-invoegtoepassing](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Vereisten
 * [Een Azure Media Services-account maken](media-services-portal-create-account.md)
 * Zorg dat er een Streaming-eindpunt is uitgevoerd. Zie voor meer informatie [Streaming-eindpunten beheren in een Media Services-Account](media-services-portal-manage-streaming-endpoints.md)
-* Installeer de meest recente versie Hallo Hallo [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) hulpprogramma.
-* Hallo hulpprogramma start en tooyour AMS-account koppelen.
+* Installeer de nieuwste versie van de [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) hulpprogramma.
+* Het hulpprogramma voor starten en verbinding maken met uw AMS-account.
 
 ## <a name="tips"></a>Tips
 * Gebruik indien mogelijk een internetverbinding ' hardwired '.
-* Een goede vuistregel bij het bepalen van de vereiste bandbreedte is toodouble Hallo bitsnelheden streaming. Hoewel dit niet verplicht is, wordt deze verminderen Hallo impact van opstoppingen in het netwerk.
+* Een goede vuistregel bij het bepalen van de vereiste bandbreedte is voor de streaming bitsnelheden verdubbelen. Hoewel dit niet verplicht is, wordt deze verminderen de impact van opstoppingen in het netwerk.
 * Wanneer met behulp van software gebaseerd coderingsprogramma's, sluit u alle onnodige programma's.
 
 ## <a name="create-a-channel"></a>Een kanaal maken
-1. Navigeer in Hallo AMSE-hulpprogramma, toohello **Live** tabblad en klik met de rechtermuisknop in Hallo kanaal gebied. Selecteer **kanaal maken...** Hallo upmenu.
+1. Navigeer in het AMSE-hulpprogramma naar het **Live** tabblad en klik met de rechtermuisknop in het gebied van kanaal. Selecteer **kanaal maken...** in het menu.
 
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
-2. Geef een kanaalnaam Hallo beschrijvingsveld is optioneel. Selecteer onder instellingen voor kanaal **standaard** voor Hallo optie Live Encoding, hello invoer Protocol ingesteld te**RTMP**. U kunt alle andere instellingen zoals is laten.
+2. Geef een kanaalnaam het beschrijvingsveld is optioneel. Selecteer onder instellingen voor kanaal **standaard** voor de optie Live Encoding met het invoer-Protocol die is ingesteld op **RTMP**. U kunt alle andere instellingen zoals is laten.
 
-    Zorg ervoor dat Hallo **Start Hallo nieuw kanaal nu** is geselecteerd.
+    Zorg ervoor dat de **nu starten van het nieuwe kanaal** is geselecteerd.
 
 3. Klik op **kanaal maken**.
 
    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
 > [!NOTE]
-> Hallo kanaal kan 20 minuten toostart zo lang duren.
+> Het kanaal kan zo lang starten 20 minuten duren.
 >
 >
 
-Tijdens het Hallo-kanaal wordt gestart. u kunt [Hallo-codering configureren](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
+Terwijl het kanaal wordt gestart. u kunt [configureren van het coderingsprogramma](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
 
 > [!IMPORTANT]
 > Houd er rekening mee dat omdat facturering begint zodra kanaal probeert het gereed. Zie voor meer informatie [van kanaal statussen](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
-## <a id=configure_fmle_rtmp></a>Hallo FMLE codering configureren
-In deze zelfstudie Hallo volgende uitvoerinstellingen gebruikt. Hallo rest van deze sectie beschrijft de configuratiestappen in meer detail.
+## <a id=configure_fmle_rtmp></a>Het coderingsprogramma FMLE configureren
+In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van deze sectie beschrijft de configuratiestappen in meer detail.
 
 **Video**:
 
@@ -89,9 +89,9 @@ In deze zelfstudie Hallo volgende uitvoerinstellingen gebruikt. Hallo rest van d
 * Samplefrequentie: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Configuratiestappen
-1. Navigeer toohello die Flash Media Live coderingsprogramma van (FMLE) interface op Hallo machine die wordt gebruikt.
+1. Navigeer naar het Flash Media Live coderingsprogramma van (FMLE) interface op de computer die wordt gebruikt.
 
-    Hallo-interface is één hoofdpagina van instellingen. Let op Hallo volgende aanbevolen instellingen tooget gestart met behulp van FMLE streaming.
+    De interface is één hoofdpagina van instellingen. Let op de volgende instellingen om te beginnen met het streamen FMLE met aanbevolen.
 
    * Indeling: H.264 framesnelheid: 30,00
    * De grootte van de invoer: 1280 x 720
@@ -99,69 +99,69 @@ In deze zelfstudie Hallo volgende uitvoerinstellingen gebruikt. Hallo rest van d
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
 
-     Wanneer met behulp van interlaced gegevensbronnen, neem vinkje Hallo 'Zonder interliniëring'-optie
-2. Selecteer Hallo Moersleutel pictogram volgende tooFormat, deze extra instellingen worden:
+     Bronnen met behulp van interlaced, neemt u de optie 'Zonder interliniëring' vinkje
+2. Selecteer de moersleutelpictogram naast indeling, moeten deze extra instellingen:
 
    * Profiel: Main
    * Niveau: 4.0
    * Keyframe frequentie: 2 seconden
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
-3. Stel Hallo belangrijk audio-instellingen te volgen:
+3. Stel de volgende belangrijke audio-instelling:
 
    * Indeling: AAC
    * Samplefrequentie: 44100 Hz
    * Bitrate: 192 Kbps
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
-4. Hallo-kanaal invoer-URL ophalen in volgorde tooassign het toohello FMLE van **RTMP eindpunt**.
+4. Get het kanaal de invoer-URL om te kunnen toewijzen aan de FMLE **RTMP eindpunt**.
 
-    Navigeer terug toohello AMSE-hulpprogramma, en controleren op Hallo kanaal voltooiingsstatus weer. Zodra het Hallo-status is gewijzigd van **starten** te**met**, krijgt u Hallo invoer-URL.
+    Ga terug naar het AMSE-hulpprogramma, en controleren van de voltooiingsstatus van kanaal. Zodra de status is gewijzigd van **starten** naar **met**, krijgt u de invoer-URL.
 
-    Wanneer Hallo kanaal wordt uitgevoerd, klik met de rechtermuisknop op Hallo kanaalnaam, omlaag toohover gaan via **invoer-URL kopiëren tooclipboard** en selecteer vervolgens **primaire invoer-URL**.  
+    Wanneer het kanaal wordt uitgevoerd, klikt u met de rechtermuisknop op naam van het kanaal, navigeer naar aanwijzen via **invoer-URL kopiëren naar Klembord** en selecteer vervolgens **primaire invoer-URL**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
-5. Deze informatie plakken in Hallo **FMS URL** veld sectie Hallo-uitvoer, en wijst u de naam van een gegevensstroom.
+5. Plak deze informatie in de **FMS URL** veld van de sectie uitvoer, en wijst u de naam van een gegevensstroom.
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
 
-    Herhaal deze stappen Hello secundaire invoer-URL voor extra redundantie.
+    Herhaal deze stappen aan de secundaire invoer-URL voor extra redundantie.
 6. Selecteer **Verbinden**.
 
 > [!IMPORTANT]
-> Voordat u op **Connect**, u **moet** ervoor te zorgen dat het Hallo-kanaal klaar is.
-> Zorg er ook geen tooleave Hallo kanaal in een status gereed zonder een bijdrage invoer feed langer dan 15 minuten >.
+> Voordat u op **Connect**, u **moet** ervoor te zorgen dat het kanaal gereed is.
+> Zorg ervoor dat u niet het kanaal in een status ready heeft verlaten zonder een invoer bijdrage feed langer dan 15 minuten >.
 >
 >
 
 ## <a name="test-playback"></a>Test afspelen
 
-Navigeer toohello AMSE-hulpprogramma en Hallo kanaal toobe getest met de rechtermuisknop op. Hallo menu Beweeg de muisaanwijzer over **afspelen Hallo Preview** en selecteer **met Azure Media Player**.  
+Navigeer naar het AMSE-hulpprogramma en klikt u met de rechtermuisknop op het kanaal moet worden getest. In het menu Beweeg de muisaanwijzer over **afspelen van de Preview** en selecteer **met Azure Media Player**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
-Als Hallo stroom wordt weergegeven in Hallo-speler, heeft Hallo encoder correct geconfigureerde tooconnect tooAMS zijn.
+Als de stroom wordt weergegeven in de speler, is klikt u vervolgens het coderingsprogramma juist geconfigureerd voor verbinding met AMS.
 
-Als een fout wordt ontvangen, moet Hallo kanaal toobe opnieuw instellen en coderingsprogramma instellingen aangepast. Zie Hallo [probleemoplossing](media-services-troubleshooting-live-streaming.md) onderwerp voor hulp.  
+Als een fout wordt ontvangen, wordt het kanaal moet opnieuw worden ingesteld en instellingen voor codering aangepast. Zie de [probleemoplossing](media-services-troubleshooting-live-streaming.md) onderwerp voor hulp.  
 
 ## <a name="create-a-program"></a>Een programma maken
-1. Nadat het kanaal afspelen is bevestigd, maak een programma. Onder Hallo **Live** tabblad Hallo AMSE-hulpprogramma, klik met de rechtermuisknop in Hallo programma gebied en selecteer **nieuw programma maken**.  
+1. Nadat het kanaal afspelen is bevestigd, maak een programma. Onder de **Live** tabblad in het AMSE-hulpprogramma, klik met de rechtermuisknop in het gebied van het programma en selecteer **nieuw programma maken**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
-2. Hallo-programma een naam en wijzig indien nodig, Hallo **lengte van een archiefvenster** (welke standaardwaarden too4 uur). U kunt ook opgeven van een opslaglocatie of laat als Hallo standaard.  
-3. Controleer de Hallo **Start Hallo programma nu** vak.
+2. Naam van het programma en wijzig indien nodig de **lengte van een archiefvenster** (die standaard 4 uur). U kunt ook opgeven van een opslaglocatie of laat de standaardwaarde.  
+3. Controleer de **Start het programma nu** vak.
 4. Klik op **programma maken**.  
 
     >[!NOTE]
     >Maken van het programma kost minder tijd dan het maken van kanaal.
         
-5. Zodra het Hallo-programma wordt uitgevoerd, bevestigt u afspelen met de rechtermuisknop te klikken op het Hallo-programma en te navigeren**afspelen Hallo-programma's** en selecteren **met Azure Media Player**.  
-6. Zodra bevestigd, klik met de rechtermuisknop Hallo programma opnieuw en selecteer **kopiëren Hallo uitvoer URL tooClipboard** (of deze informatie ophalen van Hallo **programma gegevens en instellingen** optie uit Hallo menu).
+5. Zodra het programma wordt uitgevoerd, bevestigt u afspelen door te klikken met de rechtermuisknop op het programma en te navigeren naar **afspelen van de programma's** en selecteren **met Azure Media Player**.  
+6. Zodra bevestigd, klik met de rechtermuisknop het programma opnieuw en selecteer **Kopieer de URL van de uitvoer naar Klembord** (of het ophalen van deze informatie van de **programma gegevens en instellingen** optie in het menu).
 
-Hallo-stroom is nu gereed toobe ingesloten in een speler of gedistribueerde tooan doelgroep voor live weergeven.  
+De stroom is nu gereed om te worden ingesloten in een speler of gedistribueerd naar een doelgroep voor live weer te geven.  
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-Zie Hallo [probleemoplossing](media-services-troubleshooting-live-streaming.md) onderwerp voor hulp.
+Zie de [probleemoplossing](media-services-troubleshooting-live-streaming.md) onderwerp voor hulp.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

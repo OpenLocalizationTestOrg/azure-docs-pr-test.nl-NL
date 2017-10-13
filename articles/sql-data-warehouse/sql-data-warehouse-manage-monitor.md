@@ -1,6 +1,6 @@
 ---
-title: aaaMonitor uw werkbelasting via DMV's | Microsoft Docs
-description: Meer informatie over hoe toomonitor uw werkbelasting via DMV's.
+title: Uw werkbelasting via DMV's bewaken | Microsoft Docs
+description: Informatie over het bewaken van uw werkbelasting via DMV's.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
@@ -15,24 +15,24 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.openlocfilehash: acccf952d165ccec3de3b4b1c633b18bbbf78077
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitor your workload using DMVs
-Dit artikel wordt beschreven hoe toouse dynamische beheerweergaven (DMV's) toomonitor uw werkbelasting en onderzoek de uitvoering van de query in Azure SQL Data Warehouse.
+In dit artikel wordt beschreven hoe dynamische beheerweergaven (DMV's) gebruiken om te controleren van uw werkbelasting en onderzoeken van de uitvoering van de query in Azure SQL Data Warehouse.
 
 ## <a name="permissions"></a>Machtigingen
-tooquery hello DMV's in dit artikel, moet u de status van de DATABASE weergeven of BESTURINGSELEMENT machtiging. STATUS van de DATABASE verlenen weergeven is meestal Hallo voorkeur machtiging omdat dit veel meer beperkende.
+Om te vragen de DMV's in dit artikel, moet u de status van de DATABASE weergeven of BESTURINGSELEMENT gemachtigd. STATUS van de DATABASE verlenen weergeven is meestal de voorkeur machtiging omdat dit veel meer beperkende.
 
 ```sql
-GRANT VIEW DATABASE STATE toomyuser;
+GRANT VIEW DATABASE STATE TO myuser;
 ```
 
 ## <a name="monitor-connections"></a>Monitor-verbindingen
-Alle aanmeldingen tooSQL Data Warehouse te worden geregistreerd[sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions].  Deze DMV bevat Hallo laatste 10.000 aanmeldingen.  Hallo session_id Hallo primaire sleutel en sequentieel voor elke nieuwe aanmelding is toegewezen.
+Alle aanmeldingen met SQL Data Warehouse worden geregistreerd in [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions].  Deze DMV bevat de laatste 10.000 aanmeldingen.  De session_id de primaire sleutel en sequentieel voor elke nieuwe aanmelding is toegewezen.
 
 ```sql
 -- Other Active Connections
@@ -40,16 +40,16 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 ```
 
 ## <a name="monitor-query-execution"></a>Query uitvoeren van de monitor
-Alle query's voor SQL Data Warehouse uitgevoerd te worden geregistreerd[sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  Deze DMV bevat Hallo laatste 10.000 query's die worden uitgevoerd.  Hallo request_id identificeert elke query uniek en primaire sleutel voor deze DMV Hallo.  Hallo request_id sequentieel is toegewezen voor elke nieuwe query en wordt voorafgegaan door QID staat voor de query-ID.  Deze DMV voor een bepaalde session_id opvragen, ziet u alle query's voor een bepaalde aanmelding.
+Alle query's uitgevoerd op de SQL Data Warehouse worden geregistreerd in [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  Deze DMV bevat de laatste 10.000 query's uitgevoerd.  De request_id unieke wijze identificeert elke query en is de primaire sleutel voor deze DMV.  De request_id sequentieel is toegewezen voor elke nieuwe query en wordt voorafgegaan door QID staat voor de query-ID.  Deze DMV voor een bepaalde session_id opvragen, ziet u alle query's voor een bepaalde aanmelding.
 
 > [!NOTE]
 > Opgeslagen procedures meerdere aanvraag-id's gebruiken.  Aanvraag-id's zijn toegewezen in opeenvolgende volgorde. 
 > 
 > 
 
-Hier vindt u stappen toofollow tooinvestigate queryplannen-uitvoering en tijden voor een bepaalde query.
+Hier volgen de stappen volgen om te onderzoeken queryplannen uitvoering en tijden voor een bepaalde query.
 
-### <a name="step-1-identify-hello-query-you-wish-tooinvestigate"></a>STAP 1: Hallo-query die u wenst dat tooinvestigate identificeren
+### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>STAP 1: De query die u wilt onderzoeken identificeren
 ```sql
 -- Monitor active queries
 SELECT * 
@@ -63,18 +63,18 @@ SELECT TOP 10 *
 FROM sys.dm_pdw_exec_requests 
 ORDER BY total_elapsed_time DESC;
 
--- Find a query with hello Label 'My Query'
--- Use brackets when querying hello label column, as it it a key word
+-- Find a query with the Label 'My Query'
+-- Use brackets when querying the label column, as it it a key word
 SELECT  *
 FROM    sys.dm_pdw_exec_requests
 WHERE   [label] = 'My Query';
 ```
 
-Van Hallo voorafgaand aan de resultaten van de query, **Opmerking Hallo aanvraag-ID** van dat u tooinvestigate wilt Hallo-query.
+In de voorgaande queryresultaten **Let op de aanvraag-ID** van de query die u wilt onderzoeken.
 
-Query's in Hallo **onderbroken** status wordt in de wachtrij vanwege tooconcurrency limieten. Deze query's worden ook weergegeven in Hallo sys.dm_pdw_waits wacht query met een type UserConcurrencyResourceType. Zie [gelijktijdigheid en werkbelasting management] [ Concurrency and workload management] voor meer informatie over limieten voor gelijktijdigheid van taken. Query's kunnen ook wachten om andere redenen zoals voor het object wordt vergrendeld.  Als uw query voor een resource wacht, Zie [onderzoeken van query's die wachten op resources] [ Investigating queries waiting for resources] verderop in dit artikel.
+Query's in de **onderbroken** status wordt in de wachtrij vanwege gelijktijdigheid limieten. Deze query's worden ook weergegeven in de query sys.dm_pdw_waits wacht met het type UserConcurrencyResourceType. Zie [gelijktijdigheid en werkbelasting management] [ Concurrency and workload management] voor meer informatie over limieten voor gelijktijdigheid van taken. Query's kunnen ook wachten om andere redenen zoals voor het object wordt vergrendeld.  Als uw query voor een resource wacht, Zie [onderzoeken van query's die wachten op resources] [ Investigating queries waiting for resources] verderop in dit artikel.
 
-toosimplify hello opzoeken van een query in Hallo sys.dm_pdw_exec_requests tabel, gebruik [LABEL] [ LABEL] tooassign een opmerking tooyour-query die kan worden opgezocht in Hallo sys.dm_pdw_exec_requests weergave.
+Gebruiken om te vereenvoudigen het opzoeken van een query in de tabel sys.dm_pdw_exec_requests, [LABEL] [ LABEL] een opmerking aan de query die kan worden opgezocht in de weergave sys.dm_pdw_exec_requests toewijzen.
 
 ```sql
 -- Query with Label
@@ -84,11 +84,11 @@ OPTION (LABEL = 'My Query')
 ;
 ```
 
-### <a name="step-2-investigate-hello-query-plan"></a>STAP 2: Het queryplan Hallo onderzoeken
-Gebruik Hallo aanvraag-ID tooretrieve Hallo van gedistribueerde SQL (DSQL) queryplan van [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
+### <a name="step-2-investigate-the-query-plan"></a>STAP 2: Het queryplan onderzoeken
+De aanvraag-ID gebruiken voor het ophalen van de query gedistribueerde SQL (DSQL) plan van [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
 
 ```sql
--- Find hello distributed query plan steps for a specific query.
+-- Find the distributed query plan steps for a specific query.
 -- Replace request_id with value from Step 1.
 
 SELECT * FROM sys.dm_pdw_request_steps
@@ -96,51 +96,51 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-Als een DSQL plan langer duurt dan verwacht, worden Hallo oorzaak een complexe planning met veel DSQL stappen of slechts één stap lang duurt.  Hallo plan veel stappen met verschillende migratiebewerkingen, dan kunt u uw distributies tooreduce gegevensverplaatsing optimaliseren. Hallo [tabel distributie] [ Table distribution] artikel wordt uitgelegd waarom gegevens verplaatst toosolve een query moet worden en sommige gegevensverplaatsing distributie strategieën toominimize wordt uitgelegd.
+Wanneer een DSQL plan langer duurt dan verwacht, kan de oorzaak een complexe planning met veel DSQL stappen of slechts één stap duurt lang zijn.  Als het plan veel stappen met verschillende migratiebewerkingen is, u kunt uw distributies tabel om te beperken van gegevensverplaatsing. De [tabel distributie] [ Table distribution] artikel wordt uitgelegd waarom de gegevens voor het oplossen van een query moet worden verplaatst en beschrijft een aantal strategieën distributiepunten om te beperken van gegevensverplaatsing.
 
-tooinvestigate meer informatie over één stap hello *operation_type* kolom Hallo langlopende query stap en Opmerking Hallo **stap Index**:
+Voor het onderzoeken van verdere details over één stap, de *operation_type* kolom van de langlopende query stap en Opmerking de **stap Index**:
 
 * Doorgaan met stap 3a voor **SQL-bewerkingen**: OnOperation, RemoteOperation, ReturnOperation.
 * Doorgaan met stap 3b voor **gegevensverplaatsing operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### <a name="step-3a-investigate-sql-on-hello-distributed-databases"></a>STAP 3a: SQL op Hallo gedistribueerde databases onderzoeken
-Gebruik Hallo aanvraag-ID en Hallo stap Index tooretrieve details van [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], bevat informatie van de uitvoering van Hallo query stap op Hallo van alle databases gedistribueerd.
+### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>STAP 3a: SQL van de gedistribueerde databases onderzoeken
+Gebruik van de aanvraag-ID en de Index van de stap voor het ophalen van de details van [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], die informatie van de uitvoering van de stap van de query op alle gedistribueerde databases bevat.
 
 ```sql
--- Find hello distribution run times for a SQL step.
+-- Find the distribution run times for a SQL step.
 -- Replace request_id and step_index with values from Step 1 and 3.
 
 SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-Wanneer de Hallo query stap wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] gebruikte tooretrieve Hallo SQL Server geschatte plan van SQL Server-plancache voor Hallo stap uitgevoerd op een bepaalde Hallo kan zijn distributie.
+Wanneer de stap van de query wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan worden gebruikt om het plan van SQL Server-geschatte ophalen uit de cache voor het plan van SQL Server voor de stap die wordt uitgevoerd op een specifieke distributiepuntengroep.
 
 ```sql
--- Find hello SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
+-- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
 -- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b-investigate-data-movement-on-hello-distributed-databases"></a>STAP 3b: gegevensverplaatsing-on Hallo gedistribueerde databases onderzoeken
-Gebruik Hallo aanvraag-ID en Hallo stap Index tooretrieve informatie over een data movement stap uitgevoerd op elke distributie van [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>STAP 3b: verplaatsing van gegevens van de gedistribueerde databases onderzoeken
+Gebruik van de aanvraag-ID en de Index van de stap informatie ophalen over een data movement stap uitgevoerd op elke distributie van [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
 
 ```sql
--- Find hello information about all hello workers completing a Data Movement Step.
+-- Find the information about all the workers completing a Data Movement Step.
 -- Replace request_id and step_index with values from Step 1 and 3.
 
 SELECT * FROM sys.dm_pdw_dms_workers
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-* Controleer de Hallo *total_elapsed_time* toosee kolom als een bepaalde verdeling aanzienlijk langer dan andere voor verplaatsing van gegevens duurt.
-* Controleer voor Hallo langlopende distributie, Hallo *rows_processed* kolom toosee als Hallo aantal rijen wordt verplaatst van dit distributiepunt aanzienlijk groter dan andere is. Als het geval is, dit kan duiden op verschil van de onderliggende gegevens.
+* Controleer de *total_elapsed_time* kolom om te zien als een bepaalde verdeling aanzienlijk langer duurt dan andere voor verplaatsing van gegevens.
+* Voor de distributie langlopende controleren de *rows_processed* kolom om te zien als het aantal rijen wordt verplaatst van dit distributiepunt aanzienlijk groter dan andere is. Als het geval is, dit kan duiden op verschil van de onderliggende gegevens.
 
-Als het Hallo-query wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] gebruikte tooretrieve Hallo SQL Server geschatte plan van de plancache SQL Server voor SQL-stap momenteel worden uitgevoerd binnen een bepaalde Hallo Hallo kan zijn distributie.
+Als de query wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan worden gebruikt voor het geschatte plan van SQL Server ophalen uit het cachegeheugen van de SQL Server-plan voor de huidige actieve stap van de SQL binnen een bepaald distributie.
 
 ```sql
--- Find hello SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
+-- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
 -- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
@@ -149,7 +149,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 <a name="waiting"></a>
 
 ## <a name="monitor-waiting-queries"></a>Wachten op query's bewaken
-Als u ontdekt dat de query niet aan te uitgevoerd brengen omdat het wacht op een resource, is dit een query waarin alle Hallo-bronnen wacht op een query.
+Als u ontdekt dat de query niet aan te uitgevoerd brengen omdat het wacht op een resource, is dit een query worden alle bronnen wacht op een query.
 
 ```sql
 -- Find queries 
@@ -171,15 +171,15 @@ WHERE waits.request_id = 'QID####'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
-Als Hallo query actief op bronnen van een andere query wacht, wordt de Hallo sessiestatus **AcquireResources**.  Als Hallo query alle resources voor Hallo vereist heeft, wordt de Hallo sessiestatus **verleend**.
+Als de query actief op de bronnen van een andere query wachten is, wordt de status van de instelling **AcquireResources**.  Als de query de vereiste resources heeft, wordt de status van de instelling **verleend**.
 
 ## <a name="monitor-tempdb"></a>Monitor tempdb
-Hoge tempdb-gebruik kan worden Hallo hoofdoorzaak voor trage prestaties en buiten geheugenproblemen. Controleer als u gegevens kwaliteit scheeftrekken of slechte rowgroups hebben en voert u de juiste acties Hallo eerst. Overweeg het schalen van uw datawarehouse als u de grenzen bereikt tijdens het uitvoeren van query tempdb vinden. Hallo hieronder wordt beschreven hoe tooidentify tempdb gebruik per query op elk knooppunt. 
+Hoge tempdb-gebruik, kan de hoofdoorzaak voor trage prestaties en buiten geheugenproblemen zijn. Controleer eerst of als u gegevens kwaliteit scheeftrekken of slechte rowgroups hebben en de benodigde acties. Overweeg het schalen van uw datawarehouse als u de grenzen bereikt tijdens het uitvoeren van query tempdb vinden. Hieronder wordt beschreven hoe u tempdb-gebruik per query op elk knooppunt identificeert. 
 
-Hallo volgende weergave tooassociate Hallo juiste knooppunt-id voor sys.dm_pdw_sql_requests maken. Dit zal u tooleverage andere Pass Through-DMV's inschakelen en koppel deze tabellen met sys.dm_pdw_sql_requests.
+De volgende weergave koppelt u het juiste knooppunt-id voor sys.dm_pdw_sql_requests maken. Hierdoor kunt u gebruikmaken van andere Pass Through-DMV's en koppel deze tabellen met sys.dm_pdw_sql_requests.
 
 ```sql
--- sys.dm_pdw_sql_requests with hello correct node id
+-- sys.dm_pdw_sql_requests with the correct node id
 CREATE VIEW sql_requests AS
 (SELECT
        sr.request_id,
@@ -200,7 +200,7 @@ CREATE VIEW sql_requests AS
 FROM sys.pdw_distributions AS d
 RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
 ```
-Voer Hallo query toomonitor tempdb te volgen:
+Voer de volgende query voor het bewaken van tempdb:
 
 ```sql
 -- Monitor tempdb
@@ -233,9 +233,9 @@ ORDER BY sr.request_id;
 ```
 ## <a name="monitor-memory"></a>Monitor-geheugen
 
-Geheugen kan worden Hallo hoofdoorzaak voor trage prestaties en buiten geheugenproblemen. Controleer als u gegevens kwaliteit scheeftrekken of slechte rowgroups hebben en voert u de juiste acties Hallo eerst. Overweeg het schalen van uw datawarehouse als u SQL Server-geheugengebruik de grenzen bereikt tijdens het uitvoeren van query vinden.
+Geheugen mag de hoofdoorzaak voor trage prestaties en buiten geheugenproblemen. Controleer eerst of als u gegevens kwaliteit scheeftrekken of slechte rowgroups hebben en de benodigde acties. Overweeg het schalen van uw datawarehouse als u SQL Server-geheugengebruik de grenzen bereikt tijdens het uitvoeren van query vinden.
 
-Hallo na query retourneert SQL Server-gebruik en geheugen geheugendruk per knooppunt: 
+De volgende query retourneert SQL Server-gebruik en geheugen geheugendruk per knooppunt:   
 ```sql
 -- Memory consumption
 SELECT
@@ -258,7 +258,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Grootte van de transactie-logboekbestand bewaken
-Hallo retourneert volgende query Hallo transactielogboekgrootte op elk distributiepunt. Controleer als u gegevens kwaliteit scheeftrekken of slechte rowgroups hebben en Hallo-passende maatregelen. Als een van de logboekbestanden Hallo 160GB bereikt, moet u rekening houden met schalen van uw exemplaar of de grootte van uw transactie te beperken. 
+De volgende query retourneert de grootte van het transactielogboek op elk distributiepunt. Controleer als u gegevens kwaliteit scheeftrekken of slechte rowgroups hebben en de benodigde acties. Als een van de logboekbestanden 160GB bereikt, moet u rekening houden met schalen van uw exemplaar of de grootte van uw transactie te beperken. 
 ```sql
 -- Transaction log size
 SELECT
@@ -272,7 +272,7 @@ AND counter_name = 'Log File(s) Used Size (KB)'
 AND counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-rollback"></a>Terugdraaien van transactie-logboekbestand bewaken
-Als uw query's mislukken of een tooproceed lang duurt, u kunt controleren en controleren als er transacties worden teruggedraaid.
+Als uw query's zijn mislukt of lang duurt om door te gaan, kunt u controleren en bewaken als er transacties worden teruggedraaid.
 ```sql
 -- Monitor rollback
 SELECT 

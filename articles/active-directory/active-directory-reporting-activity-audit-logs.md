@@ -1,6 +1,6 @@
 ---
-title: aaaAudit activiteit rapporten in Azure Active Directory-beheerportal Hallo | Microsoft Docs
-description: Inleiding toohello audit activiteitsrapporten in hello Azure Active Directory-portal
+title: Controleactiviteitenrapporten in Azure Active Directory Portal | Microsoft Docs
+description: Ontdek de controleactiviteitenrapporten in de Azure Active Directory Portal
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,66 +15,66 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1567673f5030fc707b017c069f2ba7587962e5cb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="audit-activity-reports-in-hello-azure-active-directory-portal"></a>Activiteitsrapporten in Azure Active Directory-beheerportal Hallo controleren 
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Controleactiviteitenrapporten in Azure Active Directory Portal 
 
-Met rapportage in Azure Active Directory (Azure AD), kunt u de gewenste toodetermine hoe uw omgeving doet Hallo-informatie ophalen.
+Met rapporten in Azure Active Directory ontvangt u alle informatie die nodig is om te bepalen hoe het gaat met uw omgeving.
 
-architectuur van rapportage in Azure AD Hallo bestaat uit Hallo volgende onderdelen:
+De rapportstructuur in Azure AD bestaat uit de volgende onderdelen:
 
 - **Activiteit** 
-    - **Aanmelden activiteiten** – informatie over het gebruik van Hallo van beheerde toepassingen en gebruikersactiviteiten aanmelden
+    - **Aanmeldactiviteiten**: informatie over het gebruik van beheerde toepassingen en aanmeldactiviteiten van gebruikers
     - **Controlelogboeken**: informatie over systeemactiviteit van gebruikers, groepsbeheer, uw beheerde toepassingen en directory-activiteiten.
 - **Beveiliging** 
-    - **Riskant aanmeldingen** -een riskante aanmelden is een indicator voor een aanmeldingspoging die mogelijk zijn uitgevoerd door iemand die niet Hallo legitieme eigenaar van een gebruikersaccount. Zie Riskante aanmeldingen voor meer informatie.
+    - **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. Zie Riskante aanmeldingen voor meer informatie.
     - **Gebruikers van wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. Zie Gebruikers van wie wordt aangegeven dat ze risico lopen voor meer informatie.
 
-In dit onderwerp biedt een overzicht van Hallo audit activiteiten.
+In dit onderwerp vindt u meer informatie over de controleactiviteiten.
  
-## <a name="who-can-access-hello-data"></a>Wie toegang heeft tot Hallo gegevens?
-* Gebruikers met de rol beheerder beveiliging of beveiliging Reader Hallo
+## <a name="who-can-access-the-data"></a>Wie heeft er toegang tot de gegevens?
+* Gebruikers met de rol Beveiligingsbeheerder of Beveiligingslezer
 * Globale beheerders
 * Afzonderlijke gebruikers (niet-beheerders) kunnen hun eigen activiteiten zien
 
 
 ## <a name="audit-logs"></a>Controlelogboeken
 
-Hallo controlelogboeken in Azure Active Directory bieden records van het systeemactiviteiten voor naleving.  
-Uw eerste vermelding punt tooall controle van gegevens is **controlelogboeken** in Hallo **activiteit** sectie van **Azure Active Directory**.
+In de controlelogboeken in Azure Active Directory staan records van systeemactiviteiten voor naleving.  
+Uw eerste beginpunt voor alle controlegegevens is **Controlelogboeken** in het gedeelte **Activiteit** van **Azure Active Directory**.
 
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/61.png "Controlelogboeken")
 
 Een controlelogboek heeft een standaardlijstweergave die het volgende laat zien:
 
-- Hallo-datum en tijd van Hallo-instantie
-- Hallo initiator / actor (*die*) van een activiteit 
-- Hallo activiteit (*wat*) 
-- Hallo-doel
+- de datum en tijd van de gebeurtenis
+- de initiator/actor (*wie*) van een activiteit 
+- de activiteit (*wat*) 
+- het doel
 
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/18.png "Controlelogboeken")
 
-U kunt de lijstweergave Hallo aanpassen door te klikken op **kolommen** op Hallo-werkbalk.
+U kunt de lijstweergave aanpassen door te klikken op **Kolommen** op de werkbalk.
 
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/19.png "Controlelogboeken")
 
-Dit kunt u aanvullende velden toodisplay of verwijderen van de velden die al worden weergegeven.
+Hiermee kunt u extra velden weergeven of velden verwijderen die al worden weergegeven.
 
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/21.png "Controlelogboeken")
 
 
-Door te klikken op een item in de lijstweergave hello, moet u alle beschikbare details over het ophalen.
+Wanneer u op een item in de lijstweergave klikt, krijgt u er alle beschikbare informatie over te zien.
 
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/22.png "Controlelogboeken")
 
 
 ## <a name="filtering-audit-logs"></a>Controlelogboeken filteren
 
-toonarrow omlaag Hallo tooa gegevensniveau dat geldt voor u, kunt u Hallo audit gegevens filteren met behulp van de volgende velden Hallo gerapporteerd:
+Als u de gerapporteerde gegevens wilt beperken tot een niveau dat geschikt is voor u, kunt u de controlegegevens filteren met de volgende velden:
 
 - Datumbereik
 - Gestart door (actor)
@@ -85,7 +85,7 @@ toonarrow omlaag Hallo tooa gegevensniveau dat geldt voor u, kunt u Hallo audit 
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/23.png "Controlelogboeken")
 
 
-Hallo **datumbereik** filter schakelt tooyou toodefine een tijdsspanne voor Hallo gegevens geretourneerd.  
+Met het filter **datumbereik** kunt u een tijdsbestek opgeven voor de geretourneerde gegevens.  
 Mogelijke waarden zijn:
 
 - 1 maand
@@ -95,9 +95,9 @@ Mogelijke waarden zijn:
 
 Wanneer u een aangepast tijdsbestek selecteert, kunt u een begintijd en eindtijd configureren.
 
-Hallo **gestart door** filter kunt u toodefine een actor-naam of de UPN (User Principal Name).
+Met het filter **gestart door** kunt u de naam of UPN (Universal Principal Name) van een actor definiëren.
 
-Hallo **categorie** filter kunt u tooselect Hallo filter te volgen:
+Met het filter **aanmeldingsstatus** kunt u een van de volgende filters selecteren:
 
 - Alle
 - Hoofdcategorie
@@ -110,7 +110,7 @@ Hallo **categorie** filter kunt u tooselect Hallo filter te volgen:
 - Identiteitsbeveiliging
 - B2C
 
-Hallo **activiteit brontype** filter kunt u een van de volgende Hallo filtert tooselect:
+Met het filter **type activiteitsresource** kunt u een van de volgende filters selecteren:
 
 - Alle 
 - Groep
@@ -121,29 +121,29 @@ Hallo **activiteit brontype** filter kunt u een van de volgende Hallo filtert to
 - Apparaat
 - Overige
 
-Wanneer u selecteert **groep** als **activiteit brontype**, dat u een extra filtercategorie waarmee u tooalso bieden een **bron**:
+Wanneer u **Groep** selecteert als **type activiteitsresource**, krijgt u een extra filtercategorie waarmee u ook een **Bron** kunt opgeven:
 
 - Azure AD
 - O365
 
 
-Hallo **activiteit** filter is gebaseerd op het Hallo-categorie en activiteit resource type selectie die u maakt. U kunt een bepaalde activiteit of wilt u toosee Kies alle selecteren. 
+Het filter **activiteit** is gebaseerd op de selectie die u maakt voor de categorie en het type activiteitsresource. U kunt een specifieke activiteit of alle activiteiten selecteren. 
 
-U kunt Hallo lijst van alle activiteiten van de Audit ophalen met behulp van Hallo Graph API https://graph.windows.net/$ activiteiten-tenantdomain/auditActivityTypes? api-versie = Bèta, waarbij $tenantdomain = uw domeinnaam of Raadpleeg toohello artikel [rapport van de audit gebeurtenissen](active-directory-reporting-audit-events.md).
+U kunt de lijst met alle controle-activiteiten opvragen met behulp van de Graph API https://graph.windows.net/$tenantdomein/activities/auditActivityTypes?api-version=beta, waarbij u $tenantdomain vervangt door de naam van uw domein, of raadpleeg het artikel [Azure Active Directory audit report events](active-directory-reporting-audit-events.md) (Gebeurtenissen in Azure Active Directory-controlerapporten).
 
 
 ## <a name="audit-logs-shortcuts"></a>Snelkoppelingen naar controlelogboeken
 
-Bovendien te**Azure Active Directory**, hello Azure-portal biedt u twee extra toegangspunten tooaudit gegevens:
+Naast **Azure Active Directory** biedt de Azure Portal twee extra beginpunten voor gegevenscontrole:
 
 - Gebruikers en groepen
 - Bedrijfstoepassingen
 
 ### <a name="users-and-groups-audit-logs"></a>Controlelogboeken voor gebruikers en groepen
 
-Met gebruikers en groepen gebaseerde controlerapporten, kun je antwoorden tooquestions zoals:
+Met de controlerapporten op basis van gebruikers en groepen krijgt u antwoord op vragen zoals:
 
-- Welke typen updates zijn toegepast Hallo gebruikers?
+- Welke soorten updates zijn toegepast op de gebruikers?
 
 - Hoeveel gebruikers zijn gewijzigd?
 
@@ -151,38 +151,38 @@ Met gebruikers en groepen gebaseerde controlerapporten, kun je antwoorden tooque
 
 - Wat heeft een beheerder in een directory gedaan?
 
-- Wat zijn Hallo-groepen die zijn toegevoegd?
+- Welke groepen zijn toegevoegd?
 
 - Zijn er groepen met wijzigingen in het lidmaatschap?
 
-- Hallo-eigenaars van groep zijn gewijzigd?
+- Zijn de eigenaren van een groep gewijzigd?
 
-- Welke licenties zijn toegewezen tooa groep of een gebruiker?
+- Welke licenties zijn toegewezen aan een groep of een gebruiker?
 
-Als u wilt dat alleen tooreview controle van de gegevens die zijn gerelateerd toousers en groepen, vindt u een gefilterde weergave onder **controlelogboeken** in Hallo **activiteit** sectie Hallo **gebruikers en groepen**. Dit beginpunt heeft **Gebruikers en groepen** als vooraf geselecteerd **Type activiteitsresource**.
+Als u alleen controlegegevens wilt bekijken die aan gebruikers en groepen zijn gerelateerd, kunt u een gefilterde weergave openen via **Controlelogboeken** in het gedeelte **Activiteit** van **Gebruikers en groepen**. Dit beginpunt heeft **Gebruikers en groepen** als vooraf geselecteerd **Type activiteitsresource**.
 
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/93.png "Controlelogboeken")
 
 ### <a name="enterprise-applications-audit-logs"></a>Controlelogboeken voor bedrijfstoepassingen
 
-Controleren op basis van een toepassing met de rapporten, kunt u antwoorden tooquestions zoals krijgen:
+Met de controlerapporten op basis van toepassingen krijgt u antwoord op vragen zoals:
 
-* Wat zijn Hallo-toepassingen die zijn toegevoegd of bijgewerkt?
-* Wat zijn Hallo-toepassingen die zijn verwijderd?
+* Welke toepassingen zijn toegevoegd of bijgewerkt?
+* Welke toepassingen zijn verwijderd?
 * Is de service-principal van een toepassing gewijzigd?
-* Hallo-namen van toepassingen zijn gewijzigd?
-* Wie heeft toestemming tooan toepassing?
+* Zijn de namen van toepassingen gewijzigd?
+* Wie heeft toestemming gegeven voor een toepassing?
 
-Als u wilt dat alleen tooreview controle van de gegevens die zijn gerelateerd tooyour toepassingen, kunt u vinden in een gefilterde weergave onder **controlelogboeken** in Hallo **activiteit** sectie Hallo **bedrijfstoepassingen**  blade. Dit beginpunt heeft **Bedrijfstoepassingen** als vooraf geselecteerd **Type activiteitsresource**.
+Als u alleen controlegegevens wilt bekijken die aan uw toepassingen zijn gerelateerd, kunt u een gefilterde weergave openen via **Controlelogboeken** in het gedeelte **Activiteit** van de blade **Bedrijfstoepassingen**. Dit beginpunt heeft **Bedrijfstoepassingen** als vooraf geselecteerd **Type activiteitsresource**.
 
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/134.png "Controlelogboeken")
 
-U kunt deze weergave verder omlaag toojust filteren **groepen** of alleen **gebruikers**.
+U kunt deze weergave verder filteren naar alleen **Groepen** of alleen **Gebruikers**.
 
 ![Controlelogboeken](./media/active-directory-reporting-activity-audit-logs/25.png "Controlelogboeken")
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor een overzicht van reporting Hallo [rapportage van Azure Active Directory](active-directory-reporting-azure-portal.md).
+Zie [Azure Active Directory-rapportage](active-directory-reporting-azure-portal.md) voor een overzicht van de rapportage.
 

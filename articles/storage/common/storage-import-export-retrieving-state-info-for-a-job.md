@@ -1,6 +1,6 @@
 ---
-title: informatie over de aaaRetrieving voor een Azure Import/Export-taak | Microsoft Docs
-description: Meer informatie over hoe tooobtain statusinformatie voor de taken van Microsoft Azure Import/Export-service.
+title: Bij het ophalen van informatie over de status voor een Azure Import/Export-job | Microsoft Docs
+description: Informatie over het verkrijgen van informatie over de status van taken voor Microsoft Azure Import/Export-service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,81 +14,81 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-ms.openlocfilehash: cbc35660519573d92f641924ac0025c9e577d69b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Bij het ophalen van informatie over de status voor een taak van Import/Export
-U kunt aanroepen Hallo [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) bewerking tooretrieve informatie over beide importeren en exporteren van taken. Hallo-informatie geretourneerd omvat:
+U kunt aanroepen de [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) bewerking voor het ophalen van informatie over beide importeren en exporteren van taken. De geretourneerde informatie omvat:
 
--   Hallo huidige status van Hallo-taak.
+-   De huidige status van de taak.
 
--   Hallo geschatte percentage dat elke taak is voltooid.
+-   De geschatte percentage dat elke taak is voltooid.
 
--   Hallo huidige status van elk station.
+-   De huidige status van elk station.
 
 -   URI's voor blobs bevat foutenlogboeken en uitgebreide logboekregistratie-informatie (indien ingeschakeld).
 
-Hallo volgende secties wordt uitgelegd Hallo informatie die wordt geretourneerd door Hallo `Get Job` bewerking.
+De volgende secties worden de informatie die wordt geretourneerd door de `Get Job` bewerking.
 
 ## <a name="job-states"></a>Taakstatussen
-Hallo-tabel en Hallo status diagram hieronder wordt beschreven Hallo statussen van een taak via tijdens de levensduur overgangen. huidige status van taak Hallo Hallo kan worden bepaald door de aanroepende Hallo `Get Job` bewerking.
+De tabel en het onderstaande diagram kunt status beschrijven de statussen die een taak via tijdens de levensduur overgangen. De huidige status van de taak kan worden bepaald door het aanroepen van de `Get Job` bewerking.
 
 ![JobStates](./media/storage-import-export-retrieving-state-info-for-a-job/JobStates.png "JobStates")
 
-Hallo beschrijft volgende tabel elke status die een taak kan doorgeven.
+De volgende tabel beschrijft elke status die een taak kan doorgeven.
 
 |Taakstatus|Beschrijving|
 |---------------|-----------------|
-|`Creating`|Nadat u Hallo Job Put-bewerking aanroept, wordt een taak gemaakt en de status is ingesteld, te`Creating`. Terwijl hello Hallo wordt `Creating` staat, Hallo Import/Export-service wordt ervan uitgegaan dat Hallo stations niet verzonden toohello datacenter zijn. Een taak kan in Hallo blijven `Creating` staat zijn voor up tootwo weken, waarna deze worden automatisch verwijderd door Hallo-service.<br /><br /> Als u Hallo Update taakeigenschappen bewerking aanroepen terwijl hello Hallo wordt `Creating` staat, Hallo taak blijft in Hallo `Creating` status en time-out Hallo-interval is opnieuw ingesteld tootwo weken.|
-|`Shipping`|Nadat u uw pakket verzendt, moet u Hallo taakeigenschappen bijwerken bewerking Hallo-updatestatus van Hallo taak te aanroepen`Shipping`. status van de back-upfunctie Hallo kan alleen worden ingesteld als hello `DeliveryPackage` (postcode carrier en volgnummer) en Hallo `ReturnAddress` eigenschappen zijn ingesteld voor Hallo-taak.<br /><br /> Hallo taak blijft in Hallo back-ups van de status voor up tootwo weken. Als twee weken hebt doorgegeven en Hallo stations niet zijn ontvangen, worden operators in service voor importeren/exporteren hello wordt gewaarschuwd.|
-|`Received`|Nadat alle stations zijn ontvangen op Hallo Datacenter, worden taakstatus Hallo ingesteld toohello status Received hebben.|
-|`Transferring`|Nadat Hallo stations zijn ontvangen op Hallo datacenter en ten minste één station verwerking is gestart, taakstatus Hallo toohello ingesteld `Transferring` status. Zie Hallo `Drive States` sectie hieronder voor meer informatie.|
-|`Packaging`|Nadat alle stations verwerking is voltooid, Hallo-taak wordt geplaatst in Hallo `Packaging` status totdat Hallo stations verzonden back toohello klant zijn.|
-|`Completed`|Nadat alle stations verzonden back toohello klant, zijn als Hallo taak zonder fouten is voltooid, klikt u vervolgens Hallo-taak wordt ingesteld toohello `Completed` status. Hallo taak automatisch worden verwijderd na 90 dagen in Hallo `Completed` status.|
-|`Closed`|Nadat alle stations verzonden back toohello klant, zijn als er fouten tijdens de verwerking van de taak Hallo Hallo zijn, vervolgens Hallo-taak wordt ingesteld toohello `Closed` status. Hallo taak automatisch worden verwijderd na 90 dagen in Hallo `Closed` status.|
+|`Creating`|Nadat u de taak Put-bewerking aanroept, wordt een taak gemaakt en de status is ingesteld op `Creating`. Terwijl de taak wordt de `Creating` staat, de Import/Export-service wordt ervan uitgegaan dat de schijven nog niet zijn verzonden naar het datacenter. Een taak kan blijven in de `Creating` staat zijn voor maximaal twee weken, waarna deze worden automatisch verwijderd door de service.<br /><br /> Als u de bewerking Update taakeigenschappen niet aanroepen terwijl de taak wordt de `Creating` staat, wordt de taak blijft in de `Creating` status en de time-outinterval wordt opnieuw ingesteld op twee weken.|
+|`Shipping`|Nadat u uw pakket verzendt, moet u aanroepen de taakeigenschappen bijwerken bewerking update de status van de taak is `Shipping`. De status van de back-ups kan alleen worden ingesteld als de `DeliveryPackage` (postcode carrier en volgnummer) en de `ReturnAddress` eigenschappen zijn ingesteld voor de taak.<br /><br /> De taak blijft in de status van de back-ups van twee weken. Als twee weken hebt doorgegeven en de schijven niet zijn ontvangen, wordt de operators Import/Export-service worden gewaarschuwd.|
+|`Received`|Nadat alle stations zijn ontvangen in het datacenter, wordt de taakstatus worden ingesteld op de status Received hebben.|
+|`Transferring`|Nadat de stations zijn ontvangen in het datacenter en ten minste één station verwerking is gestart, de taakstatus wordt ingesteld op de `Transferring` staat. Zie de `Drive States` sectie hieronder voor meer informatie.|
+|`Packaging`|Nadat alle stations verwerking is voltooid, kunt u de taak wordt geplaatst de `Packaging` status totdat de stations terug naar de klant worden verzonden.|
+|`Completed`|Nadat alle stations zijn verzonden naar de klant, als de taak is voltooid zonder fouten, klikt u vervolgens de taak wordt zo ingesteld dat de `Completed` staat. De taak automatisch worden verwijderd na 90 dagen in de `Completed` staat.|
+|`Closed`|Nadat alle stations zijn verzonden naar de klant, als er fouten tijdens het verwerken van de taak zijn, klikt u vervolgens de taak wordt zo ingesteld dat de `Closed` staat. De taak automatisch worden verwijderd na 90 dagen in de `Closed` staat.|
 
-U kunt een taak alleen op bepaalde statussen annuleren. Een geannuleerde taak Hallo gegevens kopiëren stap overslaat, maar anders volgt Hallo dezelfde overgangen status als een taak die niet is geannuleerd.
+U kunt een taak alleen op bepaalde statussen annuleren. Een geannuleerde taak de gegevens kopiëren stap overslaat, maar anders volgt de dezelfde statusovergangen als een taak die niet is geannuleerd.
 
-Hallo bevat onderstaande tabel fouten die voor elke taakstatus, evenals de Hallo effect op Hallo taak optreden kunnen wanneer een fout optreedt.
+De volgende tabel beschrijft de fouten die voor elke taakstatus, evenals de gevolgen voor de taak optreden kunnen wanneer een fout optreedt.
 
 |Taakstatus|Gebeurtenis|Resolutie / de volgende stappen|
 |---------------|-----------|------------------------------|
-|`Creating or Undefined`|Een of meer stations voor een taak is aangekomen, maar het Hallo-taak heeft geen Hallo `Shipping` status of er is geen record van de taak Hallo in Hallo-service.|het operationele team van Hallo Import/Export-service wordt toocontact Hallo klant toocreate proberen of Hallo taak bijwerken met de benodigde informatie toomove Hallo-taak doorsturen.<br /><br /> Als het operationele team van Hallo niet kan toocontact Hallo klant binnen twee weken, probeert Hallo operationele team tooreturn Hallo stations.<br /><br /> In de gebeurtenis Hallo die Hallo stations kunnen niet worden geretourneerd en Hallo klant kan niet worden bereikt, wordt Hallo stations veilige manier worden vernietigd 90 dagen.<br /><br /> Houd er rekening mee dat een taak kan niet worden verwerkt totdat de status is bijgewerkt, te`Shipping`.|
-|`Shipping`|Hallo-pakket voor een taak niet meer dan twee weken aangekomen.|het operationele team van Hallo verwittigen Hallo klant van ontbrekende Hallo-pakket. Op basis van reactie van de klant hello, wordt Hallo operationele team ofwel Hallo interval toowait voor Hallo pakket tooarrive uitbreiden of Hallo taak annuleren.<br /><br /> In de Hallo gebeurtenis die klant Hallo kan geen verbinding worden gemaakt of niet reageert binnen 30 dagen Hallo operationele team initieert actie toomove Hallo taak in Hallo `Shipping` status rechtstreeks toohello `Closed` status.|
-|`Completed/Closed`|Hallo stations nooit bereikt Hallo-mailadres van afzender of zijn beschadigd tijdens de verzending (geldt alleen tooan exporttaak).|Als stations Hallo Hallo retouradres niet bereiken, Hallo klant moet de eerste aanroep Hallo Get Job-bewerking of selectievakje Hallo taakstatus Hallo portal tooensure die Hallo stations zijn verzonden. Als Hallo stations zijn verzonden, moet Hallo klant de Neem contact op met de back-upfunctie provider tootry hello en Hallo-stations vinden.<br /><br /> Als Hallo stations zijn beschadigd tijdens de verzending, kunt Hallo klant toorequest een andere taak voor het exporteren of download Hallo ontbrekende blobs.|
-|`Transferring/Packaging`|Taak is een onjuist of het adres van afzender ontbreekt.|het operationele team van Hallo wordt toohello contactpersoon voor Hallo taak tooobtain Hallo juiste adres bereiken.<br /><br /> Worden in de gebeurtenis Hallo die klant Hallo kan niet bereikt, Hallo stations worden veilig binnen 90 dagen vernietigd.|
-|`Creating / Shipping/ Transferring`|Een station dat niet wordt weergegeven in de lijst van stations toobe geïmporteerd Hallo is opgenomen in de back-upfunctie pakket Hallo.|Hallo extra stations wordt niet verwerkt en wordt geretourneerd toohello klant wanneer het Hallo-taak is voltooid.|
+|`Creating or Undefined`|Een of meer stations voor een taak is aangekomen, maar de taak is niet in de `Shipping` status of er is geen record van de taak in de service.|Het operationele team van Import/Export-service probeert contact opnemen met de klant maken of bijwerken van de taak met de benodigde informatie om de taak vooruit.<br /><br /> Als het operationele team kan geen verbinding met de klant binnen twee weken is, wordt het operationele team probeert te retourneren van de stations.<br /><br /> In het geval dat de stations kunnen niet worden geretourneerd en de klant kan niet worden bereikt, wordt de stations veilige manier worden vernietigd 90 dagen.<br /><br /> Houd er rekening mee dat een taak kan niet worden verwerkt totdat de status is bijgewerkt met `Shipping`.|
+|`Shipping`|Het pakket voor een taak niet meer dan twee weken aangekomen.|Het operationele team stuurt de klant van het pakket ontbreekt. Op basis van reactie van de klant, wordt het operationele team ofwel uitbreiden van het interval moet worden gewacht op het pakket moet worden uitgevoerd of annuleer de taak.<br /><br /> In het geval dat de klant kan geen verbinding worden gemaakt of niet binnen 30 dagen reageert, initieert de teamleden actie voor het verplaatsen van de taak in de `Shipping` status rechtstreeks naar de `Closed` staat.|
+|`Completed/Closed`|De stations nooit bereikt adres van de afzender of zijn beschadigd tijdens de verzending (geldt alleen voor een exporttaak).|Als de stations adres van de afzender niet bereiken, moet eerst de klant de Get Job-bewerking aanroepen of Controleer de status van de taak in de portal om ervoor te zorgen dat de stations zijn verzonden. Als de stations zijn verzonden, klikt u vervolgens de klant moet contact op met de back-upfunctie voor provider om te proberen te vinden van de stations.<br /><br /> Als de stations tijdens de verzending beschadigd zijn, wil de klant aan te vragen van een andere taak voor het exporteren of de ontbrekende blobs downloaden.|
+|`Transferring/Packaging`|Taak is een onjuist of het adres van afzender ontbreekt.|Het operationele team wordt naar de contactpersoon voor de taak voor het juiste adres bereiken.<br /><br /> In het geval dat de klant kan niet worden bereikt, wordt de stations veilige manier worden vernietigd 90 dagen.|
+|`Creating / Shipping/ Transferring`|Een station dat niet wordt weergegeven in de lijst met stations moeten worden geïmporteerd is in het back-upfunctie-pakket opgenomen.|De extra stations wordt niet verwerkt en aan de klant wordt geretourneerd wanneer de taak is voltooid.|
 
 ## <a name="drive-states"></a>Station statussen
-Hallo-tabel en Hallo diagram hieronder wordt beschreven Hallo levenscyclus van een afzonderlijke schijf als deze door middel van een taak worden geïmporteerd of geëxporteerd overgezet. U kunt het huidige station status Hallo ophalen door aanroepen Hallo `Get Job` bewerking en bekijken Hallo `State` element Hallo `DriveList` eigenschap.
+De tabel en het onderstaande diagram beschrijven we de levenscyclus van een afzonderlijke schijf het overgezet door middel van een taak worden geïmporteerd of geëxporteerd. U kunt de huidige status van de schijf ophalen door het aanroepen van de `Get Job` bewerking en bekijken de `State` element van de `DriveList` eigenschap.
 
 ![DriveStates](./media/storage-import-export-retrieving-state-info-for-a-job/DriveStates.png "DriveStates")
 
-Hallo beschrijft volgende tabel elke status die een station kan doorgeven.
+De volgende tabel beschrijft elke status die een station kan doorgeven.
 
 |Status van station|Beschrijving|
 |-----------------|-----------------|
-|`Specified`|Voor een import-taak als Hallo taak is gemaakt met de Hallo Job Put-bewerking, Hallo aanvankelijke status voor een station is Hallo `Specified` status. Voor een exporttaak omdat er geen station is opgegeven bij het Hallo-taak is gemaakt, Hallo initiële station status is Hallo `Received` status.|
-|`Received`|Hallo station overgangen toohello `Received` status wanneer hello Import/Export-service operator Hallo stations die zijn ontvangen van het bedrijf voor een import-taak back-upfunctie Hallo is verwerkt. Voor een exporttaak Hallo initiële station status Hallo is `Received` status.|
-|`NeverReceived`|Hallo-station wordt verplaatst toohello `NeverReceived` status wanneer Hallo-pakket voor een taak binnenkomt maar Hallo pakket bevat geen Hallo-station. Een station kunt ook verplaatsen naar deze status als het al twee weken geleden Hallo service Hallo back-upfunctie informatie ontvangen, maar Hallo pakket nog niet is ontvangen op Hallo Datacenter.|
-|`Transferring`|Een station wordt verplaatst toohello `Transferring` status wanneer hello service begint tootransfer gegevens van Hallo station tooWindows Azure Storage.|
-|`Completed`|Een station wordt verplaatst toohello `Completed` status wanneer Hallo-service heeft alle Hallo gegevens zonder fouten is overgedragen.|
-|`CompletedMoreInfo`|Een station wordt verplaatst toohello `CompletedMoreInfo` status wanneer Hallo-service heeft aangetroffen enkele problemen bij het kopiëren van gegevens vanaf of toohello station. Hallo-informatie kan bestaan fouten, waarschuwingen of informatieve berichten over het overschrijven van blobs.|
-|`ShippedBack`|Hallo-station wordt verplaatst toohello `ShippedBack` status wanneer van Hallo data center back toohello retouradres is verzonden.|
+|`Specified`|Voor een import-taak wanneer de taak is gemaakt met de taak Put-bewerking wordt de initiële status voor een station is de `Specified` staat. Voor een exporttaak omdat er geen station wordt opgegeven wanneer de taak is gemaakt, wordt de status van de initiële station is de `Received` staat.|
+|`Received`|Het station wordt overgezet naar de `Received` status wanneer de operator Import/Export-service de stations die zijn ontvangen van het bedrijf back-upfunctie voor een import-taak is verwerkt. Voor een exporttaak de status van de initiële station is de `Received` staat.|
+|`NeverReceived`|Het station wordt verplaatst naar de `NeverReceived` status wanneer het pakket voor een taak binnenkomt, maar het pakket niet het station bevat. Een station kunt ook verplaatsen naar deze status als deze twee weken is sinds de service heeft ontvangen van de back-ups van gegevens, maar het pakket nog niet in het datacenter ontvangen is.|
+|`Transferring`|Een station wordt verplaatst naar de `Transferring` status wanneer begint de service voor gegevensoverdracht van het station naar Windows Azure Storage.|
+|`Completed`|Een station wordt verplaatst naar de `Completed` status wanneer de service heeft de gegevens zonder fouten is overgedragen.|
+|`CompletedMoreInfo`|Een station wordt verplaatst naar de `CompletedMoreInfo` status wanneer de service enkele problemen is opgetreden tijdens het kopiëren van gegevens van of naar het station. De informatie kan bestaan fouten, waarschuwingen of informatieve berichten over het overschrijven van blobs.|
+|`ShippedBack`|Het station wordt verplaatst naar de `ShippedBack` status wanneer deze is verzonden vanaf de achterkant van data center adres van de afzender.|
 
-Hallo volgende tabel beschrijft Hallo station fout statussen en Hallo-acties die worden uitgevoerd voor elke status.
+De volgende tabel beschrijft de statussen van de fout station en de acties die voor elke status.
 
 |Status van station|Gebeurtenis|Resolutie / de volgende stap|
 |-----------------|-----------|-----------------------------|
-|`NeverReceived`|Een station dat is gemarkeerd als `NeverReceived` (omdat deze niet is ontvangen als onderdeel van de verzending van de taak Hallo) in een andere verzending binnenkomt.|Hallo operationele team verplaatst Hallo station toohello `Received` status.|
-|`N/A`|Een station dat geen deel uitmaakt van elke taak komt bij Hallo Datacenter als onderdeel van een andere taak.|Hallo-station wordt gemarkeerd als een extra schijf en wordt geretourneerd toohello klant wanneer zijn gekoppeld aan het oorspronkelijke pakket Hallo Hallo-taak is voltooid.|
+|`NeverReceived`|Een station dat is gemarkeerd als `NeverReceived` (omdat deze niet is ontvangen als onderdeel van de verzending van de taak) in een andere verzending binnenkomt.|Het operationele team verplaatst het station om de `Received` staat.|
+|`N/A`|Een station dat geen deel uitmaakt van elke taak komt in het datacenter als onderdeel van een andere taak.|Het station wordt gemarkeerd als een extra schijf en naar de klant wordt geretourneerd wanneer de taak die is gekoppeld aan het oorspronkelijke pakket is voltooid.|
 
 ## <a name="faulted-states"></a>Fout statussen
-Wanneer een taak of het station tooprogress normaal via de verwachte levensduur mislukt Hallo taak of station worden verplaatst naar een `Faulted` status. Op dat moment Hallo operationele team neemt contact met Hallo klant door e-mailadres of telefoonnummer. Zodra het Hallo-probleem is opgelost, Hallo taak mislukt of station zullen worden uitgevoerd buiten het Hallo `Faulted` systeemstatus- en verplaatst naar Hallo status van de toepassing.
+Als een taak of het station niet normaal voortgang van de verwachte levensduur, de taak of het station worden verplaatst naar een `Faulted` status. Het operationele team wordt op dat moment contact op met de klant door e-mailadres of telefoonnummer. Als het probleem opgelost is, de mislukte taak of het station worden uitgevoerd buiten de `Faulted` systeemstatus- en verplaatst naar de juiste status.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Met behulp van REST-API voor Hallo Import/Export-service](storage-import-export-using-the-rest-api.md)
+* [Met behulp van de Import/Export-service REST-API](storage-import-export-using-the-rest-api.md)

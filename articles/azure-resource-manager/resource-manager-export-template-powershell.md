@@ -1,6 +1,6 @@
 ---
-title: Resource Manager-sjabloon aaaExport met Azure PowerShell | Microsoft Docs
-description: Gebruik Azure Resource Manager en Azure PowerShell tooexport een sjabloon van een resourcegroep.
+title: Met Azure PowerShell Resource Manager-sjabloon exporteren | Microsoft Docs
+description: Azure Resource Manager en Azure PowerShell gebruiken voor het exporteren van een sjabloon uit een resourcegroep.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,26 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9a239b7bce8209326c0e267a4d3d69f7014bdaed
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7543811eb9448222b6e7c266756e68debc7d54be
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Exporteren van Azure Resource Manager-sjablonen met PowerShell
 
-Resource Manager kunt u tooexport Resource Manager-sjabloon uit bestaande resources in uw abonnement. U kunt deze gegenereerde sjabloon toolearn over Hallo sjabloon syntaxis of tooautomate Hallo hergebruik van uw oplossing naar behoefte.
+Met Resource Manager kunt u een Resource Manager-sjabloon exporteren uit bestaande resources in uw abonnement. Deze gegenereerde sjabloon kunt u vervolgens gebruiken om meer te weten te komen over de sjabloonsyntaxis of om desgewenst het hergebruik van uw oplossing te automatiseren.
 
-Het is belangrijk toonote dat er twee verschillende manieren tooexport een sjabloon zijn:
+Het is belangrijk te weten dat er twee verschillende manieren zijn om een sjabloon te exporteren:
 
-* Hallo werkelijke sjabloon die u voor een implementatie gebruikt, kunt u exporteren. Hallo geëxporteerde sjabloon bevat alle Hallo parameters en variabelen exact zo worden weergegeven in de oorspronkelijke sjabloon Hallo. Deze methode is handig wanneer u een sjabloon tooretrieve nodig.
-* U kunt een sjabloon met de huidige status van de resourcegroep Hallo Hallo exporteren. Hallo geëxporteerde sjabloon is niet op basis van een sjabloon die u voor implementatie gebruikt. In plaats daarvan wordt een sjabloon die een momentopname van de resourcegroep Hallo is gemaakt. geëxporteerde sjabloon Hallo heeft veel vastgelegde waarden en waarschijnlijk niet zoveel parameters zoals u normaal gesproken zou definiëren. Deze methode is handig als u de resourcegroep Hallo hebt gewijzigd. Nu moet u toocapture Hallo resourcegroep als sjabloon.
+* U kunt de daadwerkelijke sjabloon dat u voor een implementatie hebt gebruikt, exporteren. De geëxporteerde sjabloon bevat alle parameters en variabelen precies zoals ze worden weergegeven in de oorspronkelijke sjabloon. Deze methode is handig als u nodig hebt voor het ophalen van een sjabloon.
+* U kunt een sjabloon exporteren met de huidige status van de resourcegroep. De geëxporteerde sjabloon is niet gebaseerd op een sjabloon die u voor de implementatie hebt gebruikt. In plaats daarvan wordt er een sjabloon gemaakt die een momentopname is van de resourcegroep. De geëxporteerde sjabloon heeft veel vastgelegde waarden en waarschijnlijk niet zoveel parameters als u doorgaans zou definiëren. Deze methode is handig als u de resourcegroep hebt gewijzigd. U moet nu de resourcegroep vastleggen als sjabloon.
 
 Dit onderwerp bevat beide methoden.
 
 ## <a name="deploy-a-solution"></a>Een oplossing implementeren
 
-tooillustrate, zowel voor het exporteren van een sjabloon nadert, u begint met het implementeren van een oplossing tooyour-abonnement. Als u al een resourcegroep in uw abonnement dat u wilt dat tooexport, hoeft u geen toodeploy deze oplossing. Hallo rest van dit artikel verwijst echter toohello sjabloon voor deze oplossing. Hallo-voorbeeldscript implementeert een opslagaccount.
+Ter illustratie van beide benaderingen voor het exporteren van een sjabloon, laten we beginnen met het implementeren van een oplossing voor uw abonnement. Als u al een resourcegroep in uw abonnement die u wilt exporteren, kunt u beschikt niet over deze oplossing implementeren. Echter, de rest van dit artikel verwijst naar de sjabloon voor deze oplossing. Het voorbeeldscript implementeert een opslagaccount.
 
 ```powershell
 New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
@@ -43,13 +43,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
 
 ## <a name="save-template-from-deployment-history"></a>Sjabloon opslaan in de implementatiegeschiedenis
 
-U kunt een sjabloon ophalen uit de implementatiegeschiedenis van een met behulp van Hallo [opslaan AzureRmResourceGroupDeploymentTemplate](/powershell/module/azurerm.resources/save-azurermresourcegroupdeploymenttemplate) opdracht. Hallo bespaart Hallo voorbeeldsjabloon die u eerder implementeert te volgen:
+U kunt een sjabloon ophalen uit de implementatiegeschiedenis van een met behulp van de [opslaan AzureRmResourceGroupDeploymentTemplate](/powershell/module/azurerm.resources/save-azurermresourcegroupdeploymenttemplate) opdracht. Het volgende voorbeeld wordt de sjabloon die u eerder implementeert:
 
 ```powershell
 Save-AzureRmResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
 ```
 
-Deze retourneert locatie op Hallo van Hallo sjabloon.
+Wordt de locatie van de sjabloon.
 
 ```powershell
 Path
@@ -57,17 +57,17 @@ Path
 C:\Users\exampleuser\NewStorage.json
 ```
 
-Hallo-bestand geopend en ziet dat het Hallo exacte sjabloon die u voor implementatie gebruikt. Hallo-parameters en variabelen overeen met de Hallo sjabloon vanuit GitHub. U kunt deze sjabloon opnieuw implementeren.
+Open het bestand en u ziet dat het is de exacte sjabloon die u voor implementatie gebruikt. De parameters en variabelen overeen met de sjabloon vanuit GitHub. U kunt deze sjabloon opnieuw implementeren.
 
 ## <a name="export-resource-group-as-template"></a>Resourcegroep exporteren als sjabloon
 
-In plaats van een sjabloon worden opgehaald uit de implementatiegeschiedenis hello, kunt u een sjabloon die Hallo huidige status van een resourcegroep vertegenwoordigt met behulp van Hallo ophalen [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup) opdracht. U kunt deze opdracht gebruiken wanneer u veel wijzigingen tooyour-resourcegroep hebt aangebracht en er geen bestaande sjabloon alle Hallo wijzigingen vertegenwoordigt.
+In plaats van een sjabloon worden opgehaald uit de implementatiegeschiedenis van de, kunt u ophalen van een sjabloon die de huidige status van een resourcegroep met behulp van vertegenwoordigt de [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup) opdracht. U kunt deze opdracht gebruiken wanneer u veel wijzigingen hebt aangebracht in de resourcegroep en er geen bestaande sjabloon alle wijzigingen vertegenwoordigt.
 
 ```powershell
 Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup
 ```
 
-Deze retourneert locatie op Hallo van Hallo sjabloon.
+Wordt de locatie van de sjabloon.
 
 ```powershell
 Path
@@ -75,7 +75,7 @@ Path
 C:\Users\exampleuser\ExampleGroup.json
 ```
 
-Hallo-bestand openen en u ziet dat deze anders dan Hallo-sjabloon in GitHub is. Bestaat uit verschillende parameters en geen variabelen. zijn de vastgelegde toovalues Hallo opslag SKU en locatie. Hallo volgende voorbeeld ziet u de geëxporteerde sjabloon hello, maar uw sjabloon is een iets andere parameternaam:
+Open het bestand en u ziet dat deze anders dan de sjabloon in GitHub is. Bestaat uit verschillende parameters en geen variabelen. De SKU-opslag en de locatie zijn vastgelegde waarden. Het volgende voorbeeld ziet u de geëxporteerde sjabloon, maar uw sjabloon is een iets andere parameternaam:
 
 ```json
 {
@@ -107,7 +107,7 @@ Hallo-bestand openen en u ziet dat deze anders dan Hallo-sjabloon in GitHub is. 
 }
 ```
 
-U kunt deze sjabloon kunt implementeren, maar het vereist raden een unieke naam voor het Hallo-opslagaccount. Hallo-naam van de parameter is enigszins anders.
+U kunt deze sjabloon kunt implementeren, maar het vereist raden een unieke naam voor het opslagaccount. De naam van de parameter is enigszins anders.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
@@ -117,13 +117,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
 
 ## <a name="customize-exported-template"></a>Geëxporteerde sjabloon aanpassen
 
-U kunt deze sjabloon toomake wijzigen het toouse gemakkelijker en flexibeler. tooallow voor meer locaties, wijziging Hallo locatie-eigenschap toouse Hallo dezelfde locatie als Hallo resourcegroep:
+U kunt deze sjabloon om deze te gebruiken gemakkelijker en flexibeler wijzigen. Als u wilt toestaan voor meer locaties, de locatie-eigenschap voor het gebruik van dezelfde locatie als de resourcegroep te wijzigen:
 
 ```json
 "location": "[resourceGroup().location]",
 ```
 
-tooavoid met tooguess uniques naam voor het opslagaccount, verwijderen Hallo-parameter voor de opslagaccountnaam Hallo. Een parameter voor een achtervoegsel voor opslag en een opslag SKU toevoegen:
+Om te voorkomen dat te raden een uniques naam op voor storage-account, verwijdert u de parameter voor de opslagaccountnaam. Een parameter voor een achtervoegsel voor opslag en een opslag SKU toevoegen:
 
 ```json
 "parameters": {
@@ -146,7 +146,7 @@ tooavoid met tooguess uniques naam voor het opslagaccount, verwijderen Hallo-par
 },
 ```
 
-Een variabele die wordt gemaakt van de opslagaccountnaam Hallo met Hallo uniqueString functie toevoegen:
+Een variabele die wordt gemaakt van de naam van het opslagaccount met de functie uniqueString toevoegen:
 
 ```json
 "variables": {
@@ -154,13 +154,13 @@ Een variabele die wordt gemaakt van de opslagaccountnaam Hallo met Hallo uniqueS
   },
 ```
 
-Hallo-naam van Hallo storage account toohello variabele instellen:
+De naam van het storage-account aan de variabele instellen:
 
 ```json
 "name": "[variables('storageAccountName')]",
 ```
 
-Hallo SKU toohello parameter ingesteld:
+De SKU op de parameter ingesteld:
 
 ```json
 "sku": {
@@ -215,9 +215,9 @@ De sjabloon ziet er nu als volgt uit:
 }
 ```
 
-Implementeer Hallo gewijzigde sjabloon opnieuw.
+De gewijzigde sjabloon opnieuw implementeert.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het gebruik van Hallo portal tooexport een sjabloon [een Azure Resource Manager-sjabloon uit bestaande resources exporteren](resource-manager-export-template.md).
-* toodefine parameters in de sjabloon, Zie [sjablonen](resource-group-authoring-templates.md#parameters).
+* Zie voor meer informatie over het exporteren van een sjabloon met de portal [een Azure Resource Manager-sjabloon uit bestaande resources exporteren](resource-manager-export-template.md).
+* Om parameters te definiëren in de sjabloon, Zie [sjablonen](resource-group-authoring-templates.md#parameters).
 * Zie voor tips over het oplossen van algemene implementatiefouten [oplossen van veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager](resource-manager-common-deployment-errors.md).

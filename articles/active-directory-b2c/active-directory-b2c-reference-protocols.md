@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory B2C: Verificatieprotocollen | Microsoft Docs'
-description: Hoe toobuild apps rechtstreeks met behulp van protocollen die worden ondersteund door Azure Active Directory B2C Hallo
+description: Apps maken via de protocollen die worden ondersteund door Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
 author: dstrockis
@@ -14,69 +14,69 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 8fa4cbebe711841d410b3ae43b78f893c06d9b63
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8e7e7bc7633370057f8dc596ad04a3f1d796a7d2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # Azure AD B2C: Verificatieprotocollen
-Azure Active Directory B2C (Azure AD B2C) biedt identiteit als een service voor uw apps door de ondersteuning van twee standaardprotocollen: OpenID Connect en OAuth 2.0. Hallo-service is compatibel met standaarden, maar de twee implementaties van deze protocollen subtiele verschillen kunnen hebben. 
+Azure Active Directory B2C (Azure AD B2C) biedt identiteit als een service voor uw apps door de ondersteuning van twee standaardprotocollen: OpenID Connect en OAuth 2.0. De service is compatibel met standaarden, maar de twee implementaties van deze protocollen subtiele verschillen kunnen hebben. 
 
-Hallo-informatie in deze handleiding is handig als u uw code schrijven door rechtstreeks verzenden en HTTP-aanvragen voor de verwerking, in plaats van via een open-source-bibliotheek. Het is raadzaam dat u deze pagina te lezen voordat u Duik in de details van elk protocol dat specifieke Hallo. Maar als u al bekend met Azure AD B2C bent, gaat u meteen te[protocol verwijzing handleidingen Hallo](#protocols).
+De informatie in deze handleiding is handig als u uw code schrijven door rechtstreeks verzenden en HTTP-aanvragen voor de verwerking, in plaats van via een open-source-bibliotheek. Het is raadzaam dat u deze pagina te lezen voordat u Duik in de details van elk protocol dat specifieke. Maar als u al bekend met Azure AD B2C bent, gaat u meteen naar [de verwijzing naar protocol handleidingen](#protocols).
 
-<!-- TODO: Need link toolibraries above -->
+<!-- TODO: Need link to libraries above -->
 
-## Hallo-basisbeginselen
-Elke app die gebruikmaakt van Azure AD B2C moet toobe geregistreerd in uw B2C-directory in Hallo [Azure-portal](https://portal.azure.com). Hallo app registratieproces verzameld en enkele waarden tooyour app toegewezen:
+## De basisbeginselen
+Elke app die gebruikmaakt van Azure AD B2C moet worden geregistreerd in uw B2C-directory in de [Azure-portal](https://portal.azure.com). Tijdens het registratieproces van de app worden enkele waarden verzameld en toegewezen aan uw app:
 
 * Een **toepassings-id** die de app op unieke wijze identificeert.
-* Een **omleidings-URI** of **pakket-id** die kunnen worden gebruikt toodirect antwoorden back tooyour app.
-* Enkele andere scenariospecifieke waarden. Informatie voor meer informatie over [hoe tooregister uw toepassing](active-directory-b2c-app-registration.md).
+* Een **omleidings-URI** of **pakket-id** die kunnen worden gebruikt om een directe antwoorden terug naar uw app.
+* Enkele andere scenariospecifieke waarden. Informatie voor meer informatie over [voor de registratie van uw toepassing](active-directory-b2c-app-registration.md).
 
-Nadat u uw app registreert, wordt deze door te verzenden aanvragen toohello eindpunt communiceert met Azure Active Directory (Azure AD):
+Nadat u uw app registreert, wordt deze door verzoeken te sturen naar het eindpunt communiceert met Azure Active Directory (Azure AD):
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 ```
 
-Vier partijen zijn in bijna alle OAuth en OpenID Connect stromen, die zijn betrokken bij Hallo exchange:
+Bijna alle OAuth en OpenID Connect stromen zijn vier partijen betrokken in de exchange:
 
 ![OAuth 2.0-functies](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
-* Hallo **autorisatie server** hello Azure AD-eindpunt. Veilig worden verwerkt alles gerelateerde toouser informatie en toegang. Hallo-vertrouwensrelaties tussen Hallo partijen in een stroom ook verwerkt. Het is verantwoordelijk voor het verifiëren van de identiteit van de gebruiker hello, verlenen en tooresources toegang intrekken en uitgeven van tokens. Het is ook bekend als Hallo id-provider.
+* De **autorisatie server** is het Azure AD-eindpunt. Veilig verwerkt iets betrekking hebben op gebruikersgegevens en -toegang. Ook verwerkt de vertrouwensrelaties tussen de partijen in een stroom. Het is verantwoordelijk voor het controleren van de identiteit van de gebruiker, verlenen en intrekken van toegang tot bronnen en uitgeven van tokens. Het is ook bekend als de id-provider.
 
-* Hallo **resource-eigenaar** is doorgaans Hallo eindgebruiker. Hallo partij die eigenaar is van de gegevens Hallo is en er Hallo power tooallow derden tooaccess die gegevens of de resource.
+* De **resource-eigenaar** is meestal de eindgebruiker. Is de partij die eigenaar is van de gegevens en hieraan het vermogen om toe te staan van derden voor toegang tot die gegevens of de resource.
 
-* Hallo **OAuth client** wordt uw app. Die wordt geïdentificeerd door de toepassing-ID. Meestal is het Hallo-partij die eindgebruikers interactie met hebben. Het ook aanvraagt tokens van Hallo autorisatie server. Hallo resource-eigenaar moet verlenen Hallo client machtiging tooaccess Hallo resource.
+* De **OAuth client** wordt uw app. Die wordt geïdentificeerd door de toepassing-ID. Dit is meestal de partij die eindgebruikers interactie met hebben. Deze tokens ook-aanvragen van de autorisatie-server. De resource-eigenaar moet de machtiging client toegang tot de bron.
 
-* Hallo **bronserver** is waarin Hallo bron of de gegevens zich bevindt. Hallo autorisatie vertrouwde server toosecurely verifiëren en autoriseren hello OAuth-client. Ook wordt gebruikt bearer-toegang tokens tooensure die toegang hebben tot de resource tooa kan worden verleend.
+* De **bronserver** is waar de resource of de gegevens zich bevindt. Deze vertrouwt de autorisatie-server veilig verifiëren en autoriseren van de OAuth-client. Access-bearer-tokens worden ook gebruikt om ervoor te zorgen dat toegang tot een bron kan worden toegekend.
 
 ## Beleidsregels
-Azure AD B2C-beleidsregels zijn weliswaar, Hallo belangrijkste functies van Hallo-service. Azure AD B2C wordt Hallo standaard OAuth 2.0 en OpenID Connect-protocollen uitgebreid door de introductie van beleid. Azure AD B2C tooperform kunt veel meer dan een eenvoudige verificatie en autorisatie. 
+Azure AD B2C-beleidsregels zijn weliswaar, de belangrijkste functies van de service. Azure AD B2C breidt de standaard OAuth 2.0 en OpenID Connect-protocollen door de introductie van beleid. Hiermee kunnen Azure AD B2C om uit te voeren veel meer dan een eenvoudige verificatie en autorisatie. 
 
 Beleid beschrijven consumer identiteitservaringen, met inbegrip van registreren, aanmelden, volledig en profiel bewerken. Beleidsregels kunnen worden gedefinieerd in een administratieve gebruikersinterface. Ze kunnen worden uitgevoerd met behulp van een speciale queryparameter in HTTP-aanvragen voor verificatie. 
 
-Beleidsregels kunnen niet standaardfuncties van OAuth 2.0 en OpenID Connect, dus u rekening met Hallo tijd toounderstand houden moet ze. Zie voor meer informatie, Hallo [Naslaggids voor Azure AD B2C beleid](active-directory-b2c-reference-policies.md).
+Beleidsregels zijn niet standaard functies van OAuth 2.0 en OpenID Connect, dus u moet de tijd om te begrijpen. Zie voor meer informatie de [Naslaggids voor Azure AD B2C beleid](active-directory-b2c-reference-policies.md).
 
 ## Tokens
-Hello Azure AD B2C-implementatie van OAuth 2.0 en OpenID Connect wordt uitgebreid gebruikgemaakt van bearer-tokens, bearer-tokens die worden weergegeven als JSON webtokens (JWTs). Een bearer-token is een lichtgewicht beveiligingstoken dat verleent 'bearer' toegang tooa Hallo beveiligde resource.
+De Azure AD B2C-implementatie van OAuth 2.0 en OpenID Connect wordt uitgebreid gebruikgemaakt van bearer-tokens, bearer-tokens die worden weergegeven als JSON webtokens (JWTs). Een bearer-token is een lichtgewicht beveiligingstoken die de 'bearer' toegang tot een beveiligde bron verleent.
 
-Hallo bearer is een partij die Hallo token kan opleveren. Azure AD een partij moet eerst worden geverifieerd voordat er een bearer-token kan ontvangen. Maar desgewenst Hallo stappen worden niet genomen toosecure Hallo-token in overdracht en opslag kan worden onderschept en gebruikt door een onbedoelde partij.
+De houder is een partij die het token kan opleveren. Azure AD een partij moet eerst worden geverifieerd voordat er een bearer-token kan ontvangen. Maar als de vereiste stappen niet genomen worden voor het beveiligen van het token in overdracht en opslag, kan deze kan worden onderschept en gebruikt door een onbedoelde partij.
 
 Sommige beveiligingstokens ingebouwde mechanismen die voorkomen dat onbevoegden gebruiken ze hebben, maar bearer-tokens hebben geen dit mechanisme. Zij moeten worden overgebracht in een beveiligd kanaal, zoals een transport layer security (HTTPS). 
 
-Als bearer-token buiten een beveiligd kanaal wordt verzonden, kunt een schadelijke party u een man-in-the-middle-aanval tooacquire Hallo-token gebruiken en deze toogain niet-geautoriseerde toegang tooa beveiligde resource. Hallo dezelfde beveiligings-principals toepassen wanneer bearer-tokens worden opgeslagen of voor later gebruik opgeslagen. Altijd voor zorgen dat uw app verzendt en bearer-tokens worden opgeslagen op een veilige manier.
+Als een bearer-token buiten een beveiligd kanaal wordt verzonden, kunnen een kwaadwillende party een man-in-the-middle-aanval kunt gebruiken om het token verkrijgen en gebruiken om onbevoegde toegang te krijgen tot een beveiligde bron. De dezelfde beveiligings-principals van toepassing wanneer bearer-tokens worden opgeslagen of voor later gebruik opgeslagen. Altijd voor zorgen dat uw app verzendt en bearer-tokens worden opgeslagen op een veilige manier.
 
 Zie voor aanvullende bearer-token beveiligingsoverwegingen [RFC 6750 sectie 5](http://tools.ietf.org/html/rfc6750).
 
-Meer informatie over de verschillende soorten tokens die worden gebruikt in Azure AD B2C Hallo zijn beschikbaar in [hello Azure AD-tokenverwijzing](active-directory-b2c-reference-tokens.md).
+Meer informatie over de verschillende typen tokens die worden gebruikt in Azure AD B2C zijn beschikbaar in [de Azure AD-tokenverwijzing](active-directory-b2c-reference-tokens.md).
 
 ## Protocollen
-Wanneer u klaar bent tooreview een aantal voorbeelden van aanvragen, kunt u met een van de volgende zelfstudies Hallo beginnen. Elke overeen tooa bepaalde verificatiescenario. Als u hulp bij het bepalen welke stroom geschikt is voor u nodig hebt, kijk dan eens [typen apps die u maken kunt met behulp van Azure AD B2C Hallo](active-directory-b2c-apps.md).
+Wanneer u klaar bent om te controleren van bepaalde aanvragen voorbeeld, kunt u beginnen met een van de volgende zelfstudies. Elke komt overeen met een bepaalde verificatiescenario. Als u hulp bij het bepalen welke stroom geschikt is voor u nodig hebt, kijk dan eens [de typen apps die u maken kunt met behulp van Azure AD B2C](active-directory-b2c-apps.md).
 
 * [Mobiele en systeemeigen toepassingen bouwen met behulp van OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 * [Web-apps bouwen met behulp van OpenID Connect](active-directory-b2c-reference-oidc.md)
-* [Apps van één pagina met impliciete Hallo OAuth 2.0-stroom maken](active-directory-b2c-reference-spa.md)
+* [Apps van één pagina met behulp van de impliciete OAuth 2.0-stroom maken](active-directory-b2c-reference-spa.md)
 

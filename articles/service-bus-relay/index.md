@@ -1,15 +1,26 @@
 ---
+title: Documentatie voor Service Bus Relay
+description: Ontdek hoe de Azure Relay-service werkt in een hybride cloud en on-premises omgeving, met handleidingen, zelfstudies, video's, API-verwijzingen en meer.
+services: service-bus
+author: czeumault
+manager: carolz
 layout: LandingPage
-title: aaaService Bus Relay-documentatie
-description: Meer informatie over hoe hello Azure Relay-service in een hybride cloud en on-premises omgeving werkt, voltooid met het, zelfstudies, video's en API-verwijzingen.
-ms.openlocfilehash: c042c82c90fa03e91ee9c1b513e325d7e8d33c08
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
+ms.openlocfilehash: 9305e85ff075e8e7ee3e21315d28f63613ac01f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Documentatie voor Service Bus Relay
-Meer informatie over hoe Azure Relay service hybride toepassingen tussen vereenvoudigt lokale en cloud omgevingen binnen een bedrijfsnetwerk enterprise netwerk- en Hallo openbare cloud, zonder dat een firewallverbinding hoeft tooopen of Tussenkomende wijzigingen tooa zakelijke vereisen netwerkinfrastructuur.
+Ontdek hoe de Azure Relay-service hybride toepassingen in on-premises en cloudomgevingen mogelijk maakt binnen een bedrijfsnetwerk en de openbare cloud, zonder dat u een firewallverbinding hoeft te openen en zonder dat er wijzigingen in de infrastructuur van een bedrijfsnetwerk zijn vereist.
 
 <ul class="panelContent cardsFTitle">
     <li>

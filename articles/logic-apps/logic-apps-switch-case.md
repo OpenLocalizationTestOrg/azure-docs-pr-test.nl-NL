@@ -1,6 +1,6 @@
 ---
-title: de instructie aaaSwitch voor verschillende acties in Azure Logic Apps | Microsoft Docs
-description: Kies verschillende acties tooperform in logic apps op basis van Expressiewaarden met behulp van een switch-instructie
+title: Switch-instructie voor verschillende acties in Azure Logic Apps | Microsoft Docs
+description: Kies verschillende acties uitvoeren in logic apps op basis van Expressiewaarden met behulp van een switch-instructie
 services: logic-apps
 keywords: Switch-instructie
 author: derek1ee
@@ -15,42 +15,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 09ed7e4a752003aba157e9156bf4dc89ef86f5ad
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Verschillende acties worden uitgevoerd in logic apps met een switch-instructie
 
-Wanneer het ontwerpen van een werkstroom, hebt u vaak tootake verschillende acties die zijn gebaseerd op Hallo-waarde van een object of een expressie. Bijvoorbeeld, wilt u mogelijk uw logische app toobehave anders op basis van de statuscode Hallo van een HTTP-aanvraag, of een optie in een e-mailbericht hebt geselecteerd.
+Bij het ontwerpen van een werkstroom, moet u vaak andere acties onderneemt op basis van de waarde van een object of een expressie. Bijvoorbeeld, kunt u uw logische app zich gedragen anders op basis van de statuscode van een HTTP-aanvraag, of een optie in een e-mailbericht hebt geselecteerd.
 
-U kunt een instructie switch tooimplement deze scenario's gebruiken. Uw logische app kunt beoordelen een token of een expressie, en kies Hallo geval Hello dezelfde waarde tooexecute Hallo opgegeven acties. Slechts één case moet overeenkomen met de Hallo switch-instructie.
+U kunt een switch-instructie voor het implementeren van deze scenario's. Uw logische app kunt evalueren van een token of een expressie en kies het geval is bij dezelfde waarde binnen de opgegeven acties uitvoeren. Slechts één case moet overeenkomen met de switch-instructie.
 
 > [!TIP]
 > Net als alle programmeertalen ondersteuning switch instructies alleen gelijkheid operators. Als u andere relationele operators, zoals 'groter dan', gebruikt u een voorwaardeninstructie.
-> tooensure deterministische uitvoeringsgedrag, gevallen moeten een uniek en statische waarde in plaats van de dynamische-tokens of expressie bevatten.
+> Om ervoor te zorgen deterministische uitvoeringsgedrag, moeten gevallen een uniek en statische waarde in plaats van de dynamische-tokens of expressie bevatten.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Een actief Azure-abonnement. Als u een actief Azure-abonnement geen [een gratis account maken](https://azure.microsoft.com/free/), of probeer [Logic Apps voor gratis](https://tryappservice.azure.com/).
 - [Elementaire kennis over logic apps](logic-apps-what-are-logic-apps.md)
 
-## <a name="add-a-switch-statement-tooyour-workflow"></a>Een switch-instructie tooyour-werkstroom toevoegen
+## <a name="add-a-switch-statement-to-your-workflow"></a>Een switchinstructie toevoegen aan uw werkstroom
 
-tooshow de werking van een switch-instructie, in dit voorbeeld wordt een logische app dat monitors bestanden tooDropbox geüpload. Wanneer nieuwe Hallo-bestanden zijn geüpload, Hallo logische app verzendt e-mail tooan goedkeurder die u kiest of tootransfer die tooSharePoint bestanden. Hallo app gebruikmaakt van een switchinstructie die verschillende acties uitvoert op basis van de Hallo die Hallo goedkeurder worden geselecteerd.
+Als u wilt weergeven op de werking van een switch-instructie, wordt in dit voorbeeld een logische app dat bestanden geüpload naar Dropbox bewaakt. Wanneer de nieuwe bestanden zijn geüpload, verzendt de logische app e-mail naar een goedkeurder die u kiest of moet worden overgedragen van die bestanden naar SharePoint. De app gebruikmaakt van een switch-instructie waarmee u verschillende acties die zijn gebaseerd op de waarde die de goedkeurder selecteert.
 
 1. Een logische app maken en selecteer deze trigger: **Dropbox - wanneer een bestand wordt gemaakt**.
 
    ![Dropbox - gebruiken wanneer een bestand trigger wordt gemaakt](./media/logic-apps-switch-case/dropbox-trigger.jpg)
 
-2. Deze actie onder Hallo-trigger toevoegen: **Outlook.com - e-mailbericht verzenden-goedkeuring**
+2. Deze actie toevoegen onder de trigger: **Outlook.com - e-mailbericht verzenden-goedkeuring**
 
    > [!TIP]
    > Logische apps ondersteunen ook verzenden goedkeuring e-scenario's uit een Outlook van Office 365-account.
 
-   - Als u een bestaande verbinding geen hebt, wordt u gevraagd toocreate een.
-   - Vul de velden Hallo vereist. Bijvoorbeeld onder **naar**, Hallo e-mailadres voor het verzenden van Hallo goedkeurder e-mailadres opgeven.
+   - Als u een bestaande verbinding geen hebt, wordt u gevraagd een maken.
+   - Vul de vereiste velden in. Bijvoorbeeld onder **naar**, geef het e-mailadres voor het verzenden van het e-mailbericht goedkeurder.
    - Onder **gebruikersopties**, voer `Approve, Reject`.
 
    ![Configureer de verbinding](./media/logic-apps-switch-case/send-approval-email-action.jpg)
@@ -58,30 +58,30 @@ tooshow de werking van een switch-instructie, in dit voorbeeld wordt een logisch
 3. Toevoegen van een switchinstructie.
 
    - Selecteer **+ een nieuwe stap** > **... Meer** > **toevoegen van een case**. 
-   - Nu we tooselect Hallo actie tooperform op basis van Hallo willen `SelectedOptions` de uitvoer van Hallo *goedkeuring per E-mail* in te grijpen. 
-   U vindt dit veld in Hallo **dynamische inhoud toevoegen** selector.
-   - Gebruik *geval 1* toohandle wanneer Hallo goedkeurder selecteert `Approve`.
-     - Als goedgekeurd, kopieert u Hallo oorspronkelijke bestand tooSharePoint Online Hello [ **SharePoint Online - bestand maken** actie](../connectors/connectors-create-api-sharepointonline.md).
-     - Voeg een andere actie Hallo case toonotify gebruikers een nieuw bestand is beschikbaar in SharePoint.
-   - Toevoegen van een andere aanvraag toohandle wanneer gebruiker selecteert `Reject`.
-     - Als afgewezen, verzendt u een e-mailmelding andere goedkeurders wordt geïnformeerd dat Hallo-bestand wordt geweigerd en geen verdere actie vereist is.
-   - `SelectedOptions`biedt slechts twee opties, zodat we Hallo kunt laten **standaard** geval leeg.
+   - Nu we willen selecteert u de actie om uit te voeren op basis van de `SelectedOptions` de uitvoer van de *goedkeuring per E-mail* in te grijpen. 
+   U vindt dit veld in de **dynamische inhoud toevoegen** selector.
+   - Gebruik *geval 1* om af te handelen wanneer de goedkeurder selecteert `Approve`.
+     - Als goedgekeurd, kopieert u het oorspronkelijke bestand tot SharePoint Online met de [ **SharePoint Online - bestand maken** actie](../connectors/connectors-create-api-sharepointonline.md).
+     - Voeg een andere actie binnen de aanvraag om gebruikers te waarschuwen dat een nieuw bestand beschikbaar in SharePoint is.
+   - Een andere aanvraag om af te handelen wanneer gebruiker selecteert toevoegen `Reject`.
+     - Als afgewezen, verzendt u een e-mailmelding andere goedkeurders wordt geïnformeerd dat het bestand wordt geweigerd en geen verdere actie vereist is.
+   - `SelectedOptions`biedt slechts twee opties, zodat we kunt laten de **standaard** geval leeg.
 
    ![Switch-instructie](./media/logic-apps-switch-case/switch.jpg)
 
    > [!NOTE]
-   > Switch-instructie moet minimaal één letter in geval van toevoeging toohello standaard.
+   > Switch-instructie moet ten minste één case naast de standaard-case.
 
-4. Na het Hallo-switch-instructie het oorspronkelijke bestand geüpload tooDropbox Hallo worden verwijderd door deze actie toe te voegen: **Dropbox - bestand verwijderen**
+4. Het oorspronkelijke bestand geüpload naar Dropbox door deze actie toe te voegen na de instructie switch worden verwijderd: **Dropbox - bestand verwijderen**
 
-5. Sla uw logische app. Uw app testen door een tooDropbox bestand uploaden. U ontvangt binnenkort een e-mailbericht goedkeuring. Selecteer een optie en Hallo gedrag observeren.
+5. Sla uw logische app. Uw app testen door een bestand uploadt naar Dropbox. U ontvangt binnenkort een e-mailbericht goedkeuring. Selecteer een optie en het gedrag observeren.
 
    > [!TIP]
-   > Te zoeken over[uw logische apps bewaken](logic-apps-monitor-your-logic-apps.md).
+   > Bekijk hoe [uw logische apps bewaken](logic-apps-monitor-your-logic-apps.md).
 
-## <a name="understand-hello-code-behind-switch-statements"></a>Hallo code achter switch instructies begrijpen
+## <a name="understand-the-code-behind-switch-statements"></a>Inzicht in de code achter de switch-instructies
 
-Nu dat u een logische app met een switchinstructie is gemaakt, bekijken we de definitie van Hallo achter Hallo switch-instructie.
+Nu dat u een logische app met een switchinstructie is gemaakt, bekijken we de definitie van de code achter de switch-instructie.
 
 ```json
 "Switch": {
@@ -108,20 +108,20 @@ Nu dat u een logische app met een switchinstructie is gemaakt, bekijken we de de
 }
 ```
 
-* `"Switch"`Hallo naam is van de switch-instructie hello, die u kunt de naam voor de leesbaarheid. 
-* `"type": "Switch"`Geeft aan dat de actie Hallo een switch-instructie. 
-* `"expression"`Hallo goedkeurder van geselecteerde optie in dit voorbeeld is en geëvalueerd op basis van elk geval later in Hallo definitie is gedeclareerd. 
-* `"cases"`kan een onbeperkt aantal gevallen bevatten. Voor elk geval `"Case *"` is de standaardnaam hello van geval Hallo die u kunt de naam voor de leesbaarheid. 
-`"case"`Hiermee geeft u Hallo case-label, waarvoor de switch-expressie gebruikt voor vergelijking Hallo en moet een constante en unieke waarde. Als geen van de gevallen Hallo overeenkomt met de Hallo schakelexpressie, acties onder `"default"` worden uitgevoerd.
+* `"Switch"`is de naam van de switch-instructie, waarmee u kunt de naam voor de leesbaarheid. 
+* `"type": "Switch"`Hiermee wordt aangegeven dat de actie een switch-instructie is. 
+* `"expression"`de goedkeurder geselecteerde optie in dit voorbeeld is en wordt geëvalueerd op basis van elk geval later in de definitie is gedeclareerd. 
+* `"cases"`kan een onbeperkt aantal gevallen bevatten. Voor elk geval `"Case *"` is de standaardnaam van de aanvraag die u kunt de naam voor de leesbaarheid. 
+`"case"`Hiermee geeft u de case-label, waarbij de switch-expressie wordt gebruikt voor vergelijking, en moet een constante en unieke waarde. Als geen van de gevallen overeenkomt met de schakeloptie-expressie, acties onder `"default"` worden uitgevoerd.
 
 ## <a name="get-help"></a>Help opvragen
 
-tooask vragen, antwoorden op vragen, en zien welke andere Azure Logic Apps-gebruikers doen, gaat u naar Hallo [Azure Logic Apps-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+Ga naar het [forum voor Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) om vragen te stellen, vragen te beantwoorden en te zien wat andere gebruikers van Azure Logic Apps aan het doen zijn.
 
-toohelp Azure Logic Apps en connectors verbeteren, stem of ideeën op Hallo indienen [Azure Logic Apps gebruiker feedback site](http://aka.ms/logicapps-wish).
+Ter verbetering van Azure Logic Apps en connectors kunt u stemmen op ideeën of ideeën indien op de [site voor gebruikersfeedback van Azure Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over hoe te[voorwaarden toevoegen](logic-apps-use-logic-app-features.md)
+- Meer informatie over hoe [voorwaarden toevoegen](logic-apps-use-logic-app-features.md)
 - Meer informatie over [fout en uitzonderingsverwerking](logic-apps-exception-handling.md)
 - Ontdek meer [werkstroom taal mogelijkheden](logic-apps-author-definitions.md)

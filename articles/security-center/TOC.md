@@ -4,7 +4,7 @@
 ## [Gegevensbeveiliging](security-center-data-security.md)
 ## Scenario's
 ### [Reageren op incidenten](security-center-incident-response.md)
-### [Aanbevelingen tooenhance beveiliging gebruiken](security-center-using-recommendations.md)
+### [Aanbevelingen gebruiken om de beveiliging te verbeteren](security-center-using-recommendations.md)
 ## [Platformmigratie](security-center-platform-migration.md)
 ### [Veelgestelde vragen over platformmigratie](security-center-platform-migration-faq.md)
 
@@ -18,11 +18,19 @@
 
 # Procedures
 
-## Voorkomen
-### [Beveiligingsbeleid instellen](security-center-policies.md)
-### [Just-in-time-toegang](security-center-just-in-time.md)
-### [Aanbevelingen voor beveiliging implementeren](security-center-recommendations.md)
+## Beveiligingsbeleid
+### [Overzicht](security-center-policies-overview.md)
+### [Gegevensverzameling](security-center-enable-data-collection.md)
+### [Beveiligingsbeleid](security-center-policies.md)
+### [E-mailmeldingen](security-center-provide-security-contact-details.md)
+### [Prijscategorie](security-center-pricing.md)
 
+## [Onboarding](security-center-onboarding.md)
+## [Gebeurtenissen](security-center-events-dashboard.md)
+## [Zoeken](security-center-search.md)
+
+## Voorkomen
+### [Aanbevelingen voor beveiliging implementeren](security-center-recommendations.md)
 ### [Aanbevelingen voor toepassingen](security-center-application-recommendations.md)
 #### [Een firewall voor webtoepassingen toevoegen](security-center-add-web-application-firewall.md)
 #### [Toepassingsbeveiliging voltooien](security-center-add-web-application-firewall.md#finalize-application-protection)
@@ -41,19 +49,16 @@
 ### [Aanbevelingen voor virtuele machines](security-center-virtual-machine-recommendations.md)
 #### [Schijfversleuteling toepassen](security-center-apply-disk-encryption.md)
 #### [Systeemupdates toepassen](security-center-apply-system-updates.md)
-#### [Gegevensverzameling inschakelen](security-center-enable-data-collection.md)
 #### [Versleuteling inschakelen voor opslagaccount](security-center-enable-encryption-for-storage-account.md)
 #### [VM-agent inschakelen](security-center-enable-vm-agent.md)
 #### [Eindpuntbeveiliging installeren](security-center-install-endpoint-protection.md)
-#### [Contactgegevens voor beveiliging verstrekken](security-center-provide-security-contact-details.md)
 #### [Opnieuw opstarten na systeemupdates](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Beveiligingsproblemen met het besturingssysteem herstellen](security-center-remediate-os-vulnerabilities.md)
-#### [Statusmeldingen endpoint protection oplossen](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Besturingssysteemversie bijwerken](security-center-update-os-version.md)
 #### [Beoordeling van beveiligingslekken is niet geïnstalleerd](security-center-vulnerability-assessment-recommendations.md)
-
 ### [Beveiligingsstatus bewaken](security-center-monitoring.md)
 ### [Partneroplossingen bewaken](security-center-partner-solutions.md)
+### [Identiteit en toegang](security-center-identity-access.md)
 
 ## Detecteren en reageren
 ### [Detectiecapaciteiten](security-center-detection-capabilities.md)
@@ -62,7 +67,17 @@
 ### [Waarschuwingen valideren](security-center-alert-validation.md)
 ### [Beveiligingsincidenten beheren](security-center-incident.md)
 ### [Azure-logboekintegratie](security-center-integrating-alerts-with-log-integration.md)
+### [Bedreigingsinformatiekaart](security-center-threat-intel.md)
 ### [Bedreigingsinformatierapport](security-center-threat-report.md)
+### [Aangepaste waarschuwingen](security-center-custom-alert.md)
+### [Onderzoek](security-center-investigation.md)
+
+## Cloudbeveiliging
+### [Just-in-time-toegang](security-center-just-in-time.md)
+### [Adaptieve toepassingsbesturingselementen](security-center-adaptive-application.md)
+
+## Automatisering en indeling
+### [Playbooks](security-center-playbooks.md)
 
 ## Problemen oplossen
 ### [Handleiding voor het oplossen van problemen](security-center-troubleshooting-guide.md)
@@ -76,7 +91,6 @@
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog over veiligheid, privacy en naleving met betrekking tot Azure](http://blogs.msdn.com/b/azuresecurity/)
-## [Prijzen](security-center-pricing.md)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Overzicht van services](https://azure.microsoft.com/services/security-center/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=security-center)

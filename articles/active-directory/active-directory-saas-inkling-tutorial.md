@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Inkling | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en Inkling.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Inkling.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,71 +13,71 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 544101f1972ec16222406b761d2b6f4987458df5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7b0639c6515298731f88346c2e4ca82664653a2b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Zelfstudie: Azure Active Directory-integratie met Inkling
 
-In deze zelfstudie leert u hoe toointegrate Inkling met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe Inkling integreren met Azure Active Directory (Azure AD).
 
-Inkling integreren met Azure AD biedt Hallo volgende voordelen:
+Inkling integreren met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD die tooInkling toegang heeft
-- U kunt uw gebruikers tooautomatically get aangemelde tooInkling (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - hello Azure Management portal beheren
+- U kunt beheren in Azure AD die toegang tot Inkling heeft
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Inkling (Single Sign-On) met hun Azure AD-accounts inschakelen
+- U kunt uw accounts op één centrale locatie - en de Azure Management portal beheren
 
-Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure AD-integratie met Inkling tooconfigure, moet u Hallo volgende items:
+Voor het configureren van Azure AD-integratie met Inkling, moet u de volgende items:
 
 - Een Azure AD-abonnement
 - Een Inkling eenmalige aanmelding ingeschakeld abonnement
 
 
 > [!NOTE]
-> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
 
-tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - U moet uw productieomgeving niet gebruiken tenzij dit noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Het toevoegen van Inkling van Hallo-galerie
+1. Inkling uit de galerie toevoegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
 
-## <a name="adding-inkling-from-hello-gallery"></a>Het toevoegen van Inkling van Hallo-galerie
-tooconfigure hello integratie van Inkling in Azure AD, moet u tooadd Inkling uit Hallo galerie tooyour lijst met beheerde SaaS-apps.
+## <a name="adding-inkling-from-the-gallery"></a>Inkling uit de galerie toevoegen
+Voor het configureren van de integratie van Inkling in Azure AD, moet u Inkling uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-**tooadd Inkling via Hallo gallery uitvoeren Hallo stappen te volgen:**
+**Als u wilt toevoegen Inkling uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo  **[Azure Management Portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
+1. In de  **[Azure Management Portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Klik op **toevoegen** knop op Hallo Hallo dialoogvenster bovenaan.
+3. Klik op **toevoegen** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak Hallo **Inkling**.
+4. Typ in het zoekvak **Inkling**.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_001.png)
 
-5. Selecteer in het deelvenster resultaten hello, **Inkling**, en klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
+5. Selecteer in het deelvenster resultaten **Inkling**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_0001.png)
 
@@ -85,94 +85,94 @@ tooconfigure hello integratie van Inkling in Azure AD, moet u tooadd Inkling uit
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie configureert en test eenmalige aanmelding Azure AD met Inkling op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in Inkling is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker Hallo in Inkling toobe tot stand gebracht.
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Inkling is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Inkling tot stand worden gebracht.
 
-Deze relatie koppeling wordt vastgesteld door het toewijzen van de waarde van Hallo Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** in Inkling.
+Deze relatie koppeling wordt ingesteld door het toewijzen van de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in Inkling.
 
-tooconfigure en eenmalige aanmelding Azure AD-test met Inkling, moet u toocomplete Hallo bouwstenen te volgen:
+Om te configureren en testen van Azure AD eenmalige aanmelding met Inkling, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker Inkling](#creating-an-inkling-test-user)**  -toohave een equivalent van Britta Simon in Inkling die is gekoppeld toohello Azure AD-weergave van haar.
-4. **[Toewijzen hello Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  -tooverify Hallo of configuratie werkt.
+1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maken van een testgebruiker Inkling](#creating-an-inkling-test-user)**  - Inkling die is gekoppeld aan de Azure AD-representatie van haar van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-beheerportal en eenmalige aanmelding in uw toepassing Inkling configureren.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerportal en eenmalige aanmelding in uw toepassing Inkling configureren.
 
-**Azure AD tooconfigure eenmalige aanmelding met Inkling, Voer Hallo stappen te volgen:**
+**Voor het configureren van Azure AD eenmalige aanmelding met Inkling, moet u de volgende stappen uitvoeren:**
 
-1. In hello Azure Management portal op Hallo **Inkling** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-beheerportal op de **Inkling** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op Hallo **eenmalige aanmelding** dialoogvenster als **modus** Selecteer **op basis van SAML aanmelding** tooenable voor eenmalige aanmelding.
+2. Op de **eenmalige aanmelding** dialoogvenster als **modus** Selecteer **op basis van SAML aanmelding** eenmalige aanmelding inschakelen op.
  
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-inkling-tutorial/tutorial_general_300.png)
     
-3. Op Hallo **Inkling domein en de URL's** sectie, voert u Hallo stappen te volgen:
+3. Op de **Inkling domein en de URL's** sectie, voert u de volgende stappen uit:
     
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_01.png)
 
-    a. In Hallo **id** textbox, typ een URL met Hallo patroon volgen:`https://api.inkling.com/saml/v2/metadata/<user-id>`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://api.inkling.com/saml/v2/metadata/<user-id>`
 
-    b. In Hallo **antwoord-URL** textbox, typ een URL met Hallo patroon volgen:`https://api.inkling.com/saml/v2/acs/<user-id>`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://api.inkling.com/saml/v2/acs/<user-id>`
 
     > [!NOTE] 
-    > Houd er rekening mee dat deze niet Hallo echte waarden zijn. U hebt deze waarden door de werkelijke id en de antwoord-URL Hallo tooupdate. Neem contact op met [Inkling ondersteuningsteam](mailto:press@inkling.com) tooget deze waarden.
+    > Houd er rekening mee dat deze niet de werkelijke waarden zijn. U hebt deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [Inkling ondersteuningsteam](mailto:press@inkling.com) ophalen van deze waarden.
 
-4. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **nieuw certificaat maken**.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **nieuw certificaat maken**.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)    
 
-5. Op Hallo **nieuw certificaat maken** dialoogvenster, klikt u op Hallo agenda-pictogram en selecteer een **vervaldatum**. Klik vervolgens op **opslaan** knop.
+5. Op de **nieuw certificaat maken** dialoogvenster, klikt u op het pictogram van de kalender en selecteer een **vervaldatum**. Klik vervolgens op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-inkling-tutorial/tutorial_general_500.png)
 
-6. Op Hallo **SAML-certificaat voor ondertekening van** sectie **nieuwe certificaat activeren** en klik op **opslaan** knop.
+6. Op de **SAML-certificaat voor ondertekening van** sectie **nieuwe certificaat activeren** en klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_02.png)
 
-7. Op Hallo pop-upvenster **rollovercertificaat** venster, klikt u op **OK**.
+7. In het pop-upvenster **rollovercertificaat** venster, klikt u op **OK**.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-inkling-tutorial/tutorial_general_600.png)
 
-8. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens Hallo op uw computer.
+8. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_03.png) 
 
-9. tooget SSO geconfigureerd voor uw toepassing, neem contact op met [Inkling ondersteuningsteam](mailto:press@inkling.com) en bieden ze gedownload met **metagegevens**. 
+9. Als u eenmalige aanmelding die zijn geconfigureerd voor uw toepassing, neem contact op met [Inkling ondersteuningsteam](mailto:press@inkling.com) en bieden ze gedownload met **metagegevens**. 
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-beheerportal Britta Simon aangeroepen.
+Het doel van deze sectie is het een testgebruiker maken in Azure Management portal Britta Simon aangeroepen.
 
 ![Azure AD-gebruiker maken][100]
 
-**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
+**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In Hallo **Azure Management portal**, op Hallo navigatiedeelvenster links, klikt u op **Azure Active Directory** pictogram.
+1. In de **Azure Management portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-inkling-tutorial/create_aaduser_01.png) 
 
-2. Ga te**gebruikers en groepen** en klik op **alle gebruikers** toodisplay Hallo lijst met gebruikers.
+2. Ga naar **gebruikers en groepen** en klik op **alle gebruikers** om de lijst met gebruikers weer te geven.
     
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-inkling-tutorial/create_aaduser_02.png) 
 
-3. Klik boven Hallo van dialoogvenster Hallo op **toevoegen** tooopen hello **gebruiker** dialoogvenster.
+3. Klik aan de bovenkant van het dialoogvenster **toevoegen** openen de **gebruiker** dialoogvenster.
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-inkling-tutorial/create_aaduser_03.png) 
 
-4. Op Hallo **gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:
+4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-inkling-tutorial/create_aaduser_04.png) 
 
-    a. In Hallo **naam** textbox type **BrittaSimon**.
+    a. In de **naam** textbox type **BrittaSimon**.
 
-    b. In Hallo **gebruikersnaam** textbox type Hallo **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
 
-    c. Selecteer **wachtwoord weergeven** en schrijf Hallo-waarde van Hallo **wachtwoord**.
+    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**. 
 
@@ -180,26 +180,26 @@ Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-beheerp
 
 ### <a name="creating-an-inkling-test-user"></a>Een testgebruiker Inkling maken
 
-In deze sectie kunt u een gebruiker Britta Simon aangeroepen in Inkling maken. Neem contact op met [Inkling ondersteuningsteam](mailto:press@inkling.com) tooadd Hallo gebruikers in Hallo Inkling platform.
+In deze sectie kunt u een gebruiker Britta Simon aangeroepen in Inkling maken. Neem contact op met [Inkling ondersteuningsteam](mailto:press@inkling.com) de gebruikers van het platform Inkling toevoegen.
 
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
 
-In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen door haar tooInkling toegang verlenen.
+In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door haar toegang verlenen aan Inkling.
 
 ![Gebruiker toewijzen][200] 
 
-**tooassign Britta Simon tooInkling, Voer Hallo stappen te volgen:**
+**Britta Simon om aan te wijzen Inkling, moet u de volgende stappen uitvoeren:**
 
-1. Open in Hallo Azure Management portal Hallo toepassingen weergeven, en toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. In de Azure-beheerportal, opent u de weergave toepassingen en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met de toepassingen van Hallo **Inkling**.
+2. Selecteer in de lijst met toepassingen **Inkling**.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_50.png) 
 
-3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
@@ -207,7 +207,7 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -217,14 +217,14 @@ In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen
 
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van Hallo Toegangsvenster testen.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Als u op Hallo Inkling tegel in Hallo Toegangsvenster, krijgt u automatisch aangemelde tooyour Inkling toepassing.
+Als u op de tegel Inkling in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Inkling.
 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

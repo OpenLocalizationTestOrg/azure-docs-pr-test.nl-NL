@@ -1,5 +1,5 @@
 ---
-title: aaaData bronnen ondersteund in Azure Analysis Services | Microsoft Docs
+title: Gegevensbronnen die worden ondersteund in Azure Analysis Services | Microsoft Docs
 description: Beschrijft de gegevensbronnen die worden ondersteund voor gegevensmodellen in Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.openlocfilehash: 2902d7d3c3bcf086419822fa826193bd247bde61
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8bd6c3b5a923ce2f3cd0f60af82e59c5cc27cbb4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Gegevensbronnen die worden ondersteund in Azure Analysis Services
-Azure Analysis Services-servers die ondersteuning voor verbindende toodata bronnen in Hallo cloud en on-premises in uw organisatie. Extra ondersteunde gegevensbronnen worden alle Hallo tijd toegevoegd. Terugkomen vaak. 
+Azure Analysis Services-servers ondersteunen verbinding te maken met gegevensbronnen in de cloud en on-premises in uw organisatie. Extra ondersteunde gegevensbronnen worden altijd toegevoegd. Terugkomen vaak. 
 
-Hallo volgende gegevensbronnen worden momenteel ondersteund:
+De volgende gegevensbronnen worden momenteel ondersteund:
 
 | Cloud  |
 |---|
@@ -46,15 +46,15 @@ Hallo volgende gegevensbronnen worden momenteel ondersteund:
 \*1400-modellen in tabelvorm alleen. 
 
 > [!IMPORTANT]
-> Verbinding maken met tooon-premises gegevens gegevensbronnen vereisen een [On-premises gegevensgateway](analysis-services-gateway.md) geïnstalleerd op een computer in uw omgeving.
+> Verbinding maken met on-premises gegevensbronnen vereisen een [On-premises gegevensgateway](analysis-services-gateway.md) geïnstalleerd op een computer in uw omgeving.
 
 ## <a name="data-providers"></a>Gegevensproviders
 
-Gegevensmodellen in Azure Analysis Services moet mogelijk verschillende gegevensproviders verbinding te maken met gegevensbronnen toocertain. In sommige gevallen mogelijk modellen in tabelvorm toodata bronnen systeemeigen providers zoals SQL Server Native Client (SQLNCLI11) met een fout geretourneerd.
+Gegevensmodellen in Azure Analysis Services moet mogelijk verschillende gegevensproviders bij het verbinden met bepaalde gegevensbronnen. In sommige gevallen kunnen verbinding maken met gegevensbronnen met behulp van systeemeigen providers zoals SQL Server Native Client (SQLNCLI11) modellen in tabelvorm een fout geretourneerd.
 
-Gegevensbron voor gegevensmodellen die verbinding maken met de cloudgegevens tooa zoals Azure SQL Database, als u native providers dan SQLOLEDB gebruikt, ziet u mogelijk foutbericht: **'hello provider 'SQLNCLI11.1' is niet geregistreerd.'** Of, als er een DirectQuery model verbindende tooon-premises gegevensbronnen, als u native providers u foutbericht weergegeven: **"Fout bij het maken van de OLE DB-rijenset. Onjuiste syntaxis bij 'LIMIET' '**.
+Gegevensbron voor gegevensmodellen die verbinding met een cloudgegevens maken zoals Azure SQL Database, als u native providers dan SQLOLEDB gebruikt, ziet u mogelijk foutbericht: **'Voor de provider 'SQLNCLI11.1' is niet geregistreerd.'** Of, als u een verbinding te maken met on-premises gegevensbronnen, DirectQuery-model hebt als u native providers u foutbericht weergegeven: **"Fout bij het maken van de OLE DB-rijenset. Onjuiste syntaxis bij 'LIMIET' '**.
 
-Hallo na datasource-providers worden ondersteund voor in het geheugen of de DirectQuery-modellen voor gegevens wanneer verbindende toodata in Hallo cloud of on-premises gegevensbronnen:
+De volgende datasource-providers worden ondersteund voor in het geheugen of de DirectQuery-modellen voor gegevens bij het verbinden met gegevensbronnen in de cloud of on-premises:
 
 ### <a name="cloud"></a>Cloud
 | **Gegevensbron** | **In het geheugen** | **DirectQuery** |
@@ -79,16 +79,16 @@ Hallo na datasource-providers worden ondersteund voor in het geheugen of de Dire
 > 
 > 
 
-Wanneer een lokale SQL Server Analysis Services model in tabelvorm tooAzure Analysis Services wordt gemigreerd, kan het benodigde toochange Hallo provider zijn.
+Wanneer een lokale SQL Server Analysis Services model in tabelvorm migreert naar Azure Analysis Services, is het mogelijk nodig om te wijzigen van de provider.
 
-**toospecify een datasource-provider**
+**De provider van een gegevensbron opgeven**
 
 1. In SSDT > **Tabellaire Model Explorer** > **gegevensbronnen**, met de rechtermuisknop op een gegevensbronverbinding en klik vervolgens op **gegevensbron bewerken**.
-2. In **verbinding bewerken**, klikt u op **Geavanceerd** tooopen Hallo geavanceerde eigenschappenvenster.
-3. In **geavanceerde eigenschappen instellen** > **Providers**, en selecteer de juiste provider Hallo.
+2. In **verbinding bewerken**, klikt u op **Geavanceerd** om de geavanceerde eigenschappen-venster te openen.
+3. In **geavanceerde eigenschappen instellen** > **Providers**, selecteer vervolgens de juiste provider.
 
 ## <a name="impersonation"></a>Imitatie
-In sommige gevallen kan het benodigde toospecify een andere imitatieaccount zijn. Imitatieaccount kan worden opgegeven in SSDT of SSMS.
+In sommige gevallen is het mogelijk nodig om op te geven van een andere imitatieaccount. Imitatieaccount kan worden opgegeven in SSDT of SSMS.
 
 Voor on-premises gegevensbronnen:
 
@@ -100,6 +100,6 @@ Voor cloud-gegevensbronnen:
 * Als SQL-verificatie wordt gebruikt, moet de imitatie-serviceaccount.
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u on-premises gegevensbronnen hebt, moet u ervoor dat tooinstall hello [On-premises gateway](analysis-services-gateway.md).   
-toolearn meer informatie over het beheren van uw server in SSDT of SSMS, Zie [beheren van uw server](analysis-services-manage.md).
+Als u de on-premises gegevensbronnen hebt, moet u voor het installeren van de [On-premises gateway](analysis-services-gateway.md).   
+Zie voor meer informatie over het beheren van uw server in SSDT of SSMS, [beheren van uw server](analysis-services-manage.md).
 

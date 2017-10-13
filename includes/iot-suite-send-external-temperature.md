@@ -1,28 +1,28 @@
-## <a name="configure-hello-nodejs-simulated-device"></a>Hallo Node.js gesimuleerde apparaat configureren
-1. Klik op Hallo dashboard externe controle, **+ een apparaat toevoegt** en voeg vervolgens een *aangepast apparaat*. Noteer Hallo IoT Hub hostnaam, apparaat-id en apparaatsleutel. U moet deze verderop in deze zelfstudie als u Hallo remote_monitoring.js device-clienttoepassing voorbereiden.
-2. Zorg dat Node.js-versie 0.12.x of hoger is geïnstalleerd op uw ontwikkelcomputer. Voer `node --version` achter de opdrachtprompt of in een shell toocheck Hallo-versie. Zie voor meer informatie over het gebruik van een pakket manager tooinstall Node.js op Linux [Node.js installeren via Pakketbeheer][node-linux].
-3. Wanneer u Node.js hebt geïnstalleerd, de meest recente versie Hallo Hallo klonen [azure-iot-sdk-knooppunt] [ lnk-github-repo] opslagplaats tooyour ontwikkelcomputer. Gebruik altijd Hallo **master** vertakking voor de meest recente versie Hallo Hallo-bibliotheken en voorbeelden.
-4. In uw lokale exemplaar van Hallo [azure-iot-sdk-knooppunt] [ lnk-github-repo] opslagplaats, kopie Hallo volgende twee bestanden uit Hallo apparaat-knooppunt-voorbeelden tooan lege map op uw ontwikkelcomputer:
+## <a name="configure-the-nodejs-simulated-device"></a>Het gesimuleerde apparaat Node.js configureren
+1. Klik op het dashboard voor externe controle **+ een apparaat toevoegt** en voeg vervolgens een *aangepast apparaat*. Noteer de IoT-Hub hostnaam, apparaat-id en apparaatsleutel. U moet deze verderop in deze zelfstudie wanneer u de clienttoepassing remote_monitoring.js-apparaat voorbereiden.
+2. Zorg dat Node.js-versie 0.12.x of hoger is geïnstalleerd op uw ontwikkelcomputer. Voer `node --version` achter de opdrachtprompt of in een shell controleren de versie. Zie voor meer informatie over het gebruik van een Pakketbeheer Node.js installeren op Linux [Node.js installeren via Pakketbeheer][node-linux].
+3. Wanneer u Node.js hebt geïnstalleerd, kloon de nieuwste versie van de [azure-iot-sdk-knooppunt] [ lnk-github-repo] opslagplaats op uw ontwikkelcomputer. Gebruik altijd de **master** vertakking voor de nieuwste versie van de bibliotheken en voorbeelden.
+4. In uw lokale exemplaar van de [azure-iot-sdk-knooppunt] [ lnk-github-repo] -opslagplaats, de volgende twee bestanden kopiëren van de apparaat-knooppunt-voorbeelden map naar een lege map op uw ontwikkelcomputer:
    
    * Packages.JSON
    * remote_monitoring.js
-5. Hallo remote_monitoring.js bestand openen en zoekt u Hallo variabeledefinitie volgt:
+5. Open het bestand remote_monitoring.js en zoekt u naar de definitie van de volgende variabele:
    
     ```
     var connectionString = "[IoT Hub device connection string]";
     ```
-6. Vervang **[IoT Hub apparaat-verbindingsreeks]** met de verbindingsreeks van uw apparaat. Hallo waarden gebruiken voor uw IoT-Hub hostnaam, het apparaat-id en de apparaatsleutel die u een genoteerd in stap 1 hebt. Een verbindingsreeks apparaat heeft Hallo volgende indeling:
+6. Vervang **[IoT Hub apparaat-verbindingsreeks]** met de verbindingsreeks van uw apparaat. Gebruik de waarden voor uw IoT Hub-hostnaam, het apparaat-id en de apparaatsleutel die u een genoteerd in stap 1 hebt. Een apparaat-verbindingsreeks heeft de volgende indeling:
    
     ```
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
    
-    Als uw IoT Hub-hostnaam **contoso** en uw apparaat-id is **mydevice**, de verbindingsreeks ziet eruit als Hallo codefragment te volgen:
+    Als uw IoT Hub-hostnaam **contoso** en uw apparaat-id is **mydevice**, de verbindingsreeks eruit ziet het volgende fragment:
    
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
     ```
-7. Hallo-bestand opslaan. Hallo volgende opdrachten in een shell of opdrachtprompt in Hallo-map met deze bestanden tooinstall hello-pakketten voor nodig zijn uitgevoerd en voer vervolgens de voorbeeldtoepassing Hallo:
+7. Sla het bestand op. Voer de volgende opdrachten in een shell of opdrachtprompt in de map met deze bestanden voor het installeren van de vereiste pakketten en voer vervolgens de voorbeeldtoepassing:
    
     ```
     npm install
@@ -30,15 +30,15 @@
     ```
 
 ## <a name="observe-dynamic-telemetry-in-action"></a>Houd rekening met dynamische telemetrie in actie
-Hallo-dashboard ziet Hallo temperatuur en vochtigheid telemetrie van Hallo bestaande gesimuleerde apparaten:
+Het dashboard toont de temperatuur en vochtigheid telemetrie van de bestaande gesimuleerde apparaten:
 
-![Hallo standaarddashboard][image1]
+![Het standaarddashboard][image1]
 
-Als u Hallo Node.js gesimuleerd apparaat die hebt uitgevoerd in de vorige sectie Hallo selecteert, ziet u temperatuur en vochtigheid externe temperatuur telemetrie:
+Als u het Node.js gesimuleerde apparaat die u in de vorige sectie hebt uitgevoerd selecteert, ziet u temperatuur en vochtigheid externe temperatuur telemetrie:
 
-![Externe temperatuur toohello dashboard toevoegen][image2]
+![Externe temperatuur toevoegen aan het dashboard][image2]
 
-Hallo-oplossing voor externe controle Hallo aanvullende externe temperatuur telemetrie type detecteert automatisch en wordt toohello grafiek op Hallo dashboard toegevoegd.
+De oplossing voor externe controle automatisch het type van de telemetrie aanvullende externe temperatuur detecteert en voegt het toe aan de grafiek in het dashboard.
 
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdk-node

@@ -1,6 +1,6 @@
 ---
-title: Netwerk-Watcher-Agent de extensie van de virtuele machine voor Linux aaaAzure | Microsoft Docs
-description: Hallo netwerk-Watcher-Agent op Linux virtuele machine met de extensie van een virtuele machine implementeren.
+title: Extensie van virtuele machine met Azure-netwerk-Watcher-Agent voor Linux | Microsoft Docs
+description: Implementeer de netwerk-Watcher-Agent op Linux virtuele machine met de extensie van een virtuele machine.
 services: virtual-machines-linux
 documentationcenter: 
 author: dennisg
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 84bed132cbda83d0917be490f9a50914578952a1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: eaadd531b9e05a54446e61f98584ae9d75470a5f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>De extensie van de virtuele machine Watcher-Agent voor Linux-netwerk
 
 ## <a name="overview"></a>Overzicht
 
-[Azure-netwerk-Watcher](https://review.docs.microsoft.com/en-us/azure/network-watcher/) is een prestaties bewaken, diagnose en analyse netwerkservice waarmee u bewaking voor Azure-netwerken. Hallo-extensie van de virtuele machine netwerk-Watcher-Agent is een vereiste voor een aantal functies van de netwerk-Watcher Hallo op virtuele machines in Azure. Dit omvat het vastleggen van netwerkverkeer op aanvraag en andere geavanceerde functies.
+[Azure-netwerk-Watcher](https://review.docs.microsoft.com/en-us/azure/network-watcher/) is een prestaties bewaken, diagnose en analyse netwerkservice waarmee u bewaking voor Azure-netwerken. De extensie van de Agent voor netwerk-Watcher-virtuele machine is vereist voor sommige van de netwerk-Watcher-functies op virtuele machines in Azure. Dit omvat het vastleggen van netwerkverkeer op aanvraag en andere geavanceerde functies.
 
-Dit document details Hallo ondersteund platforms en implementatie-opties voor Hallo extensie van de virtuele machine netwerk-Watcher-Agent voor Linux.
+In dit document worden de ondersteunde platforms en implementatie-opties voor de extensie van de Agent voor netwerk-Watcher-virtuele machine voor Linux.
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="operating-system"></a>Besturingssysteem
 
-Hallo uitbreiding van de netwerk-Watcher-Agent kan worden uitgevoerd op basis van deze Linux-distributies:
+De extensie van de netwerk-Watcher-Agent kan worden uitgevoerd tegen deze Linux-distributies:
 
 | Distributie | Versie |
 |---|---|
@@ -49,11 +49,11 @@ Houd er rekening mee dat virtuele CoreOS op dit moment niet wordt ondersteund.
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 
-Aantal Hallo Agent voor netwerk-Watcher-functionaliteit is vereist dat Hallo doel-virtuele machine verbonden toohello Internet. Zonder Hallo mogelijkheid tooestablish uitgaande verbindingen mogelijk enkele Hallo Network Watcher Agent functies niet goed of niet meer beschikbaar. Zie voor meer informatie Hallo [netwerk-Watcher documentatie](https://review.docs.microsoft.com/en-us/azure/network-watcher/).
+Sommige van de Agent voor netwerk-Watcher-functionaliteit is vereist dat de virtuele doelmachine worden verbonden met Internet. Zonder de mogelijkheid tot stand brengen van uitgaande verbindingen mogelijk enkele van de Agent voor netwerk-Watcher-functies niet goed of niet meer beschikbaar. Zie voor meer informatie de [netwerk-Watcher documentatie](https://review.docs.microsoft.com/en-us/azure/network-watcher/).
 
 ## <a name="extension-schema"></a>Uitbreidingsschema
 
-Hallo toont volgende JSON Hallo-schema voor Hallo Agent voor netwerk-Watcher-extensie. Hallo-uitbreiding geen van beide vereist, noch de gebruiker opgegeven instellingen op dit moment ondersteunt en is afhankelijk van de standaardconfiguratie.
+De volgende JSON vindt u het schema voor de Agent voor netwerk-Watcher-extensie. De extensie niet vereist, noch gebruiker opgegeven instellingen op dit moment ondersteunt en is afhankelijk van de standaardconfiguratie.
 
 ```json
 {
@@ -84,11 +84,11 @@ Hallo toont volgende JSON Hallo-schema voor Hallo Agent voor netwerk-Watcher-ext
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
-Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. Hallo JSON-schema in de vorige sectie Hallo gedetailleerde kan worden gebruikt in een Azure Resource Manager sjabloon toorun Hallo uitbreiding van de netwerk-Watcher Agent tijdens de sjabloonimplementatie van een Azure Resource Manager.
+Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie wordt beschreven, kan de Agent voor netwerk-Watcher-extensie uitgevoerd tijdens de sjabloonimplementatie van een Azure Resource Manager-in een Azure Resource Manager-sjabloon worden gebruikt.
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-implementatie
 
-Hello Azure CLI mag gebruikte toodeploy Hallo netwerk-Watcher Agent VM-extensie tooan bestaande virtuele machine.
+De Azure CLI kan worden gebruikt voor het implementeren van de netwerk-Watcher Agent VM-extensie op een bestaande virtuele machine.
 
 ```azurecli
 azure vm extension set myResourceGroup1 myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
@@ -98,13 +98,13 @@ azure vm extension set myResourceGroup1 myVM1 NetworkWatcherAgentLinux Microsoft
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 
-Gegevens over Hallo status van extensie-implementaties kunnen worden opgehaald uit hello Azure-portal en met behulp van hello Azure CLI. Implementatiestatus van toosee Hallo van uitbreidingen voor een bepaalde virtuele machine Hallo volgende opdracht uitvoeren hello Azure CLI.
+Gegevens over de status van extensie-implementaties kunnen worden opgehaald uit de Azure portal en met behulp van de Azure CLI. Overzicht van de implementatiestatus van uitbreidingen voor een bepaalde virtuele machine, voer de volgende opdracht met de Azure CLI.
 
 ```azurecli
 azure vm extension get myResourceGroup1 myVM1
 ```
 
-Uitvoering van de extensie uitvoer volgt geregistreerde toofiles gevonden in Hallo directory:
+De uitvoer van de extensie-uitvoering wordt vastgelegd in bestanden gevonden in de volgende map:
 
 `
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
@@ -112,4 +112,4 @@ Uitvoering van de extensie uitvoer volgt geregistreerde toofiles gevonden in Hal
 
 ### <a name="support"></a>Ondersteuning
 
-Als u meer hulp op elk gewenst moment in dit artikel nodig hebt, kunt u verwijzen toohello netwerk-Watcher-documentatie of neem contact op met hello Azure deskundigen op Hallo [MSDN Azure en Stack Overflow-forums](https://azure.microsoft.com/en-us/support/forums/). U kunt ook een incident voor ondersteuning van Azure indienen. Ga toohello [ondersteuning van Azure site](https://azure.microsoft.com/en-us/support/options/) en selecteer de Get-ondersteuning. Lees voor informatie over het gebruik van de ondersteuning van Azure Hallo [ondersteuning van Microsoft Azure Veelgestelde vragen over](https://azure.microsoft.com/en-us/support/faq/).
+Als u meer hulp op elk gewenst moment in dit artikel nodig hebt, kunt u verwijzen naar de netwerk-Watcher-documentatie of neem contact op met de Azure deskundigen op het [MSDN Azure en Stack Overflow-forums](https://azure.microsoft.com/en-us/support/forums/). U kunt ook een incident voor ondersteuning van Azure indienen. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/en-us/support/options/) en selecteer de Get-ondersteuning. Voor meer informatie over het gebruik van Azure ondersteuning voor de [ondersteuning van Microsoft Azure Veelgestelde vragen over](https://azure.microsoft.com/en-us/support/faq/).

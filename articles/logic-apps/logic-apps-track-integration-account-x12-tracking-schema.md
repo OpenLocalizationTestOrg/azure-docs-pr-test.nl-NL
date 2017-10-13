@@ -1,6 +1,6 @@
 ---
-title: aaaX12 bijhouden schema's voor het bewaken van B2B - Azure Logic Apps | Microsoft Docs
-description: Gebruik X12 schema's toomonitor B2B-berichten bijhouden van transacties van uw Azure-Account voor integratie.
+title: Bijhouden van schema's voor B2B X12 monitoring - Azure Logic Apps | Microsoft Docs
+description: Gebruik X12 bijhouden van schema's voor het bewaken van B2B-berichten van transacties in uw Azure-Account voor integratie.
 author: padmavc
 manager: anneta
 editor: 
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ed1b338730214dcae12c367ebff025d7122328fe
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3782c0a76ea8728a146b3d73774f74c31187cbfd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="start-or-enable-tracking-of-x12-messages-toomonitor-success-errors-and-message-properties"></a>Begin- of inschakelen bijhouden van X12 berichten toomonitor geslaagd, fouten en berichteigenschappen
-U kunt deze X12 bijhouden van schema's in uw integratie van Azure-account toohelp u business-to-business (B2B) transacties bewaken:
+# <a name="start-or-enable-tracking-of-x12-messages-to-monitor-success-errors-and-message-properties"></a>Begin- of inschakelen bijhouden van X12 berichten naar de monitor geslaagd, fouten en berichteigenschappen
+U kunt deze X12 bijhouden van schema's in uw integratie van Azure-account gebruiken om u te helpen bij het bewaken van transacties voor business-to-business (B2B):
 
 * X12 transactie bijhouden schema instellen
 * X12 transactie bevestiging bijhouden schema instellen
@@ -68,18 +68,18 @@ U kunt deze X12 bijhouden van schema's in uw integratie van Azure-account toohel
 | senderIdentifier | Tekenreeks | Verzenden partner-id. (Verplicht) |
 | receiverQualifier | Tekenreeks | Ontvangen partner-kwalificatie. (Verplicht) |
 | receiverIdentifier | Tekenreeks | Partner-id ontvangen. (Verplicht) |
-| agreementName | Tekenreeks | Naam van Hallo X12 overeenkomst toowhich Hallo-berichten worden opgelost. (Optioneel) |
-| Richting | Enum | Stroomrichting Hallo-bericht, ontvangen of verzenden. (Verplicht) |
+| agreementName | Tekenreeks | Naam van de X12 overeenkomst waarnaar de berichten opgelost zijn. (Optioneel) |
+| Richting | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
 | interchangeControlNumber | Tekenreeks | Controle-aantal Interchange. (Optioneel) |
 | functionalGroupControlNumber | Tekenreeks | Functionele besturingselement getal. (Optioneel) |
 | transactionSetControlNumber | Tekenreeks | Transactie instellen besturingselement aantal. (Optioneel) |
 | correlationMessageId | Tekenreeks | Correlatie-ID. Een combinatie van {AgreementName} {*GroupControlNumber*} {TransactionSetControlNumber}. (Optioneel) |
 | messageType | Tekenreeks | Transactie is ingesteld of documenttype. (Optioneel) |
-| isMessageFailed | Booleaanse waarde | Hiermee wordt aangegeven of het X12 Hallo-bericht is mislukt. (Verplicht) |
-| isTechnicalAcknowledgmentExpected | Booleaanse waarde | Hiermee wordt aangegeven of Hallo technische bevestiging is geconfigureerd in Hallo X12 overeenkomst. (Verplicht) |
-| isFunctionalAcknowledgmentExpected | Booleaanse waarde | Hiermee wordt aangegeven of Hallo functionele bevestiging is geconfigureerd in Hallo X12 overeenkomst. (Verplicht) |
-| needAk2LoopForValidMessages | Booleaanse waarde | Hiermee wordt aangegeven of Hallo AK2 lus is vereist voor een geldig bericht. (Verplicht) |
-| segmentsCount | Geheel getal | Het aantal segmenten in de transactie Hallo X12 ingesteld. (Optioneel) |
+| isMessageFailed | Booleaanse waarde | Of de X12 bericht is mislukt. (Verplicht) |
+| isTechnicalAcknowledgmentExpected | Booleaanse waarde | Hiermee wordt aangegeven of de technische bevestiging is geconfigureerd in de x12-overeenkomst(en) overeenkomst. (Verplicht) |
+| isFunctionalAcknowledgmentExpected | Booleaanse waarde | Hiermee wordt aangegeven of het functionele bevestiging is geconfigureerd in de x12-overeenkomst(en) overeenkomst. (Verplicht) |
+| needAk2LoopForValidMessages | Booleaanse waarde | Hiermee wordt aangegeven of de lus AK2 is vereist voor een geldig bericht. (Verplicht) |
+| segmentsCount | Geheel getal | Aantal segmenten in de x12-overeenkomst(en) transactie set. (Optioneel) |
 
 ## <a name="x12-transaction-set-acknowledgement-tracking-schema"></a>X12 transactie bevestiging bijhouden schema instellen
 ````java
@@ -123,24 +123,24 @@ U kunt deze X12 bijhouden van schema's in uw integratie van Azure-account toohel
 | senderIdentifier | Tekenreeks | Verzenden partner-id. (Verplicht) |
 | receiverQualifier | Tekenreeks | Ontvangen partner-kwalificatie. (Verplicht) |
 | receiverIdentifier | Tekenreeks | Partner-id ontvangen. (Verplicht) |
-| agreementName | Tekenreeks | Naam van Hallo X12 overeenkomst toowhich Hallo-berichten worden opgelost. (Optioneel) |
-| Richting | Enum | Stroomrichting Hallo-bericht, ontvangen of verzenden. (Verplicht) |
-| interchangeControlNumber | Tekenreeks | Interchange besturingselement aantal Hallo functionele bevestiging. Waarde wordt alleen voor Hallo verzendkant waar functionele bevestiging is ontvangen voor Hallo verzonden berichten toopartner gevuld. (Optioneel) |
-| functionalGroupControlNumber | Tekenreeks | Functionele groep besturingselement aantal Hallo functionele bevestiging. Waarde wordt alleen voor Hallo verzendkant waar functionele bevestiging is ontvangen voor Hallo verzonden berichten toopartner gevuld. (Optioneel) |
-| isaSegment | Tekenreeks | ISA-segment van het Hallo-bericht. Waarde wordt alleen voor Hallo verzendkant waar functionele bevestiging is ontvangen voor Hallo verzonden berichten toopartner gevuld. (Optioneel) |
-| gsSegment | Tekenreeks | GS-segment van het Hallo-bericht. Waarde wordt alleen voor Hallo verzendkant waar functionele bevestiging is ontvangen voor Hallo verzonden berichten toopartner gevuld. (Optioneel) |
+| agreementName | Tekenreeks | Naam van de X12 overeenkomst waarnaar de berichten opgelost zijn. (Optioneel) |
+| Richting | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
+| interchangeControlNumber | Tekenreeks | Controle-aantal van de functionele ontvangstbevestiging Interchange. Waarde gevuld alleen voor de verzendkant waar functionele bevestiging is ontvangen voor de berichten die worden verzonden naar partner. (Optioneel) |
+| functionalGroupControlNumber | Tekenreeks | Functionele groep besturingselement nummer van de functionele bevestiging. Waarde gevuld alleen voor de verzendkant waar functionele bevestiging is ontvangen voor de berichten die worden verzonden naar partner. (Optioneel) |
+| isaSegment | Tekenreeks | ISA-segment van het bericht. Waarde gevuld alleen voor de verzendkant waar functionele bevestiging is ontvangen voor de berichten die worden verzonden naar partner. (Optioneel) |
+| gsSegment | Tekenreeks | GS-segment van het bericht. Waarde gevuld alleen voor de verzendkant waar functionele bevestiging is ontvangen voor de berichten die worden verzonden naar partner. (Optioneel) |
 | respondingfunctionalGroupControlNumber | Tekenreeks | Controle-aantal interchange reageert. (Optioneel) |
-| respondingFunctionalGroupId | Tekenreeks | Reageert functionele groeps-ID, die tooAK101 toewijzingen in Hallo bevestiging. (Optioneel) |
+| respondingFunctionalGroupId | Tekenreeks | Functionele groep-ID, die in de ontvangstbevestiging wordt toegewezen aan AK101 reageert. (Optioneel) |
 | respondingtransactionSetControlNumber | Tekenreeks | Reageert transactie instellen besturingselement aantal. (Optioneel) |
-| respondingTransactionSetId | Tekenreeks | Reageert transactie-ID, waarbij tooAK201 in Hallo bevestiging toegewezen ingesteld. (Optioneel) |
+| respondingTransactionSetId | Tekenreeks | Reageert transactie-ID, die in de ontvangstbevestiging wordt toegewezen aan AK201 gedefinieerd. (Optioneel) |
 | statusCode | Booleaanse waarde | Transactie bevestiging statuscode ingesteld. (Verplicht) |
 | segmentsCount | Enum | Statuscode bevestiging. Toegestane waarden zijn **geaccepteerde**, **geweigerd**, en **AcceptedWithErrors**. (Verplicht) |
-| Verwerkingsstatusnaam | Enum | De verwerkingsstatus van Hallo bevestiging. Toegestane waarden zijn **ontvangen**, **gegenereerde**, en **verzonden**. (Verplicht) |
+| Verwerkingsstatusnaam | Enum | Verwerking van de status van de bevestiging. Toegestane waarden zijn **ontvangen**, **gegenereerde**, en **verzonden**. (Verplicht) |
 | correlationMessageId | Tekenreeks | Correlatie-ID. Een combinatie van {AgreementName} {*GroupControlNumber*} {TransactionSetControlNumber}. (Optioneel) |
-| isMessageFailed | Booleaanse waarde | Hiermee wordt aangegeven of het X12 Hallo-bericht is mislukt. (Verplicht) |
-| ak2Segment | Tekenreeks | Bevestiging voor een set transactie binnen Hallo ontvangen functionele groep. (Optioneel) |
+| isMessageFailed | Booleaanse waarde | Of de X12 bericht is mislukt. (Verplicht) |
+| ak2Segment | Tekenreeks | Bevestiging voor een transactie ingesteld binnen de ontvangen functionele groep. (Optioneel) |
 | ak3Segment | Tekenreeks | Fouten in een gegevenssegment rapporteert. (Optioneel) |
-| ak5Segment | Tekenreeks | Rapporten of Hallo transactie ingesteld geïdentificeerde in Hallo AK2 segment wordt goedgekeurd of geweigerd en waarom. (Optioneel) |
+| ak5Segment | Tekenreeks | Rapporten of de transactie die is ingesteld in het segment AK2 geïdentificeerde wordt goedgekeurd of geweigerd en waarom. (Optioneel) |
 
 ## <a name="x12-interchange-tracking-schema"></a>X12 interchange bijhouden schema
 ````java
@@ -180,12 +180,12 @@ U kunt deze X12 bijhouden van schema's in uw integratie van Azure-account toohel
 | senderIdentifier | Tekenreeks | Verzenden partner-id. (Verplicht) |
 | receiverQualifier | Tekenreeks | Ontvangen partner-kwalificatie. (Verplicht) |
 | receiverIdentifier | Tekenreeks | Partner-id ontvangen. (Verplicht) |
-| agreementName | Tekenreeks | Naam van Hallo X12 overeenkomst toowhich Hallo-berichten worden opgelost. (Optioneel) |
-| Richting | Enum | Stroomrichting Hallo-bericht, ontvangen of verzenden. (Verplicht) |
+| agreementName | Tekenreeks | Naam van de X12 overeenkomst waarnaar de berichten opgelost zijn. (Optioneel) |
+| Richting | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
 | interchangeControlNumber | Tekenreeks | Controle-aantal Interchange. (Optioneel) |
 | isaSegment | Tekenreeks | Bericht ISA-segment. (Optioneel) |
-| isTechnicalAcknowledgmentExpected | Booleaanse waarde | Hiermee wordt aangegeven of Hallo technische bevestiging is geconfigureerd in Hallo X12 overeenkomst. (Verplicht) |
-| isMessageFailed | Booleaanse waarde | Hiermee wordt aangegeven of het X12 Hallo-bericht is mislukt. (Verplicht) |
+| isTechnicalAcknowledgmentExpected | Booleaanse waarde | Hiermee wordt aangegeven of de technische bevestiging is geconfigureerd in de x12-overeenkomst(en) overeenkomst. (Verplicht) |
+| isMessageFailed | Booleaanse waarde | Of de X12 bericht is mislukt. (Verplicht) |
 | isa09 | Tekenreeks | X12 document interchange datum. (Optioneel) |
 | isa10 | Tekenreeks | X12 Documenteer DIF-tijd. (Optioneel) |
 | isa11 | Tekenreeks | X12 interchange besturingselement standaarden id. (Optioneel) |
@@ -229,12 +229,12 @@ U kunt deze X12 bijhouden van schema's in uw integratie van Azure-account toohel
 | senderIdentifier | Tekenreeks | Verzenden partner-id. (Verplicht) |
 | receiverQualifier | Tekenreeks | Ontvangen partner-kwalificatie. (Verplicht) |
 | receiverIdentifier | Tekenreeks | Partner-id ontvangen. (Verplicht) |
-| agreementName | Tekenreeks | Naam van Hallo X12 overeenkomst toowhich Hallo-berichten worden opgelost. (Optioneel) |
-| Richting | Enum | Stroomrichting Hallo-bericht, ontvangen of verzenden. (Verplicht) |
-| interchangeControlNumber | Tekenreeks | Interchange besturingselement aantal Hallo technische bevestiging dat ontvangen van partners. (Optioneel) |
-| isaSegment | Tekenreeks | ISA-segment voor Hallo technische bevestiging dat ontvangen van partners. (Optioneel) |
-| respondingInterchangeControlNumber |Tekenreeks | Interchange besturingselementnummer van het voor Hallo technische bevestiging dat ontvangen van partners. (Optioneel) |
-| isMessageFailed | Booleaanse waarde | Hiermee wordt aangegeven of het X12 Hallo-bericht is mislukt. (Verplicht) |
+| agreementName | Tekenreeks | Naam van de X12 overeenkomst waarnaar de berichten opgelost zijn. (Optioneel) |
+| Richting | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
+| interchangeControlNumber | Tekenreeks | Interchange besturingselementnummer van de technische bevestiging dat ontvangen van partners. (Optioneel) |
+| isaSegment | Tekenreeks | ISA-segment voor de technische bevestiging dat ontvangen van partners. (Optioneel) |
+| respondingInterchangeControlNumber |Tekenreeks | Interchange besturingselementnummer voor de technische bevestiging dat ontvangen van partners. (Optioneel) |
+| isMessageFailed | Booleaanse waarde | Of de X12 bericht is mislukt. (Verplicht) |
 | statusCode | Enum | Interchange statuscode bevestiging. Toegestane waarden zijn **geaccepteerde**, **geweigerd**, en **AcceptedWithErrors**. (Verplicht) |
 | Verwerkingsstatusnaam | Enum | Status van de bevestiging. Toegestane waarden zijn **ontvangen**, **gegenereerde**, en **verzonden**. (Verplicht) |
 | 102 | Tekenreeks | Interchange datum. (Optioneel) |
@@ -281,14 +281,14 @@ U kunt deze X12 bijhouden van schema's in uw integratie van Azure-account toohel
 | senderIdentifier | Tekenreeks | Verzenden partner-id. (Verplicht) |
 | receiverQualifier | Tekenreeks | Ontvangen partner-kwalificatie. (Verplicht) |
 | receiverIdentifier | Tekenreeks | Partner-id ontvangen. (Verplicht) |
-| agreementName | Tekenreeks | Naam van Hallo X12 overeenkomst toowhich Hallo-berichten worden opgelost. (Optioneel) |
-| Richting | Enum | Stroomrichting Hallo-bericht, ontvangen of verzenden. (Verplicht) |
+| agreementName | Tekenreeks | Naam van de X12 overeenkomst waarnaar de berichten opgelost zijn. (Optioneel) |
+| Richting | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
 | interchangeControlNumber | Tekenreeks | Controle-aantal Interchange. (Optioneel) |
 | functionalGroupControlNumber | Tekenreeks | Functionele besturingselement getal. (Optioneel) |
 | gsSegment | Tekenreeks | GS-berichtsegment. (Optioneel) |
-| isTechnicalAcknowledgmentExpected | Booleaanse waarde | Hiermee wordt aangegeven of Hallo technische bevestiging is geconfigureerd in Hallo X12 overeenkomst. (Verplicht) |
-| isFunctionalAcknowledgmentExpected | Booleaanse waarde | Hiermee wordt aangegeven of Hallo functionele bevestiging is geconfigureerd in Hallo X12 overeenkomst. (Verplicht) |
-| isMessageFailed | Booleaanse waarde | Hiermee wordt aangegeven of het X12 Hallo-bericht is mislukt. (Verplicht)|
+| isTechnicalAcknowledgmentExpected | Booleaanse waarde | Hiermee wordt aangegeven of de technische bevestiging is geconfigureerd in de x12-overeenkomst(en) overeenkomst. (Verplicht) |
+| isFunctionalAcknowledgmentExpected | Booleaanse waarde | Hiermee wordt aangegeven of het functionele bevestiging is geconfigureerd in de x12-overeenkomst(en) overeenkomst. (Verplicht) |
+| isMessageFailed | Booleaanse waarde | Of de X12 bericht is mislukt. (Verplicht)|
 | gs01 | Tekenreeks | Functionele identificatiecode. (Optioneel) |
 | gs02 | Tekenreeks | De code van de afzender van de toepassing. (Optioneel) |
 | gs03 | Tekenreeks | De code van de ontvanger van de toepassing. (Optioneel) |
@@ -335,24 +335,24 @@ U kunt deze X12 bijhouden van schema's in uw integratie van Azure-account toohel
 | senderIdentifier | Tekenreeks | Verzenden partner-id. (Verplicht) |
 | receiverQualifier | Tekenreeks | Ontvangen partner-kwalificatie. (Verplicht) |
 | receiverIdentifier | Tekenreeks | Partner-id ontvangen. (Verplicht) |
-| agreementName | Tekenreeks | Naam van Hallo X12 overeenkomst toowhich Hallo-berichten worden opgelost. (Optioneel) |
-| Richting | Enum | Stroomrichting Hallo-bericht, ontvangen of verzenden. (Verplicht) |
-| interchangeControlNumber | Tekenreeks | Controle-aantal voor Hallo verzendkant gevuld wanneer u een technische bevestiging is ontvangen van partners Interchange. (Optioneel) |
-| functionalGroupControlNumber | Tekenreeks | Functionele groep besturingselement aantal Hallo technische bevestiging, die wordt gevuld voor Hallo verzenden aan clientzijde wanneer een technische bevestiging is ontvangen van partners. (Optioneel) |
+| agreementName | Tekenreeks | Naam van de X12 overeenkomst waarnaar de berichten opgelost zijn. (Optioneel) |
+| Richting | Enum | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
+| interchangeControlNumber | Tekenreeks | Controle-aantal voor de verzendkant gevuld wanneer u een technische bevestiging is ontvangen van partners Interchange. (Optioneel) |
+| functionalGroupControlNumber | Tekenreeks | Functionele groep besturingselement nummer van de technische bevestiging, voor de verzendkant gevuld wanneer u een technische bevestiging is ontvangen van partners. (Optioneel) |
 | isaSegment | Tekenreeks | Zelfde als interchange getal, maar alleen in bijzondere gevallen ingevuld beheren. (Optioneel) |
 | gsSegment | Tekenreeks | Zelfde als functionele groep aantal, maar alleen in bijzondere gevallen ingevuld bepalen. (Optioneel) |
-| respondingfunctionalGroupControlNumber | Tekenreeks | Aantal Hallo oorspronkelijke functionele groep beheren. (Optioneel) |
-| respondingFunctionalGroupId | Tekenreeks | Maps tooAK101 in Hallo bevestiging functionele groep-ID. (Optioneel) |
-| isMessageFailed | Booleaanse waarde | Hiermee wordt aangegeven of het X12 Hallo-bericht is mislukt. (Verplicht) |
+| respondingfunctionalGroupControlNumber | Tekenreeks | Aantal van de oorspronkelijke functionele groep bepalen. (Optioneel) |
+| respondingFunctionalGroupId | Tekenreeks | Is toegewezen aan AK101 in de bevestiging functionele groep-id. (Optioneel) |
+| isMessageFailed | Booleaanse waarde | Of de X12 bericht is mislukt. (Verplicht) |
 | statusCode | Enum | Statuscode bevestiging. Toegestane waarden zijn **geaccepteerde**, **geweigerd**, en **AcceptedWithErrors**. (Verplicht) |
-| Verwerkingsstatusnaam | Enum | De verwerkingsstatus van Hallo bevestiging. Toegestane waarden zijn **ontvangen**, **gegenereerde**, en **verzonden**. (Verplicht) |
+| Verwerkingsstatusnaam | Enum | Verwerking van de status van de bevestiging. Toegestane waarden zijn **ontvangen**, **gegenereerde**, en **verzonden**. (Verplicht) |
 | ak903 | Tekenreeks | Het aantal transactie sets ontvangen. (Optioneel) |
-| ak904 | Tekenreeks | Aantal transactie sets geaccepteerd in Hallo geïdentificeerd functionele groep. (Optioneel) |
-| ak9Segment | Tekenreeks | Of Hallo functionele-groep geïdentificeerd in Hallo AK1 segment wordt goedgekeurd of geweigerd en waarom. (Optioneel) |
+| ak904 | Tekenreeks | Aantal transactie sets geaccepteerd in de geïdentificeerde functionele groep. (Optioneel) |
+| ak9Segment | Tekenreeks | Of de functionele-groep geïdentificeerd in het segment AK1 wordt goedgekeurd of geweigerd en waarom. (Optioneel) |
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [B2B-berichten controleren](logic-apps-monitor-b2b-message.md).
 * Meer informatie over [AS2 bijhouden schema's](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md).
 * Meer informatie over [B2B aangepaste schema's bijhouden](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md).
-* Meer informatie over [B2B-berichten in de Operations Management Suite-portal Hallo traceren](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
-* Meer informatie over Hallo [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).  
+* Meer informatie over [B2B-berichten in de Operations Management Suite-portal traceren](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Meer informatie over de [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).  

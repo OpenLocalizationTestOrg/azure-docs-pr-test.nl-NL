@@ -1,6 +1,6 @@
 ---
-title: aaaCreate een Azure-IoT-Hub met een sjabloon (.NET) | Microsoft Docs
-description: Hoe toouse een Azure Resource Manager-sjabloon toocreate een IoT Hub met C#-programma.
+title: Maken van een Azure-IoT-Hub met een sjabloon (.NET) | Microsoft Docs
+description: Het gebruik van een Azure Resource Manager-sjabloon maken van een IoT Hub met C#-programma.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 6140deff3553701f994502fd4a60178f874e27cf
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0f197a28e0c51b06d0b47a03c29fe1fde0c6b78d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Een iothub met Azure Resource Manager-sjabloon (.NET) maken
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-U kunt Azure Resource Manager toocreate gebruiken en Azure IoT hubs programmatisch te beheren. Deze zelfstudie leert u hoe toouse een Azure Resource Manager-sjabloon toocreate een IoT-hub vanuit een C#-programma.
+Azure Resource Manager kunt u maken en beheren van Azure IoT hubs via een programma. Deze zelfstudie ziet u het gebruik van een Azure Resource Manager-sjabloon voor een iothub maken vanuit een C#-programma.
 
 > [!NOTE]
-> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Azure Resource Manager en classic](../azure-resource-manager/resource-manager-deployment-model.md).  In dit artikel bevat informatie over met behulp van hello Azure Resource Manager-implementatiemodel.
+> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Azure Resource Manager en classic](../azure-resource-manager/resource-manager-deployment-model.md).  In dit artikel wordt behandeld met het Azure Resource Manager-implementatiemodel.
 
-toocomplete in deze zelfstudie, moet u hello te volgen:
+Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Visual Studio 2015 of Visual Studio 2017.
 * Een actief Azure-account. <br/>Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.
@@ -40,15 +40,15 @@ toocomplete in deze zelfstudie, moet u hello te volgen:
 
 ## <a name="prepare-your-visual-studio-project"></a>Visual Studio-project voorbereiden
 
-1. Maak in Visual Studio een Visual C# Classic Windows Desktop-project met Hallo **Console-App (.NET Framework)** projectsjabloon. Naam Hallo project **CreateIoTHub**.
+1. In Visual Studio maakt een Visual C# Classic Windows Desktop-project met de **Console-App (.NET Framework)** projectsjabloon. Noem het project **CreateIoTHub**.
 
 2. Klik in Solution Explorer met de rechtermuisknop op uw project en klik vervolgens op **NuGet-pakketten beheren**.
 
-3. Controleer in NuGet Package Manager **Include prerelease**, en op Hallo **Bladeren** pagina zoeken naar **Microsoft.Azure.Management.ResourceManager**. Selecteer Hallo pakket, klikt u op **installeren**in **wijzigingen** klikt u op **OK**, klikt u vervolgens op **ik ga akkoord** tooaccept Hallo licenties.
+3. Controleer in NuGet Package Manager **Include prerelease**, en klik op de **Bladeren** pagina zoeken naar **Microsoft.Azure.Management.ResourceManager**. Selecteer het pakket, klikt u op **installeren**in **wijzigingen** klikt u op **OK**, klikt u vervolgens op **ik ga akkoord** te accepteren van de licenties.
 
-4. Zoekt u in NuGet Package Manager **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Klik op **installeren**in **wijzigingen** klikt u op **OK**, klikt u vervolgens op **ik ga akkoord** tooaccept Hallo licentie.
+4. Zoekt u in NuGet Package Manager **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Klik op **installeren**in **wijzigingen** klikt u op **OK**, klikt u vervolgens op **ik ga akkoord** de licentievoorwaarden accepteren.
 
-5. Vervang in Program.cs Hallo bestaande **met** instructies met Hallo code te volgen:
+5. Vervang in Program.cs de bestaande **met** instructies met de volgende code:
 
     ```csharp
     using System;
@@ -58,7 +58,7 @@ toocomplete in deze zelfstudie, moet u hello te volgen:
     using Microsoft.Rest;
     ```
 
-6. Toevoegen in Program.cs Hallo statische variabelen Vervang Hallo tijdelijke aanduiding voor waarden te volgen. U hebt een genoteerd **ApplicationId**, **SubscriptionId**, **TenantId**, en **wachtwoord** eerder in deze zelfstudie. **De naam van uw Azure Storage** heet Hallo hello Azure Storage-account waar u uw Azure Resource Manager-sjabloonbestanden opslaat. **De naam van resourcegroep** Hallo-naam van resourcegroep Hallo u gebruiken wanneer u Hallo iothub maken. Hallo-naam mag een vooraf bestaande of nieuwe resourcegroep. **Implementatienaam** is een naam voor de implementatie van hello, zoals **Deployment_01**.
+6. Voeg de volgende statische variabelen Vervang de tijdelijke aanduiding voor waarden in Program.cs. U hebt een genoteerd **ApplicationId**, **SubscriptionId**, **TenantId**, en **wachtwoord** eerder in deze zelfstudie. **De naam van uw Azure Storage** is de naam van de Azure Storage-account waar u uw Azure Resource Manager-sjabloonbestanden opslaat. **De naam van resourcegroep** is de naam van de resourcegroep die u bij het maken van de IoT-hub. De naam mag een vooraf bestaande of nieuwe resourcegroep. **Implementatienaam** is een naam voor de implementatie, zoals **Deployment_01**.
 
     ```csharp
     static string applicationId = "{Your ApplicationId}";
@@ -72,13 +72,13 @@ toocomplete in deze zelfstudie, moet u hello te volgen:
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
-## <a name="submit-a-template-toocreate-an-iot-hub"></a>Een sjabloon toocreate een IoT-hub te verzenden
+## <a name="submit-a-template-to-create-an-iot-hub"></a>Een sjabloon voor het maken van een IoT-hub te verzenden
 
-Gebruik een JSON-sjabloon en de parameter bestand toocreate een IoT-hub in de resourcegroep. U kunt ook een Azure Resource Manager sjabloon toomake wijzigingen tooan iothub gebruiken.
+Gebruik een JSON-sjabloon en de parameter-bestand te maken van een IoT-hub in de resourcegroep. U kunt ook een Azure Resource Manager-sjabloon gebruiken om een bestaande IoT-hub te wijzigen.
 
-1. Klik in Solution Explorer met de rechtermuisknop op uw project, klikt u op **toevoegen**, en klik vervolgens op **Nieuw Item**. Toevoegen van een JSON-bestand aangeroepen **template.json** tooyour project.
+1. Klik in Solution Explorer met de rechtermuisknop op uw project, klikt u op **toevoegen**, en klik vervolgens op **Nieuw Item**. Toevoegen van een JSON-bestand aangeroepen **template.json** aan uw project.
 
-2. een standaard IoT hub toohello tooadd **VS-Oost** vervangen Hallo inhoud van de regio **template.json** Hello resourcedefinitie te volgen. Zie voor Hallo huidige lijst met regio's die ondersteuning bieden voor IoT Hub [Azure Status][lnk-status]:
+2. Toevoegen van een standaard iothub en de **VS-Oost** regio, vervang de inhoud van **template.json** met de volgende resourcedefinitie. Zie voor de huidige lijst met regio's die ondersteuning bieden voor IoT Hub [Azure Status][lnk-status]:
 
     ```json
     {
@@ -114,9 +114,9 @@ Gebruik een JSON-sjabloon en de parameter bestand toocreate een IoT-hub in de re
     }
     ```
 
-3. Klik in Solution Explorer met de rechtermuisknop op uw project, klikt u op **toevoegen**, en klik vervolgens op **Nieuw Item**. Toevoegen van een JSON-bestand aangeroepen **parameters.json** tooyour project.
+3. Klik in Solution Explorer met de rechtermuisknop op uw project, klikt u op **toevoegen**, en klik vervolgens op **Nieuw Item**. Toevoegen van een JSON-bestand aangeroepen **parameters.json** aan uw project.
 
-4. Vervang de inhoud Hallo van **parameters.json** Hello parameterinformatie die een naam voor de nieuwe IoT-hub hello, zoals ingesteld na **{uw initialen} mynewiothub**. naam van IoT-hub Hallo moet wereldwijd uniek zodat deze uw naam of initialen bevatten:
+4. Vervang de inhoud van **parameters.json** met de volgende parameterinformatie die een naam voor de nieuwe iothub, zoals ingesteld **{uw initialen} mynewiothub**. De naam van de IoT-hub moet wereldwijd uniek zodat deze uw naam of initialen bevatten:
 
     ```json
     {
@@ -129,15 +129,15 @@ Gebruik een JSON-sjabloon en de parameter bestand toocreate een IoT-hub in de re
     ```
   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-5. In **Server Explorer**verbinding tooyour Azure-abonnement en in uw Azure Storage-account maken een zogenaamd **sjablonen**. In Hallo **eigenschappen** Configuratiescherm, set Hallo **openbare leestoegang** machtigingen voor Hallo **sjablonen** container te**Blob**.
+5. In **Server Explorer**maakt verbinding met uw Azure-abonnement en maak een zogenaamd in uw Azure Storage-account **sjablonen**. In de **eigenschappen** deelvenster, stelt u de **openbare leestoegang** machtigingen voor de **sjablonen** container **Blob**.
 
-6. In **Server Explorer**, met de rechtermuisknop op Hallo **sjablonen** container en klik vervolgens op **weergave Blob-Container**. Klik op Hallo **Blob uploaden** knop, selecteert u Hallo twee bestanden: **parameters.json** en **templates.json**, en klik vervolgens op **Open** tooupload hello JSON bestanden toohello **sjablonen** container. Hallo-URL's van Hallo blobs met Hallo JSON-gegevens zijn:
+6. In **Server Explorer**, met de rechtermuisknop op de **sjablonen** container en klik vervolgens op **weergave Blob-Container**. Klik op de **Blob uploaden** knop, selecteert u de twee bestanden **parameters.json** en **templates.json**, en klik vervolgens op **Open** voor het uploaden van de JSON-bestanden toe aan de **sjablonen** container. De URL's van de blobs die met de JSON-gegevens zijn:
 
     ```csharp
     https://{Your storage account name}.blob.core.windows.net/templates/parameters.json
     https://{Your storage account name}.blob.core.windows.net/templates/template.json
     ```
-7. Hallo methode tooProgram.cs volgende toevoegen:
+7. Voeg de volgende methode toe aan Program.cs:
 
     ```csharp
     static void CreateIoTHub(ResourceManagementClient client)
@@ -146,7 +146,7 @@ Gebruik een JSON-sjabloon en de parameter bestand toocreate een IoT-hub in de re
     }
     ```
 
-8. Hallo na code toohello toevoegen **CreateIoTHub** methode toosubmit Hallo sjabloon en de parameterbestanden bestanden toohello Azure Resource Manager:
+8. Voeg de volgende code naar de **CreateIoTHub** methode voor het verzenden van de sjabloon en de parameter-bestanden in de Azure Resource Manager:
 
     ```csharp
     var createResponse = client.Deployments.CreateOrUpdate(
@@ -169,7 +169,7 @@ Gebruik een JSON-sjabloon en de parameter bestand toocreate een IoT-hub in de re
         });
     ```
 
-9. Hallo na code toohello toevoegen **CreateIoTHub** methode die Hallo status en Hallo sleutels voor Hallo nieuwe iothub worden weergegeven:
+9. Voeg de volgende code naar de **CreateIoTHub** methode die de status en de sleutels voor de nieuwe iothub worden weergegeven:
 
     ```csharp
     string state = createResponse.Properties.ProvisioningState;
@@ -177,16 +177,16 @@ Gebruik een JSON-sjabloon en de parameter bestand toocreate een IoT-hub in de re
 
     if (state != "Succeeded")
     {
-      Console.WriteLine("Failed toocreate iothub");
+      Console.WriteLine("Failed to create iothub");
     }
     Console.WriteLine(createResponse.Properties.Outputs);
     ```
 
-## <a name="complete-and-run-hello-application"></a>Volledige en Voer Hallo-toepassing
+## <a name="complete-and-run-the-application"></a>Voltooid en voer de toepassing
 
-U kunt nu de toepassing hello voltooien door de aanroepende Hallo **CreateIoTHub** methode voordat u bouwen en uitvoeren.
+U kunt de toepassing nu voltooien door het aanroepen van de **CreateIoTHub** methode voordat u bouwen en uitvoeren.
 
-1. Toevoegen van de volgende code toohello einde van Hallo Hallo **Main** methode:
+1. Voeg de volgende code toe aan het einde van de **Main** methode:
 
     ```csharp
     CreateIoTHub(client);
@@ -195,25 +195,25 @@ U kunt nu de toepassing hello voltooien door de aanroepende Hallo **CreateIoTHub
 
 2. Klik op **bouwen** en vervolgens **oplossing bouwen**. Eventuele fouten te corrigeren.
 
-3. Klik op **Debug** en vervolgens **foutopsporing starten** toorun Hallo-toepassing. Het kan enkele minuten duren voordat Hallo implementatie toorun.
+3. Klik op **Debug** en vervolgens **foutopsporing starten** de toepassing uit te voeren. Duurt enkele minuten voor de implementatie om uit te voeren.
 
-4. uw toepassing toegevoegd tooverify nieuwe iothub, gaat u naar Hallo Hallo [Azure-portal] [ lnk-azure-portal] en uw lijst met resources weergeven. Ook gebruiken Hallo **Get-AzureRmResource** PowerShell-cmdlet.
+4. Als u wilt controleren of uw toepassing de nieuwe iothub toegevoegd, gaat u naar de [Azure-portal] [ lnk-azure-portal] en uw lijst met resources weergeven. U kunt ook de **Get-AzureRmResource** PowerShell-cmdlet.
 
 > [!NOTE]
-> Deze voorbeeldtoepassing voegt een standaard IoT-Hub van S1, waarvoor u wordt gefactureerd. U kunt IoT-hub via Hallo Hallo verwijderen [Azure-portal] [ lnk-azure-portal] of met behulp van Hallo **verwijderen AzureRmResource** PowerShell-cmdlet als u klaar bent.
+> Deze voorbeeldtoepassing voegt een standaard IoT-Hub van S1, waarvoor u wordt gefactureerd. U kunt de IoT-hub via verwijderen de [Azure-portal] [ lnk-azure-portal] of met behulp van de **verwijderen AzureRmResource** PowerShell-cmdlet als u klaar bent.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een iothub met een Azure Resource Manager-sjabloon met een C#-programma hebt geïmplementeerd, kunt u verder tooexplore:
+Nu u een iothub met een Azure Resource Manager-sjabloon met een C#-programma hebt geïmplementeerd, kunt u verder verkennen:
 
-* Meer informatie over de mogelijkheden van Hallo Hallo [resourceprovider IoT Hub REST-API][lnk-rest-api].
-* Lees [overzicht van Azure Resource Manager] [ lnk-azure-rm-overview] toolearn meer over Hallo-mogelijkheden van Azure Resource Manager.
+* Meer informatie over de mogelijkheden van de [resourceprovider IoT Hub REST-API][lnk-rest-api].
+* Lees [overzicht van Azure Resource Manager] [ lnk-azure-rm-overview] voor meer informatie over de mogelijkheden van Azure Resource Manager.
 
-toolearn meer informatie over het ontwikkelen voor IoT Hub, Zie Hallo artikelen te volgen:
+Zie de volgende artikelen voor meer informatie over het ontwikkelen voor IoT-Hub:
 
-* [Inleiding tooC SDK][lnk-c-sdk]
+* [Inleiding tot C-SDK][lnk-c-sdk]
 * [Azure IoT SDK 's][lnk-sdks]
 
-toofurther verkennen Hallo-mogelijkheden van IoT Hub, Zie:
+Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 * [Een apparaat simuleren met Azure IoT rand][lnk-iotedge]
 

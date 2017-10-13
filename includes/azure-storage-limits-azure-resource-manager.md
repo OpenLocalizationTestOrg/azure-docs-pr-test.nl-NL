@@ -1,4 +1,4 @@
-Hallo limieten volgende van toepassing als u alleen hello Azure Resource Manager en Azure-resourcegroepen.
+De volgende beperkingen gelden als u alleen de Azure Resource Manager en Azure-resourcegroepen.
 
 | Resource | Standaardlimiet |
 | --- | --- |

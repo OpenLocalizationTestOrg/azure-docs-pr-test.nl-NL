@@ -6,7 +6,7 @@
 | Redis-Cache-replica's (voor hoge beschikbaarheid) |1 |
 | Shards in een premium-cache met clustering |10 |
 
-Azure Redis-Cache is beperkt en grootten zijn verschillend voor elke prijscategorie. Zie toosee Hallo prijzen lagen en hun gekoppelde grootte [prijzen van Azure Redis-Cache](https://azure.microsoft.com/pricing/details/cache/).
+Azure Redis-Cache is beperkt en grootten zijn verschillend voor elke prijscategorie. Zie voor de Prijscategorieën en de bijbehorende grootte [prijzen van Azure Redis-Cache](https://azure.microsoft.com/pricing/details/cache/).
 
 Zie voor meer informatie over Azure Redis-Cache configuratie limieten [serverconfiguratie standaard Redis](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 

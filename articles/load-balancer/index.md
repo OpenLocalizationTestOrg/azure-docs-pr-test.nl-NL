@@ -1,8 +1,8 @@
 ---
-title: aaaAzure Load Balancer-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toouse Load Balancer voor de netwerkprestaties van apps. Beheer het verkeer voor virtuele machines en cloudresources en in virtuele netwerken op verschillende locaties.
+title: Documentatie voor Azure Load Balancer - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over het gebruik van Load Balancer voor netwerkprestaties van apps. Beheer het verkeer voor virtuele machines en cloudresources en in virtuele netwerken op verschillende locaties.
 services: load-balancer
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 877aef347f9d6f97da1562944676c2e95ddba470
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 169ca89ccd80e5a70f3e9ab07b3c34358c154be7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="load-balancer-documentation"></a>Documentatie voor Load Balancer
 
-Meer informatie over hoe tooconfigure Load Balancer toodeliver hoge beschikbaarheid en netwerk prestaties tooyour toepassingen. Documentatie ziet u hoe tooload balans vinden tussen verkeer tooand van virtuele machines en cloud-bronnen en in cross-premises virtuele netwerken.
+Meer informatie over hoe u Azure Load Balancer zo configureert dat uw toepassingen worden voorzien van netwerkprestaties met hoge beschikbaarheid. Documentatie laat zien hoe u verkeer naar en van virtuele machines en cloudresources en in virtuele netwerken op verschillende locaties gelijkmatig verdeelt.
 
 <ul class="panelContent cardsFTitle">
     <li>

@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met DocuSign | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en DocuSign.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en DocuSign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,82 +13,82 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 8562a8f9e05fb72d3331507b7da5c6afee38f9b8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3b509ffa934949200277ae431761d2accd4a02d6
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Zelfstudie: DocuSign configureren voor gebruikers inrichten
 
-Hallo-doel van deze zelfstudie is tooshow u stappen die u moet tooperform in DocuSign en Azure AD tooautomatically leveren en intrekken gebruikersaccounts vanuit Azure AD tooDocuSign Hallo.
+Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in DocuSign en Azure AD wilt om automatisch in te richten en inrichten van gebruikersaccounts vanuit Azure AD naar DocuSign ongedaan.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Hallo scenario beschreven in deze zelfstudie wordt ervan uitgegaan dat u al hebt Hallo volgende items:
+Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
 *   Een Azure Active directory-tenant.
 *   Een DocuSign eenmalige aanmelding ingeschakeld abonnement.
 *   Een gebruikersaccount in DocuSign met beheerdersmachtigingen Team.
 
-## <a name="assigning-users-toodocusign"></a>Gebruikers tooDocuSign toewijzen
+## <a name="assigning-users-to-docusign"></a>Gebruikers toewijzen aan DocuSign
 
-Azure Active Directory gebruikt een concept 'toewijzingen' toodetermine welke gebruikers toegang tooselected apps krijgen genoemd. In de context van de Hallo van automatische gebruikers account inrichten, worden alleen Hallo-gebruikers en groepen die '' tooan toepassing in Azure AD toegewezen zijn gesynchroniseerd.
+Azure Active Directory gebruikt een concept 'toewijzingen' genoemd om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van automatische gebruikers account inrichten, worden alleen de gebruikers en groepen die '' tot een toepassing in Azure AD toegewezen zijn gesynchroniseerd.
 
-Voordat u configureren en inschakelen van Hallo-service inricht, moet u toodecide welke gebruikers en/of groepen in Azure AD vertegenwoordigen Hallo-gebruikers die toegang moeten hebben tot tooyour DocuSign app. Als besloten, kunt u deze app-gebruikers tooyour DocuSign toewijzen door hier Hallo-instructies te volgen:
+Voordat u configureren en inschakelen van de inrichting service, moet u om te bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang tot uw app DocuSign nodig hebben. Als besloten, kunt u deze gebruikers toewijzen aan uw app DocuSign door de volgende instructies te volgen:
 
-[Toewijzen van een gebruiker of groep tooan enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-toodocusign"></a>Belangrijke tips voor het toewijzen van gebruikers tooDocuSign
+### <a name="important-tips-for-assigning-users-to-docusign"></a>Belangrijke tips voor het toewijzen van gebruikers aan DocuSign
 
-*   Het is raadzaam om één tooDocuSign tootest Hallo inrichting configuratie door Azure AD-gebruiker is toegewezen. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+*   Het is raadzaam om één Azure AD-gebruiker is toegewezen aan DocuSign voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-*   Wanneer u een gebruiker tooDocuSign toewijst, moet u een geldige gebruikersrol. Hallo 'Default toegang' rol werkt niet voor het inrichten.
+*   Wanneer een gebruiker aan DocuSign toewijzen, moet u een geldige gebruikersrol selecteren. De rol 'Default toegang' werkt niet voor het inrichten.
 
 ## <a name="enable-user-provisioning"></a>Gebruikersinrichting inschakelen
 
-Deze sectie helpt u bij het verbinden van uw Azure AD-tooDocuSign gebruikersaccount inrichten API en Hallo service toocreate inrichting configureren, bijwerken en uitschakelen toegewezen gebruikersaccounts in DocuSign op basis van gebruikers en groepen toewijzen in Azure AD.
+Deze sectie helpt u bij het verbinding maken met uw Azure AD DocuSign van gebruikersaccount inrichten API en configureren van de inrichting service te maken, bijwerken en uitschakelen van toegewezen gebruikersaccounts in DocuSign op basis van gebruikers en groepen toewijzen in Azure AD.
 
 > [!Tip]
-> U kunt ook tooenabled op basis van SAML eenmalige aanmelding voor DocuSign, in het Hallo-instructies te volgen [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
+> U kunt ook op basis van SAML eenmalige aanmelding is ingeschakeld voor DocuSign, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
 
-### <a name="tooconfigure-user-account-provisioning"></a>tooconfigure account gebruikersaanvragen:
+### <a name="to-configure-user-account-provisioning"></a>Configureren voor het inrichten van het account:
 
-Hallo-doel van deze sectie is het toooutline hoe tooDocuSign tooenable gebruikers inrichten van Active Directory-gebruiker accounts.
+Het doel van deze sectie is het inschakelen van de gebruiker het inrichten van Active Directory-gebruikersaccounts met DocuSign overzicht.
 
-1. In Hallo [Azure-portal](https://portal.azure.com), bladeren toohello **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
+1. In de [Azure-portal](https://portal.azure.com), blader naar de **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
 
-2. Als u DocuSign al hebt geconfigureerd voor eenmalige aanmelding, zoekt u uw exemplaar van DocuSign met Hallo zoekveld opgegeven. Selecteer anders **toevoegen** en zoek naar **DocuSign** in Hallo-toepassingsgalerie. Selecteer DocuSign in zoekresultaten hello, en voeg deze tooyour lijst met toepassingen.
+2. Als u al DocuSign voor eenmalige aanmelding hebt geconfigureerd, kunt u zoeken naar uw exemplaar van DocuSign met behulp van het zoekveld. Selecteer anders **toevoegen** en zoek naar **DocuSign** in de galerie met toepassingen. DocuSign selecteert in de zoekresultaten en toe te voegen aan uw lijst met toepassingen.
 
-3. Selecteer uw exemplaar van DocuSign en vervolgens Hallo **inrichten** tabblad.
+3. Selecteer uw exemplaar van DocuSign en selecteer vervolgens de **inrichten** tabblad.
 
-4. Set Hallo **modus inrichting** te**automatische**. 
+4. Stel de **Inrichtingsmodus** naar **automatische**. 
 
     ![Inrichting](./media/active-directory-saas-docusign-provisioning-tutorial/provisioning.png)
 
-5. Onder Hallo **beheerdersreferenties** sectie, bieden Hallo na configuratie-instellingen:
+5. Onder de **beheerdersreferenties** sectie, bieden de volgende configuratie-instellingen:
    
-    a. In Hallo **Beheerdersgebruikersnaam** textbox type een DocuSign accountnaam die heeft Hallo **systeembeheerder** profiel in DocuSign.com toegewezen.
+    a. In de **Beheerdersgebruikersnaam** textbox type een DocuSign accountnaam met de **systeembeheerder** profiel in DocuSign.com toegewezen.
    
-    b. In Hallo **beheerderswachtwoord** textbox Hallo een wachtwoord op voor dit account.
+    b. In de **beheerderswachtwoord** textbox, typt u het wachtwoord voor dit account.
 
-6. Klik in hello Azure-portal, op **testverbinding** tooensure Azure AD tooyour DocuSign app kunt verbinden.
+6. Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD, kan verbinding maken met uw app DocuSign.
 
-7. In Hallo **e-mailmelding** Voer Hallo e-mailadres van een persoon of groep die moet inrichting fout meldingen ontvangen en Hallo selectievakje.
+7. In de **e-mailmelding** en voer het e-mailadres van een persoon of groep die u moet inrichting fout meldingen ontvangen en schakel het selectievakje in.
 
 8. Klik op **opslaan.**
 
-9. Selecteer onder Hallo toewijzingen sectie, **tooDocuSign synchroniseren Azure Active Directory-gebruikers.**
+9. Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory-gebruikers DocuSign.**
 
-10. In Hallo **kenmerktoewijzingen** sectie, bekijkt hello gebruikerskenmerken die worden gesynchroniseerd vanuit Azure AD-tooDocuSign. kenmerken die zijn geselecteerd als Hallo **overeenkomend** eigenschappen zijn gebruikte toomatch Hallo gebruikersaccounts in DocuSign voor update-bewerkingen. Selecteer Hallo knop toocommit wijzigingen zijn opgeslagen.
+10. In de **kenmerktoewijzingen** sectie, moet u de kenmerken van de gebruiker is gesynchroniseerd vanuit Azure AD DocuSign controleren. De kenmerken die zijn geselecteerd als **overeenkomend** eigenschappen overeenkomen met de gebruikersaccounts in DocuSign voor update-bewerkingen worden gebruikt. Selecteer de knop Opslaan eventuele wijzigingen doorvoeren.
 
-11. tooenable Hallo inrichting Azure AD-service voor DocuSign, wijziging Hallo **inrichting Status** te**op** in Hallo Zoekinstellingen
+11. Om de Azure AD-service voor DocuSign inricht, wijzigen de **inrichting Status** naar **op** in de sectie instellingen
 
 12. Klik op **opslaan.**
 
-Hallo initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen tooDocuSign in Hallo gebruikers en groepen sectie begint. de initiële synchronisatie Hallo duurt langer tooperform dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden, zolang het Hallo-service wordt uitgevoerd. U kunt Hallo **synchronisatiedetails** sectie toomonitor uitgevoerd en volgt u koppelingen tooprovisioning activiteitsrapporten, waarin alle bewerkingen die worden uitgevoerd door het Hallo-service op uw app DocuSign inrichting beschrijven.
+De initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan DocuSign in de sectie gebruikers en groepen wordt gestart. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service op uw app DocuSign beschrijven.
 
-U kunt nu een testaccount maken. Wacht tot up too20 minuten tooverify die Hallo-account is gesynchroniseerd tooDocuSign.
+U kunt nu een testaccount maken. Wacht 20 minuten duren om te verifiëren dat het account is gesynchroniseerd voor DocuSign.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 

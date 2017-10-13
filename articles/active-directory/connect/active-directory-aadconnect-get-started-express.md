@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: aan de slag met expresinstellingen | Microsoft Docs'
-description: Ontdek hoe toodownload, installeren en voer de installatiewizard Hallo voor Azure AD Connect.
+description: In dit artikel kunt u lezen hoe u de installatiewizard downloadt, installeert en uitvoert voor Azure AD Connect.
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -14,54 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 79f796fa7738b85e9236e856bddb529379f60390
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Aan de slag met Azure AD Connect met expresinstellingen
-**Expresinstellingen** van Azure AD Connect worden gebruikt wanneer u een singleforesttopologie hebt en [wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md) voor verificatie. **Snelle instellingen** is de standaardoptie Hallo en wordt gebruikt voor Hallo meest geïmplementeerde scenario. U bent slechts enkele snelle klikken opslag tooextend uw lokale directory toohello cloud.
+**Expresinstellingen** van Azure AD Connect worden gebruikt wanneer u een singleforesttopologie hebt en [wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md) voor verificatie. **Expresinstellingen** is de standaardoptie en wordt gebruikt voor het meest geïmplementeerde scenario. U bent slechts enkele snelle klikken verwijderd van uitbreiding van uw on-premises directory naar de cloud.
 
-Zorg voordat u begint met de installatie van Azure AD Connect te[Azure AD Connect downloadt](http://go.microsoft.com/fwlink/?LinkId=615771) en volledige Hallo vereiste stappen in [Azure AD Connect: Hardware en vereisten](active-directory-aadconnect-prerequisites.md).
+Zorg voordat u begint met de installatie van Azure AD Connect dat u [Azure AD Connect downloadt](http://go.microsoft.com/fwlink/?LinkId=615771) en de vereiste stappen in [Azure AD Connect: Hardware en vereisten](active-directory-aadconnect-prerequisites.md) voltooit.
 
 Zie [verwante documentatie](#related-documentation) voor andere scenario's als de expresinstellingen niet met uw topologie overeenkomen.
 
 ## <a name="express-installation-of-azure-ad-connect"></a>Snelle installatie van Azure AD Connect
-Ziet u deze stappen in de actie in Hallo [video's](#videos) sectie.
+In de sectie met [video's](#videos) kunt u zien hoe deze stappen in de praktijk worden uitgevoerd.
 
-1. Meld u aan als een lokale beheerder toohello-server die u wilt dat Azure AD Connect tooinstall op. U moet dit doen op Hallo server desgewenst toobe Hallo synchronisatieserver.
-2. Navigeer tooand Dubbelklik **AzureADConnect.msi**.
-3. Welkomstscherm Hallo Hallo vak ermee akkoord toohello licentievoorwaarden en klik op **doorgaan**.  
-4. Klik op het scherm Expresinstellingen hello **expresinstellingen gebruiken**.  
-   ![Welkom tooAzure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
-5. Voer op Hallo Connect tooAzure AD scherm Hallo gebruikersnaam en wachtwoord van een globale beheerder voor uw Azure AD. Klik op **Volgende**.  
-   ![Verbinding maken met tooAzure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) als u een foutbericht ontvangt en problemen met de connectiviteit hebt, Zie [connectiviteitsproblemen oplossen](active-directory-aadconnect-troubleshoot-connectivity.md).
-6. Voer op Hallo Connect tooAD DS scherm Hallo gebruikersnaam en wachtwoord voor een enterprise-beheerdersaccount. U kunt Hallo domeingedeelte in NetBios- of FQDN-indeling, dat wil zeggen FABRIKAM\administrator of fabrikam.com\administrator. Klik op **Volgende**.  
-   ![Verbinding maken met tooAD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
-7. Hallo [ **configuratie van aanmelding bij Azure AD** ](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) pagina wordt alleen weergegeven als u niet hebt [controleren of uw domeinen](../active-directory-add-domain.md) in Hallo [vereisten](active-directory-aadconnect-prerequisites.md).
+1. Meld u aan als lokale beheerder op de server waarop u Azure AD Connect wilt installeren. Doe dit op de server die u wilt gebruiken als synchronisatieserver.
+2. Ga naar **AzureADConnect.msi** en dubbelklik erop.
+3. Selecteer in het welkomstscherm het vakje waarmee u aangeeft akkoord te gaan met de licentievoorwaarden en klik op **Doorgaan**.  
+4. Klik in het scherm Expresinstellingen op **Expresinstellingen gebruiken**.  
+   ![Welkom bij Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
+5. Voer in het scherm Verbinding maken met Azure AD de gebruikersnaam en het wachtwoord in van een hoofdbeheerder voor Azure AD. Klik op **Volgende**.  
+   ![Verbinding maken met Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Als u een foutbericht ontvangt en problemen hebt met de connectiviteit, raadpleegt u [Connectiviteitsproblemen oplossen](active-directory-aadconnect-troubleshoot-connectivity.md).
+6. Voer in het scherm Verbinding maken met Azure AD de gebruikersnaam en het wachtwoord in voor een enterprisebeheerdersaccount. U kunt het domeingedeelte in NetBios- of FQDN-indeling invoeren, dat wil zeggen FABRIKAM\administrator of fabrikam.com\administrator. Klik op **Volgende**.  
+   ![Verbinding maken met AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
+7. De pagina [**Configuratie van aanmelding bij Azure AD**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) wordt alleen weergegeven als u de [domeinen niet hebt geverifieerd](../active-directory-add-domain.md) bij de [vereisten](active-directory-aadconnect-prerequisites.md).
    ![Niet-geverifieerde domeinen](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
-   Als deze pagina wordt weergegeven, controleert u elk domein dat is gemarkeerd met **Niet toegevoegd** en **Niet geverifieerd**. Zorg ervoor dat de domeinen die u gebruikt in Azure AD zijn geverifieerd. Klik op de symbool vernieuwen Hallo wanneer u uw domeinen hebt geverifieerd.
-8. Klik op het welkomstscherm gereed tooconfigure, **installeren**.
-   * Optioneel op Hallo gereed tooconfigure pagina kunt u Hallo vakje **Start Hallo-synchronisatieproces zodra de configuratie is voltooid** selectievakje. Schakel dit selectievakje uit als u wilt dat toodo aanvullende configuratiestappen, zoals [filteren](active-directory-aadconnectsync-configure-filtering.md). Als u deze optie uitschakelt, Hallo wizard synchronisatie geconfigureerd, maar laat de Hallo planner uitgeschakeld. Kan niet worden uitgevoerd totdat u deze handmatig inschakelt door [opnieuw uit te voeren Hallo-installatiewizard](active-directory-aadconnectsync-installation-wizard.md).
-   * Als u Exchange hebt ingeschakeld in uw lokale Active Directory, hebt u ook een optie tooenable [ **hybride implementatie voor Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Schakel deze optie als u plan toohave Exchange-postbussen beide in Hallo cloud en on-premises op Hallo dezelfde tijd.
-     ![Gereed tooconfigure Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
-9. Wanneer het Hallo-installatie is voltooid, klikt u op **afsluiten**.
-10. Nadat het Hallo-installatie is voltooid, afmelden en opnieuw aanmelden voordat u Synchronization Service Manager of Synchronization Rule Editor gebruiken.
+   Als deze pagina wordt weergegeven, controleert u elk domein dat is gemarkeerd met **Niet toegevoegd** en **Niet geverifieerd**. Zorg ervoor dat de domeinen die u gebruikt in Azure AD zijn geverifieerd. Klik op het symbool Vernieuwen wanneer u uw domeinen hebt geverifieerd.
+8. Klik in het venster Gereed om te configureren op **Installeren**.
+   * Optioneel kunt u op de pagina Gereed voor configuratie het vakje **Start het synchronisatieproces zodra de configuratie is voltooid** uitschakelen. Schakel dit selectievakje uit als u een aanvullende configuratie wilt uitvoeren, zoals [filteren](active-directory-aadconnectsync-configure-filtering.md). Als u deze optie uitschakelt, wordt de synchronisatie geconfigureerd met de wizard, maar blijft de planner uitgeschakeld. Deze wordt niet uitgevoerd tenzij u deze handmatig inschakelt door de [installatiewizard opnieuw uit te voeren](active-directory-aadconnectsync-installation-wizard.md).
+   * Als u Exchange hebt ingeschakeld in uw on-premises Active Directory, hebt u ook een optie voor het inschakelen van [**Hybride implementatie voor Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Schakel deze optie in als u van plan bent Exchange-postvakken tegelijkertijd in de cloud en on-premises te gebruiken.
+     ![Klaar voor het configureren van Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
+9. Wanneer de installatie is voltooid, klikt u op **Afsluiten**.
+10. Nadat de installatie is voltooid, dient u zich af te melden en weer aan te melden voordat u de Synchronization Service Manager of Synchronization Rule Editor gaat gebruiken.
 
 ## <a name="videos"></a>Video's
-Zie voor een video over het gebruik van de snelle installatie Hallo:
+Voor een video over het gebruik van expresinstallatie gaat u naar:
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Express-Settings/player]
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u Azure AD Connect geïnstalleerd hebt kunt u [Hallo installatie verifiëren en licenties toewijzen](active-directory-aadconnect-whats-next.md).
+Nu u Azure AD Connect geïnstalleerd hebt, kunt u [de installatie verifiëren en licenties toewijzen](active-directory-aadconnect-whats-next.md).
 
-Meer informatie over deze functies, die Hallo-installatie zijn ingeschakeld: [Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md), [onopzettelijk verwijderen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md), en [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
+Lees meer over deze functies, die tijdens de installatie zijn ingeschakeld: [Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md), [Onopzettelijk verwijderen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) en [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
 
-Meer informatie over deze veelvoorkomende onderwerpen: [scheduler en hoe tootrigger synchronisatie](active-directory-aadconnectsync-feature-scheduler.md).
+Lees meer over deze veelvoorkomende onderwerpen: [Scheduler en het activeren van de synchronisatie](active-directory-aadconnectsync-feature-scheduler.md).
 
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](active-directory-aadconnect.md).
 

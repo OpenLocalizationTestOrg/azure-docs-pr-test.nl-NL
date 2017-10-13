@@ -1,6 +1,6 @@
 ---
-title: aaaCustomize hello API Management-portal voor ontwikkelaars met behulp van sjablonen-Azure | Microsoft Docs
-description: Meer informatie over hoe toocustomize hello Azure API Management-portal voor ontwikkelaars met behulp van sjablonen.
+title: De ontwikkelaarsportal van API Management-sjablonen aanpassen-Azure | Microsoft Docs
+description: Informatie over het aanpassen van de Azure API Management portal voor ontwikkelaars met behulp van sjablonen.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: b00d5f1534e9466f30ff3920e7aae048feb8b8c4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 40d25726d31d2018785b77d169a8811c565316bf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toocustomize-hello-azure-api-management-developer-portal-using-templates"></a>Hoe toocustomize hello Azure API Management-portal voor ontwikkelaars met behulp van sjablonen
+# <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Het aanpassen van de Azure API Management portal voor ontwikkelaars met behulp van sjablonen
 
-Er zijn drie manieren Hallo toocustomize ontwikkelaarsportal in Azure API Management:
+Er zijn die manieren waarop u de ontwikkelaarsportal in Azure API Management kunt aanpassen:
 
-* [Hallo-inhoud van statische pagina's en pagina-elementen voor lay-out bewerken][modify-content-layout]
-* [Update Hallo stijlen worden gebruikt voor pagina-elementen over Hallo-portal voor ontwikkelaars][customize-styles]
-* [Hallo-sjablonen die worden gebruikt voor pagina's die worden gegenereerd door Hallo portal wijzigen] [ portal-templates] (uitgelegd in deze handleiding)
+* [De inhoud van statische pagina's en pagina-indelingselementen bewerken][modify-content-layout]
+* [De stijlen bijwerken die worden gebruikt voor pagina-elementen in de ontwikkelaarsportal][customize-styles]
+* [Wijzigen van de sjablonen voor pagina's die worden gegenereerd door de portal gebruikt] [ portal-templates] (uitgelegd in deze handleiding)
 
-Sjablonen zijn gebruikte toocustomize Hallo inhoud van het systeem gegenereerde developer portal-pagina's (bijvoorbeeld API docs, producten, gebruikersverificatie, enz.). Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en een opgegeven set bronnen met gelokaliseerde tekenreeksen, pictogrammen en paginabesturingselementen, hebt u aanzienlijke flexibiliteit tooconfigure Hallo inhoud van het Hallo-pagina's wens naar.
+Sjablonen worden gebruikt voor het aanpassen van de inhoud van het systeem gegenereerde developer portal-pagina's (bijvoorbeeld API docs, producten, gebruikersverificatie, enz.). Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en een opgegeven set bronnen met gelokaliseerde tekenreeksen, pictogrammen en paginabesturingselementen, hebt u aanzienlijke flexibiliteit voor het configureren van de inhoud van de pagina's wens naar.
 
 ## <a name="developer-portal-templates-overview"></a>Overzicht van Developer portal-sjablonen
-Het bewerken van sjablonen wordt uitgevoerd van Hallo **ontwikkelaarsportal** tijdens wordt aangemeld als beheerder. tooget er eerst hello Azure Portal openen en op **publicatieportal** van Hallo service werkbalk van uw exemplaar van API Management.
+Het bewerken van sjablonen wordt uitgevoerd van de **ontwikkelaarsportal** tijdens wordt aangemeld als beheerder. Wilt u er eerst open de Azure-Portal en klik op **publicatieportal** werkbalk van de service van uw exemplaar van API Management.
 
 ![Publicatieportal][api-management-management-console]
 
-Klik vervolgens op **ontwikkelaarsportal** op Hallo rechtsboven. 
+Klik daarna in de rechterbovenhoek op **Ontwikkelaarsportal**. 
 
 ![Menu Developer-portal][api-management-developer-portal-menu]
 
-tooaccess Hallo developer portal-sjablonen, klikt u op Hallo-pictogram op Hallo links toodisplay Hallo aanpassing menu aanpassen en klik op **sjablonen**.
+Voor toegang tot de portal developer-sjablonen, klikt u op het pictogram aanpassen aan de linkerkant om het menu aanpassing weergeven en klik op **sjablonen**.
 
 ![Developer portal-sjablonen][api-management-customize-menu]
 
-Hallo-Sjabloonlijst weergegeven verschillende categorieën van sjablonen die betrekking hebben op Hallo verschillende pagina's in de ontwikkelaarsportal Hallo. Elke sjabloon verschilt, maar Hallo stappen tooedit ze en Hallo wijzigingen publiceren zijn dezelfde Hallo. tooedit een sjabloon, klikt u op Hallo-naam van Hallo-sjabloon.
+De lijst met sjablonen worden verschillende categorieën van sjablonen die betrekking hebben op de andere pagina's in de portal voor ontwikkelaars. Elke sjabloon verschilt, maar de stappen voor deze bewerken en publiceren van de wijzigingen zijn hetzelfde. Als u wilt een sjabloon te bewerken, klikt u op de naam van de sjabloon.
 
 ![Developer portal-sjablonen][api-management-templates-menu]
 
-Een sjabloon te klikken, gaat u toohello developer portal-pagina die kan worden aangepast door dat de sjabloon. In dit voorbeeld Hallo **productlijst** sjabloon wordt weergegeven. Hallo **productlijst** sjabloon besturingselementen Hallo van Hallo scherm, aangegeven door Hallo rode rechthoek. 
+Een sjabloon te klikken gaat u naar de developer portal pagina die kan worden aangepast door dat de sjabloon. In dit voorbeeld de **productlijst** sjabloon wordt weergegeven. De **productlijst** sjabloon bepaalt het gebied van het scherm aangegeven door de rode rechthoek. 
 
 ![De sjabloon lijst met producten][api-management-developer-portal-templates-overview]
 
-Sommige sjablonen, zoals Hallo **gebruikersprofiel** sjablonen aanpassen verschillende onderdelen van Hallo dezelfde pagina. 
+Sommige sjablonen, zoals de **gebruikersprofiel** sjablonen, verschillende onderdelen van dezelfde pagina aanpassen. 
 
 ![Gebruiker-profielsjablonen][api-management-user-profile-templates]
 
-Hallo-editor voor elke developer portal-sjabloon bevat twee secties onderaan Hallo Hallo pagina weergegeven. Hallo linkerkant Hallo deelvenster voor Hallo-sjabloon bewerken wordt weergegeven en rechterkant Hallo Hallo-gegevensmodel voor Hallo sjabloon weergegeven. 
+De editor voor elke developer portal-sjabloon bevat twee secties aan de onderkant van de pagina weergegeven. De linkerkant geeft het deelvenster bewerken voor de sjabloon en de rechterkant weergegeven in het gegevensmodel voor de sjabloon. 
 
-Hallo-sjabloon bewerken deelvenster bevat Hallo aantekeningen die Hallo uiterlijk en gedrag van de betreffende pagina Hallo van Hallo-portal voor ontwikkelaars bepaalt. Hallo-opmaak in Hallo-sjabloon gebruikt Hallo [DotLiquid](http://dotliquidmarkup.org/) syntaxis. Is een populair editor voor DotLiquid [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Tijdens het bewerken van sjablonen toohello wijzigingen worden weergegeven in realtime in Hallo browser, maar zijn niet zichtbaar tooyour klanten totdat u [opslaan](#to-save-a-template) en [publiceren](#to-publish-a-template) Hallo-sjabloon.
+De sjabloon bewerken deelvenster bevat de opmaak die het uiterlijk en gedrag van de bijbehorende pagina in de portal voor ontwikkelaars bepaalt. De opmaak van de sjabloon maakt gebruik van de [DotLiquid](http://dotliquidmarkup.org/) syntaxis. Is een populair editor voor DotLiquid [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Wijzigingen in de sjabloon tijdens het bewerken van in realtime worden weergegeven in de browser, maar zijn niet zichtbaar voor uw klanten totdat u [opslaan](#to-save-a-template) en [publiceren](#to-publish-a-template) de sjabloon.
 
 ![Sjabloon aantekeningen][api-management-template]
 
-Hallo **sjabloongegevens** deelvenster biedt een handleiding toohello gegevens model voor Hallo entiteiten die beschikbaar voor gebruik in een bepaalde sjabloon zijn. Deze handleiding biedt door Hallo dynamische gegevens die momenteel worden weergegeven in de ontwikkelaarsportal Hallo weer te geven. U kunt Hallo sjabloon deelvensters uitbreiden door te klikken op Hallo rechthoek op Hallo rechterbovenhoek Hallo **sjabloongegevens** deelvenster.
+De **sjabloongegevens** deelvenster biedt een handleiding voor het gegevensmodel voor de entiteiten die beschikbaar voor gebruik in een bepaalde sjabloon zijn. Deze handleiding biedt door de dynamische gegevens die momenteel worden weergegeven in de portal voor ontwikkelaars weer te geven. U kunt de sjabloon deelvensters uitbreiden door te klikken op de rechthoek in de rechterbovenhoek van de **sjabloongegevens** deelvenster.
 
 ![Sjabloon-gegevensmodel][api-management-template-data]
 
-In het vorige voorbeeld Hallo zijn er twee producten weergegeven in het Hallo-portal voor ontwikkelaars die zijn opgehaald van de gegevens in Hallo Hallo **sjabloongegevens** deelvenster, zoals wordt weergegeven in Hallo voorbeeld te volgen.
+In het vorige voorbeeld zijn er twee producten weergegeven in de portal voor ontwikkelaars die zijn opgehaald van de gegevens die worden weergegeven de **sjabloongegevens** deelvenster, zoals wordt weergegeven in het volgende voorbeeld.
 
 ```json
 {
@@ -84,7 +84,7 @@ In het vorige voorbeeld Hallo zijn er twee producten weergegeven in het Hallo-po
         {
             "Id": "56ec64c380ed850042060001",
             "Title": "Starter",
-            "Description": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",
+            "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
             "Terms": "",
             "ProductState": 1,
             "AllowMultipleSubscriptions": false,
@@ -93,7 +93,7 @@ In het vorige voorbeeld Hallo zijn er twee producten weergegeven in het Hallo-po
         {
             "Id": "56ec64c380ed850042060002",
             "Title": "Unlimited",
-            "Description": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",
+            "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
             "Terms": null,
             "ProductState": 1,
             "AllowMultipleSubscriptions": false,
@@ -103,7 +103,7 @@ In het vorige voorbeeld Hallo zijn er twee producten weergegeven in het Hallo-po
 }
 ```
 
-Hallo-opmaak in Hallo **productlijst** Sjabloonprocessen Hallo gegevensuitvoer tooprovide Hallo gewenst door het Hallo-verzameling van informatie over producten toodisplay en een koppeling tooeach afzonderlijke producten doorlopen. Opmerking Hallo `<search-control>` en `<page-control>` elementen in het Hallo-opmaak. Deze Hallo-weergave van Hallo zoeken en besturingselementen op de pagina Hallo paging bepalen. `ProductsStrings|PageTitleProducts`een gelokaliseerde tekenreeks verwijzing met Hallo `h2` koptekst voor Hallo pagina. Zie voor een lijst met tekenreeksbronnen, paginabesturingselementen en pictogrammen beschikbaar voor gebruik in developer portal-sjablonen, [API Management-referentie voor ontwikkelaars portal sjablonen](api-management-developer-portal-templates-reference.md).
+De opmaak van de **productlijst** sjabloon verwerkt de gegevens voor de gewenste uitvoer door de verzameling van producten weer te geven informatie en een koppeling voor elk afzonderlijk product doorloopt. Opmerking de `<search-control>` en `<page-control>` elementen in de opmaak. Deze bepalen of het zoeken en besturingselementen op de pagina van het wisselbestand wordt weergegeven. `ProductsStrings|PageTitleProducts`is een verwijzing gelokaliseerde tekenreeks met de `h2` koptekst voor de pagina. Zie voor een lijst met tekenreeksbronnen, paginabesturingselementen en pictogrammen beschikbaar voor gebruik in developer portal-sjablonen, [API Management-referentie voor ontwikkelaars portal sjablonen](api-management-developer-portal-templates-reference.md).
 
 ```html
 <search-control></search-control>
@@ -131,59 +131,59 @@ Hallo-opmaak in Hallo **productlijst** Sjabloonprocessen Hallo gegevensuitvoer t
 </div>
 ```
 
-## <a name="toosave-a-template"></a>een sjabloon toosave
-toosave een sjabloon, klik op opslaan in de editor voor Hallo-sjabloon.
+## <a name="to-save-a-template"></a>Een sjabloon wordt opgeslagen
+Als u wilt een sjabloon opslaan, klikt u op opslaan in de sjablooneditor.
 
 ![Sjabloon opslaan][api-management-save-template]
 
-Opgeslagen wijzigingen zijn niet in de ontwikkelaarsportal Hallo live totdat ze worden gepubliceerd.
+Opgeslagen wijzigingen zijn niet in de portal voor ontwikkelaars live totdat ze worden gepubliceerd.
 
-## <a name="toopublish-a-template"></a>een sjabloon toopublish
-Opgeslagen sjablonen kunnen worden gepubliceerd, afzonderlijk of Alles samenvoegen. een afzonderlijke template toopublish, klikken op publish in Hallo sjablooneditor.
+## <a name="to-publish-a-template"></a>Voor het publiceren van een sjabloon
+Opgeslagen sjablonen kunnen worden gepubliceerd, afzonderlijk of Alles samenvoegen. Klik op publiceren voor het publiceren van een afzonderlijke sjabloon in de sjablooneditor.
 
 ![Sjabloon publiceren][api-management-publish-template]
 
-Klik op **Ja** tooconfirm en Hallo sjabloon live op Hallo-portal voor ontwikkelaars.
+Klik op **Ja** om te bevestigen en de sjabloon maken live op de portal voor ontwikkelaars.
 
 ![Bevestig publiceren][api-management-publish-template-confirm]
 
-toopublish alle sjabloonversies niet gepubliceerd, klikt u op **publiceren** in de lijst met sjablonen Hallo. Niet-gepubliceerde sjablonen worden aangewezen door een sterretje Hallo sjabloonnaam te volgen. In dit voorbeeld Hallo **productlijst** en **Product** sjablonen worden gepubliceerd.
+Voor het publiceren van alle sjabloonversies van de momenteel niet-gepubliceerde, klikt u op **publiceren** in de lijst met sjablonen. Niet-gepubliceerde sjablonen worden aangewezen door een sterretje achter de sjabloonnaam. In dit voorbeeld wordt de **productlijst** en **Product** sjablonen worden gepubliceerd.
 
 ![Sjablonen publiceren][api-management-publish-templates]
 
-Klik op **aanpassingen publiceert** tooconfirm.
+Klik op **aanpassingen publiceert** om te bevestigen.
 
 ![Bevestig publiceren][api-management-publish-customizations]
 
-Nieuw gepubliceerde sjablonen zijn effectief in het Hallo-portal voor ontwikkelaars.
+Nieuw gepubliceerde sjablonen zijn effectieve direct in de portal voor ontwikkelaars.
 
-## <a name="toorevert-a-template-toohello-previous-version"></a>een eerdere versie van sjabloon toohello toorevert
-toorevert sjabloon toohello vorige gepubliceerde versie, klik op herstellen in de editor voor Hallo-sjabloon.
+## <a name="to-revert-a-template-to-the-previous-version"></a>Een sjabloon met de vorige versie herstellen
+Als u wilt terugkeren naar de vorige versie van de gepubliceerde sjabloon, klik op herstellen in de sjablooneditor.
 
 ![Sjabloon herstellen][api-management-revert-template]
 
-Klik op **Ja** tooconfirm.
+Klik op **Ja** om te bevestigen.
 
 ![Bevestigen][api-management-revert-template-confirm]
 
-Hallo eerder gepubliceerde versie van een sjabloon is live in Hallo-portal voor ontwikkelaars zodra Hallo bewerking herstellen is voltooid.
+De eerder gepubliceerde versie van een sjabloon wordt in de portal voor ontwikkelaars live zodra de herstelbewerking voltooid is.
 
-## <a name="toorestore-a-template-toohello-default-version"></a>de standaardversie van een sjabloon toohello toorestore
-Herstellen sjablonen tootheir standaardversie is een proces in twee stappen. Eerste Hallo sjablonen moeten worden hersteld en vervolgens Hallo hersteld moet worden gepubliceerd.
+## <a name="to-restore-a-template-to-the-default-version"></a>Een sjabloon naar de standaardversie herstellen
+Herstellen van de sjablonen naar hun standaardversie is een proces. Eerst de sjablonen moeten worden hersteld en vervolgens de herstelde versies moeten worden gepubliceerd.
 
-een standaardversie van één sjabloon toohello toorestore Klik op herstellen in de editor voor Hallo-sjabloon.
+Klik op herstellen in de sjablooneditor te herstellen één sjabloon voor de standaardversie.
 
 ![Sjabloon herstellen][api-management-reset-template]
 
-Klik op **Ja** tooconfirm.
+Klik op **Ja** om te bevestigen.
 
 ![Bevestigen][api-management-reset-template-confirm]
 
-toorestore alle sjablonen tootheir standaardversies, klikt u op **herstellen standaardsjablonen** op Hallo Sjabloonlijst.
+Voor het herstellen van alle sjablonen voor de versies van hun standaard, klikt u op **herstellen standaardsjablonen** op de lijst met sjablonen.
 
 ![Sjablonen herstellen][api-management-restore-templates]
 
-Hallo herstelde sjablonen moeten vervolgens worden gepubliceerd afzonderlijk of in één keer door stappen te volgen Hallo in [toopublish een sjabloon](#to-publish-a-template).
+De herstelde sjablonen moeten vervolgens worden gepubliceerd afzonderlijk of in één keer door de stappen in [voor het publiceren van een sjabloon](#to-publish-a-template).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor informatie over developer portal-sjablonen, tekenreeksbronnen pictogrammen en paginabesturingselementen, [API Management-referentie voor ontwikkelaars portal sjablonen](api-management-developer-portal-templates-reference.md).

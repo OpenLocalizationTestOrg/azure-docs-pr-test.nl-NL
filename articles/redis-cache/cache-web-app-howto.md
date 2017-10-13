@@ -1,6 +1,6 @@
 ---
-title: aaaHow toocreate een Web-App met Redis-Cache | Microsoft Docs
-description: Meer informatie over hoe toocreate een Web-App met Redis-Cache
+title: Een web-app maken met Redis Cache | Microsoft Docs
+description: Informatie over het maken van een web-app met Redis-cache
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.openlocfilehash: d3e6df97b06fdf9032570dc360944be4bd7715de
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-toocreate-a-web-app-with-redis-cache"></a>Hoe toocreate een Web-App met Redis-Cache
+# <a name="how-to-create-a-web-app-with-redis-cache"></a>Een web-app maken met Redis-Cache
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,77 +30,77 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Deze zelfstudie laat zien hoe toocreate en implementeren van een ASP.NET web application tooa web-app in Azure App Service met behulp van Visual Studio 2017. Hallo-voorbeeldtoepassing geeft een lijst met teamstatistieken uit een database en toont de verschillende manieren toouse Azure Redis-Cache toostore en gegevens ophalen uit de cache Hallo. Wanneer u Hallo-zelfstudie hebt voltooid hebt u een actieve WebApp die leest en schrijft tooa database geoptimaliseerd met Azure Redis-Cache en wordt gehost in Azure.
+In deze zelfstudie ziet u hoe u een ASP.NET-webtoepassing maakt en implementeert in een web-app in Azure App Service met behulp van Visual Studio 2017. In de voorbeeldtoepassing wordt een lijst met teamstatistieken uit een database weergegeven. U maakt kennis met verschillende manieren waarop u Azure Redis-cache kunt gebruiken om gegevens op te slaan in en op te halen uit de cache. Wanneer u de zelfstudie hebt voltooid, hebt u een actieve web-app die naar een database leest en schrijft. Deze web-app is geoptimaliseerd met Azure Redis-cache en wordt gehost in Azure.
 
 U leert het volgende:
 
-* Hoe toocreate een ASP.NET MVC 5-webtoepassing in Visual Studio.
-* Hoe tooaccess gegevens uit een database met behulp van Entity Framework.
-* Hoe tooimprove gegevensdoorvoer en belasting van de database te verminderen door opslaan en ophalen van gegevens met behulp van Azure Redis-Cache.
-* Hoe toouse een in Redis gesorteerde set tooretrieve Hallo bovenste 5 teams.
-* Tooprovision Hallo hoe Azure-resources voor Hallo-toepassing met een Resource Manager-sjabloon.
-* Hoe Hallo toopublish tooAzure van toepassing met Visual Studio.
+* Een ASP.NET MVC 5-webtoepassing maken in Visual Studio.
+* Toegang krijgen tot gegevens uit een database met behulp van Entity Framework.
+* De doorvoer van gegevens verbeteren en de belasting van de database verminderen door gegevens op te slaan en op te halen met Azure Redis-cache.
+* Een in Redis gesorteerde set gebruiken om de beste vijf teams op te halen.
+* De Azure-resources voor de toepassing inrichten met een Resource Manager-sjabloon.
+* De toepassing publiceren in Azure met Visual Studio.
 
 ## <a name="prerequisites"></a>Vereisten
-toocomplete hello zelfstudie, moet u Hallo na vereisten hebben.
+U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 * [Azure-account](#azure-account)
-* [Visual Studio 2017 Hello Azure SDK voor .NET](#visual-studio-2017-with-the-azure-sdk-for-net)
+* [Visual Studio 2017 met de Azure SDK voor .NET](#visual-studio-2017-with-the-azure-sdk-for-net)
 
 ### <a name="azure-account"></a>Azure-account
-U hebt een Azure-account toocomplete Hallo zelfstudie nodig. U kunt:
+U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt:
 
-* [Gratis een Azure-account openen](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). U ontvangt tegoed dat gebruikte tootry uit betaald Azure-services worden kunnen. Zelfs nadat Hallo tegoed is gebruikt, kunt u Hallo account houden en gratis Azure-services en functies gebruikt.
+* [Gratis een Azure-account openen](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). U ontvangt tegoed dat kan worden gebruikt om betaalde Azure-services uit te proberen. Zelfs nadat het tegoed is gebruikt, kunt u het account houden en de gratis Azure-services en -functies gebruiken.
 * [Uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Via uw MSDN-abonnement ontvangt u elke maand tegoeden die u voor betaalde Azure-services kunt gebruiken.
 
-### <a name="visual-studio-2017-with-hello-azure-sdk-for-net"></a>Visual Studio 2017 Hello Azure SDK voor .NET
-Hallo-zelfstudie is geschreven voor Visual Studio 2017 Hello [Azure SDK voor .NET](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#azuretools). Hello Azure SDK 2.9.5 is opgenomen in Visual Studio-installatieprogramma Hallo.
+### <a name="visual-studio-2017-with-the-azure-sdk-for-net"></a>Visual Studio 2017 met de Azure SDK voor .NET
+De zelfstudie is geschreven voor Visual Studio 2017 met de [Azure-SDK voor .NET](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#azuretools). De Azure SDK 2.9.5 is opgenomen in het installatieprogramma voor Visual Studio.
 
-Als u Visual Studio 2015 hebt, kunt u de zelfstudie Hallo Hello [Azure SDK voor .NET](../dotnet-sdk.md) 2.8.2 of hoger. [Download Hallo nieuwste Azure SDK voor Visual Studio 2015 hier](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio wordt automatisch geïnstalleerd met Hallo SDK als u nog geen hebt. Sommige schermen zien er mogelijk anders uit Hallo illustraties wordt weergegeven in deze zelfstudie.
+Als u Visual Studio 2015 hebt, kunt u de zelfstudie volgen met de [Azure SDK voor .NET](../dotnet-sdk.md) 2.8.2 of hoger. [Download hier de nieuwste Azure-SDK voor Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Als u Visual Studio nog niet hebt, wordt dit automatisch geïnstalleerd samen met de SDK. Sommige schermen zien er mogelijk anders uit dan wordt weergegeven in de afbeeldingen in deze zelfstudie.
 
-Als u Visual Studio 2013 hebt, kunt u [downloaden hello nieuwste Azure SDK voor Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Sommige schermen zien er mogelijk anders uit Hallo illustraties wordt weergegeven in deze zelfstudie.
+Als u Visual Studio 2013 hebt, kunt u [de nieuwste Azure-SDK voor Visual Studio 2013 downloaden](http://go.microsoft.com/fwlink/?LinkID=324322). Sommige schermen zien er mogelijk anders uit dan wordt weergegeven in de afbeeldingen in deze zelfstudie.
 
-## <a name="create-hello-visual-studio-project"></a>Hallo Visual Studio-project maken
+## <a name="create-the-visual-studio-project"></a>Het Visual Studio-project maken
 1. Open Visual Studio en klik op **File**, **New**, **Project**.
-2. Vouw Hallo **Visual C#** knooppunt in Hallo **sjablonen** selecteert **Cloud**, en klik op **ASP.NET-webtoepassing**. Zorg ervoor dat **.NET Framework 4.5.2** of hoger is geselecteerd.  Type **ContosoTeamStats** in Hallo **naam** tekstvak en klik op **OK**.
+2. Vouw het knooppunt **Visual C#** uit in de lijst **Templates**, selecteer **Cloud** en klik op **ASP.NET Web Application**. Zorg ervoor dat **.NET Framework 4.5.2** of hoger is geselecteerd.  Typ **ContosoTeamStats** in het tekstvak **Name**. Klik vervolgens op **OK**.
    
     ![Project maken][cache-create-project]
-3. Selecteer **MVC** als Hallo projecttype. 
+3. Selecteer **MVC** als het projecttype. 
 
-    Zorg ervoor dat **geen verificatie** is opgegeven voor Hallo **verificatie** instellingen. Afhankelijk van uw versie van Visual Studio kan Hallo standaard toosomething anders worden ingesteld. toochange, klikt u op **verificatie wijzigen** en selecteer **geen verificatie**.
+    Zorg ervoor dat **Geen verificatie** is opgegeven voor de instellingen bij **Verificatie**. Afhankelijk van uw versie van Visual Studio kan de standaardwaarde op iets anders zijn ingesteld. Als u deze wilt wijzigen, klikt u op **Verificatie wijzigen** en selecteert u **Geen verificatie**.
 
-    Als u samen met Visual Studio 2015 volgt, schakelt u Hallo **hosten in de cloud Hallo** selectievakje. U zult [inrichten hello Azure-resources](#provision-the-azure-resources) en [publiceren Hallo toepassing tooAzure](#publish-the-application-to-azure) bij volgende stappen in de zelfstudie Hallo. Voor een voorbeeld van een App Service-web-app vanuit Visual Studio wordt ingericht door **hosten in de cloud Hallo** dit selectievakje inschakelt, Zie [aan de slag met Web-Apps in Azure App Service met ASP.NET en Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
+    Als u de zelfstudie volgt met Visual Studio 2015, schakel dan het selectievakje **Host in de cloud** in. In de volgende stappen in deze zelfstudie [richt u de Azure-resources in](#provision-the-azure-resources) en [publiceert u de toepassing in Azure](#publish-the-application-to-azure). Voor een voorbeeld van een App Service-web-app die is ingericht vanuit Visual Studio door **Host in the cloud** aangevinkt te laten, bekijkt u [Aan de slag met web-apps in Azure App Service met ASP.NET en Visual Studio](../app-service/app-service-web-get-started-dotnet.md).
    
     ![De projectsjabloon selecteren][cache-select-template]
-4. Klik op **OK** toocreate Hallo project.
+4. Klik op **OK** om het project te maken.
 
-## <a name="create-hello-aspnet-mvc-application"></a>Hallo ASP.NET MVC-toepassing maken
-In deze sectie van Hallo zelfstudie maakt u eenvoudige Hallo-toepassing die wordt gelezen en wordt de teamstatistieken uit een database.
+## <a name="create-the-aspnet-mvc-application"></a>De ASP.NET MVC-toepassing maken
+In dit gedeelte van de zelfstudie maakt u de basistoepassing die teamstatistieken leest en weergeeft vanuit een database.
 
-* [Hallo Entity Framework NuGet-pakket toevoegen](#add-the-entity-framework-nuget-package)
-* [Hallo model toevoegen](#add-the-model)
-* [Hallo controller toevoegen](#add-the-controller)
-* [Hallo-weergaven configureren](#configure-the-views)
+* [Het Entity Framework NuGet-pakket toevoegen](#add-the-entity-framework-nuget-package)
+* [Het model toevoegen](#add-the-model)
+* [De controller toevoegen](#add-the-controller)
+* [De weergaven configureren](#configure-the-views)
 
-### <a name="add-hello-entity-framework-nuget-package"></a>Hallo Entity Framework NuGet-pakket toevoegen
+### <a name="add-the-entity-framework-nuget-package"></a>Het Entity Framework NuGet-pakket toevoegen
 
-1. Klik op **NuGet Package Manager**, **Package Manager Console** van Hallo **extra** menu.
-2. Voer hello na de opdracht van Hallo **Package Manager Console** venster.
+1. Klik in het menu **Extra** op **NuGet Package Manager**, **Package Manager Console**.
+2. Voer de volgende opdracht uit in het venster **Pakketbeheerconsole**.
     
     ```
     Install-Package EntityFramework
     ```
 
-Zie voor meer informatie over dit pakket Hallo [EntityFramework](https://www.nuget.org/packages/EntityFramework/) NuGet-pagina.
+Meer informatie over dit pakket vindt u op de NuGet-pagina [EntityFramework](https://www.nuget.org/packages/EntityFramework/).
 
-### <a name="add-hello-model"></a>Hallo model toevoegen
+### <a name="add-the-model"></a>Het model toevoegen
 1. Klik in **Solution Explorer** met de rechtermuisknop op **Models** en kies **Add**, **Class**. 
    
     ![Het model toevoegen][cache-model-add-class]
-2. Voer `Team` voor Hallo klassenaam en klik op **toevoegen**.
+2. Voer `Team` in als de naam van de klasse en klik op **Add**.
    
     ![De modelklasse toevoegen][cache-model-add-class-dialog]
-3. Vervang Hallo `using` instructies boven Hallo Hallo `Team.cs` bestand met de volgende Hallo `using` instructies.
+3. Vervang de `using`-instructies boven aan het bestand `Team.cs` door de volgende `using`-instructies.
 
     ```c#
     using System;
@@ -110,7 +110,7 @@ Zie voor meer informatie over dit pakket Hallo [EntityFramework](https://www.nug
     ```
 
 
-1. Hallo-definitie Hallo vervangen `Team` klasse met het volgende codefragment bevat een bijgewerkte Hallo `Team` klasse definition, evenals een aantal andere helperklassen van Entity Framework. Zie voor meer informatie over Hallo code eerste benadering tooEntity Framework die wordt gebruikt in deze zelfstudie [Code eerste tooa nieuwe database](https://msdn.microsoft.com/data/jj193542).
+1. Vervang de definitie van klasse `Team` door het volgende codefragment. Dit fragment bevat een bijgewerkte definitie voor klasse `Team` en een aantal andere helperklassen van Entity Framework. Zie [Code First naar een nieuwe database](https://msdn.microsoft.com/data/jj193542) voor meer informatie over de Code First-aanpak voor Entity Framework die in deze zelfstudie wordt gebruikt.
 
     ```c#
     public class Team
@@ -182,10 +182,10 @@ Zie voor meer informatie over dit pakket Hallo [EntityFramework](https://www.nug
     ```
 
 
-1. In **Solution Explorer**, dubbelklikt u op **web.config** tooopen deze.
+1. Dubbelklik in **Solution Explorer** op **web.config** om het bestand te openen.
    
     ![Web.config][cache-web-config]
-2. Voeg de volgende Hallo `connectionStrings` sectie. Hallo-naam van de verbindingsreeks Hallo moet overeenkomen met naam van de Hallo Hallo Entity Framework database contextklasse die `TeamContext`.
+2. Voeg de volgende `connectionStrings`-sectie toe. De naam van de verbindingsreeks moet overeenkomen met de naam van de contextklasse van de Entity Framework-database. Dit is `TeamContext`.
 
     ```xml
     <connectionStrings>
@@ -193,7 +193,7 @@ Zie voor meer informatie over dit pakket Hallo [EntityFramework](https://www.nug
     </connectionStrings>
     ```
 
-    U kunt nieuwe Hallo toevoegen `connectionStrings` sectie zodat het achter `configSections`, zoals weergegeven in het volgende voorbeeld Hallo.
+    U kunt de nieuwe `connectionStrings`-sectie toevoegen zodat deze achter `configSections` staat, zoals wordt weergegeven in het volgende voorbeeld.
 
     ```xml
     <configuration>
@@ -208,23 +208,23 @@ Zie voor meer informatie over dit pakket Hallo [EntityFramework](https://www.nug
       ```
 
     > [!NOTE]
-    > De verbindingsreeks kan afwijken, afhankelijk van het Hallo-versie van Visual Studio en SQL Server Express edition toocomplete Hallo zelfstudie gebruikt. Hallo web.config sjabloon moet geconfigureerde toomatch uw installatie, en mogen bevatten `Data Source` vermeldingen, zoals `(LocalDB)\v11.0` (van SQL Server Express 2012) of `Data Source=(LocalDB)\MSSQLLocalDB` (vanuit SQL Server Express 2014 en nieuwer). Zie [SQL Server 2016 Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) voor meer informatie over verbindingsreeksen en SQL Express-versies.
+    > De verbindingsreeks kan afwijken, afhankelijk van de versie van Visual Studio en de SQL Server Express-editie die zijn gebruikt voor het voltooien van de zelfstudie. De web.config-sjabloon moet overeenkomstig uw installatie worden geconfigureerd. Het kan `Data Source`-vermeldingen zoals `(LocalDB)\v11.0` (van SQL Server Express 2012) of `Data Source=(LocalDB)\MSSQLLocalDB` (van SQL Server Express 2014 en hoger) bevatten. Zie [SQL Server 2016 Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) voor meer informatie over verbindingsreeksen en SQL Express-versies.
 
-### <a name="add-hello-controller"></a>Hallo controller toevoegen
-1. Druk op **F6** toobuild Hallo project. 
-2. In **Solution Explorer**, klik met de rechtermuisknop Hallo **domeincontrollers** map en kies **toevoegen**, **Controller**.
+### <a name="add-the-controller"></a>De controller toevoegen
+1. Druk op **F6** om het project te bouwen. 
+2. Klik in **Solution Explorer** met de rechtermuisknop op de map **Controllers** en kies vervolgens **Add**, **Controller**.
    
     ![Controller toevoegen][cache-add-controller]
-3. Kies **MVC 5 Controller with views, using Entity Framework** en klik op **Add**. Als u een fout optreedt wanneer u op **toevoegen**, zorg ervoor dat u Hallo project eerst hebt gebouwd.
+3. Kies **MVC 5 Controller with views, using Entity Framework** en klik op **Add**. Als er een foutbericht wordt weergegeven nadat u op **Add** hebt geklikt, zorgt u ervoor dat u eerst het project bouwt.
    
     ![Controllerklasse toevoegen][cache-add-controller-class]
-4. Selecteer **Team (ContosoTeamStats.Models)** van Hallo **Modelklasse** vervolgkeuzelijst. Selecteer **TeamContext (ContosoTeamStats.Models)** van Hallo **Data context class** vervolgkeuzelijst. Type `TeamsController` in Hallo **Controller** naam textbox (indien dit niet automatisch wordt ingevuld). Klik op **toevoegen** toocreate controllerklasse Hallo en Hallo standaardweergaven toe te voegen.
+4. Selecteer in de vervolgkeuzelijst **Model class** de optie **Team (ContosoTeamStats.Models)**. Selecteer in de vervolgkeuzelijst **Data context class** de optie **TeamContext (ContosoTeamStats.Models)**. Typ `TeamsController` in het tekstvak voor de naam van de **Controller** (als dit niet automatisch wordt ingevuld). Klik op **Add** om de controllerklasse te maken en de standaardweergaven toe te voegen.
    
     ![Controller configureren][cache-configure-controller]
-5. In **Solution Explorer**, vouw **Global.asax** en dubbelklikt u op **Global.asax.cs** tooopen deze.
+5. Vouw in **Solution Explorer** het bestand **Global.asax** uit en dubbelklik op **Global.asax.cs** om het te openen.
    
     ![Global.asax.cs][cache-global-asax]
-6. Na twee Hallo toevoegen `using` instructies Hallo boven aan het bestand onder andere Hallo Hallo `using` instructies.
+6. Voeg boven aan het bestand, onder de andere `using`-instructies, de volgende twee `using`-instructies toe.
 
     ```c#
     using System.Data.Entity;
@@ -232,7 +232,7 @@ Zie voor meer informatie over dit pakket Hallo [EntityFramework](https://www.nug
     ```
 
 
-1. Toevoegen van de volgende regel code achter Hallo HALLO hallo `Application_Start` methode.
+1. Voeg de volgende regel code toe aan het einde van de `Application_Start`-methode.
 
     ```c#
     Database.SetInitializer<TeamContext>(new TeamInitializer());
@@ -242,7 +242,7 @@ Zie voor meer informatie over dit pakket Hallo [EntityFramework](https://www.nug
 1. Vouw in **Solution Explorer** `App_Start` uit en dubbelklik op `RouteConfig.cs`.
    
     ![RouteConfig.cs][cache-RouteConfig-cs]
-2. Vervang `controller = "Home"` in de volgende code in Hallo Hallo `RegisterRoutes` methode met `controller = "Teams"` zoals weergegeven in Hallo voorbeeld te volgen.
+2. Vervang `controller = "Home"` in de volgende code in de `RegisterRoutes`-methode door `controller = "Teams"`, zoals weergegeven in het volgende voorbeeld.
 
     ```c#
     routes.MapRoute(
@@ -253,55 +253,55 @@ Zie voor meer informatie over dit pakket Hallo [EntityFramework](https://www.nug
     ```
 
 
-### <a name="configure-hello-views"></a>Hallo-weergaven configureren
-1. In **Solution Explorer**, vouw Hallo **weergaven** map en klik vervolgens op Hallo **gedeelde** map uit en dubbelklik op **_Layout.cshtml**. 
+### <a name="configure-the-views"></a>De weergaven configureren
+1. Vouw in **Solution Explorer** de map **Views** uit. Vouw vervolgens de map **Shared** uit en dubbelklik op **_Layout.cshtml**. 
    
     ![_Layout.cshtml][cache-layout-cshtml]
-2. Hallo-inhoud van Hallo wijzigen `title` element en vervang `My ASP.NET Application` met `Contoso Team Stats` zoals weergegeven in Hallo voorbeeld te volgen.
+2. Wijzig de inhoud van het element `title` en vervang `My ASP.NET Application` door `Contoso Team Stats`, zoals weergegeven in het volgende voorbeeld.
 
     ```html
     <title>@ViewBag.Title - Contoso Team Stats</title>
     ```
 
 
-1. In Hallo `body` sectie, Hallo eerst bijwerken `Html.ActionLink` -instructie en vervang `Application name` met `Contoso Team Stats` en vervang `Home` met `Teams`.
+1. Werk in de sectie `body` de eerste instructie `Html.ActionLink` bij, vervang `Application name` door `Contoso Team Stats` en vervang `Home` door `Teams`.
    
    * Voor: `@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })`
    * Na: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
      
      ![Codewijzigingen][cache-layout-cshtml-code]
-2. Druk op **Ctrl + F5** toobuild en Voer Hallo-toepassing. Deze versie van de toepassing hello leest Hallo resultaten rechtstreeks uit Hallo-database. Opmerking Hallo **nieuw**, **bewerken**, **Details**, en **verwijderen** acties die automatisch zijn toohello toepassing toegevoegd door Hallo **MVC 5 Controller with views, using Entity Framework** scaffold. In de volgende sectie Hallo van Hallo zelfstudie voegt u Redis-Cache toooptimize Hallo gegevens openen en bieden extra functies toohello toepassing.
+2. Druk op **Ctrl+F5** om de toepassing op te bouwen en uit te voeren. Deze versie van de toepassing leest de resultaten rechtstreeks uit de database. De acties **Nieuw**, **Bewerken**, **Details** en **Verwijderen** zijn automatisch aan de toepassing toegevoegd door de structuur **MVC 5 Controller with views, using Entity Framework**. In het volgende gedeelte van de zelfstudie voegt u Redis-cache toe om de gegevenstoegang te optimaliseren en om extra functies te bieden voor de toepassing.
 
 ![Beginnerstoepassing][cache-starter-application]
 
-## <a name="configure-hello-application-toouse-redis-cache"></a>Hallo toepassing toouse Redis-Cache configureren
-In deze sectie van de zelfstudie hello, past u Hallo voorbeeld toepassing toostore configureren en ophalen van de Contoso-teamstatistieken uit een Azure Redis-Cache-exemplaar met behulp van Hallo [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) cacheclient.
+## <a name="configure-the-application-to-use-redis-cache"></a>De toepassing configureren voor het gebruik van Redis-cache
+In dit gedeelte van de zelfstudie configureert u de voorbeeldtoepassing om met behulp van de cacheclient [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) Contoso-teamstatistieken op te slaan en op te halen uit een exemplaar van de Azure Redis-cache.
 
-* [Hallo toepassing toouse StackExchange.Redis configureren](#configure-the-application-to-use-stackexchangeredis)
-* [Hallo TeamsController klasse tooreturn resultaten uit Hallo cache of Hallo-database bijwerken](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
-* [Hallo maken, bewerken, bijwerken en verwijderen van de methoden toowork met Hallo-cache](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
-* [Hallo Teamindex weergave toowork bijwerken met Hallo-cache](#update-the-teams-index-view-to-work-with-the-cache)
+* [De toepassing configureren voor gebruik van StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
+* [De klasse TeamsController zodanig bijwerken dat deze resultaten retourneert uit de cache of de database](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
+* [De methoden Maken, Bewerken en Verwijderen bijwerken voor gebruik met de cache](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
+* [De weergave Teamindex bijwerken voor gebruik met de cache](#update-the-teams-index-view-to-work-with-the-cache)
 
-### <a name="configure-hello-application-toouse-stackexchangeredis"></a>Hallo toepassing toouse StackExchange.Redis configureren
-1. tooconfigure een clienttoepassing in Visual Studio met Hallo NuGet-pakket StackExchange.Redis, klikt u op **NuGet Package Manager**, **Package Manager Console** van Hallo **extra** menu.
-2. Voer hello na de opdracht van Hallo `Package Manager Console` venster.
+### <a name="configure-the-application-to-use-stackexchangeredis"></a>De toepassing configureren voor gebruik van StackExchange.Redis
+1. Als u in Visual Studio een clienttoepassing wilt configureren met het NuGet-pakket StackExchange.Redis, klikt u in het menu **Extra** op **NuGet Package Manager**, **Package Manager Console**.
+2. Voer de volgende opdracht uit vanuit het venster `Package Manager Console`.
     
     ```
     Install-Package StackExchange.Redis
     ```
    
-    assembly-verwijzingen Hallo NuGet-pakket downloadt en voegt Hallo vereist voor uw client-toepassing tooaccess Azure Redis-Cache met Hallo StackExchange.Redis cacheclient. Als u liever een versie met sterke naam Hallo toouse `StackExchange.Redis` clientbibliotheek, installatie Hallo `StackExchange.Redis.StrongName` pakket.
-3. In **Solution Explorer**, vouw Hallo **domeincontrollers** map en dubbelklik op **TeamsController.cs** tooopen deze.
+    Het NuGet-pakket downloadt de vereiste assembly-verwijzingen voor de clienttoepassing en voegt deze toe om met de cacheclient StackExchange.Redis toegang te krijgen tot de Azure Redis-cache. Als u een versie met een sterke naam van de `StackExchange.Redis`-clientbibliotheek verkiest, installeert u het `StackExchange.Redis.StrongName`-pakket.
+3. Vouw in **Solution Explorer** de map **Controllers** uit en dubbelklik op **TeamsController.cs** om dit bestand te openen.
    
     ![TeamsController][cache-teamscontroller]
-4. Na twee Hallo toevoegen `using` instructies te**TeamsController.cs**.
+4. Voeg de volgende twee `using`-instructies toe aan **TeamsController.cs**.
 
     ```c#   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
-5. Toevoegen van de volgende twee eigenschappen toohello Hallo `TeamsController` klasse.
+5. Voeg de volgende twee eigenschappen toe aan de klasse `TeamsController`.
 
     ```c#   
     // Redis Connection string info
@@ -320,9 +320,9 @@ In deze sectie van de zelfstudie hello, past u Hallo voorbeeld toepassing toosto
     }
     ```
 
-6. Maak een bestand op uw computer met de naam `WebAppPlusCacheAppSecrets.config` en plaats deze in een locatie die niet wordt ingecheckt met Hallo broncode van uw voorbeeldtoepassing, mocht u toocheck besluiten deze ergens in. In dit voorbeeld Hallo `AppSettingsSecrets.config` bestand bevindt zich op `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
+6. Maak op uw computer een bestand met de naam `WebAppPlusCacheAppSecrets.config`. Sla het op een locatie op die niet wordt ingecheckt met de broncode van uw voorbeeldtoepassing, mocht u besluiten deze ergens in te checken. In dit voorbeeld bevindt het bestand `AppSettingsSecrets.config` zich op de locatie `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
    
-    Hallo bewerken `WebAppPlusCacheAppSecrets.config` bestand en voeg Hallo inhoud te volgen. Als u de toepassing hello lokaal uitvoert is deze informatie gebruikt tooconnect tooyour Azure Redis-Cache-exemplaar. Verderop in de zelfstudie Hallo u inrichten van een Azure Redis-Cache-exemplaar en Hallo-cache en het wachtwoord bijwerken. Als u niet van plan toorun Hallo-voorbeeldtoepassing bent lokaal u Hallo maken van dit bestand kunt overslaan en Hallo hierop volgende stappen die verwijzen naar Hallo-bestand, omdat wanneer u tooAzure Hallo toepassing implementeert Hallo cache verbindingsgegevens opgehaald uit Hallo app instelling voor Hallo Web-App en niet uit dit bestand. Sinds Hallo `WebAppPlusCacheAppSecrets.config` niet is geïmplementeerd tooAzure met uw toepassing hoeft tenzij u toorun Hallo toepassing lokaal gaat.
+    Bewerk het bestand `WebAppPlusCacheAppSecrets.config` en voeg de volgende inhoud toe. Als u de toepassing lokaal uitvoert, wordt deze informatie gebruikt om verbinding te maken met uw exemplaar van Azure Redis-cache. Verderop in de zelfstudie richt u een exemplaar van Azure Redis-cache in en werkt u de cachenaam en het wachtwoord bij. Als u de voorbeeldtoepassing niet lokaal wilt uitvoeren, kunt u het maken van dit bestand en de hierop volgende stappen die naar het bestand verwijzen, overslaan. Wanneer u in Azure implementeert, haalt de toepassing de verbindingsgegevens van de cache namelijk op uit de app-instelling voor de web-app en niet uit dit bestand. Aangezien de `WebAppPlusCacheAppSecrets.config` niet samen met uw toepassing in Azure wordt geïmplementeerd, hebt u deze niet nodig, tenzij u de toepassing lokaal wilt uitvoeren.
 
     ```xml
     <appSettings>
@@ -331,32 +331,32 @@ In deze sectie van de zelfstudie hello, past u Hallo voorbeeld toepassing toosto
     ```
 
 
-1. In **Solution Explorer**, dubbelklikt u op **web.config** tooopen deze.
+1. Dubbelklik in **Solution Explorer** op **web.config** om het bestand te openen.
    
     ![Web.config][cache-web-config]
-2. Voeg de volgende Hallo `file` toohello kenmerk `appSettings` element. Als u een andere naam of locatie gebruikt, vervangen door deze waarden Hallo die wordt weergegeven in Hallo voorbeeld.
+2. Voeg het volgende `file`-kenmerk toe aan het element `appSettings`. Als u een andere bestandsnaam of -locatie gebruikt, vervang deze waarden dan door de waarden die in het voorbeeld worden weergegeven.
    
    * Voor: `<appSettings>`
    * Na: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
      
-   Hallo ASP.NET-runtime voegt Hallo inhoud van extern bestand met aantekeningen in Hallo HALLO hallo samen `<appSettings>` element. Hallo runtime negeert Hallo file-kenmerk als Hallo opgegeven bestand kan niet worden gevonden. Uw geheimen (Hallo verbinding tooyour tekenreekscache) zijn niet opgenomen als onderdeel van de broncode Hallo voor Hallo-toepassing. Wanneer u uw web-app tooAzure implementeert, Hallo `WebAppPlusCacheAppSecrests.config` bestand niet geïmplementeerd (dat wil zeggen naar wens). Er zijn verschillende manieren toospecify deze geheime gegevens in Azure, en in deze zelfstudie ze zijn geconfigureerd automatisch voor u wanneer u [inrichten hello Azure-resources](#provision-the-azure-resources) in een latere stap van de zelfstudie. Zie voor meer informatie over het werken met geheimen in Azure [aanbevolen procedures voor het implementeren van wachtwoorden en andere gevoelige gegevens tooASP.NET en Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+   De ASP.NET-runtime voegt de inhoud van het externe bestand samen met de opmaak van het element `<appSettings>`. Als het opgegeven bestand niet kan worden gevonden, negeert de runtime het bestandskenmerk. Uw geheimen (de verbindingsreeks naar uw cache) worden niet opgenomen in de broncode van de toepassing. Wanneer u uw web-app in Azure implementeert, wordt het bestand `WebAppPlusCacheAppSecrests.config` niet geïmplementeerd (dat is de bedoeling). Er zijn verschillende manieren om deze geheimen op te geven in Azure. In deze zelfstudie worden ze automatisch voor u geconfigureerd wanneer u in een latere stap van de zelfstudie [de Azure-resources inricht](#provision-the-azure-resources). Raadpleeg [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (Aanbevolen procedures voor het implementeren van wachtwoorden en andere gevoelige gegevens naar ASP.NET en Azure App Service) voor meer informatie over het werken met geheimen in Azure.
 
-### <a name="update-hello-teamscontroller-class-tooreturn-results-from-hello-cache-or-hello-database"></a>Hallo TeamsController klasse tooreturn resultaten uit Hallo cache of Hallo-database bijwerken
-In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache Hallo worden opgehaald. Teamstatistieken worden opgeslagen in cache als een geserialiseerde Hallo `List<Team>`, en ook als een gesorteerde set met Redis-gegevenstypen. Bij het ophalen van items uit een gesorteerde set kunt u een query uitvoeren voor sommige items, voor alle items of alleen voor bepaalde items. In dit voorbeeld voert u een query Hallo gesorteerd set voor Hallo bovenste 5 teams door het aantal wins gerangschikt.
+### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>De klasse TeamsController zodanig bijwerken dat deze resultaten retourneert uit de cache of de database
+In dit voorbeeld worden teamstatistieken opgehaald uit de database of uit de cache. Teamstatistieken worden opgeslagen in de cache als een geserialiseerde `List<Team>` en ook als een gesorteerde set met Redis-gegevenstypen. Bij het ophalen van items uit een gesorteerde set kunt u een query uitvoeren voor sommige items, voor alle items of alleen voor bepaalde items. In dit voorbeeld voert u een query uit voor de gesorteerde set voor de beste vijf teams, op basis van het aantal overwinningen.
 
 > [!NOTE]
-> Het is niet vereist toostore hello teamstatistieken in verschillende indelingen in de cache Hallo in volgorde toouse Azure Redis-Cache. Deze zelfstudie wordt gebruikgemaakt van meerdere indelingen toodemonstrate enkele van de verschillende manieren Hallo en verschillende gegevenstypen kunt u toocache gegevens.
+> Het is niet vereist om de teamstatistieken in verschillende indelingen in de cache op te slaan om de Azure Redis-cache te kunnen gebruiken. In deze zelfstudie wordt gebruikgemaakt van meerdere indelingen ter illustratie van de verschillende manieren en gegevenstypen die u kunt gebruiken om gegevens in de cache op te slaan.
 > 
 > 
 
-1. Voeg de volgende Hallo `using` instructies toohello `TeamsController.cs` bestand boven Hallo Hello andere `using` instructies.
+1. Voeg bovenaan, bij de andere `using`-instructies, de volgende `using`-instructies toe aan het `TeamsController.cs`-bestand.
 
     ```c#   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
-2. Hallo huidige vervangen `public ActionResult Index()` methode-implementatie met Hallo na implementatie.
+2. Vervang de huidige implementatie van de `public ActionResult Index()`-methode door de volgende implementatie.
 
     ```c#
     // GET: Teams
@@ -370,16 +370,16 @@ In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache H
                 PlayGames();
                 break;
 
-            case "clearCache": // Clear hello results from hello cache.
+            case "clearCache": // Clear the results from the cache.
                 ClearCachedTeams();
                 break;
 
-            case "rebuildDB": // Rebuild hello database with sample data.
+            case "rebuildDB": // Rebuild the database with sample data.
                 RebuildDB();
                 break;
         }
 
-        // Measure hello time it takes tooretrieve hello results.
+        // Measure the time it takes to retrieve the results.
         Stopwatch sw = Stopwatch.StartNew();
 
         switch(resultType)
@@ -388,15 +388,15 @@ In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache H
                 teams = GetFromSortedSet();
                 break;
 
-            case "teamsSortedSetTop5": // Retrieve hello top 5 teams from hello sorted set.
+            case "teamsSortedSetTop5": // Retrieve the top 5 teams from the sorted set.
                 teams = GetFromSortedSetTop5();
                 break;
 
-            case "teamsList": // Retrieve teams from hello cached List<Team>.
+            case "teamsList": // Retrieve teams from the cached List<Team>.
                 teams = GetFromList();
                 break;
 
-            case "fromDB": // Retrieve results from hello database.
+            case "fromDB": // Retrieve results from the database.
             default:
                 teams = GetFromDB();
                 break;
@@ -405,7 +405,7 @@ In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache H
         sw.Stop();
         double ms = sw.ElapsedTicks / (Stopwatch.Frequency / (1000.0));
 
-        // Add hello elapsed time of hello operation toohello ViewBag.msg.
+        // Add the elapsed time of the operation to the ViewBag.msg.
         ViewBag.msg += " MS: " + ms.ToString();
 
         return View(teams);
@@ -413,9 +413,9 @@ In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache H
     ```
 
 
-1. Toevoegen van de volgende drie methoden toohello hello `TeamsController` klasse tooimplement hello `playGames`, `clearCache`, en `rebuildDB` actietypen van Hallo instructie toegevoegd in het vorige codefragment Hallo switch.
+1. Voeg de volgende drie methoden voor de klasse `TeamsController` toe om de actietypen `playGames`, `clearCache` en `rebuildDB` te implementeren uit de switch-instructie die in het vorige codefragment is toegevoegd.
    
-    Hallo `PlayGames` methode Hallo teamstatistieken bijgewerkt door een seizoen wedstrijden te simuleren, slaat Hallo resultaten toohello database en wist Hallo nu verouderde gegevens uit de cache Hallo.
+    De `PlayGames`-methode werkt de teamstatistieken bij door een seizoen aan wedstrijden te simuleren, slaat de resultaten vervolgens op in de database en wist de nu verouderde gegevens uit de cache.
 
     ```c#
     void PlayGames()
@@ -434,13 +434,13 @@ In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache H
     }
     ```
 
-    Hallo `RebuildDB` methode opnieuw Hallo database met Hallo standaardset teams, genereert statistieken voor ze en wist Hallo nu verouderde gegevens uit de cache Hallo.
+    De `RebuildDB`-methode initialiseert de database opnieuw met de standaardset teams, genereert statistieken voor ze en wist de nu verouderde gegevens uit de cache.
 
     ```c#
     void RebuildDB()
     {
         ViewBag.msg += "Rebuilding DB. ";
-        // Delete and re-initialize hello database with sample data.
+        // Delete and re-initialize the database with sample data.
         db.Database.Delete();
         db.Database.Initialize(true);
 
@@ -449,7 +449,7 @@ In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache H
     }
     ```
 
-    Hallo `ClearCachedTeams` methode verwijdert opgeslagen teamstatistieken uit de cache Hallo.
+    De `ClearCachedTeams`-methode verwijdert opgeslagen teamstatistieken uit de cache.
 
     ```c#
     void ClearCachedTeams()
@@ -462,9 +462,9 @@ In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache H
     ```
 
 
-1. Toevoegen van de volgende vier methoden toohello hello `TeamsController` klasse tooimplement Hallo verschillende manieren voor het ophalen van teamstatistieken Hallo van Hallo-cache en Hallo-database. Elk van deze methoden retourneert een `List<Team>` die vervolgens door Hallo weergave wordt weergegeven.
+1. Voeg de volgende vier methoden toe aan klasse `TeamsController` om de verschillende manieren voor het ophalen van teamstatistieken uit de cache en de database te implementeren. Alle methoden retourneren een `List<Team>`, die vervolgens wordt weergegeven in de weergave.
    
-    Hallo `GetFromDB` methode leest de teamstatistieken Hallo uit Hallo-database.
+    De `GetFromDB`-methode leest de teamstatistieken uit de database.
    
     ```c#
     List<Team> GetFromDB()
@@ -478,7 +478,7 @@ In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache H
     }
     ```
 
-    Hallo `GetFromList` methode leest de teamstatistieken Hallo uit de cache als een geserialiseerde `List<Team>`. Als er een cache ontbreekt, worden Hallo teamstatistieken gelezen uit de database Hallo en vervolgens in Hallo cache zijn opgeslagen voor later. In dit voorbeeld we maken gebruik van JSON.NET-serialisatie tooserialize Hallo .NET-objecten tooand uit Hallo-cache. Zie voor meer informatie [hoe toowork met .NET-objecten in Azure Redis-Cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
+    De `GetFromList`-methode leest de teamstatistieken uit de cache als een geserialiseerde `List<Team>`. Als er een cache ontbreekt, worden de teamstatistieken gelezen uit de database en vervolgens voor later gebruik opgeslagen in de cache. In dit voorbeeld wordt gebruikgemaakt van JSON.NET-serialisatie om de .NET-objecten naar en uit de cache te serialiseren. Zie [Werken met .NET-objecten in Azure Redis-cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) voor meer informatie.
 
     ```c#
     List<Team> GetFromList()
@@ -499,21 +499,21 @@ In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache H
             // Get from database and store in cache
             teams = GetFromDB();
 
-            ViewBag.msg += "Storing results toocache. ";
+            ViewBag.msg += "Storing results to cache. ";
             cache.StringSet("teamsList", JsonConvert.SerializeObject(teams));
         }
         return teams;
     }
     ```
 
-    Hallo `GetFromSortedSet` methode leest de teamstatistieken Hallo uit een in cache opgeslagen gesorteerde set. Als er een cache ontbreekt, worden teamstatistieken Hallo Hallo-database niet lezen en opgeslagen in de cache Hallo als een gesorteerde set.
+    De `GetFromSortedSet`-methode leest de teamstatistieken uit een in de cache opgeslagen gesorteerde set. Als er een cache ontbreekt, worden de teamstatistieken uit de database gelezen en als een gesorteerde set opgeslagen in de cache.
 
     ```c#
     List<Team> GetFromSortedSet()
     {
         List<Team> teams = null;
         IDatabase cache = Connection.GetDatabase();
-        // If hello key teamsSortedSet is not present, this method returns a 0 length collection.
+        // If the key teamsSortedSet is not present, this method returns a 0 length collection.
         var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", order: Order.Descending);
         if (teamsSortedSet.Count() > 0)
         {
@@ -532,10 +532,10 @@ In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache H
             // Read from DB
             teams = GetFromDB();
 
-            ViewBag.msg += "Storing results toocache. ";
+            ViewBag.msg += "Storing results to cache. ";
             foreach (var t in teams)
             {
-                Console.WriteLine("Adding toosorted set: {0} - {1}", t.Name, t.Wins);
+                Console.WriteLine("Adding to sorted set: {0} - {1}", t.Name, t.Wins);
                 cache.SortedSetAdd("teamsSortedSet", JsonConvert.SerializeObject(t), t.Wins);
             }
         }
@@ -543,7 +543,7 @@ In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache H
     }
     ```
 
-    Hallo `GetFromSortedSetTop5` methode leest Hallo bovenste 5 teams van Hallo in de cache opgeslagen gesorteerde set. Deze methode begint met het Hallo-cache controleren voor Hallo bestaan Hallo `teamsSortedSet` sleutel. Als deze sleutel niet aanwezig is, Hallo `GetFromSortedSet` methode tooread hello teamstatistieken wordt genoemd en op te slaan in Hallo-cache. Vervolgens hello in de cache opgeslagen gesorteerde set gevraagd voor Hallo bovenste 5 teams die worden geretourneerd.
+    De `GetFromSortedSetTop5`-methode leest de beste vijf teams uit de in de cache opgeslagen gesorteerde set. Deze methode begint met het controleren van de cache op de aanwezigheid van de `teamsSortedSet`-sleutel. Als deze sleutel niet aanwezig is, wordt de `GetFromSortedSet`-methode aangeroepen om de teamstatistieken te lezen en op te slaan in de cache. Vervolgens wordt de in de cache opgeslagen gesorteerde set bevraagd om de beste vijf teams op te halen. Deze worden daarna geretourneerd.
 
     ```c#
     List<Team> GetFromSortedSetTop5()
@@ -551,19 +551,19 @@ In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache H
         List<Team> teams = null;
         IDatabase cache = Connection.GetDatabase();
 
-        // If hello key teamsSortedSet is not present, this method returns a 0 length collection.
+        // If the key teamsSortedSet is not present, this method returns a 0 length collection.
         var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
         if(teamsSortedSet.Count() == 0)
         {
-            // Load hello entire sorted set into hello cache.
+            // Load the entire sorted set into the cache.
             GetFromSortedSet();
 
-            // Retrieve hello top 5 teams.
+            // Retrieve the top 5 teams.
             teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
         }
 
         ViewBag.msg += "Retrieving top 5 teams from cache. ";
-        // Get hello top 5 teams from hello sorted set
+        // Get the top 5 teams from the sorted set
         teams = new List<Team>();
         foreach (var team in teamsSortedSet)
         {
@@ -573,14 +573,14 @@ In dit voorbeeld kunnen teamstatistieken uit de database Hallo of uit de cache H
     }
     ```
 
-### <a name="update-hello-create-edit-and-delete-methods-toowork-with-hello-cache"></a>Hallo maken, bewerken, bijwerken en verwijderen van de methoden toowork met Hallo-cache
-Hallo ondersteuningscode die is gegenereerd als onderdeel van dit voorbeeld bevat de methoden tooadd, bewerken en verwijderen van teams. Telkens wanneer een team wordt toegevoegd, bewerkt of verwijderd, verouderd Hallo-gegevens in Hallo cache. In deze sectie u bewerkt deze drie methoden tooclear Hallo in cache opgeslagen teams zodat Hallo-cache is niet synchroon met Hallo-database.
+### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>De methoden Maken, Bewerken en Verwijderen bijwerken voor gebruik met de cache
+De ondersteuningscode die als onderdeel van dit voorbeeld is gegenereerd, bevat de methoden om teams toe te voegen, te bewerken en te verwijderen. Telkens wanneer er een team wordt toegevoegd, bewerkt of verwijderd, raken de gegevens in de cache verouderd. In deze sectie bewerkt u deze drie methoden, zodat de in de cache opgeslagen teams worden gewist en de cache synchroon loopt met de database.
 
-1. Blader toohello `Create(Team team)` methode in Hallo `TeamsController` klasse. Voeg een aanroep van toohello `ClearCachedTeams` methode, zoals wordt weergegeven in het volgende voorbeeld Hallo.
+1. Blader naar de `Create(Team team)`-methode in de klasse `TeamsController`. Voeg een aanroep toe aan de `ClearCachedTeams`-methode, zoals wordt weergegeven in het volgende voorbeeld.
 
     ```c#
     // POST: Teams/Create
-    // tooprotect from overposting attacks, please enable hello specific properties you want toobind to, for 
+    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -590,8 +590,8 @@ Hallo ondersteuningscode die is gegenereerd als onderdeel van dit voorbeeld beva
         {
             db.Teams.Add(team);
             db.SaveChanges();
-            // When a team is added, hello cache is out of date.
-            // Clear hello cached teams.
+            // When a team is added, the cache is out of date.
+            // Clear the cached teams.
             ClearCachedTeams();
             return RedirectToAction("Index");
         }
@@ -601,11 +601,11 @@ Hallo ondersteuningscode die is gegenereerd als onderdeel van dit voorbeeld beva
     ```
 
 
-1. Blader toohello `Edit(Team team)` methode in Hallo `TeamsController` klasse. Voeg een aanroep van toohello `ClearCachedTeams` methode, zoals wordt weergegeven in het volgende voorbeeld Hallo.
+1. Blader naar de `Edit(Team team)`-methode in de klasse `TeamsController`. Voeg een aanroep toe aan de `ClearCachedTeams`-methode, zoals wordt weergegeven in het volgende voorbeeld.
 
     ```c#
     // POST: Teams/Edit/5
-    // tooprotect from overposting attacks, please enable hello specific properties you want toobind to, for 
+    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -615,8 +615,8 @@ Hallo ondersteuningscode die is gegenereerd als onderdeel van dit voorbeeld beva
         {
             db.Entry(team).State = EntityState.Modified;
             db.SaveChanges();
-            // When a team is edited, hello cache is out of date.
-            // Clear hello cached teams.
+            // When a team is edited, the cache is out of date.
+            // Clear the cached teams.
             ClearCachedTeams();
             return RedirectToAction("Index");
         }
@@ -625,7 +625,7 @@ Hallo ondersteuningscode die is gegenereerd als onderdeel van dit voorbeeld beva
     ```
 
 
-1. Blader toohello `DeleteConfirmed(int id)` methode in Hallo `TeamsController` klasse. Voeg een aanroep van toohello `ClearCachedTeams` methode, zoals wordt weergegeven in het volgende voorbeeld Hallo.
+1. Blader naar de `DeleteConfirmed(int id)`-methode in de klasse `TeamsController`. Voeg een aanroep toe aan de `ClearCachedTeams`-methode, zoals wordt weergegeven in het volgende voorbeeld.
 
     ```c#
     // POST: Teams/Delete/5
@@ -636,23 +636,23 @@ Hallo ondersteuningscode die is gegenereerd als onderdeel van dit voorbeeld beva
         Team team = db.Teams.Find(id);
         db.Teams.Remove(team);
         db.SaveChanges();
-        // When a team is deleted, hello cache is out of date.
-        // Clear hello cached teams.
+        // When a team is deleted, the cache is out of date.
+        // Clear the cached teams.
         ClearCachedTeams();
         return RedirectToAction("Index");
     }
     ```
 
 
-### <a name="update-hello-teams-index-view-toowork-with-hello-cache"></a>Hallo Teamindex weergave toowork bijwerken met Hallo-cache
-1. In **Solution Explorer**, vouw Hallo **weergaven** map en klik vervolgens Hallo **Teams** map uit en dubbelklik op **Index.cshtml**.
+### <a name="update-the-teams-index-view-to-work-with-the-cache"></a>De weergave Teamindex bijwerken voor gebruik met de cache
+1. Vouw in **Solution Explorer** de map **Views** uit. Vouw vervolgens de map **Teams** uit en dubbelklik op **Index.cshtml**.
    
     ![Index.cshtml][cache-views-teams-index-cshtml]
-2. Aan de bovenkant van de Hallo van Hallo-bestand, zoek naar Hallo volgende alinea-element.
+2. Zoek boven in het bestand naar het volgende alinea-element.
    
     ![Actietabel][cache-teams-index-table]
    
-    Dit is Hallo koppeling toocreate een nieuw team. Hallo alinea-element met de volgende tabel Hallo vervangen. Deze tabel bevat Actiekoppelingen voor het maken van een nieuw team, een nieuw seizoen wedstrijden, Hallo cache wissen spelen, Hallo teams ophalen uit de cache Hallo in verschillende indelingen, Hallo teams ophalen uit de database Hallo en opnieuw opbouwen van de database met de nieuwe voorbeeldgegevens Hallo.
+    Dit is de koppeling waarmee u een nieuw team kunt maken. Vervang het alinea-element door de volgende tabel. Deze tabel bevat actiekoppelingen waarmee u een nieuw team kunt maken, een nieuw seizoen wedstrijden kunt spelen, de cache kunt wissen, de teams in verschillende indelingen kunt ophalen uit de cache, de teams kunt ophalen uit de database en de database opnieuw kunt opbouwen met de nieuwe voorbeeldgegevens.
 
     ```html
     <table class="table">
@@ -686,125 +686,125 @@ Hallo ondersteuningscode die is gegenereerd als onderdeel van dit voorbeeld beva
     ```
 
 
-1. Scroll toohello onderaan Hallo **Index.cshtml** -bestand en voeg de volgende Hallo `tr` element zodat deze de laatste rij Hallo in Hallo laatste tabel in Hallo-bestand.
+1. Ga naar de onderkant van het bestand **Index.cshtml** en voeg het volgende `tr`-element toe, zodat dit de laatste rij in de laatste tabel in het bestand is.
    
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
     ```
    
-    Deze rij geeft de waarde van Hallo `ViewBag.Msg` die een statusrapport over de huidige bewerking Hallo bevat. Hallo `ViewBag.Msg` wanneer u klikt op een van de Actiekoppelingen Hallo van de vorige stap Hallo is ingesteld.   
+    Deze rij toont de waarde van `ViewBag.Msg`, die een statusrapport over de huidige bewerking bevat. De `ViewBag.Msg` wordt ingesteld wanneer u op een van de actiekoppelingen uit de vorige stap klikt.   
    
     ![Statusbericht][cache-status-message]
-2. Druk op **F6** toobuild Hallo project.
+2. Druk op **F6** om het project te bouwen.
 
-## <a name="provision-hello-azure-resources"></a>Inrichten hello Azure-resources
-toohost uw toepassing in Azure, moet u eerst inrichten hello Azure-services die vereist zijn voor uw toepassing. Hallo-voorbeeldtoepassing in deze zelfstudie maakt gebruik van hello Azure-services te volgen.
+## <a name="provision-the-azure-resources"></a>De Azure-resources inrichten
+Als u uw toepassing in Azure wilt hosten, moet u eerst de Azure-services inrichten die vereist zijn voor uw toepassing. De voorbeeldtoepassing in deze zelfstudie maakt gebruik van de volgende Azure-services.
 
 * Azure Redis-cache
 * App Service-web-app
 * SQL Database
 
-toodeploy deze services tooa nieuwe of bestaande resourcegroep naar keuze, klikt u op volgende Hallo **tooAzure implementeren** knop.
+Als u deze services wilt implementeren in een nieuwe of bestaande resourcegroep naar keuze, klikt u op de knop **Deploy to Azure**.
 
-[! [TooAzure implementeren] [deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
+[![Implementeren in Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
-Dit **implementeren tooAzure** knop gebruikt Hallo [maken van een Web-App plus Redis-Cache plus SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) [Azure Quickstart](https://github.com/Azure/azure-quickstart-templates) sjabloon tooprovision deze services en een set Hallo de verbindingsreeks voor Hallo SQL-Database en Hallo toepassingsinstelling voor hello Azure Redis-Cache-verbindingsreeks.
+De knop **Deploy to Azure** gebruikt de sjabloon voor de [Azure-snelstartgids](https://github.com/Azure/azure-quickstart-templates) [Een web-app maken plus Redis-cache plus SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) om deze services in te richten en de verbindingsreeks in te stellen voor de SQL Database, evenals de toepassingsinstelling voor de verbindingsreeks voor de Azure Redis-cache.
 
 > [!NOTE]
 > Als u geen Azure-account hebt, kunt u binnen een paar minuten [een gratis Azure-account maken](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 > 
 > 
 
-Te klikken op Hallo **tooAzure implementeren** knop gaat u verder toohello Azure-portal en initieert Hallo Hallo resources beschreven door Hallo-sjabloon maken.
+Als u op de knop **Deploy to Azure** klikt, wordt u naar de Azure-portal geleid en start het proces voor het maken van de resources die in de sjabloon worden beschreven.
 
-![TooAzure implementeren][cache-deploy-to-azure-step-1]
+![Implementeren in Azure][cache-deploy-to-azure-step-1]
 
-1. In Hallo **basisbeginselen** sectie Selecteer toouse hello Azure-abonnement, en selecteer een bestaande resourcegroep of maak een nieuwe, en geef Hallo locatie voor resourcegroep.
-2. In Hallo **instellingen** sectie, geeft u een **aanmeldingsnaam van de beheerder** (gebruik geen **admin**), **beheerderswachtwoord voor aanmelding**, en  **Databasenaam**. Hallo zijn andere parameters geconfigureerd voor een gratis App Service-hostingplan en goedkoper opties voor Hallo SQL-Database en Azure Redis-Cache, die niet geleverd met een gratis laag.
+1. Selecteer in de sectie **Basisbeginselen** het Azure-abonnement dat u wilt gebruiken. Selecteer daarnaast een bestaande resourcegroep of maak een nieuwe, en geef de locatie van de resourcegroep op.
+2. Geef in de sectie **Instellingen** de **aanmeldingsnaam van een beheerder** op (gebruik niet **admin**), het **wachtwoord van de beheerdersaanmelding** en de **Databasenaam**. De andere parameters zijn geconfigureerd voor een gratis App Service-hostingplan en voor opties met lagere kosten voor de SQL Database en de Azure Redis-cache (deze worden niet geleverd met een gratis laag).
 
-    ![TooAzure implementeren][cache-deploy-to-azure-step-2]
+    ![Implementeren in Azure][cache-deploy-to-azure-step-2]
 
-3. Ga na het configureren van instellingen Hallo gewenst toohello einde van de pagina Hallo lezen Hallo en voorwaarden en Hallo controleren **ik ga akkoord toohello voorwaarden bovengenoemde** selectievakje.
-4. toobegin inrichting Hallo resources, klikt u op **aankoop**.
+3. Schuif na het configureren van de gewenste instellingen naar het einde van de pagina, lees de voorwaarden en bepalingen, en schakel het selectievakje **Ik ga akkoord met de bovenstaande voorwaarden** in.
+4. Klik op **Kopen** om te beginnen met het inrichten van de resources.
 
-tooview hello voortgang van uw implementatie, klik op het pictogram in systeemvak Hallo en op **implementatie gestart**.
+Als u de voortgang van uw implementatie wilt bekijken, klikt u op het meldingspictogram en vervolgens op **Implementatie gestart**.
 
 ![Implementatie gestart][cache-deployment-started]
 
-U kunt Hallo status van uw implementatie bekijken op Hallo **Microsoft.Template** blade.
+U kunt de status van uw implementatie bekijken op de blade **Microsoft.Template**.
 
-![TooAzure implementeren][cache-deploy-to-azure-step-3]
+![Implementeren in Azure][cache-deploy-to-azure-step-3]
 
-Bij het inrichten is voltooid, kunt u uw toepassing tooAzure vanuit Visual Studio kunt publiceren.
+Wanneer het inrichten is voltooid, kunt u uw toepassing in Azure publiceren vanuit Visual Studio.
 
 > [!NOTE]
-> Eventuele fouten die optreden tijdens het inrichtingsproces Hallo worden weergegeven op Hallo **Microsoft.Template** blade. Veelvoorkomende fouten zijn te veel SQL Servers of te veel gratis App Service-hostingplannen per abonnement. Los eventuele fouten en het Hallo-proces opnieuw starten door te klikken op **implementeren** op Hallo **Microsoft.Template** blade of Hallo **tooAzure implementeren** knop in deze zelfstudie.
+> Eventuele fouten die zich tijdens het inrichtingsproces voordoen, worden weergegeven op de blade **Microsoft.Template**. Veelvoorkomende fouten zijn te veel SQL Servers of te veel gratis App Service-hostingplannen per abonnement. Los eventuele fouten op en start het proces opnieuw door te klikken op **Opnieuw implementeren** op de blade **Microsoft.Template** of op de knop **Implementeren in Azure** in deze zelfstudie.
 > 
 > 
 
-## <a name="publish-hello-application-tooazure"></a>Hallo toepassing tooAzure publiceren
-In deze stap van de zelfstudie Hallo u Hallo toepassing tooAzure publiceren en deze in de cloud Hallo uitvoeren.
+## <a name="publish-the-application-to-azure"></a>De toepassing publiceren in Azure
+In deze stap van de zelfstudie publiceert u de toepassing in Azure en voert u deze uit in de cloud.
 
-1. Klik met de rechtermuisknop Hallo **ContosoTeamStats** in Visual Studio-project en kies **publiceren**.
+1. Klik in Visual Studio met de rechtermuisknop op het project **ContosoTeamStats** en kies **Publish**.
    
     ![Publiceren][cache-publish-app]
 2. Klik op **Microsoft Azure App Service**, kies **Bestaande selecteren** en klik op **Publiceren**.
    
     ![Publiceren][cache-publish-to-app-service]
-3. Selecteer Hallo abonnement dat u gebruikt wanneer Hallo resourcegroep die Hallo resources maken hello Azure-resources, uitbreiden, en selecteer Hallo Web-App gewenst. Als u Hallo gebruikt **implementeren tooAzure** knop de naam van uw Web-App met begint **webSite** gevolgd door een aantal extra tekens.
+3. Selecteer het abonnement dat u hebt gebruikt bij het maken van de Azure-resources, vouw de resourcegroep met de resources uit en selecteer de gewenste web-app. Als u de knop **Implementeren in Azure** hebt gebruikt, begint de naam van uw web-app met **webSite**, gevolgd door een aantal extra tekens.
    
     ![Web-app selecteren][cache-select-web-app]
-4. Klik op **OK** toobegin Hallo publicatieproces. Na enkele ogenblikken Hallo publicatieproces is voltooid en een browser wordt gestart met Hallo voorbeeldtoepassing wordt uitgevoerd. Als u een DNS-fout tijdens het valideren of publiceren en Hallo inrichtingsproces voor hello Azure-resources voor de toepassing hello is net is voltooid, wacht even en probeer het opnieuw.
+4. Klik op **OK** om het publicatieproces te starten. Na enkele ogenblikken wordt het publicatieproces voltooid. Er wordt een browservenster geopend waarin de voorbeeldtoepassing wordt uitgevoerd. Als er tijdens het valideren of publiceren een DNS-fout optreedt en het inrichtingsproces voor de Azure-resources voor de toepassing nog maar net is voltooid, wacht dan even en probeer het opnieuw.
    
     ![Cache toegevoegd][cache-added-to-application]
 
-Hallo beschrijft volgende tabel elke actiekoppeling in Hallo-voorbeeldtoepassing.
+De volgende tabel beschrijft elke actiekoppeling in de voorbeeldtoepassing.
 
 | Actie | Beschrijving |
 | --- | --- |
 | Create New |Een nieuw team maken |
-| Play Season |Speel een seizoen wedstrijden, update Hallo teamstatistieken bij en wis eventuele team gegevens uit Hallo cache verouderd. |
-| Clear Cache |Schakel Hallo teamstatistieken uit de cache Hallo. |
-| List from Cache |Haal de teamstatistieken Hallo uit Hallo-cache. Als er een cache ontbreekt, Hallo statistieken uit Hallo database laden en toohello cache opslaan voor later. |
-| Sorted Set from Cache |Haal de teamstatistieken Hallo uit Hallo-cache met behulp van een gesorteerde set. Als er een cache ontbreekt, Hallo statistieken uit Hallo database laden en toohello-cache met behulp van een gesorteerde set opslaan. |
-| Top 5 Teams from Cache |Top 5 teams Hallo ophalen uit Hallo-cache met behulp van een gesorteerde set. Als er een cache ontbreekt, Hallo statistieken uit Hallo database laden en toohello-cache met behulp van een gesorteerde set opslaan. |
-| Load from DB |Haal de teamstatistieken Hallo uit Hallo-database. |
-| Rebuild DB |Hallo-database opnieuw en laad deze opnieuw met voorbeeldgegevens van het team. |
+| Play Season |Speel een seizoen wedstrijden, werk de teamstatistieken bij en wis eventuele verouderde teamgegevens uit de cache. |
+| Clear Cache |Wis de teamstatistieken uit de cache. |
+| List from Cache |Haal de teamstatistieken op uit de cache. Als er een cache ontbreekt, moet u de statistieken uit de database laden en in de cache opslaan voor later gebruik. |
+| Sorted Set from Cache |Haal de teamstatistieken op uit de cache met behulp van een gesorteerde set. Als er een cache ontbreekt, moet u de statistieken uit de database laden en met behulp van een gesorteerde set opslaan in de cache. |
+| Top 5 Teams from Cache |Haal de beste vijf teams op uit de cache met behulp van een gesorteerde set. Als er een cache ontbreekt, moet u de statistieken uit de database laden en met behulp van een gesorteerde set opslaan in de cache. |
+| Load from DB |Haal de teamstatistieken op uit de database. |
+| Rebuild DB |Bouw de database opnieuw en laad deze opnieuw met voorbeeldgegevens van de teams. |
 | Edit/Details/Delete |Bewerk een team, geef details van een team weer en verwijder een team. |
 
-Klik op een aantal Hallo acties en Experimenteer met het Hallo-gegevens ophalen uit verschillende bronnen Hallo. Geen Hallo verschillen in Hallo duurt toocomplete Hallo verschillende manieren voor het Hallo-gegevens ophalen uit het Hallo-database en Hallo-cache.
+Klik op een aantal acties en experimenteer met het ophalen van de gegevens vanuit de verschillende bronnen. Let op de verschillen in de tijd die nodig is om de gegevens op de diverse manieren op te halen uit de database en de cache.
 
-## <a name="delete-hello-resources-when-you-are-finished-with-hello-application"></a>Hallo-resources verwijderen wanneer u klaar met de toepassing hello bent
-Wanneer u klaar met zelfstudie voorbeeldtoepassing hello bent, kunt u hello Azure verwijderen resources die worden gebruikt in de volgorde tooconserve kosten en resources. Als u Hallo **implementeren tooAzure** knop in Hallo [inrichten hello Azure-resources](#provision-the-azure-resources) sectie en al uw resources zijn opgenomen in Hallo dezelfde resourcegroep bevinden, kunt u ze verwijderen samen in één de bewerking is door het verwijderen van resourcegroep Hallo.
+## <a name="delete-the-resources-when-you-are-finished-with-the-application"></a>De resources verwijderen wanneer u klaar bent met de toepassing
+Wanneer u klaar bent met de voorbeeldtoepassing uit de zelfstudie, kunt u de Azure-resources die u hebt gebruikt, verwijderen om kosten en resources te besparen. Als u de knop **Implementeren in Azure** in de sectie [De Azure-resources inrichten](#provision-the-azure-resources) hebt gebruikt en alle resources zich in dezelfde resourcegroep bevinden, kunt u deze in één keer verwijderen door de resourcegroep te verwijderen.
 
-1. Meld u aan toohello [Azure-portal](https://portal.azure.com) en klik op **resourcegroepen**.
-2. Hallo-typenaam van de resourcegroep in Hallo **items filteren...**  textbox.
-3. Klik op **...**  toohello rechts van de resourcegroep.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+2. Typ de naam van de resourcegroep in het tekstvak **Items filteren...**.
+3. Klik op **...** aan de rechterkant van de resourcegroep.
 4. Klik op **Verwijderen**.
    
     ![Verwijderen][cache-delete-resource-group]
-5. Hallo-typenaam van uw resourcegroep en klik op **verwijderen**.
+5. Typ de naam van de resourcegroep en klik op **Verwijderen**.
    
     ![De verwijdering bevestigen][cache-delete-confirm]
 
-Na enkele ogenblikken Hallo resource groep en alle ingesloten bronnen verwijderd.
+Na enkele ogenblikken worden de resourcegroep en alle ingesloten bronnen verwijderd.
 
 > [!IMPORTANT]
-> Houd er rekening mee dat het verwijderen van een resourcegroep niet ongedaan worden gemaakt en Hallo resourcegroep en alle Hallo resources daarin permanent verwijderd. Zorg ervoor dat u niet per ongeluk Hallo verkeerde resourcegroep of resources verwijdert. Als u Hallo resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt, kunt u elke resource afzonderlijk verwijderen via hun respectievelijke blades.
+> Houd er rekening mee dat het verwijderen van een resourcegroep niet ongedaan kan worden gemaakt, en dat de resourcegroep en alle bijbehorende resources permanent worden verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt, kunt u elke resource afzonderlijk verwijderen via hun respectievelijke blades.
 > 
 > 
 
-## <a name="run-hello-sample-application-on-your-local-machine"></a>Hallo-voorbeeldtoepassing uitvoeren op uw lokale computer
-toorun hello toepassing lokaal op uw computer, moet u een Azure Redis-Cache-exemplaar in welke toocache uw gegevens. 
+## <a name="run-the-sample-application-on-your-local-machine"></a>De voorbeeldtoepassing uitvoeren op uw lokale computer
+Als u de toepassing lokaal wilt uitvoeren op uw computer, hebt u een exemplaar van Azure Redis-cache nodig waarin u de gegevens kunt opslaan. 
 
-* Als u kunt uw toepassing tooAzure hebt gepubliceerd, zoals beschreven in de vorige sectie hello, kunt u hello Azure Redis-Cache-exemplaar dat tijdens die stap is ingericht.
-* Als u een ander bestaand exemplaar van Azure Redis-Cache hebt, kunt u die toorun in dit voorbeeld lokaal.
-* Als u een Azure Redis-Cache-exemplaar toocreate moet, u kunt stappen Hallo in [een cache maken](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+* Als u uw toepassing in Azure hebt gepubliceerd, zoals beschreven in het vorige gedeelte, kunt u het exemplaar van Azure Redis-cache gebruiken dat tijdens die stap is ingericht.
+* Als u een ander bestaand exemplaar van Azure Redis-cache hebt, kunt u dit gebruiken om het voorbeeld lokaal uit te voeren.
+* Als u een exemplaar van Azure Redis-cache moet maken, kunt u de stappen volgen in [Een cache maken](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Zodra u hebt geselecteerd of gemaakt Hallo cache toouse, toohello cache in hello Azure-portal bladeren en ophalen van Hallo [hostnaam](cache-configure.md#properties) en [toegangssleutels](cache-configure.md#access-keys) voor uw cache. Zie [Redis-cache-instellingen configureren](cache-configure.md#configure-redis-cache-settings) voor instructies.
+Nadat u de cache die u wilt gebruiken, hebt geselecteerd of gemaakt, kunt u naar de cache in de Azure-portal bladeren en de [hostnaam](cache-configure.md#properties) en de [toegangssleutels](cache-configure.md#access-keys) voor uw cache ophalen. Zie [Redis-cache-instellingen configureren](cache-configure.md#configure-redis-cache-settings) voor instructies.
 
-1. Open Hallo `WebAppPlusCacheAppSecrets.config` -bestand dat u hebt gemaakt tijdens het Hallo [Hallo toepassing toouse Redis-Cache configureren](#configure-the-application-to-use-redis-cache) stap van deze zelfstudie met Hallo-editor van uw keuze.
-2. Hallo bewerken `value` kenmerk en vervang `MyCache.redis.cache.windows.net` Hello [hostnaam](cache-configure.md#properties) van de cache en Geef ofwel Hallo [primaire of secundaire sleutel](cache-configure.md#access-keys) van de cache als Hallo wachtwoord.
+1. Open het bestand `WebAppPlusCacheAppSecrets.config` dat u hebt gemaakt tijdens de stap [De toepassing configureren voor het gebruik van Redis-cache](#configure-the-application-to-use-redis-cache) in deze zelfstudie. Gebruik hiervoor een editor naar keuze.
+2. Bewerk het kenmerk `value` en vervang `MyCache.redis.cache.windows.net` door de [hostnaam](cache-configure.md#properties) van de cache. Geef vervolgens de [primaire of secundaire sleutel](cache-configure.md#access-keys) van uw cache op als wachtwoord.
 
     ```xml
     <appSettings>
@@ -813,26 +813,26 @@ Zodra u hebt geselecteerd of gemaakt Hallo cache toouse, toohello cache in hello
     ```
 
 
-1. Druk op **Ctrl + F5** toorun Hallo-toepassing.
+1. Druk op **Ctrl+F5** om de toepassing uit te voeren.
 
 > [!NOTE]
-> Let op: omdat Hallo toepassing, met inbegrip van Hallo-database lokaal wordt uitgevoerd en hello Redis-Cache wordt gehost in Azure, Hallo cache lijkt toounder-Hallo database uitvoeren. Voor de beste prestaties Hallo-clienttoepassing en Azure Redis-Cache-exemplaar moet Hallo dezelfde locatie. 
+> Houd er rekening mee dat de toepassing en de database lokaal worden uitgevoerd en dat de Redis-cache wordt gehost in Azure. Hierdoor kan het lijken alsof de cache minder goed presteert dan de database. Voor optimale prestaties moeten de clienttoepassing en het exemplaar van Azure Redis-cache zich op dezelfde locatie bevinden. 
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [aan de slag met ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) op Hallo [ASP.NET](http://asp.net/) site.
-* Zie voor meer voorbeelden van het maken van een ASP.NET-Web-App in App Service [maken en implementeren van een ASP.NET-web-app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) van Hallo [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/).
-  * Zie voor meer snelstartgidsen van Hallo HealthClinic.biz demo [Azure Developer Tools snelstartgidsen](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
-* Meer informatie over Hallo [Code eerste tooa nieuwe database](https://msdn.microsoft.com/data/jj193542) benaderen tooEntity Framework die wordt gebruikt in deze zelfstudie.
-* Meer informatie over [web-apps in Azure App Service](../app-service-web/app-service-web-overview.md).
-* Meer informatie over hoe te[monitor](cache-how-to-monitor.md) uw cache in hello Azure-portal.
+* Meer informatie over [hoe u aan de slag gaat met ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) vindt u op de website van [ASP.NET](http://asp.net/).
+* Zie [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Een ASP.NET-web-app maken en implementeren in Azure App Service) van de [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect[-demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) voor meer voorbeelden van het maken van een ASP.NET Web-App in de App Service.
+  * Voor meer introductiehandleidingen van de demo van HealthClinic.biz, verwijzen wij u naar [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+* Meer informatie over de Entity Framework-werkwijze [Code First voor een nieuwe database](https://msdn.microsoft.com/data/jj193542) die in deze zelfstudie wordt gebruikt.
+* Meer informatie over [web-apps in Azure App Service](../app-service/app-service-web-overview.md).
+* Meer informatie over het [controleren](cache-how-to-monitor.md) van uw cache in de Azure-portal.
 * De premiumfuncties van de Azure Redis-cache verkennen
   
-  * [Hoe tooconfigure persistentie voor een Premium Azure Redis-Cache](cache-how-to-premium-persistence.md)
-  * [Hoe tooconfigure clustering voor een Premium Azure Redis-Cache](cache-how-to-premium-clustering.md)
-  * [Hoe tooconfigure Virtual Network-ondersteuning voor een Premium Azure Redis-Cache](cache-how-to-premium-vnet.md)
-  * Zie Hallo [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) voor meer informatie over de grootte, doorvoer en bandbreedte van premiumcaches.
+  * [Persistentie configureren voor een Premium Azure Redis-cache](cache-how-to-premium-persistence.md)
+  * [Clustering configureren voor een Premium Azure Redis-cache](cache-how-to-premium-clustering.md)
+  * [Virtual Network-ondersteuning configureren voor een Premium Azure Redis-cache](cache-how-to-premium-vnet.md)
+  * Raadpleeg [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) (Veelgestelde vragen over Azure Redis-caches) voor meer informatie over de grootte, doorvoer en bandbreedte van premiumcaches.
 
 <!-- IMAGES -->
 [cache-starter-application]: ./media/cache-web-app-howto/cache-starter-application.png

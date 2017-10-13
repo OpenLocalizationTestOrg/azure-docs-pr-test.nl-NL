@@ -1,6 +1,6 @@
 ---
-title: bij de bezorging van continue foutopsporing op afstand aaaEnable | Microsoft Docs
-description: Meer informatie over hoe tooenable foutopsporing op afstand bij gebruik van doorlopende levering toodeploy tooAzure
+title: Foutopsporing op afstand met continue levering inschakelen | Microsoft Docs
+description: Meer informatie over het foutopsporing op afstand inschakelen wanneer u doorlopende levering implementeren naar Azure
 services: cloud-services
 documentationcenter: .net
 author: kraigb
@@ -14,44 +14,44 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.openlocfilehash: d9d9d1cfe5304c9526586a9164f172746a448e4e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7a8a853a93e3e9915f687a20c871444e6a0de50d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="enable-remote-debugging-when-using-continuous-delivery-toopublish-tooazure"></a>Foutopsporing op afstand inschakelen wanneer u doorlopende levering toopublish tooAzure
-U kunt foutopsporing op afstand inschakelen in Azure, voor cloudservices of virtuele machines, wanneer u [continue levering](cloud-services-dotnet-continuous-delivery.md) toopublish tooAzure met de volgende stappen.
+# <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>Schakel foutopsporing op afstand in bij het gebruik van onafgebroken levering om te publiceren op Azure
+U kunt foutopsporing op afstand inschakelen in Azure, voor cloudservices of virtuele machines, wanneer u [continue levering](cloud-services-dotnet-continuous-delivery.md) publiceren naar Azure met de volgende stappen.
 
 ## <a name="enabling-remote-debugging-for-cloud-services"></a>Foutopsporing op afstand voor cloudservices inschakelen
-1. Op Hallo build-agent, Hallo initiële omgeving instellen voor Azure zoals wordt beschreven in [Command-Line bouwen voor Azure](http://msdn.microsoft.com/library/hh535755.aspx).
-2. Omdat Hallo foutopsporing op afstand runtime (msvsmon.exe) vereist voor Hallo pakket is, installeert u Hallo **externe hulpprogramma's voor Visual Studio**.
+1. Op de agent build instellen van de eerste omgeving voor Azure zoals wordt beschreven in [Command-Line bouwen voor Azure](http://msdn.microsoft.com/library/hh535755.aspx).
+2. Omdat de foutopsporing op afstand-runtime (msvsmon.exe) vereist voor het pakket is, installeert de **externe hulpprogramma's voor Visual Studio**.
 
     * [Externe hulpprogramma's voor Visual Studio 2017](https://go.microsoft.com/fwlink/?LinkId=746570)
     * [Externe hulpprogramma's voor Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=615470)
     * [Externe hulpprogramma's voor Visual Studio 2013 Update 5](https://www.microsoft.com/download/details.aspx?id=48156)
     
-    U kunt als alternatief kunt Hallo foutopsporing op afstand binaire bestanden kopiëren van een systeem met Visual Studio is geïnstalleerd.
+    Als alternatief kunt kunt u de binaire bestanden voor foutopsporing op afstand kopiëren van een systeem met Visual Studio is geïnstalleerd.
 
-3. Een certificaat te maken, zoals wordt beschreven in [certificaten voor Azure Cloud Services-overzicht](cloud-services-certs-create.md). Hallo pfx en RDP-certificaatvingerafdruk houden en upload Hallo certificaat toohello target cloud-service.
-4. Gebruik Hallo volgend op opties in Hallo MSBuild opdrachtregel toobuild en het pakket met foutopsporing op afstand is ingeschakeld. (Vervangen door feitelijke paden tooyour systeem- en bestanden voor Hallo hoek tussen items.)
+3. Een certificaat te maken, zoals wordt beschreven in [certificaten voor Azure Cloud Services-overzicht](cloud-services-certs-create.md). Houd de pfx en het RDP-certificaatvingerafdruk en upload het certificaat naar de doel-cloudservice.
+4. Gebruik de volgende opties op de opdrachtregel MSBuild te verpakken met foutopsporing op afstand is ingeschakeld. (Vervangen door feitelijke paden naar uw systeem- en bestanden voor de hoek tussen items.)
    
-        msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of hello certificate added toohello cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path tooyour VS solution file>"
+        msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
    
-    `VSX64RemoteDebuggerPath`Hallo pad toohello map is waarin msvsmon.exe in Hallo externe hulpprogramma's voor Visual Studio.
-    `RemoteDebuggerConnectorVersion`hello Azure SDK-versie in uw cloudservice is. Het moet ook overeenkomen met de Hallo-versie is geïnstalleerd met Visual Studio.
-5. Hallo pakket- en cscfg-bestand dat wordt gegenereerd in de vorige stap Hallo met publiceren toohello target cloud-service.
-6. Hallo-certificaat (.pfx-bestand) toohello machine met Visual Studio met Azure SDK voor .NET geïnstalleerd importeren. Zorg ervoor dat tooimport toohello `CurrentUser\My` certificaatarchief, anders koppelen toohello foutopsporing in Visual Studio mislukt.
+    `VSX64RemoteDebuggerPath`het pad naar de map is waarin msvsmon.exe in de externe hulpprogramma's voor Visual Studio.
+    `RemoteDebuggerConnectorVersion`is de Azure SDK-versie in uw cloudservice. Het moet ook overeenkomen met de versie met Visual Studio is geïnstalleerd.
+5. Publiceren naar de doel-cloudservice met behulp van de pakket- en .cscfg-bestand gegenereerd in de vorige stap.
+6. Importeer het certificaat (.pfx-bestand) met de machine met Visual Studio met Azure SDK voor .NET is geïnstalleerd. Zorg ervoor dat voor het importeren naar de `CurrentUser\My` certificaatarchief, anders koppelen aan het foutopsporingsprogramma in Visual Studio zal mislukken.
 
 ## <a name="enabling-remote-debugging-for-virtual-machines"></a>Foutopsporing op afstand voor virtuele machines inschakelen
 1. Maak een virtuele machine van Azure. Zie [maken van een virtuele Machine met WindowsServer](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) of [maken en beheren van virtuele Machines in Visual Studio in Azure](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-2. Op Hallo [Azure classic portal-pagina](http://go.microsoft.com/fwlink/p/?LinkID=269851), Hallo virtuele machine dashboard toosee Hallo van virtuele machine weergeven **RDP CERTIFICAATVINGERAFDRUK**. Deze waarde wordt gebruikt voor Hallo `ServerThumbprint` waarde in de configuratie van Hallo-uitbreiding.
-3. Maken van een clientcertificaat, zoals wordt beschreven in [certificaten voor Azure Cloud Services-overzicht](cloud-services-certs-create.md) (Houd Hallo .pfx en certificaatvingerafdruk RDP).
-4. Azure Powershell installeren (versie 0.7.4 of hoger) zoals wordt beschreven in [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview).
-5. Hallo na scriptextensie tooenable hello RemoteDebug worden uitgevoerd. Hallo paden en persoonlijke gegevens vervangen door uw eigen, zoals de naam van abonnement, servicenaam en vingerafdruk.
+2. Op de [Azure classic portal-pagina](http://go.microsoft.com/fwlink/p/?LinkID=269851), dashboard van de virtuele machine om te zien van de virtuele machine weergeven **RDP CERTIFICAATVINGERAFDRUK**. Deze waarde wordt gebruikt voor de `ServerThumbprint` waarde in de configuratie voor de uitbreiding.
+3. Maken van een clientcertificaat, zoals wordt beschreven in [certificaten voor Azure Cloud Services-overzicht](cloud-services-certs-create.md) (Houd de pfx en het RDP-certificaatvingerafdruk).
+4. Azure Powershell installeren (versie 0.7.4 of hoger) zoals wordt beschreven in [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
+5. Voer het volgende script de RemoteDebug-uitbreiding in te schakelen. Vervang de paden en persoonlijke gegevens door uw eigen, zoals de naam van abonnement, servicenaam en vingerafdruk.
    
    > [!NOTE]
-   > Dit script is geconfigureerd voor Visual Studio 2015. Als u Visual Studio 2013 of Visual Studio 2017, wijzigt u Hallo `$referenceName` en `$extensionName` onderstaande toewijzingen te`RemoteDebugVS2013` of `RemoteDebugVS2017`.
+   > Dit script is geconfigureerd voor Visual Studio 2015. Als u Visual Studio 2013 of Visual Studio 2017, wijzigt u de `$referenceName` en `$extensionName` toewijzingen hieronder aan `RemoteDebugVS2013` of `RemoteDebugVS2017`.
 
     ```powershell   
     Add-AzureAccount
@@ -93,5 +93,5 @@ U kunt foutopsporing op afstand inschakelen in Azure, voor cloudservices of virt
     $vm | Update-AzureVM
     ```
 
-6. Hallo certificaat (.pfx) toohello machine importeren met Visual Studio met Azure SDK voor .NET is geïnstalleerd.
+6. Importeer het certificaat (.pfx) met de machine met Visual Studio met Azure SDK voor .NET is geïnstalleerd.
 

@@ -1,6 +1,6 @@
 ---
-title: Voorbeelden van catalogus met ontwikkelaars aaaData | Microsoft Docs
-description: In dit artikel biedt een overzicht van Hallo beschikbaar developer-voorbeelden voor Hallo REST-API van Data Catalog.
+title: Voorbeelden van gegevens catalogus developer | Microsoft Docs
+description: In dit artikel biedt een overzicht van de beschikbare developer steekproeven voor de REST-API van Data Catalog.
 services: data-catalog
 documentationcenter: 
 author: spelluru
@@ -15,28 +15,28 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/05/2017
 ms.author: spelluru
-ms.openlocfilehash: 11d87d15ee500c1b08e9d507db25626e40c1b98d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6ba88885805f1a206f01015f7eec5236da517403
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="data-catalog-developer-samples"></a>Voorbeelden van ontwikkelaars catalogus met gegevens
-Aan de slag met behulp van REST-API van Data Catalog Hallo Data Catalog-apps ontwikkelen. Hallo REST-API van Data Catalog is een op REST gebaseerde API die toegang op programmeerniveau tooData catalogus resources tooregister biedt en aantekeningen toevoegen aan gegevensassets programmatisch zoeken.
+Aan de slag met behulp van de REST-API van Data Catalog Data Catalog-apps ontwikkelen. REST-API van Data Catalog is een op REST gebaseerde API die programmatische toegang tot bronnen biedt te registreren, aantekeningen toevoegen aan en zoeken van gegevensassets programmatisch Data Catalog.
 
-Hier vindt u voorbeelden van Hallo we op GitHub hebben:
+Hier volgen de voorbeelden die we op GitHub hebben:
 
 * [Aan de slag met Azure Data Catalog](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-get-started/)
   
-  Een voorbeeld van een die laat zien u hoe tooauthenticate met Azure AD-tooRegister zoeken en verwijderen van een gegevensasset met Hallo REST-API van Data Catalog.
+  Een voorbeeld van een die laat zien hoe u verificatie met Azure AD om te registreren, zoeken en verwijderen van een gegevensasset met behulp van de REST-API van Data Catalog.
 * [Bulksgewijs registreren en aantekeningen toevoegen aan](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-excel-register-data-assets/)
   
-  Een voorbeeld waarin wordt getoond hoe toobulk gegevensassets uit een Excel-werkmap met behulp van REST-API van Data Catalog en Open XML-registreren.
+  Een voorbeeldtoepassing die u ziet u hoe bulksgewijs registreren activa uit een Excel-werkmap met behulp van REST-API van Data Catalog en Open XML-gegevens.
 * [Hulpprogramma voor importeren/exporteren](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-import-export/)
   
-  Een voorbeeldtoepassing die u ziet u hoe toouse Hallo REST-API van Data Catalog toofetch activa van Azure Data Catalog hello en in een bestand worden geserialiseerd. U ziet ook hoe tootake een set voorzieningen geserialiseerd als JSON en toepassen in Hallo-catalogus. Het ondersteunt een subset van Hallo catalogus met behulp van een zoekopdracht exporteren.
+  Een voorbeeld waarin wordt uitgelegd hoe de REST-API van Data Catalog gebruiken om te activa ophalen van de Azure Data Catalog en ze naar een bestand te serialiseren. U ziet ook een set voorzieningen geserialiseerd als JSON maken en toepassen in de catalogus. Het ondersteunt een subset van de catalogus met behulp van een zoekopdracht exporteren.
 
 * [Termen in bulk importeren](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
 
-    Dit voorbeeld ziet u hoe tooimport verklarende woordenlijst van CSV-bestanden tooADC verklarende woordenlijst termen.
+    Dit voorbeeld laat zien hoe u termen in de importeren uit CSV-bestanden in ADC verklarende woordenlijst.
 

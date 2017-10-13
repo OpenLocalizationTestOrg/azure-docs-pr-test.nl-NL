@@ -1,8 +1,8 @@
 ---
-title: aaaAzure documentatie van Analysis Services - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe tooset up gegevensmodellering met Analysis Services in Hallo cloud. Documentatie ziet u hoe toocreate een enterprise-BI-oplossing met behulp van tabelgegevens.
+title: Documentatie voor Azure Analysis Services - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over het instellen van gegevensmodellering met Analysis Services in de cloud. Documentatie laat zien hoe u een zakelijke BI-oplossing maakt met behulp van tabelgegevens.
 services: analysis-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 077b13f9eb6eea87b96833452382b8e019f09a6f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3f66f61651aab5f1cf0850cdbbd069b0a9a65543
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analysis-services-documentation"></a>Documentatie voor Analysis Services
 
-Meer informatie over hoe tooset en beheren van gegevens modelleren met Analysis Services. Zelfstudies en andere documentatie die laten zien hoe u toocreate een bedrijfsniveau BI-oplossing met behulp van tabellaire gegevens in Hallo cloud of on-premises.
+Meer informatie over het instellen en beheren van gegevensmodellering met Analysis Services. Zelfstudies en andere documentatie laten zien hoe u met tabelgegevens in de cloud of on-premises een zakelijke BI-oplossing op bedrijfsniveau maakt.
 
 <ul class="panelContent cardsFTitle">
     <li>

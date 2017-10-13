@@ -1,6 +1,6 @@
 ---
-title: aaaHow tooquery tabelgegevens in Azure Cosmos DB? | Microsoft Docs
-description: Meer informatie over tooquery tabelgegevens in Azure Cosmos-DB
+title: Hoe kan ik een query over tabelgegevens in Azure Cosmos DB? | Microsoft Docs
+description: Informatie over het query-tabelgegevens in Azure Cosmos-DB
 services: cosmos-db
 documentationcenter: 
 author: kanshiG
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: govindk
-ms.openlocfilehash: 32526c3488c589c5be3a4a2f174aa769570f0c0e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="azure-cosmos-db-how-tooquery-table-data-by-using-hello-table-api-preview"></a>Azure Cosmos DB: Hoe gegevens in een tabel met behulp van tooquery Hallo tabel-API (preview)?
+# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Azure Cosmos DB: Hoe een query over tabelgegevens met behulp van de tabel-API (preview)?
 
-Hello Azure Cosmos DB [tabel API](table-introduction.md) (preview) biedt ondersteuning voor OData en [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) een query uitgevoerd op gegevens van de sleutelwaarde (tabel).  
+De Azure DB die Cosmos [tabel API](table-introduction.md) (preview) biedt ondersteuning voor OData en [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) een query uitgevoerd op gegevens van de sleutelwaarde (tabel).  
 
-Dit artikel behandelt Hallo taken te volgen: 
+In dit artikel bevat informatie over de volgende taken: 
 
 > [!div class="checklist"]
-> * Een query met Hallo tabel-API
+> * Een query met de tabel-API
 
-Hallo query's in dit artikel gebruiken Hallo voorbeeld te volgen `People` tabel:
+De query's in dit artikel gebruik het volgende voorbeeld `People` tabel:
 
 | PartitionKey | RowKey | E-mail | Telefoonnummer |
 | --- | --- | --- | --- |
@@ -38,16 +38,16 @@ Hallo query's in dit artikel gebruiken Hallo voorbeeld te volgen `People` tabel:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-Omdat Azure Cosmos DB compatibel met hello Azure Table storage-API's is, Zie [opvragen van tabellen en entiteiten] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) voor meer informatie over hoe tooquery met behulp van Hallo Tabel-API. 
+Omdat Azure Cosmos DB compatibel met de Azure Table storage-API's is, Zie [opvragen van tabellen en entiteiten] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) voor meer informatie over de query met behulp van de tabel API. 
 
-Zie voor meer informatie over Hallo premium mogelijkheden die Azure Cosmos DB biedt [Azure Cosmos DB: tabel API](table-introduction.md) en [ontwikkelen met Hallo tabel API in .NET](tutorial-develop-table-dotnet.md). 
+Zie voor meer informatie over de premium-mogelijkheden die Azure Cosmos DB biedt [Azure Cosmos DB: tabel API](table-introduction.md) en [ontwikkelen met de API van de tabel in .NET](tutorial-develop-table-dotnet.md). 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze toowork query's moet u een Azure DB die Cosmos-account hebt en entiteitsgegevens in Hallo container hebt. Geen van deze? Volledige Hallo [vijf minuten Quick Start](https://aka.ms/acdbtnetqs) of Hallo [developer-zelfstudie](https://aka.ms/acdbtabletut) toocreate een account en vul uw database.
+Voor deze query's werken, moet u een Azure DB die Cosmos-account hebt en entiteitsgegevens in de container hebt. Geen van deze? Voltooi de [vijf minuten Quick Start](https://aka.ms/acdbtnetqs) of de [developer-zelfstudie](https://aka.ms/acdbtabletut) voor het maken van een account en vul uw database.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Query op PartitionKey en RowKey
-Omdat Hallo PartitionKey en RowKey eigenschappen primaire sleutel van een entiteit vormen, kunt u Hallo speciale syntaxis tooidentify Hallo entiteit te volgen: 
+Omdat de eigenschappen PartitionKey en RowKey primaire sleutel van een entiteit vormen, kunt u de volgende specifieke syntaxis voor het identificeren van de entiteit: 
 
 **Query**
 
@@ -60,17 +60,17 @@ https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0104 |
 
-U kunt deze eigenschappen ook opgeven als onderdeel van Hallo `$filter` optie, zoals wordt weergegeven in de volgende sectie Hallo. Houd er rekening mee dat Hallo sleuteleigenschap namen en constante waarden hoofdlettergevoelig zijn. Hallo PartitionKey zowel RowKey eigenschappen zijn van het type String. 
+U kunt deze eigenschappen ook opgeven als onderdeel van de `$filter` optie, zoals wordt weergegeven in de volgende sectie. Houd er rekening mee dat de namen van de sleuteleigenschap en constante waarden hoofdlettergevoelig zijn. De PartitionKey en de RowKey eigenschappen zijn van het type String. 
 
 ## <a name="query-by-using-an-odata-filter"></a>Query uitvoeren met behulp van een OData-filter
 Wanneer u een filtertekenreeks construeren bent, houd er rekening mee deze regels: 
 
-* Hallo logische operators gedefinieerd door Hallo OData Protocol Specification toocompare een eigenschapswaarde tooa gebruiken. Houd er rekening mee dat u een dynamische waarde van eigenschap tooa kan niet worden vergeleken. Een-zijde van Hallo-expressie moet een constante zijn. 
-* naam van de eigenschap Hello, operator en constante waarde moeten worden gescheiden door spaties URL-codering. Een spatie is het URL-codering als `%20`. 
-* Alle onderdelen van de filtertekenreeks Hallo zijn hoofdlettergevoelig. 
-* Hallo constante waarde moet van het Hallo hetzelfde gegevenstype als de eigenschap hello om Hallo filter tooreturn geldige resultaten. Zie voor meer informatie over ondersteunde eigenschaptypen [Understanding Hallo Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). 
+* De logische operators gedefinieerd door de specificatie van de OData-Protocol gebruiken om te vergelijken van een eigenschap een waarde. Houd er rekening mee dat u een eigenschap aan een dynamische waarde kan niet worden vergeleken. Een-zijde van de expressie moet een constante zijn. 
+* De eigenschapsnaam, een operator en een constante waarde moeten worden gescheiden door spaties URL-codering. Een spatie is het URL-codering als `%20`. 
+* Alle onderdelen van de filtertekenreeks zijn hoofdlettergevoelig. 
+* De constante waarde moet van hetzelfde gegevenstype als de eigenschap om het filter geldige resultaten retourneren. Zie voor meer informatie over ondersteunde eigenschaptypen [inzicht in de tabel Service Data Model](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). 
 
-Hier volgt een voorbeeldquery die laat zien hoe toofilter door PartitionKey Hallo en e-eigenschappen met behulp van een OData `$filter`.
+Hier volgt een voorbeeldquery die laat hoe u de eigenschappen PartitionKey en e-mail filteren zien met behulp van een OData `$filter`.
 
 **Query**
 
@@ -78,7 +78,7 @@ Hier volgt een voorbeeldquery die laat zien hoe toofilter door PartitionKey Hall
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-Zie voor meer informatie over hoe tooconstruct Filterexpressies voor verschillende soorten gegevens, [opvragen van tabellen en entiteiten](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
+Zie voor meer informatie over het samenstellen van Filterexpressies voor verschillende soorten gegevens [opvragen van tabellen en entiteiten](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
 
 **Resultaten**
 
@@ -87,7 +87,7 @@ Zie voor meer informatie over hoe tooconstruct Filterexpressies voor verschillen
 | Ben |Smith | Ben@contoso.com| 425-555-0102 |
 
 ## <a name="query-by-using-linq"></a>Query uitvoeren met behulp van LINQ 
-U kunt ook een query met behulp van LINQ, die toohello bijbehorende de OData-query-expressies omzet. Hier volgt een voorbeeld van hoe toobuild query's met .NET SDK Hallo:
+U kunt ook een query met behulp van LINQ, die wordt vertaald naar de bijbehorende OData-query-expressies. Hier volgt een voorbeeld van hoe u query's opbouwen met behulp van de .NET SDK:
 
 ```csharp
 CloudTableClient tableClient = account.CreateCloudTableClient();
@@ -106,12 +106,12 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u Hallo volgende gedaan:
+In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * Hebt u geleerd hoe tooquery met behulp van Hallo tabel-API (preview) 
+> * Hebt geleerd hoe u een query met behulp van de tabel-API (preview) 
 
-U kunt nu de volgende zelfstudie toolearn toohello hoe doorgaan toodistribute uw gegevens globaal.
+U kunt nu doorgaan met de volgende zelfstudie voor informatie over het distribueren van uw gegevens globaal.
 
 > [!div class="nextstepaction"]
 > [Uw gegevens globaal distribueren](tutorial-global-distribution-documentdb.md)

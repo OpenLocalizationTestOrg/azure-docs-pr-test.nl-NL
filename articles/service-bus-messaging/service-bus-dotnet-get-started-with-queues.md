@@ -1,5 +1,5 @@
 ---
-title: aaaGet de slag met Azure Service Bus-wachtrijen | Microsoft Docs
+title: Aan de slag met Azure Service Bus-wachtrijen | Microsoft Docs
 description: Een C#-consoletoepassing schrijven voor Service Bus Messaging-wachtrijen.
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/26/2017
 ms.author: sethm
-ms.openlocfilehash: eaa362ab0eabd2427977398c1deab5dc00105ae9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>Aan de slag met Service Bus-wachtrijen
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 ## <a name="what-will-be-accomplished"></a>Wat wordt bereikt
-Deze zelfstudie behandelt Hallo stappen te volgen:
+Deze zelfstudie bestaat uit de volgende stappen:
 
-1. Maken van een Service Bus-naamruimte met behulp van hello Azure-portal.
-2. Maken van een Service Bus-wachtrij met hello Azure-portal.
-3. Een toepassing console toosend een bericht geschreven.
-4. Een console toepassing tooreceive Hallo verzonden berichten in de vorige stap Hallo schrijven.
+1. Een Service Bus-naamruimte maken met de Azure-portal.
+2. Een Service Bus-wachtrij maken met de Azure-portal.
+3. Een consoletoepassing schrijven om een bericht te verzenden.
+4. Een consoletoepassing schrijven om de berichten te ontvangen die in de vorige stap werden verzonden.
 
 ## <a name="prerequisites"></a>Vereisten
-1. [Visual Studio 2015 of hoger](http://www.visualstudio.com). Hallo-voorbeelden in deze zelfstudie gebruikt Visual Studio 2017.
+1. [Visual Studio 2015 of hoger](http://www.visualstudio.com). In de voorbeelden in deze zelfstudie wordt Visual Studio 2017 gebruikt.
 2. Een Azure-abonnement.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-hello-azure-portal"></a>1. Maken van een naamruimte met behulp van hello Azure-portal
-Als u al een Service Bus-berichtenservice naamruimte hebt gemaakt, gaan toohello [maken van een wachtrij met hello Azure-portal](#2-create-a-queue-using-the-azure-portal) sectie.
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Een naamruimte maken met de Azure-portal
+Als u al een Service Bus Messaging-naamruimte hebt gemaakt, gaat u naar het gedeelte [Een wachtrij maken met de Azure-portal](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-queue-using-hello-azure-portal"></a>2. Maken van een wachtrij met hello Azure-portal
-Als u een Service Bus-wachtrij al hebt gemaakt, gaan toohello [verzendwachtrij berichten toohello](#3-send-messages-to-the-queue) sectie.
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Een wachtrij maken met de Azure-portal
+Als u al een Service Bus-wachtrij hebt gemaakt, gaat u naar het gedeelte [Berichten naar de wachtrij verzenden](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3-send-messages-toohello-queue"></a>3. Berichten toohello wachtrij verzenden
-toosend berichten toohello wachtrij schrijven we een C#-consoletoepassing met Visual Studio.
+## <a name="3-send-messages-to-the-queue"></a>3. Berichten naar de wachtrij verzenden
+We maken een C#-consoletoepassing met Visual Studio om berichten naar de wachtrij te verzenden.
 
 ### <a name="create-a-console-application"></a>Een consoletoepassing maken
 
 Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
 
-### <a name="add-hello-service-bus-nuget-package"></a>Hallo Service Bus NuGet-pakket toevoegen
-1. Met de rechtermuisknop op Hallo van een nieuw gemaakt project en selecteer **NuGet-pakketten beheren**.
-2. Klik op Hallo **Bladeren** tabblad, zoeken naar **Microsoft Azure Service Bus**, en selecteer vervolgens Hallo **WindowsAzure.ServiceBus** item. Klik op **installeren** toocomplete Hallo installatie en sluit vervolgens dit dialoogvenster.
+### <a name="add-the-service-bus-nuget-package"></a>Het Service Bus NuGet-pakket toevoegen
+1. Klik met de rechtermuisknop op het nieuwe project en selecteer **NuGet-pakketten beheren**.
+2. Klik op het tabblad **Bladeren**, zoek naar **Microsoft Azure Service Bus** en selecteer het item **WindowsAzure.ServiceBus**. Klik op **Installeren** om de installatie te voltooien en sluit vervolgens dit dialoogvenster.
    
     ![Een NuGet-pakket selecteren][nuget-pkg]
 
-### <a name="write-some-code-toosend-a-message-toohello-queue"></a>Sommige toosend code een toohello berichtenwachtrij schrijven
-1. Voeg de volgende Hallo `using` instructie toohello boven aan het bestand Program.cs Hallo.
+### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Code schrijven om een bericht naar de wachtrij te verzenden
+1. Voeg boven in het bestand Program.cs de volgende `using`-instructie toe.
    
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-2. Hallo na code toohello toevoegen `Main` methode. Set Hallo `connectionString` variabele toohello verbinding tekenreeks die u hebt verkregen tijdens het Hallo-naamruimte maken en stel `queueName` toohello wachtrijnaam die u hebt gebruikt bij het maken van Hallo wachtrij.
+2. Voeg de volgende code toe aan de methode `Main`. Stel de variabele `connectionString` in als de verbindingstekenreeks die is verkregen tijdens het maken van de naamruimte en stel `queueName` in als de wachtrijnaam die u hebt gebruikt bij het maken van de wachtrij.
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -79,7 +79,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
 
     client.Send(message);
 
-    Console.WriteLine("Message successfully sent! Press ENTER tooexit program");
+    Console.WriteLine("Message successfully sent! Press ENTER to exit program");
     Console.ReadLine();
     ```
    
@@ -109,25 +109,25 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
 
                 client.Send(message);
 
-                Console.WriteLine("Message successfully sent! Press ENTER tooexit program");
+                Console.WriteLine("Message successfully sent! Press ENTER to exit program");
                 Console.ReadLine();
             }
         }
     }
     ```
-3. Hallo-programma uitvoeren en controleren van hello Azure-portal: klik op Hallo-naam van uw wachtrij in de naamruimte Hallo **overzicht** blade. Hallo wachtrij **Essentials** blade wordt weergegeven. U ziet dat Hallo **bericht-aantal actieve** waarde moet 1 nu. Telkens wanneer die u de afzender-toepassing hello uitvoert zonder het Hallo-berichten bij het ophalen van deze waarde met 1 wordt verhoogd. Opmerking dat Hallo huidige grootte van de wachtrij Hallo stappen, elke keer Hallo-app wordt ook een berichtenwachtrij toohello toegevoegd.
+3. Voer het programma uit en controleer de Azure-portal: klik op de naam van uw wachtrij in de blade **Overzicht** voor de naamruimte. De blade **Essentials** voor de wachtrij wordt weergegeven. De waarde voor **Aantal actieve berichten** moet nu 1 zijn. Telkens wanneer u de zendtoepassing uitvoert zonder de berichten op te halen, wordt deze waarde verhoogd met 1. U zult ook zien dat de huidige grootte van de wachtrij toeneemt telkens wanneer de app een bericht aan de wachtrij toevoegt.
    
       ![Berichtgrootte][queue-message]
 
-## <a name="4-receive-messages-from-hello-queue"></a>4. Berichten ontvangen uit de wachtrij Hallo
+## <a name="4-receive-messages-from-the-queue"></a>4. Berichten ontvangen uit de wachtrij
 
-1. tooreceive hello berichten die u zojuist hebt verzonden, een nieuwe consoletoepassing maken en toevoegen van een verwijzing toohello Service Bus NuGet-pakket, vergelijkbare toohello vorige afzender-toepassing.
-2. Voeg de volgende Hallo `using` instructie toohello boven aan het bestand Program.cs Hallo.
+1. Als u berichten wilt ontvangen die u zojuist hebt verzonden, maakt u een nieuwe consoletoepassing en voegt u een verwijzing toe naar het Service Bus-pakket NuGet, zoals ook met de voorgaande verzendtoepassing is gedaan.
+2. Voeg boven in het bestand Program.cs de volgende `using`-instructie toe.
    
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Hallo na code toohello toevoegen `Main` methode. Set Hallo `connectionString` variabele toohello verbindingsreeks die is verkregen tijdens het Hallo-naamruimte maken en stellen `queueName` toohello wachtrijnaam die u hebt gebruikt bij het maken van Hallo wachtrij.
+3. Voeg de volgende code toe aan de methode `Main`. Stel de variabele `connectionString` in als de verbindingstekenreeks die is verkregen tijdens het maken van de naamruimte en stel `queueName` in als de wachtrijnaam die u hebt gebruikt bij het maken van de wachtrij.
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -141,7 +141,7 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
       Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
     });
    
-    Console.WriteLine("Press ENTER tooexit program");
+    Console.WriteLine("Press ENTER to exit program");
     Console.ReadLine();
     ```
    
@@ -168,13 +168,13 @@ Start Visual Studio en maak een nieuwe **consoletoepassing (.NET Framework)**.
             Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
           });
 
-          Console.WriteLine("Press ENTER tooexit program");   
+          Console.WriteLine("Press ENTER to exit program");   
           Console.ReadLine();
         }
       }
     }
     ```
-4. Hallo-programma uitvoeren, en Hallo portal opnieuw controleren. U ziet dat Hallo **bericht-aantal actieve** en **huidige** waarden zijn nu 0.
+4. Voer het programma uit en controleer de portal opnieuw. De waarden voor **Aantal actieve berichten** en **Huidige** moeten nu 0 zijn.
    
     ![Wachtrijlengte][queue-message-receive]
 
@@ -182,7 +182,7 @@ Gefeliciteerd. U hebt nu een wachtrij gemaakt, een bericht verzonden en een beri
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk onze [GitHub-opslagplaats met voorbeelden](https://github.com/Azure/azure-service-bus/tree/master/samples) die illustratie van Hallo meer geavanceerde functies van Service Bus-berichtenservice.
+Bekijk onze [GitHub-opslagplaats met voorbeelden](https://github.com/Azure/azure-service-bus/tree/master/samples) die enkele van de meer geavanceerde functies van Service Bus Messaging laten zien.
 
 <!--Image references-->
 

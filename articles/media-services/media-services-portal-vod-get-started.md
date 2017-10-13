@@ -1,6 +1,6 @@
 ---
-title: aaaGet gestart met het leveren van VoD hello Azure-portal met | Microsoft Docs
-description: Deze zelfstudie leert u Hallo van een basic Video-on-Demand (VoD) leveren van inhoud service implementeren met Azure Media Services (AMS)-toepassing hello Azure-portal gebruiken.
+title: Aan de slag met het leveren van video on demand met Azure Portal | Microsoft Docs
+description: In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van video on demand-inhoud met een Azure Media Services-toepassing via Azure Portal.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,156 +14,145 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 5c1c1b1f74ec1f1301120fe8e5a5ae183fe0338f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: fb981f3240799c924464c828b2c835ac5d9879ed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-hello-azure-portal"></a>Aan de slag met het leveren van inhoud on demand met hello Azure-portal
+# <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Aan de slag met het leveren van inhoud op aanvraag via Azure Portal
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-Deze zelfstudie leert u Hallo van een basic Video-on-Demand (VoD) leveren van inhoud service implementeren met Azure Media Services (AMS)-toepassing hello Azure-portal gebruiken.
+In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van video on demand-inhoud met een Azure Media Services-toepassing via Azure Portal.
 
 ## <a name="prerequisites"></a>Vereisten
-Hallo volgen vereist toocomplete Hallo-zelfstudie:
+Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 
 * Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
-* Een Media Services-account. een Media Services-account toocreate Zie [hoe tooCreate een Media Services-Account](media-services-portal-create-account.md).
+* Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
 
-Deze zelfstudie bevat Hallo taken te volgen:
+Deze zelfstudie bevat de volgende taken:
 
-1. Streaming-eindpunt starten.
+1. Het streaming-eindpunt starten.
 2. Een videobestand uploaden.
-3. Hallo-bronbestand coderen in een set adaptive bitrate MP4-bestanden.
-4. Hallo asset publiceren en get streamen en progressief downloaden van URL's.  
+3. Het bronbestand coderen in een set Adaptive Bitrate MP4-bestanden.
+4. De asset publiceren en URL's voor streamen en progressief downloaden ophalen.  
 5. Uw inhoud afspelen.
 
-## <a name="start-streaming-endpoints"></a>Streaming-eindpunten starten 
+## <a name="start-the-streaming-endpoint"></a>Het streaming-eindpunt starten
 
-Als u werkt met Azure Media Services is een van de meest voorkomende scenario's Hallo leveren van video via adaptive bitrate streaming. Media Services biedt dynamische pakketten zodat u toodeliver uw adaptive bitrate MP4-inhoud in de streaming-indelingen die worden ondersteund door Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, zonder dat u vooraf verpakte toostore hoeft versies van elk van deze streaming-indelingen.
+Bij het werken met Azure Media Services wordt video meestal via Adaptive Bitrate Streaming geleverd. Media Services biedt dynamische pakketten. Met dynamische pakketten kunt u uw Adaptive Bitrate MP4-inhoud leveren in Just-In-Time-streaming-indelingen die worden ondersteund door Media Services. Voorbeelden zijn HTTP Live Streaming (HLS) van Apple, Smooth Streaming van Microsoft en Dynamic Adaptive Streaming via HTTP (DASH, ook wel MPEG-DASH genoemd). Met behulp van Adaptive Bitrate Streaming van Media Services, kunt u uw video's leveren zonder voorverpakte versies van elk van deze streaming-indelingen op te slaan.
 
->[!NOTE]
->Wanneer uw AMS-account wordt gemaakt een **standaard** tooyour account streaming-eindpunt is toegevoegd in Hallo **gestopt** status. uw inhoud en los het voordeel van dynamische pakketten en dynamische versleuteling streaming toostart Hallo streaming-eindpunt van waaruit u wilt toostream inhoud heeft toobe in Hallo **met** status. 
+> [!NOTE]
+> Wanneer u een Media Services-account maakt, wordt er een standaardstreaming-eindpunt met de status **Gestopt** aan uw account toegevoegd. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
 
-toostart Hallo streaming-eindpunt, Hallo te volgen:
+Het streaming-eindpunt starten:
 
-1. Aanmelden op Hallo [Azure-portal](https://portal.azure.com/).
-2. Klik in het venster Instellingen Hallo, Streaming-eindpunten. 
-3. Klik op Hallo standaardstreaming-eindpunt. 
-
-    Hallo DEFAULT STREAMING ENDPOINT DETAILS venster wordt weergegeven.
-
-4. Klik op Hallo Start pictogram.
-5. Klik op Hallo opslaan knop toosave uw wijzigingen.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+2. Selecteer **Instellingen** > **Streaming-eindpunten**. 
+3. Selecteert het standaardstreaming-eindpunt. Het venster **DEFAULT STREAMING ENDPOINT DETAILS** (DETAILS VAN STANDAARDSTREAMING-EINDPUNT) wordt weergegeven.
+4. Selecteer het pictogram **Start**.
+5. Selecteer de knop **Opslaan**.
 
 ## <a name="upload-files"></a>Bestanden uploaden
-toostream video's met Azure Media Services, moet u tooupload Hallo bron video's, ze coderen in meerdere bitsnelheden en Hallo resultaat publiceren. Hallo eerste stap wordt in deze sectie beschreven. 
+Als u video's wilt streamen met Media Services, moet u de bronvideo's uploaden, ze coderen in meerdere bitsnelheden en vervolgens het resultaat publiceren. De eerste stap wordt in deze sectie beschreven. 
 
-1. In Hallo **instelling** venster, klikt u op **activa**.
+1. Selecteer uw Azure Media Services-account in [Azure Portal](https://portal.azure.com/).
+2. Selecteer **Instellingen** > **Assets**. Selecteer de knop **Uploaden**.
    
     ![Bestanden uploaden](./media/media-services-portal-vod-get-started/media-services-upload.png)
-2. Klik op Hallo **uploaden** knop.
    
-    Hallo **videoasset uploaden** venster wordt weergegeven.
+    Het venster **Videoasset uploaden** wordt weergegeven.
    
    > [!NOTE]
-   > Er geldt geen beperking voor de bestandsgrootte.
+   > Media Services heeft geen maximale bestandsgrootte voor het uploaden van video's.
    > 
    > 
-3. Blader toohello gewenste video op uw computer, selecteert u deze en klik op OK.  
+3. Ga op uw computer naar de video die u wilt uploaden. Selecteer de video en selecteer vervolgens **OK**.  
    
-    Hallo uploaden wordt gestart en u kunt de voortgang Hallo onder Hallo bestandsnaam bekijken.  
+    Het uploaden wordt gestart. U kunt de voortgang onder de bestandsnaam bekijken.  
 
-Nadat het Hallo uploaden is voltooid, ziet u Hallo nieuwe asset weergegeven in Hallo **activa** venster. 
+Wanneer het uploaden is voltooid, wordt de nieuwe asset in het deelvenster **Assets** weergegeven. 
 
 ## <a name="encode-assets"></a>Assets coderen
+U moet het bronbestand coderen in een set multi-bitrate MP4-bestanden om van dynamische pakketten gebruik te maken. De coderingsstappen worden in deze sectie uitgelegd.
 
-Als u werkt met Azure Media Services is een van de meest voorkomende scenario's Hallo adaptive bitrate streaming tooyour clients leveren. Media Services ondersteunt de volgende adaptive bitrate streaming-technologieën Hallo: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH. tooprepare uw video's voor adaptive bitrate streaming, moet u tooencode de bron-video in multi-bitrate-bestanden. Moet u Hallo **Media Encoder Standard** encoder tooencode uw video's.  
+### <a name="encode-assets-in-the-portal"></a>Assets in de portal coderen
+Uw inhoud coderen met behulp van Media Encoder Standard in Azure Portal:
 
-Media Services biedt ook dynamische pakketten zodat u toodeliver uw multi-bitrate MP4s in de volgende streaming-indelingen Hallo: MPEG DASH, HLS, Smooth Streaming, zonder dat u toorepackage in een van deze streaming-indelingen hoeft. Met dynamische pakketten hoeft u alleen toostore en betalen voor Hallo-bestanden in één opslagindeling en Media Services bouwt en Hallo juiste reactie op basis van aanvragen van een client fungeert.
-
-tootake profiteren van dynamische pakketten hoeft u tooencode uw bronbestand in een set multi-bitrate MP4-bestanden (Hallo coderingsstappen worden uitgelegd later in deze sectie).
-
-### <a name="toouse-hello-portal-tooencode"></a>toouse hello portal tooencode
-Deze sectie beschrijft Hallo mogelijke stappen tooencode uw inhoud met Media Encoder Standard.
-
-1. In Hallo **instellingen** Selecteer **activa**.  
-2. In Hallo **activa** venster, selecteer Hallo asset dat u tooencode wilt.
-3. Druk op Hallo **coderen** knop.
-4. In Hallo **een asset coderen** venster, selecteer Hallo 'Media Encoder Standard' processor en een standaardinstelling. Zie [automatisch een bitrate ladder genereren](media-services-autogen-bitrate-ladder-with-mes.md) en [Standaardinstellingen voor taken in MES](media-services-mes-presets-overview.md) voor informatie over standaardinstellingen. Als u van plan toocontrol welke codering definitie wordt gebruikt bent, houd hiermee rekening: het is belangrijk tooselect Hallo voorinstelling die het meest geschikt is voor uw invoervideo. Bijvoorbeeld, als u weet dat uw invoervideo een resolutie van 1920 x 1080 pixels heeft, kan u Hallo ' standaardinstelling H264 Multiple Bitrate 1080p ' vooraf ingestelde. Als u een video met een lage resolutie (640 x 360) hebt, gebruikt u niet de standaardinstelling H264 Multiple Bitrate 1080p.
+1. Selecteer uw Azure Media Services-account in [Azure Portal](https://portal.azure.com/).
+2. Selecteer **Instellingen** > **Assets**. Selecteer de asset die u wilt coderen.
+3. Selecteer de knop **Coderen**.
+4. Selecteer in het deelvenster **Een asset coderen** de processor **Media Encoder Standard** en een standaardinstelling. Zie [automatisch een bitrate ladder genereren](media-services-autogen-bitrate-ladder-with-mes.md) en [Standaardinstellingen voor taken in Media Encoder Standard](media-services-mes-presets-overview.md) voor informatie over standaardinstellingen. Het is belangrijk om de standaardinstelling te kiezen die het meest geschikt is voor uw invoervideo. Als u bijvoorbeeld weet dat uw invoervideo een resolutie van 1920 x 1080 pixels heeft, kunt u de standaardinstelling **H264 Multiple Bitrate 1080p** gebruiken. Als u een video met lage resolutie hebt (640 x 360), kunt u beter niet de standaardinstelling **H264 Multiple Bitrate 1080p** gebruiken.
    
-   Voor eenvoudiger beheer hebt u een optie bewerken Hallo-naam van de uitvoerasset hello en Hallo-naam van Hallo-taak.
+   U kunt de naam van de uitvoerasset en de naam van de taak bewerken, zodat u uw resources beter kunt beheren.
    
    ![Assets coderen](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Kies **Maken**.
+5. Selecteer **Maken**.
 
 ### <a name="monitor-encoding-job-progress"></a>De voortgang van het codering van de taak bewaken
-toomonitor hello voortgang van Hallo codering van de taak, klikt u op **instellingen** (bovenaan Hallo Hallo pagina) en selecteer vervolgens **taken**.
+Als u de voortgang van de coderingstaak wilt controleren, klikt u bovenaan de pagina op **Instellingen** en selecteert u vervolgens **Taken**.
 
 ![Taken](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 ## <a name="publish-content"></a>Inhoud publiceren
-tooprovide uw gebruikers met een URL die kan worden gebruikt toostream of uw inhoud downloaden, u eerst hoeft te 'publiceren' uw asset door een locator te maken. Locators bieden toegang toofiles opgenomen in Hallo asset. Media Services ondersteunt twee typen locators: 
+Als u aan uw gebruikers een URL wilt leveren die ze kunnen gebruiken om uw inhoud te streamen of te downloaden, moet u uw asset eerst publiceren door een locator te maken. Locators bieden toegang tot bestanden in de asset. Azure Media Services ondersteunt twee typen locators: 
 
-* Streaming-locators (OnDemandOrigin), die wordt gebruikt voor adaptief streamen (bijvoorbeeld toostream MPEG DASH, HLS of Smooth Streaming). een streaming-locator toocreate uw asset een ISM-bestand moet bevatten. 
-* Progressieve locators (SAS) die worden gebruikt voor het leveren van video via progressief downloaden.
+* **Streaming-locators (OnDemandOrigin)**. Streaming-locators worden gebruikt voor adaptief streamen. Voorbeelden van adaptief streamen zijn HLS, Smooth Streaming en MPEG-DASH. Als u een streaming-locator wilt maken, moet uw asset een ISM-bestand bevatten. 
+* **Progressieve locators (Shared Access Signature)**. Progressieve locators worden gebruikt voor het leveren van video via progressief downloaden.
 
-Een streaming-URL Hallo na indeling heeft en u tooplay Smooth Streaming-assets kunt gebruiken.
+Als u een streaming-URL voor HLS wilt maken, voegt u *(format=m3u8-aapl)* toe aan de URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
-toobuild een streaming-URL voor HLS toevoegen (format = m3u8-aapl) toohello URL.
+Gebruik de volgende URL-indeling om een streaming-URL te maken voor het afspelen van Smooth Streaming-assets:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
 
-toobuild een streaming-URL voor MPEG DASH toevoegen (format = mpd-time-csf) toohello URL.
+Als u een streaming-URL voor MPEG-DASH wilt maken, voegt u *(format=mpd-time-csf)* toe aan de URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
+Een Shared Access Signature-URL heeft de volgende indeling:
 
-Een SAS-URL heeft Hallo indeling te volgen.
-
-    {blob container name}/{asset name}/{file name}/{SAS signature}
+    {blob container name}/{asset name}/{file name}/{shared access signature}
 
 > [!NOTE]
-> Als u Hallo portal toocreate locators vóór maart 2015 gebruikt, zijn locators met een vervaldatum van twee jaar gemaakt.  
+> Locators die vóór maart 2015 in Azure Portal zijn gemaakt, hebben een vervaldatum over twee jaar.  
 > 
 > 
 
-tooupdate een vervaldatum op een locator, gebruik [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) of [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API's. Wanneer u de vervaldatum Hallo van een SAS-locator bijwerkt, wordt Hallo URL gewijzigd.
+Als u een vervaldatum van een locator wilt bijwerken, kunt u een [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) of een [.NET API](http://go.microsoft.com/fwlink/?LinkID=533259) gebruiken. 
 
-### <a name="toouse-hello-portal-toopublish-an-asset"></a>toouse hello portal toopublish een asset
-toouse hello portal toopublish een asset Hallo te volgen:
+> [!NOTE]
+> Wanneer u de vervaldatum van een Shared Access Signature-locator bijwerkt, wordt de URL gewijzigd.
 
-1. Selecteer **Instellingen** > **Assets**.
-2. Selecteer Hallo asset die u toopublish wilt.
-3. Klik op Hallo **publiceren** knop.
-4. Selecteer Hallo locator type.
-5. Klik op **Toevoegen**.
+### <a name="to-use-the-portal-to-publish-an-asset"></a>De portal gebruiken om een asset te publiceren
+1. Selecteer uw Azure Media Services-account in [Azure Portal](https://portal.azure.com/).
+2. Selecteer **Instellingen** > **Assets**. Selecteer de asset die u wilt publiceren.
+3. Selecteer de knop **Publiceren**.
+4. Selecteer het type locator.
+5. Selecteer **Toevoegen**.
    
-    ![Publiceren](./media/media-services-portal-vod-get-started/media-services-publish1.png)
+    ![De video publiceren](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
-Hallo-URL toegevoegd toohello lijst met **gepubliceerde URL's**.
+De URL wordt toegevoegd aan de lijst met **gepubliceerde URL's**.
 
-## <a name="play-content-from-hello-portal"></a>Inhoud afspelen vanuit Hallo-portal
-Hello Azure portal biedt een speler inhoud die u tootest uw video gebruiken kunt.
+## <a name="play-content-from-the-portal"></a>Inhoud afspelen vanuit de portal
+U kunt uw video testen in een speler in Azure Portal.
 
-Klik op Hallo gewenste video en klik vervolgens op Hallo **afspelen** knop.
+Selecteer de video en selecteer vervolgens de knop **Afspelen**.
 
-![Publiceren](./media/media-services-portal-vod-get-started/media-services-play.png)
+![De video afspelen in Azure Portal](./media/media-services-portal-vod-get-started/media-services-play.png)
 
 Hierbij geldt het volgende:
 
-* toobegin streaming starten actieve Hallo **standaard** streaming-eindpunt.
-* Zorg ervoor dat Hallo video is gepubliceerd.
-* Dit **mediaspeler** speelt af vanaf Hallo standaard streaming-eindpunt. Als u wilt dat tooplay van een niet-standaard streaming-eindpunt, klikt u op toocopy Hallo URL en gebruikt een andere speler. Bijvoorbeeld [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
-
-## <a name="next-steps"></a>Volgende stappen
-Media Services-leertrajecten bekijken.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+* Als u wilt beginnen met streamen, activeert u het standaardstreaming-eindpunt.
+* De video moet zijn gepubliceerd.
+* Met de mediaspeler in Azure Portal wordt inhoud afgespeeld vanaf het standaardstreaming-eindpunt. Als u inhoud vanaf een ander streaming-eindpunt wilt afspelen, selecteert en kopieert u de URL en plak u deze in een andere speler. U kunt uw video bijvoorbeeld in de [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) testen.
 
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+## <a name="next-steps"></a>Volgende stappen
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

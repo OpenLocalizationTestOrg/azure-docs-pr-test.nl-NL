@@ -4,31 +4,34 @@
 ## [DNS-zones en -records](dns-zones-records.md)
 ## [DNS-delegatie met Azure DNS](dns-domain-delegation.md)
 ## [Veelgestelde vragen over DNS](dns-faq.md)
+## [Met behulp van persoonlijke DNS-zones](private-dns-overview.md)
 
 # Aan de slag
 
 ## Een DNS-zone en -record maken
-### [Portal](dns-getstarted-portal.md)
-### [PowerShell](dns-getstarted-powershell.md)
+### [Azure Portal](dns-getstarted-portal.md)
+### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
-### [Azure CLI 2.0](dns-getstarted-cli.md)
+### [Azure-CLI](dns-getstarted-cli.md)
 
-## [Uw domein tooAzure DNS overdragen](dns-delegate-domain-azure-dns.md)
+## Een persoonlijke DNS-zone en -record maken
+### [PowerShell](private-dns-getstarted-powershell.md)
+## [Uw domein delegeren naar Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Aangepaste DNS-records voor een web-app maken](dns-web-sites-custom-domain.md)
 
 # Procedures
 
 ## DNS-zones beheren
-### [Portal](dns-operations-dnszones-portal.md)
-### [PowerShell](dns-operations-dnszones.md)
+### [Azure Portal](dns-operations-dnszones-portal.md)
+### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
-### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
+### [Azure-CLI](dns-operations-dnszones-cli.md)
 
 ## DNS-records beheren
-### [Portal](dns-operations-recordsets-portal.md)
-### [PowerShell](dns-operations-recordsets.md)
+### [Azure Portal](dns-operations-recordsets-portal.md)
+### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
-### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
+### [Azure-CLI](dns-operations-recordsets-cli.md)
 
 ## Reverse-DNS beheren
 ### [Overzicht](dns-reverse-dns-overview.md)
@@ -38,7 +41,7 @@
 ## [Een DNS-zonebestand importeren en exporteren](dns-import-export.md)
 ## [Integreren met andere Azure-services](dns-for-azure-services.md)
 ## [DNS-zones en records beschermen](dns-protect-zones-recordsets.md)
-## [DNS-bewerkingen met .NET SDK Hallo automatiseren](dns-sdk.md)
+## [DNS-bewerkingen automatiseren met de .NET-SDK](dns-sdk.md)
 
 ## [Aangepaste domeinen voor Azure-resources](dns-custom-domain.md)
 ## Problemen oplossen
@@ -46,8 +49,8 @@
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
-## [PowerShell](/powershell/module/azurerm.dns)
-## [Azure CLI](/cli/azure/network/dns)
+## [Azure PowerShell](/powershell/module/azurerm.dns)
+## [Azure-CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
@@ -61,7 +64,7 @@
 ## [Virtuele machine](/azure/virtual-machines/)
 ## [Load Balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [Web-apps](/azure/app-service-web/)
+## [Web-apps](/azure/app-service/)
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=networking)

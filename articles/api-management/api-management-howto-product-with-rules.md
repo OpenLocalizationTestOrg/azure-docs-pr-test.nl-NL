@@ -1,6 +1,6 @@
 ---
-title: aaaProtect uw API met Azure API Management | Microsoft Docs
-description: Meer informatie over hoe tooprotect uw API met quota's en beleidsregels (snelheidsbeperking) beperking.
+title: Uw API beveiligen met Azure API Management | Microsoft Docs
+description: Informatie over het beveiligen van uw API met beleidsregels voor quota en (frequentie)beperking.
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -14,106 +14,106 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 3113fd277d434da0c051b8b90fd629a102bf4867
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Uw API beveiligen met frequentielimieten met behulp van Azure API Management
-Deze handleiding wordt getoond hoe eenvoudig het is tooadd beveiliging voor uw back-end API door aanroepfrequentielimiet-en quota configureren met Azure API Management.
+In deze handleiding wordt getoond hoe eenvoudig het is om beveiliging toe te voegen voor uw back-end-API door frequentielimiet- en quotumbeleidsregels te configureren met Azure API Management.
 
-In deze zelfstudie maakt u een ' API-product gratis proefversie waarmee ontwikkelaars toomake too10 aanroepen per minuut en up tooa maximaal 200 oproepen per week tooyour API met behulp van Hallo [aanroepfrequentie per abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) en [ Gebruiksquotum per abonnement instellen](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) beleid. U wordt vervolgens Hallo API publiceren en Hallo het beleid voor frequentielimiet testen.
+In deze zelfstudie maakt u een API-product Gratis proefversie waarmee ontwikkelaars maximaal 10 aanroepen per minuut en maximaal 200 oproepen per week naar uw API kunnen doen met de beleidsregels [Aanroepfrequentie per abonnement beperken](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) en [Gebruiksquotum per abonnement instellen](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Vervolgens publiceert u de API en test u het frequentielimietbeleid.
 
-Voor meer geavanceerde beperkingsscenario's met behulp van Hallo [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) en [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) beleid, Zie [geavanceerde aanvraagbeperking met Azure API Management](api-management-sample-flexible-throttling.md).
+Voor meer geavanceerde beperkingsscenario's met behulp van de beleidsregels [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) en [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) raadpleegt u [Geavanceerde aanvraagbeperking met Azure API Management](api-management-sample-flexible-throttling.md).
 
-## <a name="create-product"></a>toocreate een product
+## <a name="create-product"> </a>Een product maken
 In deze stap maakt u een product Gratis proefversie waarvoor geen abonnementsgoedkeuring is vereist.
 
 > [!NOTE]
-> Als u al een product geconfigureerd hebt en toouse wilt deze voor deze zelfstudie kunt u verdergaan te[configureren aanroepen snelheid en quotumbeleidsregels] [ Configure call rate limit and quota policies] en Hallo zelfstudie vanaf daar volgen met uw product in plaats van Hallo-product gratis proefversie.
+> Als u al een product hebt geconfigureerd en u dit wilt gebruiken voor deze zelfstudie, kunt u verder gaan naar [Aanroepfrequentielimiet- en quotumbeleidsregels configureren][Configure call rate limit and quota policies] en de zelfstudie vanaf daar volgen met uw product in plaats van het product Gratis proefversie.
 > 
 > 
 
-tooget gestart, klikt u op **publicatieportal** in hello Azure-Portal voor uw API Management-service.
+Als u aan de slag wilt gaan, klikt u op **Publicatieportal** in Azure Portal voor uw API Management-service.
 
 ![Publicatieportal][api-management-management-console]
 
-> Als u nog geen exemplaar van API Management-service hebt gemaakt, raadpleegt u [API Management service-exemplaar maken] [ Create an API Management service instance] in Hallo [uw eerste API beheren in Azure API Management] [ Manage your first API in Azure API Management] zelfstudie.
+> Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Create an API Management service instance] in de zelfstudie [Uw eerste API beheren][Manage your first API in Azure API Management] in Azure API Management.
 > 
 > 
 
-Klik op **producten** in Hallo **API Management** menu op Hallo links toodisplay hello **producten** pagina.
+Klik op **Producten** in het menu **API Management** aan de linkerkant om de pagina **Producten** weer te geven.
 
 ![Product toevoegen][api-management-add-product]
 
-Klik op **product toevoegen** toodisplay hello **nieuw product toevoegen** in het dialoogvenster.
+Klik op **Product toevoegen** om het dialoogvenster **Nieuw product toevoegen** weer te geven.
 
 ![Nieuw product toevoegen][api-management-new-product-window]
 
-In Hallo **titel** in het vak **gratis proefversie**.
+Typ **Gratis proefversie** in het vak **Titel**.
 
-In Hallo **beschrijving** vak, type Hallo volgende tekst: **zijn abonnees kunnen toorun 10 aanroepen per minuut up tooa maximaal 200 aanroepen/week, waarna toegang wordt geweigerd.**
+Typ in het vak **Beschrijving** de volgende tekst: **Abonnees kunnen 10 aanroepen/minuut uitvoeren met maximaal 200 aanroepen/week, waarna toegang wordt geweigerd.**
 
-Producten in API Management kunnen worden beveiligd of open zijn. Beveiligde producten moeten geabonneerde toobefore ze kunnen worden gebruikt. Open producten kunnen zonder abonnement worden gebruikt. Zorg ervoor dat **abonnement vereisen** geselecteerde toocreate is een beveiligd product waarvoor een abonnement. Dit is de standaardinstelling Hallo.
+Producten in API Management kunnen worden beveiligd of open zijn. Voor beveiligde producten is een abonnement vereist voordat ze kunnen worden gebruikt. Open producten kunnen zonder abonnement worden gebruikt. Zorg ervoor dat **Abonnement vereisen** is ingeschakeld voor het maken van een beveiligd product waarvoor een abonnement is vereist. Dit is de standaardinstelling.
 
-Als u wilt dat een beheerder tooreview en accepteren of weigeren abonnement toothis product probeert, selecteert u **goedkeuring abonnement vereisen**. Als het selectievakje Hallo niet is ingeschakeld, worden abonnementspogingen automatisch goedgekeurd. In dit voorbeeld worden abonnementen automatisch goedgekeurd, dus niet aanvinkt Hallo.
+Als u wilt dat een beheerder abonnementspogingen voor dit product beoordeelt en accepteert of weigert, schakelt u **Goedkeuring abonnement vereisen** in. Als het selectievakje niet is ingeschakeld, worden abonnementspogingen automatisch goedgekeurd. In dit voorbeeld worden abonnementen automatisch goedgekeurd, dus schakel het selectievakje niet in.
 
-tooallow developer accounts toosubscribe meerdere keren toohello nieuw product, selecteer Hallo **meerdere gelijktijdige abonnementen toestaan** selectievakje. In deze zelfstudie worden meerdere gelijktijdige abonnementen niet gebruikt, dus laat het vakje uitgeschakeld.
+Als u wilt toestaan dat ontwikkelaarsaccounts meerdere abonnementen op het nieuwe product hebben, schakelt u het selectievakje **Meerdere gelijktijdige abonnementen toestaan** in. In deze zelfstudie worden meerdere gelijktijdige abonnementen niet gebruikt, dus laat het vakje uitgeschakeld.
 
-Nadat alle waarden zijn ingevoerd, klikt u op **opslaan** toocreate Hallo product.
+Nadat alle waarden zijn ingevoerd, klikt u op **Opslaan** om het product te maken.
 
 ![Product toegevoegd][api-management-product-added]
 
-Nieuwe producten zijn standaard zichtbaar toousers in Hallo **beheerders** groep. We gaan tooadd hello **ontwikkelaars** groep. Klik op **gratis proefversie**, en klik vervolgens op Hallo **zichtbaarheid** tabblad.
+Nieuwe producten zijn standaard zichtbaar voor gebruikers in de groep **Beheerders**. We gaan de groep **Ontwikkelaars** toevoegen. Klik op **Gratis proefversie** en klik vervolgens op het tabblad **Zichtbaarheid**.
 
-> Groepen zijn in API Management gebruikte toomanage Hallo zichtbaarheid van producten toodevelopers. Voor producten wordt zichtbaarheid toogroups verleend en ontwikkelaars kunnen bekijken en zich abonneren toohello producten die zichtbaar toohello groepen waartoe ze behoren. Zie voor meer informatie [hoe toocreate en gebruik groepen in Azure API Management][How toocreate and use groups in Azure API Management].
+> In API Management worden groepen gebruikt voor het beheren van de zichtbaarheid van producten voor ontwikkelaars. Voor producten wordt zichtbaarheid aan groepen verleend en ontwikkelaars kunnen de producten bekijken en zich abonneren op de producten die zichtbaar zijn voor de groepen waartoe de ontwikkelaars behoren. Zie voor meer informatie [Groepen maken en gebruiken in Azure API Management][How to create and use groups in Azure API Management].
 > 
 > 
 
 ![Ontwikkelaarsgroep toevoegen][api-management-add-developers-group]
 
-Selecteer Hallo **ontwikkelaars** selectievakje en klik vervolgens op **opslaan**.
+Schakel het selectievakje **Ontwikkelaars** in en klik vervolgens op **Opslaan**.
 
-## <a name="add-api"></a>tooadd een API toohello product
-In deze stap van de zelfstudie Hallo voegt Hallo Echo-API toohello nieuwe product gratis proefversie toe.
+## <a name="add-api"> </a>Een API toevoegen aan het product
+In deze stap van de zelfstudie voegen we de Echo-API toe aan het nieuwe product Gratis proefversie.
 
-> Elk exemplaar van API Management-service wordt geleverd met een Echo-API die kan worden gebruikt tooexperiment met en meer informatie over API Management vooraf geconfigureerd. Zie voor meer informatie [Uw eerste API beheren in Azure API Management][Manage your first API in Azure API Management].
+> Elk service-exemplaar van API Management wordt al geconfigureerd geleverd met een Echo-API die kan worden gebruikt om te experimenteren met API Management en hier meer over te leren. Zie voor meer informatie [Uw eerste API beheren in Azure API Management][Manage your first API in Azure API Management].
 > 
 > 
 
-Klik op **producten** van Hallo **API Management** menu op Hallo links en klik vervolgens op **gratis proefversie** tooconfigure Hallo product.
+Klik op **Producten** in het menu **API Management** aan de linkerkant en klik vervolgens op **Gratis proefversie** om het product te configureren.
 
 ![Product configureren][api-management-configure-product]
 
-Klik op **API toevoegen tooproduct**.
+Klik op **API toevoegen aan product**.
 
-![API-tooproduct toevoegen][api-management-add-api]
+![API toevoegen aan product][api-management-add-api]
 
 Selecteer **Echo-API** en klik vervolgens op **Opslaan**.
 
 ![Echo-API toevoegen][api-management-add-echo-api]
 
-## <a name="policies"></a>tooconfigure aanroepen snelheid en quotumbeleidsregels
-Frequentielimieten en quota worden geconfigureerd in de beleidseditor Hallo. Hallo twee beleidsregels die we in deze zelfstudie gaat toevoegen zijn Hallo [aanroepfrequentie per abonnement](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) en [gebruiksquotum per abonnement instellen](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) beleid. Dit beleid moeten worden toegepast op Hallo product bereik.
+## <a name="policies"> </a>Aanroepfrequentielimiet- en quotumbeleidsregels configureren
+Frequentielimieten en quota worden geconfigureerd in de beleidseditor. De twee beleidsregels die we in deze zelfstudie toevoegen, zijn [Aanroepfrequentie per abonnement beperken](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) en [Gebruiksquotum per abonnement instellen](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Dit beleid moeten worden toegepast op het productbereik.
 
-Klik op **beleid** onder Hallo **API Management** menu aan de linkerkant Hallo. In Hallo **Product** lijst, klikt u op **gratis proefversie**.
+Klik op **Beleidsregels** in het menu **API Management** aan de linkerkant. Klik in de lijst **Product** op **Gratis proefversie**.
 
 ![Productbeleid][api-management-product-policy]
 
-Klik op **beleid toevoegen** tooimport Hallo beleidssjabloon en begin met het maken van Hallo aanroepfrequentielimiet-en quotum.
+Klik op **Beleid toevoegen** om de beleidssjabloon te importeren en begin met het maken van de frequentielimiet- en quotumbeleidsregels.
 
 ![Beleid toevoegen][api-management-add-policy]
 
-Frequentie zijn en quotumbeleidsregels inkomende beleidsregels, geval positie Hallo cursor inkomende hello-element.
+Frequentielimiet- en quotumbeleidsregels zijn inkomende beleidsregels, dus plaats de cursor in het inkomende element.
 
 ![Beleidseditor][api-management-policy-editor-inbound]
 
-Schuif door Hallo lijst met beleidsregels en zoek Hallo **aanroepfrequentie per abonnement** beleidsvermelding.
+Blader door de lijst met beleidsregels en zoek de beleidsvermelding **Aanroepfrequentie per abonnement beperken**.
 
 ![Beleidsinstructies][api-management-limit-policies]
 
-Na het Hallo cursor wordt geplaatst in Hallo **inkomende** beleidselement, klikt u op de pijl naast Hallo **aanroepfrequentie per abonnement** tooinsert bijbehorende beleidssjabloon.
+Nadat de cursor in het **inkomende** beleidselement is geplaatst, klikt u op de pijl naast **Aanroepfrequentie per abonnement beperken** om de bijbehorende beleidssjabloon in te voegen.
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
@@ -123,21 +123,21 @@ Na het Hallo cursor wordt geplaatst in Hallo **inkomende** beleidselement, klikt
 </rate-limit>
 ```
 
-Als u in het codefragment Hallo zien kunt, kunt Hallo beleid limieten instellen voor de API's en bewerkingen van het product Hallo. In deze zelfstudie wordt er niet gebruiken die mogelijkheid, dus verwijder Hallo **api** en **bewerking** elementen uit Hallo **rate-limit** element, zodat alleen Hallo buitenste **rate-limit** overblijft, zoals weergegeven in het volgende voorbeeld Hallo.
+Zoals u in het codefragment kunt zien, kunt u met het beleid limieten instellen voor de API's en bewerkingen van het product. In deze zelfstudie maken we geen gebruik van die mogelijkheid, dus verwijder de elementen **api** en **operation** uit het element **rate-limit**, zodat alleen het buitenste element **rate-limit** overblijft, zoals in het volgende voorbeeld wordt getoond.
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
 </rate-limit>
 ```
 
-In het product gratis proefversie hello, Hallo maximaal toegestane aanroepfrequentie 10 aanroepen per minuut, dus typ **10** als waarde voor Hallo Hallo **aanroepen** kenmerk, en **60** voor Hallo **vernieuwingsperiode** kenmerk.
+In het product Gratis proefversie is de maximaal toegestane aanroepfrequentie 10 aanroepen per minuut, dus typ **10** als de waarde voor het kenmerk **calls** en **60** voor het kenmerk **renewal-period**.
 
 ```xml
 <rate-limit calls="10" renewal-period="60">
 </rate-limit>
 ```
 
-Hallo tooconfigure **gebruiksquotum per abonnement instellen** beleid, plaats de cursor direct onder Hallo toegevoegde **rate-limit** element in Hallo **binnenkomende** element en zoek vervolgens en klikt u op Hallo pijl toohello links van **gebruiksquotum per abonnement instellen**.
+Als u het beleid **Gebruiksquotum per abonnement instellen** wilt configureren, plaatst u de cursor direct onder het zojuist toegevoegde element **rate-limit** binnen het element **inbound** en klikt u vervolgens op de pijl links van **Gebruiksquotum per abonnement instellen**.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -147,32 +147,32 @@ Hallo tooconfigure **gebruiksquotum per abonnement instellen** beleid, plaats de
 </quota>
 ```
 
-Op dezelfde manier toohello **gebruiksquotum per abonnement instellen** beleid, **gebruiksquotum per abonnement instellen** beleid kunt u de caps voor instelling op van het product Hallo API's en bewerkingen. In deze zelfstudie wordt er niet gebruiken die mogelijkheid, dus verwijder Hallo **api** en **bewerking** elementen uit Hallo **quotum** element, zoals wordt weergegeven in Hallo voorbeeld te volgen.
+Net als het beleid **Aanroepfrequentie per abonnement beperken** kunt u met het beleid **Gebruiksquotum per abonnement instellen** limieten instellen voor de API's en bewerkingen van het product. In deze zelfstudie maken we geen gebruik van die mogelijkheid, dus verwijder de elementen **api** en **operation** uit het element **quota**, zoals in het volgende voorbeeld wordt getoond.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
 </quota>
 ```
 
-Quota's kunnen worden gebaseerd op Hallo aantal aanroepen per interval, de bandbreedte of beide. In deze zelfstudie beperken we niet op basis van bandbreedte, dus verwijder Hallo **bandbreedte** kenmerk.
+Quota kunnen zijn gebaseerd op het aantal aanroepen per interval, de bandbreedte of beide. In deze zelfstudie beperken we niet op basis van bandbreedte, dus verwijder het kenmerk **bandwidth**.
 
 ```xml
 <quota calls="number" renewal-period="seconds">
 </quota>
 ```
 
-Hallo-product gratis proefversie is Hallo quotum 200 oproepen per week. Geef **200** als waarde voor Hallo Hallo **aanroepen** kenmerk en geef vervolgens **604800** als waarde voor Hallo Hallo **vernieuwingsperiode** kenmerk.
+In het product Gratis proefversie is het quotum 200 aanroepen per week. Geef **200** op als de waarde voor het kenmerk **calls** en geef vervolgens **604800** op als de waarde voor het kenmerk **renewal-period**.
 
 ```xml
 <quota calls="200" renewal-period="604800">
 </quota>
 ```
 
-> Beleidsintervallen worden in seconden opgegeven. toocalculate hello-interval voor een week, kunt u het aantal dagen (7) door het aantal uren in een dag (24) door het aantal minuten in een uur (60) maal het aantal seconden in een minuut (60) Hallo Hallo HALLO hallo vermenigvuldigen: 7 * 24 * 60 * 60 = 604800.
+> Beleidsintervallen worden in seconden opgegeven. Als u het interval voor een week wilt berekenen, kunt u het aantal dagen (7) vermenigvuldigen met het aantal uren in een dag (24) maal het aantal minuten in een uur (60) maal het aantal seconden in een minuut (60): 7 * 24 * 60 * 60 = 604800.
 > 
 > 
 
-Wanneer u klaar bent met het Hallo-beleid configureren, moet het overeenkomen met Hallo voorbeeld te volgen.
+Wanneer u klaar bent met het configureren van het beleid, moet het overeenkomen met het volgende voorbeeld.
 
 ```xml
 <policies>
@@ -192,27 +192,27 @@ Wanneer u klaar bent met het Hallo-beleid configureren, moet het overeenkomen me
 </policies>
 ```
 
-Nadat het Hallo gewenste beleidsregels zijn geconfigureerd, klikt u op **opslaan**.
+Nadat de gewenste beleidsregels zijn geconfigureerd, klikt u op **Opslaan**.
 
 ![Beleid opslaan][api-management-policy-save]
 
-## <a name="publish-product"></a> toopublish Hallo product
-Nu dat hello hello API's toegevoegd en Hallo beleidsregels zijn geconfigureerd, moet Hallo product worden gepubliceerd zodat deze kan worden gebruikt door ontwikkelaars. Klik op **producten** van Hallo **API Management** menu op Hallo links en klik vervolgens op **gratis proefversie** tooconfigure Hallo product.
+## <a name="publish-product"> </a>Het product publiceren
+Nu de API's zijn toegevoegd en de beleidsregels zijn geconfigureerd, moet het product worden gepubliceerd zodat het door ontwikkelaars kan worden gebruikt. Klik op **Producten** in het menu **API Management** aan de linkerkant en klik vervolgens op **Gratis proefversie** om het product te configureren.
 
 ![Product configureren][api-management-configure-product]
 
-Klik op **publiceren**, en klik vervolgens op **Ja, publiceren** tooconfirm.
+Klik op **Publiceren** en klik vervolgens op **Ja, publiceren** om te bevestigen.
 
 ![Product publiceren][api-management-publish-product]
 
-## <a name="subscribe-account"></a>toosubscribe een developer-account toohello product
-Nu dat Hallo-product is gepubliceerd, is beschikbaar toobe geabonneerd tooand gebruikt door ontwikkelaars.
+## <a name="subscribe-account"> </a>Een ontwikkelaarsaccount abonneren op het product
+Nu het product is gepubliceerd, is het beschikbaar voor ontwikkelaars om zich op te abonneren en om te worden gebruikt.
 
-> Beheerders van een exemplaar van API Management zijn automatisch geabonneerde tooevery product. In deze zelfstudiestap abonneren we een Hallo beheerder developer accounts toohello-product gratis proefversie. Als uw ontwikkelaarsaccount deel van de rol Administrator hello uitmaakt, kunt klikt u vervolgens u met deze stap, zelfs als u bent al geabonneerd.
+> Beheerders van een API Management-exemplaar worden automatisch op elk product geabonneerd. In deze zelfstudiestap abonneren we een van de ontwikkelaarsaccounts dat geen beheerdersaccount is op het product Gratis proefversie. Als uw ontwikkelaarsaccount deel uitmaakt van de rol Beheerder, kunt u doorgaan met deze stap, ook al bent u al geabonneerd.
 > 
 > 
 
-Klik op **gebruikers** op Hallo **API Management** menu op Hallo links en klik vervolgens op Hallo-naam van uw ontwikkelaarsaccount. In dit voorbeeld gebruiken we Hallo **Clayton Gragg** developer-account.
+Klik op **Gebruikers** in het menu **API Management** aan de linkerkant en klik vervolgens op de naam van uw ontwikkelaarsaccount. In dit voorbeeld gebruiken we het ontwikkelaarsaccount **Floris Kregel**.
 
 ![Ontwikkelaar configureren][api-management-configure-developer]
 
@@ -225,23 +225,23 @@ Selecteer **Gratis proefversie** en klik vervolgens op **Abonneren**.
 ![Abonnement toevoegen][api-management-add-subscription]
 
 > [!NOTE]
-> In deze zelfstudie worden meerdere gelijktijdige abonnementen niet ingeschakeld voor Hallo-product gratis proefversie. Als dat zo is, zou u na vragen aan gebruiker tooname Hallo abonnement, zoals weergegeven in het volgende voorbeeld Hallo.
+> In deze zelfstudie zijn meerdere gelijktijdige abonnementen niet ingeschakeld voor het product Gratis proefversie. Als dat wel het geval zou zijn, zou u om de naam van het abonnement worden gevraagd, zoals in het volgende voorbeeld wordt getoond.
 > 
 > 
 
 ![Abonnement toevoegen][api-management-add-subscription-multiple]
 
-Wanneer u op **abonneren**, Hallo product weergegeven in Hallo **abonnement** lijst voor Hallo-gebruiker.
+Nadat u op **Abonneren** hebt geklikt, wordt het product weergegeven in de lijst **Abonnement** voor de gebruiker.
 
 ![Abonnement toegevoegd][api-management-subscription-added]
 
-## <a name="test-rate-limit"></a>toocall een bewerking en test Hallo frequentielimiet
-Nu dat hello product gratis proefversie is geconfigureerd en gepubliceerd, kunnen we enkele bewerkingen aanroepen en Hallo het beleid voor frequentielimiet testen.
-Switch toohello developer-portal door te klikken op **ontwikkelaarsportal** in het menu van Hallo rechtsboven.
+## <a name="test-rate-limit"> </a>Een bewerking aanroepen en de frequentielimiet testen
+Nu het product Gratis proefversie is geconfigureerd en gepubliceerd, kunnen we enkele bewerkingen aanroepen en het beleid voor frequentielimiet testen.
+Schakel over naar de ontwikkelaarsportal door te klikken op **Ontwikkelaarsportal** in het menu rechtsboven.
 
 ![ontwikkelaarsportal][api-management-developer-portal-menu]
 
-Klik op **API's** in Hallo bovenste menu en klik vervolgens op **Echo-API**.
+Klik op **API's** in het bovenste menu en klik op **Echo-API**.
 
 ![ontwikkelaarsportal][api-management-developer-portal-api-menu]
 
@@ -249,29 +249,29 @@ Klik op **GET Resource** en klik vervolgens op **Probeer het nu**.
 
 ![Console openen][api-management-open-console]
 
-Gebruik Hallo standaardwaarde parameterwaarden en selecteer uw abonnementssleutel voor Hallo-product gratis proefversie.
+Behoud de standaardparameterwaarden en selecteer uw abonnementssleutel voor het product Gratis proefversie.
 
 ![Abonnementssleutel][api-management-select-key]
 
 > [!NOTE]
-> Als u meerdere abonnementen hebt, worden ervoor tooselect Hallo-sleutel voor **gratis proefversie**, of anders Hallo-beleidsregels die zijn geconfigureerd in de vorige stappen Hallo niet meer van kracht.
+> Als u meerdere abonnementen hebt, moet u ervoor zorgen dat u de sleutel voor **Gratis proefversie** selecteert, anders zijn de beleidsregels die in de vorige stappen zijn geconfigureerd niet van kracht.
 > 
 > 
 
-Klik op **verzenden**, en bekijk vervolgens Hallo antwoord. Opmerking Hallo **antwoordstatus** van **200 OK**.
+Klik op **Verzenden** en bekijk vervolgens het antwoord. Noteer de **Antwoordstatus** van **200 OK**.
 
 ![Bewerkingsresultaten][api-management-http-get-results]
 
-Klik op **verzenden** met een hogere frequentie dan Hallo beleid voor frequentielimiet van 10 aanroepen per minuut. Nadat het beleid voor frequentielimiet Hallo is overschreden, een antwoordstatus van **429 te veel aanvragen** wordt geretourneerd.
+Klik op **Verzenden** met een hogere frequentie dan het beleid voor een frequentielimiet van 10 aanroepen per minuut. Nadat het beleid voor de frequentielimiet is overschreden, wordt een antwoordstatus van **429 te veel aanvragen** geretourneerd.
 
 ![Bewerkingsresultaten][api-management-http-get-429]
 
-Hallo **antwoordinhoud** geeft Hallo resterende interval voordat nieuwe pogingen lukken.
+Met de **Antwoordinhoud** wordt het resterende interval aangegeven voordat nieuwe pogingen lukken.
 
-Wanneer beleid voor Hallo frequentielimiet van 10 aanroepen per minuut van kracht is, mislukken volgende aanroepen tot 60 seconden na Hallo eerste Hallo 10 geslaagde aanroepen toohello product voordat Hallo frequentielimiet werd overschreden. In dit voorbeeld is Hallo resterende interval 54 seconden.
+Wanneer het beleid voor een frequentielimiet van 10 aanroepen per minuut van kracht is, mislukken volgende aanroepen tot 60 seconden na de eerste van de 10 geslaagde aanroepen naar het product zijn verstreken voordat de frequentielimiet werd overschreden. In dit voorbeeld is het resterende interval 54 seconden.
 
 ## <a name="next-steps"> </a>Volgende stappen
-* Bekijk een demo voor het instellen van frequentielimieten en quota in Hallo video te volgen.
+* Bekijk een demo voor het instellen van frequentielimieten en quota in de volgende video.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 > 
@@ -304,24 +304,24 @@ Wanneer beleid voor Hallo frequentielimiet van 10 aanroepen per minuut van krach
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[How tooadd operations tooan API]: api-management-howto-add-operations.md
-[How tooadd and publish a product]: api-management-howto-add-products.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: ../api-management-monitoring.md
-[Add APIs tooa product]: api-management-howto-add-products.md#add-apis
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Manage your first API in Azure API Management]: api-management-get-started.md
-[How toocreate and use groups in Azure API Management]: api-management-howto-create-groups.md
-[View subscribers tooa product]: api-management-howto-add-products.md#view-subscribers
+[How to create and use groups in Azure API Management]: api-management-howto-create-groups.md
+[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Next steps]: #next-steps
 
 [Create a product]: #create-product
 [Configure call rate limit and quota policies]: #policies
-[Add an API toohello product]: #add-api
-[Publish hello product]: #publish-product
-[Subscribe a developer account toohello product]: #subscribe-account
-[Call an operation and test hello rate limit]: #test-rate-limit
+[Add an API to the product]: #add-api
+[Publish the product]: #publish-product
+[Subscribe a developer account to the product]: #subscribe-account
+[Call an operation and test the rate limit]: #test-rate-limit
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota

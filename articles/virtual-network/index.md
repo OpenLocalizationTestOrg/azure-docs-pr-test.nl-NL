@@ -1,8 +1,8 @@
 ---
-title: aaaAzure Virtual Network-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toouse een virtueel netwerk in Hallo cloud. Documentatie ziet u hoe u een VNet toodeploy toolaunch resources gebruiken en integreren met een on-premises netwerk.
+title: Documentatie voor Azure Virtual Network - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over het gebruik van een virtueel netwerk in de cloud. Documentatie laat zien hoe u een VNet implementeert, dit gebruikt om resources te starten en het integreert met een on-premises netwerk.
 services: virtual-network
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ecaecfab31a2bbfb46a712a035e07a059fa40be7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6ae5c9019f292a18bc4ae8afe8d615977e8e6c9d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-network-documentation"></a>Documentatie voor Virtual Network
 
-Meer informatie over hoe toouse virtueel netwerk (VNet), een logische representatie van uw netwerk in Hallo cloud. Documentatie, ziet u hoe instellen en beheren van een VNet gebruiken toolaunch virtuele Machines of Cloud Services, verbinding Hallo VNet tooyour on-premises netwerk, en vouw uw netwerk toohello cloud terwijl de controle over de resources.
+Meer informatie over het gebruik van een Virtual Network (VNet), een logische weergave van uw netwerk in de cloud. Documentatie laat zien hoe u een VNet instelt en beheert, het gebruikt om Virtual Machines of Cloud Services te starten, hoe u het VNet verbindt met uw on-premises netwerk en hoe u uw netwerk uitbreidt naar de cloud zonder de controle over resources kwijt te raken.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Meer informatie over hoe toouse virtueel netwerk (VNet), een logische representa
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met een virtueel netwerk met hello Azure-portal</h3>
+                        <h3>Aan de slag met Virtual Network met Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Meer informatie over hoe toouse virtueel netwerk (VNet), een logische representa
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met een virtueel netwerk met hello Azure CLI</h3>
+                        <h3>Aan de slag met Virtual Network met de Azure CLI</h3>
                     </div>
                 </div>
             </div>

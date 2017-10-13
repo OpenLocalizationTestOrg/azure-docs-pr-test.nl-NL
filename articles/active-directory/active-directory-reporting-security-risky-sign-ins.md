@@ -1,6 +1,6 @@
 ---
-title: aaaRisky aanmeldingen rapport in Azure Active Directory-beheerportal Hallo | Microsoft Docs
-description: Meer informatie over Hallo riskant aanmeldingen rapport in hello Azure Active Directory-portal
+title: Rapport Riskante aanmeldingen in de Azure Active Directory-portal | Microsoft Docs
+description: Meer informatie over het rapport Riskante aanmeldingen in de Azure Active Directory-portal
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -13,56 +13,56 @@ ms.workload: identity
 ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d8df5cafea6b38f3e364c24a6aff599abe088e88
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 45a6f63bd920c9a70c25b8dfae084ea030256cf4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="risky-sign-ins-report-in-hello-azure-active-directory-portal"></a>Rapport van riskante aanmeldingen in hello Azure Active Directory-portal
+# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Het rapport Riskante aanmeldingen in de Azure Active Directory-portal
 
-Met de Hallo beveiligingsrapporten in Azure Active Directory (Azure AD) krijgt u inzicht in de kans op Hallo van verdachte gebruikersaccounts in uw omgeving. 
+Met de beveiligingsrapporten in Azure Active Directory (Azure AD) krijgt u inzicht in de kans op verdachte gebruikersaccounts in uw omgeving. 
 
-Azure AD detecteert verdachte acties die gerelateerd tooyour gebruikersaccounts zijn. Voor elke gedetecteerde activiteit wordt een record met de naam *risicogebeurtenis* gemaakt. Zie [Risicogebeurtenissen in Azure Active Directory](active-directory-identity-protection-risk-events.md) voor meer informatie. 
+Azure AD detecteert verdachte activiteit die is gekoppeld aan uw gebruikersaccounts. Voor elke gedetecteerde activiteit wordt een record met de naam *risicogebeurtenis* gemaakt. Zie [Risicogebeurtenissen in Azure Active Directory](active-directory-identity-protection-risk-events.md) voor meer informatie. 
 
-Hallo gedetecteerd risicogebeurtenissen gebruikte toocalculate zijn:
+De gedetecteerde risico's worden gebruikt om het volgende te berekenen:
 
-- **Riskant aanmeldingen** -een riskante aanmelden is een indicator voor een aanmeldingspoging die mogelijk zijn uitgevoerd door iemand die niet Hallo legitieme eigenaar van een gebruikersaccount. Zie [Riskante aanmeldingen](active-directory-identityprotection.md#risky-sign-ins) voor meer informatie. 
+- **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. Zie [Riskante aanmeldingen](active-directory-identityprotection.md#risky-sign-ins) voor meer informatie. 
 
 - **Gebruikers voor wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. Zie [Gebruikers voor wie wordt aangegeven dat ze risico lopen](active-directory-identityprotection.md#users-flagged-for-risk) voor meer informatie.  
 
-In [hello Azure-portal](https://portal.azure.com), vindt u Hallo beveiliging rapporten over Hallo **Azure Active Directory** blade in Hallo **beveiliging** sectie. 
+In [Azure Portal](https://portal.azure.com) kunt u de beveiligingsrapporten vinden op de blade **Azure Active Directory** in het gedeelte **Beveiliging**. 
 
 ![Riskante aanmeldingen](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
 
-## <a name="what-azure-ad-license-do-you-need-tooaccess-a-security-report"></a>Welke Azure AD-licentie hebt u een beveiligingsrapport tooaccess nodig?  
+## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Welke Azure AD-licentie heb ik nodig voor toegang tot een beveiligingsrapport?  
 
 Alle edities van Azure Active Directory bieden rapporten over riskante aanmeldingen.  
-Hallo-niveau van rapportgranulatie is echter van Hallo edities: 
+Het detailniveau van rapporten verschilt wel per editie: 
 
-- In Hallo **edities Azure Active Directory gratis en Basic**, u al een lijst van riskante aanmeldingen. 
+- Bij de edities **Azure Active Directory Free en Basic** krijgt u al een lijst met riskante aanmeldingen. 
 
-- Hallo **Azure Active Directory Premium 1** edition wordt dit model uitgebreid doordat ook u tooexamine aantal Hallo onderliggende risico's die zijn gedetecteerd voor elk rapport. 
+- De editie **Azure Active Directory Premium 1** bevat een uitgebreider model waarmee u ook bepaalde onderliggende risicogebeurtenissen kunt onderzoeken die voor elk rapport zijn gedetecteerd. 
 
-- Hallo **Azure Active Directory Premium 2** editie biedt u Hello meest gedetailleerde informatie weer over alle onderliggende risicogebeurtenissen en ook kunt u beveiligingsbeleid tooconfigure die automatisch tooconfigured reageren risiconiveaus.
+- De editie **Azure Active Directory Premium 2** biedt u de meest gedetailleerde informatie over alle onderliggende risicogebeurtenissen. Deze editie stelt u ook in staat beveiligingsbeleidsregels te configureren die automatisch op de geconfigureerde risiconiveaus reageren.
 
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Gratis en Basic edities van Azure Active Directory
 
-Hello Azure Active Directory gratis edities en basic bieden u een lijst van riskante aanmeldingen die zijn gedetecteerd voor uw gebruikers. Dit rapport bevat:
+De edities Gratis en Basic van Azure Active Directory bieden u een lijst met riskante aanmeldingen die zijn gedetecteerd voor uw gebruikers. Dit rapport bevat:
 
-- **Gebruiker** - hello naam van het Hallo-gebruiker die is gebruikt tijdens het Hallo-in bewerking
-- **IP** -Hallo IP-adres van het Hallo-apparaat dat gebruikt tooconnect tooAzure Active Directory is
-- **Locatie** -Hallo-locatie gebruikt tooconnect tooAzure Active Directory
-- **Tijd van aanmelden** -Hallo tijd wanneer dat aanmeldingspagina Hallo is uitgevoerd
-- **Status** -status van de aanmeldingspagina Hallo Hallo
+- **Gebruiker**: de naam van de gebruiker die is gebruikt tijdens het aanmelden
+- **IP**: het IP-adres van het apparaat dat is gebruikt om verbinding te maken met Azure Active Directory
+- **Locatie**: de locatie die is gebruikt om verbinding te maken met Azure Active Directory
+- **Tijd van aanmelden**: de tijd waarop de aanmelding heeft plaatsgevonden
+- **Status**: de status van de aanmelding
 
 
 ![Riskante aanmeldingen](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
-Op basis van uw onderzoek van riskante aanmelden hello, kunt u feedback tooAzure Active Directory in de vorm van de volgende activiteiten Hallo bieden:
+Op basis van uw onderzoek van de riskante aanmelding kunt u uw feedback naar Azure Active Directory sturen door een van de volgende acties te ondernemen:
 
 - Oplossen
 - Markeren als fout-positief
@@ -76,7 +76,7 @@ Zie voor meer informatie [Risico's handmatig sluiten](active-directory-identityp
 Dit rapport biedt de volgende mogelijkheden:
 
 - Resources zoeken
-- Hallo rapportgegevens downloaden
+- De rapportgegevens downloaden
 
 
 ![Riskante aanmeldingen](./media/active-directory-reporting-security-risky-sign-ins/93.png)
@@ -84,11 +84,11 @@ Dit rapport biedt de volgende mogelijkheden:
 
 ## <a name="azure-active-directory-premium-editions"></a>Premium edities van Azure Active Directory
 
-Hallo riskant aanmeldingen rapport in Azure Active Directory premium-edities Hallo beschikt u over:
+Het rapport Riskante aanmeldingen in de Azure Active Directory-portal biedt u het volgende:
 
-- Informatie over Hallo geaggregeerd [risico gebeurtenistypen](active-directory-identity-protection-risk-events.md) die zijn gedetecteerd
+- Verzamelde informatie over de gedetecteerde [risicogebeurtenistypen](active-directory-identity-protection-risk-events.md)
 
-- Een optie toodownload Hallo-rapport
+- Een optie voor het downloaden van het rapport
 
 
 ![Riskante aanmeldingen](./media/active-directory-reporting-security-risky-sign-ins/456.png)
@@ -96,9 +96,9 @@ Hallo riskant aanmeldingen rapport in Azure Active Directory premium-edities Hal
 
 Wanneer u een risicogebeurtenis selecteert, krijgt u een gedetailleerde rapportweergave voor deze risicogebeurtenis waarmee u het volgende kunt:
 
-- Een optie tooconfigure een [gebruikersbeleid risico herstel](active-directory-identityprotection.md#user-risk-security-policy)  
+- Een optie voor het configureren van een [beleid voor herstel van gebruikersrisico's](active-directory-identityprotection.md#user-risk-security-policy)  
 
-- Hallo detectie tijdlijn voor Hallo risicogebeurtenis bekijken  
+- De detectietijdlijn voor de risicogebeurtenis bekijken  
 
 - Een lijst met gebruikers bekijken waarvoor deze risicogebeurtenis is gedetecteerd
 
@@ -109,20 +109,20 @@ Wanneer u een risicogebeurtenis selecteert, krijgt u een gedetailleerde rapportw
 
 Wanneer u een gebruiker selecteert, krijgt u een gedetailleerde rapportweergave voor deze gebruiker waarmee u het volgende kunt:
 
-- Open Hallo alle aanmeldingen weergeven
+- De weergave Alle aanmeldingen openen
 
-- Hallo gebruikerswachtwoord opnieuw instellen
+- Het gebruikerswachtwoord opnieuw instellen
 
 - Alle gebeurtenissen sluiten
 
-- Onderzoek gemelde risicogebeurtenissen voor Hallo-gebruiker. 
+- De gemelde risico's voor de gebruiker onderzoeken. 
 
 
 ![Riskante aanmeldingen](./media/active-directory-reporting-security-risky-sign-ins/324.png)
 
 
-een risicogebeurtenis tooinvestigate geselecteerd in de lijst Hallo.  
-Hiermee opent u Hallo **Details** blade voor deze risicogebeurtenis. Op Hallo **Details** blade hebt Hallo optie tooeither [handmatig sluit een risicogebeurtenis](active-directory-identityprotection.md#closing-risk-events-manually) of opnieuw activeren van een risicogebeurtenis handmatig gesloten. 
+Selecteer in de lijst de risicogebeurtenis die u wilt onderzoeken.  
+Hiermee opent u de blade **Details** voor deze risicogebeurtenis. Op de blade **Details** kunt u een [risicogebeurtenis handmatig sluiten](active-directory-identityprotection.md#closing-risk-events-manually) of een handmatig gesloten risicogebeurtenis opnieuw activeren. 
 
 
 ![Riskante aanmeldingen](./media/active-directory-reporting-security-risky-sign-ins/325.png)

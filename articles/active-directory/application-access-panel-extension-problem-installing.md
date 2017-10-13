@@ -1,6 +1,6 @@
 ---
-title: aaaProblem hello toegang Configuratiescherm browser toepassingsextensie installeren | Microsoft Docs
-description: Hoe toofix veelvoorkomende fouten aangetroffen bij het installeren van de Browseruitbreiding van Hallo toegang Configuratiescherm
+title: Problemen bij het installeren van de toegang tot de toepassing van het deelvenster Browseruitbreiding | Microsoft Docs
+description: Het oplossen van veelvoorkomende fouten aangetroffen bij het installeren van de uitbreiding voor toegang tot Configuratiescherm browser
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 5f750d12c5f9b405ec4f81596d5cc5e0a48f9a62
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8b7327508633e33917d1fa9c1f35ed1bde5a26e1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="problem-installing-hello-application-access-panel-browser-extension"></a>Problemen bij het installeren van de Browseruitbreiding van Hallo toepassing toegang Configuratiescherm
+# <a name="problem-installing-the-application-access-panel-browser-extension"></a>Problemen bij het installeren van de toegang tot de toepassing van het deelvenster Browseruitbreiding
 
-Hallo Toegangspaneel is een portal op Internet zodat een gebruiker met een werk- of school-account in Azure Active Directory (Azure AD) tooview en start cloud-gebaseerde toepassingen of hello Azure AD-beheerder heeft deze toegang verleend tot. Een gebruiker met Azure AD-edities kunt ook gebruiken voor groepsbeheer met Self-service en beheermogelijkheden van de app via Hallo Toegangsvenster. Hallo Toegangspaneel is gescheiden van hello Azure-portal en vereist geen gebruikers toohave een Azure-abonnement.
+Het Toegangspaneel is een portal op Internet waarmee een gebruiker met een account voor werk of school in Azure Active Directory (Azure AD) voor weergave in en start cloud-gebaseerde toepassingen die de Azure AD-beheerder heeft deze toegang verleend tot. Een gebruiker met Azure AD-edities kunt ook gebruiken voor groepsbeheer met Self-service en app-mogelijkheden voor beheer via het toegangsvenster. Het Toegangspaneel is gescheiden van de Azure-portal en vereist geen gebruikers een Azure-abonnement hebben.
 
-toouse op basis van wachtwoorden eenmalige aanmelding (SSO) in Hallo paneel voor Apptoegang, Hallo Toegangsvenster extensie moet zijn geïnstalleerd in de browser van Hallo gebruiker. Deze extensie wordt automatisch gedownload wanneer een gebruiker selecteert een toepassing die is geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden.
+Als u wilt gebruiken op basis van wachtwoorden eenmalige aanmelding (SSO) in het deelvenster toegang, moet de extensie Toegangspaneel worden geïnstalleerd in de browser van de gebruiker. Deze extensie wordt automatisch gedownload wanneer een gebruiker selecteert een toepassing die is geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden.
 
-## <a name="meeting-browser-requirements-for-hello-access-panel"></a>Vergadering Browservereisten voor Hallo Toegangsvenster
+## <a name="meeting-browser-requirements-for-the-access-panel"></a>Vergadering Browservereisten voor het toegangsvenster
 
-Hallo Toegangsvenster vereist een browser die JavaScript ondersteunt en CSS is ingeschakeld. toouse op basis van wachtwoorden eenmalige aanmelding (SSO) in Hallo paneel voor Apptoegang, Hallo Toegangsvenster extensie moet zijn geïnstalleerd in de browser van Hallo gebruiker. Deze extensie wordt automatisch gedownload wanneer een gebruiker selecteert een toepassing die is geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden.
+Het toegangsvenster vereist een browser die JavaScript ondersteunt en CSS is ingeschakeld. Als u wilt gebruiken op basis van wachtwoorden eenmalige aanmelding (SSO) in het deelvenster toegang, moet de extensie Toegangspaneel worden geïnstalleerd in de browser van de gebruiker. Deze extensie wordt automatisch gedownload wanneer een gebruiker selecteert een toepassing die is geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden.
 
-Voor eenmalige aanmelding op basis van wachtwoorden kunnen browsers Hallo van de eindgebruiker zijn:
+Voor eenmalige aanmelding op basis van wachtwoorden kunnen van de eindgebruiker browsers zijn:
 
 -   Internet Explorer 8, 9, 10, 11--op Windows 7 of hoger
 
@@ -40,25 +40,25 @@ Voor eenmalige aanmelding op basis van wachtwoorden kunnen browsers Hallo van de
 
 -   Firefox 26,0 of later--op Windows XP SP2 of hoger, en op Mac OS X 10,6 of hoger
 
-## <a name="how-tooinstall-hello-access-panel-browser-extension"></a>Hoe tooinstall toegang Configuratiescherm Browseruitbreiding Hallo
+## <a name="how-to-install-the-access-panel-browser-extension"></a>Het installeren van de Browseruitbreiding toegang Configuratiescherm
 
-tooinstall hello Configuratiescherm Browseruitbreiding toegang, Hallo volgende stappen:
+Volg de onderstaande stappen voor het installeren van de Browseruitbreiding toegang Configuratiescherm:
 
-1.  Open Hallo [Toegangspaneel](https://myapps.microsoft.com) in een van de Hallo ondersteunde browsers en meld u aan als een **gebruiker** in uw Azure AD.
+1.  Open de [Toegangspaneel](https://myapps.microsoft.com) in een van de ondersteunde browsers en meld u aan als een **gebruiker** in uw Azure AD.
 
-2.  Klik op een **wachtwoord SSO toepassing** in Hallo Toegangsvenster.
+2.  Klik op een **wachtwoord SSO toepassing** in het deelvenster toegang.
 
-3.  Selecteer in de Hallo vragen gevraagd tooinstall Hallo software, **nu installeren**.
+3.  Selecteer in het venster met de vraag om de software te installeren, **nu installeren**.
 
-4.  Op basis van uw browser zijn u gerichte toohello downloadkoppeling. **Voeg** Hallo extensie tooyour browser.
+4.  Op basis van uw browser u omgeleid naar de downloadkoppeling. **Voeg** de uitbreiding van uw browser.
 
-5.  Als uw browser wordt gevraagd, selecteert u tooeither **inschakelen** of **toestaan** Hallo extensie.
+5.  Als uw browser wordt gevraagd, selecteert u op een **inschakelen** of **toestaan** de extensie.
 
 6.  Nadat deze is geïnstalleerd, **opnieuw** uw browsersessie.
 
-7.  Aanmelden bij Hallo Toegangspaneel en zien als u kunt **starten** uw wachtwoord SSO-toepassingen
+7.  Meld u aan in het deelvenster toegang en zien als u kunt **starten** uw wachtwoord SSO-toepassingen
 
-U kunt ook Hallo-extensie voor Chrome en de rand van Hallo rechtstreekse koppelingen hieronder downloaden:
+U kunt ook de uitbreiding voor Chrome en rand van de onderstaande directe koppelingen downloaden:
 
 -   [Uitbreiding van chrome toegang Configuratiescherm](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
@@ -66,23 +66,23 @@ U kunt ook Hallo-extensie voor Chrome en de rand van Hallo rechtstreekse koppeli
 
 ## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Instellen van een groepsbeleid voor Internet Explorer
 
-U kunt een groepsbeleid waarmee u tooremotely installeren Hallo Toegangsvenster extensie voor Internet Explorer op computers van uw gebruikers instellen.
+U kunt een groepsbeleid waarmee u op afstand installeren van de extensie Toegangspaneel voor Internet Explorer op computers van uw gebruikers instellen.
 
-Hallo-vereisten zijn:
+De vereisten zijn:
 
--   U hebt ingesteld [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), en u uw gebruikers machines tooyour domein hebt toegevoegd.
+-   U hebt ingesteld [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), en u hebt uw gebruikers machines toegevoegd aan uw domein.
 
--   Hallo 'Instellingen bewerken' machtiging tooedit Hallo groepsbeleidsobject (GPO), moet u hebben. Standaard hebben leden van beveiligingsgroepen na Hallo deze machtiging: Domeinadministrators, Ondernemingsadministrators en Maker Eigenaar Groepsbeleid. [Meer informatie](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   U moet de machtiging 'Instellingen bewerken' voor het bewerken van het groepsbeleidsobject (GPO) hebben. Standaard hebben leden van de volgende beveiligingsgroepen deze machtiging: Domeinadministrators, Ondernemingsadministrators en Maker Eigenaar Groepsbeleid. [Meer informatie](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-Volg de zelfstudie Hallo [hoe tooDeploy Configuratiescherm-uitbreiding voor toegang voor Internet Explorer met behulp van Groepsbeleid Hallo](active-directory-saas-ie-group-policy.md) voor stapsgewijze instructies over hoe tooconfigure Hallo Groepsbeleid en het toousers implementeren.
+Volg de zelfstudie [het implementeren van de uitbreiding van het Configuratiescherm toegang voor Internet Explorer met behulp van Groepsbeleid](active-directory-saas-ie-group-policy.md) voor stapsgewijze instructies voor het configureren van het Groepsbeleid en het implementeren voor gebruikers.
 
-## <a name="troubleshoot-hello-access-panel-in-internet-explorer"></a>Hallo Toegangsvenster in Internet Explorer oplossen
+## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Problemen met het toegangsvenster in Internet Explorer
 
-Ga als volgt Hallo [oplossen Hallo Configuratiescherm-uitbreiding voor toegang voor Internet Explorer](active-directory-saas-ie-troubleshooting.md) geleid voor toegang tot een diagnostische hulpprogramma's en stapsgewijze instructies over het configureren van Hallo-extensie voor IE.
+Ga als volgt de [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](active-directory-saas-ie-troubleshooting.md) geleid voor toegang tot een diagnostische hulpprogramma's en stapsgewijze instructies over het configureren van de extensie voor IE.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-hello-issue"></a>Als u deze stappen voor probleemoplossing Hallo probleem niet verhelpen
+## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Als bovenstaande stappen voor probleemoplossing het probleem niet oplossen
 
-Open een ondersteuningsticket Hello volgende informatie, indien beschikbaar:
+een ondersteuningsticket opent met de volgende informatie, indien beschikbaar:
 
 -   Correlatie fout-ID
 

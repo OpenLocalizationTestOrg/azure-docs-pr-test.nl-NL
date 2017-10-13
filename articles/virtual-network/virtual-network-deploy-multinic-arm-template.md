@@ -1,5 +1,5 @@
 ---
-title: aaaCreate een virtuele machine met meerdere NIC's - Azure Resource Manager-sjabloon | Microsoft Docs
+title: Een virtuele machine maken met meerdere NIC's - Azure Resource Manager-sjabloon | Microsoft Docs
 description: Een virtuele machine maken met meerdere NIC's met een Azure Resource Manager-sjabloon.
 services: virtual-network
 documentationcenter: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5d9ffcbd40c72dc18ae6de38e739eb5e45bf669
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 85bfa264c6cf2b0586816a47b3ab72f3aee8ec96
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-vm-with-multiple-nics-using-a-template"></a>Een virtuele machine met meerdere NIC's met een sjabloon maken
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
@@ -28,30 +28,30 @@ ms.lasthandoff: 10/06/2017
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
 > [!NOTE]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md).  In dit artikel wordt beschreven hoe u Hallo Resource Manager-implementatiemodel, die Microsoft voor de meeste nieuwe implementaties in plaats van Hallo aanbeveelt [klassieke implementatiemodel](virtual-network-deploy-multinic-classic-ps.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md).  Dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat door Microsoft wordt aanbevolen voor de meeste nieuwe implementaties in plaats van het [klassieke implementatiemodel](virtual-network-deploy-multinic-classic-ps.md).
 > 
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Hallo volgt gebruik van een resourcegroep met de naam *IaaSStory* voor Hallo-webservers en een resourcegroep met de naam *IaaSStory-back-end* voor Hallo DB-servers.
+De volgende stappen gebruikt u een resourcegroep met de naam *IaaSStory* voor de webservers en een resourcegroep met de naam *IaaSStory-back-end* voor de database-servers.
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u Hallo DB servers maken kunt, moet u toocreate hello *IaaSStory* resourcegroep met alle Hallo benodigde resources voor dit scenario. toocreate voltooien van deze resources Hallo volgende stappen:
+Voordat u de database-servers maken kunt, moet u maken de *IaaSStory* resourcegroep met alle benodigde resources voor dit scenario. Voor het maken van deze bronnen, moet u de volgende stappen uitvoeren:
 
-1. Navigeer te[Hallo sjabloonpagina](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. Hallo sjabloon pagina toohello rechts van **bovenliggende resourcegroep**, klikt u op **tooAzure implementeren**.
-3. Indien nodig, Hallo parameterwaarden te wijzigen en volg de stappen Hallo in hello Azure preview portal toodeploy Hallo-resourcegroep.
+1. Navigeer naar [de sjabloonpagina](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
+2. Op de sjabloonpagina rechts van **bovenliggende resourcegroep**, klikt u op **implementeren in Azure**.
+3. Indien nodig, de parameterwaarden te wijzigen en volg de stappen in de Azure preview-portal voor het implementeren van de resourcegroep.
 
 > [!IMPORTANT]
 > Zorg ervoor dat de namen van opslagaccounts uniek zijn. Er kan geen dubbele opslagaccountnamen in Azure.
 > 
 
-## <a name="understand-hello-deployment-template"></a>Hallo-implementatiesjabloon begrijpen
-Voordat u Hallo sjabloon van deze documentatie implementeert, zorg er dan voor dat u begrijpt wat het doet. volgende stappen uit Hallo biedt een goed overzicht van Hallo sjabloon:
+## <a name="understand-the-deployment-template"></a>De sjabloon voor de implementatie begrijpen
+Voordat u de sjabloon van deze documentatie implementeert, zorg er dan voor dat u begrijpt wat het doet. De volgende stappen bevatten een goed overzicht van de sjabloon:
 
-1. Navigeer te[Hallo sjabloonpagina](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. Klik op **azuredeploy.json** tooopen Hallo sjabloonbestand.
-3. Kennisgeving Hallo *besturingssysteemtype* parameter hieronder vermeld. Deze parameter is gebruikte tooselect welke toouse VM-installatiekopie voor de databaseserver hello, samen met meerdere besturingssysteem gerelateerde instellingen.
+1. Navigeer naar [de sjabloonpagina](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
+2. Klik op **azuredeploy.json** om de sjabloonbestand te openen.
+3. U ziet de *besturingssysteemtype* parameter hieronder vermeld. Deze parameter wordt gebruikt om te selecteren welke VM-installatiekopie moet worden gebruikt voor de databaseserver, samen met meerdere besturingssysteem gerelateerde instellingen.
 
     ```json
     "osType": {
@@ -62,18 +62,18 @@ Voordat u Hallo sjabloon van deze documentatie implementeert, zorg er dan voor d
         "Ubuntu"
       ],
       "metadata": {
-      "description": "Type of OS toouse for VMs: Windows or Ubuntu."
+      "description": "Type of OS to use for VMs: Windows or Ubuntu."
       }
     },
     ```
 
-4. Schuif naar beneden toohello lijst met variabelen en definitie voor Hallo Hallo **dbVMSetting** variabelen, hieronder vermeld. Het ontvangt een Hallo matrixelementen in Hallo **dbVMSettings** variabele. Als u bekend met software development terminologie bent, kunt u bekijken Hallo **dbVMSettings** variabele als hash-tabel of een woordenlijst.
+4. Schuif helemaal naar de lijst met variabelen en controleer de definitie voor de **dbVMSetting** variabelen, hieronder vermeld. Het ontvangt een van de matrixelementen in de **dbVMSettings** variabele. Als u bekend met software development terminologie bent, vindt u de **dbVMSettings** variabele als hash-tabel of een woordenlijst.
 
     ```json
     "dbVMSetting": "[variables('dbVMSettings')[parameters('osType')]]"
     ```
 
-5. Stel dat u besluit toodeploy Windows virtuele machines waarop SQL in Hallo back-end. Vervolgens Hallo waarde voor **besturingssysteemtype** zou *Windows*, en Hallo **dbVMSetting** variabele onderstaande Hallo-element dat staat voor de eerste waarde Hallo in Hallo zou bevatten **dbVMSettings** variabele.
+5. Stel dat u wilt implementeren, VM's Windows SQL uitgevoerd in de back-end. Vervolgens de waarde voor **besturingssysteemtype** zou *Windows*, en de **dbVMSetting** variabele zou het hieronder vermelde element dat staat voor de eerste waarde in de bevatten**dbVMSettings** variabele.
 
     ```json
     "Windows": {
@@ -94,9 +94,9 @@ Voordat u Hallo sjabloon van deze documentatie implementeert, zorg er dan voor d
     },
     ```
 
-6. Kennisgeving Hallo **vmSize** Hallo waarde bevat *Standard_DS3*. Hallo-gebruik van meerdere NIC's kunnen alleen bepaalde VM-grootten. U kunt controleren welke VM-grootten ondersteuning voor meerdere NIC's door te lezen Hallo [Windows VM-grootten](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en [Linux VM-grootten](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artikelen.
+6. U ziet de **vmSize** bevat de waarde *Standard_DS3*. Het gebruik van meerdere NIC's kunnen alleen bepaalde VM-grootten. U kunt controleren welke VM-grootten ondersteunen meerdere NIC's door te lezen van de [Windows VM-grootten](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en [Linux VM-grootten](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artikelen.
 
-7. Schuif naar beneden te**resources** en kennisgeving Hallo eerste element. Een opslagaccount worden beschreven. Dit opslagaccount worden gebruikte toomaintain Hallo gegevensschijven die wordt gebruikt door elke VM-database. In dit scenario wordt heeft elke database VM een besturingssysteemschijf opgeslagen in reguliere storage en twee gegevensschijven opgeslagen in (premium) SSD-opslag.
+7. Schuif omlaag naar **resources** en Let op het eerste element. Een opslagaccount worden beschreven. Dit opslagaccount wordt gebruikt de gegevensschijven die wordt gebruikt door elke VM-database te onderhouden. In dit scenario wordt heeft elke database VM een besturingssysteemschijf opgeslagen in reguliere storage en twee gegevensschijven opgeslagen in (premium) SSD-opslag.
 
     ```json
     {
@@ -113,7 +113,7 @@ Voordat u Hallo sjabloon van deze documentatie implementeert, zorg er dan voor d
     },
     ```
 
-8. Schuif naar beneden toohello volgende resource, zoals hieronder weergegeven. Deze bron vertegenwoordigt Hallo die NIC voor toegang tot de database in elke VM-database gebruikt. Gebruik van de kennisgeving Hallo Hallo **kopie** functie in deze resource. Hallo sjabloon kunt u toodeploy veel VM's als u wilt, op basis van de Hallo **dbCount** parameter. Daarom moet u toocreate Hallo dezelfde hoeveelheid NIC's voor toegang tot de database, één voor elke virtuele machine.
+8. Schuif omlaag naar de volgende resource, zoals hieronder weergegeven. Deze bron vertegenwoordigt de NIC die wordt gebruikt voor toegang tot de database in elke VM-database. Let op het gebruik van de **kopie** functie in deze resource. De sjabloon kunt u implementeren als veel virtuele machines als u wilt, op basis van de **dbCount** parameter. Daarom moet u dezelfde hoeveelheid NIC's voor toegang tot de database, één voor elke virtuele machine maken.
 
     ```json
     {
@@ -145,7 +145,7 @@ Voordat u Hallo sjabloon van deze documentatie implementeert, zorg er dan voor d
     },
     ```
 
-9. Schuif naar beneden toohello volgende resource, zoals hieronder weergegeven. Deze bron vertegenwoordigt Hallo die NIC voor beheer in elke VM-database gebruikt. Nogmaals, moet u een van deze NIC's voor elke database VM. Kennisgeving Hallo **networkSecurityGroup** element een NSG waarmee toegang tooRDP/SSH toothis NIC alleen koppelen.
+9. Schuif omlaag naar de volgende resource, zoals hieronder weergegeven. Deze bron vertegenwoordigt de NIC die wordt gebruikt voor beheer in elke VM-database. Nogmaals, moet u een van deze NIC's voor elke database VM. U ziet de **networkSecurityGroup** element een NSG die toegang tot RDP/SSH op deze NIC alleen verleent koppelen.
 
     ```json
     {
@@ -180,7 +180,7 @@ Voordat u Hallo sjabloon van deze documentatie implementeert, zorg er dan voor d
     },
 ```
 
-10. Schuif naar beneden toohello volgende resource, zoals hieronder weergegeven. Deze bron vertegenwoordigt een beschikbaarheid set toobe gedeeld door alle virtuele machines van database. Op die manier garandeert u dat er altijd worden één virtuele machine in Hallo ingesteld tijdens het onderhoud is uitgevoerd.
+10. Schuif omlaag naar de volgende resource, zoals hieronder weergegeven. Deze bron vertegenwoordigt een beschikbaarheidsset moeten worden gedeeld door alle virtuele machines van database. Op die manier garandeert u dat er altijd worden één virtuele machine in de set uitvoeren tijdens onderhoud.
 
     ```json
     {
@@ -194,7 +194,7 @@ Voordat u Hallo sjabloon van deze documentatie implementeert, zorg er dan voor d
     },
     ```
 
-11. Schuif omlaag in de volgende resource toohello. Deze bron vertegenwoordigt Hallo database VM's, zoals in Hallo eerst paar regels die hieronder worden vermeld. Gebruik van de kennisgeving Hallo Hallo **kopie** opnieuw werkt, waarbij u ervoor zorgt dat meerdere virtuele machines worden gemaakt op basis van Hallo **dbCount** parameter. Let ook op Hallo **dependsOn** verzameling. Hiermee geeft u twee NIC's wordt nodig toobe gemaakt voordat Hallo die VM is geïmplementeerd, samen met de beschikbaarheidsset hello en Hallo storage-account.
+11. Schuif omlaag naar de volgende resource. Deze bron vertegenwoordigt de database VM's, zoals weergegeven in de eerste paar regels die hieronder worden vermeld. Let op het gebruik van de **kopie** werken opnieuw, waarbij u ervoor zorgt dat meerdere virtuele machines worden gemaakt op basis van de **dbCount** parameter. Ook ziet de **dependsOn** verzameling. Hiermee geeft u twee NIC's die nodig zijn om te worden gemaakt voordat de virtuele machine is geïmplementeerd, samen met de beschikbaarheidsset en het opslagaccount wordt.
 
     ```json
     "apiVersion": "2015-06-15",
@@ -216,7 +216,7 @@ Voordat u Hallo sjabloon van deze documentatie implementeert, zorg er dan voor d
     },
     ```
 
-12. Schuif omlaag in Hallo VM resource toohello **Schaalaanpassingsset** element, zoals hieronder weergegeven. U ziet dat er twee NIC's wordt naslaginformatie voor elke virtuele machine. Als u meerdere NIC's voor een virtuele machine maakt, moet u instellen Hallo **primaire** eigenschap van een van de Hallo NIC's te*true*, en rest te Hallo*false*.
+12. Schuif omlaag in de VM-resource toe aan de **Schaalaanpassingsset** element, zoals hieronder weergegeven. U ziet dat er twee NIC's wordt naslaginformatie voor elke virtuele machine. Als u meerdere NIC's voor een virtuele machine maakt, moet u instellen de **primaire** eigenschap van een van de NIC's voor *true*, en de rest aan *false*.
 
     ```json
     "networkProfile": {
@@ -233,22 +233,22 @@ Voordat u Hallo sjabloon van deze documentatie implementeert, zorg er dan voor d
     }
     ```
 
-## <a name="deploy-hello-arm-template-by-using-click-toodeploy"></a>Hallo ARM-sjabloon implementeren met behulp van toodeploy klikt u op
+## <a name="deploy-the-arm-template-by-using-click-to-deploy"></a>De ARM-sjabloon implementeren met klik om te implementeren
 
 > [!IMPORTANT]
-> Zorg ervoor dat u volgt Hallo [vereisten](#Pre-requisites) stappen vóór Hallo onderstaande instructies.
+> Zorg ervoor dat u volgt de [vereisten](#Pre-requisites) stappen vóór de onderstaande instructies.
 > 
 
-Hallo voorbeeldsjabloon beschikbaar in de openbare opslagplaats Hallo maakt gebruik van een parameterbestand met Hallo standaard waarden gebruikt toogenerate Hallo scenario die hierboven worden beschreven. toodeploy toodeploy, het gebruik van deze sjabloon Klik Volg [deze koppeling](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC), toohello rechts van **back-end resourcegroep (Zie de documentatie)** klikt u op **tooAzure implementeren**, vervangen Hallo standaardparameterwaarden indien nodig, en volg de instructies Hallo in Hallo-portal.
+De voorbeeldsjabloon in de openbare opslagplaats maakt gebruik van een parameterbestand dat de standaardwaarden bevat voor het genereren van het hierboven beschreven scenario. Volg voor het implementeren van deze sjabloon implementeren met Klik [deze koppeling](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC), rechts van **back-end resourcegroep (Zie de documentatie)** klikt u op **implementeren in Azure**, vervang de standaard parameterwaarden indien nodig, en volg de instructies in de portal.
 
-Hallo afbeelding hieronder toont Hallo inhoud van de nieuwe resourcegroep hello, na de implementatie.
+De afbeelding hieronder ziet de inhoud van de nieuwe resourcegroep na de implementatie.
 
 ![Back-end van resourcegroep](./media/virtual-network-deploy-multinic-arm-template/Figure2.png)
 
-## <a name="deploy-hello-template-by-using-powershell"></a>Hallo-sjabloon implementeren met behulp van PowerShell
-toodeploy hello sjabloon die u hebt gedownload met behulp van PowerShell, PowerShell installeren en configureren via Hallo stappen in Hallo [PowerShell installeren en configureren](/powershell/azure/overview) en voltooi vervolgens Hallo stappen te volgen:
+## <a name="deploy-the-template-by-using-powershell"></a>De sjabloon implementeren met PowerShell
+Voor het implementeren van de sjabloon die u hebt gedownload met behulp van PowerShell PowerShell installeren en configureren via de stappen in de [PowerShell installeren en configureren](/powershell/azure/overview) en voltooi vervolgens de volgende stappen uit:
 
-Voer Hallo  **`New-AzureRmResourceGroup`**  cmdlet toocreate een resource-groep met Hallo sjabloon.
+Voer de  **`New-AzureRmResourceGroup`**  cmdlet om een resourcegroep met de sjabloon te maken.
 
 ```powershell
 New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
@@ -279,22 +279,22 @@ Verwachte uitvoer:
                         wtestvnetstorageprm  Microsoft.Storage/storageAccounts    westus  
     ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
 
-## <a name="deploy-hello-template-by-using-hello-azure-cli"></a>Hallo-sjabloon implementeren met hello Azure CLI
-toodeploy hello sjabloon via Azure CLI Hallo Hallo volgende stappen.
+## <a name="deploy-the-template-by-using-the-azure-cli"></a>De sjabloon implementeren met de Azure CLI
+Volg onderstaande stappen als u de sjabloon wilt implementeren met de Azure CLI.
 
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [installeren en configureren van Azure CLI Hallo](../cli-install-nodejs.md) en volg de instructies Hallo toohello punt waar u uw Azure-account en abonnement selecteren.
-2. Voer Hallo  **`azure config mode`**  opdracht tooswitch tooResource modus Manager, zoals hieronder wordt weergegeven.
+1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
+2. Voer de opdracht **`azure config mode`** uit om over te schakelen naar de modus Resource Manager, zoals hieronder weergegeven.
 
     ```azurecli
     azure config mode arm
     ```
 
-    Hallo verwachte uitvoer volgt:
+    Hier volgt de verwachte uitvoer:
 
         info:    New mode is arm
 
-3. Open Hallo [parameterbestand](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), selecteer de inhoud en tooa bestand opslaan op uw computer. In dit voorbeeld is opgeslagen Hallo parameterbestand te*parameters.json*.
-4. Voer Hallo  **`azure group deployment create`**  cmdlet toodeploy Hallo nieuwe VNet met behulp van Hallo sjabloon en de parameterbestanden die u hebt gedownload en hierboven zijn gewijzigd. Hallo-lijst die wordt weergegeven na Hallo uitvoer wordt uitgelegd Hallo parameters die worden gebruikt.
+3. Open de [parameterbestand](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), selecteer de inhoud en sla deze op een bestand op uw computer. Hier is het parameterbestand opgeslagen als *parameters.json*.
+4. Voer de **`azure group deployment create`** cmdlet uit om de nieuwe VNet te implementeren met behulp van de sjabloon en de parameterbestanden die u hebt gedownload en hierboven zijn gewijzigd. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
 
     ```azurecli
     azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json -e parameters.json

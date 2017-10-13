@@ -1,6 +1,6 @@
 ---
-title: aaaConnecting uw beveiliging producten toohello Operations Management Suite (OMS) beveiliging en Audit oplossing | Microsoft Docs
-description: Dit document helpt u tooconnect uw beveiliging producten tooOperations Management Suite beveiligings- en Audit-oplossing met behulp van algemene indeling van de gebeurtenis.
+title: Uw beveiligingsproducten koppelen aan de beveiligings- en controleoplossing van de Operations Management Suite (OMS) | Microsoft Docs
+description: Met dit document kunt u uw beveiligingsproducten koppelen aan de beveiligings- en controleoplossing van de Operations Management Suite met behulp van Common Event Format.
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 0f4b372d0379987c4e249628a3c8d52733be65c2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="connecting-your-security-products-toohello-operations-management-suite-oms-security-and-audit-solution"></a>Verbinding maken met de beveiliging producten toohello Operations Management Suite (OMS) beveiliging en Audit-oplossing 
-Dit document helpt u uw beveiligingsproducten verbinding naar hello OMS beveiligings- en Audit-oplossing. Hallo de volgende bronnen worden ondersteund:
+# <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Uw beveiligingsproducten koppelen aan de beveiligings- en controleoplossing van de Operations Management Suite (OMS) 
+Met dit document kunt u uw beveiligingsproducten koppelen aan de beveiligings- en controleoplossing van de OMS. De volgende bronnen worden ondersteund:
 
 - Common Event Format-gebeurtenissen (CEF)
 - Cisco ASA-gebeurtenissen
 
 
 ## <a name="what-is-cef"></a>Wat is CEF?
-Algemene gebeurtenis-indeling (CEF) is een indeling volgens de industrienorm boven op Syslog-berichten die worden gebruikt door veel beveiliging leveranciers tooallow gebeurtenis interoperabiliteit tussen verschillende platforms. Ondersteuning voor gegevensopname CEF waarmee u tooconnect van uw beveiligingsproducten met OMS-beveiliging met OMS beveiligings- en Audit-oplossing. 
+Common Event Format (CEF) is een standaardindeling in de branche voor Syslog-berichten. De indeling wordt door veel leveranciers van beveiligingsproducten gebruikt om gebeurtenisinteroperabiliteit tussen verschillende platforms mogelijk te maken. De beveiligings- en controleoplossing van OMS biedt ondersteuning voor gegevensopname met CEF. Daardoor kunt u uw beveiligingsproducten koppelen aan OMS Security. 
 
-U bent tootake kunnen profiteren van Hallo na mogelijkheden die deel van dit platform uitmaken door verbinding te maken van uw gegevensbron tooOMS:
+Als u uw gegevensbron koppelt aan OMS kunt u profiteren van de volgende mogelijkheden die onderdeel uitmaken van dit platform:
 
 - Zoeken en correlatie
 - Controleren
@@ -41,20 +41,20 @@ U bent tootake kunnen profiteren van Hallo na mogelijkheden die deel van dit pla
 
 ## <a name="collection-of-security-solution-logs"></a>Logboeken van beveiligingsoplossingen verzamelen
 
-OMS Security biedt ondersteuning voor het verzamelen van logboeken middels CIS via Syslogs en [Cisco ASA](https://blogs.technet.microsoft.com/msoms/2016/08/25/add-your-cisco-asa-logs-to-oms-security/)-logboeken. In dit voorbeeld Hallo bron (de computer die Hallo logboeken genereert) is een Linux-computer met de syslog-ng daemon en Hallo doel is OMS-beveiliging. tooprepare hello Linux-computer moet u tooperform Hallo volgende taken:
+OMS Security biedt ondersteuning voor het verzamelen van logboeken middels CIS via Syslogs en [Cisco ASA](https://blogs.technet.microsoft.com/msoms/2016/08/25/add-your-cisco-asa-logs-to-oms-security/)-logboeken. In dit voorbeeld is de bron (de computer die de logboeken genereert) een Linux-computer met syslog-ng daemon. De bestemming is OMS Security. U moet de volgende taken uitvoeren om de Linux-computer voor te bereiden:
 
-- Hallo OMS-Agent downloaden voor Linux, versie 1.2.0-25 of hoger.
-- Ga als volgt Hallo sectie **snelle handleiding installeren** van [in dit artikel](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#steps-to-install-the-oms-agent-for-linux) tooinstall en vrijgeven Hallo agent tooyour werkruimte.
+- Download de OMS-agent voor Linux (versie 1.2.0-25 of hoger).
+- Volg de sectie **Korte installatiehandleiding** in [dit artikel](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#steps-to-install-the-oms-agent-for-linux) om de agent in uw werkruimte te installeren en vrij te geven.
 
-Normaal gesproken is Hallo-agent geïnstalleerd op een andere computer dan Hallo één op welke Hallo-logboeken worden gegenereerd. Doorsturen Hallo logboeken toohello-agentcomputer wordt doorgaans vereist voor Hallo stappen te volgen:
+Normaal gesproken wordt de agent op een andere computer geïnstalleerd dan op de computer waarop de logboeken worden gegenereerd. De volgende stappen zijn normaal nodig om de logboeken door te sturen naar de computer met de agent:
 
-- Hallo logboekregistratie product/machine tooforward Hallo vereist gebeurtenissen toohello syslog-daemon (rsyslog of syslog-ng) op de agentcomputer Hallo configureren.
-- Schakel Hallo syslog-daemon op Hallo agent machine tooreceive berichten van een extern systeem.
+- Configureer het product/apparaat waarop de logboeken worden gemaakt zodanig dat de vereiste gebeurtenissen worden doorgestuurd naar de syslog-daemon (rsyslog of syslog-ng) op de computer met de agent.
+- Stel in dat de syslog-daemon op de computer met de agent berichten mag ontvangen vanaf een extern systeem.
 
-Op de agentcomputer hello moeten Hallo gebeurtenissen toobe verzonden vanuit Hallo syslog-daemon toolocal UDP-poort 25226. Hallo-agent luistert naar binnenkomende gebeurtenissen op deze poort. Hallo Hier volgt een van de voorbeeldconfiguratie voor het verzenden van alle gebeurtenissen uit Hallo lokaal systeem toohello agent (u kunt wijzigen Hallo configuratie toofit uw lokale instellingen):
+Op de computer met de agent moeten de gebeurtenissen vanuit de syslog-daemon worden verzonden naar lokale UDP-poort 25226. De agent houdt in de gaten of er gebeurtenissen binnenkomen via deze poort. Het volgende is een voorbeeldconfiguratie voor het verzenden van alle gebeurtenissen van het lokale systeem naar de agent (u kunt de configuratie aanpassen zodat deze aansluit op uw lokale instellingen):
 
-1. Open Hallo terminalvenster en ga toohello directory */etc/syslog-ng /* 
-2. Maak een nieuw bestand *security-config-omsagent.conf* en voeg Hallo volgende inhoud: OMS_facility local4 =
+1. Open het terminalvenster en ga naar de map */etc/syslog-ng/* 
+2. Maak een nieuw bestand (*security-config-omsagent.conf*) en voeg de volgende inhoud toe: OMS_facility = local4
     
     filter f_local4_oms { facility(local4); };
 
@@ -62,8 +62,8 @@ Op de agentcomputer hello moeten Hallo gebeurtenissen toobe verzonden vanuit Hal
 
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
-3. Hallo-bestand downloaden *security_events.conf* en plaats deze in */etc/opt/microsoft/omsagent/conf/omsagent.d/* in Hallo OMS-Agent-computer.
-4. Typ de opdracht Hallo hieronder toorestart Hallo syslog-daemon: *voor syslog-ng uitvoeren:*
+3. Download het bestand *security_events.conf* en plaats het in */etc/opt/microsoft/omsagent/conf/omsagent.d/* op de computer met de OMS-agent.
+4. Typ de volgende opdracht om opnieuw te starten van de syslog-daemon: *voor syslog-ng uitvoeren:*
     
     ```
     sudo service rsyslog restart
@@ -74,7 +74,7 @@ Op de agentcomputer hello moeten Hallo gebeurtenissen toobe verzonden vanuit Hal
     ```
     /etc/init.d/syslog-ng restart
     ```
-5. Typ de opdracht Hallo hieronder toorestart Hallo OMS-Agent:
+5. Voer de onderstaande opdracht in om de OMS-agent opnieuw op te starten:
 
     *Voer voor syslog-ng het volgende uit:*
     
@@ -87,7 +87,7 @@ Op de agentcomputer hello moeten Hallo gebeurtenissen toobe verzonden vanuit Hal
     ```
     systemctl restart omsagent
     ```
-6. Onderstaande Hallo-opdracht te typen en te controleren Hallo resultaat tooconfirm er zijn geen fouten in het logboek van Hallo OMS-Agent:
+6. Voer de onderstaande opdracht in en bekijk het resultaat om te controleren of er fouten in het logboek van de OMS-agent staan:
 
     ``` 
     tail /var/opt/microsoft/omsagent/log/omsagent.log
@@ -97,19 +97,19 @@ Op de agentcomputer hello moeten Hallo gebeurtenissen toobe verzonden vanuit Hal
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-Nadat het Hallo configuratie is voltooid, gaat Hallo beveiligingsgebeurtenis toobe ingenomen door OMS-beveiliging. toovisualize deze gebeurtenissen, open Hallo logboek zoeken, typt u Hallo opdracht *Type = CommonSecurityLog* in Hallo zoekvak en druk op ENTER. Hallo volgende voorbeeld ziet u Hallo resultaat van deze opdracht u ziet dat in dit geval OMS beveiliging al beveiligingslogboeken van meerdere leveranciers ingenomen:
+Wanneer de configuratie is voltooid, wordt de beveiligingsgebeurtenis opgenomen door OMS Security. Als u de gebeurtenissen wilt visualiseren, opent u Zoeken in logboeken en voert u de opdracht *Type=CommonSecurityLog* in in het zoekveld. Druk vervolgens op ENTER. In het volgende voorbeeld ziet u het resultaat van deze opdracht. In dit geval zijn in OMS Security al beveiligingslogboeken van meerdere leveranciers opgenomen:
    
 ![Basislijnevaluatie in Beveiliging en controle in OMS](./media/oms-security-connect-products/oms-security-connect-products-fig1.png)
 
-U kunt deze zoekopdracht voor één enkele leverancier, bijvoorbeeld toovisualize online Cisco registreert, type verfijnen: *Type = CommonSecurityLog DeviceVendor = Cisco*. Hallo 'CommonSecurityLog' bevat vooraf gedefinieerde van velden voor eventuele CEF-header met inbegrip van basic extensios hello, terwijl een andere uitbreiding of 'Aangepaste extensie' of niet zal worden ingevoegd in het veld 'AdditionalExtensions'. U kunt Hallo aangepaste velden functie tooget toegewezen velden uit het. 
+U kunt deze zoekopdracht verfijnen voor één enkele leverancier om bijvoorbeeld online Cisco-logboeken te visualiseren. Typ daarvoor: *Type=CommonSecurityLog DeviceVendor=Cisco*. CommonSecurityLog bevat vooraf gedefinieerde velden voor eventuele CEF-headers, waaronder de basisextensies. Alle andere extensies, of dat nu aangepaste extensies zijn of niet, worden ingevoerd in het veld AdditionalExtensions. U kunt de functie Aangepaste velden gebruiken voor speciale velden. 
 
 ### <a name="accessing-computers-missing-baseline-assessment"></a>Computers openen waarop de evaluatie van de basislijn ontbreekt
-OMS ondersteunt lid Hallo-basislijn domeinprofiel op Windows Server 2008 R2 up tooWindows Server 2012 R2. De basislijn voor Windows Server 2016 is nog niet helemaal klaar en wordt toegevoegd zodra deze is gepubliceerd. Alle andere besturingssystemen gescand via OMS beveiligings- en Audit basislijn beoordeling worden weergegeven onder Hallo **Computers met ontbrekende basislijn assessment** sectie.
+OMS ondersteunt het basislijnprofiel van het domeinlid op Windows Server 2008 R2 tot en met Windows Server 2012 R2. De basislijn voor Windows Server 2016 is nog niet helemaal klaar en wordt toegevoegd zodra deze is gepubliceerd. Alle andere besturingssystemen die via basislijnevaluatie in Beveiliging en controle in OMS zijn gescand, worden weergegeven onder de sectie **Computers waarop de evaluatie van de basislijn ontbreekt**.
 
 ## <a name="see-also"></a>Zie ook
-In dit document, u leert hoe tooconnect uw tooOMS CEF-oplossing. toolearn meer informatie over OMS-beveiliging, Zie Hallo artikelen te volgen:
+In dit document hebt u geleerd hoe u uw CEF-oplossing koppelt aan OMS. Raadpleeg de volgende artikelen voor meer informatie over OMS Beveiliging:
 
 * [Overzicht van Operations Management Suite (OMS)](operations-management-suite-overview.md)
-* [Bewaking en reageren tooSecurity waarschuwingen in de beveiliging van Operations Management Suite en Audit-oplossing](oms-security-responding-alerts.md)
+* [Beveiligingswaarschuwingen in de oplossing Beveiliging en controle van Operations Management Suite bewaken en erop reageren](oms-security-responding-alerts.md)
 * [Resources bewaken in de oplossing Beveiliging en controle van Operations Management Suite ](oms-security-monitoring-resources.md)
 

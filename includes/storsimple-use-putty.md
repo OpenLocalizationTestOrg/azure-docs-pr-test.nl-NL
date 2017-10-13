@@ -1,14 +1,14 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="tooconnect-through-hello-serial-console"></a>tooconnect via de seriële console Hallo
-1. Sluit de seriële kabel toohello-apparaat (rechtstreeks of via een USB-seriële adapter).
-2. Open Hallo **Configuratiescherm**, en open vervolgens Hallo **Apparaatbeheer**.
-3. Hallo COM-poort herkennen zoals weergegeven in de volgende illustratie Hallo.
+#### <a name="to-connect-through-the-serial-console"></a>Verbinding maken via de seriële console
+1. Sluit de seriële kabel aan op het apparaat (rechtstreeks of via een USB-seriële adapter).
+2. Open het **Configuratiescherm** en open vervolgens **Apparaatbeheer**.
+3. Kijk waar de COM-poort zich bevindt, zoals weergegeven in de volgende afbeelding.
    
      ![Verbinding maken via een seriële console](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
 4. Start PuTTY. 
-5. Wijzig in het rechterdeelvenster Hallo Hallo **verbindingstype** te**seriële**.
-6. Typ in het rechterdeelvenster Hallo Hallo juiste COM-poort. Zorg ervoor dat de Hallo seriële configuratieparameters als volgt zijn ingesteld:
+5. Wijzig in het rechterdeelvenster **Verbindingstype** in **Serieel**.
+6. Typ in het rechterdeelvenster de juiste COM-poort. Zorg ervoor dat de seriële configuratieparameters als volgt zijn ingesteld:
    
    * Snelheid: 115.200
    * Gegevensbits: 8
@@ -16,13 +16,13 @@
    * Pariteit: Geen
    * Datatransportbesturing: Geen
      
-     Deze instellingen worden weergegeven in de volgende illustratie Hallo.
+     Deze instellingen worden weergegeven in de volgende afbeelding.
      
      ![Instellingen voor PuTTY](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
      
      > [!NOTE]
-     > Als Hallo standaard instelling voor datatransportbesturing niet werkt, kunt u Hallo flow control tooXON/XOFF.
+     > Als de standaardinstelling voor datatransportbesturing niet werkt, kunt u de datatransportbesturing instellen op XON/XOFF.
      > 
      > 
-7. Klik op **Open** toostart een seriële sessie.
+7. Klik op **Openen** om een seriële sessie te starten.
 

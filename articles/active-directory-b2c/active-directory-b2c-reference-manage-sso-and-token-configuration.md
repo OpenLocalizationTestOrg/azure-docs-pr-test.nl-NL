@@ -12,17 +12,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 05/02/2017
 ms.author: sama
-ms.openlocfilehash: b65271a22c77ea41eeec2126e4a3ad24364edd17
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8f5703d15766f221517cd89352d41685652d32d6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C: Eenmalige aanmelding en token aanpassing met aangepast beleid beheren
-Gebruik van aangepast beleid biedt dat u dezelfde controle over uw token, sessie en eenmalige aanmelding (SSO) configuraties Hallo via ingebouwde beleid.  toolearn welke elke instelling voor het geval is, Zie de documentatie van Hallo [hier](#active-directory-b2c-token-session-sso).
+Gebruik van aangepast beleid biedt u de dezelfde controle over uw token, sessie en eenmalige aanmelding (SSO) configuraties als u via de ingebouwde beleid.  Zie de documentatie voor meer informatie over wat elke instelling doet, [hier](#active-directory-b2c-token-session-sso).
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>Configuratie van token levensduur en claims
-toochange Hallo-instellingen van uw token levensduur, moet u tooadd een `<ClaimsProviders>` element in Hallo relying party-bestand van Hallo beleid gewenste tooimpact.  Hallo `<ClaimsProviders>` -element is een onderliggend element van Hallo `<TrustFrameworkPolicy>`.  U moet binnen tooput Hallo informatie die van invloed op uw token levensduur.  Hallo XML ziet er als volgt:
+Wijzig de instellingen op uw token levensduur, moet u toevoegen een `<ClaimsProviders>` element in het relying party-bestand van het beleid dat u wilt worden beïnvloed.  De `<ClaimsProviders>` -element is een onderliggend element van de `<TrustFrameworkPolicy>`.  U moet binnen de gegevens die van invloed op uw token levensduur.  Het XML-bestand ziet er als volgt:
 
 ```XML
 <ClaimsProviders>
@@ -44,28 +44,28 @@ toochange Hallo-instellingen van uw token levensduur, moet u tooadd een `<Claims
 </ClaimsProviders>
 ```
 
-**Toegang tot de levensduur van token** toegang levensduur van token kan worden gewijzigd door het wijzigen van Hallo waarde binnen Hallo Hallo `<Item>` Hello Key = 'token_lifetime_secs' in seconden.  de standaardwaarde Hallo in ingebouwde is 3600 seconden (60 minuten).
+**Toegang tot de levensduur van token** de levensduur van tokens toegang kan worden gewijzigd door het wijzigen van de waarde binnen de `<Item>` = met de sleutel 'token_lifetime_secs' in seconden.  De standaardwaarde in ingebouwde is 3600 seconden (60 minuten).
 
-**Levensduur van token ID** levensduur van token Hallo-ID kan worden gewijzigd door het wijzigen van Hallo waarde binnen Hallo `<Item>` Hello Key = 'id_token_lifetime_secs' in seconden.  de standaardwaarde Hallo in ingebouwde is 3600 seconden (60 minuten).
+**Levensduur van token ID** levensduur van de ID-tokens kan worden gewijzigd door het wijzigen van de waarde binnen de `<Item>` = met de sleutel 'id_token_lifetime_secs' in seconden.  De standaardwaarde in ingebouwde is 3600 seconden (60 minuten).
 
-**Vernieuwen van de levensduur van token** Hallo vernieuwen levensduur van token kan worden gewijzigd door het wijzigen van Hallo waarde binnen Hallo `<Item>` Hello Key = 'refresh_token_lifetime_secs' in seconden.  de standaardwaarde Hallo in ingebouwde is 1209600 seconden (14 dagen).
+**Vernieuwen van de levensduur van token** de levensduur vernieuwen van tokens kan worden gewijzigd door het wijzigen van de waarde binnen de `<Item>` = met de sleutel 'refresh_token_lifetime_secs' in seconden.  De standaardwaarde in ingebouwde is 1209600 seconden (14 dagen).
 
-**Vernieuwen van de levensduur van token verschuivende venster** indien een verschuivende venster levensduur tooyour vernieuwingstoken tooset gewenst, wijzigt u Hallo waarde binnen `<Item>` Hello Key = 'rolling_refresh_token_lifetime_secs' in seconden.  de standaardwaarde Hallo in ingebouwde is 7776000 (90 dagen).  Als u niet tooenfore wilt een Verschuivend venster levensduur, vervangt u deze regel:
+**Vernieuwen van de levensduur van token verschuivende venster** als u een verschuivende venster levensduur ingesteld op uw vernieuwingstoken wilt, wijzigt u de waarde binnen `<Item>` = met de sleutel 'rolling_refresh_token_lifetime_secs' in seconden.  De standaardwaarde in ingebouwde is 7776000 (90 dagen).  Als u niet enfore een Verschuivend wilt venster levensduur, vervangt u deze regel:
 ```XML
 <Item Key="allow_infinite_rolling_refresh_token">True</Item>
 ```
 
-**Certificaatverlener (iss) claim** als u toochange Hallo verlener (iss) claim wilt, wijzigt u Hallo waarde binnen Hallo `<Item>` Hello Key = 'IssuanceClaimPattern'.  Hallo toepasselijke waarden zijn `AuthorityAndTenantGuid` en `AuthorityWithTfp`.
+**Certificaatverlener (iss) claim** als u wilt wijzigen van de claim verlener (iss), wijzigt u de waarde binnen de `<Item>` met de sleutel = 'IssuanceClaimPattern'.  De waarden van toepassing zijn `AuthorityAndTenantGuid` en `AuthorityWithTfp`.
 
-**Instelling claim die beleids-ID vertegenwoordigt** Hallo opties voor het instellen van deze waarde zijn TFP (vertrouwensbeleid framework) en ACR (authentication context verwijzing).  
-We raden u aan deze tooTFP, toodo te stellen, controleert u Hallo `<Item>` Hello Key = "AuthenticationContextReferenceClaimPattern" bestaat en het Hallo-waarde is `None`.
+**Instelling claim die beleids-ID vertegenwoordigt** zijn de opties voor het instellen van deze waarde TFP (vertrouwensbeleid framework) en ACR (authentication context verwijzing).  
+Het is raadzaam om te TFP in te stellen, om dit te doen, zorgt u ervoor de `<Item>` met de sleutel = "AuthenticationContextReferenceClaimPattern" bestaat en de waarde is `None`.
 In uw `<OutputClaims>` item, het toevoegen van dit element:
 ```XML
 <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
 ```
-ACR, verwijder Hallo `<Item>` Hello Key = 'AuthenticationContextReferenceClaimPattern'.
+ACR, verwijdert u de `<Item>` met de sleutel = 'AuthenticationContextReferenceClaimPattern'.
 
-**Onderwerpnaam (sub) claim** deze optie is standaard tooObjectID, indien tooswitch gewenst dit te`Not Supported`, Hallo te volgen:
+**Onderwerpnaam (sub) claim** deze optie is standaard ingesteld op object-id als u wilt overschakelen met deze `Not Supported`, het volgende doen:
 
 Deze regel vervangen 
 ```XML
@@ -77,7 +77,7 @@ Met deze regel:
 ```
 
 ## <a name="session-behavior-and-sso"></a>Sessie-gedrag en eenmalige aanmelding
-toochange uw sessie gedrag en de SSO-configuraties, moet u tooadd een `<UserJourneyBehaviors>` -element in Hallo `<RelyingParty>` element.  Hallo `<UserJourneyBehaviors>` element moet direct volgen op Hallo `<DefaultUserJourney>`.  Hallo binnen uw `<UserJourneyBehavors>` element ziet er als volgt:
+Als u wilt uw sessie gedrag en de SSO-configuraties wijzigen, moet u toevoegen een `<UserJourneyBehaviors>` element in de `<RelyingParty>` element.  De `<UserJourneyBehaviors>` element moet direct volgen op de `<DefaultUserJourney>`.  Binnen uw `<UserJourneyBehavors>` element ziet er als volgt:
 
 ```XML
 <UserJourneyBehaviors>
@@ -86,8 +86,8 @@ toochange uw sessie gedrag en de SSO-configuraties, moet u tooadd een `<UserJour
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
-**Eenmalige aanmelding (SSO) configuratie** toochange Hallo eenmalige aanmelding configuratie, moet u toomodify Hallo-waarde van `<SingleSignOn>`.  Hallo toepasselijke waarden zijn `Tenant`, `Application`, `Policy` en `Disabled`. 
+**Eenmalige aanmelding (SSO) configuratie** om de configuratie voor eenmalige aanmelding wijzigt, moet u de waarde van wijzigen `<SingleSignOn>`.  De waarden van toepassing zijn `Tenant`, `Application`, `Policy` en `Disabled`. 
 
-**Sessie-levensduur (minuten) van de Web-app** toochange Hallo Hallo web-app sessie levensduur, moet u toomodify waarde Hallo `<SessionExpiryInSeconds>` element.  de standaardwaarde Hallo in ingebouwde beleid is 86400 seconden (1440 minuten).
+**Sessie-levensduur (minuten) van de Web-app** wijzigen de web-app sessie levensduur, moet u wijzigen waarde van de `<SessionExpiryInSeconds>` element.  De standaardwaarde in ingebouwde beleid is 86400 seconden (1440 minuten).
 
-**Web-app sessietime-out** toochange Hallo web app sessietime-out, moet u toomodify Hallo-waarde van `<SessionExpiryType>`.  Hallo toepasselijke waarden zijn `Absolute` en `Rolling`.
+**Web-app sessietime-out** om te wijzigen van de sessietime-out van de web-app, moet u de waarde van wijzigen `<SessionExpiryType>`.  De waarden van toepassing zijn `Absolute` en `Rolling`.

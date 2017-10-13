@@ -1,6 +1,6 @@
 ---
-title: Hallo lokale netwerk gateway IP-adresvoorvoegsels en Hallo VPN-Gateway-IP-adres wijzigen | Azure | Portal | Microsoft Docs
-description: Dit artikel begeleidt u bij het wijzigen van IP-adresvoorvoegsels voor uw lokale netwerkgateway met hello Azure-portal.
+title: Het lokale netwerk gateway IP-adresvoorvoegsels en het VPN-Gateway-IP-adres wijzigen | Azure | Portal | Microsoft Docs
+description: Dit artikel begeleidt u bij het wijzigen van IP-adresvoorvoegsels voor uw lokale netwerkgateway met de Azure portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: 001df7b748ccc234d87aab3501a4f0e4ddfe60f5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bdd6f90fe97408bd45a72adf58bfdc190207de46
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="modify-local-network-gateway-settings-using-hello-azure-portal"></a>Lokale gateway netwerkinstellingen wijzigen met behulp van hello Azure-portal
+# <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Lokale gateway netwerkinstellingen wijzigen met behulp van de Azure-portal
 
-Soms wijzigen Hallo voor uw lokale netwerkgateway AddressPrefix of GatewayIPAddress. Dit artikel ziet u hoe toomodify gateway-instellingen van uw lokale netwerk. U kunt deze instellingen met een andere methode door een andere optie selecteren in lijst na Hallo ook wijzigen:
+Soms worden de instellingen voor uw lokale netwerkgateway AddressPrefix of GatewayIPAddress gewijzigd. In dit artikel leest u hoe uw lokale netwerk gateway-instellingen te wijzigen. Ook kunt u deze instellingen met een andere methode door een andere optie te selecteren in de volgende lijst:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
@@ -35,13 +35,13 @@ Soms wijzigen Hallo voor uw lokale netwerkgateway AddressPrefix of GatewayIPAddr
 
 ## <a name="ipaddprefix"></a>IP-adresvoorvoegsels wijzigen
 
-Wanneer u IP-adresvoorvoegsels wijzigt, Hallo stappen die u volgt afhankelijk van of uw lokale netwerkgateway een verbinding heeft.
+Wanneer u IP-adresvoorvoegsels wijzigen, afhankelijk van de stappen die u volgt of uw lokale netwerkgateway een verbinding heeft.
 
 [!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
 
-## <a name="gwip"></a>Hallo gateway IP-adres wijzigen
+## <a name="gwip"></a>Het IP-adres wijzigen
 
-Als Hallo VPN-apparaat dat u wilt dat tooconnect toohas het openbare IP-adres is gewijzigd, moet u toomodify Hallo lokale netwerk gateway tooreflect die wijzigen. Wanneer u het openbare IP-adres Hallo wijzigt, Hallo stappen die u volgt afhankelijk van of uw lokale netwerkgateway een verbinding heeft.
+Als van het VPN-apparaat waarmee u verbinding wilt maken het openbare IP-adres is gewijzigd, moet u de gateway van het lokale netwerk aanpassen met deze wijziging. Wanneer u het openbare IP-adres verandert, afhankelijk van de stappen die u volgt of uw lokale netwerkgateway een verbinding heeft.
 
 [!INCLUDE [modify gateway IP](../../includes/vpn-gateway-modify-lng-gateway-ip-portal-include.md)]
 

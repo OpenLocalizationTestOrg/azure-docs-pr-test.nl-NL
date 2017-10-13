@@ -1,10 +1,10 @@
-1. Maak een nieuwe klasse in Hallo project met de naam `ToDoBroadcastReceiver`.
-2. Voeg de volgende Hallo using-instructies te**ToDoBroadcastReceiver** klasse:
+1. Maak een nieuwe klasse in het project met de naam `ToDoBroadcastReceiver`.
+2. Voeg de volgende using-instructies naar **ToDoBroadcastReceiver** klasse:
    
         using Gcm.Client;
         using Microsoft.WindowsAzure.MobileServices;
         using Newtonsoft.Json.Linq;
-3. Toevoegen van de volgende machtigingsaanvragen tussen Hallo Hallo **met** -instructies en Hallo **naamruimte** declaratie:
+3. Voeg de volgende machtigingsaanvragen tussen de **met** instructies en de **naamruimte** declaratie:
    
         [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
         [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -14,7 +14,7 @@
         [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
         [assembly: UsesPermission(Name = "android.permission.INTERNET")]
         [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
-4. Hallo bestaande **ToDoBroadcastReceiver** definitie door de volgende Hallo klasse:
+4. Vervang de bestaande **ToDoBroadcastReceiver** klasse definitie door het volgende:
    
         [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, 
@@ -25,14 +25,14 @@
         Categories = new string[] { "@PACKAGE_NAME@" })]
         public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
         {
-            // Set hello Google app ID.
+            // Set the Google app ID.
             public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
         }
    
-    In de Hallo bovenstaande code, moet u vervangen  *`<PROJECT_NUMBER>`*  met Hallo-projectnummer toegewezen door Google wanneer u uw app in Google developer-portal Hallo ingericht. 
-5. In Hallo ToDoBroadcastReceiver.cs project-bestand toevoegen na de code die Hallo definieert Hallo **PushHandlerService** klasse:
+    U moet in de bovenstaande code vervangen  *`<PROJECT_NUMBER>`*  met het projectnummer dat wordt toegewezen door Google wanneer u uw app in de Google-portal voor ontwikkelaars ingericht. 
+5. Voeg de volgende code waarmee wordt gedefinieerd in het projectbestand ToDoBroadcastReceiver.cs de **PushHandlerService** klasse:
    
-        // hello ServiceAttribute must be applied toohello class.
+        // The ServiceAttribute must be applied to the class.
         [Service] 
         public class PushHandlerService : GcmServiceBase
         {
@@ -41,26 +41,26 @@
             public PushHandlerService() : base(ToDoBroadcastReceiver.senderIDs) { }
         }
    
-    Merk op dat deze klasse is afgeleid van **GcmServiceBase** en die Hallo **Service** kenmerk moet worden toegepast toothis klasse.
+    Merk op dat deze klasse is afgeleid van **GcmServiceBase** en dat de **Service** kenmerk moet worden toegepast op deze klasse.
    
    > [!NOTE]
-   > Hallo **GcmServiceBase** klasse implementeert Hallo **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** en  **OnError()** methoden. U moet deze methoden in Hallo overschrijven **PushHandlerService** klasse.
+   > De **GcmServiceBase** klasse implementeert de **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** en  **OnError()** methoden. U moet deze methoden overschrijven de **PushHandlerService** klasse.
    > 
    > 
-6. Hallo na code toohello toevoegen **PushHandlerService** klasse die Hallo overschrijft **OnRegistered** gebeurtenis-handler. 
+6. Voeg de volgende code naar de **PushHandlerService** klasse die de **OnRegistered** gebeurtenis-handler. 
    
         protected override void OnRegistered(Context context, string registrationId)
         {
-            System.Diagnostics.Debug.WriteLine("hello device has been registered with GCM.", "Success!");
+            System.Diagnostics.Debug.WriteLine("The device has been registered with GCM.", "Success!");
    
-            // Get hello MobileServiceClient from hello current activity instance.
+            // Get the MobileServiceClient from the current activity instance.
             MobileServiceClient client = ToDoActivity.CurrentActivity.CurrentClient;
             var push = client.GetPush();
    
             // Define a message body for GCM.
             const string templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
    
-            // Define hello template registration as JSON.
+            // Define the template registration as JSON.
             JObject templates = new JObject();
             templates["genericMessage"] = new JObject
             {
@@ -69,11 +69,11 @@
    
             try
             {
-                // Make sure we run hello registration on hello same thread as hello activity, 
-                // tooavoid threading errors.
+                // Make sure we run the registration on the same thread as the activity, 
+                // to avoid threading errors.
                 ToDoActivity.CurrentActivity.RunOnUiThread(
    
-                    // Register hello template with Notification Hubs.
+                    // Register the template with Notification Hubs.
                     async () => await push.RegisterAsync(registrationId, templates));
    
                 System.Diagnostics.Debug.WriteLine(
@@ -86,29 +86,29 @@
             }
         }
    
-    Deze methode gebruikt Hallo GCM-registratie-ID tooregister met Azure voor pushmeldingen geretourneerd. Labels kunnen alleen worden toegevoegd toohello registratie nadat deze is gemaakt. Zie voor meer informatie [hoe: voeg tags tooa apparaat installatie tooenable push-aan-labels](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
-7. Hallo overschrijven **OnMessage** methode in **PushHandlerService** Hello code te volgen:
+    Deze methode maakt gebruik van de geretourneerde GCM-registratie-ID registreren bij Azure voor pushmeldingen. Labels kunnen alleen worden toegevoegd aan de registratie nadat deze is gemaakt. Zie voor meer informatie [hoe: labels toevoegen aan de installatie van een apparaat om in te schakelen push aan labels](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+7. Overschrijf de **OnMessage** methode in **PushHandlerService** met de volgende code:
    
        protected override void OnMessage(Context context, Intent intent)
        {          
            string message = string.Empty;
    
-           // Extract hello push notification message from hello intent.
+           // Extract the push notification message from the intent.
            if (intent.Extras.ContainsKey("message"))
            {
                message = intent.Extras.Get("message").ToString();
                var title = "New item added:";
    
-               // Create a notification manager toosend hello notification.
+               // Create a notification manager to send the notification.
                var notificationManager = 
                    GetSystemService(Context.NotificationService) as NotificationManager;
    
-               // Create a new intent tooshow hello notification in hello UI. 
+               // Create a new intent to show the notification in the UI. 
                PendingIntent contentIntent = 
                    PendingIntent.GetActivity(context, 0, 
                    new Intent(this, typeof(ToDoActivity)), 0);              
    
-               // Create hello notification using hello builder.
+               // Create the notification using the builder.
                var builder = new Notification.Builder(context);
                builder.SetAutoCancel(true);
                builder.SetContentTitle(title);
@@ -117,12 +117,12 @@
                builder.SetContentIntent(contentIntent);
                var notification = builder.Build();
    
-               // Display hello notification in hello Notifications Area.
+               // Display the notification in the Notifications Area.
                notificationManager.Notify(1, notification);
    
            }
        }
-8. Hallo overschrijven **OnUnRegistered()** en **OnError()** methoden met de volgende code Hallo.
+8. Overschrijf de **OnUnRegistered()** en **OnError()** methoden met de volgende code.
    
        protected override void OnUnRegistered(Context context, string registrationId)
        {
@@ -132,6 +132,6 @@
        protected override void OnError(Context context, string errorId)
        {
            System.Diagnostics.Debug.WriteLine(
-               string.Format("Error occurred in hello notification: {0}.", errorId));
+               string.Format("Error occurred in the notification: {0}.", errorId));
        }
 

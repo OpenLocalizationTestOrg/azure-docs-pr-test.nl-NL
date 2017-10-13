@@ -1,6 +1,6 @@
 ---
-title: aaaHow toocreate een Azure-bestandsshare | Microsoft Docs
-description: Hoe toocreate een Azure-bestandsshare in Azure File storage met hello Azure-portal, PowerShell en hello Azure CLI.
+title: Een Azure-bestandsshare maken | Microsoft Docs
+description: Informatie over het maken van een Azure-bestandsshare in Azure Files met behulp van de Azure Portal, PowerShell en de Azure CLI.
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,32 +12,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 816694e411a993dae881816fc62173e2b7afe990
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: bc01e5427f32e9532e39694f6de9f0b1146eda35
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-file-share-in-azure-file-storage"></a>Een bestandsshare maken in Azure File Storage
-U kunt Azure bestandsshares maken met [Azure-portal](https://portal.azure.com/), Azure PowerShell-cmdlets Storage hello, Hallo clientbibliotheken van Azure Storage of Hallo REST-API van Azure Storage. In deze zelfstudie leert u het:
-* [Hoe toocreate een Azure-bestand delen met behulp van hello Azure-portal](#Create file share through hello Portal)
-* [Hoe toocreate een Azure-bestandsshare met behulp van Powershell](#Create file share using PowerShell)
-* [Hoe toocreate een Azure-bestandsshare met CLI](#create-file-share-using-command-line-interface-cli)
+# <a name="create-a-file-share-in-azure-files"></a>Een bestandsshare maken in Azure Files
+U kunt Azure-bestandsshares maken met [Azure Portal](https://portal.azure.com/), de PowerShell-cmdlets van Azure Storage, de clientbibliotheken van Azure Storage of de REST-API van Azure Storage. In deze zelfstudie leert u het volgende:
+* [Een Azure-bestandsshare maken met de Azure Portal](#Create file share through the Portal)
+* [Een Azure-bestandsshare maken met Powershell](#Create file share using PowerShell)
+* [Een Azure-bestandsshare maken met de CLI](#create-file-share-using-command-line-interface-cli)
 
 ## <a name="prerequisites"></a>Vereisten
-toocreate een Azure-bestandsshare, kunt u een opslagaccount dat al bestaat, of [maken van een nieuwe Azure-opslagaccount](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). een bestandsshare in Azure met PowerShell toocreate, moet u Hallo accountsleutel en de naam van uw opslagaccount... U moet de sleutel Opslagaccount als u van plan toouse Powershell of CLI bent.
+Voor het maken van een Azure-bestandsshare kunt u een opslagaccount gebruiken dat al bestaat of [een nieuw Azure Storage-account maken](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Als u een Azure-bestandsshare wilt maken met PowerShell, hebt u de sleutel en de naam van uw opslagaccount nodig. U hebt de sleutel van het opslagaccount nodig als u van plan bent Powershell of de CLI te gebruiken.
 
-## <a name="create-file-share-through-hello-portal"></a>Bestandsshare via Hallo Portal maken
-1. **Blade-Account in Azure Portal gaat tooStorage**:    
+## <a name="create-file-share-through-the-azure-portal"></a>Een bestandsshare via de Azure Portal maken
+1. **Ga naar de blade Opslagaccount in de Azure Portal**:    
     ![Blade Opslagaccount](./media/storage-how-to-create-file-share/create-file-share-portal1.png)
 
 2. **Klik op de knop Bestandsshare toevoegen**:    
-    ![Klik op Hallo file share knop toevoegen](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
+    ![Klik op de knop Bestandsshare toevoegen](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **Geef de naam en een quotum op. Het quotum heeft momenteel een maximum van 5 TB**:    
-    ![Geef een naam en een gewenste quotum voor de nieuwe bestandsshare Hallo](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
+3. **Geef de naam en een quotum op. Het quotum heeft momenteel een maximum van 5 TiB**:    
+    ![Geef een naam en een gewenst quotum op voor de nieuwe bestandsshare](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
 4. **Bekijk uw nieuwe bestandsshare**: ![Bekijk uw nieuwe bestandsshare](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
 
@@ -47,12 +47,12 @@ toocreate een Azure-bestandsshare, kunt u een opslagaccount dat al bestaat, of [
 
 
 ## <a name="create-file-share-through-powershell"></a>Een bestandsshare via de PowerShell maken
-tooprepare toouse PowerShell, download en installeer hello Azure PowerShell-cmdlets. Zie [hoe tooinstall en configureren van Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) installeren voor Hallo installatiepunt en de installatie-instructies.
+U bereidt het gebruik van PowerShell voor door de Azure PowerShell-cmdlets te downloaden en te installeren. Zie [How to install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) (Azure PowerShell installeren en configureren) voor het installatiepunt en de installatie-instructies.
 
 > [!Note]  
-> Het verdient aanbeveling dat u downloaden en installeren of upgraden van de meest recente Azure PowerShell-module toohello.
+> Het wordt aanbevolen om de meest recente Azure PowerShell-module te downloaden en te installeren, of hiernaar te upgraden.
 
-1. **Een context maken voor uw opslagaccount en de sleutel** Hallo context Hallo naam en het account opslagaccountsleutel ingekapseld. Voor instructies voor het kopiëren van de accountsleutel uit [Azure Portal](https://portal.azure.com/) raadpleegt u [Opslagtoegangssleutels bekijken en kopiëren](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
+1. **Een context maken voor uw opslagaccount en sleutel** De context bevat de naam van het opslagaccount en de accountsleutel. Voor instructies voor het kopiëren van de accountsleutel uit [Azure Portal](https://portal.azure.com/) raadpleegt u [Opslagtoegangssleutels bekijken en kopiëren](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
@@ -65,20 +65,20 @@ tooprepare toouse PowerShell, download en installeer hello Azure PowerShell-cmdl
     ```
 
 > [!Note]  
-> Hallo-naam van de bestandsshare moet alleen kleine letters bevatten. Zie [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx) (Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de naamgeving van bestandsshares en bestanden.
+> De naam van de bestandsshare mag alleen uit kleine letters bestaan. Zie [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx) (Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de naamgeving van bestandsshares en bestanden.
 
 ## <a name="create-file-share-through-command-line-interface-cli"></a>Een bestandsshare via de opdrachtregelinterface (CLI) maken
-1. **tooprepare toouse een opdrachtregelinterface (CLI), download en installeer hello Azure CLI.**  
+1. **Download en installeer de Azure CLI als voorbereiding op het gebruiken van een opdrachtregelinterface (CLI).**  
     Zie [Install Azure CLI 2.0](/cli/azure/install-az-cli2.md) (Azure CLI 2.0 installeren) en [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) (Aan de slag met Azure CLI 2.0).
 
-2. **Maak een verbinding tekenreeks toohello opslagaccount waar u toocreate Hallo share.**  
-    Vervang ```<storage-account>``` en ```<resource_group>``` met uw account en de bron opslaggroep in Hallo voorbeeld te volgen.
+2. **Maak een verbindingsreeks naar het opslagaccount op de locatie waar u de share wilt maken.**  
+    Vervang ```<storage-account>``` en ```<resource_group>``` in het volgende voorbeeld door de naam en resourcegroep van uw opslagaccount:
 
    ```azurecli
     current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
 
     if [[ $current_env_conn_string == "" ]]; then  
-        echo "Couldn't retrieve hello connection string."
+        echo "Couldn't retrieve the connection string."
     fi
     ```
 
@@ -92,7 +92,7 @@ tooprepare toouse PowerShell, download en installeer hello Azure PowerShell-cmdl
 * [Bestandsshare verbinden en koppelen - Linux](../storage-how-to-use-files-linux.md)
 * [Bestandsshare verbinden en koppelen - Mac OS](storage-how-to-use-files-mac.md)
 
-Raadpleeg de volgende koppelingen voor meer informatie over Azure File Storage.
+Raadpleeg de volgende koppelingen voor meer informatie over Azure Files.
 
 * [Veelgestelde vragen](../storage-files-faq.md)
 * [Problemen oplossen in Windows](storage-troubleshoot-windows-file-connection-problems.md)      

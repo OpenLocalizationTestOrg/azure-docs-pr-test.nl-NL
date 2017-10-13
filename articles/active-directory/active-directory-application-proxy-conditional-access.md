@@ -1,6 +1,6 @@
 ---
-title: aaaConditional toegang tooon-premises apps - Azure AD | Microsoft Docs
-description: Bevat informatie over hoe tooset van voorwaardelijke toegang voor toepassingen u publiceren toobe toegankelijk is op afstand met Azure AD-toepassingsproxy.
+title: Voorwaardelijke toegang tot on-premises apps - Azure AD | Microsoft Docs
+description: Bevat informatie over het instellen van voorwaardelijke toegang voor toepassingen die u publiceert toegankelijk extern met Azure AD-toepassingsproxy.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,54 +15,54 @@ ms.date: 07/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: 7bed25dd4ba17941e77d8c4b2b9ba4edcf0cf597
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 463946256f9e335fa6d98fc904835e5c3dc2725e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>Werken met voorwaardelijke toegang in Azure AD-toepassingsproxy
 
 >[!NOTE]
->In dit artikel is van toepassing toohello klassieke Azure-portal, die wordt buiten gebruik gesteld. Het is raadzaam dat u Hallo [Azure-portal](https://portal.azure.com). In hello Azure-portal Hallo toepassingsproxy apps hebben dezelfde functies voor voorwaardelijke toegang als andere SaaS-app. toolearn meer informatie over voorwaardelijke toegang, Zie [aan de slag met voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+>In dit artikel is van toepassing op de klassieke Azure portal, die wordt buiten gebruik gesteld. Het is raadzaam dat u de [Azure-portal](https://portal.azure.com). In de Azure-portal hebt toepassingsproxy apps dezelfde voorwaardelijke toegangsfuncties als elke andere SaaS-app. Zie voor meer informatie over voorwaardelijke toegang, [aan de slag met voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
-U kunt de toegang configureren regels toogrant voorwaardelijke toegang tooapplications gepubliceerd met toepassingsproxy. Hiermee kunt u:
+U kunt regels voor voorwaardelijke toegang verlenen tot toepassingen die zijn gepubliceerd met toepassingsproxy toegang configureren. Hiermee kunt u:
 
 * Meervoudige authenticatie per toepassing
 * Meervoudige verificatie vereisen alleen wanneer gebruikers zich niet op het werk
-* Gebruikers toegang tot de toepassing hello wanneer ze niet op het werk blokkeren
+* Gebruikers toegang tot de toepassing niet op kantoor zijn blokkeren
 
-Deze regels kunnen worden toegepast tooall gebruikers en groepen of alleen toospecific gebruikers en groepen. Hallo-regel wordt standaard tooall gebruikers die toegang toohello toepassing hebt toegepast. Hallo regel kan echter ook worden beperkt toousers die lid van de opgegeven beveiligingsgroepen zijn.  
+Deze regels kunnen worden toegepast op alle gebruikers en groepen of alleen op specifieke gebruikers en groepen. Standaard wordt de regel geldt voor alle gebruikers die toegang tot de toepassing hebben. De regel kan echter ook worden beperkt tot gebruikers die lid van de opgegeven beveiligingsgroepen zijn.  
 
-Toegangsregels worden geëvalueerd wanneer een gebruiker een federatieve toepassing die gebruikmaakt van OAuth 2.0, OpenID Connect, SAML of WS-Federation. Toegangsregels worden bovendien met OAuth 2.0 en OpenID Connect geëvalueerd wanneer een vernieuwingstoken gebruikte tooacquire een toegangstoken.
+Toegangsregels worden geëvalueerd wanneer een gebruiker een federatieve toepassing die gebruikmaakt van OAuth 2.0, OpenID Connect, SAML of WS-Federation. Toegangsregels worden bovendien met OAuth 2.0 en OpenID Connect geëvalueerd wanneer een vernieuwingstoken wordt gebruikt voor het verkrijgen van een toegangstoken.
 
 ## <a name="conditional-access-prerequisites"></a>Vereisten voor voorwaardelijke toegang
-* Abonnement tooAzure Active Directory Premium
+* Abonnement op Azure Active Directory Premium
 * Een federatieve of beheerde Azure Active Directory-tenant
 * Federatieve tenants is vereist voor multi-factor authentication (MFA)  
     ![Toegangsregels configureren - meervoudige authenticatie](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
 
 ## <a name="configure-per-application-multi-factor-authentication"></a>Per toepassing multi-factor authentication configureren
-1. Meld u aan als beheerder aan in Hallo klassieke Azure-portal.
-2. Ga tooActive Directory en Hallo directory waarin u toepassingsproxy tooenable wilt selecteren.
-3. Klik op **toepassingen** en schuif omlaag toohello **toegangsregels** sectie. Hallo toegang regels sectie wordt alleen weergegeven voor toepassingen die worden gepubliceerd met toepassingsproxy die gebruikmaken van federatieve verificatie.
-4. Hallo regel inschakelen door het selecteren **toegangsregels inschakelen** te**op**.
-5. Geef Hallo gebruikers en groepen toowhom Hallo regels zijn van toepassing. Gebruik Hallo **groep toevoegen** knop tooselect een of meer groepen toowhich Hallo toegangsregel van toepassing is. Dit dialoogvenster kan ook worden gebruikt tooremove geselecteerde groepen.  Wanneer regels Hallo geselecteerde tooapply toogroups, Hallo toegangsregels worden afgedwongen alleen voor gebruikers die deel uitmaken van tooone Hallo opgegeven beveiligingsgroepen.  
+1. Meld u als beheerder aan in de klassieke Azure portal.
+2. Ga naar Active Directory en selecteer de directory waarin u toepassingsproxy wilt inschakelen.
+3. Klik op **toepassingen** en schuif omlaag naar de **toegangsregels** sectie. De sectie toegang regels wordt alleen weergegeven voor toepassingen die worden gepubliceerd met toepassingsproxy die gebruikmaken van federatieve verificatie.
+4. De regel inschakelen door het selecteren **toegangsregels inschakelen** naar **op**.
+5. Geef de gebruikers en groepen aan wie de regels van toepassing. Gebruik de **groep toevoegen** knop om te selecteren van een of meer groepen waarop de toegangsregel van toepassing is. Dit dialoogvenster kan ook worden gebruikt om te verwijderen van de geselecteerde groepen.  Wanneer de regels toepassen op groepen zijn geselecteerd, wordt de toegangsregels gelden alleen voor gebruikers die deel uitmaken van een van de opgegeven beveiligingsgroepen.  
 
-   * Controleer tooexplicitly uitsluiten beveiligingsgroepen van Hallo-regel **behalve** en geef een of meer groepen. Gebruikers die lid van een groep in Hallo behalve lijst zijn zijn niet vereist tooperform multi-factor authentication-server.  
-   * Als een gebruiker is geconfigureerd met de Hallo per gebruiker multi-factor authentication-Server-functie, heeft deze instelling voorrang op Hallo autorisatieregels multi-factor authentication-server. Een gebruiker die is geconfigureerd voor de per gebruiker multi-factor authentication-server is vereist tooperform multi-factor authentication-server, zelfs als ze van de toepassing hello multi-factorauthenticatie regels zijn uitgesloten. Meer informatie over [meervoudige verificatie en per gebruiker instellingen](../multi-factor-authentication/multi-factor-authentication.md).
-6. Selecteer Hallo toegangsregel gewenste tooset:
+   * Als u wilt uitsluiten expliciet beveiligingsgroepen van de regel, Controleer **behalve** en geef een of meer groepen. Gebruikers die lid van een groep in de lijst Except zijn zijn niet vereist voor multi-factor authentication uitvoeren.  
+   * Als een gebruiker is geconfigureerd met de functie van de multi-factor authentication-server per gebruiker, heeft deze instelling voorrang op de regels van toepassing multi-factor authentication-server. Een gebruiker die is geconfigureerd voor de per gebruiker multi-factor authentication-server is vereist voor multi-factor authentication uitvoeren, zelfs als ze zijn vrijgesteld van regels voor meervoudige verificatie van de toepassing. Meer informatie over [meervoudige verificatie en per gebruiker instellingen](../multi-factor-authentication/multi-factor-authentication.md).
+6. Selecteer de toegangsregel die u wilt instellen:
 
-   * **Meervoudige authenticatie**: gebruikers toowhom toegangsregels van toepassing zijn vereist toocomplete multi-factor authentication-server voordat toegang tot Hallo toepassing toowhich Hallo-regel van toepassing is.
-   * **Meervoudige authenticatie niet op het werk**: gebruikers die toegang proberen tooaccess Hallo toepassing van een vertrouwde IP-adres worden niet vereist tooperform multi-factor authentication-server. Hallo vertrouwd IP-adresbereiken kunnen worden geconfigureerd op de pagina Hallo meerledige verificatie-instellingen.
-   * **Blokkeert de toegang niet op het werk**: gebruikers die toegang proberen tooaccess Hallo toepassing van buiten uw bedrijfsnetwerk kunt tooaccess Hallo toepassing niet worden.
+   * **Meervoudige authenticatie**: gebruikers aan wie toegangsregels zijn van toepassing zijn vereist voor volledige multi-factor authentication-server voordat de toegang tot de toepassing waarvoor de regel geldt.
+   * **Meervoudige authenticatie niet op het werk**: moeten gebruikers toegang wilt krijgen tot de toepassing van een vertrouwde IP-adres niet naar de multi-factor authentication uitvoeren. De vertrouwde IP-adresbereiken kunnen worden geconfigureerd op de pagina voor meervoudige verificatie-instellingen.
+   * **Blokkeert de toegang niet op het werk**: gebruikers toegang wilt krijgen tot de toepassing van buiten uw bedrijfsnetwerk niet mogelijk toegang tot de toepassing.
 
 ## <a name="configuring-mfa-for-federation-services"></a>Configureren van MFA voor federatieservices
-Voor federatieve tenants multi-factor authentication (MFA) kan worden uitgevoerd met Azure Active Directory of Hallo lokale AD FS-server. MFA wordt standaard op elke pagina die wordt gehost door Azure Active Directory. tooconfigure MFA on-premises Windows PowerShell en gebruik Hallo – SupportsMFA eigenschap tooset hello Azure AD-module worden uitgevoerd.
+Voor federatieve tenants multi-factor authentication (MFA) kan worden uitgevoerd met Azure Active Directory of met de on-premises AD FS-server. MFA wordt standaard op elke pagina die wordt gehost door Azure Active Directory. Voer Windows PowerShell en gebruik van de eigenschap – SupportsMFA om in te stellen van de Azure AD-module voor het configureren van MFA lokale.
 
-Hallo volgende voorbeeld laat zien hoe tooenable on-premises MFA door met behulp van Hallo [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) op Hallo contoso.com tenant:`Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
+Het volgende voorbeeld laat zien hoe lokale MFA inschakelen via de [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) op de tenant contoso.com:`Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
 
-In aanvulling toosetting deze vlag Hallo federatieve AD FS-tenant-exemplaar moet tooperform multi-factor authentication-server geconfigureerd. Volg de instructies Hallo voor [implementeren van Microsoft Azure multi-factor authentication-server op de lokale](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+Naast deze vlag instelt, moet het federatieve tenant AD FS-exemplaar worden geconfigureerd voor multi-factor authentication uitvoeren. Volg de instructies voor [implementeren van Microsoft Azure multi-factor authentication-server op de lokale](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
 ## <a name="see-also"></a>Zie ook
 * [Werken met claim-compatibele toepassingen](active-directory-application-proxy-claims-aware-apps.md)
@@ -70,4 +70,4 @@ In aanvulling toosetting deze vlag Hallo federatieve AD FS-tenant-exemplaar moet
 * [Eenmalige aanmelding inschakelen](active-directory-application-proxy-sso-using-kcd.md)
 * [Toepassingen publiceren met uw eigen domeinnaam](active-directory-application-proxy-custom-domains.md)
 
-Bekijk voor Hallo laatste nieuws en updates Hallo [blog over toepassingsproxy](http://blogs.technet.com/b/applicationproxyblog/)
+Ga naar het [blog over toepassingsproxy](http://blogs.technet.com/b/applicationproxyblog/) voor nieuws en updates.

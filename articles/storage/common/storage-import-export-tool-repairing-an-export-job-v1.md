@@ -1,6 +1,6 @@
 ---
-title: een exporttaak Azure Import/Export - v1 aaaRepairing | Microsoft Docs
-description: Meer informatie over hoe toorepair een exporttaak die is gemaakt en uitgevoerd met behulp van Azure Import/Export Hallo service.
+title: Herstellen van een taak van de export Azure Import/Export - v1 | Microsoft Docs
+description: Informatie over het herstellen van een taak voor het exporteren die zijn gemaakt en uitgevoerd met behulp van de Azure Import/Export-service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: e54bc66495c8a3473b8ec51bb254bce8bdc9eab9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 57ab58fa1fd8371d0b6f019f94bb162bcc1e0e43
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="repairing-an-export-job"></a>Een exporttaak herstellen
-Nadat een taak voor het exporteren is voltooid, kunt u Microsoft Azure-hulpprogramma voor importeren/exporteren on-premises naar Hallo uitvoeren:  
+Nadat een taak voor het exporteren is voltooid, kunt u de Microsoft Azure-hulpprogramma voor importeren/exporteren on-premises naar uitvoeren:  
   
-1.  Download de bestanden dat hello Azure Import/Export-service kan geen tooexport heeft.  
+1.  Download de bestanden die de Azure Import/Export-service kon niet exporteren.  
   
-2.  Valideren of Hallo-bestanden op Hallo station correct zijn geëxporteerd.  
+2.  Valideren of de bestanden op de schijf correct zijn geëxporteerd.  
   
-Deze functionaliteit moet u connectiviteit tooAzure opslag toouse hebben.  
+U moet zijn verbonden met Azure Storage om deze functionaliteit te gebruiken.  
   
-Hallo-opdracht voor het herstellen van een import-taak is **RepairExport**.
+De opdracht voor het herstellen van een import-taak is **RepairExport**.
 
 ## <a name="repairexport-parameters"></a>RepairExport parameters
 
-Hallo volgende parameters kunnen worden opgegeven met **RepairExport**:  
+U kunt de volgende parameters opgeven met **RepairExport**:  
   
 |Parameter|Beschrijving|  
 |---------------|-----------------|  
-|**/ r: < RepairFile\>**|Vereist. Pad toohello Herstel dit bestand houdt Hallo voortgang van Hallo herstel en kunt u tooresume reparatie van een onderbroken. Elk station moet slechts één repair-bestand hebben. Wanneer u een reparatie voor een bepaald station start, geeft u in Hallo pad tooa herstel het bestand nog niet bestaat. tooresume reparatie van een onderbroken, moet u doorgeven in Hallo-naam van een bestaand bestand voor herstel. Hallo reparatie bestand corresponderende toohello doelstation moet altijd worden opgegeven.|  
-|**schakeloptie/LOGDIR op: < LogDirectory\>**|Optioneel. Hallo logboekmap. Uitgebreide logboekbestanden geschreven toothis directory. Als er geen logboekmap is opgegeven, wordt de huidige map hello worden gebruikt als Hallo logboekmap.|  
-|**/ d: < TargetDirectory\>**|Vereist. Hallo directory toovalidate en herstel. Dit is meestal de hoofdmap Hallo van Hallo export station, maar kan ook worden een netwerkbestandsshare die een kopie van bestanden Hallo geëxporteerd.|  
-|**/BK: < BitLockerKey\>**|Optioneel. Als u wilt dat Hallo hulpprogramma toounlock versleutelde waar Hallo geëxporteerd bestanden worden opgeslagen, moet u Hallo BitLocker-sleutel opgeven.|  
-|**/sn: < StorageAccountName\>**|Vereist. Hallo-naam van Hallo storage-account voor Hallo taak exporteren.|  
-|**/SK: < StorageAccountKey\>**|**Vereist** als een container SAS is niet opgegeven. Hallo-toegangssleutel voor opslagaccount Hallo voor Hallo taak exporteren.|  
-|**/csas: < ContainerSas\>**|**Vereist** als Hallo opslagaccountsleutel is niet opgegeven. Hallo container SAS voor toegang tot Hallo blobs die zijn gekoppeld aan de exporttaak Hallo.|  
-|**/ CopyLogFile: < DriveCopyLogFile\>**|Vereist. Hallo pad toohello station kopiëren logboekbestand. Hallo-bestand wordt gegenereerd door Hallo Windows Azure Import/Export-service en kan worden gedownload vanaf Hallo blob-opslag die is gekoppeld aan het Hallo-taak. Hallo kopie logboekbestand bevat informatie over mislukte blobs of bestanden die toobe hersteld zijn.|  
-|**/ ManifestFile: < DriveManifestFile\>**|Optioneel. het manifestbestand Hallo pad toohello exporteren van het station. Dit bestand is gegenereerd door de Windows Azure Import/Export-service Hallo en opgeslagen op Hallo export station en optioneel in een blob in Hallo storage-account aan Hallo taak zijn gekoppeld.<br /><br /> Hallo zal inhoud van het Hallo-bestanden op Hallo export schijf worden gecontroleerd bij Hallo MD5-hashes die zijn opgenomen in dit bestand. Bestanden die bepaald toobe beschadigd zijn zijn gedownload en herschreven toohello doel mappen.|  
+|**/ r: < RepairFile\>**|Vereist. Pad naar het bestand herstellen, waarin de voortgang van het herstel en kunt u de reparatie van een onderbroken hervatten. Elk station moet slechts één repair-bestand hebben. Wanneer u een reparatie voor een bepaald station start, wordt u in het pad doorgeven aan een reparatie-bestand dat nog niet bestaat. Om de reparatie van een onderbroken hervatten, moet u doorgeven in een bestaand bestand voor herstel. Het herstel bestand overeenkomt met het doelstation moet altijd worden opgegeven.|  
+|**schakeloptie/LOGDIR op: < LogDirectory\>**|Optioneel. De logboekmap. Uitgebreide logboekbestanden worden geschreven naar deze map. Als er geen logboekmap is opgegeven, wordt de huidige map gebruikt als de logboekmap.|  
+|**/ d: < TargetDirectory\>**|Vereist. De map om te valideren en te herstellen. Dit is meestal de hoofdmap van het station exporteren, maar kan ook worden een netwerkbestandsshare die een kopie van de geëxporteerde bestanden.|  
+|**/BK: < BitLockerKey\>**|Optioneel. Als u wilt dat het hulpprogramma voor het ontgrendelen van een gecodeerd waarin de geëxporteerde bestanden zijn opgeslagen, moet u de BitLocker-sleutel opgeven.|  
+|**/sn: < StorageAccountName\>**|Vereist. De naam van het opslagaccount voor de taak voor het exporteren.|  
+|**/SK: < StorageAccountKey\>**|**Vereist** als een container SAS is niet opgegeven. De accountsleutel voor het opslagaccount voor de taak voor exporteren.|  
+|**/csas: < ContainerSas\>**|**Vereist** als de sleutel van het opslagaccount is niet opgegeven. De container SAS voor toegang tot de blobs die zijn gekoppeld aan de taak voor het exporteren.|  
+|**/ CopyLogFile: < DriveCopyLogFile\>**|Vereist. Het pad naar het logboekbestand van de schijf kopiëren. Het bestand is gegenereerd door de Windows Azure Import/Export-service en kan worden gedownload van de blob-opslag die is gekoppeld aan de taak. Het logboekbestand kopiëren bevat informatie over mislukte blobs of bestanden die moeten worden hersteld.|  
+|**/ ManifestFile: < DriveManifestFile\>**|Optioneel. Het pad naar het manifestbestand van de export-station. Dit bestand is gegenereerd door de Windows Azure Import/Export-service en opgeslagen op de schijf exporteren en optioneel in een blob in de storage-account die is gekoppeld aan de taak.<br /><br /> De inhoud van de bestanden op de schijf van de uitvoer wordt geverifieerd met de MD5-hashes die zijn opgenomen in dit bestand. Bestanden die worden bepaald beschadigd te zijn gedownload en herschreven naar de doel-mappen.|  
   
-## <a name="using-repairexport-mode-toocorrect-failed-exports"></a>Met behulp van RepairExport mislukt modus toocorrect uitvoer  
-U kunt tooexport mislukte hello Azure-hulpprogramma voor importeren/exporteren toodownload bestanden gebruiken. Hallo kopie logboekbestand bevat een lijst met bestanden die niet zijn geslaagd tooexport.  
+## <a name="using-repairexport-mode-to-correct-failed-exports"></a>RepairExport modus gebruiken om op te lossen mislukte uitvoer  
+U kunt het Azure Import/Export-hulpprogramma gebruiken voor het downloaden van bestanden die exporteren is mislukt. Het logboekbestand kopie bevat een lijst met bestanden die exporteren is mislukt.  
   
-Hallo oorzaken van fouten van de uitvoer zijn Hallo mogelijkheden te volgen:  
+De oorzaken van fouten van de uitvoer zijn onder andere de volgende mogelijkheden:  
   
 -   Beschadigde schijven  
   
--   Hallo opslagaccountsleutel gewijzigd tijdens het proces van bestandsoverdracht Hallo  
+-   De opslagaccountsleutel die is gewijzigd tijdens de overdracht  
   
-Hallo-hulpprogramma toorun in **RepairExport** modus, moet u eerst tooconnect Hallo station met de Hallo geëxporteerde bestanden tooyour computer. Voer vervolgens hello Azure Import/Export Tool Hallo pad toothat station opgeven met Hallo `/d` parameter. U moet ook toospecify Hallo pad toohello van het station kopiëren logboekbestand dat u hebt gedownload. Hallo opdrachtregel voorbeeld hieronder wordt uitgevoerd Hallo hulpprogramma toorepair bestanden die tooexport is mislukt:  
+Het hulpprogramma uitvoeren **RepairExport** modus, moet u eerst verbinding maken met het station met de geëxporteerde bestanden op uw computer. Voer vervolgens het Azure Import/Export-hulpprogramma opgeven van het pad naar het station met de `/d` parameter. Ook moet u het pad opgeven naar de schijf kopiëren logboekbestand dat u hebt gedownload. De volgende opdrachtregel voorbeeld hieronder wordt uitgevoerd voor het hulpprogramma voor het herstellen van bestanden die exporteren is mislukt:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log  
 ```  
   
-Hallo Hieronder volgt een voorbeeld van een logbestand kopiëren waarin wordt gemeld dat een blok in tooexport van Hallo blob is mislukt:  
+Hier volgt een voorbeeld van een logbestand kopiëren die laat dat een blok in de blob zien is mislukt om te exporteren:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -81,20 +81,20 @@ Hallo Hieronder volgt een voorbeeld van een logbestand kopiëren waarin wordt ge
 </DriveLog>  
 ```  
   
-Hallo kopie logboekbestand geeft aan dat is een fout opgetreden tijdens het Hallo Windows Azure Import/Export-service is Hallo-blob blokken toohello bestandsshare op Hallo export station downloaden. Hallo van andere onderdelen van Hallo-bestand met succes is gedownload en Hallo bestandslengte is correct ingesteld. Hallo-hulpprogramma wordt in dit geval Hallo-bestand op Hallo schijf openen, Hallo blok downloaden van Hallo storage-account en schrijf deze toohello bestand bereik vanaf verschuiving 65536 met lengte 65536.  
+Het logboekbestand kopie geeft aan dat is een fout opgetreden terwijl de Windows Azure Import/Export-service is een van de blob-blokken gedownload naar het bestand op het station exporteren. De andere onderdelen van het bestand is gedownload, en de bestandslengte juist is ingesteld. Het hulpprogramma wordt in dit geval open het bestand op de schijf, downloaden van het blok van het opslagaccount en schrijven naar het bestand bereik vanaf verschuiving 65536 met lengte 65536.  
   
-## <a name="using-repairexport-toovalidate-drive-contents"></a>Met behulp van RepairExport toovalidate station inhoud  
-U kunt ook Azure Import/Export Hello **RepairExport** optie toovalidate Hallo inhoud op Hallo station juist zijn. Hallo-manifestbestand op elk station export bevat MD5s voor Hallo inhoud van Hallo-station.  
+## <a name="using-repairexport-to-validate-drive-contents"></a>Met behulp van RepairExport station inhoud valideren  
+U kunt ook Azure Import/Export met de **RepairExport** optie voor het valideren van de inhoud op het station juist zijn. Het manifestbestand op elk station export bevat MD5s voor de inhoud van het station.  
   
-Hello Azure Import/Export-service kunt ook bestanden opslaan Hallo manifest tooa storage-account tijdens Hallo exporteren. Hallo locatie van de manifestbestanden Hallo beschikbaar is via Hallo [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking als het Hallo-taak is voltooid. Zie [Import/Export-service Manifest bestandsindeling](storage-import-export-file-format-metadata-and-properties.md) voor meer informatie over het Hallo-indeling van het manifestbestand van een station.  
+De Azure Import/Export-service kan ook de manifest-bestanden opslaan naar een opslagaccount tijdens het exporteren. De locatie van de manifest-bestanden is beschikbaar via de [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking als de taak is voltooid. Zie [Import/Export-service Manifest bestandsindeling](storage-import-export-file-format-metadata-and-properties.md) voor meer informatie over de indeling van het manifestbestand van een station.  
   
-Hallo volgende voorbeeld laat zien hoe toorun Azure-hulpprogramma voor importeren/exporteren Hallo Hello **/ManifestFile** en **/CopyLogFile** parameters:  
+Het volgende voorbeeld ziet u het uitvoeren van het Azure Import/Export-hulpprogramma met de **/ManifestFile** en **/CopyLogFile** parameters:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log /ManifestFile:G:\9WM35C3U.manifest  
 ```  
   
-Hallo Hieronder volgt een voorbeeld van een manifestbestand:  
+Hier volgt een voorbeeld van een manifestbestand:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -131,7 +131,7 @@ Hallo Hieronder volgt een voorbeeld van een manifestbestand:
 </DriveManifest>  
 ``` 
   
-Na het herstelproces bijna afgelopen hello, Hallo Lees elk bestand waarnaar wordt verwezen in het manifestbestand Hallo en hulpprogramma controleren de integriteit van Hallo-bestand met de Hallo MD5-hashes. Voor Hallo manifest hierboven gaat dit via de volgende onderdelen Hallo.  
+Nadat het herstelproces is voltooid, wordt het hulpprogramma Lees elk bestand waarnaar wordt verwezen in het manifestbestand en controleer of de integriteit van het bestand met de MD5-hashes. Voor het manifest hierboven gaat dit via de volgende onderdelen.  
 
 ```  
 G:\pictures\city\redmond.jpg, offset 0, length 3584  
@@ -153,12 +153,12 @@ G:\pictures\wild\canyon.jpg, offset 8163, length 2721
 G:\pictures\wild\canyon.jpg.properties  
 ```
 
-Een onderdeel Hallo verificatie mislukt door Hallo hulpprogramma wordt gedownload en herschreven toohello hetzelfde bestand op Hallo-station.  
+De onderdelen die zijn mislukt de verificatie door het hulpprogramma wordt gedownload en herschreven naar hetzelfde bestand op de schijf.  
   
 ## <a name="next-steps"></a>Volgende stappen
  
-* [Hallo-instelling van Azure-hulpprogramma voor importeren/exporteren](storage-import-export-tool-setup-v1.md)   
+* [Instellen van het hulpprogramma Azure Import/Export](storage-import-export-tool-setup-v1.md)   
 * [Harde schijven voorbereiden voor een importtaak](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [De taakstatus controleren met kopielogboekbestanden](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Een importtaak herstellen](storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Het oplossen van problemen hello Azure-hulpprogramma voor importeren/exporteren](storage-import-export-tool-troubleshooting-v1.md)
+* [Problemen met het hulpprogramma Azure Import/Export oplossen](storage-import-export-tool-troubleshooting-v1.md)

@@ -1,5 +1,5 @@
 ---
-title: Security Center-gegevensbeveiliging aaaAzure | Microsoft Docs
+title: Gegevensbeveiliging in Azure Security Center | Microsoft Docs
 description: In dit document wordt uitgelegd hoe gegevens worden beheerd en beveiligd in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: yurid
-ms.openlocfilehash: 30f8b11272dc5df6d485608abdaa62ba57e63f23
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6f95cf7631664f4630edbbcdadfd1d98105fdb98
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-data-security"></a>Gegevensbeveiliging in Azure Security Center
-toohelp klanten detecteren, voorkomen van en reageren toothreats, Azure Security Center verzamelt en beveiliging gerelateerde gegevens, inclusief informatie over de configuratie, metagegevens, gebeurtenislogboeken, crashdumpbestanden en meer verwerkt. Microsoft toostrict naleving en beveiliging richtlijnen voldoet, van een service toooperating coderen.
+Om klanten te helpen bedreigingen te voorkomen, te detecteren en erop te reageren, verzamelt en verwerkt Azure Security Center gegevens over beveiliging, zoals configuratie-informatie, metagegevens, gebeurtenislogboeken, crashdumpbestanden en nog veel meer. Microsoft voldoet aan strikte nalevings- en beveiligingsrichtlijnen - van het schrijven van code tot de uitvoering van een service.
 
 In dit artikel wordt uitgelegd hoe gegevens worden beheerd en beveiligd in Azure Security Center.
 
 >[!NOTE] 
->Begin juni 2017 vanaf kan Security Center Hallo Microsoft Monitoring Agent toocollect gebruiken en opslaan van gegevens. Zie [Azure Security Center-Platform migratie](security-center-platform-migration.md) toolearn meer. Hallo-informatie in dit artikel beschrijft Security Center functionaliteit na de overgang toohello Microsoft Monitoring Agent.
+>Vanaf begin juni 2017 zal Security Center de Microsoft Monitoring Agent gebruiken voor het verzamelen en opslaan van gegevens. Zie [Migratie van Azure Security Center-platform](security-center-platform-migration.md) voor meer informatie. De informatie in dit artikel beschrijft functionaliteit van Security Center na de overstap naar de Microsoft Monitoring Agent.
 >
 
 
 ## <a name="data-sources"></a>Gegevensbronnen
-Azure Security Center analyseert gegevens van Hallo bronnen tooprovide zichtbaarheid in uw beveiligingsstatus te volgen, kwetsbaarheden identificeren en oplossingen het beste actieve bedreigingen te detecteren:
+Azure Security Center analyseert gegevens uit de volgende bronnen om inzicht in uw beveiligingsstatus te geven, beveiligingsproblemen te identificeren, oplossingen aan te raden en actieve bedreigingen te detecteren:
 
-- Azure-Services: Informatie over Hallo configuratie van Azure-services die u hebt geïmplementeerd door de communicatie met die service resourceprovider gebruikt.
+- Azure Services: gebruikt informatie over de configuratie van de Azure-services die u hebt geïmplementeerd door te communiceren met de resourceprovider van die service.
 - Netwerkverkeer: gebruikt steekproefgewijs netwerkverkeermetagegevens uit de infrastructuur van Microsoft, zoals bron-/doel-IP/poort, pakketgrootte en netwerkprotocol.
 - Oplossingen van partners: gebruikt beveiligingswaarschuwingen van geïntegreerde partneroplossingen, zoals firewalls en antimalwareoplossingen. 
-- Uw virtuele machines en servers: gebruikt configuratiegegevens en informatie over beveiligingsgebeurtenissen, zoals Windows-gebeurtenis- en auditlogboeken, IIS-logboeken, syslog-berichten en crashdumpbestanden van uw virtuele machines. Bovendien wanneer een waarschuwing is gemaakt, mag Azure Security Center een momentopname van Hallo VM schijf is van invloed op een genereren en machine artefacten gerelateerde toohello waarschuwing extraheren uit Hallo VM schijf, zoals een registerbestand voor forensische doeleinden.
+- Uw virtuele machines en servers: gebruikt configuratiegegevens en informatie over beveiligingsgebeurtenissen, zoals Windows-gebeurtenis- en auditlogboeken, IIS-logboeken, syslog-berichten en crashdumpbestanden van uw virtuele machines. Bovendien kan Azure Security Center wanneer er een waarschuwing wordt gemaakt een momentopname maken van de beïnvloede VM-schijf en machine-artefacten gekoppeld aan de waarschuwing van de VM-schijf, zoals een registerbestand, extraheren voor onderzoeksdoeleinden.
 
 
 ## <a name="data-protection"></a>Gegevensbeveiliging
-**Gegevensscheiding**: gegevens worden voor elk onderdeel in de gehele Hallo service logisch gescheiden gehouden. Alle gegevens worden gemarkeerd per organisatie. Deze labels zich blijft voordoen gedurende de levenscyclus van Hallo gegevens en het wordt afgedwongen op elke laag van Hallo-service.
+**Scheiding van gegevens**: gegevens worden op een logische manier apart van elkaar gehouden, in elk onderdeel van de service. Alle gegevens worden gemarkeerd per organisatie. Deze markering blijft aanwezig gedurende de levenscyclus van de gegevens en deze wordt afgedwongen op elke laag van de service.
 
-**Toegang tot gegevens**: In volgorde tooprovide aanbevelingen voor beveiliging en het onderzoeken van mogelijke bedreigingen, medewerkers van Microsoft kunnen toegang krijgen tot gegevens die worden verzameld of geanalyseerd door Azure-services, waaronder crashdumpbestanden, het maken van gebeurtenissen, VM verwerken schijf momentopnamen en artefacten, waaronder mogelijk per ongeluk gegevens van de klant of persoonlijke gegevens van uw virtuele machines. We ons houden toohello [privacyverklaring voor Microsoft Online Services-voorwaarden en](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), die dat Microsoft wordt niet klantgegevens gebruiken of gegevens worden opgehaald van het voor commerciële doeleinden reclame of vergelijkbare status. We gebruiken klantgegevens alleen als de benodigde tooprovide u met Azure-services, met inbegrip van de toepassing compatibel is met deze services bieden. U behoudt alle rechten tooCustomer gegevens.
+**Gegevenstoegang**: om beveiligingsaanbevelingen te doen en mogelijke beveiligingsrisico's te onderzoeken, kunnen medewerkers van Microsoft gegevens die zijn verzameld of geanalyseerd door Azure-services openen, waaronder crashdumpbestanden, procesgebeurtenissen, momentopnamen van de VM-schijf en artefacten, die onbedoeld klantgegevens of persoonlijke gegevens bevatten van uw virtuele machines. We voldoen aan de [voorwaarden voor Microsoft Online Services en de Privacyverklaring](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), die stellen dat Microsoft niet de klantgegevens gebruikt of gegevens ervan afleidt voor reclame- of vergelijkbare commerciële doeleinden. We gebruiken klantgegevens alleen indien nodig om u Azure-services te bieden, met inbegrip van doeleinden die compatibel zijn met het leveren van die services. U behoudt alle rechten op de klantgegevens.
 
-**Gebruik**: Microsoft patronen gebruikt en dreigingen gezien over meerdere tenants tooenhance onze mogelijkheden voor preventie en detectie; zo doen dat in overeenstemming met Hallo privacy verbintenissen beschreven in onze [Privacy Instructie](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
+**Gegevensgebruik**: Microsoft gebruikt informatie over patronen en bedreigingen die worden gezien tussen meerdere tenants voor het verbeteren van onze mogelijkheden voor voorkoming en detectie; wij doen dit in overeenstemming met de privacyverplichtingen beschreven in onze [Privacyverklaring](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
 
 ## <a name="data-location"></a>Gegevenslocatie
 
-**Uw Workspace(s)**: een werkruimte is opgegeven voor Hallo geografische gebieden te volgen en gegevens van uw virtuele machines van Azure, met inbegrip van crashdumps en bepaalde typen waarschuwingen gegevens verzameld in Hallo dichtstbijzijnde werkruimte worden opgeslagen. 
+**Uw werkruimte(n)**: er wordt een werkruimte opgegeven voor de volgende geografische gebieden, en gegevens die worden verzameld van uw virtuele machines in Azure, waaronder crashdumps en bepaalde typen waarschuwingsgegevens, worden opgeslagen in de dichtstbijzijnde werkruimte. 
 
 | Geografisch gebied van virtuele machine                        | Geografisch gebied van werkruimte |
 |-------------------------------|---------------|
@@ -58,29 +58,29 @@ Azure Security Center analyseert gegevens van Hallo bronnen tooprovide zichtbaar
 | Australië                     | Australië     |
 
  
-VM schijf momentopnamen worden opgeslagen in Hallo hetzelfde opslagaccount als Hallo VM schijf.
+Momentopnamen van de VM-schijf worden opgeslagen in hetzelfde opslagaccount als de VM-schijf.
  
-Voor virtuele machines en servers in andere omgevingen met bijvoorbeeld on-premises kunt u Hallo werkruimte en de regio waar verzamelde gegevens worden opgeslagen. 
+Voor virtuele machines en servers die in andere omgevingen worden uitgevoerd, bijvoorbeeld on-premises, kunt u de werkruimte en de regio opgeven waarin verzamelde gegevens worden opgeslagen. 
 
-**Azure Security Center opslag**: informatie over beveiligingswaarschuwingen, met inbegrip van waarschuwingen van de partner, regionaal wordt opgeslagen op basis van locatie toohello Hallo gerelateerde Azure-resource dat informatie over de status van de beveiliging en aanbeveling wordt centraal worden opgeslagen in Hallo Verenigde Staten of volgens de locatie van de toocustomer-Europa.
-Azure Security Center verzamelt tijdelijke kopieën van uw crashdumpbestanden en analyseert deze op bewijs van pogingen tot misbruik en geslaagde aanvallen. Azure Security Center voert deze analyse binnen dezelfde Geo Hallo zoals Hallo werkruimte en verwijderingen Hallo kortstondige kopieën wanneer de analyse is voltooid.
+**Azure Security Center-opslag**: informatie over beveiligingswaarschuwingen, met inbegrip van waarschuwingen van partners, wordt regionaal opgeslagen op basis van de locatie van de gerelateerde Azure-resource, terwijl informatie over de status van de beveiliging en aanbevelingen centraal wordt opgeslagen in de Verenigde Staten of in Europa, afhankelijk van de locatie van de klant.
+Azure Security Center verzamelt tijdelijke kopieën van uw crashdumpbestanden en analyseert deze op bewijs van pogingen tot misbruik en geslaagde aanvallen. Azure Security Center voert deze analyse uit binnen hetzelfde geografische gebied als de werkruimte en verwijdert de tijdelijke kopieën wanneer de analyse is voltooid.
 
-Machine artefacten worden opgeslagen in een centraal in dezelfde regio Hallo zoals Hallo VM. 
+Machine-artefacten worden centraal opgeslagen in dezelfde regio als de virtuele machine. 
 
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>Gegevensverzameling van virtuele machines beheren
 
-Wanneer u Security Center inschakelt in Azure, wordt gegevensverzameling ingeschakeld voor elk van uw Azure-abonnementen. U kunt ook gegevensverzameling inschakelen voor uw abonnementen in Hallo beveiligingsbeleid sectie van Azure Security Center. Wanneer gegevensverzameling is ingeschakeld, wordt Azure Security Center bepalingen Hallo Microsoft Monitoring Agent op alle bestaande ondersteunde virtuele machines in Azure en nieuwe bestanden die zijn gemaakt. Hallo Microsoft Monitoring agent scant op verschillende beveiliging gerelateerde configuraties en gebeurtenissen in [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) traceringen (ETW). Hallo-besturingssysteem verhoogt bovendien logboekgebeurtenissen tijdens Hallo Hallo machine uitgevoerd. Voorbeelden van dergelijke gegevens zijn: besturingssysteemtype en -versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen, aangemelde gebruiker en tenant-ID. Hallo Microsoft Monitoring Agent logboekvermeldingen leest en ETW traceert en kopieert ze tooyour workspace(s) voor analyse. Hallo Microsoft Monitoring Agent ook crashdump bestanden tooyour workspace(s) gekopieerd.
+Wanneer u Security Center inschakelt in Azure, wordt gegevensverzameling ingeschakeld voor elk van uw Azure-abonnementen. U kunt gegevensverzameling voor uw abonnementen ook inschakelen in het gedeelte Beveiligingsbeleid van Azure Security Center. Wanneer gegevensverzameling is ingeschakeld, levert Azure Security Center de Microsoft Monitoring Agent op alle bestaande, ondersteunde virtuele machines in Azure en op nieuwe virtuele machines die worden gemaakt. De Microsoft Monitoring Agent scant op verschillende aan beveiliging gerelateerde configuraties en legt gebeurtenissen vast in [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx)-traceringen (ETW). Bovendien worden door het besturingssysteem gebeurtenislogboekgebeurtenissen gegenereerd tijdens het uitvoeren van de machine. Voorbeelden van dergelijke gegevens zijn: besturingssysteemtype en -versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen, aangemelde gebruiker en tenant-ID. De Microsoft Monitoring Agent leest vermeldingen in gebeurtenislogboeken en ETW-traceringen en kopieert deze voor analyse naar uw werkruimte(n). De Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte(n).
 
-Als u van Azure Security Center gratis gebruikmaakt, kunt u ook het verzamelen van virtuele machines in Hallo beveiligingsbeleid uitschakelen. Verzamelen van gegevens is vereist voor abonnementen op Hallo Standard-laag. De verzameling van momentopnamen en artefacten voor de VM-schijf is nog steeds ingeschakeld, zelfs als het verzamelen van gegevens is uitgeschakeld.
+Als u de gratis variant van Azure Security Center gebruikt, kunt u het verzamelen van gegevens van virtuele machines ook uitschakelen in het beveiligingsbeleid. Het verzamelen van gegevens is vereist voor abonnementen uit de prijscategorie Standard. De verzameling van momentopnamen en artefacten voor de VM-schijf is nog steeds ingeschakeld, zelfs als het verzamelen van gegevens is uitgeschakeld.
 
 
 ## <a name="see-also"></a>Zie ook
-In dit document hebt u geleerd hoe gegevens worden beheerd en beveiligd in Azure Security Center. toolearn meer informatie over Azure Security Center, Zie:
+In dit document hebt u geleerd hoe gegevens worden beheerd en beveiligd in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
 
-* [Azure Security Center Planning- en Bedieningsgids](security-center-planning-and-operations-guide.md) : meer informatie hoe tooplan en Hallo ontwerpoverwegingen tooadopt Azure Security Center begrijpen.
-* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) : meer informatie over hoe toomonitor Hallo status van uw Azure-resources
-* [Het beheer van is en reageert toosecurity waarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) : meer informatie hoe toomanage en gereageerd had toosecurity waarschuwingen
-* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md) : meer informatie over hoe toomonitor gezondheidsstatus van uw partneroplossingen Hallo.
-* [Veelgestelde vragen over Azure Security Center](security-center-faq.md) : Raadpleeg Veelgestelde vragen over het gebruik van Hallo-service
+* [Plannings- en bedieningsgids voor het Azure Beveiligingscentrum](security-center-planning-and-operations-guide.md): leer de ontwerpoverwegingen kennen en plan hiervoor bij de overstap naar Azure Security Center.
+* [Security health monitoring in Azure Security Center](security-center-monitoring.md) (Beveiligingsstatus controleren in Azure Security Center): meer informatie over het controleren van de status van uw Azure-resources
+* [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): leer hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren
+* [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
+* [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): lees blogberichten over de beveiliging en naleving van Azure

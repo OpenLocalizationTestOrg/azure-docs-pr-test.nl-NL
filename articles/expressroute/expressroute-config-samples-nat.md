@@ -1,5 +1,5 @@
 ---
-title: Voorbeelden van aaaExpressRoute klant router configuratie | Microsoft Docs
+title: ExpressRoute klant router configuratie voorbeelden | Microsoft Docs
 description: Deze pagina vindt u voorbeelden van de router-configuratie voor Cisco en Juniper routers.
 documentationcenter: na
 services: expressroute
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-ms.openlocfilehash: b5faca0666bda6173e54abb0b6560d5f8bf8bfc2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="router-configuration-samples-tooset-up-and-manage-nat"></a>Configuratie van de router tooset up voorbeelden en beheren van NAT
-Deze pagina vindt u voorbeelden van de NAT-configuratie voor Cisco ASA en Juniper SRX reeks routers. Deze voorbeelden van de beoogde toobe voor alleen richtlijnen zijn en mogen niet worden gebruikt omdat de. U kunt werken met uw leverancier toocome up met relevante configuraties voor uw netwerk. 
+# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Voorbeelden van de router configuratie instellen en beheren van NAT
+Deze pagina vindt u voorbeelden van de NAT-configuratie voor Cisco ASA en Juniper SRX reeks routers. Deze zijn bedoeld als voorbeelden voor richtlijnen alleen en moeten niet worden gebruikt. U kunt werken met uw leverancier om te bedenken geschikte configuraties voor uw netwerk. 
 
 > [!IMPORTANT]
-> Voorbeelden in deze pagina zijn beoogde toobe puur voor hulp. Bespreek met de leverancier van uw verkoop / technisch team en uw netwerken team toocome up met relevante configuraties toomeet uw behoeften. Microsoft ondersteunt geen problemen die worden vermeld in deze pagina tooconfigurations gerelateerd. Neem contact op met de leverancier van uw apparaat voor ondersteuning.
+> Voorbeelden in deze pagina zijn bedoeld om te worden uitsluitend voor hulp. Bespreek met de leverancier van uw verkoop / technisch team en uw netwerken team actief met relevante configuraties om te voldoen aan uw behoeften. Problemen met configuraties die worden vermeld in deze pagina wordt niet door Microsoft ondersteuning. Neem contact op met de leverancier van uw apparaat voor ondersteuning.
 > 
 > 
 
-* Router configuratie voorbeelden hieronder toepassing tooAzure openbaar en Microsoft-peerings. U moet de NAT niet configureren voor persoonlijke Azure-peering. Bekijk [ExpressRoute peerings](expressroute-circuit-peerings.md) en [ExpressRoute NAT-vereisten](expressroute-nat.md) voor meer informatie.
+* Router configuratie voorbeelden van toepassing op Azure openbare en Microsoft-peerings. U moet de NAT niet configureren voor persoonlijke Azure-peering. Bekijk [ExpressRoute peerings](expressroute-circuit-peerings.md) en [ExpressRoute NAT-vereisten](expressroute-nat.md) voor meer informatie.
 
-* U moet afzonderlijke NAT IP-groepen gebruiken voor connectiviteit toohello internet- en ExpressRoute. Hallo dezelfde NAT IP-groep op Hallo van internet en ExpressRoute leidt ertoe dat asymmetrische Routering en verlies van verbinding.
+* U moet afzonderlijke NAT IP-adresgroepen gebruiken voor verbinding met internet en ExpressRoute. Met behulp van de dezelfde NAT IP-adresgroep voor de internet- en ExpressRoute leidt tot asymmetrische Routering en verlies van verbinding.
 
 
 ## <a name="cisco-asa-firewalls"></a>Cisco ASA firewalls
-### <a name="pat-configuration-for-traffic-from-customer-network-toomicrosoft"></a>PAT configuratie voor verkeer van de klant netwerk tooMicrosoft
+### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>PAT configuratie voor verkeer van het klantnetwerk naar Microsoft
     object network MSFT-PAT
       range <SNAT-START-IP> <SNAT-END-IP>
 
@@ -54,12 +54,12 @@ Deze pagina vindt u voorbeelden van de NAT-configuratie voor Cisco ASA en Junipe
 
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
-### <a name="pat-configuration-for-traffic-from-microsoft-toocustomer-network"></a>PAT configuratie voor verkeer vanuit Microsoft toocustomer netwerk
+### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>PAT configuratie voor verkeer van Microsoft naar een klantnetwerk
 
 **Interfaces en de richting:**
 
-    Source Interface (where hello traffic enters hello ASA): inside
-    Destination Interface (where hello traffic exits hello ASA): outside
+    Source Interface (where the traffic enters the ASA): inside
+    Destination Interface (where the traffic exits the ASA): outside
 
 **Configuratie:**
 
@@ -87,10 +87,10 @@ NAT-opdrachten:
 
 
 ## <a name="juniper-srx-series-routers"></a>Juniper SRX reeks routers
-### <a name="1-create-redundant-ethernet-interfaces-for-hello-cluster"></a>1. Redundante Ethernet-interfaces voor Hallo cluster maken
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Redundante Ethernet-interfaces voor het cluster maken
     interfaces {
         reth0 {
-            description "tooInternal Network";
+            description "To Internal Network";
             vlan-tagging;
             redundant-ether-options {
                 redundancy-group 1;
@@ -103,13 +103,13 @@ NAT-opdrachten:
             }
         }
         reth1 {
-            description "tooMicrosoft via Edge Router";
+            description "To Microsoft via Edge Router";
             vlan-tagging;
             redundant-ether-options {
                 redundancy-group 2;
             }
             unit 100 {
-                description "tooMicrosoft via Edge Router";
+                description "To Microsoft via Edge Router";
                 vlan-id 100;
                 family inet {
                     address <IP-Address/Subnet-mask>;
@@ -121,8 +121,8 @@ NAT-opdrachten:
 
 ### <a name="2-create-two-security-zones"></a>2. Twee beveiligingszones maken
 * Zone voor het interne netwerk en Untrust Zone vertrouwen voor extern gerichte Randrouters-netwerk
-* Juiste interfaces toohello zones toewijzen
-* Hallo-interfaces-services toestaan
+* Juiste interfaces toewijzen aan de zones
+* Op de interfaces-services toestaan
 
     beveiliging {zones {beveiligingszone vertrouwensrelatie {-inkomende-hostverkeer {-systeemservices {ping;                   } protocollen {bgp;                   interfaces}} {reth0.100;               }} beveiligingszone Untrust {-inkomende-hostverkeer {-systeemservices {ping;                   } protocollen {bgp;                   interfaces}} {reth1.100;               }           }       }   }
 
@@ -159,8 +159,8 @@ NAT-opdrachten:
 
 
 ### <a name="4-configure-nat-policies"></a>4. NAT-beleid configureren
-* Maak twee NAT-adresgroepen. Een zijn van Microsoft toohello klant gebruikte tooNAT verkeer uitgaand tooMicrosoft en andere.
-* Regels maken tooNAT Hallo respectieve verkeer
+* Maak twee NAT-adresgroepen. Een wordt gebruikt voor NAT-verkeer uitgaand naar Microsoft en andere van Microsoft de klant.
+* Regels NAT maken het respectieve verkeer
   
        security {
            nat {
@@ -183,7 +183,7 @@ NAT-opdrachten:
                    }
                    rule-set Outbound_NAT {
                        from routing-instance Internal;
-                       toorouting-instance External-ExpressRoute;
+                       to routing-instance External-ExpressRoute;
                        rule SNAT-Out {
                            match {
                                source-address 0.0.0.0/0;
@@ -199,7 +199,7 @@ NAT-opdrachten:
                    }
                    rule-set Inbound-NAT {
                        from routing-instance External-ExpressRoute;
-                       toorouting-instance Internal;
+                       to routing-instance Internal;
                        rule SNAT-In {
                            match {
                                source-address 0.0.0.0/0;
@@ -217,8 +217,8 @@ NAT-opdrachten:
            }
        }
 
-### <a name="5-configure-bgp-tooadvertise-selective-prefixes-in-each-direction"></a>5. BGP tooadvertise selectief voorvoegsels in elke richting configureren
-Raadpleeg toosamples in [routering configuratie voorbeelden ](expressroute-config-samples-routing.md) pagina.
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. BGP voor het adverteren selectief voorvoegsels in beide richtingen configureren
+Raadpleeg de voorbeelden in [routering configuratie voorbeelden ](expressroute-config-samples-routing.md) pagina.
 
 ### <a name="6-create-policies"></a>6. Beleid maken
     routing-options {
@@ -316,5 +316,5 @@ Raadpleeg toosamples in [routering configuratie voorbeelden ](expressroute-confi
     }
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie Hallo [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) voor meer informatie.
+Zie de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) voor meer informatie.
 

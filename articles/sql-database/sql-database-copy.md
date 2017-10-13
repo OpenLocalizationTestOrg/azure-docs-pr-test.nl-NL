@@ -1,5 +1,5 @@
 ---
-title: een Azure SQL database aaaCopy | Microsoft Docs
+title: "Kopiëren van een Azure SQL database | Microsoft Docs"
 description: Maak een kopie van een Azure SQL database
 services: sql-database
 documentationcenter: 
@@ -15,39 +15,39 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 64a297d819d6da89600fda60abe8394ae405abfe
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8c1e3c80b9f24089dc99463d6ea8ae5d0ea7b19d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="copy-an-azure-sql-database"></a>Een Azure SQL database kopiëren
 
-Azure SQL Database biedt verschillende methoden voor het maken van een transactioneel consistent kopie van een bestaande Azure SQL database op beide Hallo dezelfde of een andere server. U kunt een SQL-database kopiëren via hello Azure-portal, PowerShell of T-SQL. 
+Azure SQL Database biedt verschillende methoden voor het maken van een transactioneel consistent kopie van een bestaande Azure SQL-database op dezelfde server of een andere server. U kunt een SQL-database kopiëren met behulp van de Azure-portal, PowerShell of T-SQL. 
 
 ## <a name="overview"></a>Overzicht
 
-Een databasekopie is een momentopname van de brondatabase Hallo vanaf Hallo-tijd van Hallo copy-aanvraag. Kunt u dezelfde server of een andere server, de serviceniveau prijscategorie en prestatieniveau of een andere prestatieniveau binnen Hallo Hallo dezelfde servicelaag (editie). Nadat het Hallo-kopie is voltooid, wordt een volledig functionele, onafhankelijke database. U kunt op dit moment upgrade of downgrade voor tooany edition. Hallo-aanmeldingen, gebruikers en machtigingen kunnen afzonderlijk worden beheerd.  
+Een databasekopie is een momentopname van de brondatabase vanaf het moment van de aanvraag van de kopie. U kunt dezelfde server of een andere server, de servicelaag en prestatieniveau of een andere prestatieniveau binnen de dezelfde servicetier (editie) selecteren. Nadat de kopie voltooid is, wordt een volledig functionele, onafhankelijke database. U kunt op dit moment upgrade of het downgraden naar een versie. De aanmeldingen, gebruikers en machtigingen kunnen afzonderlijk worden beheerd.  
 
-## <a name="logins-in-hello-database-copy"></a>Aanmeldingen in Hallo databasekopie
+## <a name="logins-in-the-database-copy"></a>Aanmeldingen in de database-exemplaar
 
-Wanneer u een database toohello kopieert dezelfde logische server, Hallo dezelfde aanmeldingen op beide databases kunnen worden gebruikt. Hallo beveiligings-principal dat u toocopy Hallo database gebruiken eigenaar Hallo database op Hallo nieuwe database. Alle databasegebruikers en hun machtigingen hun beveiligings-id's (SID's) zijn gekopieerd toohello database-exemplaar.  
+Wanneer u een database met dezelfde logische server kopieert, kunnen de dezelfde aanmeldingen op beide databases worden gebruikt. De beveiligings-principal dat u gebruiken om te kopiëren van de database wordt de eigenaar van de database op de nieuwe database. Alle databasegebruikers en hun machtigingen hun beveiligings-id's (SID's) gekopieerd naar het database-exemplaar.  
 
-Wanneer u een database tooa andere logische server kopieert, eigenaar Hallo beveiligings-principal is op de nieuwe server Hallo Hallo database op Hallo nieuwe database. Als u [databasegebruikers opgenomen](sql-database-manage-logins.md) voor toegang tot gegevens, moet u zorgen dat beide Hallo primaire en secundaire databases altijd Hallo gebruikersreferenties hebben, zodat die nadat Hallo kopie is voltooid u onmiddellijk toegang tot deze met dezelfde Hallo de referenties. 
+Wanneer u een database naar een andere logische server kopiëren, wordt de beveiligings-principal op de nieuwe server in de database-eigenaar voor de nieuwe database. Als u [databasegebruikers opgenomen](sql-database-manage-logins.md) voor toegang tot gegevens, zorg ervoor dat de primaire en secundaire databases altijd dezelfde gebruikersreferenties zodat nadat de kopie voltooid is u onmiddellijk toegang met dezelfde aanmeldingsgegevens. 
 
-Als u [Azure Active Directory](../active-directory/active-directory-whatis.md), kunt u volledig Hallo nodig voor het beheren van referenties in Hallo kopie elimineren. Echter, wanneer u Hallo tooa nieuwe databaseserver kopieert, Hallo aanmelding gebaseerde toegang werkt mogelijk niet, omdat Hallo aanmeldingen niet bestaan op de nieuwe server Hallo. toolearn over het beheren van aanmeldingen bij het kopiëren van een database tooa andere logische server, Zie [hoe toomanage Azure SQL database-beveiliging na herstel na noodgevallen](sql-database-geo-replication-security-config.md). 
+Als u [Azure Active Directory](../active-directory/active-directory-whatis.md), kunt u de noodzaak voor het beheren van referenties in de kopie volledig elimineren. Echter, wanneer u de database naar een nieuwe server kopiëren, de aanmelding gebaseerde toegang werkt mogelijk niet, omdat de aanmeldingen niet bestaan op de nieuwe server. Zie voor meer informatie over het beheren van aanmeldingen wanneer u een database naar een andere logische server kopiëren, [beveiliging voor Azure SQL database beheren na het herstel na noodgevallen](sql-database-geo-replication-security-config.md). 
 
-Nadat Hallo kopiëren is geslaagd en voordat andere gebruikers worden toegewezen, alleen hello aanmelding die geïnitieerd Hallo kopiëren, Hallo-database-eigenaar kan zich aanmelden in de nieuwe database toohello. tooresolve aanmeldingen nadat Hallo kopiëren van de bewerking is voltooid, Zie [aanmeldingen oplossen](#resolve-logins).
+Nadat het kopiëren is geslaagd en voordat andere gebruikers worden toegewezen, kunnen alleen de aanmelding die geïnitieerd het kopiëren, de eigenaar van de database zich kunt aanmelden bij de nieuwe database. Om op te lossen aanmeldingen nadat het kopiëren voltooid is, Zie [aanmeldingen oplossen](#resolve-logins).
 
-## <a name="copy-a-database-by-using-hello-azure-portal"></a>Kopiëren van een database met behulp van hello Azure-portal
+## <a name="copy-a-database-by-using-the-azure-portal"></a>Kopiëren van een database met behulp van de Azure-portal
 
-toocopy een database met behulp van hello Azure-portal openen Hallo-pagina voor uw database en klik vervolgens op **kopie**. 
+Als u wilt kopiëren van een database met behulp van de Azure-portal, open de pagina voor de database en klik vervolgens op **kopie**. 
 
    ![Database-exemplaar](./media/sql-database-copy/database-copy.png)
 
 ## <a name="copy-a-database-by-using-powershell"></a>Een database met behulp van PowerShell kopiëren
 
-een database met behulp van PowerShell, gebruik Hallo toocopy [nieuw AzureRmSqlDatabaseCopy](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet. 
+Om te kopiëren van een database met behulp van PowerShell, gebruikt de [nieuw AzureRmSqlDatabaseCopy](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet. 
 
 ```PowerShell
 New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
@@ -58,54 +58,54 @@ New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
     -CopyDatabaseName "CopyOfMySampleDatabase"
 ```
 
-Zie voor een volledige voorbeeldscript [kopiëren van een nieuwe databaseserver voor tooa](scripts/sql-database-copy-database-to-new-server-powershell.md).
+Zie voor een volledige voorbeeldscript [een database kopiëren naar een nieuwe server](scripts/sql-database-copy-database-to-new-server-powershell.md).
 
 ## <a name="copy-a-database-by-using-transact-sql"></a>Kopiëren van een database met behulp van Transact-SQL
 
-Meld u bij toohello master database met Hallo principal-aanmelding op serverniveau of Hallo-aanmelding die u wilt dat toocopy Hallo-database is gemaakt. Voor de database kopiëren toosucceed, moeten aanmeldingen die geen Hallo niveau van de server principal lid zijn van Hallo dbmanager rol. Zie voor meer informatie over aanmeldingen en aangesloten toohello server [aanmeldingen beheren](sql-database-manage-logins.md).
+Aanmelden bij de database master met de principal-aanmelding op serverniveau of de aanmelding die gemaakt van de database die u wilt kopiëren. Aanmeldingen die niet het niveau van de server principal moet voor de database kopiëren te laten slagen, leden van de rol dbmanager. Zie voor meer informatie over aanmeldingen en verbinding maken met de server [aanmeldingen beheren](sql-database-manage-logins.md).
 
-Beginnen met het kopiëren van de brondatabase Hallo Hello [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) instructie. Deze instructie uitvoert initieert Hallo-database kopiëren proces. Omdat het kopiëren van een database een asynchrone is, retourneert Hallo instructie CREATE DATABASE voordat het Hallo-database kopiëren is voltooid.
+Beginnen met het kopiëren van de brondatabase met de [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) instructie. Deze instructie uitvoert, wordt de database kopiëren proces gestart. Omdat het kopiëren van een database een asynchrone is, retourneert de instructie CREATE DATABASE voordat het kopiëren van de database voltooid is.
 
-### <a name="copy-a-sql-database-toohello-same-server"></a>Kopiëren van een SQL-database toohello dezelfde server
-Meld u bij toohello master database met Hallo principal-aanmelding op serverniveau of Hallo-aanmelding die u wilt dat toocopy Hallo-database is gemaakt. Voor de database kopiëren toosucceed, moeten aanmeldingen die geen Hallo niveau van de server principal lid zijn van Hallo dbmanager rol.
+### <a name="copy-a-sql-database-to-the-same-server"></a>Een SQL-database kopiëren naar dezelfde server
+Aanmelden bij de database master met de principal-aanmelding op serverniveau of de aanmelding die gemaakt van de database die u wilt kopiëren. Aanmeldingen die niet het niveau van de server principal moet voor de database kopiëren te laten slagen, leden van de rol dbmanager.
 
-Met deze opdracht kopieert Database1 tooa nieuwe database met de naam Database2 op Hallo dezelfde server. Afhankelijk van de grootte van de Hallo van uw database, kan Hallo kopiëren bewerking sommige toocomplete tijd duren.
+Met deze opdracht wordt Database1 gekopieerd naar een nieuwe database met de naam Database2 op dezelfde server. Afhankelijk van de grootte van uw database, kan de kopiëren bewerking even duren om te voltooien.
 
-    -- Execute on hello master database.
+    -- Execute on the master database.
     -- Start copying.
     CREATE DATABASE Database1_copy AS COPY OF Database1;
 
-### <a name="copy-a-sql-database-tooa-different-server"></a>Kopiëren van een andere server van SQL database tooa
+### <a name="copy-a-sql-database-to-a-different-server"></a>Een SQL-database kopiëren naar een andere server
 
-Meld u bij toohello master database van Hallo-doelserver Hallo SQL database-server waar de nieuwe database Hallo toobe gemaakt is. Gebruik een aanmelding die heeft dezelfde gebruikersnaam en wachtwoord Hallo als Hallo database-eigenaar van de brondatabase Hallo op Hallo bron SQL database-server. Hallo-aanmelding op de doelserver Hallo moet ook lid zijn van Hallo dbmanager rol zijn of Hallo principal-aanmelding op serverniveau.
+Aanmelden bij de database master van de doelserver, de SQL-databaseserver waar de nieuwe database wordt gemaakt. Gebruik een aanmelding met dezelfde naam en hetzelfde wachtwoord als de database-eigenaar van de brondatabase op de bronserver voor de SQL-database. De aanmelding op de doelserver moet ook lid zijn van de rol dbmanager of worden de principal-aanmelding op serverniveau.
 
-Met deze opdracht exemplaren Database1 op server1 tooa nieuwe database met de naam Database2 op server2. Afhankelijk van de grootte van de Hallo van uw database, kan Hallo kopiëren bewerking sommige toocomplete tijd duren.
+Deze opdracht kopieert Database1 op server1 naar een nieuwe database met de naam Database2 op server2. Afhankelijk van de grootte van uw database, kan de kopiëren bewerking even duren om te voltooien.
 
-    -- Execute on hello master database of hello target server (server2)
-    -- Start copying from Server1 tooServer2
+    -- Execute on the master database of the target server (server2)
+    -- Start copying from Server1 to Server2
     CREATE DATABASE Database1_copy AS COPY OF server1.Database1;
 
 
-### <a name="monitor-hello-progress-of-hello-copying-operation"></a>Voortgang van Hallo Hallo bewerking kopiëren
+### <a name="monitor-the-progress-of-the-copying-operation"></a>De voortgang van de bewerking uit te kopiëren
 
-Hallo kopiëren proces bewaken door het uitvoeren van query's Hallo sys.databases en sys.dm_database_copies weergaven. Tijdens het kopiëren van Hallo wordt uitgevoerd, Hallo **state_desc** kolom Hallo sys.databases weergave voor de nieuwe database hello te is ingesteld**kopiëren**.
+Het kopieerproces door het opvragen van de weergaven sys.databases en sys.dm_database_copies controleren. Terwijl het kopiëren uitgevoerd wordt, de **state_desc** kolom van de sys.databases voor de nieuwe database is ingesteld op **kopiëren**.
 
-* Als Hallo kopiëren is mislukt, Hallo **state_desc** kolom Hallo sys.databases weergave voor de nieuwe database hello te is ingesteld**VERMOEDT**. Hallo DROP-instructie niet uitvoeren op Hallo nieuwe database en probeer het later opnieuw.
-* Als Hallo kopiëren is gelukt, hello **state_desc** kolom Hallo sys.databases weergave voor de nieuwe database hello te is ingesteld**ONLINE**. Hallo kopiëren is voltooid en de nieuwe database Hallo is gewone databases die onafhankelijk van de brondatabase Hallo kan worden gewijzigd.
+* Als het kopiëren is mislukt, de **state_desc** kolom van de sys.databases voor de nieuwe database is ingesteld op **VERMOEDT**. De instructie DROP niet uitvoeren op de nieuwe database en probeer het later opnieuw.
+* Als het kopiëren is gelukt, de **state_desc** kolom van de sys.databases voor de nieuwe database is ingesteld op **ONLINE**. Het kopiëren is voltooid en de nieuwe database is een reguliere-database die onafhankelijk van de brondatabase kan worden gewijzigd.
 
 > [!NOTE]
-> Als u toocancel Hallo kopiëren besluit terwijl deze uitgevoerd wordt, uitvoeren Hallo [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) instructie op Hallo nieuwe database. U kunt ook de instructie DROP DATABASE Hallo worden uitgevoerd op de brondatabase Hallo ook wordt geannuleerd Hallo proces kopiëren.
+> Uitvoeren als u besluit om te annuleren kopiëren terwijl deze uitgevoerd wordt, de [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) instructie op de nieuwe database. U kunt ook annuleert de instructie DROP DATABASE worden uitgevoerd op de brondatabase ook het kopieerproces.
 > 
 
 ## <a name="resolve-logins"></a>Aanmeldingen oplossen
 
-Nadat de nieuwe database Hallo online op de doelserver hello is, gebruik Hallo [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx) instructie tooremap Hallo gebruikers van Hallo toologins op de doelserver Hallo nieuwe database. tooresolve zwevende gebruikers, Zie [zwevende gebruikers dat problemen met](https://msdn.microsoft.com/library/ms175475.aspx). Zie ook [hoe toomanage Azure SQL database-beveiliging na herstel na noodgevallen](sql-database-geo-replication-security-config.md).
+Nadat de nieuwe database op de doelserver online is, gebruikt u de [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx) instructie opnieuw toewijzen van de gebruikers van de nieuwe database aan aanmeldingen op de doelserver. Raadpleeg voor het oplossen van zwevende gebruikers [zwevende gebruikers dat problemen met](https://msdn.microsoft.com/library/ms175475.aspx). Zie ook [beveiliging voor Azure SQL database beheren na het herstel na noodgevallen](sql-database-geo-replication-security-config.md).
 
-Alle gebruikers in de nieuwe database Hallo behouden Hallo machtigingen die ze hebben als in de brondatabase Hallo. Hallo-gebruiker die heeft gestart databasekopie Hallo Hallo database-eigenaar van de nieuwe database Hallo en een nieuwe beveiligings-id (SID) is toegewezen. Nadat Hallo kopiëren is geslaagd en voordat andere gebruikers worden toegewezen, alleen hello aanmelding die geïnitieerd Hallo kopiëren, Hallo-database-eigenaar kan zich aanmelden in de nieuwe database toohello.
+Alle gebruikers in de nieuwe database behouden de machtigingen die ze hebben als in de brondatabase. De gebruiker die het database-exemplaar gestart wordt de database-eigenaar van de nieuwe database en een nieuwe beveiligings-id (SID) is toegewezen. Nadat het kopiëren is geslaagd en voordat andere gebruikers worden toegewezen, kunnen alleen de aanmelding die geïnitieerd het kopiëren, de eigenaar van de database zich kunt aanmelden bij de nieuwe database.
 
-toolearn over het beheren van gebruikers en aanmeldingen bij het kopiëren van een database tooa andere logische server, Zie [hoe toomanage Azure SQL database-beveiliging na herstel na noodgevallen](sql-database-geo-replication-security-config.md).
+Zie voor meer informatie over het beheren van gebruikers en aanmeldingen wanneer u een database naar een andere logische server kopiëren, [beveiliging voor Azure SQL database beheren na het herstel na noodgevallen](sql-database-geo-replication-security-config.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over aanmeldingen [aanmeldingen beheren](sql-database-manage-logins.md) en [hoe toomanage Azure SQL database-beveiliging na herstel na noodgevallen](sql-database-geo-replication-security-config.md).
-* een database tooexport Zie [exporteren Hallo database tooa Bacpac-](sql-database-export.md).
+* Zie voor meer informatie over aanmeldingen [aanmeldingen beheren](sql-database-manage-logins.md) en [beveiliging voor Azure SQL database beheren na het herstel na noodgevallen](sql-database-geo-replication-security-config.md).
+* Zie voor het exporteren van een database [exporteren van de database naar een BACPAC](sql-database-export.md).

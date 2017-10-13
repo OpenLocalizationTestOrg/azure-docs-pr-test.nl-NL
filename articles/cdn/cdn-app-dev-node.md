@@ -1,6 +1,6 @@
 ---
-title: aaaGet gestart Hello Azure CDN-SDK voor Node.js | Microsoft Docs
-description: Meer informatie over hoe toowrite Node.js-toepassingen toomanage Azure CDN.
+title: Aan de slag met de Azure CDN-SDK voor Node.js | Microsoft Docs
+description: Informatie over het schrijven van Node.js-toepassingen voor het beheren van Azure CDN.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6c805e5fb8e0b471e8b248cb2f4b29efd6c85940
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 46ae8cd9775432d126cbde856c1fb06ea319297e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Aan de slag met Azure CDN-ontwikkeling
 > [!div class="op_single_selector"]
@@ -27,34 +27,34 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-U kunt Hallo [Azure CDN-SDK voor Node.js](https://www.npmjs.com/package/azure-arm-cdn) tooautomate maken en beheren van CDN-profielen en eindpunten.  Deze zelfstudie wordt begeleid Hallo maken van een eenvoudige Node.js-consoletoepassing die u laat zien dat verschillende Hallo beschikbare bewerkingen.  Deze zelfstudie is niet bedoeld toodescribe alle aspecten van hello Azure CDN-SDK voor Node.js in detail.
+U kunt de [Azure CDN-SDK voor Node.js](https://www.npmjs.com/package/azure-arm-cdn) te maken en beheren van CDN-profielen en eindpunten te automatiseren.  Deze zelfstudie helpt bij het maken van een eenvoudige Node.js-consoletoepassing die u laat zien dat verschillende van de beschikbare bewerkingen.  Deze zelfstudie is niet bedoeld voor alle aspecten van de Azure CDN-SDK voor Node.js in detail beschrijven.
 
-toocomplete deze zelfstudie hebt u al hebt [Node.js](http://www.nodejs.org) **4.x.x** of hoger geïnstalleerd en geconfigureerd.  U kunt elke gewenste toocreate uw Node.js-toepassing teksteditor gebruiken.  toowrite in deze zelfstudie gebruikt ik [Visual Studio Code](https://code.visualstudio.com).  
+Voor deze zelfstudie hebt voltooid, moet u al hebben [Node.js](http://www.nodejs.org) **4.x.x** of hoger geïnstalleerd en geconfigureerd.  U kunt een teksteditor die u wilt maken van uw Node.js-toepassing kunt gebruiken.  Voor het schrijven van deze zelfstudie gebruikt ik [Visual Studio Code](https://code.visualstudio.com).  
 
 > [!TIP]
-> Hallo [voltooid project uit deze zelfstudie](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) is beschikbaar voor downloaden op MSDN.
+> De [voltooid project uit deze zelfstudie](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) is beschikbaar voor downloaden op MSDN.
 > 
 > 
 
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
 ## <a name="create-your-project-and-add-npm-dependencies"></a>Maken van uw project en NPM afhankelijkheden toevoegen
-Nu dat we hebben een resourcegroep gemaakt voor onze CDN-profielen en bepaalde onze Azure AD-toepassing machtiging toomanage CDN-profielen en de eindpunten in die groep, kunnen we beginnen met het maken van de toepassing.
+Nu dat we hebben een resourcegroep gemaakt voor onze CDN-profielen en toestemming van onze Azure AD-toepassing voor het beheren van CDN-profielen en eindpunten binnen die groep, kunnen we beginnen met het maken van de toepassing.
 
-Maak een map toostore uw toepassing.  Vanuit een console met de Hallo Node.js-hulpprogramma's in uw huidige pad, stelt u uw huidige locatie toothis nieuwe map en initialiseren van het project door te voeren:
+Maak een map voor het opslaan van uw toepassing.  Vanuit een console met de Node.js-hulpprogramma's in uw huidige pad instellen van uw huidige locatie naar deze map en het initialiseren van uw project door te voeren:
 
     npm init
 
-U een reeks vragen tooinitialize aangeboden uw project.  Voor **toegangspunt**, deze zelfstudie wordt gebruikgemaakt van *app.js*.  U kunt mijn andere opties in het volgende voorbeeld Hallo zien.
+U wordt weergegeven een reeks vragen om uw project te initialiseren.  Voor **toegangspunt**, deze zelfstudie wordt gebruikgemaakt van *app.js*.  U kunt mijn andere opties in het volgende voorbeeld kunt zien.
 
 ![NPM init-uitvoer](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-Onze project nu is geïnitialiseerd met een *packages.json* bestand.  Onze project gaat toouse sommige Azure-bibliotheken die zijn opgenomen in de NPM-pakketten.  We gebruiken hello Azure Client Runtime voor Node.js (ms-rest-azure) en hello Azure CDN-clientbibliotheek voor Node.js (arm-azure-cd).  Laten we deze toohello-project toevoegen als afhankelijkheden.
+Onze project nu is geïnitialiseerd met een *packages.json* bestand.  Onze project gaat een aantal Azure-bibliotheken die zijn opgenomen in de NPM-pakketten gebruiken.  We gebruiken de Azure-Client-Runtime voor Node.js (ms-rest-azure) en de Azure CDN-clientbibliotheek voor Node.js (arm-azure-cd).  Laten we deze toevoegen aan het project als afhankelijkheden.
 
     npm install --save ms-rest-azure
     npm install --save azure-arm-cdn
 
-Na hello-pakketten zijn gedaan installeert, hello *package.json* bestand ziet er vergelijkbaar toothis voorbeeld (versie getallen kunnen verschillen):
+Nadat u klaar bent met de pakketten installeren, de *package.json* bestand zijn vergelijkbaar met het volgende voorbeeld (versie getallen kunnen verschillen):
 
 ``` json
 {
@@ -74,18 +74,18 @@ Na hello-pakketten zijn gedaan installeert, hello *package.json* bestand ziet er
 }
 ```
 
-Ten slotte met uw teksteditor een leeg tekstbestand maken en opslaan in de hoofdmap Hallo van onze projectmap als *app.js*.  We zijn nu gereed toobegin schrijven van code.
+Ten slotte met uw teksteditor een leeg tekstbestand maken en opslaan in de hoofdmap van onze projectmap als *app.js*.  We zijn nu gereed om te beginnen met het schrijven van code.
 
 ## <a name="requires-constants-authentication-and-structure"></a>Vereist, constanten, verificatie en -structuur
-Met *app.js* openen in onze editor, gaan we aan Hallo basisstructuur van onze programma geschreven.
+Met *app.js* openen in onze editor, gaan we aan de basisstructuur van onze programma dat is geschreven.
 
-1. Voeg Hallo 'vereist' voor onze pakketten NPM boven Hallo Hallo volgende:
+1. Voeg de 'vereist' voor onze NPM pakketten aan de bovenkant met de volgende opties:
    
     ``` javascript
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. We moeten toodefine sommige constanten die onze methoden gebruiken.  Voeg de volgende Hallo toe.  Worden ervoor tooreplace Hallo tijdelijke aanduidingen, met inbegrip van Hallo  **&lt;punthaken&gt;**, met uw eigen waarden zo nodig.
+2. We moeten sommige constanten die onze methoden gebruikt definiëren.  Voeg het volgende toe.  Zorg ervoor dat u de tijdelijke aanduidingen, met inbegrip van de  **&lt;punthaken&gt;**, met uw eigen waarden zo nodig.
    
     ``` javascript
     //Tenant app constants
@@ -98,7 +98,7 @@ Met *app.js* openen in onze editor, gaan we aan Hallo basisstructuur van onze pr
     const resourceGroupName = "CdnConsoleTutorial";
     const resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
     ```
-3. Vervolgens we instantiëren Hallo CDN management-client en wijs hieraan onze referenties.
+3. Vervolgens we exemplaar maken van de CDN-management-client en wijs hieraan onze referenties.
    
     ``` javascript
     var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
@@ -108,7 +108,7 @@ Met *app.js* openen in onze editor, gaan we aan Hallo basisstructuur van onze pr
     Als u afzonderlijke gebruikersverificatie gebruikt, is deze twee regels er iets anders.
    
    > [!IMPORTANT]
-   > Dit voorbeeld wordt alleen gebruiken als u afzonderlijke gebruikersverificatie toohave in plaats van een service-principal kiest.  Zorgvuldige tooguard uw afzonderlijke gebruikersreferenties en bewaar deze geheime.
+   > Dit voorbeeld alleen gebruiken als u ervoor kiest om de verificatie van afzonderlijke gebruikers in plaats van een service-principal.  Zorg ervoor dat uw afzonderlijke gebruikersreferenties bewaken en geheime houden.
    > 
    > 
    
@@ -118,8 +118,8 @@ Met *app.js* openen in onze editor, gaan we aan Hallo basisstructuur van onze pr
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    Worden ervoor tooreplace Hallo-items in  **&lt;punthaken&gt;**  met Hallo de juiste informatie.  Voor `<redirect URI>`, Hallo omleidings-URI die u hebt ingevoerd toen u de toepassing hello geregistreerd in Azure AD gebruiken.
-4. Onze Node.js-consoletoepassing gaat tootake sommige parameters voor de opdrachtregel.  Laten we valideren ten minste één parameter is doorgegeven.
+    Zorg ervoor dat u de items in  **&lt;punthaken&gt;**  met de juiste gegevens.  Voor `<redirect URI>`, gebruikt u de omleidings-URI die u hebt opgegeven bij de registratie van de toepassing in Azure AD.
+4. Onze Node.js-consoletoepassing zal duren voordat sommige opdrachtregelparameters.  Laten we valideren ten minste één parameter is doorgegeven.
    
    ```javascript
    //Collect command-line parameters
@@ -133,7 +133,7 @@ Met *app.js* openen in onze editor, gaan we aan Hallo basisstructuur van onze pr
        process.exit(1);
    }
    ```
-5. Die brengt ons toohello hoofdgedeelte van het programma, waar we vertakking uit tooother functies op basis van welke parameters zijn doorgegeven.
+5. Ons heeft die in het hoofdgedeelte van het programma, waar we vertakking uit naar andere functies op basis van welke parameters zijn doorgegeven.
    
     ```javascript
     switch(parms[0].toLowerCase())
@@ -159,7 +159,7 @@ Met *app.js* openen in onze editor, gaan we aan Hallo basisstructuur van onze pr
             process.exit(1);
     }
     ```
-6. Op verschillende plaatsen in onze programma moeten we ervoor Hallo kunt u het juiste aantal parameters zijn doorgegeven en hulp weergegeven als ze niet zo juiste uitzien toomake.  We maken functies toodo die.
+6. Op verschillende plaatsen in onze programma moet u om te controleren of het juiste aantal parameters zijn doorgegeven en hulp weergegeven als ze niet juist zoeken.  Laten we functies hiertoe maken.
    
    ```javascript
    function requireParms(parmCount) {
@@ -197,7 +197,7 @@ Met *app.js* openen in onze editor, gaan we aan Hallo basisstructuur van onze pr
        }
    }
    ```
-7. Hallo-functies die worden gebruikt op Hallo CDN management-client zijn ten slotte asynchroon, zodat zij nodig hebben een toocall methode terug wanneer ze klaar bent.  We maken die kan Hallo-uitvoer van Hallo CDN management-client (indien aanwezig) weergeven en Hallo programma afgesloten.
+7. Tot slot worden de functies die worden gebruikt op de CDN-management-client zijn asynchroon, daarom ze een methode aan te roepen moeten wanneer ze klaar.  Zorg dat u kunt de uitvoer van de CDN management-client (indien aanwezig) weergeven en het programma afgesloten.
    
     ```javascript
     function callback(err, result, request, response) {
@@ -211,10 +211,10 @@ Met *app.js* openen in onze editor, gaan we aan Hallo basisstructuur van onze pr
     }
     ```
 
-Nu dat de basisstructuur Hallo van het programma is geschreven, maken we Hallo functies die worden aangeroepen op basis van onze parameters.
+Nu dat de basisstructuur van het programma is geschreven, maken we de functies die worden aangeroepen op basis van onze parameters.
 
 ## <a name="list-cdn-profiles-and-endpoints"></a>Lijst met CDN-profielen en -eindpunten
-We beginnen met code toolist onze bestaande profielen en -eindpunten.  Mijn codeopmerkingen bieden Hallo verwacht syntaxis zodat we weten waar elke parameter gaat.
+U begint met de code voor een lijst met onze bestaande profielen en -eindpunten.  Mijn codeopmerkingen beschikt u over de syntaxis van de verwachte zodat we weten waar elke parameter gaat.
 
 ```javascript
 // list profiles
@@ -242,7 +242,7 @@ function cdnList(){
 ```
 
 ## <a name="create-cdn-profiles-and-endpoints"></a>CDN-profielen en eindpunten maken
-We schrijft vervolgens Hallo functies toocreate profielen en -eindpunten.
+We schrijft vervolgens de functies voor het maken van profielen en -eindpunten.
 
 ```javascript
 function cdnCreate() {
@@ -294,7 +294,7 @@ function cdnCreateEndpoint() {
 ```
 
 ## <a name="purge-an-endpoint"></a>Een eindpunt leegmaken
-Ervan uitgaande dat Hallo-eindpunt is gemaakt, is één algemene taak dat we tooperform in onze programma willen mogelijk opschonen van inhoud in onze eindpunt.
+Ervan uitgaande dat het eindpunt is gemaakt, is een algemene taak die we wilt uitvoeren in onze programma inhoud in onze eindpunt opschonen.
 
 ```javascript
 // purge <profile name> <endpoint name> <path>
@@ -307,7 +307,7 @@ function cdnPurge() {
 ```
 
 ## <a name="delete-cdn-profiles-and-endpoints"></a>CDN-profielen en eindpunten verwijderen
-de laatste functie Hallo we nemen verwijdert eindpunten en -profielen.
+De laatste functie opgeroepen we nemen verwijdert eindpunten en -profielen.
 
 ```javascript
 function cdnDelete() {
@@ -335,11 +335,11 @@ function cdnDelete() {
 }
 ```
 
-## <a name="running-hello-program"></a>Hallo-programma uitvoeren
-We ons gebruik van onze favoriete debugger Node.js-programma kan nu worden uitgevoerd of op Hallo-beheerconsole.
+## <a name="running-the-program"></a>Het programma uitvoeren
+We ons gebruik van onze favoriete debugger Node.js-programma kan nu worden uitgevoerd of bij de console.
 
 > [!TIP]
-> Als u Visual Studio Code als het foutopsporingsprogramma gebruikt, moet u tooset van uw omgeving toopass in Hallo opdrachtregelparameters.  Visual Studio Code doet dit in Hallo **lanuch.json** bestand.  Zoeken naar een eigenschap met de naam **args** en toevoegen van een matrix van tekenreekswaarden voor uw-parameters, zodat het lijkt erop vergelijkbare toothis: `"args": ["list", "profiles"]`.
+> Als u Visual Studio Code als uw debugger gebruikt, moet u uw omgeving instellen om op te geven de opdrachtregelparameters.  Visual Studio Code doet dit de **lanuch.json** bestand.  Zoeken naar een eigenschap met de naam **args** en toevoegen van een matrix van tekenreekswaarden voor uw-parameters, zodat het er ongeveer als volgt uitziet: `"args": ["list", "profiles"]`.
 > 
 > 
 
@@ -360,11 +360,11 @@ Tot slot gaan we onze profiel verwijderen.
 ![Profiel verwijderen](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-toosee hello voltooid project van dit scenario [Hallo voorbeeld downloaden](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
+Om te zien van de voltooide project van dit scenario [het voorbeeld downloaden](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-toosee hello verwijzing voor hello Azure CDN-SDK voor Node.js, weergave Hallo [verwijzing](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
+Geef weer voor de verwijzing voor de Azure CDN-SDK voor Node.js de [verwijzing](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
 
-toofind aanvullende documentatie over hello Azure SDK voor Node.js, weergave Hallo [volledige verwijzing](http://azure.github.io/azure-sdk-for-node/).
+Aanvullende documentatie over de Azure SDK voor Node.js vindt geven de [volledige verwijzing](http://azure.github.io/azure-sdk-for-node/).
 
 Uw CDN-resources beheren met [PowerShell](cdn-manage-powershell.md).
 

@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: DocumentDB-API | Microsoft Docs'
-description: Meer informatie over hoe u kunt Azure Cosmos DB toostore en query grote hoeveelheden JSON-documenten met een lage latentie met behulp van SQL en JavaScript.
+description: Leer hoe u Azure Cosmos DB gebruikt om query's uit te voeren voor grote aantallen JSON-documenten en hoe u deze met een lage latentie opslaat met behulp van SQL en JavaScript).
 keywords: json-database, documentdatabase
 services: cosmos-db
 author: mimig1
@@ -15,61 +15,61 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
-ms.openlocfilehash: c96dfa5e2685782a99d2bcaf992f88dd2bef920b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introduction-tooazure-cosmos-db-documentdb-api"></a>Inleiding tooAzure Cosmos DB: DocumentDB-API
+# <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Inleiding in Azure Cosmos DB: DocumentDB-API
 
-[Azure Cosmos DB](introduction.md) is de wereldwijd gedistribueerde databaseservice met meerdere modellen van Microsoft voor essentiële toepassingen. Biedt Azure Cosmos DB [directe globale distributie](distribute-data-globally.md), [elastisch schalen van doorvoer en opslag](partition-data.md) overal ter wereld, één cijfer milliseconde latenties op Hallo 99th percentiel, [vijf goed gedefinieerde consistentieniveaus](consistency-levels.md), hoge beschikbaarheid, alle back-ups door gegarandeerd [toonaangevende Sla's](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexeert automatisch gegevens](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) zonder dat u toodeal met schema- en management. Azure Cosmos DB beschikt over meerdere modellen en ondersteunt modellen voor document-, sleutelwaarde-, grafiek- en kolomgegevens. 
+[Azure Cosmos DB](introduction.md) is de wereldwijd gedistribueerde databaseservice met meerdere modellen van Microsoft voor essentiële toepassingen. Azure Cosmos DB biedt [gebruiksklare wereldwijde distributie](distribute-data-globally.md), [elastisch schalen van doorvoer en opslag](partition-data.md), latentie die wereldwijd in het 99e percentiel onder de 10 milliseconden blijft, [vijf goed gedefinieerde consistentieniveaus](consistency-levels.md) en een gegarandeerd hoge beschikbaarheid, allemaal op basis van [toonaangevende serviceovereenkomsten](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Met Azure Cosmos DB worden [gegevens automatisch geïndexeerd](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), zonder dat u te maken krijgt met schema- en indexbeheer. Azure Cosmos DB beschikt over meerdere modellen en ondersteunt modellen voor document-, sleutelwaarde-, grafiek- en kolomgegevens. 
 
 ![Azure DocumentDB-API](./media/documentdb-introduction/cosmosdb-documentdb.png) 
 
-Hallo DocumentDB API, Azure Cosmos DB biedt uitgebreide en vertrouwd [SQL querymogelijkheden](documentdb-sql-query.md) met consistente lage latenties via JSON-gegevens zonder schema. In dit artikel bieden we een overzicht van hello Azure Cosmos DB van DocumentDB API en hoe u kunt deze gebruiken toostore grote hoeveelheden JSON-gegevens, in volgorde van milliseconden latentie doorzoeken, en Hallo schema eenvoudig ontwikkelen. 
+Met de DocumentDB-API biedt Azure Cosmos DB rijke en vertrouwde [SQL-querymogelijkheden](documentdb-sql-query.md) met consistente lage latenties voor JSON-gegevens zonder schema. In dit artikel krijgt u een overzicht van de Azure Cosmos DB DocumentDB-API en leert u hoe u deze kunt gebruiken om grote hoeveelheden JSON-gegevens op te slaan, hoe u er query's voor uitvoert met een latentie van milliseconden en hoe u het schema eenvoudig kunt veranderen. 
 
 ## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Welke mogelijkheden en belangrijke functies biedt Azure Cosmos DB?
-Azure Cosmos-DB, via Hallo DocumentDB-API biedt Hallo na de belangrijkste mogelijkheden en voordelen:
+Azure Cosmos DB biedt via de DocumentDB-API de volgende belangrijke mogelijkheden en voordelen:
 
-* **Elastische schaalbare doorvoer en opslag:** eenvoudig omhoog of omlaag uw JSON-database toomeet schalen van uw toepassing nodig heeft. Uw gegevens worden opgeslagen op SSD-schijven (Solid State Disks) voor lage voorspelbare latenties. Azure Cosmos DB ondersteunt containers voor JSON-gegevens op te slaan verzamelingen die kunnen worden geschaald toovirtually aangeroepen onbeperkte opslaggrootte en ingerichte doorvoer. Naarmate uw toepassing groeit, kunt u Azure Cosmos DB probleemloos elastisch schalen met voorspelbare prestaties. 
-
-
-* **Meerdere landen/regio-replicatie:** transparant repliceert je je hebt gekoppeld aan uw Azure DB die Cosmos-account, zodat u toodevelop-toepassingen waarvoor globale toegang toodata waarbij tooall regio's Azure Cosmos-DB de wisselwerking tussen de consistentie, beschikbaarheid en prestaties, met bijbehorende garanties. Azure Cosmos DB biedt transparante regionale failover multihoming API's, en Hallo mogelijkheid tooelastically scale doorvoer en opslag van verschillende Hallo wereld. Zie [Distribute data globally with Azure Cosmos DB](distribute-data-globally.md) (Gegevens wereldwijd distribueren met Azure Cosmos DB) voor meer informatie.
-
-* **Ad-hocquery's met bekende SQL-syntaxis:** u kunt heterogene JSON-documenten opslaan en query's op deze documenten uitvoeren via een bekende SQL-syntaxis. Azure Cosmos-database maakt gebruik van een uiterst gelijktijdige, vergrendelingsvrije, logboek gestructureerde indexering technologie tooautomatically index alle documentinhoud. Hierdoor kunnen de uitgebreide realtime query's zonder Hallo nodig toospecify schemahints, secundaire indexen of weergaven. Zie [Query Azure Cosmos DB](documentdb-sql-query.md) (Query's uitvoeren voor Azure Cosmos DB) voor meer informatie. 
-* **JavaScript-uitvoering in de database Hallo:** Express-toepassingslogica als opgeslagen procedures, triggers en door de gebruiker gedefinieerde functies (UDF's) met standaard-JavaScript. Hierdoor kan uw toepassing logica toooperate over gegevens zonder dat u de toepassing hello en Hallo-databaseschema komen niet overeen Hallo. Hallo DocumentDB API biedt volledige transactionele uitvoering van JavaScript-toepassingslogica rechtstreeks in de database-engine Hallo. Hallo diepe integratie van JavaScript kan Hallo uitvoering van INSERT, REPLACE, verwijderen en selecteer bewerkingen uit vanuit een JavaScript-programma als geïsoleerde transactie. Zie [Programmeren op de DocumentDB-server](programming.md) voor meer informatie.
-
-* **Instelbare consistentieniveaus:** selecteren uit vijf goed gedefinieerde consistentie niveaus tooachieve optimale balans tussen de consistentie en prestaties. Voor query's en leesbewerkingen biedt Azure Cosmos DB vijf verschillende consistentieniveaus: sterk, gebonden-verouderd, sessie, consistent voorvoegsel en mogelijk. Deze gedetailleerde, goed gedefinieerde consistentieniveaus kunt u toomake geluid verschillen tussen de consistentie, beschikbaarheid en latentie. Meer informatie [met behulp van de consistentie niveaus toomaximize beschikbaarheid en prestaties](consistency-levels.md).
-
-* **Volledig beheerd:** Hallo nodig toomanage database- en machineresources te elimineren. Als een volledig beheerde service voor de Microsoft Azure, u niet nodig toomanage virtuele machines te doen, implementeren en configureren van software, beheren schalen of bekommeren om complexe gegevenslaag upgrades. Er wordt automatisch een back-up van elke database gemaakt en de databases worden automatisch beveiligd tegen regionale fouten. U kunt gemakkelijk een Cosmos-DB Azure-account toevoegen en capaciteit inrichten als u deze nodig hebt, zodat u toofocus op uw toepassing in plaats van het besturingssysteem en het beheren van uw database. 
-
-* **Open ontwerp:** U kunt snel aan de slag door gebruik te maken van bestaande vaardigheden en hulpprogramma's. Programmeren tegen Hallo DocumentDB API een eenvoudige en gebruiksvriendelijke, en geen vereist u nieuwe hulpprogramma's voor tooadopt of toocustom extensies tooJSON of JavaScript voldoen. U kunt toegang tot alle Hallo databasefunctionaliteit inclusief CRUD-, query- en JavaScript-verwerking via een eenvoudige RESTful HTTP-interface. Hallo DocumentDB API hebben bestaande indelingen, talen en standaarden terwijl Daarnaast waardevolle databasemogelijkheden ze.
-
-* **Automatische indexering:** standaard Azure Cosmos DB automatisch alle Hallo documenten in de database Hallo geïndexeerd en niet verwacht of vereisen een schema of het maken van secundaire indexen. Niet wilt dat tooindex alles? Maakt u zich geen zorgen. U kunt ook [paden uitschakelen in uw JSON-bestand](indexing-policies.md).
-
-* **Wijziging feed ondersteuning:** wijziging feed bevat een gesorteerde lijst van documenten binnen een verzameling Azure Cosmos DB in Hallo volgorde waarin ze zijn gewijzigd. Deze feed gebruikte toolisten voor toodata wijzigingen in de volgorde tooreplicate gegevens worden, API-aanroepen activeren of stroom verwerking uitvoeren op updates. Wijziging feed is automatisch ingeschakeld en eenvoudig toouse: [meer informatie over het wijzigen van feed](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
-
-## <a name="data-management"></a>Hoe beheert u gegevens met Hallo DocumentDB API?
-Hallo DocumentDB API kan worden beheerd via goed gedefinieerde databaseresources JSON-gegevens. Deze resources worden gerepliceerd voor hoge beschikbaarheid en zijn uniek adresseerbaar op basis van hun logische URI. Hallo DocumentDB API biedt dat een eenvoudige HTTP op basis van RESTful-programmeermodel voor alle resources. 
+* **Elastisch schaalbare doorvoer en opslag:** u kunt uw JSON-database eenvoudig omhoog of omlaag schalen om te voldoen aan de behoeften van uw toepassing. Uw gegevens worden opgeslagen op SSD-schijven (Solid State Disks) voor lage voorspelbare latenties. Azure Cosmos DB ondersteunt containers voor het opslaan van JSON-gegevens (zogenaamde 'verzamelingen'), waarvan de opslaggrootte en ingerichte doorvoer vrijwel onbeperkt kan worden geschaald. Naarmate uw toepassing groeit, kunt u Azure Cosmos DB probleemloos elastisch schalen met voorspelbare prestaties. 
 
 
-Hello Azure DB die Cosmos-databaseaccount is een unieke naamruimte waarmee u toegang tot tooAzure Cosmos DB. Voordat u een databaseaccount maken kunt, moet u beschikken over een Azure-abonnement waarmee u toegang tot tooa diverse Azure-services. 
+* **Replicatie voor meerdere regio's:** Azure Cosmos DB repliceert uw gegevens transparant naar alle regio's die u aan uw Azure Cosmos DB-account hebt gekoppeld, zodat u toepassingen kunt ontwikkelen waarvoor wereldwijde toegang tot gegevens is vereist, en die tegelijkertijd zorgen voor een balans tussen consistentie, beschikbaarheid en prestaties, allemaal met overeenkomstige garanties. Azure Cosmos DB biedt transparante regionale failover met multihoming-API's en de mogelijkheid om doorvoer en opslag wereldwijd elastisch te schalen. Zie [Distribute data globally with Azure Cosmos DB](distribute-data-globally.md) (Gegevens wereldwijd distribueren met Azure Cosmos DB) voor meer informatie.
+
+* **Ad-hocquery's met bekende SQL-syntaxis:** u kunt heterogene JSON-documenten opslaan en query's op deze documenten uitvoeren via een bekende SQL-syntaxis. Azure Cosmos DB maakt gebruik van een vrijwel gelijktijdige en vergrendelingsvrije indexeringstechnologie op basis van een logboekenstructuur om alle documentinhoud automatisch te indexeren. Zodoende kunt u realtime query's uitvoeren zonder dat u schemahints, secundaire indexen of weergaven hoeft op te geven. Zie [Query Azure Cosmos DB](documentdb-sql-query.md) (Query's uitvoeren voor Azure Cosmos DB) voor meer informatie. 
+* **Uitvoeren van JavaScript in de database:** Express-toepassingslogica als opgeslagen procedures en triggers en door de gebruiker gedefinieerde functies (UDF's) met standaard-JavaScript. Zodoende kan uw toepassingslogica worden toegepast op gegevens zonder dat u zich zorgen hoeft te maken over onjuiste overeenkomsten tussen de toepassing en het databaseschema. Met de DocumentDB-API kan de JavaScript-toepassingslogica volledig transactioneel en rechtstreeks worden uitgevoerd in de database-engine. Dankzij de diepe integratie van JavaScript kunnen de bewerkingen INSERT, REPLACE, DELETE en SELECT als geïsoleerde transactie worden uitgevoerd vanuit een JavaScript-programma. Zie [Programmeren op de DocumentDB-server](programming.md) voor meer informatie.
+
+* **Instelbare consistentieniveaus:** selecteer een van de vijf goed gedefinieerde consistentieniveaus voor een optimale balans tussen consistentie en prestaties. Voor query's en leesbewerkingen biedt Azure Cosmos DB vijf verschillende consistentieniveaus: sterk, gebonden-verouderd, sessie, consistent voorvoegsel en mogelijk. Op basis van deze gedetailleerde, goed gedefinieerde consistentieniveaus kunt u een goede balans vinden tussen de consistentie, beschikbaarheid en latentie. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties te maximaliseren](consistency-levels.md) voor meer informatie.
+
+* **Volledig beheerd:** Elimineer de noodzaak om database- en machineresources te beheren. U hoeft voor een volledig beheerde Microsoft Azure-service geen virtuele machines te beheren, software te implementeren en te configureren, schaalwijzigingen te beheren of complexe upgrades voor gegevenslagen uit te voeren. Er wordt automatisch een back-up van elke database gemaakt en de databases worden automatisch beveiligd tegen regionale fouten. U kunt gemakkelijk een Azure Cosmos DB-account toevoegen en capaciteit inrichten als u dit nodig hebt, waardoor u zich kunt richten op uw toepassing in plaats van op beheer en uitvoer van uw database. 
+
+* **Open ontwerp:** U kunt snel aan de slag door gebruik te maken van bestaande vaardigheden en hulpprogramma's. U kunt op een eenvoudige en gebruiksvriendelijke manier programmeren voor de DocumentDB-API. Bovendien hebt u geen nieuwe hulpprogramma's nodig en hoeft u geen aangepaste uitbreidingen voor JSON of JavaScript te gebruiken. De volledige databasefunctionaliteit, inclusief CRUD-, query- en JavaScript-verwerking, is toegankelijk via een eenvoudige RESTful HTTP-interface. De DocumentDB-API is geschikt voor bestaande indelingen, talen en standaarden, terwijl daarnaast waardevolle databasemogelijkheden worden geboden.
+
+* **Automatisch indexeren:** alle documenten in de database worden standaard automatisch geïndexeerd in Azure Cosmos DB. Er wordt geen schema verwacht of vereist en er hoeven geen secundaire indexen te worden gemaakt. Wilt u niet alles indexeren? Maakt u zich geen zorgen. U kunt ook [paden uitschakelen in uw JSON-bestand](indexing-policies.md).
+
+* **Ondersteuning wijzigingenfeed:** De wijzigingenfeed bevat een gesorteerde lijst met documenten binnen een verzameling van Azure Cosmos DB, in de volgorde waarin ze zijn gewijzigd. Deze feed kan worden gebruikt om te luisteren naar wijzigingen in gegevens om vervolgens gegevens te repliceren, API-aanroepen te activeren of gegevensstroomverwerking uit te voeren op updates. De wijzigingenfeed is automatisch ingeschakeld en eenvoudig te gebruiken: [meer informatie over de wijzigingenfeed](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
+
+## <a name="data-management"></a>Hoe beheer ik gegevens met de DocumentDB-API?
+Met de DocumentDB-API kunt u JSON-gegevens beheren via goed gedefinieerde databaseresources. Deze resources worden gerepliceerd voor hoge beschikbaarheid en zijn uniek adresseerbaar op basis van hun logische URI. De DocumentDB API biedt een eenvoudig RESTful-programmeermodel op basis van HTTP voor alle resources. 
+
+
+Het Azure Cosmos DB-databaseaccount is een unieke naamruimte die u toegang biedt tot Azure Cosmos DB. Voordat u een databaseaccount kunt maken, moet u een Azure-abonnement hebben. Dit abonnement geeft u toegang tot diverse Azure-services. 
 
 Alle resources binnen Azure Cosmos DB worden gemodelleerd en opgeslagen als JSON-documenten. Resources worden beheerd als items, oftewel JSON-documenten met metagegevens, en als feeds, oftewel verzamelingen items. Sets met items bevinden zich in hun respectieve feeds.
 
-Hallo in onderstaande afbeelding ziet u Hallo relaties tussen hello Azure DB die Cosmos-resources:
+De onderstaande afbeelding toont u de relaties tussen de Azure Cosmos DB-resources:
 
-![Hallo hiërarchische relatie tussen resources in Azure Cosmos-DB][1] 
+![De hiërarchische relatie tussen de resources in Azure Cosmos DB][1] 
 
-Een databaseaccount bestaat uit een set databases die elk meerdere verzamelingen bevatten. Elk verzameling kan opgeslagen procedures, triggers, UDF's, documenten en verwante bijlagen bevatten. Een database ook horen gebruikers, elk met een reeks machtigingen tooaccess verschillende andere verzamelingen, opgeslagen procedures, triggers, UDF's, documenten of bijlagen. Databases, gebruikers, machtigingen en verzamelingen zijn door het systeem gedefinieerde resources met bekende schema's. Documenten, opgeslagen procedures, triggers, UDF's en bijlagen bevatten echter willekeurige, door de gebruiker gedefinieerde JSON-inhoud.  
+Een databaseaccount bestaat uit een set databases die elk meerdere verzamelingen bevatten. Elk verzameling kan opgeslagen procedures, triggers, UDF's, documenten en verwante bijlagen bevatten. Er zijn ook gebruikers aan een database gekoppeld. Elke gebruiker beschikt over een set machtigingen voor toegang tot verschillende andere verzamelingen, opgeslagen procedures, triggers, UDF's, documenten of bijlagen. Databases, gebruikers, machtigingen en verzamelingen zijn door het systeem gedefinieerde resources met bekende schema's. Documenten, opgeslagen procedures, triggers, UDF's en bijlagen bevatten echter willekeurige, door de gebruiker gedefinieerde JSON-inhoud.  
 
 > [!NOTE]
-> Aangezien Hallo DocumentDB API eerder beschikbaar als hello Azure DocumentDB-service is, u kunt doorgaan tooprovision, controleren en beheren van accounts die zijn gemaakt via hello Azure Resource Management REST-API of met behulp van hulpprogramma's hello Azure DocumentDB of Azure Cosmos-DB resourcenamen. We gebruiken door elkaar Hallo namen wanneer toohello Azure DocumentDB APIs wordt verwezen. 
+> Omdat de DocumentDB-API eerder beschikbaar was dan de Azure DocumentDB-service, kunt u doorgaan met het inrichten, bewaken en beheren van accounts die zijn gemaakt via de Azure Resource Management REST-API of hulpprogramma's met behulp van de Azure DocumentDB- en Azure Cosmos DB-resourcenamen. De namen worden door elkaar gebruikt wanneer wordt verwezen naar de Azure DocumentDB-API's. 
 
-## <a name="develop"></a>Hoe kan ik Hello DocumentDB API-apps ontwikkelen?
+## <a name="develop"></a> Hoe kan ik apps ontwikkelen met de DocumentDB-API?
 
-Azure Cosmos DB Ontsluit resources via Hallo REST-API's die kunnen worden aangeroepen via elke taal waarmee HTTP/HTTPS-aanvragen. Bovendien bieden wij programmeringsbibliotheken voor verschillende veelgebruikte talen voor Hallo DocumentDB-API. Hallo clientbibliotheken vereenvoudigen veel aspecten van het werken met Hallo API door details zoals adrescaching, Uitzonderingsbeheer, automatische nieuwe pogingen, enzovoort. Bibliotheken zijn momenteel beschikbaar voor Hallo talen en platformen te volgen:  
+Azure Cosmos DB ontsluit resources via de REST-API's die kunnen worden aangeroepen in elke taal waarmee HTTP-/HTTPS-aanvragen kunnen worden gedaan. Daarnaast worden er voor de DocumentDB-API programmeringsbibliotheken geboden voor verschillende veelgebruikte talen. Dankzij de clientbibliotheken kunt u in vele opzichten eenvoudiger met de API werken, doordat ze de gegevens voor adrescaching, uitzonderingsbeheer, automatische nieuwe pogingen enzovoort verwerken. Bibliotheken zijn momenteel beschikbaar voor de volgende talen en platformen:  
 
 | Downloaden | Documentatie |
 | --- | --- |
@@ -82,21 +82,21 @@ Azure Cosmos DB Ontsluit resources via Hallo REST-API's die kunnen worden aanger
 | N.v.t. | [API voor MongoDB](mongodb-introduction.md)
 
 
-Met behulp van Hallo [Azure Cosmos DB Emulator](local-emulator.md), u kunt ontwikkelen en testen van de toepassing lokaal door hello DocumentDB API, zonder te maken van een Azure-abonnement of mogelijke kosten. Wanneer u tevreden bent over hoe uw toepassing in Hallo-emulator werkt, kunt u een Azure DB die Cosmos-account in Hallo cloud toousing overschakelen.
+Met behulp van de [Azure Cosmos DB-emulator](local-emulator.md) kunt u uw toepassing lokaal ontwikkelen en testen met de DocumentDB-API, kosteloos en zonder dat u een Azure-abonnement hoeft te nemen. Als u tevreden bent over hoe uw toepassing in de emulator werkt, kunt u overstappen naar een Azure Cosmos DB-account in de cloud.
 
-Afgezien van basic maken, lezen, bijwerken en verwijderen van bewerkingen, Hallo DocumentDB API een uitgebreide SQL-QueryInterface biedt voor het ophalen van JSON-documenten en server side-ondersteuning voor transactionele uitvoering van JavaScript-toepassingslogica. Hallo query's en scripts uitvoeren interfaces zijn beschikbaar via alle platformbibliotheken evenals Hallo REST-API's. 
+De DocumentDB-API biedt naast de eenvoudige maak-, lees-, bijwerk- en verwijderbewerkingen een geavanceerde SQL-queryinterface voor het ophalen van JSON-documenten en ondersteuning aan de serverzijde voor de transactionele uitvoering van JavaScript-toepassingslogica. De interfaces voor het uitvoeren van query's en scripts zijn beschikbaar via alle platformbibliotheken en REST API's. 
 
 ### <a name="sql-query"></a>SQL-query
-Hallo DocumentDB API ondersteunt het uitvoeren van query's documenten met een SQL-taal, die verankerd in Hallo ligt JavaScript typen systeem, en voor expressies met ondersteuning voor relationele, hiërarchische en ruimtelijke query's. Hallo quertytaal is een eenvoudige maar krachtige interface tooquery JSON-documenten. Hallo taal ondersteunt een subset van ANSI SQL-grammatica en diepe integratie van JavaScript-object, matrices objectconstructie en functieaanroep wordt toegevoegd. Hallo API DocumentDB levert het querymodel zonder een expliciet schema of indexeringshints van Hallo-ontwikkelaar.
+De DocumentDB-API biedt ondersteuning voor documentquery's die gebruikmaken van een SQL-taal die verankerd ligt in het JavaScript-typesysteem, en voor expressies met ondersteuning voor relationele, hiërarchische en ruimtelijke query's. De quertytaal van DocumentDB is een eenvoudige maar krachtige interface om query's op JSON-documenten uit te voeren. De taal ondersteunt een subset van de ANSI SQL-grammatica en zorgt voor een diepe integratie van JavaScript-object-, -matrix-, -objectconstructie- en functieaanroepen. De DocumentDB API levert het querymodel zonder een expliciet schema of indexeringshints van de ontwikkelaar.
 
-Gebruiker gedefinieerde functies (UDF's) worden geregistreerd bij Hallo DocumentDB API en waarnaar wordt verwezen als onderdeel van een SQL-query waardoor Hallo grammatica toosupport aangepaste toepassingslogica uitbreiden. Deze UDF zijn geschreven als JavaScript-programma's en worden uitgevoerd binnen een Hallo-database. 
+Door de gebruiker gedefinieerde functies (UDF's) kunnen worden geregistreerd met de DocumentDB-API en er kan als onderdeel van een SQL-query naar worden verwezen, waarmee de grammatica ter ondersteuning van aangepaste toepassingslogica wordt uitgebreid. Deze UDF zijn geschreven als JavaScript-programma's en worden uitgevoerd binnen de database. 
 
-Hallo voor .NET-ontwikkelaars bevat DocumentDB API [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) biedt ook een LINQ-provider opvragen. 
+Voor .NET-ontwikkelaars bevat de [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) van de DocumentDB API een LINQ-queryprovider. 
 
 ### <a name="transactions-and-javascript-execution"></a>Transacties en JavaScript uitvoeren
-Hallo DocumentDB API kunt u toepassingslogica toowrite als benoemde programma's die zijn geschreven in JavaScript volledig. Deze programma's kunnen zijn geregistreerd voor een verzameling en databasebewerkingen uitvoeren op Hallo documenten binnen een bepaalde verzameling. JavaScript kan worden geregistreerd voor uitvoering als een trigger, opgeslagen procedure of als een door de gebruiker gedefinieerde functie. Triggers en opgeslagen procedures kunnen maken, lezen, bijwerken en verwijderen van documenten, terwijl de gebruiker gedefinieerde functies worden uitgevoerd als onderdeel van Hallo query uitvoeringslogica zonder schrijftoegang toohello verzameling.
+Met de DocumentDB-API kunt u toepassingslogica schrijven als benoemde programma's die volledig zijn geschreven in JavaScript. Deze programma's worden geregistreerd voor een verzameling en kunnen databasebewerkingen uitvoeren op de documenten binnen een bepaalde verzameling. JavaScript kan worden geregistreerd voor uitvoering als een trigger, opgeslagen procedure of als een door de gebruiker gedefinieerde functie. Met triggers en opgeslagen procedures kunt u documenten maken, lezen, bijwerken en verwijderen, terwijl de functies die door de gebruiker zijn gedefinieerd, worden uitgevoerd als onderdeel van de logica voor het uitvoeren van een query, zonder schrijftoegang tot de verzameling.
 
-JavaScript-uitvoering in Hallo Cosmos DB is gemodelleerd naar Hallo concepten die worden ondersteund door relationele databasesystemen, met JavaScript als een moderne vervanger van Transact-SQL. Alle JavaScript-logica wordt uitgevoerd binnen een ambient ACID-transactie met het isolatieniveau Snapshot. In de loop Hallo van de uitvoering ervan, als JavaScript genereert een uitzondering Hallo Hallo vervolgens hele transactie is afgebroken.
+De JavaScript-uitvoering binnen de Cosmos DB is gemodelleerd naar de concepten die worden ondersteund door relationele databasesystemen, met JavaScript als een moderne vervanger van Transact-SQL. Alle JavaScript-logica wordt uitgevoerd binnen een ambient ACID-transactie met het isolatieniveau Snapshot. Als er tijdens de uitvoering een JavaScript-uitzondering optreedt, wordt de volledige transactie afgebroken.
 
 ## <a name="are-there-any-online-courses-on-azure-cosmos-db"></a>Zijn er online cursussen over Azure Cosmos DB?
 

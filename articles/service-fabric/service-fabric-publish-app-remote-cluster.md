@@ -1,6 +1,6 @@
 ---
-title: aaaPublish een app tooa RAS-cluster met Visual Studio | Microsoft Docs
-description: Meer informatie over hoe toopublish een toepassing tooa externe service fabric-cluster met behulp van Visual Studio.
+title: Een app publiceren naar een externe cluster met Visual Studio | Microsoft Docs
+description: Informatie over het publiceren van een toepassing op een externe service fabric-cluster met behulp van Visual Studio.
 services: service-fabric
 documentationcenter: na
 author: cawams
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 ms.author: cawa
-ms.openlocfilehash: d0f06f120cc7e22f3f8e73ce0970e1da5823e647
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c440c520d84fc503ff9e705555449e92555d4721
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-and-remove-applications-using-visual-studio"></a>Implementeren en verwijderen van toepassingen met Visual Studio
 > [!div class="op_single_selector"]
@@ -30,82 +30,82 @@ ms.lasthandoff: 10/06/2017
 
 <br/>
 
-Hello Azure Service Fabric-extensie voor Visual Studio biedt een eenvoudige, herhaalbare en scriptbare manier toopublish een toepassing tooa Service Fabric-cluster.
+De Azure Service Fabric-extensie voor Visual Studio biedt een eenvoudige, herhaalbare en scriptbare manier voor het publiceren van een toepassing naar een Service Fabric-cluster.
 
-## <a name="hello-artifacts-required-for-publishing"></a>Hallo-artefacten die vereist zijn voor publicatie
+## <a name="the-artifacts-required-for-publishing"></a>De artefacten die vereist zijn voor publicatie
 ### <a name="deploy-fabricapplicationps1"></a>Implementeer FabricApplication.ps1
-Dit is een PowerShell-script die gebruikmaakt van een profielpad publiceren als een parameter voor publishing Service Fabric-toepassingen. Omdat dit script deel van uw toepassing uitmaakt, bent u Welkom toomodify als nodig is voor uw toepassing.
+Dit is een PowerShell-script die gebruikmaakt van een profielpad publiceren als een parameter voor publishing Service Fabric-toepassingen. Omdat dit script deel van uw toepassing uitmaakt, bent u Welkom bij de Wijzig deze zo nodig zijn voor uw toepassing.
 
 ### <a name="publish-profiles"></a>Profielen publiceren
-Een map in Service Fabric-toepassingsproject Hallo aangeroepen **PublishProfiles** bevat XML-bestanden die voor het opslaan van essentiële informatie voor het publiceren van een toepassing, zoals:
+Een map in het project Service Fabric-toepassing met de naam **PublishProfiles** bevat XML-bestanden die voor het opslaan van essentiële informatie voor het publiceren van een toepassing, zoals:
 
 * Verbindingsparameters service Fabric-cluster
-* Pad tooan toepassing parameterbestand
+* Pad naar een bestand van de parameter toepassing
 * Upgrade-instellingen
 
-Standaard uw toepassing bevat drie profielen publiceren: Local.1Node.xml Local.5Node.xml en Cloud.xml. U kunt meer profielen toevoegen door te kopiëren en plakken van een van de standaardbestanden Hallo.
+Standaard uw toepassing bevat drie profielen publiceren: Local.1Node.xml Local.5Node.xml en Cloud.xml. U kunt meer profielen toevoegen door te kopiëren en plakken van een van de standaard-bestanden.
 
 ### <a name="application-parameter-files"></a>Parameter voor toepassingsbestanden
-Een map in Service Fabric-toepassingsproject Hallo aangeroepen **ApplicationParameters** XML-bestanden voor de gebruiker opgegeven application manifest parameterwaarden bevat. De parameters van Application manifest-bestanden kunnen worden gebruikt zodat u andere waarden voor de implementatie-instellingen gebruiken kunt. Zie toolearn meer informatie over parameters voorzien van uw toepassing [omgevingen met meerdere in Service Fabric beheren](service-fabric-manage-multiple-environment-app-configuration.md).
+Een map in het project Service Fabric-toepassing met de naam **ApplicationParameters** XML-bestanden voor de gebruiker opgegeven application manifest parameterwaarden bevat. De parameters van Application manifest-bestanden kunnen worden gebruikt zodat u andere waarden voor de implementatie-instellingen gebruiken kunt. Zie voor meer informatie over parameters voorzien van uw toepassing, [omgevingen met meerdere in Service Fabric beheren](service-fabric-manage-multiple-environment-app-configuration.md).
 
 > [!NOTE]
-> Voor actorservices, moet u Hallo project bouwt eerst voordat u probeert tooedit Hallo-bestand in een teksteditor of via Hallo publiceren in het dialoogvenster. Dit is omdat het deel van de manifestbestanden Hallo wordt gegenereerd tijdens het Hallo-build.
+> Voor actorservices, moet u het project eerst voordat u het bestand in een teksteditor of via het dialoogvenster publiceren bewerken bouwen. Dit is omdat het deel van de manifest-bestanden wordt gegenereerd tijdens het opbouwen.
 
-## <a name="toopublish-an-application-using-hello-publish-service-fabric-application-dialog-box"></a>toopublish een toepassing met behulp van dialoogvenster Hallo-Service Fabric-toepassing publiceren
-Hallo volgende stappen laten zien hoe toopublish wordt gebruikt door een toepassing hello **Service Fabric-toepassing publiceren** geleverd door Hallo Visual Studio Service Fabric-hulpprogramma's in het dialoogvenster.
+## <a name="to-publish-an-application-using-the-publish-service-fabric-application-dialog-box"></a>Voor een toepassing publiceren via het dialoogvenster Service Fabric-toepassing publiceren
+De volgende stappen laten zien hoe u voor het publiceren van een toepassing met behulp van de **Service Fabric-toepassing publiceren** geleverd door de Visual Studio Tools van het Fabric-Service in het dialoogvenster.
 
-1. Kies in het snelmenu Hallo van Hallo Service Fabric-toepassing-project, **publiceren...** Hallo tooview **Service Fabric-toepassing publiceren** in het dialoogvenster.
+1. Kies in het snelmenu van het project Service Fabric-toepassing **publiceren...** om weer te geven de **Service Fabric-toepassing publiceren** in het dialoogvenster.
    
-    ![Hallo ** publiceren Service Fabric toepassing ** in het dialoogvenster][0]
+    ![De ** publiceren Service Fabric toepassing ** in het dialoogvenster][0]
    
-    Hallo bestand geselecteerd in Hallo **profiel als doel** vervolgkeuzelijst is wanneer alle Hallo-instellingen, met uitzondering van **Manifest versies**, worden opgeslagen. U kunt een bestaand profiel gebruiken of een nieuwe maken door te kiezen **< profielen beheren... >** in Hallo **profiel als doel** vervolgkeuzelijst. Wanneer u een publicatieprofiel kiest, wordt de inhoud ervan weergegeven in de overeenkomende velden van het dialoogvenster Hallo Hallo. toosave uw wijzigingen op elk gewenst moment kiezen Hallo **profiel opslaan** koppeling.    
-2. In Hallo **verbindingseindpunt** sectie, geeft u een lokale of externe Service Fabric-cluster van publishing eindpunt. tooadd of wijzig verbindingseindpunt hello, klikt u op Hallo **verbindingseindpunt** vervolgkeuzelijst. Hallo-lijst bevat Hallo beschikbaar Service Fabric-cluster verbinding eindpunten toowhich die kunt u publiceren op basis van uw Azure-abonnementen. Houd er rekening mee dat als u niet al aangemeld in tooVisual Studio, kunt u zich na vragen aan gebruiker toodo dus.
+    Het geselecteerde bestand in de **profiel als doel** vervolgkeuzelijst is waar u alle instellingen, met uitzondering van **Manifest versies**, worden opgeslagen. U kunt een bestaand profiel gebruiken of een nieuwe maken door te kiezen **< profielen beheren... >** in de **profiel als doel** vervolgkeuzelijst. Wanneer u een publicatieprofiel kiest, wordt de inhoud ervan weergegeven in de overeenkomende velden in het dialoogvenster. Sla uw wijzigingen op elk gewenst moment, kies de **profiel opslaan** koppeling.    
+2. In de **verbindingseindpunt** sectie, geeft u een lokale of externe Service Fabric-cluster van publishing eindpunt. Als u wilt toevoegen of wijzigen van het verbindingseindpunt, klikt u op de **verbindingseindpunt** vervolgkeuzelijst. De lijst bevat de beschikbare Service Fabric-cluster eindpunten van de verbinding die u kunt publiceren op basis van uw Azure-abonnementen. Houd er rekening mee dat als u bent niet al aangemeld bij Visual Studio, wordt u gevraagd om dit te doen.
    
-    Hallo cluster selectie dialoogvenster vak toochoose van Hallo set beschikbare abonnementen en -clusters gebruiken.
+    Gebruik het dialoogvenster voor selectie van cluster om te kiezen uit de set beschikbare abonnementen en -clusters.
    
-    ![Hallo ** Selecteer Service Fabric Cluster ** in het dialoogvenster][1]
+    ![De ** Selecteer Service Fabric Cluster ** in het dialoogvenster][1]
    
    > [!NOTE]
-   > Als u wilt toopublish tooan willekeurig eindpunt (zoals een cluster partij), Zie Hallo **tooan willekeurige clustereindpunt publiceren** hieronder.
+   > Als u wilt publiceren naar een willekeurig eindpunt (zoals een cluster partij), raadpleegt u de **publiceren naar een willekeurig clustereindpunt** hieronder.
    > 
    > 
    
-    Nadat u ervoor een eindpunt kiest, valideert Visual Studio Hallo verbinding toohello geselecteerde Service Fabric-cluster. Als het Hallo-cluster niet veilig zijn, kunt Visual Studio tooit onmiddellijk verbinden. Echter, als Hallo cluster beveiligd is, moet u tooinstall een certificaat op de lokale computer voordat u doorgaat. Zie [hoe de verbindingen voor het beveiligen van tooconfigure](service-fabric-visualstudio-configure-secure-connections.md) voor meer informatie. Wanneer u bent klaar, kiest u Hallo **OK** knop. het geselecteerde cluster Hello wordt weergegeven in Hallo **Service Fabric-toepassing publiceren** in het dialoogvenster.
-3. In Hallo **toepassing parameterbestand** vervolgkeuzelijst Ga parameterbestand tooan-toepassing. Een parameterbestand toepassing bevat de gebruiker opgegeven waarden voor parameters in het manifestbestand van de toepassing hello. tooadd of wijzig een parameter, kies Hallo **bewerken** knop. Voer of wijzig de waarde van parameter Hallo in Hallo **Parameters** raster. Wanneer u bent klaar, kiest u Hallo **opslaan** knop.
+    Wanneer u een eindpunt kiest, wordt de verbinding met het geselecteerde Service Fabric-cluster in Visual Studio gevalideerd. Als het cluster niet is beveiligd, kunt Visual Studio verbinden met deze onmiddellijk. Echter, als het cluster beveiligd is, u moet een certificaat installeren op uw lokale computer voordat u doorgaat. Zie [het configureren van beveiligde verbindingen](service-fabric-visualstudio-configure-secure-connections.md) voor meer informatie. Als u bent klaar, kiest u de **OK** knop. Het geselecteerde cluster wordt weergegeven in de **Service Fabric-toepassing publiceren** in het dialoogvenster.
+3. In de **toepassing parameterbestand** vervolgkeuzelijst vak, gaat u naar een parameterbestand. Een parameterbestand toepassing bevat de gebruiker opgegeven waarden voor parameters in het manifestbestand van de toepassing. Als u wilt toevoegen of wijzigen van een parameter, kies de **bewerken** knop. Typ of wijzig de waarde van de parameter in de **Parameters** raster. Als u bent klaar, kiest u de **opslaan** knop.
    
-    ![Hallo ** bewerken Parameters ** in het dialoogvenster][2]
-4. Gebruik Hallo **Upgrade Hallo toepassing** selectievakje toospecify of deze actie is een upgrade. Upgrade publiceert acties die afwijken van de normale publiceert acties. Zie [Service Fabric-toepassing upgraden](service-fabric-application-upgrade.md) voor een lijst van verschillen. upgrade tooconfigure-instellingen, kies Hallo **instellingen configureren voor Upgrade** koppeling. Hallo upgradeparameter editor weergegeven. Zie [configureren van de upgrade van een Service Fabric-toepassing hello](service-fabric-visualstudio-configure-upgrade.md) toolearn meer informatie over parameters voor het bijwerken.
-5. Kies Hallo **Manifest versies...** knop tooview hello **versies bewerken** in het dialoogvenster. U moet tooupdate toepassing en Serviceversies voor een upgrade tootake plaats. Zie [upgrade zelfstudie over Service Fabric](service-fabric-application-upgrade-tutorial.md) toolearn hoe een toepassing en service manifest versies invloed op een upgradeproces.
+    ![De ** bewerken Parameters ** in het dialoogvenster][2]
+4. Gebruik de **Upgrade van de toepassing** selectievakje in om op te geven of deze actie publiceren is een upgrade. Upgrade publiceert acties die afwijken van de normale publiceert acties. Zie [Service Fabric-toepassing upgraden](service-fabric-application-upgrade.md) voor een lijst van verschillen. Upgrade om instellingen te configureren, kiest u de **instellingen configureren voor Upgrade** koppeling. De editor upgradeparameter weergegeven. Zie [configureren van de upgrade van een Service Fabric-toepassing](service-fabric-visualstudio-configure-upgrade.md) voor meer informatie over parameters voor het bijwerken.
+5. Kies de **Manifest versies...** knop om weer te geven de **versies bewerken** in het dialoogvenster. U moet bijwerken van de toepassing en Serviceversies voor een upgrade te kunnen uitvoeren. Zie [upgrade zelfstudie over Service Fabric](service-fabric-application-upgrade-tutorial.md) voor meer informatie over welke toepassing en service manifest versies gevolgen hebben voor een upgradeproces.
    
-    ![Hallo ** bewerken versies ** in het dialoogvenster][3]
+    ![De ** bewerken versies ** in het dialoogvenster][3]
    
-    Als Hallo-toepassing en Serviceversies gebruikt semantische versioning zoals 1.0.0 of numerieke waarden in de indeling van 1.0.0.0 hello, selecteert u Hallo **automatisch bijwerken van toepassing en Serviceversies** optie. Wanneer u deze optie, het Hallo-service en toepassing versienummers worden automatisch bijgewerkt wanneer een code, configuratie, of gegevens Pakketversie wordt bijgewerkt. Als u liever tooedit Hallo versies handmatig, schakelt u Hallo selectievakje toodisable deze functie.
+    Als de toepassing en Serviceversies semantische versioning zoals 1.0.0 of numerieke waarden in de indeling van 1.0.0.0, selecteer de **automatisch bijwerken van toepassing en Serviceversies** optie. Wanneer u deze optie, de service en toepassing versienummers worden automatisch bijgewerkt wanneer een code, de configuratie of de gegevens van het pakket versie is bijgewerkt. Als u liever handmatig bewerken van de versies, schakelt u het selectievakje in als deze functie wilt uitschakelen.
    
    > [!NOTE]
-   > Voor alle pakket-vermeldingen tooappear voor een actor-project, eerst maken Hallo project toogenerate Hallo vermeldingen in Service Manifest Hallo-bestanden.
+   > Voor alle pakket-vermeldingen weergegeven voor een actor-project, moet u eerst het project voor het genereren van de vermeldingen in de Service Manifest-bestanden maken.
    > 
    > 
-6. Wanneer u klaar bent Hallo opgeven van alle benodigde instellingen hello, kies **publiceren** knop toopublish uw toepassing toohello geselecteerde Service Fabric-cluster. Hallo-instellingen die u hebt opgegeven zijn toegepast toohello publicatieproces.
+6. Wanneer u klaar bent geven alle benodigde instellingen, kies de **publiceren** knop voor het publiceren van uw toepassing met het geselecteerde Service Fabric-cluster. De instellingen die u hebt opgegeven, worden toegepast op het publicatieproces.
 
-## <a name="publish-tooan-arbitrary-cluster-endpoint-including-party-clusters"></a>Publiceren van willekeurige clustereindpunt tooan (met inbegrip van derden clusters)
-Hallo publishing ervaring voor Visual Studio is geoptimaliseerd voor het publiceren van tooremote clusters die zijn gekoppeld aan een van uw Azure-abonnementen. Het is echter mogelijk toopublish tooarbitrary eindpunten (zoals Service Fabric-clusters voor derden) door rechtstreeks bewerken van Hallo publicatieprofiel XML. Zoals hierboven wordt beschreven, drie profielen publiceren standaard--**Local.1Node.xml**, **Local.5Node.xml**, en **Cloud.xml**--, maar u Welkom toocreate extra profielen voor verschillende omgevingen. Bijvoorbeeld, kunt u toocreate een profiel voor het publiceren van tooparty clusters, mogelijk met de naam **Party.xml**.
+## <a name="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters"></a>Publiceren naar een willekeurig clustereindpunt (met inbegrip van derden clusters)
+De Visual Studio ervaring publiceren is geoptimaliseerd voor publicatie naar externe clusters die zijn gekoppeld aan een van uw Azure-abonnementen. Het is echter mogelijk om te publiceren op een willekeurige eindpunten (zoals Service Fabric-clusters voor derden) door het publicatieprofiel XML rechtstreeks te bewerken. Zoals hierboven wordt beschreven, drie profielen publiceren standaard--**Local.1Node.xml**, **Local.5Node.xml**, en **Cloud.xml**--, maar u Welkom bij het maken van aanvullende profielen voor verschillende omgevingen. Bijvoorbeeld, kunt u een profiel maken voor publicatie naar derden clusters, mogelijk met de naam **Party.xml**.
 
-Als u verbinding maakt niet beveiligde cluster tooan, alle die vereist zijn verbindingseindpunt Hallo-cluster, zoals is `partycluster1.eastus.cloudapp.azure.com:19000`. In dat geval Hallo verbindingseindpunt in Hallo publiceren profiel zou als volgt uitzien:
+Als u verbinding maakt met een niet-beveiligde cluster, alle die vereist is van het verbindingseindpunt cluster zoals `partycluster1.eastus.cloudapp.azure.com:19000`. In dat geval het verbindingseindpunt in het publicatieprofiel zou als volgt uitzien:
 
 ```XML
 <ClusterConnectionParameters ConnectionEndpoint="partycluster1.eastus.cloudapp.azure.com:19000" />
 ```
 
-  Als u de beveiligde cluster tooa verbinding maakt, moet u ook tooprovide Hallo details van de clientcertificaat Hallo van Hallo lokale archief toobe gebruikt voor verificatie. Zie voor meer informatie [configureren beveiligde verbindingen tooa Service Fabric-cluster](service-fabric-visualstudio-configure-secure-connections.md).
+  Als u verbinding met een beveiligde cluster maakt, moet u ook de gegevens van het certificaat uit het lokale archief moet worden gebruikt voor verificatie. Zie voor meer informatie [configureren van beveiligde verbindingen naar een Service Fabric-cluster](service-fabric-visualstudio-configure-secure-connections.md).
 
-  Zodra uw publicatieprofiel is ingesteld, kunt u deze in Hallo verwijst het dialoogvenster publish zoals hieronder wordt weergegeven.
+  Zodra uw publicatieprofiel is ingesteld, kunt u het raadplegen in het dialoogvenster publish zoals hieronder wordt weergegeven.
 
   ![Nieuwe publicatieprofiel in het dialoogvenster publish][4]
 
-  Opmerking dat in dit geval Hallo nieuwe publicatieprofiel verwijst tooone van toepassing hello-parameter standaardbestanden. Dit is geschikt als u wilt dat toopublish Hallo toepassing configuratie tooa evenveel omgevingen. Daarentegen in gevallen waar u verschillende configuraties voor elke omgeving die u wilt dat toopublish naar toohave, zou er zin toocreate een bijbehorende parameterbestand van toepassing.
+  Houd er rekening mee dat in dit geval wordt het nieuwe publicatieprofiel naar een van de standaardbestanden voor de parameter van toepassing verwijst. Dit is geschikt als u wilt publiceren dezelfde configuratie van de toepassing naar een aantal omgevingen. Daarentegen in gevallen waar u verschillende configuraties voor elke omgeving die u publiceren wilt naar zou het zinvol voor het maken van een bijbehorende parameterbestand van toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
-hoe tooautomate Hallo publicatieproces in een omgeving continue integratie zien toolearn [Stel doorlopende integratie van Service Fabric](service-fabric-set-up-continuous-integration.md).
+Zie voor informatie over het automatiseren van het publicatieproces in een omgeving met continue integratie, [Stel doorlopende integratie van Service Fabric](service-fabric-set-up-continuous-integration.md).
 
 [0]: ./media/service-fabric-publish-app-remote-cluster/PublishDialog.png
 [1]: ./media/service-fabric-publish-app-remote-cluster/SelectCluster.png

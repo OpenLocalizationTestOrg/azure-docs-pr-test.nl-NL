@@ -1,6 +1,6 @@
 ---
-title: aaaQuickly een bestaande app tooan Azure Service Fabric-cluster implementeren
-description: Een Azure Service Fabric-cluster toohost een bestaande Node.js-toepassing met Visual Studio gebruiken.
+title: Een bestaande app snel implementeren in een Azure Service Fabric-cluster
+description: Een Azure Service Fabric-cluster gebruiken voor het hosten van een bestaande Node.js-toepassing met Visual Studio.
 services: service-fabric
 documentationcenter: nodejs
 author: thraka
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: adegeo
-ms.openlocfilehash: 20a3eb4a9206ba465acf96d0976ba241b07158bc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3601b73872bbea4b4e5324382eb97b7384ca6e13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Een Node.js-toepassing hosten in Azure Service Fabric
 
-Deze snelstartgids kunt u een bestaande toepassing (Node.js in dit voorbeeld) tooa Service Fabric-cluster implementeren uitgevoerd op Azure.
+In deze snelstartgids wordt uitgelegd hoe u een bestaande toepassing (Node.js in dit voorbeeld) kunt implementeren in een Service Fabric-cluster in Azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u begint, zorgt u ervoor dat u [uw ontwikkelingsomgeving hebt ingesteld](service-fabric-get-started.md). Dit omvat Hallo Service Fabric SDK en Visual Studio 2017 of 2015 installeren.
+Voordat u begint, zorgt u ervoor dat u [uw ontwikkelingsomgeving hebt ingesteld](service-fabric-get-started.md). Dit omvat het installeren van de Service Fabric SDK en Visual Studio 2017 of 2015.
 
-U moet ook een bestaande Node.js-toepassing toohave voor implementatie. Deze snelstartgids maakt gebruik van een eenvoudige Node.js-website die [hier][download-sample] kan worden gedownload. Dit bestand tooyour uitpakken `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` map nadat u in de volgende stap Hallo Hallo-project maakt.
+U moet ook beschikken over een bestaande Node.js-toepassing voor implementatie. Deze snelstartgids maakt gebruik van een eenvoudige Node.js-website die [hier][download-sample] kan worden gedownload. Pak dit bestand uit in de map `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` nadat u het project in de volgende stap hebt gemaakt.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account][create-account] aan.
 
-## <a name="create-hello-service"></a>Hallo-service maken
+## <a name="create-the-service"></a>De service maken
 
 Start Visual Studio als **beheerder**.
 
 Maak een project met `CTRL`+`SHIFT`+`N`
 
-In Hallo **nieuw Project** dialoogvenster kiezen **Cloud > Service Fabric-toepassing**.
+Kies in het dialoogvenster **Nieuw Project** de optie **Cloud > Service Fabric-toepassing**.
 
-Naam van de toepassing hello **MyGuestApp** en druk op **OK**.
+Noem de toepassing **MyGuestApp** en druk op **OK**.
 
 >[!IMPORTANT]
->Node.js kunnen eenvoudig 260 tekens voor paden met windows hello worden verbroken. Een korte pad gebruiken voor het Hallo-project zelf zoals **c:\code\svc1**.
+>Node.js kan gemakkelijk de limiet van 260 tekens overschrijden voor paden in Windows. Gebruik een kort pad voor het project zelf, zoals **c:\code\svc1**.
    
 ![Dialoogvenster voor nieuw project in Visual Studio][new-project]
 
-U kunt elk type Service Fabric-service van het volgende dialoogvenster Hallo maken. Kies voor deze snelstartgids **Door gast uitvoerbaar bestand**.
+In het volgende dialoogvenster kunt u elk type Service Fabric-service maken. Kies voor deze snelstartgids **Door gast uitvoerbaar bestand**.
 
-Service voor Hallo **MyGuestService** en Hallo opties instellen op de juiste toohello Hallo de volgende waarden:
+Noem de service **MyGuestService** en stel de opties aan de rechterkant in op de volgende waarden:
 
 | Instelling                   | Waarde |
 | ------------------------- | ------ |
-| Map met codepakket       | _&lt;Hallo-map met uw Node.js-app&gt;_ |
-| Gedrag codepakket     | Kopieer de map inhoud tooproject |
+| Map met codepakket       | _&lt;de map met uw Node.js-app&gt;_ |
+| Gedrag codepakket     | Mapinhoud naar project kopiëren |
 | Programma                   | node.exe |
 | Argumenten                 | server.js |
 | Werkmap            | CodePackage |
@@ -63,9 +63,9 @@ Druk op **OK**.
 
 ![Dialoogvenster voor nieuwe service in Visual Studio][new-service]
 
-Visual Studio maakt het toepassingsproject Hallo en Hallo actor-serviceproject en geeft deze weer in Solution Explorer.
+Visual Studio maakt het toepassingsproject en het actorserviceproject en geeft deze weer in Solution Explorer.
 
-Hallo-toepassingsproject (**MyGuestApp**) bevat geen code rechtstreeks. Het verwijst naar een reeks serviceprojecten. Daarnaast bevat het project drie andere typen inhoud:
+Het toepassingsproject (**MyGuestApp**) bevat geen directe code. Het verwijst naar een reeks serviceprojecten. Daarnaast bevat het project drie andere typen inhoud:
 
 * **Profielen publiceren**  
 Hulpprogrammavoorkeuren voor verschillende omgevingen.
@@ -74,20 +74,20 @@ Hulpprogrammavoorkeuren voor verschillende omgevingen.
 PowerShell-script voor het implementeren/bijwerken van uw toepassing.
 
 * **Toepassingsdefinitie**  
-Hallo-toepassingsmanifest onder omvat *ApplicationPackageRoot*. Bijbehorende parameter voor toepassingsbestanden onder zijn *ApplicationParameters*, die toepassing hello definiëren en kunt u tooconfigure specifiek voor een bepaalde omgeving.
+Bevat het manifest van de toepassing onder *ApplicationPackageRoot*. Gekoppelde bestanden met toepassingsparameters vindt u onder *ApplicationParameters*, die de toepassing definiëren en waarmee u deze specifiek voor een bepaalde omgeving kunt configureren.
     
-Zie voor een overzicht van Hallo inhoud van het serviceproject Hallo [aan de slag met Reliable Services](service-fabric-reliable-services-quick-start.md).
+Zie [Aan de slag met Reliable Services](service-fabric-reliable-services-quick-start.md) voor een overzicht van de inhoud van het serviceproject.
 
 ## <a name="set-up-networking"></a>Netwerkservice instellen
 
-Hallo-voorbeeld we implementeert Node.js-app gebruikt poort **80** en moeten tootell Service Fabric die we nodig hebben die poort weergegeven.
+De voorbeeld-Node.js-app die we implementeren gebruikt poort **80** en we moeten Service Fabric doorgeven dat deze poort open moet zijn.
 
-Open Hallo **ServiceManifest.xml** bestand in Hallo-project. Aan de onderkant van de Hallo van Hallo manifest, er is een `<Resources> \ <Endpoints>` met een vermelding is al gedefinieerd. Wijzigen van deze vermelding tooadd `Port`, `Protocol`, en `Type`. 
+Open het bestand **ServiceManifest.xml** in het project. Onder aan het manifest is er een `<Resources> \ <Endpoints>` met een vermelding die al is gedefinieerd. Wijzig deze vermelding om `Port`, `Protocol` en `Type` toe te voegen. 
 
 ```xml
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by hello communication listener tooobtain hello port on which too
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="MyGuestAppServiceTypeEndpoint" Port="80" Protocol="http" Type="Input" />
@@ -95,45 +95,45 @@ Open Hallo **ServiceManifest.xml** bestand in Hallo-project. Aan de onderkant va
   </Resources>
 ```
 
-## <a name="deploy-tooazure"></a>TooAzure implementeren
+## <a name="deploy-to-azure"></a>Implementeren in Azure
 
-Als u op **F5** en Hallo-project uitvoeren, is het lokale cluster geïmplementeerde toohello. We gaan echter tooAzure in plaats daarvan implementeren.
+Als u op **F5** drukt en het project uitvoert, is dit al geïmplementeerd in het lokale cluster. Echter, we gaan in plaats daarvan implementeren in Azure.
 
-Met de rechtermuisknop op het Hallo-project en kies **publiceren...**  waarmee u een dialoogvenster toopublish tooAzure opent.
+Klik met de rechtermuisknop op het project en kies **Publiceren...** Er wordt een dialoogvenster geopend waarin u kunt aangeven dat u naar Azure wilt publiceren.
 
-![Dialoogvenster tooazure voor een service fabric-service publiceren][publish]
+![Dialoogvenster Publiceren naar Azure voor een Service Fabric-service][publish]
 
-Selecteer Hallo **PublishProfiles\Cloud.xml** profiel als doel.
+Selecteer het doelprofiel **PublishProfiles\Cloud.xml**.
 
-Als u niet eerder hebt, kiest u een Azure-account toodeploy naar. Als u er nog geen hebt, [meldt u zich er voor een aan][create-account].
+Kies een Azure-account waarnaar u wilt implementeren als u dit nog niet hebt gedaan. Als u er nog geen hebt, [meldt u zich er voor een aan][create-account].
 
-Onder **verbindingseindpunt**, selecteer Hallo toodeploy voor Service Fabric-cluster aan. Als u geen abonnement hebt, selecteert u  **&lt;nieuw Cluster maken... &gt;**  die web browser venster toohello Azure-portal wordt geopend. Zie voor meer informatie [maken van een cluster in Hallo portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Selecteer onder **Verbindingseindpunt** het Service Fabric-cluster waarin u wilt implementeren. Als u er geen hebt, selecteert u  **&lt;Nieuw cluster maken... &gt;**. Er wordt dan een browservenster naar Azure Portal geopend. Zie [Een cluster maken in de portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal) voor meer informatie. 
 
-Wanneer u Hallo Service Fabric-cluster maakt, moet u ervoor dat tooset hello **aangepaste eindpunten** instellen te**80**.
+Wanneer u de Service Fabric-cluster maakt, zorg er dan voor dat u de **Aangepaste eindpunten** instelt op **80**.
 
 ![Service Fabric-knooppuntconfiguratie met aangepast eindpunt][custom-endpoint]
 
-Maken van een nieuwe Service Fabric-cluster duurt enige tijd toocomplete. Nadat deze is gemaakt, gaat u terug toohello dialoogvenster publiceren en selecteer  **&lt;vernieuwen&gt;**. het nieuwe cluster Hello wordt vermeld in de vervolgkeuzelijst Hallo; Selecteer deze.
+Het maken van een nieuw Service Fabric-cluster neemt enige tijd in beslag. Zodra dit is gemaakt, gaat u terug naar het dialoogvenster Publiceren en selecteert u **&lt;Vernieuwen&gt;**. Het nieuwe cluster wordt vermeld in de vervolgkeuzelijst; selecteer het.
 
-Druk op **publiceren** en wachten op Hallo implementatie toofinish.
+Druk op **Publiceren** en wacht tot de implementatie is voltooid.
 
-Dit kan enkele minuten duren. Nadat deze is voltooid, wordt het duurt enkele minuten voor Hallo toepassing toobe volledig beschikbaar.
+Dit kan enkele minuten duren. Nadat deze is voltooid, kan het nog enkele minuten duren voordat de toepassing volledig beschikbaar is.
 
-## <a name="test-hello-website"></a>Test Hallo website
+## <a name="test-the-website"></a>De website testen
 
 Test uw service na publicatie in een webbrowser. 
 
-Eerst openen hello Azure-portal en zoek de Service Fabric-service.
+Open eerst Azure Portal en zoek uw Service Fabric-service op.
 
-Ga naar de blade overzicht Hallo van Hallo-serviceadres. Hallo-domeinnaam voor gebruik van Hallo _verbindingseindpunt Client_ eigenschap. Bijvoorbeeld `http://mysvcfab1.westus2.cloudapp.azure.com`.
+Controleer de overzichtsblade van het serviceadres. Gebruik de domeinnaam van de eigenschap _Eindpunt van de clientverbinding_. Bijvoorbeeld `http://mysvcfab1.westus2.cloudapp.azure.com`.
 
-![Service fabric-overzichtsblade op Hallo Azure-portal][overview]
+![Overzichtsblade van Service Fabric in Azure Portal][overview]
 
-Navigeer toothis adres waar u Hallo ziet `HELLO WORLD` antwoord.
+Navigeer naar dit adres, waar u de reactie `HELLO WORLD` ziet.
 
-## <a name="delete-hello-cluster"></a>Hallo-cluster verwijderen
+## <a name="delete-the-cluster"></a>Het cluster verwijderen
 
-Vergeet niet alle Hallo-resources die u hebt gemaakt voor deze snelstartgids, als u in rekening voor die resources gebracht toodelete.
+Vergeet niet alle resources die u hebt gemaakt voor deze snelstartgids te verwijderen, aangezien er kosten in rekening worden gebracht voor die resources.
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees meer over [door gast uitvoerbare bestanden](service-fabric-deploy-existing-app.md).

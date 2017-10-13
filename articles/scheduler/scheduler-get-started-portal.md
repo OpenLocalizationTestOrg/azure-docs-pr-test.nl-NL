@@ -1,5 +1,5 @@
 ---
-title: aaaGet slag met Azure Scheduler in Azure portal | Microsoft Docs
+title: Aan de slag met Azure Scheduler in Azure Portal | Microsoft Docs
 description: Aan de slag met Azure Scheduler in Azure-portal
 services: scheduler
 documentationcenter: .NET
@@ -14,33 +14,33 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.openlocfilehash: 58255c0ad19da65932f8b1d36cb8fef1ff6e651b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Aan de slag met Azure Scheduler in Azure-portal
-Het is gemakkelijk toocreate geplande taken in Azure Scheduler. In deze zelfstudie leert u hoe toocreate een taak. U komt ook te weten hoe de controle- en beheerfuncties van Scheduler werken.
+Het is eenvoudig om geplande taken te maken in Azure Scheduler. In deze zelfstudie leert u een taak te maken: U komt ook te weten hoe de controle- en beheerfuncties van Scheduler werken.
 
 ## <a name="create-a-job"></a>Een taak maken
-1. Aanmelden te[Azure-portal](https://portal.azure.com/).  
-2. Klik op **+ nieuw** > type *Scheduler* in het zoekvak Hallo > Selecteer **Scheduler** in resultaten > Klik op **maken**.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).  
+2. Klik op **+Nieuw** > typ *Scheduler* in het zoekvak > selecteer **Scheduler** in de resultaten > klik op **Maken**.
    
     ![][marketplace-create]
-3. We gaan een taak maken waarbij we eenvoudig http://www.microsoft.com/ bestoken met een GET-aanvraag. In Hallo **Scheduler-taak** scherm, voert u Hallo volgende informatie:
+3. We gaan een taak maken waarbij we eenvoudig http://www.microsoft.com/ bestoken met een GET-aanvraag. In het scherm **Scheduler-taak** voert u de volgende gegevens in:
    
    1. **Naam:** `getmicrosoft`  
    2. **Abonnement:** uw Azure-abonnement   
    3. **Taakverzameling:** selecteer een bestaande taakverzameling of klik op **Nieuw** > typ een naam.
-4. Vervolgens gaat u naar **bewerkingsinstellingen**, definiëren Hallo volgende waarden:
+4. Definieer vervolgens in **Actie-instellingen** de volgende waarden:
    
    1. **Actietype:** ` HTTP`  
    2. **Methode:** `GET`  
    3. **URL:** ` http://www.microsoft.com`  
       
       ![][action-settings]
-5. Tot slot gaan we een planning definiëren. Hallo-taak kan worden gedefinieerd als een eenmalige taak, maar we kiezen een terugkerende planning:
+5. Tot slot gaan we een planning definiëren. De taak kan worden gedefinieerd als een eenmalige taak, maar we kiezen een schema voor een terugkerende taak:
    
    1. **Terugkeerpatroon**:`Recurring`
    2. **Start**: de datum van vandaag
@@ -51,7 +51,7 @@ Het is gemakkelijk toocreate geplande taken in Azure Scheduler. In deze zelfstud
 6. Klik op **Maken**.
 
 ## <a name="manage-and-monitor-jobs"></a>Taken beheren en controleren
-Zodra een taak is gemaakt, wordt deze weergegeven in Hallo belangrijkste Azure-dashboard. Klik op Hallo taak en een nieuw venster geopend met Hallo volgende tabbladen:
+Zodra een taak is gemaakt, wordt deze weergegeven in het belangrijkste Azure-dashboard. Klik op de taak, waarna een nieuw venster wordt geopend met de volgende tabbladen:
 
 1. Eigenschappen  
 2. Actie-instellingen  
@@ -62,34 +62,34 @@ Zodra een taak is gemaakt, wordt deze weergegeven in Hallo belangrijkste Azure-d
    ![][job-overview]
 
 ### <a name="properties"></a>Eigenschappen
-Deze alleen-lezen eigenschappen beschrijven Hallo management metagegevens voor Hallo Scheduler-taak.
+Deze eigenschappen zijn alleen-lezen en beschrijven de beheermetagegevens voor de Scheduler-taak.
 
    ![][job-properties]
 
 ### <a name="action-settings"></a>Actie-instellingen
-Te klikken op een taak in Hallo **taken** scherm kunt u tooconfigure die taak. Hiermee kunt u geavanceerde instellingen configureren, als deze niet is geconfigureerd in Hallo wizard Snelle invoer.
+Door op een taak in het scherm **Taken** te klikken, kunt u die taak configureren. Hiermee kunt u geavanceerde instellingen configureren, als u deze nog niet hebt geconfigureerd in de wizard Snelle invoer.
 
-Voor alle actietypen kunt wijzigen u beleid voor opnieuw proberen Hallo en Hallo foutactie.
+Voor alle actietypen kunt u het beleid voor opnieuw proberen en de foutactie wijzigen.
 
-Voor HTTP en HTTPS taak actietypen kunt wijzigen u Hallo methode tooany HTTP-term wordt toegestaan. U kunt ook toevoegen, verwijderen of wijzigen Hallo koptekst en elementaire verificatiegegevens.
+Voor de actietypen HTTP- en HTTPS-taak, kunt u de methode wijzigen in een toegestane HTTP-term. U kunt ook de koptekst en elementaire verificatiegegevens toevoegen, verwijderen of wijzigen.
 
-Voor actietypen opslagwachtrij wijzigen u Hallo opslagaccount, wachtrijnaam, SAS-token en hoofdtekst.
+Voor actietypen Opslagwachtrij kunt u het opslagaccount, de wachtrijnaam, de SAS-token en de hoofdtekst wijzigen.
 
-Voor service bus-actietypen kunt wijzigen u Hallo naamruimte, onderwerp/wachtrijpad, verificatie-instellingen, transporttype, berichteigenschappen en hoofdtekst van het bericht.
+Voor Service Bus-actietypen kunt u de naamruimte, het onderwerp/wachtrijpad, de verificatie-instellingen, het transporttype, de berichtkenmerken en de hoofdtekst van het bericht wijzigen.
 
    ![][job-action-settings]
 
 ### <a name="schedule"></a>Planning
-Hiermee kunt u Hallo schema opnieuw configureren, indien gewenst toochange Hallo planning die u hebt gemaakt in Hallo wizard Snelle invoer.
+Hiermee kunt u het schema opnieuw configureren als u de planning wilt wijzigen die u hebt gemaakt in de wizard Snelle invoer.
 
-Dit is een kans toobuild [complexe schema's en geavanceerde terugkeerpatroon in uw taak](scheduler-advanced-complexity.md)
+Dit is een kans om [complexe schema's en een geavanceerd terugkeerpatroon in uw taak in te bouwen](scheduler-advanced-complexity.md)
 
-Hallo begindatum kunnen worden gewijzigd en de tijd, terugkerende planning en Hallo datum en tijd (als Hallo job wordt herhaald.)
+U kunt de startdatum en -tijd wijzigen evenals de einddatum en -tijd (als het om een terugkerende taak gaat.)
 
    ![][job-schedule]
 
 ### <a name="history"></a>Geschiedenis
-Hallo **geschiedenis** tabblad geselecteerde metrische gegevens voor het uitvoeren van elke taak in Hallo-systeem voor de geselecteerde taak Hallo weergegeven. Deze metrische gegevens bevatten met betrekking tot het Hallo-status van uw Scheduler realtime-waarden:
+Op het tabblad **Geschiedenis** worden geselecteerde metrische gegevens weergegeven voor elke keer dat er in het systeem voor de geselecteerde taak een taak is uitgevoerd. Deze metrische gegevens bestaan uit realtime-waarden die betrekking hebben op de status van uw exemplaar van Scheduler:
 
 1. Status  
 2. Details  
@@ -100,12 +100,12 @@ Hallo **geschiedenis** tabblad geselecteerde metrische gegevens voor het uitvoer
    
    ![][job-history]
 
-U kunt klikken op een tooview uitvoeren de **Geschiedenisdetails**, inclusief Hallo volledige antwoord voor elke uitvoering. Dit dialoogvenster kunt u ook toocopy Hallo antwoord toohello Klembord.
+U kunt op een uitvoering klikken om de **Geschiedenisdetails** ervan weer te geven, zoals onder andere het volledige antwoord voor elke uitvoering. Vanuit dit dialoogvenster kunt u ook het antwoord naar het Klembord kopiëren.
 
    ![][job-history-details]
 
 ### <a name="users"></a>Gebruikers
-Met op rollen gebaseerd toegangsbeheer (RBAC) van Azure beschikt u over geavanceerd toegangsbeheer voor Azure Scheduler. hoe toouse Hallo tabblad gebruikers te verwijzen toolearn[rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-configure.md)
+Met op rollen gebaseerd toegangsbeheer (RBAC) van Azure beschikt u over geavanceerd toegangsbeheer voor Azure Scheduler. Voor meer informatie over het tabblad Gebruikers, zie [Op rollen gebaseerd toegangsbeheer in Azure](../active-directory/role-based-access-control-configure.md)
 
 ## <a name="see-also"></a>Zie ook
  [Wat is Scheduler?](scheduler-intro.md)
@@ -114,7 +114,7 @@ Met op rollen gebaseerd toegangsbeheer (RBAC) van Azure beschikt u over geavance
 
  [Plannen en facturering in Azure Scheduler](scheduler-plans-billing.md)
 
- [Hoe plant u toobuild complexe en geavanceerde terugkeerpatronen met Azure Scheduler](scheduler-advanced-complexity.md)
+ [Complexe schema's en geavanceerde terugkeerpatronen bouwen met Azure Scheduler](scheduler-advanced-complexity.md)
 
  [Naslaginformatie over de REST-API van Scheduler](https://msdn.microsoft.com/library/mt629143)
 

@@ -1,6 +1,6 @@
 ---
-title: aaaCreate geavanceerde codering werkstromen met Workflow Designer | Microsoft Docs
-description: Meer informatie over hoe toocreate codering werkstromen met Workflow Designer geavanceerde.
+title: Geavanceerde codering werkstromen maken met Workflow Designer | Microsoft Docs
+description: Meer informatie over het maken van geavanceerde codering werkstromen met Workflow Designer.
 services: media-services
 documentationcenter: 
 author: anilmur
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 3744cde54c78bec7c7b586962ec1a8fe9529c1d2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ef277710713d342eb9aaaf119e2985e8c1d82d0c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Geavanceerde coderingswerkstromen maken met Workflow Designer
 ## <a name="overview"></a>Overzicht
-Hallo **Workflow Designer** is een Windows-bureaublad hulpprogramma dat wordt gebruikt, toodesign en build aangepaste werkstromen voor codering met **Media Encoder Premium werkstroom**.
-Hallo power van Hallo workflow designer hulpprogramma gebruikt, kunt u ontwerpen en maken van complexe werkstromen die worden uitgevoerd in **Media Encoder Premium**.  
+De **Workflow Designer** is een Windows-bureaublad hulpprogramma dat wordt gebruikt voor het ontwerpen en bouwen van aangepaste werkstromen voor codering met **Media Encoder Premium werkstroom**.
+Met behulp van de kracht van de workflow designer hulpprogramma kunt u ontwerpen en maken van complexe werkstromen die worden uitgevoerd in **Media Encoder Premium**.  
 
-Werkstromen kunnen klant besluit logica opnemen en vertakking op basis van eigenschappen Hallo invoerbron bestand. U kunt werkstromen maken met overschrijfbare eigenschappen en dynamische waarden toomake zelfs Hallo meest complexe codering taken eenvoudig toorepeat en aanpassen in de cloud Hallo.
+Werkstromen kunnen klant besluit logica opnemen en vertakking op basis van eigenschappen van het bestand van de invoerbron. U kunt werkstromen maken met overschrijfbare eigenschappen en dynamische waarden dat zelfs de meest complexe codering taken gemakkelijker herhalen en aanpassen in de cloud.
 
 Voorbeeld van de werkstromen die u kunt maken, zijn onder andere:
 
-* Besluit op basis van werkstromen die Hallo broninhoud voor naamomzetting controleert en alleen Hallo gewenst uitvoer houdt coderen.  Dit is helfpul doordat Hallo verspild nummers die moeten worden gegenereerd door de inhoud per ongeluk Hallo bron upscaling.
-* Meerdere invoerbestanden kunnen worden gebruikt toosupport bijschriften, overlays en hechten samen inhoud. 
+* Besluit op basis van werkstromen die de bron van de inhoud voor de omzetting van controleert en alleen de gewenste uitvoer nummers coderen.  Dit is helfpul doordat de verspilde nummers die door de bron-inhoud per ongeluk upscaling zou worden gegenereerd.
+* Meerdere invoerbestanden kunnen worden gebruikt ter ondersteuning van bijschriften, overlays en hechten samen inhoud. 
 
-Dit hulpprogramma kan ook worden gebruikt toomodify een van onze [gepubliceerd werkstromen](media-services-workflow-designer.md#existing_workflows). 
+Dit hulpprogramma kan ook worden gebruikt te wijzigen van onze [gepubliceerd werkstromen](media-services-workflow-designer.md#existing_workflows). 
 
 > [!NOTE]
-> tooget uw exemplaar van Hallo Workflow Designer hulpprogramma, neem contact op met mepd@microsoft.com.
+> Als u uw exemplaar van het hulpprogramma Workflow Designer, neem contact op met mepd@microsoft.com.
 > 
 > 
 
-Zodra een werkstroombestand is gemaakt, kunnen worden geüpload als een actief en vervolgens worden gebruikt voor het coderen van media-bestanden. Voor meer informatie over tooencode met **Media Encoder Premium werkstroom** met **.NET**, Zie [geavanceerde codering met Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
+Zodra een werkstroombestand is gemaakt, kunnen worden geüpload als een actief en vervolgens worden gebruikt voor het coderen van media-bestanden. Voor informatie over het coderen met **Media Encoder Premium werkstroom** met **.NET**, Zie [geavanceerde codering met Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 
 ## <a id="existing_workflows"></a>Bestaande werkstromen wijzigen
-Standaard Hallo [gepubliceerd werkstromen](media-services-workflow-designer.md#existing_workflows) met Hallo designer hulpprogramma kan worden gewijzigd. U krijgt standaard Hallo Werkstroombestanden [hier](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Hallo-map bevat ook Hallo beschrijving van deze bestanden.
+De standaardwaarde [gepubliceerd werkstromen](media-services-workflow-designer.md#existing_workflows) met behulp van de ontwerpfunctie hulpprogramma kan worden gewijzigd. U kunt de standaardwaarde krijgen Werkstroombestanden [hier](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). De map bevat ook de beschrijving van deze bestanden.
 
-Hallo volgende video's laten zien hoe toouse Hallo designer.
+De volgende video's laten zien hoe de ontwerpfunctie gebruiken.
 
 ### <a name="day-1--getting-started"></a>Dag 1 – aan de slag
 Heeft betrekking op dag 1 video:
@@ -72,7 +72,7 @@ Heeft betrekking op dag 2 video:
 Heeft betrekking op dag 3 video:
 
 * In werkstromen/blauwdrukken Scripting
-* Beperkingen met Hallo huidige codering
+* Beperkingen op met de huidige Encoder
 * MET Q & A
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
@@ -87,7 +87,7 @@ Media Services-leertrajecten bekijken.
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-Als u moet ondersteunen of vragen hebt over het maken van aangepaste werkstromen in Hallo Workflow designer hulpprogramma, stuur e-mail toomepd@microsoft.com.
+Als u moet ondersteunen of vragen hebt over het maken van aangepaste werkstromen in de Workflow designer hulpprogramma, stuurt u een e-mail naar mepd@microsoft.com.
 
 ## <a name="see-also"></a>Zie ook
 [Azure Premium Encoder Workflow Designer Training video 's](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)

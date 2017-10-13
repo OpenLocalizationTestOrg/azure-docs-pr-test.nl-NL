@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-ms.openlocfilehash: 6f37d4d9cba546b5416ab99040f5ef6dae273380
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 195a38fa45f1c514a93980e777fb0d8238aa3f3f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Configureren van een virtuele netwerkgateway voor ExpressRoute met behulp van PowerShell (klassiek)
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-In dit artikel begeleidt u via Hallo stappen tooadd, vergroten of verkleinen, en verwijder de gateway van een virtueel netwerk (VNet) voor een bestaande VNet. Hallo stappen voor deze configuratie zijn specifiek voor VNets die zijn gemaakt met de Hallo **klassieke implementatiemodel** en die worden gebruikt in een ExpressRoute-configuratie. 
+In dit artikel begeleidt u bij de stappen voor het toevoegen en verwijderen van de gateway van een virtueel netwerk (VNet) voor een bestaande VNet vergroten of verkleinen. De stappen voor deze configuratie zijn specifiek voor VNets die zijn gemaakt met de **klassieke implementatiemodel** en die worden gebruikt in een ExpressRoute-configuratie. 
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -38,10 +38,10 @@ In dit artikel begeleidt u via Hallo stappen tooadd, vergroten of verkleinen, en
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-beginning"></a>Voordat u begint
-Controleer of u hello Azure PowerShell-cmdlets die nodig zijn voor deze configuratie hebt geïnstalleerd (1.0.2 of hoger). Als het Hallo-cmdlets kunt u dit nog niet hebt geïnstalleerd, moet u toodo geval voordat u begint met Hallo configuratiestappen. Zie voor meer informatie over het installeren van Azure PowerShell [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview).
+Controleer of u de Azure PowerShell-cmdlets die nodig zijn voor deze configuratie hebt geïnstalleerd (1.0.2 of hoger). Als u de cmdlets nog niet hebt geïnstalleerd, moet u dit doen voordat u begint met de configuratiestappen. Zie voor meer informatie over het installeren van Azure PowerShell [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
 
 [!INCLUDE [expressroute-gateway-classic-ps](../../includes/expressroute-gateway-classic-ps-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u Hallo VNet gateway hebt gemaakt, kunt u uw VNet tooan ExpressRoute-circuit kunt koppelen. Zie [koppelen van een virtueel netwerk tooan ExpressRoute-circuit](expressroute-howto-linkvnet-classic.md).
+Nadat u de VNet-gateway hebt gemaakt, kunt u uw VNet koppelen aan een ExpressRoute-circuit. Zie [een virtueel netwerk koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-classic.md).
 

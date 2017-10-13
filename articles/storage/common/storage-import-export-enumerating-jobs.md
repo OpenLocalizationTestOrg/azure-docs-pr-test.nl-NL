@@ -1,6 +1,6 @@
 ---
-title: aaaList alle uw Azure Import/Export-taken | MicrosoftDocs
-description: Meer informatie over hoe toolist hello Azure Import/Export-service alle taken in een abonnement.
+title: Overzicht van uw Azure Import/Export-taken | MicrosoftDocs
+description: Ontdek hoe u een lijst weer met alle van de Azure Import/Export-service-taken in een abonnement.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 0e12bf3dc3f2084a1987ac362cf8d1041059543c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1977bfc0e516088310f45ecdd960287eeed2c2d8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="enumerating-jobs-in-hello-azure-importexport-service"></a>Het inventariseren van taken in hello Azure Import/Export-service
-tooenumerate alle taken in een abonnement, aanroep Hallo [lijst taken](/rest/api/storageimportexport/jobs#Jobs_List) bewerking. `List Jobs`retourneert een lijst met taken, evenals Hallo volgende kenmerken:
+# <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Het inventariseren van taken in de Azure Import/Export-service
+Aanroepen voor het inventariseren van alle taken in een abonnement, het [lijst taken](/rest/api/storageimportexport/jobs#Jobs_List) bewerking. `List Jobs`retourneert een lijst met taken, evenals de volgende kenmerken:
 
--   Hallo type taak (invoer of uitvoer)
+-   Het type taak (invoer of uitvoer)
 
--   de huidige taakstatus Hallo
+-   De huidige taakstatus
 
--   Hallo-taak gekoppelde storage-account
+-   De taak horen storage-account
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Met behulp van REST-API voor Hallo Import/Export-service](storage-import-export-using-the-rest-api.md)
+* [Met behulp van de Import/Export-service REST-API](storage-import-export-using-the-rest-api.md)

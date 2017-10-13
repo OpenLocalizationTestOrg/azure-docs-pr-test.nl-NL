@@ -1,6 +1,6 @@
 ---
-title: aaaAzure Scheduler-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toouse Scheduler tooschedule en aanroepen van taken zoals terugkerende toepassing acties en routine onderhoud. Zelfstudies, API-verwijzingen en meer.
+title: Documentatie voor Azure Scheduler - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over hoe u Scheduler gebruikt voor het plannen en aanroepen van taken, zoals terugkerende toepassingsacties en routineonderhoud. Zelfstudies, API-verwijzingen en meer.
 services: scheduler
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c9e67fc813939c31bb3cd38215293c98babe3838
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 4883e5689a639259ec1c0bcd31e1016f85af5d66
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-documentation"></a>Documentatie over Scheduler
 
-Meer informatie over hoe toouse Scheduler tooschedule en terugkerende taken in de cloud Hallo automatisch worden aangeroepen. Zelfstudies, API-referenties en andere documentatie die laten zien u hoe tooschedule en monitor taken zoals terugkerende toepassing acties en routine onderhoud.
+Meer informatie over hoe u Scheduler gebruikt voor het plannen en automatisch aanroepen van terugkerende taken in de cloud. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u taken kunt plannen en bewaken, zoals terugkerende toepassingsacties en routineonderhoud.
 
 <ul class="panelContent cardsFTitle">
     <li>

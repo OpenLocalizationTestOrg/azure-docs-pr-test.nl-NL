@@ -1,6 +1,6 @@
 ---
-title: aaaGet de slag met Azure DNS met Azure CLI 2.0 | Microsoft Docs
-description: Meer informatie over hoe toocreate een DNS-zone en een record in Azure DNS. Dit is een stapsgewijze handleiding toocreate en beheren van uw eerste DNS-zone en een record met behulp van hello Azure CLI 2.0.
+title: Aan de slag met Azure DNS met behulp van Azure CLI 2.0 | Microsoft Docs
+description: Informatie over het maken van een DNS-zone en -record in Azure DNS. Dit is een stapsgewijze handleiding voor het maken en beheren van uw eerste DNS-zone en -record met behulp van de Azure CLI 2.0.
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.openlocfilehash: 8a894941e9910d5cc35394a1be9dbca9792613f2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6958d61b29961f59cb22f62bec55f2d467e7e7cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Aan de slag met Azure DNS met behulp van Azure-CLI 2.0
 
@@ -29,15 +29,15 @@ ms.lasthandoff: 10/06/2017
 > * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
-Dit artikel begeleidt u bij Hallo stappen toocreate uw eerste DNS-zone en platformoverschrijdende Azure CLI 2.0, met behulp van record Hallo die beschikbaar is voor Windows, Mac en Linux. U kunt deze stappen met hello Azure-portal of Azure PowerShell ook uitvoeren.
+Dit artikel begeleidt u stapsgewijs door de procedure voor het maken van uw eerste DNS-zone en -record met behulp van de platformoverschrijdende Azure-CLI 2.0 die beschikbaar is voor Windows, Mac en Linux. U kunt deze stappen ook uitvoeren met de Azure-portal of Azure PowerShell.
 
-Een DNS-zone is gebruikte toohost Hallo DNS-records voor een bepaald domein. toostart die als host fungeert voor uw domein in Azure DNS, moet u een DNS-zone toocreate voor die domeinnaam. Alle DNS-records voor uw domein worden vervolgens gemaakt binnen deze DNS-zone. Ten slotte toopublish uw DNS-zone-toohello Internet, moet u tooconfigure Hallo-naamservers voor Hallo-domein. Deze stappen worden hieronder allemaal beschreven.
+Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten. Als u uw domein wilt hosten in Azure DNS, moet u een DNS-zone maken voor die domeinnaam. Alle DNS-records voor uw domein worden vervolgens gemaakt binnen deze DNS-zone. Tot slot moet u de naamservers voor het domein configureren om de DNS-zone te publiceren naar internet. Deze stappen worden hieronder allemaal beschreven.
 
-Deze instructies wordt ervan uitgegaan dat u al hebt geïnstalleerd en aangemeld tooAzure CLI 2.0. Zie voor informatie over [hoe toomanage DNS zones met Azure CLI 2.0](dns-operations-dnszones-cli.md).
+Bij deze instructies wordt ervan uitgegaan dat u Azure CLI 2.0 al hebt geïnstalleerd en bent aangemeld. Zie [How to manage DNS zones using Azure CLI 2.0](dns-operations-dnszones-cli.md) (DNS-zones beheren met behulp van Azure CLI 2.0) voor hulp.
 
-## <a name="create-hello-resource-group"></a>Hallo resourcegroep maken
+## <a name="create-the-resource-group"></a>De resourcegroep maken
 
-Voordat u Hallo DNS-zone maakt, wordt een resourcegroep toocontain Hallo DNS-Zone gemaakt. Hallo hieronder vindt u Hallo-opdracht.
+Voordat u de DNS-zone maakt, wordt er een resourcegroep gemaakt waartoe de DNS-zone gaat behoren. Hieronder ziet u de opdracht.
 
 ```azurecli
 az group create --name MyResourceGroup --location "West US"
@@ -45,9 +45,9 @@ az group create --name MyResourceGroup --location "West US"
 
 ## <a name="create-a-dns-zone"></a>Een DNS-zone maken
 
-Een DNS-zone wordt gemaakt met Hallo `az network dns zone create` opdracht. help voor deze opdracht toosee plaatst `az network dns zone create -h`.
+Een DNS-zone wordt gemaakt met de opdracht `az network dns zone create`. Typ `az network dns zone create -h` om Help weer te geven voor deze opdracht.
 
-Hallo volgende voorbeeld maakt u een DNS-zone aangeroepen *contoso.com* in de resourcegroep Hallo *MyResourceGroup*. Hallo voorbeeld toocreate een DNS-zone, vervangen door Hallo waarden voor uw eigen gebruik.
+In het volgende voorbeeld maakt u een DNS-zone met de naam *contoso.com* in de resourcegroep *MyResourceGroup*. Gebruik het voorbeeld om een DNS-zone te maken door de waarden te vervangen door uw eigen waarden.
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.com
@@ -56,20 +56,20 @@ az network dns zone create -g MyResourceGroup -n contoso.com
 
 ## <a name="create-a-dns-record"></a>Een DNS-record maken
 
-toocreate een DNS-record gebruiken Hallo `az network dns record-set [record type] add-record` opdracht. Voor hulp, bijvoorbeeld voor A-records, raadpleegt u `azure network dns record-set A add-record -h`.
+Gebruik de opdracht `az network dns record-set [record type] add-record` om een DNS-record te maken. Voor hulp, bijvoorbeeld voor A-records, raadpleegt u `azure network dns record-set A add-record -h`.
 
-Hallo volgende voorbeeld wordt een record met Hallo relatieve naam 'www' in de DNS-Zone 'contoso.com' in de resourcegroep 'MyResourceGroup' Hallo. Hallo volledig gekwalificeerde naam van de recordset Hallo is 'www.contoso.com'. Hallo-recordtype is "A", met IP-adres '1.2.3.4' en een standaard-TTL van 3600 seconden (1 uur) wordt gebruikt.
+In het volgende voorbeeld maakt u een record met de relatieve naam 'www' in de DNS-zone 'contoso.com' in de resourcegroep 'MyResourceGroup'. De volledig gekwalificeerde naam van de recordset is 'www.contoso.com'. Het recordtype is 'A', met IP-adres '1.2.3.4' en een standaard-TTL van 3600 seconden (1 uur).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
 ```
 
-Voor andere recordtypen voor recordsets met meer dan één record, voor alternatieve TTL waarden en toomodify bestaande records, Zie [beheren DNS-records en recordsets met behulp van Azure CLI 2.0 Hallo](dns-operations-recordsets-cli.md).
+Voor andere recordtypen, voor recordsets met meerdere records, voor andere TTL-waarden, en als u bestaande records wilt wijzigen, raadpleegt u [Manage DNS records and record sets using Azure CLI 2.0](dns-operations-recordsets-cli.md) (DNS-records en -recordsets beheren met behulp van Azure CLI 2.0).
 
 
 ## <a name="view-records"></a>Records weergeven
 
-toolist hello DNS-records in de zone gebruiken:
+Als u de DNS-records wilt weergeven in uw zone, gebruikt u:
 
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
@@ -78,9 +78,9 @@ az network dns record-set list -g MyResourceGroup -z contoso.com
 
 ## <a name="update-name-servers"></a>Naamservers bijwerken
 
-Wanneer u zich ervan overtuigd dat uw DNS-zone en records hebben is ingesteld, moet u tooconfigure uw domeinnaam toouse hello Azure DNS-naamservers. Hierdoor kunnen andere gebruikers op Hallo Internet toofind de DNS-records.
+Wanneer uw DNS-zone en -records correct zijn ingesteld, moet u uw domeinnaam configureren voor het gebruik van de Azure DNS-naamservers . Op die manier kunnen andere gebruikers op internet uw DNS-records vinden.
 
-Hallo-naamservers voor uw zone worden gegeven voor Hallo `az network dns zone show` opdracht. toosee hello naamservernamen, gebruik JSON-uitvoer, zoals getoond in Hallo voorbeeld te volgen.
+De naamservers voor uw zone zijn gegeven door de opdracht `az network dns zone show`. Als u de namen van de naamservers wilt zien, gebruikt u JSON-uitvoer, zoals in het volgende voorbeeld wordt weergegeven.
 
 ```azurecli
 az network dns zone show -g MyResourceGroup -n contoso.com -o json
@@ -104,11 +104,11 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 }
 ```
 
-Deze naamservers moeten worden geconfigureerd met Hallo domeinnaamregistrar (waarbij u hebt aangeschaft Hallo-domeinnaam). Uw registrar bieden Hallo optie tooset up Hallo naamservers voor Hallo-domein. Zie voor meer informatie [delegeren van uw domein tooAzure DNS-](dns-domain-delegation.md).
+Deze naamservers moeten worden geconfigureerd met de domeinnaamregistrar (waar u de domeinnaam hebt gekocht). Uw registrar zal u de mogelijkheid bieden om de naamservers voor het domein in te stellen. Zie [Uw domein delegeren naar Azure DNS](dns-domain-delegation.md) voor meer informatie.
 
 ## <a name="delete-all-resources"></a>Alle resources verwijderen
  
-toodelete alle resources die worden gemaakt in dit artikel nemen Hallo stap:
+Als u alle resources wilt verwijderen die u in dit artikel hebt gemaakt, voert u de volgende stappen uit:
 
 ```azurecli
 az group delete --name MyResourceGroup
@@ -116,8 +116,8 @@ az group delete --name MyResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie toolearn meer informatie over Azure DNS [Azure DNS-overzicht](dns-overview.md).
+Zie [Azure DNS Overview](dns-overview.md) (Overzicht van Azure DNS) voor meer informatie over Azure DNS.
 
-Zie toolearn meer informatie over het beheren van DNS-zones in Azure DNS [beheren DNS-zones in Azure DNS met Azure CLI 2.0](dns-operations-dnszones-cli.md).
+Zie [Manage DNS zones in Azure DNS using Azure CLI 2.0](dns-operations-dnszones-cli.md) (DNS-zones in Azure DNS beheren met behulp van Azure CLI 2.0) voor meer informatie over het beheren van DNS-zones in Azure DNS.
 
-Zie toolearn meer informatie over het beheren van DNS-records in Azure DNS [beheren DNS-records en -recordsets stelt u in Azure DNS met Azure CLI 2.0](dns-operations-recordsets-cli.md).
+Zie [Manage DNS records and record sets in Azure DNS using Azure CLI 2.0](dns-operations-recordsets-cli.md) (DNS-records en -recordsets in Azure DNS beheren met behulp van Azure CLI 2.0) voor meer informatie over het beheren van DNS-records in Azure DNS.

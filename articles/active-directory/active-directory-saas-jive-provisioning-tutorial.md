@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Jive | Microsoft Docs'
-description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en Jive.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Jive.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,89 +13,89 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: b1c0d0bc2d79427c055f577fe5f9d30d10f1bbdd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 957b152fdd40d08a867e788b0cb9f7d57ed481e4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-jive-for-user-provisioning"></a>Zelfstudie: Jive configureren voor gebruikers inrichten
 
-Hallo-doel van deze zelfstudie is tooshow u stappen die u moet tooperform in Jive en Azure AD tooautomatically leveren en intrekken gebruikersaccounts vanuit Azure AD tooJive Hallo.
+Het doel van deze zelfstudie is zodat u de stappen die u wilt uitvoeren in Jive en Azure AD aan automatisch leveren en intrekken gebruikersaccounts vanuit Azure AD te Jive.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Hallo scenario beschreven in deze zelfstudie wordt ervan uitgegaan dat u al hebt Hallo volgende items:
+Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
 *   Een Azure Active directory-tenant.
 *   Een Jive eenmalige aanmelding ingeschakeld abonnement.
 *   Een gebruikersaccount in Jive met beheerdersmachtigingen Team.
 
-## <a name="assigning-users-toojive"></a>Gebruikers tooJive toewijzen
+## <a name="assigning-users-to-jive"></a>Gebruikers toewijzen aan Jive
 
-Azure Active Directory gebruikt een concept 'toewijzingen' toodetermine welke gebruikers toegang tooselected apps krijgen genoemd. In de context van de Hallo van automatische gebruikers account inrichten, alleen Hallo-gebruikers en groepen die '' tooan toepassing in Azure AD toegewezen zijn gesynchroniseerd.
+Azure Active Directory gebruikt een concept 'toewijzingen' genoemd om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van automatische gebruikers account inrichten, alleen de gebruikers en groepen die '' tot een toepassing in Azure AD toegewezen zijn gesynchroniseerd.
 
-Voordat u configureren en inschakelen van Hallo-service inricht, moet u toodecide welke gebruikers en/of groepen in Azure AD Hallo-gebruikers die toegang moeten hebben tot tooyour Jive app vertegenwoordigen. Als besloten, kunt u deze app-gebruikers tooyour Jive toewijzen door hier Hallo-instructies te volgen:
+Voordat u configureren en inschakelen van de inrichting service, moet u om te bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang tot uw app Jive nodig hebben. Als besloten, kunt u deze gebruikers toewijzen aan uw app Jive door de volgende instructies te volgen:
 
-[Toewijzen van een gebruiker of groep tooan enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-toojive"></a>Belangrijke tips voor het toewijzen van gebruikers tooJive
+### <a name="important-tips-for-assigning-users-to-jive"></a>Belangrijke tips voor het toewijzen van gebruikers aan Jive
 
-*   Het is raadzaam om één Azure AD-gebruiker tooJive tootest Hallo inrichting configuratie worden toegewezen. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+*   Het is raadzaam om één Azure AD-gebruiker worden toegewezen aan Jive voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-*   Wanneer u een gebruiker tooJive toewijst, moet u een geldige gebruikersrol. Hallo 'Default toegang' rol werkt niet voor het inrichten.
+*   Wanneer een gebruiker aan Jive toewijzen, moet u een geldige gebruikersrol selecteren. De rol 'Default toegang' werkt niet voor het inrichten.
 
 ## <a name="enable-user-provisioning"></a>Gebruikersinrichting inschakelen
 
-Deze sectie helpt u bij het verbinden van uw Azure AD-tooJive gebruikersaccount inrichten API en Hallo service toocreate inrichting configureren, bijwerken en uitschakelen toegewezen gebruikersaccounts in Jive op basis van gebruikers en groepen toewijzen in Azure AD.
+Deze sectie helpt u bij het verbinding maken met uw Azure AD Jive van gebruikersaccount inrichten API en configureren van de inrichting service te maken, bijwerken en uitschakelen van toegewezen gebruikersaccounts in Jive op basis van gebruikers en groepen toewijzen in Azure AD.
 
 > [!TIP]
-> U kunt ook tooenabled op basis van SAML eenmalige aanmelding voor Jive, in het Hallo-instructies te volgen [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
+> U kunt ook op basis van SAML Single Sign-On for Jive is ingeschakeld, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
 
-### <a name="tooconfigure-user-account-provisioning"></a>tooconfigure account gebruikersaanvragen:
+### <a name="to-configure-user-account-provisioning"></a>Configureren voor het inrichten van het account:
 
-Hallo-doel van deze sectie is het toooutline hoe tooJive tooenable gebruikers inrichten van Active Directory-gebruiker accounts.
-Als onderdeel van deze procedure bent u vereiste tooprovide het beveiligingstoken van een gebruiker moet u toorequest van Jive.com.
+Het doel van deze sectie is het inschakelen van de gebruiker het inrichten van Active Directory-gebruikersaccounts met Jive overzicht.
+Als onderdeel van deze procedure moet zijn u vereist voor het beveiligingstoken van een gebruiker moet u aanvragen via Jive.com.
 
-1. In Hallo [Azure-portal](https://portal.azure.com), bladeren toohello **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
+1. In de [Azure-portal](https://portal.azure.com), blader naar de **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
 
-2. Als u Jive al hebt geconfigureerd voor eenmalige aanmelding, zoekt u uw exemplaar van Jive met Hallo zoekveld opgegeven. Selecteer anders **toevoegen** en zoek naar **Jive** in Hallo-toepassingsgalerie. Selecteer Jive in zoekresultaten hello, en voeg deze tooyour lijst met toepassingen.
+2. Als u al Jive voor eenmalige aanmelding hebt geconfigureerd, kunt u zoeken naar uw exemplaar van Jive met behulp van het zoekveld. Selecteer anders **toevoegen** en zoek naar **Jive** in de galerie met toepassingen. Jive selecteert in de zoekresultaten en toe te voegen aan uw lijst met toepassingen.
 
-3. Selecteer uw exemplaar van Jive en vervolgens Hallo **inrichten** tabblad.
+3. Selecteer uw exemplaar van Jive en selecteer vervolgens de **inrichten** tabblad.
 
-4. Set Hallo **modus inrichting** te**automatische**. 
+4. Stel de **Inrichtingsmodus** naar **automatische**. 
 
     ![Inrichting](./media/active-directory-saas-jive-provisioning-tutorial/provisioning.png)
 
-5. Onder Hallo **beheerdersreferenties** sectie, bieden Hallo na configuratie-instellingen:
+5. Onder de **beheerdersreferenties** sectie, bieden de volgende configuratie-instellingen:
    
-    a. In Hallo **Jive Beheerdersgebruikersnaam** textbox type een Jive accountnaam die heeft Hallo **systeembeheerder** profiel in Jive.com toegewezen.
+    a. In de **Jive Beheerdersgebruikersnaam** textbox type een Jive accountnaam met de **systeembeheerder** profiel in Jive.com toegewezen.
    
-    b. In Hallo **Jive beheerderswachtwoord** textbox Hallo een wachtwoord op voor dit account.
+    b. In de **Jive beheerderswachtwoord** textbox, typt u het wachtwoord voor dit account.
    
-    c. In Hallo **Jive Tenant-URL** textbox type Hallo Jive tenant-URL.
+    c. In de **Jive Tenant-URL** textbox, typ de URL van de tenant Jive.
       
       > [!NOTE]
-      > Hallo Jive tenant-URL is de URL die wordt gebruikt door uw organisatie toolog in tooJive.  
-      > Normaal gesproken Hallo-URL heeft Hallo volgende indeling: **www.\< organisatie\>. jive.com**.          
+      > De URL van de tenant Jive is de URL die wordt gebruikt door uw organisatie zich aanmelden bij Jive.  
+      > Normaal gesproken de URL heeft de volgende indeling: **www.\< organisatie\>. jive.com**.          
 
-6. Klik in hello Azure-portal, op **testverbinding** tooensure Azure AD tooyour Jive app kunt verbinden.
+6. Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD, kan verbinding maken met uw app Jive.
 
-7. Voer e-mailadres van een persoon of groep die inrichting fout meldingen in Hallo ontvangen moet Hallo **e-mailmelding** veld en controleer de onderstaande Hallo selectievakje.
+7. Voer het e-mailadres van een persoon of groep die in inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het selectievakje hieronder in.
 
 8. Klik op **opslaan.**
 
-9. Selecteer onder Hallo toewijzingen sectie, **tooJive synchroniseren Azure Active Directory-gebruikers.**
+9. Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory-gebruikers Jive.**
 
-10. In Hallo **kenmerktoewijzingen** sectie, bekijkt hello gebruikerskenmerken die worden gesynchroniseerd vanuit Azure AD-tooJive. kenmerken die zijn geselecteerd als Hallo **overeenkomend** eigenschappen zijn gebruikte toomatch Hallo gebruikersaccounts in Jive voor update-bewerkingen. Selecteer Hallo knop toocommit wijzigingen zijn opgeslagen.
+10. In de **kenmerktoewijzingen** sectie, moet u de kenmerken van de gebruiker is gesynchroniseerd vanuit Azure AD Jive controleren. De kenmerken die zijn geselecteerd als **overeenkomend** eigenschappen overeenkomen met de gebruikersaccounts in Jive voor update-bewerkingen worden gebruikt. Selecteer de knop Opslaan eventuele wijzigingen doorvoeren.
 
-11. tooenable Hallo inrichting Azure AD-service voor Jive, wijziging Hallo **inrichting Status** te**op** in Hallo Zoekinstellingen
+11. Om de Azure AD-service voor Jive inricht, wijzigen de **inrichting Status** naar **op** in de sectie instellingen
 
 12. Klik op **opslaan.**
 
-Hallo initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen tooJive in Hallo gebruikers en groepen sectie begint. de initiële synchronisatie Hallo duurt langer tooperform dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden, zolang het Hallo-service wordt uitgevoerd. U kunt Hallo **synchronisatiedetails** sectie toomonitor uitgevoerd en volgt u koppelingen tooprovisioning activiteitsrapporten, waarin alle bewerkingen die worden uitgevoerd door het Hallo-service op uw app Jive inrichting beschrijven.
+De initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan Jive in de sectie gebruikers en groepen wordt gestart. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service op uw app Jive beschrijven.
 
-U kunt nu een testaccount maken. Wacht tot up too20 minuten tooverify die Hallo-account is gesynchroniseerd tooJive.
+U kunt nu een testaccount maken. Wacht 20 minuten duren om te verifiëren dat het account is gesynchroniseerd voor Jive.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 

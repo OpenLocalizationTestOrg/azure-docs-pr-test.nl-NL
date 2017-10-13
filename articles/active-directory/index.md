@@ -1,9 +1,9 @@
 ---
 layout: LandingPage
-description: Meer informatie over hoe toosynchronize mappen en schakel eenmalige aanmelding. Documentatie ziet u hoe toointegrate een volledige reeks mogelijkheden voor identiteitsbeheer.
-title: aaaAzure Active Directory-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Meer informatie over het synchroniseren van adreslijsten en het inschakelen van eenmalige aanmelding. Documentatie laat zien hoe u een volledig pakket met mogelijkheden voor identiteitsbeheer kunt integreren.
+title: Documentatie voor Azure Active Directory - zelfstudies, API-verwijzing | Microsoft Docs
 services: active-directory
-author: carolz
+author: czeumault
 manager: carolz
 ms.assetid: 
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a99aa3cc979a518c5b53cb1540f037b6776fb157
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a0a9b69824829d0b7a07583210eaddb1f39bcf88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-documentation"></a>Documentatie voor Azure Active Directory
 
-Meer informatie over hoe toosynchronize mappen en schakel eenmalige aanmelding bij Azure Active Directory (Azure AD). Zelfstudies, API-referenties en andere documentatie wordt uitgelegd hoe toointegrate identiteitsbeheer zoals multi-factor authentication-server, apparaatregistratie, op rollen gebaseerde toegang beheren, en beveiligingsbewaking en waarschuwingen.
+Meer informatie over het synchroniseren van adreslijsten en het inschakelen van eenmalige aanmelding met Azure Active Directory (Azure AD). Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u mogelijkheden voor identiteitsbeheer integreert, waaronder Multi-Factor Authentication, apparatuurregistratie, op rollen gebaseerd toegangsbeheer en beveiligingsbewaking en -waarschuwingen.
 
 <ul class="panelContent cardsFTitle">
     <li>

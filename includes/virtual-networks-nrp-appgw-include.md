@@ -1,14 +1,14 @@
 ## <a name="application-gateway"></a>Application Gateway
-Toepassingsgateway biedt Azure beheerd HTTP taakverdeling oplossing op basis van de taakverdeling van laag 7. Taakverdeling van toepassing, kunt u gebruikmaken van de Hallo van routeringsregels voor netwerkverkeer op basis van HTTP. 
+Toepassingsgateway biedt Azure beheerd HTTP taakverdeling oplossing op basis van de taakverdeling van laag 7. Taakverdeling van toepassing, kunt het gebruik van de routeringsregels voor netwerkverkeer op basis van HTTP. 
 <BR>
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| **backendAddressPools** |Hallo-lijst met IP-adressen van Hallo back-endservers. Hallo IP-adressen moeten ofwel deel uitmaken toohello virtueel netwerksubnet, ofwel moeten een openbare IP-/ VIP of privé-IP |
-| **backendHttpSettingsCollection** |Elke pool heeft instellingen, zoals poort, het protocol en cookie gebaseerde affiniteit. Deze instellingen zijn gebonden tooa servergroep en servers in de pool Hallo toegepaste tooall |
-| **frontendPorts** |Dit is de openbare poort Hallo in Hallo toepassingsgateway geopend. Verkeer komt binnen via deze poort en vervolgens wordt omgeleid voor tooone Hallo back-end servers |
-| **httpListeners** |Listener beschikt over een front-endpoort, een protocol (Http of Https; deze zijn hoofdlettergevoelig), en Hallo SSL-certificaatnaam (als u SSL-offloading configureert) |
-| **requestRoutingRules** |Hallo regel verbindt Hallo-listener en Hallo back-end-servergroep en definieert naar welke back-end server groep Hallo verkeer moet worden omgeleid. Momenteel werkt alleen als Round robin |
+| **backendAddressPools** |De lijst met IP-adressen van de back-end-servers. De IP-adressen moeten ofwel deel uitmaken van het subnet van het virtuele netwerk, ofwel moeten een openbare IP-/ VIP of privé-IP |
+| **backendHttpSettingsCollection** |Elke pool heeft instellingen, zoals poort, het protocol en cookie gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool |
+| **frontendPorts** |Dit is de openbare poort die in de toepassingsgateway wordt geopend. Verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-end-servers |
+| **httpListeners** |Listener beschikt over een front-endpoort, een protocol (Http of Https; deze zijn hoofdlettergevoelig), en de SSL-certificaatnaam (als u SSL-offloading configureert) |
+| **requestRoutingRules** |De regel verbindt de listener en de back-servergroep beëindigen en definieert die het verkeer moet worden omgeleid servergroep terug eindigen. Momenteel werkt alleen als Round robin |
 
 Voorbeeld van een application gateway Json-sjabloon:
 
@@ -19,14 +19,14 @@ Voorbeeld van een application gateway Json-sjabloon:
         "location": {
           "type": "string",
           "metadata": {
-            "description": "Location toodeploy to"
+            "description": "Location to deploy to"
           }
         },
         "addressPrefix": {
           "type": "string",
           "defaultValue": "10.0.0.0/16",
           "metadata": {
-            "description": "Address prefix for hello Virtual Network"
+            "description": "Address prefix for the Virtual Network"
           }
         },
         "subnetPrefix": {

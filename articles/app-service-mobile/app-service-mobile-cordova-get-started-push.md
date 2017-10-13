@@ -1,6 +1,6 @@
 ---
-title: aaaAdd Pushmeldingen tooApache Cordova-App met Azure Mobile Apps | Microsoft Docs
-description: Meer informatie over hoe Azure Mobile Apps-toosend toouse push-meldingen tooyour Apache Cordova-app.
+title: Pushmeldingen toevoegen aan de Apache Cordova-App met Azure Mobile Apps | Microsoft Docs
+description: Informatie over het Azure Mobile Apps gebruiken voor het verzenden van pushmeldingen aan uw Apache Cordova-app.
 services: app-service\mobile
 documentationcenter: javascript
 manager: syntaxc4
@@ -14,24 +14,24 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.openlocfilehash: 8e1b23d6145b446b6f01599337b677e2f2b31d7e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: dc3cab0a6a8b4a56ab0fba1a02e5bba9d0ed1b1f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="add-push-notifications-tooyour-apache-cordova-app"></a>Push notifications tooyour Apache Cordova-app toevoegen
+# <a name="add-push-notifications-to-your-apache-cordova-app"></a>Pushmeldingen toevoegen aan uw Apache Cordova-app
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Overzicht
-In deze zelfstudie maakt toevoegen u push notifications toohello [Apache Cordova snel starten] project, zodat een push-melding toohello apparaat verzonden telkens wanneer een record wordt ingevoegd.
+In deze zelfstudie hebt toevoegen u pushmeldingen aan het project [Apache Cordova snel starten] zodat een pushmelding wordt verzonden naar het apparaat telkens wanneer een record wordt ingevoegd.
 
-Als u geen gebruik Hallo gedownload serverproject snel starten, moet u push notification-uitbreidingspakket Hallo. Zie voor meer informatie [werken met back-endserver voor Hallo .NET SDK voor Azure Mobile Apps][1].
+Als u het gedownloade quick start-serverproject niet gebruikt, moet u het push notification-uitbreidingspakket. Zie voor meer informatie [werken met de .NET-back-endserver SDK voor Azure Mobile Apps][1].
 
 ## <a name="prerequisites"></a>Vereisten
-Deze zelfstudie bevat informatie over een Apache Cordova-toepassing die is ontwikkeld met Visual Studio 2015 die wordt uitgevoerd op Hallo Google Android-Emulator, een Android-apparaat, een Windows-apparaat en een iOS-apparaat.
+Deze zelfstudie bevat informatie over een Apache Cordova-toepassing die is ontwikkeld met Visual Studio 2015 die wordt uitgevoerd op de Google Android-Emulator, een Android-apparaat, een Windows-apparaat en een iOS-apparaat.
 
-toocomplete deze zelfstudie hebt u nodig:
+Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een PC met [Visual Studio Community 2015] [ 2] of hoger.
 * [Visual Studio Tools voor Apache Cordova][4].
@@ -46,72 +46,72 @@ toocomplete deze zelfstudie hebt u nodig:
 
 [Bekijk een video waarin de stappen in deze sectie][9]
 
-## <a name="update-hello-server-project"></a>Hallo serverproject bijwerken
+## <a name="update-the-server-project"></a>Het serverproject bijwerken
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 ## <a name="add-push-to-app"></a>Uw Cordova-app wijzigen
-Zorg ervoor dat uw Apache Cordova-app-project is gereed toohandle pushmeldingen installeren Hallo Cordova push-invoegtoepassing plus de platform-specifieke pushservices.
+Zorg ervoor dat uw Apache Cordova-app-project is gereed om te verwerken pushmeldingen door het installeren van de Cordova-invoegtoepassing push plus de platform-specifieke pushservices.
 
-#### <a name="update-hello-cordova-version-in-your-project"></a>Hallo Cordova-versie in uw project te werken.
-Werk de Hallo clientproject als uw project een Apache Cordova-versie die ouder zijn dan v6.1.1 gebruikt. tooupdate hello project:
+#### <a name="update-the-cordova-version-in-your-project"></a>Werk de Cordova-versie in uw project.
+Werk het clientproject als uw project een Apache Cordova-versie die ouder zijn dan v6.1.1 gebruikt. Het project bijwerken:
 
-* Met de rechtermuisknop op `config.xml` tooopen Hallo configuration designer.
-* Selecteer Hallo Platforms tabblad.
-* Kies 6.1.1 in Hallo **Cordova CLI** in het tekstvak.
-* Kies **bouwen**, klikt u vervolgens **Build Solution** tooupdate Hallo project.
+* Met de rechtermuisknop op `config.xml` openen van de configuration designer.
+* Selecteer het tabblad Platforms.
+* Kies 6.1.1 in de **Cordova CLI** in het tekstvak.
+* Kies **bouwen**, klikt u vervolgens **Build Solution** bijwerken van het project.
 
-#### <a name="install-hello-push-plugin"></a>Hallo push-invoegtoepassing installeren
-Apache Cordova-toepassingen verwerken niet systeemeigen apparaat- of -mogelijkheden.  Deze mogelijkheden worden geleverd door invoegtoepassingen die zijn gepubliceerd op [npm] [ 10] of op GitHub.  Hallo `phonegap-plugin-push` invoegtoepassing gebruikte toohandle netwerk pushmeldingen is.
+#### <a name="install-the-push-plugin"></a>De push-invoegtoepassing installeren
+Apache Cordova-toepassingen verwerken niet systeemeigen apparaat- of -mogelijkheden.  Deze mogelijkheden worden geleverd door invoegtoepassingen die zijn gepubliceerd op [npm] [ 10] of op GitHub.  De `phonegap-plugin-push` invoegtoepassing wordt gebruikt voor het afhandelen van pushmeldingen netwerk.
 
-U kunt Hallo push-invoegtoepassing installeren in een van de volgende manieren:
+U kunt de push-invoegtoepassing installeren in een van de volgende manieren:
 
-**Hallo vanaf de opdrachtprompt:**
+**Vanaf de opdrachtprompt:**
 
-Hallo volgende opdracht uitvoeren:
+Voer de volgende opdracht:
 
     cordova plugin add phonegap-plugin-push
 
 **Uit vanuit Visual Studio:**
 
-1. Open in Solution Explorer Hallo `config.xml` bestand Klik **Plugins** > **aangepaste**, selecteer **Git** als de installatiebron, voer dan `https://github.com/phonegap/phonegap-plugin-push`als Hallo bron.
+1. Open in Solution Explorer de `config.xml` bestand Klik **Plugins** > **aangepaste**, selecteer **Git** als de installatiebron, voer dan `https://github.com/phonegap/phonegap-plugin-push`als de bron.
 
    ![][img1]
 
-2. Klik op Hallo pijl volgende toohello installatiebron.
-3. In **SENDER_ID**, hebt u al een numerieke project-ID voor Hallo Google Developer-Console-project, u kunt u deze hier toevoegen. Anders, voer een aanduidingswaarde van de tijdelijke, zoals 777777.  Als u voor Android ontwikkelt, kunt u deze waarde in config.xml later bijwerken.
+2. Klik op de pijl naast de installatiebron.
+3. In **SENDER_ID**, hebt u al een numerieke project-ID voor het project Google Developer-Console, u kunt u deze hier toevoegen. Anders, voer een aanduidingswaarde van de tijdelijke, zoals 777777.  Als u voor Android ontwikkelt, kunt u deze waarde in config.xml later bijwerken.
 4. Klik op **Add**.
 
-Hallo push-invoegtoepassing is nu geïnstalleerd.
+De push-invoegtoepassing is nu geïnstalleerd.
 
-#### <a name="install-hello-device-plugin"></a>Hallo apparaat invoegtoepassing installeren
-Volg dezelfde Hallo procedure tooinstall Hallo push-invoegtoepassing die wordt gebruikt.  Hallo apparaat invoegtoepassing uit Hallo Core plugins lijst toevoegen (Klik op **Plugins** > **Core** toofind deze). U moet de naam van deze invoegtoepassing tooobtain Hallo platform.
+#### <a name="install-the-device-plugin"></a>De apparaat-invoegtoepassing installeren
+Volg dezelfde procedure die u gebruikt voor het installeren van de push-invoegtoepassing.  De apparaat-invoegtoepassing toevoegen in de lijst van de invoegtoepassingen Core (Klik op **Plugins** > **Core** te vinden). U moet deze invoegtoepassing om de platformnaam te verkrijgen.
 
 #### <a name="register-your-device-on-application-start-up"></a>Registreer uw apparaat op opstarten van de toepassing
-We in eerste instantie opnemen minimale code voor Android. Later wijzigen Hallo app toorun op iOS- of Windows 10.
+We in eerste instantie opnemen minimale code voor Android. De app uit te voeren op iOS- of Windows 10 later wijzigen.
 
-1. Voeg een aanroep te**registerForPushNotifications** tijdens het Hallo-retouraanroep voor Hallo aanmelding of onderin Hallo Hallo **onDeviceReady** methode:
+1. Voeg een aanroep naar **registerForPushNotifications** tijdens de callback voor de aanmelding of aan de onderkant van de **onDeviceReady** methode:
 
-        // Login toohello service.
+        // Login to the service.
         client.login('google')
             .then(function () {
                 // Create a table reference
                 todoItemTable = client.getTable('todoitem');
 
-                // Refresh hello todoItems
+                // Refresh the todoItems
                 refreshDisplay();
 
-                // Wire up hello UI Event Handler for hello Add Item
+                // Wire up the UI Event Handler for the Add Item
                 $('#add-item').submit(addItemHandler);
                 $('#refresh').on('click', refreshDisplay);
 
-                    // Added tooregister for push notifications.
+                    // Added to register for push notifications.
                 registerForPushNotifications();
 
             }, handleError);
 
     In dit voorbeeld ziet aanroepen **registerForPushNotifications** nadat verificatie is geslaagd.  U kunt aanroepen `registerForPushNotifications()` zo vaak als nodig is.
 
-2. Toevoegen van nieuwe Hallo **registerForPushNotifications** methode als volgt:
+2. Toevoegen van de nieuwe **registerForPushNotifications** methode als volgt:
 
         // Register for Push Notifications. Requires that phonegap-plugin-push be installed.
         var pushRegistration = null;
@@ -122,13 +122,13 @@ We in eerste instantie opnemen minimale code voor Android. Later wijzigen Hallo 
               wns: {}
           });
 
-        // Handle hello registration event.
+        // Handle the registration event.
         pushRegistration.on('registration', function (data) {
-          // Get hello native platform of hello device.
+          // Get the native platform of the device.
           var platform = device.platform;
-          // Get hello handle returned during registration.
+          // Get the handle returned during registration.
           var handle = data.registrationId;
-          // Set hello device-specific message template.
+          // Set the device-specific message template.
           if (platform == 'android' || platform == 'Android') {
               // Register for GCM notifications.
               client.push.register('gcm', handle, {
@@ -155,27 +155,27 @@ We in eerste instantie opnemen minimale code voor Android. Later wijzigen Hallo 
 
         pushRegistration.on('error', handleError);
         }
-3. (Android) Vervang in Hallo voorafgaand aan code, `Your_Project_ID` project met Hallo numerieke ID voor uw app uit de [Google Developer-Console][18].
+3. (Android) Vervang in de bovenstaande code `Your_Project_ID` project met de numerieke ID voor uw app uit de [Google Developer-Console][18].
 
-## <a name="optional-configure-and-run-hello-app-on-android"></a>(Optioneel) Configureren en uitvoeren van Hallo-app voor Android
-Deze sectie tooenable pushmeldingen voor Android worden voltooid.
+## <a name="optional-configure-and-run-the-app-on-android"></a>(Optioneel) Configureren en uitvoeren van de app voor Android
+Deze sectie om in te schakelen pushmeldingen voor Android worden voltooid.
 
 #### <a name="enable-gcm"></a>Inschakelen van Firebase Cloud-berichten
-Aangezien we Hallo Google Android-platform in eerste instantie ontwikkelt, moet u de Firebase Cloud Messaging inschakelen.
+Omdat we het Google Android-platform in eerste instantie ontwikkelt, moet u de Firebase Cloud Messaging inschakelen.
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-#### <a name="configure-backend"></a>Hallo mobiele App back-end toosend push-aanvragen via FCM configureren
+#### <a name="configure-backend"></a>De backend voor mobiele Apps voor het verzenden van push-aanvragen via van FCM configureren
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
 #### <a name="configure-your-cordova-app-for-android"></a>Configureer uw Cordova-app voor Android
-Open config.xml in uw Cordova-app en vervang `Your_Project_ID` project met Hallo numerieke ID voor uw app uit Hallo [Google Developer-Console][18].
+Open config.xml in uw Cordova-app en vervang `Your_Project_ID` project met de numerieke ID voor uw app uit de [Google Developer-Console][18].
 
         <plugin name="phonegap-plugin-push" version="1.7.1" src="https://github.com/phonegap/phonegap-plugin-push.git">
             <variable name="SENDER_ID" value="Your_Project_ID" />
         </plugin>
 
-Index.js openen en bijwerken Hallo code toouse uw numerieke project-ID.
+Index.js openen en bijwerken van de code voor het gebruik van uw numerieke project-ID.
 
         pushRegistration = PushNotification.init({
             android: { senderID: 'Your_Project_ID' },
@@ -184,116 +184,116 @@ Index.js openen en bijwerken Hallo code toouse uw numerieke project-ID.
         });
 
 #### <a name="configure-device"></a>Uw Android-apparaat voor USB-foutopsporing configureren
-Voordat u uw toepassing tooyour Android-apparaat implementeren kunt, moet u tooenable USB-foutopsporing.  Voer de volgende stappen uit op uw Android-telefoon:
+Voordat u uw toepassing op uw Android-apparaat implementeren kunt, moet u de USB-foutopsporing inschakelen.  Voer de volgende stappen uit op uw Android-telefoon:
 
-1. Ga te**instellingen** > **over telefoon**, tikt u op Hallo **Build-nummer** totdat modus voor ontwikkelaars (ongeveer zeven maal) is ingeschakeld.
-2. Terug in de **instellingen** > **opties voor ontwikkelaars** inschakelen **USB-foutopsporing**, sluit uw Android-telefoon tooyour ontwikkeling PC met een USB-kabel.
+1. Ga naar **instellingen** > **over telefoon**, tikt u op de **Build-nummer** totdat modus voor ontwikkelaars (ongeveer zeven maal) is ingeschakeld.
+2. Terug in de **instellingen** > **opties voor ontwikkelaars** inschakelen **USB-foutopsporing**, uw Android-telefoon vervolgens verbinding met het ontwikkelen PC met een USB-kabel.
 
-We hebben getest dit met behulp van een Google-Nexus 5 X-apparaat met Android 6.0 (Marshmallow).  Hallo technieken zijn echter algemene binnen een moderne Android release.
+We hebben getest dit met behulp van een Google-Nexus 5 X-apparaat met Android 6.0 (Marshmallow).  De technieken zijn echter algemene binnen een moderne Android release.
 
 #### <a name="install-google-play-services"></a>Installeer Google Play-Services
-Hallo push-invoegtoepassing is afhankelijk van Android Google Play Services voor pushmeldingen.
+De push-invoegtoepassing is afhankelijk van Android Google Play Services voor pushmeldingen.
 
-1. Klik in Visual Studio **extra** > **Android** > **Android SDK Manager**, vouw Hallo **extra's** map- en controle Hallo vak toomake ervoor dat elk van de volgende SDK's Hallo is geïnstalleerd.
+1. Klik in Visual Studio **extra** > **Android** > **Android SDK Manager**, vouw de **extra's** map, en controleer het vak om ervoor te zorgen dat elk van de volgende SDK's is geïnstalleerd.
 
    * Android 2.3 of hoger
    * Google-opslagplaats revisie 27 of hoger
    * Google Play Services 9.0.2 of hoger
 
-2. Klik op **pakketten installeren** en wachten op Hallo installatie toocomplete.
+2. Klik op **pakketten installeren** en wacht totdat de installatie te voltooien.
 
-Hallo huidige vereist bibliotheken worden vermeld in Hallo [phonegap-invoegtoepassing-push-installatie documentatie][19].
+De huidige vereiste bibliotheken worden vermeld in de [phonegap-invoegtoepassing-push-installatie documentatie][19].
 
-#### <a name="test-push-notifications-in-hello-app-on-android"></a>Pushmeldingen testen in Hallo-app voor Android
-U kunt nu pushmeldingen testen door het uitvoeren van app en invoegen items in de takentabel Hallo Hallo. U kunt testen van Hallo hetzelfde apparaat of van een tweede apparaat dezelfde hello, zolang u back-end. Test uw Cordova-app op Hallo Android-platform in een van de volgende manieren Hallo:
+#### <a name="test-push-notifications-in-the-app-on-android"></a>Pushmeldingen testen in de app voor Android
+U kunt nu test pushmeldingen door het uitvoeren van de app en het invoegen van items in de takentabel. U kunt van hetzelfde apparaat of van een tweede apparaat testen, zolang u de dezelfde back-end gebruikt. Test uw Cordova-app op het Android-platform in een van de volgende manieren:
 
-* **Op een fysiek apparaat:** koppelen van uw Android-apparaat tooyour ontwikkelcomputer met een USB-kabel.  In plaats van **Google Android-Emulator**, selecteer **apparaat**. Visual Studio Hallo toepassing toohello apparaat implementeert en vervolgens wordt de toepassing hello uitgevoerd.  U kunt vervolgens met de toepassing hello op Hallo apparaat werken.
+* **Op een fysiek apparaat:** uw Android-apparaat koppelen aan uw ontwikkelcomputer waarop een USB-kabel.  In plaats van **Google Android-Emulator**, selecteer **apparaat**. Visual Studio implementeert de toepassing op het apparaat en vervolgens de toepassing wordt uitgevoerd.  U kunt vervolgens met de toepassing op het apparaat werken.
 
-  De ontwikkeling-ervaring te verbeteren.  Scherm, zoals toepassingen delen [Mobizen] [ 20] kan u helpen bij het ontwikkelen van een Android-toepassing.  Uw webbrowser voor Android scherm tooa projecteert Mobizen op uw PC.
+  De ontwikkeling-ervaring te verbeteren.  Scherm, zoals toepassingen delen [Mobizen] [ 20] kan u helpen bij het ontwikkelen van een Android-toepassing.  Het scherm van uw Android aan een webbrowser projecteert Mobizen op uw PC.
 
 * **Op een Android-emulator:** er zijn extra configuratiestappen vereist wanneer u gebruikmaakt van een emulator.
 
-    Zorg ervoor dat u tooa virtueel apparaat met Google APIs ingesteld als doel hello, zoals wordt weergegeven in Hallo Android Virtual Device (AVD) manager implementeert.
+    Zorg ervoor dat u implementeert op een virtueel apparaat met Google APIs ingesteld als doel, zoals wordt weergegeven in de Android Virtual Device (AVD) manager.
 
     ![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-    Als u een snellere x86 toouse wilt emulator u [hello HAXM stuurprogramma installeren] [ 11] en configureer Hallo emulator toouse deze.
+    Als u wilt gebruiken een snellere x86 emulator u [Installeer het stuurprogramma HAXM] [ 11] en configureren van de emulator om dit te gebruiken.
 
-    Een apparaat toohello Android van Google-account toevoegen door te klikken op **Apps** > **instellingen** > **account toevoegen**, volg de aanwijzingen Hallo.
+    Een Google-account toevoegen aan de Android-apparaat door te klikken op **Apps** > **instellingen** > **account toevoegen**, volg de instructies.
 
     ![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
 
-    Hallo todolist-app als voordat uitvoeren en een nieuwe taak invoegen. Dit moment wordt een pictogram weergegeven in het systeemvak Hallo. U kunt Hallo melding lade tooview Hallo volledige tekst van melding Hallo openen.
+    Voer de todolist-app als voordat en een nieuwe taak invoegen. Dit moment wordt een pictogram weergegeven in het systeemvak. U kunt de meldingenlijst om weer te geven van de volledige tekst van de melding openen.
 
     ![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
 
 ## <a name="optional-configure-and-run-on-ios"></a>(Optioneel) Configureren en uitvoeren op iOS
-Deze sectie is voor het uitvoeren van Hallo Cordova-project op iOS-apparaten. Als u niet met iOS-apparaten werkt, kunt u deze sectie overslaan.
+Deze sectie is voor het uitvoeren van de Cordova-project op iOS-apparaten. Als u niet met iOS-apparaten werkt, kunt u deze sectie overslaan.
 
-#### <a name="install-and-run-hello-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>Agent installeren en uitvoeren Hallo iOS externe te ontwikkelen op een Mac- of cloud service
-Voordat u een Cordova-app voor iOS met Visual Studio uitvoeren kunt, stappen doorlopen die Hallo in Hallo [iOS Setup Guide] [ 12] tooinstall en Voer Hallo externe agent te ontwikkelen.
+#### <a name="install-and-run-the-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>Installeren en uitvoeren van de iOS externe build-agent op een Mac- of cloud service
+Voordat u een Cordova-app voor iOS met Visual Studio uitvoeren kunt, gaat u door de stappen in de [iOS Setup Guide] [ 12] wilt installeren en uitvoeren van de externe build-agent.
 
-Zorg ervoor dat u Hallo-app voor iOS kunt samenstellen. Hallo zijn stappen in de handleiding voor het instellen van Hallo vereiste toobuild voor iOS vanuit Visual Studio. Als u een Mac niet hebt, kunt u voor iOS met de Hallo externe build-agent op een service, zoals MacInCloud samenstellen. Zie voor meer informatie [uw iOS-app uitvoeren in de cloud Hallo][21].
+Zorg ervoor dat u de app voor iOS kunt samenstellen. De stappen in de setup guide zijn vereist om te bouwen voor iOS vanuit Visual Studio. Als u een Mac niet hebt, kunt u voor iOS met de externe build-agent op een service, zoals MacInCloud samenstellen. Zie voor meer informatie [uitvoeren van uw iOS-app in de cloud][21].
 
 > [!NOTE]
-> XCode 7 of hoger is vereist toouse Hallo push-invoegtoepassing op iOS.
+> XCode 7 of hoger is vereist voor de push-invoegtoepassing in iOS gebruiken.
 
-#### <a name="find-hello-id-toouse-as-your-app-id"></a>Hallo-ID toouse vinden als uw App-ID
-Voordat u uw app voor pushmeldingen registreert, opent u config.xml in uw Cordova-app, Hallo zoeken `id` kenmerkwaarde in Hallo widget-element en kopiëren voor later gebruik. In de Hallo XML te volgen, Hallo-ID is `io.cordova.myapp7777777`.
+#### <a name="find-the-id-to-use-as-your-app-id"></a>De ID te gebruiken als uw App-ID vinden
+Voordat u uw app voor pushmeldingen, open config.xml in uw Cordova-app registreren, vindt de `id` kenmerk waarde in het element widget en kopiëren voor later gebruik. In het volgende XML-bestand, de ID is `io.cordova.myapp7777777`.
 
         <widget defaultlocale="en-US" id="io.cordova.myapp7777777"
           version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="http://www.w3.org/ns/widgets"
             xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
 
-Deze id later gebruiken bij het maken van een App-ID op van Apple developer portal. Als u een andere App-ID op Hallo developer-portal maakt, moet u rekening houden met een paar extra stappen verderop in deze zelfstudie. Hallo-ID in het element widget moet overeenkomen met de Hallo App-ID op Hallo-portal voor ontwikkelaars.
+Deze id later gebruiken bij het maken van een App-ID op van Apple developer portal. Als u een andere App-ID in de portal voor ontwikkelaars maakt, moet u rekening houden met een paar extra stappen verderop in deze zelfstudie. De ID in het element widget moet overeenkomen met de App-ID op de portal voor ontwikkelaars.
 
-#### <a name="register-hello-app-for-push-notifications-on-apples-developer-portal"></a>Hallo-app voor pushmeldingen op Apple developer-portal te registreren
+#### <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>De app voor pushmeldingen op Apple developer-portal te registreren
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
 [Bekijk een video van vergelijkbare stappen](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-5-Set-up-apns-for-push)
 
-#### <a name="configure-azure-toosend-push-notifications"></a>Azure toosend-pushmeldingen configureren
+#### <a name="configure-azure-to-send-push-notifications"></a>Configureren van Azure om pushmeldingen te verzenden
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
 #### <a name="verify-that-your-app-id-matches-your-cordova-app"></a>Controleren of uw App-ID overeenkomt met uw Cordova-app
-Als Hallo App-ID die u hebt gemaakt in uw ontwikkelaarsaccount Apple al overeenkomt met Hallo-ID van Hallo widget element in config.xml, kunt u deze stap overslaan. Als Hallo-id's niet overeenkomen, voert u Hallo stappen te volgen:
+Als de App-ID die u hebt gemaakt in uw ontwikkelaarsaccount Apple al overeenkomt met de ID van het element widget in config.xml, kunt u deze stap overslaan. Als de id's niet overeenkomen, voert u de volgende stappen uit:
 
-1. Hallo platforms map verwijderen van uw project.
-2. Hallo plugins map verwijderen van uw project.
-3. Hallo node_modules map verwijderen van uw project.
-4. Hallo-id-kenmerk van Hallo widget element in config.xml toouse Hallo App-ID die u hebt gemaakt in uw Apple Developer-Account bijwerken.
+1. Verwijder de map platforms van uw project.
+2. Verwijder de map plugins van uw project.
+3. Verwijder de map node_modules van uw project.
+4. Bijwerken van het kenmerk id van het element widget in config.xml om de App-ID die u hebt gemaakt in uw Apple Developer-Account te gebruiken.
 5. Bouw het project opnieuw op.
 
 ##### <a name="test-push-notifications-in-your-ios-app"></a>Pushmeldingen testen in uw iOS-app
-1. Controleer of in Visual Studio **iOS** is geselecteerd als het implementatiedoel Hallo en kies vervolgens **apparaat** toorun op het verbonden iOS-apparaat.
+1. Controleer of in Visual Studio **iOS** is geselecteerd als het implementatiedoel en kies vervolgens **apparaat** uit te voeren op het verbonden iOS-apparaat.
 
-    U kunt uitvoeren op een iOS-apparaat aansluit tooyour PC met iTunes. Hallo iOS-Simulator biedt geen ondersteuning voor pushmeldingen.
+    U kunt uitvoeren op een iOS-apparaat is verbonden met uw PC met iTunes. De iOS-Simulator biedt geen ondersteuning voor pushmeldingen.
 
-2. Druk op Hallo **uitvoeren** knop of **F5** in Visual Studio toobuild Hallo-project en start Hallo-app in een iOS-apparaat en klik vervolgens op **OK** tooaccept pushmeldingen.
+2. Druk op de **uitvoeren** knop of **F5** in Visual Studio om het project bouwen en starten van de app in een iOS-apparaat, klik vervolgens op **OK** pushmeldingen accepteren.
 
    > [!NOTE]
-   > Hallo app vraagt om bevestiging voor pushmeldingen tijdens Hallo voor het eerst uitvoert.
+   > De app vraagt om bevestiging voor pushmeldingen tijdens de eerste keer uitvoert.
 
-3. Typ een taak in Hallo-app, en klik op Hallo plusteken (+) pictogram.
-4. Controleer of dat een melding wordt ontvangen en klik vervolgens op OK toodismiss Hallo melding.
+3. Typ een taak in de app en klik vervolgens op het plusteken (+) pictogram.
+4. Controleer of u een melding wordt ontvangen en klik op OK om af te sluiten van de melding.
 
 ## <a name="optional-configure-and-run-on-windows"></a>(Optioneel) Configureren en uitvoeren in Windows
-Deze sectie is voor het uitvoeren van Hallo Apache Cordova-app-project op Windows 10-apparaten (Hallo PhoneGap push-invoegtoepassing wordt ondersteund op Windows 10). Als u niet met Windows-apparaten werkt, kunt u deze sectie overslaan.
+Deze sectie is voor het uitvoeren van de Apache Cordova-app-project op Windows 10-apparaten (de PhoneGap-push-invoegtoepassing wordt ondersteund op Windows 10). Als u niet met Windows-apparaten werkt, kunt u deze sectie overslaan.
 
 #### <a name="register-your-windows-app-for-push-notifications-with-wns"></a>Uw Windows-app voor pushmeldingen registreren met WNS
-toouse hello Store opties in Visual Studio, selecteer een doel Windows hello oplossing Platforms lijst zoals **Windows x64** of **Windows x86** (voorkomen **Windows AnyCPU** voor pushmeldingen).
+Als u de Store-opties in Visual Studio, selecteer een Windows doel in de lijst met oplossing platformen, zoals **Windows x64** of **Windows x86** (voorkomen **Windows AnyCPU** voor pushmeldingen).
 
 [!INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
 
 [Bekijk een video van gelijksoortige stappen][13]
 
-#### <a name="configure-hello-notification-hub-for-wns"></a>Hallo notification hub configureren voor WNS
+#### <a name="configure-the-notification-hub-for-wns"></a>De notification hub configureren voor WNS
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-#### <a name="configure-your-cordova-app-toosupport-windows-push-notifications"></a>Uw pushmeldingen voor Cordova-app toosupport Windows configureren
-Open Hallo configuration designer (met de rechtermuisknop op config.xml en selecteer **ontwerper**), selecteer Hallo **Windows** tabblad en kies **Windows 10** onder **Windows doel versie**.
+#### <a name="configure-your-cordova-app-to-support-windows-push-notifications"></a>Configureer uw Cordova-app om ondersteuning voor pushmeldingen voor Windows
+Open de configuration designer (met de rechtermuisknop op config.xml en selecteer **ontwerper**), selecteer de **Windows** tabblad en kies **Windows 10** onder  **Windows doel versie**.
 
-toosupport pushmeldingen in uw standaard (debug) bouwt, open build.json-bestand. Kopieer de "release" configuratie tooyour foutopsporing configuratie.
+Ter ondersteuning van push meldingen in uw standaard (debug) bouwt, open build.json-bestand. Kopieer de "release"-configuratie aan uw configuratie voor foutopsporing.
 
         "windows": {
             "release": {
@@ -302,7 +302,7 @@ toosupport pushmeldingen in uw standaard (debug) bouwt, open build.json-bestand.
             }
         }
 
-Nadat de update hello, moeten Hallo build.json Hallo na code bevatten:
+Nadat de update, moet de build.json bevatten de volgende code:
 
     "windows": {
         "release": {
@@ -315,22 +315,22 @@ Nadat de update hello, moeten Hallo build.json Hallo na code bevatten:
             }
         }
 
-Hallo-app bouwen en te controleren of er geen fouten. Uw client-app moet zich nu registreren voor Hallo meldingen van de back-end van Hallo mobiele App. Herhaal deze sectie voor elke Windows-project in uw oplossing.
+De app bouwen en te controleren of er geen fouten. Uw client-app moet zich nu registreren voor de meldingen van de back-end voor de mobiele App. Herhaal deze sectie voor elke Windows-project in uw oplossing.
 
 #### <a name="test-push-notifications-in-your-windows-app"></a>Pushmeldingen testen in uw Windows-app
-Zorg ervoor dat een Windows-platform, zoals Hallo implementatie TARGET is geselecteerd in Visual Studio **Windows x64** of **Windows x86**. Kies toorun Hallo-app op een Windows 10-computer die als host fungeert voor Visual Studio **lokale Machine**.
+In Visual Studio, zorg ervoor dat een Windows-platform is geselecteerd als het implementatiedoel zoals **Windows x64** of **Windows x86**. Als u wilt uitvoeren op een Windows 10-computer die als host fungeert voor Visual Studio, kies **lokale Machine**.
 
-Druk op Hallo knop toobuild Hallo project uitvoeren en Hallo-app te starten.
+Druk op de knop uitvoeren op het project bouwen en de app te starten.
 
-Typ een naam voor een nieuwe stukje in Hallo-app en klik op Hallo plusteken (+) pictogram tooadd deze.
+Typ een naam voor een nieuwe taken in de app en klik vervolgens op het plusteken (+) pictogram toe te voegen.
 
-Controleer of dat er een melding wordt ontvangen wanneer Hallo item wordt toegevoegd.
+Controleer of dat er een melding wordt ontvangen wanneer het item is toegevoegd.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [Notification Hubs] [ 17] toolearn over pushmeldingen.
-* Als u dit nog niet hebt gedaan, gaat u verder Hallo zelfstudie door [Authentication toevoegen] [ 14] tooyour Apache Cordova-app.
+* Meer informatie over [Notification Hubs] [ 17] voor meer informatie over pushmeldingen.
+* Als u dit nog niet hebt gedaan, blijven de zelfstudie door [Authentication toevoegen] [ 14] aan uw Apache Cordova-app.
 
-Meer informatie over hoe toouse Hallo SDK's.
+Informatie over het gebruik van de SDK's.
 
 * [Apache Cordova-SDK][15]
 * [ASP.NET-Server SDK][1]

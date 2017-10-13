@@ -1,6 +1,6 @@
 ---
-title: aaaGet de slag met Data Lake Analytics met REST-API | Microsoft Docs
-description: WebHDFS REST-API's tooperform bewerkingen op Data Lake Analytics gebruiken
+title: Aan de slag met Data Lake Analytics met REST API| Microsoft Docs
+description: WebHDFS REST-API's gebruiken om bewerkingen uit te voeren in Data Lake Analytics
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/03/2017
 ms.author: jgao
-ms.openlocfilehash: a0b13d521821fd2d74716cc52485585feb7c51b2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 332d7af2539eea8890745005104ac5b0921c2b7f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-rest-apis"></a>Aan de slag met Azure Data Lake Analytics met REST-API'S
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Ontdek hoe toouse WebHDFS REST-API's en Data Lake Analytics REST-API's toomanage Data Lake Analytics-accounts, taken en -catalogus. 
+Meer informatie over hoe u WebHDFS REST API's en Data Lake Analytics REST API's gebruikt voor het beheren van Data Lake Analytics-accounts, -taken en -catalogi. 
 
 ## <a name="prerequisites"></a>Vereisten
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-* **Een Azure Active Directory-toepassing maken**. U hello Azure AD-toepassing tooauthenticate Hallo Data Lake Analytics-toepassing gebruiken met Azure AD. Er zijn verschillende benaderingen tooauthenticate met Azure AD zijn **eindgebruiker verificatie** of **authentication service-naar-serviceconnector**. Voor instructies en meer informatie over het tooauthenticate, Zie [verifiëren met Data Lake Analytics met Azure Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
-* [cURL](http://curl.haxx.se/). Dit artikel wordt cURL toodemonstrate hoe toomake REST-API tegen een Data Lake Analytics-account aanroept.
+* **Een Azure Active Directory-toepassing maken**. U gebruikt de Azure AD-toepassing om de Data Lake Analytics-toepassing te verifiëren in Azure AD. Er zijn verschillende manieren om te verifiëren in Azure AD, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Authenticate with Data Lake Analytics using Azure Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) (Verifiëren met Data Lake Analytics met behulp van Azure Active Directory) voor instructies en meer informatie over verificatie.
+* [cURL](http://curl.haxx.se/). In dit artikel wordt cURL gebruikt om te laten zien hoe u REST API-aanroepen maakt voor een Data Lake Analytics-account.
 
 ## <a name="authenticate-with-azure-active-directory"></a>Verifiëren bij Azure Active Directory
 Er zijn twee methoden om te verifiëren bij Azure Active Directory.
 
 ### <a name="end-user-authentication-interactive"></a>Eindgebruikersverificatie (interactief)
-Met deze methode wordt gevraagd of Hallo gebruiker toolog in en alle Hallo-bewerkingen worden uitgevoerd in de context van de gebruiker Hallo Hallo. 
+Met deze methode wordt de gebruiker via de toepassing gevraagd om zich aan te melden. Alle bewerkingen worden uitgevoerd in de context van de gebruiker. 
 
 Volg deze stappen voor interactieve verificatie:
 
-1. Omleiden via de toepassing hello gebruiker toohello volgende URL:
+1. Leid de gebruiker via de toepassing om naar de volgende URL:
    
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
    
    > [!NOTE]
-   > \<OMLEIDINGS-URI > moet toobe gecodeerd voor gebruik in een URL. Dus https://localhost, gebruikt u `https%3A%2F%2Flocalhost`)
+   > \<REDIRECT-URI> moet zijn gecodeerd om te worden gebruikt in een URL. Dus https://localhost, gebruikt u `https%3A%2F%2Flocalhost`)
    > 
    > 
    
-    U kunt voor doel van deze zelfstudie Hallo Hallo tijdelijke aanduiding voor waarden in Hallo bovenstaande URL vervangen en plak deze in de adresbalk van de webbrowser. U zult omgeleid tooauthenticate met behulp van uw Azure-aanmelding. Nadat u bent aangemeld, wordt in de adresbalk van de browser Hallo antwoord Hallo weergegeven. antwoord Hallo niet in de volgende indeling Hallo:
+    Voor deze zelfstudie kunt u de waarden van de tijdelijke aanduiding in bovenstaande URL vervangen en deze in de adresbalk van de webbrowser plakken. U wordt omgeleid om u te verifiëren met uw Azure-aanmelding. Wanneer u bent aangemeld, wordt het antwoord weergegeven in de adresbalk van de browser. Het antwoord heeft de volgende indeling:
    
         http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
-2. Hallo autorisatiecode uit antwoord Hallo vastleggen. U kunt voor deze zelfstudie Hallo autorisatiecode uit de adresbalk Hallo van Hallo webbrowser kopiëren en doorgeven in Hallo POST-aanvraag toohello token eindpunt, zoals hieronder wordt weergegeven:
+2. Leg de autorisatiecode uit het antwoord vast. Voor deze zelfstudie kunt u de autorisatiecode uit de adresbalk van de webbrowser kopiëren en deze in de POST-aanvraag doorgeven aan het eindpunt van het token, zoals hieronder wordt weergegeven:
    
         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
         -F redirect_uri=<REDIRECT-URI> \
@@ -60,13 +60,13 @@ Volg deze stappen voor interactieve verificatie:
         -F code=<AUTHORIZATION-CODE>
    
    > [!NOTE]
-   > In dit geval Hallo \<OMLEIDINGS-URI > niet te worden gecodeerd.
+   > In dit geval hoeft de \<REDIRECT-URI> niet te worden gecodeerd.
    > 
    > 
-3. Hallo-antwoord is een JSON-object dat een toegangstoken bevat (bijvoorbeeld `"access_token": "<ACCESS_TOKEN>"`) en een vernieuwingstoken (bijvoorbeeld `"refresh_token": "<REFRESH_TOKEN>"`). Uw toepassing gebruikt Hallo toegangstoken tijdens toegang tot Azure Data Lake Store en Hallo vernieuwen token tooget een andere toegangstoken wanneer een toegangstoken is verlopen.
+3. Het antwoord is een JSON-object dat een toegangstoken (bijvoorbeeld `"access_token": "<ACCESS_TOKEN>"`) en een vernieuwingstoken (bijvoorbeeld `"refresh_token": "<REFRESH_TOKEN>"`) bevat. Uw toepassing gebruikt het toegangstoken om toegang te krijgen tot Azure Data Lake Store en het vernieuwingstoken om een nieuw toegangstoken op te halen wanneer het oude is verlopen.
    
         {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
-4. Wanneer Hallo toegangstoken is verlopen, kunt u een nieuw toegangstoken met behulp van het vernieuwingstoken hello, zoals hieronder wordt weergegeven aanvragen:
+4. Wanneer het toegangstoken is verlopen, kunt u als volgt met het vernieuwingstoken een nieuw toegangstoken aanvragen:
    
         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
              -F grant_type=refresh_token \
@@ -77,7 +77,7 @@ Volg deze stappen voor interactieve verificatie:
 Zie [De stroom voor autorisatiecodetoekenning](https://msdn.microsoft.com/library/azure/dn645542.aspx) voor meer informatie over interactieve gebruikersverificatie.
 
 ### <a name="service-to-service-authentication-non-interactive"></a>Service-naar-serviceverificatie (niet interactief)
-Met deze methode toepassing zijn eigen referenties verstrekt tooperform Hallo bewerkingen. Hiervoor moet u een POST-aanvraag, zoals hieronder wordt weergeven Hallo uitgeven: 
+Met deze methode worden met de toepassing eigen referenties verstrekt om bewerkingen uit te voeren. Hiervoor moet u een POST-aanvraag uitgeven, zoals in het voorbeeld hieronder: 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
       -F grant_type=client_credentials \
@@ -85,20 +85,20 @@ Met deze methode toepassing zijn eigen referenties verstrekt tooperform Hallo be
       -F client_id=<CLIENT-ID> \
       -F client_secret=<AUTH-KEY>
 
-Hallo-uitvoer van deze aanvraag bevat een verificatietoken (aangeduid met `access-token` in onderstaande Hallo-uitvoer) die u vervolgens gaat doorgeven met de REST-API-aanroepen. Sla dit verificatietoken op in een tekstbestand. U hebt het verderop in dit artikel nodig.
+De uitvoer van deze aanvraag bevat een verificatietoken (in de onderstaande uitvoer aangegeven met `access-token`) die u vervolgens gaat doorgeven met de REST-API-aanroepen. Sla dit verificatietoken op in een tekstbestand. U hebt het verderop in dit artikel nodig.
 
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
 
-Dit artikel wordt Hallo **niet-interactieve** benadering. Zie voor meer informatie over niet-interactieve (service-naar-service) aanroepen [tooservice aanroepen met referenties Service](https://msdn.microsoft.com/library/azure/dn645543.aspx).
+In dit artikel wordt de **niet-interactieve** benadering gebruikt. Zie [Service-naar-service-aanroepen met referenties](https://msdn.microsoft.com/library/azure/dn645543.aspx) voor meer informatie over niet-interactieve (service-naar-service) aanroepen.
 
 ## <a name="create-a-data-lake-analytics-account"></a>Een Data Lake Analytics-account maken
 U moet een Azure-resourcegroep en een Data Lake Store-account maken voordat u een Data Lake Analytics-account kunt maken.  Zie [Een Data Lake Store-account maken](../data-lake-store/data-lake-store-get-started-rest-api.md#create-a-data-lake-store-account).
 
-Hallo volgende Curl-opdracht toont hoe toocreate een account:
+De volgende cURL-opdracht laat zien hoe u een account maakt:
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<NewAzureDataLakeAnalyticsAccountName>?api-version=2016-11-01 -d@"C:\tutorials\adla\CreateDataLakeAnalyticsAccountRequest.json"
 
-Vervang \< `REDACTED` \> door het verificatietoken hello, \< `AzureSubscriptionID` \> met uw abonnements-ID \< `AzureResourceGroupName` \> met een bestaande Azure-Resource Groepsnaam, en \< `NewAzureDataLakeAnalyticsAccountName` \> met een nieuwe naam voor de Data Lake Analytics-Account. Hallo aanvraag nettolading voor deze opdracht zit in Hallo **CreateDatalakeAnalyticsAccountRequest.json** -bestand dat is opgegeven voor het Hallo `-d` parameter hierboven. Hallo-inhoud van Hallo input.json bestand lijken Hallo volgende op:
+Vervang \<`REDACTED`\> door het autorisatietoken, \<`AzureSubscriptionID`\> door uw abonnements-id, \<`AzureResourceGroupName`\> door de naam van een bestaande Azure-resourcegroep en \<`NewAzureDataLakeAnalyticsAccountName`\> door de naam van een nieuw Data Lake Analytics-account. De nettolading van de aanvraag voor deze opdracht zit in het bestand **CreateDatalakeAnalyticsAccountRequest.json** dat is opgegeven voor de parameter `-d` hierboven. De inhoud van het bestand input.json ziet er ongeveer als volgt uit:
 
     {  
         "location": "East US 2",  
@@ -116,11 +116,11 @@ Vervang \< `REDACTED` \> door het verificatietoken hello, \< `AzureSubscriptionI
 
 
 ## <a name="list-data-lake-analytics-accounts-in-a-subscription"></a>Data Lake Analytics-accounts vermelden in een abonnement
-Hallo volgende Curl-opdracht ziet u hoe toolist accounts in een abonnement:
+De volgende cURL-opdracht laat zien hoe u accounts vermeldt in een abonnement:
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/providers/Microsoft.DataLakeAnalytics/Accounts?api-version=2016-11-01
 
-Vervang \< `REDACTED` \> door het verificatietoken hello, \< `AzureSubscriptionID` \> met uw abonnement-ID. Hallo-uitvoer is vergelijkbaar met:
+Vervang \<`REDACTED`\> door het autorisatietoken en \<`AzureSubscriptionID`\> door uw abonnements-id. De uitvoer is vergelijkbaar met:
 
     {
         "value": [
@@ -158,11 +158,11 @@ Vervang \< `REDACTED` \> door het verificatietoken hello, \< `AzureSubscriptionI
     }
 
 ## <a name="get-information-about-a-data-lake-analytics-account"></a>Informatie krijgen over een Data Lake Analytics-account
-Hallo volgende Curl-opdracht toont hoe de gegevens van een account tooget:
+De volgende cURL-opdracht laat zien hoe u accountgegevens ophaalt:
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<DataLakeAnalyticsAccountName>?api-version=2015-11-01
 
-Vervang \< `REDACTED` \> door het verificatietoken hello, \< `AzureSubscriptionID` \> met uw abonnements-ID \< `AzureResourceGroupName` \> met een bestaande Azure-Resource Groepsnaam, en \< `DataLakeAnalyticsAccountName` \> met Hallo-naam van een bestaande Data Lake Analytics-Account. Hallo-uitvoer is vergelijkbaar met:
+Vervang \<`REDACTED`\> door het autorisatietoken, \<`AzureSubscriptionID`\> door uw abonnements-id, \<`AzureResourceGroupName`\> door de naam van een bestaande Azure-resourcegroep en \<`DataLakeAnalyticsAccountName`\> door de naam van een bestaand Data Lake Analytics-account. De uitvoer is vergelijkbaar met:
 
     {
         "properties": {
@@ -190,11 +190,11 @@ Vervang \< `REDACTED` \> door het verificatietoken hello, \< `AzureSubscriptionI
     }
 
 ## <a name="list-data-lake-stores-of-a-data-lake-analytics-account"></a>Data Lake Stores van een Data Lake Analytics-account vermelden
-Hallo volgende Curl-opdracht ziet u hoe toolist Data Lake opslaat van een account:
+De volgende cURL-opdracht laat zien hoe u Data Lake Stores van een account vermeldt:
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/<AzureSubscriptionID>/resourceGroups/<AzureResourceGroupName>/providers/Microsoft.DataLakeAnalytics/accounts/<DataLakeAnalyticsAccountName>/DataLakeStoreAccounts/?api-version=2016-11-01
 
-Vervang \< `REDACTED` \> door het verificatietoken hello, \< `AzureSubscriptionID` \> met uw abonnements-ID \< `AzureResourceGroupName` \> met een bestaande Azure-Resource Groepsnaam, en \< `DataLakeAnalyticsAccountName` \> met Hallo-naam van een bestaande Data Lake Analytics-Account. Hallo-uitvoer is vergelijkbaar met:
+Vervang \<`REDACTED`\> door het autorisatietoken, \<`AzureSubscriptionID`\> door uw abonnements-id, \<`AzureResourceGroupName`\> door de naam van een bestaande Azure-resourcegroep en \<`DataLakeAnalyticsAccountName`\> door de naam van een bestaand Data Lake Analytics-account. De uitvoer is vergelijkbaar met:
 
     {
         "value": [
@@ -210,11 +210,11 @@ Vervang \< `REDACTED` \> door het verificatietoken hello, \< `AzureSubscriptionI
     }
 
 ## <a name="submit-u-sql-jobs"></a>U-SQL-taken verzenden
-Hallo volgende Curl-opdracht toont hoe toosubmit een U-SQL-taak:
+De volgende cURL-opdracht laat zien hoe u een U-SQL-taak verzendt:
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs/<NewGUID>?api-version=2016-03-20-preview -d@"C:\tutorials\adla\SubmitADLAJob.json"
 
-Vervang \< `REDACTED` \> door het verificatietoken hello, \< `DataLakeAnalyticsAccountName` \> met Hallo-naam van een bestaande Data Lake Analytics-Account. Hallo aanvraag nettolading voor deze opdracht zit in Hallo **SubmitADLAJob.json** -bestand dat is opgegeven voor het Hallo `-d` parameter hierboven. Hallo-inhoud van Hallo input.json bestand lijken Hallo volgende op:
+Vervang \<`REDACTED`\> door het autorisatietoken en \<`DataLakeAnalyticsAccountName`\> door de naam van een bestaand Data Lake Analytics-account. De nettolading van de aanvraag voor deze opdracht zit in het bestand **SubmitADLAJob.json** dat is opgegeven voor de parameter `-d` hierboven. De inhoud van het bestand input.json ziet er ongeveer als volgt uit:
 
     {
         "jobId": "8f8ebf8c-4b63-428a-ab46-a03d2cc5b65a",
@@ -226,11 +226,11 @@ Vervang \< `REDACTED` \> door het verificatietoken hello, \< `DataLakeAnalyticsA
             "type": "USql",
             "script": "@searchlog =\n    EXTRACT UserId          int,\n            Start           DateTime,\n            Region          string,\n            Query          
         string,\n            Duration        int?,\n            Urls            string,\n            ClickedUrls     string\n    FROM \"/Samples/Data/SearchLog.tsv\"\n    US
-        ING Extractors.Tsv();\n\nOUTPUT @searchlog   \n    too\"/Output/SearchLog-from-Data-Lake.csv\"\nUSING Outputters.Csv();"
+        ING Extractors.Tsv();\n\nOUTPUT @searchlog   \n    TO \"/Output/SearchLog-from-Data-Lake.csv\"\nUSING Outputters.Csv();"
         }
     }
 
-Hallo-uitvoer is vergelijkbaar met:
+De uitvoer is vergelijkbaar met:
 
     {
         "jobId": "8f8ebf8c-4b63-428a-ab46-a03d2cc5b65a",
@@ -267,13 +267,13 @@ Hallo-uitvoer is vergelijkbaar met:
 
 
 ## <a name="list-u-sql-jobs"></a>U-SQL-taken vermelden
-Hallo volgende Curl-opdracht toont hoe U-SQL toolist taken:
+De volgende cURL-opdracht laat zien hoe u U-SQL-taken vermeldt:
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs?api-version=2016-11-01 
 
-Vervang \< `REDACTED` \> door het verificatietoken hello, en \< `DataLakeAnalyticsAccountName` \> met Hallo-naam van een bestaande Data Lake Analytics-Account. 
+Vervang \<`REDACTED`\> door het autorisatietoken en \<`DataLakeAnalyticsAccountName`\> door de naam van een bestaand Data Lake Analytics-account. 
 
-Hallo-uitvoer is vergelijkbaar met:
+De uitvoer is vergelijkbaar met:
 
     {
     "value": [
@@ -322,11 +322,11 @@ Hallo-uitvoer is vergelijkbaar met:
 
 
 ## <a name="get-catalog-items"></a>Catalogusitems ophalen
-Hallo volgende Curl-opdracht ziet u hoe tooget Hallo databases van catalogus Hallo:
+De volgende cURL-opdracht laat zien hoe u de databases ophaalt uit de catalogus:
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/catalog/usql/databases?api-version=2016-11-01
 
-Hallo-uitvoer is vergelijkbaar met:
+De uitvoer is vergelijkbaar met:
 
     {
     "@odata.context":"https://myadla0831.azuredatalakeanalytics.net/sqlip/$metadata#databases","value":[
@@ -339,10 +339,10 @@ Hallo-uitvoer is vergelijkbaar met:
     }
 
 ## <a name="see-also"></a>Zie ook
-* Zie voor een complexere query toosee [websitelogboeken analyseren met Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-* tooget gestart met het ontwikkelen van U-SQL-toepassingen, Zie [U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* toolearn U-SQL, Zie [aan de slag met Azure Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md).
+* Zie [Websitelogboeken analyseren met Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md) voor een complexere query.
+* Zie [U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) om aan de slag te gaan met het ontwikkelen van U-SQL-toepassingen.
+* Zie [Aan de slag met de Azure Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md) om U-SQL te leren.
 * Zie [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voor informatie over beheertaken.
-* Zie tooget een overzicht van Data Lake Analytics [overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md).
-* toosee Hallo dezelfde zelfstudie met een ander hulpprogramma, klikt u op Hallo-tabselectors op Hallo Hallo pagina bovenaan.
+* Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor een overzicht van Data Lake Analytics.
+* Als u dezelfde zelfstudie wilt bekijken met een ander hulpprogramma, klikt u op de tabselectors boven aan de pagina.
 

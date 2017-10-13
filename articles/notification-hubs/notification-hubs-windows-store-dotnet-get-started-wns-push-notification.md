@@ -1,6 +1,6 @@
 ---
-title: aaaGet de slag met Azure Notification Hubs voor universele Windows-Platform-Apps | Microsoft Docs
-description: In deze zelfstudie leert u hoe toouse Azure Notification Hubs toopush meldingen tooa universele Windows-Platform-toepassing.
+title: Aan de slag met Azure Notification Hubs voor Universeel Windows-platform-apps | Microsoft Docs
+description: In deze zelfstudie leert u hoe u Azure Notification Hubs gebruikt om meldingen naar een Windows Universal Platform-toepassing te pushen.
 services: notification-hubs
 documentationcenter: windows
 author: ysxu
@@ -14,103 +14,108 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: 11056842d205522ed493dc61c76ecf78ebb5a363
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: e18a810bcdbd97c79418f53c647df8723ecb6076
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="getting-started-with-notification-hubs-for-windows-universal-platform-apps"></a>Aan de slag met Notification Hubs voor Windows Universal Platform-apps
+# <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Aan de slag met Notification Hubs voor Universeel Windows-platform-apps
+
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie leert u hoe toouse Azure Notification Hubs toosend push-meldingen tooa Universal Windows Platform (UWP)-app.
+In dit artikel leest u hoe u Azure Notification Hubs gebruikt om pushmeldingen te verzenden naar een Universal Windows Platform-app (UWP-app).
 
-In deze zelfstudie maakt u een lege Windows Store-app die pushmeldingen ontvangt via Hallo Windows Push Notification Service (WNS). Wanneer u klaar bent, moet u kunnen toouse push uw notification hub toobroadcast meldingen tooall Hallo apparaten waarop uw app wordt uitgevoerd.
+In dit artikel maakt u een lege Windows Store-app die pushmeldingen ontvangt via de Windows Push Notification Service (WNS). Als u klaar bent, kunt u de Notification Hub gebruiken om pushmeldingen uit te zenden naar alle apparaten waarop uw app wordt uitgevoerd.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-Hallo voltooid code voor deze zelfstudie kunt u vinden op GitHub [hier](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
+De volledige code voor deze zelfstudie vindt u op [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
 ## <a name="prerequisites"></a>Vereisten
-Deze zelfstudie vereist de volgende Hallo:
+Voor deze zelfstudie hebt u het volgende nodig:
 
 * [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) of later
-* [Universal Windows App Development Tools geïnstalleerd](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
-* Een actief Azure-account <br/>Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F) voor meer informatie.
+* [Ontwikkelhulpprogramma's voor UWP-apps geïnstalleerd](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
+* Een actief Azure-account  
+    Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F) voor meer informatie.
 * Een actief Windows Store-account
 
-Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification Hubs-zelfstudies voor Windows Universal Platform-apps.
+Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification Hubs-zelfstudies voor UWP-apps.
 
-## <a name="register-your-app-for-hello-windows-store"></a>Uw app registreren voor Hallo Windows Store
-toosend push notifications tooUWP apps, moet u uw app toohello Windows Store koppelen. Vervolgens moet u uw notification hub toointegrate configureren met WNS.
+## <a name="register-your-app-for-the-windows-store"></a>Uw app registreren voor Windows Store
+Als u pushmeldingen naar UWP-apps wilt verzenden, koppelt u uw app aan de Windows Store. Vervolgens configureert u de Notification Hub voor integratie met WNS.
 
-1. Als u uw app nog niet hebt geregistreerd, gaat u toohello [Windows-ontwikkelaarscentrum](https://dev.windows.com/overview), meld u aan met uw Microsoft-account en klik vervolgens op **maakt een nieuwe app**.
+1. Als u uw app nog niet hebt geregistreerd, gaat u naar het [Windows-ontwikkelaarscentrum](https://dev.windows.com/overview), meldt u zich aan met uw Microsoft-account en selecteert u **Een nieuwe app maken**.
 
-2. Typ een naam voor uw app en klik op **App-naam reserveren**. Hiermee maakt u een nieuwe Windows Store-registratie voor uw app.
+2. Typ een naam voor uw app en selecteer **App-naam reserveren**. Hiermee maakt u een nieuwe Windows Store-registratie voor uw app.
 
-3. In Visual Studio kunt u een nieuw Visual C# Store-Apps-project maken met behulp van Universal Windows hello **lege App** sjabloon en klikt u op **OK**.
+3. Maak in Visual Studio een nieuw project voor Visual C# Store-apps met de UWP-sjabloon **Blank App** en selecteer **OK**.
 
-4. Accepteer de standaardinstellingen Hallo voor Hallo doel en minimale platformversies.
+4. Accepteer de standaardwaarden voor het doel en de minimale platformversies.
 
-5. Klik in Solution Explorer met de rechtermuisknop op Hallo Windows Store-app-project, klikt u op **Store**, en klik vervolgens op **App aan Hallo Store koppelen...** . Hallo **uw App koppelen aan Windows Store Hallo** wizard wordt weergegeven.
+5. Klik in Solution Explorer met de rechtermuisknop op het Windows Store-app-project, selecteer **Store** en klik vervolgens op **App aan de Store koppelen**.  
+    Hierop wordt de wizard **Uw app koppelen aan Windows Store** weergegeven.
 
-6. Klik in de wizard Hallo zich aanmelden met je Microsoft-account.
+6. Meld u in de wizard aan met uw Microsoft-account.
 
-7. Klik op Hallo-app die u in stap 2 hebt geregistreerd, klikt u op **volgende**, en klik vervolgens op **koppelen**. Hallo vereist Windows Store-registratie informatie toohello toepassingsmanifest wordt toegevoegd.
+7. Selecteer de app die u in stap 2 hebt geregistreerd, selecteer **Volgende** en selecteer vervolgens **koppelen**. Hierdoor worden de vereiste registratiegegevens voor Windows Store toegevoegd aan het toepassingsmanifest.
 
-8. Terug op Hallo [Windows-ontwikkelaarscentrum](http://dev.windows.com/overview) voor uw nieuwe app pagina, klikt u op **Services**, klikt u op **Pushmeldingen**, en klik vervolgens op **WNS/MPNS**.
+8. Als u weer terug bent op de pagina [Windows-ontwikkelaarscentrum](http://dev.windows.com/overview) voor uw nieuwe app, selecteert u de optie **Services**, selecteer vervolgens **Pushmeldingen** en daarna **WNS/MPNS**.
 
-9. Klik op **Nieuwe melding**.
+9. Selecteer **Nieuwe melding**.
 
-10. Klik op de sjabloon **Leeg (pop-up)** en klik vervolgens op **OK**.
+10. Selecteer de sjabloon **Leeg (pop-up)** en selecteer vervolgens **OK**.
 
-11. Voer een **Naam** voor de melding en een visueel **Context**bericht in. Klik vervolgens op **Opslaan als concept**.
+11. Voer een **naam** voor de melding in en een visueel **contextbericht**. Selecteer vervolgens **Opslaan als concept**.
 
-12. Navigeer toohello [Registratieportal toepassing](http://apps.dev.microsoft.com) en zich aanmelden.
+12. Ga naar de [portal voor app-registratie](http://apps.dev.microsoft.com) en meld u aan.
 
-13. Klik op de naam van uw toepassing. Noteer Hallo **Toepassingsgeheim** wachtwoord en Hallo **pakket beveiligings-id (SID)** zich in Hallo **Windows Store** platform-instellingen.
+13. Selecteer de naam van uw toepassing. Noteer in de platforminstellingen van de **Windows Store** het wachtwoord voor het **Toepassingsgeheim** en de **Beveiligings-id (SID) pakket**.
 
-     > [AZURE.WARNING]
-    Hallo toepassingsgeheim en pakket-SID zijn belangrijke beveiligingsreferenties. Deel deze waarden met niemand en distribueer ze niet met uw app.
+    >[!WARNING]
+    >Het toepassingsgeheim en de pakket-SID zijn belangrijke beveiligingsreferenties. Deel deze waarden met niemand en distribueer ze niet met uw app.
 
 ## <a name="configure-your-notification-hub"></a>Uw Notification Hub configureren
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="6">
-<li><p>Selecteer Hallo <b>Notification Services</b> optie en Hallo <b>Windows (WNS)</b> optie. Voer vervolgens Hallo <b>toepassingsgeheim</b> wachtwoord in Hallo <b>beveiligingssleutel</b> veld. Voer uw <b>pakket-SID</b> waarde die u hebt verkregen van WNS in de vorige sectie Hallo en klik vervolgens op <b>opslaan</b>.</p>
+<ol start="5">
+<li><p>Selecteer <b>Notification Services</b> > <b>Windows (WNS)</b> en voer het wachtwoord voor het toepassingsgeheim in in het vak <b>Beveiligingssleutel</b>. Voer in het vak <b>Pakket-SID</b> de waarde in die u in het vorige gedeelte van WNS hebt gekregen en selecteer <b>Opslaan</b>.</p>
 </li>
 </ol>
 
-&emsp;&emsp;![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
+![De vakken Pakket-SID en Beveiligingssleutel](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
-Uw notification hub is nu geconfigureerd toowork met WNS en u uw app Hallo verbinding tekenreeksen tooregister hebt en meldingen te verzenden.
+De Notification Hub is nu geconfigureerd om met WNS te kunnen werken. U hebt de verbindingsreeksen om uw app te registreren en meldingen te verzenden.
 
-## <a name="connect-your-app-toohello-notification-hub"></a>Verbinding maken met uw app toohello notification hub
-1. Met de rechtermuisknop op het Hallo-oplossing in Visual Studio en klik vervolgens op **NuGet-pakketten beheren**.
+## <a name="connect-your-app-to-the-notification-hub"></a>Uw app verbinden met de Notification Hub
+1. Klik met de rechtermuisknop op de oplossing in Visual Studio en selecteer **Manage NuGet Packages**.  
+    Het venster **Manage NuGet Packages** wordt geopend.
+
+2. Voer in het zoekvak **WindowsAzure.Messaging.Managed** in, selecteer **Install** en accepteer de gebruiksvoorwaarden.
    
-    U ziet nu Hallo **NuGet-pakketten beheren** in het dialoogvenster.
-2. Zoeken naar `WindowsAzure.Messaging.Managed` en klik op **installeren**, en accepteer de gebruiksvoorwaarden Hallo.
+    ![Het venster NuGet-pakketten beheren][20]
    
-    ![][20]
-   
-    Hiermee downloadt, installeert en wordt een verwijzing toohello Azure Messaging-bibliotheek voor Windows hello <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet-pakket</a>.
-3. Open Hallo projectbestand App.XAML.cs en voeg de volgende Hallo `using` instructies. 
+    Met deze actie wordt een verwijzing gedownload, geïnstalleerd en toegevoegd aan de Azure messaging-bibliotheek voor Windows met het [WindowsAzure.Messaging.Managed NuGet-pakket](http://nuget.org/packages/WindowsAzure.Messaging).
+
+3. Open het projectbestand App.xaml.cs en voeg de volgende `using`-instructies toe: 
    
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.Messaging;
         using Windows.UI.Popups;
-4. Voeg ook in App.xaml.cs Hallo volgende **InitNotificationsAsync** methode definitie toohello **App** klasse:
+
+4. Voeg in App.xaml.cs ook de volgende **InitNotificationsAsync**-methodedefinitie toe aan de klasse **App**:
    
         private async void InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
    
-            var hub = new NotificationHub("< your hub name>", "<Your DefaultListenSharedAccessSignature connection string>");
+            var hub = new NotificationHub("<your hub name>", "<Your DefaultListenSharedAccessSignature connection string>");
             var result = await hub.RegisterNativeAsync(channel.Uri);
    
-            // Displays hello registration ID so you know it was successful
+            // Displays the registration ID so you know it was successful
             if (result.RegistrationId != null)
             {
                 var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
@@ -120,57 +125,67 @@ Uw notification hub is nu geconfigureerd toowork met WNS en u uw app Hallo verbi
    
         }
    
-    Deze code Hallo kanaal-URI voor Hallo app opgehaald uit WNS en vervolgens die kanaal-URI voor uw notification hub geregistreerd.
+    Met deze code wordt de kanaal-URI voor de app opgehaald uit WNS en wordt vervolgens die kanaal-URI voor uw Notification Hub geregistreerd.
    
-   > [!NOTE]
-   > Zorg ervoor dat tooreplace 'uw hubnaam'-tijdelijke aanduiding met de naam van Hallo notification hub die wordt weergegeven in Azure Portal Hallo HALLO hallo. Hallo verbinding de tijdelijke aanduiding voor ook vervangen door Hallo **DefaultListenSharedAccessSignature** verbindingsreeks die u hebt verkregen via Hallo **toegangsbeleid** pagina van de Notification Hub in een vorige sectie.
+    >[!NOTE]
+    >* Vervang de tijdelijke aanduiding voor uw **hubnaam** door de naam van de Notification Hub, zoals die wordt weergegeven in Azure Portal. 
+    >* Vervang ook de tijdelijke plaatsaanduiding door de verbindingstekenreeks **DefaultListenSharedAccessSignature** die u in een eerder gedeelte hebt gekregen op de pagina **Toegangsbeleid** van uw Notification Hub.
    > 
    > 
-5. Hallo boven aan het Hallo **OnLaunched** gebeurtenis-handler in App.xaml.cs toevoegen na de aanroep toohello nieuwe Hallo **InitNotificationsAsync** methode:
+5. Aan de bovenkant van de gebeurtenis-handler **OnLaunched** in App.xaml.cs voegt u de volgende aanroep toe aan de nieuwe **InitNotificationsAsync**-methode:
    
         InitNotificationsAsync();
    
-    Dit zorgt ervoor dat Hallo kanaal-URI is geregistreerd in uw notification hub die elke keer Hallo-toepassing wordt gestart.
-6. Druk op Hallo **F5** key toorun Hallo app. Een pop-upvenster met de registratiesleutel hello wordt weergegeven.
+    Met deze actie wordt gegarandeerd dat de kanaal-URI in uw Notification Hub wordt geregistreerd telkens wanneer de toepassing wordt gestart.
 
-Uw app is nu gereed tooreceive pop-upmeldingen.
+6. Selecteer de toets **F5** als u de app wilt uitvoeren. Er wordt een dialoogvenster met de registratiesleutel weergegeven.
+
+Uw app is nu gereed om pop-upmeldingen te ontvangen.
 
 ## <a name="send-notifications"></a>Meldingen verzenden
-U kunt snel testen ontvangst van meldingen in uw app door meldingen te verzenden in Hallo [Azure Portal](https://portal.azure.com/) Hallo met **Test verzenden** knop op Hallo notification hub, zoals wordt weergegeven in onderstaande welkomstscherm.
+U kunt het ontvangen van meldingen in de app snel testen door meldingen te verzenden in [Azure Portal](https://portal.azure.com/). Gebruik de knop **Verzenden testen** op de Notification Hub, zoals weergegeven in de volgende afbeelding:
 
-![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
+![Het venster Verzenden testen](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
 
-Pushmeldingen worden gewoonlijk in een back-endservice zoals Mobile Services of ASP.NET verzonden met een compatibele bibliotheek. U kunt ook Hallo REST-API gebruiken direct toosend worden meldingsberichten als een bibliotheek niet beschikbaar voor uw back-end is. 
+Pushmeldingen worden gewoonlijk verzonden in een back-endservice als Mobile Services of ASP.NET, met behulp van een compatibele bibliotheek. U kunt de REST API ook direct gebruiken om meldingsberichten te verzenden als er geen bibliotheek beschikbaar is voor uw back-end. 
 
-In deze zelfstudie wordt Houd het eenvoudig en alleen gedemonstreerd hoe u uw clientapp test door meldingen met behulp van Hallo .NET SDK voor notification hubs in een consoletoepassing in plaats van een back-endservice te verzenden. We raden aan Hallo [Notification Hubs gebruiken toopush meldingen toousers] Hallo volgende stap voor het verzenden van meldingen vanuit een ASP.NET-back-end zelfstudie. Hallo volgende methoden kan echter worden gebruikt voor het verzenden van meldingen:
+In deze zelfstudie wordt gedemonstreerd hoe u uw client-app kunt testen door meldingen te verzenden met de .NET SDK voor Notification Hubs in een consoletoepassing in plaats van een back-endservice. U kunt het beste de zelfstudie [Use Notification Hubs to push notifications to users] (Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden) doornemen voor informatie over het verzenden van meldingen vanuit een ASP.NET-back-end. U kunt echter ook meldingen verzenden met behulp van de volgende methoden:
 
-* **REST-Interface**: U kunt meldingen ondersteunen op elk back-end-platform Hallo met [REST-interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
-* **Microsoft Azure Notification Hubs .NET SDK**: In Hallo Nuget Package Manager voor Visual Studio, voert u [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
-* **Node.js** : [hoe toouse Notification Hubs met Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
-* **Azure Mobile Apps**: voor een voorbeeld van hoe u meldingen vanuit een mobiele App van Azure die geïntegreerd met Notification Hubs toosend Zie [pushmeldingen toevoegen voor mobiele Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
-* **Java / PHP**: Zie voor een voorbeeld van hoe toosend meldingen met REST-API's Hallo ' hoe toouse Notification Hubs vanuit Java/PHP ' ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
+* **REST-interface**: u kunt meldingen op elk back-endplatform ondersteunen met de [REST-interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+
+* **Microsoft Azure Notification Hubs .NET SDK**: in NuGet Package Manager voor Visual Studio voert u [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) uit.
+
+* **Node.js**: zie [How to use Notification Hubs from Node.js](notification-hubs-nodejs-push-notification-tutorial.md) (Notification Hubs gebruiken vanuit Node.js) voor meer informatie.
+* **Azure Mobile Apps**: zie [Add push notifications for Mobile Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) (Pushmeldingen toevoegen voor mobiele apps) voor een voorbeeld van hoe u meldingen verzendt vanuit een Azure Mobile App die is geïntegreerd met Notification Hubs.
+
+* **Java of PHP**: voor voorbeelden van het verzenden van meldingen met de REST API's, raadpleegt u:
+    * [Java](notification-hubs-java-push-notification-tutorial.md)
+    * [PHP](notification-hubs-php-push-notification-tutorial.md)
 
 ## <a name="optional-send-notifications-from-a-console-app"></a>(Optioneel) Meldingen verzenden vanuit een console-app
-toosend meldingen met een .NET-consoletoepassing Volg deze stappen. 
+Als u meldingen wilt verzenden met een .NET-consoletoepassing, gaat u als volgt te werk: 
 
-1. Klik met de rechtermuisknop Hallo-oplossing, selecteer **toevoegen** en **nieuw Project...** , en klik vervolgens onder **Visual C#**, klikt u op **Windows** en **consoletoepassing**, en klik op **OK**.
+1. Klik met de rechtermuisknop op de oplossing, selecteer **Toevoegen** > **Nieuw project**. Selecteer onder **Visual C#** de opties **Windows** en **Consoletoepassing** en selecteer **OK**.
    
-    Hiermee wordt een nieuwe Visual C# console toepassing toohello oplossing toegevoegd. U kunt dit ook in een afzonderlijke oplossing doen.
+    Er wordt een nieuwe Visual C#-consoletoepassing aan de oplossing toegevoegd. U kunt het project ook toevoegen in een afzonderlijke oplossing.
 
-2. Klik in Visual Studio achtereenvolgens op **Extra**, **NuGet Package Manager** en **Package Manager-console**.
+2. Selecteer in Visual Studio achtereenvolgens **Tools**, **NuGet Package Manager** en **Package Manager Console**.
    
-    Hiermee geeft Hallo Package Manager-Console in Visual Studio.
-3. In Hallo venster Package Manager-Console, stelt u Hallo **standaardproject** tooyour nieuwe console toepassingsproject en vervolgens in het consolevenster hello, Hallo volgende opdracht wordt uitgevoerd:
+    Hiermee wordt de Package Manager Console in Visual Studio weergegeven.
+
+3. Stel in het venster Package Manager Console het **standaardproject** in op uw nieuwe consoletoepassingsproject en voer vervolgens in het consolevenster de volgende opdracht uit:
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-    Hiermee voegt u een verwijzing toohello Azure Notification Hubs SDK met de Hallo <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet-pakket</a>.
+    Met deze actie wordt een verwijzing toegevoegd aan de Azure Notification Hubs-SDK met het [Microsoft.Azure.Notification Hubs NuGet-pakket](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
    
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
-4. Open het bestand Program.cs hello en voeg de volgende Hallo `using` instructie:
+    ![De naam van het standaardproject](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+
+4. Open het bestand Program.cs en voeg de volgende `using`-instructie toe:
    
         using Microsoft.Azure.NotificationHubs;
-5. In Hallo **programma** klasse, Hallo volgende methode toe te voegen:
+
+5. Voeg in de klasse **Program** de volgende methode toe:
    
         private static async void SendNotificationAsync()
         {
@@ -180,28 +195,29 @@ toosend meldingen met een .NET-consoletoepassing Volg deze stappen.
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
    
-       Make sure tooreplace hello "hub name" placeholder with hello name of hello notification hub that as it appears in hello Azure Portal. Also, replace hello connection string placeholder with hello **DefaultFullSharedAccessSignature** connection string that you obtained from hello **Access Policies** page of your Notification Hub in hello section called "Configure your notification hub."
-   
-   > [!NOTE]
-   > Zorg ervoor dat u het Hallo-verbindingsreeks die is **volledige** toegang niet **luisteren** toegang. Hallo toegangsrecht luisteren tekenreeks heeft geen machtigingen toosend meldingen.
+    >[!NOTE]
+    >* Vervang de tijdelijke aanduiding voor uw **hubnaam** door de naam van de Notification Hub, zoals die wordt weergegeven in Azure Portal. 
+    >* Vervang de tijdelijke aanduiding met de verbindingsreeks door de verbindingsreeks **DefaultFullSharedAccessSignature** die afkomstig is van de pagina **Access Policies** (toegangsbeleid) van de Notification Hub in de sectie Configure your notification hub (De Notification Hub configureren).
+    >* Gebruik de verbindingsreeks met het toegangsrecht *Full*, dus niet *Listen*. Met een verbindingsreeks met het toegangsrecht Luisteren kunnen geen meldingen worden verzonden.
    > 
    > 
-6. Toevoegen van de volgende regels in Hallo Hallo **Main** methode:
+6. Voeg de volgende regels in de **Main**-methode toe:
    
          SendNotificationAsync();
          Console.ReadLine();
-7. Met de rechtermuisknop op het Hallo-consoletoepassingsproject in Visual Studio en klik op **instellen als opstartproject** tooset als opstartproject Hallo. Druk op Hallo **F5** sleutel toorun Hallo-toepassing.
-   
-    U ontvangt een pop-upmelding op alle geregistreerde apparaten. Hallo-app, klikt of tikt Hallo toast banner wordt geladen.
 
-U vindt alle Hallo ondersteunde nettoladingen in Hallo [pop-upcatalogus], [tegelcatalogus], en [badge-overzicht] onderwerpen op MSDN.
+7. Klik met de rechtermuisknop op het consoletoepassingsproject in Visual Studio en selecteer **Set as StartUp Project** om het project als opstartproject in te stellen. Selecteer vervolgens de toets **F5** om de toepassing uit te voeren.
+   
+    U ontvangt een pop-upmelding op alle geregistreerde apparaten. Als u de banner van de pop-up selecteert of erop tikt, wordt de app geladen.
+
+U vindt alle ondersteunde nettoladingen in de onderwerpen [pop-upcatalogus], [tegelcatalogus] en [badge-overzicht] op MSDN.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit eenvoudige voorbeeld verzonden u broadcast meldingen tooall uw Windows-apparaten via Hallo portal of een console-app. Hallo wordt aangeraden [Notification Hubs gebruiken toopush meldingen toousers] zelfstudie Hallo volgende stap. Hierin ziet u hoe toosend meldingen vanuit een ASP.NET-back-end met tags voor specifieke gebruikers tootarget.
+In dit eenvoudige voorbeeld hebt u meldingen uitgezonden naar al uw Windows-apparaten via de portal of een console-app. Voor de volgende stap kunt u het beste de zelfstudie [Use Notification Hubs to push notifications to users] (Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden) doornemen. Hierin ziet u hoe u meldingen van een ASP.NET-back-end verzendt met tags voor specifieke gebruikers.
 
-Als u wilt dat toosegment gebruikers op belangengroepen, raadpleegt u [Notification Hubs gebruiken toosend belangrijk nieuws]. 
+Zie [Notification Hubs gebruiken om belangrijk nieuws te verzenden] als u gebruikers wilt indelen op belangengroepen. 
 
-toolearn Zie voor meer algemene informatie over Notification Hubs [richtlijnen voor Notification Hubs](notification-hubs-push-notification-overview.md).
+Zie [Notification Hubs guidance](notification-hubs-push-notification-overview.md) (Richtlijnen voor Notification Hubs) voor meer algemene informatie over Notification Hubs.
 
 <!-- Images. -->
 [13]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
@@ -211,9 +227,10 @@ toolearn Zie voor meer algemene informatie over Notification Hubs [richtlijnen v
 
 <!-- URLs. -->
 
-[Notification Hubs gebruiken toopush meldingen toousers]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Notification Hubs gebruiken toosend belangrijk nieuws]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Notification Hubs gebruiken om belangrijk nieuws te verzenden]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [pop-upcatalogus]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [tegelcatalogus]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [badge-overzicht]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+ 

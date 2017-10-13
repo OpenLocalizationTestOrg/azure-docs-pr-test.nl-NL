@@ -1,6 +1,6 @@
 ---
-title: aaaAdd een Azure Active Directory B2B-samenwerking gebruikersrol tooa | Microsoft Docs
-description: Toevoegen van een gast tooa gebruikersrol in Azure Active Directory
+title: Een Azure Active Directory B2B-samenwerking gebruiker toevoegen aan een rol | Microsoft Docs
+description: Een gastgebruiker toevoegen aan een rol in Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -16,15 +16,15 @@ ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccc58a0c8ecc73f8e79a8d827efdc0ff93846a96
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e816349ea971c997f655b4d51672dba666bc3e89
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="grant-permissions-toousers-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Het verlenen van machtigingen toousers van partnerorganisaties in uw Azure Active Directory-tenant
+# <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Machtigingen verlenen aan gebruikers van partnerorganisaties in uw Azure Active Directory-tenant
 
-Azure Active Directory (Azure AD) B2B-samenwerking gebruikers worden toegevoegd als gast gebruikers toohello directory en gastmachtigingen in Hallo directory standaard worden beperkt. Uw bedrijf wellicht sommige Gast gebruikers toofill hogere bevoegdheid rollen in uw organisatie. hogere bevoegdheid-rollen definiëren toosupport gastgebruikers kunnen worden toegevoegd tooany functies die u wenst, op basis van de behoeften van uw organisatie.
+Azure Active Directory (Azure AD) B2B-samenwerking gebruikers aan de directory worden toegevoegd als gastgebruikers en machtigingen voor gasten in de map standaard worden beperkt. Uw bedrijf wellicht sommige gastgebruikers te vullen hogere bevoegdheid rollen in uw organisatie. Ter ondersteuning van hogere bevoegdheid rollen definiëren, kunnen gastgebruikers worden toegevoegd aan de rollen die u wenst, op basis van de behoeften van uw organisatie.
 
 ## <a name="default-role"></a>standaardrol
 

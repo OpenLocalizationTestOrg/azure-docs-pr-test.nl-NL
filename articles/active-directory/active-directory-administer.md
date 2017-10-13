@@ -1,6 +1,6 @@
 ---
-title: aaaHow toouse een overzicht van Azure Active Direcory tenant directory | Microsoft Docs
-description: Wordt uitgelegd wat een Azure AD-tenant is, en hoe toomanage Azure met Azure Active Directory
+title: Overzicht van Azure Active Direcory-tenant | Microsoft Docs
+description: In dit artikel wordt uitgelegd wat een Azure AD-tenant is en hoe u Azure beheert via Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,21 +15,21 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: ddb16d89bf06a3753ed5106bd95162130ad51b08
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-azure-ad-directory"></a>Uw Azure AD-directory beheren
 
 ## <a name="what-is-an-azure-ad-tenant"></a>Wat is een Azure AD-tenant?
-In Azure Active Directory (Azure AD) is een tenant het exclusieve exemplaar van een Azure Active-directory dat uw organisatie na aanmelding voor een Microsoft-cloudservice (zoals Azure of Office 365) krijgt toegewezen. Elke Azure AD-directory is uniek en werkt afzonderlijk van andere Azure AD-directory’s. Net zoals een kantoorgebouw is een specifieke tooonly beveiligd bedrijfsmiddel is van uw organisatie, er is ook een Azure AD-directory ontworpen toobe een beveiligd bedrijfsmiddel alleen door uw organisatie. Hello Azure AD-architectuur isoleert klant- en identiteitsgegevens informatie zodat gebruikers en beheerders van een Azure AD-directory kunnen niet per ongeluk of opzettelijk toegang gegevens in een andere map tot.
+In Azure Active Directory (Azure AD) is een tenant het exclusieve exemplaar van een Azure Active-directory dat uw organisatie na aanmelding voor een Microsoft-cloudservice (zoals Azure of Office 365) krijgt toegewezen. Elke Azure AD-directory is uniek en werkt afzonderlijk van andere Azure AD-directory’s. Net zoals een kantoorgebouw een beveiligd bedrijfsmiddel is van uw organisatie, is ook een Azure AD-directory ontworpen als een beveiligd bedrijfsmiddel dat alleen door uw organisatie kan worden gebruikt. De architectuur van Azure AD zorgt ervoor dat klantgegevens en identiteitsgegevens van elkaar zijn gescheiden, zodat gebruikers en beheerders van de ene Azure AD-directory niet per ongeluk of opzettelijk gegevens in een andere directory kunnen weergeven.
 
 ![Azure Active Directory beheren](./media/active-directory-administer/aad_portals.png)
 
 ## <a name="how-can-i-get-an-azure-ad-directory"></a>Hoe krijg ik een Azure AD-directory?
-Azure AD levert Hallo core directory- en identiteitsbeheer identiteitsbeheermogelijkheden voor de meeste Microsoft cloud-services, waaronder:
+Azure AD levert de kerndirectory en identiteitsbeheermogelijkheden voor de meeste cloudservices van Microsoft, waaronder:
 
 * Azure
 * Microsoft Office 365
@@ -38,38 +38,40 @@ Azure AD levert Hallo core directory- en identiteitsbeheer identiteitsbeheermoge
 
 U krijgt een Azure AD-directory wanneer u zich aanmeldt voor een van deze Microsoft-cloudservices. U kunt naar behoefte aanvullende directory’s maken. Zo kunt u bijvoorbeeld uw eerste directory gebruiken als productiedirectory en nog een tweede directory maken voor testen en fasering.
 
-### <a name="using-hello-azure-ad-directory-that-comes-with-a-new-azure-subscription"></a>Met behulp van hello Azure AD-directory die wordt geleverd met een nieuwe Azure-abonnement
+### <a name="using-the-azure-ad-directory-that-comes-with-a-new-azure-subscription"></a>De Azure AD-directory gebruiken die hoort bij een nieuw Azure-abonnement
 
-Het is raadzaam dat u Hallo administrator-account die u hebt voor uw eerste service hebt gebruikt toen u zich aanmeldt voor andere Microsoft-services. Hallo informatie die u verstrekt Hallo eerste keer dat u zich aanmeldt voor een Microsoft-service gebruikte toocreate een nieuwe Azure is AD-directory-exemplaar voor uw organisatie. Als u dat directory tooauthenticate aanmelden wanneer u zich abonneert tooother Microsoft-services, kunt u Hallo bestaande gebruikersaccounts, beleidsregels, instellingen of on-premises directory-integratie die u in de standaardmap configureren.
+Het is raadzaam om voor registratie bij andere Microsoft-services, het beheerdersaccount te gebruiken dat u hebt gebruikt voor registratie bij uw eerste service. De gegevens die u bij de eerste registratie voor een Microsoft-service opgeeft, worden gebruikt voor het maken van een nieuw exemplaar van de Azure AD-directory voor uw organisatie. Als u deze directory gebruikt om aanmeldingspogingen te verifiëren wanneer u zich registreert voor andere Microsoft-services, kunnen voor de aanmelding de bestaande gebruikersaccounts, beleidsregels, instellingen of on-premises directoryintegratie worden gebruikt die in de standaarddirectory zijn geconfigureerd.
 
-Bijvoorbeeld, als u zich aanmeldt voor een abonnement op Microsoft Intune en uw lokale Active Directory verder met uw Azure AD-directory te synchroniseren, u kunt zich aanmelden voor een andere Microsoft-service zoals Office 365 en eenvoudig bereiken Hallo dezelfde directory voordelen voor integratie met Microsoft Intune.
+Als u zich bijvoorbeeld registreert voor een abonnement op Microsoft Intune en u daarna de on-premises Active Directory synchroniseert met uw Azure AD-directory, kunt u zich registreren voor een andere Microsoft-service, zoals Office 365, en eenvoudig beschikken over dezelfde voordelen van directoryintegratie als bij Microsoft Intune.
 
 Zie [Uw on-premises directory's integreren met Azure Active Directory](active-directory-aadconnect.md) voor meer informatie over de integratie van uw on-premises directory in Azure AD.
 
 ### <a name="associate-an-existing-azure-ad-directory-with-a-new-azure-subscription"></a>Een bestaande Azure AD-directory koppelen aan een nieuw Azure-abonnement
-U kunt een nieuwe Azure-abonnement koppelen aan Hallo dezelfde directory waarmee wordt geverifieerd aanmelden voor een bestaand Office 365 of Microsoft Intune-abonnement. Zie voor meer informatie over dit scenario [het eigendom overdraagt van een Azure-abonnement tooanother-account](../billing/billing-subscription-transfer.md)
+U kunt een nieuw Azure-abonnement koppelen aan dezelfde directory waarmee aanmeldingsbewerkingen voor een bestaand Office 365- of Microsoft Intune-abonnement worden geverifieerd. Zie [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) (Eigendom van een Azure-abonnement naar een ander account overdragen) voor meer informatie over dit scenario.
 
 ### <a name="create-an-azure-ad-directory-by-signing-up-for-a-microsoft-cloud-service-as-an-organization"></a>Een Azure AD-directory maken door u als organisatie te registreren voor een Microsoft-cloudservice
-Als u nog een abonnement tooa Microsoft-cloudservice hebt, kunt u een van de Hallo koppelingen toosign opvolgen. Als u zich voor uw eerste service registreert, wordt er automatisch een Azure AD-directory gemaakt.
+Als u nog geen abonnement hebt op een Microsoft-cloudservice, kunt u een van de volgende koppelingen gebruiken om u te registreren. Als u zich voor uw eerste service registreert, wordt er automatisch een Azure AD-directory gemaakt.
 
 * [Microsoft Azure](https://account.azure.com/organization)
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
-### <a name="how-toochange-hello-default-directory-for-a-subscription"></a>Hoe toochange Hallo standaarddirectory voor een abonnement
+### <a name="how-to-change-the-default-directory-for-a-subscription"></a>De standaarddirectory voor een abonnement wijzigen
 
-1. Meld u aan toohello [Azure-Accountcentrum](https://account.windowsazure.com/Home/Index) met een account dat Hallo accountbeheerder van Hallo abonnement tootransfer abonnement eigendom.
-2. Zorg ervoor dat Hallo-gebruiker die u eigenaar toobe Hallo-abonnement is in de map Hallo gericht.
+1. Meld u bij het [Azure-accountcentrum](https://account.azure.com/Subscriptions) aan met een account van de accountbeheerder voor het abonnement waarvan u het eigendom wilt overdragen.
+2. Zorg ervoor dat de gebruiker die u wilt instellen als de eigenaar van het abonnement, aanwezig is in de doeldirectory.
 3. Klik op **Abonnement overdragen**.
-4. Hallo ontvanger opgeven. Hallo geadresseerde ontvangt automatisch een e-mail met een koppeling acceptatie.
-5. Hallo-ontvanger op Hallo koppeling klikt en Hallo instructies gevolgd die zijn, met inbegrip van de betaalgegevens invoeren. Als de ontvanger Hallo is geslaagd, wordt Hallo abonnement overgedragen. 
-6. Hallo standaarddirectory van Hallo abonnement wordt gewijzigd toohello directory die gebruiker Hallo wordt als Hallo eigendom abonnementsoverdracht voltooid is.
+4. Geef de ontvanger op. De ontvanger ontvangt automatisch een e-mail met een acceptatielink.
+5. De ontvanger klikt op de link en volgt de instructies, waaronder het invoeren van zijn of haar betaalgegevens. Als de ontvanger klaar is, wordt het abonnement overgedragen. 
+6. Als de overdracht van abonnementseigendom geslaagd is, is de standaardmap van het abonnement gewijzigd naar de map waarin de gebruiker zich bevindt.
 
-### <a name="manage-hello-default-directory-in-azure"></a>De standaardmap Hallo in Azure beheren
-Wanneer u zich registreert voor Azure, wordt er een standaarddirectory van Azure AD gekoppeld aan uw abonnement. Er zijn geen kosten verbonden aan het gebruik van Azure AD en uw directory's zijn eveneens gratis. Er zijn betaalde Azure AD-services waarvoor een afzonderlijke licentie nodig is en die aanvullende functionaliteit bieden, zoals de huisstijl van het bedrijf in het aanmeldingsscherm en selfservice voor wachtwoordherstel. U kunt ook een aangepast domein met een DNS-naam die u bezit in plaats van standaard Hallo maken *. onmicrosoft.com-domein.
+Zie [Transfer Azure subscription ownership to another account](../billing/billing-subscription-transfer.md) (Het eigendom van een Azure-abonnement overdragen aan een ander account) voor meer informatie
+
+### <a name="manage-the-default-directory-in-azure"></a>De standaarddirectory in Azure beheren
+Wanneer u zich registreert voor Azure, wordt er een standaarddirectory van Azure AD gekoppeld aan uw abonnement. Er zijn geen kosten verbonden aan het gebruik van Azure AD en uw directory's zijn eveneens gratis. Er zijn betaalde Azure AD-services waarvoor een afzonderlijke licentie nodig is en die aanvullende functionaliteit bieden, zoals de huisstijl van het bedrijf in het aanmeldingsscherm en selfservice voor wachtwoordherstel. U kunt ook een aangepast domein maken met een DNS-naam waarvan u de eigenaar bent, in plaats van het standaarddomein *. onmicrosoft.com te gebruiken.
 
 ## <a name="how-can-i-manage-directory-data"></a>Hoe kan ik directorygegevens beheren?
-tooadminister een of meer Microsoft cloud service-abonnementen, kunt u Hallo [Azure AD-beheercentrum](https://aad.portal.azure.com), Microsoft Intune-accountportal Hallo of Hallo [Office 365-beheercentrum](https://portal.office.com/) toomanage uw directory-gegevens van de organisatie. U kunt ook [Azure Active Directory PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/active-directory) toohelp u gegevens die zijn opgeslagen in Azure AD beheren.
+Als u een of meer abonnementen op Microsoft-cloudservices wilt beheren, gebruikt u het [beheercentrum van Azure AD](https://aad.portal.azure.com), de Microsoft Intune-accountportal of het [Office 365-beheercentrum](https://portal.office.com/) om de directorygegevens van uw organisatie te beheren. U kunt ook [PowerShell-cmdlets van Azure Active Directory](https://docs.microsoft.com/powershell/azure/active-directory) gebruiken om gegevens te beheren die in Azure AD zijn opgeslagen.
 
 Via deze portals (en cmdlets) kunt u het volgende doen:
 
@@ -77,41 +79,41 @@ Via deze portals (en cmdlets) kunt u het volgende doen:
 * Gerelateerde cloudservices beheren voor de abonnementen van uw organisatie
 * On-premises integratie met services van Azure AD voor identiteitscontrole en verificatie instellen
 
-Hello Azure AD-beheercentrum, Office 365-beheercentrum, Microsoft Intune-accountportal en hello Azure AD-cmdlets lezen uit en schrijven van tooa één gedeeld exemplaar van Azure AD dat is gekoppeld aan de directory van uw organisatie. Elk van deze hulpprogramma's fungeert als een front-interface die gegevens in de directory ophaalt of wijzigt.
+Het beheercentrum van Azure AD, het Office 365-beheercentrum, de Microsoft Intune-accountportal en de Azure AD-cmdlets lezen uit en schrijven naar één gedeeld exemplaar van Azure AD dat is gekoppeld aan de directory van uw organisatie. Elk van deze hulpprogramma's fungeert als een front-interface die gegevens in de directory ophaalt of wijzigt.
 
-Wanneer u gegevens van uw organisatie met behulp van een Hallo portals of cmdlets in de context van een van deze services Hallo aangemeld wijzigt, Hallo wijzigingen worden ook weergegeven in Hallo andere portals Hallo wanneer die u zich aanmeldt. Deze gegevens worden verdeeld over Hallo Microsoft cloud services toowhich die u zich hebt geabonneerd.
+Wanneer u gegevens van uw organisatie wijzigt via een van de portals of cmdlets terwijl u bent aangemeld in de context van een van deze services, worden de wijzigingen ook weergegeven in de andere portals als u zich de volgende keer aanmeldt. Deze gegevens worden gedeeld tussen de Microsoft-cloudservices waarop u bent geabonneerd.
 
-Bijvoorbeeld als u Hallo Office 365-beheercentrum tooblock een gebruiker zich aanmeldt, die actie blokken Hallo gebruiker tooany andere toowhich service van uw organisatie heeft momenteel abonnement op. Als u hello bekijkt dezelfde gebruikersaccount in Microsoft Intune-accountportal hello, ziet u ook die Hallo-gebruiker is geblokkeerd.
+Als u bijvoorbeeld het Office 365-beheercentrum gebruikt om de aanmelding van een gebruiker te blokkeren, kan die gebruiker zich ook niet meer aanmelden bij andere services waarop uw organisatie momenteel is geabonneerd. Als u hetzelfde gebruikersaccount bekijkt in de Microsoft Intune-accountportal, ziet u dat de gebruiker daar ook is geblokkeerd.
 
 ## <a name="how-can-i-add-and-manage-multiple-directories"></a>Hoe kan ik meerdere directory’s toevoegen en beheren?
-U kunt [toevoegen van een Azure AD-directory in hello Azure-portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Hallo gegevens invullen en selecteer **maken**.
+U kunt een [Azure AD-directory toevoegen via Azure Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Vul de gegevens in en selecteer **Maken**.
 
 U kunt elke directory als volledig onafhankelijke resource beheren: elke directory is een peer, volledig uitgerust en logisch onafhankelijk van andere directory's die u beheert. Er is geen sprake van een structuur met boven- en onderliggende directory's. Onder deze onafhankelijkheid van uw directory’s vallen ook resourceonafhankelijkheid, beheeronafhankelijkheid en synchronisatieonafhankelijkheid.
 
-* **Resourceonafhankelijkheid**. Als u maken of verwijderen van een resource in één directory, heeft dit geen invloed op alle bronnen in andere directory's gedeeltelijke uitzondering Hallo van externe gebruikers. Als u voor een bepaalde directory het aangepaste domein contoso.com gebruikt, kan dit domein niet meer voor andere directory’s worden gebruikt.
+* **Resourceonafhankelijkheid**. Wanneer u een resource maakt in of verwijdert uit de ene directory, heeft dat geen gevolgen voor de resources in andere directory's. Externe gebruikers vormen hier een gedeeltelijke uitzondering op. Als u voor een bepaalde directory het aangepaste domein contoso.com gebruikt, kan dit domein niet meer voor andere directory’s worden gebruikt.
 * **Beheeronafhankelijkheid**.  Als een gebruiker die geen beheerder is van de directory Contoso een testdirectory Test maakt:
   
-  * Beheerders van de map 'Contoso' Hello hebben geen directe beheerdersrechten toodirectory 'Test', tenzij een beheerder van 'Test' specifiek hun deze rechten verleent. Van 'Contoso' kunnen beheerders toegang toodirectory 'Test' doordat hun beheer van gebruikersaccount Hallo die gemaakt van 'Test'.
+  * De beheerders van de directory Contoso hebben geen directe beheerdersrechten voor de directory Test, tenzij de beheerder van Test hun deze rechten verleent. Beheerders van Contoso kunnen de toegang tot de directory Test beheren doordat ze het beheer hebben over het gebruikersaccount waarmee Test is gemaakt.
     
-  * Als u toewijzen of verwijderen van een beheerdersrol voor een gebruiker in een bepaalde map, Hallo wijzigen heeft geen invloed op een beheerdersrol wordt die gebruiker mogelijk in een andere map.
-* **Synchronisatieonafhankelijkheid**. U kunt elke Azure AD-tenant onafhankelijk tooget gegevens worden gesynchroniseerd vanuit een enkele instantie hello Azure AD Connect directory-synchronisatie.
+  * Als u in de ene directory een beheerdersrol voor een gebruiker toewijst of verwijdert, heeft deze wijziging geen gevolgen voor beheerdersrollen die de betreffende gebruiker mogelijk heeft in een andere directory.
+* **Synchronisatieonafhankelijkheid**. U kunt elke Azure AD-tenant onafhankelijk configureren, zodat gegevens worden gesynchroniseerd vanuit één exemplaar. Hiervoor gebruikt u het hulpprogramma voor directorysynchronisatie van Azure AD Connect.
 
-In tegenstelling tot andere Azure-resources, zijn uw directory's geen onderliggende resources van een Azure-abonnement. Dus als u uw Azure-abonnement tooexpire toestaan of annuleren, u kunt nog steeds toegang tot uw directorygegevens via Azure AD PowerShell, hello Azure Graph API of andere interfaces zoals Hallo Office 365-beheercentrum. U kunt ook een ander abonnement koppelen met Hallo-directory.
+In tegenstelling tot andere Azure-resources, zijn uw directory's geen onderliggende resources van een Azure-abonnement. Wanneer u uw Azure-abonnement annuleert of als het abonnement verloopt, hebt u nog gewoon toegang tot uw directorygegevens via Azure AD PowerShell, de Azure Graph API of andere interfaces, zoals het Office 365-beheercentrum. U kunt ook een ander abonnement koppelen aan de directory.
 
-## <a name="how-tooprepare-toodelete-an-azure-ad-directory"></a>Hoe tooprepare toodelete een Azure Active directory
-Een globale beheerder kunt u een Azure AD-directory verwijderen uit Hallo-portal. Wanneer een map wordt verwijderd, worden ook alle resources die zijn opgenomen in de directory Hallo verwijderd. Controleer of dat u niet nodig Hallo directory voordat u deze verwijdert.
+## <a name="how-to-prepare-to-delete-an-azure-ad-directory"></a>Wat moet ik doen om een Azure AD-directory te verwijderen?
+Een hoofdbeheerder kan een Azure AD-directory verwijderen via de portal. Wanneer een directory wordt verwijderd, worden alle resources in de lijst ook verwijderd. Controleer of u de directory echt niet meer nodig hebt voordat u deze verwijdert.
 
 > [!NOTE]
-> Als Hallo gebruiker is aangemeld met een account voor werk of school, moet Hallo gebruiker niet proberen toodelete hun oorspronkelijke directory. Bijvoorbeeld, als hello gebruiker is aangemeld als joe@contoso.onmicrosoft.com, kan die gebruiker Hallo-directory die contoso.onmicrosoft.com gebruikt als standaarddomein niet verwijderen.
+> Als de gebruiker is aangemeld met een werk- of schoolaccount, moet de gebruiker niet proberen om zijn of haar basisdirectory te verwijderen. Als een gebruiker bijvoorbeeld is aangemeld als joe@contoso.onmicrosoft.com, kan deze niet de directory verwijderen die contoso.onmicrosoft.com als standaarddomein gebruikt.
 
-Azure AD is vereist dat aan bepaalde voorwaarden voldaan toodelete een map wordt. Dit vermindert het risico dat als u een map negatieve heeft gevolgen voor gebruikers of toepassingen, zoals de mogelijkheid Hallo van gebruikers toosign in tooOffice 365 of toegang tot bronnen in Azure. Bijvoorbeeld, als een map voor een abonnement per ongeluk is verwijderd, klikt u vervolgens gebruikers geen toegang tot hello Azure-resources voor dat abonnement.
+Als u een Azure AD-directory wilt verwijderen, moet aan bepaalde voorwaarden worden voldaan. Dit vermindert het risico dat het verwijderen van een directory een negatieve invloed heeft op gebruikers of toepassingen, zoals op de mogelijkheid van gebruikers om zich aan te melden bij Office 365 of om resources te openen in Azure. Het per ongeluk verwijderen van een directory voor een abonnement heeft bijvoorbeeld tot gevolg dat gebruikers geen toegang meer hebben tot de Azure-resources voor dat abonnement.
 
-Hallo volgende voorwaarden worden gecontroleerd:
+Er wordt gecontroleerd of aan de volgende voorwaarden is voldaan:
 
-* Hallo moet alleen Hallo directory-gebruiker hoofdbeheerder Hallo die toodelete Hallo map. Andere gebruikers moeten worden verwijderd voordat de directory Hallo kan worden verwijderd. Als gebruikers on-premises worden gesynchroniseerd en vervolgens synchronisatie moet worden uitgeschakeld en Hallo gebruikers moeten worden verwijderd in Hallo clouddirectory via hello Azure portal of Azure PowerShell-cmdlets. Er is geen vereiste toodelete groepen of contactpersonen, zoals contactpersonen die zijn toegevoegd vanuit Hallo Office 365-beheercentrum.
-* Er kunnen geen toepassingen in de map Hallo aanwezig zijn. Alle toepassingen moeten worden verwijderd voordat de directory Hallo kan worden verwijderd.
-* Geen multi-factor authentication-providers kunnen gekoppelde toohello directory zijn.
-* Kan er geen abonnementen voor Microsoft Online Services zoals Microsoft Azure, Office 365 of Azure AD Premium Hallo directory gekoppeld. Als er bijvoorbeeld een standaarddirectory voor u is gemaakt in Azure, kunt u deze directory niet verwijderen als uw Azure-abonnement deze directory gebruikt voor verificatie. Het is evenmin mogelijk om een directory te verwijderen als een andere gebruiker er een abonnement aan heeft gekoppeld. 
+* De enige gebruiker in de directory is de hoofdbeheerder die de directory gaat verwijderen. Andere gebruikers moeten worden verwijderd voordat de directory kan worden verwijderd. Als gebruikers on-premises worden gesynchroniseerd, moet de synchronisatie worden uitgeschakeld. Gebruikers moeten vervolgens worden verwijderd uit de clouddirectory via Azure Portal of cmdlets van Azure PowerShell. Verwijdering van groepen of contactpersonen, zoals contactpersonen die vanuit het Office 365-beheercentrum zijn toegevoegd, is geen vereiste.
+* Er mogen in de directory geen toepassingen aanwezig zijn. Alle toepassingen moeten worden verwijderd om de directory te kunnen verwijderen.
+* Aan de directory kunnen geen Multi-Factor Authentication-providers worden gekoppeld.
+* Aan de directory mogen geen abonnementen op Microsoft Online Services zijn gekoppeld, zoals een abonnement op Microsoft Azure, Office 365 of Azure AD Premium. Als er bijvoorbeeld een standaarddirectory voor u is gemaakt in Azure, kunt u deze directory niet verwijderen als uw Azure-abonnement deze directory gebruikt voor verificatie. Het is evenmin mogelijk om een directory te verwijderen als een andere gebruiker er een abonnement aan heeft gekoppeld. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

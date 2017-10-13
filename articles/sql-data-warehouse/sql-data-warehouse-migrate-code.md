@@ -1,6 +1,6 @@
 ---
-title: aaaMigrate uw code tooSQL voor SQL Data Warehouse | Microsoft Docs
-description: Tips voor het migreren van uw SQL-code tooAzure SQL Data Warehouse om oplossingen te ontwikkelen.
+title: Migreren van uw SQL-code naar SQL Data Warehouse | Microsoft Docs
+description: Tips voor het migreren van uw SQL-code naar Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/23/2017
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 7a16d579d068e9df9aba3dc61e4a09bcaa551588
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="migrate-your-sql-code-toosql-data-warehouse"></a>Uw code tooSQL voor SQL Data Warehouse migreren
-Dit artikel wordt uitgelegd codewijzigingen moet u waarschijnlijk toomake bij het migreren van uw code vanaf een andere database tooSQL Data Warehouse. Sommige functies van SQL Data Warehouse kunnen de prestaties aanzienlijk verbeteren omdat ze ontworpen toowork in een gedistribueerde wijze zijn. Echter toomaintain prestaties en schaalbaarheid, sommige functies zijn ook niet beschikbaar.
+# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migreren van uw SQL-code naar SQL Data Warehouse
+Dit artikel wordt uitgelegd codewijzigingen u waarschijnlijk moet maken wanneer u uw code uit een andere database migreren naar SQL Data Warehouse. Sommige functies van SQL Data Warehouse kunnen prestaties aanzienlijk verbeteren omdat ze zijn ontworpen om te werken in een gedistribueerde wijze. Echter, om te blijven de prestaties en schaalbaarheid, sommige functies zijn ook niet beschikbaar.
 
 ## <a name="common-t-sql-limitations"></a>Algemene T-SQL-beperkingen
-Hallo volgende lijst bevat een overzicht van de meest voorkomende Hallo-functies die biedt geen ondersteuning voor SQL Data Warehouse. Hallo koppelingen kunt u tooworkarounds voor Hallo niet-ondersteunde functies:
+De volgende lijst bevat een overzicht van de meest gebruikte functies die geen ondersteuning biedt voor SQL Data Warehouse. Koppelingen gaat u naar de tijdelijke oplossingen voor de niet-ondersteunde functies:
 
 * [ANSI joins op updates][ANSI joins on updates]
 * [ANSI-verbindingen in verwijderen][ANSI joins on deletes]
@@ -52,10 +52,10 @@ Hallo volgende lijst bevat een overzicht van de meest voorkomende Hallo-functies
 * [gebruik van selecteren voor de toewijzing van variabele][use of select for variable assignment]
 * [Er is geen MAX-gegevenstype voor dynamische SQL-tekenreeksen][no MAX data type for dynamic SQL strings]
 
-De meeste van deze beperkingen kunt gelukkig rond worden gewerkt. Uitleg vindt u in Hallo relevante ontwikkeling artikelen waarnaar wordt verwezen hierboven.
+De meeste van deze beperkingen kunt gelukkig rond worden gewerkt. Uitleg vindt u in de hierboven vermelde relevante ontwikkeling-artikelen.
 
 ## <a name="supported-cte-features"></a>Ondersteunde CTE-functies
-Algemene tabelexpressies (CTE's) worden gedeeltelijk ondersteund in SQL Data Warehouse.  Hallo volgende CTE kenmerken worden momenteel ondersteund:
+Algemene tabelexpressies (CTE's) worden gedeeltelijk ondersteund in SQL Data Warehouse.  De volgende CTE-functies worden momenteel ondersteund:
 
 * Een CTE kan worden opgegeven in een SELECT-instructie.
 * Een CTE kan worden opgegeven in een instructie CREATE VIEW.
@@ -70,17 +70,17 @@ Algemene tabelexpressies (CTE's) worden gedeeltelijk ondersteund in SQL Data War
 Algemene tabelexpressies hebben enkele beperkingen in SQL Data Warehouse, waaronder:
 
 * Een CTE moet worden gevolgd door één SELECT-instructie. INSERT, UPDATE, DELETE, en MERGE-instructies worden niet ondersteund.
-* Een algemene tabelexpressie met verwijzingen tooitself (een recursieve algemene tabelexpressie) wordt niet ondersteund (Zie onderstaande sectie).
+* Een algemene tabelexpressie die verwijzingen naar zichzelf (een recursieve algemene tabelexpressie bevat) wordt niet ondersteund (Zie onderstaande sectie).
 * Het opgeven van meer dan één met de component in een CTE is niet toegestaan. Bijvoorbeeld, als een CTE_query_definition een subquery bevat, kan geen die subquery bevatten een geneste met component die een andere CTE definieert.
-* Een component ORDER BY kan niet worden gebruikt in Hallo CTE_query_definition, behalve wanneer de component TOP is opgegeven.
-* Wanneer een CTE wordt gebruikt in een instructie die deel uitmaakt van een batch, worden Hallo-instructie in voordat deze gevolgd door een puntkomma.
-* Wanneer gebruikt in instructies sp_prepare voorbereid, CTE's gedragen Hallo dezelfde manier als andere SELECT-instructies in PDW. Echter als CTE's worden gebruikt als onderdeel van CETAS sp_prepare voorbereid, kunt Hallo gedrag uitstellen van SQL Server en andere instructies PDW vanwege Hallo manier binding voor sp_prepare is geïmplementeerd. Als SELECT verwijzingen die CTE met behulp van een verkeerde kolom niet in CTE bestaat Hallo sp_prepare inactiviteit Hallo fout detecteren, maar Hallo fout gegenereerd tijdens sp_execute in plaats daarvan.
+* Een component ORDER BY kan niet worden gebruikt in de CTE_query_definition, behalve wanneer de component TOP is opgegeven.
+* Wanneer een CTE wordt gebruikt in een instructie die deel uitmaakt van een batch, moet de instructie voordat deze worden gevolgd door een puntkomma.
+* Wanneer gebruikt in instructies sp_prepare voorbereid, wordt dezelfde manier als andere SELECT-instructies in PDW gedragen zich CTE's. Echter als CTE's worden gebruikt als onderdeel van CETAS sp_prepare voorbereid, kan het gedrag uitstellen van SQL Server en andere instructies PDW vanwege de manier waarop binding voor sp_prepare is geïmplementeerd. Als SELECT verwijzingen die CTE met behulp van een verkeerde kolom niet in CTE bestaat, geeft de sp_prepare zonder de fout te detecteren, maar de fout gegenereerd tijdens sp_execute in plaats daarvan.
 
 ## <a name="recursive-ctes"></a>Recursieve CTE 's
-Recursieve CTE's worden niet ondersteund in SQL Data Warehouse.  Hallo-migratie van recursieve CTE kan erg complex en beste Hallo-proces is toobreak in meerdere stappen. U kunt gewoonlijk een lus gebruiken en een tijdelijke tabel invullen zoals doorlopen van tussentijdse Hallo recursieve query's. Zodra de tijdelijke tabel hello wordt ingevuld kunt u vervolgens Hallo gegevens als een resultaatset één retourneren. Een soortgelijke benadering is gebruikte toosolve `GROUP BY WITH CUBE` in Hallo [group by, component met rollup / kubus / sets opties voor groeperen] [ group by clause with rollup / cube / grouping sets options] artikel.
+Recursieve CTE's worden niet ondersteund in SQL Data Warehouse.  De migratie van recursieve CTE kan erg complex en de aanbevolen procedure is dit in meerdere stappen te verdelen. U kunt gewoonlijk een lus gebruiken en vul een tijdelijke tabel waar u de tussentijdse recursieve query's doorlopen. Zodra de tijdelijke tabel wordt ingevuld kunt u de gegevens als een enkelvoudig resultaat wordt verkregen set terugkeren. Een soortgelijke benadering is gebruikt voor het oplossen van `GROUP BY WITH CUBE` in de [group by, component met rollup / kubus / sets opties voor groeperen] [ group by clause with rollup / cube / grouping sets options] artikel.
 
 ## <a name="unsupported-system-functions"></a>Niet-ondersteunde systeemfuncties
-Er zijn ook enkele systeemfuncties die worden niet ondersteund. Enkele van Hallo belangrijkste die u doorgaans wellicht gebruikt in de gegevensopslag zijn:
+Er zijn ook enkele systeemfuncties die worden niet ondersteund. Enkele van de belangrijkste zijn die doorgaans wellicht gebruikt in de gegevensopslag zijn:
 
 * NEWSEQUENTIALID()
 * @@NESTLEVEL()
@@ -92,7 +92,7 @@ Er zijn ook enkele systeemfuncties die worden niet ondersteund. Enkele van Hallo
 Sommige van deze problemen kunnen worden uitgevoerd om.
 
 ## <a name="rowcount-workaround"></a>@@ROWCOUNT tijdelijke oplossing
-toowork rond onvoldoende ondersteuning voor @@ROWCOUNT, maakt u een opgeslagen procedure die de laatste rijtelling Hallo ophalen uit sys.dm_pdw_request_steps en vervolgens uitgevoerd `EXEC LastRowCount` na een DML-instructie.
+Onvoldoende ondersteuning voor @ omzeilen@ROWCOUNT, maakt u een opgeslagen procedure die wordt opgehaald van het laatste aantal rijen uit sys.dm_pdw_request_steps en wordt vervolgens uitgevoerd `EXEC LastRowCount` na een DML-instructie.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS

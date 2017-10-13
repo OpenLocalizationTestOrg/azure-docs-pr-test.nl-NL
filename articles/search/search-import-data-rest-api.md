@@ -1,6 +1,6 @@
 ---
-title: aaa "uploaden van gegevens (REST-API - Azure Search) | Microsoft Docs'
-description: Meer informatie over hoe tooupload gegevens tooan index in Azure Search met behulp van Hallo REST-API.
+title: Gegevens uploaden (REST-API - Azure Search) | Microsoft Docs
+description: Informatie over het uploaden van gegevens naar een index in Azure Search met behulp van de REST-API
 services: search
 documentationcenter: 
 author: ashmaka
@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.openlocfilehash: 6ba1336012d1f0f6d6d6c933e16aa879afb9b824
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="upload-data-tooazure-search-using-hello-rest-api"></a>Het uploaden van gegevens tooAzure zoeken met Hallo REST-API
+# <a name="upload-data-to-azure-search-using-the-rest-api"></a>Gegevens uploaden naar Azure Search met behulp van de REST-API
 > [!div class="op_single_selector"]
 >
 > * [Overzicht](search-what-is-data-import.md)
@@ -30,43 +30,43 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-In dit artikel wordt uitgelegd hoe u toouse hello [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) tooimport gegevens in een Azure Search-index.
+In dit artikel wordt beschreven hoe u met behulp van de [Azure Search REST-API](https://docs.microsoft.com/rest/api/searchservice/) gegevens in een Azure Search-index importeert.
 
 Voordat u deze procedure begint, moet u al [een Azure Search-index hebben gemaakt](search-what-is-an-index.md).
 
-In de volgorde toopush documenten in uw index met behulp van Hallo REST-API, doet u een HTTP POST-aanvraag tooyour index URL-eindpunt. Hallo-hoofdtekst van Hallo HTTP-aanvraag hoofdtekst is een JSON-object met Hallo documenten toobe toegevoegd, gewijzigd of verwijderd.
+Om documenten met behulp van de REST-API naar uw index te pushen, doet u een HTTP POST-aanvraag bij de eindpunt-URL van uw index. De hoofdtekst van de HTTP-aanvraag is een JSON-object met de documenten die moeten worden toegevoegd, gewijzigd of verwijderd.
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>De admin api-sleutel voor de Azure Search-service vaststellen
-Bij de uitgifte van HTTP-aanvragen op basis van uw service met behulp van Hallo REST API, *elke* API-aanvraag vergezeld gaan van Hallo api-sleutel die is gegenereerd voor Hallo Search-service die u hebt ingericht. Met een geldige sleutel stelt vertrouwensrelatie op basis van per aanvraag, tussen Hallo verzenden Hallo toepassingsaanvraag en Hallo-service die afhandelt.
+Als u met behulp van de REST-API een HTTP-aanvraag bij uw service doet, moet *elke* API-aanvraag de api-sleutel bevatten die is gegenereerd door de zoekservice die u hebt ingericht.  Met een geldige sleutel stelt u per aanvraag een vertrouwensrelatie in tussen de toepassing die de aanvraag verzendt en de service die de aanvraag afhandelt.
 
-1. toofind van uw service api-sleutels, kunt u aanmelden toohello [Azure-portal](https://portal.azure.com/)
-2. Blade Ga tooyour Azure Search service
-3. Klik op Hallo 'Sleutels'-pictogram
+1. Als u de API-sleutels van uw service wilt opzoeken, kunt u zich aanmelden bij [Azure Portal](https://portal.azure.com/)
+2. Ga naar de blade van uw Azure Search-service
+3. Klik op het pictogram Sleutels
 
 Uw service heeft zowel *administratorsleutels* als *querysleutels*.
 
-* De primaire en secundaire *administratorsleutels* verlenen volledige rechten tooall bewerkingen, inclusief Hallo mogelijkheid toomanage Hallo-service, maken en verwijderen van indexen, Indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u verder kunt toouse Hallo secundaire sleutel als u tooregenerate Hallo primaire sleutel en vice versa besluit.
-* Uw *querysleutels* verlenen tooindexes alleen-lezen toegang en -documenten en zijn doorgaans gedistribueerde tooclient toepassingen die zoekaanvragen.
+* De primaire en secundaire *administratorsleutels* verlenen volledige rechten voor alle bewerkingen, inclusief de mogelijkheid voor het beheren van de service, het maken en verwijderen van indexen, indexeerfuncties en gegevensbronnen. Er zijn twee sleutels, zodat u de secundaire sleutel kunt gebruiken als u de primaire sleutel opnieuw aan het genereren bent en vice versa.
+* Uw *querysleutels* geven alleen-lezentoegang tot indexen en documenten. Deze sleutels worden doorgaans verleend aan clienttoepassingen die zoekaanvragen verlenen.
 
-Voor de toepassing hello gegevens te importeren in een index, kunt u ofwel de primaire of secundaire administratorsleutel.
+Als u gegevens in een index wilt importeren, kunt u de primaire of secundaire administratorsleutel gebruiken.
 
-## <a name="decide-which-indexing-action-toouse"></a>Bepaal welke indexering actie toouse
-Wanneer u Hallo REST-API gebruikt, doet u HTTP POST-aanvragen met JSON-aanvraag instanties tooyour Azure Search-index van de eindpunt-URL. Hallo JSON-object in de hoofdtekst van uw HTTP-aanvraag bevat een JSON-matrix met de naam 'waarde' bevat JSON-objecten die u wilt dat tooadd tooyour index documenten vertegenwoordigt, bijwerken of verwijderen.
+## <a name="decide-which-indexing-action-to-use"></a>Bepalen welke indexeerbewerking u moet gebruiken
+Wanneer u de REST-API gebruikt, doet u HTTP POST-aanvragen met JSON-aanvraagtekst bij de eindpunt-URL van uw Azure Search-index. Het JSON-object in de hoofdtekst van uw HTTP-aanvraag bevat een enkele JSON-matrix met de naam ''waarde''. Deze matrix bevat JSON-objecten die de documenten vertegenwoordigen die u aan uw index wilt toevoegen, wilt bijwerken of wilt wijzigen.
 
-Elk JSON-object in de matrix '' waarde '' Hallo vertegenwoordigt een document toobe geïndexeerd. Elk van deze objecten van het document Hallo sleutel bevat en geeft indexeerbewerking Hallo gewenst (uploaden, samenvoegen, verwijderen, enzovoort). Afhankelijk van welke van Hallo onderstaande bewerkingen die u kiest, moet alleen bepaalde velden voor elk document opnemen:
+Elk JSON-object in de matrix ''waarde'' vertegenwoordigt een document dat moet worden geïndexeerd. Elk van deze objecten bevat de sleutel van het document en bepaalt de gewenste indexeringsbewerking (uploaden, samenvoegen, verwijderen, enzovoort). Afhankelijk van welke van de onderstaande bewerkingen u kiest, moet u slechts bepaalde velden voor elk document opnemen:
 
 | @search.action | Beschrijving | Vereiste velden voor elk document | Opmerkingen |
 | --- | --- | --- | --- |
-| `upload` |Een `upload` actie is vergelijkbaar tooan "upsert", waarbij Hallo document wordt ingevoegd als het nieuwe en bijgewerkt/vervangen als deze bestaat. |sleutel, plus andere velden die u wenst dat toodefine |Wanneer het bijwerken/vervangen van een bestaand document wordt elk veld dat niet is opgegeven in de aanvraag Hallo hebt ingesteld te`null`. Dit gebeurt zelfs als Hallo veld eerder tooa null-waarde is ingesteld. |
-| `merge` |Een bestaand document met het Hallo updates opgegeven velden. Als Hallo document niet in de index hello bestaat, mislukt de Hallo samenvoegen. |sleutel, plus andere velden die u wenst dat toodefine |Elk veld dat u in een samenvoeging opgeeft wordt vervangen door Hallo bestaand veld in Hallo-document. ook velden van het type `Collection(Edm.String)`. Bijvoorbeeld, als hello document bevat een veld `tags` met waarde `["budget"]` en u een samenvoeging met de waarde `["economy", "pool"]` voor `tags`, uiteindelijke waarde van Hallo Hallo `tags` veld `["economy", "pool"]`. Het wordt dus niet `["budget", "economy", "pool"]`. |
-| `mergeOrUpload` |Deze bewerking gedraagt zich als `merge` wanneer een document met de opgegeven sleutel al Hallo in Hallo index bestaat. Als het Hallo-document niet bestaat, gedraagt zich als `upload` met een nieuw document. |sleutel, plus andere velden die u wenst dat toodefine |- |
-| `delete` |Verwijdert het opgegeven document Hallo van Hallo index. |alleen sleutel |Alle velden die u opgeeft dan Hallo sleutelveld worden genegeerd. Als u wilt dat tooremove een afzonderlijk veld uit een document, gebruikt u `merge` en stelt u Hallo veld expliciet toonull. |
+| `upload` |Een `upload`-actie is vergelijkbaar met een "upsert", waarbij het document wordt ingevoegd als het nieuw is en wordt bijgewerkt/vervangen als het al bestaat. |sleutel, plus andere velden die u wilt definiëren |Tijdens het bijwerken/vervangen van een bestaand document wordt elk veld dat niet is opgegeven in de aanvraag ingesteld op `null`. Dit gebeurt zelfs als het veld eerder is ingesteld op een niet-null-waarde. |
+| `merge` |Een bestaand document wordt bijgewerkt met de opgegeven velden. Als het document niet in de index bestaat, mislukt de samenvoeging. |sleutel, plus andere velden die u wilt definiëren |Alle velden die u in een samenvoeging opgeeft, vervangen de bestaande velden in het document, ook velden van het type `Collection(Edm.String)`. Als het document bijvoorbeeld een veld `tags` bevat met de waarde `["budget"]` en u een samenvoeging doet met de waarde `["economy", "pool"]` voor `tags`, wordt de uiteindelijke waarde van het veld `tags` `["economy", "pool"]`. Het wordt dus niet `["budget", "economy", "pool"]`. |
+| `mergeOrUpload` |Deze bewerking gedraagt zich als `merge` wanneer een document met de opgegeven sleutel al in de index bestaat. Als het document niet bestaat, gedraagt deze bewerking zich als `upload` met een nieuw document. |sleutel, plus andere velden die u wilt definiëren |- |
+| `delete` |Het opgegeven document wordt uit de index verwijderd. |alleen sleutel |Alle andere velden worden genegeerd. Als u een afzonderlijk veld uit een document wilt verwijderen, gebruikt u `merge` en stelt u het veld expliciet in op null. |
 
 ## <a name="construct-your-http-request-and-request-body"></a>De HTTP-aanvraag en de hoofdtekst opstellen
-Nu dat u de benodigde veldwaarden Hallo hebt verzameld voor uw indexbewerkingen, u bent klaar tooconstruct Hallo werkelijke HTTP-aanvraag en JSON-aanvraag hoofdtekst tooimport uw gegevens.
+Nu u de benodigde veldwaarden voor uw indexbewerkingen hebt verzameld, kunt u de hoofdtekst voor uw HTTP-aanvraag en JSON-aanvraag opstellen om de gegevens te importeren.
 
 #### <a name="request-and-request-headers"></a>Aanvragen en aanvraagheaders
-Hallo-URL, moet u tooprovide de servicenaam, de indexnaam ("hotels" in dit geval), evenals Hallo juiste API-versie (Hallo huidige API-versie is `2016-09-01` op Hallo moment van publicatie van dit document). U moet toodefine hello `Content-Type` en `api-key` aanvraagheaders. Voor deze laatste Hallo, een van de administratorsleutels van uw service te gebruiken.
+U moet in de URL de servicenaam, de indexnaam ("hotels" in dit geval) en de juiste API-versie (de huidige API-versie is `2016-09-01` op het moment van publicatie van dit document) opgeven. U moet de aanvraagheaders `Content-Type` en `api-key` definiëren. Voor deze laatste moet u gebruikmaken van een van de administratorsleutels van uw service.
 
     POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
     Content-Type: application/json
@@ -110,7 +110,7 @@ Hallo-URL, moet u tooprovide de servicenaam, de indexnaam ("hotels" in dit geval
             "@search.action": "mergeOrUpload",
             "hotelId": "3",
             "baseRate": 129.99,
-            "description": "Close tootown hall and hello river"
+            "description": "Close to town hall and the river"
         },
         {
             "@search.action": "delete",
@@ -122,13 +122,13 @@ Hallo-URL, moet u tooprovide de servicenaam, de indexnaam ("hotels" in dit geval
 
 In dit geval gebruiken we `upload`, `mergeOrUpload` en `delete` als onze zoekacties.
 
-We gaan ervan uit dat deze voorbeeldindex "hotels" al is gevuld met een aantal documenten. Hoe we hoefden niet toospecify alle mogelijke documentvelden Hallo bij gebruik van `mergeOrUpload` en hoe we alleen opgegeven Hallo documentsleutel (`hotelId`) bij gebruik van `delete`.
+We gaan ervan uit dat deze voorbeeldindex "hotels" al is gevuld met een aantal documenten. We hoefden niet alle mogelijke documentvelden op te geven voor het gebruik van `mergeOrUpload`. We hebben alleen de documentsleutel (`hotelId`) opgegeven voor het gebruik van `delete`.
 
-Bovendien opmerking die u alleen hoger too1000 documenten (of 16 MB) in een enkele indexeringsaanvraag opnemen kunt.
+U kunt tot 1000 documenten (of 16 MB) in een enkele indexeringsaanvraag opnemen.
 
 ## <a name="understand-your-http-response-code"></a>De HTTP-antwoordcode begrijpen
 #### <a name="200"></a>200
-Na een geslaagde indexeringsaanvraag ontvangt u een HTTP-antwoord met de statuscode `200 OK`. Hallo JSON-hoofdtekst van Hallo HTTP-antwoord is als volgt:
+Na een geslaagde indexeringsaanvraag ontvangt u een HTTP-antwoord met de statuscode `200 OK`. De JSON-hoofdtekst van het HTTP-antwoord is als volgt:
 
 ```JSON
 {
@@ -144,7 +144,7 @@ Na een geslaagde indexeringsaanvraag ontvangt u een HTTP-antwoord met de statusc
 ```
 
 #### <a name="207"></a>207
-Statuscode `207` wordt geretourneerd wanneer ten minste één item is niet geïndexeerd. Hallo JSON-hoofdtekst van Hallo HTTP-antwoord bevat informatie over mislukte Hallo-documenten.
+Statuscode `207` wordt geretourneerd wanneer ten minste één item is niet geïndexeerd. De JSON-hoofdtekst van het HTTP-antwoord bevat informatie over het document of de documenten die niet zijn geïndexeerd.
 
 ```JSON
 {
@@ -152,7 +152,7 @@ Statuscode `207` wordt geretourneerd wanneer ten minste één item is niet geïn
         {
             "key": "unique_key_of_document",
             "status": false,
-            "errorMessage": "hello search service is too busy tooprocess this document. Please try again later."
+            "errorMessage": "The search service is too busy to process this document. Please try again later."
         },
         ...
     ]
@@ -160,22 +160,22 @@ Statuscode `207` wordt geretourneerd wanneer ten minste één item is niet geïn
 ```
 
 > [!NOTE]
-> Dit betekent vaak dat load Hallo op uw zoekopdracht service een waarbij tooreturn indexeringsaanvragen punt bereikt `503` reacties. In dit geval is het aanbevolen om de clientcode uit te stellen en te wachten voordat u het opnieuw probeert. Hierdoor krijgt Hallo system sommige toorecover tijd, Hallo kans dat toekomstige aanvragen waarschijnlijk wel mogelijk verhogen. Uw verzoeken om snel opnieuw uit te voeren, wordt alleen Hallo situatie verlengen.
+> Dit betekent vaak dat de belasting van uw zoekservice een punt bereikt waarbij indexeringsaanvragen `503`-antwoorden retourneren. In dit geval is het aanbevolen om de clientcode uit te stellen en te wachten voordat u het opnieuw probeert. Hierdoor krijgt het systeem de tijd om te herstellen, waardoor toekomstige aanvragen waarschijnlijk wel mogelijk zijn. Als u uw aanvraag snel opnieuw probeert te doen, wordt de situatie alleen maar verlengd.
 >
 >
 
 #### <a name="429"></a>429
-Statuscode `429` wordt geretourneerd wanneer u het quotum van Hallo aantal documenten per index hebt overschreden.
+Statuscode `429` wordt geretourneerd wanneer u het quotum van het aantal documenten per index hebt overschreden.
 
 #### <a name="503"></a>503
-Statuscode `503` wordt geretourneerd als geen van de items in aanvraag Hallo Hallo zijn geïndexeerd. Deze fout betekent dat Hallo-systeem zwaar belast wordt en uw aanvraag op dit moment niet worden verwerkt.
+Statuscode `503` wordt geretourneerd als geen van de items in de aanvraag zijn geïndexeerd. Deze fout betekent dat het systeem zwaar belast wordt en uw aanvraag op dit moment niet kan worden verwerkt.
 
 > [!NOTE]
-> In dit geval is het aanbevolen om de clientcode uit te stellen en te wachten voordat u het opnieuw probeert. Hierdoor krijgt Hallo system sommige toorecover tijd, Hallo kans dat toekomstige aanvragen waarschijnlijk wel mogelijk verhogen. Uw verzoeken om snel opnieuw uit te voeren, wordt alleen Hallo situatie verlengen.
+> In dit geval is het aanbevolen om de clientcode uit te stellen en te wachten voordat u het opnieuw probeert. Hierdoor krijgt het systeem de tijd om te herstellen, waardoor toekomstige aanvragen waarschijnlijk wel mogelijk zijn. Als u uw aanvraag snel opnieuw probeert te doen, wordt de situatie alleen maar verlengd.
 >
 >
 
 Zie [Documenten toevoegen, bijwerken of verwijderen](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) voor meer informatie over bewerkingen en antwoorden voor een geslaagde of mislukte bewerking. Zie [HTTP-statuscodes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes) voor meer informatie over andere HTTP-statuscodes die kunnen worden geretourneerd in geval van storing.
 
 ## <a name="next-steps"></a>Volgende stappen
-Na het vullen van uw Azure Search-index, zult u gereed toostart uitgeven van query's toosearch voor documenten. Zie [Een query uitvoeren in uw Azure-zoekindex](search-query-overview.md) voor meer informatie.
+Na het vullen van uw Azure Search-index bent u gereed om query's uit te geven om te zoeken naar documenten. Zie [Een query uitvoeren in uw Azure-zoekindex](search-query-overview.md) voor meer informatie.

@@ -1,6 +1,6 @@
 ---
-title: aaaH264 meerdere Bitrate 4 x 3 SD Audio 5.1 | Microsoft Docs
-description: Hallo onderwerp een overzicht van Hallo ** standaardinstelling H264 Multiple Bitrate 4 x 3 SD Audio 5.1* * taak definitie.
+title: Geselecteerde instelling H264 Meerdere Bitrate 4 x 3 SD Audio 5.1 | Microsoft Docs
+description: Het onderwerp een overzicht van de ** standaardinstelling H264 Multiple Bitrate 4 x 3 SD Audio 5.1* * taak definitie.
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 894c89067f387ae3823df77a7ae9c4e64047dd31
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ff918754b224b0ee9158d73d57aa514dbec595ed
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="h264-multiple-bitrate-4x3-sd-audio-51"></a>Geselecteerde instelling H264 Meerdere Bitrate 4 x 3 SD Audio 5.1
-`Media Encoder Standard`definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering. Kunt u ofwel een `preset name` toospecify naar welke indeling u tooencode wilt dat uw mediabestand. U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering. U zou vervolgens Hallo aangepaste vooraf ingestelde toohello encoder doorgeven. Voorinstelling voor Hallo lijst met alle Hallo namen die worden ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering. Kunt u ofwel een `preset name` om op te geven naar welke indeling u wilt uw mediabestand coderen. U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering. U zou geeft u het aangepaste vooraf ingesteld op de encoder. Voor een overzicht van de vooraf ingestelde namen ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- In dit onderwerp leest Hallo `H264 Multiple Bitrate 4x3 SD Audio 5.1` vooraf in XML en JSON-indeling.  
+ In dit onderwerp leest de `H264 Multiple Bitrate 4x3 SD Audio 5.1` vooraf in XML en JSON-indeling.  
   
- Deze definitie levert een set van 5 GOP uitgelijnde MP4-bestanden, variërend van 1600 kbps too400 kbps en AAC 5.1 audio. Voor gedetailleerde informatie over het profiel bitrate, snelheid, enz. dit wordt vooraf ingestelde, onderzoekt Hallo XML- of JSON zoals hieronder gedefinieerd. Voor uitleg van elk element in welke betekent en Hallo geldige waarden voor elk element Zie Hallo [Media Encoder Standard schema](media-services-mes-schema.md)...  
+ Deze definitie levert een set van 5 GOP uitgelijnde MP4-bestanden, variërend van 1600 kbps tot 400 kbps en AAC 5.1 audio. Voor gedetailleerde informatie over profiel bitrate, snelheid, enz. dit wordt vooraf ingesteld, controleert u de XML- of JSON zoals hieronder gedefinieerd. Zie voor een uitleg van elk element in welke betekent en de geldige waarden voor elk element, het [Media Encoder Standard schema](media-services-mes-schema.md)...  
   
 > [!NOTE]
->  Bij het wijzigen van Hallo `Width` en `Height` waarden in lagen en zorg ervoor dat Hallo hoogte-breedteverhouding consistent blijven. Bijvoorbeeld: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360. U moet een combinatie van hoogte-breedteverhouding niet zoals gebruiken: 1280 x 720, 720 x 480, 640 x 360.  
+>  Bij het wijzigen van de `Width` en `Height` waarden in lagen en zorg ervoor dat de hoogte-breedteverhouding consistent blijft. Bijvoorbeeld: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360. U moet een combinatie van hoogte-breedteverhouding niet zoals gebruiken: 1280 x 720, 720 x 480, 640 x 360.  
   
  XML  
   

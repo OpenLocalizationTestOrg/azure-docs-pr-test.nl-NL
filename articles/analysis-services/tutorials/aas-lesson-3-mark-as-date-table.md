@@ -1,7 +1,25 @@
 ---
-titel: aaa "Azure Analysis Services-zelfstudie les 3: markeren als Datumtabel | Microsoft Docs' Beschrijving: hierin wordt beschreven hoe toomark een datum tabel in de zelfstudie hello Azure Analysis Services-project. Services: analysis services-documentationcenter: '' auteur: minewiskan manager: erikre-editor: '' tags: ''
-
-MS.AssetID: ms.service: ms.devlang analysis services: N.V.T. ms.topic:-slag-artikel ms.tgt_pltfrm: N.V.T. ms.workload: n.v.t. ms.date: 01-06/2017 ms.author: owend
+title: 'Azure Analysis Services-zelfstudie - Les 3: Als gegevenstabel markeren | Microsoft Docs'
+description: In deze les wordt beschreven hoe u een gegevenstabel markeert in de zelfstudie over Azure Analysis Services.
+services: analysis-services
+documentationcenter: 
+author: Minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 09/20/2017
+ms.author: owend
+ms.openlocfilehash: 94ea44091c8a7befaf0c82349c47dce7a36c1fd8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-3-mark-as-date-table"></a>Les 3: Als gegevenstabel markeren
 
@@ -11,29 +29,29 @@ In les 2, Gegevens ophalen, hebt u een dimensietabel met de naam DimDate geïmpo
   
 Wanneer u tijd-intelligente DAX-functies gebruikt, zoals later als u metingen gaat maken, moet u eigenschappen opgeven die een *gegevenstabel* en een unieke id *Gegevenskolom* in die tabel bevatten.
   
-In deze les u Hallo DimDate tabel als Hallo markeren *datumtabel* en Hallo datumkolom (in Hallo datum-tabel) als Hallo *datumkolom* (de unieke id).  
+In deze les markeert u de tabel DimDate als de *gegevenstabel* en de kolom Date (in de tabel Date) als de *gegevenskolom* (de unieke id).  
 
-Voordat u Hallo tabel- en datum datumkolom markeert, is het een goed moment toodo enigszins uw model eenvoudiger toounderstand huishoudelijke toomake. U ziet in Hallo DimDate tabel een kolom genaamd **FullDateAlternateKey**. In deze kolom bevat een rij voor elke dag elk opgenomen in de tabel Hallo kalenderjaar. U gebruikt deze kolom veel in formules voor metingen en in rapporten. Maar eigenlijk is FullDateAlternateKey niet echt een goede id voor deze kolom. U de naam wijzigen te**datum**, waardoor het gemakkelijker tooidentify en opnemen in formules. Waar mogelijk, is een goed idee toorename zoals tabellen en kolommen toomake deze objecten gemakkelijker tooidentify in SSDT en rapportage van toepassingen als Power BI en Excel-client. 
+Voordat we de gegevenstabel en de gegevenskolom gaan markeren, is dit een goed moment om een wijziging door te voeren die ervoor zorgt dat het model wat gemakkelijker te begrijpen is. U ziet in de tabel DimDate een kolom met de naam **FullDateAlternateKey**. Deze kolom bevat één rij voor elke dag in elk kalenderjaar dat is opgenomen in de tabel. U gebruikt deze kolom veel in formules voor metingen en in rapporten. Maar eigenlijk is FullDateAlternateKey niet echt een goede id voor deze kolom. We wijzigen de naam in **Date**, waardoor u de kolom gemakkelijker kan vinden en gebruiken in formules. Indien mogelijk is het altijd een goed idee om de namen van objecten zoals tabellen en kolommen te wijzigen, zodat ze gemakkelijker zijn te herkennen in SSDT en in clientrapportagetoepassingen zoals Power BI en Excel. 
   
-Geschatte tijd toocomplete deze les: **drie minuten**  
+Geschatte tijd voor het voltooien van deze les: **3 minuten**  
   
 ## <a name="prerequisites"></a>Vereisten  
-Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u Hallo taken uitvoert in deze les, u moet voltooid Hallo vorige les: [les 2: gegevens ophalen](../tutorials/aas-lesson-2-get-data.md). 
+Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd. Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 2: Gegevens ophalen](../tutorials/aas-lesson-2-get-data.md). 
 
-### <a name="toorename-hello-fulldatealternatekey-column"></a>toorename hello FullDateAlternateKey kolom
+### <a name="to-rename-the-fulldatealternatekey-column"></a>De naam wijzigen van de kolom FullDateAlternateKey:
 
-1.  Klik op Hallo in Hallo model designer **DimDate** tabel.
+1.  Klik in de ontwerpfunctie voor modellen op de tabel **DimDate**.
 
-2.  Dubbelklik op Hallo-header voor Hallo **FullDateAlternateKey** kolom en wijzig de naam te**datum**.
+2.  Dubbelklik op de kop van de kolom **FullDateAlternateKey** en wijzig de naam in **Date**.
 
   
-### <a name="tooset-mark-as-date-table"></a>tooset markeren als Datumtabel  
+### <a name="to-set-mark-as-date-table"></a>De tabel als gegevenstabel markeren:  
   
-1.  Selecteer Hallo **datum** kolom, en klik vervolgens in Hallo **eigenschappen** venster onder **gegevenstype**, zorg ervoor dat **datum** is geselecteerd.  
+1.  Selecteer de kolom **Date** en zorg vervolgens dat in het venster **Properties**, onder **Date Type**, de optie **Date** is geselecteerd.  
   
-2.  Klik op Hallo **tabel** menu, klikt u vervolgens op **datum**, en klik vervolgens op **markeren als Datumtabel**.  
+2.  Klik op het menu **Table** en klik daarna op **Date** en **Mark as Date Table**.  
   
-3.  In Hallo **markeren als Datumtabel** dialoogvenster in Hallo **datum** listbox, selecteer Hallo **datum** kolom als unieke id Hallo. Deze kolom is meestal standaard geselecteerd. Klik op **OK**. 
+3.  Selecteer in het dialoogvenster **Mark as Date Table**, in de vervolgkeuzelijst **Date**, de kolom **Date** als de unieke id. Deze kolom is meestal standaard geselecteerd. Klik op **OK**. 
 
     ![aas-lesson3-date-table](../tutorials/media/aas-lesson3-date-table.png)
   

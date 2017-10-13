@@ -1,6 +1,6 @@
 ---
-title: aaaUse bcp tooload-gegevens in SQL Data Warehouse | Microsoft Docs
-description: Meer informatie over welke BCP en hoe toouse voor datawarehousescenario's.
+title: Gegevens laden in SQL Data Warehouse met behulp van BCP | Microsoft Docs
+description: Informatie over BCP en het gebruik van BCP voor datawarehousescenario's.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 09a2980585097644924c71899f9e74fb32fbc26d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7596eac10fdf53380d85128265430ce07b551fe3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-with-bcp"></a>Gegevens laden met bcp
 > [!div class="op_single_selector"]
@@ -30,41 +30,41 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-**[BCP] [ bcp]**  is een opdrachtregelprogramma voor het bulksgewijs laden hulpprogramma waarmee u toocopy gegevens tussen de SQL Server, gegevensbestanden en SQL Data Warehouse. Gebruikt bcp tooimport groot aantal rijen in SQL Data Warehouse-tabellen of tooexport gegevens uit SQL Server-tabellen naar gegevensbestanden. Bcp vereist, behalve wanneer gebruikt de optie queryout hello, zonder enige kennis van Transact-SQL.
+**[BCP][bcp]** is een opdrachtregelprogramma voor het bulksgewijs laden van gegevens. Hiermee kunt u gegevens kopiëren van en naar SQL Server, gegevensbestanden en SQL Data Warehouse. Gebruikt BCP om veel rijen in SQL Data Warehouse-tabellen te importeren of gegevens uit SQL Server-tabellen te exporteren naar gegevensbestanden. Voor het gebruik van BCP is geen kennis van Transact-SQL vereist, behalve wanneer u de optie queryout wilt gebruiken.
 
-BCP is een snelle en gemakkelijke manier toomove kleinere gegevenssets van en naar een SQL Data Warehouse-database. Hallo exacte hoeveelheid gegevens die wordt aanbevolen tooload/extract via bcp hangen af op het netwerk van verbinding toohello Azure-Datacenter.  Over het algemeen kunt u dimensietabellen probleemloos laden en extraheren met BCP. Voor grote hoeveelheden gegevens wordt BCP echter niet aangeraden.  Polybase is Hallo aanbevolen hulpprogramma voor het laden en extraheren van grote hoeveelheden gegevens als er een beter geschikt Hallo uitgebreide parallelle verwerkingsarchitectuur van SQL Data Warehouse.
+Met BCP kunt u snel en eenvoudig kleinere gegevenssets verplaatsen van en naar een SQL Data Warehouse-database. De exacte aanbevolen hoeveelheid gegevens die u kunt laden/extraheren met BCP is afhankelijk van uw netwerkverbinding met het Azure-datacentrum.  Over het algemeen kunt u dimensietabellen probleemloos laden en extraheren met BCP. Voor grote hoeveelheden gegevens wordt BCP echter niet aangeraden.  Als u veel gegevens wilt laden en extraheren, kunt u het beste Polybase gebruiken. Dit hulpprogramma is beter geschikt voor de uitgebreide parallelle verwerkingsarchitectuur van SQL Data Warehouse.
 
 Met BCP kunt u:
 
-* Gebruik een eenvoudig opdrachtregelprogramma tooload gegevens in SQL Data Warehouse.
-* Gebruik een eenvoudig opdrachtregelprogramma tooextract gegevens uit SQL Data Warehouse.
+* Gegevens in SQL Data Warehouse laden met behulp van een eenvoudig opdrachtregelprogramma.
+* Gegevens uit SQL Data Warehouse extraheren met behulp van een eenvoudig opdrachtregelprogramma.
 
 In deze zelfstudie leert u hoe u het volgende kunt doen:
 
-* Gegevens importeren in een tabel met behulp van bcp Hallo in de opdracht
-* Gegevens exporteren uit een tabel met behulp Hallo bcp-opdracht out
+* Gegevens importeren in een tabel met behulp van de BCP-opdracht in
+* Gegevens exporteren uit een tabel met behulp van de BCP-opdracht out
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
 > 
 
 ## <a name="prerequisites"></a>Vereisten
-toostep voor deze zelfstudie hebt u nodig:
+Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een SQL Data Warehouse-database
-* Hallo bcp opdrachtregel-hulpprogramma is geïnstalleerd
-* Hallo SQLCMD vanaf de opdrachtregel-hulpprogramma is geïnstalleerd
+* Het opdrachtregelprogramma BCP (moet zijn geïnstalleerd)
+* Het opdrachtregelprogramma SQLCMD (moet zijn geïnstalleerd)
 
 > [!NOTE]
-> U kunt hulpprogramma's voor Hallo bcp en sqlcmd downloaden van Hallo [Microsoft Download Center][Microsoft Download Center].
+> U kunt de opdrachtregelprogramma's BCP en SQLCMD downloaden van het [Microsoft Downloadcentrum][Microsoft Download Center].
 > 
 > 
 
 ## <a name="import-data-into-sql-data-warehouse"></a>Gegevens importeren in SQL Data Warehouse
-In deze zelfstudie maakt u een tabel maken in Azure SQL Data Warehouse en gegevens importeren in de tabel Hallo.
+In deze zelfstudie maakt u een tabel in Azure SQL Data Warehouse en importeert u gegevens in de tabel.
 
 ### <a name="step-1-create-a-table-in-azure-sql-data-warehouse"></a>Stap 1: een tabel maken in Azure SQL Data Warehouse
-Gebruik vanaf een opdrachtprompt sqlcmd toorun Hallo query toocreate een tabel op uw exemplaar te volgen:
+Open een opdrachtprompt en voer de volgende query voor het maken van een tabel op uw exemplaar uit met SQLCMD:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -83,12 +83,12 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> Zie [tabel overzicht] [ Table Overview] of [syntaxis voor CREATE TABLE] [ CREATE TABLE syntax] voor meer informatie over het maken van een tabel in SQL Data Warehouse en Hallo  beschikbare opties in de component WITH Hallo.
+> Zie [Tabeloverzicht][Table Overview] of [Syntaxis voor CREATE TABLE][CREATE TABLE syntax] voor meer informatie over het maken van een tabel in SQL Data Warehouse en de beschikbare opties in de WITH-clausule.
 > 
 > 
 
 ### <a name="step-2-create-a-source-data-file"></a>Stap 2: een brongegevensbestand maken
-Open Kladblok en kopieer Hallo volgende regels van gegevens naar een nieuw tekstbestand en sla dit bestand tooyour lokale tijdelijke map C:\Temp\DimDate2.txt.
+Open Kladblok, kopieer de volgende regels met gegevens naar een nieuw tekstbestand en sla dit bestand op in de lokale tijdelijke map C:\Temp\DimDate2.txt.
 
 ```
 20150301,1,3
@@ -106,24 +106,24 @@ Open Kladblok en kopieer Hallo volgende regels van gegevens naar een nieuw tekst
 ```
 
 > [!NOTE]
-> Het is belangrijk tooremember die bcp.exe biedt geen ondersteuning voor UTF-8 Hallo bestandscodering. Gebruik ASCII-bestanden of bestanden met de bestandscodering UTF-16 als u bcp.exe gebruikt.
+> Denk eraan dat de bestandscodering UTF-8 niet wordt ondersteund in bcp.exe. Gebruik ASCII-bestanden of bestanden met de bestandscodering UTF-16 als u bcp.exe gebruikt.
 > 
 > 
 
-### <a name="step-3-connect-and-import-hello-data"></a>Stap 3: Verbinding maken en Hallo gegevens importeren
-Met bcp kunt u verbinding maken en importeren van Hallo-gegevens met behulp van Hallo opdracht vervangen Hallo waarden waar nodig te volgen:
+### <a name="step-3-connect-and-import-the-data"></a>Stap 3: verbinding maken en de gegevens importeren
+Met BCP kunt u verbinding maken en de gegevens importeren met de volgende opdracht, waarbij u de waarden waar nodig vervangt:
 
 ```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
-U kunt de gegevens zijn geladen door het uitvoeren van de volgende query met sqlcmd Hallo Hallo controleren:
+U kunt controleren of de gegevens zijn geladen door de volgende query uit te voeren met SQLCMD:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-Dit resultaat moet geven Hallo resultaten te volgen:
+Hierdoor zouden de volgende resultaten moeten worden geretourneerd:
 
 | DateId | CalendarQuarter | FiscalQuarter |
 | --- | --- | --- |
@@ -141,9 +141,9 @@ Dit resultaat moet geven Hallo resultaten te volgen:
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Stap 4: statistieken maken voor uw zojuist geladen gegevens
-Azure SQL Data Warehouse bevat nog geen functionaliteit voor het automatisch maken of bijwerken van statistieken. Het is belangrijk dat u statistieken voor alle kolommen van alle tabellen nadat Hallo eerst zijn geladen maakt of belangrijke wijzigingen plaatsvinden in Hallo gegevens in volgorde tooget Hallo optimale prestaties van uw query. Zie voor een gedetailleerde uitleg van statistieken Hallo [statistieken] [ Statistics] onderwerp in Hallo groep onderwerpen. Hieronder vindt u een kort voorbeeld van hoe toocreate statistieken op Hallo ingediend in dit voorbeeld geladen
+Azure SQL Data Warehouse bevat nog geen functionaliteit voor het automatisch maken of bijwerken van statistieken. Voor optimale resultaten van uw query's is het belangrijk dat u statistieken maakt voor alle kolommen van alle tabellen nadat de gegevens voor het eerst zijn geladen of wanneer de gegevens substantieel zijn gewijzigd. Zie het onderwerp [Statistieken][Statistics] in de groep onderwerpen voor ontwikkelaars voor gedetailleerde uitleg van statistieken. Hieronder ziet u een kort voorbeeld van het maken van statistieken voor de tabellen die zijn geladen in dit voorbeeld
 
-Hallo volgende CREATE STATISTICS-instructies uit een sqlcmd-opdrachtprompt uitvoeren:
+Voer de volgende CREATE STATISTICS-instructies uit vanaf een SQLCMD-opdrachtprompt:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -154,15 +154,15 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 ## <a name="export-data-from-sql-data-warehouse"></a>Gegevens uit SQL Data Warehouse exporteren
-In deze zelfstudie maakt u een gegevensbestand op basis van een tabel in SQL Data Warehouse. We worden tooa nieuw gegevensbestand naam DimDate2_export.txt gemaakte Hallo-gegevens geëxporteerd.
+In deze zelfstudie maakt u een gegevensbestand op basis van een tabel in SQL Data Warehouse. U exporteert de eerder gemaakte gegevens naar een nieuw gegevensbestand met de naam DimDate2_export.txt.
 
-### <a name="step-1-export-hello-data"></a>Stap 1: Hallo gegevens exporteren
-Hallo bcp-hulpprogramma gebruikt, kunt u verbinding maken en gegevens exporteren met de Hallo na opdracht vervangen Hallo waarden waar nodig:
+### <a name="step-1-export-the-data"></a>Stap 1: de gegevens exporteren
+Met het hulpprogramma BCP kunt u verbinding maken en gegevens exporteren met de volgende opdracht, waarbij u de waarden waar nodig vervangt:
 
 ```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
-U kunt controleren of Hallo gegevens correct zijn geëxporteerd door nieuwe Hallo-bestand te openen. Hallo-gegevens in Hallo-bestand moet overeenkomen met de Hallo onderstaande tekst:
+U kunt controleren of de gegevens correct zijn geëxporteerd door het nieuwe bestand te openen. De gegevens in het bestand moeten overeenkomen met de onderstaande tekst:
 
 ```
 20150301,1,3
@@ -180,7 +180,7 @@ U kunt controleren of Hallo gegevens correct zijn geëxporteerd door nieuwe Hall
 ```
 
 > [!NOTE]
-> Vervaldatum toohello aard van gedistribueerde systemen, Hallo gegevensvolgorde mogelijk niet dezelfde Hallo tussen databases van SQL Data Warehouse. Een andere optie is toouse hello **queryout** functie van bcp toowrite een query uitpakken in plaats van de gehele tabel Hallo exporteren.
+> Vanwege de aard van gedistribueerde systemen kan de gegevensvolgorde per SQL Data Warehouse-database verschillen. In plaats van de hele tabel te exporteren kunt u ook een query voor het extraheren van gegevens schrijven met de functie **queryout** van BCP.
 > 
 > 
 

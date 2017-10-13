@@ -1,6 +1,6 @@
 ---
-title: aaaUpload bestanden naar een Azure Media Services-account met behulp van Aspera | Microsoft Docs
-description: Deze zelfstudie wordt u begeleid Hallo stappen voor het uploaden van bestanden in een opslagaccount dat is gekoppeld aan een Media Services-account met behulp van Hallo ** Aspera Server op aanvraag **-service op Azure.
+title: Bestanden uploaden naar een Azure Media Services-account met behulp van Aspera | Microsoft Docs
+description: Deze zelfstudie wordt u door de stappen voor het uploaden van bestanden in een opslagaccount die is gekoppeld aan een Media Services-account met de ** Aspera Server op aanvraag **-service op Azure.
 services: media-services
 documentationcenter: 
 author: johndeu
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: 7213f016cc1b7f262b14db7b39b478a03970d1c3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="upload-files-into-a-media-services-account-using-hello-aspera-server-on-demand-service-on-azure"></a>Bestanden uploaden naar een Media Services-account met Hallo Aspera Server On Demand-service op Azure
+# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Bestanden uploaden naar een Media Services-account met behulp van de service Aspera Server On Demand in Azure
 
 ## <a name="overview"></a>Overzicht
 
-**Aspera** is software die een snelle bestandsoverdracht mogelijk maakt. **Aspera Server On Demand** voor Azure maakt snel uploaden en downloaden van grote bestanden rechtstreeks in Azure Blob-objectopslag mogelijk. Voor informatie over **Aspera On Demand**, Zie Hallo [Aspera Cloud](http://cloud.asperasoft.com/) site. 
+**Aspera** is software die een snelle bestandsoverdracht mogelijk maakt. **Aspera Server On Demand** voor Azure maakt snel uploaden en downloaden van grote bestanden rechtstreeks in Azure Blob-objectopslag mogelijk. Zie de [Aspera Cloud](http://cloud.asperasoft.com/)-site voor informatie over **Aspera On Demand**. 
   
-**Aspera Server On Demand** voor Azure gekocht bij Hallo is [Azure marketplace](https://azure.microsoft.com/en-us/marketplace/). In volgorde toocomplete een aankoop van **Aspera Server On Demand** voor Azure, meld u in Azure Marketplace met uw Windows Live ID.
+**Aspera Server On Demand** voor Azure is verkrijgbaar in [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/). Om de aankoop van **Aspera Server On Demand** voor Azure te voltooien, meldt u zich aan bij Azure Marketplace met uw Windows Live ID.
 
-Deze zelfstudie wordt u begeleid Hallo stappen voor het uploaden van bestanden in een opslagaccount dat is gekoppeld aan een Media Services-account met behulp van Hallo **Aspera Server On Demand** service op Azure. 
+In deze zelfstudie leert u stapsgewijs hoe u bestanden uploadt naar een opslagaccount dat is gekoppeld aan een Media Services-account met behulp van de service **Aspera Server On Demand** in Azure. 
 
-U vindt een voorbeeld ziet u hoe toouse Azure werkt met Aspera en Media Services [hier](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
+[Hier](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest) vindt u een voorbeeld waarin wordt uitgelegd hoe u Azure Functions gebruikt met Aspera en Media Services.
 
 >[!NOTE]
->Er is een limiet toohello maximale bestandsgrootte ondersteund voor de verwerking met Azure Media Services-mediaprocessoren (Management Packs). Zie [dit](media-services-quotas-and-limitations.md) onderwerp voor meer informatie over Hallo beperking voor de bestandsgrootte.
+>Er is een maximale bestandsgrootte voor de verwerking met Azure Media Services-mediaprocessors (mp's). Raadpleeg [dit onderwerp](media-services-quotas-and-limitations.md) voor meer informatie over de maximale bestandsgrootte.
 >
 
 ## <a name="prerequisites"></a>Vereisten 
 
-toocomplete deze zelfstudie hebt u nodig:
+Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een Windows Live ID
 * Een [Azure-account](https://azure.microsoft.com). Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
@@ -46,81 +46,81 @@ toocomplete deze zelfstudie hebt u nodig:
 
 ## <a name="purchase-aspera-on-demand-for-azure"></a>Aspera On Demand kopen voor Azure
 
-Zodra u hebt geregistreerd in Azure Marketplace, volgt u deze basisstappen toocomplete uw aanschaf van Aspera On Demand voor Azure.
+Nadat u zich hebt aangemeld bij Azure Marketplace, volgt u deze eenvoudige stappen om de aankoop van Aspera On Demand voor Azure te voltooien.
 
 1. Zoek naar Aspera en selecteer 'Server On Demand'.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera001.png)
 
-2. Hallo-abonnementen en klik op Sign Up
+2. Bekijk de abonnementen en klik op 'Aanmelden'
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera002.png)
 
-3. Vul in het Hallo-specifieke informatie voor uw Server op verzoek-abonnement.
+3. Voer de gegevens voor het Server On Demand-abonnement in.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera003.png)
 
-4. Klik op Hallo **prijscategorie** in en selecteer de gewenste maandelijkse volume Hallo sub Configuratiescherm. In Hallo **plannen details** Configuratiescherm, selecteer **OK**. Klik op Hallo **Kies uw prijscategorie** -scherm, klikt u op **Selecteer**.
+4. Klik op de **prijscategorie** en selecteer het gewenste maandelijkse volume in het deelvenster. In het deelvenster **Plan details** (Abonnementsgegevens) selecteert u **OK**. Klik in het deelvenster **Uw prijscategorie kiezen** op **Selecteren**.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera004.png)
 
-5. Klik op **juridische voorwaarden** tooview en accepteer de juridische bepalingen Hallo Hallo sub Configuratiescherm. Nadat u de juridische voorwaarden Hallo hebt bekeken, klikt u op **aankoop**.
+5. Klik op **Juridische voorwaarden** om de juridische voorwaarden in het deelvenster te bekijken en te accepteren. Nadat u de juridische voorwaarden hebt gelezen, klikt u op **Kopen**.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera005.png)
 
-6. Hallo aankoop voltooien door te klikken op **maken**.
+6. Voltooi de aankoop door op **Maken** te klikken.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera006.png)
 
-7. Hello Azure-dashboard wordt aangekondigd dat het Hallo-service is ingericht.  Zodra deze is voltooid met het leveren, kunt u Hallo nieuw abonnement vinden door te zoeken in uw resources voor Hallo-naam van het Hallo-service. Als u Hallo-service, dubbele klik erop toolaunch Hallo service management-portal gevonden hebt.
+7. Op het Azure-dashboard wordt weergegeven dat de service wordt ingericht.  Wanneer het inrichten is voltooid, kunt u het nieuwe abonnement vinden door op de naam van de service te zoeken in uw resources. Zodra u de service hebt gevonden, dubbelklikt u erop om de beheerportal van de service te openen.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera007.png)
 
-8. Start Hallo Aspera-beheerportal. Als u uw nieuwe Aspera-service hebt gevonden, krijgt u toegang toohello-beheerportal door te klikken op Hallo-service.  Er wordt een nieuw deelvenster geopend. Uit binnen die nieuw deelvenster, moet u tooclick op Hallo **resourcenaam** van uw nieuwe service.  In Hallo schermafbeelding te volgen, is het Hallo-resourcenaam 'AsperaTransferDemo'. Zodra u op Hallo Resourcenaam klikt, wordt een ander deelvenster wordt gestart. In het nieuwe deelvenster ziet u een koppeling 'Beheren'. Klik op Hallo 'Beheren' koppeling toolaunch hello Aspera-beheerportal.
+8. Start de Aspera-beheerportal. Zodra u de nieuwe Aspera-service hebt gevonden, klikt u op de service om de beheerportal te openen.  Er wordt een nieuw deelvenster geopend. Klik binnen het nieuwe deelvenster op de **resourcenaam** van uw nieuwe service.  De resourcenaam in de volgende schermafbeelding is 'AsperaTransferDemo'. Zodra u op de resourcenaam klikt, wordt er een nieuw deelvenster geopend. In het nieuwe deelvenster ziet u een koppeling 'Beheren'. Klik op de koppeling 'Beheren' om de beheerportal van Aspera te openen.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera008.png)
 
-9. Door te klikken op Hallo beheren koppeling, krijgt u de registratiepagina toohello, die vereist is tooaccess Hallo service.
+9. Door op de koppeling 'Beheren' te klikken, wordt u naar de registratiepagina geleid. Deze is nodig om toegang te krijgen tot de service.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera009.png)
 
-10. U hebt nu toegang toohello Aspera service management-portal, kunt u toegangstoetsen maken, downloaden clients Aspera en licenties, adresgebruik weergeven en meer informatie over Hallo API's.
+10. U hoort nu toegang te hebben tot de beheerportal van de Aspera-service. Hier kunt u toegangstoetsen maken, Aspera-clients en -licenties downloaden, het gebruik bekijken en meer informatie over de API's krijgen.
 
-    Hallo toont volgende schermafbeelding Hallo toegang maken. 
+    In de volgende schermafbeelding ziet u hoe toegang maken in zijn werk gaat. 
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
 
-    Hallo toont volgende schermafbeelding Hallo gebruiksrapportage-interfaces in Hallo-portal. 
+    In de volgende schermafbeelding ziet u de interfaces voor gebruiksrapporten in de portal. 
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
 
 ## <a name="upload-files-with-aspera"></a>Bestanden uploaden met Aspera
 
-1. Download en installeer Hallo Aspera clientsoftware:
+1. Download en installeer de clientsoftware van Aspera:
     
     * [Invoegtoepassing browser](http://downloads.asperasoft.com/connect2/)
     * [Rich client](http://downloads.asperasoft.com/en/downloads/2)
 
-2. Voer uw eerste overdracht uit. In de volgorde toouse hello Aspera client tootransfer Hello Aspera transfer-service moet u toocomplete Hallo volgende: 
+2. Voer uw eerste overdracht uit. Voer het volgende uit om de Aspera-client te gebruiken om overdrachten uit te voeren met de Aspera-overdrachtsservice: 
 
-    1. Maak een toegangssleutel met Hallo Aspera portal.  
-    2. Downloaden, installeren en licentie Hallo Aspera client (software kunt u vinden in Hallo Aspera portal).  
+    1. Maak een toegangstoets via de Aspera-portal.  
+    2. Download, installeer en licentieer de Aspera-client (de software vindt u in de Aspera-portal).  
 
     >[!NOTE]
-    >Lees Hallo Aspera client-handleiding voor configuratie-informatie.
+    >Lees de gids van de Aspera-client voor informatie over de configuratie.
     
-    3. Sommige gegevens van uw opslagaccount die is gekoppeld aan uw Azure-Media-Account met Hallo ophalen [Azure-portal](https://portal.azure.com/). In het bijzonder naam en sleutel en naam Hallo opslag blob-container in toowhich gewenste tooplace uw inhoud. 
+    3. Haal bepaalde gegevens van uw opslagaccount op die zijn gekoppeld aan uw Azure-media-account met behulp van [Azure Portal](https://portal.azure.com/). Specifiek gaat het om de naam en sleutel, en de naam van de opslag-blob-container waarin u uw inhoud wilt plaatsen. 
 
-        * tooget hello opslag info van Hallo-portal: vinden uw storage-account, klikt u op Hallo toegangstoetsen en kopiëren Hallo naam en het Hallo-sleutel van uw account.
-        * tooget hello containernaam: vinden van uw opslagaccount, selecteer **Blobs**, selecteer Hallo-naam van Hallo-container die u wilt dat tooupload Hallo inhoud in. 
+        * Opslaggegevens ophalen uit de portal: zoek uw opslagaccount, klik op de toegangstoetsen en kopieer de naam en sleutel van uw account.
+        * De containernaam ophalen: zoek uw opslagaccount, selecteer **Blobs**, selecteer de naam van de container waarnaar u de inhoud wilt uploaden. 
 
-    Hieronder vindt u Hallo schermopname van Hallo Aspera client **Verbindingsbeheer** waarin u de 'Azure' opslagtype Hallo en referenties, evenals Hallo blob-container moet opgeven.
+    Hieronder ziet u een schermafbeelding van **Verbindingsbeheer** van de Aspera-client waarin u het type Azure-opslag en referenties dient op te geven, evenals de blob-container.
 
     ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
 ## <a name="resources"></a>Resources
 
-Hallo volgende resources zijn vermeld in dit artikel. 
+De volgende resources zijn vermeld in dit artikel. 
 
 * [Connect Browser Plugin](http://downloads.asperasoft.com/connect2/)
 * [Connect-handleiding](http://downloads.asperasoft.com/en/documentation/8)

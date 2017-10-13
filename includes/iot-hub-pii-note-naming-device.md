@@ -1,3 +1,3 @@
 > [!IMPORTANT]
-> ervoor tooavoid Hallo apparaat ID mogelijk zichtbaar in Hallo logboeken verzameld voor klantondersteuning en probleemoplossing, dus zorg gevoelige informatie bij naam.
+> De apparaat-ID is mogelijk zichtbaar in de logboeken die worden verzameld voor klantondersteuning en probleemoplossing. Zorg er dus voor dat wordt voorkomen dat gevoelige informatie wordt vermeld.
 >

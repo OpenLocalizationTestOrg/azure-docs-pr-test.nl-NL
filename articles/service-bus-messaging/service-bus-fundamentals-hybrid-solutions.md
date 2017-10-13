@@ -1,6 +1,6 @@
 ---
-title: aaaOverview van grondbeginselen van Azure Service Bus | Microsoft Docs
-description: Een inleiding toousing Service Bus tooconnect Azure-toepassingen tooother software.
+title: Overzicht van Azure Service Bus-basisbeginselen | Microsoft Docs
+description: Een inleiding in het gebruik van Service Bus om Azure-toepassingen te verbinden met andere software.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -14,109 +14,109 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/15/2017
 ms.author: sethm
-ms.openlocfilehash: 1abd5cf310ef06ba35e1e2489a7c0a07e1797736
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: af8b10f0a460e695a39879718174e81f78934ef8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
-Of een toepassing of service wordt uitgevoerd in Hallo cloud of on-premises, moet deze vaak toointeract met andere toepassingen of services. een veelzijdige, handige manier toodo tooprovide deze, aanbiedingen van Microsoft Azure Service Bus. In dit artikel wordt bekeken deze technologie en wordt beschreven wat is het en waarom u wellicht toouse deze.
+Een toepassing of service moet vaak communiceren met andere toepassingen of services, ongeacht of de toepassing of service in de cloud of on-premises wordt uitgevoerd. Microsoft Azure biedt Service Bus om dit op een veelzijdige, handige manier te doen. In dit artikel wordt een overzicht gegeven van deze technologie en wordt beschreven wat de service inhoudt en waarom u deze zou kunnen overwegen.
 
 ## <a name="service-bus-fundamentals"></a>Grondbeginselen van Service Bus
 
-Verschillende situaties vragen om verschillende communicatiemethoden. Soms als toepassingen berichten via een eenvoudige wachtrij verzenden en ontvangen, is de beste oplossing Hallo. In andere gevallen is een gewone wachtrij niet voldoende en voldoet een wachtrij met een mechanisme voor publiceren en abonneren beter. In sommige gevallen is alleen een verbinding tussen toepassingen nodig en is er geen behoefte aan een wachtrij. Service Bus biedt alle drie de opties, waardoor uw toointeract toepassingen op verschillende manieren.
+Verschillende situaties vragen om verschillende communicatiemethoden. Soms is het de beste oplossing als toepassingen berichten verzenden en ontvangen via een eenvoudige wachtrij. In andere gevallen is een gewone wachtrij niet voldoende en voldoet een wachtrij met een mechanisme voor publiceren en abonneren beter. In sommige gevallen is alleen een verbinding tussen toepassingen nodig en is er geen behoefte aan een wachtrij. Service Bus biedt alle drie de opties, zodat uw toepassingen op verschillende manieren met elkaar kunnen communiceren.
 
-Service Bus is een multitenant-cloudservice, wat betekent dat Hallo-service wordt gedeeld door meerdere gebruikers. Elke gebruiker, zoals een toepassingsontwikkelaar, maakt een *naamruimte*, definieert Hallo communicatie mechanismen nodig binnen deze naamruimte. In afbeelding 1 ziet u hoe deze architectuur eruit ziet.
+Service Bus is een multitenant-cloudservice, hetgeen betekent dat de service wordt gedeeld door meerdere gebruikers. Elke gebruiker, zoals een toepassingsontwikkelaar, maakt een *naamruimte* en definieert vervolgens de communicatiemechanismen die binnen deze naamruimte nodig zijn. In afbeelding 1 ziet u hoe deze architectuur eruit ziet.
 
 ![][1]
 
-**Afbeelding 1: Servicebus biedt een multitenant-service voor het verbinden van toepassingen via Hallo cloud.**
+**Afbeelding 1: Service Bus voorziet in een multitenant-service voor verbinding van toepassingen via de cloud.**
 
-Binnen een naamruimte kunt u een of meer exemplaren van drie verschillende communicatiemechanismen gebruiken, die toepassingen alle drie op een andere manier verbinden. Hallo-opties zijn:
+Binnen een naamruimte kunt u een of meer exemplaren van drie verschillende communicatiemechanismen gebruiken, die toepassingen alle drie op een andere manier verbinden. De opties zijn:
 
 * *Wachtrijen*, waarmee communicatie in één richting mogelijk is. Elke wachtrij fungeert als intermediaire service (ook wel *broker* genoemd) die de verzonden berichten opslaat totdat ze worden ontvangen. Elk bericht wordt door één ontvanger ontvangen.
-* *Onderwerpen*, die communicatie in één richting bieden via *abonnementen*, waarbij een enkel onderwerp meerdere abonnementen kan hebben. Net zoals een wachtrij fungeert een onderwerp als broker, maar elk abonnement kunt optioneel een filter tooreceive alleen berichten die aan bepaalde criteria voldoen.
-* *Relays*, die bidirectionele communicatie bieden. In tegenstelling tot wachtrijen en onderwerpen, worden via een relay berichten die onderweg zijn niet opgeslagen. Een relay is geen broker. In plaats daarvan deze berichten worden slechts doorgegeven op de doeltoepassing toohello.
+* *Onderwerpen*, die communicatie in één richting bieden via *abonnementen*, waarbij een enkel onderwerp meerdere abonnementen kan hebben. Net zoals een wachtrij fungeert een onderwerp als broker, maar elk abonnement kan optioneel een filter gebruiken om alleen berichten te ontvangen die aan bepaalde criteria voldoen.
+* *Relays*, die bidirectionele communicatie bieden. In tegenstelling tot wachtrijen en onderwerpen, worden via een relay berichten die onderweg zijn niet opgeslagen. Een relay is geen broker. De berichten worden slechts doorgegeven aan de doeltoepassing.
 
-Wanneer u een wachtrij, onderwerp of relay maakt, geeft u deze een naam. Gecombineerd met de naam van uw naamruimte, maakt deze naam een unieke id voor het Hallo-object. Toepassingen kunnen bieden deze naam tooService Bus en vervolgens die wachtrij, onderwerp of relay toocommunicate met elkaar gebruiken. 
+Wanneer u een wachtrij, onderwerp of relay maakt, geeft u deze een naam. In combinatie met de naam van uw naamruimte wordt aan de hand van deze naam een unieke id voor het object gemaakt. Toepassingen kunnen deze naam verstrekken aan Service Bus en vervolgens de wachtrij, het onderwerp of de relay gebruiken om met elkaar te communiceren. 
 
-toouse een van deze objecten in Hallo relay scenario, Windows-toepassingen kunnen gebruikmaken van Windows Communication Foundation (WCF). Deze service wordt ook wel [WCF-relay](../service-bus-relay/relay-what-is-it.md). Voor wachtrijen en onderwerpen kunnen Windows-toepassingen door Service Bus gedefinieerde berichtenservice-API's gebruiken. toomake deze objecten gemakkelijker toouse uit niet-Windows-toepassingen, Microsoft biedt SDK's voor Java, Node.js en andere talen. U hebt ook toegang tot wachtrijen en onderwerpen met behulp van [REST-API's](/rest/api/servicebus/) via HTTP(S). 
+Windows-toepassingen kunnen WCF (Windows Communication Foundation) gebruiken om een van deze objecten in het relayscenario te gebruiken. Deze service wordt ook wel [WCF-relay](../service-bus-relay/relay-what-is-it.md). Voor wachtrijen en onderwerpen kunnen Windows-toepassingen door Service Bus gedefinieerde berichtenservice-API's gebruiken. Microsoft biedt SDK's voor Java, Node.js en andere talen om deze objecten gemakkelijker te kunnen gebruiken vanuit niet-Windows-toepassingen. U hebt ook toegang tot wachtrijen en onderwerpen met behulp van [REST-API's](/rest/api/servicebus/) via HTTP(S). 
 
-Het is belangrijk toounderstand dat hoewel Service Bus zelf wordt uitgevoerd in Hallo-cloud (dat wil zeggen, in Azure-datacenters van Microsoft), overal kunnen worden uitgevoerd door toepassingen die worden gebruikt. U kunt Service Bus tooconnect toepassingen die worden uitgevoerd op Azure, bijvoorbeeld of toepassingen die worden uitgevoerd binnen uw eigen datacenter. U kunt deze ook gebruiken tooconnect een toepassing die wordt uitgevoerd op Azure of een ander cloudplatform met een on-premises toepassing of tablets en telefoons. Het is tooconnect zelfs mogelijk huishoudelijke apparaten, sensoren en andere apparaten tooa centrale toepassing of andere tooone. Service Bus is een communicatiemechanisme in Hallo cloud die toegankelijk is vanaf vrijwel elke locatie. Hoe u afhankelijk deze van welke uw toepassingen toodo moeten.
+Het is belangrijk te begrijpen dat toepassingen die Service Bus gebruiken overal kunnen worden uitgevoerd, hoewel Service Bus zelf wordt uitgevoerd in de cloud (dat wil zeggen, in Azure-datacenters van Microsoft). U kunt Service Bus bijvoorbeeld gebruiken om verbinding te maken met toepassingen die worden uitgevoerd in Azure, of toepassingen die worden uitgevoerd binnen uw eigen datacenter. U kunt Service Bus ook gebruiken om verbinding te maken met een toepassing die wordt uitgevoerd in Azure of een ander cloudplatform met een on-premises toepassing, of met een tablet of telefoon. Het is zelfs mogelijk huishoudelijke apparaten, sensoren en andere apparaten te verbinden met een centrale toepassing of met elkaar. Service Bus is een communicatiemechanisme in de cloud dat vanaf vrijwel elke locatie toegankelijk is. De manier waarop u Service Bus gebruikt, hangt af van de taak van uw toepassingen.
 
 ## <a name="queues"></a>Wachtrijen
 
-Stel dat u tooconnect twee toepassingen met behulp van een Service Bus-wachtrij bepalen. In afbeelding 2 ziet u deze situatie.
+Stel dat u met twee toepassingen verbinding wilt maken via een Service Bus-wachtrij. In afbeelding 2 ziet u deze situatie.
 
 ![][2]
 
 **Afbeelding 2: Service Bus-wachtrijen bieden asynchrone wachtrijservices in één richting.**
 
-Hallo-proces is eenvoudig: een afzender verzendt een bericht tooa Service Bus-wachtrij en een ontvanger neemt dat bericht over op een later tijdstip. Een wachtrij kan slechts één ontvanger, hebben, zoals in afbeelding 2 wordt weergegeven. Of meerdere toepassingen kunnen worden gelezen vanaf Hallo dezelfde wachtrij. In het laatste geval hello wordt elk bericht gelezen door slechts één ontvanger. Voor een multicast-service is het echter beter om een onderwerp te gebruiken.
+Het proces is eenvoudig: een afzender verzendt een bericht naar een Service Bus-wachtrij en een ontvanger neemt het bericht op een later tijdstip in ontvangst. Een wachtrij kan slechts één ontvanger, hebben, zoals in afbeelding 2 wordt weergegeven. Of meerdere toepassingen kunnen vanuit de dezelfde wachtrij lezen. In het laatste geval wordt elk bericht door slechts één ontvanger gelezen. Voor een multicast-service is het echter beter om een onderwerp te gebruiken.
 
-Elk bericht bestaat uit twee delen: een reeks eigenschappen, elk een sleutel-waardepaar, en een berichtnettolading. Hallo nettolading kan binair, tekst of zelfs XML zijn. Hoe deze worden gebruikt, is afhankelijk van wat een toepassing toodo probeert. Een toepassing verzenden van een bericht over een recente verkoop kan bijvoorbeeld Hallo eigenschappen **verkoper = 'Ava'** en **bedrag = 10000**. Hallo berichttekst kan een gescande afbeelding van Hallo ondertekende verkoopovereenkomst bevatten of als er niet is, leeg blijven.
+Elk bericht bestaat uit twee delen: een reeks eigenschappen, elk een sleutel-waardepaar, en een berichtnettolading. De nettolading kan binair, tekst of zelfs XML zijn. Hoe deze worden gebruikt, hangt af van wat een toepassing probeert te doen. Een toepassing die een bericht verzendt over een recente verkoop, kan bijvoorbeeld de eigenschappen **Verkoper = Ava** en **Bedrag = 10000** bevatten. De berichttekst kan een gescande afbeelding bevatten van de ondertekende verkoopovereenkomst of, als die niet beschikbaar is, leeg blijven.
 
-Een ontvanger kan op twee verschillende manieren een bericht in een Service Bus-wachtrij lezen. eerste optie, Hallo  *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, wordt een bericht uit de wachtrij Hallo en onmiddellijk gewist. Deze optie is eenvoudig, maar als Hallo ontvanger vastloopt voordat het klaar is met het verwerken van het Hallo-bericht, Hallo-bericht is verloren gegaan. Omdat deze wordt verwijderd uit de wachtrij hello, geen andere ontvanger met toegang tot dit. 
+Een ontvanger kan op twee verschillende manieren een bericht in een Service Bus-wachtrij lezen. Met de eerste optie, *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, wordt een bericht uit de wachtrij verwijderd en onmiddellijk gewist. Dit is een eenvoudig aanpak, maar als de computer van de ontvanger vastloopt voordat het bericht is verwerkt, gaat het bericht verloren. Andere ontvangers hebben geen toegang tot het bericht, omdat het uit de wachtrij is verwijderd. 
 
-tweede optie Hallo  *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, toohelp bij dit probleem is bedoeld. Zoals **ReceiveAndDelete**, een **PeekLock** lezen wordt een bericht uit de wachtrij Hallo. Het verwijderen Hallo-bericht echter niet. In plaats daarvan Hiermee vergrendelt u het Hallo-bericht, waardoor het onzichtbaar tooother ontvangers, vervolgens wordt gewacht op een van drie gebeurtenissen:
+De tweede optie, *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, is bedoeld om dit probleem te ondervangen. Net zoals bij **ReceiveAndDelete** wordt het bericht met **PeekLock** verwijderd uit de wachtrij. Het bericht wordt echter niet gewist. In plaats daarvan wordt het vergrendeld, waardoor het onzichtbaar wordt voor andere ontvangers. Vervolgens wordt gewacht op een van drie gebeurtenissen:
 
-* Als Hallo ontvanger processen hello bericht is, ontvangt [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), en Hallo wachtrij verwijdert het Hallo-bericht. 
-* Als de ontvanger Hallo beslist dat het Hallo-bericht niet kan verwerken, ontvangt [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). Hallo wachtrij vervolgens Hallo vergrendeling verwijdert uit het Hallo-bericht en maakt het beschikbaar tooother ontvangers.
-* Als de ontvanger Hallo geen van deze methoden (standaard 60 seconden) binnen een configureerbare periode aanroept, Hallo wachtrij wordt ervan uitgegaan Hallo ontvanger is mislukt. In dit geval het gedraagt zich alsof de ontvanger Hallo had aangeroepen **afbreken**, waardoor het Hallo-bericht beschikbaar tooother ontvangers.
+* Als de ontvanger het bericht met succes heeft verwerkt, ontvangt de wachtrij de melding [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) en wordt het bericht uit de wachtrij verwijderd. 
+* Als de ontvanger het bericht niet naar behoren kan verwerken, ontvangt de wachtrij de melding [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). De vergrendeling van het bericht in de wachtrij wordt ongedaan gemaakt en het bericht is beschikbaar voor andere ontvangers.
+* Als de ontvanger binnen de geconfigureerde tijd (standaard 60 seconden) geen van beide methoden aanroept, wordt ervan uitgegaan dat het ontvangen is mislukt. In dit geval gedraagt de wachtrij zich alsof de ontvanger de melding **Afbreken** heeft afgegeven en wordt het bericht beschikbaar gesteld aan andere ontvangers.
 
-U ziet hier dus: hello hetzelfde bericht mogelijk tweemaal worden geleverd, mogelijk tootwo verschillende ontvangers. Toepassingen die gebruikmaken van Service Bus-wachtrijen, moeten hiermee rekening houden. toomake detectie van duplicaten gemakkelijker, elk bericht heeft een unieke [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) eigenschap die standaard Hallo blijft hetzelfde, ongeacht hoe vaak het Hallo-bericht is gelezen uit een wachtrij. 
+Ziet u wat er hier kan gebeuren? Hetzelfde bericht kan dus tweemaal worden bezorgd, mogelijk bij twee verschillende ontvangers. Toepassingen die gebruikmaken van Service Bus-wachtrijen, moeten hiermee rekening houden. Om detectie van duplicaten gemakkelijker te maken, heeft elk bericht een unieke [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId). Deze eigenschap blijft standaard hetzelfde, ongeacht hoe vaak het bericht in een wachtrij is gelezen. 
 
-Wachtrijen zijn handig in tal van situaties. Ze toepassingen toocommunicate inschakelen, zelfs als beide niet worden uitgevoerd op Hallo dezelfde tijd, iets wat is vooral handig met batch- en mobiele toepassingen. Een wachtrij met meerdere ontvangers biedt ook automatische taakverdeling, aangezien verzonden berichten worden verdeeld over deze ontvangers.
+Wachtrijen zijn handig in tal van situaties. Met behulp van wachtrijen kunnen toepassingen zelfs communiceren wanneer ze niet tegelijkertijd worden uitgevoerd. Dit is met name handig bij batchtoepassingen en mobiele toepassingen. Een wachtrij met meerdere ontvangers biedt ook automatische taakverdeling, aangezien verzonden berichten worden verdeeld over deze ontvangers.
 
 ## <a name="topics"></a>Onderwerpen
 
-Hoewel ze handig zijn, zijn wachtrijen niet altijd de juiste oplossing Hallo. Service Bus-onderwerpen komen soms beter van pas. Afbeelding 3 laat dit zien.
+Hoewel ze handig zijn, zijn wachtrijen niet altijd de juiste oplossing. Service Bus-onderwerpen komen soms beter van pas. Afbeelding 3 laat dit zien.
 
 ![][3]
 
-**Afbeelding 3: Gebaseerd op Hallo-filter die een geabonneerde toepassing bevat, krijgt sommige of alle Hallo-berichten tooa Service Bus-onderwerp.**
+**Afbeelding 3: Op basis van het filter dat door een geabonneerde toepassing wordt opgegeven, kan de toepassing enkele of alle berichten ontvangen die naar een Service Bus-onderwerp zijn verzonden.**
 
-Een *onderwerp* lijkt op veel manieren tooa wachtrij. Afzenders verzenden berichten tooa onderwerp in Hallo dezelfde manier die ze berichten tooa wachtrij verzenden, en deze berichten uiterlijk Hallo hetzelfde als bij een wachtrij. Hallo verschil is dat onderwerpen elke ontvangende toepassing toocreate inschakelen eigen *abonnement* door te definiëren die een *filter*. Een abonnee ziet vervolgens alleen Hallo-berichten die met het filter overeenkomen. In afbeelding 3 ziet u bijvoorbeeld een afzender en een onderwerp met drie abonnees, elk met een eigen filter:
+Een *onderwerp* lijkt in veel opzichten op een wachtrij. Afzenders verzenden berichten op dezelfde manier naar een onderwerp als naar een wachtrij en de berichten zien er hetzelfde uit als bij een wachtrij. Het verschil is dat het bij onderwerpen mogelijk is dat elke ontvangende toepassing zijn eigen *abonnement* maakt door een *filter* te definiëren. Een abonnee ziet vervolgens alleen de berichten die overeenkomen met het filter. In afbeelding 3 ziet u bijvoorbeeld een afzender en een onderwerp met drie abonnees, elk met een eigen filter:
 
-* Abonnee 1 ontvangt alleen berichten met de eigenschap Hallo *verkoper = 'Ava'*.
-* Abonnee 2 ontvangt berichten met de eigenschap Hallo *verkoper = 'Ruby'* en/of bevatten een *bedrag* eigenschap waarvan de waarde groter dan 100.000 is. Wellicht is Ruby Hallo Verkoopmanager en zodat ze wil toosee zowel haar eigen verkopen als alle grote verkoop ongeacht wie ze tot stand brengt.
-* Abonnee 3 heeft het filter te ingesteld*True*, wat betekent dat alle berichten worden ontvangen. Bijvoorbeeld: deze toepassing kan zijn verantwoordelijk voor het onderhouden van een audittrail en moet deze toosee alle Hallo-berichten.
+* Abonnee 1 ontvangt alleen berichten met de eigenschap *Verkoper =Ava*.
+* Abonnee 2 ontvangt berichten met de eigenschap *Verkoper = Ruby* en/of een eigenschap *Bedrag* met een waarde van meer dan 100.000. Wellicht is Ruby de verkoopmanager en wil ze zowel haar eigen verkopen als alle omvangrijke verkopen zien, ongeacht wie ze tot stand brengt.
+* Abonnee 3 heeft het filter ingesteld op *Waar*, hetgeen betekent dat alle berichten worden ontvangen. Wellicht is deze toepassing bijvoorbeeld verantwoordelijk voor het onderhouden van een audittrail en moet deze alle berichten zien.
 
-Zoals wachtrijen, abonnees tooa onderwerp berichten lezen met een [ReceiveAndDelete of PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). In tegenstelling tot wachtrijen, echter verzonden een enkel bericht tooa onderwerp kan worden ontvangen door meerdere abonnementen. Deze benadering, doorgaans aangeduid *publiceren en abonneren* (of *pub subitems*), is nuttig wanneer meerdere toepassingen zijn geïnteresseerd in Hallo dezelfde berichten. Met het juiste filter Hallo definiëren, kunnen abonnees in slechts Hallo deel van de berichtenstroom Hallo dat het toosee moet.
+Net zoals het geval is voor wachtrijen, kunnen abonnees van een onderwerp berichten lezen met [ReceiveAndDelete of PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). In tegenstelling tot wachtrijen kan echter een enkel bericht dat naar een onderwerp is verzonden door meerdere abonnementen worden ontvangen. Deze benadering, doorgaans aangeduid met *publiceren en abonneren* (of *pub/sub*), is nuttig wanneer meerdere toepassingen in dezelfde berichten zijn geïnteresseerd. Door het juiste filter te definiëren, kunnen abonnees alleen het gedeelte van de berichtenstroom ontvangen dat ze nodig hebben.
 
 ## <a name="relays"></a>Relays
 
-Wachtrijen en onderwerpen bieden allebei asynchrone communicatie in één richting via een broker. Het verkeer stroomt in één richting en er is geen directe verbinding tussen afzenders en ontvangers. Maar wat als u dit niet wilt? Stel dat uw toepassingen moet tooboth verzenden en ontvangen berichten, of misschien u wilt dat een rechtstreekse koppeling tussen en hoeft u geen broker toostore berichten. tooaddress scenario's zoals deze, Service Bus biedt *doorstuurt*, zoals in afbeelding 4 ziet.
+Wachtrijen en onderwerpen bieden allebei asynchrone communicatie in één richting via een broker. Het verkeer stroomt in één richting en er is geen directe verbinding tussen afzenders en ontvangers. Maar wat als u dit niet wilt? Stel dat uw toepassingen berichten moeten verzenden en berichten moeten ontvangen, of stel dat u een rechtstreekse koppeling tussen uw toepassingen wilt en geen broker nodig hebt voor het opslaan van berichten. Voor dit soort scenario's biedt Service Bus *relays*, zoals weergegeven in afbeelding 4.
 
 ![][4]
 
 **Afbeelding 4: Service Bus Relay biedt synchrone communicatie in twee richtingen tussen toepassingen.**
 
-Hallo tooask van de hand liggende vraag over relays is dit: Waarom zou ik die gebruiken? Zelfs als ik geen wachtrijen nodig hebt, waarom zouden toepassingen dan communiceren via een cloudservice in plaats van ze rechtstreeks communiceren? Hallo-antwoord is dat communiceren rechtstreeks lastiger zijn kan dan u denkt.
+De voor de hand liggende vraag over relays is: waarom zou u een relay gebruiken? Zelfs als u geen wachtrijen nodig hebt, waarom zouden toepassingen dan moeten communiceren via een cloudservice in plaats van dat ze rechtstreeks communiceren? Het antwoord is dat rechtstreeks communiceren lastiger kan zijn dan u denkt.
 
-Stel dat u wilt dat tooconnect twee on-premises toepassingen, zowel uitgevoerd binnen bedrijfsdatacenters. Elk van deze toepassingen bevindt zich achter een firewall en elk datacenter maakt waarschijnlijk gebruik van NAT (netwerkadresomzetting). Hallo firewall blokkeert binnenkomende gegevens op alle maar een paar poorten en NAT impliceert dat elke toepassing wordt uitgevoerd op Hallo-machine beschikt niet over een vaste IP-adres dat u rechtstreeks kunt bereiken buiten Hallo datacenter. Zonder extra hulp, deze toepassingen met elkaar verbinden via Hallo openbare internet is problematisch.
+Stel dat u twee on-premises toepassingen wilt verbinden, die allebei worden uitgevoerd binnen bedrijfsdatacenters. Elk van deze toepassingen bevindt zich achter een firewall en elk datacenter maakt waarschijnlijk gebruik van NAT (netwerkadresomzetting). De firewall blokkeert binnenkomende gegevens op bijna alle poorten en NAT impliceert dat de computer waarop de toepassingen worden uitgevoerd, geen vast IP-adres heeft dat u rechtstreeks kunt bereiken buiten het datacenter. Zonder extra hulp is het lastig om deze toepassingen via het openbare internet met elkaar te verbinden.
 
-Een Service Bus-relay biedt uitkomst. toocommunicate twee richtingen via een relay, elke toepassing een uitgaande TCP-verbinding maakt met Service Bus en blijft geopend. Alle communicatie tussen de twee toepassingen Hallo via deze verbindingen wordt gezonden. Omdat elke verbinding tot stand is gebracht van binnen Hallo datacenter, Hallo firewall staat binnenkomende verkeer tooeach toepassing zonder nieuwe poorten te openen. Deze benadering wordt ook Hallo NAT-probleem opgelost, omdat elke toepassing een consistent eindpunt in de cloud in de gehele Hallo communicatie Hallo heeft. Door het uitwisselen van gegevens via de relay Hallo Hallo toepassingen te voorkomen dat Hallo problemen die anders communicatie moeilijk zouden. 
+Een Service Bus-relay biedt uitkomst. Voor communicatie in twee richtingen via een Relay, brengt elke toepassing een uitgaande TCP-verbinding tot stand met Service Bus. Deze verbinding blijft geopend. Alle communicatie tussen de twee toepassingen verloopt via deze verbindingen. Omdat elke verbinding vanuit het datacenter tot stand is gebracht, staat de firewall inkomend verkeer naar elke toepassing toe zonder nieuwe poorten te openen. Via deze benadering wordt ook het NAT-probleem opgelost, omdat elke toepassing tijdens de communicatie een consistent eindpunt in de cloud heeft. Door gegevens uit te wisselen via de Relay kunnen de toepassingen problemen voorkomen die de communicatie anders zouden bemoeilijken. 
 
-toouse Service Bus doorstuurt, toepassingen afhankelijk zijn van Hallo Windows Communication Foundation (WCF). Service Bus biedt WCF-bindingen waarmee Windows-toepassingen toointeract via relays eenvoudig. Toepassingen die al gebruikmaken van WCF kunnen meestal een van deze bindingen opgeven en vervolgens praten tooeach andere via een relay. Relays kunnen worden gebruikt vanuit niet-Windows-toepassingen, maar in tegenstelling tot wachtrijen en onderwerpen vereist dit enige programmering. Er worden geen standaardbibliotheken geleverd.
+Voor het gebruik van Service Bus Relays zijn toepassingen afhankelijk van WCF (Windows Communication Foundation). Service Bus biedt WCF-bindingen waarmee Windows-toepassingen eenvoudig kunnen communiceren via Relays. Toepassingen die al gebruikmaken van WCF hoeven doorgaans slechts een van deze bindingen op te geven en kunnen vervolgens met elkaar communiceren via een Relay. Relays kunnen worden gebruikt vanuit niet-Windows-toepassingen, maar in tegenstelling tot wachtrijen en onderwerpen vereist dit enige programmering. Er worden geen standaardbibliotheken geleverd.
 
-In tegenstelling tot wachtrijen en onderwerpen, maken toepassingen Relays niet expliciet. In plaats daarvan wanneer een toepassing die u tooreceive berichten wenst TCP-verbinding met een Service Bus maakt, is een relay automatisch gemaakt. Wanneer het Hallo-verbinding wordt verbroken, wordt Hallo relay verwijderd. tooenable een toepassing toofind Hallo relay gemaakt door een specifieke listener, Service Bus voorziet in een register waarmee toepassingen toolocate een specifieke relay op naam.
+In tegenstelling tot wachtrijen en onderwerpen, maken toepassingen Relays niet expliciet. Wanneer een toepassing die berichten wil ontvangen, een TCP-verbinding tot stand brengt met Service Bus, wordt automatisch een Relay gemaakt. Wanneer de verbinding wordt verbroken, wordt de Relay verwijderd. Service Bus voorziet in een register aan de hand waarvan toepassingen een specifieke Relay op basis van de naam kunnen vinden. Zo kan een toepassing de Relay vinden die door een specifieke listener is gemaakt.
 
-Relays zijn de juiste oplossing Hallo wanneer u rechtstreekse communicatie tussen toepassingen nodig. Denk bijvoorbeeld aan een reserveringssysteem voor een luchtvaartmaatschappij dat wordt uitgevoerd in een on-premises datacenter en dat toegankelijk moet zijn via incheckbalies, mobiele apparaten en andere computers. Toepassingen die worden uitgevoerd op alle deze systemen kunnen vertrouwen op Service Bus relays in Hallo cloud toocommunicate, waar ze ook worden uitgevoerd.
+Relays zijn de juiste oplossing wanneer rechtstreekse communicatie tussen toepassingen nodig is. Denk bijvoorbeeld aan een reserveringssysteem voor een luchtvaartmaatschappij dat wordt uitgevoerd in een on-premises datacenter en dat toegankelijk moet zijn via incheckbalies, mobiele apparaten en andere computers. Toepassingen die op al deze systemen worden uitgevoerd, zouden op Service Bus Relays in de cloud kunnen vertrouwen voor communicatie, waar ze ook worden uitgevoerd.
 
 ## <a name="summary"></a>Samenvatting
 
-Het verbinden van toepassingen is altijd onderdeel geweest van het ontwikkelen van complete oplossingen en Hallo scala aan scenario's waarvoor toepassingen en services toocommunicate met elkaar tooincrease is ingesteld als u meer toepassingen en apparaten verbonden toohello zijn internet. Dankzij de cloud-gebaseerde technologieën voor het bereiken van de communicatie via wachtrijen, onderwerpen en relays, Service Bus is erop gericht toomake deze essentiële functie gemakkelijker tooimplement en grotere schaal beschikbaar.
+Het verbinden van toepassingen is altijd onderdeel geweest van het ontwikkelen van complete oplossingen. De verscheidenheid van scenario's waarin toepassingen en services met elkaar moeten communiceren, zal toenemen naarmate meer toepassingen en apparaten zijn verbonden met internet. Service Bus is erop gericht om deze essentiële functie gemakkelijker te implementeren en op grotere schaal beschikbaar te maken door cloudtechnologieën te leveren die deze communicatie mogelijk maken via wachtrijen, onderwerpen en relays.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u de basisprincipes van Azure Service Bus Hallo hebt geleerd, volgt u deze koppelingen toolearn meer.
+U hebt kennisgemaakt met de grondbeginselen van Azure Service Bus. Klik op de volgende koppelingen voor meer informatie.
 
-* Hoe toouse [Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md)
-* Hoe toouse [Service Bus-onderwerpen](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-* Hoe toouse [Service Bus relay](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
+* [Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md) gebruiken
+* [Service Bus-onderwerpen](service-bus-dotnet-how-to-use-topics-subscriptions.md) gebruiken
+* [Service Bus Relay](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) gebruiken
 * [Voorbeelden van Service Bus](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png

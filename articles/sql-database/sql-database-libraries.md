@@ -1,6 +1,6 @@
 ---
-title: aaaConnection bibliotheken voor SQL-Database | Microsoft Docs
-description: Koppelingen voor het downloaden van modules die verbinding tooSQL Server en SQL-Database van tal van client programmeertalen inschakelen. Hallo-modules worden vrijgegeven door Hallo community of door Microsoft.
+title: Verbindingsbibliotheken voor SQL-Database | Microsoft Docs
+description: Koppelingen voor het downloaden van modules die verbinding maken met SQL Server en SQL-Database van tal van client programmeertalen inschakelen. De modules worden vrijgegeven door de community of door Microsoft.
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: genemi
-ms.openlocfilehash: 6ea77670276ad3304c7531f7ffd8f7dffd31af46
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 082abf57b139b9f7d44774dce3a80e20b97f0e3b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Connectiviteit bibliotheken en frameworks voor Microsoft SQL Server
 
-Bekijk onze [gestart zelfstudies ophalen](http://aka.ms/sqldev) tooquickly aan de slag met programmeertalen zoals C#, Java, Node.js, PHP en Python en bouwen van een app met behulp van SQL Server voor Linux- of Windows- of Docker op Mac OS.
+Bekijk onze [gestart zelfstudies ophalen](http://aka.ms/sqldev) snel aan de slag met programmeertalen zoals C#, Java, Node.js, PHP en Python en bouwen van een app met behulp van SQL Server voor Linux- of Windows- of Docker op Mac OS.
 
-Hallo in de volgende tabel geeft een lijst van de bibliotheken voor databaseconnectiviteit of *stuurprogramma's* die clienttoepassingen van tal van talen tooconnect tooand gebruikt Microsoft SQL Server lokaal wordt uitgevoerd of in het Hallo-cloud op Linux-, Windows- of Docker kunnen gebruiken en ook tooAzure SQL-Database en Azure SQL Data Warehouse. 
+De volgende tabel bevat de bibliotheken voor databaseconnectiviteit of *stuurprogramma's* die clienttoepassingen van tal van talen verbinding maken met en gebruik van Microsoft SQL Server lokaal wordt uitgevoerd of in de cloud, op Linux-, Windows- of Docker en ook voor kunnen gebruiken Azure SQL Database en Azure SQL datawarehouse. 
 
 | Taal | Platform | Aanvullende bronnen | Downloaden | Aan de slag |
 | :-- | :-- | :-- | :-- | :-- |
@@ -37,7 +37,7 @@ Hallo in de volgende tabel geeft een lijst van de bibliotheken voor databaseconn
 | Ruby | Windows, Linux, Mac OS | [Ruby stuurprogramma voor SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Installeren](https://msdn.microsoft.com/library/mt711041.aspx) | [Aan de slag](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, Mac OS | [Microsoft ODBC-stuurprogramma voor SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Downloaden](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
 
-Hallo tabel ziet u enkele voorbeelden van Object relationele toewijzing (ORM) frameworks en web-frameworks die clienttoepassingen gebruiken kunnen met Microsoft SQL Server lokaal wordt uitgevoerd of in de cloud Hallo op Linux, Windows of Docker en ook tooAzure SQL-Database en Azure SQL datawarehouse. 
+De volgende tabel bevat enkele voorbeelden van Object relationele toewijzing (ORM) frameworks en web-frameworks die clienttoepassingen gebruiken kunnen met Microsoft SQL Server lokaal wordt uitgevoerd of in de cloud, op Linux-, Windows- of Docker en naar Azure SQL Database en Azure SQL datawarehouse. 
 
 | Taal | Platform | ORM(s) |
 | :-- | :-- | :-- |
@@ -50,9 +50,9 @@ Hallo tabel ziet u enkele voorbeelden van Object relationele toewijzing (ORM) fr
 
 ## <a name="related-links"></a>Verwante koppelingen
 - [SQL Server-stuurprogramma's](http://msdn.microsoft.com/library/mt654049.aspx) om verbinding te maken van clienttoepassingen
-- [Verbinding maken met tooSQL Database met behulp van .NET (C#)](sql-database-connect-query-dotnet.md)
-- [Verbinding maken met tooSQL Database met behulp van PHP](sql-database-connect-query-php.md)
-- [Verbinding maken met tooSQL Database met behulp van Node.js](sql-database-connect-query-nodejs.md)
-- [Verbinding maken met tooSQL Database met behulp van Java](sql-database-connect-query-java.md)
-- [Verbinding maken met tooSQL Database met behulp van Python](sql-database-connect-query-python.md)
-- [Verbinding maken met tooSQL Database met behulp van Ruby](sql-database-connect-query-ruby.md)
+- [Verbinding maken met SQL Database met behulp van .NET (C#)](sql-database-connect-query-dotnet.md)
+- [Verbinding maken met SQL Database met behulp van PHP](sql-database-connect-query-php.md)
+- [Verbinding maken met SQL Database met behulp van Node.js](sql-database-connect-query-nodejs.md)
+- [Verbinding maken met SQL Database met behulp van Java](sql-database-connect-query-java.md)
+- [Verbinding maken met SQL Database met behulp van Python](sql-database-connect-query-python.md)
+- [Verbinding maken met SQL Database met behulp van Ruby](sql-database-connect-query-ruby.md)

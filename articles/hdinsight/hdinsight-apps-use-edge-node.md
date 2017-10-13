@@ -1,6 +1,6 @@
 ---
-title: aaaUse leeg edge-knooppunten op Hadoop-clusters in HDInsight - Azure | Microsoft Docs
-description: Hoe een leeg edge-knooppunt tooan HDInsight tooadd cluster kunnen worden gebruikt als een client, en vervolgens test/host uw HDInsight-toepassingen.
+title: Lege edge-knooppunten op Hadoop-clusters in HDInsight - Azure gebruiken | Microsoft Docs
+description: Hoe een leeg edge-knooppunt toevoegen aan een HDInsight-cluster die kan worden gebruikt als een client en vervolgens test/host uw HDInsight-toepassingen.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -16,17 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: jgao
-ms.openlocfilehash: 9c910905b51f2fe92e6e5d47d86a32bd5247c2cd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e21dabcc6999b1f1047d334e782f723d0c03c2cb
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Lege edge-knooppunten op Hadoop-clusters in HDInsight gebruiken
 
-Meer informatie over hoe een lege tooadd edge-knooppunt tooan HDInsight-cluster. Een leeg edge-knooppunt is een virtuele Linux-machine met Hallo hulpprogramma's voor dezelfde client geïnstalleerd en geconfigureerd zoals headnodes hello in maar met geen Hadoop-services die worden uitgevoerd. U kunt Hallo edge-knooppunt gebruiken voor toegang tot cluster hello, testen van uw clienttoepassingen en die als host fungeert voor uw clienttoepassingen. 
+Informatie over het toevoegen van een leeg edge-knooppunt aan een HDInsight-cluster. Een leeg edge-knooppunt is een virtuele Linux-machine met de dezelfde clienthulpprogramma's geïnstalleerd en geconfigureerd zoals in de headnodes, maar met geen Hadoop-services die worden uitgevoerd. U kunt het edge-knooppunt gebruiken voor toegang tot het cluster, testen van uw clienttoepassingen en die als host fungeert voor uw clienttoepassingen. 
 
-U kunt een leeg edge-knooppunt tooan bestaand HDInsight-cluster, het nieuwe cluster tooa toevoegen wanneer u Hallo-cluster maakt. Toevoegen van een leeg edge-knooppunt wordt uitgevoerd met behulp van Azure Resource Manager-sjabloon.  Hallo volgende voorbeeld laat zien hoe deze wordt uitgevoerd met behulp van een sjabloon:
+U kunt een lege edge-knooppunt toevoegen aan een bestaand HDInsight-cluster naar een nieuw cluster bij het maken van het cluster. Toevoegen van een leeg edge-knooppunt wordt uitgevoerd met behulp van Azure Resource Manager-sjabloon.  Het volgende voorbeeld laat zien hoe deze wordt uitgevoerd met behulp van een sjabloon:
 
     "resources": [
         {
@@ -57,108 +57,108 @@ U kunt een leeg edge-knooppunt tooan bestaand HDInsight-cluster, het nieuwe clus
         }
     ],
 
-Zoals u in het Hallo-voorbeeld, kunt u eventueel aanroepen een [script actie](hdinsight-hadoop-customize-cluster-linux.md) tooperform aanvullende configuratiestappen, zoals het installeren van [Apache Hue](hdinsight-hadoop-hue-linux.md) in Hallo edge-knooppunt. Hallo script actiescript moet openbaar toegankelijk zijn op Hallo web.  Bijvoorbeeld, als het Hallo-script wordt opgeslagen in Azure storage, gebruiken openbare containers of openbare blobs.
+Zoals u in het voorbeeld, kunt u eventueel aanroepen een [script actie](hdinsight-hadoop-customize-cluster-linux.md) om uit te voeren aanvullende configuratiestappen, zoals het installeren van [Apache Hue](hdinsight-hadoop-hue-linux.md) in het edge-knooppunt. Het script actiescript moet openbaar toegankelijk is op het web.  Bijvoorbeeld, als het script is opgeslagen in Azure-opslag, gebruiken openbare containers of openbare blobs.
 
-Hallo rand knooppuntgrootte virtuele machine moet voldoen aan Hallo HDInsight-cluster worker knooppunt vm vereiste grootte. Zie voor Hallo worker knooppunt vm-grootten aanbevolen, [maken Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+De virtuele machinegrootte van het edge-knooppunt moet voldoen aan de vereiste grootte van HDInsight-cluster worker knooppunt vm. Zie voor de aanbevolen worker knooppunt vm-grootten [maken Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
-Nadat u een edge-knooppunt hebt gemaakt, kunt u toohello edge-knooppunt via SSH verbinding en het uitvoeren van de client extra tooaccess hello Hadoop-cluster in HDInsight.
+Nadat u een edge-knooppunt hebt gemaakt, kunt u verbinding maken met het edge-knooppunt met behulp van SSH en clienthulpprogramma's voor toegang tot het Hadoop-cluster in HDInsight worden uitgevoerd.
 
 > [!WARNING] 
-> Gebruik een lege edge-knooppunt met HDInsight is momenteel in preview. Aangepaste onderdelen die zijn geïnstalleerd op de edge-knooppunt Hallo ontvangt binnen commercieel redelijke ondersteuning van Microsoft. Dit kan leiden bij het oplossen van problemen die kunnen optreden. Of u resources waarnaar wordt verwezen toocommunity voor verdere ondersteuning. Hallo Hieronder volgen enkele Hallo meeste actieve sites voor het ophalen van help van Hallo-community:
+> Gebruik een lege edge-knooppunt met HDInsight is momenteel in preview. Aangepaste onderdelen die zijn geïnstalleerd op de edge-knooppunt ontvangt binnen commercieel redelijke ondersteuning van Microsoft. Dit kan leiden bij het oplossen van problemen die kunnen optreden. Of u kan worden verwezen naar community-bronnen voor verdere ondersteuning. Hier volgen enkele van de meest actieve sites voor het ophalen van de help van de community:
 >
 > * [MSDN-forum voor HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://stackoverflow.com](http://stackoverflow.com).
 >
-> Als u een Apache-technologie gebruikt, hebt u mogelijk hulp kunnen toofind via Hallo Apache projectsites op [http://apache.org](http://apache.org), zoals Hallo [Hadoop](http://hadoop.apache.org/) site.
+> Als u een Apache-technologie gebruikt, u kunt mogelijk hulp via de Apache projectsites zoeken op [http://apache.org](http://apache.org), zoals de [Hadoop](http://hadoop.apache.org/) site.
 
-## <a name="add-an-edge-node-tooan-existing-cluster"></a>Toevoegen van een edge-knooppunt tooan bestaand cluster
-In deze sectie gebruikt u een Resource Manager-sjabloon tooadd een edge-knooppunt tooan bestaande HDInsight-cluster.  Hallo Resource Manager-sjabloon kunt u vinden in [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Hallo Resource Manager-sjabloon roept een scriptactie zich bevindt op https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Hallo-script heeft geen acties uitvoeren.  Het is toodemonstrate scriptactie aanroept vanuit een Resource Manager-sjabloon.
+## <a name="add-an-edge-node-to-an-existing-cluster"></a>Een edge-knooppunt toevoegen aan een bestaand cluster
+In deze sectie kunt u een Resource Manager-sjabloon gebruiken een edge-knooppunt toevoegen aan een bestaand HDInsight-cluster.  De Resource Manager-sjabloon kunt u vinden in [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). De Resource Manager-sjabloon roept een scriptactie zich bevindt op https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Het script heeft geen acties uitvoeren.  Het is voor het demonstreren van aanroepen scriptactie van Resource Manager-sjabloon.
 
-**een bestaand cluster voor leeg edge-knooppunt tooan tooadd**
+**Een leeg edge-knooppunt toevoegen aan een bestaand cluster**
 
 1. Een HDInsight-cluster maken als u nog niet hebt.  Zie [Hadoop-zelfstudie: aan de slag met Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-2. Klik op Hallo installatiekopie toosign in tooAzure en open hello Azure Resource Manager-sjabloon in hello Azure-portal. 
+2. Klik op de volgende afbeelding om te melden bij Azure en open de Azure Resource Manager-sjabloon in de Azure-portal. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy tooAzure"></a>
-3. Configureer Hallo volgende eigenschappen:
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
+3. Configureer de volgende eigenschappen:
    
-   * **Abonnement**: Selecteer een Azure-abonnement gebruikt voor het Hallo-cluster maken.
-   * **Resourcegroep**: Selecteer Hallo resourcegroep gebruikt voor Hallo bestaand HDInsight-cluster.
-   * **Locatie**: Selecteer Hallo-locatie van Hallo bestaand HDInsight-cluster.
-   * **Clusternaam**: Voer Hallo-naam van een bestaand HDInsight-cluster.
-   * **Edge-Knooppuntgrootte**: Selecteer een van de VM-grootten Hallo. Hallo vm-grootte moet voldoen aan de vereisten voor Hallo worker knooppunt vm-grootte. Zie voor Hallo worker knooppunt vm-grootten aanbevolen, [maken Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
-   * **Edge-knooppunt voorvoegsel**: Hallo standaardwaarde is **nieuwe**.  Naam Hallo edge-knooppunt is met de Hallo-standaardwaarde, **nieuwe edgenode**.  Hallo-voorvoegsel van het Hallo-portal, kunt u aanpassen. U kunt ook de volledige naam van de sjabloon Hallo Hallo aanpassen.
+   * **Abonnement**: Selecteer een Azure-abonnement gebruikt voor het maken van het cluster.
+   * **Resourcegroep**: Selecteer de resourcegroep die wordt gebruikt voor het bestaande HDInsight-cluster.
+   * **Locatie**: Selecteer de locatie van het bestaande HDInsight-cluster.
+   * **Clusternaam**: Voer de naam van een bestaand HDInsight-cluster.
+   * **Edge-Knooppuntgrootte**: Selecteer een van de VM-grootte. De vm-grootte moet voldoen aan de vereiste worker knooppunt vm-grootte. Zie voor de aanbevolen worker knooppunt vm-grootten [maken Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+   * **Edge-knooppunt voorvoegsel**: de standaardwaarde is **nieuwe**.  De naam van de edge-knooppunt is de standaardwaarde wordt gebruikt, **nieuwe edgenode**.  U kunt het voorvoegsel van de portal kunt aanpassen. U kunt ook de volledige naam van de sjabloon aanpassen.
 
-4. Controleer **ik ga akkoord toohello voorwaarden bovengenoemde**, en klik vervolgens op **aankoop** toocreate Hallo edge-knooppunt.
+4. Controleer **ik ga akkoord met de voorwaarden en bepalingen hierboven**, en klik vervolgens op **aankoop** voor het maken van het edge-knooppunt.
 
 >[!IMPORTANT]
-> Zorg ervoor dat tooselect hello Azure-resourcegroep voor Hallo bestaand HDInsight-cluster.  Anders krijgt u Hallo fout bericht 'kan aangevraagde bewerking op geneste resource niet uitvoeren. Bovenliggende resource '&lt;ClusterName >' niet gevonden. "
+> Zorg ervoor dat u selecteert de Azure-resourcegroep voor de bestaande HDInsight-cluster.  Anders wordt de ophalen van het foutbericht 'kan aangevraagde bewerking op geneste resource niet uitvoeren. Bovenliggende resource '&lt;ClusterName >' niet gevonden. "
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Een edge-knooppunt toevoegen bij het maken van een cluster
-In deze sectie gebruikt u een Resource Manager sjabloon toocreate HDInsight-cluster met een edge-knooppunt.  Hallo Resource Manager-sjabloon kunt u vinden in Hallo [galerie van Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Hallo Resource Manager-sjabloon roept een scriptactie zich bevindt op https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Hallo-script heeft geen acties uitvoeren.  Het is toodemonstrate scriptactie aanroept vanuit een Resource Manager-sjabloon.
+In deze sectie kunt u een Resource Manager-sjabloon maken van HDInsight-cluster met een edge-knooppunt.  De Resource Manager-sjabloon kunt u vinden in de [galerie van Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). De Resource Manager-sjabloon roept een scriptactie zich bevindt op https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Het script heeft geen acties uitvoeren.  Het is voor het demonstreren van aanroepen scriptactie van Resource Manager-sjabloon.
 
-**een bestaand cluster voor leeg edge-knooppunt tooan tooadd**
+**Een leeg edge-knooppunt toevoegen aan een bestaand cluster**
 
 1. Een HDInsight-cluster maken als u nog niet hebt.  Zie [aan de slag met Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-2. Klik op Hallo installatiekopie toosign in tooAzure en open hello Azure Resource Manager-sjabloon in hello Azure-portal. 
+2. Klik op de volgende afbeelding om te melden bij Azure en open de Azure Resource Manager-sjabloon in de Azure-portal. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy tooAzure"></a>
-3. Configureer Hallo volgende eigenschappen:
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
+3. Configureer de volgende eigenschappen:
    
-   * **Abonnement**: Selecteer een Azure-abonnement gebruikt voor het Hallo-cluster maken.
-   * **Resourcegroep**: Maak een nieuwe resourcegroep gebruikt voor het Hallo-cluster.
-   * **Locatie**: Selecteer een locatie voor resourcegroep Hallo.
-   * **Clusternaam**: Voer een naam voor het nieuwe cluster toocreate Hallo.
-   * **Aanmeldingsnaam van gebruiker cluster**: Voer Hallo Hadoop HTTP-gebruikersnaam.  Hallo standaardnaam is **admin**.
-   * **Aanmeldingswachtwoord cluster**: Geef het wachtwoord Hallo Hadoop HTTP-gebruiker.
-   * **SSH gebruikersnaam**: Voer Hallo SSH-gebruikersnaam. Hallo standaardnaam is **sshuser**.
-   * **SSH wachtwoord**: Geef het wachtwoord Hallo SSH-gebruiker.
-   * **Installeren van de scriptactie**: Hallo standaardwaarde voor het doorlopen van deze zelfstudie houden.
+   * **Abonnement**: Selecteer een Azure-abonnement gebruikt voor het maken van het cluster.
+   * **Resourcegroep**: Maak een nieuwe resourcegroep gebruikt voor het cluster.
+   * **Locatie**: selecteer een locatie voor de resourcegroep.
+   * **Clusternaam**: Voer een naam voor het nieuwe cluster te maken.
+   * **Aanmeldingsnaam van gebruiker cluster**: Geef de gebruikersnaam van Hadoop HTTP.  De standaardnaam is **admin**.
+   * **Aanmeldingswachtwoord cluster**: Geef het wachtwoord van de Hadoop-HTTP-gebruiker.
+   * **SSH gebruikersnaam**: Voer de SSH-gebruikersnaam. De standaardnaam is **sshuser**.
+   * **SSH wachtwoord**: Geef het wachtwoord van de SSH-gebruiker.
+   * **Installeren van de scriptactie**: de standaardwaarde voor het doorlopen van deze zelfstudie houden.
      
-     Sommige eigenschappen zijn vastgelegd in de sjabloon Hallo: clustertype, aantal Cluster worker-knooppunten, de grootte van de Edge-knooppunt en de naam van de Edge-knooppunt.
-4. Controleer **ik ga akkoord toohello voorwaarden bovengenoemde**, en klik vervolgens op **aankoop** toocreate Hallo cluster met Hallo edge-knooppunt.
+     Sommige eigenschappen zijn vastgelegd in de sjabloon: clustertype, aantal Cluster worker-knooppunten, de grootte van de Edge-knooppunt en de naam van de Edge-knooppunt.
+4. Controleer **ik ga akkoord met de voorwaarden en bepalingen hierboven**, en klik vervolgens op **aankoop** het cluster maken met het edge-knooppunt.
 
 ## <a name="access-an-edge-node"></a>Toegang tot een edge-knooppunt
-Hallo edge-knooppunt ssh-eindpunt is &lt;EdgeNodeName >.&lt; ClusterName >-ssh.azurehdinsight.net:22.  Bijvoorbeeld, nieuwe-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
+Het edge-knooppunt ssh-eindpunt is &lt;EdgeNodeName >.&lt; ClusterName >-ssh.azurehdinsight.net:22.  Bijvoorbeeld, nieuwe-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
 
-Hallo edge-knooppunt wordt weergegeven als een toepassing op Hallo Azure-portal.  Hallo portal biedt u informatie tooaccess Hallo Hallo edge-knooppunt via SSH.
+Het edge-knooppunt wordt weergegeven als een toepassing op de Azure-portal.  De portal biedt u de informatie voor toegang tot het gebruik van SSH edge-knooppunt.
 
-**tooverify hello edge-knooppunt SSH-eindpunt**
+**Om te controleren of het edge-knooppunt SSH-eindpunt**
 
-1. Meld u aan bij toohello [Azure-portal](https://portal.azure.com).
-2. Open Hallo HDInsight-cluster met een edge-knooppunt.
-3. Klik op **toepassingen** Hallo cluster-blade. U ziet Hallo edge-knooppunt.  Hallo standaardnaam is **nieuwe edgenode**.
-4. Klik op Hallo edge-knooppunt. U ziet Hallo SSH-eindpunt.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Open het HDInsight-cluster met een edge-knooppunt.
+3. Klik op **toepassingen** uit de cluster-blade. U ziet het edge-knooppunt.  De standaardnaam is **nieuwe edgenode**.
+4. Klik op de edge-knooppunt. U ziet het SSH-eindpunt.
 
-**toouse Hive op Hallo edge-knooppunt**
+**Hive gebruiken op de edge-knooppunt**
 
-1. Gebruik SSH tooconnect toohello edge-knooppunt. Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
+1. SSH gebruiken voor verbinding met het edge-knooppunt. Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
 
-2. Nadat u toohello edge-knooppunt SSH hebt gekoppeld, gebruikt u Hallo opdrachtconsole tooopen Hallo Hive te volgen:
+2. Nadat u hebt verbonden met het edge-knooppunt via SSH, gebruikt u de volgende opdracht om de Hive-console te openen:
    
         hive
-3. Voer Hallo opdracht tooshow Hive-tabellen in het Hallo-cluster te volgen:
+3. Voer de volgende opdracht om Hive-tabellen in het cluster weer te geven:
    
         show tables;
 
 ## <a name="delete-an-edge-node"></a>Verwijderen van een edge-knooppunt
-U kunt een edge-knooppunt verwijderen uit hello Azure-portal.
+U kunt een edge-knooppunt verwijderen uit de Azure-portal.
 
-**tooaccess een edge-knooppunt**
+**Voor toegang tot een edge-knooppunt**
 
-1. Meld u aan bij toohello [Azure-portal](https://portal.azure.com).
-2. Open Hallo HDInsight-cluster met een edge-knooppunt.
-3. Klik op **toepassingen** Hallo cluster-blade. U ziet een lijst met knooppunten van de rand.  
-4. Klik met de rechtermuisknop Hallo edge-knooppunt u toodelete wilt en klik vervolgens op **verwijderen**.
-5. Klik op **Ja** tooconfirm.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Open het HDInsight-cluster met een edge-knooppunt.
+3. Klik op **toepassingen** uit de cluster-blade. U ziet een lijst met knooppunten van de rand.  
+4. Met de rechtermuisknop op de edge-knooppunt dat u wilt verwijderen en klik vervolgens op **verwijderen**.
+5. Klik op **Ja** om te bevestigen.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe tooadd een edge-knooppunt en hoe tooaccess Hallo edge-knooppunt. toolearn Zie meer Hallo artikelen te volgen:
+In dit artikel hebt u geleerd hoe een edge-knooppunt toevoegen en over het openen van het edge-knooppunt. Zie voor meer informatie de volgende artikelen:
 
-* [HDInsight-toepassingen installeren](hdinsight-apps-install-applications.md): meer informatie over hoe tooinstall een tooyour van de toepassing HDInsight-clusters.
-* [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md): meer informatie over hoe een niet-gepubliceerde HDInsight-toepassing tooHDInsight toodeploy.
-* [HDInsight-toepassingen publiceren](hdinsight-apps-publish-applications.md): meer informatie over hoe toopublish uw aangepaste HDInsight-toepassingen tooAzure Marketplace.
-* [MSDN: Een HDInsight-toepassing installeren](https://msdn.microsoft.com/library/mt706515.aspx): meer informatie over hoe toodefine HDInsight-toepassingen.
-* [Met behulp van de scriptactie Linux gebaseerde HDInsight-clusters aanpassen](hdinsight-hadoop-customize-cluster-linux.md): meer informatie over hoe toouse scriptactie tooinstall aanvullende toepassingen.
-* [Hadoop op basis van Linux-clusters maken in HDInsight met behulp van Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md): meer informatie over hoe toocall Resource Manager-sjablonen toocreate HDInsight-clusters.
+* [HDInsight-toepassingen installeren](hdinsight-apps-install-applications.md): informatie over het installeren van een HDInsight-toepassing op uw clusters.
+* [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md): informatie over het implementeren van een niet-gepubliceerde HDInsight-toepassing op HDInsight.
+* [HDInsight-toepassingen publiceren](hdinsight-apps-publish-applications.md): informatie over het publiceren van aangepaste HDInsight-toepassingen in Azure Marketplace.
+* [MSDN: een HDInsight-toepassing installeren](https://msdn.microsoft.com/library/mt706515.aspx): informatie over het definiëren van HDInsight-toepassingen.
+* [Op Linux gebaseerde HDInsight-clusters aanpassen met behulp van een scriptactie](hdinsight-hadoop-customize-cluster-linux.md): informatie over het gebruik van een scriptactie om extra toepassingen te installeren.
+* [Op Linux gebaseerde Hadoop-clusters maken in HDInsight met behulp van Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md): informatie over het aanroepen van Resource Manager-sjablonen om HDInsight-clusters te maken.
 

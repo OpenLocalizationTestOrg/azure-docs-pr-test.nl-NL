@@ -1,6 +1,6 @@
 ---
-title: aaaLearn toouse Hallo Salesforce-Connector in logic apps | Microsoft Docs
-description: Logic apps maken met Azure App service. Hallo Salesforce-Connector biedt een API-toowork met Salesforce-objecten.
+title: Informatie over het gebruik van de Salesforce-Connector in logic apps | Microsoft Docs
+description: Logic apps maken met Azure App service. De Salesforce-connector biedt een API voor het werken met Salesforce-objecten.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,47 +15,47 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: b14b41fa8a4648b4f0090472dc0f9575bf13a2ad
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c2e2efd356382df9404f5c4ed54f24758b2cd22b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-salesforce-connector"></a>Aan de slag met Hallo Salesforce-connector
-Hallo Salesforce-Connector biedt een API-toowork met Salesforce-objecten.
+# <a name="get-started-with-the-salesforce-connector"></a>Aan de slag met de Salesforce-connector
+De Salesforce-connector biedt een API voor het werken met Salesforce-objecten.
 
-toouse [elke connector](apis-list.md), moet u eerst toocreate een logische app. U kunt aan de slag door [maken van een logische app nu](../logic-apps/logic-apps-create-a-logic-app.md).
+Gebruik [elke connector](apis-list.md), moet u eerst een logische app maken. U kunt aan de slag door [maken van een logische app nu](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="connect-toosalesforce-connector"></a>Verbinding maken met tooSalesforce-connector
-Om uw logische app toegang alle services tot, moet u eerst toocreate een *verbinding* toohello service. Een [verbinding](connectors-overview.md) biedt connectiviteit tussen een logische app en een andere service.  
+## <a name="connect-to-salesforce-connector"></a>Verbinding maken met de Salesforce-connector
+Om uw logische app toegang alle services tot, moet u eerst maken een *verbinding* naar de service. Een [verbinding](connectors-overview.md) biedt connectiviteit tussen een logische app en een andere service.  
 
-### <a name="create-a-connection-toosalesforce-connector"></a>Een verbinding tooSalesforce-connector maken
-> [!INCLUDE [Steps toocreate a connection tooSalesforce Connector](../../includes/connectors-create-api-salesforce.md)]
+### <a name="create-a-connection-to-salesforce-connector"></a>Maak een verbinding met de Salesforce-connector
+> [!INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforce.md)]
 > 
 > 
 
 ## <a name="use-a-salesforce-connector-trigger"></a>Gebruik een trigger Salesforce-connector
-Een trigger is een gebeurtenis die gebruikt toostart Hallo werkstroom gedefinieerd in een logische app worden kan. [Meer informatie over triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
-> [!INCLUDE [Steps toocreate a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
+> [!INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
 > 
 > 
 
 ## <a name="add-a-condition"></a>Een voorwaarde toevoegen
-> [!INCLUDE [Steps toocreate a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
+> [!INCLUDE [Steps to create a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
 > 
 > 
 
 ## <a name="use-a-salesforce-connector-action"></a>Gebruik de actie van een Salesforce-connector
-Een actie is een bewerking uitgevoerd door Hallo werkstroom gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
-> [!INCLUDE [Steps toocreate a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
+> [!INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
 > 
 > 
 
 ## <a name="connector-specific-details"></a>Connector-specifieke details
 
-Alle triggers en acties die zijn gedefinieerd in swagger Hallo bekijken en ook bekijken in Hallo beperkingen [connector details](/connectors/salesforce/). 
+Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/salesforce/). 
 
 ## <a name="next-steps"></a>Volgende stappen
 [Een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md)

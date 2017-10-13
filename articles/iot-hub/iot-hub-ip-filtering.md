@@ -1,6 +1,6 @@
 ---
-title: aaaAzure IoT Hub IP-verbindingsfilters | Microsoft Docs
-description: Hoe toouse IP filteren tooblock verbindingen van specifieke IP-adressen voor tooyour Azure IoT hub. U kunt de verbindingen van afzonderlijke of bereiken van IP-adressen blokkeren.
+title: Azure IoT Hub IP-verbindingsfilters | Microsoft Docs
+description: Het gebruik van IP-filtering om verbindingen te blokkeren van specifieke IP-adressen voor uw Azure-IoT-hub. U kunt de verbindingen van afzonderlijke of bereiken van IP-adressen blokkeren.
 services: iot-hub
 documentationcenter: 
 author: BeatriceOltean
@@ -14,80 +14,80 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: boltean
-ms.openlocfilehash: 45e5906a494561b6108895d86d6a04fc3b52b8fb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 85f5f044faddd5180f0c19d3f2c235b20f6373d5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-ip-filters"></a>IP-filters gebruiken
 
-Beveiliging is een belangrijk aspect van een IoT-oplossing op basis van Azure IoT Hub. Soms moet u tooexplicitly Hallo IP-adressen waaruit apparaten verbinding maken als onderdeel van de beveiligingsconfiguratie opgeven. Hallo _IP-filter_ functie kunt u tooconfigure regels voor weigeren of verkeer van specifieke IPv4-adressen accepteren.
+Beveiliging is een belangrijk aspect van een IoT-oplossing op basis van Azure IoT Hub. Soms moet u expliciet opgeven van de IP-adressen waaruit apparaten verbinding maken als onderdeel van uw beveiligingsconfiguratie. De _IP-filter_ functie kunt u regels voor weigeren of accepteren van verkeer van specifieke IPv4-adressen te configureren.
 
-## <a name="when-toouse"></a>Wanneer toouse
+## <a name="when-to-use"></a>Wanneer gebruikt u dit?
 
-Er zijn twee specifieke gebruiksvoorbeelden wanneer het is nuttig tooblock Hallo Iothub eindpunten voor bepaalde IP-adressen:
+Er zijn twee specifieke gebruiksvoorbeelden wanneer dit is handig om te blokkeren van de eindpunten van IoT Hub voor bepaalde IP-adressen:
 
-- Uw IoT-hub moet ontvangen verkeer alleen via een opgegeven IP-adressen en alle andere afwijzen. Bijvoorbeeld, het gebruik van uw IoT-hub met [Azure Express Route] toocreate particuliere verbindingen tussen een IoT-hub en uw on-premises infrastructuur.
-- U moet tooreject verkeer van IP-adressen die zijn geïdentificeerd als verdacht door Hallo IoT hub-beheerder.
+- Uw IoT-hub moet ontvangen verkeer alleen via een opgegeven IP-adressen en alle andere afwijzen. Bijvoorbeeld, het gebruik van uw IoT-hub met [Azure Express Route] naar particuliere verbindingen maken tussen een IoT-hub en uw on-premises infrastructuur.
+- U moet verkeer van IP-adressen die als verdacht zijn geïdentificeerd door de beheerder van de IoT-hub afwijzen.
 
 ## <a name="how-filter-rules-are-applied"></a>Hoe filterregels worden toegepast
 
-Hallo IP-filterregels worden toegepast op Hallo serviceniveau IoT Hub. Daarom toepassing hello IP-filterregels tooall verbindingen van apparaten en back-end-apps met behulp van een ondersteund protocol.
+De IP-filter-regels worden toegepast op het niveau van de service IoT Hub. Daarom de IP-filterregels van toepassing op alle verbindingen vanaf apparaten en back-end-apps met behulp van een ondersteund protocol.
 
-Elke verbindingspoging van een IP-adres dat overeenkomt met een rejecting IP-regel in uw IoT-hub ontvangt een niet-geautoriseerde 401-statuscode en de beschrijving. Hallo IP-regel niet wordt vermeld in het antwoord Hallo-bericht.
+Elke verbindingspoging van een IP-adres dat overeenkomt met een rejecting IP-regel in uw IoT-hub ontvangt een niet-geautoriseerde 401-statuscode en de beschrijving. De IP-regel niet wordt vermeld in het antwoordbericht.
 
 ## <a name="default-setting"></a>Standaardinstelling
 
-Standaard Hallo **IP-Filter** raster in Hallo-portal voor een IoT-hub is leeg. Deze instelling betekent dat uw hub verbindingen elk IP-adres aanvaardt. Deze instelling is gelijkwaardig tooa regel die Hallo 0.0.0.0/0 IP-adresbereik accepteert.
+Standaard de **IP-Filter** raster in de portal voor een IoT-hub is leeg. Deze instelling betekent dat uw hub verbindingen elk IP-adres aanvaardt. Deze instelling komt overeen met een regel die de 0.0.0.0/0 IP-adresbereik accepteert.
 
 ![IoT Hub standaard IP-filter-instellingen][img-ip-filter-default]
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>De regel van een IP-filter toevoegen of bewerken
 
-Wanneer u een IP-filterregel toevoegt, wordt u gevraagd Hallo volgende waarden op te geven:
+Wanneer u een IP-filterregel toevoegt, wordt u gevraagd de volgende waarden op te geven:
 
-- Een **IP-filter regelnaam** die moet een unieke, niet-hoofdlettergevoelige, alfanumerieke tekenreeks van too128 tekens lang zijn. Alleen ASCII-7-bits Hallo alfanumerieke tekens plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` worden geaccepteerd.
-- Selecteer een **afwijzen** of **accepteren** als Hallo **actie** voor Hallo IP-filterregel.
-- Geef één IPv4-adres of een blok IP-adressen in CIDR-notatie. Bijvoorbeeld, in CIDR notatie 192.168.100.0/22 vertegenwoordigt Hallo 1024 IPv4-adressen van 192.168.100.0 too192.168.103.255.
+- Een **IP-filter regelnaam** die moet een unieke, niet-hoofdlettergevoelige alfanumerieke tekenreeks van maximaal 128 tekens lang zijn. Alleen de ASCII-7-bits alfanumerieke tekens plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` worden geaccepteerd.
+- Selecteer een **afwijzen** of **accepteren** als de **actie** voor de IP-filter-regel.
+- Geef één IPv4-adres of een blok IP-adressen in CIDR-notatie. Bijvoorbeeld, in CIDR vertegenwoordigt notatie 192.168.100.0/22 de 1024 IPv4-adressen van 192.168.100.0 tot 192.168.103.255.
 
-![Toevoegen van een IP-filter regel tooan IoT-hub][img-ip-filter-add-rule]
+![Een IP-filter-regel toevoegen aan een IoT-hub][img-ip-filter-add-rule]
 
-Nadat u de regel Hallo opslaat, ziet u een waarschuwing meegedeeld dat Hallo-update wordt uitgevoerd.
+Nadat u de regel opslaat, ziet u een waarschuwing dat de update uitgevoerd wordt.
 
 ![Meldingen over het opslaan van een regel voor IP-filter][img-ip-filter-save-new-rule]
 
-Hallo **toevoegen** optie wordt uitgeschakeld wanneer u Hallo maximaal 10 filterregels voor de IP-bereiken.
+De **toevoegen** optie wordt uitgeschakeld wanneer u het maximum van 10 filterregels voor de IP-bereiken.
 
-U kunt een bestaande regel bewerken door te dubbelklikken op Hallo rij die Hallo regel bevat.
+U kunt een bestaande regel bewerken door te dubbelklikken op de rij waarin de regel.
 
 > [!NOTE]
-> Weigeren IP adressen kunnen voorkomen dat andere Azure-Services (zoals Azure Stream Analytics, Azure Virtual Machines of Hallo apparaat Explorer in de portal Hallo) interactie met Hallo IoT-hub.
+> Weigeren IP adressen kunnen voorkomen dat andere Azure-Services (zoals Azure Stream Analytics, Azure Virtual Machines of de Explorer-apparaat in de portal) interactie met de IoT-hub.
 
 > [!WARNING]
-> Als u Azure Stream Analytics (ASA) tooread berichten van een iothub met IP-filtering is ingeschakeld, gebruikt u Hallo Event Hub-compatibele naam en het eindpunt van uw IoT-Hub in Hallo ASA-verbindingsreeks.
+> Als u Azure Stream Analytics (ASA) gebruikt om berichten te lezen van een iothub met IP-filtering is ingeschakeld, gebruikt u de Event Hub-compatibele naam en het eindpunt van uw IoT-Hub in de ASA-verbindingsreeks.
 
 ## <a name="delete-an-ip-filter-rule"></a>Een IP-filter-regel verwijderen
 
-toodelete een filterregel IP-Selecteer een of meer regels in Hallo raster en klik op **verwijderen**.
+Een IP-filter als regel wilt verwijderen, selecteert u een of meer regels in het raster en klik op **verwijderen**.
 
 ![Een IoT Hub IP-filter-regel verwijderen][img-ip-filter-delete-rule]
 
 ## <a name="ip-filter-rule-evaluation"></a>IP-filter Regeltoepassing
 
-IP-filterregels in volgorde worden toegepast en Hallo van de eerste regel die overeenkomt met Hallo IP-adres Hallo bepaalt accepteren of weigeren actie.
+IP-filterregels in volgorde worden toegepast en de eerste regel die overeenkomt met het IP-adres bepaalt de actie accepteren of weigeren.
 
-Als u wilt dat de adressen tooaccept in Hallo bereik 192.168.100.0/22 en alle andere weigeren, moet de eerste regel Hallo in raster Hallo Hallo adresbereik 192.168.100.0/22 accepteren. de volgende regel Hallo moet alle adressen weigeren met behulp van Hallo bereik 0.0.0.0/0.
+Als u wilt adressen in het bereik 192.168.100.0/22 accepteren en weigeren alle andere, moet de eerste regel in het raster het adresbereik 192.168.100.0/22 accepteren. De volgende regel moet alle adressen weigeren met behulp van de 0.0.0.0/0 bereik.
 
-U kunt Hallo volgorde van uw IP-filterregels in Hallo raster wijzigen door Hallo drie verticale punten aan Hallo begin van een rij te klikken en slepen en neerzetten.
+U kunt de volgorde van de regels van uw IP-filter in het raster wijzigen door de drie verticale punten aan het begin van een rij te klikken en slepen en neerzetten.
 
-toosave voor uw nieuwe IP-filter regel volgorde, klikt u op **opslaan**.
+Klik voor het opslaan van uw nieuwe IP-filter regel order **opslaan**.
 
-![Hallo-volgorde van uw IoT Hub IP-filterregels wijzigen][img-ip-filter-rule-order]
+![De volgorde van uw IoT Hub IP-filterregels wijzigen][img-ip-filter-rule-order]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-toofurther verkennen Hallo-mogelijkheden van IoT Hub, Zie:
+Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 - [Bewerkingen controleren][lnk-monitor]
 - [IoT Hub metrische gegevens][lnk-metrics]

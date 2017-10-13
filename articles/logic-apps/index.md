@@ -1,8 +1,8 @@
 ---
-title: aaaAzure documentatie in Logic Apps - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toodevelop logic apps die automatiseren en vereenvoudigen van zakelijke werkstromen naar andere on-premises en Hallo cloud. Zelfstudies, sjablonen en API-verwijzingen.
+title: Documentatie voor Azure Logic Apps - zelfstudies, API-verwijzing | Microsoft Docs
+description: Meer informatie over het ontwikkelen van logische apps die bedrijfswerkstromen on-premises en in de cloud automatiseren en vereenvoudigen. Zelfstudies, sjablonen en API-verwijzingen.
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5cc3a730b1b6abcb3ec0132f6e8ebf2e54775836
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ff3f9ba6c225294e7570c5204701dd2f6b927318
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="logic-apps-documentation"></a>Documentatie over Logic Apps
 
-Meer informatie over hoe toodevelop Logic Apps die vereenvoudigen en het integreren van schaalbare werkstromen in de cloud Hallo. Verwijst naar help ontwerpen en implementeren van geautomatiseerde zakelijke werkstromen on-premises en cloud Hallo zelfstudies, sjablonen en API.
+Meer informatie over het ontwikkelen van logische apps die schaalbare werkstromen in de cloud vereenvoudigen en integreren. Zelfstudies, sjablonen en API-verwijzingen die u helpen bij het ontwerpen en implementeren van geautomatiseerde bedrijfswerkstromen on-premises en in de cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -106,7 +106,7 @@ Meer informatie over hoe toodevelop Logic Apps die vereenvoudigen en het integre
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Maken van een aangepaste API toouse met Logic Apps aan de slag</h3>
+                        <h3>Een aangepaste API maken voor gebruik met logische apps</h3>
                     </div>
                 </div>
             </div>

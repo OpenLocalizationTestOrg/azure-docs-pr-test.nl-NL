@@ -1,4 +1,4 @@
-Hallo limieten volgende van toepassing tooAzure back-up.
+De volgende beperkingen gelden voor Azure Backup.
 
 | Limiet-ID | Standaardlimiet |
 | --- | --- |
@@ -6,7 +6,7 @@ Hallo limieten volgende van toepassing tooAzure back-up.
 | Grootte van een gegevensbron voor gegevens die zijn opgeslagen in de kluis van Azure-opslag |54400 GB max<sup>1</sup> |
 | Aantal back-upkluizen dat kan worden gemaakt in elk Azure-abonnement |25 (Backup-kluizen) <br/> 25 recovery Services-kluis per regio |
 | Aantal keren dat back-up per dag kan worden gepland |3 per dag voor Windows Server /-Client <br/> 2 per dag voor SCDPM <br/> Eenmaal per dag voor IaaS VM 's |
-| Gegevensschijven gekoppeld tooan Azure virtuele machine voor back-up |16 |
+| Gegevensschijven gekoppeld aan een virtuele machine van Azure voor back-up |16 |
 
-* <sup>1</sup>hello 54400 GB limiet tooIaaS VM-back-up niet van toepassing.
+* <sup>1</sup>de limiet van 54400 GB geldt niet voor IaaS VM back-up.
 

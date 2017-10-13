@@ -1,6 +1,6 @@
 ---
-title: aaaAzure Mobile Engagement - sleutel-functies
-description: Beschrijft de belangrijkste functies Hallo van Azure Mobile Engagement
+title: Azure Mobile Engagement - sleutel-functies
+description: Beschrijft de belangrijkste functies van Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 46906033046fc6dd915fb6943f5f89d4b4a27704
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8270a223ca31c623c1b760a64c0e4d64fb85e080
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement---key-features"></a>Azure Mobile Engagement - sleutel-functies
-In dit artikel biedt een overzicht van hoog niveau over Hallo belangrijke functies van Hallo Mobile Engagement-platform. 
+In dit artikel biedt een overzicht op hoog niveau over de belangrijkste functies van de Mobile Engagement-platform. 
 
 ## <a name="general"></a>**Algemeen**
 * **SDK's voor alle primaire platforms zoeken** beschikbaar voor alle primaire platforms - SDK's voor iOS, Android, universeel Windows, Windows Phone Silverlight, Kindle, Cordova. 
-  We bieden eenvoudige toointegrate SDK's en nuttige documentatie tooget die bent op een willekeurig platform van uw keuze begonnen. 
-* **Afzonderlijke SaaS-portal** kunt u eenvoudig toegang toohello marketing team zonder Hallo nodig toogo via hello Azure-beheerportal. 
-* **Beschikbaarheid van open REST-API's** toointegrate en automatiseren met CMS-CRM/IT-systemen met open-platform-API's, wij bieden open REST-API's en SDK voor .NET tooconsume deze API's waarmee u tooeasily integreren en automatiseren met Mobile Engagement. Zie [dit](mobile-engagement-api-authentication.md) voor meer informatie. 
-* **Power BI-connector beschikbaar** kunt u ook pull uit Hallo sleutel analytics grafieken in Power BI-dashboard. Zie dit [handleiding](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-mobile/)
-* **Vertrouwen van beveiliging en Privacy** Azure Mobile Engagement deel van hello Azure familie volgt alle Hallo aanbevolen standaardprocedures rond de beveiliging en privacy voor een cloudservice verwacht.
+  We bieden gemakkelijk integreren SDK's en nuttige documentatie om u op weg op elk platform van uw keuze. 
+* **Afzonderlijke SaaS-portal** kunt u eenvoudig toegang krijgen tot het marketing team zonder de noodzaak om via de Azure-beheerportal. 
+* **Beschikbaarheid van open REST-API's** om te integreren en automatiseren met CMS-CRM/IT-systemen met open-platform-API's, bieden we open REST-API's en SDK voor .NET voor het verbruik van deze API's waarmee u gemakkelijk integreren en automatiseren met Mobile Engagement. Zie [dit](mobile-engagement-api-authentication.md) voor meer informatie. 
+* **Power BI-connector beschikbaar** kunt u ook ophalen uit de sleutel analytics grafieken in Power BI-dashboard. Zie dit [handleiding](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-mobile/)
+* **Vertrouwen van beveiliging en Privacy** Azure Mobile Engagement deel van de Azure-familie volgt alle standaard aanbevolen procedures rond de beveiliging en privacy voor een cloudservice verwacht.
 
 ## <a name="actionable-analytics"></a>**Bruikbare Analytics**
-* **Gegevens in realtime controleren** u realtime-analyses met onze Monitor module waarin de gegevens, zoals sessies, gebeurtenissen, fouten en crashes in realtime kunt volgen. Kijk eens naar dit [artikel](mobile-engagement-concepts.md) tooget een goed begrip van de basisconcepten Hallo. 
+* **Gegevens in realtime controleren** u realtime-analyses met onze Monitor module waarin de gegevens, zoals sessies, gebeurtenissen, fouten en crashes in realtime kunt volgen. Kijk eens naar dit [artikel](mobile-engagement-concepts.md) een goed begrip van de basisconcepten ophalen. 
   
     ![][1]
   
     ![][2]        
-* **Cumulatieve gegevens weergeven** u ook een uitgebreidere weergave van uw geaggregeerde analytics-gegevens met behulp van onze module Analytics waarmee u tooeasily filter uw gegevens ophalen op basis van uw app-versie en het tijdstip perioden.
+* **Cumulatieve gegevens weergeven** u ook een uitgebreidere weergave van uw geaggregeerde analytics-gegevens met behulp van onze module Analytics waarmee u eenvoudig uw om gegevens te filteren op basis van uw app-versie en het tijdstip perioden kunt ophalen.
   
     ![][3]        
 * **Verkrijg inzicht in uw gebruikers en de retentie patroon**
   
     ![][4]        
-* **Verkrijg inzicht in waar uw gebruikers vandaan en hoeveel tijd zijn ze uitgaven in het welkomstscherm**
+* **Verkrijg inzicht in waar uw gebruikers vandaan en hoeveel tijd zijn ze uitgaven in het scherm**
   
     ![][5]        
   
     ![][6]        
-* **Ontdek welke schermen, zijn uw app-gebruikers bezoeken en hoe kunnen optimaliseren van pad naar de gebruiker van Hallo** Hiermee kunnen ze toodiscover schermen en functies die u laten wilt.
+* **Ontdek welke schermen zijn uw app-gebruikers bezoeken en hoe kunnen u het pad naar het optimaliseren** Hiermee kunnen ze schermen en functies die u wilt detecteren.
   
     ![][7]        
   
     ![][8]        
-* **Inzicht in die Hallo meest voorkomende gebeurtenissen in uw app zijn en krijgt u inzicht in uw bedrijfsproces op basis van deze gebeurtenissen** 
+* **Waar de meest voorkomende gebeurtenissen in uw app zijn insights en krijgt u inzicht in uw bedrijfsproces op basis van deze gebeurtenissen** 
   
     ![][9]    
 * **Algemene fouten en crashes bijhouden en inzichten verkrijgen voor uw developer-team**
@@ -61,20 +61,20 @@ In dit artikel biedt een overzicht van hoog niveau over Hallo belangrijke functi
     ![][10]        
   
     ![][11]    
-* **Krijg inzicht in welke apparaten en netwerken worden uw app-gebruikers toegang hebben tot uw app uit, toooptimize Hallo app** 
+* **Begrijpen welke apparaten en netwerken worden uw app-gebruikers toegang tot uw app uit, om te optimaliseren van de app.** 
   
     ![][12]    
 
 ## <a name="targeted--personalized-push-notifications"></a>**Gerichte & persoonlijke Pushmeldingen**
-* **Maken van een segment op basis van Hallo verzamelde gegevens** u Hallo gebeurtenis/sessie/activiteit/taak/Crash/fout/labels gegevens voor deze kunt gebruiken.
+* **Maken van een segment op basis van een van de verzamelde gegevens** kunt u de gebeurtenis/sessie/activiteit/taak/Crash/fout/Tags-gegevens voor deze.
   
     ![][13]
   
     ![][14]        
-* **Hallo-geschiedenis van de gemaakte segmenten dag gedurende de dag bijhouden**
+* **De geschiedenis van de gemaakte segmenten dag gedurende de dag bijhouden**
   
     ![][15]    
-* **Gerichte meldingen verzenden** als doel gebruikte zoals oude/nieuwe gebruikers enzovoort of aangepaste gemaakt tooyour segment
+* **Gerichte meldingen verzenden** als doel gebruikte zoals oude/nieuwe gebruikers enzovoort of uw aangepaste gemaakte segment
   
     ![][16]    
 * **Verzenden van dat pushmeldingen in-app geschikt is voor uw scenario op basis van een out-van-app/system & het uitgebreide HTML**
@@ -82,33 +82,33 @@ In dit artikel biedt een overzicht van hoog niveau over Hallo belangrijke functi
     ![][17]    
   
     ![][18]    
-* **In-app-meldingen tooshow up gericht op een specifieke/schermactiviteiten in Hallo-app**
+* **Doel in-app-meldingen worden weergegeven op een specifieke scherm/activiteit in de app**
   
     ![][19]    
-* **Geef een "action" wanneer Hallo gebruiker op een melding klikt** net zo eenvoudig als het openen van een webpagina of navigeren binnen app tooa specifieke welkomstscherm bij Hallo Klik Hallo melding kan zijn. 
+* **Geef een "action" wanneer de gebruiker op een melding klikt** net zo eenvoudig als het openen van een webpagina of navigeren binnen de app naar een bepaald scherm op het klikken op de melding kan zijn. 
   
     ![][20]
-* **Gelokaliseerde meldingen verzenden** zodat deze beroepstermijnen toohello app-gebruikers in Hallo taal ze zijn het meest vertrouwd in. 
+* **Gelokaliseerde meldingen verzenden** zodat deze naar de app-gebruikers in de taal praktisch in beroepstermijnen. 
   
     ![][21]    
 * **Geef een begin- en -tijd voor uw campagnes** 
   
     ![][22]    
-* **Eenvoudig testen van uw meldingen** door een testapparaat heeft geregistreerd en Hallo test melding tooonly dit apparaat verzenden.
+* **Eenvoudig testen van uw meldingen** door een testapparaat heeft geregistreerd en de Testmelding verzenden naar alleen dit apparaat.
   
     ![][23]    
-* **Eenvoudig instellen van een in-app-melding tooshow als een snelle poll/enquête**  
+* **Eenvoudig instellen van een in-app-melding worden weergegeven als een snelle poll/enquête**  
   
     ![][24]
-* **Ophalen van de push-Campagnestatistiek** voor uw toogive meldingen die u een idee over hoe geslaagde zijn uw meldingen.
+* **Ophalen van de push-Campagnestatistiek** voor uw meldingen geven u een idee over hoe geslaagde uw meldingen zijn.
   
     ![][25]    
-* **Gemakkelijk aanpassen en teken tooyour meldingen met app-info/labels en emojis geven** 
+* **Gemakkelijk aanpassen en teken geven tot uw meldingen met app-info/labels en emojis** 
   
     ![][26]    
   
     ![][27]    
-* **Limieten Push tooprevent gebruikers spam ingesteld** u niet wilt toosend een groot aantal pushes tooyour app-gebruikers en als het verzenden van spam tegenkomen. Dit is waar onze Push limieten functie is handig waarmee u pushlimieten tooconfigure Hallo samenvattingen van een segment. 
+* **Limieten voor de Push-om te voorkomen dat gebruikers spam instellen** u niet wilt dat een groot aantal pushes verzenden naar uw app-gebruikers en als het verzenden van spam tegenkomen. Dit is waar onze Push limieten functie is handig waarmee u pushlimieten configureren op de granulatie van een segment. 
   
     ![][28]            
 

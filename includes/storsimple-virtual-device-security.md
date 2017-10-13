@@ -1,8 +1,8 @@
 <!--v-sharos 10/13/2105 virtual device security-->
 
-Houd Hallo volgende beveiligingsoverwegingen in rekening wanneer u Hallo virtuele StorSimple-apparaat gebruikt:
+Houd rekening met de volgende beveiligingsoverwegingen wanneer u het virtuele StorSimple-apparaat gebruikt:
 
-* Hallo virtueel apparaat wordt beveiligd door uw Microsoft Azure-abonnement. Dit betekent dat als u van het virtuele apparaat Hallo gebruikmaakt en uw Azure-abonnement is geknoeid, Hallo opgeslagen gegevens op uw virtuele apparaat zijn ook vatbaar.
-* Hallo openbare sleutel van Hallo certificaat gebruikt tooencrypt opgeslagen in Azure StorSimple gegevens veilig zijn aangebracht beschikbaar toohello klassieke Azure-portal en de persoonlijke sleutel Hallo blijft behouden met Hallo StorSimple-apparaat. Op Hallo virtuele StorSimple-apparaat, worden beide Hallo openbare en persoonlijke sleutels worden opgeslagen in Azure.
-* Hallo virtueel apparaat wordt gehost in Microsoft Azure-datacenter Hallo.
+* Het virtuele apparaat wordt beveiligd door uw Microsoft Azure-abonnement. Dit betekent dat als u van het virtuele apparaat gebruikmaakt en uw Azure-abonnement is geknoeid, de gegevens die zijn opgeslagen op uw virtuele apparaat ook vatbaar is.
+* De openbare sleutel van het certificaat dat wordt gebruikt voor het versleutelen van gegevens die zijn opgeslagen in Azure StorSimple veilig beschikbaar wordt gesteld aan de klassieke Azure portal en de persoonlijke sleutel met de StorSimple-apparaat wordt bewaard. Op het virtuele StorSimple-apparaat, worden de openbare en persoonlijke sleutels worden opgeslagen in Azure.
+* Het virtuele apparaat wordt gehost in het Microsoft Azure-datacenter.
 

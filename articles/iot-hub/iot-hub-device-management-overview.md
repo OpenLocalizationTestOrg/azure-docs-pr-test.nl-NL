@@ -1,5 +1,5 @@
 ---
-title: aaaDevice management met Azure IoT Hub | Microsoft Docs
+title: Apparaatbeheer met Azure IoT Hub | Microsoft Docs
 description: 'Overzicht van apparaatbeheer in Azure IoT Hub: levenscyclus van bedrijfsapparaten en apparaatbeheerpatronen, zoals opnieuw opstarten, de fabrieksinstellingen herstellen, firmware bijwerken, configuratie, apparaatdubbels, query''s en taken.'
 services: iot-hub
 documentationcenter: 
@@ -14,83 +14,83 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 7e22fb6eb3c541a513b16a047c7c3ef557255532
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Overzicht van apparaatbeheer met IoT Hub
 ## <a name="introduction"></a>Inleiding
-Azure IoT Hub biedt Hallo-onderdelen en een uitbreidbaarheidsmodel die het apparaat en oplossingen voor back-end-ontwikkelaars toobuild robuuste Apparaatbeheer. Het bereik van de apparaten van beperkte sensoren en één doeleinde microcontrollers, toopowerful gateways die communicatie voor groepen van apparaten te routeren.  Bovendien verschillen Hallo gebruiksvoorbeelden en vereisten voor de IoT-operators aanzienlijk tussen branches.  Apparaatbeheer met IoT Hub biedt ondanks deze afwijking Hallo mogelijkheden, patronen en bibliotheken toocater tooa diverse codeset van apparaten en eindgebruikers.
+Azure IoT Hub biedt de functies en het uitbreidingsmodel waarmee apparaat- en back-end-ontwikkelaars krachtige beheeroplossingen voor apparaten kunnen bouwen. Apparaten variëren van beperkte sensoren en microcontrollers met één doel tot krachtige gateways die communicatie routeren voor groepen apparaten.  Bovendien verschillen de gebruiksvoorbeelden en de vereisten voor IoT-operators aanzienlijk in de verschillende sectoren.  Ondanks deze variatie biedt apparaatbeheer met IoT Hub mogelijkheden, patronen en codebibliotheken die geschikt zijn voor een groot aantal apparaten en eindgebruikers.
 
-Een essentieel onderdeel van het maken van een geslaagde enterprise IoT-oplossing is tooprovide een strategie voor hoe operators Hallo voortdurend beheer van hun verzameling apparaten verwerken. IoT-operators vereisen eenvoudige en betrouwbare hulpprogramma's en toepassingen waarmee ze toofocus op Hallo meer strategische aspecten van hun werk. Dit artikel bevat:
+Een essentieel onderdeel van het maken van een geslaagde enterprise-IoT-oplossing is het bieden van een strategie voor hoe operators omgaan met het continue beheer van de apparaten in hun bedrijf. IoT-operators hebben eenvoudige en betrouwbare hulpprogramma's en toepassingen nodig waarmee ze zich kunnen concentreren op de strategische aspecten van hun werk. Dit artikel bevat:
 
-* Een kort overzicht van Azure IoT Hub benadering toodevice management.
+* Een kort overzicht van de Azure IoT Hub-aanpak van apparaatbeheer.
 * Een beschrijving van de algemene principes van apparaatbeheer.
-* Een beschrijving van de levenscyclus van Hallo-apparaten.
+* Een beschrijving van de levenscyclus van het apparaat.
 * Een overzicht van de algemene patronen van apparaatbeheer.
 
 ## <a name="device-management-principles"></a>Principes van apparaatbeheer
-IoT brengt aan een unieke set van apparaat management uitdagingen en elke oplossing bedrijfsniveau moet houden Hallo principes van de volgende:
+IoT zorgt voor unieke apparaatbeheeruitdagingen en elke oplossing van enterprise-klasse moet rekening houden met de volgende principes:
 
 ![Afbeelding Principes van apparaatbeheer][img-dm_principles]
 
-* **Schaal en automatisering**: IoT-oplossingen vereisen toomanage miljoenen apparaten door medewerkers van eenvoudige hulpprogramma's die u kunnen routinematige taken automatiseren en een relatief klein operations inschakelen. Dagelijkse, operators verwachten toohandle apparaatbewerkingen op afstand in bulk en tooonly worden gewaarschuwd wanneer er problemen optreden die hun directe aandacht vereisen.
-* **Compatibiliteit en toegankelijkheid**: Hallo apparaatecosysteem uitzonderlijk diverse is. Beheerhulpprogramma's moet op maat gemaakte tooaccommodate een groot aantal apparaatklassen, platforms en protocollen. Operators moeten kunnen veel soorten apparaten, uiteenlopend van Hallo meest beperkte toosupport ingesloten één proces chips, toopowerful en volledig functioneel computers.
-* **Contextbewustzijn**: IoT-omgevingen zijn dynamisch en veranderen voortdurend. Betrouwbaarheid van de service is cruciaal. Apparaat beheerbewerkingen moeten rekening gehouden account Hallo factoren tooensure volgen dat onderhoud uitvaltijd niet invloed hebben op essentiële zakelijke activiteiten of gevaarlijke voorwaarden maken:
+* **Schaal en automatisering**: voor IoT-oplossingen zijn eenvoudige hulpprogramma's nodig waarmee routinetaken kunnen worden geautomatiseerd en waarmee een relatief klein aantal operationele medewerkers miljoenen apparaten kan beheren. Operators verwachten dagelijks apparaatbewerkingen extern en bulksgewijs uit te voeren en alleen te worden gewaarschuwd wanneer er problemen opduiken waarvoor hun directe aandacht is vereist.
+* **Openheid en compatibiliteit**: het ecosysteem van apparaten is buitengewoon divers. Beheerhulpprogramma's moeten zo worden aangepast dat ze kunnen omgaan met een groot aantal apparaatklassen, platforms en protocollen. Operators moeten vele typen apparaten kunnen ondersteunen, van de meest beperkte ingesloten chips voor enkelvoudige processen tot krachtige en volledig functionele computers.
+* **Contextbewustzijn**: IoT-omgevingen zijn dynamisch en veranderen voortdurend. Betrouwbaarheid van de service is cruciaal. Tijdens bewerkingen voor apparaatbeheer moet er rekening worden gehouden met de volgende factoren, om ervoor te zorgen dat uitvaltijd wegens onderhoud de kritieke bedrijfsbewerkingen niet beïnvloedt en geen gevaarlijke situaties creëert:
     * SLA-onderhoudsvensters
     * Netwerk- en voedingsstatussen
     * Voorwaarden wanneer in gebruik
     * Geolocatie van apparaat
-* **Veel functies service**: ondersteuning voor Hallo unieke werkstromen en processen van IoT operations-functies is van cruciaal belang. Hallo beheerders moet eenheid in de omschrijving werken met Hallo gegeven beperkingen van interne IT-afdelingen.  Ze moeten ook duurzame manieren toosurface realtime apparaat operations informatie toosupervisors en andere zakelijke leidinggevende rollen vinden.
+* **Vele rollen bedienen**: ondersteuning voor de unieke werkstromen en processen van IoT-bewerkingsrollen is cruciaal. Beheerders moeten in harmonie met de gegeven beperkingen van interne IT-afdelingen werken.  Ze moeten ook duurzame manieren vinden om in realtime gegevens over apparaatbewerkingen door te sturen naar toezichthouders en andere zakelijke leidinggevende rollen.
 
 ## <a name="device-lifecycle"></a>Levenscyclus van apparaat
-Er is een reeks fasen in het algemeen apparaten die algemene tooall enterprise IoT-projecten zijn. Er zijn vijf fasen binnen de levenscyclus van apparaten Hallo in Azure IoT:
+Er is een set algemene fasen voor apparaatbeheer die hetzelfde zijn voor alle enterprise-IoT-projecten. In Azure IoT zijn er vijf fasen binnen de levenscyclus van een apparaat:
 
-![Hallo vijf fasen van het apparaat de levenscyclus van Azure IoT: plannen, inrichten, configureren, bewaken en buiten gebruik stellen][img-device_lifecycle]
+![De vijf fasen van de levenscyclus van een Azure IoT-apparaat: plannen, inrichten, configureren, bewaken, buiten gebruik stellen][img-device_lifecycle]
 
-In elk van deze vijf fasen zijn er verschillende vereisten van het apparaat operator afgehandelde tooprovide een volledige-oplossing moeten zijn:
+Binnen elk van deze vijf fasen zijn er verschillende vereisten voor de apparaatoperator waaraan moet worden voldaan voor een volledige oplossing:
 
-* **Plan**: operators toocreate een apparaat metagegevens schema waarmee ze tooeasily en nauwkeurige query voor inschakelen en een doelgroep van apparaten voor bulksgewijs beheerbewerkingen. U kunt deze Apparaatmetagegevens in Hallo vorm van labels en eigenschappen Hallo apparaat twin toostore.
+* **Plannen**: operators in staat stellen een schema voor de metagegevens van een apparaat te maken waarmee ze eenvoudig en nauwkeurig kunnen zoeken naar en zich richten op een groep apparaten voor bulksgewijze beheerbewerkingen. U kunt de apparaatdubbel gebruiken om de metagegevens van dit apparaat op te slaan in de vorm van tags en eigenschappen.
   
-    *Meer informatie*: [aan de slag met apparaat horende][lnk-twins-getstarted], [apparaat horende begrijpen][lnk-twins-devguide], [hoe Apparaateigenschappen voor twin toouse][lnk-twin-properties].
-* **Inrichten**: veilig inrichten van nieuwe apparaten tooIoT Hub en schakel operators tooimmediately apparaatmogelijkheden detecteren.  Hallo Iothub identiteit register toocreate flexibele apparaat-id's en referenties gebruiken en deze bewerking niet uitvoeren in bulk met behulp van een taak. Maak apparaten tooreport hun mogelijkheden en voorwaarden via apparaateigenschappen in Hallo apparaat twin.
+    *Meer weten*: [Aan de slag met apparaatdubbels][lnk-twins-getstarted], [Meer informatie over apparaatdubbels][lnk-twins-devguide], [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties].
+* **Inrichten**: nieuwe apparaten veilig inrichten voor IoT Hub en operators in staat stellen apparaatmogelijkheden onmiddellijk te detecteren.  Gebruik het id-register van IoT Hub om flexibele apparaat-id's en -referenties te maken. Voer dit uit in één bulkbewerking met behulp van een taak. Bouw apparaten om hun mogelijkheden en voorwaarden via apparaateigenschappen te rapporteren in de apparaatdubbel.
   
-    *Meer informatie*: [apparaat identiteiten beheren][lnk-identity-registry], [bulksgewijs beheer van apparaat-id's][lnk-bulk-identity], [Hoe toouse apparaat eigenschappen twin][lnk-twin-properties].
-* **Configureer**: bulksgewijs vergemakkelijken toodevices configuratiewijzigingen en firmware-updates en tegelijkertijd zowel de status en beveiliging. Voer deze apparaatbeheerbewerkingen bulksgewijs uit met behulp van de gewenste eigenschappen of met rechtstreekse methoden en broadcast-taken.
+    *Meer weten*: [Apparaatidentiteiten beheren][lnk-identity-registry], [Apparaatidentiteiten bulksgewijs beheren][lnk-bulk-identity], [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties].
+* **Configureren**: bulksgewijze configuratiewijzigingen en firmware-updates op apparaten ondersteunen terwijl de status en beveiliging behouden blijven. Voer deze apparaatbeheerbewerkingen bulksgewijs uit met behulp van de gewenste eigenschappen of met rechtstreekse methoden en broadcast-taken.
   
-    *Meer informatie*: [direct methoden gebruiken][lnk-c2d-methods], [een directe methode aangeroepen voor een apparaat][lnk-methods-devguide], [hoe Apparaateigenschappen voor twin toouse][lnk-twin-properties], [planning en broadcast taken][lnk-jobs], [taken op meerdere apparatenplannen] [lnk-jobs-devguide].
-* **Monitor**: bewaken van de verzameling van algemene Apparaatstatus, Hallo status van actieve bewerkingen en waarschuwing operators tooissues die mogelijk hun aandacht vereisen.  Hallo apparaat twin tooallow apparaten tooreport realtime omstandigheden en status van update-bewerkingen toepassen. Krachtige dashboardrapporten die surface Hallo direct problemen met apparaat twin query bouwen.
+    *Meer weten*: [Rechtstreekse methoden gebruiken][lnk-c2d-methods], [Een rechtstreekse methode aanroepen op een apparaat][lnk-methods-devguide], [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [Taken plannen en uitzenden][lnk-jobs], [Taken op meerdere apparaten plannen][lnk-jobs-devguide].
+* **Bewaken**: de verzamelde status van alle apparaten bewaken, de status van lopende bewerkingen bewaken en operators attenderen op problemen die mogelijk hun aandacht vereisen.  Pas de apparaatdubbel toe, zodat apparaten in realtime bewerkingsvoorwaarden en de status van de update-bewerkingen kunnen rapporteren. Bouw krachtige dashboardrapporten die de meeste directe problemen melden via apparaatdubbel-query's.
   
-    *Meer informatie*: [hoe toouse apparaat eigenschappen twin][lnk-twin-properties], [querytaal IoT Hub voor apparaat horende, taken en berichtroutering] [ lnk-query-language].
-* **Buiten gebruik stellen**: vervangen of buiten gebruik stellen van apparaten na een storing, cyclus, upgraden of achter Hallo Hallo service levensduur.  Hallo twin toomaintain apparaat apparaatgegevens gebruiken als de fysieke apparaat hello wordt vervangen, of als het buiten gebruik gesteld gearchiveerd. Hallo id-register IoT Hub gebruiken voor het veilig intrekken van apparaat-id's en referenties.
+    *Meer weten*: [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [IoT Hub query language for device twins, jobs, and message routing][lnk-query-language] (IoT Hub-querytaal voor apparaatdubbels, taken en berichtroutering).
+* **Buiten gebruik stellen**: apparaten vervangen of uit bedrijf nemen na een storing, upgradecyclus of aan het einde van de levensduur.  Gebruik de apparaatdubbel om apparaatgegevens te onderhouden als het fysieke apparaat wordt vervangen, of te archiveren als het apparaat buiten gebruik wordt gesteld. Gebruik het id-register van IoT Hub voor het veilig intrekken van apparaat-id's en -referenties.
   
-    *Meer informatie*: [hoe toouse apparaat eigenschappen twin][lnk-twin-properties], [apparaat identiteiten beheren][lnk-identity-registry].
+    *Meer weten*: [Dubbeleigenschappen apparaat gebruiken][lnk-twin-properties], [Apparaatidentiteiten beheren][lnk-identity-registry].
 
 ## <a name="device-management-patterns"></a>Patronen voor apparaatbeheer
-IoT-Hub kunt Hallo reeks apparaat management patronen te volgen.  Hallo [apparaat management zelfstudies] [ lnk-get-started] hoe u in meer detail tooextend deze patronen toofit uw exacte scenario en hoe nieuwe patronen toodesign op basis van deze sjablonen core.
+Met IoT Hub wordt de volgende set apparaatbeheerpatronen mogelijk gemaakt.  In de [Zelfstudies apparaatbeheer][lnk-get-started] wordt uitgebreid beschreven hoe u deze patronen zo kunt uitbreiden dat ze exact aansluiten bij uw scenario en hoe u nieuwe patronen ontwerpt op basis van deze kernsjablonen.
 
-* **Opnieuw opstarten** -back-endserver voor apps Hallo informeert Hallo apparaat via een directe methode dat wordt is opnieuw opgestart.  Hallo-apparaat gebruikt Hallo gerapporteerd eigenschappen tooupdate Hallo opnieuw opstarten status van Hallo-apparaat.
+* **Opnieuw opstarten**: via de back-endtoepassing wordt het apparaat met een rechtstreekse methode geïnformeerd dat er opnieuw wordt opgestart.  Het apparaat maakt gebruik van de gerapporteerde eigenschappen om de opstartstatus van het apparaat bij te werken.
   
     ![Afbeelding van het opstartpatroon van apparaatbeheer][img-reboot_pattern]
-* **Fabrieksinstellingen terugzetten** -back-endserver voor apps Hallo informeert Hallo apparaat via een directe methode dat deze fabrieksinstellingen is gestart.  Hallo-apparaat gebruikt Hallo gerapporteerd eigenschappen tooupdate Hallo de fabrieksinstellingen van status van Hallo-apparaat.
+* **Fabrieksinstellingen terugzetten**: via de back-endtoepassing wordt het apparaat via een rechtstreekse methode geïnformeerd dat het terugzetten van de fabrieksinstellingen is gestart.  Het apparaat maakt gebruik van de gerapporteerde eigenschappen om de status van het terugzetten van de fabrieksinstellingen van het apparaat bij te werken.
   
     ![Afbeelding van het patroon van herstel naar fabrieksinstellingen voor apparaatbeheer][img-facreset_pattern]
-* **Configuratie** -Hallo back-endserver voor apps Hallo gewenst eigenschappen tooconfigure software die wordt uitgevoerd op Hallo-apparaat gebruikt.  Hallo-apparaat gebruikt Hallo gerapporteerd eigenschappen tooupdate configuratiestatus van Hallo-apparaat.
+* **Configuratie**: voor de back-endtoepassing worden de gewenste eigenschappen gebruikt voor het configureren van software die op het apparaat wordt uitgevoerd.  Het apparaat maakt gebruik van de gerapporteerde eigenschappen om de configuratiestatus van het apparaat bij te werken.
   
     ![Afbeelding van het configuratiepatroon van apparaatbeheer][img-config_pattern]
-* **Firmware-Update** -back-endserver voor apps Hallo informeert Hallo apparaat via een directe methode dat deze een firmware-update is gestart.  Hallo apparaat start een proces toodownload Hallo firmware-installatiekopie, Hallo firmware-installatiekopie toe te passen en ten slotte verbinding toohello service IoT Hub.  In de gehele proces hello gerapporteerd Hallo apparaat gebruikt Hallo eigenschappen tooupdate Hallo voortgang en status van het Hallo-apparaat.
+* **Firmware-update**: via de back-endtoepassing wordt het apparaat via een rechtstreekse methode geïnformeerd dat er een firmware-update is gestart.  Voor het apparaat wordt een proces met meerdere stappen gestart om de firmware-installatiekopie te downloaden, de firmware-installatiekopie toe te passen en ten slotte opnieuw verbinding te maken met de IoT Hub-service.  Gedurende het proces met meerdere stappen wordt gebruikgemaakt van de gerapporteerde eigenschappen om de voortgang en status van het apparaat bij te werken.
   
     ![Afbeelding van het firmware-updatepatroon van apparaatbeheer][img-fwupdate_pattern]
-* **Rapportage van de voortgang en status** -Hallo back-end oplossing apparaat twin query's uitvoert in een reeks apparaten, tooreport op Hallo status en voortgang van de acties die worden uitgevoerd op Hallo-apparaten.
+* **Voortgang en status rapporteren**: met de back-end van de oplossing worden query's voor apparaatdubbels uitgevoerd op een set apparaten om de status en voortgang te rapporteren van acties die op de apparaten worden uitgevoerd.
   
     ![Afbeelding van het proces- en statuspatroon van apparaatbeheerrapportage][img-report_progress_pattern]
 
 ## <a name="next-steps"></a>Volgende stappen
-Hallo-mogelijkheden, patronen en codebibliotheken met IoT Hub voor Apparaatbeheer, kunnen u toocreate IoT-toepassingen die voldoen aan vereisten voor enterprise IoT-operator in elke fase van de levenscyclus van apparaat.
+U kunt de mogelijkheden, patronen en codebibliotheken die IoT Hub biedt voor apparaatbeheer, gebruiken voor het maken van IoT-toepassingen die voldoen aan de enterprise-IoT-operatorvereisten in elke fase van de levenscyclus van een apparaat.
 
-toocontinue leren over Hallo beheerfuncties voor apparaten in IoT-Hub, Zie Hallo [aan de slag met Apparaatbeheer] [ lnk-get-started] zelfstudie.
+Zie de zelfstudie [Aan de slag met apparaatbeheer][lnk-get-started] voor meer informatie over de functies voor apparaatbeheer in IoT Hub.
 
 <!-- Images and links -->
 [img-dm_principles]: media/iot-hub-device-management-overview/image4.png

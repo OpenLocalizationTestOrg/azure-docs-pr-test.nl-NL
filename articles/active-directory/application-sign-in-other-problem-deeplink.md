@@ -1,6 +1,6 @@
 ---
-title: aaaProblems tooan toepassing met behulp van een deeplink aanmelden | Microsoft Docs
-description: Hoe tootroubleshoot problemen met toegang tot een toepassing van een gebruikmaken van Azure AD-deeplink-URL
+title: Problemen met aanmelden bij een toepassing met een deeplink | Microsoft Docs
+description: Het oplossen van problemen met toegang tot een toepassing van een gebruikmaken van Azure AD-deeplink-URL
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,253 +13,253 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: dc82410001ac05895cc0244c3a89ace71bcf01a9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 798015ab68afc65378cffc75afec9c7f91fc1926
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="problems-signing-in-tooan-application-using-a-deeplink"></a>Problemen met aanmelden met een deeplink tooan-toepassing
+# <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemen met aanmelden bij een toepassing met een deeplink
 
-Hallo Toegangspaneel is een portal op Internet waarmee een gebruiker met een werk of schoolaccount in Azure Active Directory (Azure AD) tooview en start cloud-gebaseerde toepassingen die hello Azure AD-beheerder heeft deze toegang verleend tot. 
+Het Toegangspaneel is een portal op Internet waarmee een gebruiker met een account voor werk of school in Azure Active Directory (Azure AD) weergeven en starten van cloud-gebaseerde toepassingen die de Azure AD-beheerder heeft deze toegang verleend. 
 
-Deze toepassingen zijn geconfigureerd namens de gebruiker Hallo in hello Azure AD-portal. Hallo-toepassing moet correct worden geconfigureerd en toegewezen toohello gebruiker of een groep Hallo-gebruiker lid is van toepassing op Hallo toosee in Hallo Toegangsvenster.
+Deze toepassingen zijn geconfigureerd namens de gebruiker in de Azure AD-portal. De toepassing moet worden geconfigureerd en toegewezen aan de gebruiker of een groep die de gebruiker is lid van de toepassing in het deelvenster toegang zien.
 
-Dieptekoppelingen of toegang voor gebruikers zijn URL's koppelingen die uw gebruikers hun wachtwoord SSO-toepassingen rechtstreeks vanuit hun browser-URL balken van tooaccess kunnen gebruiken. Door te navigeren toothis koppeling, worden gebruikers automatisch aangemeld bij de toepassing hello zonder toogo toohello Toegangspaneel eerst. Dit is Hallo dezelfde koppeling die gebruikers tooaccess deze toepassingen vanuit Office 365 Hallo toepassing starten gebruiken.
+Dieptekoppelingen of toegang voor gebruikers zijn URL's koppelingen die uw gebruikers toegang krijgen tot hun wachtwoord SSO-toepassingen rechtstreeks vanuit hun browser-URL balken kunnen gebruiken. Door te navigeren naar deze koppeling, worden gebruikers automatisch aangemeld bij de toepassing zonder eerst het toegangsvenster naar. Dit is dezelfde koppeling waarmee gebruikers toegang tot deze toepassingen van startprogramma voor toepassingen van Office 365.
 
-## <a name="general-issues-toocheck-first"></a>Algemene problemen toocheck eerst
+## <a name="general-issues-to-check-first"></a>Algemene problemen om eerst te controleren
 
--   Zorg ervoor dat uw met een **browser** die voldoet aan de minimale vereisten van de Hallo voor Hallo Toegangsvenster.
+-   Zorg ervoor dat uw met een **browser** die voldoet aan de minimale vereisten voor het toegangsvenster.
 
--   Zorg ervoor dat de browser van Hallo gebruiker is toegevoegd Hallo-URL van Hallo toepassing tooits **vertrouwde websites**.
+-   Zorg ervoor dat de URL van de toepassing is toegevoegd door de browser van de gebruiker de **vertrouwde websites**.
 
--   Zorg ervoor dat toocheck Hallo toepassing **geconfigureerd** correct.
+-   Controleer of de toepassing is **geconfigureerd** correct.
 
--   Zorg ervoor dat het account van de gebruiker Hallo **ingeschakeld** voor aanmeldingen.
+-   Zorg ervoor dat het gebruikersaccount **ingeschakeld** voor aanmeldingen.
 
--   Zorg ervoor dat het account van de gebruiker Hallo **niet is vergrendeld.**
+-   Zorg ervoor dat het gebruikersaccount **niet is vergrendeld.**
 
--   Zorg ervoor dat Hallo-gebruiker **wachtwoord niet is verlopen of is vergeten.**
+-   Zorg ervoor dat de gebruiker **wachtwoord niet is verlopen of is vergeten.**
 
 -   Zorg ervoor dat **multi-Factor Authentication** gebruikerstoegang niet blokkeert.
 
 -   Zorg ervoor dat een **beleid voor voorwaardelijke toegang** of **Identity Protection** beleid voor de gebruikerstoegang niet blokkeert.
 
--   Zorg ervoor dat een gebruiker **verificatie contactgegevens** is toodate tooallow multi-factor Authentication of voorwaardelijk beleid toobe afgedwongen.
+-   Zorg ervoor dat een gebruiker **verificatie contactgegevens** is up-to-date houden om toe te staan van multi-factor Authentication of voorwaardelijk beleid worden afgedwongen.
 
--   Zorg ervoor dat tooalso probeer wissen van cookies in uw browser opnieuw te proberen toosign in.
+-   Zorg ervoor dat ook moet worden geprobeerd wissen van cookies in uw browser en probeer het opnieuw.
 
-## <a name="checking-hello-deeplink"></a>Hallo-deeplink-controle
+## <a name="checking-the-deeplink"></a>De deeplink controleren
 
-toocheck hebt u de juiste deeplink hello, Hallo volgende stappen:
+Als u wilt controleren of u de juiste deeplink hebt, de volgende stappen uit te voeren:
 
-1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
+5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
 
-6.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+6.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-7.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+7.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-8.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+8.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-9.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+9.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-10. Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
+10. Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-   * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
 
-11. Selecteer gewenste Hallo selectievakje Hallo deeplink voor Hallo-toepassing.
+11. Selecteer de toepassing die u wilt dat de controle van de deeplink voor.
 
-12. Hallo-label vinden **toegangs-URL van gebruiker**. U deeplink moet overeenkomen met deze URL.
+12. Zoek het label **toegangs-URL van gebruiker**. U deeplink moet overeenkomen met deze URL.
 
-## <a name="how-tooinstall-hello-access-panel-browser-extension"></a>Hoe tooinstall toegang Configuratiescherm Browseruitbreiding Hallo
+## <a name="how-to-install-the-access-panel-browser-extension"></a>Het installeren van de Browseruitbreiding toegang Configuratiescherm
 
-tooinstall hello Configuratiescherm Browseruitbreiding toegang, Hallo volgende stappen:
+Volg de onderstaande stappen voor het installeren van de Browseruitbreiding toegang Configuratiescherm:
 
-1.  Open Hallo [Toegangspaneel](https://myapps.microsoft.com) in een van de Hallo ondersteunde browsers en meld u aan als een **gebruiker** in uw Azure AD.
+1.  Open de [Toegangspaneel](https://myapps.microsoft.com) in een van de ondersteunde browsers en meld u aan als een **gebruiker** in uw Azure AD.
 
-2.  Klik op een **wachtwoord SSO toepassing** in Hallo Toegangsvenster.
+2.  Klik op een **wachtwoord SSO toepassing** in het deelvenster toegang.
 
-3.  Selecteer in de Hallo vragen gevraagd tooinstall Hallo software, **nu installeren**.
+3.  Selecteer in het venster met de vraag om de software te installeren, **nu installeren**.
 
-4.  Op basis van uw browser zijn u gerichte toohello downloadkoppeling. **Voeg** Hallo extensie tooyour browser.
+4.  Op basis van uw browser u omgeleid naar de downloadkoppeling. **Voeg** de uitbreiding van uw browser.
 
-5.  Als uw browser wordt gevraagd, selecteert u tooeither **inschakelen** of **toestaan** Hallo extensie.
+5.  Als uw browser wordt gevraagd, selecteert u op een **inschakelen** of **toestaan** de extensie.
 
 6.  Nadat deze is geïnstalleerd, **opnieuw** uw browsersessie.
 
-7.  Aanmelden bij Hallo Toegangspaneel en zien als u kunt **starten** uw wachtwoord SSO-toepassingen
+7.  Meld u aan in het deelvenster toegang en zien als u kunt **starten** uw wachtwoord SSO-toepassingen
 
-U kunt ook Hallo-extensie voor Chrome en Firefox van Hallo rechtstreekse koppelingen hieronder downloaden:
+U kunt ook de uitbreiding voor Chrome en Firefox downloaden uit de onderstaande directe koppelingen:
 
 -   [Uitbreiding van chrome toegang Configuratiescherm](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 -   [Uitbreiding van het Configuratiescherm Firefox toegang](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="how-tooconfigure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Hoe tooconfigure wachtwoord eenmalige aanmelding voor een toepassing van de galerie van Azure AD
+## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Het wachtwoord eenmalige aanmelding voor een toepassing van de galerie van Azure AD configureren
 
-een toepassing uit de galerie van Azure AD Hallo tooconfigure moet u:
+Een toepassing uit de galerie van Azure AD te hoeft configureren:
 
--   [Een toepassing uit de galerie van Azure AD Hallo toevoegen](#add-an-application-from-the-Azure-AD-gallery)
+-   [Een toepassing toevoegen uit de galerie van Azure AD](#add-an-application-from-the-Azure-AD-gallery)
 
--   [Hallo-toepassing voor eenmalige aanmelding wachtwoord configureren](#configure-the-application-for-password-single-sign-on)
+-   [De toepassing voor eenmalige aanmelding wachtwoord configureren](#configure-the-application-for-password-single-sign-on)
 
-### <a name="add-an-application-from-hello-azure-ad-gallery"></a>Een toepassing uit de galerie van Azure AD Hallo toevoegen
+### <a name="add-an-application-from-the-azure-ad-gallery"></a>Een toepassing toevoegen uit de galerie van Azure AD
 
-een toepassing hello Azure AD-galerie tooadd Hallo volgende stappen:
+Als u wilt een toepassing uit de galerie van Azure AD toevoegt, de volgende stappen uit te voeren:
 
-1.  Open Hallo [Azure Portal](https://portal.azure.com) en meld u aan als een **hoofdbeheerder** of **Co-beheerder**.
+1.  Open de [Azure Portal](https://portal.azure.com) en meld u aan als een **hoofdbeheerder** of **Co-beheerder**.
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op Hallo **toevoegen** op Hallo rechterbovenhoek op Hallo knop **bedrijfstoepassingen** blade.
+5.  Klik op de **toevoegen** middenonder in de rechterbovenhoek op het **bedrijfstoepassingen** blade.
 
-6.  In Hallo **Voer een naam** textbox van Hallo **toevoegen uit de galerie Hallo** sectie, Hallo typenaam van de toepassing hello.
+6.  In de **Voer een naam** textbox uit de **toevoegen uit de galerie** sectie, typ de naam van de toepassing.
 
-7.  Selecteer het gewenste tooconfigure voor eenmalige aanmelding Hallo-toepassing.
+7.  Selecteer de toepassing die u wilt configureren voor eenmalige aanmelding.
 
-8.  Voordat u de toepassing hello toevoegt, kunt u de naam van Hallo **naam** textbox.
+8.  Voordat u de toepassing toevoegt, kunt u de naam van de **naam** textbox.
 
-9.  Klik op **toevoegen** knop tooadd Hallo-toepassing.
+9.  Klik op **toevoegen** knop, de toepassing toevoegen.
 
-Na een korte periode zijn u configuratie-blade kunnen toosee Hallo toepassing.
+Na een korte periode is het mogelijk om te zien van de toepassing configuration blade.
 
-### <a name="configure-hello-application-for-password-single-sign-on"></a>Hallo-toepassing voor eenmalige aanmelding wachtwoord configureren
+### <a name="configure-the-application-for-password-single-sign-on"></a>De toepassing voor eenmalige aanmelding wachtwoord configureren
 
-Volg onderstaande stappen voor Hallo tooconfigure eenmalige aanmelding voor een toepassing:
+Volg de onderstaande stappen voor het configureren van eenmalige aanmelding voor een toepassing:
 
-1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
+5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
 
-6.  Selecteer Hallo-toepassing die u wilt dat eenmalige aanmelding tooconfigure.
+6.  Selecteer de toepassing die u wilt configureren eenmalige aanmelding.
 
-7.  Nadat de toepassing hello wordt geladen, klikt u op Hallo **eenmalige aanmelding** uit van de toepassing hello linkerkant navigatiemenu.
+7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** van navigatiemenu links aan de van de toepassing.
 
-8.  Selecteer Hallo modus **op basis van wachtwoorden eenmalige aanmelding.**
+8.  Selecteer de modus **op basis van wachtwoorden eenmalige aanmelding.**
 
-9.  [Gebruikers toewijzen toohello toepassing](#how-to-assign-a-user-to-an-application-directly).
+9.  [Gebruikers toewijzen aan de toepassing](#how-to-assign-a-user-to-an-application-directly).
 
-10. Bovendien kunt u ook referenties opgeven namens de gebruiker Hallo door het selecteren van rijen Hallo Hallo-gebruikers en te klikken op **updatereferenties** en Hallo gebruikersnaam en wachtwoord in te voeren namens Hallo gebruikers. Anders worden gebruikers na vragen aan gebruiker tooenter Hallo referenties zelf bij het starten.
+10. Bovendien kunt u ook referenties opgeven namens de gebruiker door de rijen van de gebruikers te selecteren en te klikken op **updatereferenties** en de gebruikersnaam en wachtwoord in te voeren namens de gebruikers. Anders wordt gebruikers gevraagd de referenties zich bij het starten in te voeren.
 
-## <a name="how-tooconfigure-password-single-sign-on-for-a-non-gallery-application"></a>Hoe tooconfigure wachtwoord eenmalige aanmelding voor de toepassing van een niet-galerie
+## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Het configureren van wachtwoord eenmalige aanmelding voor de toepassing van een niet-galerie
 
-een toepassing uit de galerie van Azure AD Hallo tooconfigure moet u:
+Een toepassing uit de galerie van Azure AD te hoeft configureren:
 
 -   [Toevoegen van een toepassing niet-galerie](#add-a-non-gallery-application)
 
--   [Hallo-toepassing voor eenmalige aanmelding wachtwoord configureren](#configure-the-application-for-password-single-sign-on)
+-   [De toepassing voor eenmalige aanmelding wachtwoord configureren](#configure-the-application-for-password-single-sign-on)
 
 ### <a name="add-a-non-gallery-application"></a>Toevoegen van een toepassing niet-galerie
 
-een toepassing hello Azure AD-galerie tooadd Hallo volgende stappen:
+Als u wilt een toepassing uit de galerie van Azure AD toevoegt, de volgende stappen uit te voeren:
 
-1.  Open Hallo [Azure Portal](https://portal.azure.com) en meld u aan als een **hoofdbeheerder** of **Co-beheerder**.
+1.  Open de [Azure Portal](https://portal.azure.com) en meld u aan als een **hoofdbeheerder** of **Co-beheerder**.
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op Hallo **toevoegen** op Hallo rechterbovenhoek op Hallo knop **bedrijfstoepassingen** blade.
+5.  Klik op de **toevoegen** middenonder in de rechterbovenhoek op het **bedrijfstoepassingen** blade.
 
 6.  Klik op **Non-galerie-toepassing.**
 
-7.  Vul in Hallo Hallo-naam van uw toepassing **naam** textbox. Selecteer **toevoegen.**
+7.  Voer de naam van uw toepassing in de **naam** textbox. Selecteer **toevoegen.**
 
-Na een korte periode zijn u configuratie-blade kunnen toosee Hallo toepassing.
+Na een korte periode is het mogelijk om te zien van de toepassing configuration blade.
 
-### <a name="configure-hello-application-for-password-single-sign-on"></a>Hallo-toepassing voor eenmalige aanmelding wachtwoord configureren
+### <a name="configure-the-application-for-password-single-sign-on"></a>De toepassing voor eenmalige aanmelding wachtwoord configureren
 
-Volg onderstaande stappen voor Hallo tooconfigure eenmalige aanmelding voor een toepassing:
+Volg de onderstaande stappen voor het configureren van eenmalige aanmelding voor een toepassing:
 
-1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
+5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-    1.  Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+    1.  Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
 
-6.  Selecteer Hallo-toepassing die u wilt dat eenmalige aanmelding tooconfigure.
+6.  Selecteer de toepassing die u wilt configureren eenmalige aanmelding.
 
-7.  Nadat de toepassing hello wordt geladen, klikt u op Hallo **eenmalige aanmelding** uit van de toepassing hello linkerkant navigatiemenu.
+7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** van navigatiemenu links aan de van de toepassing.
 
-8.  Selecteer Hallo modus **op basis van wachtwoorden eenmalige aanmelding.**
+8.  Selecteer de modus **op basis van wachtwoorden eenmalige aanmelding.**
 
-9.  Voer Hallo **aanmeldings-URL**. Dit is Hallo URL waarin gebruikers hun gebruikersnaam en wachtwoord toosign in te typen. Zorg ervoor dat Hallo aanmelden velden zijn zichtbaar tijdens het Hallo-URL.
+9.  Voer de **aanmeldings-URL**. Dit is de URL waar gebruikers hun gebruikersnaam en wachtwoord aanmelden bij invoeren. Zorg ervoor dat de aanmeldingspagina velden zijn zichtbaar in de URL.
 
-10. Gebruikers toohello toepassing toewijzen.
+10. Gebruikers toewijzen aan de toepassing.
 
-11. Bovendien kunt u ook referenties opgeven namens de gebruiker Hallo door het selecteren van rijen Hallo Hallo-gebruikers en te klikken op **updatereferenties** en Hallo gebruikersnaam en wachtwoord in te voeren namens Hallo gebruikers. Anders worden gebruikers na vragen aan gebruiker tooenter Hallo referenties zelf bij het starten.
+11. Bovendien kunt u ook referenties opgeven namens de gebruiker door de rijen van de gebruikers te selecteren en te klikken op **updatereferenties** en de gebruikersnaam en wachtwoord in te voeren namens de gebruikers. Anders wordt gebruikers gevraagd de referenties zich bij het starten in te voeren.
 
-## <a name="how-tooassign-a-user-tooan-application-directly"></a>Hoe een gebruiker tooan toepassing rechtstreeks tooassign
+## <a name="how-to-assign-a-user-to-an-application-directly"></a>Een gebruiker rechtstreeks naar een toepassing toewijzen
 
-tooassign een of meer gebruikers tooan toepassing rechtstreeks Hallo volgende stappen:
+Als u wilt toewijzen een of meer gebruikers rechtstreeks naar een toepassing, de volgende stappen uit te voeren:
 
-1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
+5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
 
-6.  Hallo-toepassing die u wilt dat een lijst met gebruikers toofrom hello tooassign selecteren.
+6.  Selecteer de toepassing die u wilt toewijzen van een gebruiker in de lijst.
 
-7.  Nadat de toepassing hello wordt geladen, klikt u op **gebruikers en groepen** uit van de toepassing hello linkerkant navigatiemenu.
+7.  Nadat de toepassing wordt geladen, klikt u op **gebruikers en groepen** van navigatiemenu links aan de van de toepassing.
 
-8.  Klik op Hallo **toevoegen** knop boven op Hallo **gebruikers en groepen** lijst tooopen hello **toevoegen toewijzing** blade.
+8.  Klik op de **toevoegen** knop boven de **gebruikers en groepen** lijst openen de **toevoegen toewijzing** blade.
 
-9.  Klik op Hallo **gebruikers en groepen** selector van Hallo **toevoegen toewijzing** blade.
+9.  Klik op de **gebruikers en groepen** selector van de **toevoegen toewijzing** blade.
 
-10. Type in Hallo **volledige naam** of **e-mailadres** van Hallo gebruiker u geïnteresseerd bent in het toewijzen van Hallo **zoeken op naam of e-mailadres** zoekvak.
+10. Typ in het **volledige naam** of **e-mailadres** van de gebruiker die u geïnteresseerd bent in toewijzen in de **zoeken op naam of e-mailadres** zoekvak.
 
-11. Beweeg de muisaanwijzer over Hallo **gebruiker** in Hallo lijst tooreveal een **selectievakje**. Klik op het profiel foto of een logo tooadd Hallo selectievakje volgende toohello van gebruiker uw gebruiker toohello **geselecteerde** lijst.
+11. Beweeg de muisaanwijzer over de **gebruiker** in de lijst om weer te geven een **selectievakje**. Klik op het selectievakje naast de profielfoto van de gebruiker of het logo voor uw gebruiker toevoegen aan de **geselecteerde** lijst.
 
-12. **Optioneel:** indien te gewenst**toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in Hallo **zoeken op naam of e-mailadres** zoekvak en klikt u op Hallo selectievakje tooadd voor deze gebruiker toohello **geselecteerde** lijst.
+12. **Optioneel:** als u wilt **toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in de **zoeken op naam of e-mailadres** zoekvak en klik op het selectievakje voor deze gebruiker toevoegen aan de **geselecteerde** lijst.
 
-13. Wanneer u klaar bent met het selecteren van gebruikers, klikt u op Hallo **Selecteer** knop tooadd ze toohello lijst met gebruikers en groepen toobe toegewezen toohello toepassing.
+13. Wanneer u klaar bent met het selecteren van gebruikers, klikt u op de **Selecteer** om toe te voegen aan de lijst met gebruikers en groepen kunnen worden toegewezen aan de toepassing.
 
-14. **Optioneel:** klikt u op Hallo **rol selecteren** selector in Hallo **toevoegen toewijzing** blade tooselect een rol tooassign toohello gebruikers die u hebt geselecteerd.
+14. **Optioneel:** klikt u op de **rol selecteren** selector in de **toevoegen toewijzing** blade te selecteren van een rol toewijzen aan de gebruikers die u hebt geselecteerd.
 
-15. Klik op Hallo **toewijzen** knop tooassign Hallo toepassing toohello gebruikers geselecteerd.
+15. Klik op de **toewijzen** knop de toepassing toewijzen aan de geselecteerde gebruikers.
 
-Hallo Toegangsvenster na een korte periode Hallo-gebruikers die u hebt geselecteerd niet kunnen toolaunch deze toepassingen in.
+Na een korte periode de geselecteerde gebruikers mogelijk om deze toepassingen in het deelvenster toegang te starten.
 
-## <a name="if-these-troubleshooting-steps-do-not-hello-resolve-hello-issue"></a>Als u deze stappen voor probleemoplossing niet Hallo Hallo probleem oplossen 
+## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Als bovenstaande stappen voor probleemoplossing niet de los het probleem doet. 
 
-Open een ondersteuningsticket Hello volgende informatie, indien beschikbaar:
+een ondersteuningsticket opent met de volgende informatie, indien beschikbaar:
 
 -   Correlatie fout-ID
 
@@ -274,4 +274,4 @@ Open een ondersteuningsticket Hello volgende informatie, indien beschikbaar:
 -   Fiddler traceringen
 
 ## <a name="next-steps"></a>Volgende stappen
-[Bieden van eenmalige aanmelding tooyour apps met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md)
+[Geef één aanmelding bij uw apps met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md)

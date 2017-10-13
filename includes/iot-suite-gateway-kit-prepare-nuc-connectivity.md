@@ -1,28 +1,28 @@
 ## <a name="prepare-your-intel-nuc"></a>Uw Intel NUC voorbereiden
 
-toocomplete hello hardware-installatie, moet u:
+U voltooit de installatie van de hardware, moet u:
 
-- Verbinding maken met de Intel NUC toohello voeding opgenomen in het Hallo-pakket.
-- Verbinding maken met uw Intel NUC tooyour netwerk met behulp van een Ethernet-kabel.
+- Verbinding maken met uw NUC Intel de voeding die is opgenomen in het pakket.
+- Verbinding maken met uw NUC Intel via een Ethernet-kabel met het netwerk.
 
-U hebt nu Hallo hardware-instellingen van uw gatewayapparaat Intel NUC voltooid.
+U hebt nu de hardware-instellingen van uw gatewayapparaat Intel NUC voltooid.
 
-### <a name="sign-in-and-access-hello-terminal"></a>Aanmelden en Hallo terminal
+### <a name="sign-in-and-access-the-terminal"></a>Aanmelden en toegang tot de terminal
 
-U hebt twee opties tooaccess een terminal-omgeving op uw NUC Intel:
+U hebt twee opties voor toegang tot een terminal omgeving op uw NUC Intel:
 
-- Als u een toetsenbord hebt en verbonden tooyour Intel NUC bewaken, kunt u rechtstreeks Hallo-shell openen. Hallo standaardreferenties zijn gebruikersnaam **hoofdmap** en het wachtwoord **hoofdmap**.
+- Als u een toetsenbord en de monitor die zijn verbonden met uw NUC Intel hebt, kunt u de shell rechtstreeks openen. De standaardreferenties zijn gebruikersnaam **hoofdmap** en het wachtwoord **hoofdmap**.
 
-- Hallo-shell toegang op uw Intel NUC gebruik van SSH op uw computer.
+- Toegang tot de shell op uw Intel NUC gebruik van SSH op uw computer.
 
 #### <a name="sign-in-with-ssh"></a>Meld u aan met SSH
 
-toosign met SSH, moet u Hallo IP-adres van uw NUC Intel. Als u een toetsenbord hebt en verbonden tooyour Intel NUC bewaken, gebruikt u Hallo `ifconfig` opdracht toofind Hallo IP-adres. U kunt ook verbinding maken met tooyour router toolist Hallo adressen van apparaten in uw netwerk.
+Als u wilt aanmelden met SSH, moet u het IP-adres van uw NUC Intel. Als u een toetsenbord en de monitor die zijn verbonden met uw NUC Intel hebt, gebruikt de `ifconfig` opdracht de IP-adres vinden. U kunt ook verbinding maken met uw router voor het weergeven van de adressen van apparaten in uw netwerk.
 
 Aanmelden met gebruikersnaam **hoofdmap** en het wachtwoord **hoofdmap**.
 
 #### <a name="optional-share-a-folder-on-your-intel-nuc"></a>Optioneel: Een map op uw NUC Intel delen
 
-Desgewenst kunt u tooshare een map op uw NUC Intel met uw bureaublad omgeving. U toouse uw voorkeur bureaublad teksteditor delen van een map kunt (zoals [Visual Studio Code](https://code.visualstudio.com/) of [Sublime Text](http://www.sublimetext.com/)) tooedit bestanden op uw NUC Intel in plaats van `nano` of `vi`.
+U kunt desgewenst een map op uw NUC Intel delen met uw bureaublad omgeving. Delen van een map, kunt u gebruikmaken van uw voorkeur bureaublad teksteditor (zoals [Visual Studio Code](https://code.visualstudio.com/) of [Sublime Text](http://www.sublimetext.com/)) voor het bewerken van bestanden op uw NUC Intel in plaats van `nano` of `vi`.
 
-tooshare een map met Windows, wordt een Samba-server op Hallo Intel NUC configureren. Hallo SFTP-server ook gebruiken op Hallo Intel NUC met een SFTP-client op uw computer.
+Als u wilt delen een map met Windows, een Samba-server in de Intel NUC te configureren. De SFTP-server ook gebruiken op de Intel NUC met een SFTP-client op uw computer.

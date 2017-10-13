@@ -1,32 +1,32 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-### <a name="tootake-a-backup"></a>tootake een back-up
+### <a name="to-take-a-backup"></a>Een back-up maken
 
-1. Ga tooyour Apparaatbeheer StorSimple-service. Uit Hallo in tabelvorm aanbieding van apparaten, selecteren en klik op het apparaat en klik vervolgens op **alle instellingen**. In Hallo **instellingen** blade te gaan**instellingen > beheren > back-up maken van beleid**.
+1. Ga naar uw StorSimple-apparaatbeheerservice. Selecteer uw apparaat in de lijst in tabelvorm met apparaten en klik hierop. Klik daarna op **Alle instellingen**. Ga op de blade **Instellingen** naar **Instellingen > Beheren > Back-upbeleid**.
 
     ![Back-upbeleid-toevoegen](./media/storsimple-8000-take-backup/step8takebu1.png)
 
-2. In Hallo **back-up maken van beleid** blade, klikt u op **+ beleid toevoegen**.
+2. Klik op de blade **Back-upbeleid** op **+ Beleid toevoegen**.
 
     ![Back-upbeleid-toevoegen](./media/storsimple-8000-take-backup/step8takebu2.png)
 
-3. In Hallo **back-upbeleid maken** blade, Geef een naam die tussen 3 en 150 tekens voor uw back-upbeleid bevat.
+3. Geef op de blade **Back-upbeleid maken** een naam op voor uw back-upbeleid die tussen de 3 en 150 tekens lang is.
 
-4. Selecteer Hallo volumes toobe back-up gemaakt. Als u meer dan één volume selecteert, zijn deze volumes gegroepeerde samen toocreate een crashconsistente back-up.
+4. Selecteer de volumes waarvan u een back-up wilt maken. Als u meer dan één volume selecteert, worden deze volumes samen gegroepeerd om zo een crashconsistente back-up te maken.
 
     ![Back-upbeleid-toevoegen](./media/storsimple-8000-take-backup/step8takebu4.png)
 
 5. Op de blade **Eerste schema toevoegen**:
 
-    1. Selecteer Hallo type back-up. Selecteer **Lokale momentopname** voor sneller herstellen. Selecteer **Cloudmomentopname** voor gegevenstolerantie.
-    2. Geef de back-upfrequentie Hallo in minuten, uren, dagen of weken.
-    3. Selecteer een bewaartijd. Hallo bewaren keuzen, is afhankelijk van de back-upfrequentie Hallo. Bijvoorbeeld: voor een dagelijkse beleid Hallo bewaren kan worden opgegeven in weken, terwijl de bewaarperiode voor een maandelijkse beleid in maanden.
-    4. Selecteer Hallo datum en tijd van de back-upbeleid hello wordt gestart.
-    5. Klik op **OK** toocreate Hallo back-upbeleid.
+    1. Selecteer het type back-up. Selecteer **Lokale momentopname** voor sneller herstellen. Selecteer **Cloudmomentopname** voor gegevenstolerantie.
+    2. Geef de back-upfrequentie op in minuten, uren, dagen of weken.
+    3. Selecteer een bewaartijd. Hoe lang deze moet zijn, hangt af van hoe vaak een back-up wordt uitgevoerd. Als dagelijks een back-up wordt uitgevoerd, kunt u de bewaartijd instellen op weken. Als maandelijks een back-up wordt gemaakt, kunt u de bewaartijd instellen op maanden.
+    4. Selecteer de begintijd en -datum voor het back-upbeleid.
+    5. Klik op **OK** om het back-upbeleid te maken.
 
         ![Back-upbeleid-toevoegen](./media/storsimple-8000-take-backup/step8takebu5.png) 
 
-6. Klik op **maken** toostart Hallo back-upbeleid maken. U wordt gewaarschuwd wanneer de back-upbeleid Hallo is gemaakt. Hallo-lijst met back-upbeleid is tevens bijgewerkt.
+6. Klik op **Maken** om te beginnen met het maken van het back-upbeleid. U krijgt een melding wanneer het back-upbeleid is gemaakt. De lijst met back-upbeleidsregels wordt ook bijgewerkt.
       
       ![Back-upbeleid-toevoegen](./media/storsimple-8000-take-backup/step8takebu9.png)
       

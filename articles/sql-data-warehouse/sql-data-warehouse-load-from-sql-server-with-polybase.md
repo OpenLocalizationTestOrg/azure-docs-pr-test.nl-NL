@@ -1,6 +1,6 @@
 ---
-title: aaaLoad gegevens uit SQL Server in Azure SQL Data Warehouse (PolyBase) | Microsoft Docs
-description: Gebruikt bcp tooexport gegevens uit SQL Server tooflat bestanden, AZCopy tooimport gegevens tooAzure blob storage en PolyBase tooingest Hallo gegevens in Azure SQL Data Warehouse.
+title: Gegevens uit SQL Server laden in Azure SQL Data Warehouse (PolyBase) | Microsoft Docs
+description: Gebruikt bcp om gegevens uit SQL Server te exporteren naar platte bestanden, AZCopy om gegevens te importeren in een Azure Blob Storage en PolyBase om de gegevens op te nemen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 1346fb016e0538a44426671bf4e29358cb24f7ab
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 966100094f98bae41bf90df500d005fa78b31ec3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Gegevens laden met PolyBase in SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -29,32 +29,32 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Deze zelfstudie laat zien hoe tooload gegevens in SQL Data Warehouse met behulp van AzCopy en PolyBase. Aan het einde kunt u:
+In deze zelfstudie ziet u hoe u met AzCopy en PolyBase gegevens laadt in SQL Data Warehouse. Aan het einde kunt u:
 
-* AzCopy toocopy gegevens tooAzure blob storage gebruiken
-* Maken van databaseobjecten toodefine Hallo gegevens
-* Uitvoeren van een T-SQL-query tooload Hallo gegevens
+* AzCopy gebruikt om gegevens te kopiëren naar Azure Blob-opslag;
+* databaseobjecten maakt om de gegevens te definiëren;
+* een TSQL-query uitvoert om de gegevens te laden.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
 ## <a name="prerequisites"></a>Vereisten
-toostep voor deze zelfstudie, moet u
+Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een SQL Data Warehouse-database.
 * Een Azure-opslagaccount van het type standaard lokaal redundante opslag (Standard Locally Redundant Storage (Standard-LRS)), standaard geografisch redundante opslag (Standard Geo-Redundant Storage (Standard-GRS)) of standaard geografisch redundante opslag met leestoegang (Standard Read-Access Geo-Redundant Storage (Standard-RAGRS)).
-* AzCopy-opdrachtregelprogramma. Download en installeer Hallo [meest recente versie van AzCopy] [ latest version of AzCopy] die is geïnstalleerd met Hallo hulpprogramma's voor Microsoft Azure Storage.
+* AzCopy-opdrachtregelprogramma. Download en installeer de [meest recente versie van AzCopy][latest version of AzCopy], dat wordt geïnstalleerd met de hulpprogramma's van Microsoft Azure Storage.
   
     ![Hulpprogramma's van Azure Storage](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
-## <a name="step-1-add-sample-data-tooazure-blob-storage"></a>Stap 1: Voorbeeld gegevens tooAzure blob-opslag toevoegen
-Volgorde tooload gegevens moeten we tooput voorbeeldgegevens in een Azure blob storage. In deze stap vult u een Azure Storage Blob met voorbeeldgegevens. Later, we gebruiken PolyBase tooload deze voorbeeldgegevens in uw SQL Data Warehouse-database.
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Stap 1: voorbeeldgegevens toevoegen aan Azure Blob Storage
+Als u gegevens wilt laden, moet u voorbeeldgegevens in een Azure Blob Storage plaatsen. In deze stap vult u een Azure Storage Blob met voorbeeldgegevens. Later gaat u PolyBase gebruiken om deze voorbeeldgegevens in de SQL Data Warehouse-database te laden.
 
 ### <a name="a-prepare-a-sample-text-file"></a>A. Een voorbeeldtekstbestand voorbereiden
-een voorbeeldtekstbestand tooprepare:
+Bereid als volgt een voorbeeldtekstbestand voor:
 
-1. Open Kladblok en kopieer Hallo regels met gegevens in een nieuw bestand te volgen. Sla dit tooyour lokale tijdelijke map op als % temp%\DimDate2.txt.
+1. Open Kladblok en kopieer de volgende regels met gegevens naar een nieuw bestand. Sla dit in uw lokale tijdelijke map op als %temp%\DimDate2.txt.
 
 ```
 20150301,1,3
@@ -72,11 +72,11 @@ een voorbeeldtekstbestand tooprepare:
 ```
 
 ### <a name="b-find-your-blob-service-endpoint"></a>B. Het eindpunt van de blob-service zoeken
-toofind uw blobeindpunt-service:
+Zoek als volgt het eindpunt van de blob-service:
 
-1. Selecteer in Azure Portal Hallo **Bladeren** > **Opslagaccounts**.
-2. Klik op Hallo gewenste toouse storage-account.
-3. Klik in de blade Opslagaccount Hallo op Blobs.
+1. Selecteer in de Azure-portal **Bladeren** > **Opslagaccounts**.
+2. Klik op het opslagaccount dat u wilt gebruiken.
+3. Klik op de blade Opslagaccount op Blobs.
    
     ![Klik op Blobs.](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
 4. Sla de URL van het eindpunt van de blob-service op voor later gebruik.
@@ -84,67 +84,67 @@ toofind uw blobeindpunt-service:
     ![Eindpunt van blob-service](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
 ### <a name="c-find-your-azure-storage-key"></a>C. Uw Azure-opslagsleutel zoeken
-toofind uw Azure-opslagsleutel:
+Zoek als volgt uw Azure-opslagsleutel:
 
-1. Selecteer in Azure Portal Hallo, **Bladeren** > **Opslagaccounts**.
-2. Klik op de gewenste toouse Hallo-opslagaccount.
+1. Selecteer in de Azure-portal **Bladeren** > **Opslagaccounts**.
+2. Klik op het opslagaccount dat u wilt gebruiken.
 3. Selecteer **Alle instellingen** > **Toegangssleutels**.
-4. Klik op Hallo kopie vak toocopy een van uw toegang tot sleutels toohello Klembord.
+4. Klik op Kopiëren om een van de toegangssleutels naar het Klembord te kopiëren.
    
     ![Azure-opslagsleutel kopiëren](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### <a name="d-copy-hello-sample-file-tooazure-blob-storage"></a>D. Hallo voorbeeld bestand tooAzure blob-opslag kopiëren
-toocopy de tooAzure blob-opslag van gegevens:
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Het voorbeeldbestand kopiëren naar Azure Blob-opslag
+Ga als volgt te werk om uw gegevens te kopiëren naar Azure Blob-opslag:
 
-1. Open een opdrachtprompt en wijzig de mappen toohello AzCopy-installatiemap. Deze opdracht wijzigt toohello standaardinstallatiemap op een 64-bits Windows-client.
+1. Open een opdrachtprompt en wijzig de mappen in de installatiemap van AzCopy. Met deze opdracht schakelt u naar de standaardinstallatiemap op een 64-bits Windows-client.
    
     ```
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
-2. Hallo opdrachtbestand tooupload Hallo volgende worden uitgevoerd. Geef de URL van het eindpunt van de blob-service op voor <blob service endpoint URL> en de Azure-toegangssleutel voor <azure_storage_account_key>.
+2. Voer de volgende opdracht uit om het bestand te uploaden. Geef de URL van het eindpunt van de blob-service op voor <blob service endpoint URL> en de Azure-toegangssleutel voor <azure_storage_account_key>.
    
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Zie ook [aan de slag met het AzCopy-opdrachtregelprogramma Hallo][latest version of AzCopy].
+Zie ook [Aan de slag met het AzCopy-opdrachtregelprogramma][latest version of AzCopy].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. De Blob Storage-container verkennen
-geüploade tooblob opslag toosee Hallo-bestand:
+Controleer als volgt het bestand dat naar Blob Storage is geüpload:
 
-1. Ga terug blade tooyour Blob-service.
+1. Ga terug naar de blade Blob-service.
 2. Dubbelklik onder Containers op **datacontainer**.
-3. tooexplore hello pad tooyour gegevens, klikt u op Hallo map **datedimension** en ziet u het geüploade bestand **DimDate2.txt**.
-4. tooview eigenschappen, klikt u op **DimDate2.txt**.
-5. Houd er rekening mee dat in Hallo blade blobeigenschappen kunt u downloaden of Hallo bestand verwijderen.
+3. Als u het pad naar uw gegevens wilt verkennen, klikt u op de map **datedimension**. Nu ziet u het geüploade bestand **DimDate2.txt**.
+4. Klik op **DimDate2.txt** als u eigenschappen wilt weergeven.
+5. Op de blade Blobeigenschappen kunt u het bestand downloaden of verwijderen.
    
     ![Azure Storage-blob weergeven](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
-## <a name="step-2-create-an-external-table-for-hello-sample-data"></a>Stap 2: Een externe tabel voor Hallo voorbeeldgegevens maken
-In deze sectie maken we een externe tabel waarin de voorbeeldgegevens Hallo.
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Stap 2: een externe tabel voor de voorbeeldgegevens maken
+In deze sectie maakt u een externe tabel waarin de voorbeeldgegevens worden gedefinieerd.
 
-PolyBase gebruikt externe tabellen tooaccess gegevens in Azure blob-opslag. Aangezien het Hallo-gegevens worden niet opgeslagen in SQL Data Warehouse, verwerkt PolyBase externe verificatiegegevens toohello met behulp van een database-scoped referentie.
+PolyBase gebruikt externe tabellen voor de toegang tot gegevens in Azure Blob-opslag. Omdat de gegevens niet zijn opgeslagen in SQL Data Warehouse, wordt verificatie van de externe gegevens door PolyBase uitgevoerd met behulp van een database-scoped referentie.
 
-Hallo-voorbeeld in deze stap maakt gebruik van deze Transact-SQL-instructies toocreate een externe tabel.
+In het voorbeeld in deze stap worden de volgende Transact-SQL-instructies gebruikt om een externe tabel te maken.
 
-* [Maken van Master Key (Transact-SQL)] [ Create Master Key (Transact-SQL)] tooencrypt Hallo geheim van de database-scoped referentie.
-* [Create Database Scoped Credential (Transact-SQL)] [ Create Database Scoped Credential (Transact-SQL)] toospecify verificatie-informatie voor uw Azure storage-account.
-* [Create External Data Source (Transact-SQL)] [ Create External Data Source (Transact-SQL)] toospecify Hallo locatie van uw Azure-blobopslag.
-* [Create External File Format (Transact-SQL)] [ Create External File Format (Transact-SQL)] toospecify Hallo indeling van uw gegevens.
-* [Create External Table (Transact-SQL)] [ Create External Table (Transact-SQL)] toospecify Hallo tabeldefinitie en locatie van gegevens Hallo.
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] om het geheim van de referenties van de databaseconfiguratie te versleutelen.
+* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)] om verificatiegegevens voor het Azure-opslagaccount op te geven.
+* [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)] om de locatie van de Azure-blobopslag op te geven.
+* [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)] om de indeling van de gegevens op te geven.
+* [Create External Table (Transact-SQL)][Create External Table (Transact-SQL)] om de tabeldefinitie en locatie van de gegevens op te geven.
 
-Voer deze query uit voor uw SQL Data Warehouse-database. Een externe tabel DimDate2External met de naam in Hallo dbo-schema dat toohello voorbeeldgegevens in DimDate2.txt in hello Azure blob-opslag wijst wordt gemaakt.
+Voer deze query uit voor uw SQL Data Warehouse-database. Hiermee wordt een externe tabel DimDate2External gemaakt in het DBO-schema dat wijst naar de voorbeeldgegevens in DimDate2.txt in de Azure Blob Storage.
 
 ```sql
 -- A: Create a master key.
 -- Only necessary if one does not already exist.
--- Required tooencrypt hello credential secret in hello next step.
+-- Required to encrypt the credential secret in the next step.
 
 CREATE MASTER KEY;
 
 
 -- B: Create a database scoped credential
--- IDENTITY: Provide any string, it is not used for authentication tooAzure storage.
+-- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
 -- SECRET: Provide your Azure storage account key.
 
 
@@ -156,9 +156,9 @@ WITH
 
 
 -- C: Create an external data source
--- TYPE: HADOOP - PolyBase uses Hadoop APIs tooaccess data in Azure blob storage.
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
--- CREDENTIAL: Provide hello credential created in hello previous step.
+-- CREDENTIAL: Provide the credential created in the previous step.
 
 CREATE EXTERNAL DATA SOURCE AzureStorage
 WITH (
@@ -180,10 +180,10 @@ WITH (
 );
 
 
--- E: Create hello external table
--- Specify column names and data types. This needs toomatch hello data in hello sample file.
--- LOCATION: Specify path toofile or directory that contains hello data (relative toohello blob container).
--- toopoint tooall files under hello blob container, use LOCATION='.'
+-- E: Create the external table
+-- Specify column names and data types. This needs to match the data in the sample file.
+-- LOCATION: Specify path to file or directory that contains the data (relative to the blob container).
+-- To point to all files under the blob container, use LOCATION='.'
 
 CREATE EXTERNAL TABLE dbo.DimDate2External (
     DateId INT NOT NULL,
@@ -197,25 +197,25 @@ WITH (
 );
 
 
--- Run a query on hello external table
+-- Run a query on the external table
 
 SELECT count(*) FROM dbo.DimDate2External;
 
 ```
 
 
-In SQL Server-Objectverkenner in Visual Studio ziet u Hallo externe bestandsindeling, externe gegevensbron en Hallo DimDate2External tabel.
+In SQL Server-objectverkenner in Visual Studio ziet u de externe bestandsindeling, externe gegevensbron en de tabel DimDate2External.
 
 ![Externe tabel weergeven](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
 ## <a name="step-3-load-data-into-sql-data-warehouse"></a>Stap 3: gegevens laden in SQL Data Warehouse
-Zodra Hallo externe tabel is gemaakt, kunt u Hallo gegevens in een nieuwe tabel laden of in een bestaande tabel invoegen.
+Nadat de externe tabel is gemaakt, kunt u de gegevens in een nieuwe tabel laden of in een bestaande tabel invoegen.
 
-* tooload hello gegevens in een nieuwe tabel, Voer Hallo [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instructie. Hallo nieuwe tabel hebben met de naam in de query Hallo Hallo-kolommen. de gegevenstypen Hallo van Hallo kolommen komt overeen met de Hallo-gegevenstypen in de definitie van de externe tabel Hallo.
-* tooload hello gegevens in een bestaande tabel, gebruikt u Hallo [INSERT... SELECT (Transact-SQL)] [ INSERT...SELECT (Transact-SQL)] instructie.
+* Als u de gegevens in een nieuwe tabel wilt laden, voert u de instructie [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] uit. De kolommen in de nieuwe tabel hebben in de query een naam gekregen. De gegevenstypen van de kolommen komen overeen met de gegevenstypen in de definitie van de externe tabel.
+* Als u de gegevens in een bestaande tabel wilt laden, gebruikt u de instructie [INSERT…SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].
 
 ```sql
--- Load hello data from Azure blob storage tooSQL Data Warehouse
+-- Load the data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE dbo.DimDate2
 WITH
@@ -228,9 +228,9 @@ SELECT * FROM [dbo].[DimDate2External];
 ```
 
 ## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Stap 4: statistieken maken voor uw zojuist geladen gegevens
-SQL Data Warehouse bevat geen functionaliteit voor het automatisch maken of bijwerken van statistieken. Daarom tooachieve hoge queryprestaties, het is belangrijk toocreate statistieken op elke kolom in elke tabel na Hallo eerst laden. Het is ook belangrijk tooupdate statistieken na Hallo gegevens substantieel zijn gewijzigd.
+SQL Data Warehouse bevat geen functionaliteit voor het automatisch maken of bijwerken van statistieken. Voor hoge queryprestaties is het dan ook belangrijk dat u voor elke kolom in elke tabel statistieken maakt nadat de tabel de eerste keer is geladen. Het is ook belangrijk dat de statistieken worden bijgewerkt wanneer gegevens substantieel zijn gewijzigd.
 
-In dit voorbeeld maakt statistieken voor één kolom op Hallo nieuwe tabel dimdate2.
+In dit voorbeeld maakt u statistieken voor één kolom voor de nieuwe tabel DimDate2.
 
 ```sql
 CREATE STATISTICS [DateId] on [DimDate2] ([DateId]);
@@ -238,10 +238,10 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-toolearn meer, Zie [statistieken][Statistics].  
+Zie [Statistieken][Statistics] voor meer informatie.  
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie Hallo [PolyBase-handleiding] [ PolyBase guide] voor meer informatie over het ontwikkelen van een oplossing die gebruikmaakt van PolyBase.
+Raadpleeg de [PolyBase-handleiding][PolyBase guide] voor meer informatie over het ontwikkelen van een oplossing die gebruikmaakt van PolyBase.
 
 <!--Image references-->
 

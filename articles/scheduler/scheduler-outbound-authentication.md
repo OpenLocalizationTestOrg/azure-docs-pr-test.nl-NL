@@ -1,5 +1,5 @@
 ---
-title: aaaScheduler uitgaande verificatie
+title: Scheduler uitgaande verificatie
 description: Scheduler uitgaande verificatie
 services: scheduler
 documentationcenter: .NET
@@ -14,42 +14,42 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deli
-ms.openlocfilehash: ef713f4770b48d0a9176415e87c1042a823582e5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e345b2e22daae5b24c23645f7d2636f66df630ff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scheduler-outbound-authentication"></a>Scheduler uitgaande verificatie
-Scheduler-taken wellicht toocall uit tooservices waarvoor verificatie vereist. Op deze manier een opgeroepen service kunt bepalen als Hallo Scheduler-taak toegang de bronnen tot. Sommige van deze services bevatten andere Azure-services, Salesforce.com, Facebook en beveiligde aangepaste websites.
+Scheduler-taken moet mogelijk aan te roepen voor services die verificatie vereist. Op deze manier een opgeroepen service kunt bepalen als de Scheduler-taak toegang de bronnen tot. Sommige van deze services bevatten andere Azure-services, Salesforce.com, Facebook en beveiligde aangepaste websites.
 
 ## <a name="adding-and-removing-authentication"></a>Toevoegen en verwijderen van verificatie
-Toevoegen van verificatie tooa Scheduler-taak is eenvoudig: het toevoegen van een onderliggend element van JSON `authentication` toohello `request` element bij het maken of bijwerken van een taak. Geheimen doorgegeven toohello Scheduler-service in een PUT of PATCH POST-aanvraag: als onderdeel van Hallo `authentication` object: nooit in antwoorden worden geretourneerd. In antwoorden, geheime informatie toonull is ingesteld of hebben mogelijk een openbare-sleuteltoken dat Hallo geverifieerde entiteit vertegenwoordigt.
+Toevoegen van verificatie van een Scheduler-job is eenvoudig: het toevoegen van een onderliggend element van JSON `authentication` naar de `request` element bij het maken of bijwerken van een taak. Geheimen doorgegeven aan de Scheduler-service in een PUT of PATCH POST-aanvraag: als onderdeel van de `authentication` object: nooit in antwoorden worden geretourneerd. In antwoorden, geheime informatie is ingesteld op null of een openbare-sleuteltoken dat de geverifieerde entiteit vertegenwoordigt hebt.
 
-tooremove verificatie, plaatsen of de taak Hallo expliciet PATCH instelling Hallo `authentication` toonull object. U ziet een verificatie-eigenschappen terug in het antwoord.
+Om verificatie te verwijderen, PUT of PATCH voor de taak expliciet, instellen van de `authentication` object op null. U ziet een verificatie-eigenschappen terug in het antwoord.
 
-Alleen ondersteund Hallo verificatietypen zijn momenteel Hallo `ClientCertificate` model (voor het gebruik van SSL/TLS-clientcertificaten Hallo), Hallo `Basic` model (voor basisverificatie) en Hallo `ActiveDirectoryOAuth` model (voor Active Directory-OAuth verificatie).
+De enige ondersteunde verificatietypen zijn momenteel de `ClientCertificate` model (voor het gebruik van de clientcertificaten SSL/TLS), de `Basic` model (voor basisverificatie) en de `ActiveDirectoryOAuth` model (voor Active Directory-OAuth-verificatie.)
 
 ## <a name="request-body-for-clientcertificate-authentication"></a>Aanvraagtekst voor ClientCertificate verificatie
-Bij het toevoegen van verificatie met behulp van Hallo `ClientCertificate` model, geeft u Hallo extra elementen in de aanvraagtekst hello te volgen.  
+Bij het toevoegen van verificatie met behulp van de `ClientCertificate` model, geeft u de volgende extra elementen in de aanvraagtekst.  
 
 | Element | Beschrijving |
 |:--- |:--- |
 | *verificatie (bovenliggend element)* |Verificatieobject voor het gebruik van een SSL-clientcertificaat. |
-| *type* |Vereist. Het type verificatie. Voor SSL-clientcertificaten moet Hallo waarde `ClientCertificate`. |
-| *PFX* |Vereist. Base64-gecodeerde inhoud van Hallo PFX-bestand. |
-| *wachtwoord* |Vereist. Wachtwoord tooaccess Hallo PFX-bestand. |
+| *type* |Vereist. Het type verificatie. Voor SSL-certificaten voor client, moet de waarde `ClientCertificate`. |
+| *PFX* |Vereist. Base64-gecodeerde inhoud van het PFX-bestand. |
+| *wachtwoord* |Vereist. Wachtwoord voor toegang tot het PFX-bestand. |
 
 ## <a name="response-body-for-clientcertificate-authentication"></a>Antwoordtekst voor ClientCertificate verificatie
-Wanneer een aanvraag wordt verzonden met gegevens die voor verificatie, bevat antwoord Hallo Hallo verificatie-gerelateerde elementen te volgen.
+Wanneer een aanvraag wordt verzonden met gegevens die voor verificatie, wordt in het antwoord de volgende verificatie-gerelateerde elementen bevat.
 
 | Element | Beschrijving |
 |:--- |:--- |
 | *verificatie (bovenliggend element)* |Verificatieobject voor het gebruik van een SSL-clientcertificaat. |
-| *type* |Het type verificatie. Hallo-waarde voor SSL-client-certificaten heeft `ClientCertificate`. |
-| *certificateThumbprint* |Hallo vingerafdruk van certificaat Hallo. |
-| *certificateSubjectName* |Hallo onderwerp DN-naam van het Hallo-certificaat. |
-| *certificateExpiration* |vervaldatum van certificaat Hallo Hallo. |
+| *type* |Het type verificatie. De waarde voor SSL-client-certificaten heeft `ClientCertificate`. |
+| *certificateThumbprint* |De vingerafdruk van het certificaat. |
+| *certificateSubjectName* |De certificaathouder DN-naam van het certificaat. |
+| *certificateExpiration* |De vervaldatum van het certificaat. |
 
 ## <a name="sample-rest-request-for-clientcertificate-authentication"></a>Voorbeeld van REST-aanvraag voor verificatie ClientCertificate
 ```
@@ -144,23 +144,23 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 ```
 
 ## <a name="request-body-for-basic-authentication"></a>De hoofdtekst van de aanvraag voor basisverificatie
-Bij het toevoegen van verificatie met behulp van Hallo `Basic` model, geeft u Hallo extra elementen in de aanvraagtekst hello te volgen.
+Bij het toevoegen van verificatie met behulp van de `Basic` model, geeft u de volgende extra elementen in de aanvraagtekst.
 
 | Element | Beschrijving |
 |:--- |:--- |
 | *verificatie (bovenliggend element)* |Verificatieobject voor het gebruik van basisverificatie. |
-| *type* |Vereist. Het type verificatie. Voor basisverificatie, moet Hallo waarde `Basic`. |
-| *gebruikersnaam* |Vereist. Gebruikersnaam tooauthenticate. |
-| *wachtwoord* |Vereist. Wachtwoord tooauthenticate. |
+| *type* |Vereist. Het type verificatie. Voor basisverificatie, moet de waarde `Basic`. |
+| *gebruikersnaam* |Vereist. De gebruikersnaam te verifiëren. |
+| *wachtwoord* |Vereist. Wachtwoord voor verificatie. |
 
 ## <a name="response-body-for-basic-authentication"></a>Antwoordtekst voor basisverificatie
-Wanneer een aanvraag wordt verzonden met gegevens die voor verificatie, bevat antwoord Hallo Hallo verificatie-gerelateerde elementen te volgen.
+Wanneer een aanvraag wordt verzonden met gegevens die voor verificatie, wordt in het antwoord de volgende verificatie-gerelateerde elementen bevat.
 
 | Element | Beschrijving |
 |:--- |:--- |
 | *verificatie (bovenliggend element)* |Verificatieobject voor het gebruik van basisverificatie. |
-| *type* |Het type verificatie. Voor basisverificatie Hallo-waarde is `Basic`. |
-| *gebruikersnaam* |Hallo geverifieerde gebruikersnaam. |
+| *type* |Het type verificatie. De waarde voor basisverificatie heeft `Basic`. |
+| *gebruikersnaam* |De geverifieerde gebruikersnaam. |
 
 ## <a name="sample-rest-request-for-basic-authentication"></a>Voorbeeld van REST-aanvraag voor basisverificatie
 ```
@@ -254,30 +254,30 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 ```
 
 ## <a name="request-body-for-activedirectoryoauth-authentication"></a>Aanvraagtekst voor ActiveDirectoryOAuth verificatie
-Bij het toevoegen van verificatie met behulp van Hallo `ActiveDirectoryOAuth` model, geeft u Hallo extra elementen in de aanvraagtekst hello te volgen.
+Bij het toevoegen van verificatie met behulp van de `ActiveDirectoryOAuth` model, geeft u de volgende extra elementen in de aanvraagtekst.
 
 | Element | Beschrijving |
 |:--- |:--- |
 | *verificatie (bovenliggend element)* |Verificatieobject voor het gebruik van ActiveDirectoryOAuth verificatie. |
-| *type* |Vereist. Het type verificatie. Voor de verificatie ActiveDirectoryOAuth Hallo-waarde moet `ActiveDirectoryOAuth`. |
-| *tenant* |Vereist. Hallo tenant-id voor hello Azure AD-tenant. |
-| *doelgroep* |Vereist. Deze wordt toohttps://management.core.windows.net/ ingesteld. |
-| *clientId* |Vereist. Geef Hallo client-id voor hello Azure AD-toepassing. |
-| *geheim* |Vereist. Geheim van Hallo-client die de token Hallo aanvraagt. |
+| *type* |Vereist. Het type verificatie. Voor ActiveDirectoryOAuth verificatie, moet de waarde `ActiveDirectoryOAuth`. |
+| *tenant* |Vereist. De tenant-id voor de Azure AD-tenant. |
+| *doelgroep* |Vereist. Dit is ingesteld op https://management.core.windows.net/. |
+| *clientId* |Vereist. Geef op de client-id voor de Azure AD-toepassing. |
+| *geheim* |Vereist. Geheim van de client die het token aanvraagt. |
 
 ### <a name="determining-your-tenant-identifier"></a>Bepalen van uw Tenant-id
-U kunt Hallo tenant-id voor hello Azure AD-tenant vinden door te voeren `Get-AzureAccount` in Azure PowerShell.
+U kunt de tenant-id voor de Azure AD-tenant vinden door te voeren `Get-AzureAccount` in Azure PowerShell.
 
 ## <a name="response-body-for-activedirectoryoauth-authentication"></a>Antwoordtekst voor ActiveDirectoryOAuth verificatie
-Wanneer een aanvraag wordt verzonden met gegevens die voor verificatie, bevat antwoord Hallo Hallo verificatie-gerelateerde elementen te volgen.
+Wanneer een aanvraag wordt verzonden met gegevens die voor verificatie, wordt in het antwoord de volgende verificatie-gerelateerde elementen bevat.
 
 | Element | Beschrijving |
 |:--- |:--- |
 | *verificatie (bovenliggend element)* |Verificatieobject voor het gebruik van ActiveDirectoryOAuth verificatie. |
-| *type* |Het type verificatie. Hallo-waarde voor ActiveDirectoryOAuth verificatie, heeft `ActiveDirectoryOAuth`. |
-| *tenant* |Hallo tenant-id voor hello Azure AD-tenant. |
-| *doelgroep* |Deze wordt toohttps://management.core.windows.net/ ingesteld. |
-| *clientId* |Hallo van client-id voor de toepassing hello Azure AD. |
+| *type* |Het type verificatie. De waarde voor ActiveDirectoryOAuth verificatie, heeft `ActiveDirectoryOAuth`. |
+| *tenant* |De tenant-id voor de Azure AD-tenant. |
+| *doelgroep* |Dit is ingesteld op https://management.core.windows.net/. |
+| *clientId* |De client-id voor de Azure AD-toepassing. |
 
 ## <a name="sample-rest-request-for-activedirectoryoauth-authentication"></a>Voorbeeld van REST-aanvraag voor verificatie van ActiveDirectoryOAuth
 ```
@@ -380,7 +380,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 
  [Azure Scheduler-concepten, -terminologie en -entiteitenhiërarchie](scheduler-concepts-terms.md)
 
- [Aan de slag met behulp van Scheduler in hello Azure-portal](scheduler-get-started-portal.md)
+ [Aan de slag met behulp van Scheduler in Azure Portal](scheduler-get-started-portal.md)
 
  [Plannen en facturering in Azure Scheduler](scheduler-plans-billing.md)
 

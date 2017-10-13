@@ -1,6 +1,6 @@
 ---
-title: aaaAdd hello Excel connector | Microsoft Docs
-description: Overzicht van Hallo Excel connector met de parameters van de REST-API
+title: De Excel-connector toevoegen | Microsoft Docs
+description: Overzicht van de Excel-connector met de parameters van de REST-API
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 00dae29ca4f852dff9553d785c159486156f3410
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4d62bee573aba4c8b0445b1f4c44190496fb3a18
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-excel-connector"></a>Aan de slag met Hallo Excel-connector
+# <a name="get-started-with-the-excel-connector"></a>Aan de slag met de Excel-connector
 Er is geen Excel-connector in Logic Apps. 
 
-## <a name="toouse-excel-data"></a>toouse Excel-gegevens
-U kunt Excel-gegevens opslaan als een bestand met door komma's gescheiden waarden (CSV) in een opslagmap, zoals [OneDrive](connectors-create-api-onedrive.md). U kunt dit CSV-bestand ook gebruiken met Hallo [platte connector](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
+## <a name="to-use-excel-data"></a>Excel-gegevens gebruiken
+U kunt Excel-gegevens opslaan als een bestand met door komma's gescheiden waarden (CSV) in een opslagmap, zoals [OneDrive](connectors-create-api-onedrive.md). U kunt ook dit CSV-bestand met de [platte connector](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
 
 ## <a name="connector-specific-details"></a>Connector-specifieke details
 
-Alle triggers en acties die zijn gedefinieerd in swagger Hallo bekijken en ook bekijken in Hallo beperkingen [connector details](/connectors/excel/).
+Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/excel/).
 
 ## <a name="more-connectors"></a>Meer connectors
-Ga terug toohello [API's lijst](apis-list.md).
+Ga terug naar de [API's lijst](apis-list.md).

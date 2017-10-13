@@ -1,6 +1,6 @@
 ---
-title: aaaVisual Studio Azure resource group projecten | Microsoft Docs
-description: Visual Studio toocreate een Azure-resourcegroepproject te gebruiken en Hallo resources tooAzure implementeren.
+title: Visual Studio Azure-resourcegroepprojecten | Microsoft Docs
+description: Gebruik Visual Studio om een Azure-resourcegroepproject te maken en de resources in Azure te implementeren.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: tomfitz
-ms.openlocfilehash: 672c1e71fb809b3b547f0fad30240d45de1ba923
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f82f59f363507b69a729580302c2d11202e93a87
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Azure-resourcegroepen maken en implementeren met Visual Studio
-Met Visual Studio en Hallo [Azure SDK](https://azure.microsoft.com/downloads/), kunt u een project waarvoor uw infrastructuur en code tooAzure implementeert. U kunt bijvoorbeeld Hallo webhost, website en database definiëren voor uw app, en die infrastructuur samen met de Hallo code implementeren. U kunt ook een virtuele machine, een virtueel netwerk en een opslagaccount opgeven en die infrastructuur implementeren in combinatie met een script dat wordt uitgevoerd op de virtuele machine. Hallo **Azure-resourcegroep** implementatieproject kunt u toodeploy alle Hallo nodig resources in één herhaalbare bewerking. Zie voor meer informatie over het implementeren en beheren van uw resources [Overzicht van Azure Resource Manager](resource-group-overview.md).
+Met Visual Studio en de [Azure SDK](https://azure.microsoft.com/downloads/) kunt u een project maken waarmee uw infrastructuur en code in Azure worden geïmplementeerd. U kunt bijvoorbeeld de webhost, website en database voor uw app opgeven en die infrastructuur samen met de code implementeren. U kunt ook een virtuele machine, een virtueel netwerk en een opslagaccount opgeven en die infrastructuur implementeren in combinatie met een script dat wordt uitgevoerd op de virtuele machine. Met het implementatieproject voor de **Azure-resourcegroep** kunt u alle vereiste resources met één herhaalbare bewerking implementeren. Zie voor meer informatie over het implementeren en beheren van uw resources [Overzicht van Azure Resource Manager](resource-group-overview.md).
 
-Azure-resourcegroepprojecten bevatten Azure Resource Manager JSON-sjablonen, waarin Hallo-resources die u tooAzure implementeert. toolearn over Hallo elementen van de Resource Manager-sjabloon hello, Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md). Visual Studio kunt u tooedit deze sjablonen en voorziet in hulpprogramma's die werken met sjablonen te vereenvoudigen.
+Azure-resourcegroepprojecten bevatten Azure Resource Manager JSON-sjablonen, die de resources definiëren die u implementeert in Azure. Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over de onderdelen van een Resource Manager-sjabloon. Met Visual Studio kunt u deze sjablonen bewerken. Visual Studio voorziet ook in hulpprogramma's die het eenvoudiger maken om met sjablonen te werken.
 
-In dit artikel gaat u een web-app en SQL Database implementeren. Hallo stappen zijn echter bijna Hallo dezelfde voor elk type resource. U kunt net zo eenvoudig een Virtuele Machine en de bijbehorende resources implementeren. Visual Studio biedt veel verschillende startsjablonen om te implementeren in algemene scenario's.
+In dit artikel gaat u een web-app en SQL Database implementeren. De stappen zijn echter bijna hetzelfde zijn voor elk type resource. U kunt net zo eenvoudig een Virtuele Machine en de bijbehorende resources implementeren. Visual Studio biedt veel verschillende startsjablonen om te implementeren in algemene scenario's.
 
-In dit artikel wordt Visual Studio 2017 gebruikt. Als u Visual Studio 2015 Update 2 en Microsoft Azure SDK voor .NET 2.9 gebruiken, of Visual Studio 2013 met Azure SDK 2.9 uw ervaring grotendeels Hallo dezelfde. Kunt u versies van hello Azure SDK versie 2.6 of hoger. uw ervaring van de gebruikersinterface Hallo mogelijk anders dan Hallo-gebruikersinterface wordt weergegeven in dit artikel. Wordt aangeraden dat u de meest recente versie Hallo Hallo installeert [Azure SDK](https://azure.microsoft.com/downloads/) voordat u Hallo stappen begint. 
+In dit artikel wordt Visual Studio 2017 gebruikt. Als u Visual Studio 2015 Update 2 en Microsoft Azure SDK voor .NET 2.9 gebruikt, of Visual Studio 2013 met Azure SDK 2.9, is de ervaring in grote lijnen hetzelfde. U kunt Azure SDK versie 2.6 en hoger gebruiken, maar dan is uw ervaring mogelijk anders dan beschreven in dit artikel. Het is raadzaam om de nieuwste versie van de [Azure SDK](https://azure.microsoft.com/downloads/) te installeren voordat u met de stappen begint. 
 
 ## <a name="create-azure-resource-group-project"></a>Een Azure-resourcegroepproject maken
 In deze procedure maakt u een Azure Resource Group-project met het sjabloon **Web app + SQL**.
@@ -35,46 +35,46 @@ In deze procedure maakt u een Azure Resource Group-project met het sjabloon **We
 1. Ga in Visual Studio naar **Bestand**, **Nieuw project**. Kies vervolgens **C#** of **Visual Basic**. Kies vervolgens **Cloud** en het project **Azure-resourcegroep**.
    
     ![Project voor cloudimplementatie](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
-2. Hallo sjabloon kiezen die u wilt dat toodeploy tooAzure Resource Manager. Er zijn diverse opties beschikbaar op basis van Hallo type project u aankondiging wilt toodeploy. Kies voor dit artikel Hallo **webtoepassing + SQL** sjabloon.
+2. Kies het sjabloon dat u wilt implementeren in Azure Resource Manager. Er zijn diverse opties beschikbaar op basis van het type project dat u wilt implementeren. Voor dit artikel kiest u de sjabloon **Web-app + SQL**.
    
     ![Een sjabloon selecteren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
    
-    Hallo sjabloon dat u kiest is slechts een beginpunt; u kunt toevoegen en verwijderen van resources toofulfill uw scenario.
+    Het sjabloon dat u kiest is slechts een beginpunt; u kunt resources toevoegen en verwijderen op basis van uw scenario.
    
    > [!NOTE]
-   > Visual Studio haalt een lijst met beschikbare sjablonen online op. Hallo lijst wordt gewijzigd.
+   > Visual Studio haalt een lijst met beschikbare sjablonen online op. De lijst kan worden gewijzigd.
    > 
    > 
    
-    Visual Studio maakt een project voor resourcegroepimplementatie voor Hallo web-app en SQL-database.
-3. toosee wat u hebt gemaakt, zoekt u naar op Hallo-knooppunt in het implementatieproject Hallo.
+    Visual Studio maakt een project voor resourcegroepimplementatie voor de webtoepassing en SQL Database.
+3. Kijk naar het knooppunt in het implementatieproject om te zien wat u hebt gemaakt.
    
     ![knooppunten weergegeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
    
-    Omdat we Hallo-webtoepassing + SQL-sjabloon voor dit voorbeeld kiest, ziet u de volgende bestanden Hallo: 
+    Omdat er voor dit voorbeeld is gekozen voor het sjabloon Web-app + SQL, krijgt u de volgende bestanden te zien: 
    
    | Bestandsnaam | Beschrijving |
    | --- | --- |
-   | Deploy-AzureResourceGroup.ps1 |Een PowerShell-script waarmee PowerShell-opdrachten toodeploy tooAzure Resource Manager aanroept.<br />**Opmerking** Visual Studio gebruikt deze PowerShell-script toodeploy uw sjabloon. Wijzigingen die u aanbrengt toothis script-implementatie in Visual Studio beïnvloeden, dus wees voorzichtig. |
-   | WebSiteSQLDatabase.json |Hallo Resource Manager-sjabloon waarmee Hallo-infrastructuur die u wilt implementeren tooAzure en Hallo-parameters die kunt u opgeven tijdens de implementatie worden gedefinieerd. Het definieert ook Hallo afhankelijkheden tussen Hallo resources zo Resource Manager Hallo resources in de juiste volgorde Hallo implementeert. |
-   | WebSiteSQLDatabase.parameters.json |Een parameterbestand die nodig is voor de sjabloon Hallo waarden bevat. U doorgeven in parameter waarden toocustomize elke implementatie. |
+   | Deploy-AzureResourceGroup.ps1 |Een PowerShell-script waarmee PowerShell-opdrachten worden aangeroepen om te worden geïmplementeerd in Azure Resource Manager.<br />**Opmerking** Visual Studio gebruikt dit PowerShell-script voor het implementeren van uw sjabloon. Eventuele wijzigingen die u aanbrengt in dit script beïnvloeden de implementatie in Visual Studio, dus wees voorzichtig. |
+   | WebSiteSQLDatabase.json |Het Resource Manager-sjabloon dat de infrastructuur definieert die u in Azure wilt implementeren en de parameters die u kunt opgeven tijdens de implementatie. Hiermee worden ook de afhankelijkheden tussen resources gedefinieerd zodat deze in de juiste volgorde worden geïmplementeerd. |
+   | WebSiteSQLDatabase.parameters.json |Een parameterbestand dat de waarden bevat die nodig zijn voor het sjabloon. U geeft parameterwaarden door om elke implementatie aan te passen. |
    
-    Alle resourcegroepimplementatieprojecten bevatten deze algemene bestanden. Andere projecten bevatten mogelijk extra bestanden toosupport andere functies.
+    Alle resourcegroepimplementatieprojecten bevatten deze algemene bestanden. Andere projecten bevatten mogelijk extra bestanden ter ondersteuning van andere functies.
 
-## <a name="customize-hello-resource-manager-template"></a>Hallo Resource Manager-sjabloon aanpassen
-U kunt een implementatieproject aanpassen door het wijzigen van Hallo JSON-sjablonen die Hallo-bronnen die u wilt dat toodeploy beschrijven. JSON staat voor JavaScript Object Notation en is een geserialiseerde gegevensindeling waarmee eenvoudig toowork met. Hallo JSON-bestanden een schema dat u verwijst naar Hallo boven aan elk bestand gebruikt. Als u toounderstand Hallo schema wilt, kunt u downloaden en analyseren. Hallo schema wordt gedefinieerd welke elementen zijn geldige, hello typen en indelingen voor velden, mogelijke waarden van de opsommingswaarden hello, enzovoort. toolearn over Hallo elementen van de Resource Manager-sjabloon hello, Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md).
+## <a name="customize-the-resource-manager-template"></a>Het Resource Manager-sjabloon aanpassen
+U kunt een implementatieproject aanpassen door de JSON-sjablonen te wijzigen waarin wordt beschreven welke resources u wilt implementeren. JSON staat voor JavaScript Object Notation en is een geserialiseerde gegevensindeling waarmee eenvoudig te werken is. Voor JSON-bestanden wordt een schema gebruikt waarnaar u aan de bovenkant van elk bestand naar verwijst. U kunt het schema downloaden en het analyseren als u er meer inzicht in wilt krijgen. In het schema wordt gedefinieerd welke elementen zijn toegestaan, welke soorten en indelingen voor velden er zijn, wat de mogelijke opsommingswaarden zijn, enzovoort. Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over de onderdelen van een Resource Manager-sjabloon.
 
-open toowork van uw sjabloon **WebSiteSQLDatabase.json**.
+Als u aan dit sjabloon wilt werken, opent u **WebSiteSQLDatabase.json**.
 
-Hallo Visual Studio editor biedt hulpprogramma's voor u met het bewerken van resourcemanager-sjabloon Hallo tooassist. Hallo **JSON-overzicht** venster kunt u eenvoudig toosee Hallo-elementen gedefinieerd in de sjabloon.
+De Visual Studio-editor biedt hulpprogramma's voor het bewerken van het Resource Manager-sjabloon. In het scherm **JSON-overzicht** ziet u eenvoudig welke elementen zijn gedefinieerd in het sjabloon.
 
 ![JSON-overzicht weergeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-json-outline.png)
 
-Wanneer u een Hallo-elementen in Hallo overzicht, neemt u toothat deel van de sjabloon Hallo en markeert u Hallo JSON overeenkomt.
+Wanneer u een element in het overzicht selecteert, gaat u naar dat deel van het sjabloon en wordt de bijbehorende JSON gemarkeerd.
 
 ![door JSON navigeren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/navigate-json.png)
 
-U kunt een resource toevoegen door beide te selecteren Hallo **Resource toevoegen** knop boven Hallo Hallo JSON overzichtsvenster of door met de rechtermuisknop op **resources** en het selecteren van **nieuwe Resource toevoegen**.
+U kunt een nieuwe resource toevoegen aan een sjabloon door op de knop **Resource toevoegen** te klikken boven aan het venster JSON Outline of door met de rechtermuisknop op **Resources** te klikken en **Nieuwe resource toevoegen** te selecteren.
 
 ![resource toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
@@ -82,11 +82,11 @@ Voor deze zelfstudie selecteert u **Opslagaccount** en geeft u het een naam. Gee
 
 ![opslag toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
-U ziet dat niet alleen Hallo resource is toegevoegd, maar ook een parameter voor Hallo storage-account en een variabele voor naam van de Hallo van Hallo storage-account invoeren.
+U ziet dat niet alleen de resource is toegevoegd, maar ook een parameter voor het type opslagaccount en een variabele voor de naam van het opslagaccount.
 
 ![overzicht weergeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-Hallo **storageType** -parameter is vooraf gedefinieerd met de toegestane typen en een standaardtype. U kunt deze waarden laten staan of ze bewerken voor uw scenario. Als u niet dat iemand anders wilt toodeploy een **Premium_LRS** storage-account via dit sjabloon verwijderen uit Hallo typen toegestaan. 
+De parameter **storageType** wordt vooraf gedefinieerd met de toegestane typen en een standaardtype. U kunt deze waarden laten staan of ze bewerken voor uw scenario. Als u niet iedereen wilt toestaan om een **Premium_LRS**-opslagaccount te implementeren via dit sjabloon, verwijdert u dit uit de toegestane typen. 
 
 ```json
 "storageType": {
@@ -101,11 +101,11 @@ Hallo **storageType** -parameter is vooraf gedefinieerd met de toegestane typen 
 }
 ```
 
-Visual Studio biedt ook intellisense toohelp u begrijpt welke eigenschappen beschikbaar zijn bij het Hallo-sjabloon bewerken. Tooedit hello eigenschappen voor uw App Service-abonnement, gaat u toohello **HostingPlan** resource, en voeg een waarde voor Hallo **eigenschappen**. U ziet dat intellisense Hallo beschikbare waarden worden weergegeven en wordt een beschrijving van die waarde.
+Visual Studio biedt ook IntelliSense om u inzicht te geven in welke eigenschappen beschikbaar zijn bij het bewerken van het sjabloon. Als u bijvoorbeeld de eigenschappen bewerkt van uw App Service-plan, navigeert u naar de resource **HostingPlan** en voegt u een nieuwe waarde toe voor de **eigenschappen**. IntelliSense geeft de beschikbare waarden weer en biedt een beschrijving van die waarden.
 
 ![IntelliSense weergeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
 
-U kunt instellen **numberOfWorkers** too1.
+U kunt **numberOfWorkers** instellen op 1.
 
 ```json
 "properties": {
@@ -114,61 +114,61 @@ U kunt instellen **numberOfWorkers** too1.
 }
 ```
 
-## <a name="deploy-hello-resource-group-project-tooazure"></a>Hallo resourcegroep project tooAzure implementeren
-U bent nu klaar toodeploy uw project. Wanneer u een Azure-resourcegroepproject implementeert, implementeert u deze tooan Azure-resourcegroep. Hallo-resourcegroep is een logische groepering van resources die een gemeenschappelijk levenscyclus delen.
+## <a name="deploy-the-resource-group-project-to-azure"></a>Het resourcegroepproject implementeren in Azure
+U bent nu klaar om uw project te implementeren. Wanneer u een Azure-resourcegroepsproject implementeert, implementeert u het in een Azure-resourcegroep. De resourcegroep is een logische groepering van resources die een gemeenschappelijke lifecycle delen.
 
-1. Kies in het snelmenu Hallo van projectknooppunt Hallo-implementatie, **implementeren** > **nieuw**.
+1. Kies **Implementeren** > **Nieuw** in het snelmenu van het knooppunt van het implementatieproject.
    
     ![Het menu-item Implementeren, Nieuwe implementatie](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
    
-    Hallo **tooResource groep implementeren** dialoogvenster wordt weergegeven.
+    Het dialoogvenster **Implementeren in resourcegroep** wordt weergegeven.
    
-    ![Dialoogvenster groep tooResource implementeren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
-2. In Hallo **resourcegroep** vervolgkeuzelijst, kiest u een bestaande resourcegroep of maak een nieuwe. toocreate een resourcegroep of open Hallo **resourcegroep** dropdown vak en kies **nieuw**.
+    ![Dialoogvenster Implementeren in resourcegroep](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
+2. In de vervolgkeuzelijst **Resourcegroep** kiest u een bestaande resourcegroep of maakt u een nieuwe. Als u een nieuwe resourcegroep wilt maken, opent u de vervolgkeuzelijst **Resourcegroep** en selecteert u **Nieuwe maken**.
    
-    ![Dialoogvenster groep tooResource implementeren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
+    ![Dialoogvenster Implementeren in resourcegroep](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
    
-    Hallo **resourcegroep maken** dialoogvenster wordt weergegeven. Geef uw groep een naam en locatie en selecteer Hallo **maken** knop.
+    Het dialoogvenster **Resourcegroep maken** wordt weergegeven. Geef uw groep een naam en locatie en selecteer de knop **Maken**.
    
     ![Dialoogvenster Resourcegroep maken](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
-3. Hallo-parameters voor de implementatie van Hallo bewerken door te selecteren van Hallo **Parameters bewerken** knop.
+3. U kunt de parameters voor de implementatie bewerken door de knop **Parameters bewerken** te selecteren.
    
     ![Knop Parameters bewerken](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
-4. Geef waarden op voor Hallo leeg parameters en selecteer Hallo **opslaan** knop. Hallo leeg parameters zijn **hostingPlanName**, **administratorLogin**, **administratorLoginPassword**, en **databaseName**.
+4. Geef waarden op voor de lege parameters en selecteer **Opslaan**. De lege parameters zijn **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** en **databaseName**.
    
-    **hostingPlanName** geeft een naam voor Hallo [App Service-abonnement](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) toocreate. 
+    Met **hostingPlanName** geeft u de naam op voor het te maken [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
    
-    **administratorLogin** Hallo gebruikersnaam voor Hallo SQL Server-beheerder. Gebruik geen veelvoorkomende beheerdersnamen als **sa** of **admin**. 
+    Met **administratorLogin** geeft u de gebruikersnaam op voor de SQL Server-beheerder. Gebruik geen veelvoorkomende beheerdersnamen als **sa** of **admin**. 
    
-    Hallo **administratorLoginPassword** Hiermee geeft u een wachtwoord voor SQL Server-beheerder. Hallo **wachtwoorden opslaan als tekst zonder opmaak in het parameterbestand Hallo** optie is niet beveiligen; daarom deze optie niet selecteert. Aangezien het Hallo-wachtwoord wordt niet opgeslagen als tekst zonder opmaak, moet u op tooprovide dit wachtwoord opnieuw tijdens de implementatie. 
+    Met **administratorLoginPassword** geeft u een wachtwoord op de SQL Server-beheerder. De optie **Wachtwoorden opslaan als tekst zonder opmaak in het parameterbestand** is niet beveiligd. Selecteer deze optie daarom niet. Omdat het wachtwoord niet als tekst zonder opmaak wordt opgeslagen, moet u dit wachtwoord opnieuw opgeven tijdens de implementatie. 
    
-    **databaseName** geeft een naam voor Hallo database toocreate. 
+    Met **databaseName** geeft u een naam op voor de te maken database. 
    
     ![Dialoogvenster Parameters bewerken](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
-5. Kies Hallo **implementeren** knop toodeploy Hallo project tooAzure. Een PowerShell-console wordt geopend buiten Hallo Visual Studio-exemplaar. Voer SQL Server-beheerderswachtwoord Hallo in Hallo PowerShell-console wanneer u wordt gevraagd. **De PowerShell-console kan worden verborgen achter andere items of geminimaliseerd in de taakbalk Hallo.** Deze console zoekt en selecteert u het tooprovide Hallo wachtwoord.
+5. Klik op **Implementeren** om het project in Azure te implementeren. Een PowerShell-console wordt geopend buiten het Visual Studio-exemplaar. Voer het beheerderswachtwoord voor de SQL Server in de PowerShell-console in wanneer om het wachtwoord wordt gevraagd. **De PowerShell-console kan zijn verborgen achter andere items of geminimaliseerd op de taakbalk.** Zoek en selecteer deze console om het wachtwoord op te geven.
    
    > [!NOTE]
-   > Visual Studio gevraagd tooinstall hello Azure PowerShell-cmdlets. U moet hello Azure PowerShell cmdlets toosuccessfully resourcegroepen implementeren. Installeer ze als dit gevraagd wordt.
+   > Visual Studio vraagt u mogelijk om de Azure PowerShell-cmdlets te installeren. U hebt de Azure PowerShell-cmdlets nodig om resourcegroepen te kunnen implementeren. Installeer ze als dit gevraagd wordt.
    > 
    > 
-6. Hallo-implementatie kan enkele minuten duren. In Hallo **uitvoer** windows hello status van implementatie Hallo weergegeven. Wanneer het Hallo-implementatie is voltooid, geeft laatste Hallo-bericht met iets soortgelijks als in de implementatie:
+6. De implementatie kan enkele minuten in beslag nemen. U kunt de voortgang van de implementatie bekijken in het venster **Uitvoer**. Wanneer de implementatie is voltooid, ziet u een laatste bericht dat de implementatie is geslaagd en dat er ongeveer als volgt uitziet:
    
         ... 
-        18:00:58 - Successfully deployed template 'websitesqldatabase.json' tooresource group 'DemoSiteGroup'.
-7. Open in een browser Hallo [Azure-portal](https://portal.azure.com/) en meld u aan tooyour-account. toosee hello resourcegroep, selecteer **resourcegroepen** en Hallo-resourcegroep geïmplementeerd.
+        18:00:58 - Successfully deployed template 'websitesqldatabase.json' to resource group 'DemoSiteGroup'.
+7. Open in een browser de [Azure Portal](https://portal.azure.com/) en meld u aan bij uw account. Als u de resourcegroep wilt bekijken, selecteert u **Resourcegroepen** en vervolgens de resourcegroep waarin u hebt geïmplementeerd.
    
     ![groep selecteren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
-8. Ziet u alle resources voor Hallo geïmplementeerd. U ziet dat Hallo-naam van Hallo storage-account is niet precies welke u hebt opgegeven bij het toevoegen van die bron. Hallo-opslagaccount moet uniek zijn. Hallo sjabloon voegt automatisch een tekenreeks met tekens toohello naam opgegeven tooprovide een unieke naam op. 
+8. U ziet alle geïmplementeerde resources. Merk op dat de naam van het opslagaccount niet precies overeenkomt met wat u hebt opgegeven bij het toevoegen van die resource. Het opslagaccount moet uniek zijn. De sjabloon voegt automatisch een tekenreeks toe aan de naam die u hebt opgegeven zodat dit een unieke naam wordt. 
    
     ![resources weergeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
-9. Als u wijzigingen aanbrengen en tooredeploy uw project, kiest u Hallo bestaande resourcegroep in het snelmenu Hallo van Azure-resourcegroepproject. Kies in het snelmenu hello, **implementeren**, en kies vervolgens Hallo-resourcegroep die u hebt geïmplementeerd.
+9. Als u wijzigingen aanbrengt en u het project opnieuw wilt implementeren, selecteert u de bestaande resourcegroep direct vanuit het snelmenu van het Azure-resourcegroepproject. In het snelmenu selecteert u **Implementeren** en vervolgens selecteert u de resourcegroep waarin u hebt geïmplementeerd.
    
     ![Azure-resourcegroep geïmplementeerd](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
 ## <a name="deploy-code-with-your-infrastructure"></a>Code implementeren in uw infrastructuur
-Op dit moment wordt u Hallo infrastructuur voor uw app hebt geïmplementeerd, maar er is geen daadwerkelijke code is geïmplementeerd met Hallo-project. Dit artikel laat zien hoe toodeploy een web-app en SQL Database tabellen tijdens de implementatie. Als u een virtuele Machine in plaats van een web-app implementeert, wilt u toorun code op Hallo machine als onderdeel van de implementatie. Hallo-proces voor het implementeren van code voor een web-app of voor het instellen van een virtuele Machine bijna is identiek Hallo.
+U hebt nu de infrastructuur geïmplementeerd voor uw app, maar er is nog geen code geïmplementeerd in uw project. In dit artikel leest u hoe u een webtoepassing en SQL Database-tabellen implementeert tijdens de implementatie. Als u een virtuele machine implementeert in plaats van een webtoepassing, moet u als onderdeel van de implementatie code uitvoeren op de machine. De processen voor het implementeren van code voor een webtoepassing en voor het instellen van een virtuele machine zijn bijna hetzelfde.
 
-1. Toevoegen van een project tooyour Visual Studio-oplossing. Met de rechtermuisknop op het Hallo-oplossing en selecteer **toevoegen** > **nieuw Project**.
+1. Voeg een project toe aan uw Visual Studio-oplossing. Klik met de rechtermuisknop op de oplossing en selecteer **Toevoegen** > **Nieuw Project**.
    
     ![project toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
 2. Voeg een **ASP.NET-webtoepassing** toe. 
@@ -177,46 +177,46 @@ Op dit moment wordt u Hallo infrastructuur voor uw app hebt geïmplementeerd, ma
 3. Selecteer **MVC**.
    
     ![MVC selecteren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
-4. Nadat Visual Studio de web-app maakt, ziet u beide projecten in Hallo-oplossing.
+4. Nadat Visual Studio uw web-app heeft gemaakt, ziet u beide projecten in de oplossing.
    
     ![projecten weergeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
-5. Nu moet u ervoor dat uw resourcegroepproject is op de hoogte van het nieuwe project Hallo toomake. Ga terug tooyour resourcegroepproject (AzureResourceGroup1). Klik met de rechtermuisknop op **Verwijzingen** en selecteer **Verwijzing toevoegen**.
+5. Nu moet u nagaan of het nieuwe project gekoppeld is aan uw resourcegroepproject. Ga terug naar uw resourcegroepproject (AzureResourceGroup1). Klik met de rechtermuisknop op **Verwijzingen** en selecteer **Verwijzing toevoegen**.
    
     ![verwijzing toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
-6. Selecteer Hallo web-app-project dat u hebt gemaakt.
+6. Selecteer het web-app-project dat u hebt gemaakt.
    
     ![verwijzing toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
    
-    Hallo web-app-project toohello resourcegroepproject koppelen door een verwijzing toe te voegen en automatisch drie sleuteleigenschappen ingesteld. U ziet deze eigenschappen in Hallo **eigenschappen** venster voor het Hallo-verwijzing.
+    Wanneer u een verwijzing toevoegt, koppelt u het webtoepassingsproject aan het resourcegroepproject en worden automatisch drie sleuteleigenschappen ingesteld. U ziet deze eigenschappen in het venster **Eigenschappen** voor de verwijzing.
    
       ![verwijzing bekijken](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
    
-    Hallo-eigenschappen zijn:
+    De eigenschappen zijn:
    
-   * Hallo **aanvullende eigenschappen** hello webimplementatiepakket faseringslocatie die toohello Azure Storage wordt gepusht bevat. Houd er rekening mee Hallo-map (ExampleApp) en de bestandsnaam (pakket.zip). U moet tooknow deze waarden omdat u ze als parameters bij het implementeren van Hallo app opgeven. 
-   * Hallo **bestandspad toevoegen** bevat Hallo pad waar het Hallo-pakket wordt gemaakt. Hallo **doelen** Hallo opdrachten die implementatie wordt uitgevoerd. 
-   * de standaardwaarde van Hallo **bouwen; Pakket** maakt het mogelijk Hallo implementatie toobuild en maken van een webtoepassingspakket (pakket.zip).  
+   * **Extra eigenschappen** bevat de faseringslocatie van het webimplementatiepakket dat naar Azure Storage wordt gepusht. Noteer de map (ExampleApp) en het bestand (package.zip). U moet weten wat deze waarden zijn, omdat u ze als parameters moet opgeven tijdens het implementeren van de app. 
+   * **Bestandspad toevoegen** bevat het pad waar het pakket wordt gemaakt. **Doelen toevoegen** bevat de opdracht die tijdens de implementatie wordt uitgevoerd. 
+   * Met de standaardwaarde van **Build;Package** kan tijdens de implementatie een webtoepassingspakket worden gebouwd en gemaakt (pakket.zip).  
      
-     U hoeft niet een publicatieprofiel zoals Hallo implementatie Hallo benodigde informatie opgehaald van Hallo eigenschappen toocreate Hallo pakket.
-7. Ga terug tooWebSiteSQLDatabase.json en voeg een resource toohello sjabloon.
+     Er is geen publicatieprofiel nodig omdat tijdens de implementatie de benodigde informatie voor het maken van het pakket wordt verkregen uit de eigenschappen.
+7. Ga terug naar WebSiteSQLDatabase.json en voeg een resource toe aan de sjabloon.
    
     ![resource toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 8. Selecteer deze keer **Webimplementatie voor Web Apps**. 
    
     ![webimplementatie toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
-9. De resourcegroep voor resource groep project toohello implementeren. Deze keer zijn er enkele nieuwe parameters. U hoeft geen waarden voor tooprovide **_artifactsLocation** of **_artifactsLocationSasToken** omdat deze waarden door Visual Studio automatisch gegenereerd. Maar u hebt tooset Hallo map en bestandsnaam toohello pad dat het implementatiepakket Hallo bevat (weergegeven als **ExampleAppPackageFolder** en **ExampleAppPackageFileName** in Hallo na installatiekopie ). Hallo-waarden die u eerder in gezien Hallo verwijzingseigenschappen bevatten (**ExampleApp** en **pakket.zip**).
+9. Implementeer uw resourcegroepproject opnieuw in de resourcegroep. Deze keer zijn er enkele nieuwe parameters. U hoeft geen waarden op te geven voor **_artifactsLocation** en **_artifactsLocationSasToken** omdat Visual Studio deze automatisch gegenereert. Stel de map- en bestandsnaam in op het pad dat het implementatiepakket bevat (weergegeven als **ExampleAppPackageFolder** en **ExampleAppPackageFileName** in de volgende afbeelding). Geef de waarden op die u eerder in de verwijzingseigenschappen hebt gezien (**ExampleApp** en **package.zip**).
    
     ![webimplementatie toevoegen](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
    
-    Voor Hallo **opslagaccountartefact**, selecteer Hallo een geïmplementeerd met deze resourcegroep.
-10. Nadat het Hallo-implementatie is voltooid, selecteert u uw web-app in Hallo-portal. Hallo URL toobrowse toohello site selecteren.
+    Voor het **artefactopslagaccount** kunt u het account selecteren dat is geïmplementeerd met deze resourcegroep.
+10. Nadat de implementatie is voltooid, selecteert u uw web-app in de portal. Selecteer de URL om naar de site te bladeren.
     
      ![naar site bladeren](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
-11. U ziet dat er Hallo standaard ASP.NET-app is geïmplementeerd.
+11. Merk op dat u de standaard ASP.NET-app hebt geïmplementeerd.
     
      ![geïmplementeerde app weergeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* toolearn over het beheren van uw resources via de portal hello, Zie [Using hello Azure portal toomanage uw Azure-resources](resource-group-portal.md).
-* toolearn meer informatie over sjablonen, Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md).
+* Voor meer informatie over het beheren van resources via de portal raadpleegt u [Azure Portal gebruiken om uw Azure-resources te beheren](resource-group-portal.md).
+* Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over sjablonen.
 

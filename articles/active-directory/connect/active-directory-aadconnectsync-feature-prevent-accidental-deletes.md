@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect-synchronisatie: onopzettelijke verwijderingen voorkomen | Microsoft Docs'
-description: Dit onderwerp wordt beschreven hello te voorkomen dat de functie onopzettelijk verwijderen (onopzettelijke verwijderingen voorkomen) in Azure AD Connect.
+description: Dit onderwerp beschrijft de functie verhinderen onopzettelijk verwijderen (onopzettelijke verwijderingen voorkomen) in Azure AD Connect.
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 159597f8354806fcaea1430e0ff84956338592a4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a33fb729cff5007e40820af696cfec823a3ecfde
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect-synchronisatie: onopzettelijke verwijderingen voorkomen
-Dit onderwerp wordt beschreven hello te voorkomen dat de functie onopzettelijk verwijderen (onopzettelijke verwijderingen voorkomen) in Azure AD Connect.
+Dit onderwerp beschrijft de functie verhinderen onopzettelijk verwijderen (onopzettelijke verwijderingen voorkomen) in Azure AD Connect.
 
-Wanneer de installatie van Azure AD Connect te voorkomen dat onopzettelijke verwijderingen is standaard ingeschakeld en geconfigureerde toonot een exporteren met meer dan 500 Verwijderingen toestaan. Deze functie is ontworpen tooprotect tegen onbedoeld configuratie wordt gewijzigd en wijzigingen tooyour on-premises adreslijst die veel gebruikers en andere objecten zou beïnvloeden.
+Wanneer de installatie van Azure AD Connect te voorkomen dat per ongeluk is verwijderd standaard ingeschakeld en geconfigureerd voor het exporteren van een met meer dan 500 verwijderingen niet toestaan. Deze functie is ontworpen om u te beschermen tegen onbedoelde configuratiewijzigingen en wijzigingen aan uw on-premises directory die veel gebruikers en andere objecten zou beïnvloeden.
 
 ## <a name="what-is-prevent-accidental-deletes"></a>Wat is onopzettelijke verwijderingen voorkomen
 Algemene scenario's, wanneer er veel verwijderingen omvatten:
 
-* Wijzigingen te[filteren](active-directory-aadconnectsync-configure-filtering.md) waar een volledige [organisatie-eenheid](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) of [domein](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) is uitgeschakeld.
+* Wijzigingen in [filteren](active-directory-aadconnectsync-configure-filtering.md) waar een volledige [organisatie-eenheid](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) of [domein](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) is uitgeschakeld.
 * Alle objecten in een organisatie-eenheid worden verwijderd.
-* De naam van een organisatie-eenheid wordt gewijzigd zodat alle objecten in deze worden beschouwd als toobe buiten het bereik van synchronisatie.
+* De naam van een organisatie-eenheid wordt gewijzigd zodat alle objecten in deze worden beschouwd als niet binnen het bereik voor synchronisatie.
 
-de standaardwaarde Hallo van 500 objecten kan worden gewijzigd met PowerShell met `Enable-ADSyncExportDeletionThreshold`. U moet deze waarde toofit Hallo grootte van uw organisatie configureren. Aangezien Hallo sync scheduler wordt elke 30 minuten uitgevoerd, is Hallo waarde Hallo aantal verwijderingen gezien binnen 30 minuten.
+De standaardwaarde van 500 objecten kan worden gewijzigd met PowerShell met `Enable-ADSyncExportDeletionThreshold`. U moet deze waarde aan de grootte van uw organisatie configureren. Aangezien de sync scheduler wordt elke 30 minuten uitgevoerd, is de waarde het aantal verwijderingen gezien binnen 30 minuten.
 
-Als er geëxporteerd te veel verwijderingen gefaseerde toobe tooAzure AD, en vervolgens hello export stopt en u een e-mail als volgt ontvangt:
+Als er te veel verwijderingen voorbereid om te worden geëxporteerd naar Azure AD, stopt de export en u ontvangt een e-mail als volgt:
 
 ![E-mailadres onopzettelijke verwijderingen voorkomen](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
-> *Hello (technische contactpersoon). (Tijd) Hallo identiteit synchronisatieservice gedetecteerd dat het aantal verwijderingen Hallo Hallo geconfigureerde exportverwijderingsdrempel instellen voor (organisatienaam) overschreden. Een totaal van (getal) objecten zijn in deze identiteitssynchronisatie uitvoeren voor verwijdering verzonden. Dit bereikt of overschreden Hallo geconfigureerd waarde voor drempel voor verwijdering van objecten (getal). Moet je tooprovide bevestiging dat deze verwijderingen moeten worden verwerkt voordat er wordt voortgezet. Zie Hallo onopzettelijke verwijderingen voor meer informatie over Hallo fout weergegeven in dit e-mailbericht te blokkeren.*
+> *Hello (technische contactpersoon). (Tijd) de synchronisatieservice identiteit gedetecteerd dat het aantal verwijderingen de geconfigureerde exportverwijderingsdrempel instellen voor (organisatienaam) overschreden. Een totaal van (getal) objecten zijn in deze identiteitssynchronisatie uitvoeren voor verwijdering verzonden. Dit voldaan aan of groter dan de drempelwaarde voor de geconfigureerde verwijdering van objecten (getal). Moet je bevestigen dat deze verwijderingen worden verwerkt voordat er wordt voortgezet. Zie de voorkomen onopzettelijke verwijderingen voor meer informatie over de fout weergegeven in dit e-mailbericht.*
 >
 > 
 
-U ziet ook Hallo status `stopped-deletion-threshold-exceeded` wanneer u zoeken in Hallo **Synchronization Service Manager** gebruikersinterface voor Hallo Export profile.
+U ziet ook de status `stopped-deletion-threshold-exceeded` wanneer u zoeken in de **Synchronization Service Manager** gebruikersinterface voor het profiel exporteren.
 ![Onopzettelijke verwijderingen Sync Service Manager UI voorkomen](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/syncservicemanager.png)
 
-Als dit werd niet verwacht, onderzoek en corrigerende acties uitvoeren. toosee welke objecten over toobe verwijderd, Hallo te volgen:
+Als dit werd niet verwacht, onderzoek en corrigerende acties uitvoeren. Als u wilt zien welke objecten zijn verwijderd, het volgende doen:
 
-1. Start **synchronisatieservice** van Hallo Menu Start.
-2. Ga te**Connectors**.
-3. Selecteer Hallo Connector met het type **Azure Active Directory**.
-4. Onder **acties** toohello rechts, selecteer **Connectorgebied zoeken**.
-5. In het pop-upvenster onder Hallo **bereik**, selecteer **verbroken omdat** en kiest u een tijdstip in de afgelopen Hallo. Klik op **Search**. Deze pagina bevat een overzicht van alle objecten over toobe verwijderd. Door te klikken op elk item, kunt u aanvullende informatie over Hallo-object ophalen. U kunt ook klikken op **kolominstelling** tooadd extra kenmerken toobe zichtbaar in Hallo raster.
+1. Start **synchronisatieservice** vanuit het startmenu.
+2. Ga naar **Connectors**.
+3. Selecteer de Connector met het type **Azure Active Directory**.
+4. Onder **acties** aan de rechterkant, selecteer **Connectorgebied zoeken**.
+5. In het pop-upvenster onder **bereik**, selecteer **verbroken omdat** en kies een tijdstip in het verleden. Klik op **Search**. Deze pagina bevat een overzicht van alle objecten verwijderd. Door te klikken op elk item, kunt u aanvullende informatie over het object ophalen. U kunt ook klikken op **kolominstelling** extra kenmerken voor weergave in het raster toevoegen.
 
 ![Connectorgebied zoeken](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/searchcs.png)
 
-Desgewenst alle Hallo verwijderingen worden vervolgens Hallo te volgen:
+Als alle verwijderingen aanbrengen wilt, klikt u vervolgens het volgende doen:
 
-1. tooretrieve hello huidige exportverwijderingsdrempel instellen, voer de PowerShell-cmdlet Hallo `Get-ADSyncExportDeletionThreshold`. Geef een globale beheerder van Azure AD-account en wachtwoord. Hallo-standaardwaarde is 500.
-2. tootemporarily deze beveiliging uitschakelen en kunt u deze verwijdert doorlopen, voer de PowerShell-cmdlet Hallo: `Disable-ADSyncExportDeletionThreshold`. Geef een globale beheerder van Azure AD-account en wachtwoord.
+1. Voor het ophalen van de huidige exportverwijderingsdrempel instellen, voert u de PowerShell-cmdlet `Get-ADSyncExportDeletionThreshold`. Geef een globale beheerder van Azure AD-account en wachtwoord. De standaardwaarde is 500.
+2. Tijdelijk uitschakelen van deze beveiliging en kunt deze verwijdert doorlopen, voert u de PowerShell-cmdlet: `Disable-ADSyncExportDeletionThreshold`. Geef een globale beheerder van Azure AD-account en wachtwoord.
    ![Referenties](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
-3. Hello Azure Active Directory-Connector nog steeds is geselecteerd, selecteer Hallo actie **uitvoeren** en selecteer **exporteren**.
-4. toore inschakelen Hallo beveiliging, voer de PowerShell-cmdlet Hallo: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. 500 vervangen door Hallo-waarde die u bij het ophalen van het huidige exportverwijderingsdrempel instellen Hallo opgemerkt. Geef een globale beheerder van Azure AD-account en wachtwoord.
+3. Met de Azure Active Directory-Connector nog steeds is geselecteerd, selecteert u de actie **uitvoeren** en selecteer **exporteren**.
+4. Als u wilt de beveiliging opnieuw inschakelen, voert u de PowerShell-cmdlet: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. 500 vervangen door de waarde die u bij het ophalen van de huidige verwijdering drempelwaarde opgemerkt. Geef een globale beheerder van Azure AD-account en wachtwoord.
 
 ## <a name="next-steps"></a>Volgende stappen
 **Overzichtsonderwerpen**

@@ -1,6 +1,6 @@
 ---
-title: aaaReset toegang over het gebruik van Azure Linux VM's Hallo VMAccess-extensie | Microsoft Docs
-description: Opnieuw instellen op Azure Linux VM's met behulp van Hallo VMAccess-extensie.
+title: Opnieuw instellen op Azure Linux VM's met behulp van de VMAccess-extensie | Microsoft Docs
+description: Opnieuw instellen op Azure Linux VM's met behulp van de VMAccess-extensie.
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: v-livech
-ms.openlocfilehash: 2636655f3f7d14ba30e1dc62c319e4e278521ead
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 278bf1785aac71068ab94cf9916af69a204c44be
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="manage-users-ssh-and-check-or-repair-disks-on-azure-linux-vms-using-hello-vmaccess-extension-with-hello-azure-cli-10"></a>Beheren van gebruikers, SSH en controleer of herstel schijven op Azure Linux VM's met behulp van VMAccess-extensie Hallo Hello Azure CLI 1.0
-Dit artikel ziet u hoe toouse hello Azure VMAcesss extensie toocheck of herstellen van een schijf, gebruikerstoegang opnieuw instellen, beheren van gebruikersaccounts of opnieuw Hallo SSHD configureren op Linux. Hallo artikel is vereist:
+# <a name="manage-users-ssh-and-check-or-repair-disks-on-azure-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-10"></a>Beheren van gebruikers, SSH en controleer of het herstellen van schijven op Azure Linux VM's met behulp van de VMAccess-extensie met de Azure CLI 1.0
+In dit artikel laat zien hoe de uitbreiding van de VMAcesss Azure gebruiken om te controleren of herstellen van een schijf, gebruikerstoegang opnieuw instellen, beheren van gebruikersaccounts of instellen van de configuratie SSHD op Linux. Het artikel schrijft het volgende als vereiste voor:
 
 * een Azure-account ([probeer een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/))
-* Hallo [Azure CLI](../../cli-install-nodejs.md) aangemeld `azure login`.
-* Hello Azure CLI *moet* modus Azure Resource Manager `azure config mode arm`.
+* de [Azure-CLI](../../cli-install-nodejs.md) die is aangemeld bij `azure login`.
+* de Azure-CLI *moet in de* Azure Resource Manager-modus`azure config mode arm` staan.
 
 
-## <a name="cli-versions-toocomplete-hello-task"></a>CLI-versies toocomplete Hallo taak
-U kunt met een van de volgende versies van de CLI Hallo Hallo-taak uitvoeren:
+## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren
+U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 
-- [Azure CLI 1.0](#quick-commands)– onze CLI voor Hallo klassieke en resource management implementatiemodellen (in dit artikel)
-- [Azure CLI 2.0](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -onze volgende generatie CLI voor Hallo resource management-implementatiemodel
+- [Azure CLI 1.0](#quick-commands)– onze CLI voor het klassieke en resource management-implementatiemodel (in dit artikel)
+- [Azure CLI 2.0](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
 
 
 ## <a name="quick-commands"></a>Snelle opdrachten
-Er zijn twee manieren toouse VMAccess op uw virtuele Linux-machines:
+Er zijn twee manieren VMAccess op uw virtuele Linux-machines gebruiken:
 
-* Met behulp van hello Azure CLI 1.0 en Hallo vereiste parameters.
+* Met behulp van de Azure CLI 1.0 en de vereiste parameters.
 * Met behulp van onbewerkte JSON-bestanden die VMAccess verwerkt en klik vervolgens op te volgen.
 
-Voor Hallo snelle opdracht sectie, gaan we toouse hello Azure CLI 1.0 `azure vm reset-access` methode. Volgende opdrachtvoorbeelden Vervang in Hallo Hallo waarden met "voorbeeld" hello waarden van uw eigen omgeving.
+Voor het gedeelte met snelle opdrachten gaan we gebruik van de Azure CLI 1.0 `azure vm reset-access` methode. Vervang in de volgende opdrachtvoorbeelden de waarden die "voorbeeld" met de waarden van uw eigen omgeving bevatten.
 
 ## <a name="create-a-resource-group-and-linux-vm"></a>Een resourcegroep en een virtuele Linux-machine maken
 ```bash
@@ -62,7 +62,7 @@ azure vm quick-create \
 ```
 
 ## <a name="reset-root-password"></a>Root-wachtwoord opnieuw instellen
-tooreset hello root-wachtwoord:
+Het root-wachtwoord opnieuw instellen:
 
 ```azurecli
 azure vm reset-access \
@@ -73,7 +73,7 @@ azure vm reset-access \
 ```
 
 ## <a name="ssh-key-reset"></a>SSH-sleutel opnieuw instellen
-tooreset hello SSH-sleutel van een gebruiker niet hoofdmap:
+Opnieuw instellen van een gebruiker niet de hoofdmap van de SSH-sleutel:
 
 ```azurecli
 azure vm reset-access \
@@ -84,7 +84,7 @@ azure vm reset-access \
 ```
 
 ## <a name="create-a-user"></a>Een gebruiker maken
-een gebruiker toocreate:
+Een gebruiker maken:
 
 ```azurecli
 azure vm reset-access \
@@ -103,7 +103,7 @@ azure vm reset-access \
 ```
 
 ## <a name="reset-sshd"></a>SSHD opnieuw instellen
-tooreset hello SSHD configuratie:
+De SSHD-configuratie opnieuw instellen:
 
 ```azurecli
 azure vm reset-access \
@@ -115,14 +115,14 @@ azure vm reset-access \
 
 ## <a name="detailed-walkthrough"></a>Gedetailleerd overzicht
 ### <a name="vmaccess-defined"></a>VMAccess gedefinieerd:
-Hallo-schijf op uw Linux-VM worden fouten weergegeven. U enigszins Hallo hoofdwachtwoord voor uw Linux-VM opnieuw instellen of uw persoonlijke SSH-sleutel per ongeluk worden verwijderd. Als dat is gebeurd terug in Hallo dagen van Hallo datacenter, zou u moet er toodrive en open vervolgens Hallo KVM tooget op Hallo server-console. Hello Azure VMAccess-extensie beschouwen als die KVM-switch waarmee u tooaccess console tooreset toegang tooLinux Hallo of voer schijfonderhoud niveau.
+De schijf op uw Linux-VM worden fouten weergegeven. U enigszins het root-wachtwoord opnieuw instellen voor uw Linux-VM of uw persoonlijke SSH-sleutel per ongeluk worden verwijderd. Als dat is gebeurd terug in de dagen van het datacenter, zou u moet er station en open vervolgens de KVM ophalen via de serverconsole. De Azure-VMAccess-extensie beschouwen als die KVM-switch waarmee u toegang tot de console opnieuw instellen naar Linux of voer schijfonderhoud niveau.
 
-Voor Hallo gedetailleerde uitleg gaan we toouse Hallo lange vorm van VMAccess dat gebruikmaakt van onbewerkte JSON-bestanden.  Deze VMAccess JSON-bestanden kunnen ook worden aangeroepen vanuit de Azure-sjablonen.
+We gaan de lang VMAccess dat gebruikmaakt van onbewerkte JSON-bestanden gebruikt voor de gedetailleerde walktrough.  Deze VMAccess JSON-bestanden kunnen ook worden aangeroepen vanuit de Azure-sjablonen.
 
-### <a name="using-vmaccess-toocheck-or-repair-hello-disk-of-a-linux-vm"></a>Het gebruik van VMAccess toocheck of reparatie van de Hallo schijf van een Linux-VM
-U vmaccess gebruikt kunt u een fsck doen uitvoeren op de schijf Hallo onder uw Linux-VM.  U kunt ook een schijf controleren en de herstellen van een schijf met behulp van een VMAccess doen.
+### <a name="using-vmaccess-to-check-or-repair-the-disk-of-a-linux-vm"></a>U vmaccess gebruikt om te controleren of herstellen van de schijf van een Linux-VM
+U vmaccess gebruikt kunt u een fsck doen uitvoeren op de schijf onder uw Linux-VM.  U kunt ook een schijf controleren en de herstellen van een schijf met behulp van een VMAccess doen.
 
-Gebruik dit script VMAccess toocheck en herstel Hallo schijf:
+Om te controleren en herstel daarna de schijf gebruikmaken van dit script vmaccess gebruikt:
 
 `disk_check_repair.json`
 
@@ -133,7 +133,7 @@ Gebruik dit script VMAccess toocheck en herstel Hallo schijf:
 }
 ```
 
-Hallo VMAccess script uitvoeren:
+Voer het script VMAccess met:
 
 ```azurecli
 azure vm extension set \
@@ -144,10 +144,10 @@ azure vm extension set \
   --private-config-path disk_check_repair.json
 ```
 
-### <a name="using-vmaccess-tooreset-user-access-toolinux"></a>Met behulp van VMAccess tooreset gebruiker toegang tooLinux
-Als u toegang tooroot kwijt op uw Linux-VM bent hebt, kunt u een hoofdwachtwoord VMAccess script tooreset Hallo starten.
+### <a name="using-vmaccess-to-reset-user-access-to-linux"></a>U vmaccess gebruikt gebruikerstoegang opnieuw wordt ingesteld op Linux
+Als u hebt geen toegang meer tot hoofdmap op uw Linux-VM, kunt u een script vmaccess gebruikt als de root-wachtwoord opnieuw wilt starten.
 
-tooreset hello hoofdwachtwoord, gebruik dit script vmaccess gebruikt:
+Voor het root-wachtwoord opnieuw instellen, gebruikt u dit script VMAccess:
 
 `reset_root_password.json`
 
@@ -158,7 +158,7 @@ tooreset hello hoofdwachtwoord, gebruik dit script vmaccess gebruikt:
 }
 ```
 
-Hallo VMAccess script uitvoeren:
+Voer het script VMAccess met:
 
 ```azurecli
 azure vm extension set \
@@ -169,7 +169,7 @@ azure vm extension set \
   --private-config-path reset_root_password.json
 ```
 
-tooreset hello SSH-sleutel van een niet-hoofdgebruiker dit script VMAccess gebruiken:
+Om in te stellen de SSH-sleutel van een niet-hoofdgebruiker, gebruikt u dit script vmaccess gebruikt:
 
 `reset_ssh_key.json`
 
@@ -180,7 +180,7 @@ tooreset hello SSH-sleutel van een niet-hoofdgebruiker dit script VMAccess gebru
 }
 ```
 
-Hallo VMAccess script uitvoeren:
+Voer het script VMAccess met:
 
 ```azurecli
 azure vm extension set \
@@ -191,10 +191,10 @@ azure vm extension set \
   --private-config-path reset_ssh_key.json
 ```
 
-### <a name="using-vmaccess-toomanage-user-accounts-on-linux"></a>Met behulp van VMAccess toomanage gebruikersaccounts op Linux
-VMAccess is een pythonscript dat gebruikt toomanage gebruikers op uw Linux-VM worden kan zonder aanmelden en het gebruik van sudo of Hallo root-account.
+### <a name="using-vmaccess-to-manage-user-accounts-on-linux"></a>U vmaccess gebruikt voor het beheren van gebruikersaccounts op Linux
+VMAccess is een pythonscript dat kan worden gebruikt voor het beheren van gebruikers op uw Linux-VM zonder aanmelden en het gebruik van sudo of het root-account.
 
-toocreate een gebruiker, gebruikt u dit script vmaccess gebruikt:
+Gebruik dit script vmaccess gebruikt voor het maken van een gebruiker:
 
 `create_new_user.json`
 
@@ -206,7 +206,7 @@ toocreate een gebruiker, gebruikt u dit script vmaccess gebruikt:
 }
 ```
 
-Hallo VMAccess script uitvoeren:
+Voer het script VMAccess met:
 
 ```azurecli
 azure vm extension set \
@@ -217,7 +217,7 @@ azure vm extension set \
   --private-config-path create_new_user.json
 ```
 
-toodelete een gebruiker, gebruikt u dit script vmaccess gebruikt:
+Gebruik dit script vmaccess gebruikt voor het verwijderen van een gebruiker:
 
 `remove_user.json`
 
@@ -227,7 +227,7 @@ toodelete een gebruiker, gebruikt u dit script vmaccess gebruikt:
 }
 ```
 
-Hallo VMAccess script uitvoeren:
+Voer het script VMAccess met:
 
 ```azurecli
 azure vm extension set \
@@ -238,10 +238,10 @@ azure vm extension set \
   --private-config-path remove_user.json
 ```
 
-### <a name="using-vmaccess-tooreset-hello-sshd-configuration"></a>Met behulp van VMAccess tooreset hello SSHD configuratie
-Als u wijzigingen toohello Linux VM's SSHD configuratie en SSH-verbinding sluiten Hallo voordat verifiëren, Hallo wijzigingen aanbrengt, u kan worden voorkomen dat SSH'ing weer in.  VMAccess mag gebruikte tooreset hello SSHD configuratie back tooa bekende juiste configuratie zonder worden geregistreerd in via SSH.
+### <a name="using-vmaccess-to-reset-the-sshd-configuration"></a>U vmaccess gebruikt de SSHD-configuratie opnieuw instellen
+Als u wijzigingen in de configuratie van de Linux-machines SSHD aanbrengen en de SSH-verbinding sluit voordat de wijzigingen te controleren, u kan worden voorkomen dat SSH'ing weer in.  VMAccess kan worden gebruikt om de SSHD-configuratie opnieuw instellen naar een bekende juiste configuratie zonder worden geregistreerd in via SSH.
 
-tooreset hello SSHD configuratie dit script VMAccess gebruiken:
+De configuratie van de SSHD gebruiken om in te stellen dit script vmaccess gebruikt:
 
 `reset_sshd.json`
 
@@ -251,7 +251,7 @@ tooreset hello SSHD configuratie dit script VMAccess gebruiken:
 }
 ```
 
-Hallo VMAccess script uitvoeren:
+Voer het script VMAccess met:
 
 ```azurecli
 azure vm extension set \
@@ -263,11 +263,11 @@ azure vm extension set \
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Bijwerken van Linux, met behulp van Azure VMAccess extensies één methode toomake wijzigingen op een actieve Linux VM is.  U kunt ook hulpprogramma's zoals cloud init en Azure-sjablonen toomodify uw Linux-VM gebruiken bij het opstarten.
+Bijwerken van Linux, met behulp van Azure VMAccess extensies één methode te wijzigen op een actieve Linux VM is.  U kunt ook hulpprogramma's zoals cloud init en Azure-sjablonen gebruiken om te wijzigen van uw Linux VM op opstarten.
 
 [Over functies en uitbreidingen van de virtuele machine](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Azure Resource Manager-sjablonen met Linux VM-extensies](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Met behulp van cloud-init toocustomize een Linux-VM tijdens het maken van](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Gebruik van cloud-init voor het aanpassen van een Linux-VM tijdens het maken van](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

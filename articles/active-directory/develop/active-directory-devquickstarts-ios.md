@@ -1,6 +1,6 @@
 ---
-title: aaaIntegrate Azure AD in een iOS-app | Microsoft Docs
-description: "Hoe beveiligd toobuild een iOS-toepassing die kan worden geïntegreerd met Azure AD voor aanmelden en Azure AD-aanroepen API's met behulp van OAuth."
+title: Azure AD integreren met een iOS-app | Microsoft Docs
+description: "Het bouwen van een iOS-toepassing die kan worden geïntegreerd met Azure AD voor aanmelden en Azure AD-aanroepen beveiligd API's met behulp van OAuth."
 services: active-directory
 documentationcenter: ios
 author: brandwe
@@ -15,76 +15,76 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6e05745b2b2b122995dcba896ab0f2ed32509e3a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 57f465df99ac234466459b8031f61805d8334b59
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="integrate-azure-ad-into-an-ios-app"></a>Azure AD integreren met een iOS-app
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 > [!TIP]
-> Hallo Preview-versie van onze nieuwe [ontwikkelaarsportal](https://identity.microsoft.com/Docs/iOS) waarmee u leren werken met Azure Active Directory in een paar minuten!  Hallo-portal voor ontwikkelaars leidt u door het Hallo-proces voor het registreren van een app en Azure AD integreren in uw code.  Wanneer u klaar bent, hebt u een eenvoudige toepassing die gebruikers in uw tenant en een back-end die kunnen tokens accepteren en gevalideerd kan worden geverifieerd. 
+> Deze Preview-versie van onze nieuwe [ontwikkelaarsportal](https://identity.microsoft.com/Docs/iOS) waarmee u leren werken met Azure Active Directory in een paar minuten!  De portal voor ontwikkelaars leidt u door het proces van registreren van een app en Azure AD integreren in uw code.  Wanneer u klaar bent, hebt u een eenvoudige toepassing die gebruikers in uw tenant en een back-end die kunnen tokens accepteren en gevalideerd kan worden geverifieerd. 
 > 
 > 
 
-Azure Active Directory (Azure AD) biedt Hallo Active Directory Authentication Library of ADAL voor iOS-clients hebt die tooaccess moeten bronnen beveiligde. ADAL eenvoudiger Hallo dat uw app gebruikmaakt van tooobtain toegangstokens. toodemonstrate hoe eenvoudig het is in dit artikel wordt een takenlijst Objective-C-toepassing bouwt die:
+Azure Active Directory (Azure AD) biedt de Active Directory Authentication Library of ADAL voor iOS-clients die toegang moeten krijgen tot beveiligde bronnen. ADAL vereenvoudigt het proces dat uw app gebruikmaakt van toegangstokens te verkrijgen. Om te demonstreren hoe eenvoudig het is, in dit artikel gaan we verder met een takenlijst Objective-C-toepassing die:
 
-* Krijgt toegang tot tokens voor hello Azure AD Graph API aanroept met behulp van Hallo [OAuth 2.0-verificatieprotocol](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+* Krijgt toegang tot tokens voor de Azure AD Graph-API aanroept met behulp van de [OAuth 2.0-verificatieprotocol](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 * Zoekt een directory voor gebruikers met een alias voor een gegeven.
 
-toobuild hello volledige werkende toepassing, moet u:
+De volledige werkende toepassing bouwen, moet u:
 
 1. Uw toepassing registreren met Azure AD.
 2. Installeren en configureren van ADAL.
-3. Gebruik ADAL tooget tokens van Azure AD.
+3. ADAL gebruikt om tokens van Azure AD.
 
-tooget gestart, [Hallo app basisproject downloaden](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) of [Hallo voltooid voorbeeld downloaden](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). U moet ook een Azure AD-tenant kunt u gebruikers maken en een toepassing registreren. Als u niet al een tenant [meer informatie over hoe tooget een](active-directory-howto-tenant.md).
+Aan de slag [de basis van de app downloaden](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) of [het voltooide voorbeeld downloaden](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). U moet ook een Azure AD-tenant kunt u gebruikers maken en een toepassing registreren. Als u niet al een tenant [Lees hoe u een](active-directory-howto-tenant.md).
 
 
 > [!TIP]
-> Hallo Preview-versie van onze nieuwe [ontwikkelaarsportal](https://identity.microsoft.com/Docs/iOS) waarmee u leren werken met Azure AD in een paar minuten. Hallo-portal voor ontwikkelaars leidt u door het Hallo-proces voor het registreren van een app en Azure AD integreren in uw code. Wanneer u klaar bent, hebt u een eenvoudige toepassing die u kunt verificatie van gebruikers in uw tenant en een back-endnetwerk, kan tokens accepteren en valideren. 
+> Deze Preview-versie van onze nieuwe [ontwikkelaarsportal](https://identity.microsoft.com/Docs/iOS) waarmee u leren werken met Azure AD in een paar minuten. De portal voor ontwikkelaars leidt u door het proces van registreren van een app en Azure AD integreren in uw code. Wanneer u klaar bent, hebt u een eenvoudige toepassing die u kunt verificatie van gebruikers in uw tenant en een back-endnetwerk, kan tokens accepteren en valideren. 
 > 
 > 
 
 ## <a name="1-determine-what-your-redirect-uri-is-for-ios"></a>1. Bepalen welke uw omleidings-URI voor iOS is
-toosecurely start uw toepassingen in bepaalde gevallen SSO, moet u een *omleidings-URI* in een bepaalde opmaak. Een omleidings-URI is gebruikte tooensure die Hallo tokens return toohello juiste toepassing die voor hen gevraagd.
+U start uw toepassingen veilig in bepaalde SSO-scenario's, moet u een *omleidings-URI* in een bepaalde opmaak. Een omleidings-URI wordt gebruikt om ervoor te zorgen dat de tokens terugkeren naar de juiste toepassing die voor hen gevraagd.
 
 
-Hallo iOS-indeling voor een omleidings-URI is:
+De iOS-indeling voor een omleidings-URI is:
 
 ```
 <app-scheme>://<bundle-id>
 ```
 
 * **App-schema** -dit is geregistreerd in uw XCode-project. Het is hoe andere toepassingen u kunnen aanroepen. U vindt dit onder Info.plist -> URL typen-URL-id >. Als u nog een of meer geconfigureerd hebt, moet u een maken.
-* **bundel-id** -dit is bundel-id vinden onder 'id' hello ongedaan maken de projectinstellingen van uw in XCode.
+* **bundel-id** -dit is de bundel-id vinden onder 'id' ongedaan maken de projectinstellingen van uw in XCode.
 
 Een voorbeeld van deze Quick Start-code: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
-## <a name="2-register-hello-directorysearcher-application"></a>2. Hallo DirectorySearcher toepassing registreren
-tooset van uw app-tokens tooget, moet u eerst tooregister in uw Azure AD-tenant en verleen deze machtiging tooaccess hello Azure AD Graph API:
+## <a name="2-register-the-directorysearcher-application"></a>2. De toepassing DirectorySearcher registreren
+Als u uw app om op te halen van tokens instelt, moet u eerst registreren in uw Azure AD-tenant en verleent deze machtiging voor toegang tot de Azure AD Graph API:
 
-1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
-2. Klik op de bovenste balk hello, uw account. Onder Hallo **Directory** Hallo Active Directory-tenant waar u tooregister Kies uw toepassing.
-3. Klik op **meer Services** in Hallo meest linkse navigatievenster en selecteer vervolgens **Azure Active Directory**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Klik op uw account op de bovenste balk. Onder de **Directory** kiest u de Active Directory-tenant waar u uw toepassing registreren.
+3. Klik op **meer Services** in de meest linkse navigatievenster en selecteer vervolgens **Azure Active Directory**.
 4. Klik op **App registraties**, en selecteer vervolgens **toevoegen**.
-5. Ga als volgt Hallo vraagt toocreate een nieuwe **systeemeigen clienttoepassing**.
-  * Hallo **naam** Hallo toepassing beschrijving van uw toepassing tooend gebruikers.
-  * Hallo **omleidings-Uri** is een schema en de tekenreeks combinatie dat gebruikmaakt van Azure AD tooreturn token antwoorden.  Voer een waarde die specifieke tooyour toepassing is en is gebaseerd op Hallo vorige omleidings-URI informatie.
-6. Nadat u Hallo-registratie hebt voltooid, wijst Azure AD van uw app een unieke toepassings-ID.  U moet deze waarde in de volgende secties hello, dus kopieer het van Hallo toepassingstabblad.
-7. Van Hallo **instellingen** pagina **Required Permissions** en selecteer vervolgens **toevoegen**. Selecteer **Microsoft Graph** zoals Hallo API, en voeg vervolgens Hallo **Directory-gegevens lezen** machtiging onder **gedelegeerde machtigingen**.  Hiermee stelt u uw toepassing tooquery hello Azure AD Graph API voor gebruikers.
+5. Volg de aanwijzingen voor het maken van een nieuwe **systeemeigen clienttoepassing**.
+  * De **naam** beschrijving van de toepassing van uw toepassing aan eindgebruikers.
+  * De **omleidings-Uri** is een combinatie schema en de tekenreeks die gebruikmaakt van Azure AD token antwoorden retourneren.  Voer een waarde die specifiek is voor uw toepassing en is gebaseerd op de vorige omleidings-URI-gegevens.
+6. Nadat u de registratie hebt voltooid, wijst Azure AD van uw app een unieke toepassings-ID.  U moet deze waarde in de volgende secties, dus kopiëren vanaf het toepassingstabblad.
+7. Van de **instellingen** pagina **Required Permissions** en selecteer vervolgens **toevoegen**. Selecteer **Microsoft Graph** als de API en voeg vervolgens de **Directory-gegevens lezen** machtiging onder **gedelegeerde machtigingen**.  Hiermee stelt u uw toepassing query uitvoeren op de Azure AD Graph API voor gebruikers.
 
 ## <a name="3-install-and-configure-adal"></a>3. Installeren en configureren van ADAL
-Nu dat u een toepassing in Azure AD hebt, kunt u ADAL installeert en uw identiteitsgerelateerde code schrijven.  ADAL toocommunicate met Azure AD, moet u tooprovide met enige informatie over de registratie van uw app.
+Nu dat u een toepassing in Azure AD hebt, kunt u ADAL installeert en uw identiteitsgerelateerde code schrijven.  Voor ADAL om te communiceren met Azure AD, moet u voorzien enige informatie over de registratie van uw app.
 
-1. Beginnen met het toevoegen van ADAL toohello DirectorySearcher project via CocoaPods.
+1. Beginnen met het ADAL toevoegen aan het project DirectorySearcher via CocoaPods.
 
     ```
     $ vi Podfile
     ```
-2. Hallo toothis podfile volgende toevoegen:
+2. Voeg het volgende aan de podfile toe:
 
     ```
     source 'https://github.com/CocoaPods/Specs.git'
@@ -94,7 +94,7 @@ Nu dat u een toepassing in Azure AD hebt, kunt u ADAL installeert en uw identite
     pod 'ADALiOS'
     ```
 
-3. Nu laden Hallo podfile via CocoaPods. Deze stap maakt een nieuwe XCode-werkruimte die u hebt geladen.
+3. Nu de podfile laden via CocoaPods. Deze stap maakt een nieuwe XCode-werkruimte die u hebt geladen.
 
     ```
     $ pod install
@@ -102,15 +102,15 @@ Nu dat u een toepassing in Azure AD hebt, kunt u ADAL installeert en uw identite
     $ open QuickStart.xcworkspace
     ```
 
-4. Open Hallo plist-bestand in Hallo Quick Start-project, `settings.plist`.  Vervang de waarden Hallo Hallo-elementen in Hallo sectie tooreflect Hallo waarden die u hebt ingevoerd in hello Azure-portal. Uw code verwijst naar deze waarden wanneer deze gebruikmaakt van ADAL.
-  * Hallo `tenant` Hallo domein van uw Azure AD-tenant, bijvoorbeeld: contoso.onmicrosoft.com.
-  * Hallo `clientId` Hallo client-ID van uw toepassing die u hebt gekopieerd uit de portal Hallo is.
-  * Hallo `redirectUri` Hallo Omleidings-URL die u hebt geregistreerd in de portal Hallo is.
+4. Open het plist-bestand in de Quick Start-project `settings.plist`.  Vervang de waarden van de elementen in de sectie in overeenstemming met de waarden die u hebt ingevoerd in de Azure-portal. Uw code verwijst naar deze waarden wanneer deze gebruikmaakt van ADAL.
+  * De `tenant` is het domein van uw Azure AD-tenant, bijvoorbeeld: contoso.onmicrosoft.com.
+  * De `clientId` is de client-ID van uw toepassing die u hebt gekopieerd uit de portal.
+  * De `redirectUri` is de omleidings-URL die u hebt geregistreerd in de portal.
 
-## <a name="4----use-adal-tooget-tokens-from-azure-ad"></a>4.    Gebruik van ADAL tooget tokens van Azure AD
-Hallo basisprincipe achter ADAL is dat wanneer uw app een toegangstoken moet, een completionBlock aanroept `+(void) getToken : `, en ADAL Hallo rest.  
+## <a name="4----use-adal-to-get-tokens-from-azure-ad"></a>4.    Gebruikmaken van ADAL voor het ophalen van tokens van Azure AD
+Het basisprincipe achter ADAL is dat wanneer uw app een toegangstoken moet, een completionBlock aanroept `+(void) getToken : `, en doet de rest van ADAL.  
 
-1. In Hallo `QuickStart` project, open `GraphAPICaller.m` en zoek Hallo `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` Opmerking bij Hallo bovenkant.  Dit is waar u doorgeven ADAL Hallo coördinaten via een CompletionBlock, toocommunicate met Azure AD en meer over toocache tokens.
+1. In de `QuickStart` project, open `GraphAPICaller.m` en zoek de `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` opmerking aan de bovenkant.  Dit is waar het doorgeven van ADAL de coördinaten via een CompletionBlock, om te communiceren met Azure AD en hoe deze tokens in de cache.
 
     ```ObjC
     +(void) getToken : (BOOL) clearCache
@@ -134,7 +134,7 @@ Hallo basisprincipe achter ADAL is dat wanneer uw app een toegangstoken moet, ee
                                   redirectUri:redirectUri
                                promptBehavior:AD_PROMPT_AUTO
                                        userId:data.userItem.userInformation.userId
-                        extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy toodisplay hello correct mobile UX. You most likely won't need it in your code.
+                        extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
                              completionBlock:^(ADAuthenticationResult *result) {
 
                                   if (result.status != AD_SUCCEEDED)
@@ -151,7 +151,7 @@ Hallo basisprincipe achter ADAL is dat wanneer uw app een toegangstoken moet, ee
 
     ```
 
-2. Er moet nu toouse dit token toosearch voor gebruikers in het Hallo-grafiek. Hallo zoeken `// TODO: implement SearchUsersList` opmerking. Deze methode maakt een GET-aanvraag toohello Azure AD Graph API tooquery voor gebruikers wiens UPN met de Hallo zoekterm opgegeven begint.  tooquery hello Azure AD Graph API, moet u een access_token in Hallo tooinclude `Authorization` koptekst van Hallo-aanvraag. Dit is waar de ADAL wordt geleverd.
+2. Nu moet dit token gebruiken om te zoeken naar gebruikers in de grafiek. Zoek de `// TODO: implement SearchUsersList` opmerking. Deze methode maakt een GET-aanvraag voor Azure AD Graph API aan query voor gebruikers wiens UPN met de opgegeven zoekterm begint.  Om te vragen van de Azure AD Graph API, moet u een access_token in de `Authorization` koptekst van de aanvraag. Dit is waar de ADAL wordt geleverd.
 
     ```ObjC
     +(void) searchUserList:(NSString*)searchString
@@ -186,10 +186,10 @@ Hallo basisprincipe achter ADAL is dat wanneer uw app een toegangstoken moet, ee
 
                          NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 
-                         // We can grab hello JSON node at hello top tooget our graph data.
+                         // We can grab the JSON node at the top to get our graph data.
                          NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
 
-                         // Don't be thrown off by hello key name being "value". It really is hello name of the
+                         // Don't be thrown off by the key name being "value". It really is the name of the
                          // first node. :-)
 
                          // Each object is a key value pair
@@ -223,25 +223,25 @@ Hallo basisprincipe achter ADAL is dat wanneer uw app een toegangstoken moet, ee
     ```
 
 
-3. Wanneer uw app een token aanvragen door het aanroepen van `getToken(...)`, ADAL probeert een token tooreturn zonder Hallo gebruiker wordt gevraagd om referenties.  Als ADAL dat die gebruiker Hallo moet toosign in een token tooget vaststelt, wordt deze weergegeven in het dialoogvenster voor aanmelding, Hallo gebruikersreferenties verzamelen en retourneert een token na een geslaagde authenticatie.  Als ADAL niet kunnen tooreturn een token voor een bepaalde reden, genereert een `AdalException`.
+3. Wanneer uw app een token aanvragen door het aanroepen van `getToken(...)`, ADAL probeert te retourneren van een token zonder dat de gebruiker om referenties gevraagd.  Als ADAL wordt vastgesteld dat de gebruiker zich aanmelden moet bij een token verkrijgen, wordt deze weergegeven in het dialoogvenster voor aanmelding, verzamelen van referenties van de gebruiker en retourneert een token na een geslaagde authenticatie.  Als ADAL niet kan worden geretourneerd van een token voor een bepaalde reden, genereert een `AdalException`.
 
 > [!Note] 
-> Hallo `AuthenticationResult` object bevat een `tokenCacheStoreItem` -object dat kan worden gebruikt toocollect Hallo informatie die uw app mogelijk nodig. In de Quick Start, Hallo `tokenCacheStoreItem` gebruikte toodetermine is als verificatie is al voltooid.
+> De `AuthenticationResult` object bevat een `tokenCacheStoreItem` -object dat kan worden gebruikt voor het verzamelen van de informatie die uw app mogelijk nodig. In de snelstartgids `tokenCacheStoreItem` wordt gebruikt om te bepalen of de verificatie al wordt uitgevoerd.
 >
 >
 
-## <a name="5-build-and-run-hello-application"></a>5. Hallo-toepassing bouwen en uitvoeren
-Gefeliciteerd. U hebt nu een werkende iOS-toepassing kunt verificatie van gebruikers, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en basisinformatie over Hallo gebruiker ophalen.  Als u nog niet gedaan hebt, is nu Hallo tijd toopopulate uw tenant waarbij sommige gebruikers.  Start uw app Quick Start en vervolgens weer aanmelden met een van deze gebruikers.  Zoeken naar andere gebruikers op basis van de UPN.  Hallo-app sluiten en opnieuw starten.  U ziet dat Hallo gebruikerssessie intact blijft.
+## <a name="5-build-and-run-the-application"></a>5. De toepassing bouwen en uitvoeren.
+Gefeliciteerd. U hebt nu een werkende iOS-toepassing kunt verificatie van gebruikers, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en algemene informatie over de gebruiker ophalen.  Als u nog niet gedaan hebt, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers.  Start uw app Quick Start en vervolgens weer aanmelden met een van deze gebruikers.  Zoeken naar andere gebruikers op basis van de UPN.  Sluit de app en start het opnieuw.  U ziet dat de gebruikerssessie intact blijft.
 
-ADAL maakt het eenvoudig tooincorporate al deze algemene identiteit functies in uw toepassing.  Dit zorgt voor alle Hallo dirty werk voor u, zoals het Cachebeheer van de OAuth-protocolondersteuning, Hallo-gebruiker met een gebruikersinterface toosign in presenteren en vernieuwen van tokens verlopen.  Alles wat u moet tooknow één API-aanroep is `getToken`.
+ADAL kunt eenvoudig gebruikmaken van al deze algemene identiteit functies in uw toepassing.  Dit zorgt voor al het werk dirty voor u, zoals het Cachebeheer van de OAuth-protocolondersteuning, dat de gebruiker een gebruikersinterface aan te melden, en vernieuwen van tokens verlopen.  Alles wat u moet weten één API-aanroep is `getToken`.
 
-Ter referentie: Hallo voltooid voorbeeld (zonder uw configuratiewaarden) wordt aangeboden op [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
+Voor een verwijzing naar het voltooide voorbeeld (zonder uw configuratiewaarden) wordt aangeboden op [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt nu verplaatsen op tooadditional scenario's.  U kunt tootry:
+U kunt nu verder met aanvullende scenario's.  U wilt proberen:
 
 * [Een Node.JS-Web-API met Azure AD beveiligen](active-directory-devquickstarts-webapi-nodejs.md)
-* Meer informatie over [hoe tooenable SSO cross-app voor iOS met ADAL](active-directory-sso-ios.md)  
+* Meer informatie over [het inschakelen van eenmalige aanmelding voor cross-app voor iOS met ADAL](active-directory-sso-ios.md)  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 

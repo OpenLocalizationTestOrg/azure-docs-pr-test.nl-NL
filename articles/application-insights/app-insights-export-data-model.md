@@ -1,5 +1,5 @@
 ---
-title: Application Insights-gegevensmodel aaaAzure | Microsoft Docs
+title: Azure Application Insights-gegevensmodel | Microsoft Docs
 description: "Beschrijft de eigenschappen van continue export in de JSON geëxporteerd en gebruikt als filters."
 services: application-insights
 documentationcenter: 
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: bwren
-ms.openlocfilehash: 5ff3ce7953b91cc69b5d96c0ea9b6d58a6016e61
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a485ddd555f65473d81896effc4a3562bda71410
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights Export-gegevensmodel
-Deze tabel bevat de eigenschappen van telemetrie vanaf Hallo verzonden Hallo [Application Insights](app-insights-overview.md) SDK's toohello portal.
+Deze tabel bevat de eigenschappen van telemetrie verzonden vanaf de [Application Insights](app-insights-overview.md) SDK's naar de portal.
 Ziet u deze eigenschappen in de gegevensuitvoer van [continue Export](app-insights-export-telemetry.md).
 Ze worden ook weergegeven in de eigenschappenfilters in [metriek Explorer](app-insights-metrics-explorer.md) en [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md).
 
-Toonote punten:
+Verwijst naar Let op:
 
-* `[0]`in deze tabellen geeft een punt in Hallo pad op naar waar u tooinsert een index; maar het is niet altijd 0.
+* `[0]`Geeft een punt in het pad waar u moet een index; invoegen in deze tabellen. maar het is niet altijd 0.
 * Tijdsduren zijn in tienden van een microseconden, dus 10000000 == 1 seconde.
-* Datums en tijden UTC zijn en worden gegeven in Hallo ISO-indeling`yyyy-MM-DDThh:mm:ss.sssZ`
+* Datums en tijden UTC zijn en zijn opgegeven in de ISO-indeling`yyyy-MM-DDThh:mm:ss.sssZ`
 
 
 ## <a name="example"></a>Voorbeeld
@@ -41,15 +41,15 @@ Toonote punten:
           "base": "/",
           "hashTag": ""
         },
-        "responseCode": 200, // Sent tooclient
+        "responseCode": 200, // Sent to client
         "success": true, // Default == responseCode<400
-        // Request id becomes hello operation id of child events
+        // Request id becomes the operation id of child events
         "id": "fCOhCdCnZ9I=",  
         "name": "GET Home/Index",
         "count": 1, // 100% / sampling rate
         "durationMetric": {
           "value": 1046804.0, // 10000000 == 1 second
-          // Currently hello following fields are redundant:
+          // Currently the following fields are redundant:
           "count": 1.0,
           "min": 1046804.0,
           "max": 1046804.0,
@@ -75,14 +75,14 @@ Toonote punten:
       "location": { // derived from client ip
         "continent": "North America",
         "country": "United States",
-        // last octagon is anonymized too0 at portal:
+        // last octagon is anonymized to 0 at portal:
         "clientip": "168.62.177.0",
         "province": "",
         "city": ""
       },
       "data": {
         "isSynthetic": true, // we identified source as a bot
-        // percentage of generated data sent tooportal:
+        // percentage of generated data sent to portal:
         "samplingRate": 100.0,
         "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
       },
@@ -116,11 +116,11 @@ Alle typen telemetrie vergezeld gaan van een sectie context. Niet al deze velden
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
-| context.Custom.Dimensions [0] |object] |Tekenreeks van sleutel / waarde-paren ingesteld door aangepaste eigenschappen-parameter. Maximale sleutellengte 100, waarden voor de maximale lengte van 1024. Meer dan 100 unieke waarden, het Hallo-eigenschap kan worden doorzocht, maar kan niet worden gebruikt voor de segmentering. Maximaal 200 sleutels per ikey. |
+| context.Custom.Dimensions [0] |object] |Tekenreeks van sleutel / waarde-paren ingesteld door aangepaste eigenschappen-parameter. Maximale sleutellengte 100, waarden voor de maximale lengte van 1024. Meer dan 100 unieke waarden, de eigenschap kan worden doorzocht, maar kan niet worden gebruikt voor de segmentering. Maximaal 200 sleutels per ikey. |
 | context.Custom.metrics [0] |object] |Sleutel-waardeparen ingesteld door de parameter aangepaste metingen en TrackMetrics. Maximale sleutellengte 100 waarden mogen alleen cijfers bevatten. |
 | context.data.eventTime |Tekenreeks |UTC |
-| context.data.isSynthetic |Booleaanse waarde |Aanvraag weergegeven toocome geopend met een bot of web-test. |
-| context.data.samplingRate |Aantal |Percentage van de telemetrie die is gegenereerd door Hallo-SDK die tooportal wordt verzonden. Het bereik 0,0 100,0. |
+| context.data.isSynthetic |Booleaanse waarde |Er verschijnt een aanvraag afkomstig zijn van een bot of web-test. |
+| context.data.samplingRate |Aantal |Percentage van de telemetrie die is gegenereerd door de SDK die wordt verzonden naar de portal. Het bereik 0,0 100,0. |
 | context.Device |object |Client-apparaat |
 | context.Device.browser |Tekenreeks |IE, Chrome... |
 | context.device.browserVersion |Tekenreeks |Chrome 48,0... |
@@ -136,14 +136,14 @@ Alle typen telemetrie vergezeld gaan van een sectie context. Niet al deze velden
 | context.Device.type |Tekenreeks |PC, Browser... |
 | context.Location |object |Client-IP is afgeleid. |
 | context.Location.City |Tekenreeks |Afgeleid van de client-IP, indien bekend |
-| context.Location.clientip |Tekenreeks |Laatste achthoek is geanonimiseerde too0. |
+| context.Location.clientip |Tekenreeks |Laatste achthoek is geanonimiseerde op 0. |
 | context.Location.continent |Tekenreeks | |
 | context.Location.Country |Tekenreeks | |
 | context.Location.Province |Tekenreeks |Provincie |
-| context.Operation.id |Tekenreeks |Items die dezelfde bewerking-id als betrokken Items worden weergegeven in de portal Hallo Hallo hebben. Meestal Hallo aanvraag-id. |
+| context.Operation.id |Tekenreeks |Items die dezelfde bewerking-id worden als betrokken Items in de portal weergegeven. Meestal de aanvraag-id. |
 | context.Operation.name |Tekenreeks |URL of de aanvraag |
 | context.operation.parentId |Tekenreeks |Kan geneste verwante items. |
-| context.Session.id |Tekenreeks |Id van een groep van bewerkingen van het Hallo dezelfde bron. Een periode van 30 minuten zonder een bewerking signalen Hallo-end van een sessie. |
+| context.Session.id |Tekenreeks |Id van een groep bewerkingen uit dezelfde bron. Een periode van 30 minuten zonder een bewerking geeft het einde van een sessie. |
 | context.session.isFirst |Booleaanse waarde | |
 | context.user.accountAcquisitionDate |Tekenreeks | |
 | context.user.anonAcquisitionDate |Tekenreeks | |
@@ -165,7 +165,7 @@ Aangepaste gebeurtenissen die worden gegenereerd door [TrackEvent()](app-insight
 | de gebeurtenis [0] urlData.host |Tekenreeks | |
 
 ## <a name="exceptions"></a>Uitzonderingen
-Rapporten [uitzonderingen](app-insights-asp-net-exceptions.md) in Hallo-server en Hallo browser.
+Rapporten [uitzonderingen](app-insights-asp-net-exceptions.md) op de server en in de browser.
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
@@ -194,17 +194,17 @@ Rapporten [uitzonderingen](app-insights-asp-net-exceptions.md) in Hallo-server e
 | typeName basicException [0] |Tekenreeks | |
 
 ## <a name="trace-messages"></a>Traceringsberichten
-Verzonden door [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace), en door Hallo [logboekregistratie adapters](app-insights-asp-net-trace-logs.md).
+Verzonden door [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace), en door de [logboekregistratie adapters](app-insights-asp-net-trace-logs.md).
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
 | Loggernaam bericht [0] |Tekenreeks | |
 | [0]-berichtparameters |Tekenreeks | |
-| onbewerkte bericht [0] |Tekenreeks |Hallo logboekbericht, maximale lengte 10k. |
+| onbewerkte bericht [0] |Tekenreeks |Het logboekbericht maximumlengte 10k. |
 | bericht [0], foutcode |Tekenreeks | |
 
 ## <a name="remote-dependency"></a>Externe afhankelijkheden
-Door TrackDependency verzonden. Gebruikt tooreport prestaties en het gebruik van [toodependencies roept](app-insights-asp-net-dependencies.md) in Hallo-server en AJAX-aanroepen in Hallo browser.
+Door TrackDependency verzonden. Gebruikt voor het rapportprestaties en het gebruik van [aanroepen van afhankelijkheden](app-insights-asp-net-dependencies.md) in de server en AJAX-aanroepen in de browser.
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
@@ -213,7 +213,7 @@ Door TrackDependency verzonden. Gebruikt tooreport prestaties en het gebruik van
 | commandName remoteDependency [0] |Tekenreeks |Bijvoorbeeld "Start/index" |
 | aantal remoteDependency [0] |geheel getal |100 / ([steekproeven](app-insights-sampling.md) snelheid). Voorbeeld 4 =&gt; 25%. |
 | dependencyTypeName remoteDependency [0] |Tekenreeks |HTTP, SQL... |
-| durationMetric.value remoteDependency [0] |Aantal |Tijd van de aanroep toocompletion van antwoord met afhankelijkheid |
+| durationMetric.value remoteDependency [0] |Aantal |Tijd voor voltooiing van het antwoord van afhankelijkheid aanroep |
 | remoteDependency [0]-id |Tekenreeks | |
 | de naam van de remoteDependency [0] |Tekenreeks |De URL. De maximale lengte 250. |
 | resultCode remoteDependency [0] |Tekenreeks |van afhankelijkheid van HTTP |
@@ -225,15 +225,15 @@ Door TrackDependency verzonden. Gebruikt tooreport prestaties en het gebruik van
 | urlData.host remoteDependency [0] |Tekenreeks |Max. lengte 200 |
 
 ## <a name="requests"></a>Aanvragen
-Verzonden door [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). Standaard Hallo-modules gebruiken deze tooreports serverreactietijd, gemeten op Hallo-server.
+Verzonden door [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). De standaard-modules gebruiken deze om rapporten serverreactietijd, gemeten op de server.
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
 | aantal verzoeken [0] |geheel getal |100 / ([steekproeven](app-insights-sampling.md) snelheid). Bijvoorbeeld: 4 =&gt; 25%. |
-| aanvraag [0] durationMetric.value |Aantal |Tijd van aanvraag binnenkomende tooresponse. 1e7 == 1s |
+| aanvraag [0] durationMetric.value |Aantal |Tijd van aanvraag aan antwoord die binnenkomen. 1e7 == 1s |
 | [0] aanvraag-id |Tekenreeks |Bewerkings-id |
 | de Aanvraagnaam van de [0] |Tekenreeks |GET/POST + url-basis.  Max. lengte 250 |
-| aanvraag [0] responseCode |geheel getal |HTTP-antwoord verzonden tooclient |
+| aanvraag [0] responseCode |geheel getal |HTTP-antwoord verzonden naar client |
 | aanvraag [0] geslaagd |Booleaanse waarde |Standaard == (responseCode &lt; 400) |
 | [0] aanvraag-url |Tekenreeks |Met uitzondering van host |
 | aanvraag [0] urlData.base |Tekenreeks | |
@@ -241,18 +241,18 @@ Verzonden door [TrackRequest](app-insights-api-custom-events-metrics.md#trackreq
 | aanvraag [0] urlData.host |Tekenreeks | |
 
 ## <a name="page-view-performance"></a>Prestaties van paginaweergave
-Door Hallo browser wordt verzonden. Metingen Hallo tijd tooprocess een pagina van de gebruiker gang worden gezet Hallo aanvraag toodisplay voltooid (met uitzondering van asynchrone AJAX-aanroepen).
+Door de browser wordt verzonden. Hiermee wordt de tijdsduur voor het verwerken van een pagina van gebruiker voor het initiëren van de aanvraag om weer te geven (met uitzondering van asynchrone AJAX-aanroepen) voltooid.
 
 Context waarden weergeven clientbesturingssysteem en browserversie.
 
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
-| clientProcess.value clientPerformance [0] |geheel getal |Tijd van einde van het ontvangen van Hallo HTML toodisplaying Hallo-pagina. |
+| clientProcess.value clientPerformance [0] |geheel getal |Tijd van het einde van het ontvangen van de HTML-code op de weergave van de pagina. |
 | de naam van de clientPerformance [0] |Tekenreeks | |
-| networkConnection.value clientPerformance [0] |geheel getal |Gebruikte tijd tooestablish een netwerkverbinding. |
-| receiveRequest.value clientPerformance [0] |geheel getal |De tijd vanaf het einde van het verzenden van Hallo aanvraag tooreceiving Hallo HTML-antwoord. |
-| sendRequest.value clientPerformance [0] |geheel getal |Tijd van genomen toosend Hallo HTTP-aanvraag. |
-| total.value clientPerformance [0] |geheel getal |Tijd van eerste toosend Hallo aanvraag toodisplaying Hallo pagina. |
+| networkConnection.value clientPerformance [0] |geheel getal |De tijd die nodig is voor een netwerkverbinding tot stand brengen. |
+| receiveRequest.value clientPerformance [0] |geheel getal |Tijd van het einde van de aanvraag wordt verzonden naar de HTML-code in antwoord ontvangen. |
+| sendRequest.value clientPerformance [0] |geheel getal |Van tijd die nodig is voor het verzenden van de HTTP-aanvraag. |
+| total.value clientPerformance [0] |geheel getal |Tijd van begint met het verzenden van de aanvraag naar de pagina om weer te geven. |
 | de url clientPerformance [0] |Tekenreeks |URL van deze aanvraag |
 | urlData.base clientPerformance [0] |Tekenreeks | |
 | urlData.hashTag clientPerformance [0] |Tekenreeks | |
@@ -265,7 +265,7 @@ Verzonden door trackPageView() of [stopTrackPage](app-insights-api-custom-events
 | Pad | Type | Opmerkingen |
 | --- | --- | --- |
 | aantal paginaweergaven [0] |geheel getal |100 / ([steekproeven](app-insights-sampling.md) snelheid). Voorbeeld 4 =&gt; 25%. |
-| weergave [0] durationMetric.value |geheel getal |Waarde desgewenst instellen in trackPageView() of startTrackPage() - stopTrackPage(). Hallo niet dezelfde als clientPerformance waarden. |
+| weergave [0] durationMetric.value |geheel getal |Waarde desgewenst instellen in trackPageView() of startTrackPage() - stopTrackPage(). Niet hetzelfde zijn als clientPerformance waarden. |
 | Weergavenaam [0] |Tekenreeks |Titel van de pagina.  Max. lengte 250 |
 | url weergeven [0] |Tekenreeks | |
 | weergave [0] urlData.base |Tekenreeks | |
@@ -294,7 +294,7 @@ Rapporten [webtests voor beschikbaarheid](app-insights-monitor-web-app-availabil
 ## <a name="metrics"></a>Metrische gegevens
 Gegenereerd door TrackMetric().
 
-Hallo metrische waarde is gevonden in context.custom.metrics[0]
+De metrische waarde is gevonden in context.custom.metrics[0]
 
 Bijvoorbeeld:
 
@@ -335,13 +335,13 @@ Metrische waarden, zowel in metrische rapporten en ergens anders worden gemeld m
         "sampledValue": 468.71603053650279
       }
 
-Momenteel - maar dit kan worden gewijzigd in toekomstige - alle waarden die zijn gerapporteerd door Hallo standaard SDK-modules, Hallo `count==1` en alleen Hallo `name` en `value` velden zijn nuttig. Hallo alleen geval waar zij verschillende worden zou zou zijn als u uw eigen aanroepen TrackMetric schrijven in die u Hallo andere parameters instellen.
+Momenteel - maar dit kan worden gewijzigd in de toekomst: bij alle waarden die zijn gerapporteerd door de standaard SDK-modules `count==1` en alleen de `name` en `value` velden zijn nuttig. Het enige geval waar zij verschillende worden zou zou zijn als u uw eigen aanroepen TrackMetric schrijven in waarmee u de andere parameters instellen.
 
-doel Hallo Hallo andere velden tooallow metrische gegevens toobe geaggregeerd in Hallo tooreduce verkeer toohello portal-SDK is. U kan bijvoorbeeld meerdere opeenvolgende metingen gemiddelde voordat elk rapport metrische gegevens worden verzonden. U zou vervolgens Hallo min, max, standaardafwijking en cumulatieve waarde (sum of gemiddelde) berekenen en aantal toohello aantal waarden dat wordt vertegenwoordigd door Hallo rapport instellen.
+Het doel van de andere velden is dat de metrische gegevens worden geaggregeerd in de SDK om verkeer te beperken tot de portal. U kan bijvoorbeeld meerdere opeenvolgende metingen gemiddelde voordat elk rapport metrische gegevens worden verzonden. Vervolgens wilt u de min, max, standaardafwijking en cumulatieve waarde (sum of gemiddelde) berekenen en aantal ingesteld op het aantal waarden dat wordt vertegenwoordigd door het rapport.
 
-In bovenstaande Hallo tabellen, hebben we Hallo zelden gebruikt velden count, min, max, stdDev en sampledValue weggelaten.
+In de tabellen, hebben we de velden zelden gebruikt count, min, max, stdDev en sampledValue weggelaten.
 
-U kunt gebruiken in plaats van vooraf verzamelen meetgegevens [steekproeven](app-insights-sampling.md) als u tooreduce Hallo volume telemetrie nodig.
+U kunt gebruiken in plaats van vooraf verzamelen meetgegevens [steekproeven](app-insights-sampling.md) als u wilt beperken van het volume van telemetrie.
 
 ### <a name="durations"></a>Duur
 Duur worden weergegeven in tienden van een microseconden, tenzij anders vermeld, zodat 10000000.0 betekent 1 seconde dat.

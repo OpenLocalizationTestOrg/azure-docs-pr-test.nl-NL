@@ -1,5 +1,5 @@
 ---
-title: aaa "Azure Batch-pool verwijderen gebeurtenis | Microsoft Docs'
+title: Azure Batch-pool verwijderen gebeurtenis | Microsoft Docs
 description: Naslaginformatie voor Batch-pool gebeurtenis verwijderen.
 services: batch
 author: tamram
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-ms.openlocfilehash: 494c371e48ebfb1bf3d2973a7401829a939ba141
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 890f2ba7fda37060c56177868d6214d517d91831
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="pool-delete-complete-event"></a>Gebeurtenis groep verwijderen
 
  Deze gebeurtenis wordt verzonden wanneer een groep delete-bewerking is voltooid.
 
- Hallo ziet volgende voorbeeld Hallo hoofdtekst van een groep verwijderingsgebeurtenis.
+ Het volgende voorbeeld ziet de hoofdtekst van een groep verwijderingsgebeurtenis.
 
 ```
 {
@@ -34,9 +34,9 @@ ms.lasthandoff: 10/06/2017
 
 |Element|Type|Opmerkingen|
 |-------------|----------|-----------|
-|id|Tekenreeks|Hallo-id van Hallo pool.|
-|startTime|Datum/tijd|Hallo tijd Hallo-groep verwijderen is gestart.|
-|endTime|Datum/tijd|Hallo tijd Hallo-groep verwijderen is voltooid.|
+|id|Tekenreeks|De id van de groep.|
+|startTime|Datum/tijd|De tijd dat de groep verwijderen is gestart.|
+|Eindtijd|Datum/tijd|De tijd de groep verwijderen is voltooid.|
 
 ## <a name="remarks"></a>Opmerkingen
 Zie voor meer informatie over statussen en foutcodes voor de bewerking formaat wijzigen van toepassingen [een adresgroep verwijderen van een account](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).

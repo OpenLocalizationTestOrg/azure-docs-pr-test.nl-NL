@@ -1,6 +1,6 @@
 ---
-title: aaaAzure WCF Relay hybride-toepassing voor on-premises/cloudtoepassing (.NET) | Microsoft Docs
-description: Meer informatie over hoe toocreate een .NET on-premises/cloudtoepassing met Azure WCF Relay hybride-toepassing.
+title: Hybride on-premises/cloudtoepassing (.NET) met Azure WCF Relay | Microsoft Docs
+description: Informatie over het maken van een hybride .NET-on-premises-+/cloudtoepassing met Azure WCF Relay.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
@@ -14,78 +14,78 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: sethm
-ms.openlocfilehash: aab8b1dbdc85c4edf7b0ccef0921b69524b2d306
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d15c30dad9fb4bbe9082d6a3c72cd20ed42bbc3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Hybride .NET on-premises/cloudtoepassing met Azure WCF Relay
 ## <a name="introduction"></a>Inleiding
 
-Dit artikel laat zien hoe toobuild een hybride cloud-toepassing met Microsoft Azure en Visual Studio. Hallo-zelfstudie wordt ervan uitgegaan dat u hebt geen ervaring met Azure. In minder dan 30 minuten hebt u een toepassing die meerdere Azure-resources maakt het gebruik van en uitgevoerd in de cloud Hallo.
+In dit artikel wordt beschreven hoe u een hybride cloudtoepassing opbouwt met Microsoft Azure en Visual Studio. Bij deze zelfstudie wordt ervan uitgegaan dat u nog geen ervaring hebt met Azure. In minder dan 30 minuten beschikt u over een toepassing die meerdere Azure-resources gebruikt en wordt uitgevoerd in de cloud.
 
 U leert:
 
-* Hoe toocreate of een bestaande webservice voor verbruik door een weboplossing aanpassen.
-* Hoe toouse hello Azure WCF Relay-service tooshare gegevens tussen een Azure-toepassing en een webservice die elders wordt gehost.
+* Een bestaande webservice voor verbruik door een weboplossing maken of aanpassen.
+* De Azure WCF Relay-service gebruiken voor het delen van gegevens tussen een Azure-toepassing en een webservice die ergens anders wordt gehost.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Hoe Azure hulp biedt bij hybride oplossingen
 
-Bedrijfsoplossingen bestaan meestal uit een combinatie van aangepaste code geschreven tootackle nieuwe en unieke zakelijke vereisten en bestaande functionaliteit van oplossingen en systemen die al aanwezig zijn.
+Bedrijfsoplossingen bestaan meestal uit een combinatie van aangepaste code die is geschreven voor nieuwe en unieke zakelijke vereisten en bestaande functionaliteit van oplossingen en systemen die al aanwezig zijn.
 
-Oplossingsarchitecten begint toouse Hallo cloud om gemakkelijk aan schaalvereisten te voldoen en operationele kosten te verlagen. Hierbij vinden ze dat bestaande serviceassets die ze graag tooleverage als bouwstenen voor hun oplossingen in de bedrijfsfirewall Hallo en niet gemakkelijk zijn bereikbaar zijn voor Hallo cloudoplossing. Veel interne services zijn niet gemaakt of gehost op een manier die ze eenvoudig kunnen worden blootgesteld aan de rand van Hallo bedrijfsnetwerk.
+Oplossingsarchitecten gaan nu vaak over op de cloud om gemakkelijk aan schaalvereisten te voldoen en operationele kosten te verlagen. Ze ondervinden dan dat bestaande serviceassets die ze willen gebruiken als bouwstenen voor hun oplossingen, zich binnen de firewall van het bedrijf bevinden en niet gemakkelijk bereikbaar zijn voor de cloudoplossing. Veel interne services worden niet zo gemaakt of gehost dat ze gemakkelijk beschikbaar kunnen worden gemaakt aan de rand van het bedrijfsnetwerk.
 
-[Azure Relay](https://azure.microsoft.com/services/service-bus/) is ontworpen voor Hallo gebruikstoepassing waarbij bestaande webservices van Windows Communication Foundation (WCF) en zodat deze veilig toegankelijk toosolutions die zich buiten de bedrijfsperimeter Hallo zonder services Tussenkomende wijzigingen toohello bedrijfsnetwerkinfrastructuur. Dergelijke relay-services worden nog steeds gehost binnen hun bestaande omgeving, maar ze dragen het luisteren naar binnenkomende sessies en aanvragen toohello cloud-gebaseerde relay-service. Ook beveiligt Azure Relay deze services tegen onbevoegde toegang door [SAS (Shared Access Signature)](../service-bus-messaging/service-bus-sas.md)-verificatie te gebruiken.
+[Azure Relay](https://azure.microsoft.com/services/service-bus/) is bedoeld voor de gebruikstoepassing waarbij bestaande WCF-webservices (Windows Communication Foundation) veilig toegankelijk worden gemaakt voor oplossingen die zich buiten de bedrijfsperimeter bevinden, zonder dat er hiervoor tussenkomende wijzigingen in de infrastructuur van een bedrijfsnetwerk nodig zijn. Dergelijke relayservices worden nog steeds gehost binnen hun bestaande omgeving, maar ze dragen het luisteren naar binnenkomende sessies en aanvragen over aan de relayservice in de cloud. Ook beveiligt Azure Relay deze services tegen onbevoegde toegang door [SAS (Shared Access Signature)](../service-bus-messaging/service-bus-sas.md)-verificatie te gebruiken.
 
 ## <a name="solution-scenario"></a>Oplossingsscenario
-In deze zelfstudie maakt u een ASP.NET-website waarmee u een lijst met producten op Hallo inventaris productpagina toosee.
+In deze zelfstudie maakt u een ASP.NET-website waarmee u een lijst met producten op de pagina met de productinventaris kunt bekijken.
 
 ![][0]
 
-Hallo-zelfstudie wordt ervan uitgegaan dat u productgegevens in een bestaande on-premises systeem hebt en maakt gebruik van Azure Relay tooreach dat systeem. Dit wordt gesimuleerd door een webservice die in een eenvoudige consoletoepassing wordt uitgevoerd en wordt ondersteund door een set producten in het geheugen. U kunt toorun deze consoletoepassing op uw eigen computer en Hallo Webrol in Azure implementeert. Doet, ziet u hoe Hallo Webrol uitgevoerd in de Azure-datacenter Hallo inderdaad wordt gebeld op uw computer, ondanks dat de computer bijna zeker achter ten minste één firewall en een network address translation (NAT) laag blijven staan.
+In de zelfstudie wordt ervan uitgegaan dat u productgegevens in een bestaand on-premises systeem hebt en wordt Azure Relay gebruikt om dat systeem te bereiken. Dit wordt gesimuleerd door een webservice die in een eenvoudige consoletoepassing wordt uitgevoerd en wordt ondersteund door een set producten in het geheugen. U kunt deze consoletoepassing op uw eigen computer uitvoeren en de webrol in Azure implementeren. Als u dit doet, ziet u hoe de webrol die in het Azure-datacenter wordt uitgevoerd inderdaad uw computer aanroept, ondanks dat de computer bijna zeker achter ten minste één firewall en een NAT-laag (Network Address Translation) blijft.
 
-## <a name="set-up-hello-development-environment"></a>Hallo-ontwikkelomgeving instellen
+## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
 
-Voordat u kunt Azure-toepassingen te ontwikkelen, Hallo-hulpprogramma's downloaden en uw ontwikkelomgeving instellen:
+Voordat u Azure-toepassingen kunt ontwikkelen, dient u de hulpprogramma's te downloaden en uw ontwikkelomgeving in te stellen:
 
-1. Installeer hello Azure SDK voor .NET via Hallo SDK [pagina downloads](https://azure.microsoft.com/downloads/).
-2. In Hallo **.NET** kolom, klikt u op Hallo-versie van [Visual Studio](http://www.visualstudio.com) u gebruikt. Hallo stappen in deze zelfstudie Gebruik Visual Studio 2015, maar ze werken ook met Visual Studio 2017.
-3. Wanneer u daarom wordt gevraagd toorun of Hallo installatieprogramma opslaat, klikt u op **uitvoeren**.
-4. In Hallo **Web Platform Installer**, klikt u op **installeren** te gaan met Hallo-installatie.
-5. Zodra Hallo-installatie voltooid is, hebt u alles wat u nodig toostart toodevelop Hallo app. Hallo SDK bevat hulpprogramma's waarmee u eenvoudig Azure toepassingen ontwikkelen in Visual Studio.
+1. Installeer de Azure-SDK voor .NET via de [pagina met downloads](https://azure.microsoft.com/downloads/) voor SDK.
+2. Klik in de kolom **.NET** op de versie van [Visual Studio](http://www.visualstudio.com) die u gebruikt. In de stappen in deze zelfstudie wordt Visual Studio 2015 gebruikt, maar ze werken ook met Visual Studio 2017.
+3. Klik op **Uitvoeren** wanneer u wordt gevraagd of u het installatieprogramma wilt uitvoeren of opslaan.
+4. Klik in het **webplatforminstallatieprogramma** op **Installeren** om door te gaan met de installatie.
+5. Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio.
 
 ## <a name="create-a-namespace"></a>Een naamruimte maken
 
-met behulp van toobegin Hallo relay-functies in Azure, moet u eerst een Servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Azure-resources in uw toepassing. Ga als volgt Hallo [hier instructies](relay-create-namespace-portal.md) toocreate een Relay-naamruimte.
+Als u de relayfuncties in Azure wilt gebruiken, moet u eerst een servicenaamruimte maken. Een naamruimte biedt een scoping container voor het verwerken van Azure-resources in uw toepassing. Volg [deze instructies](relay-create-namespace-portal.md) om een Relay-naamruimte te maken.
 
 ## <a name="create-an-on-premises-server"></a>Een on-premises server maken
 
-U bouwt eerst een on-premises (model)systeem voor de productcatalogus op. Dit is redelijk eenvoudig; u kunt dit zien als het representeren van een werkelijk on-premises productcatalogussysteem met een volledige serviceoppervlak dat we toointegrate proberen.
+U bouwt eerst een on-premises (model)systeem voor de productcatalogus op. Dit is redelijk eenvoudig; u kunt dit zien als het representeren van een werkelijk on-premises productcatalogussysteem met een volledige serviceoppervlak dat we proberen te integreren.
 
-Dit project is een Visual Studio-consoletoepassing en gebruikt Hallo [Azure Service Bus NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) tooinclude Hallo Service Bus-bibliotheken en configuratie-instellingen.
+Dit project is een Visual Studio-consoletoepassing en gebruikt het [Azure Service Bus NuGet-pakket](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) om de Service Bus-bibliotheken en configuratie-instellingen op te nemen.
 
-### <a name="create-hello-project"></a>Hallo-project maken
+### <a name="create-the-project"></a>Het project maken
 
-1. Start Microsoft Visual Studio met administratorbevoegdheden. toodo dus programmapictogram Hallo-Visual Studio met de rechtermuisknop op en klik vervolgens op **als administrator uitvoeren**.
-2. In Visual Studio op Hallo **bestand** menu, klikt u op **nieuw**, en klik vervolgens op **Project**.
-3. Klik bij **Geïnstalleerde sjablonen**, onder **Visual C#**, op **Consoletoepassing (.NET Framework)**. In Hallo **naam** vak, Hallo typenaam **ProductsServer**:
+1. Start Microsoft Visual Studio met administratorbevoegdheden. Om dit te doen, klikt u met de rechtermuisknop op het pictogram van het Visual Studio-programma en vervolgens op **Als administrator uitvoeren**.
+2. Klik in het menu **Bestand** van Visual Studio op **Nieuw** en klik vervolgens op **Project**.
+3. Klik bij **Geïnstalleerde sjablonen**, onder **Visual C#**, op **Consoletoepassing (.NET Framework)**. Typ in het vak **Naam** de naam **ProductsServer**:
 
    ![][11]
-4. Klik op **OK** toocreate hello **ProductsServer** project.
-5. Als u Hallo NuGet package manager voor Visual Studio al hebt geïnstalleerd, moet u de volgende stap toohello overslaan. Anders gaat u naar [NuGet][NuGet] en klikt u op [NuGet installeren](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Ga als volgt Hallo prompts tooinstall hello NuGet-Pakketbeheer en Visual Studio opnieuw te starten.
-6. Klik in Solution Explorer met de rechtermuisknop op Hallo **ProductsServer** project en klik vervolgens op **NuGet-pakketten beheren**.
-7. Klik op Hallo **Bladeren** tabblad en zoek naar `Microsoft Azure Service Bus`. Selecteer Hallo **WindowsAzure.ServiceBus** pakket.
-8. Klik op **installeren**, en accepteer de gebruiksvoorwaarden Hallo.
+4. Klik op **OK** om het project **ProductsServer** te maken.
+5. Als u NuGet Package Manager voor Visual Studio al hebt geïnstalleerd, slaat u de volgende stap over. Anders gaat u naar [NuGet][NuGet] en klikt u op [NuGet installeren](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Volg de aanwijzingen om NuGet Package Manager te installeren en vervolgens Visual Studio opnieuw te starten.
+6. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsServer** en klik vervolgens op **NuGet-pakketten beheren**.
+7. Klik op het tabblad **Bladeren** en zoek vervolgens naar `Microsoft Azure Service Bus`. Selecteer het pakket **WindowsAzure.ServiceBus**.
+8. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
 
    ![][13]
 
-   Houd er rekening mee dat Hallo vereiste clientassembly nu wordt verwezen.
-8. Voeg een nieuwe klasse voor uw productcontract toe. Klik in Solution Explorer met de rechtermuisknop op Hallo **ProductsServer** project en klik op **toevoegen**, en klik vervolgens op **klasse**.
-9. In Hallo **naam** vak, Hallo typenaam **ProductsContract.cs**. Klik vervolgens op **Toevoegen**.
-10. In **ProductsContract.cs**, vervang de naamruimtedefinitie Hallo door Hallo volgende code waarmee Hallo contract voor Hallo-service wordt gedefinieerd.
+   Er wordt nu naar de vereiste clientassembly's verwezen.
+8. Voeg een nieuwe klasse voor uw productcontract toe. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsServer** en klik achtereenvolgens op **Toevoegen** en **Klasse**.
+9. Typ in het vak **Naam** de naam **ProductsContract.cs**. Klik vervolgens op **Toevoegen**.
+10. Vervang in **ProductsContract.cs** de naamruimtedefinitie door de volgende code waarmee het contract voor de service wordt gedefinieerd.
 
     ```csharp
     namespace ProductsServer
@@ -94,9 +94,9 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt Hallo [Azure Serv
         using System.Runtime.Serialization;
         using System.ServiceModel;
 
-        // Define hello data contract for hello service
+        // Define the data contract for the service
         [DataContract]
-        // Declare hello serializable properties.
+        // Declare the serializable properties.
         public class ProductData
         {
             [DataMember]
@@ -107,7 +107,7 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt Hallo [Azure Serv
             public string Quantity { get; set; }
         }
 
-        // Define hello service contract.
+        // Define the service contract.
         [ServiceContract]
         interface IProducts
         {
@@ -121,7 +121,7 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt Hallo [Azure Serv
         }
     }
     ```
-11. Vervang in Program.cs de naamruimtedefinitie Hallo met de volgende code, die wordt toegevoegd Hallo-Profielservice en Hallo host voor deze Hallo.
+11. Vervang in Program.cs de naamruimtedefinitie door de volgende code waarmee de profielservice en de host voor deze service worden toegevoegd.
 
     ```csharp
     namespace ProductsServer
@@ -131,7 +131,7 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt Hallo [Azure Serv
         using System.Collections.Generic;
         using System.ServiceModel;
 
-        // Implement hello IProducts interface.
+        // Implement the IProducts interface.
         class ProductsService : IProducts
         {
 
@@ -149,8 +149,8 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt Hallo [Azure Serv
                                          Quantity = "2500"},
                     };
 
-            // Display a message in hello service console application
-            // when hello list of products is retrieved.
+            // Display a message in the service console application
+            // when the list of products is retrieved.
             public IList<ProductData> GetProducts()
             {
                 Console.WriteLine("GetProducts called.");
@@ -161,13 +161,13 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt Hallo [Azure Serv
 
         class Program
         {
-            // Define hello Main() function in hello service application.
+            // Define the Main() function in the service application.
             static void Main(string[] args)
             {
                 var sh = new ServiceHost(typeof(ProductsService));
                 sh.Open();
 
-                Console.WriteLine("Press ENTER tooclose");
+                Console.WriteLine("Press ENTER to close");
                 Console.ReadLine();
 
                 sh.Close();
@@ -175,7 +175,7 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt Hallo [Azure Serv
         }
     }
     ```
-12. Dubbelklik in Solution Explorer op Hallo **App.config** bestand tooopen in Hallo Visual Studio-editor. Hallo Hallo onderaan in `<system.ServiceModel>` element (maar nog steeds binnen `<system.ServiceModel>`), Hallo volgende XML-code toevoegen. Ervoor tooreplace worden *yourServiceNamespace* met de naam van uw naamruimte Hallo en *yourKey* met SAS-sleutel Hallo u eerder hebt opgehaald via de portal Hallo:
+12. Dubbelklik in Solution Explorer op het bestand **App.config** om dit te openen in de Visual Studio-editor. Voeg onderaan het `<system.ServiceModel>`-element (maar nog wel binnen `<system.ServiceModel>`) de volgende XML-code toe. Zorg ervoor dat u *yourServiceNamespace* vervangt door de naam van uw naamruimte en *yourKey* door de SAS-sleutel die u eerder hebt opgehaald via de portal:
 
     ```xml
     <system.serviceModel>
@@ -198,7 +198,7 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt Hallo [Azure Serv
       </behaviors>
     </system.serviceModel>
     ```
-13. Nog steeds in App.config in Hallo `<appSettings>` vervangen Hallo gegevensbronwaarde met verbindingsreeks die u eerder hebt verkregen via de portal Hallo Hallo-element.
+13. Terwijl App.config actief is, vervangt u in het `<appSettings>`-element de verbindingsreekswaarde door de verbindingsreeks die u eerder hebt verkregen via de portal.
 
     ```xml
     <appSettings>
@@ -207,40 +207,40 @@ Dit project is een Visual Studio-consoletoepassing en gebruikt Hallo [Azure Serv
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
-14. Druk op **Ctrl + Shift + B** of van Hallo **bouwen** menu, klikt u op **Build Solution** toobuild toepassing hello en controleer Hallo juistheid van uw werk tot nu toe.
+14. Druk op **Ctrl+Shift+B** of klik in het menu **Bouwen** op **Oplossing opbouwen** en controleer de juistheid van uw werk tot nu toe.
 
 ## <a name="create-an-aspnet-application"></a>Een ASP.NET-toepassing maken
 
 In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens worden weergegeven die u uit uw productservice hebt opgehaald.
 
-### <a name="create-hello-project"></a>Hallo-project maken
+### <a name="create-the-project"></a>Het project maken
 
 1. Zorg ervoor dat Visual Studio met administratorbevoegdheden wordt uitgevoerd.
-2. In Visual Studio op Hallo **bestand** menu, klikt u op **nieuw**, en klik vervolgens op **Project**.
-3. Klik bij **Geïnstalleerde sjablonen**, onder **Visual C#**, op **ASP.NET-webtoepassing (.NET Framework)**. Naam Hallo project **ProductsPortal**. Klik vervolgens op **OK**.
+2. Klik in het menu **Bestand** van Visual Studio op **Nieuw** en klik vervolgens op **Project**.
+3. Klik bij **Geïnstalleerde sjablonen**, onder **Visual C#**, op **ASP.NET-webtoepassing (.NET Framework)**. Noem het project **ProductsPortal**. Klik vervolgens op **OK**.
 
    ![][15]
 
-4. Van Hallo **ASP.NET sjablonen** lijst in Hallo **nieuwe ASP.NET-webtoepassing** dialoogvenster, klikt u op **MVC**.
+4. Klik in de lijst **ASP.NET-sjablonen** in het dialoogvenster **New ASP.NET-webtoepassing** op **MVC**.
 
    ![][16]
 
-6. Klik op Hallo **verificatie wijzigen** knop. In Hallo **verificatie wijzigen** dialoogvenster vak, zorg ervoor dat **geen verificatie** is geselecteerd en klik vervolgens op **OK**. In deze zelfstudie implementeert u een app waarvoor geen gebruikersaanmelding nodig is.
+6. Klik op de knop **Verificatie wijzigen**. Zorg dat in het dialoogvenster **Verificatie wijzigen** de optie **Geen verificatie** is geselecteerd en klik vervolgens op **OK**. In deze zelfstudie implementeert u een app waarvoor geen gebruikersaanmelding nodig is.
 
     ![][18]
 
-7. Terug in Hallo **nieuwe ASP.NET-webtoepassing** dialoogvenster, klikt u op **OK** toocreate Hallo MVC-app.
-8. U moet nu Azure-resources configureren voor een nieuwe web-app. Volg de stappen Hallo in Hallo [tooAzure sectie van dit artikel publiceren](../app-service-web/app-service-web-get-started-dotnet.md). Vervolgens toothis zelfstudie retourneren en de volgende stap toohello gaan.
-10. Klik in Solution Explorer met de rechtermuisknop op **Modellen** en klik achtereenvolgens op **Toevoegen** en **Klasse**. In Hallo **naam** vak, Hallo typenaam **Product.cs**. Klik vervolgens op **Toevoegen**.
+7. Klik terug in het dialoogvenster **Nieuwe ASP.NET-webtoepassing** op **OK** om de MVC-app te maken.
+8. U moet nu Azure-resources configureren voor een nieuwe web-app. Volg de stappen in [het gedeelte Publiceren naar Azure van dit artikel](../app-service/app-service-web-get-started-dotnet.md). Ga vervolgens terug naar deze zelfstudie en ga door met de volgende stap.
+10. Klik in Solution Explorer met de rechtermuisknop op **Modellen** en klik achtereenvolgens op **Toevoegen** en **Klasse**. Typ in het vak **Naam** de naam **Product.cs**. Klik vervolgens op **Toevoegen**.
 
     ![][17]
 
-### <a name="modify-hello-web-application"></a>Hallo-webtoepassing wijzigen
+### <a name="modify-the-web-application"></a>De webtoepassing wijzigen
 
-1. In Hallo Product.cs bestand in Visual Studio vervangt u de bestaande naamruimtedefinitie Hallo Hello code te volgen.
+1. In het bestand Product.cs in Visual Studio vervangt u de bestaande naamruimtedefinitie door de volgende code.
 
    ```csharp
-    // Declare properties for hello products inventory.
+    // Declare properties for the products inventory.
     namespace ProductsWeb.Models
     {
        public class Product
@@ -251,8 +251,8 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
        }
     }
     ```
-2. Vouw in Solution Explorer Hallo **domeincontrollers** map, dubbelklikt u vervolgens op Hallo **HomeController.cs** tooopen bestand in Visual Studio.
-3. In **HomeController.cs**, de bestaande naamruimtedefinitie Hallo vervangen door Hallo code te volgen.
+2. Vouw in Solution Explorer de map **Controllers** uit en dubbelklik vervolgens op het bestand **HomeController.cs** om het te openen in Visual Studio.
+3. In **HomeController.cs** vervangt u de bestaande naamruimtedefinitie door de volgende code.
 
     ```csharp
     namespace ProductsWeb.Controllers
@@ -263,7 +263,7 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
 
         public class HomeController : Controller
         {
-            // Return a view of hello products inventory.
+            // Return a view of the products inventory.
             public ActionResult Index(string Identifier, string ProductName)
             {
                 var products = new List<Product>
@@ -273,13 +273,13 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
          }
     }
     ```
-4. Vouw in Solution Explorer de map Views\Shared Hallo uit en dubbelklik vervolgens **_Layout.cshtml** tooopen in Hallo Visual Studio-editor.
-5. Wijzig alle instanties van **mijn ASP.NET-toepassing** te**producten van LITWARE**.
-6. Hallo verwijderen **Start**, **over**, en **Contact** koppelingen. Verwijder in Hallo voorbeeld te volgen, Hallo gemarkeerd code.
+4. Vouw in Solution Explorer de map Views\Shared uit en dubbelklik vervolgens op **_Layout.cshtml** om dit in de Visual Studio-editor te openen.
+5. Wijzig alle instanties van **Mijn ASP.NET-toepassing** in **Producten van LITWARE**.
+6. Verwijder de koppelingen **Start**, **Info** en **Contact**. Verwijder de gemarkeerde code in het volgende voorbeeld.
 
     ![][41]
 
-7. Vouw in Solution Explorer de map Views\Home Hallo uit en dubbelklik vervolgens **Index.cshtml** tooopen in Hallo Visual Studio-editor. Vervang de volledige inhoud van de Hallo van Hallo-bestand met de volgende code Hallo.
+7. Vouw in Solution Explorer de map Views\Home uit en dubbelklik vervolgens op **Index.cshtml** om dit in de Visual Studio-editor te openen. Vervang de volledige inhoud van het bestand door de volgende code.
 
    ```html
    @model IEnumerable<ProductsWeb.Models.Product>
@@ -314,31 +314,31 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
 
    </table>
    ```
-8. tooverify hello juistheid van uw werk tot nu toe, drukt u op **Ctrl + Shift + B** toobuild Hallo project.
+8. U kunt de nauwkeurigheid van uw werk tot nu toe controleren door op **Ctrl+Shift+B** te drukken om het project op te bouwen.
 
-### <a name="run-hello-app-locally"></a>Hallo-app lokaal uitvoeren
+### <a name="run-the-app-locally"></a>De app lokaal uitvoeren
 
-Hallo toepassing tooverify die hierbij worden uitgevoerd.
+Voer de toepassing uit om te controleren of deze werkt.
 
-1. Zorg ervoor dat **ProductsPortal** Hallo actieve project is. Hallo projectnaam in Solution Explorer met de rechtermuisknop en selecteer **instellen als opstartproject**.
+1. Zorg ervoor dat **ProductsPortal** het actieve project is. Klik met de rechtermuisknop op de projectnaam in Solution Explorer en selecteer **Instellen als opstartproject**.
 2. Druk in Visual Studio op **F5**.
 3. Uw toepassing moet dan in een browser worden weergegeven.
 
    ![][21]
 
-## <a name="put-hello-pieces-together"></a>Hallo softwareonderdelen samenstellen
+## <a name="put-the-pieces-together"></a>De softwareonderdelen samenstellen
 
-de volgende stap Hallo is toohook Hallo lokale producten server Hello ASP.NET-toepassing.
+In de volgende stap koppelt u de on-premises productenserver aan de ASP.NET-toepassing.
 
-1. Als deze nog niet is geopend in Visual Studio opnieuw openen Hallo **ProductsPortal** project dat u hebt gemaakt in Hallo [maken van een ASP.NET-toepassing](#create-an-aspnet-application) sectie.
-2. Vergelijkbare toohello stap in de sectie 'Een On-Premises Server maken' hello toevoegen toohello projectverwijzingen voor Hallo NuGet-pakket. Klik in Solution Explorer met de rechtermuisknop op Hallo **ProductsPortal** project en klik vervolgens op **NuGet-pakketten beheren**.
-3. Zoek naar 'Service Bus' en selecteer Hallo **WindowsAzure.ServiceBus** item. Vervolgens Hallo installatie voltooien en sluit het dialoogvenster.
-4. Klik in Solution Explorer met de rechtermuisknop op Hallo **ProductsPortal** project en klik vervolgens op **toevoegen**, klikt u vervolgens **bestaand Item**.
-5. Navigeer toohello **ProductsContract.cs** bestand van Hallo **ProductsServer** console-project. Klik op toohighlight ProductsContract.cs. Klik op Hallo pijl-omlaag naast te**toevoegen**, klikt u vervolgens op **toevoegen als koppeling**.
+1. Als het project **ProductsPortal** dat u hebt gemaakt in het gedeelte [Een ASP.NET-toepassing maken](#create-an-aspnet-application) nog niet open is, opent u het opnieuw in Visual Studio.
+2. Vergelijkbaar met de stap in het gedeelte 'Een on-premises server maken' voegt u het NuGet-pakket aan de projectverwijzingen toe. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsPortal** en klik vervolgens op **NuGet-pakketten beheren**.
+3. Zoek ‘Service Bus’ en selecteer het item **WindowsAzure.ServiceBus**. Vervolgens voltooit u de installatie en sluit u dit dialoogvenster.
+4. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsPortal** en klik achtereenvolgens op **Toevoegen** en **Bestaand item**.
+5. Ga naar het bestand **ProductsContract.cs** vanuit het **ProductsServer**-consoleproject. Klik om ProductsContract.cs te markeren. Klik op de pijl-omlaag naast **Toevoegen** en klik vervolgens op **Toevoegen als koppeling**.
 
    ![][24]
 
-6. Open nu Hallo **HomeController.cs** -bestand in Visual Studio-editor Hallo en vervang de naamruimtedefinitie Hallo door Hallo code te volgen. Ervoor tooreplace worden *yourServiceNamespace* met Hallo-naam van uw Servicenaamruimte en *yourKey* met SAS-sleutel. Hiermee schakelt u Hallo toocall Hallo lokale clientservice, Hallo resultaat van Hallo aanroep retourneren.
+6. Open nu het bestand **HomeController.cs** in de Visual Studio-editor en vervang de naamruimtedefinitie door de volgende code. Zorg ervoor dat u *yourServiceNamespace* vervangt door de naam van uw servicenaamruimte en *yourKey* door de SAS-sleutel. Hierdoor kan de client de on-premises service aanroepen waarbij het resultaat van de aanroep wordt geretourneerd.
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -352,7 +352,7 @@ de volgende stap Hallo is toohook Hallo lokale producten server Hello ASP.NET-to
 
        public class HomeController : Controller
        {
-           // Declare hello channel factory.
+           // Declare the channel factory.
            static ChannelFactory<IProductsChannel> channelFactory;
 
            static HomeController()
@@ -369,7 +369,7 @@ de volgende stap Hallo is toohook Hallo lokale producten server Hello ASP.NET-to
            {
                using (IProductsChannel channel = channelFactory.CreateChannel())
                {
-                   // Return a view of hello products inventory.
+                   // Return a view of the products inventory.
                    return this.View(from prod in channel.GetProducts()
                                     select
                                         new Product { Id = prod.Id, Name = prod.Name,
@@ -379,83 +379,83 @@ de volgende stap Hallo is toohook Hallo lokale producten server Hello ASP.NET-to
        }
    }
    ```
-7. Klik in Solution Explorer met de rechtermuisknop op Hallo **ProductsPortal** oplossing (Zorg ervoor dat tooright en klik op Hallo oplossing, niet Hallo project). Klik op **Toevoegen** en vervolgens op **Bestaand project**.
-8. Navigeer toohello **ProductsServer** project en dubbelklik op Hallo **ProductsServer.csproj** oplossing bestand tooadd deze.
-9. **ProductsServer** in volgorde toodisplay Hallo gegevens moet worden uitgevoerd op **ProductsPortal**. Klik in Solution Explorer met de rechtermuisknop op Hallo **ProductsPortal** oplossing en op **eigenschappen**. Hallo **eigenschappenvensters** in het dialoogvenster wordt weergegeven.
-10. Klik op Hallo linkerkant, **opstartproject**. Klik op aan de rechterkant hello, **meerdere opstartprojecten**. Zorg ervoor dat **ProductsServer** en **ProductsPortal** worden weergegeven in de juiste volgorde, waarbij **Start** ingesteld als Hallo-actie voor beide.
+7. In Solution Explorer klikt u met de rechtermuisknop op de **ProductsPortal**-oplossing (zorg ervoor dat u met de rechtermuisknop op de oplossing klikt en niet op het project). Klik op **Toevoegen** en vervolgens op **Bestaand project**.
+8. Ga naar het **ProductsServer**-project en dubbelklik op het **ProductsServer.csproj**-oplossingsbestand om het toe te voegen.
+9. **ProductsServer** moet worden uitgevoerd om de gegevens in **ProductsPortal** weer te geven. Klik in Solution Explorer met de rechtermuisknop op de oplossing **ProductsPortal** en klik op **Eigenschappen**. Het dialoogvenster **Eigenschappenvensters** wordt weergegeven.
+10. Klik aan de linkerkant op **Opstartproject**. Klik aan de rechterkant op **Meerdere opstartprojecten**. Zorg ervoor dat **ProductsServer** en **ProductsPortal** in de juiste volgorde worden weergegeven waarbij voor beide **Starten** als actie is ingesteld.
 
       ![][25]
 
-11. Nog steeds in Hallo **eigenschappen** in het dialoogvenster, klikt u op **Projectafhankelijkheden** op Hallo linkerkant.
-12. In Hallo **projecten** lijst, klikt u op **ProductsServer**. Zorg ervoor dat **ProductsPortal** niet is geselecteerd.
-13. In Hallo **projecten** lijst, klikt u op **ProductsPortal**. Zorg ervoor dat **ProductsServer** is geselecteerd.
+11. Klik ook in het dialoogvenster **Eigenschappen** op **Projectafhankelijkheden** aan de linkerkant.
+12. Klik in de lijst **Projecten** op **ProductsServer**. Zorg ervoor dat **ProductsPortal** niet is geselecteerd.
+13. Klik in de lijst **Projecten** op **ProductsPortal**. Zorg ervoor dat **ProductsServer** is geselecteerd.
 
     ![][26]
 
-14. Klik op **OK** in Hallo **eigenschappenvensters** in het dialoogvenster.
+14. Klik op **OK** in het dialoogvenster **Eigenschappenvensters**.
 
-## <a name="run-hello-project-locally"></a>Hallo-project lokaal uitvoeren
+## <a name="run-the-project-locally"></a>Het project lokaal uitvoeren
 
-tootest hello toepassing lokaal door in Visual Studio druk op **F5**. Hallo on-premises-server (**ProductsServer**) moet eerst worden gestart en vervolgens Hallo **ProductsPortal** toepassing worden gestart in een browservenster. Deze tijd ziet u dat Hallo-productinventaris bevat gegevens die uit Hallo product service on-premises systeem opgehaald.
+Test de toepassing lokaal door in Visual Studio op **F5** te drukken. De on-premises server (**ProductsServer**) moet eerst worden gestart en vervolgens moet de **ProductsPortal**-toepassing worden gestart in een browservenster. De productinventaris bevat nu de gegevens die zijn opgehaald uit het on-premises systeem van de productservice.
 
 ![][10]
 
-Druk op **vernieuwen** op Hallo **ProductsPortal** pagina. Elke keer dat u Hallo pagina vernieuwt, ziet u Hallo server app een bericht weergegeven wanneer `GetProducts()` van **ProductsServer** wordt aangeroepen.
+Klik op **Vernieuwen** op de pagina **ProductsPortal**. Elke keer dat u de pagina vernieuwt, wordt met de server-app een bericht weergegeven wanneer `GetProducts()` vanuit **ProductsServer** wordt aangeroepen.
 
-Sluit beide toepassingen voordat u doorgaat toohello volgende stap.
+Sluit beide toepassingen voordat u doorgaat met de volgende stap.
 
-## <a name="deploy-hello-productsportal-project-tooan-azure-web-app"></a>Hallo ProductsPortal project tooan Azure-web-app implementeren
+## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Het project ProductsPortal in een Azure-web-app implementeren
 
-de volgende stap Hallo is toorepublish hello Azure-Web-app **ProductsPortal** frontend. Hallo te volgen:
+De volgende stap is het opnieuw publiceren van de frontend van de Azure-web-app **ProductsPortal**. Ga als volgt te werk:
 
-1. Klik in Solution Explorer met de rechtermuisknop op Hallo **ProductsPortal** project en klik op **publiceren**. Klik vervolgens op **publiceren** op Hallo **publiceren** pagina.
+1. Klik in Solution Explorer met de rechtermuisknop op het project **ProductsPortal** en klik op **Publiceren**. Klik vervolgens op de pagina **Publiceren** op **Publiceren**.
 
   > [!NOTE]
-  > Wordt er een foutbericht weergegeven in het browservenster Hallo wanneer hello **ProductsPortal** -webproject automatisch wordt gestart na het Hallo-implementatie. Dit is normaal en doet zich voor omdat Hallo **ProductsServer** toepassing nog niet wordt uitgevoerd.
+  > Mogelijk wordt er een foutbericht weergegeven in het browservenster wanneer het **ProductsPortal**-webproject automatisch wordt gestart na de implementatie. Dit is normaal en doet zich voor omdat de **ProductsServer**-toepassing nog niet wordt uitgevoerd.
 >
 >
 
-2. URL van de kopie Hallo Hallo geïmplementeerd web-app naar wens Hallo-URL in de volgende stap Hallo. U kunt ook deze URL ophalen via hello Azure App Service-activiteit venster in Visual Studio:
+2. Kopieer de URL van de geïmplementeerde web-app. Deze hebt u in de volgende stap nodig. Deze URL is ook beschikbaar in het venster Azure App Service-activiteit in Visual Studio:
 
   ![][9]
 
-3. Sluit Hallo browser venster toostop Hallo toepassing uitvoert.
+3. Sluit het browservenster om het uitvoeren van de toepassing te stoppen.
 
 ### <a name="set-productsportal-as-web-app"></a>ProductsPortal instellen als web-app
 
-Voordat u actieve Hallo-toepassing in de cloud hello, moet u ervoor zorgen dat **ProductsPortal** vanuit Visual Studio als een web-app wordt uitgevoerd.
+Voordat u de toepassing in de cloud uitvoert, moet u ervoor zorgen dat **ProductsPortal** vanuit Visual Studio als een web-app wordt uitgevoerd.
 
-1. In Visual Studio met de rechtermuisknop op Hallo **ProductsPortal** project en klik vervolgens op **eigenschappen**.
-2. Klik in de linkerkolom hello, **Web**.
-3. In Hallo **actie starten** sectie, klikt u op Hallo **Start-URL** knop, en in het tekstvak Hallo Hallo URL voor uw eerder geïmplementeerde web-app bijvoorbeeld `http://productsportal1234567890.azurewebsites.net/`.
+1. Klik in Visual Studio met de rechtermuisknop op het project **ProductsPortal** en klik vervolgens op **Eigenschappen**.
+2. Klik in de kolom links op **Web**.
+3. Klik in de sectie **Actie starten** op de knop **Start-URL** en voer in het tekstvak de URL voor uw eerder geïmplementeerde web-app (bijvoorbeeld `http://productsportal1234567890.azurewebsites.net/`) in.
 
     ![][27]
 
-4. Van Hallo **bestand** menu in Visual Studio, klikt u op **Alles opslaan**.
-5. In menu van Hallo bouwen in Visual Studio, klikt u op **oplossing opnieuw opbouwen**.
+4. Klik in het menu **Bestand** in Visual Studio op **Alles opslaan**.
+5. Klik in het menu Bouwen in Visual Studio op **Oplossing opnieuw opbouwen**.
 
-## <a name="run-hello-application"></a>Hallo-toepassing uitvoeren
+## <a name="run-the-application"></a>De toepassing uitvoeren
 
-1. Druk op F5 toobuild en Voer Hallo-toepassing. Hallo on-premises-server (Hallo **ProductsServer** consoletoepassing) moet eerst worden gestart en vervolgens Hallo **ProductsPortal** toepassing worden gestart in een browservenster wordt weergegeven in het volgende scherm Hallo opgenomen. U ziet opnieuw die productinventaris Hallo ziet u de gegevens uit de Hallo product service on-premises systeem en geeft die gegevens op Hallo web-app. Controleer Hallo URL toomake ervoor dat **ProductsPortal** wordt uitgevoerd in de cloud hello, als een Azure-web-app.
+1. Druk op F5 om de toepassing op te bouwen en uit te voeren. De on-premises server (de **ProductsServer**-consoletoepassing) moet eerst worden gestart en vervolgens moet de **ProductsPortal**-toepassing worden gestart in een browservenster (zie de volgende schermopname). U ziet weer dat de productinventaris gegevens bevat die zijn opgehaald uit het on-premises systeem van de productservice en dat die gegevens in de web-app worden weergegeven. Controleer de URL om ervoor te zorgen dat **ProductsPortal** als een Azure-web-app wordt uitgevoerd in de cloud.
 
    ![][1]
 
    > [!IMPORTANT]
-   > Hallo **ProductsServer** consoletoepassing moet worden uitgevoerd en kunnen tooserve Hallo gegevens toohello **ProductsPortal** toepassing. Als Hallo browser is een fout weergegeven, wacht u enkele seconden voor **ProductsServer** tooload en weergave hello te volgen. Druk op **vernieuwen** in Hallo browser.
+   > De **ProductsServer**-consoletoepassing moet worden uitgevoerd en moet de gegevens aan de **ProductsPortal**-toepassing kunnen leveren. Als een fout wordt weergegeven in de browser, wacht u enkele seconden tot **ProductsServer** is geladen en het volgende bericht wordt weergegeven. Klik vervolgens op **Vernieuwen** in de browser.
    >
    >
 
    ![][37]
-2. Terug in de browser hello, drukt u op **vernieuwen** op Hallo **ProductsPortal** pagina. Elke keer dat u Hallo pagina vernieuwt, ziet u Hallo server app een bericht weergegeven wanneer `GetProducts()` van **ProductsServer** wordt aangeroepen.
+2. Als de browser opnieuw wordt weergegeven, klikt u op **Vernieuwen** op de **ProductsPortal**-pagina. Elke keer dat u de pagina vernieuwt, wordt met de server-app een bericht weergegeven wanneer `GetProducts()` vanuit **ProductsServer** wordt aangeroepen.
 
     ![][38]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-toolearn meer informatie over Azure-Relay, Zie Hallo resources te volgen:  
+Raadpleeg de volgende resources voor meer informatie over Azure Relay:  
 
 * [Wat is Azure Relay?](relay-what-is-it.md)  
-* [Hoe Relay-toouse](service-bus-dotnet-how-to-use-relay.md)  
+* [Relay gebruiken](service-bus-dotnet-how-to-use-relay.md)  
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png

@@ -1,6 +1,6 @@
 ---
-title: aaaEnable Transparent Data Encryption in Azure Security Center | Microsoft Docs
-description: Dit document leest u hoe tooimplement hello Azure Security Center aanbeveling ** inschakelen Transparent Data Encryption **.
+title: Transparante gegevensversleuteling in Azure Security Center inschakelen | Microsoft Docs
+description: Dit document ziet u hoe de aanbeveling Azure Security Center implementeren ** inschakelen Transparent Data Encryption **.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 94c6e9a1feddaa48faac6c835d416c4d131cd5c5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2a2963affdbff3710ad08f86c6ed4e6304335559
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Transparante gegevensversleuteling in Azure Security Center inschakelen
-Azure Security Center beveelt aan dat u Transparent Data Encryption (TDE) voor SQL-databases inschakelen als TDE nog niet is ingeschakeld. TDE beschermt u uw gegevens en kunt u voldoen aan nalevingsvereisten door uw database, gekoppelde back-ups en transactielogboekbestanden in rust, zonder dat wijzigingen tooyour toepassing te versleutelen. toolearn Zie meer [Transparent Data Encryption met Azure SQL Database](https://msdn.microsoft.com/library/dn948096).
+Azure Security Center beveelt aan dat u Transparent Data Encryption (TDE) voor SQL-databases inschakelen als TDE nog niet is ingeschakeld. TDE beschermt u uw gegevens en kunt u voldoen aan nalevingsvereisten door uw database, gekoppelde back-ups en transactielogboekbestanden in rust, zonder dat wijzigingen in uw toepassing te versleutelen. Voor meer informatie over [Transparent Data Encryption met Azure SQL Database](https://msdn.microsoft.com/library/dn948096).
 
-Deze aanbeveling is van toepassing toohello Azure SQL-service. bevat geen SQL uitgevoerd op uw virtuele machines.
+Deze aanbeveling is van toepassing op de Azure SQL-service. bevat geen SQL uitgevoerd op uw virtuele machines.
 
 > [!NOTE]
-> Dit document bevat Hallo service met behulp van een voorbeeldimplementatie.  Dit is geen stapsgewijze handleiding.
+> In dit document wordt de service geïntroduceerd aan de hand van een voorbeeldimplementatie.  Dit is geen stapsgewijze handleiding.
 >
 >
 
-## <a name="implement-hello-recommendation"></a>Hallo aanbeveling implementeren
-1. In Hallo **aanbevelingen** blade Selecteer **Transparent Data Encryption inschakelen**.
+## <a name="implement-the-recommendation"></a>De aanbeveling implementeren
+1. In de **aanbevelingen** blade Selecteer **Transparent Data Encryption inschakelen**.
    ![Transparante gegevensversleuteling inschakelen][1]
-2. Hiermee opent u Hallo **Transparent Data Encryption voor SQL-databases inschakelen** blade. Selecteer een SQL-database tooenable TDE op.
-   ![Selecteer SQL DB tooenable TDE op][2]
-3. Op Hallo **transparante gegevensversleuteling** blade Selecteer **ON** onder gegevensversleuteling en selecteer **opslaan** in de bovenste lint Hallo van Hallo-blade.
+2. Hiermee opent u de **Transparent Data Encryption voor SQL-databases inschakelen** blade. Selecteer een SQL-database in te schakelen TDE voor.
+   ![Selecteer SQL DB TDE inschakelen op][2]
+3. Op de **transparante gegevensversleuteling** blade Selecteer **ON** onder gegevensversleuteling en selecteer **opslaan** in het bovenste lint van de blade.
    ![TDE inschakelen][3]
 
-   Zodra TDE is ingeschakeld voor Hallo geselecteerd SQL-database, hello **coderingsstatus** wordt ook wijzigen**versleutelde**.    
+   Zodra TDE is ingeschakeld voor de geselecteerde SQL-database, de **coderingsstatus** wordt gewijzigd in **versleutelde**.    
 
    ![Coderingsstatus][4]
 
 ## <a name="see-also"></a>Zie ook
-In dit artikel hebt u geleerd hoe tooimplement Hallo Security Center aanbeveling 'Enable Transparent Data Encryption'. toolearn meer informatie over SQL TDE Hallo ziet:
+In dit artikel hebt u geleerd hoe u de aanbeveling Security Center implementeert 'Transparent Data Encryption inschakelen'. Voor meer informatie over SQL TDE, Zie de volgende:
 
 * [Transparante gegevensversleuteling met Azure SQL Database](https://msdn.microsoft.com/library/dn948096)
 * [Aan de slag met Transparent Data Encryption (TDE)](../sql-data-warehouse/sql-data-warehouse-encryption-tde.md)
 
-toolearn meer informatie over Security Center Hallo ziet:
+Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md) --meer informatie over hoe tooconfigure beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
+* [Setting security policies in Azure Security Center](security-center-policies.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) --Leer hoe aanbevelingen u uw Azure-resources te beveiligen.
-* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) --meer informatie over hoe toomonitor Hallo status van uw Azure-resources.
-* [Het beheer van is en reageert toosecurity waarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) --meer informatie over hoe toomanage en gereageerd had toosecurity waarschuwingen.
-* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md) --meer informatie over hoe toomonitor gezondheidsstatus van uw partneroplossingen Hallo.
-* [Veelgestelde vragen over Azure Security Center](security-center-faq.md) --Raadpleeg Veelgestelde vragen over het gebruik van Hallo-service.
-* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) --Hallo nieuwste Azure-beveiliging nieuws en informatie.
+* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) --informatie over het bewaken van de status van uw Azure-resources.
+* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
+* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
+* [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
+* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) --Lees het laatste nieuws van de Azure-beveiliging en de informatie.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-tde-on-sql-databases/enable-tde.png

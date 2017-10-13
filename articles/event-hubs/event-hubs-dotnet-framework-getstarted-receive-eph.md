@@ -1,6 +1,6 @@
 ---
-title: aaaReceive gebeurtenissen van Azure Event Hubs met behulp van .NET Framework Hallo | Microsoft Docs
-description: Volg deze zelfstudie tooreceive gebeurtenissen van Azure Event Hubs met behulp van Hallo .NET Framework.
+title: Gebeurtenissen ontvangen van Azure Event Hubs met behulp van het .NET Framework | Microsoft Docs
+description: Volg deze zelfstudie om gebeurtenissen te ontvangen van Azure Event Hubs middels het .NET Framework.
 services: event-hubs
 documentationcenter: 
 author: sethmanheim
@@ -12,73 +12,73 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/12/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.openlocfilehash: a88c3feeacfd3de9622dbb86e25222e861750204
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 5d2f6f53af182a8ac0430de0ca3701a9a30e0bf4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="receive-events-from-azure-event-hubs-using-hello-net-framework"></a>Ontvangen van gebeurtenissen van Azure Event Hubs met behulp van Hallo .NET Framework
+# <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van het .NET Framework
 
 ## <a name="introduction"></a>Inleiding
 
-Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u Hallo gegevensopslag met behulp van een opslagcluster of transformeren met een realtime analytics-provider. Deze gebeurtenis grootschalige verzamelen en verwerken mogelijkheid is een belangrijk onderdeel van moderne toepassingsarchitecturen inclusief Hallo Internet der dingen (IoT).
+Event Hubs is een service die grote hoeveelheden gebeurtenisgegevens (telemetrie) van verbonden apparaten en toepassingen verwerkt. Nadat u gegevens in Event Hubs hebt verzameld, kunt u de gegevens opslaan met behulp van een opslagcluster of transformeren met een provider van realtime-analyses. Deze functie voor grootschalige gebeurtenisverzameling en -verwerking is een belangrijk onderdeel van de architectuur van moderne toepassingen, met inbegrip van het Internet der dingen (IoT).
 
-Deze zelfstudie laat zien hoe een .NET Framework toowrite consoletoepassing die berichten ontvangt van een event hub met Hallo  **[Gebeurtenisprocessorhost][EventProcessorHost]**. toosend gebeurtenissen met Hallo .NET Framework, Zie Hallo [gebeurtenissen verzenden tooAzure Event Hubs met behulp van .NET Framework Hallo](event-hubs-dotnet-framework-getstarted-send.md) artikel, of klik op de juiste Hallo verzenden taal in Hallo links inhoudsopgave.
+In deze zelfstudie ziet u hoe u een .NET Framework-consoletoepassing schrijft die met de **[EventProcessorHost][EventProcessorHost]** berichten ontvangt van een Event Hub. Als u gebeurtenissen wilt verzenden met het .NET Framework, raadpleeg dan het artikel [Gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) of klik in de inhoudsopgave aan de linkerkant op de juiste taal voor verzending.
 
-Hallo [Gebeurtenisprocessorhost] [ EventProcessorHost] is een .NET-klasse die de ontvangende gebeurtenissen van event hubs vereenvoudigt door permanente controlepunten beheren en parallelle ontvangst van deze event hubs. Met behulp van Hallo [Gebeurtenisprocessorhost][Event Processor Host], kunt u gebeurtenissen splitsen over meerdere ontvangers, zelfs wanneer deze wordt gehost in verschillende knooppunten. Dit voorbeeld ziet u hoe toouse hello [Gebeurtenisprocessorhost] [ EventProcessorHost] voor één ontvanger. Hallo [Scale-out gebeurtenisverwerking] [ Scale out Event Processing with Event Hubs] voorbeeld toont hoe toouse hello [Gebeurtenisprocessorhost] [ EventProcessorHost] met meerdere ontvangers.
+De [EventProcessorHost][EventProcessorHost] is een .NET-klasse die het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten en parallelle ontvangst van deze Event Hubs te beheren. Met de [EventProcessorHost][Event Processor Host] kunt u gebeurtenissen splitsen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van de [EventProcessorHost][EventProcessorHost] gedemonstreerd voor één ontvanger. In het voorbeeld [Uitgeschaalde gebeurtenisverwerking][Scale out Event Processing with Event Hubs] ziet u hoe u de [EventProcessorHost][EventProcessorHost] gebruikt met meerdere ontvangers.
 
 ## <a name="prerequisites"></a>Vereisten
 
-toocomplete in deze zelfstudie, moet u Hallo volgende vereisten:
+Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
-* [Microsoft Visual Studio 2015 of hoger](http://visualstudio.com). Hallo schermopnamen in deze zelfstudie gebruiken Visual Studio 2017.
+* [Microsoft Visual Studio 2015 of hoger](http://visualstudio.com). In de schermafbeeldingen in deze zelfstudie wordt Visual Studio 2017 gebruikt.
 * Een actief Azure-account. Als u geen Azure-account hebt, kunt u binnen een paar minuten een gratis account maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/free/) voor meer informatie.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Een Event Hubs-naamruimte en een Event Hub maken
 
-de eerste stap Hallo is toouse hello [Azure-portal](https://portal.azure.com) toocreate een naamruimte van Event Hubs typt en beheerreferenties Hallo uw toepassing moet toocommunicate met Hallo event hub. toocreate een naamruimte en event hub, volgt u de procedure Hallo in [in dit artikel](event-hubs-create.md), gaat u verder met de Hallo stappen in deze zelfstudie te volgen.
+In de eerste stap gebruikt u [Azure Portal](https://portal.azure.com) om een naamruimte van het type Event Hubs te maken en de beheerreferenties te verkrijgen die de toepassing nodig heeft om met de Event Hub te communiceren. Volg de procedure in [dit artikel](event-hubs-create.md) om een naamruimte en Event Hub te maken en ga daarna verder met de volgende stappen in deze zelfstudie.
 
 ## <a name="create-an-azure-storage-account"></a>Een Azure Storage-account maken
 
-Hallo toouse [Gebeurtenisprocessorhost][EventProcessorHost], hebt u een [Azure Storage-account][Azure Storage account]:
+Als u de [EventProcessorHost][EventProcessorHost] wilt gebruiken, moet u een [Azure Storage-account][Azure Storage account] hebben:
 
-1. Meld u aan toohello [Azure-portal][Azure portal], en klik op **nieuw** op Hallo linksboven welkomstscherm.
+1. Meld u aan bij [Azure Portal][Azure portal] en klik op**Nieuw** linksboven in het scherm.
 2. Klik op **Opslag** en klik vervolgens op **Opslagaccount**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
-3. In Hallo **storage-account maken** blade een naam voor het Hallo-opslagaccount. Een Azure-abonnement, resourcegroep en locatie kiezen in welke toocreate Hallo-resource. Klik vervolgens op **Maken**.
+3. Typ op de blade **Opslagaccount maken** een naam voor het opslagaccount. Kies een Azure-abonnement, resourcegroep en locatie voor het maken van de resource. Klik vervolgens op **Maken**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
-4. In de lijst van de Hallo met storage-accounts, klikt u op Hallo nieuw opslagaccount gemaakt.
-5. Klik in de blade opslagaccount hello **toegangssleutels**. Hallo-waarde van kopiëren **key1** toouse verderop in deze zelfstudie.
+4. Klik in de lijst met opslagaccounts op het zojuist gemaakte opslagaccount.
+5. Klik op de blade Opslagaccount op **Toegangssleutels**. Kopieer de waarde van **key1** voor gebruik verderop in deze zelfstudie.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
 ## <a name="create-a-receiver-console-application"></a>Een consoletoepassing voor ontvangers maken
 
-1. Maak in Visual Studio een nieuw Visual C# bureaublad-App-project met behulp van Hallo **consoletoepassing** projectsjabloon. Naam Hallo project **ontvanger**.
+1. Maak in Visual Studio een nieuw Visual C# bureaublad-app-project met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **Ontvanger**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
-2. Klik in Solution Explorer met de rechtermuisknop op Hallo **ontvanger** project en klik vervolgens op **NuGet-pakketten beheren voor oplossing**.
-3. Klik op Hallo **Bladeren** tabblad en zoek naar `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Klik op **installeren**, en accepteer de gebruiksvoorwaarden Hallo.
+2. Klik in Solution Explorer met de rechtermuisknop op het project **Ontvanger** en klik op **NuGet-pakketten beheren voor oplossing**.
+3. Klik op het tabblad **Bladeren** en zoek vervolgens naar `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Klik op **Installeren** en accepteer de gebruiksvoorwaarden.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
-    Visual Studio downloadt, installeert en voegt u een verwijzing toohello [Azure Service Bus Event Hub - EventProcessorHost NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), inclusief alle afhankelijkheden ervan.
-4. Klik met de rechtermuisknop Hallo **ontvanger** project, klikt u op **toevoegen**, en klik vervolgens op **klasse**. Naam nieuwe klasse Hallo **SimpleEventProcessor**, en klik vervolgens op **toevoegen** toocreate Hallo-klasse.
+    Door Visual Studio wordt een verwijzing naar het [ NuGet-pakket Azure Service Bus Event Hub - EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), inclusief alle bijbehorende afhankelijkheden, gedownload, geïnstalleerd en toegevoegd.
+4. Klik met de rechtermuisknop op het project **Ontvanger**, klik op **Toevoegen** en op **Klasse**. Noem de nieuwe klasse **SimpleEventProcessor** en klik op **Toevoegen** om de klasse te maken.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
-5. Hallo instructies Hallo boven aan het bestand simpleeventprocessor.cs Hallo volgende toevoegen:
+5. Voeg de volgende instructies toe aan het begin van het bestand SimpleEventProcessor.cs:
     
   ```csharp
   using Microsoft.ServiceBus.Messaging;
   using System.Diagnostics;
   ```
     
-  Vervang vervolgens, na de code voor de instantie van klasse Hallo HALLO hallo:
+  Vervang daarna de hoofdtekst van de klasse door de volgende code:
     
   ```csharp
   class SimpleEventProcessor : IEventProcessor
@@ -122,14 +122,14 @@ Hallo toouse [Gebeurtenisprocessorhost][EventProcessorHost], hebt u een [Azure S
   }
   ```
     
-  Deze klasse wordt aangeroepen door Hallo **EventProcessorHost** tooprocess gebeurtenissen ontvangen van Hallo event hub. Hallo `SimpleEventProcessor` klasse gebruikt een stopwatch tooperiodically aanroep Hallo controlepuntmethode op Hallo **EventProcessorHost** context. Deze verwerking zorgt ervoor dat, als de ontvanger Hallo opnieuw wordt opgestart, niet meer dan vijf minuten verliest van de verwerking van werkitems.
-6. In Hallo **programma** klasse, voeg de volgende Hallo `using` instructie Hallo boven aan het Hallo-bestand:
+  Deze klasse wordt aangeroepen door de **EventProcessorHost** om gebeurtenissen te verwerken die worden ontvangen van de Event Hub. De klasse `SimpleEventProcessor` gebruikt een stopwatch om periodiek de controlepuntmethode voor de context **EventProcessorHost** aan te roepen. Op deze manier gaat er nooit meer werk verloren dan in vijf minuten kan worden verwerkt, als de ontvanger opnieuw wordt opgestart.
+6. Voeg in de klasse **Program** de volgende `using`-instructie toe aan het begin van het bestand:
     
   ```csharp
   using Microsoft.ServiceBus.Messaging;
   ```
     
-  Vervang vervolgens Hallo `Main` methode in Hallo `Program` klasse met de volgende code Hallo, vervangen door de naam van Hallo event hub en Hallo naamruimteniveau verbinding tekenreeks die u eerder hebt opgeslagen en storage-account en de sleutel die u hebt gekopieerd in Hallo Hallo vorige secties. 
+  Vervang daarna de methode `Main` in de klasse `Program` door de volgende code, waarbij u de naam van de Event Hub en de verbindingsreeks op naamruimteniveau die u eerder hebt opgeslagen, en het opslagaccount en de sleutel die u in de vorige secties hebt gekopieerd, vervangt. 
     
   ```csharp
   static void Main(string[] args)
@@ -147,25 +147,25 @@ Hallo toouse [Gebeurtenisprocessorhost][EventProcessorHost], hebt u een [Azure S
     options.ExceptionReceived += (sender, e) => { Console.WriteLine(e.Exception); };
     eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>(options).Wait();
     
-    Console.WriteLine("Receiving. Press enter key toostop worker.");
+    Console.WriteLine("Receiving. Press enter key to stop worker.");
     Console.ReadLine();
     eventProcessorHost.UnregisterEventProcessorAsync().Wait();
   }
   ```
 
-7. Hallo-programma uitvoeren en zorg ervoor dat er geen fouten.
+7. Voer het programma uit en controleer of er geen fouten zijn.
   
-Gefeliciteerd. U hebt nu berichten ontvangen van een event hub met Hallo Event Processor Host.
+Gefeliciteerd. U hebt nu met behulp van de EventProcessorHost berichten ontvangen van een Event Hub.
 
 
 > [!NOTE]
-> In deze zelfstudie wordt één exemplaar van [EventProcessorHost][EventProcessorHost] gebruikt. tooincrease doorvoer, het wordt aanbevolen dat u meerdere exemplaren van [EventProcessorHost][EventProcessorHost], zoals weergegeven in Hallo [schaal uit de verwerking van gebeurtenissen] [schaal uit de verwerking van gebeurtenissen] voorbeeld. In deze gevallen hello verschillende exemplaren samen automatisch met elkaar tooload saldo Hallo ontvangen gebeurtenissen. Als u wilt dat meerdere ontvangers tooeach proces *alle* Hallo gebeurtenissen, moet u Hallo **ConsumerGroup** concept. Wanneer u gebeurtenissen ontvangen van andere computers, komt dit mogelijk handig toospecify namen voor [EventProcessorHost] [ EventProcessorHost] exemplaren op basis van het Hallo-machines (of rollen) in dat ze zijn geïmplementeerd. Zie voor meer informatie over deze onderwerpen Hallo [overzicht van Event Hubs] [ Event Hubs overview] en Hallo [Programmeerhandleiding voor Event Hubs] [ Event Hubs Programming Guide] onderwerpen.
+> In deze zelfstudie wordt één exemplaar van [EventProcessorHost][EventProcessorHost] gebruikt. Voor een betere doorvoer wordt geadviseerd om meerdere exemplaren van [EventProcessorHost][EventProcessorHost] uit te voeren, zoals wordt geïllustreerd in het voorbeeld [Uitgeschaalde gebeurtenisverwerking][Uitgeschaalde gebeurtenisverwerking]. In die gevallen werken de verschillende instanties automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. Als u wilt dat meerdere ontvangers *alle* gebeurtenissen verwerken, gebruik dan het concept **ConsumerGroup**. Wanneer er gebeurtenissen van verschillende computers worden ontvangen, kan het nuttig zijn om namen voor [EventProcessorHost-exemplaren][EventProcessorHost] op te geven op basis van de computers waarop (of rollen waarin) ze zijn geïmplementeerd. Zie [Overzicht van Event Hubs][Event Hubs overview] en [Event Hubs-programmeergids][Event Hubs Programming Guide] voor meer informatie over deze onderwerpen.
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u een werkende toepassing die een event hub maakt en gegevens verzendt en ontvangt hebt gemaakt, kunt u meer informatie via Hallo koppelingen te volgen:
+Nu u een werkende toepassing hebt gebouwd die een Event Hub maakt en gegevens verzendt en ontvangt, kunt u via de volgende koppelingen meer informatie opdoen:
 
 * [EventProcessorHost][Event Processor Host]
 * [Event Hubs-overzicht][Event Hubs overview]

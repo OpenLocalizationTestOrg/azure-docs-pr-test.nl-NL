@@ -8,25 +8,25 @@ Virtuele netwerken (VNET) en subnetten bronnen het definiëren van een beveiligi
 
 ![VNet met meerdere subnetten](./media/resource-groups-networking/Figure4.png)
 
-VNets bevatten hello volgende eigenschappen.
+Vnet's bevatten de volgende eigenschappen.
 
 | Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
-| **de addressSpace** |Verzameling van adresvoorvoegsels die gezamenlijk Hallo VNet in CIDR-notatie |192.168.0.0/16 |
-| **subnetten** |Verzameling van subnetten die gezamenlijk Hallo VNet |Zie [subnetten](#Subnets) hieronder. |
-| **IP-adres** |IP-adres toegewezen tooobject. Dit is een alleen-lezen eigenschap. |104.42.233.77 |
+| **de addressSpace** |Verzameling van adresvoorvoegsels waaruit het VNet in CIDR-notatie |192.168.0.0/16 |
+| **subnetten** |Verzameling van subnetten die gezamenlijk de VNet |Zie [subnetten](#Subnets) hieronder. |
+| **IP-adres** |IP-adres is toegewezen aan een object. Dit is een alleen-lezen eigenschap. |104.42.233.77 |
 
 ### <a name="subnets"></a>Subnetten
-Een subnet is een onderliggende resource van een VNet en helpt bij het segmenten van adresruimten binnen een CIDR-blok met behulp van IP-adresvoorvoegsels definiëren. NIC's kunnen worden toegevoegd, toosubnets en verbonden tooVMs, tegelijk connectiviteit biedt voor verschillende werkbelastingen.
+Een subnet is een onderliggende resource van een VNet en helpt bij het segmenten van adresruimten binnen een CIDR-blok met behulp van IP-adresvoorvoegsels definiëren. NIC's worden toegevoegd aan subnetten en verbonden met virtuele machines, tegelijk connectiviteit biedt voor verschillende werkbelastingen.
 
-Subnetten bevatten Hallo volgende eigenschappen. 
+Subnetten bevatten de volgende eigenschappen. 
 
 | Eigenschap | Beschrijving | Voorbeeldwaarden |
 | --- | --- | --- |
-| **addressPrefix** |Één adresvoorvoegsel die Hallo subnet in CIDR-notatie |192.168.1.0/24 |
-| **networkSecurityGroup** |NSG die is toegepast toohello subnet |Zie [nsg's](#Network-Security-Group) |
-| **Migratiestatus** |Routetabel toegepast toohello subnet |Zie [UDR](#Route-table) |
-| **ipConfigurations** |Verzameling van IP-configruation objecten die worden gebruikt door de NIC's aangesloten toohello subnet |Zie [UDR](#Route-table) |
+| **addressPrefix** |Één adresvoorvoegsel waaruit het subnet in CIDR-notatie |192.168.1.0/24 |
+| **networkSecurityGroup** |NSG wordt toegepast op het subnet |Zie [nsg's](#Network-Security-Group) |
+| **Migratiestatus** |De routetabel is toegepast op het subnet |Zie [UDR](#Route-table) |
+| **ipConfigurations** |Verzameling van IP-configruation objecten die worden gebruikt door de NIC's die zijn verbonden met het subnet |Zie [UDR](#Route-table) |
 
 Voorbeeld VNet in JSON-indeling:
 
@@ -74,6 +74,6 @@ Voorbeeld VNet in JSON-indeling:
 
 ### <a name="additional-resources"></a>Aanvullende bronnen
 * Vindt u meer informatie over [VNet](../articles/virtual-network/virtual-networks-overview.md).
-* Lees Hallo [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt163650.aspx) voor VNets.
-* Lees Hallo [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt163618.aspx) voor subnetten.
+* Lees de [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt163650.aspx) voor VNets.
+* Lees de [REST-API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/mt163618.aspx) voor subnetten.
 

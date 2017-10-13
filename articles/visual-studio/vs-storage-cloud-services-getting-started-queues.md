@@ -1,6 +1,6 @@
 ---
-title: aaaGet gestart met de opslag van de wachtrij en Visual Studio verbonden services (cloudservices) | Microsoft Docs
-description: Hoe tooget gestart met Azure Queue storage in een cloud service-project in Visual Studio nadat tooa storage-account met Visual Studio verbinding services verbonden
+title: Aan de slag met de opslag van de wachtrij en Visual Studio verbonden services (cloudservices) | Microsoft Docs
+description: Hoe u aan de slag met Azure Queue storage in een cloud service-project in Visual Studio nadat u verbinding met een opslagaccount met Visual Studio hebt verbonden services
 services: storage
 documentationcenter: 
 author: kraigb
@@ -14,97 +14,97 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.openlocfilehash: 1e90eeb826131cadca90dcb720c931fff5fedcb7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7a6e58a62b4cfbf99641559363dd0c860cdf8af2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Aan de slag met Azure Queue storage en Visual Studio verbonden services (cloud services-projecten)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Overzicht
-Dit artikel wordt beschreven hoe tooget gestart met Azure Queue storage in Visual Studio nadat u hebt gemaakt of een Azure storage-account in een cloud services-project waarnaar wordt verwezen met behulp van Visual Studio Hallo **verbonden Services toevoegen** dialoogvenster .
+Dit artikel wordt beschreven hoe u aan de slag met Azure Queue storage in Visual Studio nadat u hebt gemaakt of een Azure storage-account in een cloud services-project waarnaar wordt verwezen door het gebruik van de Visual Studio **verbonden Services toevoegen** dialoogvenster.
 
-Leert u hoe een wachtrij in code toocreate. Ook ziet u hoe tooperform basic wachtrij-bewerkingen, zoals het toevoegen, wijzigen, lezen en verwijderen van Wachtrijberichten. Hallo-voorbeelden zijn geschreven in C#-code en gebruiken van Hallo [Microsoft Azure Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Leert u hoe u een wachtrij in code maken. Ook ziet u hoe u eenvoudige wachtrij bewerkingen uitvoeren, zoals het toevoegen, wijzigen, lezen en verwijderen van Wachtrijberichten. De voorbeelden zijn geschreven in C#-code en gebruik de [Microsoft Azure Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-Hallo **verbonden Services toevoegen** bewerking installeert Hallo juiste NuGet-pakketten tooaccess Azure-opslag in uw project en voegt Hallo-verbindingsreeks voor hello storage account tooyour project configuratiebestanden.
+De **verbonden Services toevoegen** bewerking installeert de juiste NuGet-pakketten voor toegang tot Azure-opslag in uw project en voegt u de verbindingsreeks voor de storage-account toe aan uw project configuratiebestanden.
 
 * Zie [aan de slag met Azure Queue storage met .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) voor meer informatie over het bewerken van wachtrijen in code.
 * Zie [documentatie Storage](https://azure.microsoft.com/documentation/services/storage/) voor algemene informatie over Azure Storage.
 * Zie [Cloud Services-documentatie](https://azure.microsoft.com/documentation/services/cloud-services/) voor algemene informatie over Azure-cloudservices.
 * Zie [ASP.NET](http://www.asp.net) voor meer informatie over het programmeren van ASP.NET-toepassingen.
 
-Azure Queue storage is een service voor het opslaan van grote aantallen berichten die toegankelijk zijn vanaf een willekeurige plaats in Hallo wereld via geverifieerde aanroepen via HTTP of HTTPS. Een enkel wachtrijbericht mag up too64 KB groot en een wachtrij kan miljoenen berichten up toohello totale capaciteitslimiet van een opslagaccount bevatten.
+Azure Queue Storage is een service voor de opslag van grote aantallen berichten die via HTTP of HTTPS overal vandaan kunnen worden opgevraagd met geverifieerde aanroepen. Een enkel wachtrijbericht mag maximaal 64 KB groot zijn en een wachtrij kan miljoenen berichten bevatten, tot de totale capaciteitslimiet van een opslagaccount.
 
 ## <a name="access-queues-in-code"></a>Toegang tot wachtrijen in code
-tooaccess wachtrijen in Visual Studio Cloud Services-projecten, moet u tooinclude Hallo volgende items tooany C#-bronbestand die toegang hebben tot Azure Queue storage.
+Voor toegang tot wachtrijen in Visual Studio Cloud Services-projecten, moet u de volgende items naar een C#-bronbestand die toegang hebben tot Azure Queue storage bevatten.
 
-1. Zorg ervoor dat de naamruimtedeclaraties Hallo Hallo bovenaan Hallo C#-bestand in deze **met** instructies.
+1. Zorg ervoor dat de naamruimtedeclaraties boven aan het C#-bestand zijn deze **met** instructies.
    
         using Microsoft.Framework.Configuration;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Queue;
-2. Ophalen van een **CloudStorageAccount** -object met gegevens over uw storage-account. Gebruik Hallo na code tooget Hallo uw verbindingsreeks voor opslag en de accountgegevens van de opslag van Azure Hallo-serviceconfiguratie.
+2. Ophalen van een **CloudStorageAccount** -object met gegevens over uw storage-account. De volgende code gebruiken om op te halen de uw verbindingsreeks voor opslag en opslag accountgegevens van de configuratie van Azure service.
    
          CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
-3. Ophalen van een **CloudQueueClient** object tooreference Hallo wachtrij-objecten in uw opslagaccount.  
+3. Ophalen van een **CloudQueueClient** object om te verwijzen naar de wachtrij-objecten in uw opslagaccount.  
    
-        // Create hello queue client.
+        // Create the queue client.
         CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-4. Ophalen van een **CloudQueue** tooreference een specifieke wachtrij-object.
+4. Ophalen van een **CloudQueue** object om te verwijzen naar een bepaalde wachtrij.
    
-        // Get a reference tooa queue named "messageQueue"
+        // Get a reference to a queue named "messageQueue"
         CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**Opmerking:** alle Hallo bovenstaande code voor het Hallo-code in Hallo volgen voorbeelden gebruiken.
+**Opmerking:** alle bovenstaande code voor de code in de volgende voorbeelden gebruiken.
 
 ## <a name="create-a-queue-in-code"></a>Een wachtrij in code maken
-toocreate hello wachtrij in code, voegt u toe een aanroep te**CreateIfNotExists**.
+Om de wachtrij in code maken, voegt u toe een aanroep van **CreateIfNotExists**.
 
-    // Create hello CloudQueue if it does not exist
+    // Create the CloudQueue if it does not exist
     messageQueue.CreateIfNotExists();
 
-## <a name="add-a-message-tooa-queue"></a>Een berichtenwachtrij tooa toevoegen
-tooinsert een bericht in een bestaande wachtrij maakt u een nieuwe **CloudQueueMessage** object en vervolgens aanroep Hallo **AddMessage** methode.
+## <a name="add-a-message-to-a-queue"></a>Een bericht toevoegen aan een wachtrij
+Als u wilt een bericht in een bestaande wachtrij ingevoegd, maakt u een nieuwe **CloudQueueMessage** Roep vervolgens object de **AddMessage** methode.
 
 Een **CloudQueueMessage** object kan worden gemaakt vanuit een tekenreeks (in UTF-8-indeling) of een byte-matrix.
 
-Hier volgt een voorbeeld waarmee het Hallo-bericht 'Hello, World' invoegt.
+Hier volgt een voorbeeld waarmee het bericht 'Hello, World'.
 
-    // Create a message and add it toohello queue.
+    // Create a message and add it to the queue.
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     messageQueue.AddMessage(message);
 
 ## <a name="read-a-message-in-a-queue"></a>Een bericht in een wachtrij lezen
-U kunt bekijken van Hallo-bericht in Hallo begin van een wachtrij zonder het te verwijderen uit de wachtrij Hallo door aanroepen Hallo **PeekMessage** methode.
+U kunt het bericht vooraan in een wachtrij bekijken zonder het uit de wachtrij te verwijderen, door de methode **PeekMessage** aan te roepen.
 
-    // Peek at hello next message
+    // Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
 ## <a name="read-and-remove-a-message-in-a-queue"></a>Lezen en verwijderen van een bericht in een wachtrij
 Uw code kunt verwijderen (uit de wachtrij) een bericht van een wachtrij in twee stappen.
 
-1. Roep **GetMessage** tooget Hallo volgende bericht in een wachtrij. Een bericht dat wordt geretourneerd door **GetMessage** wordt onzichtbaar tooany andere codes die berichten lezen uit deze wachtrij. Standaard blijft het bericht onzichtbaar gedurende 30 seconden.
-2. Hallo-bericht verwijderen uit Hallo wachtrij aanroep toofinish **DeleteMessage**.
+1. Roep **GetMessage** ophalen van het volgende bericht in een wachtrij. Een bericht dat wordt geretourneerd door **GetMessage**, wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. Standaard blijft het bericht onzichtbaar gedurende 30 seconden.
+2. Aanroepen voor het voltooien van het bericht uit de wachtrij verwijderen **DeleteMessage**.
 
-Dit proces in twee stappen van het verwijderen van een bericht zorgt ervoor dat als uw code mislukt tooprocess een bericht vanwege problemen toohardware of software, een ander exemplaar van uw code krijgt hetzelfde bericht Hallo en probeer het opnieuw. Hallo volgende code aanroepen **DeleteMessage** direct nadat het Hallo-bericht is verwerkt.
+Dit proces in twee stappen voor het verwijderen van een bericht zorgt ervoor dat als de code er niet in slaagt een bericht te verwerken vanwege hardware- of softwareproblemen, een ander exemplaar van uw code hetzelfde bericht kan ophalen en het opnieuw kan proberen. De volgende code aanroepen **DeleteMessage** direct nadat het bericht is verwerkt.
 
-    // Get hello next message in hello queue.
+    // Get the next message in the queue.
     CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
 
-    // Process hello message in less than 30 seconds
+    // Process the message in less than 30 seconds
 
-    // Then delete hello message.
+    // Then delete the message.
     await messageQueue.DeleteMessage(retrievedMessage);
 
 
-## <a name="use-additional-options-tooprocess-and-remove-queue-messages"></a>Aanvullende opties tooprocess gebruiken en verwijderen van Wachtrijberichten
+## <a name="use-additional-options-to-process-and-remove-queue-messages"></a>Aanvullende opties gebruiken om te verwerken en verwijderen van Wachtrijberichten
 Er zijn twee manieren waarop u het ophalen van berichten uit een wachtrij kunt aanpassen.
 
-* U kunt een batch met berichten (omhoog too32) ophalen.
-* U kunt een time-out langer of korter onzichtbaarheid instellen zodat uw code meer of minder tijd toofully elk bericht niet verwerken. Hallo volgende codevoorbeeld wordt de **GetMessages** methode tooget 20 berichten in één aanroep. Vervolgens wordt elk bericht verwerkt met behulp van een **foreach**-lus. Hallo onzichtbaarheid toofive minuten voor de time-out voor elk bericht wordt ook ingesteld. Houd er rekening mee dat Hallo 5 minuten voor alle berichten op Hallo dezelfde time begint, betekent dat als er 5 minuten zijn verstreken sinds de aanroep hello te**GetMessages**, alle berichten die niet zijn verwijderd weer zichtbaar worden.
+* U kunt een batch met berichten (maximaal 32) ophalen.
+* U kunt een time-out langer of korter onzichtbaarheid instellen zodat uw code meer of minder tijd voor het volledig verwerken van elk bericht. In het volgende codevoorbeeld wordt de methode **GetMessages** gebruikt om 20 berichten in één aanroep op te halen. Vervolgens wordt elk bericht verwerkt met behulp van een **foreach**-lus. De time-out voor onzichtbaarheid wordt ingesteld op vijf minuten voor elk bericht. Houd voor ogen dat de periode van 5 minuten voor alle berichten op hetzelfde moment start. Nadat er 5 minuten zijn verstreken sinds de aanroep van **GetMessages**, worden dus alle berichten die niet zijn verwijderd, opnieuw zichtbaar.
 
 Hier volgt een voorbeeld:
 
@@ -112,45 +112,45 @@ Hier volgt een voorbeeld:
     {
         // Process all messages in less than 5 minutes, deleting each message after processing.
 
-        // Then delete hello message after processing
+        // Then delete the message after processing
         messageQueue.DeleteMessage(message);
 
     }
 
-## <a name="get-hello-queue-length"></a>Hallo-wachtrijlengte ophalen
-U kunt een schatting maken van het aantal berichten Hallo krijgen in een wachtrij. De **FetchAttributes** methode vraagt de Queue-service Hallo Hallo wachtrij-kenmerken, zoals aantal Hallo-berichten ophalen. Hallo **ApproximateMethodCount** eigenschap retourneert de laatste waarde Hallo opgehaald door de **FetchAttributes** methode zonder Hallo Queue-service aanroepen.
+## <a name="get-the-queue-length"></a>Lengte van de wachtrij ophalen
+U kunt een schatting ophalen van het aantal berichten in de wachtrij. De methode **FetchAttributes** vraagt de Queue-service de wachtrij-kenmerken, zoals het aantal berichten, op te halen. De **ApproximateMethodCount** eigenschap retourneert de laatste waarde die is opgehaald door de **FetchAttributes** methode, zonder de Queue-service aanroepen.
 
-    // Fetch hello queue attributes.
+    // Fetch the queue attributes.
     messageQueue.FetchAttributes();
 
-    // Retrieve hello cached approximate message count.
+    // Retrieve the cached approximate message count.
     int? cachedMessageCount = messageQueue.ApproximateMessageCount;
 
     // Display number of messages.
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
-## <a name="use-hello-async-await-pattern-with-common-azure-queue-apis"></a>Hallo Async-Await-patroon gebruiken met algemene Azure Queue-API 's
-Dit voorbeeld toont hoe toouse Hallo Async-Await patroon met algemene Azure Queue-API's. Hallo voorbeeld Hallo async-versie van elk Hallo opgegeven methoden aanroept, deze kunnen worden gezien door Hallo **asynchrone** na herstel van elke methode. Wanneer een async-methode is gebruikte Hallo async-await patroon lokale uitvoering wordt onderbroken totdat het Hallo-aanroep is voltooid. Hierdoor kunnen de huidige thread toodo Hallo andere taken die knelpunten in de prestaties worden voorkomen en verbetert de algehele respons van uw toepassing hello. Zie voor meer informatie over het gebruik van Hallo Async-Await-patroon in .NET [Async en Await (C# en Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>De Async-Await-patroon gebruiken met algemene Azure Queue-API 's
+In dit voorbeeld laat zien hoe het Async-Await-patroon gebruiken met algemene Azure Queue-API's. Het voorbeeld roept de async-versie van elk van de opgegeven methoden, moeten deze kunnen worden gezien door de **asynchrone** na herstel van elke methode. Wanneer u een async-methode gebruikt het async-await patroon lokale uitvoering wordt uitgesteld totdat de aanroep is voltooid. Dit gedrag kan de huidige thread voor andere werk die knelpunten in de prestaties worden voorkomen en verbetert de algehele respons van uw toepassing. Zie [Async en Await (C# en Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) voor meer informatie over het gebruik van het Async-Await-patroon in .NET.
 
-    // Create a message tooput in hello queue
+    // Create a message to put in the queue
     CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
 
-    // Add hello message asynchronously
+    // Add the message asynchronously
     await messageQueue.AddMessageAsync(cloudQueueMessage);
     Console.WriteLine("Message added");
 
-    // Async dequeue hello message
+    // Async dequeue the message
     CloudQueueMessage retrievedMessage = await messageQueue.GetMessageAsync();
     Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
 
-    // Delete hello message asynchronously
+    // Delete the message asynchronously
     await messageQueue.DeleteMessageAsync(retrievedMessage);
     Console.WriteLine("Deleted message");
 
 ## <a name="delete-a-queue"></a>Een wachtrij verwijderen
-een wachtrij en alle Hallo-berichten die zijn opgenomen in deze aanroep Hallo toodelete **verwijderen** methode op Hallo wachtrij-object.
+Als u een wachtrij en alle berichten hierin wilt verwijderen, roept u de methode **Delete** aan in het wachtrijobject.
 
-    // Delete hello queue.
+    // Delete the queue.
     messageQueue.Delete();
 
 ## <a name="next-steps"></a>Volgende stappen

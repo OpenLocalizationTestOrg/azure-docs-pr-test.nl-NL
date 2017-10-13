@@ -1,6 +1,6 @@
 ---
-title: aaaError op de pagina van de toepassing na het aanmelden | Microsoft Docs
-description: Hoe tooresolve problemen met Azure AD aanmelden bij het Hallo-toepassing zelf genereert een fout opgetreden
+title: Fout op de pagina voor een toepassing na het aanmelden | Microsoft Docs
+description: Het oplossen van problemen met Azure AD aanmelden wanneer de toepassing zelf een fout opgetreden genereert
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 317b6f8e6417520ead80ae4e26c591ba6b134683
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a8cd93256f79ece268ec3411dfbdf590f4b24447
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Fout op de pagina voor een toepassing na het aanmelden
 
-In dit scenario Azure AD Hallo-gebruiker in heeft ondertekend, maar Hallo toepassing is een fout opgetreden bij het Hallo gebruiker toosuccessfully voltooien Hallo teken is niet toegestaan in stroom om weer te geven. In dit scenario accepteert Hallo toepassing geen Hallo antwoord probleem door Azure AD.
+In dit scenario, Azure AD heeft de gebruiker in ondertekend, maar de toepassing is een fout opgetreden waardoor de gebruiker te kunnen voltooien van de aanmeldingspagina stroom niet kan weergeven. In dit scenario is de toepassing niet het probleem antwoord accepteert door Azure AD.
 
-Er zijn enkele mogelijke redenen waarom Hallo toepassing hello Azure AD-antwoord niet geaccepteerd. Als het Hallo-fout in de toepassing hello is niet genoeg wissen tooknow ontbreekt wat Hallo antwoord wordt vervolgens:
+Er zijn enkele mogelijke redenen waarom de reactie van Azure AD is de toepassing niet geaccepteerd. Als de fout in de toepassing niet duidelijk is weten wat ontbreekt in het antwoord vervolgens:
 
--   Controleer of u alle stappen van Hallo in Hallo artikel hebt uitgevoerd als Hallo toepassing hello Azure AD-galerie, [hoe toodebug op basis van SAML eenmalige aanmelding tooapplications in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+-   Als de toepassing de galerie van Azure AD wordt, controleert u of u alle stappen in het artikel hebt gevolgd [fouten opsporen in op basis van SAML eenmalige aanmelding tot toepassingen in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Gebruik een hulpprogramma zoals [Fiddler](http://www.telerik.com/fiddler) toocapture SAML SAML-reactie en SAML-token aanvragen.
+-   Gebruik een hulpprogramma zoals [Fiddler](http://www.telerik.com/fiddler) voor het vastleggen van SAML-aanvraag, SAML-reactie en SAML-token.
 
--   Hallo SAML-reactie delen met Hallo toepassing leverancier tooknow wat ontbreekt.
+-   De SAML-reactie delen met de leverancier van de toepassing te weten wat ontbreekt.
 
-## <a name="missing-attributes-in-hello-saml-response"></a>Ontbrekende kenmerken in Hallo SAML-reactie
+## <a name="missing-attributes-in-the-saml-response"></a>Ontbrekende kenmerken in de SAML-reactie
 
-een kenmerk in hello Azure AD configuratie toobe verzonden in antwoord hello Azure AD, tooadd Hallo volgende stappen:
+Volg de onderstaande stappen voor het toevoegen van een kenmerk in de configuratie van Azure AD worden verzonden in de Azure AD-antwoord:
 
-1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
+5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-   * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
 
-6.  Selecteer Hallo-toepassing die u wilt dat eenmalige aanmelding tooconfigure.
+6.  Selecteer de toepassing die u wilt configureren eenmalige aanmelding.
 
-7.  Nadat de toepassing hello wordt geladen, klikt u op Hallo **eenmalige aanmelding** uit van de toepassing hello linkerkant navigatiemenu.
+7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** van navigatiemenu links aan de van de toepassing.
 
-8.  Klik op **weergeven en alle andere gebruiker onder kenmerken bewerken** hello **gebruikerskenmerken** sectie tooedit Hallo kenmerken toobe verzonden toohello toepassing in Hallo SAML-token wanneer de gebruiker zich aanmelden.
+8.  Klik op **weergeven en alle andere gebruiker onder kenmerken bewerken** de **gebruikerskenmerken** sectie voor het bewerken van de kenmerken worden verzonden naar de toepassing in het SAML-token wanneer de gebruiker zich aanmelden.
 
-   een kenmerk tooadd:
+   Een kenmerk toevoegen:
 
-   * Klik op **toevoegen kenmerk**. Voer Hallo **naam** en selecteer Hallo Hallo **waarde** uit Hallo vervolgkeuzelijst.
+   * Klik op **toevoegen kenmerk**. Voer de **naam** en selecteer de **waarde** uit de vervolgkeuzelijst.
 
-   * Klik op **opslaan.** U zien nieuw kenmerk Hallo in Hallo tabel.
+   * Klik op **opslaan.** Ziet u het nieuwe kenmerk in de tabel.
 
-9.  Hallo-configuratie op te slaan.
+9.  De configuratie op te slaan.
 
-Volgende keer Hallo gebruiker zich aanmeldt toohello toepassing, Azure AD verzenden Hallo nieuw kenmerk in Hallo SAML-reactie.
+Zodra de gebruiker zich aanmeldt bij de toepassing Azure AD verzenden het nieuwe kenmerk in de SAML-reactie.
 
-## <a name="hello-application-expects-a-different-user-identifier-value-or-format"></a>Hallo-toepassing verwacht een andere gebruikers-id-waarde of de indeling
+## <a name="the-application-expects-a-different-user-identifier-value-or-format"></a>De toepassing verwacht een andere gebruikers-id-waarde of de indeling
 
-Hallo is aanmelden toohello toepassing mislukt omdat Hallo SAML-reactie kenmerken, zoals rollen ontbreekt of omdat het Hallo-toepassing een andere indeling voor het Hallo-id van de entiteit-kenmerk worden verwacht.
+De aanmelding bij de toepassing is mislukt omdat de SAML-reactie kenmerken, zoals rollen ontbreekt of omdat de toepassing een andere indeling voor het kenmerk id van de entiteit wordt verwacht.
 
-## <a name="add-an-attribute-in-hello-azure-ad-application-configuration"></a>Een kenmerk in de configuratie van hello Azure AD-toepassing toevoegen:
+## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Een kenmerk in de configuratie van de Azure AD-toepassing toevoegen:
 
-toochange hello gebruikers-id-waarde Hallo volgende stappen:
+De waarde van de gebruikers-id wilt wijzigen, de volgende stappen uit te voeren:
 
-1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
+5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-   * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
 
-6.  Selecteer Hallo-toepassing die u wilt dat eenmalige aanmelding tooconfigure.
+6.  Selecteer de toepassing die u wilt configureren eenmalige aanmelding.
 
-7.  Nadat de toepassing hello wordt geladen, klikt u op Hallo **eenmalige aanmelding** uit van de toepassing hello linkerkant navigatiemenu.
+7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** van navigatiemenu links aan de van de toepassing.
 
-8.  Onder Hallo **gebruikerskenmerken**, selecteer de unieke id voor uw gebruikers in Hallo Hallo **gebruikers-id** vervolgkeuzelijst.
+8.  Onder de **gebruikerskenmerken**, selecteert u de unieke id voor uw gebruikers in de **gebruikers-id** vervolgkeuzelijst.
 
 ## <a name="change-entityid-user-identifier-format"></a>Wijzigen van de id van de entiteit (gebruikers-id)
 
-Als de toepassing hello een andere indeling voor het Hallo-id van de entiteit-kenmerk verwacht. Vervolgens niet kunnen tooselect Hallo id (gebruiker Identifier) van de entiteit indeling Azure AD toohello toepassing hello als antwoord verzendt na verificatie van gebruiker.
+Als de toepassing een andere indeling voor het kenmerk id van de entiteit verwacht. Vervolgens het niet mogelijk om de id van de entiteit (gebruikers-id)-indeling die Azure AD naar de toepassing in het antwoord na verificatie van gebruikers verzendt te selecteren.
 
-Azure AD Selecteer Hallo-indeling voor Hallo NameID kenmerk (gebruikers-id) op basis van geselecteerde Hallo-waarde of Hallo aangevraagd door de toepassing hello in Hallo SAML AuthRequest indeling. Voor meer informatie gaat u naar Hallo artikel [Single Sign-On SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) onder Hallo sectie NameIDPolicy.
+Azure AD selecteren de indeling voor het kenmerk NameID (gebruikers-id) op basis van de waarde geselecteerd of de indeling die is aangevraagd door de toepassing in de SAML-AuthRequest. Raadpleeg voor meer informatie het artikel [Single Sign-On SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) onder de sectie NameIDPolicy.
 
-## <a name="hello-application-expects-a-different-signature-method-for-hello-saml-response"></a>Hallo-toepassing verwacht een andere handtekening-methode voor het SAML-reactie Hallo
+## <a name="the-application-expects-a-different-signature-method-for-the-saml-response"></a>De toepassing verwacht een ander handtekeningmethode voor de SAML-reactie
 
-toochange welke onderdelen van het SAML-token Hallo digitaal zijn ondertekend door Azure Active Directory. Volg onderstaande stappen voor Hallo:
+Om te wijzigen welke onderdelen van het SAML-token digitaal zijn ondertekend door Azure Active Directory. Volg de onderstaande stappen:
 
-1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
+5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-  * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+  * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
 
-6.  Selecteer Hallo-toepassing die u wilt dat eenmalige aanmelding tooconfigure.
+6.  Selecteer de toepassing die u wilt configureren eenmalige aanmelding.
 
-7.  Nadat de toepassing hello wordt geladen, klikt u op Hallo **eenmalige aanmelding** uit van de toepassing hello linkerkant navigatiemenu.
+7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** van navigatiemenu links aan de van de toepassing.
 
-8.  Klik op **weergeven geavanceerde instellingen voor het ondertekenen van certificaat** onder Hallo **certificaat voor ondertekening van SAML** sectie.
+8.  Klik op **weergeven geavanceerde instellingen voor het ondertekenen van certificaat** onder de **certificaat voor ondertekening van SAML** sectie.
 
-9.  Selecteer Hallo juiste **ondertekening optie** werd verwacht door de toepassing hello:
+9.  Selecteer de relevante **ondertekening optie** werd verwacht door de toepassing:
 
   * Meld u SAML-reactie
 
@@ -125,35 +125,35 @@ toochange welke onderdelen van het SAML-token Hallo digitaal zijn ondertekend do
 
   * Aanmelding van SAML-verklaring
 
-Volgende keer Hallo gebruiker zich aanmeldt toohello toepassing, Hallo Azure AD-aanmelding deel uit van SAML-reactie Hallo geselecteerd.
+Zodra de gebruiker zich aanmeldt bij de toepassing Azure AD Meld u aan het deel van de SAML-reactie die is geselecteerd.
 
-## <a name="hello-application-expects-hello-signing-algorithm-toobe-sha-1"></a>Hallo-toepassing verwacht hello toobe algoritme SHA-1-ondertekening
+## <a name="the-application-expects-the-signing-algorithm-to-be-sha-1"></a>De toepassing verwacht de ondertekeningsalgoritme SHA-1
 
-Standaard ondertekent Azure AD Hallo SAML-token met Hallo meeste beveiliging wordt gebruikt. Niet Hallo-algoritme tooSHA-1 is raadzaam wijzigen tenzij Hallo toepassing vereist.
+Standaard wordt in Azure AD het SAML-token met de meeste beveiligingsalgoritme ondertekent. Wijzigen van het teken-algoritme in SHA-1 wordt niet aanbevolen, tenzij de toepassing vereist.
 
-toochange Hallo ondertekeningsalgoritme, volgt u onderstaande Hallo stappen:
+Als u wilt de ondertekeningsalgoritme wijzigen, de volgende stappen uit te voeren:
 
-1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
+4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
 
-5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
+5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
-   * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
+   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
 
-6.  Selecteer Hallo-toepassing die u wilt dat eenmalige aanmelding tooconfigure.
+6.  Selecteer de toepassing die u wilt configureren eenmalige aanmelding.
 
-7.  Nadat de toepassing hello wordt geladen, klikt u op Hallo **eenmalige aanmelding** uit van de toepassing hello linkerkant navigatiemenu.
+7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** van navigatiemenu links aan de van de toepassing.
 
-8.  Klik op **weergeven geavanceerde instellingen voor het ondertekenen van certificaat** onder Hallo **certificaat voor ondertekening van SAML** sectie.
+8.  Klik op **weergeven geavanceerde instellingen voor het ondertekenen van certificaat** onder de **certificaat voor ondertekening van SAML** sectie.
 
-9.  Selecteer SHA-1 in Hallo **ondertekening algoritme**.
+9.  SHA-1, selecteert u in de **handtekeningalgoritme**.
 
-Volgende keer dat de gebruiker zich aanmeldt toohello toepassing hello, Azure AD-aanmelding Hallo SAML-token met behulp van algoritme SHA-1.
+Zodra de gebruiker zich aanmeldt bij de toepassing Azure AD Meld u aan het SAML-token met behulp van algoritme SHA-1.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Hoe toodebug op basis van SAML eenmalige aanmelding tooapplications in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
+[Fouten opsporen in op basis van SAML eenmalige aanmelding tot toepassingen in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)

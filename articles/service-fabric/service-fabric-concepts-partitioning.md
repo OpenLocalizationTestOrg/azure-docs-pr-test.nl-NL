@@ -1,6 +1,6 @@
 ---
-title: Service Fabric-services aaaPartitioning | Microsoft Docs
-description: Hierin wordt beschreven hoe toopartition Service Fabric stateful services. Partities kunnen de opslag van gegevens op de lokale machines Hallo zodat gegevens en rekencapaciteit samen kunnen worden geschaald.
+title: Service Fabric-services partitioneren | Microsoft Docs
+description: Beschrijft hoe Service Fabric stateful services partitie. Partities kunnen de opslag van gegevens op de lokale computers zodat u gegevens en rekencapaciteit samen kunnen worden geschaald.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,132 +14,132 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 6ead48716c08f4212535202ee69d169067d5c6d8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3c1e80305cb65f41a6981b99f69e8b87f89599ac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Betrouwbare partitie Service Fabric-services
-Dit artikel bevat een inleiding toohello basisconcepten van Azure Service Fabric betrouwbare services partitioneren. Hallo broncode gebruikt in Hallo artikel is ook beschikbaar op [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+Dit artikel bevat een inleiding tot de basisconcepten van Azure Service Fabric betrouwbare services partitioneren. De broncode gebruikt in het artikel is ook beschikbaar op [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="partitioning"></a>Partitionering
-Partitioneren is niet uniek tooService Fabric. Het is in feite een patroon core van het bouwen van schaalbare services. We kunnen in een ruimere zin nadenken over partitioneren als een concept van het delen van status (gegevens) en compute in kleinere eenheden toegankelijk tooimprove schaalbaarheid en prestaties. Is een bekende formulier van het partitioneren van [partitioneren van gegevens][wikipartition], ook wel aangeduid als sharding.
+Partitioneren is niet uniek is voor Service Fabric. Het is in feite een patroon core van het bouwen van schaalbare services. We kunnen in een ruimere zin nadenken over partitioneren als een concept van het delen van status (gegevens) en compute in kleinere toegankelijk eenheden schaalbaarheid en prestaties te verbeteren. Is een bekende formulier van het partitioneren van [partitioneren van gegevens][wikipartition], ook wel aangeduid als sharding.
 
 ### <a name="partition-service-fabric-stateless-services"></a>Partitie Service Fabric stateless services
 U kunt een partitie wordt een logische eenheid met een of meer exemplaren van een service bedenken voor stateless services. Afbeelding 1 toont een stateless service met vijf exemplaren verdeeld over een cluster met één partitie.
 
 ![Staatloze service](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-Er zijn in feite twee soorten stateless Services-oplossingen. Hallo eerst is een een service die de status extern, bijvoorbeeld zich blijft voordoen in een Azure SQL database (zoals een website die Hallo sessie-informatie en gegevens worden opgeslagen). Hallo is tweede alleen-berekeningen services (zoals een miniatuur Rekenmachine of afbeelding) die geen permanente status niet beheren.
+Er zijn in feite twee soorten stateless Services-oplossingen. De eerste is een service die de status extern, bijvoorbeeld zich blijft voordoen in een Azure SQL database (zoals een website die de sessie-informatie en gegevens worden opgeslagen). Het tweede is alleen-berekeningen services (zoals een miniatuur Rekenmachine of afbeelding) die geen permanente status niet beheren.
 
-Ofwel in geval een stateless service partitioneren is een zeldzame scenario--schaalbaarheid en beschikbaarheid normaal worden bereikt door meer exemplaren toe te voegen. Hallo enige keer dat u wilt dat meerdere partities voor stateless service-exemplaren is wanneer u toomeet speciale routering tooconsider aanvragen.
+Ofwel in geval een stateless service partitioneren is een zeldzame scenario--schaalbaarheid en beschikbaarheid normaal worden bereikt door meer exemplaren toe te voegen. De enige keer dat u wilt meerdere partities voor stateless service-exemplaren is als u nodig hebt om te voldoen aan speciale routering van aanvragen.
 
-Een voorbeeld kunt u een aanvraag waarin gebruikers met de id's in een bepaald bereik moeten alleen worden geleverd door een bepaalde service-exemplaar. Een ander voorbeeld van wanneer u een stateless service kan partitioneren is wanneer u een echt gepartitioneerde back-end (bijvoorbeeld een shard SQL-database) en u wilt dat toocontrol welk service-exemplaar moet schrijven toohello database shard-- of andere taken voorbereiding binnen Hallo staatloze service waarvoor Hallo dezelfde partitiegegevens, zoals wordt gebruikt in Hallo back-end. Dergelijke scenario's kunnen ook op verschillende manieren worden opgelost en niet noodzakelijk partitioneren van de service.
+Een voorbeeld kunt u een aanvraag waarin gebruikers met de id's in een bepaald bereik moeten alleen worden geleverd door een bepaalde service-exemplaar. Een ander voorbeeld van wanneer u een stateless service kan partitioneren is wanneer u een echt gepartitioneerde back-end (bijvoorbeeld een shard SQL-database) en u wilt bepalen welk service-exemplaar moet schrijven naar de database shard-- of andere taken voorbereiding binnen de staatloze service waarvoor partitionering dezelfde informatie als wordt gebruikt in de back-end. Dergelijke scenario's kunnen ook op verschillende manieren worden opgelost en niet noodzakelijk partitioneren van de service.
 
-Hallo rest van dit scenario ligt de nadruk op stateful services.
+De rest van dit scenario ligt de nadruk op stateful services.
 
 ### <a name="partition-service-fabric-stateful-services"></a>Partitie Service Fabric stateful services
-Service Fabric maakt het eenvoudig toodevelop schaalbare stateful services door het aanbieden van een uitstekende manier toopartition status (gegevens). Conceptueel gezien u over een partitie van een stateful service kunt beschouwen als een schaaleenheid die zeer betrouwbaar via [replica's](service-fabric-availability-services.md) die zijn gedistribueerd en verdeeld zijn over Hallo knooppunten in een cluster.
+Service Fabric kunt eenvoudig ontwikkelen van schaalbare stateful services door het aanbieden van een uitstekende manier om de partitie-status (gegevens). Conceptueel gezien u over een partitie van een stateful service kunt beschouwen als een schaaleenheid die zeer betrouwbaar via [replica's](service-fabric-availability-services.md) die zijn gedistribueerd en verdeeld zijn over de knooppunten in een cluster.
 
-In de context van Service Fabric stateful services Hallo partitioneren verwijst toohello proces om te bepalen dat een bepaalde service partitie verantwoordelijk voor een deel van de volledige status Hallo van Hallo-service is. (Zoals al eerder vermeld, een partitie is een reeks [replica's](service-fabric-availability-services.md)). Een aardige van Service Fabric is Hallo partities geplaatst op verschillende knooppunten. Hierdoor kunnen ze toogrow tooa knooppunt resource limiet. Wanneer gegevens Hallo groeien behoeften, groeien partities en Service Fabric rebalances partities over knooppunten. Dit zorgt ervoor Hallo voortgezet hardwarebronnen efficiënt worden gebruikt.
+In de context van de Service Fabric stateful services partitioneren verwijst naar het proces om te bepalen dat een bepaalde service partitie verantwoordelijk voor een deel van de volledige status van de service is. (Zoals al eerder vermeld, een partitie is een reeks [replica's](service-fabric-availability-services.md)). Een aardige van Service Fabric is dat de partities wordt geplaatst op verschillende knooppunten. Hierdoor kunnen ze toe aan een knooppunt resource limiet. Wanneer de gegevens groeien behoeften, groeien partities en Service Fabric rebalances partities over knooppunten. Hierdoor worden de blijvende efficiënt gebruik van de hardwarebronnen.
 
-toogive u bijvoorbeeld dat u begint met een 5-node cluster en een service die is geconfigureerd toohave 10 partities en een doel van drie replica's. In dit geval Service Fabric zou worden verdeeld en Hallo replica's verdelen over Hallo-cluster en zou u uiteindelijk eindigen met twee primaire [replica's](service-fabric-availability-services.md) per knooppunt.
-Als u nu tooscale uit Hallo too10 clusterknooppunten moet, Service Fabric zou opnieuw verdelen Hallo primaire [replica's](service-fabric-availability-services.md) op alle knooppunten van 10. Op dezelfde manier als u back too5 knooppunten uitgebreide, Service Fabric zou opnieuw verdelen alle Hallo-replica's op Hallo 5-knooppunten.  
+Als u een voorbeeld geven, dat u begint met een 5-node cluster en een service die is geconfigureerd met 10 partities en een doel van drie replica's. In dit geval Service Fabric zou worden verdeeld en de replica's verdelen over het cluster-- en zou u uiteindelijk eindigen met twee primaire [replica's](service-fabric-availability-services.md) per knooppunt.
+Als u nu uitbreiden van het cluster aan 10 knooppunten wilt, de primaire zou opnieuw verdelen Service Fabric [replica's](service-fabric-availability-services.md) op alle knooppunten van 10. Op dezelfde manier als u terug naar 5 knooppunten geschaald, Service Fabric zou opnieuw verdelen alle replica's op de 5-knooppunten.  
 
-Afbeelding 2 toont de distributie van de Hallo van 10 partities voor en na het Hallo-cluster schalen.
+Afbeelding 2 toont de distributie van 10 partities voor en na het schalen van het cluster.
 
 ![Stateful service](./media/service-fabric-concepts-partitioning/partitions.png)
 
-Hallo scale-out wordt hierdoor bereikt omdat aanvragen van clients worden verdeeld over computers, algehele prestaties van de toepassing hello is verbeterd en conflicten op toegang toochunks van gegevens wordt verminderd.
+De scale-out wordt hierdoor bereikt omdat aanvragen van clients worden verdeeld over computers, algehele prestaties van de toepassing is verbeterd en conflicten op toegang tot gegevenssegmenten van wordt verminderd.
 
 ## <a name="plan-for-partitioning"></a>Plan voor het partitioneren
-Voordat u een service implementeert, moet u altijd Hallo-strategie is vereist tooscale uit partitioneren overwegen. Er zijn verschillende manieren, maar ze allemaal ligt de nadruk op welke toepassing hello tooachieve moet. Hallo-context van dit artikel, laten we eens enkele Hallo meer belangrijke aspecten.
+Voordat u een service implementeert, moet u altijd de partitionering strategie die vereist is voor het uitbreiden van overwegen. Er zijn verschillende manieren, maar ze allemaal zich richten op wat de toepassing moet bereiken. De context van dit artikel, laten we eens enkele van de belangrijkste aspecten.
 
-Een goede benadering is toothink over Hallo-structuur van Hallo status die is gepartitioneerd, als de eerste stap Hallo toobe nodig.
+Er is een goede aanpak om na te denken over de structuur van de status die moet worden gepartitioneerd als de eerste stap.
 
-U gaat nu een eenvoudig voorbeeld. Als u een service voor een countywide poll toobuild was, kunt u een partitie voor elke stad in Hallo regio kunt maken. Vervolgens kunt u Hallo stemmen voor elke persoon opslaan in plaats van Hallo in Hallo partitie die overeenkomt met toothat plaats. Afbeelding 3 ziet u een set van mensen en Hallo plaats waar ze zich bevinden.
+U gaat nu een eenvoudig voorbeeld. Als u een service voor een countywide poll bouwen, kunt u een partitie voor elke stad kunt maken in de regio. Vervolgens kunt u de stemmen voor elke persoon opslaan in de plaats in de partitie die overeenkomt met die stad. Afbeelding 3 ziet u een set gebruikers en de plaats waar ze zich bevinden.
 
 ![Eenvoudige partitie](./media/service-fabric-concepts-partitioning/cities.png)
 
-Als Hallo populatie steden varieert, zou u uiteindelijk met een aantal partities met een grote hoeveelheid gegevens (bijvoorbeeld Haarlem) en andere partities met weinig status (bijvoorbeeld Kirkland). Wat is Hallo impact van partities met ongelijke hoeveelheden status hebben?
+Als de populatie van steden varieert, zou u uiteindelijk met een aantal partities met een grote hoeveelheid gegevens (bijvoorbeeld Haarlem) en andere partities met weinig status (bijvoorbeeld Kirkland). Wat is de invloed van de partities met ongelijke hoeveelheden status hebben?
 
-Als u opnieuw over Hallo voorbeeld denkt, kunt u eenvoudig hello partitie waarin Hallo stemmen voor Seattle krijgt meer verkeer dan Hallo Kirkland een bekijken. Service Fabric maakt standaard ervoor dat er over Hallo hetzelfde aantal primaire en secundaire replica's op elk knooppunt. Zo zou u uiteindelijk met knooppunten die fungeren als replica's die dienen meer verkeer en anderen die minder verkeer dienen houdt. U zou bij voorkeur wilt tooavoid warme en koude plaatsen zoals deze in een cluster.
+Als u opnieuw over het voorbeeld denkt, kunt u eenvoudig de partitie die de stemmen voor Seattle bevat krijgt meer verkeer dan de Kirkland een bekijken. Service Fabric maakt standaard ervoor dat er over hetzelfde aantal primaire en secundaire replica's op elk knooppunt. Zo zou u uiteindelijk met knooppunten die fungeren als replica's die dienen meer verkeer en anderen die minder verkeer dienen houdt. U wilt bij voorkeur warme en koude plaatsen als volgt in een cluster voorkomen.
 
-In volgorde tooavoid dit, moet u twee dingen doen vanuit het partitionering oogpunt:
+Om te voorkomen dat dit, moet u twee dingen doen vanuit het partitionering oogpunt:
 
-* Probeer toopartition Hallo status, zodat deze evenredig verdeeld over alle partities.
-* Rapporteren over de belasting van elk van de replica's Hallo voor Hallo-service. (Voor meer informatie over het controleren van dit artikel [metrische gegevens en de belasting](service-fabric-cluster-resource-manager-metrics.md)). Service Fabric bevat Hallo mogelijkheid tooreport load verbruikt door services, zoals de hoeveelheid geheugen of het aantal records. Op basis van Hallo metrische gegevens die zijn gerapporteerd, detecteert Service Fabric dat een aantal partities hogere belasting dan andere fungeren en rebalances Hallo cluster door bewegende replica's toomore geschikte knooppunten, zodat de algemene geen knooppunt is overbelast.
+* Probeer voor het partitioneren van de status, zodat deze evenredig verdeeld over alle partities.
+* Rapporteren over de belasting van elk van de replica's voor de service. (Voor meer informatie over het controleren van dit artikel [metrische gegevens en de belasting](service-fabric-cluster-resource-manager-metrics.md)). Service Fabric biedt de mogelijkheid om te rapporteren over de belasting die door services, zoals de hoeveelheid geheugen of het aantal records worden gebruikt. Op basis van de metrische gegevens gerapporteerd, detecteert Service Fabric dat een aantal partities fungeren hogere belasting dan andere en het cluster rebalances door te verplaatsen van replica's naar geschikte knooppunten, zodat de algemene geen knooppunt is overbelast.
 
-Soms weet u niet kunt hoeveel gegevens worden weergegeven in een bepaalde partitie. Zodat een algemene aanbeveling toodo beide--eerst selecteert door partities die, Hallo gegevens gelijkmatig over Hallo partities en de tweede pagina, met reporting laden.  de eerste methode Hallo voorkomt situaties beschreven in Hallo bijvoorbeeld stemmen terwijl Hallo tweede vloeiend maken tijdelijke verschillen in access of load gedurende een bepaalde periode helpt.
+Soms weet u niet kunt hoeveel gegevens worden weergegeven in een bepaalde partitie. Een algemene aanbeveling wordt beide--eerst door partities die selecteert, de gegevens gelijkmatig over de partities en de tweede, met reporting load.  De eerste methode voorkomt situaties beschreven in het voorbeeld stemmende tijdens de tweede helpt vloeiend maken tijdelijke verschillen in access of load gedurende een bepaalde periode.
 
-Een ander aspect van de planning van de partitie is toochoose Hallo juiste aantal partities toobegin met.
+Een ander aspect van de planning van de partitie is het juiste aantal partities beginnen te kiezen.
 Vanuit het perspectief van een Service Fabric is er niets dat verhindert dat u begint met een hoger aantal partities dan verwacht voor uw scenario.
-Ervan uitgaande dat Hallo kunt u het maximum aantal partities is in feite een geldige benadering.
+Ervan uitgaande dat het maximum aantal partities is in feite een geldige benadering.
 
-In zeldzame gevallen, zou u uiteindelijk hoeven meer partities dan u oorspronkelijk hebt gekozen. Zoals u kunt Hallo partitie aantal niet wijzigen nadat Hallo feit, moet u tooapply sommige geavanceerde partitie benaderingen, zoals het maken van een nieuwe service-exemplaar Hallo dezelfde servicetype. U moet tevens tooimplement bepaalde clientzijde logica die Hallo routeert toohello juiste service-exemplaar aanvragen, gebaseerd op kennis van clientzijde die u ervoor dat uw clientcode zorgen moet.
+In zeldzame gevallen, zou u uiteindelijk hoeven meer partities dan u oorspronkelijk hebt gekozen. Als u het aantal partities niet nadat het feit wijzigen, zou u moet sommige geavanceerde partitie benaderingen, zoals het maken van een nieuwe service-exemplaar van hetzelfde servicetype toepassen. U moet ook bepaalde client-side '-logica waarmee de aanvragen worden doorgestuurd naar de juiste service-exemplaar, gebaseerd op kennis van clientzijde die u ervoor dat uw clientcode zorgen moet implementeren.
 
-Andere overweging voor het partitioneren van de planning is Hallo beschikbare computerbronnen. Als het Hallo-status moet toobe toegankelijk is en opgeslagen, zijn gebonden toofollow:
+Andere overweging voor het partitioneren van de planning is de beschikbare computerbronnen. Als de status moet worden geopend en opgeslagen, wordt u gebonden te volgen:
 
 * Netwerk bandbreedtelimieten
 * Systeem geheugenlimieten
 * Schijf opslaglimieten
 
-Wat gebeurt zodat er als u in resourcebeperkingen in een actief cluster uitvoert? Hallo-antwoord is dat u kunt gewoon worden uitgebreid Hallo cluster tooaccommodate Hallo nieuwe vereisten.
+Wat gebeurt zodat er als u in resourcebeperkingen in een actief cluster uitvoert? Het antwoord is dat u gewoon kunt schalen uit het cluster om de nieuwe vereisten mogelijk te maken.
 
-[handleiding voor capaciteitsplanning Hallo](service-fabric-capacity-planning.md) biedt richtlijnen voor het toodetermine hoeveel knooppunten uw cluster moet.
+[De handleiding voor capaciteitsplanning](service-fabric-capacity-planning.md) biedt richtlijnen voor het bepalen van het aantal knooppunten uw cluster moet.
 
 ## <a name="get-started-with-partitioning"></a>Aan de slag met partitioneren
-Deze sectie beschrijft hoe tooget gestart met het partitioneren van uw service.
+Deze sectie beschrijft hoe u aan de slag met het partitioneren van uw service.
 
 Service Fabric biedt een keuze uit drie partitieschema's:
 
 * Varieerden partitioneren (anders UniformInt64Partition genoemd).
 * Met de naam partitioneren. Toepassingen die gebruikmaken van dit model meestal beschikken over gegevens die kunnen worden bucketed binnen een begrensde set. Enkele algemene voorbeelden van gegevensvelden gebruikt als benoemde partitiesleutels zou worden regio's, postcode codes, klantengroepen of andere zakelijke grenzen.
-* Singleton partitioneren. Singleton-partities worden meestal gebruikt wanneer het Hallo-service vereist geen aanvullende routering. Bijvoorbeeld, stateless services deze partitieschema standaard gebruikt.
+* Singleton partitioneren. Singleton-partities worden meestal gebruikt wanneer de service geen aanvullende routering vereist. Bijvoorbeeld, stateless services deze partitieschema standaard gebruikt.
 
-Met de naam en partitionering Singleton-schema's zijn speciale soorten varieerde partities. Standaard varieerden Hallo Visual Studio-sjablonen voor Service Fabric gebruik partitioneren, omdat deze Hallo veelgebruikte en handige één. Hallo rest van dit artikel is gericht op Hallo varieerde partitieschema.
+Met de naam en partitionering Singleton-schema's zijn speciale soorten varieerde partities. Standaard de Visual Studio-sjablonen voor Service Fabric gebruik varieerden partitioneren, zoals dit de meest voorkomende en nuttige is. De rest van dit artikel is gericht op een ranged partitionering.
 
 ### <a name="ranged-partitioning-scheme"></a>Partitieschema varieerde
-Dit is een geheel getal van gebruikte toospecify bereik (aangeduid met een lage en hoge sleutel) en een aantal partities (n). Het maken van n partities, elke verantwoordelijk is voor een niet-overlappende subbereik Hallo algemene partitie sleutel bereik. Bijvoorbeeld, een ranged partitieschema met een lage sleutel 0, een hoge sleutel 99 en een telling van 4 maakt vier partities zoals hieronder wordt weergegeven.
+Dit wordt gebruikt om op te geven van een geheel getal-bereik (aangeduid met een lage en hoge sleutel) en een aantal partities (n). N partities, elke verantwoordelijk is voor een niet-overlappende subbereik van de algehele partitiesleutelbereik wordt gemaakt. Bijvoorbeeld, een ranged partitieschema met een lage sleutel 0, een hoge sleutel 99 en een telling van 4 maakt vier partities zoals hieronder wordt weergegeven.
 
 ![Bereik partitioneren](./media/service-fabric-concepts-partitioning/range-partitioning.png)
 
-Een veelgebruikte oplossing is toocreate een hash op basis van een unieke sleutel in Hallo-gegevensset. Enkele algemene voorbeelden van sleutels is een vehicle id-nummer (VIN), een werknemer-ID of een unieke tekenreeks zijn. Met behulp van deze unieke sleutel, zou u vervolgens een hash-code, modulus Hallo sleutel bereik, toouse als uw sleutel gegenereerd. U kunt Hallo bovenste en de ondergrenzen Hallo het toegestane bereik sleutel opgeven.
+Een gemeenschappelijke aanpak is het maken van een hash op basis van een unieke sleutel in de gegevensset. Enkele algemene voorbeelden van sleutels is een vehicle id-nummer (VIN), een werknemer-ID of een unieke tekenreeks zijn. Met behulp van deze unieke sleutel, zou u vervolgens een hash-code, modulus de belangrijkste bereik, om te gebruiken als uw sleutel te genereren. U kunt de hogere en lagere grenzen van het toegestane bereik van de sleutel opgeven.
 
 ### <a name="select-a-hash-algorithm"></a>Selecteer een hash-algoritme
-Een belangrijk onderdeel van het hash-selecteert hash-algoritme. Overweging is of Hallo doel toogroup vergelijkbare sleutels in de buurt van elkaar (plaats gevoelige hashing)--is of als activiteit moet op grote schaal worden gedistribueerd voor alle partities (hash-distributie), waarmee veelvoorkomende is.
+Een belangrijk onderdeel van het hash-selecteert hash-algoritme. Overweging is of het doel is om soortgelijke sleutels in de buurt van elkaar (plaats gevoelige hashing)--groep of als activiteit moet op grote schaal worden gedistribueerd voor alle partities (hash-distributie), waarmee veelvoorkomende is.
 
-Hallo kenmerken van een goede distributie hash-algoritme zijn dat het eenvoudig toocompute is, enkele conflicten heeft en het Hallo-sleutels gelijkmatig worden verdeeld. Een goed voorbeeld van een efficiënte hash-algoritme is Hallo [FNV 1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) hash-algoritme.
+De kenmerken van een goede distributie hash-algoritme zijn dat het is gemakkelijk om te berekenen, enkele conflicten heeft en wordt de sleutels gelijkmatig gedistribueerd. Een goed voorbeeld van een efficiënte hash-algoritme is de [FNV 1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) hash-algoritme.
 
-Een goede resource voor algemene hash-code algoritme die is Hallo [pagina Wikipedia (Engelstalig) op de hash-functies](http://en.wikipedia.org/wiki/Hash_function).
+Een goede resource voor algemene hash-code algoritme opties is de [pagina Wikipedia (Engelstalig) op de hash-functies](http://en.wikipedia.org/wiki/Hash_function).
 
 ## <a name="build-a-stateful-service-with-multiple-partitions"></a>Een stateful service met meerdere partities bouwen
-Stel uw eerste betrouwbare stateful service maken met meerdere partities. In dit voorbeeld maakt u een zeer eenvoudige toepassing waar u toostore alle laatste namen die beginnen met dezelfde stationsletter in Hallo Hallo dezelfde partitie.
+Stel uw eerste betrouwbare stateful service maken met meerdere partities. In dit voorbeeld maakt u een zeer eenvoudige toepassing waarin u wilt opslaan van alle laatste namen die met dezelfde letter in dezelfde partitie beginnen.
 
-Voordat u een code te schrijven, moet u toothink over Hallo partities en partitiesleutels. Moet u 26 partities (één voor elke letter in Hallo alfabet), maar wat over lage en hoge sleutels Hallo?
-Als we letterlijk toohave één partitie per letter willen, kunt we gebruiken 0 als de lage sleutelwaarde Hallo en 25 als Hallo hoge sleutel, omdat elke letter een eigen sleutel.
+Voordat u een code te schrijven, moet u nadenken over de partities en partitiesleutels. U 26 partities (één voor elke letter van het alfabet), maar wat over de lage en hoge sleutels nodig?
+Als we letterlijk één partitie per letter hebben willen, kunt we gebruiken 0 als de lage sleutel en 25 als de hoge sleutel elke letter is zijn eigen sleutel.
 
 > [!NOTE]
-> Dit is een vereenvoudigde scenario in werkelijkheid Hallo distributie ongelijke zou zijn. Laatste namen die beginnen met Hallo letters "S" of ''M' komen vaker dan Hallo die beginnen met 'X' of 'Y'.
+> Dit is een vereenvoudigde scenario in feite de distributie ongelijke zou zijn. Laatste namen die beginnen met de letters "S" of ''M' komen vaker dan degene die beginnen met 'X' of 'Y'.
 > 
 > 
 
 1. Open **Visual Studio** > **bestand** > **nieuwe** > **Project**.
-2. In Hallo **nieuw Project** dialoogvenster Kies Hallo Service Fabric-toepassing.
-3. Hallo project 'AlphabetPartitions' aanroepen.
-4. In Hallo **maken van een Service** dialoogvenster Kies **Stateful** service en deze aanroepen 'Alphabet.Processing' zoals wordt weergegeven in onderstaande Hallo-afbeelding.
+2. In de **nieuw Project** dialoogvenster Kies de Service Fabric-toepassing.
+3. Het project 'AlphabetPartitions' aanroepen.
+4. In de **maken van een Service** dialoogvenster Kies **Stateful** service en deze aanroepen 'Alphabet.Processing' zoals weergegeven in de onderstaande afbeelding.
        ![Dialoogvenster voor nieuwe service in Visual Studio][1]
 
   <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
 
-5. Het aantal partities Hallo instellen. Open Hallo Applicationmanifest.xml bestand zich in Hallo ApplicationPackageRoot map van Hallo AlphabetPartitions project en update Hallo parameter Processing_PartitionCount too26 zoals hieronder wordt weergegeven.
+5. Stel het aantal partities. Open het bestand Applicationmanifest.xml in de map ApplicationPackageRoot van het project AlphabetPartitions en bijwerken van de parameter Processing_PartitionCount 26, zoals hieronder wordt weergegeven.
    
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
    
-    U moet ook tooupdate hello LowKey en HighKey eigenschappen van Hallo StatefulService element in Hallo ApplicationManifest.xml zoals hieronder wordt weergegeven.
+    U moet ook bijwerken van de eigenschappen LowKey en HighKey van het element StatefulService in de ApplicationManifest.xml zoals hieronder wordt weergegeven.
    
     ```xml
     <Service Name="Processing">
@@ -148,25 +148,25 @@ Als we letterlijk toohave één partitie per letter willen, kunt we gebruiken 0 
       </StatefulService>
     </Service>
     ```
-6. Voor Hallo service toobe toegankelijk is, opent u een eindpunt op een poort door toe te voegen Hallo eindpuntelement van ServiceManifest.xml (te vinden in Hallo PackageRoot map) voor Hallo Alphabet.Processing service zoals hieronder wordt weergegeven:
+6. Voor de service toegankelijk is, opent u een eindpunt op een poort door het eindpuntelement van ServiceManifest.xml (te vinden in de map PackageRoot) toe te voegen voor de service Alphabet.Processing zoals hieronder wordt weergegeven:
    
     ```xml
     <Endpoint Name="ProcessingServiceEndpoint" Port="8089" Protocol="http" Type="Internal" />
     ```
    
-    Hallo-service is nu geconfigureerd toolisten tooan interne eindpunt met 26 partities.
-7. Vervolgens moet u toooverride hello `CreateServiceReplicaListeners()` methode van Hallo verwerking klasse.
+    De service is nu geconfigureerd om te luisteren naar een interne eindpunt met 26 partities.
+7. Vervolgens moet u voor het onderdrukken van de `CreateServiceReplicaListeners()` methode van de klasse verwerking.
    
    > [!NOTE]
-   > Voor dit voorbeeld nemen we aan dat u van een eenvoudige HttpCommunicationListener gebruikmaakt. Zie voor meer informatie over betrouwbare servicecommunicatie [Hallo-communicatie van betrouwbare servicemodel](service-fabric-reliable-services-communication.md).
+   > Voor dit voorbeeld nemen we aan dat u van een eenvoudige HttpCommunicationListener gebruikmaakt. Zie voor meer informatie over betrouwbare servicecommunicatie [communicatiemodel de betrouwbare Service](service-fabric-reliable-services-communication.md).
    > 
    > 
-8. Een aanbevolen patroon voor Hallo-URL die een replica luistert op Hallo na indeling is: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
-    Zodat u tooconfigure uw communicatie-listener toolisten op de juiste eindpunten Hallo en met dit patroon.
+8. Een aanbevolen patroon voor de URL die een replica luistert op de volgende indeling is: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
+    Zo wilt u de listener communicatie om te luisteren op de juiste eindpunten en met dit patroon configureren.
    
-    Meerdere replica's van deze service kunnen worden gehost op Hallo dezelfde computer, zodat dit adres toobe unieke toohello replica moet. Daarom partitie-ID + replica-ID in Hallo-URL zijn. HttpListener kan luisteren op meerdere adressen op Hallo die dezelfde poort als Hallo URL-voorvoegsel uniek is.
+    Meerdere replica's van deze service kunnen worden gehost op dezelfde computer, zodat dit adres moet uniek zijn voor de replica. Daarom partitie-ID + replica-ID in de URL zijn. HttpListener kan luisteren op meerdere adressen op dezelfde poort, zolang het URL-voorvoegsel uniek is.
    
-    Hallo die extra GUID is er voor een geavanceerde aanvraag waarop secundaire replica's ook voor alleen-lezen-aanvragen luisteren. Wanneer dit Hallo geval is, wilt u ervoor dat er een nieuw uniek adres wordt gebruikt tijdens het veranderen van primaire toosecondary tooforce clients toore oplossen Hallo adres toomake. '+' wordt gebruikt als Hallo adres hier zodat hello replica op alle beschikbare hosts (IP-, FQDM, ' localhost ', enz.) Hallo code hieronder luistert ziet u een voorbeeld.
+    De extra GUID is er voor een geavanceerde aanvraag waarop secundaire replica's ook voor alleen-lezen-aanvragen luisteren. Wanneer dit het geval is, u om ervoor te zorgen dat een nieuw uniek adres tijdens het veranderen van primaire naar secundaire wordt gebruikt voor het afdwingen voor clients opnieuw omzetten van het adres. '+' wordt gebruikt als het adres hier zodat de replica luistert op alle beschikbare hosts (IP-, FQDM, ' localhost ', enz.) De volgende code toont een voorbeeld.
    
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -192,9 +192,9 @@ Als we letterlijk toohave één partitie per letter willen, kunt we gebruiken 0 
     }
     ```
    
-    Het verdient aanbeveling ook weten dat Hallo gepubliceerde URL verschilt enigszins van Hallo luisterende URL-voorvoegsel.
-    Hallo luisterende URL tooHttpListener krijgt. Hallo die gepubliceerde URL is Hallo-URL die is gepubliceerd toohello Service Fabric Naming Service, die wordt gebruikt voor servicedetectie. Clients vragen voor dit adres via die discovery-service. Hallo-adres dat clients behoeften toohave Hallo werkelijke IP of FQDN van Hallo-knooppunt in de volgorde tooconnect ophalen. Daarom tooreplace '+' met Hallo van het knooppunt IP of FQDN-naam zoals hierboven.
-9. de laatste stap Hallo is tooadd Hallo verwerken logica toohello service zoals hieronder wordt weergegeven.
+    Het is ook opgemerkt dat de gepubliceerde URL enigszins afwijken van de luisterende URL-voorvoegsel is.
+    De URL van de luisterende aan HttpListener gegeven. De gepubliceerde URL is de URL die is gepubliceerd op de Service Fabric Naming Service, die wordt gebruikt voor servicedetectie. Clients vragen voor dit adres via die discovery-service. Het adres dat clients ophalen moet de werkelijke IP of FQDN van het knooppunt om verbinding te kunnen hebben. Daarom moet u vervangen '+' met het knooppunt IP of FQDN-naam zoals hierboven.
+9. De laatste stap is het toevoegen van de logica voor verwerking naar de service, zoals hieronder wordt weergegeven.
    
     ```CSharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
@@ -238,19 +238,19 @@ Als we letterlijk toohave één partitie per letter willen, kunt we gebruiken 0 
     }
     ```
    
-    `ProcessInternalRequest`leesbewerkingen Hallo waarden van Hallo query tekenreeks parameter gebruikt toocall Hallo partitie en aanroepen `AddUserAsync` tooadd Hallo lastname toohello betrouwbare woordenlijst `dictionary`.
-10. We voegen een stateless service toohello project toosee hoe u een bepaalde partitie kunt aanroepen.
+    `ProcessInternalRequest`de waarden van de querytekenreeksparameter gebruikt voor het aanroepen van de partitie en aanroepen leest `AddUserAsync` achternaam toevoegen aan de woordenlijst voor betrouwbare `dictionary`.
+10. We gaan een stateless service toevoegen aan het project om te zien hoe u een bepaalde partitie kunt aanroepen.
     
-    Deze service fungeert als een eenvoudige webinterface die Hallo lastname als een queryreeksparameter accepteert, bepaalt de partitiesleutel Hallo en verzendt het toohello Alphabet.Processing service voor de verwerking.
-11. In Hallo **maken van een Service** dialoogvenster Kies **Stateless** service en deze aanroepen 'Alphabet.Web' zoals hieronder wordt weergegeven.
+    Deze service fungeert als een eenvoudige webinterface die de achternaam als een queryreeksparameter accepteert, bepaalt de partitiesleutel en verzendt het naar de service Alphabet.Processing voor verwerking.
+11. In de **maken van een Service** dialoogvenster Kies **Stateless** service en deze aanroepen 'Alphabet.Web' zoals hieronder wordt weergegeven.
     
     ![Schermopname van staatloze service](./media/service-fabric-concepts-partitioning/createnewstateless.png).
-12. Hallo eindpuntinformatie in Hallo ServiceManifest.xml van Hallo Alphabet.WebApi service tooopen van een poort zoals hieronder wordt weergegeven bijwerken.
+12. Werk de eindpuntinformatie in de ServiceManifest.xml van de service Alphabet.WebApi openen van een poort zoals hieronder wordt weergegeven.
     
     ```xml
     <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8081"/>
     ```
-13. U moet een verzameling van ServiceInstanceListeners in Hallo klasse Web tooreturn. Nogmaals, kunt u tooimplement een eenvoudige HttpCommunicationListener.
+13. U moet een verzameling ServiceInstanceListeners retourneren in de Web-klasse. U kunt opnieuw een eenvoudige HttpCommunicationListener implementeren.
     
     ```CSharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -259,14 +259,14 @@ Als we letterlijk toohave één partitie per letter willen, kunt we gebruiken 0 
     }
     private ICommunicationListener CreateInputListener(ServiceContext context)
     {
-        // Service instance's URL is hello node's IP & desired port
+        // Service instance's URL is the node's IP & desired port
         EndpointResourceDescription inputEndpoint = context.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
         string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
         var uriPublished = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInputRequest);
     }
     ```
-14. Nu moet u tooimplement Hallo verwerking logica. Hallo HttpCommunicationListener aanroepen `ProcessInputRequest` wanneer een aanvraag binnenkomt. Dus we gaan nu en voeg Hallo code hieronder.
+14. U moet nu de verwerking van logica implementeren. Het aanroepen van de HttpCommunicationListener `ProcessInputRequest` wanneer een aanvraag binnenkomt. Dus we gaan nu en voeg de volgende code.
     
     ```CSharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
@@ -290,7 +290,7 @@ Als we letterlijk toohave één partitie per letter willen, kunt we gebruiken 0 
             string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
     
             output = String.Format(
-                    "Result: {0}. <p>Partition key: '{1}' generated from hello first letter '{2}' of input value '{3}'. <br>Processing service partition ID: {4}. <br>Processing service replica address: {5}",
+                    "Result: {0}. <p>Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. <br>Processing service partition ID: {4}. <br>Processing service replica address: {5}",
                     result,
                     partitionKey,
                     firstLetterOfLastName,
@@ -304,7 +304,7 @@ Als we letterlijk toohave één partitie per letter willen, kunt we gebruiken 0 
         {
             if (output != null)
             {
-                output = output + "added tooPartition: " + primaryReplicaAddress;
+                output = output + "added to Partition: " + primaryReplicaAddress;
                 byte[] outBytes = Encoding.UTF8.GetBytes(output);
                 response.OutputStream.Write(outBytes, 0, outBytes.Length);
             }
@@ -312,7 +312,7 @@ Als we letterlijk toohave één partitie per letter willen, kunt we gebruiken 0 
     }
     ```
     
-    We doorlopen die deze stap voor stap. Hallo code leest de eerste letter Hallo van Hallo querytekenreeksparameter `lastname` in een tekenset. Vervolgens, bepaalt de partitiesleutel Hallo voor deze brief door af te trekken Hallo hexadecimale waarde van `A` van Hallo hexadecimale waarde van de eerste letter Hallo laatste namen.
+    We doorlopen die deze stap voor stap. De code leest de eerste letter van de querytekenreeksparameter `lastname` in een tekenset. Vervolgens wordt de partitiesleutel voor deze brief bepaald door af te trekken van de hexadecimale waarde van `A` van de hexadecimale waarde van de eerste letter van de laatste namen.
     
     ```CSharp
     string lastname = context.Request.QueryString["lastname"];
@@ -321,19 +321,19 @@ Als we letterlijk toohave één partitie per letter willen, kunt we gebruiken 0 
     ```
     
     Vergeet niet dat voor dit voorbeeld gebruiken we 26 partities met één partitiesleutel per partitie.
-    Vervolgens verkrijgen van Hallo service partitie `partition` voor deze sleutel met behulp van Hallo `ResolveAsync` methode op Hallo `servicePartitionResolver` object. `servicePartitionResolver`is gedefinieerd als
+    Vervolgens verkrijgen van de partitie service `partition` voor deze sleutel met behulp van de `ResolveAsync` methode op de `servicePartitionResolver` object. `servicePartitionResolver`is gedefinieerd als
     
     ```CSharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
-    Hallo `ResolveAsync` methode vergt Hallo service URI, Hallo partitiesleutel en een token annulering als parameters. Hallo service-URI voor Hallo verwerking van de service is `fabric:/AlphabetPartitions/Processing`. Vervolgens krijgen we Hallo endpoint van Hallo-partitie.
+    De `ResolveAsync` methode neemt de URI van de service, de partitiesleutel en een annulering als parameters token. De service-URI voor de verwerkingsservice is `fabric:/AlphabetPartitions/Processing`. Vervolgens wordt het eindpunt van de partitie ophalen.
     
     ```CSharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
     ```
     
-    Ten slotte we Hallo eindpunt-URL plus Hallo querystring bouwen en Hallo verwerking van de service aanroepen.
+    Ten slotte we de eindpunt-URL plus de querytekenreeks bouwen en de van verwerkingsservice aanroepen.
     
     ```CSharp
     JObject addresses = JObject.Parse(ep.Address);
@@ -345,8 +345,8 @@ Als we letterlijk toohave één partitie per letter willen, kunt we gebruiken 0 
     string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
     ```
     
-    Zodra het Hallo verwerken is voltooid, terugschrijven we Hallo uitvoer.
-15. de laatste stap Hallo is tootest Hallo-service. Visual Studio maakt gebruik van parameters voor de toepassing voor lokale en cloudimplementatie. met lokaal 26 partities tootest Hallo-service, moet u tooupdate hello `Local.xml` bestand in Hallo ApplicationParameters map van Hallo AlphabetPartitions project, zoals hieronder wordt weergegeven:
+    Als de verwerking is voltooid, wordt de uitvoer terug te schrijven.
+15. De laatste stap is het testen van de service. Visual Studio maakt gebruik van parameters voor de toepassing voor lokale en cloudimplementatie. Als u wilt de service met 26 partities lokaal testen, moet u bijwerken de `Local.xml` bestand in de map ApplicationParameters van het project AlphabetPartitions zoals hieronder wordt weergegeven:
     
     ```xml
     <Parameters>
@@ -354,17 +354,17 @@ Als we letterlijk toohave één partitie per letter willen, kunt we gebruiken 0 
       <Parameter Name="WebApi_InstanceCount" Value="1" />
     </Parameters>
     ```
-16. Wanneer u klaar bent voor implementatie, kunt u Hallo-service en alle van de partities in Service Fabric Explorer Hallo controleren.
+16. Wanneer u klaar bent voor implementatie, kunt u de service en alle van de partities in de Service Fabric Explorer controleren.
     
     ![Schermafbeelding van de service Fabric Explorer](./media/service-fabric-concepts-partitioning/sfxpartitions.png)
-17. In een browser, kunt u testen Hallo logica partitioneren door te voeren `http://localhost:8081/?lastname=somename`. U ziet dat elke achternaam op die begint met dezelfde letter worden opgeslagen in Hallo Hallo dezelfde partitie.
+17. In een browser, kunt u de partitionering logica testen door te voeren `http://localhost:8081/?lastname=somename`. U ziet dat elke achternaam op die met dezelfde letter begint worden opgeslagen in dezelfde partitie.
     
     ![Schermafbeelding van de browser](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-Hallo volledige broncode van Hallo voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+De volledige broncode van het voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor informatie over Service Fabric-concepten Hallo volgende:
+Zie de volgende onderwerpen voor informatie over Service Fabric-concepten:
 
 * [Beschikbaarheid van Service Fabric-services](service-fabric-availability-services.md)
 * [Schaalbaarheid van Service Fabric-services](service-fabric-concepts-scalability.md)

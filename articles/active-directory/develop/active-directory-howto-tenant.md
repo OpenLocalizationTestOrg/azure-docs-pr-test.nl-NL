@@ -1,6 +1,6 @@
 ---
-title: aaaHow tooget een Azure AD-tenant | Microsoft Docs
-description: Hoe tooget een Azure Active Directory-tenant voor het registreren en bouwen van toepassingen.
+title: Een Azure AD-tenant verkrijgen | Microsoft Docs
+description: Een Azure Active Directory-tenant verkrijgen voor het registreren en maken van toepassingen.
 services: active-directory
 documentationcenter: 
 author: bryanla
@@ -15,52 +15,52 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: dcc6b3109528cf763bda9bd527344ea9ab5c0d69
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: fe33d490b754e2f793f5c7a13dc55ca038b1b71c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-tooget-an-azure-active-directory-tenant"></a>Hoe tooget een Azure Active Directory-tenant
-In Azure Active Directory (Azure AD) is een [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) representatief voor een organisatie.  Het is een toegewezen exemplaar van hello Azure AD-service die een organisatie ontvangt en de eigenaar is wanneer deze zich voor een Microsoft-cloudservice zoals Azure, Microsoft Intune of Office 365 aanmeldt.  Elke Azure AD-tenant is uniek en werkt afzonderlijk van andere Azure AD-tenants.  
+# <a name="how-to-get-an-azure-active-directory-tenant"></a>Een Azure Active Directory-tenant verkrijgen
+In Azure Active Directory (Azure AD) is een [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) representatief voor een organisatie.  Het is een toegewezen exemplaar van de Azure AD-service die een organisatie ontvangt en waarvan de organisatie de eigenaar is wanneer deze zich registreert voor een Microsoft-cloudservice, zoals Azure, Microsoft Intune of Office 365.  Elke Azure AD-tenant is uniek en werkt afzonderlijk van andere Azure AD-tenants.  
 
-Een tenant bevat alle Hallo gebruikers in een bedrijf en Hallo informatie: hun wachtwoorden, gebruikersprofielgegevens, machtigingen en enzovoort.  Het bevat ook groepen, toepassingen en andere informatie over tooan organisatie en de beveiliging.
+Een tenant bevat alle gebruikers in een bedrijf en de bijbehorende informatie: hun wachtwoorden, gebruikersprofielgegevens, machtigingen enzovoort.  Het bevat ook groepen, toepassingen en andere informatie over een organisatie en de beveiliging.
 
-Azure AD gebruikers toosign tooallow in tooyour toepassing, moet u uw toepassing registreren in een tenant van uzelf.  Het publiceren van een toepassing in een Azure AD-tenant is **helemaal gratis**.  De meeste ontwikkelaars maken verschillende tenants en toepassingen om te experimenten, te ontwikkelen, te faseren en te testen.  Organisaties die zich aanmelden voor en gebruiken van uw toepassing kunt eventueel toopurchase licenties eventueel ze tootake profiteren van geavanceerde directoryfuncties.
+Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij uw toepassing, moet u uw toepassing registreren in een tenant van uzelf.  Het publiceren van een toepassing in een Azure AD-tenant is **helemaal gratis**.  De meeste ontwikkelaars maken verschillende tenants en toepassingen om te experimenten, te ontwikkelen, te faseren en te testen.  Organisaties die zich registreren voor uw toepassing en deze gebruiken, kunnen ervoor kiezen licenties aan te schaffen als ze gebruik willen maken van geavanceerde directoryfuncties.
 
-Maar hoe kunt u een Azure AD-tenant verkrijgen?  Hallo proces mogelijk enigszins afwijken als u:
+Maar hoe kunt u een Azure AD-tenant verkrijgen?  De procedure kan enigszins afwijken als u:
 
 * [Een bestaand Office 365-abonnement hebt](#use-an-existing-office-365-subscription)
 * [Een bestaand Azure-abonnement hebt dat aan een Microsoft-Account is gekoppeld](#use-an-msa-azure-subscription)
 * [Een bestaand Azure-abonnement hebt dat aan een organisatieaccount is gekoppeld](#use-an-organizational-azure-subscription)
-* [Geen van bovenstaande Hallo & toostart helemaal wilt](#start-from-scratch)
+* [Geen van de bovenstaande abonnementen hebt en de procedure vanaf het begin wilt uitvoeren](#start-from-scratch)
 
 ## <a name="use-an-existing-office-365-subscription"></a>Een bestaand Office 365-abonnement gebruiken
-Als u een bestaand Office 365-abonnement hebt, beschikt u al over een Azure AD-tenant. U kunt zich aanmelden in toohello [Azure-portal](https://portal.azure.com) met uw O365-account in en aan de slag met Azure AD.
+Als u een bestaand Office 365-abonnement hebt, beschikt u al over een Azure AD-tenant. U kunt u aanmelden bij [Azure Portal](https://portal.azure.com) met uw O365-account en Azure AD gebruiken.
 
 ## <a name="use-an-msa-azure-subscription"></a>Een MSA Azure-abonnement gebruiken
-Als u zich eerder hebt geregistreerd voor een Azure-abonnement met uw afzonderlijke Microsoft-account, hebt u al een tenant.  Wanneer u zich aanmeldt toohello [Azure Portal](https://portal.azure.com), wordt u automatisch vastgelegd in tooyour standaard tenant. U staat op het gratis toouse deze tenant als u Zie past - maar gewenste toocreate een organisatie-administrator-account.
+Als u zich eerder hebt geregistreerd voor een Azure-abonnement met uw afzonderlijke Microsoft-account, hebt u al een tenant.  Wanneer u zich bij [Azure Portal](https://portal.azure.com) aanmeldt, wordt u automatisch aangemeld bij uw standaardtenant. U kunt deze tenant naar wens gebruiken, maar mogelijk wilt u een beheerdersaccount voor de organisatie maken.
 
-toodo dus als volgt.  U kunt ook toocreate desgewenst een nieuwe tenant en een beheerder maken in deze tenant via een vergelijkbare procedure.
+Voer hiervoor de volgende stappen uit.  U kunt ook een nieuwe tenant en een beheerder in deze tenant maken via een vergelijkbare procedure.
 
-1. Meld u aan bij Hallo [Azure Portal](https://portal.azure.com) met uw afzonderlijke account
-2. Navigeer toohello 'Azure Active Directory' sectie van de portal hello (gevonden in Hallo linkernavigatiebalk, onder **meer Services**)
-3. U moet automatisch aangemeld voor toohello 'Default Directory' als dit niet, kunt u mappen door te klikken op de accountnaam van uw in de rechterbovenhoek Hallo.
-4. Van Hallo **snelle taken** sectie **toevoegen van een gebruiker**.
-5. In Hallo formulier gebruiker toevoegen, bieden Hallo volgende details:
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) met uw afzonderlijke account
+2. Ga naar de sectie Azure Active Directory van de portal (op de linkernavigatiebalk onder **Meer services**)
+3. U moet automatisch worden aangemeld bij de standaarddirectory. Als dit niet het geval is, kunt u van directory wisselen door in de rechterbovenhoek op uw accountnaam te klikken.
+4. Kies in de sectie **Snelle taken** de optie **Een gebruiker toevoegen**.
+5. Geef in het formulier Gebruiker toevoegen de volgende informatie op:
 
    * Naam: (kies de gewenste waarde)
    * Gebruikersnaam: (kies een gebruikersnaam op voor deze beheerder)
-   * Profiel: (Vul in de juiste waarden voor de naam van de eerste, laatste naam, functietitel en afdeling Hallo)
+   * Profiel: (vul de gewenste waarden in voor de voornaam, achternaam, functie en afdeling)
    * Rol: hoofdbeheerder
-6. Wanneer u klaar Hallo formulier gebruiker toevoegen en Hallo tijdelijke wachtwoord voor Hallo nieuwe gebruiker met beheerdersrechten ontvangen, worden ervoor toorecord als u met deze nieuwe gebruiker in volgorde toochange Hallo wachtwoord toologin moet dit wachtwoord. U kunt ook verzenden Hallo wachtwoord rechtstreeks toohello gebruiker met behulp van een alternatief e-mailbericht.
-7. Klik op **maken** toocreate Hallo nieuwe gebruiker.
-8. toochange hello tijdelijk wachtwoord, meld u aan bij [https://login.microsoftonline.com](https://login.microsoftonline.com) met deze nieuwe gebruiker-account en wijzig Hallo wachtwoord wanneer dit wordt aangevraagd.
+6. Wanneer u het formulier Gebruiker toevoegen hebt ingevuld en het tijdelijke wachtwoord voor de nieuwe gebruiker met beheerdersrechten hebt ontvangen, noteert u dit wachtwoord omdat u zich moet aanmelden met deze nieuwe gebruiker om het wachtwoord te wijzigen. U kunt het wachtwoord ook rechtstreeks naar de gebruiker verzenden via een alternatief e-mailbericht.
+7. Klik op **Maken** om de nieuwe gebruiker te maken.
+8. Als u het tijdelijke wachtwoord wilt wijzigen, meldt u zich aan bij [https://login.microsoftonline.com](https://login.microsoftonline.com) met dit nieuwe gebruikersaccount en wijzigt u het wachtwoord als u hierom wordt gevraagd.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Een Azure-abonnement voor de organisatie gebruiken
-Als u zich eerder hebt geregistreerd voor een Azure-abonnement met uw organisatieaccount, hebt u al een tenant.  In Hallo [Azure Portal](https://portal.azure.com), zult u een tenant wanneer u te navigeren 'Meer Services' en "Azure Active Directory."  U staat op het gratis toouse die deze tenant zoals u ziet past.
+Als u zich eerder hebt geregistreerd voor een Azure-abonnement met uw organisatieaccount, hebt u al een tenant.  In [Azure Portal](https://portal.azure.com) vindt u een tenant wanneer u naar Meer services en Azure Active Directory navigeert.  U kunt deze tenant naar wens gebruiken.
 
 ## <a name="start-from-scratch"></a>De procedure vanaf het begin uitvoeren
-Als alle bovenstaande Hallo informatie tooyou, u hoeft niet.  Ga naar [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) toosign voor Azure met een nieuwe organisatie.  Nadat u Hallo proces hebt voltooid, hebt u uw eigen Azure AD-tenant met Hallo-domeinnaam die u hebt gekozen tijdens de aanmelding van.  In Hallo [Azure Portal](https://portal.azure.com), kunt u uw tenant vinden door te navigeren 'Azure Active Directory' in hello linkernavigatievenster te gaan.
+U hoeft zich geen zorgen te maken als u de bovenstaande informatie niet begrijpt.  Ga naar [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) om u aan te melden voor Azure met een nieuwe organisatie.  Wanneer u de procedure hebt voltooid, hebt u uw eigen Azure AD-tenant met de domeinnaam die u hebt gekozen tijdens het aanmelden.  In [Azure Portal](https://portal.azure.com) kunt u uw tenant zoeken door in het linkernavigatievenster naar Azure Active Directory te gaan.
 
-Als onderdeel van Hallo-proces voor het aanmelden voor Azure, zult u creditcardgegevens tooprovide vereist.  U kunt gerust doorgaan. Er worden namelijk geen kosten in rekening gebracht voor het publiceren van toepassingen in Azure AD of het maken van nieuwe tenants.
+Tijdens de aanmeldingsprocedure voor Azure moet u uw creditcardgegevens opgeven.  U kunt gerust doorgaan. Er worden namelijk geen kosten in rekening gebracht voor het publiceren van toepassingen in Azure AD of het maken van nieuwe tenants.

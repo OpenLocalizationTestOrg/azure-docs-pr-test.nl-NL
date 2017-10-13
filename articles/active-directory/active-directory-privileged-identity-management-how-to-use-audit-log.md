@@ -1,6 +1,6 @@
 ---
-title: aaaHow toouse Hallo auditlogboek in Azure AD Privileged Identity Management | Microsoft Docs
-description: Meer informatie over hoe toouse Hallo van het controlelogboek in hello Azure Privileged Identity Management-uitbreiding.
+title: Het gebruik van het controlelogboek in Azure AD Privileged Identity Management | Microsoft Docs
+description: Informatie over het gebruik van het controlelogboek in de extensie Azure Privileged Identity Management.
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,48 +15,48 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 36987eaab9fe02c5dd7b4f4705e487299430745d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d9a5255a64d46c1388d328a606b3f297d61262b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="using-hello-audit-log-in-pim"></a>Met behulp van het controlelogboek Hallo in PIM
-U kunt Hallo Privileged Identity Management (PIM) audit log toosee alle Hallo gebruikerstoewijzingen en activeringen binnen een bepaalde periode. Als u wilt dat toosee Hallo volledige controlegeschiedenis van activiteit in uw tenant, met inbegrip van de beheerder, eindgebruikers en synchronisatieactiviteiten, kunt u Hallo [Azure Active Directory-toegang en gebruik rapporten.](active-directory-view-access-usage-reports.md)
+# <a name="using-the-audit-log-in-pim"></a>Met behulp van het controlelogboek in PIM
+U kunt het controlelogboek Privileged Identity Management (PIM) gebruiken om te zien van de toewijzingen van gebruikers en activeringen binnen een bepaalde periode. Als u zien van de volledige controlegeschiedenis van activiteit in uw tenant wilt, met inbegrip van de beheerder, eindgebruikers en synchronisatieactiviteiten, kunt u de [Azure Active Directory-toegang en gebruik rapporten.](active-directory-view-access-usage-reports.md)
 
-## <a name="navigate-toohello-audit-log"></a>Het controlelogboek toohello navigeren
-Van Hallo [Azure-portal](https://portal.azure.com) dashboard, selecteer Hallo **Azure AD Privileged Identity Management** app. Van daaruit toegang krijgen tot het controlelogboek Hallo door te klikken op **bevoorrechte rollen beheren** > **controlegeschiedenis** in Hallo PIM-dashboard.
+## <a name="navigate-to-the-audit-log"></a>Navigeer naar het controlelogboek
+Van de [Azure-portal](https://portal.azure.com) dashboard, selecteer de **Azure AD Privileged Identity Management** app. Van daaruit toegang krijgen tot het controlelogboek door te klikken op **bevoorrechte rollen beheren** > **controlegeschiedenis** in het PIM-dashboard.
 
-## <a name="hello-audit-log-graph"></a>Hallo audit log-grafiek
-U kunt Hallo audit log tooview Hallo totaal activeringen, max activeringen per dag en gemiddelde activeringen per dag gebruiken in een lijndiagram.  U kunt ook Hallo gegevens filteren per rol als er meer dan één rol in de controlegeschiedenis Hallo.
+## <a name="the-audit-log-graph"></a>De audit log-grafiek
+Het controlelogboek kunt u het totale aantal activeringen, max activeringen per dag en gemiddelde activeringen per dag weergeven in een lijndiagram.  U kunt ook de gegevens filteren per rol als er meer dan één rol in de controlegeschiedenis.
 
-Gebruik Hallo **tijd**, **actie**, en **rol** knoppen toosort Hallo logboek.
+Gebruik de **tijd**, **actie**, en **rol** knoppen om te sorteren van het logboek.
 
-## <a name="hello-audit-log-list"></a>Hallo audit log-lijst
-Hallo-kolommen in Hallo audit log lijst zijn:
+## <a name="the-audit-log-list"></a>De lijst van de controle-logboek
+De kolommen in de lijst van audit log zijn:
 
-* **Aanvrager** -Hallo-gebruiker die heeft aangevraagd Hallo rol activeren of wijzigen.  Als het Hallo-waarde is 'Azure systeem', controleert u hello Azure controlelogboek voor meer informatie.
-* **Gebruiker** -Hallo-gebruiker die wordt geactiveerd of tooa rol is toegewezen.
-* **Rol** -Hallo rol toegewezen of geactiveerd door Hallo-gebruiker.
-* **Actie** - Hallo-acties die door de aanvrager Hallo. Het kan hierbij gaan toewijzing, ongedaan maken, activeren of deactiveren.
-* **Tijd** : wanneer het Hallo-actie is opgetreden.
-* **Redeneren** -als de tekst in Hallo reden veld is ingevoerd tijdens de activering, deze hier wordt weergegeven.
+* **Aanvrager** -de gebruiker die de rol activeren of wijzigen.  Als de waarde is 'Azure systeem', controleert u het controlelogboek voor Azure voor meer informatie.
+* **Gebruiker** -de gebruiker die geactiveerd of is toegewezen aan een rol is.
+* **Rol** -de rol toegewezen of geactiveerd door de gebruiker.
+* **Actie** : de acties die door de aanvrager. Het kan hierbij gaan toewijzing, ongedaan maken, activeren of deactiveren.
+* **Tijd** : wanneer de actie is opgetreden.
+* **Redeneren** -als de tekst in het veld reden is ingevoerd tijdens de activering, deze hier wordt weergegeven.
 * **Vervaldatum** - alleen relevant voor de activering van rollen.
 
-## <a name="filter-hello-audit-log"></a>Hallo-controlelogboek filteren
-U kunt Hallo informatie filteren die wordt weergegeven in het controlelogboek Hallo door te klikken op Hallo **Filter** knop.  Hallo **Update grafiek parameters blade** wordt weergegeven.
+## <a name="filter-the-audit-log"></a>Het controlelogboek filteren
+U kunt de informatie filteren die wordt weergegeven in het controlelogboek door te klikken op de **Filter** knop.  De **Update grafiek parameters blade** wordt weergegeven.
 
-Wanneer u filters Hallo ingesteld, klikt u op **Update** toofilter Hallo gegevens in Hallo logboek.  Als het Hallo-gegevens worden niet meteen weergegeven, moet u Hallo pagina vernieuwen.
+Nadat u de filters hebt ingesteld, klikt u op **Update** om de gegevens in het logboek te filteren.  Als de gegevens niet meteen weergegeven, vernieuw de pagina.
 
-### <a name="change-hello-date-range"></a>Hallo datumbereik wijzigen
-Gebruik Hallo **vandaag**, **afgelopen Week**, **afgelopen maand**, of **aangepaste** toochange Hallo tijdsbereik van het controlelogboek Hallo knoppen.
+### <a name="change-the-date-range"></a>Wijzig het datumbereik
+Gebruik de **vandaag**, **afgelopen Week**, **afgelopen maand**, of **aangepaste** knoppen om te wijzigen van het tijdsbereik van het controlelogboek.
 
-Wanneer u kiest voor Hallo **aangepaste** knop, krijgt u een **van** datumveld en een **naar** veld toospecify een datumbereik voor Hallo logboek datum.  U kunt Hallo datums opgeven in de notatie DD-MM-jjjj of klik op Hallo **kalender** pictogram en kies Hallo datum in een kalender.
+Als u ervoor kiest de **aangepaste** knop, krijgt u een **van** datumveld en een **naar** datumveld om op te geven van een datumbereik voor het logboek.  U kunt datums opgeven in de notatie DD-MM-jjjj of klik op de **kalender** pictogram en kies de datum in een kalender.
 
-### <a name="change-hello-roles-included-in-hello-log"></a>Hallo-functies die zijn opgenomen in het logboek Hallo wijzigen
-Schakel Hallo of **rol** zich aanmelden op Hallo selectievakje volgende tooeach rol tooinclude of uitsluiten.
+### <a name="change-the-roles-included-in-the-log"></a>Wijzigen van de rollen die zijn opgenomen in het logboek
+Schakel of de **rol** selectievakje naast elke rol wilt opnemen of uitsluiten van het logboek.
 
-<!--Every topic should have next steps and links toohello next logical set of content tookeep hello customer engaged-->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

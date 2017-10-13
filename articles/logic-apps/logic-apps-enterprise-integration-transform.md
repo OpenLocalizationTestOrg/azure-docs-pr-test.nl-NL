@@ -1,6 +1,6 @@
 ---
-title: aaaConvert XML-gegevens met transformaties - Azure Logic Apps | Microsoft Docs
-description: Maken van transformaties of mapps tooconvert XML-gegevens tussen indelingen in logic apps met behulp van Hallo Enterprise Integration-SDK
+title: Converteren van XML-gegevens met transformaties - Azure Logic Apps | Microsoft Docs
+description: Maken van transformaties of mapps converteren van XML-gegevens tussen indelingen in logic apps met behulp van de Enterprise Integration-SDK
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,61 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: b56ec1072c5058d3aefc7f88ac9b2748ebe56456
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Enterprise-integratie met XML-transformaties
 ## <a name="overview"></a>Overzicht
-Hallo Enterprise integration transformatie connector worden gegevens van de ene indeling tooanother indeling geconverteerd. Bijvoorbeeld wellicht hebt u een binnenkomend bericht Hallo met huidige datum in Hallo YearMonthDay indeling. U kunt een transformatie tooreformat Hallo datum toobe hello MonthDayYear indeling.
+De Enterprise integration transformatie-connector worden gegevens van de ene indeling geconverteerd naar een andere indeling. Bijvoorbeeld wellicht hebt u een binnenkomend bericht met de huidige datum in de notatie YearMonthDay. U kunt een transformatie opnieuw indelen van de datum in de indeling MonthDayYear.
 
 ## <a name="what-does-a-transform-do"></a>Wat is een transformatie?
-Een transformatie die ook wel bekend als een kaart, bestaat uit een bron-XML-schema (hello invoer) en een doel-XML-schema (Hallo uitvoer). Kunt u verschillende ingebouwde functies toohelp manipuleren of onder uw beheer Hallo gegevens, waaronder tekenreeksmanipulatie, voorwaardelijke toewijzingen, aritmetische expressies, datum tijd formatters en zelfs lussen constructies.
+Een transformatie die ook wel bekend als een kaart, bestaat uit een bron-XML-schema (invoer) en een doel-XML-schema (uitvoer). U kunt verschillende ingebouwde functies gebruiken om te bewerken of beheren van de gegevens, waaronder tekenreeksmanipulatie, voorwaardelijke toewijzingen, aritmetische expressies, datum tijd formatters en zelfs lussen constructies.
 
-## <a name="how-toocreate-a-transform"></a>Hoe een transformatie toocreate?
-U kunt een transformatie/map maken met behulp van Visual Studio Hallo [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas). Wanneer u bent klaar te maken en te testen Hallo transformatie, moet u Hallo transformatie toegang tot je account integratie uploaden. 
+## <a name="how-to-create-a-transform"></a>Het maken van een transformatie?
+U kunt een transformatie/map maken met behulp van de Visual Studio [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas). Als u klaar maken en testen van de transformatie bent, moet u de transformatie toegang tot je account integratie uploaden. 
 
-## <a name="how-toouse-a-transform"></a>Hoe toouse transformatie
-Nadat u Hallo transformatie/kaart naar uw integratie-account uploaden, kunt u deze toocreate een logische app. Hallo logische app uitgevoerd uw transformaties wanneer Hallo logische app wordt geactiveerd (en er is invoer inhoud die toobe getransformeerd moet).
+## <a name="how-to-use-a-transform"></a>Het gebruik van een transformatie
+Nadat u de transformatie/kaart bij uw account integratie geüpload, kunt u het maken van een logische app. De logische app wordt uw transformaties uitgevoerd wanneer de logische app wordt geactiveerd (en er is invoer inhoud die moet worden omgezet).
 
-**Hier vindt u Hallo stappen toouse transformatie**:
+**Hier volgen de stappen voor het gebruik van een transformatie**:
 
 ### <a name="prerequisites"></a>Vereisten
 
-* Een integratie-account maken en toevoegen van een kaart tooit  
+* Een integratie-account maken en een toewijzing aan toe te voegen  
 
-Nu u hebt gezorgd voor Hallo vereisten, is het tijd toocreate uw logische app:  
+Nu dat u hebt gezorgd voor de vereisten, is het tijd om uw logische app maken:  
 
-1. Een logische app maken en [tooyour integratie account een koppeling](../logic-apps/logic-apps-enterprise-integration-accounts.md "toolink een integratie account tooa logische app meer") die Hallo kaart bevat.
-2. Voeg een **aanvragen** trigger tooyour logische app  
+1. Een logische app maken en [koppelen aan uw account integratie](../logic-apps/logic-apps-enterprise-integration-accounts.md "informatie over het koppelen van een integratie-account aan een logische app") die de kaart bevat.
+2. Voeg een **aanvragen** trigger aan uw logische app  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
-3. Hallo toevoegen **XML-transformatie** actie selecteren **een actie toevoegen**   
+3. Toevoegen de **XML-transformatie** actie selecteren **een actie toevoegen**   
    ![](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
-4. Voer Hallo word *transformeren* in Hallo zoeken vak toofilter alle acties toohello een gewenste toouse Hallo  
+4. Voer het woord *transformeren* in het zoekvak voor het filteren van de acties met de fout die u wilt gebruiken  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
-5. Selecteer Hallo **XML-transformatie** actie   
-6. Hallo XML toevoegen **inhoud** die u transformeren. U kunt een XML-gegevens die u in Hallo HTTP-aanvraag als Hallo ontvangt **inhoud**. Selecteer in dit voorbeeld Hallo hoofdtekst van Hallo HTTP-aanvraag die Hallo logische app heeft geactiveerd.
-7. Selecteer Hallo-naam van Hallo **kaart** die u wilt dat toouse tooperform Hallo transformatie. Hallo-kaart moet al in uw account integratie. In een eerdere stap hebt u al uw logische app access tooyour integratie-account dat de kaart bevat gegeven.      
+5. Selecteer de **XML-transformatie** actie   
+6. Voeg het XML-bestand **inhoud** die u transformeren. U in de HTTP-aanvraag als ontvangt XML-gegevens kunt u de **inhoud**. Selecteer de hoofdtekst van de HTTP-aanvraag die de logische app heeft geactiveerd in dit voorbeeld.
+7. Selecteer de naam van de **kaart** dat u gebruiken wilt voor het uitvoeren van de transformatie. De kaart moet al in uw account integratie. In een eerdere stap hebt u al gegeven uw logische apptoegang tot je account integratie met uw kaart.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Sla uw werk  
     ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
-Op dit moment bent u klaar instellen van de kaart. U kunt in een toepassing concrete toostore Hallo getransformeerd gegevens in een LOB-toepassing zoals SalesForce. U kunt eenvoudig als actie toosend Hallo uitvoer Hallo tooSalesforce transformeren. 
+Op dit moment bent u klaar instellen van de kaart. In een toepassing praktijk wilt u mogelijk de getransformeerde gegevens opslaan in een LOB-toepassing zoals SalesForce. U kunt gemakkelijk als een actie voor het verzenden van de uitvoer van de transformatie bij Salesforce. 
 
-U kunt nu de transformatie testen door het maken van een aanvraag toohello HTTP-eindpunt.  
+U kunt nu de transformatie testen door een aanvraag voor het HTTP-eindpunt.  
 
 ## <a name="features-and-use-cases"></a>Functies en gebruiksvoorbeelden
-* Hallo-transformatie die zijn gemaakt in een kaart kan eenvoudig, zoals het kopiëren van een naam en adres van een document tooanother zijn. Of u complexere transformaties Hallo out-of-the-box-kaart bewerkingen kunt maken.  
+* De transformatie die wordt gemaakt in een map is eenvoudig, zoals het kopiëren van een naam en adres van het ene document naar de andere. Of u complexere transformaties met behulp van de kaart out-of-the-box-bewerkingen kunt maken.  
 * Meerdere bewerkingen van de kaart of functies zijn direct beschikbaar is, met inbegrip van tekenreeksen, Datum tijdfuncties, enzovoort.  
-* U kunt een kopie van de gegevens direct tussen Hallo schema's kunt doen. In Hallo die toewijzen in Hallo SDK is opgenomen, is dit net zo eenvoudig als een lijn die Hallo-elementen in Hallo gegevensbronschema regenereren met hun collega's in doelschema Hallo verbindt.  
-* Wanneer u een toewijzing maakt, weergave u een grafische van Hallo-kaart, waarin alle Hallo relaties en koppelingen die u maakt.
-* Hallo Test kaart functie tooadd een bericht van de XML-voorbeeld gebruiken. U kunt met een enkele klik Hallo kaart hebt gemaakt Zie Hallo gegenereerde uitvoer testen.  
+* U kunt een kopie van de directe gegevens tussen de schema's kunt doen. In de Mapper die deel uitmaakt van de SDK is net zo eenvoudig als het tekenen van een regel die de elementen in het schema van de gegevensbron met hun collega's in het doelschema verbindt.  
+* Wanneer u een toewijzing maakt, weergave u een grafische van de kaart, waarin de relaties en koppelingen die u maakt.
+* Gebruik de functie Test-kaart toevoegen van een bericht van de XML-voorbeeld. U kunt met een enkele klik testen van de kaart die u hebt gemaakt en verschijnt de gegenereerde uitvoer.  
 * Bestaande maps uploaden  
-* Biedt ondersteuning voor Hallo XML-indeling.
+* Biedt ondersteuning voor de XML-indeling.
 
 ## <a name="learn-more"></a>Meer informatie
-* [Meer informatie over Enterprise Integration Pack Hallo](../logic-apps/logic-apps-enterprise-integration-overview.md "meer informatie over Enterprise Integration Pack")  
+* [Meer informatie over het Enterprise-integratiepakket](../logic-apps/logic-apps-enterprise-integration-overview.md "meer informatie over Enterprise Integration Pack")  
 * [Meer informatie over maps](../logic-apps/logic-apps-enterprise-integration-maps.md "meer informatie over enterprise integration maps")  
 

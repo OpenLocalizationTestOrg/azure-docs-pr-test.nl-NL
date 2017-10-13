@@ -1,5 +1,5 @@
 ---
-title: aaaUse PowerShell tooCreate en configureren van een Log Analytics-werkruimte | Microsoft Docs
+title: PowerShell gebruiken voor het maken en configureren van een Log Analytics-werkruimte | Microsoft Docs
 description: Log Analytics maakt gebruik van gegevens van servers in uw on-premises of cloud-infrastructuur. U kunt gegevens van de machine van Azure storage wanneer gegenereerd door Azure diagnostics verzamelen.
 services: log-analytics
 documentationcenter: 
@@ -14,64 +14,64 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: a6d66194204cc58de6aafb687a19fe9611e0c58e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6807ab67e3593da82c147669b29bfdae3b6c967c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Log Analytics beheren met PowerShell
-U kunt Hallo [Log Analytics PowerShell-cmdlets](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) tooperform diverse functies in logboekanalyse vanaf een opdrachtregel of als onderdeel van een script.  Voorbeelden van Hallo kunt u taken met PowerShell uitvoeren zijn:
+U kunt de [Log Analytics PowerShell-cmdlets](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) diverse functies uitvoeren in logboekanalyse vanaf een opdrachtregel of als onderdeel van een script.  Voorbeelden van de taken die u met PowerShell uitvoeren kunt zijn:
 
 * Een werkruimte maken
 * Toevoegen of verwijderen van een oplossing
 * Importeren en exporteren van opgeslagen zoekopdrachten
 * Maak een computergroep
-* Verzamelen van IIS-logboeken van computers met Hallo Windows-agent is geïnstalleerd
+* Verzamelen van IIS-logboeken van computers met de Windows-agent die is geïnstalleerd
 * Verzamelen van prestatiemeteritems van Linux- en Windows-computers
 * Gebeurtenissen verzamelen van syslog op Linux-computers 
 * Verzamelen van gebeurtenissen van Windows-gebeurtenislogboeken
 * Aangepaste logboeken verzamelen
-* Hallo log analytics agent tooan Azure virtuele machine toevoegen
-* Log analytics-tooindex gegevens verzameld met behulp van Azure diagnostics configureren
+* Log analytics agent toevoegen aan een virtuele machine van Azure
+* Log analytics om gegevens te indexeren verzameld met behulp van Azure diagnostics configureren
 
-Dit artikel bevat twee codevoorbeelden die illustratie van enkele Hallo-functies die u vanuit PowerShell uitvoeren kunt.  U kunt verwijzen toohello [Log Analytics PowerShell-cmdlet-verwijzing](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) voor andere functies.
+Dit artikel bevat twee codevoorbeelden die illustratie van enkele van de functies die u vanuit PowerShell uitvoeren kunt.  U kunt verwijzen naar de [Log Analytics PowerShell-cmdlet-verwijzing](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) voor andere functies.
 
 > [!NOTE]
-> Log Analytics is eerder aangeroepen voor operationeel inzicht, die daarom is het Hallo-naam die wordt gebruikt in Hallo-cmdlets.
+> Log Analytics is eerder aangeroepen voor operationeel inzicht, dat is waarom dit de naam in de cmdlets gebruikt is.
 > 
 > 
 
 ## <a name="prerequisites"></a>Vereisten
-Deze voorbeelden werkt met versie 2.3.0 of hoger van Hallo AzureRm.OperationalInsights module.
+Deze voorbeelden werkt met versie 2.3.0 of hoger van de module AzureRm.OperationalInsights.
 
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Maak en configureer een Log Analytics-werkruimte
-Hallo volgende voorbeeldscript ziet u hoe:
+Het volgende voorbeeldscript ziet u hoe:
 
 1. Een werkruimte maken
-2. Lijst Hallo beschikbare oplossingen
-3. Oplossingen toohello werkruimte toevoegen
+2. Lijst van beschikbare oplossingen
+3. Oplossingen toevoegen aan de werkruimte
 4. Importeren opgeslagen zoekopdrachten
 5. Export opgeslagen zoekopdrachten
 6. Maak een computergroep
-7. Verzamelen van IIS-logboeken van computers met Hallo Windows-agent is geïnstalleerd
+7. Verzamelen van IIS-logboeken van computers met de Windows-agent die is geïnstalleerd
 8. Verzamelen van prestatiemeteritems voor logische schijf van Linux-computers (% gebruikte Inodes Beschikbare Megabytes; Percentage gebruikte ruimte; Schijfoverdrachten per seconde; Schijf lezen per seconde; Schijf schrijven per seconde)
 9. Syslog-gebeurtenissen verzamelen van Linux-computers
-10. Fout- en waarschuwingsberichten gebeurtenissen verzamelen van Hallo gebeurtenislogboek van toepassing op Windows-computers
+10. Fout- en waarschuwingsberichten gebeurtenissen verzamelen uit het gebeurtenislogboek van toepassing op Windows-computers
 11. Beschikbaar geheugen in megabytes-prestatiemeteritem verzamelen van Windows-computers
 12. Een aangepaste logboekgegevens verzamelen 
 
 ```
 
 $ResourceGroup = "oms-example"
-$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need toobe unique - Get-Random helps with this for hello example code
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique - Get-Random helps with this for the example code
 $Location = "westeurope"
 
-# List of solutions tooenable
+# List of solutions to enable
 $Solutions = "Security", "Updates", "SQLAssessment"
 
-# Saved Searches tooimport
+# Saved Searches to import
 $ExportedSearches = @"
 [
     {
@@ -89,7 +89,7 @@ $ExportedSearches = @"
 ]
 "@ | ConvertFrom-Json
 
-# Custom Log toocollect
+# Custom Log to collect
 $CustomLog = @"
 {
     "customLogName": "sampleCustomLog1", 
@@ -127,14 +127,14 @@ $CustomLog = @"
     }
 "@
 
-# Create hello resource group if needed
+# Create the resource group if needed
 try {
     Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop
 } catch {
     New-AzureRmResourceGroup -Name $ResourceGroup -Location $Location
 }
 
-# Create hello workspace
+# Create the workspace
 New-AzureRmOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
 
 # List all solutions and their installation status
@@ -160,7 +160,7 @@ foreach ($search in $ExportedSearches) {
 # Create Computer Group based on a query
 New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Web Servers" -DisplayName "Web Servers" -Category "My Saved Searches" -Query "Computer=""web*"" | distinct Computer" -Version 1
 
-# Create a computer group based on names (up too5000)
+# Create a computer group based on names (up to 5000)
 $computerGroup = """servername1.contoso.com"",""servername2.contoso.com"",""servername3.contoso.com"",""servername4.contoso.com"""
 New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Named Servers" -DisplayName "Named Servers" -Category "My Saved Searches" -Query $computerGroup -Version 1
 
@@ -186,8 +186,8 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 ```
 
-## <a name="configuring-log-analytics-tooindex-azure-diagnostics"></a>Log Analytics tooindex Azure diagnostics configureren
-Hallo resources moeten voor bewaking zonder agents van Azure-resources, toohave Azure diagnostics is ingeschakeld en geconfigureerd toowrite tooa Log Analytics-werkruimte. Deze methode verzendt gegevens rechtstreeks tooLog Analytics en vereist geen gegevens toobe tooa storage-account geschreven. Ondersteunde resources omvatten:
+## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Log Analytics index van Azure diagnostics configureren
+Voor de bewaking zonder agents van Azure-resources, moeten de resources Azure diagnostics ingeschakeld en geconfigureerd voor het schrijven naar een werkruimte voor logboekanalyse. Deze methode verzendt gegevens rechtstreeks naar het Log Analytics en vereist geen gegevens naar een opslagaccount worden geschreven. Ondersteunde resources omvatten:
 
 | Resourcetype | Logboeken | Metrische gegevens |
 | --- | --- | --- |
@@ -210,9 +210,9 @@ Hallo resources moeten voor bewaking zonder agents van Azure-resources, toohave 
 | Web Sites               |     | Ja |
 | Webserver-farms        |     | Ja |
 
-Raadpleeg te voor details van de beschikbare metrische gegevens Hallo Hallo[ondersteund met een Azure-Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+Raadpleeg voor de details van de beschikbare metrische gegevens, [ondersteund met een Azure-Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
-Raadpleeg te voor details van de beschikbare logboeken Hallo Hallo[ondersteund services en het schema voor diagnostische logboeken](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+Raadpleeg voor de details van de beschikbare logboeken [ondersteund services en het schema voor diagnostische logboeken](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -222,27 +222,27 @@ $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUP
 Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-U kunt ook Hallo voorafgaand aan de cmdlet toocollect logboeken van de resources die tot verschillende abonnementen behoren. Hallo-cmdlet is kunnen toowork voor abonnementen, omdat u biedt Hallo-id van beide Hallo-resource maken van Logboeken en Hallo werkruimte Hallo logboeken worden verzonden naar.
+U kunt ook de voorgaande cmdlet gebruiken voor het verzamelen van Logboeken van de resources die tot verschillende abonnementen behoren. De cmdlet kan werken voor abonnementen, omdat u de id van zowel de bron voor het maken van Logboeken en de werkruimte die de logboeken worden verzonden naar opgeeft.
 
 
-## <a name="configuring-log-analytics-tooindex-azure-diagnostics-from-storage"></a>Log Analytics tooindex Azure diagnostische gegevens van opslag configureren
-toocollect logboekgegevens vanuit een actief exemplaar van een klassieke cloudservice of een service fabric-cluster, moet u toofirst schrijven Hallo-gegevensopslag tooAzure. Log Analytics wordt vervolgens geconfigureerd toocollect Hallo logboeken van Hallo storage-account. Ondersteunde resources omvatten:
+## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>Log Analytics index van Azure diagnostics uit de opslag configureren
+Voor het verzamelen van logboekgegevens van binnen een actief exemplaar van een klassieke cloudservice of een service fabric-cluster, moet u eerst de gegevens te schrijven naar Azure storage. Log Analytics wordt vervolgens geconfigureerd voor het verzamelen van de logboeken van het opslagaccount. Ondersteunde resources omvatten:
 
 * Klassieke cloudservices (web- en werkrollen rollen)
 * Service fabric-clusters
 
-Hallo volgende voorbeeld ziet u hoe aan:
+Het volgende voorbeeld wordt getoond hoe:
 
-1. Hallo bestaande opslagaccounts en de locaties die logboekanalyse indexeert gegevens uit lijst
-2. Een tooread configuratie van een opslagaccount maken
-3. Hallo nieuw gemaakte tooindex configuratiegegevens van extra locaties bijwerken
-4. Hallo nieuw gemaakte configuratie verwijderen
+1. Weergeven van de bestaande opslagaccounts en de locaties die logboekanalyse indexeert gegevens uit
+2. Een configuratie lezen van een opslagaccount maken
+3. De zojuist gemaakte configuratie bijwerken om gegevens te indexeren van extra locaties
+4. De zojuist gemaakte configuratie verwijderen
 
 ```
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable" 
 $workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
-# Update these two lines with hello storage account resource ID and hello storage account key for hello storage account you want tooLog Analytics too 
+# Update these two lines with the storage account resource ID and the storage account key for the storage account you want to Log Analytics to  
 $storageId = "/subscriptions/ec11ca60-1234-491e-5678-0ea07feae25c/resourceGroups/demo/providers/Microsoft.Storage/storageAccounts/wadv2storage"
 $key = "abcd=="
 
@@ -255,12 +255,12 @@ New-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resou
 # Update existing insight
 Set-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles")
 
-# Remove hello insight
+# Remove the insight
 Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" 
 
 ```
 
-U kunt ook Hallo vóór het script toocollect logboeken van de storage-accounts in verschillende abonnementen behoren. Hallo-script is kunnen toowork voor abonnementen, omdat u Hallo storage account resource-id en een bijbehorende toegangssleutel opgeeft. Wanneer u de toegangssleutel Hallo wijzigt, moet u tooupdate Hallo opslag inzicht toohave Hallo nieuwe sleutel.
+U kunt dit script ook gebruiken voor het verzamelen van Logboeken van opslagaccounts met verschillende abonnementen. Het script is kunnen werken voor abonnementen, omdat u de resource-id van de storage-account en een bijbehorende toegangssleutel opgeeft. Wanneer u de toegangssleutel wijzigt, moet u het inzicht opslag als u de nieuwe sleutel wilt bijwerken.
 
 
 ## <a name="next-steps"></a>Volgende stappen

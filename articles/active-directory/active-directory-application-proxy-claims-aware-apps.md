@@ -1,6 +1,6 @@
 ---
-title: aaaClaims-compatibele apps - toepassingsproxy van Azure AD | Microsoft Docs
-description: Hoe toopublish een on-premises ASP.NET-toepassingen die AD FS-claims voor veilige externe toegang door uw gebruikers te accepteren.
+title: Claims-compatibele apps - Azure AD-toepassingsproxy | Microsoft Docs
+description: Het publiceren van on-premises ASP.NET-toepassingen die AD FS-claims voor veilige externe toegang door uw gebruikers te accepteren.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: kgremban
-ms.openlocfilehash: 7be633225de700226c7c94815eb91b3de2b61cb5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5784222608b01509fc4ff84b1a8792cbcfea89e6
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Werken met claimbewuste toepassingen in de toepassingsproxy
-[Claims-compatibele apps](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) een omleiding toohello Security Token Service (STS) uitvoeren. Hallo STS vraagt om de referenties van gebruiker Hallo voor een token en stuurt vervolgens door Hallo-Gebruikerstoepassing toohello. Er zijn enkele manieren tooenable toepassingsproxy toowork met deze omleidingen. Gebruik dit artikel tooconfigure uw implementatie voor claims-compatibele apps. 
+[Claims-compatibele apps](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) een omleiding naar de Security Token Service (STS) uitvoeren. De STS vraagt om de referenties van de gebruiker voor een token en stuurt vervolgens door de gebruiker naar de toepassing. Er zijn een aantal manieren Application Proxy voor gebruik met deze omleidingen in te schakelen. Gebruik dit artikel voor het configureren van uw implementatie van claims-compatibele apps. 
 
 ## <a name="prerequisites"></a>Vereisten
-Zorg ervoor dat Hallo STS die Hallo claimbewuste app leidt toois beschikbaar buiten uw on-premises netwerk. U kunt Hallo STS beschikbaar maken door het beschikbaar te maken via een proxy of door ze buiten verbindingen. 
+Zorg ervoor dat de STS die de claimbewuste app wordt omgeleid naar uw on-premises netwerk beschikbaar is. U kunt de STS beschikbaar maken door het beschikbaar te maken via een proxy of door externe verbindingen toestaan. 
 
 ## <a name="publish-your-application"></a>Uw toepassing publiceren
 
-1. Publiceer de toepassing op basis van toohello instructies die worden beschreven [publiceren van toepassingen met toepassingsproxy](application-proxy-publish-azure-portal.md).
-2. Navigeer toohello toepassingspagina in Hallo portal en selecteert u een **eenmalige aanmelding**.
-3. Als u hebt gekozen **Azure Active Directory** als uw **pre-authenticatie methode**, selecteer **Azure AD eenmalige aanmelding uitgeschakeld** als uw **intern Verificatiemethode**. Als u hebt gekozen **Passthrough** als uw **pre-authenticatie methode**, hoeft u niet toochange alles.
+1. Uw toepassing volgens de instructies die worden beschreven publiceren [publiceren van toepassingen met toepassingsproxy](application-proxy-publish-azure-portal.md).
+2. Navigeer naar de toepassingspagina in de portal en selecteer **eenmalige aanmelding**.
+3. Als u hebt gekozen **Azure Active Directory** als uw **pre-authenticatie methode**, selecteer **Azure AD eenmalige aanmelding uitgeschakeld** als uw **intern Verificatiemethode**. Als u hebt gekozen **Passthrough** als uw **pre-authenticatie methode**, u hoeft niet te wijzigen.
 
 ## <a name="configure-adfs"></a>AD FS configureren
 
-U kunt AD FS voor claims-compatibele apps op twee manieren configureren. Hallo wordt eerst met behulp van aangepaste domeinen. Hallo is het tweede met WS-Federation. 
+U kunt AD FS voor claims-compatibele apps op twee manieren configureren. De eerste is met behulp van aangepaste domeinen. De tweede is met WS-Federation. 
 
 ### <a name="option-1-custom-domains"></a>Optie 1: Aangepaste domeinen
 
-Als alle Hallo interne URL's voor uw toepassingen volledig gekwalificeerde zijn domeinnamen (FQDN's), dan kunt u configureren [aangepaste domeinen](active-directory-application-proxy-custom-domains.md) voor uw toepassingen. Gebruik Hallo aangepaste domeinen toocreate externe URL's die zijn hetzelfde als de interne URL's Hallo Hallo. Als de externe URL's die overeenkomen met uw interne URL's, werken Hallo STS omleidingen of uw gebruikers on-premises of extern zijn. 
+Als alle de interne URL's voor uw toepassingen volledig zijn gekwalificeerde domeinnamen (FQDN's), dan kunt u configureren [aangepaste domeinen](active-directory-application-proxy-custom-domains.md) voor uw toepassingen. Gebruik de aangepaste domeinen te maken van de externe URL's die hetzelfde als de interne URL's zijn. Als de externe URL's die overeenkomen met uw interne URL's, werken de STS-omleidingen of uw gebruikers on-premises of extern zijn. 
 
 ### <a name="option-2-ws-federation"></a>Optie 2: WS-Federation
 
 1. Open AD FS-beheer.
-2. Ga te**Relying Party-vertrouwensrelaties**, met de rechtermuisknop op het Hallo-app die u met toepassingsproxy publiceren wilt en kiest u **eigenschappen**.  
+2. Ga naar **Relying Party-vertrouwensrelaties**, met de rechtermuisknop op de app die u met toepassingsproxy publiceren wilt en kiest u **eigenschappen**.  
 
    ![Relying Party-vertrouwensrelaties met de rechtermuisknop op de naam van de app - schermafbeelding](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
 
-3. Op Hallo **eindpunten** tabblad onder **eindpunttype**, selecteer **WS-Federation**.
-4. Onder **vertrouwde URL**, Voer Hallo-URL die u hebt ingevoerd in Hallo toepassingsproxy onder **externe URL** en klik op **OK**.  
+3. Op de **eindpunten** tabblad onder **eindpunttype**, selecteer **WS-Federation**.
+4. Onder **vertrouwde URL**, voert u de URL die u hebt ingevoerd in de toepassingsproxy onder **externe URL** en klik op **OK**.  
 
    ![Toevoegen van een eindpunt - waarde vertrouwde URL - schermafbeelding](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Schakel eenmalige aanmelding op](application-proxy-sso-overview.md) voor toepassingen die niet claimbewuste
-* [Native client-apps toointeract met proxy toepassingen inschakelen](active-directory-application-proxy-native-client.md)
+* [Native ClientApps om te communiceren met de proxy-toepassingen inschakelen](active-directory-application-proxy-native-client.md)
 
 

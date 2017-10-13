@@ -1,8 +1,8 @@
 ---
-title: aaaAzure documentatie van SQL Data Warehouse - zelfstudies, API-referentiemateriaal | Microsoft Docs
-description: Meer informatie over hoe toouse SQL Data Warehouse, combineren van SQL Server met massively parallelle verwerking. Documentatie ziet u hoe tooload, analyseren, te beheren en gegevens exporteren.
+title: Documentatie voor Azure SQL Data Warehouse - zelfstudies, API-verwijzing | Microsoft Docs
+description: Leer hoe u SQL Data Warehouse gebruikt, waarmee u SQL Server combineert met massively parallel processing. Documentatie laat zien hoe u gegevens kunt laden, analyseren, beheren en exporteren.
 services: sql-data-warehouse
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a3deb9fe2dbd29cdc250510ca7368b4d71422658
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: fea8cd403cbf21acee2194e8e3888e4001663cdd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-documentation"></a>Documentatie voor SQL Data Warehouse
 
-Meer informatie over hoe toouse SQL Data Warehouse, die een combinatie van relationele SQL Server-database Hallo met massively parallelle verwerking. Zelfstudies en andere documentatie wordt uitgelegd hoe tooload gegevens in Hallo-warehouse vervolgens analyseren, beheren, en exporteren.
+Leer hoe u SQL Data Warehouse gebruikt, dat de relationele database van SQL Server combineert met massively parallel processing. Zelfstudies en andere documentatie laten zien hoe u gegevens kunt laden in het warehouse en deze vervolgens kunt analyseren, beheren en exporteren.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -71,7 +71,7 @@ Meer informatie over hoe toouse SQL Data Warehouse, die een combinatie van relat
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Maken van een SQL Data Warehouse met behulp van hello Azure-Portal aan de slag</h3>
+                        <h3>Een SQL Data Warehouse-verbinding maken met Azure Portal</h3>
                     </div>
                 </div>
             </div>

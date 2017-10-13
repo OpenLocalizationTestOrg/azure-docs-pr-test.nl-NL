@@ -1,6 +1,6 @@
 ---
-title: aaaManage Azure Data Lake Analytics met Azure .NET SDK | Microsoft Docs
-description: 'Meer informatie over hoe Data Lake Analytics toomanage taken, gegevensbronnen, gebruikers. '
+title: Azure Data Lake Analytics beheren met Azure .NET SDK | Microsoft Docs
+description: 'Informatie over het beheren van Data Lake Analytics-taken en gegevensbronnen en gebruikers. '
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: saveenr
-ms.openlocfilehash: 98630ba411823644a8bce1f1b0c1331f689cbb0c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0f8a95f96ce4c816dfb9132923faa9a9bf20c205
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-net-sdk"></a>Azure Data Lake Analytics beheren met Azure .NET SDK
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Meer informatie over hoe Hallo toomanage Azure Data Lake Analytics-accounts, gegevensbronnen, gebruikers en taken met behulp van Azure .NET SDK. 
+Informatie over het beheren van Azure Data Lake Analytics-accounts, gegevensbronnen, gebruikers en taken met behulp van de Azure .NET SDK. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 * **Visual Studio 2015, Visual Studio 2013 update 4 of Visual Studio 2012 met Visual C++ geïnstalleerd**.
-* **Microsoft Azure SDK voor .NET versie 2.5 of hoger**.  Installeren met behulp van Hallo [webplatforminstallatieprogramma](http://www.microsoft.com/web/downloads/platform.aspx).
+* **Microsoft Azure SDK voor .NET versie 2.5 of hoger**.  U kunt dit installeren met het [Webplatforminstallatieprogramma](http://www.microsoft.com/web/downloads/platform.aspx).
 * **Vereiste NuGet-pakketten**
 
 ### <a name="install-nuget-packages"></a>NuGet-pakketten installeren
@@ -41,7 +41,7 @@ Meer informatie over hoe Hallo toomanage Azure Data Lake Analytics-accounts, geg
 |[Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)|1.6.0-Preview|
 |[Microsoft.Azure.Graph.RBAC](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)|3.4.0-Preview|
 
-U kunt deze pakketten via de opdrachtregel voor Hallo NuGet installeren Hello volgende opdrachten:
+U kunt deze pakketten via de opdrachtregel NuGet installeren met de volgende opdrachten:
 
 ```
 Install-Package -Id Microsoft.Rest.ClientRuntime.Azure.Authentication  -Version 2.3.1
@@ -62,7 +62,7 @@ string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (t
 
 ## <a name="authentication"></a>Authentication
 
-U hebt meerdere mogelijkheden voor logboekregistratie op tooAzure Data Lake Analytics. Hallo toont volgende fragment een voorbeeld van verificatie met interactieve gebruikersverificatie met een pop-upvenster.
+U hebt meerdere mogelijkheden voor melden bij Azure Data Lake Analytics. Het volgende fragment toont een voorbeeld van verificatie met interactieve gebruikersverificatie met een pop-upvenster.
 
 ``` csharp
 using System;
@@ -100,10 +100,10 @@ public static Program
 }
 ```
 
-Hallo broncode voor **GetCreds_User_Popup** en code Hallo voor andere opties voor verificatie worden behandeld in [Data Lake Analytics .NET-verificatieopties](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options)
+De broncode voor **GetCreds_User_Popup** en de code voor andere opties voor verificatie worden behandeld in [Data Lake Analytics .NET-verificatieopties](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options)
 
 
-## <a name="create-hello-client-management-objects"></a>Hallo-client beheerobjecten maken
+## <a name="create-the-client-management-objects"></a>De client beheerobjecten maken
 
 ``` csharp
 var resourceManagementClient = new ResourceManagementClient(armCreds) { SubscriptionId = subid };
@@ -128,7 +128,7 @@ graphClient.TenantID = domain;
 
 ### <a name="create-an-azure-resource-group"></a>Een Azure-resourcegroep maken
 
-Als u dit nog niet hebt gemaakt, moet u een Azure-resourcegroep toocreate hebben de onderdelen van uw Data Lake Analytics. U moet uw referenties voor verificatie, abonnements-ID en een locatie. Hallo van de volgende code wordt getoond hoe toocreate een resourcegroep:
+Als u dit nog niet hebt gemaakt, moet u een Azure-resourcegroep te maken van de onderdelen van uw Data Lake Analytics hebben. U moet uw referenties voor verificatie, abonnements-ID en een locatie. De volgende code toont hoe u een resourcegroep maken:
 
 ``` csharp
 var resourceGroup = new ResourceGroup { Location = location };
@@ -138,7 +138,7 @@ Zie voor meer informatie [Azure-resourcegroepen en Data Lake Analytics](#Azure-R
 
 ### <a name="create-a-data-lake-store-account"></a>Een Data Lake Store-account maken
 
-ADLA account vereist ooit een ADLS-account. Als u één toouse nog geen hebt, kunt u één met de volgende code Hallo maken:
+ADLA account vereist ooit een ADLS-account. Als u niet wilt gebruiken al hebt, kunt u één met de volgende code:
 
 ``` csharp
 var new_adls_params = new DataLakeStoreAccount(location: _location);
@@ -147,7 +147,7 @@ adlsAccountClient.Account.Create(rg, adls, new_adls_params);
 
 ### <a name="create-a-data-lake-analytics-account"></a>Een Data Lake Analytics-account maken
 
-Hallo volgende code maakt een ADLS-account
+De volgende code maakt een ADLS-account
 
 ``` csharp
 var new_adla_params = new DataLakeAnalyticsAccount()
@@ -205,9 +205,9 @@ if (adlaClient.Account.Exists(rg, adla))
 }
 ```
 
-### <a name="get-hello-default-data-lake-store-account"></a>Hallo standaard Data Lake Store-account ophalen
+### <a name="get-the-default-data-lake-store-account"></a>De standaard Data Lake Store-account ophalen
 
-Elk Data Lake Analytics-account vereist een Data Lake Store-standaardaccount. Gebruik deze code toodetermine Hallo Store-standaardaccount voor een Analytics-account.
+Elk Data Lake Analytics-account vereist een Data Lake Store-standaardaccount. Deze code gebruiken om te bepalen van de Store-standaardaccount voor Analytics-account.
 
 ``` csharp
 if (adlaClient.Account.Exists(rg, adla))
@@ -219,14 +219,14 @@ if (adlaClient.Account.Exists(rg, adla))
 
 ## <a name="manage-data-sources"></a>Gegevensbronnen beheren
 
-Data Lake Analytics ondersteunt momenteel Hallo gegevensbronnen te volgen:
+Data Lake Analytics ondersteunt momenteel de volgende gegevensbronnen:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Azure Storage-Account](../storage/common/storage-introduction.md)
 
-### <a name="link-tooan-azure-storage-account"></a>Koppeling tooan Azure Storage-account
+### <a name="link-to-an-azure-storage-account"></a>Koppelen aan een Azure Storage-account
 
-U kunt koppelingen tooAzure Storage-accounts maken.
+U kunt koppelingen naar Azure Storage-accounts maken.
 
 ``` csharp
 string storage_key = "xxxxxxxxxxxxxxxxxxxx";
@@ -264,16 +264,16 @@ if (adls_accounts != null)
 ```
 
 ### <a name="upload-and-download-folders-and-files"></a>Uploaden en downloaden van bestanden en mappen
-U kunt gebruiken Hallo Data Lake Store-bestand system client management object tooupload en downloaden afzonderlijke bestanden of mappen naar de lokale computer Azure tooyour Hallo volgende methoden gebruiken:
+U kunt het Data Lake Store client management bestandssysteemobject uploaden en downloaden van afzonderlijke bestanden of mappen van Azure op uw lokale computer met behulp van de volgende methoden:
 
 - UploadFolder
 - UploadFile
 - DownloadFolder
 - DownloadFile
 
-de eerste parameter Hello om deze methoden is Hallo-naam van Hallo Data Lake Store-Account, gevolgd door de parameters voor het bronpad Hallo en Hallo doelpad.
+De eerste parameter voor deze methoden is de naam van de Data Lake Store-Account, gevolgd door de parameters voor het bronpad en het doelpad.
 
-Hallo volgende voorbeeld ziet u hoe toodownload een map in Data Lake Store Hallo.
+Het volgende voorbeeld ziet het downloaden van een map in de Data Lake Store.
 
 ``` csharp
 adlsFileSystemClient.FileSystem.DownloadFolder(adls, sourcePath, destinationPath);
@@ -295,7 +295,7 @@ using (var memstream = new MemoryStream())
 ```
 
 ### <a name="verify-azure-storage-account-paths"></a>Controleer of de paden van Azure Storage-account
-Hallo controleert volgende code als een Azure Storage-account (storageAccntName) bestaat al in een Data Lake Analytics-account (analyticsAccountName), en als een container (containerName) bestaat in hello Azure Storage-account.
+De volgende code controleert als een Azure Storage-account (storageAccntName) bestaat al in een Data Lake Analytics-account (analyticsAccountName), en als een container (containerName) bestaat in de Azure Storage-account.
 
 ``` csharp
 string storage_account = "mystorageaccount";
@@ -305,10 +305,10 @@ bool containerExists = adlaClient.Account.StorageContainerExists(rg, adla, stora
 ```
 
 ## <a name="manage-catalog-and-jobs"></a>Catalogus en taken beheren
-Hallo DataLakeAnalyticsCatalogManagementClient object biedt methoden voor het beheren van Hallo SQL-database voor elk Azure Data Lake Analytics-account opgegeven. Hallo DataLakeAnalyticsJobManagementClient biedt methoden toosubmit en beheren van taken uitvoeren op Hallo-database met U-SQL-scripts.
+Het object DataLakeAnalyticsCatalogManagementClient biedt methoden voor het beheren van de SQL-database die is opgegeven voor elke Azure Data Lake Analytics-account. De DataLakeAnalyticsJobManagementClient biedt methoden voor het verzenden en beheren van taken worden uitgevoerd op de database met de U-SQL-scripts.
 
 ### <a name="list-databases-and-schemas"></a>Lijst met databases en schema 's
-U aanbieden kunt, verschillende dingen Hallo meest voorkomende zijn onder Hallo databases en hun schema. Hallo volgende code verkrijgt van een verzameling van databases en vervolgens worden opgesomd Hallo-schema voor elke database.
+Tussen de verschillende dingen die u kunt weergeven, zijn de meest voorkomende databases en hun schema. De volgende code verkrijgt van een verzameling van databases en vervolgens het schema voor elke database worden opgesomd.
 
 ``` csharp
 var databases = adlaCatalogClient.Catalog.ListDatabases(adla);
@@ -325,7 +325,7 @@ foreach (var db in databases)
 ```
 
 ### <a name="list-table-columns"></a>Lijst met kolommen
-Hallo volgende code toont hoe tooaccess Hallo database met een Data Lake Analytics-catalogus management-client toolist Hallo kolommen in een opgegeven tabel.
+De volgende code toont hoe u toegang tot de database met een client voor Data Lake Analytics-catalogus voor een lijst met de kolommen in een opgegeven tabel.
 
 ``` csharp
 var tbl = adlaCatalogClient.Catalog.GetTable(adla, "master", "dbo", "MyTableName");
@@ -352,7 +352,7 @@ foreach (USqlTableColumn utc in columns)
 ```
 
 ### <a name="list-failed-jobs"></a>Mislukte taken weergeven
-Hallo geeft volgende code informatie over taken die niet zijn geslaagd.
+De volgende code geeft informatie over taken die niet zijn geslaagd.
 
 ``` csharp
 var odq = new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" };
@@ -364,7 +364,7 @@ foreach (var j in jobs)
 ```
 
 ### <a name="list-pipelines"></a>Lijst pijplijnen
-Hallo geeft volgende code informatie over elke pijplijn van taken ingediende toohello account.
+De volgende code geeft informatie over elke pijplijn van taken die worden verzonden aan het account.
 
 ``` csharp
 var pipelines = adlaJobClient.Pipeline.List(adla);
@@ -375,7 +375,7 @@ foreach (var p in pipelines)
 ```
 
 ### <a name="list-recurrences"></a>Lijst met herhalingen
-Hallo geeft volgende code informatie over elke herhaling van taken ingediende toohello account.
+De volgende code geeft informatie over elke herhaling van taken die worden verzonden aan het account.
 
 ``` csharp
 var recurrences = adlaJobClient.Recurrence.List(adla);
@@ -387,13 +387,13 @@ foreach (var r in recurrences)
 
 ## <a name="common-graph-scenarios"></a>Algemene scenario's voor grafiek
 
-### <a name="look-up-user-in-hello-aad-directory"></a>Hallo AAD-directory-gebruiker opzoeken
+### <a name="look-up-user-in-the-aad-directory"></a>Gebruiker in de AAD-directory opzoeken
 
 ``` csharp
 var userinfo = graphClient.Users.Get( "bill@contoso.com" );
 ```
 
-### <a name="get-hello-objectid-of-a-user-in-hello-aad-directory"></a>Hallo ObjectId van een gebruiker in Hallo AAD-directory ophalen
+### <a name="get-the-objectid-of-a-user-in-the-aad-directory"></a>Ophalen van de object-id van een gebruiker in het AAD-directory
 
 ``` csharp
 var userinfo = graphClient.Users.Get( "bill@contoso.com" );
@@ -401,10 +401,10 @@ Console.WriteLine( userinfo.ObjectId )
 ```
 
 ## <a name="manage-compute-policies"></a>Compute-beleid beheren
-Hallo DataLakeAnalyticsAccountManagementClient object biedt methoden voor het beheer van Hallo compute-beleid voor een Data Lake Analytics-account.
+Het object DataLakeAnalyticsAccountManagementClient biedt methoden voor het beheren van de compute-beleidsregels voor een Data Lake Analytics-account.
 
 ### <a name="list-compute-policies"></a>Compute-beleidsregels weergeven
-Hallo volgende code haalt een lijst met compute-beleidsregels voor een Data Lake Analytics-account.
+De volgende code haalt een overzicht van compute-beleidsregels voor een Data Lake Analytics-account.
 
 ``` csharp
 var policies = adlaAccountClient.ComputePolicies.ListByAccount(rg, adla);
@@ -415,7 +415,7 @@ foreach (var p in policies)
 ```
 
 ### <a name="create-a-new-compute-policy"></a>Maak een nieuw compute-beleid
-Hallo volgende code maakt een nieuw beleid voor een Data Lake Analytics-account voor compute, instelling Hallo maximale AUs beschikbaar toohello opgegeven gebruiker too50 en Hallo Minimumprioriteit prioriteit too250.
+De volgende code maakt een nieuw compute-beleid voor een Data Lake Analytics-account, de maximale AUs beschikbaar stellen voor de opgegeven gebruiker tot 50 en de prioriteit van de minimale job 250.
 
 ``` csharp
 var userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde";

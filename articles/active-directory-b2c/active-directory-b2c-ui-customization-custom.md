@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 6f00995e54c9f9ef27cc51e38f3de07cd5817cc1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d5a3c0a323b31696d39e3d2b36317dec3a2337d7
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: UI-aanpassing in een aangepast beleid configureren
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Nadat u dit artikel hebt voltooid, hebt u een aangepast beleid voor aanmelden en aanmelden met uw merk en identiteit. Met Azure Active Directory B2C (Azure AD B2C), u krijgt bijna volledig beheer van de inhoud HTML en CSS Hallo dat toousers heeft ingediend. Wanneer u een aangepast beleid gebruikt, configureert u de UI-aanpassing in XML in plaats van het gebruik van besturingselementen in hello Azure-portal. 
+Nadat u dit artikel hebt voltooid, hebt u een aangepast beleid voor aanmelden en aanmelden met uw merk en identiteit. Met Azure Active Directory B2C (Azure AD B2C) dat u bijna volledig beheer van de HTML- en CSS-inhoud die wordt weergegeven aan gebruikers. Wanneer u een aangepast beleid gebruikt, configureert u de UI-aanpassing in XML in plaats van besturingselementen in de Azure portal. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -32,15 +32,15 @@ Voordat u begint, voltooien [aan de slag met aangepaste beleidsregels](active-di
 
 ## <a name="page-ui-customization"></a>Page UI-aanpassing
 
-Hallo pagina UI aanpassing functie gebruikt, kunt u Hallo uiterlijk van het aangepaste beleid aanpassen. U kunt ook behouden merk en visuele consistentie tussen uw toepassing en de Azure AD B2C.
+U kunt het uiterlijk van het aangepaste beleid aanpassen met behulp van de pagina UI aanpassing-functie. U kunt ook behouden merk en visuele consistentie tussen uw toepassing en de Azure AD B2C.
 
-Dit is hoe het werkt: Azure AD B2C wordt code wordt uitgevoerd in de browser van uw klant en maakt gebruik van een benadering van moderne aangeroepen [Cross-Origin-Resource delen (CORS)](http://www.w3.org/TR/cors/). Geef eerst een URL in Hallo aangepast beleid met aangepaste HTML-inhoud. Azure AD B2C-UI-elementen met Hallo HTML-inhoud die is geladen vanaf uw URL en wordt vervolgens weergegeven Hallo pagina toohello klant samenvoegingen.
+Dit is hoe het werkt: Azure AD B2C wordt code wordt uitgevoerd in de browser van uw klant en maakt gebruik van een benadering van moderne aangeroepen [Cross-Origin-Resource delen (CORS)](http://www.w3.org/TR/cors/). Eerst, geeft u een URL in het aangepaste beleid met aangepaste HTML-inhoud. Azure AD B2C samenvoegingen UI-elementen met de HTML-inhoud die is geladen vanaf uw URL en wordt de pagina weergegeven in de klant.
 
 ## <a name="create-your-html5-content"></a>Uw HTML5 inhoud maken
 
-Maak HTML inhoud met de naam van uw product in Hallo titel.
+HTML-inhoud met de naam van uw product maken in de titel.
 
-1. Kopieer Hallo HTML-fragment te volgen. Indeling geldig is HTML5 met een leeg element aangeroepen  *\<div-id = 'api'\>\</div\>*  zich binnen Hallo  *\<hoofdtekst\>*  labels. Dit element geeft aan waar Azure AD B2C inhoud toobe ingevoegd.
+1. Kopieer het volgende fragment in de HTML-code. Indeling geldig is HTML5 met een leeg element aangeroepen  *\<div-id = 'api'\>\</div\>*  zich binnen de  *\<hoofdtekst\>*  labels. Dit element geeft aan waar Azure AD B2C-inhoud moet worden ingevoegd.
 
    ```html
    <!DOCTYPE html>
@@ -55,60 +55,60 @@ Maak HTML inhoud met de naam van uw product in Hallo titel.
    ```
 
    >[!NOTE]
-   >Uit veiligheidsoverwegingen is Hallo gebruik van JavaScript momenteel geblokkeerd om aan te passen.
+   >Uit veiligheidsoverwegingen is het gebruik van JavaScript momenteel geblokkeerd om aan te passen.
 
-2. Hallo gekopieerd codefragment in een teksteditor plakken en sla Hallo-bestand als *aanpassen ui.html*.
+2. Plak de gekopieerde codefragment in een teksteditor en sla het bestand als *aanpassen ui.html*.
 
 ## <a name="create-an-azure-blob-storage-account"></a>Een Azure Blob storage-account maken
 
 >[!NOTE]
-> In dit artikel gebruiken we Azure Blob storage toohost onze content. U kunt toohost uw inhoud op een webserver, maar u moet [CORS zijn ingeschakeld op uw webserver](https://enable-cors.org/server.html).
+> In dit artikel gebruiken we Azure Blob-opslag om onze inhoud te hosten. U kunt kiezen voor het hosten van uw inhoud op een webserver, maar u moet [CORS zijn ingeschakeld op uw webserver](https://enable-cors.org/server.html).
 
-toohost deze HTML-inhoud in Blob storage, Hallo te volgen:
+Voor het hosten van deze HTML-inhoud in de Blob-opslag, het volgende doen:
 
-1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
-2. Op Hallo **Hub** selecteert u **nieuw** > **opslag** > **opslagaccount**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Op de **Hub** selecteert u **nieuw** > **opslag** > **opslagaccount**.
 3. Voer een unieke **naam** voor uw opslagaccount.
 4. **Implementatiemodel** kan blijven **Resource Manager**.
-5. Wijziging **soort Account** te**Blob storage**.
+5. Wijziging **soort Account** naar **Blob storage**.
 6. **Prestaties** kan blijven **standaard**.
 7. **Replicatie** kan blijven **RA-GRS**.
 8. **Toegangslaag** kan blijven **Hot**.
 9. **Versleuteling van de opslagruimte** kan blijven **uitgeschakelde**.
 10. Selecteer een **abonnement** voor uw opslagaccount.
 11. Maak een **resourcegroep** of een bestaande set selecteren.
-12. Selecteer Hallo **geografische locatie** voor uw opslagaccount.
-13. Klik op **maken** toocreate Hallo storage-account.  
-    Nadat het Hallo-implementatie is voltooid, Hallo **opslagaccount** blade wordt automatisch geopend.
+12. Selecteer de **geografische locatie** voor uw opslagaccount.
+13. Klik op **Maken** om het opslagaccount te maken.  
+    Nadat de implementatie is voltooid, de **opslagaccount** blade wordt automatisch geopend.
 
 ## <a name="create-a-container"></a>Een container maken
 
-een openbare Blob storage-container toocreate Hallo te volgen:
+U maakt een openbare container in Blob-opslag door het volgende doen:
 
-1. Klik op Hallo **overzicht** tabblad.
+1. Klik op de **overzicht** tabblad.
 2. Klik op **Container**.
 3. Voor **naam**, type **$root**.
-4. Stel **toegangstype** te**Blob**.
-5. Klik op **$root** tooopen Hallo nieuwe container.
+4. Stel **toegangstype** naar **Blob**.
+5. Klik op **$root** openen van de nieuwe container.
 6. Klik op **Uploaden**.
-7. Klik op het pictogram map Hallo volgende te**selecteert u een bestand**.
-8. Ga te**aanpassen ui.html**, die u eerder in Hallo gemaakt [Page UI-aanpassing](#the-page-ui-customization-feature) sectie.
+7. Klik op het pictogram naast **selecteert u een bestand**.
+8. Ga naar **aanpassen ui.html**, die u eerder hebt gemaakt in de [Page UI-aanpassing](#the-page-ui-customization-feature) sectie.
 9. Klik op **Uploaden**.
-10. Selecteer Hallo aanpassen ui.html blob die u hebt geüpload.
-11. Volgende te**URL**, klikt u op **kopie**.
-12. In een browser, plak de URL van de Hallo gekopieerd en gaat u toohello site. Als Hallo site is niet toegankelijk is, controleert u of Hallo container toegangstype te is ingesteld**blob**.
+10. Selecteer de aanpassen ui.html blob die u hebt geüpload.
+11. Naast **URL**, klikt u op **kopie**.
+12. In een browser, plak de gekopieerde URL en Ga naar de site. Als de site niet toegankelijk is, zorg ervoor dat het type van de container toegang is ingesteld op **blob**.
 
 ## <a name="configure-cors"></a>CORS configureren
 
-Blob-opslag configureren voor het delen van Cross-Origin-Resource door Hallo volgende te doen:
+Blob-opslag configureren voor het delen van Cross-Origin-Resource als volgt:
 
 >[!NOTE]
->Tootry uit Hallo-functie voor het aanpassen van gebruikersinterface wilt met behulp van onze voorbeeldinhoud HTML en CSS? We bieden [een eenvoudige helper hulpprogramma](active-directory-b2c-reference-ui-customization-helper-tool.md) die uploadt en configureert u onze voorbeelden op uw Blob storage-account. Als u Hallo-hulpprogramma gebruikt, gaat u verder te[wijzigen van het aangepaste beleid registreren of aanmelden](#modify-your-sign-up-or-sign-in-custom-policy).
+>Wilt u de UI-functie voor aanpassing door het gebruik van onze voorbeeld HTML en CSS-inhoud uitproberen? We bieden [een eenvoudige helper hulpprogramma](active-directory-b2c-reference-ui-customization-helper-tool.md) die uploadt en configureert u onze voorbeelden op uw Blob storage-account. Als u het hulpprogramma gebruikt, gaat u verder met [wijzigen van het aangepaste beleid registreren of aanmelden](#modify-your-sign-up-or-sign-in-custom-policy).
 
-1. Op Hallo **opslag** blade onder **instellingen**Open **CORS**.
+1. Op de **opslag** blade onder **instellingen**Open **CORS**.
 2. Klik op **Add**.
 3. Voor **toegestane oorsprongen**, typt u een sterretje (\*).
-4. In Hallo **toegestane termen** vervolgkeuzelijst, selecteer **ophalen** en **opties**.
+4. In de **toegestane termen** vervolgkeuzelijst, selecteer **ophalen** en **opties**.
 5. Voor **toegestaan headers**, typt u een sterretje (\*).
 6. Voor **blootgesteld headers**, typt u een sterretje (\*).
 7. Voor **maximale leeftijd (seconden)**, type **200**.
@@ -116,15 +116,15 @@ Blob-opslag configureren voor het delen van Cross-Origin-Resource door Hallo vol
 
 ## <a name="test-cors"></a>Test CORS
 
-Valideren dat u klaar bent door Hallo volgende te doen:
+Valideren dat u klaar bent als volgt:
 
-1. Ga toohello [test cors.org](http://test-cors.org/) website en plakken Hallo-URL in Hallo **externe URL** vak.
+1. Ga naar de [test cors.org](http://test-cors.org/) website, en plak de URL in de **externe URL** vak.
 2. Klik op **aanvraag verzenden**.  
-    Als u een foutbericht ontvangt, controleert u of uw [CORS-instellingen voor](#configure-cors) juist zijn. Of u kunt mogelijk ook tooclear uw browser-cache een browsersessie van privé-openen door op Ctrl + Shift + P te drukken.
+    Als u een foutbericht ontvangt, controleert u of uw [CORS-instellingen voor](#configure-cors) juist zijn. Mogelijk moet u ook uw browsercache wissen of een browsersessie in particuliere openen door op Ctrl + Shift + P te drukken.
 
 ## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Wijzigen van het aangepaste beleid registreren of aanmelden
 
-Onder Hallo op het hoogste niveau  *\<TrustFrameworkPolicy\>*  labels, zult u  *\<BuildingBlocks\>*  label. Binnen Hallo  *\<BuildingBlocks\>*  tags, Voeg een  *\<ContentDefinitions\>*  code door te kopiëren Hallo voorbeeld te volgen. Vervang *your_storage_account* met Hallo-naam van uw opslagaccount.
+Onder de hoogste  *\<TrustFrameworkPolicy\>*  labels, zult u  *\<BuildingBlocks\>*  label. Binnen de  *\<BuildingBlocks\>*  tags, Voeg een  *\<ContentDefinitions\>*  code door te kopiëren van het volgende voorbeeld. Vervang *your_storage_account* met de naam van uw opslagaccount.
 
   ```xml
   <BuildingBlocks>
@@ -138,16 +138,16 @@ Onder Hallo op het hoogste niveau  *\<TrustFrameworkPolicy\>*  labels, zult u  *
 
 ## <a name="upload-your-updated-custom-policy"></a>Upload uw bijgewerkte aangepast beleid
 
-1. In Hallo [Azure-portal](https://portal.azure.com), [schakelen naar de context van uw Azure AD B2C-tenant hello](active-directory-b2c-navigate-to-b2c-context.md), en open vervolgens Hallo **Azure AD B2C** blade.
+1. In de [Azure-portal](https://portal.azure.com), [switch in de context van uw Azure AD B2C-tenant](active-directory-b2c-navigate-to-b2c-context.md), en open vervolgens de **Azure AD B2C** blade.
 2. Klik op **alle beleidsregels**.
 3. Klik op **uploaden beleid**.
-4. Uploaden `SignUpOrSignin.xml` Hello  *\<ContentDefinitions\>*  code die u eerder hebt toegevoegd.
+4. Uploaden `SignUpOrSignin.xml` met de  *\<ContentDefinitions\>*  code die u eerder hebt toegevoegd.
 
-## <a name="test-hello-custom-policy-by-using-run-now"></a>Hallo aangepast beleid testen met behulp van **nu uitvoeren**
+## <a name="test-the-custom-policy-by-using-run-now"></a>Het aangepaste beleid testen met behulp van **nu uitvoeren**
 
-1. Op Hallo **Azure AD B2C** blade te gaan**alle beleidsregels**.
-2. Selecteer Hallo aangepaste beleid dat u hebt geüpload en klikt u op Hallo **nu uitvoeren** knop.
-3. U moet kunnen toosign up met behulp van een e-mailadres.
+1. Op de **Azure AD B2C** blade, gaat u naar **alle beleidsregels**.
+2. Selecteer het aangepaste beleid die u hebt geüpload en klik op de **nu uitvoeren** knop.
+3. U moet kunnen aanmelden met een e-mailadres.
 
 ## <a name="reference"></a>Naslaginformatie
 
@@ -157,7 +157,7 @@ Voor de UI-aanpassing Hier vindt u voorbeeldsjablonen:
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-Hallo sample_templates/wingtip map bevat Hallo volgende HTML-bestanden:
+De map sample_templates/wingtip bevat de volgende HTML-bestanden:
 
 | HTML5-sjabloon | Beschrijving |
 |----------------|-------------|
@@ -167,20 +167,20 @@ Hallo sample_templates/wingtip map bevat Hallo volgende HTML-bestanden:
 | *Unified.HTML* | Dit bestand als sjabloon gebruiken voor een uniforme registreren of aanmelden pagina. |
 | *updateprofile.HTML* | Dit bestand als een sjabloon voor een update-profielpagina gebruiken. |
 
-In Hallo [, wijzigt u de sectie registreren of aanmelden aangepast beleid](#modify-your-sign-up-or-sign-in-custom-policy), u hebt geconfigureerd Hallo inhoud definitie voor `api.idpselections`. Hallo volledige set van inhoud definitie-id's die worden herkend door hello Azure AD B2C identiteit ervaring framework en de bijbehorende beschrijvingen zijn in de volgende tabel Hallo:
+In de [, wijzigt u de sectie registreren of aanmelden aangepast beleid](#modify-your-sign-up-or-sign-in-custom-policy), geconfigureerd van de inhoud definitie voor `api.idpselections`. De volledige set van inhoud definitie-id's die worden herkend door het Azure AD B2C identiteit ervaring framework en de bijbehorende beschrijvingen zijn in de volgende tabel:
 
 | De definitie van de inhoud-ID | Beschrijving | 
 |-----------------------|-------------|
 | *API.Error* | **Foutpagina**. Deze pagina wordt weergegeven wanneer een uitzondering of een fout is opgetreden. |
-| *API.idpselections* | **Id-provider selectiepagina**. Deze pagina bevat een lijst met de id-providers die gebruiker Hallo uit tijdens het aanmelden kiezen kunnen. Deze opties zijn enterprise identiteitsproviders, sociale id-providers zoals Facebook en Google + of lokale accounts. |
-| *API.idpselections.Signup* | **Selectie van de id-provider voor registratie**. Deze pagina bevat een lijst met providers die gebruiker Hallo uit tijdens de registratie kiezen kunnen van de identiteit. Deze opties zijn enterprise identiteitsproviders, sociale id-providers zoals Facebook en Google + of lokale accounts. |
-| *API.localaccountpasswordreset* | **Wachtwoordpagina vergeten**. Deze pagina bevat een formulier die gebruiker Hallo tooinitiate het wachtwoord moet voltooien.  |
-| *API.localaccountsignin* | **Aanmeldingspagina voor lokaal account**. Deze pagina bevat een formulier-in voor het aanmelden met een lokaal account dat is gebaseerd op een e-mailadres of een gebruikersnaam. Hallo formulier kan een tekstinvoervak en wachtwoordvak vermelding bevatten. |
-| *API.localaccountsignup* | **Lokaal account aanmeldingspagina**. Deze pagina bevat een aanmeldingsformulier hebt ingevuld voor het aanmelden voor een lokaal account dat is gebaseerd op een e-mailadres of een gebruikersnaam. Hallo formulier kan verschillende invoer besturingselementen bevatten, zoals een tekstinvoervak vak een wachtwoord, een keuzerondje, één vervolgkeuzelijsten en meervoudige selectie selectievakjes. |
+| *API.idpselections* | **Id-provider selectiepagina**. Deze pagina bevat een lijst met de id-providers die de gebruiker uit tijdens het aanmelden kiezen kan. Deze opties zijn enterprise identiteitsproviders, sociale id-providers zoals Facebook en Google + of lokale accounts. |
+| *API.idpselections.Signup* | **Selectie van de id-provider voor registratie**. Deze pagina bevat een lijst met de id-providers die de gebruiker uit tijdens de registratie kiezen kan. Deze opties zijn enterprise identiteitsproviders, sociale id-providers zoals Facebook en Google + of lokale accounts. |
+| *API.localaccountpasswordreset* | **Wachtwoordpagina vergeten**. Deze pagina bevat een formulier dat de gebruiker moeten worden voltooid voor het initiëren van een wachtwoord opnieuw instellen.  |
+| *API.localaccountsignin* | **Aanmeldingspagina voor lokaal account**. Deze pagina bevat een formulier-in voor het aanmelden met een lokaal account dat is gebaseerd op een e-mailadres of een gebruikersnaam. Het formulier kan een tekstinvoervak en wachtwoordvak vermelding bevatten. |
+| *API.localaccountsignup* | **Lokaal account aanmeldingspagina**. Deze pagina bevat een aanmeldingsformulier hebt ingevuld voor het aanmelden voor een lokaal account dat is gebaseerd op een e-mailadres of een gebruikersnaam. Het formulier kan verschillende invoer besturingselementen bevatten, zoals een tekstinvoervak vak een wachtwoord, een keuzerondje, één vervolgkeuzelijsten en meervoudige selectie selectievakjes. |
 | *API.phonefactor* | **Multi-factor authentication-pagina**. Op deze pagina, kunnen gebruikers hun telefoonnummers (met behulp van tekst of stem) controleren tijdens het registreren of aanmelden. |
-| *API.selfasserted* | **De aanmeldpagina sociale account**. Deze pagina bevat een aanmeldingsformulier hebt ingevuld die gebruikers moeten worden voltooid wanneer ze zich registreren met behulp van een bestaand account van een identiteitsprovider van sociale zoals Facebook of Google +. Deze pagina is vergelijkbaar toohello voorafgaand aan de aanmeldingspagina sociale account, behalve Hallo wachtwoord invoervelden. |
-| *API.selfasserted.profileupdate* | **Update profielpagina**. Deze pagina bevat een formulier dat gebruikers tooupdate hun profiel gebruiken kunnen. Deze pagina is vergelijkbaar toohello sociale account aanmeldingspagina, met uitzondering van invoervelden Hallo-wachtwoord. |
-| *API.signuporsignin* | **Unified registreren of aanmelden pagina**. Deze pagina verwerkt beide Hallo zich kunnen registreren en aanmelden van gebruikers, die enterprise identiteitsproviders, sociale id-providers zoals Facebook of Google + of lokale accounts kunnen gebruiken.  |
+| *API.selfasserted* | **De aanmeldpagina sociale account**. Deze pagina bevat een aanmeldingsformulier hebt ingevuld die gebruikers moeten worden voltooid wanneer ze zich registreren met behulp van een bestaand account van een identiteitsprovider van sociale zoals Facebook of Google +. Deze pagina is vergelijkbaar met de voorgaande sociale account aanmeldpagina, met uitzondering van de invoervelden wachtwoord. |
+| *API.selfasserted.profileupdate* | **Update profielpagina**. Deze pagina bevat een formulier dat gebruikers gebruiken kunnen om hun profiel bijwerken. Deze pagina is vergelijkbaar met de sociale account aanmeldpagina, met uitzondering van de invoervelden wachtwoord. |
+| *API.signuporsignin* | **Unified registreren of aanmelden pagina**. Deze pagina verwerkt de registreren en aanmelden van gebruikers, die enterprise identiteitsproviders, sociale id-providers zoals Facebook of Google + of lokale accounts kunnen gebruiken.  |
 
 ## <a name="next-steps"></a>Volgende stappen
 

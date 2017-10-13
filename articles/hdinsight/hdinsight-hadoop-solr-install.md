@@ -1,6 +1,6 @@
 ---
-title: aaaUse scriptactie tooinstall Solr op Hadoop-cluster - Azure | Microsoft Docs
-description: Meer informatie over hoe toocustomize HDInsight-cluster met Solr met behulp van de scriptactie.
+title: Installeert met een scriptactie Solr op Hadoop-cluster - Azure | Microsoft Docs
+description: Informatie over het aanpassen van HDInsight-cluster met Solr met behulp van de scriptactie.
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -16,25 +16,25 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 022ba56b7499390a91bfe869e5069893e56b6503
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6efb7ea26c3cdf7748fff4b02b5810c85cc41e1a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Installeren en gebruiken van Solr op Windows gebaseerde HDInsight-clusters
 
-Meer informatie over hoe toocustomize HDInsight op basis van Windows-cluster met Solr met behulp van de scriptactie en hoe toouse Solr toosearch gegevens.
+Informatie over het aanpassen van HDInsight op basis van Windows-cluster met Solr met behulp van de scriptactie en Solr gebruiken om te zoeken van gegevens.
 
 > [!IMPORTANT]
-> Hallo stappen in dit document alleen werken met HDInsight op basis van Windows-clusters. HDInsight is alleen beschikbaar in Windows voor versies lager is dan HDInsight 3.4. Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor meer informatie over het gebruik van Solr met een cluster op basis van Linux [installeert en gebruikt Solr op HDinsight Hadoop-clusters (Linux)](hdinsight-hadoop-solr-install-linux.md).
+> De stappen in dit document wordt alleen werken met HDInsight op basis van Windows-clusters. HDInsight is alleen beschikbaar in Windows voor versies lager is dan HDInsight 3.4. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor meer informatie over het gebruik van Solr met een cluster op basis van Linux [installeert en gebruikt Solr op HDinsight Hadoop-clusters (Linux)](hdinsight-hadoop-solr-install-linux.md).
 
 
-U kunt Solr installeren op elk type (Hadoop, Storm, HBase, Spark)-cluster in Azure HDInsight met behulp van *scriptactie*. Een voorbeeld script tooinstall Solr op een HDInsight-cluster is beschikbaar via een alleen-lezen Azure storage-blob op [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+U kunt Solr installeren op elk type (Hadoop, Storm, HBase, Spark)-cluster in Azure HDInsight met behulp van *scriptactie*. Een voorbeeld van een script Solr installeren op een HDInsight-cluster is beschikbaar via een alleen-lezen Azure storage-blob op [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
-Hallo-voorbeeldscript werkt alleen met HDInsight-cluster versie 3.1. Zie voor meer informatie over de versies van HDInsight-cluster, [versies van HDInsight-cluster](hdinsight-component-versioning.md).
+Het voorbeeldscript werkt alleen met HDInsight-cluster versie 3.1. Zie voor meer informatie over de versies van HDInsight-cluster, [versies van HDInsight-cluster](hdinsight-component-versioning.md).
 
-een cluster Solr op basis van Windows maakt Hello voorbeeldscript gebruikt in dit onderwerp met een specifieke configuratie. Als u wilt tooconfigure hello Solr cluster met verschillende verzamelingen, shards, schema's, replica's, enz., moet u Hallo script en Solr binaire bestanden dienovereenkomstig wijzigen.
+Het voorbeeldscript gebruikt in dit onderwerp maakt een Solr op basis van Windows-cluster met een specifieke configuratie. Als u wilt configureren van het cluster Solr met verschillende verzamelingen, shards, schema's, replica's, enz., moet u het script en de binaire bestanden Solr dienovereenkomstig wijzigen.
 
 **Verwante artikelen**
 
@@ -44,53 +44,53 @@ een cluster Solr op basis van Windows maakt Hello voorbeeldscript gebruikt in di
 * [Scriptactie-scripts ontwikkelen voor HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-solr"></a>Wat is Solr?
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> is een platform voor het zoeken van enterprise waarmee krachtige zoekopdracht in volledige tekst van gegevens. Hadoop kunt opslaan en beheren van de enorme hoeveelheden gegevens, biedt Apache Solr zoekmogelijkheden Hallo tooquickly ophalen Hallo gegevens.
+<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> is een platform voor het zoeken van enterprise waarmee krachtige zoekopdracht in volledige tekst van gegevens. Hadoop kunt opslaan en beheren van de enorme hoeveelheden gegevens, biedt Apache Solr de zoekmogelijkheden snel gegevens ophalen.
 
 ## <a name="install-solr-using-portal"></a>Solr met portal installeren
-1. Beginnen met het maken van een cluster met behulp van Hallo **aangepast maken** optie, zoals beschreven op [maken Hadoop-clusters in HDInsight](hdinsight-provision-clusters.md).
-2. Op Hallo **scriptacties** pagina van wizard hello, klikt u op **toevoegen scriptactie** tooprovide om details over de scriptactie hello, zoals hieronder wordt weergegeven:
+1. Beginnen met het maken van een cluster met behulp van de **aangepast maken** optie, zoals beschreven op [maken Hadoop-clusters in HDInsight](hdinsight-provision-clusters.md).
+2. Op de **scriptacties** pagina van de wizard, klikt u op **scriptactie toevoegen** om details te verstrekken over de scriptactie, zoals hieronder wordt weergegeven:
 
-    ![Gebruik scriptactie toocustomize een cluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "toocustomize scriptactie gebruik een cluster")
+    ![Scriptactie gebruiken voor het aanpassen van een cluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "scriptactie gebruiken voor het aanpassen van een cluster")
 
     <table border='1'>
         <tr><th>Eigenschap</th><th>Waarde</th></tr>
         <tr><td>Naam</td>
-            <td>Geef een naam voor de scriptactie Hallo. Bijvoorbeeld: <b>installeren Solr</b>.</td></tr>
+            <td>Geef een naam voor de scriptactie. Bijvoorbeeld: <b>installeren Solr</b>.</td></tr>
         <tr><td>Script-URI</td>
-            <td>Geef Hallo Uniform Resource Identifier (URI) toohello script is aangeroepen toocustomize Hallo-cluster. Bijvoorbeeld: <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
+            <td>Geef de URI Uniform Resource Identifier () naar het script dat wordt opgeroepen voor het aanpassen van het cluster. Bijvoorbeeld: <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
         <tr><td>Soort knooppunt</td>
-            <td>Geef Hallo knooppunten waarop Hallo aanpassing script wordt uitgevoerd. U kunt kiezen <b>alle knooppunten</b>, <b>hoofdknooppunten alleen</b>, of <b>Worker-knooppunten</b>.
+            <td>Geef op de knooppunten waarop het script aanpassing wordt uitgevoerd. U kunt kiezen <b>alle knooppunten</b>, <b>hoofdknooppunten alleen</b>, of <b>Worker-knooppunten</b>.
         <tr><td>Parameters</td>
-            <td>Geef parameters op Hallo, indien vereist door het Hallo-script. Hallo script tooinstall Solr vereist geen parameters, zodat u kunt dit leeg laten.</td></tr>
+            <td>Geef de parameters op, indien vereist door het script. Het script voor het installeren van Solr vereist geen parameters, zodat u kunt dit leeg laten.</td></tr>
     </table>
 
-    U kunt meer dan één script actie tooinstall meerdere onderdelen toevoegen op Hallo-cluster. Nadat u Hallo scripts hebt toegevoegd, klikt u op Hallo vinkje toostart Hallo cluster maken.
+    U kunt meer dan één scriptactie meerdere om onderdelen te installeren op het cluster toevoegen. Nadat u de scripts hebt toegevoegd, klikt u op het vinkje om te beginnen met het maken van het cluster.
 
 ## <a name="use-solr"></a>Solr gebruiken
-U moet beginnen met het indexeren Solr met enkele gegevensbestanden. U kunt vervolgens Solr toorun zoekquery's op Hallo geïndexeerde gegevens. Voer Hallo stappen toouse Solr in een HDInsight-cluster te volgen:
+U moet beginnen met het indexeren Solr met enkele gegevensbestanden. U kunt vervolgens Solr zoekquery's uitvoeren op de geïndexeerde gegevens. Voer de volgende stappen voor het gebruik van Solr in een HDInsight-cluster:
 
-1. **Remote Desktop Protocol (RDP) tooremote in Hallo HDInsight-cluster gebruiken met Solr geïnstalleerd**. Van hello Azure-portal, moet u extern bureaublad inschakelen voor u met Solr hello geïnstalleerd en vervolgens afstand verbinding met cluster gemaakt Hallo-cluster. Zie voor instructies [tooHDInsight clusters met RDP verbinding](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
-2. **Index Solr door gegevensbestanden uploaden**. Wanneer u de index Solr, plaatst u documenten in die u wellicht toosearch op. tooindex Solr, gebruik RDP tooremote Hallo-cluster met toohello bureaublad navigeren, opent u Hallo Hadoop vanaf de opdrachtregel en navigeer te**C:\apps\dist\solr-4.7.2\example\exampledocs**. Hallo volgende opdracht uitvoeren:
+1. **Remote Desktop Protocol (RDP) naar extern gebruik in het HDInsight-cluster met Solr geïnstalleerd**. Vanuit de Azure-portal, moet u extern bureaublad inschakelen voor het cluster dat u hebt gemaakt met Solr geïnstalleerd en vervolgens extern in het cluster. Zie voor instructies [verbinding maken met HDInsight-clusters met RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+2. **Index Solr door gegevensbestanden uploaden**. Wanneer u de index Solr, plaatst u documenten in die u zoeken wilt op. Om te indexeren Solr, RDP gebruikt om externe bij het cluster, gaat u naar het bureaublad, open de Hadoop-opdrachtregel en navigeer naar **C:\apps\dist\solr-4.7.2\example\exampledocs**. Voer de volgende opdracht uit:
 
         java -jar post.jar solr.xml monitor.xml
 
-    Hier ziet u uitvoer volgen op Hallo console Hallo:
+    Op de console ziet u de volgende uitvoer:
 
         POSTing file solr.xml
         POSTing file monitor.xml
         2 files indexed.
-        COMMITting Solr index changes toohttp://localhost:8983/solr/update..
+        COMMITting Solr index changes to http://localhost:8983/solr/update..
         Time spent: 0:00:01.624
 
-    Hallo post.jar hulpprogramma Solr met twee voorbeelddocumenten indexeert **solr.xml** en **monitor.xml**. Hallo post.jar hulpprogramma en Hallo voorbeelddocumenten zijn beschikbaar met Solr installatie.
-3. **Gebruik Hallo Solr dashboard toosearch binnen Hallo geïndexeerde documenten**. In Hallo RDP-sessie toohello HDInsight-cluster, opent u Internet Explorer en openen Hallo Solr-dashboard **solr-http://headnodehost:8983 / #/**. Vanuit linkerdeelvenster Hallo van Hallo **Core Selector** vervolgkeuzelijst, selecteer **collection1**, en binnen die, op **Query**. Als een voorbeeld, tooselect en terug bieden alle Hallo documenten in de Solr, Hallo volgende waarden:
+    Het hulpprogramma post.jar Solr met twee voorbeelddocumenten indexeert **solr.xml** en **monitor.xml**. Het hulpprogramma post.jar en de voorbeelddocumenten zijn beschikbaar met Solr-installatie.
+3. **Het dashboard Solr gebruiken om te zoeken binnen de geïndexeerde documenten**. In de RDP-sessie met de HDInsight-cluster, opent u Internet Explorer en start het dashboard Solr op **solr-http://headnodehost:8983 / #/**. In het linkerdeelvenster van de **Core Selector** vervolgkeuzelijst, selecteer **collection1**, en binnen die, op **Query**. Als u bijvoorbeeld om te selecteren en retourneren van alle documenten in Solr, bieden de volgende waarden:
 
-   * In Hallo **q** tekst Voer  **\*:**\*. Hiermee wordt alle Hallo-documenten die zijn geïndexeerd in Solr retourneren. Als u toosearch voor een specifieke tekenreeks binnen Hallo documenten wilt, kunt u hier die tekenreeks.
-   * In Hallo **wt** tekstvak, selecteer Hallo uitvoerindeling. Standaard is **json**. Klik op **-Query uitvoeren**.
+   * In de **q** tekst Voer  **\*:**\*. Hiermee wordt de documenten die zijn geïndexeerd in Solr retourneren. Als u zoeken naar een specifieke tekenreeks binnen de documenten wilt, kunt u deze tekenreeks hier invoeren.
+   * In de **wt** tekst Selecteer indeling van de uitvoer. Standaard is **json**. Klik op **-Query uitvoeren**.
 
-     ![Gebruik scriptactie toocustomize een cluster](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "een query uitvoeren op Solr dashboard")
+     ![Scriptactie gebruiken voor het aanpassen van een cluster](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "een query uitvoeren op Solr dashboard")
 
-     Hallo uitvoer retourneert Hallo twee documenten die we voor indexering Solr gebruikt. Hallo uitvoer lijkt op Hallo volgende:
+     De uitvoer retourneert de twee documenten die we voor indexeren Solr gebruikt. De uitvoer lijkt op het volgende:
 
            "response": {
                "numFound": 2,
@@ -99,7 +99,7 @@ U moet beginnen met het indexeren Solr met enkele gegevensbestanden. U kunt verv
                "docs": [
                  {
                    "id": "SOLR1000",
-                   "name": "Solr, hello Enterprise Search Server",
+                   "name": "Solr, the Enterprise Search Server",
                    "manu": "Apache Software Foundation",
                    "cat": [
                      "software",
@@ -110,9 +110,9 @@ U moet beginnen met het indexeren Solr met enkele gegevensbestanden. U kunt verv
                      "Optimized for High Volume Web Traffic",
                      "Standards Based Open Interfaces - XML and HTTP",
                      "Comprehensive HTML Administration Interfaces",
-                     "Scalability - Efficient Replication tooother Solr Search Servers",
+                     "Scalability - Efficient Replication to other Solr Search Servers",
                      "Flexible and Adaptable with XML configuration and Schema",
-                     "Good unicode support: héllo (hello with an accent over hello e)"
+                     "Good unicode support: héllo (hello with an accent over the e)"
                    ],
                    "price": 0,
                    "price_c": "0,USD",
@@ -143,9 +143,9 @@ U moet beginnen met het indexeren Solr met enkele gegevensbestanden. U kunt verv
                  }
                ]
              }
-4. **Aanbevolen: Back-up Hallo geïndexeerde gegevens van Solr tooAzure Blob-opslag die is gekoppeld aan de HDInsight-cluster Hallo**. Als een goede gewoonte back u-up Hallo geïndexeerde gegevens vanaf Hallo Solr clusterknooppunten naar Azure Blob-opslag. Voer Hallo dus toodo stappen te volgen:
+4. **Aanbevolen: Back-up van de geïndexeerde gegevens van Solr naar Azure Blob-opslag die is gekoppeld aan het HDInsight-cluster**. Als een goede gewoonte back u-up de geïndexeerde gegevens van de clusterknooppunten Solr naar Azure Blob-opslag. Voer de volgende stappen uit om dit te doen:
 
-   1. Open Internet Explorer en punt toohello volgende URL in Hallo RDP-sessie:
+   1. Open Internet Explorer in de RDP-sessie en wijst u de volgende URL:
 
            http://localhost:8983/solr/replication?command=backup
 
@@ -159,18 +159,18 @@ U moet beginnen met het indexeren Solr met enkele gegevensbestanden. U kunt verv
              </lst>
              <str name="status">OK</str>
            </response>
-   2. In de externe sessie hello, te navigeren {SOLR_HOME}\{verzameling} \data. Voor Hallo-cluster is gemaakt via het voorbeeldscript hello, moet dit **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. Op deze locatie ziet u een momentopnamemap is gemaakt met een naam vergelijkbaar te**momentopname.* tijdstempel***.
-   3. ZIP-snapshotmap hello en upload het tooAzure Blob-opslag. Navigeer toohello locatie van de snapshotmap Hallo met behulp van de volgende opdracht Hallo vanaf Hallo Hadoop-opdrachtregel:
+   2. Navigeer in de externe sessie naar {SOLR_HOME}\{verzameling} \data. Voor het cluster is gemaakt via het voorbeeldscript, moet dit **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. Op deze locatie ziet u een momentopnamemap is gemaakt met een naam die lijkt op  **momentopname.* tijdstempel***.
+   3. De snapshotmap ZIP en dit uploaden naar Azure Blob-opslag. Navigeer naar de locatie van de momentopnamemap met de volgende opdracht vanaf de opdrachtregel Hadoop:
 
              hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
 
-       Met deze opdracht kopieën te/voorbeeld/momentopnamegegevens Hallo/onder Hallo-container binnen Hallo standaard Storage-account die is gekoppeld aan het Hallo-cluster.
+       Met deze opdracht wordt de momentopname gekopieerd naar /example/data/onder de container binnen het standaard opslagaccount die is gekoppeld aan het cluster.
 
 ## <a name="install-solr-using-aure-powershell"></a>Solr met Aure PowerShell installeren
-Zie [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Hallo-voorbeeld laat zien hoe tooinstall Spark met Azure PowerShell. U moet toocustomize Hallo script toouse [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Zie [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Het voorbeeld laat zien hoe Spark met Azure PowerShell installeren. U moet aanpassen van het script te gebruiken [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="install-solr-using-net-sdk"></a>Solr met .NET SDK installeren
-Zie [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Hallo-voorbeeld laat zien hoe tooinstall Spark met behulp van Hallo .NET SDK. U moet toocustomize Hallo script toouse [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Zie [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Het voorbeeld laat zien hoe Spark met de .NET SDK installeren. U moet aanpassen van het script te gebruiken [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="see-also"></a>Zie ook
 * [Installeren en gebruiken van Solr op HDinsight Hadoop-clusters (Linux)](hdinsight-hadoop-solr-install-linux.md)

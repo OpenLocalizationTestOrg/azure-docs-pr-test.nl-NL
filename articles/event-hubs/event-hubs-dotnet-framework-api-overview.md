@@ -1,6 +1,6 @@
 ---
-title: aaaOverview Hallo API's van Azure Event Hubs .NET Framework | Microsoft Docs
-description: Een samenvatting van een aantal Hallo sleutel Event Hubs .NET Framework client-API's.
+title: Overzicht van de .NET Framework-API's van Azure Event Hubs | Microsoft Docs
+description: Een overzicht van enkele van de belangrijkste Event Hubs .NET Framework client-API.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: b0e12e43f91b025d7aa4ca03e664b9ff31b04097
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Overzicht van Event Hubs .NET Framework-API
-In dit artikel ziet u een aantal van Hallo sleutel Event Hubs .NET Framework client-API's. Er zijn twee categorieën: beheer- en runtime-API's. Runtime-API's bestaan uit alle bewerkingen die nodig zijn toosend en een bericht ontvangen. Beheerbewerkingen inschakelen toomanage een status van de entiteit Event Hubs door maken, bijwerken en verwijderen entiteiten.
+In dit artikel ziet u een aantal van de sleutel Event Hubs .NET Framework client-API's. Er zijn twee categorieën: beheer- en runtime-API's. Runtime-API's bestaan uit alle bewerkingen die nodig zijn voor het verzenden en ontvangen van een bericht. Beheerbewerkingen kunnen u voor het beheren van een status van de entiteit Event Hubs door maken, bijwerken en verwijderen entiteiten.
 
-Bewakingsscenario's omvatten beheer of de uitvoering. Zie voor gedetailleerde documentatie op Hallo .NET API's Hallo [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) en [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) verwijzingen.
+Bewakingsscenario's omvatten beheer of de uitvoering. Zie voor gedetailleerde documentatie over de .NET API's, de [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) en [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) verwijzingen.
 
 ## <a name="management-apis"></a>Management-API 's
-tooperform Hallo beheerbewerkingen te volgen, hebt u **beheren** machtigingen op Hallo Event Hubs naamruimte:
+Als u wilt de volgende beheerbewerkingen uitvoeren, moet u hebben **beheren** machtigingen voor de Event Hubs-naamruimte:
 
 ### <a name="create"></a>Maken
 ```csharp
-// Create hello event hub
+// Create the event hub
 var ehd = new EventHubDescription(eventHubName);
 ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
@@ -62,7 +62,7 @@ var eventHubClient = EventHubClient.Create("Event Hub name");
 
 ### <a name="publish-message"></a>Bericht publiceren
 ```csharp
-// Create hello device/temperature metric
+// Create the device/temperature metric
 var info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
 var data = new EventData(new byte[10]); // Byte array
 var data = new EventData(Stream); // Stream 
@@ -80,10 +80,10 @@ await client.SendAsync(data);
 
 ### <a name="create-consumer"></a>Consument maken
 ```csharp
-// Create hello Event Hubs client
+// Create the Event Hubs client
 var eventHubClient = EventHubClient.Create(EventHubName);
 
-// Get hello default consumer group
+// Get the default consumer group
 var defaultConsumerGroup = eventHubClient.GetDefaultConsumerGroup();
 
 // All messages
@@ -109,11 +109,11 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## <a name="event-processor-host-apis"></a>Event Processor Host API 's
-Deze API's bieden tolerantie tooworker processen die mogelijk niet beschikbaar is, door partities over beschikbare werknemers verdeeld.
+Deze API's bieden tolerantie voor werkprocessen die mogelijk niet beschikbaar is, door partities over beschikbare werknemers verdeeld.
 
 ```csharp
-// Checkpointing is done within hello SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
-// Use hello EventData.Offset value for checkpointing yourself, this value is unique per partition.
+// Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
+// Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
 
 var eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
 var blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
@@ -122,11 +122,11 @@ var eventHubDescription = new EventHubDescription(EventHubName);
 var host = new EventProcessorHost(WorkerName, EventHubName, defaultConsumerGroup.GroupName, eventHubConnectionString, blobConnectionString);
 await host.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-// tooclose
+// To close
 await host.UnregisterEventProcessorAsync();
 ```
 
-Hallo [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) interface wordt als volgt gedefinieerd:
+De [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) interface wordt als volgt gedefinieerd:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -169,12 +169,12 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-toolearn meer informatie over Event Hubs-scenario's, gaat u naar deze koppelingen:
+Volg deze koppelingen voor meer informatie over Event Hubs-scenario‘s:
 
 * [Wat is Azure Event Hubs?](event-hubs-what-is-event-hubs.md)
 * [Programmeerhandleiding voor Event Hubs](event-hubs-programming-guide.md)
 
-Hallo .NET API-verwijzingen zijn hier:
+De .NET API-verwijzingen zijn hier:
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 * [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)

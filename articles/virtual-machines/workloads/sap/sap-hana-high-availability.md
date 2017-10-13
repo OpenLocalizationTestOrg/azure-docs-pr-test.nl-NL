@@ -1,5 +1,5 @@
 ---
-title: aaaHigh beschikbaarheid van SAP HANA op Azure Virtual Machines (VM's) | Microsoft Docs
+title: Hoge beschikbaarheid van SAP HANA op Azure virtuele Machines (VM's) | Microsoft Docs
 description: Hoge beschikbaarheid van SAP HANA op Azure virtuele Machines (VM's) maken.
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.openlocfilehash: dcb9bb70594f9d97f8a888cec76300bcbe0bf1ac
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Hoge beschikbaarheid van SAP HANA op Azure virtuele Machines (VM's)
 
@@ -43,16 +43,16 @@ ms.lasthandoff: 10/06/2017
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
 
-On-premises kunt u beide HANA System-replicatie gebruiken of gedeelde opslag tooestablish hoge beschikbaarheid voor SAP HANA.
-Wordt alleen ondersteund HANA System Replication instellen in Azure. SAP HANA replicatie bestaat uit één hoofdknooppunt en ten minste één slave knooppunt. Wijzigingen toohello gegevens op het hoofdknooppunt Hallo zijn gerepliceerd toohello slave knooppunten synchroon of asynchroon.
+On-premises kunt u kunt gebruiken beide HANA System Replication of gedeelde opslag gebruiken om hoge beschikbaarheid voor SAP HANA stand te brengen.
+Wordt alleen ondersteund HANA System Replication instellen in Azure. SAP HANA replicatie bestaat uit één hoofdknooppunt en ten minste één slave knooppunt. Wijzigingen in de gegevens op het hoofdknooppunt worden gerepliceerd naar de knooppunten slave synchroon of asynchroon.
 
-Dit artikel wordt beschreven hoe toodeploy Hallo virtuele machines Hallo virtuele machines configureren, Hallo cluster framework hebt geïnstalleerd, installeren en configureren SAP HANA System Replication.
-Installatie opdrachten enzovoort exemplaarnummer 03 in Hallo Voorbeeldconfiguraties en HANA systeem-ID HDB wordt gebruikt.
+In dit artikel wordt beschreven hoe de virtuele machines te implementeren, configureren van de virtuele machines, cluster-framework hebt geïnstalleerd, installeren en configureren van SAP HANA System Replication.
+Installatie opdrachten enzovoort exemplaarnummer 03 en HANA systeem-ID HDB wordt gebruikt in de voorbeeldconfiguraties.
 
-Hallo eerst na de SAP-opmerkingen en documenten lezen
+Lees eerst de volgende opmerkingen bij de SAP en documenten
 
 * SAP-notitie [1928533], die is:
-  * Lijst met Azure VM-grootten die worden ondersteund voor de implementatie van Hallo van SAP-software
+  * Lijst met Azure VM-grootten die worden ondersteund voor de implementatie van SAP-software
   * Informatie over belangrijke capaciteit voor Azure VM-grootten
   * Ondersteunde SAP-software en besturingssysteem (OS) en combinaties van de database
   * Vereiste SAP-kernel-versie voor Windows en Linux op Microsoft Azure
@@ -60,20 +60,20 @@ Hallo eerst na de SAP-opmerkingen en documenten lezen
 * SAP-notitie [2205917] heeft aanbevolen OS-instellingen voor SUSE Linux Enterprise Server voor SAP-toepassingen
 * SAP-notitie [1944799] heeft SAP HANA richtlijnen voor SUSE Linux Enterprise Server voor SAP-toepassingen
 * SAP-notitie [2178632] bevat gedetailleerde informatie over alle bewaking metrische gegevens die zijn gerapporteerd voor SAP in Azure.
-* SAP-notitie [2191498] Hallo vereist SAP Host Agent-versie voor Linux in Azure.
+* SAP-notitie [2191498] heeft de vereiste Hostagent SAP-versie voor Linux in Azure.
 * SAP-notitie [2243692] bevat informatie over SAP licentieverlening op Linux in Azure.
 * SAP-notitie [1984787] heeft algemene informatie over SUSE Linux Enterprise Server 12.
-* SAP-notitie [1999351] bevat aanvullende informatie over probleemoplossing voor hello Azure verbeterde extensie Monitoring voor SAP.
+* SAP-notitie [1999351] bevat aanvullende informatie over probleemoplossing voor de Azure verbeterde extensie Monitoring voor SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) heeft alle SAP-opmerkingen voor Linux vereist.
 * [Azure virtuele Machines, planning en implementatie voor SAP op Linux][planning-guide]
 * [Azure virtuele Machines-implementatie voor SAP op Linux (in dit artikel)][deployment-guide]
 * [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide]
-* [SAP HANA SR prestaties geoptimaliseerd Scenario] [ suse-hana-ha-guide] Hallo handleiding bevat alle vereiste gegevens tooset van SAP HANA System Replication on-premises. Deze handleiding gebruiken als basislijn.
+* [SAP HANA SR prestaties geoptimaliseerd Scenario] [ suse-hana-ha-guide] de handleiding bevat alle benodigde informatie voor het instellen van SAP HANA System Replication on-premises. Deze handleiding gebruiken als basislijn.
 
 ## <a name="deploying-linux"></a>Linux implementeren
 
-Hallo resource agent voor SAP HANA is opgenomen in SUSE Linux Enterprise Server voor SAP-toepassingen.
-Hello Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor SAP-toepassingen 12 met BYOS (uw eigen abonnement Bring) waarmee u toodeploy nieuwe virtuele machines kunt.
+De resource-agent voor SAP HANA is opgenomen in SUSE Linux Enterprise Server voor SAP-toepassingen.
+Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor SAP-toepassingen 12 met BYOS (uw eigen abonnement Bring) die u gebruiken kunt om nieuwe virtuele machines te implementeren.
 
 ### <a name="manual-deployment"></a>Handmatige implementatie
 
@@ -95,63 +95,63 @@ Hello Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server v
    Selecteer Opslagaccount 2   
    Beschikbaarheidsset selecteren  
 1. Gegevensschijven toevoegen
-1. Hallo load balancer configureren
+1. De load balancer configureren
     1. Een frontend-IP-adresgroep maken
-        1. Hallo load balancer te openen, selecteer frontend-IP-adresgroep en klik op toevoegen
-        1. Voer de naam Hallo van Hallo nieuwe frontend IP-adresgroep (bijvoorbeeld hana-frontend)
+        1. Openen van de load balancer, selecteer frontend-IP-adresgroep en klik op toevoegen
+        1. Voer de naam van de nieuwe frontend IP-adresgroep (bijvoorbeeld hana-frontend)
        1. Klik op OK
-        1. Na het Hallo nieuwe frontend-IP-adresgroep is gemaakt, noteer de IP-adres
+        1. Nadat de nieuwe frontend-IP-adresgroep is gemaakt, noteert u het IP-adres
     1. Een back endpool maken
-        1. Hallo load balancer te openen, selecteer back-endpools en klikt u op toevoegen
-        1. Voer de naam Hallo van Hallo nieuwe back-endpool (bijvoorbeeld hana-back-end)
+        1. Openen van de load balancer, back-endpools selecteren en klik op toevoegen
+        1. Voer de naam van de nieuwe back-endpool (bijvoorbeeld hana-back-end)
         1. Klik op een virtuele machine toevoegen
-        1. Selecteer Hallo Beschikbaarheidsset u eerder hebt gemaakt
-        1. Selecteer de virtuele machines Hallo van Hallo SAP HANA-cluster
+        1. Selecteer de Beschikbaarheidsset u eerder hebt gemaakt
+        1. Selecteer de virtuele machines van het SAP HANA-cluster
         1. Klik op OK
     1. Een health test maken
-       1. Hallo load balancer openen, selecteer statuscontroles en klikt u op toevoegen
-        1. Voer de naam Hallo van Hallo nieuwe health test (bijvoorbeeld hana-hp)
+       1. Openen van de load balancer, statuscontroles selecteren en klik op toevoegen
+        1. Voer de naam van de nieuwe health test (bijvoorbeeld hana-hp)
         1. Selecteer TCP als protocol, poort 625**03**, houd Interval 5 en de drempelwaarde voor onjuiste status 2
         1. Klik op OK
     1. Taakverdelingsregels maken
-        1. Open Hallo load balancer en taakverdelingsregels Selecteer klikt u op toevoegen
-        1. Voer Hallo-naam van de nieuwe regel voor load balancer hello (bijvoorbeeld hana-lb-3**03**15)
-        1. Selecteer Hallo frontend-IP-adres, back-endpool en health test u eerder hebt gemaakt (bijvoorbeeld hana-frontend)
+        1. Open de load balancer en taakverdelingsregels Selecteer klikt u op toevoegen
+        1. Voer de naam van de load balancer-regel (bijvoorbeeld hana-lb-3**03**15)
+        1. Selecteer de frontend-IP-adres, back-endpool en health test u eerder hebt gemaakt (bijvoorbeeld hana-frontend)
         1. Protocol TCP houden, voert u poort 3**03**15
-        1. Minuten van inactiviteit too30 verhogen
-       1. **Zorg ervoor dat tooenable zwevend IP**
+        1. Verhoog de time-out voor inactiviteit tot 30 minuten
+       1. **Zorg ervoor dat u kunt zwevend IP inschakelen**
         1. Klik op OK
-        1. Hallo bovenstaande stappen herhalen voor poort 3**03**17
+        1. Herhaal de stappen hierboven voor poort 3**03**17
 
 ### <a name="deploy-with-template"></a>Implementeren met sjabloon
-Kunt u een van Hallo snel starten-sjablonen op github toodeploy alle vereiste bronnen. Hallo sjabloon implementeert Hallo virtuele machines, Hallo load balancer, beschikbaarheidsset enzovoort. Volg deze stappen toodeploy Hallo sjabloon:
+U kunt een van de snel starten-sjablonen op github gebruiken voor het implementeren van alle vereiste bronnen. De sjabloon wordt geïmplementeerd voor de virtuele machines, de load balancer, beschikbaarheidsset enzovoort. Volg deze stappen voor het implementeren van de sjabloon:
 
-1. Open Hallo [databasesjabloon] [ template-multisid-db] of Hallo [geconvergeerde sjabloon] [ template-converged] op Hallo Azure Portal maakt Hallo databasesjabloon alleen Hallo regels voor taakverdeling voor een database hello terwijl Hallo geconvergeerde sjabloon ook maakt taakverdeling regels voor een ASC's / SCS en Ebruikers (alleen voor Linux)-exemplaar. Als u van plan een SAP NetWeaver gebaseerd systeem tooinstall bent en u ook tooinstall Hallo wilt ASC's / SCS exemplaar op Hallo dezelfde machines, gebruik Hallo [geconvergeerde sjabloon][template-converged].
-1. Hallo volgende parameters opgeven
+1. Open de [databasesjabloon] [ template-multisid-db] of de [geconvergeerde sjabloon] [ template-converged] in de Azure Portal maakt de databasesjabloon alleen de regels voor taakverdeling voor een database terwijl de geconvergeerde sjabloon ook de regels voor taakverdeling voor een ASC's / SCS en Ebruikers (alleen voor Linux)-exemplaar maakt. Als u van plan bent een SAP NetWeaver gebaseerd systeem installeren en u ook wilt voor het exemplaar ASC's / SCS installeren op de dezelfde machines, gebruikt u de [geconvergeerde sjabloon][template-converged].
+1. Voer de volgende parameters
     1. SAP-systeem-Id  
-       Voer Hallo SAP-systeem Id Hallo gewenste tooinstall SAP-systeem. Hallo-Id wordt gebruikt als een voorvoegsel voor Hallo-resources die zijn geïmplementeerd.
-    1. Stack-Type (alleen van toepassing als u Hallo geconvergeerde sjabloon gebruikt)  
-       Hallo SAP NetWeaver stack-type selecteren
+       Voer het SAP-systeem Id van het SAP-systeem die u wilt installeren. De Id zal worden gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
+    1. Stack-Type (alleen van toepassing als u de sjabloon geconvergeerde gebruikt)  
+       Selecteer het type van de stack SAP NetWeaver
     1. Type besturingssysteem  
-       Selecteer een van de Linux-distributies Hallo. Selecteer voor dit voorbeeld SLES 12 BYOS
+       Selecteer een van de Linux-distributies. Selecteer voor dit voorbeeld SLES 12 BYOS
     1. DB-Type  
        Selecteer HANA
     1. Grootte van het SAP  
-       Hallo hoeveelheid SAP's Hallo nieuw systeem bieden. Als u niet zeker weet hoeveel SAP's Hallo systeem is vereist, vraag uw SAP-technologie Partner of System Integrator
+       De hoeveelheid SAP's u het nieuwe systeem krijgt. Als u niet zeker weet hoeveel SAP's u het systeem moet, vraag uw SAP-technologie Partner of System Integrator
     1. Beschikbaarheid van het systeem  
        Selecteer HA
     1. Gebruikersnaam van de beheerder en het wachtwoord van beheerder  
-       Een nieuwe gebruiker gemaakt, dat de gebruikte toolog op toohello machine kunnen worden.
+       Een nieuwe gebruiker wordt gemaakt die kunnen worden gebruikt voor aanmelding bij de computer.
     1. Nieuwe of bestaande Subnet  
-       Bepaalt of een nieuw virtueel netwerk en subnet moeten worden gemaakt of een bestaand subnet moet worden gebruikt. Als u al een virtueel netwerk dat is verbonden tooyour on-premises netwerk hebt, selecteert u de bestaande.
+       Bepaalt of een nieuw virtueel netwerk en subnet moeten worden gemaakt of een bestaand subnet moet worden gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u de bestaande.
     1. Subnet-Id  
-    Hallo-ID van Hallo subnet toowhich Hallo virtuele machines moet worden aangesloten. Selecteer subnet Hallo van uw VPN- of Express Route virtueel netwerk tooconnect Hallo virtuele machine tooyour on-premises netwerk. Hallo-ID meestal ziet eruit als /subscriptions/`<subscription id`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
+    De ID van het subnet waarmee de virtuele machines moet worden verbonden. Selecteer het subnet van het VPN- of Express Route virtuele netwerk verbinding maken met de virtuele machine van uw on-premises netwerk. De ID meestal ziet eruit als /subscriptions/`<subscription id`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
 
 ## <a name="setting-up-linux-ha"></a>Instellen van Linux HA
 
-Hallo volgende items worden voorafgegaan door een [A] - knooppunten van de toepasselijke tooall, [1] - alleen van toepassing toonode 1 of [2] - alleen van toepassing toonode 2.
+De volgende items worden voorafgegaan door [A] - van toepassing op alle knooppunten [1] - alleen van toepassing op knooppunt 1 of [2] - alleen van toepassing op knooppunt 2.
 
-1. [A] SLES voor SAP BYOS alleen - registreren SLES toobe kunnen toouse Hallo opslagplaatsen
+1. [A] SLES voor SAP BYOS alleen - SLES om het gebruik van de opslagplaatsen te kunnen registreren
 1. [A] SLES voor SAP BYOS alleen - toevoegen openbare cloud module
 1. [A] SLES bijwerken
     ```bash
@@ -163,11 +163,11 @@ Hallo volgende items worden voorafgegaan door een [A] - knooppunten van de toepa
     ```bash
     sudo ssh-keygen -tdsa
     
-    # Enter file in which toosave hello key (/root/.ssh/id_dsa): -> ENTER
+    # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
     # Enter passphrase (empty for no passphrase): -> ENTER
     # Enter same passphrase again: -> ENTER
     
-    # copy hello public key
+    # copy the public key
     sudo cat /root/.ssh/id_dsa.pub
     ```
 
@@ -175,20 +175,20 @@ Hallo volgende items worden voorafgegaan door een [A] - knooppunten van de toepa
     ```bash
     sudo ssh-keygen -tdsa
 
-    # insert hello public key you copied in hello last step into hello authorized keys file on hello second server
+    # insert the public key you copied in the last step into the authorized keys file on the second server
     sudo vi /root/.ssh/authorized_keys
     
-    # Enter file in which toosave hello key (/root/.ssh/id_dsa): -> ENTER
+    # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
     # Enter passphrase (empty for no passphrase): -> ENTER
     # Enter same passphrase again: -> ENTER
     
-    # copy hello public key    
+    # copy the public key    
     sudo cat /root/.ssh/id_dsa.pub
     ```
 
 1. [1] ssh toegang inschakelen
     ```bash
-    # insert hello public key you copied in hello last step into hello authorized keys file on hello first server
+    # insert the public key you copied in the last step into the authorized keys file on the first server
     sudo vi /root/.ssh/authorized_keys
     
     ```
@@ -201,21 +201,21 @@ Hallo volgende items worden voorafgegaan door een [A] - knooppunten van de toepa
 
 1. [A] indeling van setup-schijf
     1. LVM  
-    In het algemeen wordt aangeraden toouse LVM voor volumes die bij het opslaan van gegevens en logboekbestanden. Hallo in het volgende voorbeeld wordt ervan uitgegaan dat Hallo virtuele machines vier gegevensschijven gekoppeld die gebruikt toocreate twee volumes worden moeten.
-        * Fysieke volumes voor alle schijven die u toouse wilt maken.
+    In het algemeen wordt aangeraden met LVM voor volumes die bij het opslaan van gegevens en logboekbestanden. Het volgende voorbeeld wordt ervan uitgegaan dat de virtuele machines vier gegevensschijven gekoppeld die moeten worden gebruikt voor het maken van twee volumes hebben.
+        * Maak fysieke volumes voor alle schijven die u wilt gebruiken.
     <pre><code>
     sudo pvcreate /dev/sdc
     sudo pvcreate /dev/sdd
     sudo pvcreate /dev/sde
     sudo pvcreate /dev/sdf
     </code></pre>
-        * Een volume-groep voor gegevensbestanden hello, één volume groep Hallo-logboekbestanden en één voor de gedeelde map Hallo van SAP HANA maken
+        * Maak een groep volume voor de gegevensbestanden, één volume groep voor de logboekbestanden en één voor de gedeelde map van SAP HANA
     <pre><code>
     sudo vgcreate vg_hana_data /dev/sdc /dev/sdd
     sudo vgcreate vg_hana_log /dev/sde
     sudo vgcreate vg_hana_shared /dev/sdf
     </code></pre>
-        * Hallo logische volumes maken
+        * De logische volumes maken
     <pre><code>
     sudo lvcreate -l 100%FREE -n hana_data vg_hana_data
     sudo lvcreate -l 100%FREE -n hana_log vg_hana_log
@@ -224,44 +224,44 @@ Hallo volgende items worden voorafgegaan door een [A] - knooppunten van de toepa
     sudo mkfs.xfs /dev/vg_hana_log/hana_log
     sudo mkfs.xfs /dev/vg_hana_shared/hana_shared
     </code></pre>
-        * Hallo koppelpunt mappen maken en kopieer Hallo UUID van alle logische volumes
+        * Maak de mappen koppelen en kopieer de UUID van alle logische volumes
     <pre><code>
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # write down hello id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
     sudo blkid
     </code></pre>
-        * Fstab-vermeldingen voor Hallo drie logische volumes maken
+        * Fstab-vermeldingen voor de drie logische volumes maken
     <pre><code>
     sudo vi /etc/fstab
     </code></pre>
-    Deze regel te/etc/fstab invoegen
+    Deze regel moet worden /etc/fstab invoegen
     <pre><code>
     /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b> /hana/data xfs  defaults,nofail  0  2
     /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b> /hana/log xfs  defaults,nofail  0  2
     /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2
     </code></pre>
-        * Hallo nieuwe volumes koppelen
+        * Koppel de nieuwe volumes
     <pre><code>
     sudo mount -a
     </code></pre>
     1. Gewone schijven  
-       Voor kleine of demo-systemen, kunt u uw bestanden HANA gegevens en logboekbestanden op één schijf plaatsen. Hallo volgende opdrachten een partitie maken op /dev/sdc en formatteert u het met xfs.
+       Voor kleine of demo-systemen, kunt u uw bestanden HANA gegevens en logboekbestanden op één schijf plaatsen. De volgende opdrachten een partitie maken op /dev/sdc en formatteert u het met xfs.
     ```bash
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    # <a name="write-down-hello-id-of-devsdc1"></a>Schrijf Hallo-id van /dev/sdc1
+    # <a name="write-down-the-id-of-devsdc1"></a>Noteer de id van /dev/sdc1
     sudo/sbin/blkid sudo vi/etc/fstab-fouten
     ```
 
-    Insert this line too/etc/fstab
+    Insert this line to /etc/fstab
     <pre><code>
     /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
     </code></pre>
 
-    Create hello target directory and mount hello disk.
+    Create the target directory and mount the disk.
 
     ```bash
     sudo mkdir /hana
@@ -269,12 +269,12 @@ Hallo volgende items worden voorafgegaan door een [A] - knooppunten van de toepa
     ```
 
 1. [A] setup hostnaamomzetting voor alle hosts  
-    U kunt een DNS-server gebruiken of Hallo/etc/hosts op alle knooppunten wijzigen. Dit voorbeeld toont hoe toouse Hallo/etc/hosts-bestand.
-   Hallo IP-adres en hostnaam in de volgende opdrachten Hallo Hallo vervangen
+    U kunt gebruik van een DNS-server of wijzig de/etc/hosts op alle knooppunten. In dit voorbeeld laat zien hoe het bestand/etc/hosts te gebruiken.
+   Het IP-adres en de hostnaam in de volgende opdrachten vervangen
     ```bash
     sudo vi /etc/hosts
     ```
-    Invoegen Hallo regels te/etc/hosts te volgen. Uw omgeving voor het IP-adres en hostnaam toomatch Hallo wijzigen    
+    Voeg de volgende regels/etc/hosts. Wijzig de IP-adres en hostnaam overeenkomen met uw omgeving    
     
     <pre><code>
     <b>&lt;IP address of host 1&gt; &lt;hostname of host 1&gt;</b>
@@ -285,38 +285,38 @@ Hallo volgende items worden voorafgegaan door een [A] - knooppunten van de toepa
     ```bash
     sudo ha-cluster-init
     
-    # Do you want toocontinue anyway? [y/N] -> y
-    # Network address toobind too(e.g.: 192.168.1.0) [10.79.227.0] -> ENTER
+    # Do you want to continue anyway? [y/N] -> y
+    # Network address to bind to (e.g.: 192.168.1.0) [10.79.227.0] -> ENTER
     # Multicast address (e.g.: 239.x.x.x) [239.174.218.125] -> ENTER
     # Multicast port [5405] -> ENTER
-    # Do you wish toouse SBD? [y/N] -> N
-    # Do you wish tooconfigure an administration IP? [y/N] -> N
+    # Do you wish to use SBD? [y/N] -> N
+    # Do you wish to configure an administration IP? [y/N] -> N
     ```
         
-1. [2] knooppunt toocluster toevoegen
+1. [2] knooppunt toevoegen aan cluster
     ```bash
     sudo ha-cluster-join
         
-    # WARNING: NTP is not configured toostart at system boot.
-    # WARNING: No watchdog device found. If SBD is used, hello cluster will be unable toostart without a watchdog.
-    # Do you want toocontinue anyway? [y/N] -> y
+    # WARNING: NTP is not configured to start at system boot.
+    # WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
+    # Do you want to continue anyway? [y/N] -> y
     # IP address or hostname of existing node (e.g.: 192.168.1.1) [] -> IP address of node 1 e.g. 10.0.0.5
     # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
     ```
 
-1. [A] wijziging hacluster wachtwoord toohello hetzelfde wachtwoord
+1. [A] wachtwoord van de wijzigen hacluster naar hetzelfde wachtwoord
     ```bash
     sudo passwd hacluster
     
     ```
 
-1. [A] configureren corosync toouse andere transport en nodelist toevoegen. Cluster werkt niet anders.
+1. [A] corosync voor het gebruik van andere transport en voeg nodelist configureren. Cluster werkt niet anders.
     ```bash
     sudo vi /etc/corosync/corosync.conf    
     
     ```
 
-    Hallo volgende vet inhoud toohello toevoegen.
+    De volgende vet inhoud toevoegen aan het bestand.
     
     <pre><code> 
     [...]
@@ -337,7 +337,7 @@ Hallo volgende items worden voorafgegaan door een [A] - knooppunten van de toepa
       [...]
     </code></pre>
 
-    Hallo corosync service opnieuw starten
+    Start de service corosync opnieuw
 
     ```bash
     sudo service corosync restart
@@ -352,20 +352,20 @@ Hallo volgende items worden voorafgegaan door een [A] - knooppunten van de toepa
 
 ## <a name="installing-sap-hana"></a>SAP HANA installeren
 
-Ga als volgt hoofdstuk 4 Hallo [SAP HANA SR prestaties geoptimaliseerd Scenario handleiding] [ suse-hana-ha-guide] tooinstall SAP HANA System Replication.
+Ga als volgt hoofdstuk 4 van de [SAP HANA SR prestaties geoptimaliseerd Scenario handleiding] [ suse-hana-ha-guide] om SAP HANA System replicatie te installeren.
 
-1. [A] hdblcm vanaf HANA DVD hello uitvoeren
+1. [A] hdblcm uitvoeren vanaf de DVD HANA
     * Installatie te kiezen,-1 >
     * Selecteer extra onderdelen voor installatie-1 >
     * Voer installatiepad [/ hana/gedeelde]: ENTER ->
     * Voer de naam van de lokale Host [.]: -> ENTER
-    * Wilt u tooadd extra hosts toohello system? (j/n) [n]: ENTER ->
+    * Wilt u extra hosts toevoegen aan het systeem? (j/n) [n]: ENTER ->
     * Voer SAP HANA systeem-ID:<SID of HANA e.g. HDB>
     * Voer exemplaarnummer [00]:   
-  HANA exemplaarnummer. 03 gebruiken als u hello Azure-sjabloon gebruikt of gevolgd Hallo in bovenstaand voorbeeld
+  HANA exemplaarnummer. 03 gebruiken als u de Azure-sjabloon gebruikt of in het bovenstaande voorbeeld gevolgd
     * Selecteer Database modus / Index [1] op Enter: -> ENTER
     * Selecteer systeemgebruik / Voer Index [4]:  
-  Selecteer Hallo systeem gebruik
+  Selecteer de informatie over het gebruik van het systeem
     * Geef de locatie van gegevensvolumes [/ data/hana/HDB]: ENTER ->
     * Geef de locatie van Logboekvolumes [/ log/hana/HDB]: ENTER ->
     * Maximale geheugentoewijzing beperken? [n]: ENTER ->
@@ -381,20 +381,20 @@ Ga als volgt hoofdstuk 4 Hallo [SAP HANA SR prestaties geoptimaliseerd Scenario 
     * Geef het wachtwoord voor Database gebruiker (systeem):
     * Bevestig Database gebruikerswachtwoord (systeem):
     * Systeem opnieuw opstarten nadat de computer opnieuw is opgestart? [n]: ENTER ->
-    * Wilt u toocontinue? (j/n):  
-  Hallo samenvatting valideren en y toocontinue invoeren
+    * Wilt u doorgaan? (j/n):  
+  Valideren van de samenvatting en voer j om door te gaan
 1. [A] SAP Hostagent bijwerken  
-  Hallo nieuwste SAP Hostagent archief downloaden van Hallo [SAP Softwarecenter] [ sap-swcenter] en uitvoeren hello na de opdracht tooupgrade Hallo agent. Hallo pad toohello archief toopoint toohello door u gedownloade bestand vervangen.
+  Download de meest recente Hostagent SAP-archief van de [SAP Softwarecenter] [ sap-swcenter] en voer de volgende opdracht om de agent bijwerken. Het pad naar het archief verwijzen naar de door u gedownloade bestand vervangen.
     ```bash
-    sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path tooSAP Host Agent SAR>
+    sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent SAR>
     ```
 
 1. [1] HANA replicatie maken (als root)  
-    Hallo volgende opdracht worden uitgevoerd. Zorg ervoor dat tooreplace vet tekenreeksen (HANA systeem-ID HDB en exemplaar getal 03) met Hallo waarden van de SAP HANA-installatie.
+    Voer de volgende opdracht. Zorg ervoor dat vet tekenreeksen (HANA systeem-ID HDB en exemplaar getal 03) vervangen door de waarden van de SAP HANA-installatie.
     <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"' 
-    hdbsql -u system -i <b>03</b> 'GRANT DATA ADMIN too<b>hdb</b>hasync' 
+    hdbsql -u system -i <b>03</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync' 
     hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
     </code></pre>
 
@@ -408,12 +408,12 @@ Ga als volgt hoofdstuk 4 Hallo [SAP HANA SR prestaties geoptimaliseerd Scenario 
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbsql -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
     </code></pre>
-1. [1] toohello sapsid gebruiker (bijvoorbeeld hdbadm) switch en maak Hallo primaire site.
+1. [1] overschakelen naar de gebruiker sapsid (bijvoorbeeld hdbadm) en de primaire site maken.
     <pre><code>
     su - <b>hdb</b>adm
     hdbnsutil -sr_enable –-name=<b>SITE1</b>
     </code></pre>
-1. [2] overschakelen toohello sapsid gebruiker (bijvoorbeeld hdbadm) en Hallo secundaire site maken.
+1. [2] overschakelen naar de gebruiker sapsid (bijvoorbeeld hdbadm) en de secundaire site maken.
     <pre><code>
     su - <b>hdb</b>adm
     sapcontrol -nr <b>03</b> -function StopWait 600 10
@@ -422,11 +422,11 @@ Ga als volgt hoofdstuk 4 Hallo [SAP HANA SR prestaties geoptimaliseerd Scenario 
 
 ## <a name="configure-cluster-framework"></a>Cluster-Framework configureren
 
-Hallo standaardinstellingen wijzigen
+De standaardinstellingen wijzigen
 
 <pre>
 sudo vi crm-defaults.txt
-# enter hello following toocrm-defaults.txt
+# enter the following to crm-defaults.txt
 <code>
 property $id="cib-bootstrap-options" \
   no-quorum-policy="ignore" \
@@ -440,43 +440,43 @@ op_defaults $id="op-options" \
   timeout="600"
 </code>
 
-# <a name="now-we-load-hello-file-toohello-cluster"></a>Nu laden we Hallo toohello bestandscluster
+# <a name="now-we-load-the-file-to-the-cluster"></a>Nu we het bestand aan het cluster niet laden
 sudo crm load update crm-defaults.txt configureren
 </pre>
 
 ### <a name="create-stonith-device"></a>STONITH apparaat maken
 
-Hallo STONITH apparaat maakt gebruik van een Service-Principal tooauthorize tegen Microsoft Azure. Volg deze stappen toocreate een Service-Principal.
+Het apparaat STONITH maakt gebruik van een Service-Principal worden geautoriseerd op basis van Microsoft Azure. Volg deze stappen voor het maken van een Service-Principal.
 
-1. Ga te<https://portal.azure.com>
-1. Open hello Azure Active Directory-blade  
-   Ga tooProperties en schrijf Hallo Directory-id. Dit is Hallo **tenant-id**.
+1. Ga naar <https://portal.azure.com>
+1. Open de blade van Azure Active Directory  
+   Ga naar eigenschappen en noteer de id van de Directory. Dit is de **tenant-id**.
 1. Klik op App-registraties
 1. Klik op Add.
 1. Voer een naam, selecteer toepassingstype 'Web-app /-API, een aanmeldings-URL (bijvoorbeeld http://localhost) en klik op maken
-1. Hallo aanmeldings-URL kan niet wordt gebruikt en geldige URL
-1. Selecteer de nieuwe App Hallo en sleutels op in het tabblad Hallo-instellingen
+1. De aanmeldings-URL kan niet wordt gebruikt en geldige URL
+1. Selecteer de nieuwe App en sleutels op in het tabblad instellingen
 1. Voer een beschrijving voor een nieuwe sleutel, selecteer 'Verloopt nooit' en klik op Opslaan
-1. Schrijf Hallo waarde. Deze wordt gebruikt als Hallo **wachtwoord** voor Hallo Service-Principal
-1. Schrijf Hallo toepassings-id. Deze wordt gebruikt als gebruikersnaam Hallo (**aanmeldings-id** in de onderstaande stappen voor Hallo) Hallo Service-Principal
+1. Noteer de waarde in. Deze wordt gebruikt als de **wachtwoord** voor de Service-Principal
+1. Noteer de toepassings-id. Deze wordt gebruikt als de gebruikersnaam (**aanmeldings-id** in de onderstaande stappen) van de Service-Principal
 
-Hallo Service-Principal heeft geen machtigingen tooaccess uw Azure-resources standaard. Moet u toogive Hallo Service-Principal machtigingen toostart en gestopt (toewijzing ongedaan maken) alle virtuele machines van Hallo-cluster.
+De Service-Principal heeft geen machtigingen voor toegang tot uw Azure-resources standaard. U moet de Service-Principal machtigingen geven om te starten en stoppen (ongedaan gemaakt) alle virtuele machines van het cluster.
 
-1. Ga toohttps://portal.azure.com
-1. Open de blade van alle resources Hallo
-1. Selecteer Hallo virtuele machine
+1. Ga naar https://portal.azure.com
+1. Open de blade met alle bronnen
+1. Selecteer de virtuele machine
 1. Klik op toegangsbeheer (IAM)
 1. Klik op Add.
-1. Selecteer Hallo rol eigenaar
-1. Voer de naam Hallo van Hallo-toepassing die u hierboven hebt gemaakt
+1. Selecteer de rol van eigenaar
+1. Voer de naam van de toepassing die u hierboven hebt gemaakt
 1. Klik op OK
 
-Nadat u machtigingen voor virtuele machines die Hallo Hallo bewerkt, kunt u Hallo STONITH apparaten kunt configureren in het Hallo-cluster.
+Nadat u de machtigingen voor de virtuele machines hebt bewerkt, kunt u de apparaten STONITH configureren in het cluster.
 
 <pre>
 sudo vi crm-fencing.txt
-# enter hello following toocrm-fencing.txt
-# replace hello bold string with your subscription id, resource group, tenant id, service principal id and password
+# enter the following to crm-fencing.txt
+# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
 <code>
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
     params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
@@ -487,7 +487,7 @@ primitive rsc_st_azure_2 stonith:fence_azure_arm \
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 </code>
 
-# <a name="now-we-load-hello-file-toohello-cluster"></a>Nu laden we Hallo toohello bestandscluster
+# <a name="now-we-load-the-file-to-the-cluster"></a>Nu we het bestand aan het cluster niet laden
 sudo crm load update crm-fencing.txt configureren
 </pre>
 
@@ -495,8 +495,8 @@ sudo crm load update crm-fencing.txt configureren
 
 <pre>
 sudo vi crm-saphanatop.txt
-# enter hello following toocrm-saphana.txt
-# replace hello bold string with your instance number and HANA system id
+# enter the following to crm-saphana.txt
+# replace the bold string with your instance number and HANA system id
 <code>
 primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -509,14 +509,14 @@ clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HDB</b>
     meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
 </code>
 
-# <a name="now-we-load-hello-file-toohello-cluster"></a>Nu laden we Hallo toohello bestandscluster
+# <a name="now-we-load-the-file-to-the-cluster"></a>Nu we het bestand aan het cluster niet laden
 sudo crm load update crm-saphanatop.txt configureren
 </pre>
 
 <pre>
 sudo vi crm-saphana.txt
-# enter hello following toocrm-saphana.txt
-# replace hello bold string with your instance number, HANA system id and hello frontend IP address of hello Azure load balancer. 
+# enter the following to crm-saphana.txt
+# replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
 <code>
 primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -548,93 +548,93 @@ order ord_SAPHana_<b>HDB</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_H
     msl_SAPHana_<b>HDB</b>_HDB<b>03</b>
 </code>
 
-# <a name="now-we-load-hello-file-toohello-cluster"></a>Nu laden we Hallo toohello bestandscluster
+# <a name="now-we-load-the-file-to-the-cluster"></a>Nu we het bestand aan het cluster niet laden
 sudo crm load update crm-saphana.txt configureren
 </pre>
 
 ### <a name="test-cluster-setup"></a>Test-cluster instellen
-Hallo volgende hoofdstuk wordt beschreven hoe u uw instellingen kunt testen. Elke test wordt ervan uitgegaan dat u hoofdmap en Hallo SAP HANA-master wordt uitgevoerd op Hallo virtuele machine saphanavm1.
+Het volgende hoofdstuk wordt beschreven hoe u uw instellingen kunt testen. Elke test wordt ervan uitgegaan dat u hoofdmap en de SAP HANA-master wordt uitgevoerd op de virtuele machine saphanavm1.
 
 #### <a name="fencing-test"></a>Hekwerk Test
 
-Hallo-setup van Hallo hekwerk agent kunt u testen door de netwerkinterface Hallo op knooppunt saphanavm1 uit te schakelen.
+U kunt de installatie van de agent hekwerk testen door de netwerkinterface op knooppunt saphanavm1 uit te schakelen.
 
 <pre><code>
 sudo ifdown eth0
 </code></pre>
 
-Hallo virtuele machine moet nu ophalen opnieuw gestart of gestopt, afhankelijk van uw clusterconfiguratie.
-Als u Hallo stonith actie toooff instelt, Hallo virtuele machine wordt gestopt en Hallo bronnen gemigreerde toohello virtuele machine wordt uitgevoerd.
+De virtuele machine moet nu opnieuw gestart of gestopt, afhankelijk van uw clusterconfiguratie.
+Als u de stonith-actie die moet worden uitgeschakeld instelt, wordt de virtuele machine wordt gestopt en de bronnen worden gemigreerd naar de actieve virtuele machine.
 
-Zodra u Hallo virtuele machine opnieuw start, Hallo SAP HANA-resource toostart als secundaire zal mislukken als u AUTOMATED_REGISTER instellen = "false". In dit geval moet u tooconfigure Hallo HANA exemplaar als secundaire door het uitvoeren van de volgende opdracht Hallo:
+Zodra u de virtuele machine opnieuw start, zijn de SAP HANA-bron niet worden gestart als secundaire als u AUTOMATED_REGISTER instelt = "false". In dit geval moet u het exemplaar HANA als secundaire configureren door het uitvoeren van de volgende opdracht:
 
 <pre><code>
 su - <b>hdb</b>adm
 
-# Stop hello HANA instance just in case it is running
+# Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
 
-# switch back tooroot and cleanup hello failed state
+# switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>
 
 #### <a name="testing-a-manual-failover"></a>Een handmatige failover testen
 
-U kunt een handmatige failover testen Hallo pacemaker heeft door service te stoppen op knooppunt saphanavm1.
+U kunt een handmatige failover testen door het stoppen van de service pacemaker heeft op het knooppunt saphanavm1.
 <pre><code>
 service pacemaker stop
 </code></pre>
 
-U kunt Hallo-service opnieuw starten na een failover Hallo. Hallo SAP HANA-bron op saphanavm1 toostart als secundaire zal mislukken als u AUTOMATED_REGISTER instellen = "false". In dit geval moet u tooconfigure Hallo HANA exemplaar als secundaire door het uitvoeren van de volgende opdracht Hallo:
+U kunt de service opnieuw starten na de failover. De SAP HANA-resource op saphanavm1 niet worden gestart als secundaire als u AUTOMATED_REGISTER instelt = "false". In dit geval moet u het exemplaar HANA als secundaire configureren door het uitvoeren van de volgende opdracht:
 
 <pre><code>
 service pacemaker start
 su - <b>hdb</b>adm
 
-# Stop hello HANA instance just in case it is running
+# Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 
 
-# switch back tooroot and cleanup hello failed state
+# switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>
 
 #### <a name="testing-a-migration"></a>Een migratie testen
 
-U kunt Hallo SAP HANA-hoofdknooppunt migreren door het uitvoeren van de volgende opdracht Hallo
+U kunt het hoofdknooppunt SAP HANA migreren door de volgende opdracht wordt uitgevoerd
 <pre><code>
 crm resource migrate msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 crm resource migrate g_ip_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 </code></pre>
 
-Dit moet migreren Hallo SAP HANA-hoofdknooppunt en Hallo-groep die Hallo virtuele IP-adres toosaphanavm2 bevat.
-Hallo SAP HANA-bron op saphanavm1 toostart als secundaire zal mislukken als u AUTOMATED_REGISTER instellen = "false". In dit geval moet u tooconfigure Hallo HANA exemplaar als secundaire door het uitvoeren van de volgende opdracht Hallo:
+Dit moet de SAP HANA-hoofdknooppunt en de groep waartoe het virtuele IP-adres saphanavm2 migreren.
+De SAP HANA-resource op saphanavm1 niet worden gestart als secundaire als u AUTOMATED_REGISTER instelt = "false". In dit geval moet u het exemplaar HANA als secundaire configureren door het uitvoeren van de volgende opdracht:
 
 <pre><code>
 su - <b>hdb</b>adm
 
-# Stop hello HANA instance just in case it is running
+# Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
-Hallo migratie maakt locatie beperkingen die toobe opnieuw verwijderd moeten.
+De migratie maakt locatie beperkingen moeten opnieuw worden verwijderd.
 
 <pre><code>
 crm configure edited
 
-# delete location contraints that are named like hello following contraint. You should have two contraints, one for hello SAP HANA resource and one for hello IP address group.
+# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
-U moet ook toocleanup Hallo status van Hallo secundair knooppunt resource
+U moet ook opruimen van de status van de bron van het secundaire knooppunt
 
 <pre><code>
-# switch back tooroot and cleanup hello failed state
+# switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>
@@ -643,4 +643,4 @@ crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 * [Azure virtuele Machines, planning en implementatie voor SAP][planning-guide]
 * [Azure virtuele Machines-implementatie voor SAP][deployment-guide]
 * [Azure virtuele Machines DBMS-implementatie voor SAP][dbms-guide]
-* hoe tooestablish hoge beschikbaarheid en herstel na noodgevallen van SAP HANA plannen in Azure (grote exemplaren), Zie toolearn [SAP HANA (grote exemplaren) hoge beschikbaarheid en herstel na noodgevallen op Azure](hana-overview-high-availability-disaster-recovery.md). 
+* Zie voor meer informatie over hoe u hoge beschikbaarheid en herstel na noodgevallen van SAP HANA plannen in Azure (grote exemplaren), [SAP HANA (grote exemplaren) hoge beschikbaarheid en herstel na noodgevallen op Azure](hana-overview-high-availability-disaster-recovery.md). 

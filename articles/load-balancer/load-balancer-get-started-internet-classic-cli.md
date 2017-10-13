@@ -1,9 +1,9 @@
 ---
-title: klassieke Azure-CLI de load balancer - aaaCreate een internetgerichte | Microsoft Docs
-description: Meer informatie over hoe een Internet gerichte load balancer aan classic deployment model met toocreate hello Azure CLI
+title: Een internetgerichte load balancer maken - klassieke Azure CLI | Microsoft Docs
+description: Meer informatie over het maken van een internetgerichte load balancer in het klassieke implementatiemodel via de Azure CLI
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: e6070cbc574f74bca0cccb960ff192847d6511bc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 0813cb0ccf976b7e47420b33ec65714fd8e60ac1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-hello-azure-cli"></a>Maken van een load balancer (klassiek) hello Azure CLI voor Internetgericht aan de slag
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Aan de slag met het maken van een internetgerichte load balancer (klassiek) via de Azure CLI
 
 > [!div class="op_single_selector"]
-> * [Klassieke Azure Portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [klassieke Azure-portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
 > * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
@@ -31,16 +31,16 @@ ms.lasthandoff: 10/06/2017
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Voordat u met Azure-resources werkt, is het belangrijk toounderstand dat Azure momenteel twee implementatiemodellen heeft: Azure Resource Manager en het klassieke model. Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-classic-rm.md) zijn voordat u met een Azure-resource gaat werken. U kunt Hallo-documentatie voor verschillende hulpprogramma's bekijken door te klikken op de tabbladen Hallo Hallo boven aan dit artikel. In dit artikel bevat informatie over Hallo klassieke implementatiemodel. U kunt ook [meer informatie over hoe een internetverbinding toocreate netwerktaakverdeler met Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> Voordat u met Azure-resources gaat werken, is het belangrijk om te weten dat Azure momenteel twee implementatiemodellen heeft: Azure Resource Manager en het klassieke model. Zorg ervoor dat u begrijpt wat [implementatiemodellen en hulpprogramma's](../azure-classic-rm.md) zijn voordat u met een Azure-resource gaat werken. U kunt de documentatie voor verschillende hulpprogramma's bekijken door op de tabbladen boven aan dit artikel te klikken. Dit artikel is van toepassing op het klassieke implementatiemodel. Hier vindt u [meer informatie over hoe u een internetgerichte load balancer maakt met Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## <a name="step-by-step-creating-an-internet-facing-load-balancer-using-cli"></a>Stapsgewijze instructies voor het maken van een internetgerichte load balancer met behulp van CLI
+## <a name="create-an-internet-facing-load-balancer-using-cli"></a>Een internetgerichte load balancer maken met CLI
 
-Deze handleiding wordt getoond hoe toocreate een load balancer van Internet op basis van Hallo bovenstaande scenario.
+In deze handleiding wordt beschreven hoe u een internetgerichte load balancer maakt op basis van bovenstaand scenario.
 
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [installeren en configureren van Azure CLI Hallo](../cli-install-nodejs.md) en volg de instructies Hallo toohello punt waar u uw Azure-account en abonnement selecteren.
-2. Voer Hallo **azure config mode** opdracht tooswitch tooclassic modus, zoals hieronder wordt weergegeven.
+1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
+2. Voer de opdracht **azure config mode** uit om over te schakelen naar de klassieke modus, zoals hieronder weergegeven.
 
     ```azurecli
     azure config mode asm
@@ -52,34 +52,34 @@ Deze handleiding wordt getoond hoe toocreate een load balancer van Internet op b
 
 ## <a name="create-endpoint-and-load-balancer-set"></a>Set met eindpunten en load balancer maken
 
-Hallo scenario veronderstelt Hallo virtuele machines 'web1' en 'web2' zijn gemaakt.
-In deze handleiding wordt een set met gelijke taakverdeling gemaakt die poort 80 als openbare poort en 80 als lokale poort gebruikt. Een testpoort ook is geconfigureerd op poort 80 en benoemde Hallo load balancer 'lbset' ingesteld.
+In het scenario wordt ervan uitgegaan dat de virtuele machines 'web1' en 'web2' al zijn gemaakt.
+In deze handleiding wordt een set met gelijke taakverdeling gemaakt die poort 80 als openbare poort en 80 als lokale poort gebruikt. Er is ook een testpoort geconfigureerd op poort 80 en de naam van de set met gelijke taakverdeling is 'lbset'.
 
 ### <a name="step-1"></a>Stap 1
 
-Het eerste eindpunt Hallo maken en de load balancer met een set `azure network vm endpoint create` voor de virtuele machine 'web1'.
+Maak de eerste set met een eindpunt en gelijke taakverdeling met behulp van `azure network vm endpoint create` voor de virtuele machine 'web1'.
 
 ```azurecli
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-2"></a>Stap 2
+### <a name="step-2"></a>Stap 2
 
-Een tweede virtuele machine 'web2' toohello load balancer-set toevoegen.
+Voeg de tweede virtuele machine 'web2' aan de set met gelijke taakverdeling toe.
 
 ```azurecli
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-3"></a>Stap 3
+### <a name="step-3"></a>Stap 3
 
-Controleren of de Hallo load balancer configuratie `azure vm show` .
+Controleer de configuratie van de load balancer met behulp van `azure vm show`.
 
 ```azurecli
 azure vm show web1
 ```
 
-Hallo-uitvoer zijn:
+De uitvoer is:
 
     data:    DNSName "contoso.cloudapp.net"
     data:    Location "East US"
@@ -125,7 +125,7 @@ Hallo-uitvoer zijn:
 
 ## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Een eindpunt voor een extern bureaublad maken voor een virtuele machine
 
-U kunt een externe bureaublad eindpunt tooforward-netwerkverkeer maken van een openbare poort tooa lokale poort voor een specifieke virtuele machine met `azure vm endpoint create`.
+U kunt met `azure vm endpoint create` een eindpunt voor een extern bureaublad maken om voor een bepaalde virtuele machine netwerkverkeer van een openbare poort door te sturen naar een lokale poort.
 
 ```azurecli
 azure vm endpoint create web1 54580 -k 3389
@@ -133,16 +133,16 @@ azure vm endpoint create web1 54580 -k 3389
 
 ## <a name="remove-virtual-machine-from-load-balancer"></a>Virtuele machine verwijderen uit load balancer
 
-U hebt toodelete Hallo eindpunt gekoppeld toohello balancer set laden van Hallo virtuele machine. Zodra Hallo-eindpunt is verwijderd, behoort Hallo virtuele machine niet toohello load balancer meer instellen.
+U moet het eindpunt dat is gekoppeld aan de set met gelijke taakverdeling, verwijderen van de virtuele machine. Wanneer het eindpunt is verwijderd, maakt de virtuele machine geen deel meer uit van de set met gelijke taakverdeling.
 
-Hallo bovenstaande voorbeeld gebruikt, kunt u Hallo-eindpunt gemaakt voor de virtuele machine 'web1' verwijderen uit de load balancer 'lbset' hello opdracht `azure vm endpoint delete`.
+Op basis van bovenstaand voorbeeld kunt u het eindpunt dat is gemaakt voor de virtuele machine 'web1', met de opdracht `azure vm endpoint delete` verwijderen uit de load balancer 'lbset'.
 
 ```azurecli
 azure vm endpoint delete web1 tcp-80-80
 ```
 
 > [!NOTE]
-> U kunt meer opties toomanage eindpunten met Hallo opdracht verkennen`azure vm endpoint --help`
+> U kunt meer opties voor het beheren van eindpunten verkennen met de opdracht `azure vm endpoint --help`
 
 ## <a name="next-steps"></a>Volgende stappen
 
