@@ -1,0 +1,18 @@
+<span data-ttu-id="aa0a7-101">In deze stap maakt u een firewallregel om de testpoort voor het eindpunt voor netwerktaakverdeling (zoals eerder opgegeven 59999) te openen en een andere regel voor de poort beschikbaarheidsgroeplistener openen.</span><span class="sxs-lookup"><span data-stu-id="aa0a7-101">In this step, you create a firewall rule to open the probe port for the load-balanced endpoint (59999, as specified earlier) and another rule to open the availability group listener port.</span></span> <span data-ttu-id="aa0a7-102">Omdat u het eindpunt taakverdeling op de virtuele machines die replica's van beschikbaarheidsgroepen bevatten gemaakt, moet u de testpoort en de listener-poort op de betreffende virtuele machines te openen.</span><span class="sxs-lookup"><span data-stu-id="aa0a7-102">Because you created the load-balanced endpoint on the VMs that contain availability group replicas, you need to open the probe port and the listener port on the respective VMs.</span></span>
+
+1. <span data-ttu-id="aa0a7-103">Start op virtuele machines die als host fungeren van replica's, **Windows Firewall met geavanceerde beveiliging**.</span><span class="sxs-lookup"><span data-stu-id="aa0a7-103">On VMs that host replicas, start **Windows Firewall with Advanced Security**.</span></span>
+
+2. <span data-ttu-id="aa0a7-104">Met de rechtermuisknop op **regels voor binnenkomende verbindingen**, en klik vervolgens op **nieuwe regel**.</span><span class="sxs-lookup"><span data-stu-id="aa0a7-104">Right-click **Inbound Rules**, and then click **New Rule**.</span></span>
+
+3. <span data-ttu-id="aa0a7-105">Op de **regeltype** pagina **poort**, en klik vervolgens op **volgende**.</span><span class="sxs-lookup"><span data-stu-id="aa0a7-105">On the **Rule Type** page, select **Port**, and then click **Next**.</span></span>
+
+4. <span data-ttu-id="aa0a7-106">Op de **protocollen en poorten** pagina **TCP**, type **59999** in de **specifieke lokale poorten** vak en klik vervolgens op  **Volgende**.</span><span class="sxs-lookup"><span data-stu-id="aa0a7-106">On the **Protocol and Ports** page, select **TCP**, type **59999** in the **Specific local ports** box, and then click **Next**.</span></span>
+
+5. <span data-ttu-id="aa0a7-107">Op de **actie** pagina, houden **de verbinding toestaan** geselecteerd en klik vervolgens op **volgende**.</span><span class="sxs-lookup"><span data-stu-id="aa0a7-107">On the **Action** page, keep **Allow the connection** selected, and then click **Next**.</span></span>
+
+6. <span data-ttu-id="aa0a7-108">Op de **profiel** pagina, accepteer de standaardinstellingen en klik vervolgens op **volgende**.</span><span class="sxs-lookup"><span data-stu-id="aa0a7-108">On the **Profile** page, accept the default settings, and then click **Next**.</span></span>
+
+7. <span data-ttu-id="aa0a7-109">Op de **naam** pagina in de **naam** tekst, geeft u de regelnaam van een, zoals **altijd op Listener-test poort**, en klik vervolgens op **voltooien**.</span><span class="sxs-lookup"><span data-stu-id="aa0a7-109">On the **Name** page, in the **Name** text box, specify a rule name, such as **Always On Listener Probe Port**, and then click **Finish**.</span></span>
+
+8. <span data-ttu-id="aa0a7-110">Herhaal de voorgaande stappen voor de poort beschikbaarheidsgroeplistener (zoals opgegeven eerder in de parameter $EndpointPort van het script) en geef vervolgens een naam voor de desbetreffende regel, zoals **altijd op Listener-poort**.</span><span class="sxs-lookup"><span data-stu-id="aa0a7-110">Repeat the preceding steps for the availability group listener port (as specified earlier in the $EndpointPort parameter of the script), and then specify an appropriate rule name, such as **Always On Listener Port**.</span></span>
+

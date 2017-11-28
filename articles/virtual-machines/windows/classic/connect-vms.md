@@ -1,0 +1,37 @@
+---
+title: aaaConnect Windows virtuele machines in een cloudservice | Microsoft Docs
+description: Verbinding maken met Windows virtuele machines die met Hallo classic deployment model tooan Azure-cloudservice of een virtueel netwerk gemaakt.
+services: virtual-machines-windows
+documentationcenter: 
+author: cynthn
+manager: timlt
+editor: 
+tags: azure-service-management
+ms.assetid: c1cbc802-4352-4d2e-9e49-4ccbd955324b
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 06/06/2017
+ms.author: cynthn
+ms.openlocfilehash: d19dc555694eab8a7e790c970cfb5e6a53aa7a7c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/06/2017
+---
+# <a name="connect-windows-virtual-machines-created-with-hello-classic-deployment-model-with-a-virtual-network-or-cloud-service"></a><span data-ttu-id="77560-103">Verbinding maken met Windows virtuele machines is gemaakt met het klassieke implementatiemodel Hallo met een virtueel netwerk of cloud-service</span><span class="sxs-lookup"><span data-stu-id="77560-103">Connect Windows virtual machines created with hello classic deployment model with a virtual network or cloud service</span></span>
+> [!IMPORTANT]
+> <span data-ttu-id="77560-104">Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="77560-104">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="77560-105">In dit artikel bevat informatie over met behulp van Hallo klassieke implementatiemodel.</span><span class="sxs-lookup"><span data-stu-id="77560-105">This article covers using hello Classic deployment model.</span></span> <span data-ttu-id="77560-106">Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken.</span><span class="sxs-lookup"><span data-stu-id="77560-106">Microsoft recommends that most new deployments use hello Resource Manager model.</span></span>
+
+<span data-ttu-id="77560-107">Windows virtuele machines is gemaakt met het klassieke implementatiemodel Hallo worden altijd in een cloudservice geplaatst.</span><span class="sxs-lookup"><span data-stu-id="77560-107">Windows virtual machines created with hello classic deployment model are always placed in a cloud service.</span></span> <span data-ttu-id="77560-108">Hallo cloud-service fungeert als een container en een unieke openbare DNS-naam, een openbare IP-adres en een set eindpunten tooaccess Hallo virtuele machine biedt ten opzichte van Hallo Internet.</span><span class="sxs-lookup"><span data-stu-id="77560-108">hello cloud service acts as a container and provides a unique public DNS name, a public IP address, and a set of endpoints tooaccess hello virtual machine over hello Internet.</span></span> <span data-ttu-id="77560-109">Hallo-cloudservice kan zich in een virtueel netwerk, maar is geen vereiste.</span><span class="sxs-lookup"><span data-stu-id="77560-109">hello cloud service can be in a virtual network, but that's not a requirement.</span></span> <span data-ttu-id="77560-110">U kunt ook [virtuele Linux-machines verbinding met een virtueel netwerk of cloud service](../../linux/classic/connect-vms.md).</span><span class="sxs-lookup"><span data-stu-id="77560-110">You can also [connect Linux virtual machines with a virtual network or cloud service](../../linux/classic/connect-vms.md).</span></span>
+
+<span data-ttu-id="77560-111">Als een cloudservice niet in een virtueel netwerk, er sprake een *zelfstandige* cloudservice.</span><span class="sxs-lookup"><span data-stu-id="77560-111">If a cloud service isn't in a virtual network, it's called a *standalone* cloud service.</span></span> <span data-ttu-id="77560-112">Hallo virtuele machines in een zelfstandige cloudservice communiceren met andere virtuele machines met behulp van andere virtuele machines openbare DNS-namen Hallo en Hallo-verkeer verplaatst zich via Internet Hallo.</span><span class="sxs-lookup"><span data-stu-id="77560-112">hello virtual machines in a standalone cloud service communicate with other virtual machines by using hello other virtual machines’ public DNS names, and hello traffic travels over hello Internet.</span></span> <span data-ttu-id="77560-113">Als een cloudservice in een virtueel netwerk, Hallo virtuele machines is in deze cloudservice met andere virtuele machines in het virtuele netwerk Hallo communiceren kan zonder verkeer verzenden via Internet Hallo.</span><span class="sxs-lookup"><span data-stu-id="77560-113">If a cloud service is in a virtual network, hello virtual machines in that cloud service can communicate with all other virtual machines in hello virtual network without sending any traffic over hello Internet.</span></span>
+
+<span data-ttu-id="77560-114">Als u uw virtuele machines in dezelfde zelfstandige cloudservice hello, kunt u taakverdeling en beschikbaarheidssets.</span><span class="sxs-lookup"><span data-stu-id="77560-114">If you place your virtual machines in hello same standalone cloud service, you can still use load balancing and availability sets.</span></span> <span data-ttu-id="77560-115">Zie voor meer informatie [taakverdeling van virtuele machines](../../virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en [Hallo beschikbaarheid van virtuele machines beheren](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="77560-115">For details, see [Load balancing virtual machines](../../virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Manage hello availability of virtual machines](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span></span> <span data-ttu-id="77560-116">U kan echter organiseren Hallo virtuele machines op subnetten of verbinding maken met een zelfstandige cloud service tooyour on-premises netwerk.</span><span class="sxs-lookup"><span data-stu-id="77560-116">However, you can't organize hello virtual machines on subnets or connect a standalone cloud service tooyour on-premises network.</span></span> <span data-ttu-id="77560-117">Hier volgt een voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="77560-117">Here's an example:</span></span>
+
+[!INCLUDE [virtual-machines-common-classic-connect-vms](../../../../includes/virtual-machines-common-classic-connect-vms.md)]
+
+## <a name="next-steps"></a><span data-ttu-id="77560-118">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="77560-118">Next steps</span></span>
+<span data-ttu-id="77560-119">Nadat u een virtuele machine maakt, is het een goed idee te[een gegevensschijf toevoegen](attach-disk.md) zodat uw services en werkbelastingen hebt een locatie toostore gegevens.</span><span class="sxs-lookup"><span data-stu-id="77560-119">After you create a virtual machine, it's a good idea too[add a data disk](attach-disk.md) so your services and workloads have a location toostore data.</span></span>

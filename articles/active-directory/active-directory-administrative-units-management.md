@@ -1,0 +1,43 @@
+---
+title: Voorbeeld van aaaAdministrative eenheden management in Azure Active Directory
+description: Administratieve eenheden gebruiken voor meer gedetailleerd overdracht van machtigingen in Azure Active Directory
+services: active-directory
+documentationcenter: 
+author: curtand
+manager: femila
+editor: 
+ms.assetid: 8464cd6b-1d1a-470d-a4fb-ee29b8eab4c4
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/17/2017
+ms.author: curtand
+ms.reviewer: elkuzmen
+ms.custom: oldportal;it-pro;
+ms.openlocfilehash: ee2c7beb6f9f6292bbf3cdeab00801ac066ae0e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/06/2017
+---
+# <a name="administrative-units-management-in-azure-ad---public-preview"></a><span data-ttu-id="23cd4-103">Beheer van beheereenheden in Azure AD - openbare preview</span><span class="sxs-lookup"><span data-stu-id="23cd4-103">Administrative units management in Azure AD - public preview</span></span>
+<span data-ttu-id="23cd4-104">In dit artikel beschrijft administratieve eenheden – een nieuwe Azure Active Directory-container van bronnen die kunnen worden gebruikt voor het overdragen van beheerdersmachtigingen via subsets van gebruikers en toepassen van beleid tooa subset van gebruikers.</span><span class="sxs-lookup"><span data-stu-id="23cd4-104">This article describes administrative units – a new Azure Active Directory container of resources that can be used for delegating administrative permissions over subsets of users and applying policies tooa subset of users.</span></span> <span data-ttu-id="23cd4-105">In Azure Active Directory inschakelen administratieve eenheden centrale beheerders toodelegate machtigingen tooregional beheerders of tooset beleid op een gedetailleerd niveau.</span><span class="sxs-lookup"><span data-stu-id="23cd4-105">In Azure Active Directory, administrative units enable central administrators toodelegate permissions tooregional administrators or tooset policy at a granular level.</span></span>
+
+<span data-ttu-id="23cd4-106">Dit is handig in organisaties met onafhankelijke divisies, bijvoorbeeld een grote universiteit bestaat uit veel autonome scholen (Business school, school Engineering, enzovoort) die onafhankelijk van elkaar.</span><span class="sxs-lookup"><span data-stu-id="23cd4-106">This is useful in organizations with independent divisions, for example, a large university that is made up of many autonomous schools (Business school, Engineering school, and so on) which are independent from each other.</span></span> <span data-ttu-id="23cd4-107">Dergelijke afdelingen hebben hun eigen IT-beheerders die toegang te beheren, gebruikers beheren en beleidsregels die specifiek is voor hun deling instellen.</span><span class="sxs-lookup"><span data-stu-id="23cd4-107">Such divisions have their own IT administrators who control access, manage users, and set policies specifically for their division.</span></span> <span data-ttu-id="23cd4-108">Centrale beheerders kunnen verlenen toobe deze afdelingen beheerders machtigingen wilt via Hallo gebruikers in hun specifieke afdelingen.</span><span class="sxs-lookup"><span data-stu-id="23cd4-108">Central administrators want toobe able grant these divisional administrators permissions over hello users in their particular divisions.</span></span> <span data-ttu-id="23cd4-109">Meer specifiek, kunt het volgende voorbeeld de beheerder van een centrale, bijvoorbeeld een administratieve eenheid voor een bepaalde school (Business school) maken en deze vullen met alleen Hallo zakelijke school gebruikers.</span><span class="sxs-lookup"><span data-stu-id="23cd4-109">More specifically, using this example, a central administrator can, for instance, create an administrative unit for a particular school (Business school) and populate it with only hello Business school users.</span></span> <span data-ttu-id="23cd4-110">Vervolgens kunt de beheerder van een centrale Hallo Business school IT-personeel tooa binnen het bereik van functie, met andere woorden, grant Hallo IT-personeel van Business school-beheerdersmachtigingen alleen via Hallo school beheerdersrechten bedrijfseenheid toevoegen.</span><span class="sxs-lookup"><span data-stu-id="23cd4-110">Then a central administrator can add hello Business school IT staff tooa scoped role, in other words, grant hello IT staff of Business school administrative permissions only over hello Business school administrative unit.</span></span>
+
+> [!IMPORTANT]
+> <span data-ttu-id="23cd4-111">Alleen als u Azure Active Directory Premium inschakelt, kunt u administratieve eenheid bereik beheerdersrollen toewijzen.</span><span class="sxs-lookup"><span data-stu-id="23cd4-111">You can assign administrative unit-scoped admin roles only if you enable Azure Active Directory Premium.</span></span> <span data-ttu-id="23cd4-112">Zie voor meer informatie [aan de slag met Azure AD Premium](active-directory-get-started-premium.md).</span><span class="sxs-lookup"><span data-stu-id="23cd4-112">For more information, see [Getting started with Azure AD Premium](active-directory-get-started-premium.md).</span></span>
+>
+
+
+<span data-ttu-id="23cd4-113">Uit oogpunt van Hallo centrale beheerder is een administratieve eenheid een directoryobject dat kan worden gemaakt en gevuld met resources.</span><span class="sxs-lookup"><span data-stu-id="23cd4-113">From hello central administrator’s point of view, an administrative unit is a directory object that can be created and populated with resources.</span></span> <span data-ttu-id="23cd4-114">**In deze preview-versie, kunnen deze resources worden alleen gebruikers.**</span><span class="sxs-lookup"><span data-stu-id="23cd4-114">**In this preview release, these resources can be only users.**</span></span> <span data-ttu-id="23cd4-115">Zodra u hebt gemaakt en ingevuld, kan Hallo administratieve eenheid worden gebruikt als een bereik toorestrict Hallo gemachtigd alleen via de bronnen die zich bevinden in Hallo administratieve eenheid.</span><span class="sxs-lookup"><span data-stu-id="23cd4-115">Once created and populated, hello administrative unit can be used as a scope toorestrict hello granted permission only over resources contained in hello administrative unit.</span></span>
+
+## <a name="managing-administrative-units"></a><span data-ttu-id="23cd4-116">Het beheren van administratieve eenheden</span><span class="sxs-lookup"><span data-stu-id="23cd4-116">Managing administrative units</span></span>
+<span data-ttu-id="23cd4-117">U kunt maken en beheren van administratieve eenheden met hello Azure Active Directory-Module voor Windows PowerShell-cmdlets in deze preview-versie.</span><span class="sxs-lookup"><span data-stu-id="23cd4-117">In this preview release, you can create and manage administrative units using hello Azure Active Directory Module for Windows PowerShell cmdlets.</span></span> <span data-ttu-id="23cd4-118">meer informatie over hoe toolearn toodo die Zie [werken met administratieve eenheden](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)</span><span class="sxs-lookup"><span data-stu-id="23cd4-118">toolearn more about how toodo that, see [Working with Administrative Units](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)</span></span>
+
+<span data-ttu-id="23cd4-119">Zie voor meer informatie over installeren hello Azure AD-module- en softwarevereisten en voor informatie over hello Azure AD-Module-cmdlets voor het beheren van administratieve eenheden, inclusief syntaxis, beschrijvingen van parameters en voorbeelden [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).</span><span class="sxs-lookup"><span data-stu-id="23cd4-119">For more information on software requirements and installing hello Azure AD module, and for information on hello Azure AD Module cmdlets for managing administrative units, including syntax, parameter descriptions, and examples, see [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="23cd4-120">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="23cd4-120">Next steps</span></span>
+[<span data-ttu-id="23cd4-121">Azure Active Directory-edities</span><span class="sxs-lookup"><span data-stu-id="23cd4-121">Azure Active Directory editions</span></span>](active-directory-editions.md)

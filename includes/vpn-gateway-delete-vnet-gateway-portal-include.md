@@ -1,0 +1,17 @@
+### <a name="step-1-navigate-to-the-virtual-network-gateway"></a><span data-ttu-id="a258d-101">Stap 1: Ga naar de virtuele netwerkgateway</span><span class="sxs-lookup"><span data-stu-id="a258d-101">Step 1: Navigate to the virtual network gateway</span></span>
+
+1. <span data-ttu-id="a258d-102">In de [Azure-portal](https://portal.azure.com), gaat u naar **alle resources**.</span><span class="sxs-lookup"><span data-stu-id="a258d-102">In the [Azure portal](https://portal.azure.com), navigate to **All resources**.</span></span> 
+2. <span data-ttu-id="a258d-103">Het virtuele netwerk gateway om blade te openen, gaat u naar de virtuele netwerkgateway die u wilt verwijderen en klik erop.</span><span class="sxs-lookup"><span data-stu-id="a258d-103">To open the virtual network gateway blade, navigate to the virtual network gateway that you want to delete and click it.</span></span>
+
+### <a name="step-2-delete-connections"></a><span data-ttu-id="a258d-104">Stap 2: Delete-verbindingen</span><span class="sxs-lookup"><span data-stu-id="a258d-104">Step 2: Delete connections</span></span>
+
+1. <span data-ttu-id="a258d-105">Klik op de blade voor uw virtuele netwerkgateway **verbindingen** om weer te geven van alle verbindingen met de gateway.</span><span class="sxs-lookup"><span data-stu-id="a258d-105">On the blade for your virtual network gateway, click **Connections** to view all connections to the gateway.</span></span>
+2. <span data-ttu-id="a258d-106">Klik op de **'...'**</span><span class="sxs-lookup"><span data-stu-id="a258d-106">Click the **'...'**</span></span> <span data-ttu-id="a258d-107">Selecteer op de rij van de naam van de verbinding **verwijderen** uit de vervolgkeuzelijst.</span><span class="sxs-lookup"><span data-stu-id="a258d-107">on the row of the name of the connection, then select **Delete** from the dropdown.</span></span>
+3. <span data-ttu-id="a258d-108">Klik op **Ja** om te bevestigen dat u wilt verwijderen van de verbinding.</span><span class="sxs-lookup"><span data-stu-id="a258d-108">Click **Yes** to confirm that you want to delete the connection.</span></span> <span data-ttu-id="a258d-109">Als er meerdere verbindingen, verwijdert u elke verbinding.</span><span class="sxs-lookup"><span data-stu-id="a258d-109">If you have multiple connections, delete each connection.</span></span>
+
+### <a name="step-3-delete-the-virtual-network-gateway"></a><span data-ttu-id="a258d-110">Stap 3: De virtuele netwerkgateway verwijderen</span><span class="sxs-lookup"><span data-stu-id="a258d-110">Step 3: Delete the virtual network gateway</span></span>
+
+<span data-ttu-id="a258d-111">Let wel dat als u een P2S-configuratie in dit VNet naast de S2S-configuratie hebt, verwijderen van de virtuele netwerkgateway automatisch alle P2S-clients zonder waarschuwing verbreekt.</span><span class="sxs-lookup"><span data-stu-id="a258d-111">Be aware that if you have a P2S configuration to this VNet in addition to your S2S configuration, deleting the virtual network gateway will automatically disconnect all P2S clients without warning.</span></span>
+
+1. <span data-ttu-id="a258d-112">Klik op de blade virtueel netwerk gateway **overzicht**.</span><span class="sxs-lookup"><span data-stu-id="a258d-112">On the virtual network gateway blade, click **Overview**.</span></span>
+2. <span data-ttu-id="a258d-113">Op de **overzicht** blade, klikt u op **verwijderen** de gateway wilt verwijderen.</span><span class="sxs-lookup"><span data-stu-id="a258d-113">On the **Overview** blade, click **Delete** to delete the gateway.</span></span>

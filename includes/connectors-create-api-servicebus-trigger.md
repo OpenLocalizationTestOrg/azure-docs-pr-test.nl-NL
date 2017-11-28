@@ -1,0 +1,16 @@
+<span data-ttu-id="d5dfa-101">Hier wordt het gebruik van de **Service Bus - wanneer een bericht wordt ontvangen in een wachtrij** trigger een logic app-werkstroom starten wanneer een nieuw item naar een Service Bus-wachtrij wordt verzonden.</span><span class="sxs-lookup"><span data-stu-id="d5dfa-101">Here's how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is sent to a Service Bus queue.</span></span>  
+
+> [!NOTE]
+> <span data-ttu-id="d5dfa-102">U wordt gevraagd zich kunnen aanmelden met uw Service Bus-verbindingsreeks als u een verbinding met Service Bus nog geen hebt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="d5dfa-102">You will be prompted to sign in with your Service Bus connection string if you have not already created a connection to Service Bus.</span></span>  
+> 
+> 
+
+1. <span data-ttu-id="d5dfa-103">Voer in het zoekvak op de ontwerpfunctie van logic apps, **service bus**.</span><span class="sxs-lookup"><span data-stu-id="d5dfa-103">In the search box on the logic apps designer, enter **service bus**.</span></span> <span data-ttu-id="d5dfa-104">Selecteer vervolgens de **Service Bus - wanneer een bericht wordt ontvangen in een wachtrij** trigger.</span><span class="sxs-lookup"><span data-stu-id="d5dfa-104">Then select the **Service Bus - When a message is received in a queue** trigger.</span></span>  
+   <span data-ttu-id="d5dfa-105">![Service Bus triggerafbeelding 1](./media/connectors-create-api-servicebus/trigger-1.png)</span><span class="sxs-lookup"><span data-stu-id="d5dfa-105">![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)</span></span>   
+2. <span data-ttu-id="d5dfa-106">De **wanneer een bericht is ontvangen in een wachtrij** in het dialoogvenster wordt weergegeven.</span><span class="sxs-lookup"><span data-stu-id="d5dfa-106">The **When a message is received in a queue** dialog box is displayed.</span></span>  
+   <span data-ttu-id="d5dfa-107">![Service Bus triggerafbeelding 2](./media/connectors-create-api-servicebus/trigger-2.png)</span><span class="sxs-lookup"><span data-stu-id="d5dfa-107">![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)</span></span>   
+3. <span data-ttu-id="d5dfa-108">Voer de naam van de Service Bus-wachtrij die u de trigger dat wilt voor het bewaken van.</span><span class="sxs-lookup"><span data-stu-id="d5dfa-108">Enter the name of the Service Bus queue you would like the trigger to monitor.</span></span>   
+   ![Service Bus triggerafbeelding 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+
+<span data-ttu-id="d5dfa-110">Op dit moment is uw logische app geconfigureerd met een trigger.</span><span class="sxs-lookup"><span data-stu-id="d5dfa-110">At this point, your logic app has been configured with a trigger.</span></span> <span data-ttu-id="d5dfa-111">Wanneer een nieuw item is ontvangen in de wachtrij die u hebt geselecteerd, kan de trigger een uitvoering van de andere triggers en acties in de werkstroom wordt gestart.</span><span class="sxs-lookup"><span data-stu-id="d5dfa-111">When a new item is received in the queue you selected, the trigger will begin a run of the other triggers and actions in the workflow.</span></span>    
+

@@ -1,0 +1,7 @@
+
+1. <span data-ttu-id="c8668-101">In de [Azure-portal](https://portal.azure.com/), klikt u op **door alles bladeren** > **App Services**, en klikt u op uw back-end van Mobile Apps.</span><span class="sxs-lookup"><span data-stu-id="c8668-101">In the [Azure portal](https://portal.azure.com/), click **Browse All** > **App Services**, and click your Mobile Apps back end.</span></span> <span data-ttu-id="c8668-102">Onder **instellingen**, klikt u op **App Service-Push**, en klik vervolgens op de naam van uw notification hub.</span><span class="sxs-lookup"><span data-stu-id="c8668-102">Under **Settings**, click **App Service Push**, and then click your notification hub name.</span></span>
+2. <span data-ttu-id="c8668-103">Ga naar **Windows (WNS)**, voer de **beveiligingssleutel** (clientgeheim) en **pakket-SID** die u hebt verkregen via de Live Services site en klik vervolgens op **opslaan** .</span><span class="sxs-lookup"><span data-stu-id="c8668-103">Go to **Windows (WNS)**, enter the **Security key** (client secret) and **Package SID** that you obtained from the Live Services site, and then click **Save**.</span></span>
+
+    ![Stel de WNS-sleutel in de portal](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
+
+<span data-ttu-id="c8668-105">Uw back-end is nu geconfigureerd voor het gebruik van WNS om pushmeldingen te verzenden.</span><span class="sxs-lookup"><span data-stu-id="c8668-105">Your back end is now configured to use WNS to send push notifications.</span></span>

@@ -1,0 +1,47 @@
+---
+title: 'ExpressRoute-connectiviteitsmodellen: verbinding maken met Microsoft Azure via netwerkserviceproviders, exchanges en Ethernet-providers | Microsoft-documenten'
+description: In dit artikel leest u over de verschillende modi voor connectiviteit tussen het netwerk van de klant en Microsoft Azure, Office 365 en Dynamics 365. Klanten kunnen gebruikmaken van MPLS-providers, cloudexchanges en Ethernet-providers.
+documentationcenter: na
+services: expressroute
+author: cherylmc
+manager: timlt
+editor: 
+ms.assetid: 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 02/09/2017
+ms.author: cherylmc
+ms.openlocfilehash: 00f97da2189491103c461b49ac82feb92d8f4b9b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="expressroute-connectivity-models"></a><span data-ttu-id="10046-104">ExpressRoute-connectiviteitsmodellen</span><span class="sxs-lookup"><span data-stu-id="10046-104">ExpressRoute connectivity models</span></span>
+<span data-ttu-id="10046-105">U kunt op drie verschillende manieren een verbinding maken tussen uw on-premises netwerk en Microsoft Cloud: [CloudExchange-co-locatie](#CloudExchange), [point-to-point Ethernet-verbinding](#Ethernet) en [any-to-any (IPVPN) verbinding](#IPVPN).</span><span class="sxs-lookup"><span data-stu-id="10046-105">You can create a connection between your on-premises network and the Microsoft cloud in three different ways, [CloudExchange Co-location](#CloudExchange), [Point-to-point Ethernet Connection](#Ethernet), and [Any-to-any (IPVPN) Connection](#IPVPN).</span></span> <span data-ttu-id="10046-106">Connectiviteitsproviders kunnen een of meer connectiviteitsmodellen bieden.</span><span class="sxs-lookup"><span data-stu-id="10046-106">Connectivity providers can offer one or more connectivity models.</span></span> <span data-ttu-id="10046-107">Overleg met uw connectiviteitsprovider om na te gaan welk model voor u het meest geschikt is.</span><span class="sxs-lookup"><span data-stu-id="10046-107">You can work with your connectivity provider to pick the model that works best for you.</span></span>
+<br><br>
+
+![Diagram van ExpressRoute-connectiviteitsmodellen](./media/expressroute-connectivity-models/expressroute-connectivity-models-diagram.png)
+
+## <span data-ttu-id="10046-109"><a name="CloudExchange"></a>Co-locatie op een cloudexchange</span><span class="sxs-lookup"><span data-stu-id="10046-109"><a name="CloudExchange"></a>Co-located at a cloud exchange</span></span>
+<span data-ttu-id="10046-110">Als u zich bevindt op dezelfde locatie als een exchange-cloud, kunt u virtuele overlappende verbindingen met de Microsoft Cloud aanvragen via de Ethernet exchange van de co-locatieprovider.</span><span class="sxs-lookup"><span data-stu-id="10046-110">If you are co-located in a facility with a cloud exchange, you can order virtual cross-connections to the Microsoft cloud through the co-location provider’s Ethernet exchange.</span></span> <span data-ttu-id="10046-111">Co-locatieproviders kunnen Laag-2-overlappende verbindingen of beheerde Laag-3 overlappende verbindingen tussen uw infrastructuur in de co-locatiefaciliteit en de Microsoft Cloud aanbieden.</span><span class="sxs-lookup"><span data-stu-id="10046-111">Co-location providers can offer either Layer 2 cross-connections, or managed Layer 3 cross-connections between your infrastructure in the co-location facility and the Microsoft cloud.</span></span>
+
+## <span data-ttu-id="10046-112"><a name="Ethernet"></a>Point-to-Point Ethernet-verbindingen</span><span class="sxs-lookup"><span data-stu-id="10046-112"><a name="Ethernet"></a>Point-to-point Ethernet connections</span></span>
+<span data-ttu-id="10046-113">U kunt uw on-premises datacenters/kantoren met de Microsoft Cloud verbinden via point-to-point Ethernet-koppelingen.</span><span class="sxs-lookup"><span data-stu-id="10046-113">You can connect your on-premises datacenters/offices to the Microsoft cloud through point-to-point Ethernet links.</span></span> <span data-ttu-id="10046-114">Point-to-point Ethernet-providers kunnen Laag-2-verbindingen of beheerde Laag-3-verbindingen bieden tussen uw locatie en de Microsoft Cloud.</span><span class="sxs-lookup"><span data-stu-id="10046-114">Point-to-point Ethernet providers can offer Layer 2 connections, or managed Layer 3 connections between your site and the Microsoft cloud.</span></span>
+
+## <span data-ttu-id="10046-115"><a name="IPVPN"></a>Any-to-any (IPVPN) netwerken</span><span class="sxs-lookup"><span data-stu-id="10046-115"><a name="IPVPN"></a>Any-to-any (IPVPN) networks</span></span>
+<span data-ttu-id="10046-116">U kunt uw WAN integreren met de Microsoft Cloud.</span><span class="sxs-lookup"><span data-stu-id="10046-116">You can integrate your WAN with the Microsoft cloud.</span></span> <span data-ttu-id="10046-117">IPVPN-providers (doorgaans MPLS VPN) bieden any-to-any connectiviteit tussen uw filialen en datacenters.</span><span class="sxs-lookup"><span data-stu-id="10046-117">IPVPN providers (typically MPLS VPN) offer any-to-any connectivity between your branch offices and datacenters.</span></span> <span data-ttu-id="10046-118">De Microsoft Cloud kan ook worden verbonden met uw WAN, zodat het er net zo uitziet als een filiaal.</span><span class="sxs-lookup"><span data-stu-id="10046-118">The Microsoft cloud can be interconnected to your WAN to make it look just like any other branch office.</span></span> <span data-ttu-id="10046-119">WAN-providers bieden doorgaans beheerde Laag-3-connectiviteit.</span><span class="sxs-lookup"><span data-stu-id="10046-119">WAN providers typically offer managed Layer 3 connectivity.</span></span> <span data-ttu-id="10046-120">ExpressRoute-functies en -mogelijkheden zijn identiek in alle bovenstaande connectiviteitsmodellen.</span><span class="sxs-lookup"><span data-stu-id="10046-120">ExpressRoute capabilities and features are all identical across all of the above connectivity models.</span></span> 
+
+## <a name="next-steps"></a><span data-ttu-id="10046-121">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="10046-121">Next steps</span></span>
+* <span data-ttu-id="10046-122">Meer informatie over ExpressRoute-verbindingen en -routeringsdomeinen.</span><span class="sxs-lookup"><span data-stu-id="10046-122">Learn about ExpressRoute connections and routing domains.</span></span> <span data-ttu-id="10046-123">Zie [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) (ExpressRoute-circuits en -routeringsdomeinen).</span><span class="sxs-lookup"><span data-stu-id="10046-123">See [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).</span></span>
+* <span data-ttu-id="10046-124">Meer informatie over ExpressRoute-functies.</span><span class="sxs-lookup"><span data-stu-id="10046-124">Learn about ExpressRoute features.</span></span> <span data-ttu-id="10046-125">Zie [Technisch overzicht van ExpressRoute](expressroute-introduction.md)</span><span class="sxs-lookup"><span data-stu-id="10046-125">See the [ExpressRoute Technical Overview](expressroute-introduction.md)</span></span>
+* <span data-ttu-id="10046-126">Zoek een serviceprovider</span><span class="sxs-lookup"><span data-stu-id="10046-126">Find a service provider.</span></span> <span data-ttu-id="10046-127">Zie [ExpressRoute partners and peering locations](expressroute-locations.md) (ExpressRoute-partners en -peeringlocaties).</span><span class="sxs-lookup"><span data-stu-id="10046-127">See [ExpressRoute partners and peering locations](expressroute-locations.md).</span></span>
+* <span data-ttu-id="10046-128">Controleer of aan alle vereisten is voldaan.</span><span class="sxs-lookup"><span data-stu-id="10046-128">Ensure that all prerequisites are met.</span></span> <span data-ttu-id="10046-129">Zie [ExpressRoute prerequisites](expressroute-prerequisites.md) (Vereisten voor ExpressRoute).</span><span class="sxs-lookup"><span data-stu-id="10046-129">See [ExpressRoute prerequisites](expressroute-prerequisites.md).</span></span>
+* <span data-ttu-id="10046-130">Raadpleeg de vereisten voor [Routering](expressroute-routing.md), [NAT](expressroute-nat.md) en [QoS](expressroute-qos.md).</span><span class="sxs-lookup"><span data-stu-id="10046-130">Refer to the requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md), and [QoS](expressroute-qos.md).</span></span>
+* <span data-ttu-id="10046-131">Configureer uw ExpressRoute-verbinding.</span><span class="sxs-lookup"><span data-stu-id="10046-131">Configure your ExpressRoute connection.</span></span>
+  * [<span data-ttu-id="10046-132">Een ExpressRoute-circuit maken</span><span class="sxs-lookup"><span data-stu-id="10046-132">Create an ExpressRoute circuit</span></span>](expressroute-howto-circuit-portal-resource-manager.md)
+  * [<span data-ttu-id="10046-133">Routering configureren</span><span class="sxs-lookup"><span data-stu-id="10046-133">Configure routing</span></span>](expressroute-howto-routing-portal-resource-manager.md)
+  * [<span data-ttu-id="10046-134">Een VNet koppelen aan een ExpressRoute-circuit</span><span class="sxs-lookup"><span data-stu-id="10046-134">Link a VNet to an ExpressRoute circuit</span></span>](expressroute-howto-linkvnet-portal-resource-manager.md)

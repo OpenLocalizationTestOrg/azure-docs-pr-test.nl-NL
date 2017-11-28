@@ -1,0 +1,53 @@
+---
+title: Azure Batch-pool vergroten of verkleinen van de gebeurtenis | Microsoft Docs
+description: Naslaginformatie voor Batch-pool vergroten of verkleinen van de gebeurtenis.
+services: batch
+author: tamram
+manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
+ms.openlocfilehash: 7072293d98526812cb42ce9c2f8e33bfcafaa149
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="pool-resize-complete-event"></a><span data-ttu-id="92595-103">Gebeurtenis resize van toepassingen</span><span class="sxs-lookup"><span data-stu-id="92595-103">Pool resize complete event</span></span>
+
+ <span data-ttu-id="92595-104">Deze gebeurtenis wordt verzonden wanneer het formaat van een groep van toepassingen is voltooid of mislukt.</span><span class="sxs-lookup"><span data-stu-id="92595-104">This event is emitted when a pool resize has completed or failed.</span></span>
+
+ <span data-ttu-id="92595-105">Het volgende voorbeeld ziet de hoofdtekst van de groep complete gebeurtenis resize voor een groep die vergroot en is voltooid.</span><span class="sxs-lookup"><span data-stu-id="92595-105">The following example shows the body of a pool resize complete event for a pool that increased in size and completed successfully.</span></span>
+
+```
+{
+    "id": "p_1_0_01503750-252d-4e57-bd96-d6aa05601ad8",
+    "nodeDeallocationOption": "invalid",
+    "currentDedicated": 4,
+    "targetDedicated": 4,
+    "enableAutoScale": false,
+    "isAutoPool": false,
+    "startTime": "2016-09-09T22:13:06.573Z",
+    "endTime": "2016-09-09T22:14:01.727Z",
+    "result": "Success",
+    "resizeError": "The operation succeeded"
+}
+```
+
+|<span data-ttu-id="92595-106">Element</span><span class="sxs-lookup"><span data-stu-id="92595-106">Element</span></span>|<span data-ttu-id="92595-107">Type</span><span class="sxs-lookup"><span data-stu-id="92595-107">Type</span></span>|<span data-ttu-id="92595-108">Opmerkingen</span><span class="sxs-lookup"><span data-stu-id="92595-108">Notes</span></span>|
+|-------------|----------|-----------|
+|<span data-ttu-id="92595-109">id</span><span class="sxs-lookup"><span data-stu-id="92595-109">id</span></span>|<span data-ttu-id="92595-110">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="92595-110">String</span></span>|<span data-ttu-id="92595-111">De id van de groep.</span><span class="sxs-lookup"><span data-stu-id="92595-111">The id of the pool.</span></span>|
+|<span data-ttu-id="92595-112">nodeDeallocationOption</span><span class="sxs-lookup"><span data-stu-id="92595-112">nodeDeallocationOption</span></span>|<span data-ttu-id="92595-113">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="92595-113">String</span></span>|<span data-ttu-id="92595-114">Geeft aan wanneer knooppunten kunnen worden verwijderd uit de groep als de poolgrootte afneemt.</span><span class="sxs-lookup"><span data-stu-id="92595-114">Specifies when nodes may be removed from the pool, if the pool size is decreasing.</span></span><br /><br /> <span data-ttu-id="92595-115">Mogelijke waarden zijn:</span><span class="sxs-lookup"><span data-stu-id="92595-115">Possible values are:</span></span><br /><br /> <span data-ttu-id="92595-116">**requeue** : Beëindig actieve taken en requeue ze.</span><span class="sxs-lookup"><span data-stu-id="92595-116">**requeue** – Terminate running tasks and requeue them.</span></span> <span data-ttu-id="92595-117">De taken wordt opnieuw uitgevoerd wanneer de taak is ingeschakeld.</span><span class="sxs-lookup"><span data-stu-id="92595-117">The tasks will run again when the job is enabled.</span></span> <span data-ttu-id="92595-118">Knooppunten verwijderen zodra taken zijn beëindigd.</span><span class="sxs-lookup"><span data-stu-id="92595-118">Remove nodes as soon as tasks have been terminated.</span></span><br /><br /> <span data-ttu-id="92595-119">**beëindigen** – actieve taken beëindigen.</span><span class="sxs-lookup"><span data-stu-id="92595-119">**terminate** – Terminate running tasks.</span></span> <span data-ttu-id="92595-120">De taken worden niet opnieuw uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="92595-120">The tasks will not run again.</span></span> <span data-ttu-id="92595-121">Knooppunten verwijderen zodra taken zijn beëindigd.</span><span class="sxs-lookup"><span data-stu-id="92595-121">Remove nodes as soon as tasks have been terminated.</span></span><br /><br /> <span data-ttu-id="92595-122">**taskcompletion** : toestaan dat actieve taken te voltooien.</span><span class="sxs-lookup"><span data-stu-id="92595-122">**taskcompletion** – Allow currently running tasks to complete.</span></span> <span data-ttu-id="92595-123">Er zijn geen nieuwe taken tijdens het wachten plannen.</span><span class="sxs-lookup"><span data-stu-id="92595-123">Schedule no new tasks while waiting.</span></span> <span data-ttu-id="92595-124">Verwijder de knooppunten wanneer alle taken zijn voltooid.</span><span class="sxs-lookup"><span data-stu-id="92595-124">Remove nodes when all tasks have completed.</span></span><br /><br /> <span data-ttu-id="92595-125">**Retaineddata** -Sta toe dat actieve taken uit om te voltooien en wacht vervolgens tot alle bewaarperioden om te verlopen.</span><span class="sxs-lookup"><span data-stu-id="92595-125">**Retaineddata** -  Allow currently running tasks to complete, then wait for all task data retention periods to expire.</span></span> <span data-ttu-id="92595-126">Er zijn geen nieuwe taken tijdens het wachten plannen.</span><span class="sxs-lookup"><span data-stu-id="92595-126">Schedule no new tasks while waiting.</span></span> <span data-ttu-id="92595-127">Verwijder de knooppunten wanneer alle bewaarperioden voor taken zijn verlopen.</span><span class="sxs-lookup"><span data-stu-id="92595-127">Remove nodes when all task retention periods have expired.</span></span><br /><br /> <span data-ttu-id="92595-128">De standaardwaarde is requeue.</span><span class="sxs-lookup"><span data-stu-id="92595-128">The default value is requeue.</span></span><br /><br /> <span data-ttu-id="92595-129">Als de poolgrootte toeneemt, wordt de waarde is ingesteld op **ongeldig**.</span><span class="sxs-lookup"><span data-stu-id="92595-129">If the pool size is increasing then the value is set to **invalid**.</span></span>|
+|<span data-ttu-id="92595-130">currentDedicated</span><span class="sxs-lookup"><span data-stu-id="92595-130">currentDedicated</span></span>|<span data-ttu-id="92595-131">Int32</span><span class="sxs-lookup"><span data-stu-id="92595-131">Int32</span></span>|<span data-ttu-id="92595-132">Het aantal rekenknooppunten momenteel toegewezen aan de groep.</span><span class="sxs-lookup"><span data-stu-id="92595-132">The number of compute nodes currently assigned to the pool.</span></span>|
+|<span data-ttu-id="92595-133">targetDedicated</span><span class="sxs-lookup"><span data-stu-id="92595-133">targetDedicated</span></span>|<span data-ttu-id="92595-134">Int32</span><span class="sxs-lookup"><span data-stu-id="92595-134">Int32</span></span>|<span data-ttu-id="92595-135">Het aantal rekenknooppunten die zijn aangevraagd voor de groep.</span><span class="sxs-lookup"><span data-stu-id="92595-135">The number of compute nodes that are requested for the pool.</span></span>|
+|<span data-ttu-id="92595-136">enableAutoScale</span><span class="sxs-lookup"><span data-stu-id="92595-136">enableAutoScale</span></span>|<span data-ttu-id="92595-137">BOOL</span><span class="sxs-lookup"><span data-stu-id="92595-137">Bool</span></span>|<span data-ttu-id="92595-138">Hiermee geeft u op of de poolgrootte automatisch wordt aangepast gedurende een bepaalde periode.</span><span class="sxs-lookup"><span data-stu-id="92595-138">Specifies whether the pool size automatically adjusts over time.</span></span>|
+|<span data-ttu-id="92595-139">isAutoPool</span><span class="sxs-lookup"><span data-stu-id="92595-139">isAutoPool</span></span>|<span data-ttu-id="92595-140">BOOL</span><span class="sxs-lookup"><span data-stu-id="92595-140">Bool</span></span>|<span data-ttu-id="92595-141">Hiermee geeft u op of de groep is gemaakt via een taak AutoPool mechanisme.</span><span class="sxs-lookup"><span data-stu-id="92595-141">Specifies whether the pool was created via a job's AutoPool mechanism.</span></span>|
+|<span data-ttu-id="92595-142">startTime</span><span class="sxs-lookup"><span data-stu-id="92595-142">startTime</span></span>|<span data-ttu-id="92595-143">Datum/tijd</span><span class="sxs-lookup"><span data-stu-id="92595-143">DateTime</span></span>|<span data-ttu-id="92595-144">De tijd die het formaat van de groep van toepassingen is gestart.</span><span class="sxs-lookup"><span data-stu-id="92595-144">The time the pool resize started.</span></span>|
+|<span data-ttu-id="92595-145">Eindtijd</span><span class="sxs-lookup"><span data-stu-id="92595-145">endTime</span></span>|<span data-ttu-id="92595-146">Datum/tijd</span><span class="sxs-lookup"><span data-stu-id="92595-146">DateTime</span></span>|<span data-ttu-id="92595-147">De tijd formaat van de groep van toepassingen is voltooid.</span><span class="sxs-lookup"><span data-stu-id="92595-147">The time the pool resize completed.</span></span>|
+|<span data-ttu-id="92595-148">resultCode</span><span class="sxs-lookup"><span data-stu-id="92595-148">resultCode</span></span>|<span data-ttu-id="92595-149">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="92595-149">String</span></span>|<span data-ttu-id="92595-150">Het resultaat van het formaat te wijzigen.</span><span class="sxs-lookup"><span data-stu-id="92595-150">The result of the resize.</span></span>|
+|<span data-ttu-id="92595-151">resultMessage</span><span class="sxs-lookup"><span data-stu-id="92595-151">resultMessage</span></span>|<span data-ttu-id="92595-152">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="92595-152">String</span></span>|<span data-ttu-id="92595-153">De fout formaat bevat de details van het resultaat.</span><span class="sxs-lookup"><span data-stu-id="92595-153">The resize error includes the details of the result.</span></span><br /><br /> <span data-ttu-id="92595-154">Als het formaat is voltooid wordt aangegeven dat de bewerking is voltooid.</span><span class="sxs-lookup"><span data-stu-id="92595-154">If the resize completed successfully it states that the operation succeeded.</span></span>|

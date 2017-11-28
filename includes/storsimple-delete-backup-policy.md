@@ -1,0 +1,10 @@
+
+<!--author=SharS last changed: 11/06/15-->
+
+#### <a name="to-delete-a-storsimple-backup-policy"></a><span data-ttu-id="11d46-101">Een StorSimple-back-upbeleid te verwijderen</span><span class="sxs-lookup"><span data-stu-id="11d46-101">To delete a StorSimple backup policy</span></span>
+1. <span data-ttu-id="11d46-102">Klik op de pagina **Snel starten** van het apparaat op het tabblad **Back-upbeleid**.</span><span class="sxs-lookup"><span data-stu-id="11d46-102">On the device **Quick Start** page, click the **Backup Policies** tab.</span></span> <span data-ttu-id="11d46-103">De pagina **Back-upbeleid** wordt geopend.</span><span class="sxs-lookup"><span data-stu-id="11d46-103">This will take you to the **Backup Policies** page.</span></span>
+2. <span data-ttu-id="11d46-104">Selecteer het beleid door ergens in de eerste kolom de bijbehorende rij te klikken en klik vervolgens op **verwijderen** aan de onderkant van de pagina.</span><span class="sxs-lookup"><span data-stu-id="11d46-104">Select the policy by clicking anywhere in the corresponding row except for the first column, and then click **Delete** at the bottom of the page.</span></span>
+3. <span data-ttu-id="11d46-105">U wordt gevraagd om bevestiging.</span><span class="sxs-lookup"><span data-stu-id="11d46-105">You will be prompted for confirmation.</span></span> <span data-ttu-id="11d46-106">Houd er rekening mee dat een back-upbeleid te verwijderen, u alle gekoppelde back-ups verwijdert.</span><span class="sxs-lookup"><span data-stu-id="11d46-106">Keep in mind that deleting a backup policy will delete all the associated backups.</span></span> <span data-ttu-id="11d46-107">Klik op **Ja** te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="11d46-107">Click **Yes** to delete.</span></span>
+
+<span data-ttu-id="11d46-108">De **back-upbeleid** pagina wordt bijgewerkt om de nieuwe lijst met beleidsregels weer te geven.</span><span class="sxs-lookup"><span data-stu-id="11d46-108">The **Backup Policies** page will be updated to display the new list of policies.</span></span>
+

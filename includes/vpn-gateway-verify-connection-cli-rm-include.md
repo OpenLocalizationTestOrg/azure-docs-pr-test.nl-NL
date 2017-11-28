@@ -1,0 +1,6 @@
+<span data-ttu-id="82453-101">U kunt controleren of uw verbinding is geslaagd met behulp van de opdracht [az network vpn-connection show](/cli/azure/network/vpn-connection#show).</span><span class="sxs-lookup"><span data-stu-id="82453-101">You can verify that your connection succeeded by using the [az network vpn-connection show](/cli/azure/network/vpn-connection#show) command.</span></span> <span data-ttu-id="82453-102">In het voorbeeld verwijst "--name" naar de naam van de verbinding die u wilt testen.</span><span class="sxs-lookup"><span data-stu-id="82453-102">In the example, '--name' refers to the name of the connection that you want to test.</span></span> <span data-ttu-id="82453-103">Zolang het tot stand brengen van de verbinding bezig is, is de verbindingsstatus "Verbinding maken".</span><span class="sxs-lookup"><span data-stu-id="82453-103">When the connection is in the process of being established, its connection status shows 'Connecting'.</span></span> <span data-ttu-id="82453-104">Wanneer de verbinding tot stand is gebracht, verandert de status in "Verbonden".</span><span class="sxs-lookup"><span data-stu-id="82453-104">Once the connection is established, the status changes to 'Connected'.</span></span>
+
+```azurecli
+az network vpn-connection show --name VNet1toSite2 --resource-group TestRG1
+```
+

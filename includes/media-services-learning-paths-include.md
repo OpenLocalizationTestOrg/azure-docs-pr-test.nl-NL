@@ -1,0 +1,4 @@
+<span data-ttu-id="2ab63-101">Hier kunt u de leertrajecten van Azure Media Services bekijken:</span><span class="sxs-lookup"><span data-stu-id="2ab63-101">You can view Azure Media Services learning paths here:</span></span>
+
+* [<span data-ttu-id="2ab63-102">Werkstroom voor Media Services Live Streaming</span><span class="sxs-lookup"><span data-stu-id="2ab63-102">Media Services Live Streaming Workflow</span></span>](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+* [<span data-ttu-id="2ab63-103">Werkstroom voor Media Services on Demand Streaming</span><span class="sxs-lookup"><span data-stu-id="2ab63-103">Media Services on Demand Streaming Workflow</span></span>](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)

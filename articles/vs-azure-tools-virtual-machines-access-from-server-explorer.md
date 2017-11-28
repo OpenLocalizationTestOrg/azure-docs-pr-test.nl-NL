@@ -1,0 +1,54 @@
+---
+title: Azure virtuele Machines in Server Explorer aaaAccessing | Microsoft Docs
+description: Biedt een overzicht van hoe tooview maken en beheren van Azure virtuele machines (VM's) in Server Explorer in Visual Studio.
+services: visual-studio-online
+documentationcenter: na
+author: kraigb
+manager: ghogen
+editor: 
+ms.assetid: eb3afde6-ba90-4308-9ac1-3cc29da4ede0
+ms.service: multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.date: 11/18/2016
+ms.author: kraigb
+ms.openlocfilehash: f8326aed105a64ca558f766d712cc68701f82c15
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/06/2017
+---
+# <a name="accessing-azure-virtual-machines-from-server-explorer"></a><span data-ttu-id="fbb2b-103">Toegang tot virtuele Machines van Azure in Server Explorer</span><span class="sxs-lookup"><span data-stu-id="fbb2b-103">Accessing Azure Virtual Machines from Server Explorer</span></span>
+<span data-ttu-id="fbb2b-104">Server Explorer in Visual Studio gebruikt, kunt u informatie weergeven over uw virtuele machines die door Azure worden gehost.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-104">By using Server Explorer in Visual Studio, you can display information about your virtual machines hosted by Azure.</span></span>
+
+## <a name="accessing-virtual-machines-in-server-explorer"></a><span data-ttu-id="fbb2b-105">Toegang tot virtuele machines in Server Explorer</span><span class="sxs-lookup"><span data-stu-id="fbb2b-105">Accessing virtual machines in Server Explorer</span></span>
+<span data-ttu-id="fbb2b-106">Als u virtuele machines die worden gehost door Azure hebt, kunt u deze kunt openen in Server Explorer.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-106">If you have virtual machines hosted by Azure, you can access them in Server Explorer.</span></span> <span data-ttu-id="fbb2b-107">U moet eerst aanmelden tooyour Azure-abonnement tooview uw mobile services.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-107">You must first sign in tooyour Azure subscription tooview your mobile services.</span></span> <span data-ttu-id="fbb2b-108">toosign, Hallo snelmenu voor hello Azure knooppunt in Server Explorer te openen en kies **tooMicrosoft Azure verbinding**.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-108">toosign in, open hello shortcut menu for hello Azure node in Server Explorer, and choose **Connect tooMicrosoft Azure**.</span></span>
+
+### <a name="tooget-information-about-your-virtual-machines"></a><span data-ttu-id="fbb2b-109">tooget informatie over uw virtuele machines</span><span class="sxs-lookup"><span data-stu-id="fbb2b-109">tooget information about your virtual machines</span></span>
+1. <span data-ttu-id="fbb2b-110">In Server Explorer, kiest u een virtuele machine en kies vervolgens Hallo F4 sleutel tooshow het eigenschappenvenster.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-110">In Server Explorer, choose a virtual machine, and then choose hello F4 key tooshow its properties window.</span></span>
+   
+    <span data-ttu-id="fbb2b-111">Hallo volgende tabel ziet u welke eigenschappen beschikbaar zijn, maar ze zijn allemaal alleen-lezen.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-111">hello following table shows what properties are available, but they are all read-only.</span></span> <span data-ttu-id="fbb2b-112">toochange ze, gebruikt u Hallo [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885).</span><span class="sxs-lookup"><span data-stu-id="fbb2b-112">toochange them, use hello [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).</span></span>
+   
+   | <span data-ttu-id="fbb2b-113">Eigenschap</span><span class="sxs-lookup"><span data-stu-id="fbb2b-113">Property</span></span> | <span data-ttu-id="fbb2b-114">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="fbb2b-114">Description</span></span> |
+   | --- | --- |
+   | <span data-ttu-id="fbb2b-115">DNS-naam</span><span class="sxs-lookup"><span data-stu-id="fbb2b-115">DNS Name</span></span> |<span data-ttu-id="fbb2b-116">Hallo-URL met Hallo internetadres van Hallo virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-116">hello URL with hello Internet address of hello virtual machine.</span></span> |
+   | <span data-ttu-id="fbb2b-117">Omgeving</span><span class="sxs-lookup"><span data-stu-id="fbb2b-117">Environment</span></span> |<span data-ttu-id="fbb2b-118">Hallo-waarde van deze eigenschap is voor een virtuele machine altijd productie.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-118">For a virtual machine, hello value of this property is always Production.</span></span> |
+   | <span data-ttu-id="fbb2b-119">Naam</span><span class="sxs-lookup"><span data-stu-id="fbb2b-119">Name</span></span> |<span data-ttu-id="fbb2b-120">Hallo-naam van Hallo virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-120">hello name of hello virtual machine.</span></span> |
+   | <span data-ttu-id="fbb2b-121">Grootte</span><span class="sxs-lookup"><span data-stu-id="fbb2b-121">Size</span></span> |<span data-ttu-id="fbb2b-122">Hallo-grootte van Hallo virtuele machine, die weerspiegelt Hallo en de hoeveelheid geheugen en schijfruimte ruimte die beschikbaar is.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-122">hello size of hello virtual machine, which reflects hello amount of memory and disk space that’s available.</span></span> <span data-ttu-id="fbb2b-123">Zie voor meer informatie How To: grootte van virtuele machines configureren.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-123">For more information, see How To: Configure Virtual Machine Sizes.</span></span> |
+   | <span data-ttu-id="fbb2b-124">Status</span><span class="sxs-lookup"><span data-stu-id="fbb2b-124">Status</span></span> |<span data-ttu-id="fbb2b-125">Waarden zijn starten, gestart, gestopt, gestopt en Status ophalen.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-125">Values include Starting, Started, Stopping, Stopped, and Retrieving Status.</span></span> <span data-ttu-id="fbb2b-126">Als bij het ophalen van de Status wordt weergegeven, is de huidige status Hallo is onbekend.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-126">If Retrieving Status appears, hello current status is unknown.</span></span> <span data-ttu-id="fbb2b-127">Hallo-waarden voor deze eigenschap verschillen van Hallo-waarden die worden gebruikt op Hallo [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885).</span><span class="sxs-lookup"><span data-stu-id="fbb2b-127">hello values for this property differ from hello values that are used on hello [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).</span></span> |
+   | <span data-ttu-id="fbb2b-128">Abonnements-id</span><span class="sxs-lookup"><span data-stu-id="fbb2b-128">SubscriptionID</span></span> |<span data-ttu-id="fbb2b-129">Hallo abonnements-ID voor uw Azure-account.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-129">hello subscription ID for your Azure account.</span></span> <span data-ttu-id="fbb2b-130">U kunt deze informatie weergeven op Hallo [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885) door Hallo-eigenschappen voor een abonnement te bekijken.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-130">You can show this information on hello [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) by viewing hello properties for a subscription.</span></span> |
+2. <span data-ttu-id="fbb2b-131">Kies een knooppunt van het eindpunt en bekijkt hello **eigenschappen** venster.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-131">Choose an endpoint node, and then view hello **Properties** window.</span></span>
+3. <span data-ttu-id="fbb2b-132">Hallo volgende tabel beschrijft Hallo beschikbare eigenschappen van eindpunten, maar ze zijn alleen-lezen.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-132">hello following table describes hello available properties of endpoints, but they are read-only.</span></span> <span data-ttu-id="fbb2b-133">Hallo-eindpunten voor tooadd of bewerken voor een virtuele machine, gebruik Hallo [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885).</span><span class="sxs-lookup"><span data-stu-id="fbb2b-133">tooadd or edit hello endpoints for a virtual machine, use hello [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).</span></span> 
+   
+   | <span data-ttu-id="fbb2b-134">Eigenschap</span><span class="sxs-lookup"><span data-stu-id="fbb2b-134">Property</span></span> | <span data-ttu-id="fbb2b-135">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="fbb2b-135">Description</span></span> |
+   | --- | --- |
+   | <span data-ttu-id="fbb2b-136">Naam</span><span class="sxs-lookup"><span data-stu-id="fbb2b-136">Name</span></span> |<span data-ttu-id="fbb2b-137">Een id voor het Hallo-eindpunt.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-137">An identifier for hello endpoint.</span></span> |
+   | <span data-ttu-id="fbb2b-138">Particuliere poort</span><span class="sxs-lookup"><span data-stu-id="fbb2b-138">Private Port</span></span> |<span data-ttu-id="fbb2b-139">Hallo-poort voor het netwerk toegang tot interne tooyour toepassing.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-139">hello port for network access internal tooyour application.</span></span> |
+   | <span data-ttu-id="fbb2b-140">Protocol</span><span class="sxs-lookup"><span data-stu-id="fbb2b-140">Protocol</span></span> |<span data-ttu-id="fbb2b-141">Hallo-protocol dat Hallo transportlaag voor dit eindpunt wordt gebruikt, TCP of UDP.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-141">hello protocol that hello transport layer for this endpoint uses, either TCP or UDP.</span></span> |
+   | <span data-ttu-id="fbb2b-142">Openbare poort</span><span class="sxs-lookup"><span data-stu-id="fbb2b-142">Public Port</span></span> |<span data-ttu-id="fbb2b-143">Hallo-poort die wordt gebruikt voor openbare toegang tooyour toepassing.</span><span class="sxs-lookup"><span data-stu-id="fbb2b-143">hello port that’s used for public access tooyour application.</span></span> |
+
+## <a name="next-steps"></a><span data-ttu-id="fbb2b-144">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="fbb2b-144">Next steps</span></span>
+<span data-ttu-id="fbb2b-145">toolearn meer informatie over het gebruik van Azure-functies in Visual Studio, Zie [met behulp van extern bureaublad met de Azure-rollen](vs-azure-tools-remote-desktop-roles.md).</span><span class="sxs-lookup"><span data-stu-id="fbb2b-145">toolearn more about using Azure roles in Visual Studio, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).</span></span>
+

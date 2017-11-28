@@ -1,0 +1,115 @@
+---
+title: Schakel Microsoft Windows Hello voor bedrijven in uw organisatie | Microsoft Docs
+description: Implementatie-instructies voor het Microsoft Passport inschakelen in uw organisatie.
+services: active-directory
+documentationcenter: 
+keywords: Microsoft Passport configureren, Microsoft Windows Hello voor bedrijven-implementatie
+author: MarkusVi
+manager: femila
+tags: azure-classic-portal
+ms.assetid: 7dbbe3c6-1cd7-429c-a9b2-115fcbc02416
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/05/2017
+ms.author: markvi
+ms.openlocfilehash: 58943e1e29755c983e55c675dd4fe7b75ac47b34
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a><span data-ttu-id="7e541-104">Schakel Microsoft Windows Hello voor bedrijven in uw organisatie</span><span class="sxs-lookup"><span data-stu-id="7e541-104">Enable Microsoft Windows Hello for Business in your organization</span></span>
+<span data-ttu-id="7e541-105">Na [domein Windows 10-apparaten verbinding te maken met Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), doet u het volgende om in te schakelen Microsoft Windows Hello voor bedrijven in uw organisatie:</span><span class="sxs-lookup"><span data-stu-id="7e541-105">After [connecting Windows 10 domain-joined devices with Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), do the following to enable Microsoft Windows Hello for Business in your organization:</span></span>
+
+1. <span data-ttu-id="7e541-106">System Center Configuration Manager implementeren</span><span class="sxs-lookup"><span data-stu-id="7e541-106">Deploy System Center Configuration Manager</span></span>  
+2. <span data-ttu-id="7e541-107">Configureren van beleidsinstellingen</span><span class="sxs-lookup"><span data-stu-id="7e541-107">Configure policy settings</span></span>
+3. <span data-ttu-id="7e541-108">Het certificaatprofiel configureren</span><span class="sxs-lookup"><span data-stu-id="7e541-108">Configure the certificate profile</span></span>  
+
+## <a name="deploy-system-center-configuration-manager"></a><span data-ttu-id="7e541-109">System Center Configuration Manager implementeren</span><span class="sxs-lookup"><span data-stu-id="7e541-109">Deploy System Center Configuration Manager</span></span>
+<span data-ttu-id="7e541-110">Als u wilt implementeren op basis van Windows Hello voor bedrijven sleutels gebruikerscertificaten, moet u het volgende:</span><span class="sxs-lookup"><span data-stu-id="7e541-110">To deploy user certificates based on Windows Hello for Business keys, you need the following:</span></span>
+
+* <span data-ttu-id="7e541-111">**System Center Configuration Manager Current Branch** -u moet versie 1606 of hoger installeren.</span><span class="sxs-lookup"><span data-stu-id="7e541-111">**System Center Configuration Manager Current Branch** - You need to install version 1606 or better.</span></span> <span data-ttu-id="7e541-112">Zie voor meer informatie de [documentatie voor System Center Configuration Manager](https://technet.microsoft.com/library/mt346023.aspx) en [System Center Configuration Manager-teamblog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).</span><span class="sxs-lookup"><span data-stu-id="7e541-112">For more information, see the [Documentation for System Center Configuration Manager](https://technet.microsoft.com/library/mt346023.aspx) and [System Center Configuration Manager Team Blog](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).</span></span>
+* <span data-ttu-id="7e541-113">**Openbare-sleutelinfrastructuur (PKI)** : als u wilt inschakelen Microsoft Windows Hello voor bedrijven met behulp van gebruikerscertificaten, u moet beschikken over een PKI.</span><span class="sxs-lookup"><span data-stu-id="7e541-113">**Public key infrastructure (PKI)** - To enable Microsoft Windows Hello for Business by using user certificates, you must have a PKI in place.</span></span> <span data-ttu-id="7e541-114">Als u niet hebt, of u niet wilt gebruiken voor gebruikerscertificaten, kunt u een nieuwe domeincontroller met Windows Server 2016 build 10551 (of hoger) geïnstalleerd kunt implementeren.</span><span class="sxs-lookup"><span data-stu-id="7e541-114">If you don’t have one, or you don’t want to use it for user certificates, you can deploy a new domain controller that has Windows Server 2016 build 10551 (or better) installed.</span></span> <span data-ttu-id="7e541-115">Volg de stappen voor [een replica-domeincontroller installeren in een bestaand domein](https://technet.microsoft.com/library/jj574134.aspx) of [een nieuw Active Directory-forest installeren als u een nieuwe omgeving](https://technet.microsoft.com/library/jj574166).</span><span class="sxs-lookup"><span data-stu-id="7e541-115">Follow the steps to [install a replica domain controller in an existing domain](https://technet.microsoft.com/library/jj574134.aspx) or to [install a new Active Directory forest, if you're creating a new environment](https://technet.microsoft.com/library/jj574166).</span></span> <span data-ttu-id="7e541-116">(De ISO's zijn beschikbaar voor downloaden op [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)</span><span class="sxs-lookup"><span data-stu-id="7e541-116">(The ISOs are available for download on [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)</span></span>
+
+## <a name="configure-policy-settings"></a><span data-ttu-id="7e541-117">Configureren van beleidsinstellingen</span><span class="sxs-lookup"><span data-stu-id="7e541-117">Configure policy settings</span></span>
+<span data-ttu-id="7e541-118">Voor het configureren van de Microsoft Windows Hello voor bedrijven-beleidsinstellingen, hebt u twee opties:</span><span class="sxs-lookup"><span data-stu-id="7e541-118">To configure the Microsoft Windows Hello for Business policy settings, you have two options:</span></span>
+
+* <span data-ttu-id="7e541-119">Groepsbeleid in Active Directory</span><span class="sxs-lookup"><span data-stu-id="7e541-119">Group Policy in Active Directory</span></span> 
+* <span data-ttu-id="7e541-120">De System Center Configuration Manager</span><span class="sxs-lookup"><span data-stu-id="7e541-120">The System Center Configuration Manager</span></span> 
+
+<span data-ttu-id="7e541-121">Via Groepsbeleid in Active Directory is de aanbevolen methode voor het configureren van Microsoft Windows Hello voor bedrijven-instellingen voor beleid.</span><span class="sxs-lookup"><span data-stu-id="7e541-121">Using Group Policy in Active Directory is the recommended method to configure Microsoft Windows Hello for Business policy settings.</span></span> 
+
+<span data-ttu-id="7e541-122">Het gebruik van System Center Configuration Manager is de aanbevolen methode wanneer u ook gebruiken om certificaten te implementeren.</span><span class="sxs-lookup"><span data-stu-id="7e541-122">Using System Center Configuration Manager is the preferred method when you also use it to deploy certificates.</span></span> <span data-ttu-id="7e541-123">Dit scenario:</span><span class="sxs-lookup"><span data-stu-id="7e541-123">This scenario:</span></span>
+
+* <span data-ttu-id="7e541-124">Zorgt voor compatibiliteit met de nieuwere implementatiescenario 's</span><span class="sxs-lookup"><span data-stu-id="7e541-124">Ensures compatibility with the newer deployment scenarios</span></span>
+* <span data-ttu-id="7e541-125">Aan de clientzijde Windows 10 versie 1607 of hoger vereist.</span><span class="sxs-lookup"><span data-stu-id="7e541-125">Requires on the client side Windows 10 Version 1607 or better.</span></span>
+
+### <a name="configure-microsoft-windows-hello-for-business-via-group-policy-in-active-directory"></a><span data-ttu-id="7e541-126">Configureer Microsoft Windows Hello voor bedrijven via Groepsbeleid in Active Directory</span><span class="sxs-lookup"><span data-stu-id="7e541-126">Configure Microsoft Windows Hello for Business via group policy in Active Directory</span></span>
+<span data-ttu-id="7e541-127">**Stappen**:</span><span class="sxs-lookup"><span data-stu-id="7e541-127">**Steps**:</span></span>
+
+1. <span data-ttu-id="7e541-128">Open Serverbeheer en navigeer naar **extra** > **Group Policy Management**.</span><span class="sxs-lookup"><span data-stu-id="7e541-128">Open Server Manager, and navigate to **Tools** > **Group Policy Management**.</span></span>
+2. <span data-ttu-id="7e541-129">Ga naar het knooppunt dat overeenkomt met het domein waarin u wilt inschakelen met het Azure AD Join van Group Policy Management.</span><span class="sxs-lookup"><span data-stu-id="7e541-129">From Group Policy Management, navigate to the domain node that corresponds to the domain in which you want to enable Azure AD Join.</span></span>
+3. <span data-ttu-id="7e541-130">Met de rechtermuisknop op **Group Policy Objects**, en selecteer **nieuw**.</span><span class="sxs-lookup"><span data-stu-id="7e541-130">Right-click **Group Policy Objects**, and select **New**.</span></span> <span data-ttu-id="7e541-131">Geef uw Group Policy Object een naam, bijvoorbeeld inschakelen Windows Hello voor bedrijven.</span><span class="sxs-lookup"><span data-stu-id="7e541-131">Give your Group Policy Object a name, for example, Enable Windows Hello for Business.</span></span> <span data-ttu-id="7e541-132">Klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="7e541-132">Click **OK**.</span></span>
+4. <span data-ttu-id="7e541-133">Met de rechtermuisknop op uw nieuwe groepsbeleidsobject en selecteer vervolgens **bewerken**.</span><span class="sxs-lookup"><span data-stu-id="7e541-133">Right-click your new Group Policy Object, and then select **Edit**.</span></span>
+5. <span data-ttu-id="7e541-134">Navigeer naar **Computerconfiguratie** > **beleid** > **Beheersjablonen** > **Windows-onderdelen** > **Windows Hello voor bedrijven**.</span><span class="sxs-lookup"><span data-stu-id="7e541-134">Navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Windows Hello for Business**.</span></span>
+6. <span data-ttu-id="7e541-135">Met de rechtermuisknop op **inschakelen Windows Hello voor bedrijven**, en selecteer vervolgens **bewerken**.</span><span class="sxs-lookup"><span data-stu-id="7e541-135">Right-click **Enable Windows Hello for Business**, and then select **Edit**.</span></span>
+7. <span data-ttu-id="7e541-136">Selecteer de **ingeschakeld** keuzerondje en klik vervolgens op **toepassen**.</span><span class="sxs-lookup"><span data-stu-id="7e541-136">Select the **Enabled** option button, and then click **Apply**.</span></span> <span data-ttu-id="7e541-137">Klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="7e541-137">Click **OK**.</span></span>
+8. <span data-ttu-id="7e541-138">U kunt nu het groepsbeleidsobject koppelen naar een locatie van uw keuze.</span><span class="sxs-lookup"><span data-stu-id="7e541-138">You can now link the Group Policy Object to a location of your choice.</span></span> <span data-ttu-id="7e541-139">Koppel het groepsbeleid aan het domein zodat dit beleid voor alle domein Windows 10-apparaten in uw organisatie.</span><span class="sxs-lookup"><span data-stu-id="7e541-139">To enable this policy for all of the domain-joined Windows 10 devices in your organization, link the Group Policy to the domain.</span></span> <span data-ttu-id="7e541-140">Bijvoorbeeld:</span><span class="sxs-lookup"><span data-stu-id="7e541-140">For example:</span></span>
+   * <span data-ttu-id="7e541-141">Een specifieke organisatie-eenheid (OE) in Active Directory waarop Windows 10-computers domein geplaatst worden</span><span class="sxs-lookup"><span data-stu-id="7e541-141">A specific organizational unit (OU) in Active Directory where Windows 10 domain-joined computers will be located</span></span>
+   * <span data-ttu-id="7e541-142">Een specifieke beveiligingsgroep met Windows 10 domeincomputers die automatisch wordt geregistreerd met Azure AD</span><span class="sxs-lookup"><span data-stu-id="7e541-142">A specific security group that contains Windows 10 domain-joined computers that will be automatically registered with Azure AD</span></span>
+
+### <a name="configure-windows-hello-for-business-using-system-center-configuration-manager"></a><span data-ttu-id="7e541-143">Windows Hello voor bedrijven met System Center Configuration Manager configureren</span><span class="sxs-lookup"><span data-stu-id="7e541-143">Configure Windows Hello for Business using System Center Configuration Manager</span></span>
+<span data-ttu-id="7e541-144">**Stappen**:</span><span class="sxs-lookup"><span data-stu-id="7e541-144">**Steps**:</span></span>
+
+1. <span data-ttu-id="7e541-145">Open de **System Center Configuration Manager**, en navigeer vervolgens naar **activa en naleving > instellingen voor naleving > toegang tot bedrijfsbronnen > Windows Hello voor bedrijven-profielen**.</span><span class="sxs-lookup"><span data-stu-id="7e541-145">Open the **System Center Configuration Manager**, and then navigate to **Assets & Compliance > Compliance Settings > Company Resource Access > Windows Hello for Business Profiles**.</span></span>
+   
+    ![Windows Hello voor bedrijven configureren](./media/active-directory-azureadjoin-passport-deployment/01.png)
+2. <span data-ttu-id="7e541-147">Klik in de werkbalk bovenaan op **maken Windows Hello voor bedrijven-profiel**.</span><span class="sxs-lookup"><span data-stu-id="7e541-147">In the toolbar on the top, click **Create Windows Hello for business Profile**.</span></span>
+   
+    ![Windows Hello voor bedrijven configureren](./media/active-directory-azureadjoin-passport-deployment/02.png)
+3. <span data-ttu-id="7e541-149">Op de **algemene** dialoogvenster de volgende stappen uitvoeren:</span><span class="sxs-lookup"><span data-stu-id="7e541-149">On the **General** dialog, perform the following steps:</span></span>
+   
+    ![Windows Hello voor bedrijven configureren](./media/active-directory-azureadjoin-passport-deployment/03.png)
+   
+    <span data-ttu-id="7e541-151">a.</span><span class="sxs-lookup"><span data-stu-id="7e541-151">a.</span></span> <span data-ttu-id="7e541-152">In de **naam** textbox, typ een naam voor uw profiel bijvoorbeeld **mijn WHfB profiel**.</span><span class="sxs-lookup"><span data-stu-id="7e541-152">In the **Name** textbox, type a name for your profile, for example, **My WHfB Profile**.</span></span>
+   
+    <span data-ttu-id="7e541-153">b.</span><span class="sxs-lookup"><span data-stu-id="7e541-153">b.</span></span> <span data-ttu-id="7e541-154">Klik op **Volgende**.</span><span class="sxs-lookup"><span data-stu-id="7e541-154">Click **Next**.</span></span>
+4. <span data-ttu-id="7e541-155">Op de **ondersteunde Platforms** dialoogvenster de platforms selecteren die worden ingericht met dit Windows Hello voor bedrijven-profiel en klik vervolgens op **volgende**.</span><span class="sxs-lookup"><span data-stu-id="7e541-155">On the **Supported Platforms** dialog, select the platforms that will be provisioned with this Windows Hello for business profile, and then click **Next**.</span></span>
+   
+    ![Windows Hello voor bedrijven configureren](./media/active-directory-azureadjoin-passport-deployment/04.png)
+5. <span data-ttu-id="7e541-157">Op de **instellingen** dialoogvenster de volgende stappen uitvoeren:</span><span class="sxs-lookup"><span data-stu-id="7e541-157">On the **Settings** dialog, perform the following steps:</span></span>
+   
+    ![Windows Hello voor bedrijven configureren](./media/active-directory-azureadjoin-passport-deployment/05.png)
+   
+    <span data-ttu-id="7e541-159">a.</span><span class="sxs-lookup"><span data-stu-id="7e541-159">a.</span></span> <span data-ttu-id="7e541-160">Als **configureren Windows Hello voor bedrijven**, selecteer **ingeschakeld**.</span><span class="sxs-lookup"><span data-stu-id="7e541-160">As **Configure Windows Hello for Business**, select **Enabled**.</span></span>
+   
+    <span data-ttu-id="7e541-161">b.</span><span class="sxs-lookup"><span data-stu-id="7e541-161">b.</span></span> <span data-ttu-id="7e541-162">Als **Trusted Platform Module (TPM) gebruiken**, selecteer **vereist**.</span><span class="sxs-lookup"><span data-stu-id="7e541-162">As **Use a Trusted Platform Module (TPM)**, select **Required**.</span></span> 
+   
+    <span data-ttu-id="7e541-163">c.</span><span class="sxs-lookup"><span data-stu-id="7e541-163">c.</span></span> <span data-ttu-id="7e541-164">Als **verificatiemethode**, selecteer **op basis van certificaten**.</span><span class="sxs-lookup"><span data-stu-id="7e541-164">As **Authentication method**, select **Certificate-based**.</span></span>
+   
+    <span data-ttu-id="7e541-165">d.</span><span class="sxs-lookup"><span data-stu-id="7e541-165">d.</span></span> <span data-ttu-id="7e541-166">Klik op **Volgende**.</span><span class="sxs-lookup"><span data-stu-id="7e541-166">Click **Next**.</span></span>
+6. <span data-ttu-id="7e541-167">Op de **samenvatting** dialoogvenster, klikt u op **volgende**.</span><span class="sxs-lookup"><span data-stu-id="7e541-167">On the **Summary** dialog, click **Next**.</span></span>
+7. <span data-ttu-id="7e541-168">Op de **voltooiing** dialoogvenster, klikt u op **sluiten**.</span><span class="sxs-lookup"><span data-stu-id="7e541-168">On the **Completion** dialog, click **Close**.</span></span>
+8. <span data-ttu-id="7e541-169">Klik in de werkbalk bovenaan op **implementeren**.</span><span class="sxs-lookup"><span data-stu-id="7e541-169">In the toolbar on the top, click **Deploy**.</span></span>
+   
+    ![Windows Hello voor bedrijven configureren](./media/active-directory-azureadjoin-passport-deployment/06.png)
+
+## <a name="configure-the-certificate-profile"></a><span data-ttu-id="7e541-171">Het certificaatprofiel configureren</span><span class="sxs-lookup"><span data-stu-id="7e541-171">Configure the certificate profile</span></span>
+<span data-ttu-id="7e541-172">Als u verificatie op basis van certificaten voor lokale verificatie gebruikt, moet u configureren en implementeren van een certificaatprofiel.</span><span class="sxs-lookup"><span data-stu-id="7e541-172">If you are using certificate-based authentication for on-premises authentication, you need to configure and deploy a certificate profile.</span></span> <span data-ttu-id="7e541-173">Deze taak moet u voor het instellen van een NDES-server en de siterol van het Certificaatregistratiepunt in System Center Configuration Manager.</span><span class="sxs-lookup"><span data-stu-id="7e541-173">This task requires you to set up an NDES server and Certificate Registration Point site role in the System Center Configuration Manager.</span></span> <span data-ttu-id="7e541-174">Zie voor meer informatie de [vereisten voor Certificaatprofielen in Configuration Manager](https://technet.microsoft.com/library/dn261205.aspx).</span><span class="sxs-lookup"><span data-stu-id="7e541-174">For more details, see the [Prerequisites for Certificate Profiles in Configuration Manager](https://technet.microsoft.com/library/dn261205.aspx).</span></span>
+
+1. <span data-ttu-id="7e541-175">Open de **System Center Configuration Manager**, en navigeer vervolgens naar **activa en naleving > instellingen voor naleving > toegang tot bedrijfsbronnen > Certificaatprofielen**.</span><span class="sxs-lookup"><span data-stu-id="7e541-175">Open the **System Center Configuration Manager**, and then navigate to **Assets & Compliance > Compliance Settings > Company Resource Access > Certificate Profiles**.</span></span>
+2. <span data-ttu-id="7e541-176">Selecteer een sjabloon met een smartcard aanmelden uitgebreide-sleutelgebruik (EKU).</span><span class="sxs-lookup"><span data-stu-id="7e541-176">Select a template that has Smart Card sign-in extended key usage (EKU).</span></span>
+
+<span data-ttu-id="7e541-177">Op de **SCEP-registratie** pagina van het certificaatprofiel moet u ervoor kiezen **Stalleren in Passport for Work, anders niet** als de **Key Storage Provider**.</span><span class="sxs-lookup"><span data-stu-id="7e541-177">On the **SCEP Enrollment** page of the certificate profile, you need to choose **Install to Passport for Work otherwise fail** as the **Key Storage Provider**.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="7e541-178">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="7e541-178">Next steps</span></span>
+* <span data-ttu-id="7e541-179">[Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md) (Windows 10 voor de onderneming: manieren om apparaten voor werk te gebruiken)</span><span class="sxs-lookup"><span data-stu-id="7e541-179">[Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)</span></span>
+* <span data-ttu-id="7e541-180">[Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md) (Cloudmogelijkheden uitbreiden naar Windows 10-apparaten met behulp van Azure Active Directory Join)</span><span class="sxs-lookup"><span data-stu-id="7e541-180">[Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)</span></span>
+* [<span data-ttu-id="7e541-181">Identiteiten zonder wachtwoorden via Microsoft Passport verifiëren</span><span class="sxs-lookup"><span data-stu-id="7e541-181">Authenticating identities without passwords through Microsoft Passport</span></span>](active-directory-azureadjoin-passport.md)
+* <span data-ttu-id="7e541-182">[Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md) (Gebruiksscenario’s voor Azure AD Join)</span><span class="sxs-lookup"><span data-stu-id="7e541-182">[Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)</span></span>
+* <span data-ttu-id="7e541-183">[Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md) (Apparaten die lid zijn van een domein verbinden met Azure AD voor Windows 10-ervaringen)</span><span class="sxs-lookup"><span data-stu-id="7e541-183">[Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)</span></span>
+* [<span data-ttu-id="7e541-184">Azure AD Join instellen</span><span class="sxs-lookup"><span data-stu-id="7e541-184">Set up Azure AD Join</span></span>](active-directory-azureadjoin-setup.md)
+

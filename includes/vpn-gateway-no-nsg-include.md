@@ -1,0 +1,5 @@
+> [!IMPORTANT]
+> <span data-ttu-id="cb463-101">Als u met gatewaysubnetten werkt, vermijd dan om een netwerkbeveiligingsgroep (NSG) te koppelen aan het gatewaysubnet.</span><span class="sxs-lookup"><span data-stu-id="cb463-101">When working with gateway subnets, avoid associating a network security group (NSG) to the gateway subnet.</span></span> <span data-ttu-id="cb463-102">Een koppeling van een netwerkbeveiligingsgroep naar dit subnet zorgt er mogelijk voor dat uw VPN-gateway niet meer werkt zoals verwacht.</span><span class="sxs-lookup"><span data-stu-id="cb463-102">Associating a network security group to this subnet may cause your VPN gateway to stop functioning as expected.</span></span> <span data-ttu-id="cb463-103">Raadpleeg voor meer informatie over netwerkbeveiligingsgroepen [Wat is een netwerkbeveiligingsgroep?](../articles/virtual-network/virtual-networks-nsg.md)</span><span class="sxs-lookup"><span data-stu-id="cb463-103">For more information about network security groups, see [What is a network security group?](../articles/virtual-network/virtual-networks-nsg.md)</span></span>
+> 
+> 
+

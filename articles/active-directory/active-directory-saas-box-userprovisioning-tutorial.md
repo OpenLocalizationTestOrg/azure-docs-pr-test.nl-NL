@@ -1,0 +1,124 @@
+---
+title: 'Zelfstudie: Azure Active Directory-integratie met vak | Microsoft Docs'
+description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en vak.
+services: active-directory
+documentationCenter: na
+author: jeevansd
+manager: femila
+ms.assetid: 1c959595-6e57-4954-9c0d-67ba03ee212b
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/19/2017
+ms.author: jeedes
+ms.openlocfilehash: e92baabb174642c22c99e2a30bc9c71845b3b75f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/06/2017
+---
+# <a name="tutorial-configuring-box-for-automatic-user-provisioning"></a><span data-ttu-id="1109a-103">Zelfstudie: Vak configureren voor het automatisch gebruikers inrichten</span><span class="sxs-lookup"><span data-stu-id="1109a-103">Tutorial: Configuring Box for Automatic User Provisioning</span></span>
+
+<span data-ttu-id="1109a-104">Hallo-doel van deze zelfstudie is tooshow Hallo stappen u moet tooperform in het vak en Azure AD tooautomatically leveren en intrekken gebruikersaccounts vanuit Azure AD-tooBox.</span><span class="sxs-lookup"><span data-stu-id="1109a-104">hello objective of this tutorial is tooshow hello steps you need tooperform in Box and Azure AD tooautomatically provision and de-provision user accounts from Azure AD tooBox.</span></span>
+
+## <a name="prerequisites"></a><span data-ttu-id="1109a-105">Vereisten</span><span class="sxs-lookup"><span data-stu-id="1109a-105">Prerequisites</span></span>
+
+<span data-ttu-id="1109a-106">Hallo scenario beschreven in deze zelfstudie wordt ervan uitgegaan dat u al hebt Hallo volgende items:</span><span class="sxs-lookup"><span data-stu-id="1109a-106">hello scenario outlined in this tutorial assumes that you already have hello following items:</span></span>
+
+*   <span data-ttu-id="1109a-107">Een Azure Active directory-tenant.</span><span class="sxs-lookup"><span data-stu-id="1109a-107">An Azure Active directory tenant.</span></span>
+*   <span data-ttu-id="1109a-108">Een selectievakje eenmalige aanmelding ingeschakeld abonnement.</span><span class="sxs-lookup"><span data-stu-id="1109a-108">A Box single-sign on enabled subscription.</span></span>
+*   <span data-ttu-id="1109a-109">Een gebruikersaccount in het vak met beheerdersmachtigingen Team.</span><span class="sxs-lookup"><span data-stu-id="1109a-109">A user account in Box with Team Admin permissions.</span></span>
+
+## <a name="assigning-users-toobox"></a><span data-ttu-id="1109a-110">Gebruikers tooBox toewijzen</span><span class="sxs-lookup"><span data-stu-id="1109a-110">Assigning users tooBox</span></span> 
+
+<span data-ttu-id="1109a-111">Azure Active Directory gebruikt een concept 'toewijzingen' toodetermine welke gebruikers toegang tooselected apps krijgen genoemd.</span><span class="sxs-lookup"><span data-stu-id="1109a-111">Azure Active Directory uses a concept called "assignments" toodetermine which users should receive access tooselected apps.</span></span> <span data-ttu-id="1109a-112">In de context van de Hallo van automatische gebruikers account inrichten, alleen Hallo-gebruikers en groepen die '' tooan toepassing in Azure AD toegewezen zijn gesynchroniseerd.</span><span class="sxs-lookup"><span data-stu-id="1109a-112">In hello context of automatic user account provisioning, only hello users and groups that have been "assigned" tooan application in Azure AD is synchronized.</span></span>
+
+<span data-ttu-id="1109a-113">Voordat u configureren en inschakelen van Hallo-service inricht, moet u toodecide welke gebruikers en/of groepen in Azure AD vertegenwoordigen Hallo-gebruikers die toegang moeten hebben tot tooyour Box-app.</span><span class="sxs-lookup"><span data-stu-id="1109a-113">Before configuring and enabling hello provisioning service, you need toodecide what users and/or groups in Azure AD represent hello users who need access tooyour Box app.</span></span> <span data-ttu-id="1109a-114">Als u had besloten, kunt u deze gebruikers tooyour Box-app toewijzen door hier Hallo-instructies te volgen:</span><span class="sxs-lookup"><span data-stu-id="1109a-114">Once decided, you can assign these users tooyour Box app by following hello instructions here:</span></span>
+
+[<span data-ttu-id="1109a-115">Toewijzen van een gebruiker of groep tooan enterprise-app</span><span class="sxs-lookup"><span data-stu-id="1109a-115">Assign a user or group tooan enterprise app</span></span>](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+
+## <a name="assign-users-and-groups"></a><span data-ttu-id="1109a-116">Gebruikers en groepen toewijzen</span><span class="sxs-lookup"><span data-stu-id="1109a-116">Assign users and groups</span></span>
+<span data-ttu-id="1109a-117">Hallo **vak > gebruikers en groepen** tabblad in hello Azure-portal kunt u toospecify welke gebruikers en groepen moet tooBox toegang krijgen.</span><span class="sxs-lookup"><span data-stu-id="1109a-117">hello **Box > Users and Groups** tab in hello Azure portal allows you toospecify which users and groups should be granted access tooBox.</span></span> <span data-ttu-id="1109a-118">Toewijzing van een gebruiker of groep zorgt ervoor dat de volgende dingen toooccur Hallo:</span><span class="sxs-lookup"><span data-stu-id="1109a-118">Assignment of a user or group causes hello following things toooccur:</span></span>
+
+* <span data-ttu-id="1109a-119">Azure AD is Hallo toegewezen gebruiker (zowel door rechtstreekse toewijzing toe of groepslidmaatschap) tooauthenticate tooBox toegestaan.</span><span class="sxs-lookup"><span data-stu-id="1109a-119">Azure AD permits hello assigned user (either by direct assignment or group membership) tooauthenticate tooBox.</span></span> <span data-ttu-id="1109a-120">Als een gebruiker niet is toegewezen, Azure AD staat niet toe dat ze toosign in tooBox en retourneert een fout op Hallo Azure AD-aanmeldingspagina.</span><span class="sxs-lookup"><span data-stu-id="1109a-120">If a user is not assigned, then Azure AD does not permit them toosign in tooBox and returns an error on hello Azure AD sign-in page.</span></span>
+* <span data-ttu-id="1109a-121">Een app-tegel voor Box toohello van de gebruiker is toegevoegd [toepassingsstartprogramma](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).</span><span class="sxs-lookup"><span data-stu-id="1109a-121">An app tile for Box is added toohello user's [application launcher](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).</span></span>
+* <span data-ttu-id="1109a-122">Als automatische inrichting is ingeschakeld, worden klikt u vervolgens Hallo toegewezen gebruikers en/of groepen toegevoegd toohello inrichting wachtrij toobe automatisch worden ingericht.</span><span class="sxs-lookup"><span data-stu-id="1109a-122">If automatic provisioning is enabled, then hello assigned users and/or groups are added toohello provisioning queue toobe automatically provisioned.</span></span>
+  
+  * <span data-ttu-id="1109a-123">Als alleen gebruikersobjecten geconfigureerde toobe ingericht zijn, vervolgens alle rechtstreeks toegewezen gebruikers in Hallo inrichting wachtrij zijn geplaatst en alle gebruikers die lid van een toegewezen groepen zijn in Hallo inrichting van de wachtrij worden geplaatst.</span><span class="sxs-lookup"><span data-stu-id="1109a-123">If only user objects were configured toobe provisioned, then all directly assigned users are placed in hello provisioning queue, and all users that are members of any assigned groups are placed in hello provisioning queue.</span></span> 
+  * <span data-ttu-id="1109a-124">Als groepsobjecten geconfigureerde toobe ingericht, zijn alle objecten van het toegewezen ingerichte tooBox en alle gebruikers die lid zijn van die groepen.</span><span class="sxs-lookup"><span data-stu-id="1109a-124">If group objects were configured toobe provisioned, then all assigned group objects are provisioned tooBox, and all users that are members of those groups.</span></span> <span data-ttu-id="1109a-125">Hallo-groep en gebruiker lidmaatschappen blijven behouden bij tooBox wordt geschreven.</span><span class="sxs-lookup"><span data-stu-id="1109a-125">hello group and user memberships are preserved upon being written tooBox.</span></span>
+
+<span data-ttu-id="1109a-126">U kunt Hallo **kenmerken > Single Sign-On** tooconfigure welke gebruikerskenmerken (of de claims) u tooBox tijdens verificatie op basis van SAML en Hallo vindt tabblad **kenmerken > inrichten** tabblad tooconfigure hoe gebruikers- en groepskenmerken van Azure AD-tooBox stromen tijdens het inrichten van bewerkingen.</span><span class="sxs-lookup"><span data-stu-id="1109a-126">You can use hello **Attributes > Single Sign-On** tab tooconfigure which user attributes (or claims) are presented tooBox during SAML-based authentication, and hello **Attributes > Provisioning** tab tooconfigure how user and group attributes flow from Azure AD tooBox during provisioning operations.</span></span>
+
+### <a name="important-tips-for-assigning-users-toobox"></a><span data-ttu-id="1109a-127">Belangrijke tips voor het toewijzen van gebruikers tooBox</span><span class="sxs-lookup"><span data-stu-id="1109a-127">Important tips for assigning users tooBox</span></span> 
+
+*   <span data-ttu-id="1109a-128">Verdient het aanbeveling om een Azure AD voor één gebruiker toegewezen tooBox tootest Hallo configuratie inrichten.</span><span class="sxs-lookup"><span data-stu-id="1109a-128">It is recommended that a single Azure AD user assigned tooBox tootest hello provisioning configuration.</span></span> <span data-ttu-id="1109a-129">Extra gebruikers en/of groepen kunnen later worden toegewezen.</span><span class="sxs-lookup"><span data-stu-id="1109a-129">Additional users and/or groups may be assigned later.</span></span>
+
+*   <span data-ttu-id="1109a-130">Wanneer u een gebruiker toobox toewijst, moet u een geldige gebruikersrol.</span><span class="sxs-lookup"><span data-stu-id="1109a-130">When assigning a user toobox, you must select a valid user role.</span></span> <span data-ttu-id="1109a-131">Hallo 'Default toegang' rol werkt niet voor het inrichten.</span><span class="sxs-lookup"><span data-stu-id="1109a-131">hello "Default Access" role does not work for provisioning.</span></span>
+
+## <a name="enable-automated-user-provisioning"></a><span data-ttu-id="1109a-132">Geautomatiseerde Gebruikersinrichting inschakelen</span><span class="sxs-lookup"><span data-stu-id="1109a-132">Enable Automated User Provisioning</span></span>
+
+<span data-ttu-id="1109a-133">Deze sectie helpt bij het verbinden van uw Azure AD-tooBox gebruikersaccount inrichten API en Hallo service toocreate inrichting configureren, bijwerken en uitschakelen toegewezen gebruikersaccounts in vak op basis van gebruikers en groepen toewijzen in Azure AD.</span><span class="sxs-lookup"><span data-stu-id="1109a-133">This section guides through connecting your Azure AD tooBox's user account provisioning API, and configuring hello provisioning service toocreate, update, and disable assigned user accounts in Box based on user and group assignment in Azure AD.</span></span>
+
+<span data-ttu-id="1109a-134">Als automatische inrichting is ingeschakeld, worden klikt u vervolgens Hallo toegewezen gebruikers en/of groepen toegevoegd toohello inrichting wachtrij toobe automatisch worden ingericht.</span><span class="sxs-lookup"><span data-stu-id="1109a-134">If automatic provisioning is enabled, then hello assigned users and/or groups are added toohello provisioning queue toobe automatically provisioned.</span></span>
+    
+ * <span data-ttu-id="1109a-135">Als er slechts gebruikersobjecten geconfigureerde toobe ingericht zijn, en vervolgens rechtstreeks toegewezen gebruikers in Hallo inrichting wachtrij zijn geplaatst en alle gebruikers die lid van een toegewezen groepen zijn in Hallo inrichting van de wachtrij worden geplaatst.</span><span class="sxs-lookup"><span data-stu-id="1109a-135">If only user objects are configured toobe provisioned, then directly assigned users are placed in hello provisioning queue, and all users that are members of any assigned groups are placed in hello provisioning queue.</span></span> 
+    
+ * <span data-ttu-id="1109a-136">Als groepsobjecten geconfigureerde toobe ingericht, zijn alle objecten van het toegewezen ingerichte tooBox en alle gebruikers die lid zijn van die groepen.</span><span class="sxs-lookup"><span data-stu-id="1109a-136">If group objects were configured toobe provisioned, then all assigned group objects are provisioned tooBox, and all users that are members of those groups.</span></span> <span data-ttu-id="1109a-137">Hallo-groep en gebruiker lidmaatschappen blijven behouden bij tooBox wordt geschreven.</span><span class="sxs-lookup"><span data-stu-id="1109a-137">hello group and user memberships are preserved upon being written tooBox.</span></span>
+
+> [!TIP] 
+> <span data-ttu-id="1109a-138">U kunt ook tooenabled op basis van SAML eenmalige aanmelding voor Hallo-instructies in het vak [Azure-portal](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="1109a-138">You may also choose tooenabled SAML-based Single Sign-On for Box, following hello instructions provided in [Azure portal](https://portal.azure.com).</span></span> <span data-ttu-id="1109a-139">Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.</span><span class="sxs-lookup"><span data-stu-id="1109a-139">Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.</span></span>
+
+### <a name="tooconfigure-automatic-user-account-provisioning"></a><span data-ttu-id="1109a-140">tooconfigure automatische account gebruikersaanvragen:</span><span class="sxs-lookup"><span data-stu-id="1109a-140">tooconfigure automatic user account provisioning:</span></span>
+
+<span data-ttu-id="1109a-141">Hallo-doel van deze sectie is het toooutline hoe tooBox tooenable het inrichten van Active Directory-gebruiker accounts.</span><span class="sxs-lookup"><span data-stu-id="1109a-141">hello objective of this section is toooutline how tooenable provisioning of Active Directory user accounts tooBox.</span></span>
+
+1. <span data-ttu-id="1109a-142">In Hallo [Azure-portal](https://portal.azure.com), bladeren toohello **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.</span><span class="sxs-lookup"><span data-stu-id="1109a-142">In hello [Azure portal](https://portal.azure.com), browse toohello **Azure Active Directory > Enterprise Apps > All applications** section.</span></span>
+
+2. <span data-ttu-id="1109a-143">Als u het selectievakje voor eenmalige aanmelding al hebt geconfigureerd, kunt u zoeken naar uw exemplaar van Hallo zoekveld opgegeven voor het.</span><span class="sxs-lookup"><span data-stu-id="1109a-143">If you have already configured Box for single sign-on, search for your instance of Box using hello search field.</span></span> <span data-ttu-id="1109a-144">Selecteer anders **toevoegen** en zoek naar **vak** in Hallo-toepassingsgalerie.</span><span class="sxs-lookup"><span data-stu-id="1109a-144">Otherwise, select **Add** and search for **Box** in hello application gallery.</span></span> <span data-ttu-id="1109a-145">Schakel in in de zoekresultaten hello, en voeg deze tooyour lijst met toepassingen.</span><span class="sxs-lookup"><span data-stu-id="1109a-145">Select Box from hello search results, and add it tooyour list of applications.</span></span>
+
+3. <span data-ttu-id="1109a-146">Uw exemplaar van het selectievakje selecteert en vervolgens Hallo **inrichten** tabblad.</span><span class="sxs-lookup"><span data-stu-id="1109a-146">Select your instance of Box, then select hello **Provisioning** tab.</span></span>
+
+4. <span data-ttu-id="1109a-147">Set Hallo **modus inrichting** te**automatische**.</span><span class="sxs-lookup"><span data-stu-id="1109a-147">Set hello **Provisioning Mode** too**Automatic**.</span></span> 
+
+    ![Inrichting](./media/active-directory-saas-box-userprovisioning-tutorial/provisioning.png)
+
+5. <span data-ttu-id="1109a-149">Onder Hallo **beheerdersreferenties** sectie, klikt u op **autoriseren** tooopen een dialoogvenster voor aanmelding in een nieuw browservenster.</span><span class="sxs-lookup"><span data-stu-id="1109a-149">Under hello **Admin Credentials** section, click **Authorize** tooopen a Box login dialog in a new browser window.</span></span>
+
+6. <span data-ttu-id="1109a-150">Op Hallo **aanmelding toogrant toegang tooBox** pagina, geef referenties op Hallo vereist en klik op **autoriseren**.</span><span class="sxs-lookup"><span data-stu-id="1109a-150">On hello **Login toogrant access tooBox** page, provide hello required credentials, and then click **Authorize**.</span></span> 
+   
+    <span data-ttu-id="1109a-151">![Schakel Automatische gebruikersaanvragen](./media/active-directory-saas-box-userprovisioning-tutorial/IC769546.png "automatische gebruikersinrichting inschakelen")</span><span class="sxs-lookup"><span data-stu-id="1109a-151">![Enable automatic user provisioning](./media/active-directory-saas-box-userprovisioning-tutorial/IC769546.png "Enable automatic user provisioning")</span></span>
+
+7. <span data-ttu-id="1109a-152">Klik op **verlenen toegang tooBox** tooauthorize deze bewerking en tooreturn toohello Azure-portal.</span><span class="sxs-lookup"><span data-stu-id="1109a-152">Click **Grant access tooBox** tooauthorize this operation and tooreturn toohello Azure portal.</span></span> 
+   
+    <span data-ttu-id="1109a-153">![Schakel Automatische gebruikersaanvragen](./media/active-directory-saas-box-userprovisioning-tutorial/IC769549.png "automatische gebruikersinrichting inschakelen")</span><span class="sxs-lookup"><span data-stu-id="1109a-153">![Enable automatic user provisioning](./media/active-directory-saas-box-userprovisioning-tutorial/IC769549.png "Enable automatic user provisioning")</span></span>
+
+8. <span data-ttu-id="1109a-154">Klik in hello Azure-portal, op **testverbinding** tooensure Azure AD tooyour vak app kunt verbinden.</span><span class="sxs-lookup"><span data-stu-id="1109a-154">In hello Azure portal, click **Test Connection** tooensure Azure AD can connect tooyour Box app.</span></span> <span data-ttu-id="1109a-155">Als Hallo verbinding mislukt, zorg ervoor dat uw account vak Team beheerdersmachtigingen heeft en probeer het Hallo **'Autoriseren'** stap opnieuw.</span><span class="sxs-lookup"><span data-stu-id="1109a-155">If hello connection fails, ensure your Box account has Team Admin permissions and try hello **"Authorize"** step again.</span></span>
+
+9. <span data-ttu-id="1109a-156">Voer e-mailadres van een persoon of groep die inrichting fout meldingen in Hallo ontvangen moet Hallo **e-mailmelding** veld en Hallo selectievakje.</span><span class="sxs-lookup"><span data-stu-id="1109a-156">Enter hello email address of a person or group who should receive provisioning error notifications in hello **Notification Email** field, and check hello checkbox.</span></span>
+
+10. <span data-ttu-id="1109a-157">Klik op **opslaan.**</span><span class="sxs-lookup"><span data-stu-id="1109a-157">Click **Save.**</span></span>
+
+11. <span data-ttu-id="1109a-158">Selecteer onder Hallo toewijzingen sectie, **tooBox synchroniseren Azure Active Directory-gebruikers.**</span><span class="sxs-lookup"><span data-stu-id="1109a-158">Under hello Mappings section, select **Synchronize Azure Active Directory Users tooBox.**</span></span>
+
+12. <span data-ttu-id="1109a-159">In Hallo **kenmerktoewijzingen** sectie, bekijkt hello gebruikerskenmerken die worden gesynchroniseerd vanuit Azure AD-tooBox.</span><span class="sxs-lookup"><span data-stu-id="1109a-159">In hello **Attribute Mappings** section, review hello user attributes that are synchronized from Azure AD tooBox.</span></span> <span data-ttu-id="1109a-160">kenmerken die zijn geselecteerd als Hallo **overeenkomend** eigenschappen zijn gebruikte toomatch Hallo gebruikersaccounts in vak voor update-bewerkingen.</span><span class="sxs-lookup"><span data-stu-id="1109a-160">hello attributes selected as **Matching** properties are used toomatch hello user accounts in Box for update operations.</span></span> <span data-ttu-id="1109a-161">Selecteer Hallo knop toocommit wijzigingen zijn opgeslagen.</span><span class="sxs-lookup"><span data-stu-id="1109a-161">Select hello Save button toocommit any changes.</span></span>
+
+13. <span data-ttu-id="1109a-162">tooenable Hallo inrichting Azure AD-service voor Box, wijziging Hallo **inrichting Status** te**op** in Hallo Zoekinstellingen</span><span class="sxs-lookup"><span data-stu-id="1109a-162">tooenable hello Azure AD provisioning service for Box, change hello **Provisioning Status** too**On** in hello Settings section</span></span>
+
+14. <span data-ttu-id="1109a-163">Klik op **opslaan.**</span><span class="sxs-lookup"><span data-stu-id="1109a-163">Click **Save.**</span></span>
+
+<span data-ttu-id="1109a-164">Hallo initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen tooBox in Hallo gebruikers en groepen sectie worden gestart.</span><span class="sxs-lookup"><span data-stu-id="1109a-164">That starts hello initial synchronization of any users and/or groups assigned tooBox in hello Users and Groups section.</span></span> <span data-ttu-id="1109a-165">de initiële synchronisatie Hallo duurt langer tooperform dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden, zolang het Hallo-service wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="1109a-165">hello initial sync takes longer tooperform than subsequent syncs, which occur approximately every 20 minutes as long as hello service is running.</span></span> <span data-ttu-id="1109a-166">U kunt Hallo **synchronisatiedetails** sectie toomonitor uitgevoerd en volgt u koppelingen tooprovisioning activiteitsrapporten, waarin alle bewerkingen die worden uitgevoerd door het Hallo-service op de Box-app inrichten.</span><span class="sxs-lookup"><span data-stu-id="1109a-166">You can use hello **Synchronization Details** section toomonitor progress and follow links tooprovisioning activity reports, which describe all actions performed by hello provisioning service on your Box app.</span></span>
+
+<span data-ttu-id="1109a-167">U kunt nu een testaccount maken.</span><span class="sxs-lookup"><span data-stu-id="1109a-167">You can now create a test account.</span></span> <span data-ttu-id="1109a-168">Wacht tot up too20 minuten tooverify die Hallo-account is gesynchroniseerd toobox.</span><span class="sxs-lookup"><span data-stu-id="1109a-168">Wait for up too20 minutes tooverify that hello account has been synchronized toobox.</span></span>
+
+<span data-ttu-id="1109a-169">In uw tenant vak gesynchroniseerde gebruikers worden vermeld in **beheerde gebruikers** in Hallo **beheerconsole**.</span><span class="sxs-lookup"><span data-stu-id="1109a-169">In your Box tenant, synchronized users are listed under **Managed Users** in hello **Admin Console**.</span></span>
+
+<span data-ttu-id="1109a-170">![Integratiestatus](./media/active-directory-saas-box-userprovisioning-tutorial/IC769556.png "integratie-status")</span><span class="sxs-lookup"><span data-stu-id="1109a-170">![Integration status](./media/active-directory-saas-box-userprovisioning-tutorial/IC769556.png "Integration status")</span></span>
+
+
+## <a name="additional-resources"></a><span data-ttu-id="1109a-171">Aanvullende bronnen</span><span class="sxs-lookup"><span data-stu-id="1109a-171">Additional resources</span></span>
+
+* [<span data-ttu-id="1109a-172">Het beheren van gebruikers account inrichten voor zakelijke Apps</span><span class="sxs-lookup"><span data-stu-id="1109a-172">Managing user account provisioning for Enterprise Apps</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="1109a-173">Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="1109a-173">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="1109a-174">Eenmalige aanmelding configureren</span><span class="sxs-lookup"><span data-stu-id="1109a-174">Configure Single Sign-on</span></span>](active-directory-saas-box-tutorial.md)

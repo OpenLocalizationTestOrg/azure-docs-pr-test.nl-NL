@@ -1,0 +1,17 @@
+> [!div class="op_single_selector"]
+> * [<span data-ttu-id="236bf-101">Apparaat: Node.js-Service: Node.js</span><span class="sxs-lookup"><span data-stu-id="236bf-101">Device: Node.js Service: Node.js</span></span>](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
+> * [<span data-ttu-id="236bf-102">Apparaat: Node.js-Service: C#</span><span class="sxs-lookup"><span data-stu-id="236bf-102">Device: Node.js Service: C#</span></span>](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
+> * [<span data-ttu-id="236bf-103">Apparaat: Java-Service: Java</span><span class="sxs-lookup"><span data-stu-id="236bf-103">Device: Java Service: Java</span></span>](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+
+<span data-ttu-id="236bf-104">Back-end apps kunnen gebruiken Azure IoT Hub primitieven, zoals [apparaat twin] [ lnk-devtwin] en [methoden directe][lnk-c2dmethod], op afstand starten en bewaken van apparaat acties op apparaten.</span><span class="sxs-lookup"><span data-stu-id="236bf-104">Back-end apps can use Azure IoT Hub primitives, such as [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod], to remotely start and monitor device management actions on devices.</span></span> <span data-ttu-id="236bf-105">Deze zelfstudie laat zien hoe een back-end-app en een apparaat-app samenwerken kunnen om te starten en te bewaken van externe apparaten opnieuw worden opgestart met IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="236bf-105">This tutorial shows you how a back-end app and a device app can work together to initiate and monitor a remote device reboot using IoT Hub.</span></span>
+
+<span data-ttu-id="236bf-106">Een directe methode gebruiken om acties voor apparaat (zoals het opnieuw opstarten, Fabrieksinstellingen terugzetten en firmware-update) vanuit een back-end-app in de cloud.</span><span class="sxs-lookup"><span data-stu-id="236bf-106">Use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud.</span></span> <span data-ttu-id="236bf-107">Het apparaat is verantwoordelijk voor:</span><span class="sxs-lookup"><span data-stu-id="236bf-107">The device is responsible for:</span></span>
+
+* <span data-ttu-id="236bf-108">Verwerking van de methode-aanvraag die uit IoT Hub zijn verzonden.</span><span class="sxs-lookup"><span data-stu-id="236bf-108">Handling the method request sent from IoT Hub.</span></span>
+* <span data-ttu-id="236bf-109">Bezig met starten van de overeenkomstige apparaatspecifieke actie op het apparaat.</span><span class="sxs-lookup"><span data-stu-id="236bf-109">Initiating the corresponding device-specific action on the device.</span></span>
+* <span data-ttu-id="236bf-110">Van statusupdates via bieden *eigenschappen gerapporteerd* IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="236bf-110">Providing status updates through *reported properties* to IoT Hub.</span></span>
+
+<span data-ttu-id="236bf-111">U kunt een back-endserver voor apps in de cloud apparaat twin query's om te rapporteren over de voortgang van uw apparaat beheeracties uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="236bf-111">You can use a back-end app in the cloud to run device twin queries to report on the progress of your device management actions.</span></span>
+
+[lnk-devtwin]: ../articles/iot-hub/iot-hub-devguide-device-twins.md
+[lnk-c2dmethod]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md

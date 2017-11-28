@@ -1,0 +1,87 @@
+---
+title: aaaGet gestart met testen in de productieomgeving voor Web-Apps
+description: Meer informatie over Hallo testen in productie (TiP)-functie in Azure App Service Web Apps.
+services: app-service\web
+documentationcenter: 
+author: cephalin
+manager: erikre
+editor: 
+ms.assetid: 4623468d-886e-4203-8012-8f86deb2790b
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/13/2016
+ms.author: cephalin
+ms.openlocfilehash: 2ddbd532ffe2a4f3e07fd386d9741a3fde3639ca
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/06/2017
+---
+# <a name="get-started-with-test-in-production-for-web-apps"></a><span data-ttu-id="87feb-103">Aan de slag met testen tijdens productie voor Web Apps</span><span class="sxs-lookup"><span data-stu-id="87feb-103">Get started with test in production for Web Apps</span></span>
+<span data-ttu-id="87feb-104">In productie testen of live-testen van uw web-app met behulp van de live klantverkeer, is een test-strategie die app-ontwikkelaars steeds integreren in hun [flexibele ontwikkeling](https://en.wikipedia.org/wiki/Agile_software_development) methodologie.</span><span class="sxs-lookup"><span data-stu-id="87feb-104">Testing in production, or live-testing your web app using live customer traffic, is a test strategy that app developers increasingly integrate into their [agile development](https://en.wikipedia.org/wiki/Agile_software_development) methodology.</span></span> <span data-ttu-id="87feb-105">Hiermee kunt u tootest Hallo kwaliteit van uw apps met live gebruikersverkeer in uw productieomgeving als tegengestelde toosynthesized gegevens in een testomgeving.</span><span class="sxs-lookup"><span data-stu-id="87feb-105">It enables you tootest hello quality of your apps with live user traffic in your production environment, as opposed toosynthesized data in a test environment.</span></span> <span data-ttu-id="87feb-106">Bij het blootstellen van uw nieuwe app tooreal gebruikers kunt u geïnformeerd over Hallo echte problemen die uw app hebben te maken mogelijk nadat deze is geïmplementeerd.</span><span class="sxs-lookup"><span data-stu-id="87feb-106">By exposing your new app tooreal users, you can be informed on hello real problems your app may face once it is deployed.</span></span> <span data-ttu-id="87feb-107">U kunt controleren Hallo-functionaliteit, prestaties en waarde van uw app-updates tegen Hallo volume, snelheid en diverse echte gebruikersverkeer, wat u nooit in een testomgeving geschatte kunt.</span><span class="sxs-lookup"><span data-stu-id="87feb-107">You can verify hello functionality, performance, and value of your app updates against hello volume, velocity, and variety of real user traffic, which you can never approximate in a test environment.</span></span>
+
+## <a name="traffic-routing-in-app-service-web-apps"></a><span data-ttu-id="87feb-108">Verkeer routering in App Service-Web-Apps</span><span class="sxs-lookup"><span data-stu-id="87feb-108">Traffic Routing in App Service Web Apps</span></span>
+<span data-ttu-id="87feb-109">Functie voor verkeersroutering Hello in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), u kunt instellen dat een deel van de gebruiker live verkeer tooone of meer [implementatiesites](web-sites-staged-publishing.md), en vervolgens uw app met analyseren [Azure-toepassing Insights](/services/application-insights/) of [Azure HDInsight](/services/hdinsight/), of een hulpprogramma van derden, zoals [New Relic](/marketplace/partners/newrelic/newrelic/) toovalidate uw wijziging.</span><span class="sxs-lookup"><span data-stu-id="87feb-109">With hello Traffic Routing feature in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can direct a portion of live user traffic tooone or more [deployment slots](web-sites-staged-publishing.md), and then analyze your app with [Azure Application Insights](/services/application-insights/) or [Azure HDInsight](/services/hdinsight/), or a third-party tool like [New Relic](/marketplace/partners/newrelic/newrelic/) toovalidate your change.</span></span> <span data-ttu-id="87feb-110">U kunt bijvoorbeeld Hallo volgen scenario's met App Service implementeren:</span><span class="sxs-lookup"><span data-stu-id="87feb-110">For example, you can implement hello following scenarios with App Service:</span></span>
+
+* <span data-ttu-id="87feb-111">Functionele bugs detecteren of knelpunten in uw implementatie van updates voorafgaande toosite wide speldenpunt</span><span class="sxs-lookup"><span data-stu-id="87feb-111">Discover functional bugs or pinpoint performance bottlenecks in your updates prior toosite-wide deployment</span></span>
+* <span data-ttu-id="87feb-112">"Gecontroleerde test vlucht' van de wijzigingen door te meten bruikbaarheid metrische gegevens op Hallo beta-app uitvoeren</span><span class="sxs-lookup"><span data-stu-id="87feb-112">Perform "controlled test flights" of your changes by measuring usability metrics on hello beta app</span></span>
+* <span data-ttu-id="87feb-113">Geleidelijk mogelijk nieuwe update tooa uitbreiden en probleemloos back-toohello huidige versie als een fout optreedt</span><span class="sxs-lookup"><span data-stu-id="87feb-113">Gradually ramp up tooa new update, and gracefully back down toohello current version if an error occurs</span></span> 
+* <span data-ttu-id="87feb-114">Optimaliseert u uw app bedrijfsresultaten door [A / B-tests](https://en.wikipedia.org/wiki/A/B_testing) of [multidimensionale tests](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing) meerdere implementatiesites</span><span class="sxs-lookup"><span data-stu-id="87feb-114">Optimize your app's business results by running [A/B tests](https://en.wikipedia.org/wiki/A/B_testing) or [multivariate tests](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing) in multiple deployment slots</span></span>
+
+### <a name="requirements-for-using-traffic-routing-in-web-apps"></a><span data-ttu-id="87feb-115">Vereisten voor het gebruik van verkeersroutering in Web-Apps</span><span class="sxs-lookup"><span data-stu-id="87feb-115">Requirements for using Traffic Routing in Web Apps</span></span>
+* <span data-ttu-id="87feb-116">Uw web-app moet worden uitgevoerd in **standaard** of **Premium** laag, zoals vereist is voor meerdere implementatiesites.</span><span class="sxs-lookup"><span data-stu-id="87feb-116">Your web app must run in **Standard** or **Premium** tier, as it is required for multiple deployment slots.</span></span>
+* <span data-ttu-id="87feb-117">In de volgorde toowork juist verkeersroutering cookies toobe ingeschakeld in de browser Hallo gebruikers.</span><span class="sxs-lookup"><span data-stu-id="87feb-117">In order toowork properly, Traffic Routing requires cookies toobe enabled in hello users' browser.</span></span> <span data-ttu-id="87feb-118">Traffic Routing maakt gebruik van cookies toopin een implementatiesleuf client browser tooa voor Hallo levensduur Hallo clientsessie.</span><span class="sxs-lookup"><span data-stu-id="87feb-118">Traffic Routing uses cookies toopin a client browser tooa deployment slot for hello life hello client session.</span></span>
+* <span data-ttu-id="87feb-119">Traffic Routing biedt ondersteuning voor geavanceerde TiP-scenario's via Azure PowerShell-cmdlets.</span><span class="sxs-lookup"><span data-stu-id="87feb-119">Traffic Routing supports advanced TiP scenarios through Azure PowerShell cmdlets.</span></span>
+
+## <a name="route-traffic-segment-tooa-deployment-slot"></a><span data-ttu-id="87feb-120">Route verkeer segment tooa-implementatiesleuf</span><span class="sxs-lookup"><span data-stu-id="87feb-120">Route traffic segment tooa deployment slot</span></span>
+<span data-ttu-id="87feb-121">Op basisniveau in elk scenario TiP hello, moet u een vooraf gedefinieerde percentage van uw live verkeer tooa niet-productieve implementatiesleuf versturen.</span><span class="sxs-lookup"><span data-stu-id="87feb-121">At hello basic level in every TiP scenario, you route a predefined percentage of your live traffic tooa non-production deployment slot.</span></span> <span data-ttu-id="87feb-122">toodo deze, Hallo stappen hieronder:</span><span class="sxs-lookup"><span data-stu-id="87feb-122">toodo this, follow hello steps below:</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="87feb-123">Hallo hier stappen wordt ervan uitgegaan dat er al een [niet-productieve implementatiesleuf](web-sites-staged-publishing.md) en die Hallo gewenst web-app-inhoud is al [geïmplementeerd](web-sites-deploy.md) tooit.</span><span class="sxs-lookup"><span data-stu-id="87feb-123">hello steps here assumes that you already have a [non-production deployment slot](web-sites-staged-publishing.md) and that hello desired web app content is already [deployed](web-sites-deploy.md) tooit.</span></span>
+> 
+> 
+
+1. <span data-ttu-id="87feb-124">Meld u aan bij Hallo [Azure Portal](https://portal.azure.com/).</span><span class="sxs-lookup"><span data-stu-id="87feb-124">Log into hello [Azure Portal](https://portal.azure.com/).</span></span>
+2. <span data-ttu-id="87feb-125">Klik op de blade van uw web-app **instellingen** > **verkeersroutering**.</span><span class="sxs-lookup"><span data-stu-id="87feb-125">In your web app's blade, click **Settings** > **Traffic Routing**.</span></span>
+   ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
+3. <span data-ttu-id="87feb-126">Selecteer Hallo sleuf gewenste tooroute verkeer tooand Hallo percentage van totale verkeer Hallo u wenst op en klik vervolgens op **opslaan**.</span><span class="sxs-lookup"><span data-stu-id="87feb-126">Select hello slot that you want tooroute traffic tooand hello percentage of hello total traffic you desire, then click **Save**.</span></span>
+   
+    ![](./media/app-service-web-test-in-production/02-select-slot.png)
+4. <span data-ttu-id="87feb-127">Ga toohello implementatiesleuf blade.</span><span class="sxs-lookup"><span data-stu-id="87feb-127">Go toohello deployment slot's blade.</span></span> <span data-ttu-id="87feb-128">U ziet nu live verkeer wordt gerouteerd tooit.</span><span class="sxs-lookup"><span data-stu-id="87feb-128">You should now see live traffic being routed tooit.</span></span>
+   
+    ![](./media/app-service-web-test-in-production/03-traffic-routed.png)
+
+<span data-ttu-id="87feb-129">Zodra voor verkeersroutering is geconfigureerd, wordt er Hallo opgegeven percentage van clients worden niet-productiesite willekeurig gerouteerde tooyour.</span><span class="sxs-lookup"><span data-stu-id="87feb-129">Once Traffic Routing is configured, hello specified percentage of clients will be randomly routed tooyour non-production slot.</span></span> <span data-ttu-id="87feb-130">Het is echter belangrijk toonote dat wanneer een client automatisch gerouteerde tooa specifieke sleuf is, 'vastgemaakt' toothat sleuf voor Hallo aanmeldingssessie van die client moeten.</span><span class="sxs-lookup"><span data-stu-id="87feb-130">However, it is important toonote that once a client is automatically routed tooa specific slot, it will be "pinned" toothat slot for hello life of that client session.</span></span> <span data-ttu-id="87feb-131">Dit gedaan met behulp van een gebruikerssessie cookie toopin Hallo.</span><span class="sxs-lookup"><span data-stu-id="87feb-131">This done using a cookie toopin hello user session.</span></span> <span data-ttu-id="87feb-132">Als u Hallo HTTP-aanvragen inspecteren, vindt u een `TipMix` cookie in elke volgende aanvraag.</span><span class="sxs-lookup"><span data-stu-id="87feb-132">If you inspect hello HTTP requests, you will find a `TipMix` cookie in every subsequent request.</span></span>
+
+![](./media/app-service-web-test-in-production/04-tip-cookie.png)
+
+## <a name="force-client-requests-tooa-specific-slot"></a><span data-ttu-id="87feb-133">Client-aanvragen tooa specifieke sleuf forceren</span><span class="sxs-lookup"><span data-stu-id="87feb-133">Force client requests tooa specific slot</span></span>
+<span data-ttu-id="87feb-134">App Service is in de toevoeging tooautomatic verkeersroutering kunnen tooroute aanvragen tooa specifieke sleuf.</span><span class="sxs-lookup"><span data-stu-id="87feb-134">In addition tooautomatic traffic routing, App Service is able tooroute requests tooa specific slot.</span></span> <span data-ttu-id="87feb-135">Dit is handig als u wilt dat uw gebruikers toobe kunnen tooopt-in- of opt-out van uw app beta.</span><span class="sxs-lookup"><span data-stu-id="87feb-135">This is useful when you want your users toobe able tooopt-into or opt-out of your beta app.</span></span> <span data-ttu-id="87feb-136">toodo dit u Hallo `x-ms-routing-name` queryparameter.</span><span class="sxs-lookup"><span data-stu-id="87feb-136">toodo this, you use hello `x-ms-routing-name` query parameter.</span></span>
+
+<span data-ttu-id="87feb-137">tooreroute gebruikers tooa specifieke sleuf gebruiken `x-ms-routing-name`, moet u ervoor zorgen dat sleuf Hallo toohello voor verkeersroutering lijst al is toegevoegd.</span><span class="sxs-lookup"><span data-stu-id="87feb-137">tooreroute users tooa specific slot using `x-ms-routing-name`, you must make sure that hello slot is already added toohello Traffic Routing list.</span></span> <span data-ttu-id="87feb-138">Aangezien u tooroute tooa sleuf expliciet wilt, Hallo werkelijke routering u percentage ingesteld maakt niet uit.</span><span class="sxs-lookup"><span data-stu-id="87feb-138">Since you want tooroute tooa slot explicitly, hello actual routing percentage you set doesn't matter.</span></span> <span data-ttu-id="87feb-139">Als u wilt, kunt u een 'beta koppeling' waarop gebruikers kunnen klikken stellen tooaccess Hallo beta-app.</span><span class="sxs-lookup"><span data-stu-id="87feb-139">If you want, you can craft a "beta link" that users can click tooaccess hello beta app.</span></span>
+
+![](./media/app-service-web-test-in-production/06-enable-x-ms-routing-name.png)
+
+### <a name="opt-users-out-of-beta-app"></a><span data-ttu-id="87feb-140">Gebruikers buiten de bèta-app kiezen</span><span class="sxs-lookup"><span data-stu-id="87feb-140">Opt users out of beta app</span></span>
+<span data-ttu-id="87feb-141">toolet gebruikers afmelden van uw app Bèta, bijvoorbeeld, kunt u deze koppeling opnemen in uw webpagina:</span><span class="sxs-lookup"><span data-stu-id="87feb-141">toolet users opt out of your beta app, for example, you can put this link in your web page:</span></span>
+
+    <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back tooproduction app</a>
+
+<span data-ttu-id="87feb-142">Hallo tekenreeks `x-ms-routing-name=self` Hallo productiesite bevat.</span><span class="sxs-lookup"><span data-stu-id="87feb-142">hello string `x-ms-routing-name=self` specifies hello production slot.</span></span> <span data-ttu-id="87feb-143">Eenmaal hello client browser toegang Hallo koppeling is niet alleen deze toohello productiesite omgeleid, maar elke volgende aanvraag bevat Hallo `x-ms-routing-name=self` cookie die Hallo sessie toohello productiesite pincodes.</span><span class="sxs-lookup"><span data-stu-id="87feb-143">Once hello client browser access hello link, not only is it redirected toohello production slot, but every subsequent request will contain hello `x-ms-routing-name=self` cookie that pins hello session toohello production slot.</span></span>
+
+![](./media/app-service-web-test-in-production/05-access-production-slot.png)
+
+### <a name="opt-users-in-toobeta-app"></a><span data-ttu-id="87feb-144">Gebruikers in app toobeta kiezen</span><span class="sxs-lookup"><span data-stu-id="87feb-144">Opt users in toobeta app</span></span>
+<span data-ttu-id="87feb-145">toolet gebruikers tooyour beta app aanmelden, set Hallo dezelfde query toohello parameternaam van Hallo niet-productieve sleuf, bijvoorbeeld:</span><span class="sxs-lookup"><span data-stu-id="87feb-145">toolet users opt in tooyour beta app, set hello same query parameter toohello name of hello non-production slot, for example:</span></span>
+
+        <webappname>.azurewebsites.net/?x-ms-routing-name=staging
+
+## <a name="more-resources"></a><span data-ttu-id="87feb-146">Meer bronnen</span><span class="sxs-lookup"><span data-stu-id="87feb-146">More resources</span></span>
+* [<span data-ttu-id="87feb-147">Faseringsomgevingen voor web-apps in Azure App Service instellen</span><span class="sxs-lookup"><span data-stu-id="87feb-147">Set up staging environments for web apps in Azure App Service</span></span>](web-sites-staged-publishing.md)
+* [<span data-ttu-id="87feb-148">Een complexe toepassing zoals verwacht in Azure implementeren</span><span class="sxs-lookup"><span data-stu-id="87feb-148">Deploy a complex application predictably in Azure</span></span>](app-service-deploy-complex-application-predictably.md)
+* [<span data-ttu-id="87feb-149">Flexibele software ontwikkelen met Azure App Service</span><span class="sxs-lookup"><span data-stu-id="87feb-149">Agile software development with Azure App Service</span></span>](app-service-agile-software-development.md)
+* [<span data-ttu-id="87feb-150">DevOps-omgevingen effectief gebruiken voor uw web-apps</span><span class="sxs-lookup"><span data-stu-id="87feb-150">Use DevOps environments effectively for your web apps</span></span>](app-service-web-staged-publishing-realworld-scenarios.md)
+

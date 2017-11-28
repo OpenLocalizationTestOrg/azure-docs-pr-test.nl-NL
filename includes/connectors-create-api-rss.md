@@ -1,0 +1,14 @@
+### <a name="prerequisites"></a><span data-ttu-id="36d7a-101">Vereisten</span><span class="sxs-lookup"><span data-stu-id="36d7a-101">Prerequisites</span></span>
+* <span data-ttu-id="36d7a-102">Een [RSS](https://wikipedia.org/wiki/RSS) account</span><span class="sxs-lookup"><span data-stu-id="36d7a-102">An [RSS](https://wikipedia.org/wiki/RSS) account</span></span>  
+
+<span data-ttu-id="36d7a-103">Voordat u uw RSS-account in een logische app gebruiken kunt, moet u de logische app verbinding maken met uw RSS-account toestaan. U kunt dit eenvoudig vanuit gelukkig doen in uw logische app in de Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="36d7a-103">Before you can use your RSS account in a Logic app, you must authorize the Logic app to connect to your RSS account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.</span></span>  
+
+<span data-ttu-id="36d7a-104">Hier volgen de stappen voor het autoriseren van uw logische app verbinding maken met uw RSS-account:</span><span class="sxs-lookup"><span data-stu-id="36d7a-104">Here are the steps to authorize your Logic app to connect to your RSS account:</span></span>  
+
+1. <span data-ttu-id="36d7a-105">Voor het maken van een verbinding met RSS, in de ontwerpfunctie voor Logic app selecteert **beheerde API's van Microsoft weergeven** Voer in de vervolgkeuzelijst *RSS* in het zoekvak.</span><span class="sxs-lookup"><span data-stu-id="36d7a-105">To create a connection to RSS, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *RSS* in the search box.</span></span> <span data-ttu-id="36d7a-106">Selecteer de trigger of je actie moet worden gebruikt:</span><span class="sxs-lookup"><span data-stu-id="36d7a-106">Select the trigger or action you'll like to use:</span></span>  
+   <span data-ttu-id="36d7a-107">![Stap voor RSS verbinding maken](./media/connectors-create-api-rss/rss-1.png)</span><span class="sxs-lookup"><span data-stu-id="36d7a-107">![RSS connection creation step](./media/connectors-create-api-rss/rss-1.png)</span></span>  
+2. <span data-ttu-id="36d7a-108">Selecteer **verbinding maken** :</span><span class="sxs-lookup"><span data-stu-id="36d7a-108">Select **Create connection** :</span></span>  
+   <span data-ttu-id="36d7a-109">![Stap voor RSS verbinding maken](./media/connectors-create-api-rss/rss-2.png)</span><span class="sxs-lookup"><span data-stu-id="36d7a-109">![RSS connection creation step](./media/connectors-create-api-rss/rss-2.png)</span></span>  
+3. <span data-ttu-id="36d7a-110">U ziet de verbinding is gemaakt en u bent nu vrij om door te gaan met de overige stappen in uw logische app:</span><span class="sxs-lookup"><span data-stu-id="36d7a-110">Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:</span></span>  
+   ![Stap voor RSS verbinding maken](./media/connectors-create-api-rss/rss-3.png)  
+

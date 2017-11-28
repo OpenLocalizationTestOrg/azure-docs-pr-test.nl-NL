@@ -1,0 +1,51 @@
+---
+title: Beveiligde apps en resources in Azure RemoteApp | Microsoft Docs
+description: Meer informatie over het vergrendelen van apps en resources in Azure RemoteApp
+services: remoteapp
+documentationcenter: 
+author: msmbaldwin
+manager: mbaldwin
+ms.assetid: 7fbade87-a453-426d-bfa5-c72227ea83cd
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 04/26/2017
+ms.author: mbaldwin
+ms.openlocfilehash: 1c052906788f0f4fe4ca9fd6d3af63336245174a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="secure-apps-and-resources-in-azure-remoteapp"></a><span data-ttu-id="45fc4-103">Beveiligde apps en resources in Azure RemoteApp</span><span class="sxs-lookup"><span data-stu-id="45fc4-103">Secure apps and resources in Azure RemoteApp</span></span>
+> [!IMPORTANT]
+> <span data-ttu-id="45fc4-104">Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld.</span><span class="sxs-lookup"><span data-stu-id="45fc4-104">Azure RemoteApp is being discontinued on August 31, 2017.</span></span> <span data-ttu-id="45fc4-105">Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="45fc4-105">Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.</span></span>
+> 
+> 
+
+<span data-ttu-id="45fc4-106">Azure RemoteApp biedt gebruikers de toegang tot centraal beheerde Windows-apps, kunt u bepalen wat uw gebruikers wel en niet mogelijk.</span><span class="sxs-lookup"><span data-stu-id="45fc4-106">Azure RemoteApp provides users access to centrally-managed Windows apps, which lets you control what your users can and can't do.</span></span>  <span data-ttu-id="45fc4-107">Dit is vooral handig wanneer de gebruiker verbinding vanaf een onbeheerd apparaat (zoals hun persoonlijke Macbook maakt) en u wilt de toegang van gebruikers of optreden.</span><span class="sxs-lookup"><span data-stu-id="45fc4-107">This is particularly useful when the user is connecting from an unmanaged device (like their personal Macbook) and you want to control the user access or experience.</span></span>
+
+<span data-ttu-id="45fc4-108">Bijvoorbeeld, als u van Active Directory voor gebruikersverificatie gebruikmaakt en u wilt voorkomen dat uw gebruikers kopiëren van gegevens uit een app, kunt u een extern bureaublad-Groepsbeleid voorkomen dat gebruikers van het kopiëren van gegevens.</span><span class="sxs-lookup"><span data-stu-id="45fc4-108">For example, if you are using Active Directory for user authentication and you want to prevent your users from copying data out of an app, you can configure a Remote Desktop Group Policy to block users from copying data.</span></span>
+
+<span data-ttu-id="45fc4-109">Een ander voorbeeld is als u wilt blokkeren van toegang tot internet voor een bepaalde app in uw verzameling.</span><span class="sxs-lookup"><span data-stu-id="45fc4-109">Another example is if you want to block internet access for a particular app in your collection.</span></span> <span data-ttu-id="45fc4-110">U kunt een Windows Firewall-regel waarmee de toegang wordt geblokkeerd wanneer u de installatiekopie voor uw verzameling maken kunt maken.</span><span class="sxs-lookup"><span data-stu-id="45fc4-110">You can create a Windows Firewall rule that blocks the access when you create the image for your collection.</span></span>
+
+## <a name="implementation-options"></a><span data-ttu-id="45fc4-111">Implementatie-opties</span><span class="sxs-lookup"><span data-stu-id="45fc4-111">Implementation options</span></span>
+  <span data-ttu-id="45fc4-112">Hier volgen de belangrijkste implementatieopties, kunnen afzonderlijk of in combinatie naar behoefte worden gebruikt:</span><span class="sxs-lookup"><span data-stu-id="45fc4-112">Here are the key implementation options, which can be used individually or in tandem as needed:</span></span>
+
+1. <span data-ttu-id="45fc4-113">Als uw RemoteApp-collectie verbonden met het domein is kunt u een afdwingen [groepsbeleid](https://technet.microsoft.com/library/cc725828.aspx) (met uitzondering van de niet-actief en verbinding verbreken time-out beleidsregels beschreven [hier](../azure-subscription-service-limits.md)).</span><span class="sxs-lookup"><span data-stu-id="45fc4-113">If your RemoteApp collection is domain joined you can enforce any [Group Policy](https://technet.microsoft.com/library/cc725828.aspx) (with the exception of the Idle and Disconnect timeout policies described [here](../azure-subscription-service-limits.md)).</span></span>
+2. <span data-ttu-id="45fc4-114">Als alternatief voor Groepsbeleid (als uw verzameling niet verbonden met het domein is of u niet de juiste bevoegdheden in AD hebt), kunt u configureren [lokaal beleid](https://technet.microsoft.com/library/cc775702.aspx) in uw sjablooninstallatiekopie.</span><span class="sxs-lookup"><span data-stu-id="45fc4-114">As an alternative to Group Policy (if your collection is not domain joined or you don't have the right privileges in AD), you can configure [Local Polices](https://technet.microsoft.com/library/cc775702.aspx) into your template image.</span></span>  <span data-ttu-id="45fc4-115">Houd er rekening mee dat Groepsbeleid troef lokaal beleid als er een conflict optreedt.</span><span class="sxs-lookup"><span data-stu-id="45fc4-115">Note that group polices trump local policies when there is a conflict.</span></span>
+3. <span data-ttu-id="45fc4-116">Sommige OS/app-instellingen zijn niet configureerbaar ingestelde beleid, maar kan via het register sleutel met behulp van de [hulpprogramma RegEdit](remoteapp-hybridtrouble.md) tijdens het configureren van de installatiekopie van uw sjabloon.</span><span class="sxs-lookup"><span data-stu-id="45fc4-116">Some OS/app settings are not configurable via policy, but can be via registry key using the [RegEdit tool](remoteapp-hybridtrouble.md) while configuring your template image.</span></span>
+4. <span data-ttu-id="45fc4-117">U kunt [Windows Firewall](http://windows.microsoft.com/en-US/windows-8/Windows-Firewall-from-start-to-finish) netwerk om toegang te controleren en naar de computer waarop de app wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="45fc4-117">You can use [Windows Firewall](http://windows.microsoft.com/en-US/windows-8/Windows-Firewall-from-start-to-finish) to control network access to and from the machine where the app is running.</span></span> <span data-ttu-id="45fc4-118">Zorg ervoor dat u de URL's en poorten die hier zijn gedefinieerd niet blokkeren.</span><span class="sxs-lookup"><span data-stu-id="45fc4-118">Just make sure you don't block the URLs and ports defined here.</span></span>
+5. <span data-ttu-id="45fc4-119">U kunt [AppLocker](https://technet.microsoft.com/library/hh831440.aspx) om te bepalen welke toepassingen en bestanden gebruikers kunnen uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="45fc4-119">You can use [AppLocker](https://technet.microsoft.com/library/hh831440.aspx) to control which applications and files users can run.</span></span> <span data-ttu-id="45fc4-120">Ervaren gebruikers kunnen bijvoorbeeld nagaan wat het uitvoeren van toepassingen die u niet heeft gepubliceerd maar die beschikbaar in de installatiekopie die u gebruikt zijn voor het maken van de verzameling - AppLocker kan dit blokkeren.</span><span class="sxs-lookup"><span data-stu-id="45fc4-120">For example, savvy users can figure out how to run applications that you did not publish but that are available in the image you used to create the collection - AppLocker can block this.</span></span>
+
+## <a name="detailed-information"></a><span data-ttu-id="45fc4-121">Gedetailleerde informatie</span><span class="sxs-lookup"><span data-stu-id="45fc4-121">Detailed information</span></span>
+* <span data-ttu-id="45fc4-122">De volgende RDS-beleidsregels zijn waarschijnlijk het meest geschikt:</span><span class="sxs-lookup"><span data-stu-id="45fc4-122">The following RDS policies are likely to be most useful:</span></span>
+  * [<span data-ttu-id="45fc4-123">Apparaten en bronnen</span><span class="sxs-lookup"><span data-stu-id="45fc4-123">Device and Resource Redirection</span></span>](https://technet.microsoft.com/library/ee791794.aspx)
+  * [<span data-ttu-id="45fc4-124">Printeromleiding</span><span class="sxs-lookup"><span data-stu-id="45fc4-124">Printer Redirection</span></span>](https://technet.microsoft.com/library/ee791784.aspx)
+  * <span data-ttu-id="45fc4-125">[Profielen](https://technet.microsoft.com/library/ee791865.aspx).</span><span class="sxs-lookup"><span data-stu-id="45fc4-125">[Profiles](https://technet.microsoft.com/library/ee791865.aspx).</span></span>
+* <span data-ttu-id="45fc4-126">Houd er rekening mee dat configureren omleidingen via de RemoteApp-PowerShell-module (zoals [hier](remoteapp-redirection.md)) is afhankelijk van de client-computer aan het beleid afdwingen, zodat als beveiliging het primaire doel is moet u het beleid via de sjablooninstallatiekopie afdwingen lokaal beleid of via Groepsbeleid.</span><span class="sxs-lookup"><span data-stu-id="45fc4-126">Note that configuring redirections via the RemoteApp PowerShell module (as seen [here](remoteapp-redirection.md)) relies on the client machine to enforce the policy, so if security is the primary objective you'll want to enforce the policy via the template image local policy or via group policy.</span></span>
+* <span data-ttu-id="45fc4-127">[Beleidsregels voor Windows Server 2012 R2](https://technet.microsoft.com/library/hh831791.aspx).</span><span class="sxs-lookup"><span data-stu-id="45fc4-127">[Windows Server 2012 R2 policies](https://technet.microsoft.com/library/hh831791.aspx).</span></span>
+* <span data-ttu-id="45fc4-128">[Office 2013 beleidsregels](https://technet.microsoft.com/library/cc178969.aspx) (inclusief [het aanpassen van de Office-werkbalk](https://technet.microsoft.com/library/cc179143.aspx)).</span><span class="sxs-lookup"><span data-stu-id="45fc4-128">[Office 2013 polices](https://technet.microsoft.com/library/cc178969.aspx) (including [how to customize the Office toolbar](https://technet.microsoft.com/library/cc179143.aspx)).</span></span>
+

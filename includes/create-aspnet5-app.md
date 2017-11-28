@@ -1,0 +1,6 @@
+1. <span data-ttu-id="c41cf-101">Selecteer in het menu Visual Studio **bestand > Nieuw > Project**.</span><span class="sxs-lookup"><span data-stu-id="c41cf-101">From the Visual Studio menu, select **File > New > Project**.</span></span>
+2. <span data-ttu-id="c41cf-102">Onder de **sjablonen** sectie van de **nieuw Project** dialoogvenster, **Visual C# > Web**.</span><span class="sxs-lookup"><span data-stu-id="c41cf-102">Under the **Templates** section of the **New Project** dialog box, select **Visual C# > Web**.</span></span>
+3. <span data-ttu-id="c41cf-103">Selecteer **Core ASP.NET-webtoepassing (.NET Core)**.</span><span class="sxs-lookup"><span data-stu-id="c41cf-103">Select **ASP.NET Core Web Application (.NET Core)**.</span></span>
+4. <span data-ttu-id="c41cf-104">Geef een naam op voor uw nieuwe toepassing (of duren voordat de standaardinstelling) en selecteer **OK**.</span><span class="sxs-lookup"><span data-stu-id="c41cf-104">Give your new application a name (or take the default) and select **OK**.</span></span>
+5. <span data-ttu-id="c41cf-105">Onder **ASP.NET Core 1.1 sjablonen**, selecteer **webtoepassing** en selecteer **OK**.</span><span class="sxs-lookup"><span data-stu-id="c41cf-105">Under **ASP.NET Core 1.1 Templates**, select **Web Application** and select **OK**.</span></span>
+
