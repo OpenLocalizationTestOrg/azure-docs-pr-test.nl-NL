@@ -1,10 +1,12 @@
 
-* Hallo conversie vereist Hallo VM opnieuw wordt opgestart, dus Hallo migratie van uw virtuele machines tijdens een onderhoudsvenster vooraf bestaande plannen. 
+* Voor de conversie moet de VM opnieuw worden opgestart. Plan daarom de migratie van uw VM's tijdens een reeds bestaand onderhoudsvenster. 
 
-* Hallo-conversie is niet omkeerbaar. 
+* De conversie kan niet ongedaan worden gemaakt. 
 
-* Worden ervoor tootest Hallo conversie. Een virtuele machine migreren voordat u Hallo migratie in de productieomgeving uitvoert.
+* Test de conversie. Migreer de test-VM voordat u de migratie in de productieomgeving uitvoert.
 
-* Tijdens de conversie Hallo toewijzing ongedaan Hallo VM. Hallo VM ontvangt een nieuw IP-adres wanneer deze wordt opgestart na de conversie van Hallo. Indien nodig, kunt u [een statisch IP-adres toewijzen](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) toohello VM.
+* Tijdens de conversie moet u de toewijzing van de VM ongedaan maken. De VM ontvangt een nieuw IP-adres wanneer deze na de conversie wordt opgestart. Indien vereist kunt u [een statisch IP-adres toewijzen](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) aan de VM.
 
-* Hallo oorspronkelijke VHD's en Hallo storage-account die wordt gebruikt door Hallo VM vóór de conversie niet verwijderd. Ze blijven tooincur kosten. tooavoid wordt gefactureerd voor deze artefacten verwijderen Hallo oorspronkelijke VHD-blobs nadat u hebt gecontroleerd dat Hallo conversie is voltooid.
+* De oorspronkelijke VHD's en het opslagaccount die vóór de conversie werden gebruikt door de VM worden niet verwijderd. Hiervoor worden nog altijd kosten in rekening gebracht. Als u wilt voorkomen dat er kosten worden doorberekend voor de artefacten, verwijdert u de oorspronkelijke VHD-blobs nadat u hebt gecontroleerd of de conversie is voltooid.
+
+* Controleer de minimale versie van de Azure VM-agent vereist voor de ondersteuning van het conversieproces. Zie voor meer informatie over het controleren en werk uw agentversie [minimaal versie-ondersteuning voor VM-agents in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)

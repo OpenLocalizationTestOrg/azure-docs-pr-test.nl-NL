@@ -1,21 +1,32 @@
 
 
-1. Meld u aan toohello [Azure Portal](https://portal.azure.com), en klik vervolgens op **+ nieuw** op Hallo linksboven welkomstscherm.
-2. Klik op **Nieuw** en vervolgens op **Web en mobiel**. Schuif indien nodig naar beneden en klik op **Notification Hub**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+
+2. Selecteer **Nieuw** > **Web en mobiel** > **Notification Hub**.
    
-      ![Azure Portal - Notification Hubs maken](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
+      ![Azure Portal - Een Notification Hub maken](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       
-3. Zorg ervoor dat u een unieke naam in Hallo **Notification Hub** veld. Selecteer de gewenste **regio**, het **abonnement** en de **resourcegroep** (als u er al een hebt). 
+3. Typ een unieke naam in het vak **Notification Hub**. Selecteer uw **regio**, het **abonnement** en de **resourcegroep** (als u er al een hebt). 
    
-    Als u al een service bus-naamruimte die u wilt dat toocreate Hallo-hub in hebt, selecteert u deze via Hallo **bestaande selecteren** optie in Hallo **Namespace** veld.  Gebruik anders Hallo standaardnaam die wordt gemaakt op basis van de hubnaam Hallo zolang Hallo naamruimtenaam beschikbaar is. 
+      Als u nog geen servicebus-naamruimte hebt, kunt u de standaardnaam gebruiken. Deze wordt gemaakt op basis van de naam van de hub (als de naamruimte beschikbaar is).
+    
+      Als u al een service bus-naamruimte hebt waarin u de hub wilt maken, gaat u als volgt te werk.
+
+    a. In de gebied **Naamruimte** selecteert u de koppeling **Bestaande selecteren**. 
    
-    Zodra u daarmee klaar bent, klikt u op **Maken**.
+    b. Selecteer **Maken**.
    
       ![Azure Portal - eigenschappen van de Notification Hub instellen](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
-4. Zodra het Hallo-naamruimte en de notification hub zijn gemaakt, kunt u zich de respectievelijke portalpagina genomen toohello. 
+
+4. Nadat u de naamruimte en de Notification Hub hebt gemaakt, opent u deze door **Alle resources** te selecteren en vervolgens de gemaakte Notification Hub uit de lijst te selecteren. 
    
-      ![Azure Portal - portalpagina Notification Hub](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
-5. Klik op **instellingen** en vervolgens **toegangsbeleid** -Noteer Hallo twee verbindingsreeksen die zijn aangebracht beschikbaar tooyou, want u ze toohandle pushmeldingen later moet.
+      ![Azure Portal - Portal-pagina van Notification Hub](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-resources.png)
+
+5. Selecteer **Toegangsbeleid** in de lijst. Let op de twee verbindingsreeksen die voor u beschikbaar zijn. Later moet u er pushmeldingen mee afhandelen.
+
+      >[!IMPORTANT]
+      >Gebruik **NIET** de DefaultFullSharedAccessSignature in uw toepassing. Deze mag alleen in uw back-end worden gebruikt.
+      >
    
       ![Azure Portal - verbindingsreeksen voor de Notification Hub](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 

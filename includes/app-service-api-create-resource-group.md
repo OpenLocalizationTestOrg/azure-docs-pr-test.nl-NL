@@ -1,11 +1,11 @@
-Een resourcegroep maken met de Hallo [az groep maken](/cli/azure/group#create) opdracht.
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 
-Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroup* in Hallo *westeurope* locatie.
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *Europa West*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 
-toosee hello beschikbare locaties, Voer Hallo `az appservice list-locations` opdracht. In het algemeen maakt u resources in een regio bij u in de buurt.
+Voer de opdracht `az appservice list-locations` uit voor een overzicht van de beschikbare locaties. In het algemeen maakt u resources in een regio bij u in de buurt.

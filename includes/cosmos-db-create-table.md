@@ -1,14 +1,21 @@
-U kunt nu gebruiken van Data Explorer toocreate een tabel en gegevens tooyour database toevoegen. 
+U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een database en een tabel te maken. 
 
-1. Klik in de Azure-portal in het navigatiemenu Hallo Hallo op **Data Explorer (Preview)**. 
-2. Klik op Hallo Data Explorer blade **nieuwe tabel**, vul vervolgens met behulp van de volgende informatie Hallo Hallo-pagina.
+1. Klik op **Data Explorer** > **Nieuwe tabel**. 
+    
+    Helemaal rechts wordt het gebied **Tabel toevoegen** weergegeven. Mogelijk moet u naar rechts scrollen om het te zien.
 
-    ![Data Explorer in hello Azure-portal](./media/cosmos-db-create-table/azure-cosmosdb-data-explorer.png)
+    ![Data Explorer in de Azure Portal](./media/cosmos-db-create-table/azure-cosmosdb-data-explorer.png)
+
+2. Geef op de pagina **Tabel toevoegen** de instellingen voor de nieuwe tabel op.
 
     Instelling|Voorgestelde waarde|Beschrijving
     ---|---|---
-    Tabel-id|voorbeeldtabel|Hallo-ID voor de nieuwe tabel. Tabelnamen Hallo hebben dezelfde vereisten als de database-id's teken. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen `/ \ # ?` bevatten of eindigen op een spatie.
-    Opslagcapaciteit| 10 GB|Laat de standaardwaarde Hallo. Dit is de opslagcapaciteit Hallo van Hallo-database.
-    Doorvoer|400 RU‘s|Laat de standaardwaarde Hallo. U kunt opschalen van Hallo [doorvoer](../articles/cosmos-db/request-units.md) hoger als u wilt dat tooreduce latentie.
+    Tabel-id|voorbeeldtabel|De id voor de nieuwe tabel. Voor tabelnamen gelden dezelfde tekenvereisten als voor database-id's. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen `/ \ # ?` bevatten of eindigen op een spatie.
+    Opslagcapaciteit| Vast (10 GB)|Wijzig de waarde in **Vast (10 GB)**. Deze waarde is de opslagcapaciteit van de database.
+    Doorvoer|400 RU‘s|Wijzig de doorvoer in 400 aanvraageenheden per seconde (RU/s). U kunt de doorvoer later opschalen als u de latentie wilt beperken.
 
-3. Zodra het Hallo-formulier wordt ingevuld, klikt u op **OK**.
+    Klik op **OK**.
+
+    In Data Explorer worden de nieuwe database en tabel weergegeven.
+
+    ![Data Explorer in Azure Portal, met de nieuwe database en tabel](./media/cosmos-db-create-table/azure-cosmos-db-new-table.png)

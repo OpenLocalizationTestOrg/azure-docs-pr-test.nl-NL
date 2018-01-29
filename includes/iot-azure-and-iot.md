@@ -1,63 +1,70 @@
 
-# <a name="azure-and-internet-of-things"></a>Azure en internet der dingen (IoT)
+# <a name="azure-and-the-internet-of-things"></a>Azure en Internet of Things
 
-Welkom bij Azure tooMicrosoft en Hallo Internet der dingen (IoT). Dit artikel bevat een IoT-oplossingsarchitectuur die beschrijft Hallo algemene eigenschappen van een IoT-oplossing die u kunt implementeren met behulp van Azure-services. IoT-oplossingen vereisen bidirectionele communicatie tussen apparaten, mogelijk nummering in hello miljoenen en een back-end oplossing beveiligen. Bijvoorbeeld, een back-end oplossing geautomatiseerde, voorspellende analyses toouncover insights gebruiken van de gebeurtenisstroom van uw apparaat-naar-cloud.
-
-Azure IoT Hub is een essentiële bouwsteen bij de implementatie van de architectuur voor deze IoT-oplossing met behulp van Azure-services. IoT Suite biedt volledige end-to-end-implementaties van deze architectuur voor specifieke IoT-scenario's. Bijvoorbeeld:
-
-* Hallo *externe controle* oplossing kunt u toomonitor Hallo status van apparaten, zoals snoep-machines.
-* Hallo *voorspeld onderhoud* oplossing kunt u tooanticipate onderhoudsbehoeften van apparaten zoals pompen in externe gemalen stations en tooavoid ongeplande downtime.
-* Hallo *verbonden factory* oplossing helpt u bij tooconnect en controleer uw industriële apparaten.
+Welkom bij Microsoft Azure en het internet der dingen (IoT). In dit artikel worden de algemene eigenschappen van een IoT-oplossing in de cloud beschreven. IoT-oplossingen vereisen een beveiligde communicatie tussen mogelijk miljoenen apparaten in twee richtingen, evenals een back-end van de oplossing. Een oplossing kan bijvoorbeeld gebruikmaken van geautomatiseerde predictive analytics om inzichten bloot te leggen over de gebeurtenisstroom van het apparaat naar de cloud.
 
 ## <a name="iot-solution-architecture"></a>Architectuur voor een IoT-oplossing
 
-Hallo volgende diagram toont de architectuur van een typische IoT-oplossing. Hallo diagram omvat geen Hallo namen van specifieke Azure-services, maar beschrijft de belangrijkste elementen in een algemene IoT-oplossingsarchitectuur Hallo. In deze architectuur verzamelen IoT-apparaten gegevens dat ze tooa cloudgateway verzenden. Hallo cloudgateway maakt Hallo gegevens beschikbaar voor verwerking door andere back-end-services uit waarbij gegevens geleverd tooother line-of-business-toepassingen of toohuman operators via een dashboard of een ander apparaat voor presentatie.
+Het volgende diagram toont de belangrijkste elementen van een typische architectuur voor een IoT-oplossing. Het diagram staat los van de specifieke implementatiegegevens, zoals de gebruikte Azure-services en de besturingssystemen van apparaten. In deze architectuur verzamelen IoT-apparaten gegevens die ze naar een cloudgateway verzenden. De cloudgateway maakt de gegevens beschikbaar voor verwerking door andere back-endservices. Deze back-end-services kunnen gegevens leveren aan:
+
+* Andere line-of-business-toepassingen.
+* Menselijke operators via een dashboard of een andere presentatiemethode.
 
 ![Architectuur voor een IoT-oplossing][img-solution-architecture]
 
 > [!NOTE]
-> Zie voor een gedetailleerdere beschrijving van IoT-architectuur Hallo [Microsoft Azure IoT Reference Architecture][lnk-refarch].
+> Zie [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Referentiearchitectuur voor Microsoft Azure IoT) voor een uitgebreide beschrijving van de IoT-architectuur.
 
 ### <a name="device-connectivity"></a>Connectiviteit van apparaten
 
-In deze architectuur IoT-oplossing verzenden apparaten telemetriegegevens, zoals sensormetingen van een gemaal, tooa cloudeindpunt voor opslag en verwerking. In een scenario voor voorspeld onderhoud Hallo back-end oplossing Hallo stroom van sensor gegevens toodetermine gebruiken wanneer een pomp onderhoud moet. Apparaten kunnen ook ontvangen en toocloud naar apparaat-berichten door te lezen van berichten van een cloudeindpunt reageren. Bijvoorbeeld in Hallo voorspeld onderhoud scenario Hallo oplossing back-end mogelijk berichten verzenden tooother pompen in Hallo pompen station toobegin omleiden van de stromen vlak voordat de onderhoudswerkzaamheden toostart. Deze procedure zorgt ervoor Hallo onderhoudstechnicus kan aan de slag als hij aankomt.
+In de architectuur van een IoT-oplossing verzenden apparaten doorgaans telemetriegegevens naar de cloud voor opslag en verwerking. In een scenario voor voorspeld onderhoud kan de back-end van de oplossing de stream van sensorgegevens bijvoorbeeld gebruiken om vast te stellen of er aan een pomp onderhoud moet worden uitgevoerd. Apparaten kunnen ook berichten ontvangen die van de cloud naar het apparaat zijn verstuurd en erop reageren door de berichten van een cloudeindpunt te lezen. Zo kunnen er hetzelfde voorbeeld door de back-end van de oplossing berichten worden verzonden naar andere pompen in een gemaal, zodat de waterstromen net voordat de onderhoudswerkzaamheden van start gaan, kunnen worden omgeleid. Deze procedure zorgt ervoor dat de onderhoudstechnicus meteen aan de slag kan wanneer hij aankomt.
 
-Een van de grootste uitdagingen Hallo geconfronteerd met IoT-projecten is hoe tooreliably en veilig verbinding apparaten toohello back-end oplossing. IoT-apparaten hebben verschillende kenmerken als vergeleken tooother clients zoals browsers en mobiele apps. IoT-apparaten:
+De grootste uitdaging voor IoT-oplossingen is vaak om apparaten op een veilige en betrouwbare manier verbinding te laten maken. Vergeleken met andere clients zoals browsers en mobiele apps hebben IoT-apparaten namelijk andere kenmerken. IoT-apparaten:
 
-* Zijn vaak ingesloten systemen waarbij geen menselijke operator komt kijken.
+* Zijn vaak ingesloten systemen waarbij geen menselijke operator komt kijken (in tegenstelling tot een telefoon).
 * Kunnen worden geïmplementeerd op verafgelegen locaties, waar fysieke toegang kostbaar is.
-* Kan alleen worden bereikt via Hallo back-end oplossing. Er is geen andere manier toointeract met Hallo-apparaat.
+* Kunnen mogelijk alleen worden bereikt via de back-end van de oplossing. Er is geen andere manier om te communiceren met het apparaat.
 * Hebben mogelijk een beperkt vermogen en een beperkt aantal verwerkingsbronnen.
 * Hebben mogelijk een onstabiele, trage of dure netwerkverbinding.
-* Mogelijk moet toouse bedrijfseigen, aangepaste of branchespecifieke toepassingsprotocollen.
+* Vereisen mogelijk het gebruik van bedrijfseigen, aangepaste of branchespecifieke toepassingsprotocollen.
 * Kunnen worden gemaakt met behulp van een groot aantal populaire hardware- en softwareplatforms.
 
-Bovendien toohello bovenstaande vereisten een IoT-oplossing moet ook leveren schaal, beveiliging en betrouwbaarheid. Hallo is resulterende reeks connectiviteitsvereisten moeilijk en tijdrovend tooimplement met behulp van conventionele technologieën zoals webcontainers en berichtenbrokers. Azure IoT Hub en Hallo Azure IoT-apparaat-SDK's kunt eenvoudiger tooimplement oplossingen die aan deze vereisten voldoet.
+Een IoT-oplossing heeft niet alleen bovenstaande beperkingen, maar moet ook schaalbaar, veilig en betrouwbaar zijn.
 
-Een apparaat kan communiceren rechtstreeks met het eindpunt van een cloudgateway of als het Hallo-apparaat kan Hallo communicatieprotocollen die Hallo cloud gateway ondersteunt niet gebruiken, deze verbinding kan maken via een tussenliggende gateway. Bijvoorbeeld, Hallo [protocolgateway van Azure IOT] [ lnk-protocol-gateway] protocolvertaling kunt uitvoeren als apparaten kunnen Hallo-protocollen die IoT Hub worden ondersteund niet gebruiken.
+Afhankelijk van de beschikbaarheid van het communicatieprotocol en het netwerk, kan een apparaat rechtstreeks of via een tussenliggende gateway communiceren met de cloud. IoT-architecturen gebruiken vaak een combinatie van deze twee communicatiepatronen.
 
 ### <a name="data-processing-and-analytics"></a>Gegevensverwerking en -analyse
 
-In de cloud hello is een IoT-oplossing back-end waar de meeste Hallo gegevensverwerking optreedt, zoals filteren en samenvoegen van telemetriegegevens en routeringservices in het tooother. Hallo IoT back-end oplossing:
+In moderne IoT-oplossingen vindt de gegevensverwerking in de cloud of in het apparaat plaats. Verwerking in het apparaat wordt ook wel *Edge computing* genoemd. De keuze van de locatie voor gegevensverwerking is afhankelijk van factoren zoals:
 
-* Ontvangt telemetrie op schaal van uw apparaten en bepaalt hoe tooprocess en op te slaan die gegevens. 
-* Mogelijk kunt u de opdrachten toosend uit Hallo cloud toospecific apparaat.
-* Biedt mogelijkheden voor het apparaat registreren waarmee u tooprovision apparaten en toocontrol welke apparaten tooconnect tooyour infrastructuur zijn toegestaan.
-* Hiermee schakelt u tootrack Hallo status van uw apparaten en hun activiteiten bewaken.
+* Netwerkbeperkingen. Als de bandbreedte tussen de apparaten en de cloud beperkt is, is er een stimulans om meer randbewerkingen uit te voeren.
+* Reactietijd. Als het een vereiste is dat een apparaat bijna in realtime moet reageren, kan het beter zijn om de reactie in het apparaat zelf te verwerken. Bijvoorbeeld een robotarm die moet worden gestopt in geval van nood.
+* Regelgeving. Sommige gegevens kunnen niet worden verzonden naar de cloud.
 
-In scenario voor voorspeld onderhoud Hallo opgeslagen Hallo back-end oplossing historische telemetriegegevens. Hallo back-end oplossing kunt gebruiken deze gegevens toouse tooidentify patronen die aangeven dat onderhoud van een specifieke pomp noodzakelijk.
+De randverwerking en gegevensverwerking in de cloud zijn in het algemeen een combinatie van de volgende mogelijkheden:
 
-IoT-oplossingen kunnen automatische feedbacklussen omvatten. Bijvoorbeeld, kan een analysemodule in Hallo back-end oplossing identificeren uit telemetrie die Hallo temperatuur van een specifiek apparaat hoger dan de normale bedrijfstemperatuurniveaus is. Hallo oplossing kunt vervolgens een opdracht toohello apparaat, instructie tootake corrigerende maatregelen verzenden.
+* Ontvangen van telemetriegegevens van uw apparaten en bepalen hoe die gegevens moeten worden verwerkt en opgeslagen.
+* Analyse van de telemetriegegevens om inzichten te krijgen, ongeacht of deze in realtime of achteraf worden opgedaan.
+* Verzenden van opdrachten vanuit de cloud of een gateway-apparaat met een bepaald apparaat.
+
+Een IoT-back-end in de cloud moet daarnaast de volgende zaken bieden:
+
+* Registratiemogelijkheden voor apparaten waarmee u de volgende zaken kunt doen:
+    * Apparaten inrichten.
+    * Bepalen welke apparaten verbinding mogen maken met uw infrastructuur.
+* Apparaatbeheer om de status van uw apparaten bij te houden en hun activiteiten te volgen.
+
+In een scenario voor voorspeld onderhoud slaat de back-end van de cloud bijvoorbeeld historische telemetriegegevens op. De oplossing gebruikt deze gegevens om mogelijk afwijkend gedrag van specifieke pompen te identificeren voordat er een echt probleem ontstaat. Met behulp van gegevensanalyses kan worden bepaald dat de preventieve oplossing een opdracht moet verzenden naar het apparaat om een corrigerende actie te ondernemen. Dit proces genereert een automatische feedbacklus tussen het apparaat en de cloud die de efficiëntie van de oplossing aanzienlijk verhoogt.
 
 ### <a name="presentation-and-business-connectivity"></a>Presentatie en bedrijfsconnectiviteit
 
-Hallo presentatie en connectiviteit laag kan eindgebruikers toointeract Hello IoT-oplossing en Hallo-apparaten. Deze kunnen gebruikers tooview en analyseren van Hallo gegevens verzameld vanaf hun apparaten. Deze weergaven kunnen Hallo vorm van dashboards of BI-rapporten die zowel historische gegevens kunnen weergeven of gegevens in bijna realtime krijgen. Bijvoorbeeld, een operator Hallo status van bepaald gemaal controleren en Zie eventueel waarschuwingen heeft gegeven Hallo-systeem. Deze laag maakt ook integratie van Hallo IoT back-end oplossing met bestaande line-of-business-toepassingen tootie in bedrijfsprocessen of werkstromen. Bijvoorbeeld, kunt Hallo-oplossing voor voorspeld onderhoud integreren met een werkroostersysteem dat books een technicus toovisit gemaal als Hallo oplossing een pomp waaraan onderhoud identificeert.
-
-![Dashboard van de IoT-oplossing][img-dashboard]
+De laag voor presentatie en bedrijfsconnectiviteit stelt eindgebruikers in staat te communiceren met de IoT-oplossing en de apparaten. Gebruikers kunnen met behulp hiervan de gegevens bekijken en analyseren die van hun apparaten zijn verzameld. Deze weergaven kunnen de vorm hebben van dashboards of BI-rapporten die zowel historische gegevens als gegevens in bijna realtime kunnen weergeven. Een operator kan bijvoorbeeld de status van een bepaald gemaal controleren en zien of het systeem eventueel waarschuwingen heeft gegeven. Deze laag maakt ook integratie mogelijk van de back-end van de IoT-oplossing met bestaande line-of-business-toepassingen zodat deze in bedrijfsprocessen of werkstromen kunnen worden ingevoegd. Een oplossing voor voorspeld onderhoud kan bijvoorbeeld worden geïntegreerd met een werkroostersysteem dat op het moment dat de oplossing een pomp identificeert waaraan onderhoud moet worden uitgevoerd, een technicus boekt die naar het gemaal met de desbetreffende pomp moet gaan.
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png
 
+[lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
+[lnk-iot-suite]: ../articles/iot-suite/iot-suite-overview.md
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md

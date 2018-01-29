@@ -1,24 +1,24 @@
-1. Klik op het Hallo-zijde van Hallo portal-pagina naar links,  **+**  en typ 'Virtuele netwerkgateway' in de zoekopdracht. Zoek in **Resultaten** naar **Virtuele netwerkgateway** en klik hierop.
-2. Klik onder aan Hallo 'Virtuele netwerkgateway' blade Hallo op **maken**. Hiermee opent u Hallo **virtuele netwerkgateway aanmaken** blade.
+1. Klik links op de portalpagina op **+** en typ 'Virtuele netwerkgateway' in het zoekvak. Zoek in **Resultaten** naar **Virtuele netwerkgateway** en klik hierop.
+2. Klik onder aan de pagina Virtuele netwerkgateway op **Maken**. Hiermee opent u de pagina **Gateway van het virtuele netwerk maken**.
 
-    ![Velden van de blade Virtuele netwerkgateway maken](./media/vpn-gateway-add-gw-s2s-rm-portal-include/vnet_gw.png "Nieuwe gateway")
+    ![Velden van de pagina Virtuele netwerkgateway maken](./media/vpn-gateway-add-gw-s2s-rm-portal-include/newgw.png "Nieuwe gateway")
+3. Vul op de pagina **Virtuele netwerkgateway maken** de waarden in voor de gateway van het virtuele netwerk.
 
-3. Op Hallo **virtuele netwerkgateway aanmaken** blade Hallo waarden opgeven voor uw virtuele netwerkgateway.
+  - **Naam**: naam van uw gateway. Deze mag niet gelijk zijn aan de naam van het gateway-subnet. Het is de naam van het gateway-object dat u maakt.
+  - **Gatewaytype**: selecteer **VPN**. VPN-gateways maken gebruik van een gateway van het virtuele netwerk van het type **VPN**. 
+  - **VPN-type**selecteer het VPN-type dat wordt opgegeven voor uw configuratie. De meeste configuraties vereisen een op route gebaseerd VPN-type.
+  - **SKU**: selecteer de gateway-SKU in de vervolgkeuzelijst. Welke SKU's worden weergegeven in de vervolgkeuzelijst, is afhankelijk van het VPN-type dat u selecteert. Zie [Gateway-SKU's](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) voor informatie over gateway-SKU's.
+  - **Locatie**: u moet mogelijk omlaag schuiven om Locatie te zien. Wijzig het veld **Locatie** om naar de locatie van het virtuele netwerk te verwijzen. Als de locatie niet verwijst naar de regio waarin het virtuele netwerk zich bevindt, wordt het virtuele netwerk niet weergegeven in de vervolgkeuzelijst als u in de volgende stap een virtueel netwerk kiest.
+  - **Virtueel netwerk**: kies het virtuele netwerk waaraan u deze gateway wilt toevoegen. Klik op **Virtueel netwerk** om de pagina Een virtueel netwerk kiezen te openen. Selecteer het VNet. Als u uw VNet niet ziet, moet u controleren of het veld Locatie verwijst naar de regio waarin het virtuele netwerk zich bevindt.
+  - **Adresbereik van gatewaysubnet**: u ziet deze instelling alleen als u nog geen gatewaysubnet voor het virtuele netwerk hebt gemaakt. Als u al een geldig gatewaysubnet hebt gemaakt, wordt deze instelling niet weergegeven.
+  - **Eerste IP-configuratie**: op de pagina Openbaar IP-adres kiezen wordt een openbaar IP-adresobject gemaakt, dat wordt gekoppeld aan de VPN-gateway. Het openbare IP-adres wordt dynamisch toegewezen aan dit object wanneer de VPN-gateway wordt gemaakt. VPN Gateway ondersteunt momenteel alleen *dynamische* toewijzing van openbare IP-adressen. Dit betekent echter niet dat het IP-adres wordt gewijzigd nadat het aan uw VPN Gateway is toegewezen. Het openbare IP-adres verandert alleen wanneer de gateway wordt verwijderd en opnieuw wordt gemaakt. Het verandert niet wanneer de grootte van uw VPN Gateway verandert, wanneer deze gateway opnieuw wordt ingesteld of wanneer andere interne onderhoudswerkzaamheden of upgrades worden uitgevoerd.
 
-  - **Naam**: naam van uw gateway. Dit is niet gelijk aan de naamgeving van een gatewaysubnet Hallo. Het Hallo-naam van Hallo gateway-object maken van de.
-  - **Gatewaytype**: selecteer **VPN**. VPN-gateways gebruiken type Hallo virtuele-netwerkgateway **VPN**. 
-  - **VPN-type**: Selecteer Hallo VPN-type dat is opgegeven voor uw configuratie. De meeste configuraties vereisen een op route gebaseerd VPN-type.
-  - **SKU**: Selecteer Hallo gateway-SKU uit Hallo vervolgkeuzelijst. Hallo-SKU's die worden vermeld in de vervolgkeuzelijst Hallo is afhankelijk van Hallo VPN-type dat u selecteert. Zie [Gateway-SKU's](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) voor informatie over gateway-SKU's.
-  - **Locatie**: U moet mogelijk tooscroll toosee locatie. Hallo aanpassen **locatie** veld toopoint toohello locatie van het virtuele netwerk. Als Hallo locatie niet toohello regio waar uw virtuele netwerk zich bevindt verwijst, wordt Hallo virtueel netwerk niet weergegeven in de volgende stap Hallo dropdown 'Kiezen een virtueel netwerk'.
-  - **Virtueel netwerk**: Kies Hallo virtueel netwerk toowhich gewenste tooadd deze gateway. Klik op **virtueel netwerk** tooopen Hallo 'Kiezen een virtueel netwerk' blade. Selecteer Hallo VNet. Als u uw VNet niet ziet, zorg er dan voor dat het veld locatie Hallo wijst toohello regio waarin het virtuele netwerk bevindt.
-  - **Openbaar IP-adres**: 'Maak openbaar IP-adres' Hallo-blade een openbare IP-adres-object wordt gemaakt. Hallo openbaar IP-adres wordt dynamisch toegewezen wanneer Hallo VPN-gateway is gemaakt. VPN Gateway ondersteunt momenteel alleen *dynamische* toewijzing van openbare IP-adressen. Dit betekent echter niet dat dat Hallo IP-adres verandert nadat tooyour VPN-gateway is toegewezen. de enige keer Hallo Hallo openbare IP-adreswijzigingen is wanneer Hallo gateway is verwijderd en opnieuw gemaakt. Het verandert niet wanneer de grootte van uw VPN Gateway verandert, wanneer deze gateway opnieuw wordt ingesteld of wanneer andere interne onderhoudswerkzaamheden of upgrades worden uitgevoerd.
+    - Klik eerst op **IP-configuratie van gateway maken** om de pagina Openbaar IP-adres kiezen te openen. Klik daarna op **+Nieuw** om de pagina Openbaar IP-adres maken te openen.
+    - Geef bij **Naam** een naam op voor uw openbare IP-adres. Laat SKU staan op **Basic**, tenzij er een specifieke reden is om deze instelling te wijzigen. Klik vervolgens op **OK** onderaan deze pagina om de wijzigingen op te slaan.
 
-    - Klik eerst **openbaar IP-adres** tooopen Hallo 'Openbare IP-adres kiezen' blade en klik vervolgens op **+ maken van nieuwe** tooopen Hallo 'Maak openbaar IP-adres' blade.
-    - Voer vervolgens een **naam** voor uw openbare IP-adres, klik vervolgens op **OK** op Hallo onder aan deze blade toosave worden uw wijzigingen.
+      ![Openbaar IP maken](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "PIP maken")
 
-      ![Openbaar IP maken](./media/vpn-gateway-add-gw-s2s-rm-portal-include/pip.png "PIP maken")
+4. Controleer de instellingen. Als u wilt dat uw gateway op het dashboard wordt weergegeven, kunt u onderaan de pagina **Vastmaken aan dashboard** selecteren. 
+5. Klik op **Maken** om de VPN-gateway aan te maken. De instellingen worden gevalideerd en op het dashboard wordt de tegel 'De gateway van het virtuele netwerk implementeren' weergegeven. Het aanmaken van een gateway kan tot 45 minuten duren. U moet mogelijk uw portal-pagina vernieuwen om de voltooide status te kunnen zien.
 
-4. Hallo-instellingen te controleren. U kunt selecteren **pincode toodashboard** onderaan Hallo Hallo blade als u wilt dat uw gateway tooappear op Hallo-dashboard. 
-5. Klik op **maken** toobegin Hallo VPN-gateway maken. Hallo-instellingen worden gevalideerd en ziet u Hallo 'Virtuele netwerkgateway implementeren' tegel op Hallo-dashboard. Maken van een gateway kan duren too45 minuten. U moet mogelijk toorefresh de status van uw portal-pagina toosee Hallo voltooid.
-
-Nadat het Hallo-gateway is gemaakt, weergeven Hallo IP-adres dat is toegewezen tooit door te kijken Hallo virtueel netwerk in Hallo-portal. Hallo-gateway wordt weergegeven als aangesloten apparaat. U kunt klikken op Hallo verbonden apparaat (uw virtuele netwerkgateway) tooview meer informatie.
+Nadat de gateway is gemaakt, gaat u na welk IP-adres eraan is toegewezen. Bekijk hiervoor het virtuele netwerk in de portal. De gateway wordt weergegeven als verbonden apparaat. U kunt op het verbonden apparaat klikken (uw gateway van het virtuele netwerk) om meer informatie te laten weergeven.

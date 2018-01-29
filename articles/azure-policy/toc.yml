@@ -1,0 +1,41 @@
+- name: Documentatie voor Azure Policy
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Overzicht van Azure-beleid
+      href: azure-policy-introduction.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Een beleid toewijzen - Portal
+      href: assign-policy-definition.md
+    - name: Een beleid toewijzen - PowerShell
+      href: assign-policy-definition-ps.md
+    - name: Een beleid toewijzen - Azure CLI
+      href: assign-policy-definition-cli.md
+- name: Zelfstudies
+  items:
+    - name: Azure-beleid maken en beheren
+      href: create-manage-policy.md
+- name: Voorbeelden
+  items:
+    - name: Beleidssjablonen
+      href: json-samples.md
+- name: Concepten
+  items:
+    - name: Structuur van Azure-beleidsdefinities
+      href: policy-definition.md
+- name: Naslaginformatie
+  items:
+    - name: Azure CLI
+      href: /cli/azure/policy
+    - name: Azure PowerShell
+      href: '/powershell/module/azurerm.resources/#policies'
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/azure-policy/'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'

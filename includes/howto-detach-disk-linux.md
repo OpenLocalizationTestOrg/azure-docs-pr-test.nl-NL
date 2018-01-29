@@ -1,19 +1,19 @@
-Wanneer u een gegevensschijf die is aangesloten tooa virtuele machine (VM) niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Wanneer u een schijf van Hallo VM losgekoppeld, Hallo schijf is niet verwijderd uit de opslag. Als u toouse Hallo bestaande gegevens op Hallo schijf opnieuw wilt, u kunt opnieuw het toohello dezelfde virtuele machine of een andere naam.  
+Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine (VM) niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Wanneer u een schijf van de virtuele machine loskoppelt, wordt de schijf niet verwijderd uit de opslag. Als u de bestaande gegevens op de schijf opnieuw wilt gebruiken, kunt u de schijf opnieuw koppelen aan dezelfde of een andere virtuele machine.  
 
 > [!NOTE]
-> Een VM in Azure gebruikt verschillende soorten schijven: een besturingssysteemschijf, een lokale tijdelijke schijf en optionele gegevensschijven. Zie [Informatie over schijven en VHD's voor virtuele machines](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie. U kan een schijf niet loskoppelen tenzij u ook Hallo VM verwijderen.
+> Een VM in Azure gebruikt verschillende soorten schijven: een besturingssysteemschijf, een lokale tijdelijke schijf en optionele gegevensschijven. Zie [Informatie over schijven en VHD's voor virtuele machines](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie. U kunt de schijf van een besturingssysteem alleen loskoppelen als u ook de virtuele machine verwijdert.
 
-## <a name="find-hello-disk"></a>Hallo schijf gevonden
-Voordat u kunt een schijf van een virtuele machine loskoppelen moet u toofind uit Hallo LUN-nummer een id voor Hallo schijf toobe losgekoppeld is. toodo die als volgt te werk:
+## <a name="find-the-disk"></a>De schijf vinden
+Voordat u een schijf van een virtuele machine kunt loskoppelen, moet u achter het LUN komen. Dit is een id voor de schijf die u wilt loskoppelen. Voer hiervoor de volgende stappen uit:
 
-1. Open Azure CLI en [tooyour Azure-abonnement verbinden](../articles/xplat-cli-connect.md). Zorg ervoor dat u zich in de modus voor Azure-servicebeheer (`azure config mode asm`) bevindt.
-2. Ontdek welke schijven aangesloten tooyour VM zijn. Hallo volgende voorbeeld worden schijven voor virtuele machine met de naam Hallo `myVM`:
+1. Open Azure CLI en [maak verbinding met uw Azure-abonnement](/cli/azure/authenticate-azure-cli). Zorg ervoor dat u zich in de modus voor Azure-servicebeheer (`azure config mode asm`) bevindt.
+2. Achterhaal welke schijven zijn gekoppeld aan uw virtuele machine. In het volgende voorbeeld worden schijven weergegeven voor de virtuele machine met de naam `myVM`:
 
     ```azurecli
     azure vm disk list myVM
     ```
 
-    Hallo uitvoer is vergelijkbaar toohello volgende voorbeeld:
+    De uitvoer lijkt op die in het volgende voorbeeld:
 
     ```azurecli
     * Fetching disk images
@@ -26,12 +26,12 @@ Voordat u kunt een schijf van een virtuele machine loskoppelen moet u toofind ui
       info:    vm disk list command OK
     ```
 
-3. Houd er rekening mee Hallo LUN of Hallo **nummer van de logische eenheid** voor Hallo schijf die u toodetach wilt.
+3. Noteer het LUN, oftewel het **nummer van de logische eenheid**, voor de schijf die u wilt loskoppelen.
 
-## <a name="remove-operating-system-references-toohello-disk"></a>Besturingssysteem verwijzingen toohello schijf verwijderen
-Voordat de schijf wordt losgekoppeld Hallo van Hallo Linux Gast, moet u ervoor zorgen dat alle partities op schijf Hallo zich niet in gebruik. Zorg ervoor dat besturingssysteem Hallo probeert niet tooremount ze na opnieuw opstarten. Deze stappen ongedaan maken wanneer waarschijnlijk gemaakt Hallo-configuratie [koppelen](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) Hallo schijf.
+## <a name="remove-operating-system-references-to-the-disk"></a>Verwijzingen van het besturingssysteem naar de schijf verwijderen
+Voordat u de schijf loskoppelt van de Linux-gast, moet u ervoor zorgen dat geen van de partities op de schijf in gebruik is. Zorg ervoor dat het besturingssysteem ze na de reboot niet opnieuw probeert te koppelen. Met deze stappen maakt u de configuratie ongedaan die u waarschijnlijk hebt gemaakt tijdens het [koppelen](../articles/virtual-machines/linux/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) van de schijf.
 
-1. Gebruik Hallo `lsscsi` opdracht toodiscover Hallo schijf-ID. U kunt `lsscsi` installeren met `yum install lsscsi` (Red Hat-distributies) of `apt-get install lsscsi` (Debian-distributies). U vindt Hallo schijf ID die u zoekt met behulp van Hallo LUN nummer. Hallo laatste nummer in de tuple Hallo in elke rij is Hallo LUN. In het Hallo-voorbeeld uit na `lsscsi`, LUN 0 toegewezen te  */dev/sdc*
+1. Gebruik de opdracht `lsscsi` om de schijf-id te achterhalen. U kunt `lsscsi` installeren met `yum install lsscsi` (Red Hat-distributies) of `apt-get install lsscsi` (Debian-distributies). De schijf-id kunt u vinden met behulp van het LUN. Het laatste getal in elke rij van de tuple is het LUN. In het volgende voorbeeld van `lsscsi`, is LUN 0 toegewezen aan */dev/sdc*.
 
     ```bash
     [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
@@ -40,7 +40,7 @@ Voordat de schijf wordt losgekoppeld Hallo van Hallo Linux Gast, moet u ervoor z
     [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
     ```
 
-2. Gebruik `fdisk -l <disk>` toodiscover Hallo partities die zijn gekoppeld aan Hallo schijf toobe losgekoppeld. Hallo volgende voorbeeld ziet u uitvoer Hallo voor `/dev/sdc`:
+2. Gebruik `fdisk -l <disk>` om de partities te detecteren die zijn gekoppeld aan de schijf die u wilt loskoppelen. In het volgende voorbeeld wordt de uitvoer weergegeven voor `/dev/sdc`:
 
     ```bash
     Disk /dev/sdc: 1098.4 GB, 1098437885952 bytes, 2145386496 sectors
@@ -54,13 +54,13 @@ Voordat de schijf wordt losgekoppeld Hallo van Hallo Linux Gast, moet u ervoor z
     /dev/sdc1            2048  2145386495  1072692224   83  Linux
     ```
 
-3. Elke partitie die worden vermeld voor Hallo schijf ontkoppelen. Hallo volgende voorbeeld ontkoppelt `/dev/sdc1`:
+3. Koppel elke partitie van de schijf los. In het volgende voorbeeld wordt `/dev/sdc1` losgekoppeld:
 
     ```bash
     sudo umount /dev/sdc1
     ```
 
-4. Gebruik Hallo `blkid` opdracht toodiscovery Hallo UUID's voor alle partities. Hallo uitvoer is vergelijkbaar toohello volgende voorbeeld:
+4. Gebruik de opdracht `blkid` om de UUID's voor alle partities te achterhalen. De uitvoer lijkt op die in het volgende voorbeeld:
 
     ```bash
     /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -68,7 +68,7 @@ Voordat de schijf wordt losgekoppeld Hallo van Hallo Linux Gast, moet u ervoor z
     /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
     ```
 
-5. Verwijder de vermeldingen in Hallo **/etc/fstab** bestand dat is gekoppeld met Hallo device-paden of UUID's voor alle partities voor Hallo schijf toobe losgekoppeld.  Vermeldingen voor dit voorbeeld kunnen zijn:
+5. Verwijder de vermeldingen in het bestand **/etc/fstab** dat is gekoppeld aan de apparaatpaden of UUID's voor alle partities van de schijf die u wilt loskoppelen.  Vermeldingen voor dit voorbeeld kunnen zijn:
 
     ```sh  
    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
@@ -80,23 +80,23 @@ Voordat de schijf wordt losgekoppeld Hallo van Hallo Linux Gast, moet u ervoor z
    /dev/sdc1   /datadrive   ext4   defaults   1   2
    ```
 
-## <a name="detach-hello-disk"></a>Ontkoppel de schijf Hallo
-Wanneer u Hallo LUN aantal Hallo schijf en verwijst naar verwijderde Hallo-besturingssysteem kunt vinden, bent u klaar toodetach het:
+## <a name="detach-the-disk"></a>De schijf loskoppelen
+Nadat u het LUN van de schijf hebt gevonden en de verwijzingen naar het besturingssysteem hebt verwijderd, kunt u de schijf loskoppelen:
 
-1. Loskoppelen van de geselecteerde schijf Hallo van Hallo virtuele machine met Hallo opdracht `azure vm disk detach
-   <virtual-machine-name> <LUN>`. Hallo voorbeeld hieronder wordt LUN `0` van Hallo VM met de naam `myVM`:
+1. Koppel de geselecteerde schijf los van de virtuele machine met de opdracht `azure vm disk detach
+   <virtual-machine-name> <LUN>`. In het volgende voorbeeld wordt LUN `0` losgekoppeld van de virtuele machine met de naam `myVM`:
    
     ```azurecli
     azure vm disk detach myVM 0
     ```
 
-2. U kunt controleren als Hallo schijf is losgekoppeld door te voeren `azure vm disk list` opnieuw. Hallo voorbeeld controles Hallo VM met de naam `myVM`:
+2. U kunt controleren of de schijf is losgekoppeld door `azure vm disk list` opnieuw uit te voeren. In het volgende voorbeeld wordt de VM met de naam `myVM` gecontroleerd:
    
     ```azurecli
     azure vm disk list myVM
     ```
 
-    Hallo uitvoer is vergelijkbaar toohello volgende voorbeeld, waarin de gegevensschijf Hallo niet meer is gekoppeld:
+    De uitvoer is vergelijkbaar met het volgende voorbeeld, waarin wordt aangegeven dat de gegevensschijf niet meer is gekoppeld:
 
     ```azurecli
     info:    Executing command vm disk list
@@ -110,5 +110,5 @@ Wanneer u Hallo LUN aantal Hallo schijf en verwijst naar verwijderde Hallo-bestu
      info:    vm disk list command OK
     ```
 
-Hallo losgekoppeld schijf blijft in de opslag, maar is niet langer gekoppelde tooa virtuele machine.
+De losgekoppelde schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.
 

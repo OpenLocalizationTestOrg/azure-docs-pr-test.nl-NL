@@ -1,12 +1,7 @@
-Hello Azure Backup-service heeft twee soorten kluizen - Hallo Backup-kluis en Hallo Recovery Services-kluis. Hallo Backup-kluis kwam eerste. Hallo Recovery Services-kluis kwam vervolgens langs toosupport Hallo uitgevouwen Resource Manager-implementaties. Microsoft raadt u aan Resource Manager-implementaties te gebruiken, tenzij u specifiek een klassieke implementatie wenst.
-
-| **Implementatie** | **Portal** | **Vault** |
-| --- | --- | --- |
-| Klassiek |[Klassiek](https://manage.windowsazure.com) |Back-up maken |
-| Resource Manager |[Azure](https://portal.azure.com) |Recovery Services |
+De Azure Backup-service heeft twee soorten kluizen - de Backup-kluis en de Recovery Services-kluis. De Backup-kluis was er het eerst. Vervolgens kwam de Recovery Services-kluis ter ondersteuning van de uitgebreide Resource Manager-implementaties. Microsoft raadt u aan Resource Manager-implementaties te gebruiken, tenzij u specifiek een klassieke implementatie wenst. Aan het einde van 2017, zijn alle Backup-kluizen geconverteerd naar de Recovery Services-kluizen.
 
 > [!NOTE]
-> Oplossingen die met Resource Manager zijn geïmplementeerd, kunnen niet met Backup-kluizen worden beveiligd. Echter, kunt u een Recovery Services-kluis tooprotect classically geïmplementeerd servers en virtuele machines.  
+> Resource Manager geïmplementeerde oplossingen kunnen niet worden beveiligd door back-upkluizen. Recovery Services-kluizen kunnen echter classically geïmplementeerd servers en virtuele machines beveiligen.  
 > 
 > 
 

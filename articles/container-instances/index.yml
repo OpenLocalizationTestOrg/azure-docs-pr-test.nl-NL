@@ -1,0 +1,64 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure Container Instances
+metadata:
+  title: Documentatie voor Azure Container Instances - zelfstudies | Microsoft Docs
+  description: Azure Container Instances biedt u een zeer snelle en eenvoudige methode voor het uitvoeren van een container in Azure, waarbij het niet nodig is om virtuele machines in te richten of het serviceniveau te verhogen.
+  services: container-instances
+  author: czeumault
+  manager: carolz
+  ms.service: container-instances
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+  ms.openlocfilehash: 251ce769ce9d43d7706cd7ba5d0c0f47cde36d3f
+  ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 01/24/2018
+abstract:
+  description: Azure Container Instances biedt u een zeer snelle en eenvoudige methode voor het uitvoeren van een container in Azure, waarbij het niet nodig is om virtuele machines in te richten of het serviceniveau te verhogen. Als u een volledige oplossing voor het inrichten van containers nodig hebt, raadpleegt u de <a href="/azure/container-service/kubernetes/">documentatie voor Kubernetes op Azure Container Service</a>. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u containers maakt en beheert.
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: "Leer hoe u containerinstallatiekopieën implementeert met Azure Container Instances."
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure-CLI
+      href: /azure/container-instances/container-instances-quickstart
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure-portal
+      href: /azure/container-instances/container-instances-quickstart-portal
+    - image:
+        src: /azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/container-instances/container-instances-quickstart-powershell
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Leer hoe u code verpakt in een containerinstallatiekopie en deze uitvoert in Azure Container Instances.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Een toepassing verpakken in een containerinstallatiekopie</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Een Azure Container Registry maken en de containerinstallatiekopie uploaden</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">De containerinstallatiekopie implementeren in Azure Container Instances</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Opdrachtregel
+      html: <p><a href="/cli/azure/container">Azure-CLI</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>
+    - title: Talen
+      html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstance">Node.js</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/container-instances">Naslaginformatie over REST-API</a></p><p><a href="/azure/templates/microsoft.containerinstance/containergroups">Resource Manager-sjabloon</a></p>

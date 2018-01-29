@@ -1,10 +1,10 @@
-U betaalt voor twee dingen: hello elk uur compute kosten voor de virtuele netwerkgateway Hallo en Hallo uitgaande gegevensoverdracht van de virtuele netwerkgateway Hallo. Prijsinformatie vindt u op Hallo [prijzen](https://azure.microsoft.com/pricing/details/vpn-gateway) pagina.
+U betaalt voor twee dingen: het uurtarief voor het berekenen van de gateway van het virtuele netwerk en de overdracht van egress-gegevens van de gateway van het virtuele netwerk. Prijsinformatie vindt u op de pagina [Prijzen](https://azure.microsoft.com/pricing/details/vpn-gateway).
 
-**Berekeningskosten voor de virtuele netwerkgateway**<br>Voor de berekening van elke virtuele netwerkgateway wordt een uurtarief in rekening gebracht. Hallo prijs is gebaseerd op Hallo gateway-SKU die u opgeeft wanneer u een virtuele netwerkgateway maakt. Hallo kosten voor Hallo gateway zelf is en is bovendien toohello gegevensoverdracht die stroomt via Hallo-gateway.
+**Berekeningskosten voor de virtuele netwerkgateway**<br>Voor de berekening van elke virtuele netwerkgateway wordt een uurtarief in rekening gebracht. De prijs is gebaseerd op de gateway-SKU die u opgeeft wanneer u een virtuele netwerkgateway maakt. De kosten zijn voor de gateway zelf en komen boven op de kosten voor de gegevensoverdracht die via de gateway verloopt.
 
-**Kosten voor de gegevensoverdracht**<br>Kosten voor overdracht van gegevens worden berekend op basis van het uitgaande verkeer vanuit het Hallo bron virtuele netwerkgateway.
+**Kosten voor de gegevensoverdracht**<br>De kosten voor de gegevensoverdracht worden berekend op basis van uitgaand verkeer van de bron voor de gateway van het virtuele netwerk.
 
-* Als u verkeer tooyour on-premises VPN-apparaat verzendt, wordt in rekening gebracht met Hallo Internet uitgaande gegevensoverdracht.
-* Als u verkeer tussen virtuele netwerken in verschillende regio's verzendt, is Hallo prijzen gebaseerde Hallo regio.
-* Als u verkeer alleen tussen verzendt virtuele netwerken die zich in dezelfde regio hello, er zijn geen gegevens kosten verbonden. Verkeer tussen VNets in Hallo dezelfde regio is gratis.
+* Als u verkeer naar uw on-premises VPN-apparaat verzendt, wordt dit in rekening gebracht met de overdrachtssnelheid van egress-gegevens via het internet.
+* Als u verkeer tussen virtuele netwerken in verschillende gebieden verzendt, zijn de prijzen gebaseerd op de regio.
+* Als u alleen verkeer verzendt tussen virtuele netwerken die zich in dezelfde regio bevinden, worden er geen gegevenskosten in rekening gebracht. Verkeer tussen VNets in dezelfde regio is gratis.
 

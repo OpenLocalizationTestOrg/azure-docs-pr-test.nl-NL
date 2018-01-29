@@ -1,124 +1,124 @@
-Er zijn diverse redenen wanneer u mag niet beginnen of verbinding tooan toepassing die wordt uitgevoerd op Azure een virtuele machine (VM). Redenen Hallo toepassing niet actief zijn of luistert op Hallo verwacht poorten, Hallo luisterpoort geblokkeerd of netwerken regels die verkeer toohello toepassing niet juist wordt doorgegeven. Dit artikel wordt beschreven, een methodische wijze toofind en de juiste Hallo probleem.
+Er zijn diverse redenen wanneer u mag niet beginnen of verbinding maken met een toepassing die wordt uitgevoerd op Azure een virtuele machine (VM). Oorzaken zijn onder meer de toepassing niet actief of luistert op de verwachte poorten, de luisterpoort geblokkeerd of netwerken regels niet goed doorgeven verkeer naar de toepassing. Dit artikel wordt beschreven methodische wijze om te zoeken en los het probleem.
 
-Als u verbinding maken met tooyour VM problemen ondervindt met RDP of SSH, Zie een van de volgende Hallo eerst artikelen:
+Als u verbinding maakt met uw virtuele machine met behulp van RDP of SSH problemen ondervindt, raadpleegt u een van de volgende artikelen eerst:
 
-* [Problemen met extern bureaublad-verbindingen tooa op basis van Windows Azure virtuele Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
-* [Secure Shell (SSH) verbindingen tooa op basis van Linux virtuele machine van Azure oplossen](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
+* [Problemen met extern bureaublad-verbindingen naar een op basis van Windows Azure virtuele Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
+* [Secure Shell (SSH)-verbindingen met een op basis van Linux virtuele machine van Azure oplossen](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 > [!NOTE]
-> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en classic](../articles/resource-manager-deployment-model.md). In dit artikel komen beide modellen, maar Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken.
+> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en classic](../articles/resource-manager-deployment-model.md). In dit artikel komen beide modellen aan de orde, maar u wordt aangeraden voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
 
-Als u meer hulp op elk gewenst moment in dit artikel nodig hebt, kunt u raadplegen hello Azure deskundigen op [hello Azure MSDN en forums Stack Overflow Hallo](https://azure.microsoft.com/support/forums/). U kunt ook kunt u ook een incident voor ondersteuning van Azure bestand. Ga toohello [ondersteuning van Azure site](https://azure.microsoft.com/support/options/) en selecteer **ophalen ondersteunen**.
+Als u meer hulp op elk gewenst moment in dit artikel nodig hebt, kunt u de Azure-experts raadplegen op [de Azure MSDN en de Stack Overflow-forums](https://azure.microsoft.com/support/forums/). U kunt ook kunt u ook een incident voor ondersteuning van Azure bestand. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/) en selecteer **ophalen ondersteunen**.
 
 ## <a name="quick-start-troubleshooting-steps"></a>Stappen voor probleemoplossing voor snel starten
-Als u netwerkverbindingsproblemen tooan toepassing hebt, kunt u Hallo volgende algemene stappen voor probleemoplossing. Probeer opnieuw verbinding tooyour-toepassing na elke stap:
+Als u verbinding maken met een toepassing hebt, probeert u de volgende algemene stappen voor probleemoplossing. Probeer verbinding te maken voor uw toepassing opnieuw na elke stap:
 
-* Hallo virtuele machine opnieuw opstarten
-* Hallo-eindpunt opnieuw / firewall-regels / netwerk beveiligingsregels voor de groep (NSG)
+* De virtuele machine opnieuw opstarten
+* Het eindpunt opnieuw / firewall-regels / netwerk beveiligingsregels voor de groep (NSG)
   * [Resource Manager-model - Netwerkbeveiligingsgroepen beheren](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
   * [Klassieke model - eindpunten Cloudservices beheren](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Verbinding maken vanaf een andere locatie, zoals een andere virtuele Azure-netwerk
-* Hallo virtuele machine implementeren
+* De virtuele machine implementeren
   * [Implementeer Windows VM opnieuw](../articles/virtual-machines/windows/redeploy-to-new-node.md)
   * [Virtuele Linux-machine implementeren](../articles/virtual-machines/linux/redeploy-to-new-node.md)
-* Hallo virtuele machine opnieuw maken
+* Maak de virtuele machine
 
 Zie voor meer informatie [probleemoplossing eindpunt connectiviteit (RDP/SSH/HTTP, enz. fouten)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
 
 ## <a name="detailed-troubleshooting-overview"></a>Gedetailleerd overzicht voor het oplossen van problemen
-Er zijn vier hoofdgebieden tootroubleshoot Hallo toegang van een toepassing die wordt uitgevoerd op een virtuele machine van Azure.
+Er zijn vier hoofdgebieden oplossen van problemen met de toegang van een toepassing die wordt uitgevoerd op een virtuele machine van Azure.
 
 ![problemen oplossen kan toepassing niet starten](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
 
-1. Hallo-toepassing op Hallo Azure virtuele machine wordt uitgevoerd.
-   * Hallo-toepassing zelf correct is gestart?
-2. Hello Azure virtuele machine.
-   * Hallo VM zelf is correct gestart en toorequests reageert?
+1. De toepassing die wordt uitgevoerd op virtuele machine van Azure.
+   * De toepassing zelf correct is gestart?
+2. De virtuele machine van Azure.
+   * De virtuele machine zelf is juist worden uitgevoerd en reageren op aanvragen?
 3. Netwerk van Azure-eindpunten.
-   * Voor virtuele machines in de klassieke implementatiemodel Hallo cloud service-eindpunten.
+   * Cloud service-eindpunten voor virtuele machines in het klassieke implementatiemodel.
    * Netwerkbeveiligingsgroepen en binnenkomende NAT-regels voor virtuele machines in de Resource Manager-implementatiemodel.
-   * Kan stroom van gebruikers toohello VM/toepassing op Hallo verwacht poorten verkeer?
+   * Kan de stroom van gebruikers aan de virtuele machine/toepassing op de verwachte poorten verkeer?
 4. Uw Internet-edge-apparaat.
    * Firewallregels erin verhinderen verkeer stroomt correct?
 
-Voor clientcomputers die toegang hebben tot de toepassing hello via een site-naar-site VPN- of ExpressRoute-verbinding, Hallo hoofdgebieden die problemen kunnen veroorzaken toepassing hello en hello Azure virtuele machine.
+Voor clientcomputers die toegang hebben tot de toepassing via een site-naar-site VPN- of ExpressRoute-verbinding, zijn de belangrijkste gebieden die problemen kunnen veroorzaken de toepassing en de virtuele machine van Azure.
 
-toodetermine hello bron van Hallo probleem en de correctie als volgt te werk.
+Volg deze stappen om te bepalen van de bron van het probleem en de correctie.
 
 ## <a name="step-1-access-application-from-target-vm"></a>Stap 1: De toepassing openen vanaf het doel VM
-Probeer tooaccess Hallo toepassing met de juiste clientprogramma Hallo van Hallo VM waarop deze wordt uitgevoerd. De lokale hostnaam hello, Hallo lokale IP-adres of Hallo loopback-adres (127.0.0.1) gebruiken.
+Probeert te krijgen tot de toepassing met het juiste clientprogramma van de virtuele machine waarop deze wordt uitgevoerd. Gebruik de lokale hostnaam, het lokale IP-adres of de loopback-adres (127.0.0.1).
 
-![toepassing rechtstreeks vanuit Hallo VM starten](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
+![toepassing rechtstreeks vanuit de virtuele machine starten](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
-Bijvoorbeeld, als de toepassing hello een webserver is, open een browser op Hallo VM en probeer het tooaccess webpagina's die worden gehost op Hallo VM.
+Bijvoorbeeld, als de toepassing een webserver is, open een browser op de virtuele machine en probeert te krijgen tot een webpagina op de virtuele machine wordt gehost.
 
-Als u toegang hebt tot de toepassing hello, gaat u verder te[stap 2](#step2).
+Als u toegang hebt tot de toepassing, gaat u naar [stap 2](#step2).
 
-Als u geen toegang de toepassing hello tot, Controleer of de Hallo volgende instellingen:
+Als u geen toegang de toepassing tot, controleert u of de volgende instellingen:
 
-* Hallo-toepassing wordt uitgevoerd op de virtuele doelmachine Hallo.
-* Hallo toepassing luistert op Hallo verwacht TCP en UDP-poorten.
+* De toepassing wordt uitgevoerd op de virtuele doelmachine.
+* De toepassing luistert op de verwachte TCP en UDP-poorten.
 
-Gebruik op Windows en Linux gebaseerde virtuele machines, Hallo **netstat - a** opdracht tooshow Hallo actieve controlepoorten. Bekijk de uitvoer Hallo voor Hallo verwacht poorten waarop uw toepassing moet luisteren. Hallo toepassing opnieuw starten of het toouse Hallo verwacht poorten naar wens configureren en probeer het opnieuw tooaccess Hallo toepassing lokaal.
+Gebruik op Windows en Linux gebaseerde virtuele machines, de **netstat - a** opdracht om de actieve controlepoorten weer te geven. Bekijk de uitvoer voor de verwachte poorten waarop uw toepassing moet luisteren. De toepassing opnieuw starten of configureren voor het gebruik van de verwachte poorten, indien nodig en probeer het opnieuw toegang krijgen tot de toepassing lokaal.
 
-## <a id="step2"></a>Stap 2: Toepassing openen vanaf een andere virtuele machine in Hallo hetzelfde virtuele netwerk
-Probeer tooaccess Hallo toepassing van een andere virtuele machine, maar Hallo in hetzelfde virtuele netwerk, met behulp van Hallo VM-hostnaam of het toegewezen Azure public, private of provider IP-adres. Voor virtuele machines is gemaakt met het klassieke implementatiemodel hello, openbare IP-adres van de cloudservice Hallo Hallo niet te gebruiken.
+## <a id="step2"></a>Stap 2: Toegang tot de toepassing van een andere virtuele machine in hetzelfde virtuele netwerk
+Probeer toegang tot de toepassing van een andere virtuele machine, maar in hetzelfde virtuele netwerk, met behulp van de VM-hostnaam of het toegewezen Azure public, private of provider IP-adres. Voor virtuele machines is gemaakt met behulp van het klassieke implementatiemodel, het openbare IP-adres van de cloudservice niet te gebruiken.
 
 ![toepassing van een andere virtuele machine starten](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
 
-Als de toepassing hello een webserver is, Hallo probeer tooaccess een webpagina vanuit een browser op een andere virtuele machine in hetzelfde virtuele netwerk.
+Bijvoorbeeld, als de toepassing een webserver is, probeert te krijgen tot een webpagina vanuit een browser op een andere virtuele machine in hetzelfde virtuele netwerk.
 
-Als u toegang hebt tot de toepassing hello, gaat u verder te[stap 3](#step3).
+Als u toegang hebt tot de toepassing, gaat u naar [stap 3](#step3).
 
-Als u geen toegang de toepassing hello tot, Controleer of de Hallo volgende instellingen:
+Als u geen toegang de toepassing tot, controleert u of de volgende instellingen:
 
-* Hallo hostfirewall op Hallo doel VM toestaat Hallo binnenkomende aanvraag en antwoord uitgaand verkeer.
-* Inbraakdetectie of -software die wordt uitgevoerd op het Hallo-doel VM netwerkbewaking toestaat Hallo verkeer.
-* Cloud Services-eindpunten of Netwerkbeveiligingsgroepen zijn Hallo verkeer toestaat:
+* De hostfirewall op de doel-virtuele machine toestaat de binnenkomende aanvraag en het uitgaande antwoord verkeer.
+* Inbraakdetectie of netwerkbeheer-software op de doel-virtuele machine met toestaat het verkeer.
+* Cloud Services-eindpunten of Netwerkbeveiligingsgroepen bieden de mogelijkheid het verkeer:
   * [Klassieke model - eindpunten Cloudservices beheren](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
   * [Resource Manager-model - Netwerkbeveiligingsgroepen beheren](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
-* Een afzonderlijk onderdeel dat wordt uitgevoerd in uw virtuele machine in Hallo pad tussen Hallo test virtuele machine en de virtuele machine, zoals een firewall of een load balancer toestaat Hallo verkeer.
+* Een afzonderlijk onderdeel dat wordt uitgevoerd in uw virtuele machine in het pad tussen de test virtuele machine en de virtuele machine, zoals een load balancer of een firewall, toestaat het verkeer.
 
-Op een Windows-virtuele machine, gebruikt u Windows Firewall met geavanceerde beveiliging toodetermine of Hallo firewallregels voor binnenkomend en uitgaand verkeer van uw toepassing uitsluiten.
+Gebruik Windows Firewall met geavanceerde beveiliging om te bepalen of de firewallregels voor binnenkomend en uitgaand verkeer van uw toepassing sluiten op een Windows-gebaseerde virtuele machine.
 
-## <a id="step3"></a>Stap 3: Toegang tot toepassing vanaf extern Hallo virtuele netwerk
-Probeer tooaccess Hallo toepassing vanaf een computer buiten het virtuele netwerk Hallo als Hallo VM waarop Hallo toepassing wordt uitgevoerd. Gebruik een ander netwerk als de oorspronkelijke clientcomputer.
+## <a id="step3"></a>Stap 3: Toegang tot de toepassing van buiten het virtuele netwerk
+Probeer de toepassing openen vanaf een computer buiten het virtuele netwerk als de virtuele machine waarop de toepassing wordt uitgevoerd. Gebruik een ander netwerk als de oorspronkelijke clientcomputer.
 
-![toepassing starten vanaf een computer buiten het virtuele netwerk Hallo](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
+![toepassing starten vanaf een computer buiten het virtuele netwerk](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
 
-Als de toepassing hello een webserver is, bijvoorbeeld tooaccess Hallo webpagina vanuit een browser op een computer die zich niet in het virtuele netwerk Hallo proberen.
+Bijvoorbeeld, als de toepassing een webserver is, probeert te krijgen tot de webpagina vanuit een browser op een computer die zich niet in het virtuele netwerk.
 
-Als u geen toegang de toepassing hello tot, Controleer of de Hallo volgende instellingen:
+Als u geen toegang de toepassing tot, controleert u of de volgende instellingen:
 
-* Voor virtuele machines gemaakt met het klassieke implementatiemodel Hallo:
+* Gemaakt met het klassieke implementatiemodel voor virtuele machines:
   
-  * Controleer of deze eindpuntconfiguratie Hallo voor Hallo die VM Hallo binnenkomende verkeer, met name Hallo-protocol (TCP of UDP) en de openbare en persoonlijke poortnummers Hallo toestaat.
-  * Controleer of toegangsbeheerlijsten (ACL's) op Hallo eindpunt zijn niet inkomend verkeer van Internet Hallo belemmeren.
-  * Zie voor meer informatie [hoe tooSet Up eindpunten tooa virtuele Machine](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-* Voor virtuele machines gemaakt met Resource Manager-implementatiemodel Hallo:
+  * Controleer of dat de endpoint-configuratie voor de virtuele machine het binnenkomende verkeer, met name het protocol (TCP of UDP) en de openbare en persoonlijke poortnummers toestaat.
+  * Controleer of dat toegangsbeheerlijsten (ACL's) op het eindpunt niet voorkomen binnenkomend verkeer van het Internet dat.
+  * Zie voor meer informatie [ingesteld van eindpunten aan een virtuele Machine](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Voor virtuele machines gemaakt met het implementatiemodel van Resource Manager:
   
-  * Controleer of die Hallo inkomende NAT-regel is een configuratie voor Hallo die VM Hallo binnenkomende verkeer, met name Hallo-protocol (TCP of UDP) en de openbare en persoonlijke poortnummers Hallo toestaat.
-  * Controleer of dat de Netwerkbeveiligingsgroepen zijn toestaat Hallo binnenkomende aanvraag en antwoord uitgaand verkeer.
+  * Controleer of dat de binnenkomende NAT-regelconfiguratie voor de virtuele machine het binnenkomende verkeer, met name het protocol (TCP of UDP) en de openbare en persoonlijke poortnummers toestaat.
+  * Controleer of dat Netwerkbeveiligingsgroepen bieden de mogelijkheid de binnenkomende aanvraag en antwoord uitgaand verkeer.
   * Zie voor meer informatie [Wat is een netwerkbeveiligingsgroep (NSG)?](../articles/virtual-network/virtual-networks-nsg.md)
 
-Als lid van een set met gelijke taakverdeling Hallo virtuele machine of eindpunt is:
+Als de virtuele machine of het eindpunt lid is van een set met gelijke taakverdeling is:
 
-* Controleer of de test Hallo-protocol (TCP of UDP) en het poortnummer juist zijn.
-* Als het Hallo-test is protocol en poort anders dan Hallo set met gelijke taakverdeling protocol en poort:
-  * Controleer of dat de toepassing hello op Hallo test protocol (TCP of UDP) en het poortnummer luistert (Gebruik **netstat-a** gericht op Hallo VM).
-  * Controleer of deze Hallo hostfirewall op Hallo doel die VM Hallo test binnenkomende aanvraag en uitgaande test antwoord verkeer toestaat.
+* Controleer of de test-protocol (TCP of UDP) en het poortnummer juist zijn.
+* Als de test-protocol en poort verschilt van de set met gelijke taakverdeling-protocol en poort:
+  * Controleer of de toepassing luistert op de test-protocol (TCP of UDP) en het poortnummer (Gebruik **netstat-a** op de doel-virtuele machine).
+  * Controleer of dat de hostfirewall op de doel-virtuele machine de inkomende test-aanvraag en uitgaande test antwoord verkeer toestaat.
 
-Als u toegang hebt tot de toepassing hello, zorg ervoor dat uw randapparaat Internet toestaat:
+Als u toegang hebt tot de toepassing, zorg ervoor dat uw randapparaat Internet toestaat:
 
-* Hallo uitgaande toepassing aanvraag verkeer vanaf uw client-computer toohello virtuele machine van Azure.
-* Hallo inkomende toepassing antwoord verkeer van hello Azure virtuele machine.
+* Het verkeer voor het verzoek van uitgaande toepassing vanaf de clientcomputer naar de virtuele machine van Azure.
+* De binnenkomende aanvraag antwoord verkeer van de virtuele machine van Azure.
 
-## <a name="step-4-if-you-cannot-access-hello-application-use-ip-verify-toocheck-hello-settings"></a>Stap 4 als u geen toegang de toepassing hello, gebruik IP-Controleer de instellingen voor toocheck Hallo tot. 
+## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Stap 4 als u geen toegang de toepassing tot gebruikt IP-Controleer of de instellingen controleren. 
 
-Zie voor meer informatie [Azure-netwerk bewakingsoverzicht](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Zie voor meer informatie [Azure-netwerk bewakingsoverzicht](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
-[Problemen met extern bureaublad-verbindingen tooa op basis van Windows Azure virtuele Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
+[Problemen met extern bureaublad-verbindingen naar een op basis van Windows Azure virtuele Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 
-[Secure Shell (SSH) verbindingen tooa op basis van Linux virtuele machine van Azure oplossen](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
+[Secure Shell (SSH)-verbindingen met een op basis van Linux virtuele machine van Azure oplossen](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
 

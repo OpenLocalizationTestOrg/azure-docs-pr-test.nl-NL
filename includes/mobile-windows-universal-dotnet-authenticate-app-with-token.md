@@ -1,25 +1,25 @@
 
-1. Voeg in MainPage.xaml.cs projectbestand Hallo Hallo volgende **met** instructies:
+1. Voeg de volgende in het projectbestand MainPage.xaml.cs **met** instructies:
    
         using System.Linq;        
         using Windows.Security.Credentials;
-2. Vervang Hallo **AuthenticateAsync** methode Hello code te volgen:
+2. Vervang de **AuthenticateAsync** methode met de volgende code:
    
         private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
             string message;
             bool success = false;
    
-            // This sample uses hello Facebook provider.
+            // This sample uses the Facebook provider.
             var provider = MobileServiceAuthenticationProvider.Facebook;
    
-            // Use hello PasswordVault toosecurely store and access credentials.
+            // Use the PasswordVault to securely store and access credentials.
             PasswordVault vault = new PasswordVault();
             PasswordCredential credential = null;
    
             try
             {
-                // Try tooget an existing credential from hello vault.
+                // Try to get an existing credential from the vault.
                 credential = vault.FindAllByResource(provider.ToString()).FirstOrDefault();
             }
             catch (Exception)
@@ -29,15 +29,15 @@
    
             if (credential != null)
             {
-                // Create a user from hello stored credentials.
+                // Create a user from the stored credentials.
                 user = new MobileServiceUser(credential.UserName);
                 credential.RetrievePassword();
                 user.MobileServiceAuthenticationToken = credential.Password;
    
-                // Set hello user from hello stored credentials.
+                // Set the user from the stored credentials.
                 App.MobileService.CurrentUser = user;
    
-                // Consider adding a check toodetermine if hello token is 
+                // Consider adding a check to determine if the token is 
                 // expired, as shown in this post: http://aka.ms/jww5vp.
    
                 success = true;
@@ -47,11 +47,11 @@
             {
                 try
                 {
-                    // Login with hello identity provider.
+                    // Login with the identity provider.
                     user = await App.MobileService
-                        .LoginAsync(provider);
+                        .LoginAsync(provider, "{url_scheme_of_your_app}");
    
-                    // Create and store hello user credentials.
+                    // Create and store the user credentials.
                     credential = new PasswordCredential(provider.ToString(),
                         user.UserId, user.MobileServiceAuthenticationToken);
                     vault.Add(credential);
@@ -72,13 +72,13 @@
             return success;
         }
    
-    In deze versie van **AuthenticateAsync**, Hallo app probeert toouse-referenties die zijn opgeslagen op Hallo **PasswordVault** tooaccess Hallo service. Een gewone aanmelden wordt ook uitgevoerd wanneer er geen opgeslagen referenties.
+    In deze versie van **AuthenticateAsync**, de app probeert te gebruiken van referenties die zijn opgeslagen de **PasswordVault** toegang tot de service. Een gewone aanmelden wordt ook uitgevoerd wanneer er geen opgeslagen referenties.
    
    > [!NOTE]
-   > Een token in cache mogelijk verlopen en verlopen van het token na verificatie kan ook optreden wanneer Hallo-app gebruikt wordt. hoe toodetermine als een token is verlopen, Zie toolearn [controleren voor verlopen verificatietokens](http://aka.ms/jww5vp). Verwante tooexpiring tokens, Zie voor een oplossing toohandling autorisatie fouten Hallo boeken [opslaan in cache en het verwerken van verlopen tokens in Azure Mobile Services SDK beheerd](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+   > Een token in cache mogelijk verlopen en verlopen van het token na verificatie kan ook optreden wanneer de app gebruikt wordt. Zie voor informatie over het bepalen of een token is verlopen, [controleren voor verlopen verificatietokens](http://aka.ms/jww5vp). Zie voor een oplossing voor het verwerken van de autorisatie fouten met betrekking tot verlopen tokens, het bericht [opslaan in cache en het verwerken van verlopen tokens in Azure Mobile Services SDK beheerd](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
    > 
    > 
-3. Hallo app twee keer opnieuw opgestart.
+3. Start de app tweemaal opnieuw.
    
-    Merk op dat op de eerste opstarten hello, aanmelden met Hallo provider is opnieuw vereist. Echter op de tweede keer opnieuw opstarten Hallo Hallo in de cache opgeslagen referenties worden gebruikt en de aanmeldingspagina wordt overgeslagen. 
+    Merk op dat op de eerste opstarten aanmelden met de provider is opnieuw vereist. Echter op de tweede keer opnieuw opstarten in cache opgeslagen referenties worden gebruikt en aanmelden wordt overgeslagen. 
 

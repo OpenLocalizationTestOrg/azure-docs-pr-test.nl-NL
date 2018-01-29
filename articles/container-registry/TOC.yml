@@ -1,0 +1,91 @@
+- name: Azure Container Registry
+  href: ./index.yml
+- name: Overzicht
+  items:
+    - name: Over Container Registry
+      href: container-registry-intro.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Container Registry - CLI
+      href: container-registry-get-started-azure-cli.md
+    - name: Container Registry - Portal
+      href: container-registry-get-started-portal.md
+    - name: Container Registry - PowerShell
+      href: container-registry-get-started-powershell.md
+- name: Zelfstudies
+  items:
+    - name: Azure Container Instances
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Azure Container Service (AKS)
+      href: ../aks/tutorial-kubernetes-prepare-app.md
+    - name: Service Fabric
+      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+    - name: Geo-replicatie (preview)
+      items:
+        - name: 1 - Containerregister voorbereiden
+          href: container-registry-tutorial-prepare-registry.md
+        - name: 2 - Webtoepassing implementeren
+          href: container-registry-tutorial-deploy-app.md
+        - name: 3 - Webtoepassing bijwerken
+          href: container-registry-tutorial-deploy-update.md
+- name: Concepten
+  items:
+    - name: Container Registry-SKU's
+      href: container-registry-skus.md
+    - name: Geo-replicatie (preview)
+      href: container-registry-geo-replication.md
+    - name: Best practices voor het register
+      href: container-registry-best-practices.md
+- name: Handleidingen
+  items:
+    - name: Een installatiekopie pushen en ophalen
+      href: container-registry-get-started-docker-cli.md
+    - name: Opslagplaatsen weergeven
+      href: container-registry-repositories.md
+    - name: Een klassiek register upgraden
+      href: container-registry-upgrade.md
+    - name: ACR-webhooks gebruiken
+      href: container-registry-webhook.md
+    - name: Verificatie
+      items:
+        - name: Verificatieoverzicht
+          href: container-registry-authentication.md
+        - name: Verificatie van service-principal
+          href: container-registry-auth-service-principal.md
+        - name: Azure Container Instances
+          href: container-registry-auth-aci.md
+        - name: Azure Container Service
+          href: container-registry-auth-aks.md
+- name: Naslaginformatie
+  items:
+    - name: Azure-CLI
+      href: /cli/azure/acr
+    - name: REST
+      href: /rest/api/containerregistry
+    - name: PowerShell
+      href: /powershell/module/azurerm.containerregistry
+    - name: .NET
+      href: /dotnet/api/overview/azure/containerregistry
+    - name: Python
+      href: /python/api/overview/azure/container-registry
+    - name: Node.js
+      href: /javascript/api/overview/azure/container-registry
+    - name: Resource Manager-sjabloon
+      href: /azure/templates/microsoft.containerregistry/registries
+    - name: Webhook-schema
+      href: container-registry-webhook-reference.md
+- name: Resources
+  items:
+    - name: Beschikbaarheid in regio’s
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
+    - name: Roadmap
+      href: 'https://aka.ms/acr/roadmap'
+    - name: Productfeedback geven
+      href: 'https://feedback.azure.com/forums/903958-azure-container-registry'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'
+    - name: Video's
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'

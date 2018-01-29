@@ -1,31 +1,27 @@
-1. In een nieuw venster aanmelden toohello [Azure-portal](https://portal.azure.com/).
-2. Klik in het linkerdeelvenster Hallo **nieuw**, klikt u op **Databases**, en klik vervolgens onder **Azure Cosmos DB**, klikt u op **maken**.
+1. In een nieuw browservenster, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/).
+2. Klik op **nieuwe** > **Databases** > **Azure Cosmos DB**.
    
-   ![Hello Azure portal Databases deelvenster](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+   ![Het deelvenster Databases in Azure Portal](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
-3. Op Hallo **nieuwe account** blade Hallo-configuratie die u voor dit account Azure Cosmos DB wilt opgeven. 
-
-    Met Azure Cosmos DB kunt u een van de vier programmeermodellen kiezen: Gremlin (Graph), MongoDB, SQL (DocumentDB) en Tabel (sleutelwaarde). Voor elk van deze modellen is momenteel een afzonderlijk account vereist.
-    
-    In dit artikel voor snel starten we programma tegen Hallo DocumentDB API, dus kies **SQL (DocumentDB)** als u Hallo formulier invullen. Als u grafiekgegevens voor een sociale media-app hebt of sleutel/waarde-gegevens (tabel) of gegevens die zijn gemigreerd vanuit een MongoDB-app, vergeet dan niet dat Azure Cosmos DB een maximaal beschikbaar, wereldwijd gedistribueerd databaseserviceplatform heeft voor al uw bedrijfskritische toepassingen.
-
-    Vul de velden Hallo op Hallo **nieuwe account** Hallo informatie in de volgende schermafbeelding als een handleiding - Hallo met de waarden in de blade mogelijk anders dan Hallo-waarden in Hallo schermafbeelding.
+3. In de **nieuwe account** pagina, voert u de instellingen voor de nieuwe Azure DB die Cosmos-account. 
  
-    ![Hallo nieuwe blade-account voor Azure Cosmos-DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
-
     Instelling|Voorgestelde waarde|Beschrijving
     ---|---|---
-    Id|*Unieke waarde*|Een unieke naam die dit Azure Cosmos DB-account identificeert. Omdat *documents.azure.com* is de toegevoegde toohello ID op te geven toocreate uw URI en gebruik een unieke maar persoonsgegevens-id. Hallo-ID mag alleen kleine letters, cijfers en Hallo koppelteken (-) en deze moet 3 too50 tekens bevatten.
-    API|SQL (DocumentDB)|We programma tegen Hallo [DocumentDB API](../articles/documentdb/documentdb-introduction.md) verderop in dit artikel.|
-    Abonnement|*Uw abonnement*|Hello Azure-abonnement dat u wilt de toouse voor dit account Azure Cosmos DB. 
-    Resourcegroep|*Hallo dezelfde als ID waarde*|Hallo nieuwe resourcegroep naam voor uw account. U kunt voor eenvoud, Hallo dezelfde naam gebruiken als uw-ID. 
-    Locatie|*Hallo regio dichtstbijzijnde tooyour gebruikers*|Hallo geografische locatie in welke toohost uw Azure DB die Cosmos-account. Hallo-locatie die het dichtst tooyour gebruikers toogive ze Hallo snelste toegang tot toohello gegevens kiezen.
-4. Klik op **maken** toocreate Hallo-account.
-5. Klik op de bovenste werkbalk Hallo Hallo **meldingen** pictogram ![hello meldingspictogram](./media/cosmos-db-create-dbaccount/notification-icon.png) toomonitor Hallo-implementatieproces.
+    Id|*Voer een unieke naam*|Voer een unieke naam voor dit account Azure Cosmos DB. Omdat *documents.azure.com* is toegevoegd aan de id die u hebt opgegeven om uw URI te maken, gebruikt u een unieke maar identificeerbare id.<br><br>De id mag alleen kleine letters, cijfers en het koppelteken (-) bevatten en moet 3 tot 50 tekens lang zijn.
+    API|SQL|De API bepaalt het type account te maken. Azure Cosmos-DB bevat vijf API's voor tegemoetkomt aan de behoeften van uw toepassing: SQL (documentdatabase), Gremlin (grafiek database), MongoDB (documentdatabase), Azure Table en Cassandra, elke die momenteel een afzonderlijk account vereisen. <br><br>Selecteer **SQL** omdat deze snelstartgids u maakt in een documentdatabase waarop met behulp van SQL-syntaxis en toegankelijk is met de SQL-API.<br><br>[Meer informatie over de SQL-API](../articles/cosmos-db/documentdb-introduction.md)|
+    Abonnement|*Uw abonnement*|Selecteer de Azure-abonnement dat u wilt gebruiken voor dit account Azure Cosmos DB. 
+    Resourcegroep|Nieuw<br><br>*Voer vervolgens de dezelfde unieke naam zoals hierboven omschreven in-ID*|Selecteer **nieuw**, voert u een nieuwe naam resourcegroep voor uw account. Gebruik dezelfde naam als uw id om het uzelf gemakkelijk te maken. 
+    Locatie|*Selecteer de regio die het dichtst bij uw gebruikers*|Selecteer de geografische locatie op waar voor het hosten van uw Azure DB die Cosmos-account. De locatie die zich het dichtst bij hen de snelste toegang geven tot de gegevens van uw gebruikers gebruiken.
+    Geografische redundantie inschakelen| Leeg laten | Hiermee maakt u een gerepliceerde versie van uw database in een tweede (gekoppelde) regio. Laat dit leeg.  
+    Vastmaken aan dashboard | Selecteer | Selecteer dit selectievakje in zodat uw nieuwe databaseaccount wordt toegevoegd aan uw portaldashboard voor eenvoudige toegang.
 
-    ![Hello Azure portal meldingen deelvenster](./media/cosmos-db-create-dbaccount-graph/azure-documentdb-nosql-notification.png)
+    Klik vervolgens op **Maken**.
 
-6.  Wanneer Hallo meldingen venster geeft aan Hallo implementatie is gelukt, sluit Hallo meldingsvenster en de nieuwe account open Hallo van Hallo **alle Resources** tegel op Hallo Dashboard. 
+    ![De blade Nieuw account voor Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
-    ![DocumentDB-account op alle Resources tegel Hallo Hallo](./media/cosmos-db-create-dbaccount/all-resources.png)
- 
+4. Het maken van een account duurt enkele minuten duren. Account tijdens het maken van de portal geeft de **implementeren Azure Cosmos DB** tegel aan de rechterkant, moet u mogelijk scrollen rechts op uw dashboard op de tegel wilt weergeven. Er is ook een voortgangsbalk weergegeven aan de bovenkant van het scherm. U kunt beide gebied voor voortgang bekijken. 
+
+    ![Het deelvenster Meldingen in Azure Portal](./media/cosmos-db-create-dbaccount/deploying-cosmos-db.png)
+
+    Zodra het account is gemaakt, de **Gefeliciteerd! Uw Azure DB die Cosmos-account is gemaakt** pagina wordt weergegeven. 
+

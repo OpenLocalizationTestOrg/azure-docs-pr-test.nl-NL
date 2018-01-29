@@ -8,22 +8,26 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### <a name="obtain-hello-connection-string-from-hello-azure-portal"></a>Hallo-verbindingsreeks ophalen met hello Azure-portal
-Gebruik Hallo [Azure-portal](https://portal.azure.com/) tooobtain Hallo-verbindingsreeks nodig zijn voor uw client programma toointeract met Azure SQL Database: 
+### <a name="obtain-the-connection-string-from-the-azure-portal"></a>De verbindingsreeks ophalen via de Azure portal
+Gebruik de [Azure-portal](https://portal.azure.com/) om op te halen van de verbindingsreeks die nodig is voor uw clientprogramma om te communiceren met Azure SQL Database. 
 
-1. Klik op **Bladeren** > **SQL-databases**.
-2. Hallo-naam van uw database invoeren in Hallo filter in het tekstvak in de buurt van de linkerbovenhoek Hallo Hallo **SQL-databases** blade.
-3. Klik op de rij Hallo voor uw database.
-4. Nadat Hallo blade wordt weergegeven voor uw database, visual gemak klikt u op Hallo standaard minimaliseren besturingselementen toocollapse Hallo blades u gebruikt voor bladeren en het filteren van de database. 
-   
-    ![Filteren tooisolate uw database][10-FilterDatabase]
-5. Klik op de blade voor uw database Hallo **databaseverbindingsreeksen tonen**.
-6. Als u van plan toouse Hallo ADO.NET verbindingsbibliotheek bent, kopieert u Hallo tekenreeks met het label **ADO**. 
-   
-    ![Hallo ADO-verbindingsreeks voor uw database kopiëren][20-CopyAdoConnectionString]
-7. In een indeling of een andere Hallo verbindingsinformatie in uw clientcode programma te plakken.
+1. Selecteer **door alles bladeren** > **SQL-databases**.
 
-Zie voor meer informatie:<br/>[Verbindingsreeksen en configuratiebestanden](http://msdn.microsoft.com/library/ms254494.aspx).
+2. Voer de naam van uw database in het filtertekstvak in de buurt van de linkerbovenhoek van de **SQL-databases** blade.
+
+3. Selecteer de rij voor uw database.
+
+4. Nadat de blade wordt weergegeven voor uw database, selecteer visual gemak de **minimaliseren** knoppen om samen te vouwen de blades die u voor bladeren en het filteren van de database gebruikt. 
+   
+    ![Filter voor het isoleren van uw database][10-FilterDatabase]
+5. Selecteer op de blade voor uw database **databaseverbindingsreeksen tonen**.
+
+6. Als u de verbindingsbibliotheek ADO.NET gebruiken wilt, kopieert u de tekenreeks met het label **ADO**. 
+   
+    ![Kopieer de verbindingsreeks ADO voor uw database][20-CopyAdoConnectionString]
+7. In een indeling of een andere door de verbindingsinformatie in uw clientcode programma te plakken.
+
+Zie voor meer informatie [verbindingsreeksen en configuratiebestanden](http://msdn.microsoft.com/library/ms254494.aspx).
 
 <!-- Image references. -->
 

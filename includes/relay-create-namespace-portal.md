@@ -1,24 +1,25 @@
-1. Meld u aan toohello [Azure-portal][Azure portal].
-2. Klik in het Hallo navigatiedeelvenster links van Hallo-portal op **nieuw**, klikt u vervolgens op **Enterprise Integration**, en klik vervolgens op **Relay**.
-3. In Hallo **naamruimte maken** dialoogvenster, voer de naam van een naamruimte. Hallo-systeem wordt onmiddellijk toosee gecontroleerd als Hallo naam beschikbaar is.
-4. In Hallo **abonnement** veld, kiest u een Azure-abonnement in welke toocreate Hallo-naamruimte.
-5. In Hallo  **[resourcegroep](../articles/azure-resource-manager/resource-group-portal.md)**  veld, kiest u een bestaande resourcegroep in welke Hallo naamruimte live of maak een nieuwe.      
-6. In **locatie**, kiest u Hallo land of regio waarin uw naamruimte moet worden gehost.
+1. Meld u aan bij [Azure Portal][Azure portal].
+2. Selecteer **+ Een resource maken** in het menu aan de linkerkant. Selecteer vervolgens **Enterprise Integration** > **Relay**.
+3. Voer bij **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
+4. Kies in het veld **Abonnement** een Azure-abonnement waarin u de naamruimte maakt.
+5. Kies in het veld [Resourcegroep](../articles/azure-resource-manager/resource-group-portal.md) een bestaande resourcegroep waarin de naamruimte moet worden opgenomen of maak een nieuwe resourcegroep.  
+6. Kies bij **Locatie** het land of de regio waarin uw naamruimte moet worden gehost.
    
     ![Een naamruimte maken][create-namespace]
-7. Klik op **Create**. Hallo system nu uw naamruimte wordt gemaakt en ingeschakeld. Na een paar minuten Hallo bepalingen systeembronnen voor uw account.
+7. Selecteer **Maken**. Uw naamruimte wordt gemaakt en ingeschakeld. Na enkele minuten stelt het systeem resources ter beschikking voor uw account.
 
-### <a name="obtain-hello-management-credentials"></a>Beheerreferenties ophalen Hallo
-1. Klik in lijst Hallo van naamruimten op Hallo naamruimtenaam van een nieuw gemaakt.
-2. Klik op Hallo naamruimte blade **gedeeld toegangsbeleid**.
-3. In Hallo **gedeeld toegangsbeleid** blade, klikt u op **RootManageSharedAccessKey**.
+### <a name="get-management-credentials"></a>Beheerreferenties ophalen
+
+1. Selecteer **Alle resources** en selecteer vervolgens de zojuist gemaakte naam voor de naamruimte.
+2. Selecteer bij de Relay-naamruimte **Beleid voor gedeelde toegang**.  
+3. Selecteer onder **Beleid voor gedeelde toegang** de optie **RootManageSharedAccessKey**.
    
     ![verbinding-gegevens][connection-info]
-4. In Hallo **beleid: RootManageSharedAccessKey** blade, klik op de knop kopiëren Hallo volgende te**Connection string – primaire sleutel**, toocopy Hallo connection string tooyour Klembord voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie.
+4. Selecteer onder **Beleid: RootManageSharedAccessKey** de knop **Kopiëren** naast **Verbindingsreeks - primaire sleutel**. Hiermee kopieert u de verbindingsreeks naar het Klembord voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie.
    
     ![connection-string][connection-string]
 
-5. Herhaal Hallo vorige stap, kopiëren en plakken Hallo-waarde van **primaire sleutel** tooa tijdelijke locatie voor later gebruik.  
+5. Herhaal de vorige stap om de waarde voor de **Primaire sleutel** te kopiëren en plakken naar een tijdelijke locatie zodat u deze later kunt gebruiken.  
 
 <!--Image references-->
 

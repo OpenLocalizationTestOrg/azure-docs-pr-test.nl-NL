@@ -1,17 +1,17 @@
-## <a name="add-function-apps-tooyour-portal-favorites"></a>Functie Apps tooyour portal Favorieten toevoegen 
+## <a name="favorite-functions-in-the-portal"></a>Favoriete functies in de portal 
 
-Als u dit nog niet hebt gedaan, kunt u de functie Apps tooyour Favorieten toevoegen in hello Azure-portal. Dit maakt het eenvoudiger toofind uw apps functie. Als u dit al gedaan hebt, moet u de volgende sectie toohello overslaan. 
+Als u dit nog niet hebt gedaan, kunt u functie-apps toevoegen aan uw favorieten in Azure Portal. Zo kunt u uw functie-apps gemakkelijker vinden. Als u dit al hebt gedaan, gaat u naar de volgende sectie. 
 
-1. Meld u bij toohello [Azure-portal](https://portal.azure.com/).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-2. Klik op Hallo onder links tooexpand Hallo-pijl alle services, type `Functions` in Hallo **Filter** veld en klik vervolgens op Hallo ster volgende te**functie Apps**.  
+2. Klik op de pijl linksonder om alle services uit te vouwen, typ `Functions` in het veld **Filter** en klik vervolgens op de ster naast **Functie-apps**.  
  
-    ![Functie-app maken in hello Azure-portal](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
+    ![Functie-app maken in Azure Portal](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
 
-    Hallo functies pictogram toohello menu wordt toegevoegd aan de linkerkant Hallo van Hallo-portal.
+    Hiermee wordt het pictogram Functies toegevoegd aan het menu aan de linkerkant van de portal.
 
-3. Hallo menu sluit en schuif naar beneden toohello onder toosee Hallo functies pictogram. Klik op dit pictogram toosee een lijst met alle functie-apps. Klik op de functie app-toowork met functies in deze app. 
+3. Sluit het menu en scrol omlaag naar het pictogram Functies. Klik op dit pictogram om een lijst met al uw functie-apps weer te geven. Klik op uw functie-app om met functies in deze app te werken. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![Functie-Apps in Favorieten](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      

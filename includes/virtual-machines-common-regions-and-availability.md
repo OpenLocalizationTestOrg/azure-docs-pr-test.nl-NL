@@ -1,25 +1,25 @@
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regio's en beschikbaarheid voor virtuele machines in Azure
-Azure draait in meerdere datacenters Hallo wereld. Deze datacenters worden gegroepeerd in toogeographic regio's, waardoor u flexibiliteit bij het kiezen waar toobuild uw toepassingen. Het is belangrijk toounderstand hoe en waar uw virtuele machines (VM's) in Azure, werken samen met uw opties toomaximize prestaties, beschikbaarheid en redundantie. In dit artikel biedt een overzicht van Hallo beschikbaarheid en redundantie functies van Azure.
+Azure werkt vanuit diverse datacentra, op locaties overal wereld. Deze datacenters worden gegroepeerd in geografische regio's, waardoor u flexibiliteit heeft bij het kiezen waar u uw toepassingen ontwikkelt. Het is belangrijk om inzicht te hebben in hoe en waar uw virtuele machines (VM's) in Azure werken, evenals in wat uw mogelijkheden zijn om de prestaties, beschikbaarheid en redundantie te maximaliseren. Dit artikel biedt een overzicht van de mogelijkheden van Azure op het gebied van beschikbaarheid en redundantie.
 
 ## <a name="what-are-azure-regions"></a>Wat zijn Azure-regio's?
-U kunt Azure-resources maken in gedefinieerde geografische regio's zoals 'VS-West', 'Noord-Europa' of Zuidoost-Azië. U kunt bekijken Hallo [lijst met regio's en de locaties](https://azure.microsoft.com/regions/). Binnen elke regio bestaan meerdere datacenters tooprovide voor redundantie en beschikbaarheid. Deze aanpak kunt u als u toepassingen toocreate VMs dichtstbijzijnde tooyour gebruikers en toomeet eventuele juridische, compatibiliteit ontwerpen of BTW-doeleinden.
+U kunt Azure-resources maken in gedefinieerde geografische regio's zoals 'VS-West', 'Noord-Europa' of Zuidoost-Azië. U kunt zelf de [lijst met regio's en bijbehorende locaties](https://azure.microsoft.com/regions/) bekijken. In elke regio bevinden zich meerdere datacenters, om te zorgen voor voldoende redundantie en beschikbaarheid. Deze aanpak biedt u flexibiliteit bij het ontwerpen van toepassingen voor virtuele machines die het dichtst bij uw gebruikers maken en voor het voldoen aan een juridisch, compatibiliteit of BTW-doeleinden.
 
 ## <a name="special-azure-regions"></a>Speciale Azure-regio's
-Azure heeft bepaalde speciale gebieden die u kunt toouse desgewenst tijdens het bouwen van uw toepassingen voor juridische redenen of compatibiliteit. Voorbeelden van dergelijke speciale regio's zijn:
+Azure heeft bepaalde speciale gebieden die u gebruiken wilt mogelijk bij het bouwen van uw toepassingen voor juridische redenen of compatibiliteit. Voorbeelden van dergelijke speciale regio's zijn:
 
 * **VS (overheid) - Virginia** en **VS (overheid) - Iowa**
   * Een fysiek en logisch van netwerken afgeschermd exemplaar van Azure voor de Amerikaanse overheid en zijn partners, bediend door gecontroleerde Amerikaanse staatsburgers. Dit exemplaar beschikt over aanvullende nalevingscertificeringen, zoals [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) en [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Meer informatie over [Azure Government](https://azure.microsoft.com/features/gov/).
 * **China - noord** en **China - oost**
-  * Deze regio's zijn beschikbaar via een unieke samenwerking tussen Microsoft en 21Vianet, waarbij Microsoft niet rechtstreeks Hallo datacenters onderhouden. Zie meer informatie over [Microsoft Azure in China](http://www.windowsazure.cn/).
+  * Deze regio's zijn beschikbaar via een unieke samenwerking tussen Microsoft en 21Vianet, waarbij Microsoft niet rechtstreeks de datacentra onderhoudt. Zie meer informatie over [Microsoft Azure in China](http://www.windowsazure.cn/).
 * **Duitsland - centraal** en **Duitsland - noordoost**
-  * Deze gebieden zijn beschikbaar via een gegevensmodel beheerder waarbij klantgegevens in Duitsland onder het beheer van T-systemen, een bedrijf Deutsche Telekom blijft, fungeert als Hallo Duitse gegevens beheerder.
+  * Deze gebieden zijn beschikbaar via een gegevensmodel beheerder waarbij klantgegevens in Duitsland onder het beheer van T-systemen, een bedrijf Deutsche Telekom blijft, fungeert als de beheerder van de Duitse gegevens.
 
 ## <a name="region-pairs"></a>Regioparen
-Elke Azure-regio is gekoppeld aan een andere regio binnen Hallo hetzelfde Geografie (zoals Verenigde Staten, Europa of Azië). Deze methode kan voor de replicatie van Hallo van resources, zoals VM-opslag, via een Geografie die moet kans Hallo natuurramp, civiele unrest, stroomstoringen of fysieke netwerkstoringen tegelijk die invloed hebben op beide regio's. Het gebruik van regioparen biedt meer voordelen:
+Elke Azure-regio is gekoppeld aan een andere regio binnen hetzelfde geografische gebied (zoals VS, Europa of Azië). Hierdoor kunnen resources, zoals VM-opslag, worden gerepliceerd op een andere locatie binnen hetzelfde geografische gebied, zodat de kans wordt beperkt dat beide regio’s tegelijkertijd worden beïnvloed door natuurrampen, onrusten, stroomstoringen of fysieke netwerkuitval. Het gebruik van regioparen biedt meer voordelen:
 
-* In geval van een bredere Azure onderbreking Hallo één regio is geplaatst buiten elk paar toohelp Hallo tijd toorestore voor toepassingen beperken. 
-* Geplande Azure updates zijn uitgerold toopaired regio's een op een tijd toominimize uitvaltijd en het risico op uitval van toepassing.
-* Gegevens tooreside binnen Hallo blijft hetzelfde Geografie als de combinatie van (met uitzondering van Brazilië-Zuid) voor de btw en het recht afdwinging bevoegdheid doeleinden.
+* In het geval van een bredere Azure-storing krijgt van elk paar één regio prioriteit, om te zorgen dat toepassingen zo snel mogelijk weer beschikbaar zijn. 
+* Geplande Azure-updates worden voor gepaarde regio’s één voor één geïmplementeerd, om downtime en het risico op niet-beschikbare toepassingen te beperken.
+* Gegevens blijven voor juridische en belastingdoeleinden voor ieder paar binnen hetzelfde geografische gebied (met uitzondering van Brazilië - zuid).
 
 Voorbeelden van regioparen zijn:
 
@@ -29,76 +29,75 @@ Voorbeelden van regioparen zijn:
 | Noord-Europa |West-Europa |
 | Zuidoost-Azië |Oost-Azië |
 
-Ziet u Hallo volledige [lijst van regionale paren hier](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
+U vindt de volledige [lijst met regioparen hier](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
 ## <a name="feature-availability"></a>Beschikbaarheid van functies
-Sommige services of VM-functies zijn alleen beschikbaar in bepaalde regio's, zoals specifieke VM-grootten of opslagtypen. Er zijn ook enkele algemene Azure-services die u geen tooselect een bepaald gebied, zoals hoeft [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md), of [Azure DNS](../articles/dns/dns-overview.md). tooassist u bij het ontwerpen van uw toepassingsomgeving, kunt u controleren Hallo [beschikbaarheid van de Azure-services in elke regio](https://azure.microsoft.com/regions/#services). 
+Sommige services of VM-functies zijn alleen beschikbaar in bepaalde regio's, zoals specifieke VM-grootten of opslagtypen. Er zijn ook een aantal algemene Azure-services waarvoor u geen specifieke regio hoeft te kiezen, zoals [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) en [Azure DNS](../articles/dns/dns-overview.md). Als hulp bij het ontwerpen van de omgeving van uw toepassing, kunt u de [beschikbaarheid van Azure-services per regio](https://azure.microsoft.com/regions/#services) raadplegen. U kunt ook [programmatisch query uitvoeren op de ondersteunde VM-grootten en -beperkingen in elke regio](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md).
 
 ## <a name="storage-availability"></a>Opslagbeschikbaarheid
-Inzicht in de Azure-regio's en locaties is belangrijk wanneer u de beschikbare opslagruimte replicatieopties voor Hallo overwegen. Afhankelijk van het opslagtype hello zijn er verschillende replicatieopties.
+Inzicht in Azure-regio's en geografische locaties wordt belangrijk wanneer u gaat kijken naar de verschillende opties voor opslagreplicatie. U hebt verschillende replicatieopties, afhankelijk van het opslagtype.
 
 **Azure Managed Disks**
 * Lokaal redundante opslag (LRS)
-  * Uw gegevens driemaal in Hallo regio waarin u uw opslagaccount hebt gemaakt, gerepliceerd.
+  * Uw gegevens worden drie keer gerepliceerd in de regio waar u uw storage-account hebt gemaakt.
 
 **Schijven voor opslag op basis van een account**
 * Lokaal redundante opslag (LRS)
-  * Uw gegevens driemaal in Hallo regio waarin u uw opslagaccount hebt gemaakt, gerepliceerd.
+  * Uw gegevens worden drie keer gerepliceerd in de regio waar u uw storage-account hebt gemaakt.
 * Zone-redundante opslag (ZRS)
-  * Repliceert uw gegevens driemaal op twee toothree faciliteiten in één regio of tussen twee regio's.
+  * Uw gegevens worden binnen twee of drie faciliteiten in één regio of tussen twee regio's driemaal gerepliceerd.
 * Geografisch redundante opslag (GRS)
-  * Uw gegevens tooa secundaire regio die honderden mijl weg Hallo primaire regio worden gerepliceerd.
+  * Uw gegevens worden gerepliceerd naar een secundaire regio, honderden kilometers van de primaire regio.
 * Geografisch redundante opslag met leestoegang (RA-GRS)
-  * Uw gegevens tooa secundaire regio, net als bij GRS worden gerepliceerd, maar dan ook biedt alleen-lezentoegang toohello gegevens op de secundaire locatie Hallo.
+  * Uw gegevens worden gerepliceerd naar een secundaire regio, net als bij GRS, maar vervolgens biedt de secundaire locatie alleen-lezen toegang tot de gegevens.
 
-Hallo bevat volgende tabel een overzicht van Hallo verschillen tussen de opslagtypen replicatie Hallo:
+De volgende tabel geeft een overzicht van de verschillen tussen de typen opslagreplicatie:
 
 | Replicatiestrategie | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | Gegevens worden gerepliceerd bij meerdere faciliteiten. |Nee |Ja |Ja |Ja |
-| Gegevens kunnen worden gelezen uit de secundaire locatie Hallo en Hallo primaire locatie. |Nee |Nee |Nee |Ja |
+| Gegevens kunnen worden gelezen vanaf de secundaire locatie en vanaf de primaire locatie. |Nee |Nee |Nee |Ja |
 | Het aantal exemplaren van de gegevens op afzonderlijke knooppunten. |3 |3 |6 |6 |
 
 Meer informatie over [Azure Storage-replicatieopties vindt u hier](../articles/storage/common/storage-redundancy.md). Zie voor meer informatie over beheerde schijven [overzicht Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Opslagkosten
-Prijzen zijn afhankelijk van het opslagtype Hallo en beschikbaarheid die u selecteert.
+De kosten zijn afhankelijk van het opslagtype en de beschikbaarheid die u selecteert.
 
 **Azure Managed Disks**
-* Premium-beheerde schijven zijn Solid-State stations (SSD's) en beheerd standaardschijven worden ondersteund door reguliere draaiende schijven. Zowel Premium en Standard-beheerde schijven worden in rekening gebracht op basis van de capaciteit voor Hallo schijf Hallo ingericht.
+* Premium-beheerde schijven zijn Solid-State stations (SSD's) en beheerd standaardschijven worden ondersteund door reguliere draaiende schijven. Voor zowel Premium als Standard Managed Disks worden kosten in rekening gebracht op basis van de ingerichte capaciteit van de schijf.
 
 **Niet-beheerde schijven**
-* Premium-opslag wordt ondersteund door Solid-State stations (SSD's) en wordt in rekening gebracht op basis van het Hallo-capaciteit van Hallo schijf.
-* Standard-opslag wordt ondersteund door reguliere draaiende schijven en wordt in rekening gebracht op basis van de capaciteit van Hallo in gebruik en beschikbaarheid van opslag gewenst.
-  * Er is een extra kosten gegevensoverdracht met Geo-replicatie voor Hallo bandbreedte voor het repliceren van die gegevens tooanother Azure-regio voor RA-GRS.
+* Premium-opslag wordt ondersteund door Solid-State stations (SSD's) en wordt in rekening gebracht op basis van de capaciteit van de schijf.
+* Standaard opslag wordt ondersteund door traditionele draaiende schijven en wordt in rekening gebracht op basis van de gebruikte capaciteit en de gewenste opslagbeschikbaarheid.
+  * Voor RA-GRS wordt een toeslag in rekening gebracht voor de gegevensoverdracht voor geo-replicatie, voor de bandbreedtekosten van het repliceren van gegevens naar een andere Azure-regio.
 
-Zie [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor informatie over de verschillende opslagtypen Hallo en Beschikbaarheidsopties over prijzen.
+Zie [prijzen van Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor informatie over prijzen van de verschillende opslagtypen en beschikbaarheidsopties.
 
 ## <a name="availability-sets"></a>Beschikbaarheidssets
-Een beschikbaarheidsset is een logische groepering van virtuele machines waarmee Azure toounderstand hoe uw toepassing tooprovide voor redundantie en beschikbaarheid wordt gemaakt. Het is raadzaam dat twee of meer virtuele machines worden gemaakt binnen een tooprovide beschikbaarheid instellen voor een maximaal beschikbare toepassingen en toomeet hello [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Wanneer het gebruik van één VM [Azure Premium-opslag](../articles/storage/common/storage-premium-storage.md), hello Azure SLA voor gebeurtenissen met niet-gepland onderhoud geldt. 
+Een beschikbaarheidsset is een logische groepering van virtuele machines binnen een datacenter waarmee Azure om te begrijpen hoe uw toepassing is ontworpen om te voorzien in redundantie en beschikbaarheid. Het is raadzaam dat twee of meer virtuele machines worden gemaakt binnen een beschikbaarheidsset te voorzien van een maximaal beschikbare toepassing en om te voldoen aan de [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Wanneer een enkele virtuele machine gebruikmaakt van [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md), is de Azure SLA van toepassing op niet-gepland onderhoud. 
 
-Een beschikbaarheidsset bestaat uit twee extra groeperingen die bescherming tegen hardwarestoringen en toestaan dat updates toosafely worden toegepast - fault-domeinen (FDs) en domeinen (UDs) bijwerken.
-
-![Conceptuele tekening Hallo update domein en de fout van de configuratie van](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
-
-U kunt meer lezen over hoe toomanage beschikbaarheid van Hallo [virtuele Linux-machines](../articles/virtual-machines/linux/manage-availability.md) of [VM's van Windows](../articles/virtual-machines/windows/manage-availability.md).
+Een beschikbaarheidsset bestaat uit twee extra groeperingen die beveiligen tegen hardwarestoringen en toestaan dat updates veilig worden toegepast: fault-domeinen (FDs) en update-domeinen (UDs). Lees meer over het beheren van de beschikbaarheid van [Linux-VM's](../articles/virtual-machines/linux/manage-availability.md) of [Windows VM's](../articles/virtual-machines/windows/manage-availability.md).
 
 ### <a name="fault-domains"></a>Foutdomeinen
-Een domein met fouten is een logische groep van de onderliggende hardware die een gemeenschappelijke stroombron delen en netwerkswitch, vergelijkbare tooa rack binnen een on-premises datacenter. Bij het maken van virtuele machines binnen een beschikbaarheidsset verdeelt hello Azure-platform uw virtuele machines automatisch over deze domeinen met fouten. Deze aanpak beperkt Hallo impact van mogelijke problemen met de fysieke hardware, netwerkstoringen of power onderbrekingen.
+Een foutdomein is een logische groep onderliggende hardware met een gemeenschappelijke voeding en netwerkswitch, vergelijkbaar met een rack in een on-premises datacenter. Wanneer u virtuele machines in een beschikbaarheidsset maakt, verdeelt het Azure-platform uw virtuele machines automatisch tussen deze foutdomeinen. Deze aanpak beperkt de gevolgen van mogelijke problemen met de fysieke hardware, netwerkstoringen of stroomonderbrekingen.
 
 ### <a name="update-domains"></a>Updatedomeinen
-Een updatedomein is een logische groep van de onderliggende hardware die onderhoud kan ondergaan of opnieuw worden opgestart op Hallo hetzelfde moment. Bij het maken van virtuele machines binnen een beschikbaarheidsset hello Azure-platform automatisch distributie van uw virtuele machines over deze domeinen bijwerken. Deze aanpak zorgt ervoor dat ten minste één exemplaar van uw toepassing wordt altijd hello Azure-platform ondergaat periodiek onderhoud worden uitgevoerd. Hallo-volgorde van update-domeinen opnieuw wordt opgestart kan niet worden voortgezet sequentieel tijdens gepland onderhoud, maar slechts één updatedomein wordt opnieuw opgestart tegelijk.
+Een updatedomein is een logische groep onderliggende hardware die op hetzelfde moment onderhoud kan ondergaan of opnieuw kan worden opgestart. Wanneer u virtuele machines in een beschikbaarheidsset maakt, verdeelt het Azure-platform uw virtuele machines automatisch tussen deze updatedomeinen. Deze aanpak zorgt ervoor dat altijd ten minste één exemplaar van uw toepassing beschikbaar blijft wanneer er periodiek onderhoud wordt uitgevoerd aan het Azure-platform. De volgorde waarin updatedomeinen opnieuw worden opgestart, verloopt tijdens gepland onderhoud niet altijd sequentieel, maar er wordt slechts één updatedomein tegelijk opnieuw opgestart.
 
 ### <a name="managed-disk-fault-domains"></a>Domeinen met fouten schijf beheerd
-Voor virtuele machines die gebruikmaken van [Azure Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md) en deel uitmaken van een beheerde beschikbaarheidsset, worden de virtuele machines afgestemd op Managed Disk-foutdomeinen. Deze uitlijning zorgt ervoor dat alle beheerde schijven gekoppelde tooa VM binnen Hallo Hallo hetzelfde foutdomein van beheerde schijven. In een beheerde beschikbaarheidsset kunnen alleen virtuele machines met beheerde schijven worden gemaakt. Hallo aantal foutdomeinen beheerde schijven, varieert per regio - twee of drie beheerde schijven domeinen met fouten per regio.
+Voor virtuele machines die gebruikmaken van [Azure Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md) en deel uitmaken van een beheerde beschikbaarheidsset, worden de virtuele machines afgestemd op Managed Disk-foutdomeinen. Deze afstemming zorgt ervoor dat alle beheerde schijven die zijn gekoppeld aan een virtuele machine, zich binnen hetzelfde Managed Disk-foutdomein bevinden. In een beheerde beschikbaarheidsset kunnen alleen virtuele machines met beheerde schijven worden gemaakt. Het aantal Managed Disk-foutdomeinen verschilt per regio: er zijn twee of drie Managed Disk-foutdomeinen per regio. Meer informatie over dit beheerde domeinen met fouten voor schijf [virtuele Linux-machines](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) of [VM's van Windows](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
 
-![Foutdomeinen voor beheerde schijven](./media/virtual-machines-common-manage-availability/md-fd.png)
+## <a name="availability-zones"></a>Beschikbaarheid zones
 
-> [!IMPORTANT]
-> het aantal foutdomeinen voor beheerde beschikbaarheidssets Hallo varieert per regio - twee of drie per regio. Hallo bevat volgende tabel Hallo nummer per regio
+[Beschikbaarheid zones](../articles/availability-zones/az-overview.md) (preview), een alternatief voor beschikbaarheid ingesteld uit, vouw de mate van controle die u hebt om de beschikbaarheid van de toepassingen en gegevens op uw virtuele machines te houden. Een Zone beschikbaarheid is een fysiek afzonderlijke zone binnen een Azure-regio. Er zijn drie beschikbaarheid Zones per ondersteunde Azure-regio. Elke Zone beschikbaarheid heeft een afzonderlijke energie-bron-, netwerk- en koeling en logisch losstaat van de andere beschikbaarheid Zones in de Azure-regio. Door uw oplossingen voor het gebruik van de gerepliceerde virtuele machines in zones worden veranderd, kunt u uw apps en gegevens beschermen tegen het verlies van een datacenter. Als één zone is geknoeid, waarna zijn gerepliceerde apps en gegevens onmiddellijk beschikbaar in een andere zone. 
 
-[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+![Beschikbaarheid zones](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
+
+[!INCLUDE [availability-zones-preview-statement.md](availability-zones-preview-statement.md)]
+
+Meer informatie over het implementeren van een [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) of [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) virtuele machine in een Zone beschikbaarheid.
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt nu gestart toouse deze beschikbaarheid en redundantie functies toobuild uw Azure-omgeving. Zie voor informatie over aanbevolen procedures de [aanbevolen procedures voor Azure-beschikbaarheid](../articles/best-practices-availability-checklist.md).
+U kunt nu deze functies voor beschikbaarheid en redundantie gaan gebruiken om uw eigen Azure-omgeving te bouwen. Zie voor informatie over aanbevolen procedures de [aanbevolen procedures voor Azure-beschikbaarheid](../articles/best-practices-availability-checklist.md).
 

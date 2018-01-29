@@ -1,17 +1,22 @@
-een VNet in het Resource Manager-implementatiemodel Hallo met behulp van Azure-portal Hallo toocreate Hallo volgende stappen. Gebruik Hallo [voorbeeldwaarden](#values) als u deze stappen uit als een zelfstudie. Als u deze stappen niet als een zelfstudie doet, moet u ervoor tooreplace Hallo waarden door uw eigen. Zie voor meer informatie over het werken met virtuele netwerken Hallo [Virtual Network-overzicht](../articles/virtual-network/virtual-networks-overview.md).
+Volg onderstaande stappen als u in het Resource Manager-implementatiemodel een VNet wilt maken met behulp van Azure Portal. Gebruik de [voorbeeldwaarden](#values) als u deze stappen uitvoert als onderdeel van een zelfstudie. Als u deze stappen niet uitvoert als onderdeel van een zelfstudie, vervangt u de waarden door die van uzelf. Bekijk het [Virtual Network-overzicht](../articles/virtual-network/virtual-networks-overview.md) voor meer informatie over het gebruik van virtuele netwerken.
 
-1. Navigeer via een browser toohello [Azure-portal](http://portal.azure.com) en meld u aan met uw Azure-account.
-2. Klik op **Nieuw**. In Hallo **zoeken Hallo marketplace** veld, typt u 'Virtueel netwerk'. Zoek **virtueel netwerk** Hallo geretourneerde lijst en klik op tooopen hello **virtueel netwerk** blade.
-3. Aan de onderkant Hallo van Hallo virtueel netwerk blade van Hallo **een implementatiemodel selecteren** Selecteer **Resource Manager**, en klik vervolgens op **maken**. Hiermee opent u Hallo 'Virtueel netwerk maken' blade.
+>[!NOTE]
+>U dient eerst met uw on-premises netwerkbeheerder een IP-adresbereik te reserveren dat u specifiek voor dit virtuele netwerk kunt gebruiken, voordat dit VNet verbinding met een on-premises locatie kan maken. Als er een dubbel adresbereik bestaat aan beide zijden van de VPN-verbinding, wordt verkeer mogelijk niet zoals verwacht gerouteerd. Als u dit VNet met een ander VNet wilt verbinden, kan de adresruimte niet met het andere VNet overlappen. Plan daarom uw netwerkconfiguratie zorgvuldig.
+>
+>
 
-    ![Blade Virtueel netwerk maken](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/createvnet.png "Blade Virtueel netwerk maken")
-4. Op Hallo **virtueel netwerk maken** blade Hallo VNet-instellingen configureren. Bij het invullen van Hallo velden wordt hello rood uitroepteken een groen vinkje wanneer Hallo-tekens worden ingevoerd in Hallo veld geldig zijn.
+1. Open een browser, ga naar [Azure Portal](http://portal.azure.com) en meld u aan met uw Azure-account.
+2. Klik op **Nieuw**. In het veld **Marketplace doorzoeken** typt u 'virtueel netwerk'. Zoek **Virtual Network** in de lijst met resultaten en klik erop om de pagina **Virtual Network** te openen.
+3. Ga onder aan de pagina Virtual Network naar de lijst **Selecteer een implementatiemodel**, selecteer de optie **Resource Manager** in de lijst en klik vervolgens op **Maken**. Hiermee opent u de pagina Virtueel netwerk maken.
 
-  - **Naam**: Voer Hallo-naam voor het virtuele netwerk. In dit voorbeeld wordt de naam TestVNet1 gebruikt.
-  - **Adresruimte**: Voer Hallo-adresruimte. Als u meerdere adres spaties tooadd hebt, kunt u uw eerste adresruimte toevoegen. U kunt later extra adresruimten toevoegen na het maken van Hallo VNet. Zorg ervoor dat Hallo-adresruimte die u opgeeft dat niet overlapt met adresruimte Hallo voor uw on-premises locatie.
-  - **De subnetnaam van het**: Hallo eerste subnet naam en het subnet-adresbereik toevoegen. U kunt extra subnetten en gatewaysubnet hello later toevoegen na het maken van dit VNet. 
-  - **Abonnement**: Controleer of dat weergegeven Hallo abonnement correct is Hallo. U kunt abonnementen wijzigen met behulp van Hallo vervolgkeuzelijst.
-  - **Resourcegroep**: selecteer een bestaande resourcegroep of maak een nieuwe door een naam te typen voor uw nieuwe resourcegroep. Als u een nieuwe groep maakt, naam resourcegroep voor Hallo tooyour volgens de geplande configuratiewaarden. Zie [Azure Resource Manager Overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
-  - **Locatie**: Selecteer Hallo locatie voor uw VNet. Hallo locatie bepaalt waar Hallo-resources die u toothis VNet implementeert blijven staan.
+    ![Pagina Virtueel netwerk maken](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/vnet.png "Pagina Virtueel netwerk maken")
+4. Configureer de VNet-instellingen op de pagina **Virtueel netwerk maken**. Wanneer u de velden invult, verandert het rode uitroepteken in een groen vinkje als de tekens die zijn ingevoerd in het veld, geldig zijn.
 
-5. Selecteer **pincode toodashboard** als u kunnen toofind toobe uw VNet gemakkelijk op Hallo dashboard wilt en klik vervolgens op **maken**. Wanneer u op **maken**, ziet u een tegel op uw dashboard die nieuwe Hallo voortgang van uw VNet. Hallo tegel wijzigingen als Hallo VNet wordt gemaakt.
+  - **Naam**: geef de naam op voor het virtuele netwerk. In dit voorbeeld wordt de naam TestVNet1 gebruikt.
+  - **Adresruimte**: voer de adresruimte. Als er meerdere adresruimten moeten worden toegevoegd, voegt u de eerste adresruimte toe. U kunt later, nadat u het VNet hebt gemaakt, extra adresruimten toevoegen. Zorg ervoor dat de adresruimte die u opgeeft, niet overlapt met de adresruimte voor uw on-premises locatie.
+  - **Abonnement**: controleer of het weergegeven abonnement het juiste is. U kunt abonnementen wijzigen met behulp van de vervolgkeuzelijst.
+  - **Resourcegroep**: selecteer een bestaande resourcegroep of maak een nieuwe door een naam te typen voor uw nieuwe resourcegroep. Geef de resourcegroep een naam die aansluit bij de geplande configuratiewaarden wanneer u een nieuwe groep aanmaakt. Zie [Azure Resource Manager Overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
+  - **Locatie**: selecteer de locatie voor uw VNet. De locatie bepaalt waar de resources die u naar dit VNet implementeert, worden opgeslagen.
+  - **Subnet**: voeg de naam en het adresbereik van het eerste subnet toe. U kunt extra subnetten en het gatewaysubnet later toevoegen, na het maken van dit VNet. 
+
+5. Selecteer **Vastmaken aan dashboard** als u uw VNet gemakkelijk wilt terugvinden op het dashboard en klik vervolgens op **Aanmaken**. Nadat u op **Maken** klikt, ziet u een tegel op uw dashboard die de voortgang van uw VNet aangeeft. De tegel wordt gewijzigd wanneer het VNet wordt gemaakt.

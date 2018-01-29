@@ -1,52 +1,53 @@
-## <a name="os-config"></a>IP-adressen tooa VM-besturingssysteem toevoegen
+## <a name="os-config"></a>IP-adressen toevoegen aan een VM-besturingssysteem
 
-Verbinding maken en aanmelding tooa VM die u hebt gemaakt met meerdere particuliere IP-adressen. Alle Hallo privé IP-adressen (inclusief Hallo primair) dat u toohello VM hebt toegevoegd, moet u handmatig toevoegen. Volgende stappen uit voor uw besturingssysteem VM Hallo voltooien:
+Maak verbinding met en meld u aan bij een virtuele machine die u met meerdere privé-IP-adressen hebt gemaakt. U moet alle privé-IP-adressen (met inbegrip van het primaire) die u aan de virtuele machine hebt toegevoegd, handmatig toevoegen. Voer de volgende stappen uit voor het VM-besturingssysteem:
 
 ### <a name="windows"></a>Windows
 
-1. Typ vanaf een opdrachtprompt *ipconfig /all*.  Ziet u alleen Hallo *primaire* privé IP-adres (via DHCP).
-2. Type *ncpa.cpl* in Hallo opdrachtprompt tooopen hello **netwerkverbindingen** venster.
-3. Open Eigenschappen voor de juiste adapter Hallo Hallo: **LAN-verbinding**.
+1. Typ vanaf een opdrachtprompt *ipconfig /all*.  U ziet alleen het *primaire* privé-IP-adres (via DHCP).
+2. Typ *ncpa.cpl* in het opdrachtpromptvenster om het venster **Netwerkverbindingen** te openen.
+3. Open de eigenschappen van de geschikte adapter: **LAN-verbinding**.
 4. Dubbelklik op Internet Protocol versie 4 (IPv4).
-5. Selecteer **gebruik Hallo volgende IP-adres** en voer de volgende waarden Hallo:
+5. Selecteer **Het volgende IP-adres gebruiken** en voer de volgende waarden in:
 
-    * **IP-adres**: Voer Hallo *primaire* privé IP-adres
-    * **Subnetmasker**: stel dit in op basis van uw subnet. Bijvoorbeeld, als hello subnet is een/24-subnet en Hallo subnet subnetmasker 255.255.255.0 is.
-    * **Standaard-gateway**: Hallo eerste IP-adres in Hallo subnet. Als het subnet 10.0.0.0/24 is, is Hallo gateway IP-adres 10.0.0.1.
-    * Klik op **gebruik Hallo volgende DNS-serveradressen** en voer de volgende waarden Hallo:
-        * **DNS-voorkeursserver**: als u niet uw eigen DNS-server gebruikt, voert u 168.63.129.16 in.  Als u uw eigen DNS-server gebruikt, voert u Hallo IP-adres voor uw server.
-    * Klik op Hallo **Geavanceerd** knop en extra IP-adressen toe te voegen. Elk Hallo secundaire privé IP-adressen die worden vermeld in stap 8 toohello NIC Hello hetzelfde subnet is opgegeven voor Hallo primaire IP-adres toevoegen.
+    * **IP-adres**: voer het *primaire* privé-IP-adres in
+    * **Subnetmasker**: stel dit in op basis van uw subnet. Als het subnet bijvoorbeeld een /24 subnet is, is het subnetmasker 255.255.255.0.
+    * **Standaardgateway**: het eerste IP-adres in het subnet. Als uw subnet 10.0.0.0/24 is, is het IP-adres van de gateway 10.0.0.1.
+    * Klik op **De volgende DNS-serveradressen gebruiken** en voer de volgende waarden in:
+        * **DNS-voorkeursserver**: als u niet uw eigen DNS-server gebruikt, voert u 168.63.129.16 in.  Als u uw eigen DNS-server gebruikt, voert u het IP-adres voor de server in.
+    * Klik op de knop **Geavanceerd** en voeg extra IP-adressen toe. Voeg elk van de secundaire privé-IP-adressen die in stap 8 worden vermeld, toe aan de NIC met hetzelfde subnet dat voor het primaire IP-adres is opgegeven.
         >[!WARNING] 
-        >Als u bovenstaande stappen voor Hallo niet correct uitvoert, kunt u connectiviteit tooyour VM verliezen. Zorg ervoor dat Hallo-informatie voor stap 5 ingevoerd juist is voordat u doorgaat.
+        >Als u de bovenstaande stappen niet correct uitvoert, kan het zijn dat de verbinding met uw virtuele machine wordt verbroken. Zorg ervoor dat de gegevens die u hebt ingevoerd voor stap 5 kloppen voordat u doorgaat.
 
-    * Klik op **OK** tooclose uit Hallo TCP/IP-instellingen en vervolgens **OK** opnieuw tooclose Hallo Adapterinstellingen wijzigen. Uw RDP-verbinding wordt opnieuw tot stand gebracht.
+    * Klik op **OK** om de TCP/IP-instellingen te sluiten en vervolgens nogmaals op **OK** om de instellingen van de netwerkadapter te sluiten. Uw RDP-verbinding wordt opnieuw tot stand gebracht.
 
 6. Typ vanaf een opdrachtprompt *ipconfig /all*. Alle IP-adressen die u hebt toegevoegd, worden weergegeven en DHCP is uitgeschakeld.
+7. Windows configureren voor het gebruik van de persoonlijke IP-adres van de primaire IP-configuratie in Azure als het primaire IP-adres voor Windows. Zie [geen internettoegang van VM van Windows Azure met meerdere IP-adressen](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) voor meer informatie. 
 
 
 ### <a name="validation-windows"></a>Validatie (Windows)
 
-tooensure kunnen tooconnect toohello internet vanaf de secundaire IP-configuratie via Hallo openbare IP-adres dat is gekoppeld, nadat u hebt toegevoegd correct met behulp van de stappen hierboven, Hallo volgende opdracht gebruiken:
+Als u wilt controleren of u via uw secundaire IP-configuratie verbinding kunt maken met internet via de openbare IP die eraan is gekoppeld, gebruikt u de volgende opdracht nadat u de bovenstaande stappen hebt gevolgd:
 
 ```bash
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->U kunt alleen toohello Internet pingen secundaire IP-configuraties als Hallo configuratie een openbaar IP-adres dat is gekoppeld heeft. Primaire IP-configuraties is een openbare IP-adres niet vereist tooping toohello Internet.
+>Voor secundaire IP-configuraties, kunt u alleen een ping naar het Internet als de configuratie een openbaar IP-adres dat is gekoppeld heeft. Voor primaire IP-configuraties, is een openbaar IP-adres niet vereist op ping met Internet.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
 1. Open een terminalvenster.
-2. Zorg ervoor dat u de hoofdgebruiker Hallo zijn. Als u niet het geval is, Voer Hallo volgende opdracht:
+2. Controleer of u de hoofdgebruiker bent. Voer de volgende opdracht in als u niet de hoofdgebruiker bent:
 
     ```bash
     sudo -i
     ```
 
-3. Hallo-configuratiebestand van netwerkinterface hello (ervan uitgaande dat 'eth0') bijwerken.
+3. Werk het configuratiebestand van de netwerkinterface bij (uitgaande van 'eth0').
 
-    * Houd Hallo bestaande line-item voor dhcp. Hallo primaire IP-adres blijft geconfigureerde als voorheen.
-    * Een configuratie voor een extra statische IP-adres met de volgende opdrachten Hallo toevoegen:
+    * Houd het bestaande regelitem voor dhcp. Het primaire IP-adres blijft geconfigureerd als voorheen.
+    * Voeg een configuratie toe voor een extra statisch IP-adres met de volgende opdrachten:
 
         ```bash
         cd /etc/network/interfaces.d/
@@ -54,14 +55,14 @@ ping -S 10.0.0.5 hotmail.com
         ```
 
     U moet een .CFG-bestand zien.
-4. Open Hallo-bestand. U ziet de volgende regels aan Hallo einde van bestand Hallo Hallo:
+4. Open het bestand. U moet de volgende regels aan het einde van het bestand zien:
 
     ```bash
     auto eth0
     iface eth0 inet dhcp
     ```
 
-5. Hallo volgende regels na Hallo-regels die zijn opgenomen in dit bestand toevoegen:
+5. Voeg de volgende regels toe na de regels die zijn opgenomen in dit bestand:
 
     ```bash
     iface eth0 inet static
@@ -69,66 +70,66 @@ ping -S 10.0.0.5 hotmail.com
     netmask <your subnet mask>
     ```
 
-6. Hallo-bestand opslaan met behulp van de volgende opdracht Hallo:
+6. Sla het bestand op met de volgende opdracht:
 
     ```bash
     :wq
     ```
 
-7. Opnieuw instellen van netwerkinterface Hallo Hello volgende opdracht:
+7. Stel de netwerkinterface opnieuw in met de volgende opdracht:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
     > [!IMPORTANT]
-    > Zowel ifdown als ifup in dezelfde regel als een externe verbinding Hallo uitgevoerd.
+    > Voer zowel ifdown als ifup op dezelfde regel uit als u een externe verbinding gebruikt.
     >
 
-8. Controleer of Hallo IP-adres toohello netwerkinterface met de volgende opdracht Hallo is toegevoegd:
+8. Controleer of het IP-adres is toegevoegd aan de netwerkinterface met de volgende opdracht:
 
     ```bash
     ip addr list eth0
     ```
 
-    U ziet Hallo IP mailadres dat u hebt toegevoegd als onderdeel van het Hallo-lijst.
+    Het IP-adres dat u hebt toegevoegd, moet nu in de lijst staan.
 
 ### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS en anderen)
 
 1. Open een terminalvenster.
-2. Zorg ervoor dat u de hoofdgebruiker Hallo zijn. Als u niet het geval is, Voer Hallo volgende opdracht:
+2. Controleer of u de hoofdgebruiker bent. Voer de volgende opdracht in als u niet de hoofdgebruiker bent:
 
     ```bash
     sudo -i
     ```
 
-3. Voer uw wachtwoord in en volg de instructies. Wanneer u de hoofdgebruiker Hallo bent, gaat u toohello scripts netwerkmap Hello volgende opdracht:
+3. Voer uw wachtwoord in en volg de instructies. Wanneer u de hoofdgebruiker bent, navigeert u met de volgende opdracht naar de map met netwerkscripts:
 
     ```bash
     cd /etc/sysconfig/network-scripts
     ```
 
-4. Lijst Hallo verwante ifcfg bestanden met behulp van de volgende opdracht Hallo:
+4. Geef een lijst weer met de gerelateerde ifcfg-bestanden met de volgende opdracht:
 
     ```bash
     ls ifcfg-*
     ```
 
-    U ziet *ifcfg eth0* als een Hallo-bestanden.
+    *ifcfg eth0* moet als een van de bestanden worden weergegeven.
 
-5. tooadd een IP-adres voor een configuratiebestand maken zoals hieronder wordt weergegeven. Houd er rekening mee dat er voor elke IP-configuratie één bestand moet worden gemaakt.
+5. Als u een IP-adres wilt toevoegen, maakt u er een configuratiebestand voor zoals hieronder wordt weergegeven. Houd er rekening mee dat er voor elke IP-configuratie één bestand moet worden gemaakt.
 
     ```bash
     touch ifcfg-eth0:0
     ```
 
-6. Open Hallo *ifcfg-eth0:0* bestand met de volgende opdracht Hallo:
+6. Open het bestand *ifcfg-eth0:0* met de volgende opdracht:
 
     ```bash
     vi ifcfg-eth0:0
     ```
 
-7. Inhoud toohello-bestand toevoegen *eth0:0* in dit geval met volgende opdracht Hallo. Worden ervoor tooupdate informatie op basis van uw IP-adres.
+7. Voeg inhoud toe aan het bestand, in dit geval *eth0:0*, met de volgende opdracht. Zorg ervoor dat u de gegevens bijwerkt op basis van uw IP-adres.
 
     ```bash
     DEVICE=eth0:0
@@ -138,32 +139,32 @@ ping -S 10.0.0.5 hotmail.com
     NETMASK=255.255.255.0
     ```
 
-8. Hallo-bestand opslaan met Hallo volgende opdracht:
+8. Sla het bestand op met de volgende opdracht:
 
     ```bash
     :wq
     ```
 
-9. Hallo network services opnieuw starten en zorg ervoor dat Hallo wijzigingen zijn voltooid door het uitvoeren van de volgende opdrachten Hallo:
+9. Start de netwerkservices opnieuw op en controleer of de wijzigingen zijn toegepast door de volgende opdrachten uit te voeren:
 
     ```bash
     /etc/init.d/network restart
     ifconfig
     ```
 
-    U ziet Hallo IP mailadres dat u hebt toegevoegd, *eth0:0*, in Hallo lijst geretourneerd.
+    Het IP-adres dat u hebt toegevoegd, *eth0:0*, moet nu in de lijst staan die wordt opgehaald.
 
 ### <a name="validation-linux"></a>Validatie (Linux)
 
-tooensure zijn van kunnen tooconnect toohello internet vanaf de secundaire IP-configuratie via openbare IP-adres Hallo gekoppeld, Hallo volgende opdracht gebruiken:
+Als u wilt controleren of u via uw secundaire IP-configuratie verbinding kunt maken met internet via de openbare IP die eraan is gekoppeld, gebruikt u de volgende opdracht:
 
 ```bash
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->U kunt alleen toohello Internet pingen secundaire IP-configuraties als Hallo configuratie een openbaar IP-adres dat is gekoppeld heeft. Primaire IP-configuraties is een openbare IP-adres niet vereist tooping toohello Internet.
+>Voor secundaire IP-configuraties, kunt u alleen een ping naar het Internet als de configuratie een openbaar IP-adres dat is gekoppeld heeft. Voor primaire IP-configuraties, is een openbaar IP-adres niet vereist op ping met Internet.
 
-Voor Linux VM's wanneer u probeert toovalidate uitgaande verbinding van een secundaire NIC, moet u de juiste routes tooadd. Er zijn veel manieren toodo dit. Zie de relevante documentatie voor uw Linux-distributie. Hallo volgende is een methode tooaccomplish dit:
+Voor virtuele Linux-machines moet u mogelijk geschikte routes toevoegen wanneer u probeert uitgaande verbindingen te valideren vanaf een secundaire NIC. Er zijn meerdere manieren om dit te doen. Zie de relevante documentatie voor uw Linux-distributie. Hieronder staat één van de mogelijke manieren:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
@@ -172,7 +173,7 @@ ip rule add from 10.0.0.5 lookup custom
 ip route add default via 10.0.0.1 dev eth2 table custom
 
 ```
-- Ervoor tooreplace zijn:
-    - **10.0.0.5** met Hallo persoonlijke IP-adres met een openbare IP-adres gekoppeld tooit adres
-    - **10.0.0.1** tooyour standaardgateway
-    - **eth2** toohello-naam van uw secundaire NIC.
+- Vervang de volgende zaken:
+    - **10.0.0.5** door het privé-IP-adres waaraan een openbaar IP-adres is gekoppeld
+    - **10.0.0.1** door uw standaardgateway
+    - **eth2** door de naam van uw secundaire NIC
