@@ -1,18 +1,18 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="toocreate-a-manual-backup"></a>toocreate een handmatige back-up
-1. Op Hallo **apparaten** pagina, gaat u toohello **back-upbeleid** tabblad. Dit tabblad bevat alle Hallo back-upbeleid in tabelvorm, met inbegrip van beleid voor Hallo volume dat u wilt dat tooback up Hallo.
-2. Selecteer Hallo beleid door ergens in de bijbehorende rij hello, met uitzondering van de eerste kolom Hallo te klikken. Klik onder aan de pagina Hallo Hallo op **back-up maken**. Hallo-knop wordt uitgebreid tooshow Hallo back-upopties: lokale momentopname en cloudmomentopname. 
+#### <a name="to-create-a-manual-backup"></a>Een handmatige back-up maken
+1. Ga op de pagina **Apparaten** naar het tabblad **Back-upbeleid**. Dit tabblad bevat alle back-upbeleid in tabelvorm, met inbegrip van het beleid voor het volume waarvan u een back-up wilt maken.
+2. Selecteer het beleid door ergens in de bijbehorende rij te klikken (niet in de eerste kolom). Klik onder aan de pagina op **Back-up maken**. De knop wordt uitgebreid om de back-upopties weer te geven: lokale momentopname en cloudmomentopname. 
 3. Wanneer u een van deze opties kiest, wordt u gevraagd dit te bevestigen. Klik op **Ja**. 
    
     ![Handmatige backup1 maken](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
    
-    Hiermee wordt een taak toocreate een momentopname gestart. U ziet een melding onderaan Hallo Hallo pagina nadat het Hallo-taak is gemaakt.
-4. toomonitor hello taak, klikt u op **taak weergeven** in Hallo systeemvak (aan de onderkant van de Hallo van Hallo pagina). 
+    Hiermee wordt een taak voor het maken van een momentopname gestart. U ziet een melding aan de onderkant van de pagina nadat de taak is gemaakt.
+4. Voor het controleren van de taak klikt u op **Taak weergeven** in het systeemvak (aan de onderkant van de pagina). 
    
     ![Handmatige backup2 maken](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
-5. Nadat het Hallo-back-uptaak is voltooid, gaat u toohello **back-upcatalogus** tabblad.
-6. Hallo filter selecties toohello juiste apparaatstuurprogramma, back-upbeleid en tijdsbereik instellen. Klik op het vinkje Hallo ![vinkje](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) na het Hallo-filters instellen.
+5. Nadat de back-uptaak is voltooid, gaat u naar het tabblad **Back-upcatalogus**.
+6. Stel de filterselecties in op het juiste apparaat, back-upbeleid en tijdsbereik. Klik op het vinkje ![vinkje](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) nadat u de filters hebt ingesteld.
    
-   Hallo back-up moet worden weergegeven in Hallo-lijst van back-upsets die wordt weergegeven in de catalogus Hallo.
+   De back-up moet worden weergegeven in de lijst met back-upsets die in de catalogus wordt weergegeven.
 

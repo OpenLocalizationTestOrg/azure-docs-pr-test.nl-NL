@@ -1,36 +1,36 @@
 <!--author=alkohli last changed: 02/06/17-->
 
-#### <a name="tooinstall-an-update-from-hello-azure-portal"></a>tooinstall een update van hello Azure-portal
+#### <a name="to-install-an-update-from-the-azure-portal"></a>Een update installeren via Azure Portal
 
-1. Selecteer op de pagina StorSimple hello, uw apparaat. Navigeer te**apparaten** > **onderhoud**.
-2. Klik onder aan de pagina Hallo Hallo op **Updates zoeken**. Een taak gemaakt tooscan naar beschikbare updates. U wordt gewaarschuwd wanneer het Hallo-taak is voltooid.
-3. In Hallo **Software-Updates** sectie op Hallo dezelfde pagina Hallo nieuwe software-updates beschikbaar zijn. U wordt aangeraden de releaseopmerkingen Hallo te controleren voordat u een update op uw apparaat toepassen.
-4. Klik onder aan de pagina Hallo Hallo op **Updates installeren**, en vervolgens **OK**.
-5. In Hallo **updates installeren** in het dialoogvenster Zorg ervoor dat u Hallo aanbevelingen hebt gevolgd en selecteer vervolgens **ik Hallo hierboven vereiste begrijpen en gereed tooupgrade ben mijn apparaat** en op Hallo controleren de knop.
+1. Selecteer uw apparaat op de pagina van de StorSimple-service. Navigeer naar **Apparaten** > **Onderhoud**.
+2. Klik onderaan de pagina op **Updates zoeken**. Er wordt een taak gemaakt om te zoeken naar beschikbare updates. U ontvangt een melding wanneer de taak is voltooid.
+3. In het gedeelte **Software-updates** op dezelfde pagina ziet u de beschikbare software-updates. We raden u aan de releaseopmerkingen te bekijken voordat u een update toepast op uw apparaat.
+4. Klik onderaan de pagina op **Updates installeren** en vervolgens op **OK**.
+5. Controleer of u de aanbevelingen in het dialoogvenster **Updates installeren** hebt gevolgd en selecteer vervolgens **I understand the above requirement and am ready to upgrade my device** (Ik begrijp de bovenstaande vereiste en ben klaar om mijn apparaat bij te werken) en klik op de selectieknop.
    
     ![Bevestigingsbericht](./media/storsimple-install-update2-via-portal/InstallUpdate12_2M.png)
 6. Er wordt een reeks vereiste controles gestart. Deze controles zijn onder andere:
    
-   * **Controller statuscontroles** tooverify dat beide apparaatcontrollers Hallo in orde en online zijn.
-   * **Hardware-onderdeel statuscontroles** tooverify dat alle hardware-onderdelen op uw StorSimple-apparaat Hallo zijn in orde.
-   * **DATA 0 controleert** tooverify dat DATA 0 is ingeschakeld op uw apparaat. Als deze interface niet is ingeschakeld, schakelt u deze in en probeert u het vervolgens opnieuw.
-   * **DATA 2 en DATA 3 controles** tooverify DATA 2 en DATA 3-netwerkinterfaces zijn niet ingeschakeld. Als deze interfaces zijn ingeschakeld, moet u deze functies uitschakelen en probeer tooupdate uw apparaat. Deze controle wordt alleen uitgevoerd als u een update uitvoert vanaf een apparaat met GA-software. Voor apparaten met versies 0.1, 0.2 of 0.3 is deze controle niet nodig.
-   * **Controle van de gateway** op elk apparaat waarop een eerdere tooUpdate van versie 1 wordt uitgevoerd. Deze controle wordt uitgevoerd op alle Hallo apparaat vóór update 1 software die wordt uitgevoerd, maar niet op Hallo-apparaten met een gateway is geconfigureerd voor een netwerkinterface dan DATA 0.
+   * **Statuscontroles controllers** om te controleren of beide apparaatcontrollers in orde en online zijn.
+   * **Statuscontroles hardwareonderdelen** om te controleren of alle hardwareonderdelen op uw StorSimple-apparaat in orde zijn.
+   * **DATA 0-controles** om te controleren of DATA 0 is ingeschakeld op uw apparaat. Als deze interface niet is ingeschakeld, schakelt u deze in en probeert u het vervolgens opnieuw.
+   * **DATA 2- en DATA 3-controles** om te controleren dat de DATA 2- en DATA 3-netwerkinterfaces zijn uitgeschakeld. Als deze interfaces zijn ingeschakeld, schakelt u deze uit en probeert u vervolgens uw apparaat bij te werken. Deze controle wordt alleen uitgevoerd als u een update uitvoert vanaf een apparaat met GA-software. Voor apparaten met versies 0.1, 0.2 of 0.3 is deze controle niet nodig.
+   * **Gatewaycontrole** op elk apparaat waarop een versie ouder dan Update 1 wordt uitgevoerd. Deze controle wordt uitgevoerd op alle apparaten waarop software ouder dan Update 1 wordt uitgevoerd, maar mislukt op apparaten met een gateway die is geconfigureerd voor een andere netwerkinterface dan DATA 0.
      
-     Hallo-update wordt toegepast als alle controles zijn voltooid. U wordt gewaarschuwd wanneer Hallo controles uitgevoerd worden.
+     De update wordt uitgevoerd zodra alle controles zijn voltooid. U krijgt een melding wanneer de controles worden uitgevoerd.
      
      ![Melding voor controles](./media/storsimple-install-update2-via-portal/InstallUpdate12_3M.png)
      
-     Hallo Hier volgt een voorbeeld waarin Hallo controles is mislukt. U moet controleren of beide apparaatcontrollers Hallo in orde en online zijn. U moet ook toocheck Hallo status van Hallo hardware-onderdelen. In dit voorbeeld vereisen de onderdelen Controller 0 en Controller 1 aandacht. Mogelijk moet u toocontact Microsoft Support als u deze problemen door u zelf kan niet oplossen.
+     Hier volgt een voorbeeld waarin de controles zijn mislukt. U dient te controleren of beide apparaatcontrollers in orde en online zijn. U dient ook de status van de hardwareonderdelen te controleren. In dit voorbeeld vereisen de onderdelen Controller 0 en Controller 1 aandacht. Mogelijk moet u contact opnemen met Microsoft-ondersteuning als u deze problemen niet zelf kunt oplossen.
      
        ![Controles zijn mislukt](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
-7. Nadat het Hallo-controles zijn voltooid, wordt een updatetaak gemaakt. U wordt gewaarschuwd wanneer de bijwerktaak Hallo is gemaakt.
+7. Nadat de controles zijn voltooid, wordt er een bijwerktaak gemaakt. U krijgt een melding wanneer de bijwerktaak is gemaakt.
    
     ![Maken van bijwerktaak](./media/storsimple-install-update2-via-portal/InstallUpdate12_44M.png)
    
-    Hallo-update wordt vervolgens toegepast op uw apparaat.
+    De update wordt vervolgens op het apparaat toegepast.
     
-8. toomonitor hello voortgang van de bijwerktaak hello, klikt u op **taak weergeven**. Op Hallo **taken** pagina ziet u Hallo voortgang bijwerken.
-9. Hallo update duurt enkele uren toocomplete. Hallo updatetaak te selecteren en klik op **Details** tooview Hallo details van de taak Hallo op elk gewenst moment.
-10. Nadat het Hallo-taak is voltooid, gaat u toohello **onderhoud** pagina en schuif naar beneden te**Software-Updates**.
+8. Om de voortgang van de bijwerktaak te controleren, klikt u op **Taak weergeven**. Op de pagina **Taken** ziet u de voortgang van de update.
+9. De update neemt enkele uren in beslag. Selecteer de bijwerktaak en klik op **Details** om de details van de taak te bekijken.
+10. Nadat de taak is voltooid, gaat u naar de pagina **Onderhoud** en scrolt u omlaag naar **Software-updates**.
 
