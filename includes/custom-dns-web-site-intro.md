@@ -1,2 +1,0 @@
-Wanneer u een web-app maakt, Microsoft Azure een beschrijvende subdomein biedt op Hallo azurewebsites.net domein zodat uw gebruikers hebben toegang tot uw web-app met behulp van een URL zoals http://&lt;mywebapp&gt;. azurewebsites.net. U kunt ook een aangepaste domeinnaam bijvoorbeeld contoso.com is, koppelen aan uw web-app in de volgorde tooprovide een meer herkenbare domeinnaam voor uw gebruikers.
-
