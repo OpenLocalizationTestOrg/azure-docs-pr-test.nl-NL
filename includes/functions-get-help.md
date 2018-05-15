@@ -1,5 +1,0 @@
-### <a name="need-some-help"></a><span data-ttu-id="db637-101">Hulp nodig?</span><span class="sxs-lookup"><span data-stu-id="db637-101">Need some help?</span></span>
-<span data-ttu-id="db637-102">Na de vragen in hello Azure-forums.</span><span class="sxs-lookup"><span data-stu-id="db637-102">Post questions in hello Azure forums.</span></span><span data-ttu-id="db637-103"> - [Ga naar MSDN](http://go.microsoft.com/fwlink/?LinkId=780719)</span><span class="sxs-lookup"><span data-stu-id="db637-103"> - [Visit MSDN](http://go.microsoft.com/fwlink/?LinkId=780719)</span></span>
-
-<span data-ttu-id="db637-104">Vragen met Hallo trefwoord tag `azure-functions`.</span><span class="sxs-lookup"><span data-stu-id="db637-104">Tag questions with hello keyword `azure-functions`.</span></span><span data-ttu-id="db637-105"> - [Ga naar Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)</span><span class="sxs-lookup"><span data-stu-id="db637-105"> - [Visit Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)</span></span>
-
